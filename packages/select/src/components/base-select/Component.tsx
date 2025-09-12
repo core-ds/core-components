@@ -21,7 +21,7 @@ import {
     type UseMultipleSelectionState,
 } from 'downshift';
 
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, isClient } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
@@ -122,7 +122,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             ModalMobile,
             BottomSheet,
             limitDynamicOptionGroupSize,
-            environment,
+            environment = isClient() ? window : undefined,
         } = props;
         const shouldSearchBlurRef = useRef(true);
         const rootRef = useRef<HTMLDivElement>(null);

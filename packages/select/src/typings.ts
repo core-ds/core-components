@@ -9,7 +9,7 @@ import {
     type RefAttributes,
     type SVGProps,
 } from 'react';
-import type { Environment } from 'downshift';
+import { type Environment } from 'downshift';
 
 import { type BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { type FormControlProps } from '@alfalab/core-components-form-control';

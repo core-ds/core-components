@@ -573,7 +573,6 @@ describe('Select', () => {
                         {...baseProps}
                         options={options}
                         label={LABEL_TEXT}
-                        environment={window}
                         dataTestId='select'
                     />,
                 );
@@ -868,7 +867,6 @@ describe('Select', () => {
                         onFocus={onFocus}
                         defaultOpen={true}
                         onBlur={onBlur}
-                        environment={window}
                     />
                     <input />
                 </>,

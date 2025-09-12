@@ -176,12 +176,7 @@ describe('SelectWithTags', () => {
     describe('Open/close tests', () => {
         it('should open menu on focus input, close on blur', async () => {
             const { container } = render(
-                <SelectWithTags
-                    options={options}
-                    value=''
-                    environment={window}
-                    onInput={jest.fn()}
-                />,
+                <SelectWithTags options={options} value='' onInput={jest.fn()} />,
             );
 
             const input = container.querySelector('input') as HTMLInputElement;
