@@ -21,6 +21,7 @@
         "@alfalab/core-components-shared": "^0.18.0",
         "@alfalab/core-components-navigation-bar-private": "^0.8.8",
         "react-swipeable": "^7.0.0",
+        "react-merge-refs": "^1.1.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
