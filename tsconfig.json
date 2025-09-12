@@ -1,18 +1,5 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": [
-        ".eslintrc.cjs",
-        "bin",
-        "bin/.eslintrc.cjs",
-        "commitlint.config.ts",
-        "jest.config.mjs",
-        "jest.screenshots.config.mjs",
-        "lint-staged.config.mjs",
-        "playwright.config.js",
-        "tools",
-        "tools/.eslintrc.cjs",
-        "tools/gh-actions/.eslintrc.cjs"
-    ],
     "compilerOptions": {
         "lib": ["es2022"],
         "module": "nodenext",
@@ -27,5 +14,7 @@
         "resolveJsonModule": true,
         "noEmit": true,
         "allowJs": true
-    }
+    },
+    "include": ["**/*", "**/.eslintrc.cjs"],
+    "exclude": [".storybook", "docs", "node_modules", "packages"]
 }

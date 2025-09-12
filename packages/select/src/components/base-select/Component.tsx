@@ -1,10 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import React, {
-    FocusEvent,
+    type FocusEvent,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
-    RefAttributes,
+    type KeyboardEvent,
+    type MouseEvent,
+    type RefAttributes,
     useCallback,
     useEffect,
     useMemo,
@@ -17,15 +17,20 @@ import { compute } from 'compute-scroll-into-view';
 import {
     useCombobox,
     useMultipleSelection,
-    UseMultipleSelectionProps,
-    UseMultipleSelectionState,
+    type UseMultipleSelectionProps,
+    type UseMultipleSelectionState,
 } from 'downshift';
 
 import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
+import {
+    type AnyObject,
+    type OptionShape,
+    type OptionsListProps,
+    type SearchProps,
+} from '../../typings';
 import {
     defaultAccessor,
     defaultFilterFn,
@@ -35,7 +40,7 @@ import {
 } from '../../utils';
 import { NativeSelect } from '../native-select';
 
-import { ComponentProps } from './types/component-types';
+import { type ComponentProps } from './types/component-types';
 
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
@@ -526,7 +531,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         const renderNativeSelect = () => {
             const value = multiple
                 ? selectedItems.map((option) => option.key)
-                : (selectedItems[0] || {}).key;
+                : selectedItems[0]?.key;
 
             return (
                 <NativeSelect

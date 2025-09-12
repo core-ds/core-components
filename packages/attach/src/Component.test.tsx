@@ -87,7 +87,7 @@ describe('Attach', () => {
                 },
             });
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(input.files && input.files.length).toEqual(1);
         });
 
@@ -105,7 +105,7 @@ describe('Attach', () => {
                 type: 'application/text',
             } as File);
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
             expect(input.files && input.files.length).toEqual(0);
         });
 
@@ -127,7 +127,7 @@ describe('Attach', () => {
             ) as HTMLButtonElement;
             clearButton.click();
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
     });
 
@@ -256,6 +256,6 @@ describe('Attach', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Attach />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

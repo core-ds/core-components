@@ -1,9 +1,9 @@
-import React, { ElementType, forwardRef, Fragment, ReactNode } from 'react';
+import React, { type ElementType, forwardRef, Fragment, type ReactNode } from 'react';
 import cn from 'classnames';
 
 import { useId, useImageLoadingState } from '@alfalab/hooks';
 
-import { getPath, getPathName, PathsMap } from './utils';
+import { getPath, getPathName, type PathsMap } from './utils';
 
 import styles from './index.module.css';
 

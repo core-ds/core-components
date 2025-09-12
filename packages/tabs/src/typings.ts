@@ -1,14 +1,21 @@
-import { AriaAttributes, FC, HTMLAttributes, MouseEvent, ReactElement, ReactNode, Ref } from 'react';
+import {
+    type AriaAttributes,
+    type FC,
+    type HTMLAttributes,
+    type MouseEvent,
+    type ReactElement,
+    type ReactNode,
+    type Ref,
+} from 'react';
 
-import { SkeletonProps } from '@alfalab/core-components-skeleton';
-import { TagProps } from '@alfalab/core-components-tag';
+import { type SkeletonProps } from '@alfalab/core-components-skeleton';
+import { type TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
-export interface TabsProps extends Omit<
-    HTMLAttributes<HTMLDivElement>,
-    'onChange' | 'children' | 'className'
->, AriaAttributes {
+export interface TabsProps
+    extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'children' | 'className'>,
+        AriaAttributes {
     /**
      * Дополнительный класс
      */
@@ -38,25 +45,25 @@ export interface TabsProps extends Omit<
      * Стиль текста. Имеет приоритет над size. Работает только в primary табах.
      */
     textStyle?:
-    | 'paragraph-primary-large'
-    | 'paragraph-primary-medium'
-    | 'paragraph-primary-small'
-    | 'action-primary-large'
-    | 'action-primary-medium'
-    | 'action-primary-small'
-    | 'accent-primary-large'
-    | 'accent-primary-medium'
-    | 'accent-primary-small'
-    | 'headline-system-xlarge'
-    | 'headline-system-large'
-    | 'headline-system-medium'
-    | 'headline-system-small'
-    | 'headline-system-xsmall'
-    | 'headline-xlarge'
-    | 'headline-large'
-    | 'headline-medium'
-    | 'headline-small'
-    | 'headline-xsmall';
+        | 'paragraph-primary-large'
+        | 'paragraph-primary-medium'
+        | 'paragraph-primary-small'
+        | 'action-primary-large'
+        | 'action-primary-medium'
+        | 'action-primary-small'
+        | 'accent-primary-large'
+        | 'accent-primary-medium'
+        | 'accent-primary-small'
+        | 'headline-system-xlarge'
+        | 'headline-system-large'
+        | 'headline-system-medium'
+        | 'headline-system-small'
+        | 'headline-system-xsmall'
+        | 'headline-xlarge'
+        | 'headline-large'
+        | 'headline-medium'
+        | 'headline-small'
+        | 'headline-xsmall';
 
     /**
      * Высота заголовков табов
@@ -216,24 +223,25 @@ export interface TabListTitle {
     toggleRef?: Ref<HTMLDivElement>;
 }
 
-export interface TabListProps extends Pick<
-    TabsProps,
-    | 'className'
-    | 'containerClassName'
-    | 'size'
-    | 'defaultMatchMediaValue'
-    | 'selectedId'
-    | 'scrollable'
-    | 'collapsedTabsIds'
-    | 'onChange'
-    | 'dataTestId'
-    | 'fullWidthScroll'
-    | 'tagShape'
-    | 'tagView'
-    | 'textStyle'
-    | 'showSkeleton'
-    | 'skeletonProps'
-> {
+export interface TabListProps
+    extends Pick<
+        TabsProps,
+        | 'className'
+        | 'containerClassName'
+        | 'size'
+        | 'defaultMatchMediaValue'
+        | 'selectedId'
+        | 'scrollable'
+        | 'collapsedTabsIds'
+        | 'onChange'
+        | 'dataTestId'
+        | 'fullWidthScroll'
+        | 'tagShape'
+        | 'tagView'
+        | 'textStyle'
+        | 'showSkeleton'
+        | 'skeletonProps'
+    > {
     /**
      * Заголовки табов
      */

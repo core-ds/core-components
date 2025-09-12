@@ -1,4 +1,9 @@
-import { createContext, ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
+import {
+    createContext,
+    type ElementType,
+    type HTMLAttributeAnchorTarget,
+    type MouseEvent,
+} from 'react';
 
 import { type FileUploadItemStatus } from '../types/status';
 

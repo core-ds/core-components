@@ -1,9 +1,9 @@
 import React, {
-    ChangeEvent,
-    FC,
+    type ChangeEvent,
+    type FC,
     forwardRef,
-    ForwardRefExoticComponent,
-    Ref,
+    type ForwardRefExoticComponent,
+    type Ref,
     useCallback,
     useMemo,
     useRef,
@@ -11,24 +11,24 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { FormControlProps } from '@alfalab/core-components-form-control';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import { type BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { type PopoverProps } from '@alfalab/core-components-popover';
 import {
-    AnyObject,
+    type AnyObject,
     Arrow as DefaultArrow,
     BaseSelect,
-    BaseSelectProps,
-    FieldProps,
+    type BaseSelectProps,
+    type FieldProps,
     Footer,
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
-    OptionShape,
+    type OptionShape,
     OptionsList as DefaultOptionsList,
     Search,
 } from '@alfalab/core-components-select/shared';
 
-import { SelectWithTagsProps } from '../../types';
+import { type SelectWithTagsProps } from '../../types';
 import { filterOptions } from '../../utils';
 import { TagList } from '../tag-list';
 
@@ -74,7 +74,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
 
         const [selectedTags, setSelectedTags] = useState(selectedProp || []);
         const [open, setOpen] = useState<boolean | undefined>(false);
-        const updatePopover = useRef(() => null);
+        const updatePopover = useRef<(() => void) | undefined>();
         const inputRef = useRef<HTMLInputElement>(null);
         const frozenValue = useRef<Array<string | OptionShape>>([]);
 
@@ -92,9 +92,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
         };
 
         const handleUpdatePopover = useCallback(() => {
-            if (updatePopover && updatePopover.current) {
-                requestAnimationFrame(() => updatePopover.current?.());
-            }
+            requestAnimationFrame(() => updatePopover.current?.());
         }, []);
 
         const updateSelectedTags: SelectWithTagsProps['onChange'] = (payload) => {

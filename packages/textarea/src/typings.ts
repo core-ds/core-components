@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactNode, TextareaHTMLAttributes } from 'react';
+import { type ChangeEvent, type ReactNode, type TextareaHTMLAttributes } from 'react';
 
 type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
 

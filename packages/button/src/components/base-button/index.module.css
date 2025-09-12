@@ -23,7 +23,10 @@
     box-shadow: none;
     user-select: none;
     cursor: pointer;
-    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+    transition:
+        background 0.2s ease,
+        border 0.2s ease,
+        color 0.2s ease;
     box-sizing: border-box;
 }
 

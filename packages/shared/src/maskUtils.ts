@@ -1,9 +1,12 @@
 /* eslint-disable no-plusplus, no-param-reassign */
-import { RefObject } from 'react';
-import type { MaskitoPlugin } from '@maskito/core';
-import { MaskitoPostprocessor, MaskitoPreprocessor } from '@maskito/core';
+import { type RefObject } from 'react';
+import {
+    type MaskitoPlugin,
+    type MaskitoPostprocessor,
+    type MaskitoPreprocessor,
+} from '@maskito/core';
 
-import { Country } from '@alfalab/core-components-types';
+import { type Country } from '@alfalab/core-components-types';
 
 import { fnUtils, isNonNullable } from './fnUtils';
 

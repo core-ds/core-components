@@ -3,7 +3,7 @@ import React from 'react';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { BaseMarkdown } from './components/base-markdown';
-import { MarkdownResponsiveProps } from './typings';
+import { type MarkdownResponsiveProps } from './typings';
 
 export const MarkdownResponsiveComponent: React.FC<MarkdownResponsiveProps> = ({
     breakpoint,

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { RadiusProp } from '../../types/seria.types';
+import { type RadiusProp } from '../../types/seria.types';
 
 import { getRadius } from './utils/getRadius';
 
@@ -36,8 +36,8 @@ export const usePathBar = (props: usePathBarProps): number[] => {
         const heightInit = heightCheck
             ? (radiusTop || radiusBottom) && radiusTop + radiusBottom
             : height > 0 && height < 2
-            ? 2
-            : height;
+              ? 2
+              : height;
 
         if (background && y) {
             const yInit = heightCheck

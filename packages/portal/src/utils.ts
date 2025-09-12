@@ -1,4 +1,4 @@
-import { MutableRefObject, RefObject } from 'react';
+import { type MutableRefObject, type RefObject } from 'react';
 
 export const PORTAL_CONTAINER_ATTRIBUTE = 'alfa-portal-container';
 

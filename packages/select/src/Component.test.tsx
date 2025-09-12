@@ -873,10 +873,10 @@ describe('Select', () => {
                     <input />
                 </>,
             );
-            expect(onFocus).toBeCalledTimes(1);
+            expect(onFocus).toHaveBeenCalledTimes(1);
 
             await userEvent.tab();
-            expect(onBlur).toBeCalledTimes(1);
+            expect(onBlur).toHaveBeenCalledTimes(1);
         });
 
         it('should not call onBlur when focusing inner focusable element', async () => {
@@ -891,7 +891,7 @@ describe('Select', () => {
             );
 
             await userEvent.click(getByTestId('focusable-1'));
-            expect(onBlur).not.toBeCalled();
+            expect(onBlur).not.toHaveBeenCalled();
         });
 
         it('should call onOpen', () => {
@@ -903,7 +903,7 @@ describe('Select', () => {
             fireEvent.click(input);
 
             waitFor(() => {
-                expect(cb).toBeCalledTimes(1);
+                expect(cb).toHaveBeenCalledTimes(1);
             });
         });
 
@@ -919,7 +919,7 @@ describe('Select', () => {
 
             const option = await findByText(options[0].content);
             fireEvent.click(option);
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onScroll', () => {
@@ -936,7 +936,7 @@ describe('Select', () => {
             );
 
             fireEvent.scroll(getByTestId('test-id-options-list'));
-            expect(onScroll).toBeCalledTimes(1);
+            expect(onScroll).toHaveBeenCalledTimes(1);
         });
 
         it('should call valueRenderer', async () => {
@@ -954,7 +954,7 @@ describe('Select', () => {
             fireEvent.click(getByTestId('select-field'));
             fireEvent.click(getByText(options[0].content));
 
-            expect(valueRenderer).toBeCalled();
+            expect(valueRenderer).toHaveBeenCalled();
         });
 
         it('should call custom value renderer', async () => {
@@ -992,8 +992,8 @@ describe('Select', () => {
             );
             fireEvent.focus(document.querySelector('.field') as HTMLElement);
             fireEvent.blur(document.querySelector('.field') as HTMLElement);
-            expect(onFocus).toBeCalledTimes(1);
-            expect(onBlur).toBeCalledTimes(1);
+            expect(onFocus).toHaveBeenCalledTimes(1);
+            expect(onBlur).toHaveBeenCalledTimes(1);
         });
 
         it('should call onScroll', () => {
@@ -1010,7 +1010,7 @@ describe('Select', () => {
             );
 
             fireEvent.scroll(document.querySelector('.sheetContainer') as HTMLElement);
-            expect(onScroll).toBeCalledTimes(1);
+            expect(onScroll).toHaveBeenCalledTimes(1);
         });
     });
 

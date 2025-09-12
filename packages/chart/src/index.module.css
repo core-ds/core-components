@@ -13,7 +13,9 @@
 }
 
 .bar {
-    transition: opacity 0.2s ease-out, d 0.2s ease-out;
+    transition:
+        opacity 0.2s ease-out,
+        d 0.2s ease-out;
 }
 
 .unfocused {

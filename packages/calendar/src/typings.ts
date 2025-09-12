@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
-import { generateWeeks } from './utils';
+import { type generateWeeks } from './utils';
 
 export type SpecialDays = Record<number, boolean>;
 

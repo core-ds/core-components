@@ -1,4 +1,4 @@
-import { SeriaProps } from '../../../types/seria.types';
+import { type SeriaProps } from '../../../types/seria.types';
 
 export const sortByIndex = (series: SeriaProps[]): SeriaProps[] =>
     series.sort((a: SeriaProps, b: SeriaProps) => {

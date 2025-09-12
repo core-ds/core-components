@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`RadioGroup Display tests should display radio group correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -210,7 +210,7 @@ Object {
 `;
 
 exports[`RadioGroup Display tests should display radio group with error correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -431,7 +431,7 @@ Object {
 `;
 
 exports[`RadioGroup Display tests should display radio group with one child correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -560,7 +560,7 @@ Object {
 `;
 
 exports[`RadioGroup Display tests should display tag radio group correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -769,7 +769,7 @@ Object {
 `;
 
 exports[`RadioGroup Display tests should display with children like boolean or string or others react children type correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>

@@ -3,10 +3,10 @@
  * TODO: нужно перенести утилиты в этот проект, когда он будет готов
  */
 
-import { CurrencyCodes } from '@alfalab/data';
+import { type CurrencyCodes } from '@alfalab/data';
 import { formatAmount, getCurrencySymbol } from '@alfalab/utils';
 
-import { AmountInputProps } from '../Component';
+import { type AmountInputProps } from '../Component';
 
 /**
  * Форматирует введенное значение

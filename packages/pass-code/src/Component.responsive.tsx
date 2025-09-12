@@ -4,7 +4,7 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { PassCodeDesktop } from './desktop';
 import { PassCodeMobile } from './mobile';
-import { PassCodeProps } from './typings';
+import { type PassCodeProps } from './typings';
 
 export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
     (
