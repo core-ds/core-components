@@ -205,8 +205,9 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 const { type, changes } = actionAndChanges;
 
                 if (
-                    !allowUnselect &&
-                    type === useMultipleSelection.stateChangeTypes.DropdownKeyDownBackspace
+                    type === useMultipleSelection.stateChangeTypes.DropdownKeyDownBackspace &&
+                    (!allowUnselect ||
+                        environment?.document.activeElement?.isSameNode(searchRef.current))
                 ) {
                     return state;
                 }
