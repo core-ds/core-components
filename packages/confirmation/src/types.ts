@@ -1,6 +1,6 @@
 import { type ComponentType, type ReactNode } from 'react';
 
-export type ConfirmationProps = {
+export interface ConfirmationProps {
     /**
      * Экран компонента
      */
@@ -20,6 +20,12 @@ export type ConfirmationProps = {
      * Позиционирование контента
      */
     alignContent?: 'left' | 'center';
+
+    /**
+     * HTML тег для заголовка
+     * @default 'h3'
+     */
+    titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
     /**
      * Объект с текстами
@@ -133,12 +139,13 @@ export type ConfirmationProps = {
      * @default 1300
      */
     errorVisibleDuration?: number;
-};
+}
 
 export type TConfirmationContext = Required<
     Pick<
         ConfirmationProps,
         | 'alignContent'
+        | 'titleTag'
         | 'texts'
         | 'state'
         | 'screen'
@@ -167,7 +174,7 @@ export type TConfirmationContext = Required<
         timeLeft: number;
     };
 
-export type ConfirmationTexts = {
+export interface ConfirmationTexts {
     /**
      * Экран INITIAL
      */
@@ -212,7 +219,7 @@ export type ConfirmationTexts = {
     tempBlockOverTitle?: ReactNode; // заголовок
     tempBlockOverDescription?: ReactNode; // описание
     tempBlockOverButton?: string; // кнопка
-};
+}
 
 export type ConfirmationScreen =
     | 'INITIAL' // начальный экран
@@ -229,9 +236,9 @@ export type ConfirmationState =
     | 'CODE_EXPIRED' // ошибка, когда код устарел, но можно запросить новый
     | 'CODE_EXPIRED_ENDED'; // ошибка, когда код устарел
 
-export type ScreensMap = {
+export interface ScreensMap {
     [key: string]: ComponentType;
-};
+}
 
 export const defaultTexts: ConfirmationTexts = {
     title: 'Введите код из\xa0уведомления',

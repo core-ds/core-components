@@ -7,6 +7,7 @@ const mockFn = () => undefined;
 
 export const ConfirmationContext = createContext<TConfirmationContext>({
     alignContent: 'left',
+    titleTag: 'h3',
     texts: {},
     state: 'INITIAL',
     screen: 'INITIAL',

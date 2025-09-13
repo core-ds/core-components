@@ -21,6 +21,7 @@ const confirmationScreens: { [key: string]: ComponentType<{ mobile?: boolean }> 
 export const BaseConfirmation: FC<ConfirmationProps> = ({
     state,
     screen,
+    titleTag = 'h3',
     alignContent = 'left',
     children,
     requiredCharAmount = 5,
@@ -97,6 +98,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     const contextValue: TConfirmationContext = {
         hideCountdownSection,
         alignContent,
+        titleTag,
         texts: { ...defaultTexts, ...restProps.texts },
         state,
         screen,

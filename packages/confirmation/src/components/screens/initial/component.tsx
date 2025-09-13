@@ -32,6 +32,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
     const {
         state,
         alignContent,
+        titleTag,
         texts,
         requiredCharAmount,
         timeLeft,
@@ -172,7 +173,9 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.title}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.title}
+            </Header>
 
             {phone ? (
                 <Text
