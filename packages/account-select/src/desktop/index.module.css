@@ -1,0 +1,9 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.accountSelect {
+    min-width: 360px;
+}
+
+.optionContent {
+    padding-left: var(--gap-12);
+}
