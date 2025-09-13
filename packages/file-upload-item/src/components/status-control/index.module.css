@@ -16,8 +16,7 @@
 
         &.success,
         &.error {
-            transition: opacity 400ms ease-in;
-            opacity: 0;
+            animation: opacity 400ms ease-in forwards;
         }
 
         &.success {
@@ -31,5 +30,17 @@
                 stroke: var(--color-light-status-negative);
             }
         }
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
     }
 }
