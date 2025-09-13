@@ -115,6 +115,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             backButtonProps,
             iOSLock = false,
             virtualKeyboard = false,
+            showFooter = true,
         },
         ref,
     ) => {
@@ -686,7 +687,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                 {children}
                             </div>
 
-                            {actionButton && (
+                            {showFooter && (
                                 <Footer
                                     sticky={stickyFooter}
                                     className={cn(bgClassName, footerClassName)}
