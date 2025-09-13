@@ -7,7 +7,6 @@ exports[`Snapshots tests should match snapshot 1`] = `
     <div>
       <a
         class="component primary"
-        href=""
       >
         <span
           class="text"
@@ -20,7 +19,6 @@ exports[`Snapshots tests should match snapshot 1`] = `
   "container": <div>
     <a
       class="component primary"
-      href=""
     >
       <span
         class="text"
@@ -90,7 +88,6 @@ exports[`Snapshots tests should render left slot 1`] = `
     <div>
       <a
         class="component primary withAddons"
-        href=""
       >
         <span
           class="addons"
@@ -121,7 +118,6 @@ exports[`Snapshots tests should render left slot 1`] = `
   "container": <div>
     <a
       class="component primary withAddons"
-      href=""
     >
       <span
         class="addons"
@@ -292,7 +288,6 @@ exports[`Snapshots tests should render right slot 1`] = `
     <div>
       <a
         class="component primary withAddons"
-        href=""
       >
         <span>
           <span
@@ -323,7 +318,6 @@ exports[`Snapshots tests should render right slot 1`] = `
   "container": <div>
     <a
       class="component primary withAddons"
-      href=""
     >
       <span>
         <span

@@ -133,7 +133,7 @@ describe('Attributes tests', () => {
 });
 
 describe('Custom component', () => {
-    it('should use custom component and replace `href` to `to`', () => {
+    it('should use custom component and pass href as is', () => {
         const cb = jest.fn();
         cb.mockReturnValue(null);
 
@@ -147,8 +147,8 @@ describe('Custom component', () => {
 
         const props = cb.mock.calls[0][0];
 
-        expect(props.href).toBeFalsy();
-        expect(props.to).toBe('test');
+        expect(props.to).toBeFalsy();
+        expect(props.href).toBe('test');
     });
 });
 

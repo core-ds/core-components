@@ -223,15 +223,15 @@ export const BaseButton = React.forwardRef<
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
 
-            // Для совместимости с react-router-dom, меняем href на to
-            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
+            const hrefValue = typeof href === 'string' ? href : href.href;
+            const hrefType = typeof href === 'string' ? 'href' : href.hrefType;
 
             return (
                 <Component
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
-                    {...hrefProps}
+                    {... { [hrefType]: hrefValue }}
                     onClick={handleClick}
                     disabled={disabled || showLoader}
                     ref={mergeRefs([buttonRef, ref])}

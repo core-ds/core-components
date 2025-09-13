@@ -312,7 +312,7 @@ describe('Button', () => {
             expect(props['data-test-id']).toBe(dataTestId);
         });
 
-        it('should pass `to` instead `href` to custom component', () => {
+        it('should pass href to custom component by default', () => {
             const cb = jest.fn();
             cb.mockReturnValue(null);
 
@@ -321,9 +321,51 @@ describe('Button', () => {
             expect(cb).toHaveBeenCalled();
 
             const props = cb.mock.calls[0][0];
+            expect(props.href).toBe('test');
+        });
 
-            expect(props.href).toBeFalsy();
+        it('should pass to prop when hrefType is specified', () => {
+            const cb = jest.fn();
+            cb.mockReturnValue(null);
+
+            render(<Button Component={forwardRef(cb)} href={{ href: 'test', hrefType: 'to' }} />);
+
+            expect(cb).toBeCalled();
+
+            const props = cb.mock.calls[0][0];
             expect(props.to).toBe('test');
+            expect(props.href).toBeFalsy();
+        });
+
+        it('should pass href prop when hrefType is href', () => {
+            const cb = jest.fn();
+            cb.mockReturnValue(null);
+
+            render(<Button Component={forwardRef(cb)} href={{ href: 'test', hrefType: 'href' }} />);
+
+            expect(cb).toBeCalled();
+
+            const props = cb.mock.calls[0][0];
+            expect(props.href).toBe('test');
+        });
+
+        it('should pass href to native anchor element', () => {
+            const { container } = render(<Button href='test' />);
+
+            const element = container.firstElementChild;
+            expect(element?.getAttribute('href')).toBe('test');
+        });
+
+        it('should use hrefProp="href" for Next.js Link component', () => {
+            const cb = jest.fn();
+            cb.mockReturnValue(null);
+
+            render(<Button Component={forwardRef(cb)} href='/test' />);
+
+            expect(cb).toBeCalled();
+
+            const props = cb.mock.calls[0][0];
+            expect(props.href).toBe('/test');
         });
     });
 

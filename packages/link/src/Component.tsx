@@ -19,13 +19,19 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-type NativeProps = AnchorHTMLAttributes<HTMLAnchorElement>;
+interface HrefConfig {
+    href: string;
+    hrefType: 'href' | 'to';
+}
 
-export type LinkProps = NativeProps & {
+type NativeProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
+
+export interface LinkProps extends NativeProps {
     /**
-     * URL для перехода (native prop)
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
      */
-    href?: string;
+    href?: string | HrefConfig;
 
     /**
      * Тип ссылки
@@ -82,7 +88,7 @@ export type LinkProps = NativeProps & {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
-};
+}
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     (
@@ -108,6 +114,10 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
         const viewClassName = view === 'default' ? 'defaultView' : view;
 
+        const hrefType = typeof href === 'string' ? 'href' : href?.hrefType;
+        const hrefValue = typeof href === 'string' ? href : href?.href;
+        const hasHref = hrefType && hrefValue;
+
         const componentProps = {
             className: cn(
                 styles.component,
@@ -122,8 +132,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             ),
             'data-test-id': dataTestId,
             rel: restProps.target === '_blank' ? 'noreferrer noopener' : undefined,
-            // Для совместимости с react-router-dom, меняем href на to
-            [typeof Component === 'string' ? 'href' : 'to']: href,
+            ...(hasHref ? { [hrefType]: hrefValue } : {}),
             ...(pseudo && { type: 'button' }),
         };
 
