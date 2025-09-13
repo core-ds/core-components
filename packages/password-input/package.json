@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-password-input",
-    "version": "6.0.1",
+    "version": "6.0.2",
     "description": "Input password",
     "keywords": [],
     "license": "MIT",
@@ -11,7 +11,7 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-icon-button": "^7.0.1",
-        "@alfalab/core-components-input": "^16.0.1",
+        "@alfalab/core-components-input": "^16.0.2",
         "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"

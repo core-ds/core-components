@@ -1,12 +1,19 @@
 # @alfalab/core-components-with-suffix
 
+## 5.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.2
+
 ## 5.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-input@16.0.1
-    -   @alfalab/core-components-portal@4.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.1
+    - @alfalab/core-components-portal@4.0.1
 
 ## 5.0.0
 
@@ -24,70 +31,70 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-input@16.0.0
-    -   @alfalab/core-components-portal@4.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.0
+    - @alfalab/core-components-portal@4.0.0
 
 ## 4.2.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.6.2
-    -   portal@3.3.10
+- Обновлены зависимости
+    - input@15.6.2
+    - portal@3.3.10
 
 ## 4.2.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.6.1
-    -   portal@3.3.9
+- Обновлены зависимости
+    - input@15.6.1
+    - portal@3.3.9
 
 ## 4.2.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.6.0
+- Обновлены зависимости
+    - input@15.6.0
 
 ## 4.2.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.5
-    -   portal@3.3.8
+- Обновлены зависимости
+    - input@15.5.5
+    - portal@3.3.8
 
 ## 4.2.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.4
+- Обновлены зависимости
+    - input@15.5.4
 
 ## 4.2.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.3
+- Обновлены зависимости
+    - input@15.5.3
 
 ## 4.2.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.2
-    -   portal@3.3.7
+- Обновлены зависимости
+    - input@15.5.2
+    - portal@3.3.7
 
 ## 4.2.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.1
-    -   portal@3.3.6
+- Обновлены зависимости
+    - input@15.5.1
+    - portal@3.3.6
 
 ## 4.2.12
 
@@ -97,10 +104,10 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   input@15.5.0
+- Обновлены зависимости
+    - input@15.5.0
 
 ## 4.2.11
 
@@ -110,11 +117,11 @@
 
 ### [#1509](https://github.com/core-ds/core-components/pull/1509)
 
--   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+- Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
 
--   Обновлены зависимости
-    -   input@15.4.0
-    -   portal@3.3.5
+- Обновлены зависимости
+    - input@15.4.0
+    - portal@3.3.5
 
 ## 4.2.10
 
@@ -124,68 +131,68 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   input@15.3.4
+- Обновлены зависимости
+    - input@15.3.4
 
 ## 4.2.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.3
+- Обновлены зависимости
+    - input@15.3.3
 
 ## 4.2.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.2
+- Обновлены зависимости
+    - input@15.3.2
 
 ## 4.2.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.1
-    -   portal@3.3.4
+- Обновлены зависимости
+    - input@15.3.1
+    - portal@3.3.4
 
 ## 4.2.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.0
+- Обновлены зависимости
+    - input@15.3.0
 
 ## 4.2.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.2.1
+- Обновлены зависимости
+    - input@15.2.1
 
 ## 4.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.2.0
-    -   portal@3.3.3
+- Обновлены зависимости
+    - input@15.2.0
+    - portal@3.3.3
 
 ## 4.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.1.3
+- Обновлены зависимости
+    - input@15.1.3
 
 ## 4.2.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.1.2
+- Обновлены зависимости
+    - input@15.1.2
 
 ## 4.2.1
 
@@ -195,11 +202,11 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
--   Обновлены зависимости
-    -   input@15.1.1
-    -   portal@3.3.2
+- Обновлены зависимости
+    - input@15.1.1
+    - portal@3.3.2
 
 ## 4.2.0
 
@@ -209,12 +216,12 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.1.0
+- Обновлены зависимости
+    - input@15.1.0
 
 ## 4.1.37
 
@@ -224,211 +231,211 @@
 
 ### [#1349](https://github.com/core-ds/core-components/pull/1349)
 
--   При событии `blur` для `view=default` будет очищаться запятая, если она является последним символом
--   Для состояний `disabled` и `readOnly` исправлены цвета. Дробная часть числа будет окрашена в соответствие с целой частью числа
--   Исправлены `inverted` цвета
+- При событии `blur` для `view=default` будет очищаться запятая, если она является последним символом
+- Для состояний `disabled` и `readOnly` исправлены цвета. Дробная часть числа будет окрашена в соответствие с целой частью числа
+- Исправлены `inverted` цвета
 
--   Обновлены зависимости
-    -   input@15.0.5
+- Обновлены зависимости
+    - input@15.0.5
 
 ## 4.1.36
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.4
-    -   portal@3.3.1
+- Обновлены зависимости
+    - input@15.0.4
+    - portal@3.3.1
 
 ## 4.1.35
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.3
+- Обновлены зависимости
+    - input@15.0.3
 
 ## 4.1.34
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.2
+- Обновлены зависимости
+    - input@15.0.2
 
 ## 4.1.33
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.1
+- Обновлены зависимости
+    - input@15.0.1
 
 ## 4.1.32
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.0
+- Обновлены зависимости
+    - input@15.0.0
 
 ## 4.1.31
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   portal@3.3.0
-    -   input@14.4.7
+- Обновлены зависимости
+    - portal@3.3.0
+    - input@14.4.7
 
 ## 4.1.30
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.6
+- Обновлены зависимости
+    - input@14.4.6
 
 ## 4.1.29
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.5
-    -   portal@3.2.1
+- Обновлены зависимости
+    - input@14.4.5
+    - portal@3.2.1
 
 ## 4.1.28
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.4
+- Обновлены зависимости
+    - input@14.4.4
 
 ## 4.1.27
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.3
+- Обновлены зависимости
+    - input@14.4.3
 
 ## 4.1.26
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.2
+- Обновлены зависимости
+    - input@14.4.2
 
 ## 4.1.25
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.1
+- Обновлены зависимости
+    - input@14.4.1
 
 ## 4.1.24
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.0
+- Обновлены зависимости
+    - input@14.4.0
 
 ## 4.1.23
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.3
+- Обновлены зависимости
+    - input@14.3.3
 
 ## 4.1.22
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.2
+- Обновлены зависимости
+    - input@14.3.2
 
 ## 4.1.21
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.1
+- Обновлены зависимости
+    - input@14.3.1
 
 ## 4.1.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.0
+- Обновлены зависимости
+    - input@14.3.0
 
 ## 4.1.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.2.0
+- Обновлены зависимости
+    - input@14.2.0
 
 ## 4.1.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.1.2
+- Обновлены зависимости
+    - input@14.1.2
 
 ## 4.1.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.1.1
+- Обновлены зависимости
+    - input@14.1.1
 
 ## 4.1.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.1.0
+- Обновлены зависимости
+    - input@14.1.0
 
 ## 4.1.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.0.1
+- Обновлены зависимости
+    - input@14.0.1
 
 ## 4.1.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.0.0
+- Обновлены зависимости
+    - input@14.0.0
 
 ## 4.1.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@13.0.2
+- Обновлены зависимости
+    - input@13.0.2
 
 ## 4.1.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@13.0.1
+- Обновлены зависимости
+    - input@13.0.1
 
 ## 4.1.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@13.0.0
+- Обновлены зависимости
+    - input@13.0.0
 
 ## 4.1.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.3.0
+- Обновлены зависимости
+    - input@12.3.0
 
 ## 4.1.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.2.1
+- Обновлены зависимости
+    - input@12.2.1
 
 ## 4.1.8
 
@@ -436,45 +443,45 @@
 
 ### [#865](https://github.com/core-ds/core-components/pull/865)
 
--   Добавлен атрибут translate="no". Без этого атрибута компонент ломается при включении перевода страницы
+- Добавлен атрибут translate="no". Без этого атрибута компонент ломается при включении перевода страницы
 
--   Обновлены зависимости
-    -   input@12.2.0
+- Обновлены зависимости
+    - input@12.2.0
 
 ## 4.1.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.4
+- Обновлены зависимости
+    - input@12.1.4
 
 ## 4.1.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.3
+- Обновлены зависимости
+    - input@12.1.3
 
 ## 4.1.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.2
+- Обновлены зависимости
+    - input@12.1.2
 
 ## 4.1.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.1
+- Обновлены зависимости
+    - input@12.1.1
 
 ## 4.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.0
+- Обновлены зависимости
+    - input@12.1.0
 
 ## 4.1.2
 
@@ -482,17 +489,17 @@
 
 ### [#806](https://github.com/core-ds/core-components/pull/806)
 
--   Исправлен коллбек getPortalContainer
+- Исправлен коллбек getPortalContainer
 
--   Обновлены зависимости
-    -   input@12.0.2
+- Обновлены зависимости
+    - input@12.0.2
 
 ## 4.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.0.1
+- Обновлены зависимости
+    - input@12.0.1
 
 ## 4.1.0
 
@@ -500,13 +507,13 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.0.0
-    -   portal@3.2.0
+- Обновлены зависимости
+    - input@12.0.0
+    - portal@3.2.0
 
 ## 4.0.33
 
@@ -514,67 +521,67 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   input@11.1.18
-    -   portal@3.1.5
+- Обновлены зависимости
+    - input@11.1.18
+    - portal@3.1.5
 
 ## 4.0.32
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.17
+- Обновлены зависимости
+    - input@11.1.17
 
 ## 4.0.31
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.16
+- Обновлены зависимости
+    - input@11.1.16
 
 ## 4.0.30
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.15
+- Обновлены зависимости
+    - input@11.1.15
 
 ## 4.0.29
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.14
+- Обновлены зависимости
+    - input@11.1.14
 
 ## 4.0.28
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.13
+- Обновлены зависимости
+    - input@11.1.13
 
 ## 4.0.27
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.12
+- Обновлены зависимости
+    - input@11.1.12
 
 ## 4.0.26
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.11
+- Обновлены зависимости
+    - input@11.1.11
 
 ## 4.0.25
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.10
+- Обновлены зависимости
+    - input@11.1.10
 
 ## 4.0.24
 
@@ -582,18 +589,18 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   input@11.1.9
-    -   portal@3.1.4
+- Обновлены зависимости
+    - input@11.1.9
+    - portal@3.1.4
 
 ## 4.0.23
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.8
+- Обновлены зависимости
+    - input@11.1.8
 
 ## 4.0.22
 
@@ -601,46 +608,46 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   input@11.1.7
-    -   portal@3.1.3
+- Обновлены зависимости
+    - input@11.1.7
+    - portal@3.1.3
 
 ## 4.0.21
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.6
+- Обновлены зависимости
+    - input@11.1.6
 
 ## 4.0.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.5
+- Обновлены зависимости
+    - input@11.1.5
 
 ## 4.0.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.4
+- Обновлены зависимости
+    - input@11.1.4
 
 ## 4.0.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.3
+- Обновлены зависимости
+    - input@11.1.3
 
 ## 4.0.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.2
+- Обновлены зависимости
+    - input@11.1.2
 
 ## 4.0.16
 
@@ -648,32 +655,32 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   input@11.1.1
-    -   portal@3.1.2
+- Обновлены зависимости
+    - input@11.1.1
+    - portal@3.1.2
 
 ## 4.0.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   portal@3.1.1
+- Обновлены зависимости
+    - portal@3.1.1
 
 ## 4.0.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.0
+- Обновлены зависимости
+    - input@11.1.0
 
 ## 4.0.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.0.2
+- Обновлены зависимости
+    - input@11.0.2
 
 ## 4.0.12
 
@@ -681,10 +688,10 @@
 
 ### [#320](https://github.com/core-ds/core-components/pull/320)
 
--   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+- Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
 
--   Обновлены зависимости
-    -   input@11.0.1
+- Обновлены зависимости
+    - input@11.0.1
 
 ## 4.0.11
 
@@ -692,39 +699,39 @@
 
 ### [#286](https://github.com/core-ds/core-components/pull/286)
 
--   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
--   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+- Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+- Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
 
--   Обновлены зависимости
-    -   input@11.0.0
+- Обновлены зависимости
+    - input@11.0.0
 
 ## 4.0.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   portal@3.1.0
-    -   input@10.2.5
+- Обновлены зависимости
+    - portal@3.1.0
+    - input@10.2.5
 
 ## 4.0.9
 
 ### Patch Changes
 
--   @alfalab/core-components-input@10.2.4
+- @alfalab/core-components-input@10.2.4
 
 ## 4.0.8
 
 ### Patch Changes
 
--   Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
-    -   @alfalab/core-components-input@10.2.3
+- Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
+    - @alfalab/core-components-input@10.2.3
 
 ## 4.0.7
 
 ### Patch Changes
 
--   Updated dependencies [[#189](https://github.com/core-ds/core-components/pull/189)]
-    -   @alfalab/core-components-input@10.2.2
+- Updated dependencies [[#189](https://github.com/core-ds/core-components/pull/189)]
+    - @alfalab/core-components-input@10.2.2
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -745,7 +752,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
+- fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
 
 ## [4.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@4.0.1...@alfalab/core-components-with-suffix@4.0.2) (2022-08-29)
 
@@ -759,12 +766,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -772,7 +779,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 ## [3.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.4.0...@alfalab/core-components-with-suffix@3.4.1) (2022-08-11)
 
@@ -782,7 +789,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [3.3.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.3.3...@alfalab/core-components-with-suffix@3.3.4) (2022-07-25)
 
@@ -796,7 +803,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [3.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.3.0...@alfalab/core-components-with-suffix@3.3.1) (2022-07-14)
 
@@ -806,7 +813,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 ## [3.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.2.6...@alfalab/core-components-with-suffix@3.2.7) (2022-06-23)
 
@@ -820,13 +827,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+- Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 ## [3.1.14](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.1.13...@alfalab/core-components-with-suffix@3.1.14) (2022-02-17)
 
 ### Bug Fixes
 
--   imports for glyph icons ([#994](https://github.com/core-ds/core-components/issues/994)) ([8e807f2](https://github.com/core-ds/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+- imports for glyph icons ([#994](https://github.com/core-ds/core-components/issues/994)) ([8e807f2](https://github.com/core-ds/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
 
 ## [3.1.13](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.1.12...@alfalab/core-components-with-suffix@3.1.13) (2022-02-15)
 
@@ -884,7 +891,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   change error type to ReactNode ([#825](https://github.com/core-ds/core-components/issues/825)) ([c6d95c1](https://github.com/core-ds/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+- change error type to ReactNode ([#825](https://github.com/core-ds/core-components/issues/825)) ([c6d95c1](https://github.com/core-ds/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
 
 ## [3.0.8](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.0.7...@alfalab/core-components-with-suffix@3.0.8) (2021-08-27)
 
@@ -898,7 +905,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   **input:** smart error icon ([#746](https://github.com/core-ds/core-components/issues/746)) ([f1950d6](https://github.com/core-ds/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/core-ds/core-components/issues/782)
+- **input:** smart error icon ([#746](https://github.com/core-ds/core-components/issues/746)) ([f1950d6](https://github.com/core-ds/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/core-ds/core-components/issues/782)
 
 ## [3.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@3.0.4...@alfalab/core-components-with-suffix@3.0.5) (2021-08-11)
 
@@ -924,7 +931,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [2.4.19](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@2.4.18...@alfalab/core-components-with-suffix@2.4.19) (2021-06-22)
 
@@ -978,13 +985,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+- one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 ## [2.4.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@2.4.3...@alfalab/core-components-with-suffix@2.4.5) (2021-03-16)
 
 ### Bug Fixes
 
--   border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+- border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
 
 ## [2.4.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@2.4.2...@alfalab/core-components-with-suffix@2.4.3) (2021-03-15)
 
@@ -1002,7 +1009,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **with-suffix:** xl size ([d2bb796](https://github.com/core-ds/core-components/commit/d2bb7967b6756f8b06b3484c7900ef7637b1c777))
+- **with-suffix:** xl size ([d2bb796](https://github.com/core-ds/core-components/commit/d2bb7967b6756f8b06b3484c7900ef7637b1c777))
 
 ## [2.3.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-with-suffix@2.3.5...@alfalab/core-components-with-suffix@2.3.6) (2021-03-03)
 
@@ -1028,4 +1035,4 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
+- update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
