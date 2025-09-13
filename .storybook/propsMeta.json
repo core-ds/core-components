@@ -1,0 +1,201 @@
+{
+  "ToastDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для заголовка"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контентной области"
+      },
+      {
+        "name": "actionSectionClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для области с кнопкой действия"
+      },
+      {
+        "name": "badge",
+        "type": "unsafe_BadgeProps | StatusBadgeViews",
+        "required": false,
+        "description": "Вид бэйджа"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева, заменяет стандартную иконку"
+      },
+      {
+        "name": "actionButton",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Кнопка действия"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Управляет отображением кнопки закрытия уведомления"
+      },
+      {
+        "name": "closerWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс враппера кнопки \"закрыть\"."
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс кнопки \"закрыть\"."
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "onClose",
+        "type": "((event?: MouseEvent<HTMLButtonElement, MouseEvent>) => void) & (() => void)",
+        "required": false,
+        "description": "Обработчик клика по крестику\nОбработчик закрытия компонента."
+      },
+      {
+        "name": "getBadgeIcons",
+        "type": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>>",
+        "required": false,
+        "description": "Функция, с помощью которой можно переопределить иконки в StatusBadge"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "fallbackPlacements",
+        "type": "Position[]",
+        "required": false,
+        "description": "Если поповер не помещается в переданной позиции (position), он попробует открыться в другой позиции,\nпо очереди для каждой позиции из этого списка.\nЕсли не передавать, то поповер открывается в противоположном направлении от переданного position."
+      },
+      {
+        "name": "position",
+        "type": "Position",
+        "required": false,
+        "description": "Позиционирование поповера"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление состоянием поповера (открыт/закрыт)"
+      },
+      {
+        "name": "getPortalContainer",
+        "type": "(() => HTMLElement)",
+        "required": false,
+        "description": "Функция, возвращающая контейнер, в который будет рендериться поповер"
+      },
+      {
+        "name": "preventFlip",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно, то он все равно будет показан снизу"
+      },
+      {
+        "name": "transition",
+        "type": "CSSTransitionProps<undefined>",
+        "required": false,
+        "description": "CSSTransitionProps, прокидываются в компонент CSSTransitionProps."
+      },
+      {
+        "name": "useAnchorWidth",
+        "type": "boolean",
+        "required": false,
+        "description": "Использовать ширину родительского элемента"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "anchorElement",
+        "type": "HTMLElement | null",
+        "required": false,
+        "description": "Элемент, относительного которого появляется тост.\nЕсли не передавать, тост будет позиционирован снизу экрана (position: fixed)."
+      },
+      {
+        "name": "autoCloseDelay",
+        "type": "number",
+        "required": false,
+        "description": "Через сколько исчезнет компонент (ms)."
+      },
+      {
+        "name": "bottomOffset",
+        "type": "number",
+        "required": false,
+        "description": "Отступ снизу (при fixed-позиционировании)."
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "closeWithClickOutside",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Разрешить закрывать toast кликом вне компонента"
+      },
+      {
+        "name": "ToastPlate",
+        "type": "ForwardRefExoticComponent<Omit<BaseToastPlateProps, \"styles\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined",
+        "required": false,
+        "defaultValue": "forwardRef((props, ref) => (\n    <ToastPlateDesktop ref={ref} {...props} />\n))",
+        "description": "Плашка тоста.\nПо-дефолту рендерит компонент ToastPlate"
+      },
+      {
+        "name": "offset",
+        "type": "[number, number]",
+        "required": false,
+        "description": "Смещение поповера.\nЕсли позиционирование top, bottom, то [x, y].\nЕсли позиционирование left, right то [y, x].\nНеобходимо использовать вместе с anchorElement"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}
