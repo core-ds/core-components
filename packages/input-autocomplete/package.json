@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-input-autocomplete",
-    "version": "13.0.1",
+    "version": "13.0.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -11,10 +11,10 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-form-control": "^13.0.1",
-        "@alfalab/core-components-input": "^16.0.1",
+        "@alfalab/core-components-input": "^16.0.2",
         "@alfalab/core-components-mq": "^5.0.1",
         "@alfalab/core-components-popover": "^7.1.0",
-        "@alfalab/core-components-select": "^18.0.1",
+        "@alfalab/core-components-select": "^18.1.0",
         "@alfalab/core-components-shared": "^1.1.0",
         "@alfalab/core-components-status-badge": "^2.0.1",
         "@alfalab/hooks": "^1.13.1",

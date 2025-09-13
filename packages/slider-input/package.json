@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-slider-input",
-    "version": "10.0.2",
+    "version": "10.0.3",
     "description": "Slider input component",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-input": "^16.0.1",
+        "@alfalab/core-components-input": "^16.0.2",
         "@alfalab/core-components-slider": "^5.0.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
