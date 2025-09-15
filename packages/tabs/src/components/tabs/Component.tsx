@@ -38,6 +38,7 @@ export const Tabs = ({
                 toggleClassName,
                 dataTestId: toggleTestId,
                 toggleRef,
+                ...restTabsProps
             },
         }) => ({
             title,
@@ -48,6 +49,7 @@ export const Tabs = ({
             toggleClassName,
             dataTestId: toggleTestId,
             toggleRef,
+            ...restTabsProps,
         }),
     );
 

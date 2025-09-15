@@ -206,4 +206,50 @@ describe('Tabs', () => {
             expect(cb).not.toHaveBeenCalled();
         });
     });
+
+    describe('Aria and data attributes', () => {
+        it('should pass aria and data attributes to tab titles', () => {
+            const { container } = renderTabs(
+                TabsDesktop,
+                {},
+                {
+                    'aria-label': 'Custom aria label',
+                    'data-custom': 'custom-value',
+                    'data-test-id': 'custom-test-id',
+                },
+            );
+
+            const allButtons = container.querySelectorAll('button[role="tab"]');
+            expect(allButtons.length).toBeGreaterThan(0);
+
+            const ariaButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('aria-label') === 'Custom aria label',
+            );
+            expect(ariaButton).toBeInTheDocument();
+
+            const dataButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('data-custom') === 'custom-value',
+            );
+            expect(dataButton).toBeInTheDocument();
+        });
+
+        it('should prioritize dataTestId prop over data-test-id attribute', () => {
+            const { container } = renderTabs(
+                TabsDesktop,
+                {},
+                {
+                    'data-test-id': 'attribute-test-id',
+                    dataTestId: 'prop-test-id',
+                },
+            );
+
+            const allButtons = container.querySelectorAll('button[role="tab"]');
+            expect(allButtons.length).toBeGreaterThan(0);
+
+            const tabButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('data-test-id') === 'prop-test-id-toggle',
+            );
+            expect(tabButton).toBeInTheDocument();
+        });
+    });
 });

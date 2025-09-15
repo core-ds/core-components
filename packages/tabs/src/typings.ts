@@ -210,7 +210,12 @@ export interface TabProps extends AriaAttributes {
     toggleRef?: Ref<HTMLDivElement>;
 }
 
-export interface TabListTitle {
+export interface TabListTitle
+    extends Omit<
+            HTMLAttributes<HTMLDivElement>,
+            'onChange' | 'children' | 'className' | 'id' | 'title'
+        >,
+        AriaAttributes {
     title: NonNullable<ReactNode>;
     id: SelectedId;
     disabled?: boolean;
