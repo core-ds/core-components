@@ -1,0 +1,333 @@
+{
+  "Single": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "Size",
+        "required": false,
+        "defaultValue": 164,
+        "description": "Размер"
+      },
+      {
+        "name": "cardId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор карты\n(например: RM,SQ,SR)"
+      },
+      {
+        "name": "baseUrl",
+        "type": "string",
+        "required": false,
+        "description": "Базовый URL сервиса с изображениями\n(например: https://online.alfabank.ru/cards-images/cards/)"
+      },
+      {
+        "name": "layers",
+        "type": "string",
+        "required": false,
+        "description": "Какие слои показывать, через запятую без пробелов\n(полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)"
+      },
+      {
+        "name": "icon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Слот для иконки с оверлеем"
+      },
+      {
+        "name": "shadow",
+        "type": "string",
+        "required": false,
+        "description": "Тень для компонента"
+      },
+      {
+        "name": "iconColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет иконки"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "description": "Фон для компонента"
+      },
+      {
+        "name": "borderColor",
+        "type": "string",
+        "required": false,
+        "description": "Бордер для компонента"
+      },
+      {
+        "name": "overlayProps",
+        "type": "OverlayProps",
+        "required": false,
+        "defaultValue": "{ colors: 'default', visible: false }",
+        "description": "Настройки оверлея"
+      },
+      {
+        "name": "eyeButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Кнопка показать номер карты"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "cardholderNameUppercase",
+        "type": "boolean",
+        "required": false,
+        "description": "Имя владельца карты в верхнем регистре"
+      },
+      {
+        "name": "cardholderName",
+        "type": "string",
+        "required": false,
+        "description": "Имя владельца карты"
+      },
+      {
+        "name": "cardNumber",
+        "type": "number",
+        "required": false,
+        "description": "Номер карты"
+      },
+      {
+        "name": "numberOfСards",
+        "type": "number",
+        "required": false,
+        "description": "(Устаревший) Количество карт\n@deprecated Используйте 'numberOfCards'"
+      },
+      {
+        "name": "numberOfCards",
+        "type": "number",
+        "required": false,
+        "description": "Количество карт"
+      },
+      {
+        "name": "align",
+        "type": "\"default\" | \"bottom\"",
+        "required": false,
+        "description": "Управление ориентацией стопки карт компонента"
+      },
+      {
+        "name": "contentAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот для кастомного контента компонента"
+      },
+      {
+        "name": "contentAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки кастомного контента"
+      },
+      {
+        "name": "onEyeIconClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик клика по кнопке 'показать номер карты'"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "ImageCard": {
+    "description": "",
+    "props": [
+      {
+        "name": "cardId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор карты\n(например: RM, SQ, SR)"
+      },
+      {
+        "name": "baseUrl",
+        "type": "string",
+        "required": false,
+        "description": "Базовый URL сервиса с изображениями\nhttps://online.alfabank.ru/cards-images/cards/"
+      },
+      {
+        "name": "layers",
+        "type": "string",
+        "required": false,
+        "description": "Какие слои показывать, через запятую без пробелов\n(полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)"
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "description": "Ширина карты"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "description": "Высота карты"
+      },
+      {
+        "name": "numberOfСards",
+        "type": "number",
+        "required": false,
+        "description": "(Устаревший) Количество карт\n@deprecated Используйте 'numberOfCards'"
+      },
+      {
+        "name": "numberOfCards",
+        "type": "number",
+        "required": false,
+        "description": "Количество карт"
+      }
+    ]
+  },
+  "Overlay": {
+    "description": "",
+    "props": [
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление видимостью"
+      }
+    ]
+  },
+  "Text": {
+    "description": "",
+    "props": [
+      {
+        "name": "eyeButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Кнопка показать номер карты"
+      },
+      {
+        "name": "size",
+        "type": "Size",
+        "required": false,
+        "defaultValue": 164,
+        "description": "Размер"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "cardholderNameUppercase",
+        "type": "boolean",
+        "required": false,
+        "description": "Имя владельца карты в верхнем регистре"
+      },
+      {
+        "name": "cardholderName",
+        "type": "string",
+        "required": false,
+        "description": "Имя владельца карты"
+      },
+      {
+        "name": "cardNumber",
+        "type": "number",
+        "required": false,
+        "description": "Номер карты"
+      },
+      {
+        "name": "numberOfСards",
+        "type": "number",
+        "required": false,
+        "description": "(Устаревший) Количество карт\n@deprecated Используйте 'numberOfCards'"
+      },
+      {
+        "name": "numberOfCards",
+        "type": "number",
+        "required": false,
+        "description": "Количество карт"
+      },
+      {
+        "name": "align",
+        "type": "\"default\" | \"bottom\"",
+        "required": false,
+        "description": "Управление ориентацией стопки карт компонента"
+      },
+      {
+        "name": "onEyeIconClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик клика по иконке 'показать номер карты'"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования."
+      }
+    ]
+  },
+  "Stack": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "SizeStack",
+        "required": false,
+        "defaultValue": 128,
+        "description": "Размер"
+      },
+      {
+        "name": "align",
+        "type": "\"default\" | \"bottom\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Управление ориентацией стопки карт компонента\nдля размеров 16, 32 - default (ориентация только вправо и вниз)\nдля размера 40 -  default или bottom (ориентация вправо и вниз или вниз)\nдля размера 164 - default (ориентация только влево)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "firstCard",
+        "type": "BankCardImageProps",
+        "required": false,
+        "description": "Свойства для первой карты"
+      },
+      {
+        "name": "secondCard",
+        "type": "BankCardImageProps",
+        "required": false,
+        "description": "Свойства для второй карты"
+      },
+      {
+        "name": "numberOfСards",
+        "type": "number",
+        "required": false,
+        "description": "(Устаревший) Количество карт\n@deprecated Используйте 'numberOfCards'"
+      },
+      {
+        "name": "numberOfCards",
+        "type": "number",
+        "required": false,
+        "description": "Количество карт"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

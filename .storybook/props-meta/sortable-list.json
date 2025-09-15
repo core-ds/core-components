@@ -1,0 +1,191 @@
+{
+  "SortableList": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс на контейнер"
+      },
+      {
+        "name": "itemClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс на элемент списка"
+      },
+      {
+        "name": "itemContentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс на обертку контента у элемента списка"
+      },
+      {
+        "name": "portalProps",
+        "type": "PortalProps",
+        "required": false,
+        "description": "Пропсы портала, в котором отображается draggable элемент"
+      },
+      {
+        "name": "dragOverlayProps",
+        "type": "{ className?: string; style?: CSSProperties; zIndex?: number | undefined; } | undefined",
+        "required": false,
+        "description": "Пропсы DragOverlay элемента"
+      },
+      {
+        "name": "controlPadding",
+        "type": "PaddingSize",
+        "required": false,
+        "description": "Отступ контрола от края"
+      },
+      {
+        "name": "controlPosition",
+        "type": "ControlPosition",
+        "required": false,
+        "defaultValue": "right",
+        "description": "Позиция контрола"
+      },
+      {
+        "name": "renderItem",
+        "type": "(item: { id: UniqueIdentifier; disabled?: boolean | undefined; }) => Element",
+        "required": true,
+        "description": "Рендер-функция элемента"
+      },
+      {
+        "name": "items",
+        "type": "Items",
+        "required": true,
+        "description": "Список сортируемых идентификаторов"
+      },
+      {
+        "name": "padding",
+        "type": "PaddingSize | PaddingObj",
+        "required": false,
+        "description": "Отступы."
+      },
+      {
+        "name": "borderRadius",
+        "type": "BorderRadius",
+        "required": false,
+        "description": "BorderRadius элементов списка"
+      },
+      {
+        "name": "view",
+        "type": "View",
+        "required": false,
+        "defaultValue": "primary",
+        "description": "Вид"
+      },
+      {
+        "name": "activatorNode",
+        "type": "ActivatorNode",
+        "required": false,
+        "defaultValue": "cell",
+        "description": "Активатор события перетаскивания. Либо элемент целиком, либо только контрол"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -container, для ячейки -item_${id}"
+      },
+      {
+        "name": "announcements",
+        "type": "Announcements",
+        "required": false,
+        "defaultValue": "{\n    onDragStart({ active }: DragStartEvent) {\n        return `Выбран элемент ${active.id}.`;\n    },\n    onDragOver({ active, over }: DragOverEvent) {\n        if (over) {\n            return `Выбранный элемент ${active.id} находится над элементом ${over.id}.`;\n        }\n\n        return `Выбранный элемент ${active.id} находится за пределами droppable зоны.`;\n    },\n    onDragEnd({ active, over }: DragEndEvent) {\n        if (over) {\n            return `Выбранный элемент ${active.id} был перемещен на место ${over.id}`;\n        }\n\n        return `Выбранный элемент ${active.id} не был перемещен.`;\n    },\n    onDragCancel() {\n        return 'Перемещение было отменено';\n    },\n}",
+        "description": "Тексты объявления для screen reader"
+      },
+      {
+        "name": "screenReaderInstructions",
+        "type": "string",
+        "required": false,
+        "defaultValue": "'Чтобы выбрать перетаскиваемый элемент, нажмите пробел.\\n' +\n    'При перетаскивании используйте клавиши со стрелками для перемещения элемента.\\n' +\n    'Снова нажмите пробел, чтобы переместить элемент в его новое положение или нажмите escape для отмены.'",
+        "description": "Инструкция для screen reader"
+      },
+      {
+        "name": "onDragStart",
+        "type": "((event: DragStartEvent) => void)",
+        "required": false,
+        "description": "Коллбэк, вызываемый при начале процесса перетаскивания"
+      },
+      {
+        "name": "onDragEnd",
+        "type": "((event: DragEndEvent, items: Items) => void)",
+        "required": false,
+        "description": "Коллбэк, вызываемый по окончании перетаскивания"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "SortableItem": {
+    "description": "",
+    "props": [
+      {
+        "name": "activatorNode",
+        "type": "ActivatorNode",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "controlPadding",
+        "type": "PaddingSize",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "controlPosition",
+        "type": "ControlPosition",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "id",
+        "type": "UniqueIdentifier",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "isDragOverlay",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

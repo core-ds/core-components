@@ -1,0 +1,266 @@
+{
+  "Pagination": {
+    "description": "",
+    "props": [
+      {
+        "name": "currentPageIndex",
+        "type": "number",
+        "required": false,
+        "defaultValue": 0,
+        "description": "Текущая страница (с нуля)"
+      },
+      {
+        "name": "pagesCount",
+        "type": "number",
+        "required": true,
+        "description": "Количество страниц"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "hideArrows",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Скрывает стрелки, если выбрана первая или последняя страница"
+      },
+      {
+        "name": "sidePadding",
+        "type": "number",
+        "required": false,
+        "defaultValue": 1,
+        "description": "Количество видимых страниц по бокам"
+      },
+      {
+        "name": "activePadding",
+        "type": "number",
+        "required": false,
+        "defaultValue": 2,
+        "description": "Количество видимых страниц вокруг выбранной"
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"per-page\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Режим пагинации"
+      },
+      {
+        "name": "onPageChange",
+        "type": "((pageIndex: number) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик переключения страницы"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "DefaultView": {
+    "description": "",
+    "props": [
+      {
+        "name": "currentPageIndex",
+        "type": "number",
+        "required": true,
+        "description": "Текущая страница (с нуля)"
+      },
+      {
+        "name": "pagesCount",
+        "type": "number",
+        "required": true,
+        "description": "Количество страниц"
+      },
+      {
+        "name": "sidePadding",
+        "type": "number",
+        "required": false,
+        "defaultValue": 2,
+        "description": "Количество видимых страниц по бокам"
+      },
+      {
+        "name": "activePadding",
+        "type": "number",
+        "required": false,
+        "defaultValue": 1,
+        "description": "Количество видимых страниц вокруг выбранной"
+      },
+      {
+        "name": "onPageChange",
+        "type": "((pageIndex: number) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик переключения страницы"
+      }
+    ]
+  },
+  "PerPageView": {
+    "description": "",
+    "props": [
+      {
+        "name": "currentPageIndex",
+        "type": "number",
+        "required": true,
+        "description": "Текущая страница (с нуля)"
+      },
+      {
+        "name": "pagesCount",
+        "type": "number",
+        "required": true,
+        "description": "Количество страниц"
+      }
+    ]
+  },
+  "Tag": {
+    "description": "",
+    "props": [
+      {
+        "name": "view",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "defaultValue": "outlined",
+        "description": "Стиль тега"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик нажатия"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки в отмеченном (зажатом) состоянии"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "childrenClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обёртки children"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "childrenRef",
+        "type": "RefObject<HTMLSpanElement>",
+        "required": false,
+        "description": "ref на children"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "variant",
+        "type": "\"default\" | \"alt\"",
+        "required": false,
+        "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      }
+    ]
+  }
+}

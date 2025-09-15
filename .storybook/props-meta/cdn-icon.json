@@ -1,0 +1,50 @@
+{
+  "CDNIcon": {
+    "description": "",
+    "props": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true,
+        "description": "Имя иконки"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "description": "Цвет иконки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "baseUrl",
+        "type": "string",
+        "required": false,
+        "defaultValue": "https://alfabank.servicecdn.ru/icons",
+        "description": "Базовый адрес cdn хранилища c иконками"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fallback",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Fallback на случай, если не удастся загрузить иконку"
+      },
+      {
+        "name": "onError",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Callback, вызываемый при ошибке загрузки иконки"
+      }
+    ]
+  }
+}

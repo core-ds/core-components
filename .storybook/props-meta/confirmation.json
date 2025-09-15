@@ -1,0 +1,775 @@
+{
+  "ConfirmationResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "screen",
+        "type": "string",
+        "required": true,
+        "description": "Экран компонента"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "required": true,
+        "description": "Состояние компонента"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Мобильная версия компонента для экрана"
+      },
+      {
+        "name": "alignContent",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "description": "Позиционирование контента"
+      },
+      {
+        "name": "texts",
+        "type": "ConfirmationTexts",
+        "required": false,
+        "description": "Объект с текстами"
+      },
+      {
+        "name": "requiredCharAmount",
+        "type": "number",
+        "required": false,
+        "description": "Количество символов, которое можно ввести в поле ввода подписания до того, как произойдет автоотправка"
+      },
+      {
+        "name": "countdownDuration",
+        "type": "number",
+        "required": false,
+        "description": "Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах"
+      },
+      {
+        "name": "tempBlockDuration",
+        "type": "number",
+        "required": false,
+        "description": "Продолжительность блокировки формы (ms)"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": "Номер телефона, на который отправлен код"
+      },
+      {
+        "name": "blockSmsRetry",
+        "type": "boolean",
+        "required": false,
+        "description": "Не осталось попыток ввода кода"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "clearCodeOnError",
+        "type": "boolean",
+        "required": false,
+        "description": "Флаг - нужно ли очищать код при возникновении ошибки"
+      },
+      {
+        "name": "onChangeState",
+        "type": "(state: string) => void",
+        "required": true,
+        "description": "Функция обновления состояния компонента"
+      },
+      {
+        "name": "onChangeScreen",
+        "type": "(state: string) => void",
+        "required": true,
+        "description": "Функция обновления состояния компонента"
+      },
+      {
+        "name": "onInputFinished",
+        "type": "(code: string) => void",
+        "required": true,
+        "description": "Обработчик события завершения ввода кода подписания"
+      },
+      {
+        "name": "onSmsRetryClick",
+        "type": "() => void",
+        "required": true,
+        "description": "Обработчик события нажатия на кнопку \"Запросить код\""
+      },
+      {
+        "name": "onFatalErrorOkButtonClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Клик по кнопке \"Понятно\" на экране фатальной ошибки"
+      },
+      {
+        "name": "onTempBlockFinished",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Временная блокировка формы закончилась"
+      },
+      {
+        "name": "getScreensMap",
+        "type": "((defaultScreensMap: ScreensMap) => ScreensMap)",
+        "required": false,
+        "description": "Возвращает объект, где ключ - название экрана (screen), значение - компонент для экрана"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "hideCountdownSection",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Скрыть секцию с повторной отправкой кода"
+      },
+      {
+        "name": "initialScreenHintSlot",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот для контента с подсказкой на главном экране"
+      },
+      {
+        "name": "client",
+        "type": "\"mobile\" | \"desktop\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "errorVisibleDuration",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1300",
+        "description": "Продолжительность отображения ошибки"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      }
+    ]
+  },
+  "BaseConfirmation": {
+    "description": "",
+    "props": [
+      {
+        "name": "screen",
+        "type": "string",
+        "required": true,
+        "description": "Экран компонента"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "required": true,
+        "description": "Состояние компонента"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Мобильная версия компонента для экрана"
+      },
+      {
+        "name": "alignContent",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Позиционирование контента"
+      },
+      {
+        "name": "texts",
+        "type": "ConfirmationTexts",
+        "required": false,
+        "description": "Объект с текстами"
+      },
+      {
+        "name": "requiredCharAmount",
+        "type": "number",
+        "required": false,
+        "defaultValue": 5,
+        "description": "Количество символов, которое можно ввести в поле ввода подписания до того, как произойдет автоотправка"
+      },
+      {
+        "name": "countdownDuration",
+        "type": "number",
+        "required": false,
+        "defaultValue": "60 * 1000",
+        "description": "Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах"
+      },
+      {
+        "name": "tempBlockDuration",
+        "type": "number",
+        "required": false,
+        "defaultValue": "24 * 60 * 60 * 1000",
+        "description": "Продолжительность блокировки формы (ms)"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": "Номер телефона, на который отправлен код"
+      },
+      {
+        "name": "blockSmsRetry",
+        "type": "boolean",
+        "required": false,
+        "description": "Не осталось попыток ввода кода"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "clearCodeOnError",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Флаг - нужно ли очищать код при возникновении ошибки"
+      },
+      {
+        "name": "onChangeState",
+        "type": "(state: string) => void",
+        "required": true,
+        "description": "Функция обновления состояния компонента"
+      },
+      {
+        "name": "onChangeScreen",
+        "type": "(state: string) => void",
+        "required": true,
+        "description": "Функция обновления состояния компонента"
+      },
+      {
+        "name": "onInputFinished",
+        "type": "(code: string) => void",
+        "required": true,
+        "description": "Обработчик события завершения ввода кода подписания"
+      },
+      {
+        "name": "onSmsRetryClick",
+        "type": "() => void",
+        "required": true,
+        "description": "Обработчик события нажатия на кнопку \"Запросить код\""
+      },
+      {
+        "name": "onFatalErrorOkButtonClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Клик по кнопке \"Понятно\" на экране фатальной ошибки"
+      },
+      {
+        "name": "onTempBlockFinished",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Временная блокировка формы закончилась"
+      },
+      {
+        "name": "getScreensMap",
+        "type": "((defaultScreensMap: ScreensMap) => ScreensMap)",
+        "required": false,
+        "description": "Возвращает объект, где ключ - название экрана (screen), значение - компонент для экрана"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "hideCountdownSection",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Скрыть секцию с повторной отправкой кода"
+      },
+      {
+        "name": "initialScreenHintSlot",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот для контента с подсказкой на главном экране"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка для кнопки, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"mobile\" | \"desktop\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "errorVisibleDuration",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1300",
+        "description": "Продолжительность отображения ошибки"
+      }
+    ]
+  },
+  "CountdownLoader": {
+    "description": "",
+    "props": [
+      {
+        "name": "progress",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Header": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображать в мобильной версии экран компонента"
+      }
+    ]
+  },
+  "FatalError": {
+    "description": "",
+    "props": [
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображать в мобильной версии экран компонента"
+      }
+    ]
+  },
+  "Hint": {
+    "description": "",
+    "props": [
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображать в мобильной версии экран компонента"
+      }
+    ]
+  },
+  "Initial": {
+    "description": "",
+    "props": [
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображать в мобильной версии экран компонента"
+      }
+    ]
+  },
+  "CountdownSection": {
+    "description": "",
+    "props": [
+      {
+        "name": "codeSendHintVisible",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "timePassed",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "processing",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "handleSmsRetryClick",
+        "type": "() => void",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "TempBlockOver": {
+    "description": "",
+    "props": [
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображать в мобильной версии экран компонента"
+      }
+    ]
+  },
+  "TempBlock": {
+    "description": "",
+    "props": [
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображать в мобильной версии экран компонента"
+      }
+    ]
+  },
+  "ConfirmationDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "screen",
+        "type": "string",
+        "required": true,
+        "description": "Экран компонента"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "required": true,
+        "description": "Состояние компонента"
+      },
+      {
+        "name": "alignContent",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "description": "Позиционирование контента"
+      },
+      {
+        "name": "texts",
+        "type": "ConfirmationTexts",
+        "required": false,
+        "description": "Объект с текстами"
+      },
+      {
+        "name": "requiredCharAmount",
+        "type": "number",
+        "required": false,
+        "description": "Количество символов, которое можно ввести в поле ввода подписания до того, как произойдет автоотправка"
+      },
+      {
+        "name": "countdownDuration",
+        "type": "number",
+        "required": false,
+        "description": "Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах"
+      },
+      {
+        "name": "tempBlockDuration",
+        "type": "number",
+        "required": false,
+        "description": "Продолжительность блокировки формы (ms)"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": "Номер телефона, на который отправлен код"
+      },
+      {
+        "name": "blockSmsRetry",
+        "type": "boolean",
+        "required": false,
+        "description": "Не осталось попыток ввода кода"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "clearCodeOnError",
+        "type": "boolean",
+        "required": false,
+        "description": "Флаг - нужно ли очищать код при возникновении ошибки"
+      },
+      {
+        "name": "onChangeState",
+        "type": "(state: string) => void",
+        "required": true,
+        "description": "Функция обновления состояния компонента"
+      },
+      {
+        "name": "onChangeScreen",
+        "type": "(state: string) => void",
+        "required": true,
+        "description": "Функция обновления состояния компонента"
+      },
+      {
+        "name": "onInputFinished",
+        "type": "(code: string) => void",
+        "required": true,
+        "description": "Обработчик события завершения ввода кода подписания"
+      },
+      {
+        "name": "onSmsRetryClick",
+        "type": "() => void",
+        "required": true,
+        "description": "Обработчик события нажатия на кнопку \"Запросить код\""
+      },
+      {
+        "name": "onFatalErrorOkButtonClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Клик по кнопке \"Понятно\" на экране фатальной ошибки"
+      },
+      {
+        "name": "onTempBlockFinished",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Временная блокировка формы закончилась"
+      },
+      {
+        "name": "getScreensMap",
+        "type": "((defaultScreensMap: ScreensMap) => ScreensMap)",
+        "required": false,
+        "description": "Возвращает объект, где ключ - название экрана (screen), значение - компонент для экрана"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "hideCountdownSection",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Скрыть секцию с повторной отправкой кода"
+      },
+      {
+        "name": "initialScreenHintSlot",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот для контента с подсказкой на главном экране"
+      },
+      {
+        "name": "client",
+        "type": "\"mobile\" | \"desktop\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "errorVisibleDuration",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1300",
+        "description": "Продолжительность отображения ошибки"
+      }
+    ]
+  },
+  "ConfirmationMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка для кнопки, с нее начинается desktop версия"
+      },
+      {
+        "name": "screen",
+        "type": "string",
+        "required": true,
+        "description": "Экран компонента"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "required": true,
+        "description": "Состояние компонента"
+      },
+      {
+        "name": "alignContent",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "description": "Позиционирование контента"
+      },
+      {
+        "name": "texts",
+        "type": "ConfirmationTexts",
+        "required": false,
+        "description": "Объект с текстами"
+      },
+      {
+        "name": "requiredCharAmount",
+        "type": "number",
+        "required": false,
+        "description": "Количество символов, которое можно ввести в поле ввода подписания до того, как произойдет автоотправка"
+      },
+      {
+        "name": "countdownDuration",
+        "type": "number",
+        "required": false,
+        "description": "Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах"
+      },
+      {
+        "name": "tempBlockDuration",
+        "type": "number",
+        "required": false,
+        "description": "Продолжительность блокировки формы (ms)"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": "Номер телефона, на который отправлен код"
+      },
+      {
+        "name": "blockSmsRetry",
+        "type": "boolean",
+        "required": false,
+        "description": "Не осталось попыток ввода кода"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "clearCodeOnError",
+        "type": "boolean",
+        "required": false,
+        "description": "Флаг - нужно ли очищать код при возникновении ошибки"
+      },
+      {
+        "name": "onChangeState",
+        "type": "(state: string) => void",
+        "required": true,
+        "description": "Функция обновления состояния компонента"
+      },
+      {
+        "name": "onChangeScreen",
+        "type": "(state: string) => void",
+        "required": true,
+        "description": "Функция обновления состояния компонента"
+      },
+      {
+        "name": "onInputFinished",
+        "type": "(code: string) => void",
+        "required": true,
+        "description": "Обработчик события завершения ввода кода подписания"
+      },
+      {
+        "name": "onSmsRetryClick",
+        "type": "() => void",
+        "required": true,
+        "description": "Обработчик события нажатия на кнопку \"Запросить код\""
+      },
+      {
+        "name": "onFatalErrorOkButtonClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Клик по кнопке \"Понятно\" на экране фатальной ошибки"
+      },
+      {
+        "name": "onTempBlockFinished",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Временная блокировка формы закончилась"
+      },
+      {
+        "name": "getScreensMap",
+        "type": "((defaultScreensMap: ScreensMap) => ScreensMap)",
+        "required": false,
+        "description": "Возвращает объект, где ключ - название экрана (screen), значение - компонент для экрана"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "hideCountdownSection",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Скрыть секцию с повторной отправкой кода"
+      },
+      {
+        "name": "initialScreenHintSlot",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот для контента с подсказкой на главном экране"
+      },
+      {
+        "name": "client",
+        "type": "\"mobile\" | \"desktop\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "errorVisibleDuration",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1300",
+        "description": "Продолжительность отображения ошибки"
+      }
+    ]
+  }
+}

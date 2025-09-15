@@ -1,0 +1,137 @@
+{
+  "FileUploadItemV1": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Идентификатор элемента"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Имя файла с расширением"
+      },
+      {
+        "name": "size",
+        "type": "string | number",
+        "required": false,
+        "description": "Размер файла"
+      },
+      {
+        "name": "uploadDate",
+        "type": "string",
+        "required": false,
+        "description": "Дата загрузки файла"
+      },
+      {
+        "name": "downloadLink",
+        "type": "string",
+        "required": false,
+        "description": "Ссылка на файл. Если прокидывается этот параметр, то появляется кнопка скачивания"
+      },
+      {
+        "name": "download",
+        "type": "string | true",
+        "required": false,
+        "description": "Рекомендует браузеру скачивать контент по ссылке.\nВ проп может быть передано рекомендуемое название скачиваемого файла."
+      },
+      {
+        "name": "showDelete",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки удаления"
+      },
+      {
+        "name": "showRestore",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки восстановления"
+      },
+      {
+        "name": "uploadPercent",
+        "type": "number",
+        "required": false,
+        "defaultValue": 0,
+        "description": "Процент загрузки файла"
+      },
+      {
+        "name": "uploadStatus",
+        "type": "FileStatuses",
+        "required": false,
+        "description": "Статус загрузки файла"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение об ошибке"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "icon",
+        "type": "ElementType<{ className?: string; }>",
+        "required": false,
+        "description": "Компонент кастомной иконки"
+      },
+      {
+        "name": "onDownload",
+        "type": "((id: string) => void)",
+        "required": false,
+        "description": "Обработчик загрузки файла"
+      },
+      {
+        "name": "onDelete",
+        "type": "((id: string, event?: MouseEvent<HTMLElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик удаления файла"
+      },
+      {
+        "name": "onRestore",
+        "type": "((id: string) => void)",
+        "required": false,
+        "description": "Обработчик восстановления файла"
+      },
+      {
+        "name": "disableButtons",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление активностью кнопок"
+      },
+      {
+        "name": "multiline",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Разрешить многострочное название файла"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": "Указывает, где открыть скачиваемый документ"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

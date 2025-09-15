@@ -1,0 +1,148 @@
+{
+  "MarkdownDesktopComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Css класс для обертки разметки"
+      },
+      {
+        "name": "font",
+        "type": "FontType",
+        "required": false,
+        "description": "Шрифт разметки"
+      },
+      {
+        "name": "overrides",
+        "type": "OverridesComponents",
+        "required": false,
+        "description": "Переопределение компонентов для тегов разметки"
+      },
+      {
+        "name": "transformLinkUri",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Трансформация ссылок неизвестных форматов\nhttps://github.com/remarkjs/react-markdown/issues/537"
+      }
+    ]
+  },
+  "MarkdownMobileComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Css класс для обертки разметки"
+      },
+      {
+        "name": "font",
+        "type": "FontType",
+        "required": false,
+        "description": "Шрифт разметки"
+      },
+      {
+        "name": "overrides",
+        "type": "OverridesComponents",
+        "required": false,
+        "description": "Переопределение компонентов для тегов разметки"
+      },
+      {
+        "name": "transformLinkUri",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Трансформация ссылок неизвестных форматов\nhttps://github.com/remarkjs/react-markdown/issues/537"
+      }
+    ]
+  },
+  "MarkdownResponsiveComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Css класс для обертки разметки"
+      },
+      {
+        "name": "font",
+        "type": "FontType",
+        "required": false,
+        "description": "Шрифт разметки"
+      },
+      {
+        "name": "overrides",
+        "type": "OverridesComponents",
+        "required": false,
+        "description": "Переопределение компонентов для тегов разметки"
+      },
+      {
+        "name": "transformLinkUri",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Трансформация ссылок неизвестных форматов\nhttps://github.com/remarkjs/react-markdown/issues/537"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      }
+    ]
+  },
+  "BaseMarkdown": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Css класс для обертки разметки"
+      },
+      {
+        "name": "platform",
+        "type": "PlatformType",
+        "required": false,
+        "description": "Платформа"
+      },
+      {
+        "name": "font",
+        "type": "FontType",
+        "required": false,
+        "description": "Шрифт разметки"
+      },
+      {
+        "name": "overrides",
+        "type": "OverridesComponents",
+        "required": false,
+        "description": "Переопределение компонентов для тегов разметки"
+      },
+      {
+        "name": "transformLinkUri",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Трансформация ссылок неизвестных форматов\nhttps://github.com/remarkjs/react-markdown/issues/537"
+      }
+    ]
+  }
+}

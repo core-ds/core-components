@@ -1,0 +1,467 @@
+{
+  "PassCode": {
+    "description": "",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Код"
+      },
+      {
+        "name": "onChange",
+        "type": "(code: string) => void",
+        "required": true,
+        "description": "Обработчик изменения кода"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение ошибки ввода"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение успешного ввода"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "rightAddonsTitle",
+        "type": "string",
+        "required": false,
+        "description": "Заголовок для правого слота"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, ошибки -error,\nсообщения над клавиатурой -message, блока с кодом -input-progress,\nблока с цифрами -keypad"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает ввод и удаление кода"
+      },
+      {
+        "name": "maxCodeLength",
+        "type": "number",
+        "required": false,
+        "defaultValue": 10,
+        "description": "Максимально возможная длина кода"
+      },
+      {
+        "name": "codeLength",
+        "type": "number",
+        "required": false,
+        "description": "Длина кода"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "InputProgress": {
+    "description": "",
+    "props": [
+      {
+        "name": "maxCodeLength",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "codeLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "KeyPad": {
+    "description": "",
+    "props": [
+      {
+        "name": "showClear",
+        "type": "boolean",
+        "required": true,
+        "description": "Показать кнопку \"очистить\"."
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева."
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа."
+      },
+      {
+        "name": "rightAddonsTitle",
+        "type": "string",
+        "required": false,
+        "description": "Заголовок для правого слота"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для автоматизированного тестирования."
+      },
+      {
+        "name": "onClick",
+        "type": "(digit: number) => void",
+        "required": true,
+        "description": "Коллбэк нажатия на кнопку."
+      },
+      {
+        "name": "onClear",
+        "type": "() => void",
+        "required": true,
+        "description": "Коллбэк очистки кода."
+      }
+    ]
+  },
+  "KeyPadButton": {
+    "description": "",
+    "props": [
+      {
+        "name": "view",
+        "type": "\"accent\" | \"primary\" | \"secondary\" | \"outlined\" | \"transparent\" | \"text\" | \"tertiary\" | \"filled\" | \"link\" | \"ghost\"",
+        "required": false,
+        "defaultValue": "secondary",
+        "description": "Вид кнопки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Значение"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "buttonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс кнопки"
+      },
+      {
+        "name": "onClick",
+        "type": "((payload: T) => void)",
+        "required": false,
+        "description": "Коллбэк нажатия на кнопку"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Заголовок кнопки"
+      }
+    ]
+  },
+  "PassCodeDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Код"
+      },
+      {
+        "name": "onChange",
+        "type": "(code: string) => void",
+        "required": true,
+        "description": "Обработчик изменения кода"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение ошибки ввода"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение успешного ввода"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "rightAddonsTitle",
+        "type": "string",
+        "required": false,
+        "description": "Заголовок для правого слота"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, ошибки -error,\nсообщения над клавиатурой -message, блока с кодом -input-progress,\nблока с цифрами -keypad"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает ввод и удаление кода"
+      },
+      {
+        "name": "maxCodeLength",
+        "type": "number",
+        "required": false,
+        "defaultValue": "10",
+        "description": "Максимально возможная длина кода"
+      },
+      {
+        "name": "codeLength",
+        "type": "number",
+        "required": false,
+        "description": "Длина кода"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "PassCodeMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Код"
+      },
+      {
+        "name": "onChange",
+        "type": "(code: string) => void",
+        "required": true,
+        "description": "Обработчик изменения кода"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение ошибки ввода"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение успешного ввода"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "rightAddonsTitle",
+        "type": "string",
+        "required": false,
+        "description": "Заголовок для правого слота"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, ошибки -error,\nсообщения над клавиатурой -message, блока с кодом -input-progress,\nблока с цифрами -keypad"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает ввод и удаление кода"
+      },
+      {
+        "name": "maxCodeLength",
+        "type": "number",
+        "required": false,
+        "defaultValue": "10",
+        "description": "Максимально возможная длина кода"
+      },
+      {
+        "name": "codeLength",
+        "type": "number",
+        "required": false,
+        "description": "Длина кода"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

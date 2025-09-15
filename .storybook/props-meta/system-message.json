@@ -1,0 +1,424 @@
+{
+  "SystemMessage": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "fullHeight",
+        "type": "boolean",
+        "required": false,
+        "description": "Растянуть контент на всю доступную высоту."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы."
+      },
+      {
+        "name": "view",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "SystemMessageResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "fullHeight",
+        "type": "boolean",
+        "required": false,
+        "description": "Растянуть контент на всю доступную высоту."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы."
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      }
+    ]
+  },
+  "SystemMessageResponsiveComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "fullHeight",
+        "type": "boolean",
+        "required": false,
+        "description": "Растянуть контент на всю доступную высоту."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы."
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      }
+    ]
+  },
+  "Caption": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительно имя класса"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "defaultValue": "{ bottom: 12 }",
+        "description": "Отступы"
+      }
+    ]
+  },
+  "Controls": {
+    "description": "",
+    "props": [
+      {
+        "name": "direction",
+        "type": "\"column\" | \"row\"",
+        "required": false,
+        "description": "Расположение элементов футера"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы"
+      }
+    ]
+  },
+  "Graphic": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Элемент с иконкой"
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "defaultValue": "{ bottom: 24 }",
+        "description": "Отступы"
+      }
+    ]
+  },
+  "Subtitle": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительно имя класса"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Заголовок"
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "defaultValue": "{ bottom: 12 }",
+        "description": "Отступы"
+      }
+    ]
+  },
+  "Title": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительно имя класса"
+      },
+      {
+        "name": "tag",
+        "type": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"div\"",
+        "required": false,
+        "defaultValue": "h3",
+        "description": "HTML тег"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Заголовок"
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы"
+      }
+    ]
+  },
+  "SystemMessageDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "fullHeight",
+        "type": "boolean",
+        "required": false,
+        "description": "Растянуть контент на всю доступную высоту."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы."
+      }
+    ]
+  },
+  "SystemMessageDesktopComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "fullHeight",
+        "type": "boolean",
+        "required": false,
+        "description": "Растянуть контент на всю доступную высоту."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы."
+      }
+    ]
+  },
+  "SystemMessageMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "fullHeight",
+        "type": "boolean",
+        "required": false,
+        "description": "Растянуть контент на всю доступную высоту."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы."
+      }
+    ]
+  },
+  "SystemMessageMobileComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "fullHeight",
+        "type": "boolean",
+        "required": false,
+        "description": "Растянуть контент на всю доступную высоту."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "description": "Отступы."
+      }
+    ]
+  }
+}

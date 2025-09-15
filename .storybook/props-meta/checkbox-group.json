@@ -1,0 +1,351 @@
+{
+  "CheckboxGroup": {
+    "description": "",
+    "props": [
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок группы"
+      },
+      {
+        "name": "direction",
+        "type": "Direction",
+        "required": false,
+        "description": "Направление"
+      },
+      {
+        "name": "type",
+        "type": "CheckboxGroupType",
+        "required": false,
+        "description": "Тип компонента"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки снизу"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: ChangeEvent<Element> | MouseEvent<Element, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик изменения значения 'checked' одного из дочерних компонентов"
+      },
+      {
+        "name": "onBlur",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик блюра."
+      },
+      {
+        "name": "onFocus",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик фокуса."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      }
+    ]
+  },
+  "BaseCheckboxGroup": {
+    "description": "",
+    "props": [
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок группы"
+      },
+      {
+        "name": "direction",
+        "type": "Direction",
+        "required": false,
+        "defaultValue": "vertical",
+        "description": "Направление"
+      },
+      {
+        "name": "type",
+        "type": "CheckboxGroupType",
+        "required": false,
+        "defaultValue": "checkbox",
+        "description": "Тип компонента"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки снизу"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: ChangeEvent<Element> | MouseEvent<Element, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик изменения значения 'checked' одного из дочерних компонентов"
+      },
+      {
+        "name": "onBlur",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик блюра."
+      },
+      {
+        "name": "onFocus",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик фокуса."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "styles",
+        "type": "{ [key: string]: string; }",
+        "required": true,
+        "description": "Основные стили компонента."
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CheckboxGroupDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок группы"
+      },
+      {
+        "name": "direction",
+        "type": "Direction",
+        "required": false,
+        "description": "Направление"
+      },
+      {
+        "name": "type",
+        "type": "CheckboxGroupType",
+        "required": false,
+        "description": "Тип компонента"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки снизу"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: ChangeEvent<Element> | MouseEvent<Element, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик изменения значения 'checked' одного из дочерних компонентов"
+      },
+      {
+        "name": "onBlur",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик блюра."
+      },
+      {
+        "name": "onFocus",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик фокуса."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "CheckboxGroupMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок группы"
+      },
+      {
+        "name": "direction",
+        "type": "Direction",
+        "required": false,
+        "description": "Направление"
+      },
+      {
+        "name": "type",
+        "type": "CheckboxGroupType",
+        "required": false,
+        "description": "Тип компонента"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки снизу"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: ChangeEvent<Element> | MouseEvent<Element, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик изменения значения 'checked' одного из дочерних компонентов"
+      },
+      {
+        "name": "onBlur",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик блюра."
+      },
+      {
+        "name": "onFocus",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик фокуса."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

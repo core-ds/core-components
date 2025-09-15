@@ -1,0 +1,124 @@
+{
+  "Scrollbar": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Оборачиваемый элемент."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс на корневой элемент."
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "horizontalAutoStretch",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Растягивать контент по горизонтали по ширине содержимого."
+      },
+      {
+        "name": "widthPropName",
+        "type": "\"minWidth\" | \"width\" | \"maxWidth\"",
+        "required": false,
+        "defaultValue": "minWidth",
+        "description": "Название css свойства, которое устанавливается на контейнер при horizontalAutoStretch."
+      },
+      {
+        "name": "autoHide",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Включает автоскрытие ползунка."
+      },
+      {
+        "name": "autoHideTimeout",
+        "type": "number",
+        "required": false,
+        "defaultValue": 1000,
+        "description": "Время в мс, определяющее задержку до исчезновения полосы прокрутки (при включенной опции autoHide)."
+      },
+      {
+        "name": "forceVisible",
+        "type": "boolean | \"x\" | \"y\"",
+        "required": false,
+        "defaultValue": false,
+        "description": "Принудительное отображение полосы прокрутки."
+      },
+      {
+        "name": "clickOnTrack",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управление поведением клика по треку.\nЕсли true, то будет выполняться прокрутка к месту клика."
+      },
+      {
+        "name": "scrollableNodeProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "defaultValue": "{ ref: null }",
+        "description": "HTML-aтрибуты на прокручиваемый узел."
+      },
+      {
+        "name": "contentNodeProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "defaultValue": "{ ref: null }",
+        "description": "HTML-aтрибуты на узел с контентом."
+      },
+      {
+        "name": "maskProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "HTML-aтрибуты маски."
+      },
+      {
+        "name": "verticalBarClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера вертикальной полосы прокрутки"
+      },
+      {
+        "name": "horizontalBarClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера горизонтальной полосы прокрутки"
+      },
+      {
+        "name": "onContentScroll",
+        "type": "((e: Event) => void)",
+        "required": false,
+        "description": "Обработчик изменения скролла"
+      },
+      {
+        "name": "verticalBarRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для вертикальной полосы прокрутки"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

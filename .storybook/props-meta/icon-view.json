@@ -1,0 +1,550 @@
+{
+  "BaseShape": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "number | { width: number; height: number; }",
+        "required": false,
+        "defaultValue": 64,
+        "description": "Размер компонента"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#f3f4f5",
+        "description": "Цвет заливки"
+      },
+      {
+        "name": "shapeClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для стилизации формы шейпа."
+      },
+      {
+        "name": "border",
+        "type": "boolean | Border",
+        "required": false,
+        "defaultValue": false,
+        "description": "Видимость обводки"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "scale",
+        "type": "ScaleType",
+        "required": false,
+        "defaultValue": "fill",
+        "description": "Режим масштабирования изображения\n'fill' - изображение заполняет всё доступное пространство и может быть обрезано\n'fit' - изображение вписывается полностью без обрезки"
+      },
+      {
+        "name": "backgroundIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Фоновое svg. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "iconContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации обертки иконки"
+      },
+      {
+        "name": "topAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот сверху"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "indicator",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот индикатора сверху"
+      },
+      {
+        "name": "pathsMap",
+        "type": "PathsMap",
+        "required": true,
+        "description": "Фигуры"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "text",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст"
+      },
+      {
+        "name": "mainSize",
+        "type": "TMainSize",
+        "required": false,
+        "description": "Размер основного слота"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Circle": {
+    "description": "",
+    "props": [
+      {
+        "name": "border",
+        "type": "boolean | Border",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Видимость обводки"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#f3f4f5",
+        "description": "Цвет заливки"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "scale",
+        "type": "ScaleType",
+        "required": false,
+        "defaultValue": "'fill'",
+        "description": "Режим масштабирования изображения\n'fill' - изображение заполняет всё доступное пространство и может быть обрезано\n'fit' - изображение вписывается полностью без обрезки"
+      },
+      {
+        "name": "backgroundIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Фоновое svg. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "text",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "shapeClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для стилизации формы шейпа."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы.\nДочерний компонент"
+      },
+      {
+        "name": "topAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот сверху"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "indicator",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот индикатора сверху"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "mainSize",
+        "type": "TMainSize",
+        "required": false,
+        "description": "Размер основного слота"
+      },
+      {
+        "name": "iconContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации обертки иконки"
+      },
+      {
+        "name": "size",
+        "type": "TMainSize",
+        "required": false,
+        "defaultValue": "64",
+        "description": "Размер компонента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "NoShape": {
+    "description": "",
+    "props": [
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#f3f4f5",
+        "description": "Цвет заливки"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "scale",
+        "type": "ScaleType",
+        "required": false,
+        "defaultValue": "'fill'",
+        "description": "Режим масштабирования изображения\n'fill' - изображение заполняет всё доступное пространство и может быть обрезано\n'fit' - изображение вписывается полностью без обрезки"
+      },
+      {
+        "name": "backgroundIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Фоновое svg. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "text",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "shapeClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для стилизации формы шейпа."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы.\nДочерний компонент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "mainSize",
+        "type": "TMainSize",
+        "required": false,
+        "description": "Размер основного слота"
+      },
+      {
+        "name": "iconContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации обертки иконки"
+      },
+      {
+        "name": "size",
+        "type": "TMainSize",
+        "required": false,
+        "defaultValue": "64",
+        "description": "Размер компонента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Rectangle": {
+    "description": "",
+    "props": [
+      {
+        "name": "border",
+        "type": "boolean | Border",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Видимость обводки"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#f3f4f5",
+        "description": "Цвет заливки"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "scale",
+        "type": "ScaleType",
+        "required": false,
+        "defaultValue": "'fill'",
+        "description": "Режим масштабирования изображения\n'fill' - изображение заполняет всё доступное пространство и может быть обрезано\n'fit' - изображение вписывается полностью без обрезки"
+      },
+      {
+        "name": "backgroundIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Фоновое svg. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "text",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "shapeClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для стилизации формы шейпа."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы.\nДочерний компонент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "mainSize",
+        "type": "TMainSize",
+        "required": false,
+        "description": "Размер основного слота"
+      },
+      {
+        "name": "iconContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации обертки иконки"
+      },
+      {
+        "name": "size",
+        "type": "TSize",
+        "required": false,
+        "defaultValue": 64,
+        "description": "Размер компонента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "SuperEllipse": {
+    "description": "",
+    "props": [
+      {
+        "name": "border",
+        "type": "boolean | Border",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Видимость обводки"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#f3f4f5",
+        "description": "Цвет заливки"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "scale",
+        "type": "ScaleType",
+        "required": false,
+        "defaultValue": "'fill'",
+        "description": "Режим масштабирования изображения\n'fill' - изображение заполняет всё доступное пространство и может быть обрезано\n'fit' - изображение вписывается полностью без обрезки"
+      },
+      {
+        "name": "backgroundIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Фоновое svg. Имеет приоритет над иконкой и заливкой"
+      },
+      {
+        "name": "text",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "shapeClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для стилизации формы шейпа."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы.\nДочерний компонент"
+      },
+      {
+        "name": "topAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот сверху"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "indicator",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот индикатора сверху"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "mainSize",
+        "type": "TMainSize",
+        "required": false,
+        "description": "Размер основного слота"
+      },
+      {
+        "name": "iconContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации обертки иконки"
+      },
+      {
+        "name": "size",
+        "type": "TMainSize",
+        "required": false,
+        "defaultValue": "64",
+        "description": "Размер компонента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,1368 @@
+{
+  "CalendarResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "headerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс шапки десктопного календаря"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контента десктопного календаря"
+      },
+      {
+        "name": "defaultView",
+        "type": "View",
+        "required": false,
+        "description": "Вид по умолчанию (выбор дней, месяцев, лет)"
+      },
+      {
+        "name": "selectorView",
+        "type": "SelectorView",
+        "required": false,
+        "description": "Вид шапки — месяц и год или только месяц"
+      },
+      {
+        "name": "value",
+        "type": "number | { dateFrom?: number; dateTo?: number; } | undefined",
+        "required": false,
+        "description": "Выбранная дата (timestamp)"
+      },
+      {
+        "name": "mode",
+        "type": "\"single\" | \"range\"",
+        "required": false,
+        "defaultValue": "single",
+        "description": "Режим выбора дат"
+      },
+      {
+        "name": "rangeBehavior",
+        "type": "\"clarification\" | \"reset\"",
+        "required": false,
+        "defaultValue": "clarification",
+        "description": "Тип выбора границ в календаре"
+      },
+      {
+        "name": "month",
+        "type": "number",
+        "required": false,
+        "description": "Открытый месяц (timestamp)"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "number",
+        "required": false,
+        "description": "Месяц, открытый по умолчанию (timestamp)"
+      },
+      {
+        "name": "minDate",
+        "type": "number",
+        "required": false,
+        "description": "Минимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "maxDate",
+        "type": "number",
+        "required": false,
+        "description": "Максимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "selectedFrom",
+        "type": "number",
+        "required": false,
+        "description": "Начало выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'"
+      },
+      {
+        "name": "selectedTo",
+        "type": "number",
+        "required": false,
+        "description": "Конец выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'"
+      },
+      {
+        "name": "rangeComplete",
+        "type": "boolean",
+        "required": false,
+        "description": "Индикатор, что выбран полный период"
+      },
+      {
+        "name": "events",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список событий"
+      },
+      {
+        "name": "offDays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список отключенных для выбора дней."
+      },
+      {
+        "name": "holidays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список выходных"
+      },
+      {
+        "name": "onMonthChange",
+        "type": "((month: number) => void)",
+        "required": false,
+        "description": "Обработчик изменения месяца (или года)"
+      },
+      {
+        "name": "onChange",
+        "type": "((date?: number, dateTo?: number) => void) | undefined",
+        "required": false,
+        "description": "Обработчик выбора даты"
+      },
+      {
+        "name": "onMonthClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку месяца"
+      },
+      {
+        "name": "onYearClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку года"
+      },
+      {
+        "name": "onPeriodClick",
+        "type": "((event: MouseEvent<HTMLAnchorElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на период"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "hasHeader",
+        "type": "boolean",
+        "required": false,
+        "description": "Нужно ли рендерить шапку календаря\nНужно ли рендерить шапку"
+      },
+      {
+        "name": "responsive",
+        "type": "boolean",
+        "required": false,
+        "description": "Должен ли календарь подстраиваться под ширину родителя."
+      },
+      {
+        "name": "dayAddons",
+        "type": "DayAddons[]",
+        "required": false,
+        "description": "Дополнительный контент под числом"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма ячейки дня"
+      },
+      {
+        "name": "showCurrentYearSelector",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отображать ли текущий год, если selectorView 'month-only'"
+      },
+      {
+        "name": "hideDisabledArrows",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "CalendarDesktop используется в мобильной и десктопной версии\nПропс позволяет определить платформу"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Заголовок календаря"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "onClose",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик закрытия модалки"
+      },
+      {
+        "name": "allowSelectionFromEmptyRange",
+        "type": "boolean",
+        "required": false,
+        "description": "Разрешить выбор из недозаполненного диапазона дат."
+      },
+      {
+        "name": "onApply",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик клика на кнопку выбрать"
+      },
+      {
+        "name": "clickableMonth",
+        "type": "boolean",
+        "required": false,
+        "description": "При клике на месяц будут выбраны все доступные дни месяца"
+      },
+      {
+        "name": "cancelButtonContent",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Отмена",
+        "description": "Контент кнопки \"Отмена\""
+      },
+      {
+        "name": "selectButtonContent",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Выбрать",
+        "description": "Контент кнопки \"Выбрать\""
+      },
+      {
+        "name": "resetButtonContent",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Сбросить",
+        "description": "Контент кнопки \"Сбросить\""
+      },
+      {
+        "name": "onMonthTitleClick",
+        "type": "((event: MouseEvent<HTMLSpanElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика на название месяца в мобильном календаре"
+      },
+      {
+        "name": "yearsAmount",
+        "type": "number",
+        "required": false,
+        "description": "Количество лет для генерации в обе стороны от текущего года"
+      },
+      {
+        "name": "scrollableContainer",
+        "type": "HTMLElement",
+        "required": false,
+        "description": "Родительский контейнер для отслеживания скролла"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"mobile\" | \"desktop\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CalendarMonthOnlyView": {
+    "description": "",
+    "props": [
+      {
+        "name": "onMonthTitleClick",
+        "type": "((event: MouseEvent<HTMLSpanElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика на название месяца в мобильном календаре"
+      },
+      {
+        "name": "yearsAmount",
+        "type": "number",
+        "required": false,
+        "defaultValue": 3,
+        "description": "Количество лет для генерации в обе стороны от текущего года"
+      },
+      {
+        "name": "scrollableContainer",
+        "type": "HTMLElement",
+        "required": false,
+        "description": "Родительский контейнер для отслеживания скролла"
+      },
+      {
+        "name": "value",
+        "type": "number | { dateFrom?: number; dateTo?: number; } | undefined",
+        "required": false,
+        "description": "Выбранная дата (timestamp)"
+      },
+      {
+        "name": "mode",
+        "type": "\"single\" | \"range\"",
+        "required": false,
+        "defaultValue": "single",
+        "description": "Режим выбора дат"
+      },
+      {
+        "name": "rangeBehavior",
+        "type": "\"clarification\" | \"reset\"",
+        "required": false,
+        "defaultValue": "clarification",
+        "description": "Тип выбора границ в календаре"
+      },
+      {
+        "name": "month",
+        "type": "number",
+        "required": false,
+        "description": "Открытый месяц (timestamp)"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "number",
+        "required": false,
+        "description": "Месяц, открытый по умолчанию (timestamp)"
+      },
+      {
+        "name": "minDate",
+        "type": "number",
+        "required": false,
+        "description": "Минимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "maxDate",
+        "type": "number",
+        "required": false,
+        "description": "Максимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "selectedFrom",
+        "type": "number",
+        "required": false,
+        "description": "Начало выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'"
+      },
+      {
+        "name": "selectedTo",
+        "type": "number",
+        "required": false,
+        "description": "Конец выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'"
+      },
+      {
+        "name": "events",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список событий"
+      },
+      {
+        "name": "offDays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список отключенных для выбора дней."
+      },
+      {
+        "name": "holidays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список выходных"
+      },
+      {
+        "name": "onChange",
+        "type": "((date?: number, dateTo?: number) => void) | undefined",
+        "required": false,
+        "description": "Обработчик выбора даты"
+      },
+      {
+        "name": "onMonthClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку месяца"
+      },
+      {
+        "name": "dayAddons",
+        "type": "DayAddons[]",
+        "required": false,
+        "description": "Дополнительный контент под числом"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rounded",
+        "description": "Форма ячейки дня"
+      },
+      {
+        "name": "hideDisabledArrows",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "CalendarDesktop используется в мобильной и десктопной версии\nПропс позволяет определить платформу"
+      },
+      {
+        "name": "clickableMonth",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CalendarMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Календарь",
+        "description": "Заголовок календаря"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "onClose",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик закрытия модалки"
+      },
+      {
+        "name": "allowSelectionFromEmptyRange",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Разрешить выбор из недозаполненного диапазона дат."
+      },
+      {
+        "name": "hasHeader",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Нужно ли рендерить шапку\nНужно ли рендерить шапку календаря"
+      },
+      {
+        "name": "onApply",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик клика на кнопку выбрать"
+      },
+      {
+        "name": "clickableMonth",
+        "type": "boolean",
+        "required": false,
+        "description": "При клике на месяц будут выбраны все доступные дни месяца"
+      },
+      {
+        "name": "cancelButtonContent",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Отмена",
+        "description": "Контент кнопки \"Отмена\""
+      },
+      {
+        "name": "selectButtonContent",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Выбрать",
+        "description": "Контент кнопки \"Выбрать\""
+      },
+      {
+        "name": "resetButtonContent",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Сбросить",
+        "description": "Контент кнопки \"Сбросить\""
+      },
+      {
+        "name": "onMonthTitleClick",
+        "type": "((event: MouseEvent<HTMLSpanElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика на название месяца в мобильном календаре"
+      },
+      {
+        "name": "yearsAmount",
+        "type": "number",
+        "required": false,
+        "defaultValue": 3,
+        "description": "Количество лет для генерации в обе стороны от текущего года"
+      },
+      {
+        "name": "scrollableContainer",
+        "type": "HTMLElement",
+        "required": false,
+        "description": "Родительский контейнер для отслеживания скролла"
+      },
+      {
+        "name": "value",
+        "type": "number | { dateFrom?: number; dateTo?: number; } | undefined",
+        "required": false,
+        "description": "Выбранная дата (timestamp)"
+      },
+      {
+        "name": "mode",
+        "type": "\"single\" | \"range\"",
+        "required": false,
+        "defaultValue": "single",
+        "description": "Режим выбора дат"
+      },
+      {
+        "name": "rangeBehavior",
+        "type": "\"clarification\" | \"reset\"",
+        "required": false,
+        "defaultValue": "clarification",
+        "description": "Тип выбора границ в календаре"
+      },
+      {
+        "name": "month",
+        "type": "number",
+        "required": false,
+        "description": "Открытый месяц (timestamp)"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "number",
+        "required": false,
+        "description": "Месяц, открытый по умолчанию (timestamp)"
+      },
+      {
+        "name": "minDate",
+        "type": "number",
+        "required": false,
+        "description": "Минимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "maxDate",
+        "type": "number",
+        "required": false,
+        "description": "Максимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "selectedFrom",
+        "type": "number",
+        "required": false,
+        "description": "Начало выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'"
+      },
+      {
+        "name": "selectedTo",
+        "type": "number",
+        "required": false,
+        "description": "Конец выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'"
+      },
+      {
+        "name": "events",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список событий"
+      },
+      {
+        "name": "offDays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список отключенных для выбора дней."
+      },
+      {
+        "name": "holidays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список выходных"
+      },
+      {
+        "name": "onChange",
+        "type": "((date?: number, dateTo?: number) => void) | undefined",
+        "required": false,
+        "description": "Обработчик выбора даты"
+      },
+      {
+        "name": "onMonthClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку месяца"
+      },
+      {
+        "name": "dayAddons",
+        "type": "DayAddons[]",
+        "required": false,
+        "description": "Дополнительный контент под числом"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма ячейки дня"
+      },
+      {
+        "name": "hideDisabledArrows",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "CalendarDesktop используется в мобильной и десктопной версии\nПропс позволяет определить платформу"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "defaultView",
+        "type": "View",
+        "required": false,
+        "defaultValue": "days",
+        "description": "Вид по умолчанию (выбор дней, месяцев, лет)"
+      },
+      {
+        "name": "selectorView",
+        "type": "SelectorView",
+        "required": false,
+        "defaultValue": "full",
+        "description": "Вид шапки — месяц и год или только месяц"
+      },
+      {
+        "name": "rangeComplete",
+        "type": "boolean",
+        "required": false,
+        "description": "Индикатор, что выбран полный период"
+      },
+      {
+        "name": "onMonthChange",
+        "type": "((month: number) => void)",
+        "required": false,
+        "description": "Обработчик изменения месяца (или года)"
+      },
+      {
+        "name": "onYearClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку года"
+      },
+      {
+        "name": "onPeriodClick",
+        "type": "((event: MouseEvent<HTMLAnchorElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на период"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "responsive",
+        "type": "boolean",
+        "required": false,
+        "description": "Должен ли календарь подстраиваться под ширину родителя."
+      },
+      {
+        "name": "showCurrentYearSelector",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отображать ли текущий год, если selectorView 'month-only'"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "DaysTable": {
+    "description": "",
+    "props": [
+      {
+        "name": "weeks",
+        "type": "Day[][]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Массив-календарь недель"
+      },
+      {
+        "name": "activeMonth",
+        "type": "Date",
+        "required": false,
+        "defaultValue": "new Date()",
+        "description": "Активный месяц"
+      },
+      {
+        "name": "selectedFrom",
+        "type": "number | Date",
+        "required": false,
+        "description": "Начало выделенного периода"
+      },
+      {
+        "name": "selectedTo",
+        "type": "number | Date",
+        "required": false,
+        "description": "Конец выделенного периода"
+      },
+      {
+        "name": "rangeComplete",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "selectedFrom && selectedTo",
+        "description": "Индикатор, что выбран полный период"
+      },
+      {
+        "name": "highlighted",
+        "type": "number | Date",
+        "required": false,
+        "description": "Подсвеченная дата (ховер)"
+      },
+      {
+        "name": "getDayProps",
+        "type": "(day: Day) => Record<string, unknown> & { ref: (instance: HTMLTableDataCellElement | null) => void; onClick: (e: MouseEvent<HTMLTableDataCellElement, MouseEvent>) => void; }",
+        "required": true,
+        "description": "Доп. пропсы для переданного дня"
+      },
+      {
+        "name": "hasHeader",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Нужно ли рендерить шапку"
+      },
+      {
+        "name": "responsive",
+        "type": "boolean",
+        "required": false,
+        "description": "Должен ли календарь подстраиваться под ширину родителя."
+      },
+      {
+        "name": "dayAddons",
+        "type": "DayAddons[]",
+        "required": false,
+        "description": "Дополнительный контент под числом"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rounded",
+        "description": "Форма ячейки дня"
+      },
+      {
+        "name": "withTransition",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Рендерит компонент, обернутый в Transition"
+      }
+    ]
+  },
+  "Header": {
+    "description": "",
+    "props": [
+      {
+        "name": "view",
+        "type": "SelectorView",
+        "required": false,
+        "defaultValue": "full",
+        "description": "Вид шапки — месяц и год или только месяц"
+      },
+      {
+        "name": "withShadow",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображать тень? (нужна при прокрутке)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      }
+    ]
+  },
+  "MonthYearHeader": {
+    "description": "",
+    "props": [
+      {
+        "name": "value",
+        "type": "Date",
+        "required": false,
+        "description": "Активная дата"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "onMonthClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку месяца"
+      },
+      {
+        "name": "onYearClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку года"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Мобильная версия компонента"
+      }
+    ]
+  },
+  "MonthsTable": {
+    "description": "",
+    "props": [
+      {
+        "name": "months",
+        "type": "Month[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Массив месяцев"
+      },
+      {
+        "name": "selectedMonth",
+        "type": "Date",
+        "required": false,
+        "description": "Выбранный месяц"
+      },
+      {
+        "name": "getMonthProps",
+        "type": "(day: Month) => Record<string, unknown>",
+        "required": true,
+        "description": "Доп пропсы для переданного месяца"
+      },
+      {
+        "name": "responsive",
+        "type": "boolean",
+        "required": false,
+        "description": "Должен ли календарь подстраиваться под ширину родителя."
+      }
+    ]
+  },
+  "PeriodSlider": {
+    "description": "",
+    "props": [
+      {
+        "name": "value",
+        "type": "Date | [Date, Date]",
+        "required": false,
+        "description": "Активная дата или период"
+      },
+      {
+        "name": "periodType",
+        "type": "PeriodType",
+        "required": false,
+        "defaultValue": "month",
+        "description": "Тип периода"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "prevArrowDisabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отключает кнопку назад"
+      },
+      {
+        "name": "nextArrowDisabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отключает кнопку вперед"
+      },
+      {
+        "name": "hideDisabledArrows",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Скрывает заблокированные кнопки"
+      },
+      {
+        "name": "isMonthAndYearSelectable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Возможность выбора месяца и года, если periodType 'month'"
+      },
+      {
+        "name": "showCurrentYearSelector",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отображать ли текущий год, если isMonthAndYearSelectable true"
+      },
+      {
+        "name": "periodFormatter",
+        "type": "((valueFrom: Date, valueTo: Date, periodType: PeriodType) => string)",
+        "required": false,
+        "defaultValue": "(\n    valueFrom: Date,\n    valueTo: Date,\n    periodType: PeriodType,\n    showCurrentYear?: boolean,\n) => {\n    if (periodType === 'day') {\n        if (isToday(valueFrom)) return 'Сегодня';\n        if (isYesterday(valueFrom)) return 'Вчера';\n\n        return formatDate(valueFrom);\n    }\n\n    if (periodType === 'month') {\n        const monthAndYear = `${monthName(valueFrom)} ${getYear(valueFrom)}`;\n\n        if (showCurrentYear) {\n            return monthAndYear;\n        }\n        const year = getYear(valueFrom);\n\n        return year === getYear(new Date()) ? monthName(valueFrom) : monthAndYear;\n    }\n\n    if (periodType === 'quarter') {\n        return `${getQuarter(valueFrom)} квартал ${getYear(valueFrom)}`;\n    }\n\n    if (periodType === 'year') {\n        return `${getYear(valueFrom)} год`;\n    }\n\n    return `${formatDate(valueFrom)} - ${formatDate(valueTo)}`;\n}",
+        "description": "Функция для форматирование выбранного периода"
+      },
+      {
+        "name": "onPrevArrowClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { value: Date; valueFrom: Date; valueTo: Date; periodType: PeriodType; }) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик нажатия кнопки переключения на назад"
+      },
+      {
+        "name": "onNextArrowClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { value: Date; valueFrom: Date; valueTo: Date; periodType: PeriodType; }) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик нажатия кнопки переключения на вперед"
+      },
+      {
+        "name": "onMonthClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на селектор месяца"
+      },
+      {
+        "name": "onYearClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на селектор года"
+      },
+      {
+        "name": "onPeriodClick",
+        "type": "((event: MouseEvent<HTMLAnchorElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на период"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "defaultValue": "period-slider",
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "emptyValueText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Укажите период",
+        "description": "Отображаемый текст, когда слайдеру не переданы значения c датами value={...}"
+      }
+    ]
+  },
+  "SelectButton": {
+    "description": "",
+    "props": [
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"reset\" | \"submit\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"filled\" | \"current\" | \"selected\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Вид кнопки"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "YearsTable": {
+    "description": "",
+    "props": [
+      {
+        "name": "years",
+        "type": "Date[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Массив лет"
+      },
+      {
+        "name": "selectedYear",
+        "type": "Date",
+        "required": false,
+        "description": "Выбранный год"
+      },
+      {
+        "name": "getYearProps",
+        "type": "(year: Date) => Record<string, unknown>",
+        "required": true,
+        "description": "Доп. пропсы для переданного года"
+      },
+      {
+        "name": "responsive",
+        "type": "boolean",
+        "required": false,
+        "description": "Должен ли календарь подстраиваться под ширину родителя."
+      }
+    ]
+  },
+  "CalendarDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "headerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс шапки десктопного календаря"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контента десктопного календаря"
+      },
+      {
+        "name": "defaultView",
+        "type": "View",
+        "required": false,
+        "defaultValue": "days",
+        "description": "Вид по умолчанию (выбор дней, месяцев, лет)"
+      },
+      {
+        "name": "selectorView",
+        "type": "SelectorView",
+        "required": false,
+        "defaultValue": "full",
+        "description": "Вид шапки — месяц и год или только месяц"
+      },
+      {
+        "name": "value",
+        "type": "number | { dateFrom?: number; dateTo?: number; } | undefined",
+        "required": false,
+        "description": "Выбранная дата (timestamp)"
+      },
+      {
+        "name": "mode",
+        "type": "\"single\" | \"range\"",
+        "required": false,
+        "defaultValue": "single",
+        "description": "Режим выбора дат"
+      },
+      {
+        "name": "rangeBehavior",
+        "type": "\"clarification\" | \"reset\"",
+        "required": false,
+        "defaultValue": "clarification",
+        "description": "Тип выбора границ в календаре"
+      },
+      {
+        "name": "month",
+        "type": "number",
+        "required": false,
+        "description": "Открытый месяц (timestamp)"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "number",
+        "required": false,
+        "description": "Месяц, открытый по умолчанию (timestamp)"
+      },
+      {
+        "name": "minDate",
+        "type": "number",
+        "required": false,
+        "description": "Минимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "maxDate",
+        "type": "number",
+        "required": false,
+        "description": "Максимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "selectedFrom",
+        "type": "number",
+        "required": false,
+        "description": "Начало выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'"
+      },
+      {
+        "name": "selectedTo",
+        "type": "number",
+        "required": false,
+        "description": "Конец выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'"
+      },
+      {
+        "name": "rangeComplete",
+        "type": "boolean",
+        "required": false,
+        "description": "Индикатор, что выбран полный период"
+      },
+      {
+        "name": "events",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список событий"
+      },
+      {
+        "name": "offDays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список отключенных для выбора дней."
+      },
+      {
+        "name": "holidays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список выходных"
+      },
+      {
+        "name": "onMonthChange",
+        "type": "((month: number) => void)",
+        "required": false,
+        "description": "Обработчик изменения месяца (или года)"
+      },
+      {
+        "name": "onChange",
+        "type": "((date?: number, dateTo?: number) => void) | undefined",
+        "required": false,
+        "description": "Обработчик выбора даты"
+      },
+      {
+        "name": "onMonthClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку месяца"
+      },
+      {
+        "name": "onYearClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку года"
+      },
+      {
+        "name": "onPeriodClick",
+        "type": "((event: MouseEvent<HTMLAnchorElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на период"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "hasHeader",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Нужно ли рендерить шапку календаря"
+      },
+      {
+        "name": "responsive",
+        "type": "boolean",
+        "required": false,
+        "description": "Должен ли календарь подстраиваться под ширину родителя."
+      },
+      {
+        "name": "dayAddons",
+        "type": "DayAddons[]",
+        "required": false,
+        "description": "Дополнительный контент под числом"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rounded",
+        "description": "Форма ячейки дня"
+      },
+      {
+        "name": "showCurrentYearSelector",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отображать ли текущий год, если selectorView 'month-only'"
+      },
+      {
+        "name": "hideDisabledArrows",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "CalendarDesktop используется в мобильной и десктопной версии\nПропс позволяет определить платформу"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

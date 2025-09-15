@@ -1,0 +1,663 @@
+{
+  "Tag": {
+    "description": "",
+    "props": [
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик нажатия"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки в отмеченном (зажатом) состоянии"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "childrenClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обёртки children"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "childrenRef",
+        "type": "RefObject<HTMLSpanElement>",
+        "required": false,
+        "description": "ref на children"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "variant",
+        "type": "\"default\" | \"alt\"",
+        "required": false,
+        "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега"
+      },
+      {
+        "name": "view",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "defaultValue": "outlined",
+        "description": "Стиль тега"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "BaseTag": {
+    "description": "",
+    "props": [
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки в отмеченном (зажатом) состоянии"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": 48,
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "childrenClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обёртки children"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик нажатия"
+      },
+      {
+        "name": "childrenRef",
+        "type": "RefObject<HTMLSpanElement>",
+        "required": false,
+        "description": "ref на children"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "variant",
+        "type": "\"default\" | \"alt\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега"
+      },
+      {
+        "name": "view",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "defaultValue": "outlined",
+        "description": "Стиль тега"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "styles",
+        "type": "{ [key: string]: string; }",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Основные стили компонента."
+      },
+      {
+        "name": "colorStylesMap",
+        "type": "StyleColors",
+        "required": false,
+        "defaultValue": "{ default: {}, inverted: {} }",
+        "description": "Стили компонента для default и inverted режима."
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "TagDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик нажатия"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки в отмеченном (зажатом) состоянии"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "childrenClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обёртки children"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "childrenRef",
+        "type": "RefObject<HTMLSpanElement>",
+        "required": false,
+        "description": "ref на children"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "variant",
+        "type": "\"default\" | \"alt\"",
+        "required": false,
+        "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега"
+      },
+      {
+        "name": "view",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "defaultValue": "outlined",
+        "description": "Стиль тега"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "TagMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик нажатия"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки в отмеченном (зажатом) состоянии"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "childrenClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обёртки children"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "childrenRef",
+        "type": "RefObject<HTMLSpanElement>",
+        "required": false,
+        "description": "ref на children"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "variant",
+        "type": "\"default\" | \"alt\"",
+        "required": false,
+        "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега"
+      },
+      {
+        "name": "view",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "defaultValue": "outlined",
+        "description": "Стиль тега"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

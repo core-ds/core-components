@@ -1,0 +1,1701 @@
+{
+  "Gallery": {
+    "description": "",
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью"
+      },
+      {
+        "name": "images",
+        "type": "GalleryImage[]",
+        "required": true,
+        "description": "Массив изображений"
+      },
+      {
+        "name": "loop",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Зациклить галерею"
+      },
+      {
+        "name": "initialSlide",
+        "type": "number",
+        "required": false,
+        "defaultValue": 0,
+        "description": "Индекс открытого изображение"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": true,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "slideIndex",
+        "type": "number",
+        "required": false,
+        "description": "Индекс текущего изображения"
+      },
+      {
+        "name": "onSlideIndexChange",
+        "type": "((index: number) => void)",
+        "required": false,
+        "description": "Обработчик изменения текущего изображения"
+      },
+      {
+        "name": "popupClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для попапа"
+      }
+    ]
+  },
+  "BottomButton": {
+    "description": "",
+    "props": [
+      {
+        "name": "onClick",
+        "type": "(e: MouseEvent<Element, MouseEvent>) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "bottomButton",
+        "type": "TBottomButton",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "Fullscreen": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "BackArrow": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Play": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Pause": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ExitFullscreen": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "MuteVideo": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "UnmuteVideo": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Download": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Share": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Exit": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | 24 | 32 | 40 | 48 | 56",
+        "required": false,
+        "description": "Размер компонента\n@description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"submit\" | \"reset\" | \"button\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\"",
+        "required": false,
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "transparentBg",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Включает прозрачный фон"
+      },
+      {
+        "name": "alignIcon",
+        "type": "\"center\" | \"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "'center'",
+        "description": "Выравнивание иконки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "buttonRef",
+        "type": "MutableRefObject<HTMLButtonElement | null>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "HeaderInfoBlock": {
+    "description": "",
+    "props": [
+      {
+        "name": "filename",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Header": {
+    "description": "",
+    "props": []
+  },
+  "ImagePreview": {
+    "description": "",
+    "props": [
+      {
+        "name": "image",
+        "type": "GalleryImage",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "onSelect",
+        "type": "(index: number) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "ImageViewer": {
+    "description": "",
+    "props": []
+  },
+  "Single": {
+    "description": "",
+    "props": []
+  },
+  "Slide": {
+    "description": "",
+    "props": [
+      {
+        "name": "isActive",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "image",
+        "type": "GalleryImage",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "meta",
+        "type": "ImageMeta",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "containerAspectRatio",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "imageAspectRatio",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "containerHeight",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "slideVisible",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "Video": {
+    "description": "",
+    "props": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "isActive",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "NavigationBar": {
+    "description": "",
+    "props": []
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "BaseModal": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "Backdrop",
+        "type": "ComponentType<BackdropProps>",
+        "required": false,
+        "defaultValue": "({\n    className,\n    open = false,\n    invisible = false,\n    timeout = 200,\n    children,\n    onClose,\n    dataTestId,\n    transitionClassNames = styles,\n    transparent = false,\n    ...restProps\n}) => {\n    const nodeRef = useRef(null);\n\n    return (\n        <CSSTransition\n            timeout={timeout}\n            unmountOnExit={true}\n            classNames={transitionClassNames}\n            in={!invisible && open}\n            appear={true}\n            {...restProps}\n            nodeRef={nodeRef}\n        >\n            <div\n                ref={nodeRef}\n                aria-hidden={true}\n                onClick={onClose}\n                data-test-id={dataTestId}\n                className={cn(styles.backdrop, className, {\n                    [styles.transparent]: transparent,\n                })}\n            >\n                {children}\n            </div>\n        </CSSTransition>\n    );\n}",
+        "description": "Компонент бэкдропа"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отключает автоматический перевод фокуса на модалку при открытии"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отключает вызов `callback` при нажатии Escape"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Содержимое модалки всегда в DOM"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на dialog wrapper"
+      },
+      {
+        "name": "contentProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на обертку контента"
+      },
+      {
+        "name": "componentDivProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на компонентную обертку контента"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "scrollHandler",
+        "type": "\"wrapper\" | \"content\" | MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "defaultValue": "wrapper",
+        "description": "Обработчик скролла контента"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "onBackdropClick",
+        "type": "((event: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на бэкдроп"
+      },
+      {
+        "name": "onEscapeKeyDown",
+        "type": "((event: KeyboardEvent<Element>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onMount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onEntered компонента Transition"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "defaultValue": 100,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "componentRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "defaultValue": null,
+        "description": "Реф, который должен быть установлен компонентной области"
+      },
+      {
+        "name": "contentElementRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "defaultValue": null,
+        "description": "Реф контентной области"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS."
+      },
+      {
+        "name": "onWheel",
+        "type": "((e: WheelEvent<HTMLElement>) => void)",
+        "required": false,
+        "description": "Хэндлер события прокрутки колесиком"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,5264 @@
+{
+  "Pagination": {
+    "description": "",
+    "props": [
+      {
+        "name": "currentPageIndex",
+        "type": "number",
+        "required": true,
+        "description": "Текущая страница (с нуля)"
+      },
+      {
+        "name": "pagesCount",
+        "type": "number",
+        "required": true,
+        "description": "Количество страниц"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "hideArrows",
+        "type": "boolean",
+        "required": false,
+        "description": "Скрывает стрелки, если выбрана первая или последняя страница"
+      },
+      {
+        "name": "sidePadding",
+        "type": "number",
+        "required": false,
+        "description": "Количество видимых страниц по бокам"
+      },
+      {
+        "name": "activePadding",
+        "type": "number",
+        "required": false,
+        "description": "Количество видимых страниц вокруг выбранной"
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"per-page\"",
+        "required": false,
+        "description": "Режим пагинации"
+      },
+      {
+        "name": "onPageChange",
+        "type": "((pageIndex: number) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик переключения страницы"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "perPage",
+        "type": "number",
+        "required": false,
+        "defaultValue": 25,
+        "description": "Количество строк на страницу"
+      },
+      {
+        "name": "possiblePerPage",
+        "type": "number[]",
+        "required": false,
+        "defaultValue": "[25, 50, 100]",
+        "description": "Возможные варианты разбивки"
+      },
+      {
+        "name": "onPerPageChange",
+        "type": "((perPage: number) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик переключения perPage"
+      },
+      {
+        "name": "hidePerPageSelect",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Скрывает переключатель количества строк на страницу"
+      }
+    ]
+  },
+  "Table": {
+    "description": "",
+    "props": [
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\" | \"right\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "bgcolor",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "border",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cellPadding",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cellSpacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "frame",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rules",
+        "type": "\"none\" | \"groups\" | \"rows\" | \"columns\" | \"all\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "summary",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "compactView",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Компактный вид"
+      },
+      {
+        "name": "compactHorizontal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Уменьшение горизонтальных паддингов"
+      },
+      {
+        "name": "wrapper",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Оборачивает таблицу в стилизованный контейнер"
+      },
+      {
+        "name": "pagination",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот для пагинации"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "stickyHeader",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Если true то заголовок будет фиксироваться при скроле"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLTableElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "TBody": {
+    "description": "",
+    "props": [
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLTableSectionElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "TCell": {
+    "description": "",
+    "props": [
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\" | \"right\" | \"justify\" | \"char\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colSpan",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "headers",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rowSpan",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scope",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "abbr",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "valign",
+        "type": "\"top\" | \"middle\" | \"bottom\" | \"baseline\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": false,
+        "description": "Устанавливается автоматически и позволяет использовать конфиг для соответствующего индекса"
+      }
+    ]
+  },
+  "TExpandableRow": {
+    "description": "",
+    "props": [
+      {
+        "name": "selected",
+        "type": "boolean",
+        "required": false,
+        "description": "Стиль выбранной строки"
+      },
+      {
+        "name": "withoutBorder",
+        "type": "boolean",
+        "required": false,
+        "description": "Убирает нижнюю границу"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "defaultExpanded",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "onToggle",
+        "type": "((expanded: boolean) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": ""
+      },
+      {
+        "name": "renderContent",
+        "type": "(expanded: boolean) => ReactNode",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": ""
+      },
+      {
+        "name": "rowRef",
+        "type": "Ref<HTMLTableRowElement>",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLTableRowElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "THeadCell": {
+    "description": "",
+    "props": [
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\" | \"right\" | \"justify\" | \"char\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colSpan",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "headers",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rowSpan",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scope",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "abbr",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": "Ширина колонки"
+      },
+      {
+        "name": "textAlign",
+        "type": "TextAlignProperty",
+        "required": false,
+        "description": "Выравнивание текста в колонке"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "THead": {
+    "description": "",
+    "props": [
+      {
+        "name": "rowClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для tr"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "TRow": {
+    "description": "",
+    "props": [
+      {
+        "name": "selected",
+        "type": "boolean",
+        "required": false,
+        "description": "Стиль выбранной строки"
+      },
+      {
+        "name": "withoutBorder",
+        "type": "boolean",
+        "required": false,
+        "description": "Убирает нижнюю границу"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLTableRowElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "TSortableHeadCell": {
+    "description": "",
+    "props": [
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\" | \"right\" | \"justify\" | \"char\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colSpan",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "headers",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rowSpan",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scope",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "abbr",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": "Ширина колонки"
+      },
+      {
+        "name": "textAlign",
+        "type": "TextAlignProperty",
+        "required": false,
+        "description": "Выравнивание текста в колонке"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "isSortedDesc",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "defaultIsSortedDesc",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "onSort",
+        "type": "(() => void)",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "SortIconAsc": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "method",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "role",
+        "type": "AriaRole",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "tabIndex",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "accentHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "accumulate",
+        "type": "\"none\" | \"sum\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "additive",
+        "type": "\"sum\" | \"replace\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alignmentBaseline",
+        "type": "\"inherit\" | \"middle\" | \"baseline\" | \"alphabetic\" | \"hanging\" | \"ideographic\" | \"mathematical\" | \"auto\" | \"before-edge\" | \"text-before-edge\" | \"central\" | \"after-edge\" | \"text-after-edge\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "allowReorder",
+        "type": "\"yes\" | \"no\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alphabetic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "amplitude",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "arabicForm",
+        "type": "\"initial\" | \"medial\" | \"terminal\" | \"isolated\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ascent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "attributeName",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "attributeType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoReverse",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "azimuth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baseFrequency",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baselineShift",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baseProfile",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "bbox",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "begin",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "bias",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "by",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "calcMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clip",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipPath",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipPathUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipRule",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorInterpolation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorInterpolationFilters",
+        "type": "\"inherit\" | \"auto\" | \"sRGB\" | \"linearRGB\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorProfile",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "contentScriptType",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "contentStyleType",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cursor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "d",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "decelerate",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "descent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "diffuseConstant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "direction",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "display",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "divisor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dominantBaseline",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dur",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "edgeMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "elevation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "enableBackground",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "end",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "exponent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "externalResourcesRequired",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fillOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fillRule",
+        "type": "\"inherit\" | \"nonzero\" | \"evenodd\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filter",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filterRes",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filterUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "floodColor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "floodOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "focusable",
+        "type": "Booleanish | \"auto\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontFamily",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontSize",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontSizeAdjust",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontStretch",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontStyle",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontVariant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontWeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "format",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fr",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "from",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "g1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "g2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphName",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphOrientationHorizontal",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphOrientationVertical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphRef",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "gradientTransform",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "gradientUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hanging",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "horizAdvX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "horizOriginX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ideographic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "imageRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "in2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "in",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "intercept",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k3",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k4",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kernelMatrix",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kernelUnitLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kerning",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keyPoints",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keySplines",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keyTimes",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lengthAdjust",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "letterSpacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lightingColor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "limitingConeAngle",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "local",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerEnd",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerMid",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerStart",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerWidth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mask",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maskContentUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maskUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mathematical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "numOctaves",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "opacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "operator",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "order",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "orient",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "origin",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overflow",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overlinePosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overlineThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "paintOrder",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "panose1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "path",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pathLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternContentUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternTransform",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointerEvents",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "points",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtZ",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "preserveAlpha",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "preserveAspectRatio",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "primitiveUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "r",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "radius",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "refX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "refY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "renderingIntent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "repeatCount",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "repeatDur",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "requiredExtensions",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "requiredFeatures",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "restart",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rotate",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ry",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scale",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "seed",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "shapeRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "slope",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "spacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "specularConstant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "specularExponent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "speed",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "spreadMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "startOffset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stdDeviation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stemh",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stemv",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stitchTiles",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stopColor",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stopOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strikethroughPosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strikethroughThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "string",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stroke",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeDasharray",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeDashoffset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeLinecap",
+        "type": "\"inherit\" | \"butt\" | \"round\" | \"square\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeLinejoin",
+        "type": "\"inherit\" | \"round\" | \"miter\" | \"bevel\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeMiterlimit",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeWidth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "surfaceScale",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "systemLanguage",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "tableValues",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "targetX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "targetY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textAnchor",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textDecoration",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "to",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "transform",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "u1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "u2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "underlinePosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "underlineThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicodeBidi",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicodeRange",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unitsPerEm",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vAlphabetic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "values",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vectorEffect",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertAdvY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertOriginX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertOriginY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vHanging",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vIdeographic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "viewBox",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "viewTarget",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "visibility",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vMathematical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "widths",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "wordSpacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "writingMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xChannelSelector",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkActuate",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkArcrole",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkHref",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkRole",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkShow",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkTitle",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlBase",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlns",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlnsXlink",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlSpace",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "yChannelSelector",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "z",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "zoomAndPan",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "LegacyRef<SVGSVGElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "SortIconDesc": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "method",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "role",
+        "type": "AriaRole",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "tabIndex",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "accentHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "accumulate",
+        "type": "\"none\" | \"sum\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "additive",
+        "type": "\"sum\" | \"replace\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alignmentBaseline",
+        "type": "\"inherit\" | \"middle\" | \"baseline\" | \"alphabetic\" | \"hanging\" | \"ideographic\" | \"mathematical\" | \"auto\" | \"before-edge\" | \"text-before-edge\" | \"central\" | \"after-edge\" | \"text-after-edge\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "allowReorder",
+        "type": "\"yes\" | \"no\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alphabetic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "amplitude",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "arabicForm",
+        "type": "\"initial\" | \"medial\" | \"terminal\" | \"isolated\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ascent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "attributeName",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "attributeType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoReverse",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "azimuth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baseFrequency",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baselineShift",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baseProfile",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "bbox",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "begin",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "bias",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "by",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "calcMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clip",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipPath",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipPathUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipRule",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorInterpolation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorInterpolationFilters",
+        "type": "\"inherit\" | \"auto\" | \"sRGB\" | \"linearRGB\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorProfile",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "contentScriptType",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "contentStyleType",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cursor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "d",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "decelerate",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "descent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "diffuseConstant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "direction",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "display",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "divisor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dominantBaseline",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dur",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "edgeMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "elevation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "enableBackground",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "end",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "exponent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "externalResourcesRequired",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fillOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fillRule",
+        "type": "\"inherit\" | \"nonzero\" | \"evenodd\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filter",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filterRes",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filterUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "floodColor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "floodOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "focusable",
+        "type": "Booleanish | \"auto\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontFamily",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontSize",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontSizeAdjust",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontStretch",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontStyle",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontVariant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontWeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "format",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fr",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "from",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "g1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "g2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphName",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphOrientationHorizontal",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphOrientationVertical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphRef",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "gradientTransform",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "gradientUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hanging",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "horizAdvX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "horizOriginX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ideographic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "imageRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "in2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "in",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "intercept",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k3",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k4",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kernelMatrix",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kernelUnitLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kerning",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keyPoints",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keySplines",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keyTimes",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lengthAdjust",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "letterSpacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lightingColor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "limitingConeAngle",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "local",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerEnd",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerMid",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerStart",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerWidth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mask",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maskContentUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maskUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mathematical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "numOctaves",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "opacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "operator",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "order",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "orient",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "origin",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overflow",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overlinePosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overlineThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "paintOrder",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "panose1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "path",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pathLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternContentUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternTransform",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointerEvents",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "points",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtZ",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "preserveAlpha",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "preserveAspectRatio",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "primitiveUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "r",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "radius",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "refX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "refY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "renderingIntent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "repeatCount",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "repeatDur",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "requiredExtensions",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "requiredFeatures",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "restart",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rotate",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ry",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scale",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "seed",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "shapeRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "slope",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "spacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "specularConstant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "specularExponent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "speed",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "spreadMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "startOffset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stdDeviation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stemh",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stemv",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stitchTiles",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stopColor",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stopOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strikethroughPosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strikethroughThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "string",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stroke",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeDasharray",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeDashoffset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeLinecap",
+        "type": "\"inherit\" | \"butt\" | \"round\" | \"square\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeLinejoin",
+        "type": "\"inherit\" | \"round\" | \"miter\" | \"bevel\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeMiterlimit",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeWidth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "surfaceScale",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "systemLanguage",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "tableValues",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "targetX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "targetY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textAnchor",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textDecoration",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "to",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "transform",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "u1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "u2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "underlinePosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "underlineThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicodeBidi",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicodeRange",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unitsPerEm",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vAlphabetic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "values",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vectorEffect",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertAdvY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertOriginX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertOriginY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vHanging",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vIdeographic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "viewBox",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "viewTarget",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "visibility",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vMathematical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "widths",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "wordSpacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "writingMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xChannelSelector",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkActuate",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkArcrole",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkHref",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkRole",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkShow",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkTitle",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlBase",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlns",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlnsXlink",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlSpace",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "yChannelSelector",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "z",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "zoomAndPan",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "LegacyRef<SVGSVGElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "SortIconUnset": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "method",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "role",
+        "type": "AriaRole",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "tabIndex",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "accentHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "accumulate",
+        "type": "\"none\" | \"sum\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "additive",
+        "type": "\"sum\" | \"replace\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alignmentBaseline",
+        "type": "\"inherit\" | \"middle\" | \"baseline\" | \"alphabetic\" | \"hanging\" | \"ideographic\" | \"mathematical\" | \"auto\" | \"before-edge\" | \"text-before-edge\" | \"central\" | \"after-edge\" | \"text-after-edge\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "allowReorder",
+        "type": "\"yes\" | \"no\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alphabetic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "amplitude",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "arabicForm",
+        "type": "\"initial\" | \"medial\" | \"terminal\" | \"isolated\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ascent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "attributeName",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "attributeType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoReverse",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "azimuth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baseFrequency",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baselineShift",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "baseProfile",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "bbox",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "begin",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "bias",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "by",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "calcMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clip",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipPath",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipPathUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "clipRule",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorInterpolation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorInterpolationFilters",
+        "type": "\"inherit\" | \"auto\" | \"sRGB\" | \"linearRGB\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorProfile",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colorRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "contentScriptType",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "contentStyleType",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cursor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "d",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "decelerate",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "descent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "diffuseConstant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "direction",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "display",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "divisor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dominantBaseline",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dur",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "edgeMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "elevation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "enableBackground",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "end",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "exponent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "externalResourcesRequired",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fillOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fillRule",
+        "type": "\"inherit\" | \"nonzero\" | \"evenodd\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filter",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filterRes",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "filterUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "floodColor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "floodOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "focusable",
+        "type": "Booleanish | \"auto\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontFamily",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontSize",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontSizeAdjust",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontStretch",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontStyle",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontVariant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fontWeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "format",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fr",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "from",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fy",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "g1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "g2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphName",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphOrientationHorizontal",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphOrientationVertical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "glyphRef",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "gradientTransform",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "gradientUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hanging",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "horizAdvX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "horizOriginX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ideographic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "imageRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "in2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "in",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "intercept",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k3",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k4",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "k",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kernelMatrix",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kernelUnitLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kerning",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keyPoints",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keySplines",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keyTimes",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lengthAdjust",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "letterSpacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "lightingColor",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "limitingConeAngle",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "local",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerEnd",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerMid",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerStart",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "markerWidth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mask",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maskContentUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maskUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mathematical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "numOctaves",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "opacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "operator",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "order",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "orient",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "origin",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overflow",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overlinePosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "overlineThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "paintOrder",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "panose1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "path",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pathLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternContentUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternTransform",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "patternUnits",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointerEvents",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "points",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pointsAtZ",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "preserveAlpha",
+        "type": "Booleanish",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "preserveAspectRatio",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "primitiveUnits",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "r",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "radius",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "refX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "refY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "renderingIntent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "repeatCount",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "repeatDur",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "requiredExtensions",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "requiredFeatures",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "restart",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rotate",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rx",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ry",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scale",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "seed",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "shapeRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "slope",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "spacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "specularConstant",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "specularExponent",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "speed",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "spreadMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "startOffset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stdDeviation",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stemh",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stemv",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stitchTiles",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stopColor",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stopOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strikethroughPosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strikethroughThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "string",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "stroke",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeDasharray",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeDashoffset",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeLinecap",
+        "type": "\"inherit\" | \"butt\" | \"round\" | \"square\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeLinejoin",
+        "type": "\"inherit\" | \"round\" | \"miter\" | \"bevel\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeMiterlimit",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeOpacity",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "strokeWidth",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "surfaceScale",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "systemLanguage",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "tableValues",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "targetX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "targetY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textAnchor",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textDecoration",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textLength",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "textRendering",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "to",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "transform",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "u1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "u2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "underlinePosition",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "underlineThickness",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicodeBidi",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unicodeRange",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "unitsPerEm",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vAlphabetic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "values",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vectorEffect",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertAdvY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertOriginX",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vertOriginY",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vHanging",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vIdeographic",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "viewBox",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "viewTarget",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "visibility",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "vMathematical",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "widths",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "wordSpacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "writingMode",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "x",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xChannelSelector",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xHeight",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkActuate",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkArcrole",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkHref",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkRole",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkShow",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkTitle",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xlinkType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlBase",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlns",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlnsXlink",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "xmlSpace",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y1",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y2",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "y",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "yChannelSelector",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "z",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "zoomAndPan",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "LegacyRef<SVGSVGElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

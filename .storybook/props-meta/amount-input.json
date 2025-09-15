@@ -1,0 +1,460 @@
+{
+  "AmountInput": {
+    "description": "Компонент для ввода денежных значений",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Начальное значение поля"
+      },
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по полю"
+      },
+      {
+        "name": "onMouseDown",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик MouseDown по полю"
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capture",
+        "type": "boolean | \"user\" | \"environment\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "list",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pattern",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "defaultValue": "`0\\u2009${\n                suffix === currency ? getCurrencyCodeWithFormat(currency, codeFormat) || '' : suffix\n            }`",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Крестик для очистки поля"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение иконки успеха"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "wrapperRef",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для обертки input"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под инпутом"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс инпута"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "focusedClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен при фокусе"
+      },
+      {
+        "name": "filledClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен, если в поле есть значение"
+      },
+      {
+        "name": "onClear",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку очистки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control"
+      },
+      {
+        "name": "disableUserInput",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает ввод с клавиатуры"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "value",
+        "type": "string | number | null",
+        "required": false,
+        "defaultValue": null,
+        "description": "Денежное значение в минорных единицах\nЗначение null - значит не установлено"
+      },
+      {
+        "name": "codeFormat",
+        "type": "\"letter\" | \"symbolic\"",
+        "required": false,
+        "defaultValue": "symbolic",
+        "description": "Формат отображения кода валюты"
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"withZeroMinorPart\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "default - не отображаем копейки, если их значение 0\nwithZeroMinorPart - отображаем копейки, даже если их значение равно 0"
+      },
+      {
+        "name": "currency",
+        "type": "\"ALL\" | \"AFN\" | \"ARS\" | \"AWG\" | \"AUD\" | \"AZN\" | \"BSD\" | \"BBD\" | \"BYN\" | \"BZD\" | \"BMD\" | \"BOB\" | \"BOV\" | \"BAM\" | \"BWP\" | \"BGN\" | \"BRL\" | \"BND\" | \"KHR\" | \"CAD\" | \"KYD\" | \"CLP\" | \"CNY\" | ... 157 more ...",
+        "required": false,
+        "defaultValue": "RUR",
+        "description": "Валюта"
+      },
+      {
+        "name": "suffix",
+        "type": "string",
+        "required": false,
+        "defaultValue": "RUR",
+        "description": "Дополнительный закрепленный текст справа от основного значения. (по умолчанию — символ валюты)"
+      },
+      {
+        "name": "integerLength",
+        "type": "number",
+        "required": false,
+        "description": "Максимальное число знаков до запятой\nmax 15"
+      },
+      {
+        "name": "minority",
+        "type": "number",
+        "required": false,
+        "defaultValue": 100,
+        "description": "Минорные единицы"
+      },
+      {
+        "name": "integersOnly",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Позволяет вводить только целые значения"
+      },
+      {
+        "name": "positiveOnly",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": ""
+      },
+      {
+        "name": "bold",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Жир"
+      },
+      {
+        "name": "onChange",
+        "type": "((e: ChangeEvent<HTMLInputElement> | null, payload: { value: number | null; valueString: string; }) => void)",
+        "required": false,
+        "description": "Обработчик события изменения значения"
+      },
+      {
+        "name": "transparentMinor",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Делает минорную часть полупрозрачной"
+      },
+      {
+        "name": "stepper",
+        "type": "{ step: number; min?: number; max?: number; } | undefined",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Добавляет компонент \"Stepper\" в правый аддон"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

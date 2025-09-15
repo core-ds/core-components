@@ -1,0 +1,62 @@
+{
+  "Indicator": {
+    "description": "",
+    "props": [
+      {
+        "name": "value",
+        "type": "number | ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "description": "Значение индикатора"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет заливки"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "description": "Высота компонента, min = 16; max = 48"
+      },
+      {
+        "name": "size",
+        "type": "\"xs\" | \"s\" | \"m\" | \"l\" | 8 | 16 | 20 | 24 | 32 | 40",
+        "required": false,
+        "defaultValue": "getSize(height, value) as keyof typeof SIZE_TO_CLASSNAME_MAP",
+        "description": "Размер компонента\n@description xs, s, m, l deprecated, используйте вместо них 8, 16, 20, 24, 32, 40 соответственно"
+      },
+      {
+        "name": "border",
+        "type": "boolean | Border",
+        "required": false,
+        "description": "Настройки обводки"
+      },
+      {
+        "name": "view",
+        "type": "\"red\" | \"grey\" | \"white\"",
+        "required": false,
+        "description": "Пресет компонента"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

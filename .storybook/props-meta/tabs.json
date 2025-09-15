@@ -1,0 +1,2151 @@
+{
+  "CollapsiblePrimaryTabList": {
+    "description": "",
+    "props": [
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "defaultValue": "m",
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "defaultValue": "titles.length ? titles[0].id : undefined",
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      }
+    ]
+  },
+  "PrimaryTabListDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "defaultValue": "m",
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      }
+    ]
+  },
+  "PrimaryTabListMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      }
+    ]
+  },
+  "PrimaryTabListResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      }
+    ]
+  },
+  "PrimaryTabList": {
+    "description": "",
+    "props": [
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "defaultValue": "titles.length ? titles[0].id : undefined",
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "styles",
+        "type": "{ [key: string]: string; }",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      },
+      {
+        "name": "platform",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "ScrollControls": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\"",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | undefined",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "containerRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ScrollableContainer": {
+    "description": "",
+    "props": [
+      {
+        "name": "containerWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс враппера контейнера"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "scrollControlsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс кнопок прокрутки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние компоненты"
+      },
+      {
+        "name": "activeChild",
+        "type": "HTMLElement | null",
+        "required": true,
+        "description": "Активный элемент (всегда будет в видимой области)"
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\"",
+        "required": true,
+        "description": "Внешний вид заголовков табов"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | undefined",
+        "required": true,
+        "description": "Размер"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "platform",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "SecondaryTabListDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "defaultValue": "s",
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "TagComponent",
+        "type": "FC<Omit<TagProps, \"breakpoint\">>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "SecondaryTabListMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "TagComponent",
+        "type": "FC<Omit<TagProps, \"breakpoint\">>",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "SecondaryTabListResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "tagSize",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "TagComponent",
+        "type": "FC<Omit<TagProps, \"breakpoint\">>",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      }
+    ]
+  },
+  "SecondaryTabList": {
+    "description": "",
+    "props": [
+      {
+        "name": "tagSize",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": "xs",
+        "description": ""
+      },
+      {
+        "name": "TagComponent",
+        "type": "FC<Omit<TagProps, \"breakpoint\">>",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "titles",
+        "type": "TabListTitle[]",
+        "required": false,
+        "defaultValue": "[]",
+        "description": "Заголовки табов"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "inlineStyle",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для заголовка"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "defaultValue": "titles.length ? titles[0].id : undefined",
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rounded",
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "styles",
+        "type": "{ [key: string]: string; }",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      },
+      {
+        "name": "platform",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "Tab": {
+    "description": "",
+    "props": [
+      {
+        "name": "id",
+        "type": "SelectedId",
+        "required": true,
+        "description": "Id таба"
+      },
+      {
+        "name": "title",
+        "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+        "required": true,
+        "description": "Заголовок таба"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контейнера содержимого таба"
+      },
+      {
+        "name": "toggleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для кнопки таба"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокирует таб"
+      },
+      {
+        "name": "hidden",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление видимостью таба"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить таб, если он неактивен"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент таба"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "toggleRef",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Реф для кнопки переключения таба"
+      }
+    ]
+  },
+  "TabsCollapsible": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "children",
+        "type": "ReactElement<TabProps, string | JSXElementConstructor<any>>[]",
+        "required": true,
+        "description": "Компоненты табов"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для враппера"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Мобильный вид"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить неактивные табы"
+      }
+    ]
+  },
+  "TabsDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "defaultValue": "view === 'primary' ? 'm' : 's'",
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "children",
+        "type": "ReactElement<TabProps, string | JSXElementConstructor<any>>[]",
+        "required": true,
+        "description": "Компоненты табов"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для враппера"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Мобильный вид"
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\"",
+        "required": false,
+        "defaultValue": "primary",
+        "description": "Внешний вид заголовков табов"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить неактивные табы"
+      }
+    ]
+  },
+  "TabsMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "children",
+        "type": "ReactElement<TabProps, string | JSXElementConstructor<any>>[]",
+        "required": true,
+        "description": "Компоненты табов"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для враппера"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Мобильный вид"
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\"",
+        "required": false,
+        "defaultValue": "primary",
+        "description": "Внешний вид заголовков табов"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить неактивные табы"
+      }
+    ]
+  },
+  "TabsResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "children",
+        "type": "ReactElement<TabProps, string | JSXElementConstructor<any>>[]",
+        "required": true,
+        "description": "Компоненты табов"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для враппера"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Мобильный вид"
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\"",
+        "required": false,
+        "defaultValue": "primary",
+        "description": "Внешний вид заголовков табов"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить неактивные табы"
+      }
+    ]
+  },
+  "Tabs": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "description": "Высота заголовков табов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс контейнера"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "selectedId",
+        "type": "SelectedId",
+        "required": false,
+        "description": "Id активного таба"
+      },
+      {
+        "name": "scrollable",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить заголовки табов в контейнере со скроллом"
+      },
+      {
+        "name": "collapsedTabsIds",
+        "type": "string[]",
+        "required": false,
+        "description": "Список табов, для контроля переноса вкладок в PickerButton"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: MouseEvent<Element, MouseEvent>, payload: { selectedId: SelectedId; }) => void)",
+        "required": false,
+        "description": "Обработчик переключения табов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "fullWidthScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "При скроле табы будут уходить в край экрана"
+      },
+      {
+        "name": "tagShape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "description": "Форма тега (для view secondary только)"
+      },
+      {
+        "name": "tagView",
+        "type": "\"outlined\" | \"filled\" | \"transparent\"",
+        "required": false,
+        "description": "Стиль тега (для view secondary только)"
+      },
+      {
+        "name": "textStyle",
+        "type": "\"paragraph-primary-large\" | \"paragraph-primary-medium\" | \"paragraph-primary-small\" | \"action-primary-large\" | \"action-primary-medium\" | \"action-primary-small\" | \"accent-primary-large\" | ... 12 more ...",
+        "required": false,
+        "description": "Стиль текста. Имеет приоритет над size. Работает только в primary табах."
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": "Доп. пропсы для скелетона"
+      },
+      {
+        "name": "children",
+        "type": "ReactElement<TabProps, string | JSXElementConstructor<any>>[]",
+        "required": true,
+        "description": "Компоненты табов"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для враппера"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Мобильный вид"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Рендерить неактивные табы"
+      },
+      {
+        "name": "TabList",
+        "type": "FC<TabListProps>",
+        "required": true,
+        "description": "Компонент заголовков табов"
+      }
+    ]
+  },
+  "Title": {
+    "description": "",
+    "props": [
+      {
+        "name": "title",
+        "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "id",
+        "type": "SelectedId",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": null,
+        "description": ""
+      },
+      {
+        "name": "hidden",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "toggleClassName",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "selected",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "collapsed",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "toggleRef",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "styles",
+        "type": "{ [key: string]: string; }",
+        "required": false,
+        "defaultValue": "{}",
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"button\" | \"submit\" | \"reset\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "isOption",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": ""
+      },
+      {
+        "name": "skeletonProps",
+        "type": "Omit<SkeletonProps, \"visible\">",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

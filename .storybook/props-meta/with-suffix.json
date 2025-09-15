@@ -1,0 +1,91 @@
+{
+  "withSuffix": {
+    "description": "",
+    "props": [
+      {
+        "name": "propTypes",
+        "type": "WeakValidationMap<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "contextTypes",
+        "type": "ValidationMap<any>",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "defaultProps",
+        "type": "Partial<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "displayName",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "apply",
+        "type": "{ <T, R>(this: (this: T) => R, thisArg: T): R; <T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, args: A): R; }",
+        "required": true,
+        "description": "Calls the function with the specified object as the this value and the elements of specified array as the arguments.\n@param thisArg The object to be used as the this object.\n@param args An array of argument values to be passed to the function."
+      },
+      {
+        "name": "call",
+        "type": "<T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, ...args: A) => R",
+        "required": true,
+        "description": "Calls the function with the specified object as the this value and the specified rest arguments as the arguments.\n@param thisArg The object to be used as the this object.\n@param args Argument values to be passed to the function."
+      },
+      {
+        "name": "bind",
+        "type": "{ <T>(this: T, thisArg: ThisParameterType<T>): OmitThisParameter<T>; <T, A0, A extends any[], R>(this: (this: T, arg0: A0, ...args: A) => R, thisArg: T, arg0: A0): (...args: A) => R; <T, A0, A1, A extends any[], R>(this: (this: T, arg0: A0, arg1: A1, ...args: A) => R, thisArg: T, arg0: A0, arg1: A1): (...args: A) =>...",
+        "required": true,
+        "description": "For a given function, creates a bound function that has the same body as the original function.\nThe this object of the bound function is associated with the specified object, and has the specified initial parameters.\n@param thisArg The object to be used as the this object.\n@param args Arguments to bind to the parameters of the function."
+      },
+      {
+        "name": "toString",
+        "type": "() => string",
+        "required": false,
+        "description": "Returns a string representation of a function."
+      },
+      {
+        "name": "prototype",
+        "type": "any",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "length",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "arguments",
+        "type": "any",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "caller",
+        "type": "Function",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true,
+        "description": "Returns the name of the function. Function names are read-only and can not be changed."
+      },
+      {
+        "name": "__@hasInstance@86488",
+        "type": "(value: any) => boolean",
+        "required": true,
+        "description": "Determines whether the given value inherits from this function if this function was used\nas a constructor function.\n\nA constructor function can control which objects are recognized as its instances by\n'instanceof' by overriding this method."
+      }
+    ]
+  }
+}

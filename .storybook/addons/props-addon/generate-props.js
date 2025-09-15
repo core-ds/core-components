@@ -3,50 +3,62 @@ const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
 
-function generatePropsMeta() {
-    const componentsDir = path.resolve(__dirname, '../../../packages/toast/src/desktop/'); // todo тут тестовый путь для одного компонента
+(function generatePropsMeta() {
+    const componentsDir = path.resolve(__dirname, '../../../packages/');
 
-    const outFile = path.resolve(__dirname, '../../propsMeta.json');
-
-    const files = glob.sync(path.join(componentsDir, '**/*.tsx'));
-
-    if (!files.length) {
-        console.warn('⚠️ Нет файлов для парсинга!');
-        return;
-    }
+    const outDir = path.resolve(__dirname, '../../props-meta');
 
     const parser = withCustomConfig(path.resolve(__dirname, '../../tsconfig.json'), {
         shouldRemoveUndefinedFromOptional: true,
     });
+    const components = fs
+        .readdirSync(componentsDir)
+        .filter((component) => {
+            const folderPath = path.join(componentsDir, component);
+            return fs.statSync(folderPath).isDirectory();
+        })
+        .reduce((acc, component) => {
+            const files = glob
+                .sync(path.join(componentsDir, component, '**/*.tsx'))
+                .filter(
+                    (file) => !['stories', 'test'].some((substring) => file.includes(substring)),
+                );
 
-    const parsed = parser.parse(files);
-
-    const meta = {};
-    parsed.forEach((comp) => {
-        const filteredProps = Object.values(comp.props).filter((p) => {
-            // todo тут можно провести фильтрацию не нужных пропов которые наследуются от react и т.д.
-
-            if (['HTMLAttributes', 'AriaAttributes', 'DOMAttributes'].includes(p?.parent?.name)) {
-                return false;
+            if (!files.length) {
+                return acc;
             }
 
-            return true;
-        });
+            return [...acc, { name: component, files }];
+        }, []);
 
-        meta[comp.displayName] = {
-            description: comp.description,
-            props: filteredProps.map((p) => ({
-                name: p.name,
-                type: p.type.name,
-                required: p.required,
-                defaultValue: p.defaultValue?.value,
-                description: p.description,
-            })),
-        };
+    components.forEach((component) => {
+        const parsed = parser.parse(component.files);
+
+        const meta = parsed.reduce((acc, component) => {
+            const filteredProps = Object.values(component.props).filter((p) => {
+                return !['HTMLAttributes', 'AriaAttributes', 'DOMAttributes'].includes(
+                    p?.parent?.name,
+                );
+            });
+
+            return {
+                ...acc,
+                [component.displayName]: {
+                    description: component.description,
+                    props: filteredProps.map((p) => ({
+                        name: p.name,
+                        type: p.type.name,
+                        required: p.required,
+                        defaultValue: p.defaultValue?.value,
+                        description: p.description,
+                    })),
+                },
+            };
+        }, {});
+
+        const outFile = path.join(outDir, `${component.name}.json`);
+        fs.writeFileSync(outFile, JSON.stringify(meta, null, 2));
+
+        console.log(`✅\u3164File [${component.name}] generated`);
     });
-
-    fs.writeFileSync(outFile, JSON.stringify(meta, null, 2));
-    console.log(`✅ propsMeta.json сгенерирован! (${Object.keys(meta).length} компонентов)`);
-}
-
-generatePropsMeta();
+})();

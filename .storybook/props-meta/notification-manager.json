@@ -1,0 +1,56 @@
+{
+  "NotificationManager": {
+    "description": "",
+    "props": [
+      {
+        "name": "notifications",
+        "type": "NotificationElement[]",
+        "required": true,
+        "description": "Массив нотификаций.\nВ нотификации обязательно передавайте id."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "defaultValue": 1000,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "required": false,
+        "description": "Отступ от верхнего края"
+      },
+      {
+        "name": "onRemoveNotification",
+        "type": "(id: string) => void",
+        "required": true,
+        "description": "Удаление нотификации"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

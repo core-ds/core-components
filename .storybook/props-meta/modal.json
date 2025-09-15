@@ -1,0 +1,1954 @@
+{
+  "ModalResponsiveComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "Backdrop",
+        "type": "ComponentType<BackdropProps>",
+        "required": false,
+        "description": "Компонент бэкдропа"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает автоматический перевод фокуса на модалку при открытии"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при нажатии Escape"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Содержимое модалки всегда в DOM"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на dialog wrapper"
+      },
+      {
+        "name": "contentProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на обертку контента"
+      },
+      {
+        "name": "componentDivProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на компонентную обертку контента"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "scrollHandler",
+        "type": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\"",
+        "required": false,
+        "description": "Обработчик скролла контента"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "onBackdropClick",
+        "type": "((event: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на бэкдроп"
+      },
+      {
+        "name": "onEscapeKeyDown",
+        "type": "((event: KeyboardEvent<Element>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onMount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onEntered компонента Transition"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "componentRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф, который должен быть установлен компонентной области"
+      },
+      {
+        "name": "contentElementRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф контентной области"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS."
+      },
+      {
+        "name": "onWheel",
+        "type": "((e: WheelEvent<HTMLElement>) => void)",
+        "required": false,
+        "description": "Хэндлер события прокрутки колесиком"
+      },
+      {
+        "name": "size",
+        "type": "\"fullscreen\" | \"s\" | \"m\" | \"l\" | \"xl\" | 500 | 600 | 800 | 1140",
+        "required": false,
+        "defaultValue": "600",
+        "description": "Ширина модального окна\n@description s, m, l, xl deprecated, используйте вместо них 500, 600, 800, 1140 соответственно"
+      },
+      {
+        "name": "fullscreen",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает модальное окно на весь экран\n@deprecated Используйте размер fullscreen"
+      },
+      {
+        "name": "fixedPosition",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует позицию модального окна после открытия,\nпредотвращая скачки, если контент внутри будет меняться"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Modal": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "Backdrop",
+        "type": "ComponentType<BackdropProps>",
+        "required": false,
+        "description": "Компонент бэкдропа"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает автоматический перевод фокуса на модалку при открытии"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при нажатии Escape"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Содержимое модалки всегда в DOM"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на dialog wrapper"
+      },
+      {
+        "name": "contentProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на обертку контента"
+      },
+      {
+        "name": "componentDivProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на компонентную обертку контента"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "scrollHandler",
+        "type": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\"",
+        "required": false,
+        "description": "Обработчик скролла контента"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "onBackdropClick",
+        "type": "((event: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на бэкдроп"
+      },
+      {
+        "name": "onEscapeKeyDown",
+        "type": "((event: KeyboardEvent<Element>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onMount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onEntered компонента Transition"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "componentRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф, который должен быть установлен компонентной области"
+      },
+      {
+        "name": "contentElementRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф контентной области"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS."
+      },
+      {
+        "name": "onWheel",
+        "type": "((e: WheelEvent<HTMLElement>) => void)",
+        "required": false,
+        "description": "Хэндлер события прокрутки колесиком"
+      },
+      {
+        "name": "size",
+        "type": "\"fullscreen\" | \"s\" | \"m\" | \"l\" | \"xl\" | 500 | 600 | 800 | 1140",
+        "required": false,
+        "defaultValue": 500,
+        "description": "Ширина модального окна\n@description s, m, l, xl deprecated, используйте вместо них 500, 600, 800, 1140 соответственно"
+      },
+      {
+        "name": "fullscreen",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает модальное окно на весь экран\n@deprecated Используйте размер fullscreen"
+      },
+      {
+        "name": "fixedPosition",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует позицию модального окна после открытия,\nпредотвращая скачки, если контент внутри будет меняться"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "view",
+        "type": "View",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Content": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "flex",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает контент на всю высоту"
+      }
+    ]
+  },
+  "Controls": {
+    "description": "",
+    "props": [
+      {
+        "name": "primary",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Основной слот"
+      },
+      {
+        "name": "secondary",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дополнительный слот"
+      },
+      {
+        "name": "layout",
+        "type": "\"center\" | \"start\" | \"space-between\" | \"column\"",
+        "required": false,
+        "defaultValue": "start",
+        "description": "Выравнивание элементов футера"
+      },
+      {
+        "name": "mobileLayout",
+        "type": "\"center\" | \"start\" | \"space-between\" | \"column\"",
+        "required": false,
+        "defaultValue": "start",
+        "description": "Выравнивание элементов футера (мобильный view)"
+      },
+      {
+        "name": "gap",
+        "type": "16 | 24 | 32",
+        "required": false,
+        "description": "Отступы между элементами футера"
+      }
+    ]
+  },
+  "Footer": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент футера"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует футер"
+      },
+      {
+        "name": "layout",
+        "type": "\"center\" | \"start\" | \"space-between\" | \"column\"",
+        "required": false,
+        "defaultValue": "start",
+        "description": "Выравнивание элементов футера"
+      },
+      {
+        "name": "gap",
+        "type": "16 | 24 | 32",
+        "required": false,
+        "description": "Отступы между элементами футера"
+      }
+    ]
+  },
+  "Header": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Наличие компонента крестика"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок шапки"
+      },
+      {
+        "name": "subtitle",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подзаголовок (доступен только в мобильной версии)"
+      },
+      {
+        "name": "titleSize",
+        "type": "\"default\" | \"compact\"",
+        "required": false,
+        "description": "Размер заголовка (compact доступен только в мобильной версии)"
+      },
+      {
+        "name": "addonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс для аддонов"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для closer"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "backButtonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для правого аддона"
+      },
+      {
+        "name": "backButtonProps",
+        "type": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\">",
+        "required": false,
+        "description": "Дополнительные пропсы для кнопки \"Назад\""
+      },
+      {
+        "name": "bottomAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для нижнего аддона"
+      },
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "trim",
+        "type": "boolean",
+        "required": false,
+        "description": "Обрезать ли заголовок"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение"
+      },
+      {
+        "name": "closerIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Иконка closer."
+      },
+      {
+        "name": "closerProps",
+        "type": "Omit<CloserProps, \"onClose\" | \"view\">",
+        "required": false,
+        "description": "Дополнительные пропсы для компонента Closer."
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "scrollableParentRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ссылка на родительскую ноду overflow: auto"
+      },
+      {
+        "name": "dataName",
+        "type": "string",
+        "required": false,
+        "description": "Data атрибут для компонента"
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для title"
+      },
+      {
+        "name": "titleRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для title элемента"
+      }
+    ]
+  },
+  "ModalDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "Backdrop",
+        "type": "ComponentType<BackdropProps>",
+        "required": false,
+        "description": "Компонент бэкдропа"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает автоматический перевод фокуса на модалку при открытии"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при нажатии Escape"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Содержимое модалки всегда в DOM"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на dialog wrapper"
+      },
+      {
+        "name": "contentProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на обертку контента"
+      },
+      {
+        "name": "componentDivProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на компонентную обертку контента"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "scrollHandler",
+        "type": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\"",
+        "required": false,
+        "description": "Обработчик скролла контента"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "onBackdropClick",
+        "type": "((event: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на бэкдроп"
+      },
+      {
+        "name": "onEscapeKeyDown",
+        "type": "((event: KeyboardEvent<Element>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onMount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onEntered компонента Transition"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "componentRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф, который должен быть установлен компонентной области"
+      },
+      {
+        "name": "contentElementRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф контентной области"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS."
+      },
+      {
+        "name": "onWheel",
+        "type": "((e: WheelEvent<HTMLElement>) => void)",
+        "required": false,
+        "description": "Хэндлер события прокрутки колесиком"
+      },
+      {
+        "name": "size",
+        "type": "\"fullscreen\" | \"s\" | \"m\" | \"l\" | \"xl\" | 500 | 600 | 800 | 1140",
+        "required": false,
+        "defaultValue": "600",
+        "description": "Ширина модального окна\n@description s, m, l, xl deprecated, используйте вместо них 500, 600, 800, 1140 соответственно"
+      },
+      {
+        "name": "fullscreen",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает модальное окно на весь экран\n@deprecated Используйте размер fullscreen"
+      },
+      {
+        "name": "fixedPosition",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует позицию модального окна после открытия,\nпредотвращая скачки, если контент внутри будет меняться"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ModalDesktopComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "Backdrop",
+        "type": "ComponentType<BackdropProps>",
+        "required": false,
+        "description": "Компонент бэкдропа"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает автоматический перевод фокуса на модалку при открытии"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при нажатии Escape"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Содержимое модалки всегда в DOM"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на dialog wrapper"
+      },
+      {
+        "name": "contentProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на обертку контента"
+      },
+      {
+        "name": "componentDivProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на компонентную обертку контента"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "scrollHandler",
+        "type": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\"",
+        "required": false,
+        "description": "Обработчик скролла контента"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "onBackdropClick",
+        "type": "((event: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на бэкдроп"
+      },
+      {
+        "name": "onEscapeKeyDown",
+        "type": "((event: KeyboardEvent<Element>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onMount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onEntered компонента Transition"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "componentRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф, который должен быть установлен компонентной области"
+      },
+      {
+        "name": "contentElementRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф контентной области"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS."
+      },
+      {
+        "name": "onWheel",
+        "type": "((e: WheelEvent<HTMLElement>) => void)",
+        "required": false,
+        "description": "Хэндлер события прокрутки колесиком"
+      },
+      {
+        "name": "size",
+        "type": "\"fullscreen\" | \"s\" | \"m\" | \"l\" | \"xl\" | 500 | 600 | 800 | 1140",
+        "required": false,
+        "defaultValue": "600",
+        "description": "Ширина модального окна\n@description s, m, l, xl deprecated, используйте вместо них 500, 600, 800, 1140 соответственно"
+      },
+      {
+        "name": "fullscreen",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает модальное окно на весь экран\n@deprecated Используйте размер fullscreen"
+      },
+      {
+        "name": "fixedPosition",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует позицию модального окна после открытия,\nпредотвращая скачки, если контент внутри будет меняться"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "HeaderDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие компонента крестика"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок шапки"
+      },
+      {
+        "name": "addonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс для аддонов"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для closer"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "backButtonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для правого аддона"
+      },
+      {
+        "name": "backButtonProps",
+        "type": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\">",
+        "required": false,
+        "description": "Дополнительные пропсы для кнопки \"Назад\""
+      },
+      {
+        "name": "bottomAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для нижнего аддона"
+      },
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "trim",
+        "type": "boolean",
+        "required": false,
+        "description": "Обрезать ли заголовок"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение"
+      },
+      {
+        "name": "closerIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Иконка closer."
+      },
+      {
+        "name": "closerProps",
+        "type": "Omit<CloserProps, \"onClose\" | \"view\">",
+        "required": false,
+        "description": "Дополнительные пропсы для компонента Closer."
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "scrollableParentRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ссылка на родительскую ноду overflow: auto"
+      },
+      {
+        "name": "dataName",
+        "type": "string",
+        "required": false,
+        "description": "Data атрибут для компонента"
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для title"
+      },
+      {
+        "name": "titleRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для title элемента"
+      }
+    ]
+  },
+  "ControlsDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "layout",
+        "type": "\"center\" | \"start\" | \"space-between\" | \"column\"",
+        "required": false,
+        "defaultValue": "start",
+        "description": "Выравнивание элементов футера"
+      },
+      {
+        "name": "gap",
+        "type": "16 | 24 | 32",
+        "required": false,
+        "description": "Отступы между элементами футера"
+      },
+      {
+        "name": "primary",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Основной слот"
+      },
+      {
+        "name": "secondary",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дополнительный слот"
+      }
+    ]
+  },
+  "ModalMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "Backdrop",
+        "type": "ComponentType<BackdropProps>",
+        "required": false,
+        "description": "Компонент бэкдропа"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает автоматический перевод фокуса на модалку при открытии"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при нажатии Escape"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Содержимое модалки всегда в DOM"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на dialog wrapper"
+      },
+      {
+        "name": "contentProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на обертку контента"
+      },
+      {
+        "name": "componentDivProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на компонентную обертку контента"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "scrollHandler",
+        "type": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\"",
+        "required": false,
+        "description": "Обработчик скролла контента"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "onBackdropClick",
+        "type": "((event: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на бэкдроп"
+      },
+      {
+        "name": "onEscapeKeyDown",
+        "type": "((event: KeyboardEvent<Element>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onMount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onEntered компонента Transition"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "componentRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф, который должен быть установлен компонентной области"
+      },
+      {
+        "name": "contentElementRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф контентной области"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS."
+      },
+      {
+        "name": "onWheel",
+        "type": "((e: WheelEvent<HTMLElement>) => void)",
+        "required": false,
+        "description": "Хэндлер события прокрутки колесиком"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ModalMobileComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "Backdrop",
+        "type": "ComponentType<BackdropProps>",
+        "required": false,
+        "description": "Компонент бэкдропа"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает автоматический перевод фокуса на модалку при открытии"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при нажатии Escape"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Содержимое модалки всегда в DOM"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на dialog wrapper"
+      },
+      {
+        "name": "contentProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на обертку контента"
+      },
+      {
+        "name": "componentDivProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на компонентную обертку контента"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "scrollHandler",
+        "type": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\"",
+        "required": false,
+        "description": "Обработчик скролла контента"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "onBackdropClick",
+        "type": "((event: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на бэкдроп"
+      },
+      {
+        "name": "onEscapeKeyDown",
+        "type": "((event: KeyboardEvent<Element>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onMount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onEntered компонента Transition"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "componentRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф, который должен быть установлен компонентной области"
+      },
+      {
+        "name": "contentElementRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф контентной области"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS."
+      },
+      {
+        "name": "onWheel",
+        "type": "((e: WheelEvent<HTMLElement>) => void)",
+        "required": false,
+        "description": "Хэндлер события прокрутки колесиком"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ControlsMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "layout",
+        "type": "\"center\" | \"start\" | \"space-between\" | \"column\"",
+        "required": false,
+        "defaultValue": "start",
+        "description": "Выравнивание элементов футера"
+      },
+      {
+        "name": "gap",
+        "type": "16 | 24 | 32",
+        "required": false,
+        "description": "Отступы между элементами футера"
+      },
+      {
+        "name": "primary",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Основной слот"
+      },
+      {
+        "name": "secondary",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дополнительный слот"
+      }
+    ]
+  }
+}

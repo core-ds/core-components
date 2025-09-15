@@ -1,0 +1,847 @@
+{
+  "PureCellComponent": {
+    "description": "Универсальный конструктор для сборки любой ячейки.\n\n[Макет](https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=43525%3A240018)",
+    "props": [
+      {
+        "name": "direction",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "defaultValue": "horizontal",
+        "description": "Направление"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде ячейки"
+      },
+      {
+        "name": "verticalPadding",
+        "type": "\"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\" | { top?: \"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\"; bottom?: \"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\"; } | undefined",
+        "required": false,
+        "defaultValue": "none",
+        "description": "Вертикальные отступы"
+      },
+      {
+        "name": "horizontalPadding",
+        "type": "\"left\" | \"right\" | \"both\" | \"none\"",
+        "required": false,
+        "defaultValue": "none",
+        "description": "Горизонтальные отступы"
+      },
+      {
+        "name": "tag",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "children",
+        "type": "((boolean | (boolean | (string | number | boolean | (boolean | \"\" | TextElement | AmountElement | AmountTitleElement | null)[] | ... 10 more ...)[] | ... 5 more ... | null)[] | ... 4 more ... | AmountTitleElement) & (string | ... 5 more ... | undefined)) | null | undefined",
+        "required": false,
+        "description": "Компоненты"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hrefLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ping",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "referrerPolicy",
+        "type": "HTMLAttributeReferrerPolicy",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Addon": {
+    "description": "",
+    "props": [
+      {
+        "name": "verticalAlign",
+        "type": "\"center\" | \"top\" | \"bottom\" | \"auto\"",
+        "required": false,
+        "defaultValue": "top",
+        "description": "Вертикальное выравнивание"
+      },
+      {
+        "name": "addonPadding",
+        "type": "\"none\" | \"default\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Горизонтальные отступы"
+      },
+      {
+        "name": "children",
+        "type": "AddonElement",
+        "required": true,
+        "description": "Компоненты"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nИспользуется модификатор -addon"
+      },
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Клик по контенту аддона."
+      }
+    ]
+  },
+  "AmountTitle": {
+    "description": "",
+    "props": [
+      {
+        "name": "color",
+        "type": "\"disabled\" | \"link\" | \"tertiary\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "defaultValue": "primary",
+        "description": "Цвет денежного значения\n@deprecated Используйте titleProps.color"
+      },
+      {
+        "name": "titleProps",
+        "type": "TitleProps",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент типографики"
+      },
+      {
+        "name": "hidden",
+        "type": "boolean",
+        "required": false,
+        "description": "Скрыть денежное значение"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля typography используется модификатор -amount-title, для компонента Amount -core-amount-title"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "Денежное значение в минорных единицах"
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"withZeroMinorPart\"",
+        "required": false,
+        "description": "default - не отображаем копейки, если их значение 0\nwithZeroMinorPart - отображаем копейки, даже если их значение равно 0"
+      },
+      {
+        "name": "currency",
+        "type": "\"ALL\" | \"AFN\" | \"ARS\" | \"AWG\" | \"AUD\" | \"AZN\" | \"BSD\" | \"BBD\" | \"BYN\" | \"BZD\" | \"BMD\" | \"BOB\" | \"BOV\" | \"BAM\" | \"BWP\" | \"BGN\" | \"BRL\" | \"BND\" | \"KHR\" | \"CAD\" | \"KYD\" | \"CLP\" | \"CNY\" | ... 157 more ...",
+        "required": false,
+        "description": "Валюта"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "minority",
+        "type": "number",
+        "required": false,
+        "description": "Количество минорных единиц в валюте"
+      },
+      {
+        "name": "transparentMinor",
+        "type": "boolean",
+        "required": false,
+        "description": "Делает минорную часть полупрозрачной"
+      },
+      {
+        "name": "minorUnits",
+        "type": "number",
+        "required": false,
+        "defaultValue": 100,
+        "description": "Количество минорных единиц в валюте для Клика"
+      },
+      {
+        "name": "showPlus",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать значок + для положительных значений"
+      }
+    ]
+  },
+  "Amount": {
+    "description": "",
+    "props": [
+      {
+        "name": "weight",
+        "type": "\"bold\" | \"normal\"",
+        "required": false,
+        "defaultValue": "normal",
+        "description": "Начертание шрифта денежного значения"
+      },
+      {
+        "name": "textView",
+        "type": "\"primary-small\" | \"component\"",
+        "required": false,
+        "defaultValue": "component",
+        "description": "Размер денежного значения"
+      },
+      {
+        "name": "color",
+        "type": "\"disabled\" | \"link\" | \"tertiary\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "defaultValue": "primary",
+        "description": "Цвет денежного значения"
+      },
+      {
+        "name": "hidden",
+        "type": "boolean",
+        "required": false,
+        "description": "Скрыть денежное значение"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля typography используется модификатор -amount-text, для компонента Amount -amount"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "Денежное значение в минорных единицах"
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"withZeroMinorPart\"",
+        "required": false,
+        "description": "default - не отображаем копейки, если их значение 0\nwithZeroMinorPart - отображаем копейки, даже если их значение равно 0"
+      },
+      {
+        "name": "currency",
+        "type": "\"ALL\" | \"AFN\" | \"ARS\" | \"AWG\" | \"AUD\" | \"AZN\" | \"BSD\" | \"BBD\" | \"BYN\" | \"BZD\" | \"BMD\" | \"BOB\" | \"BOV\" | \"BAM\" | \"BWP\" | \"BGN\" | \"BRL\" | \"BND\" | \"KHR\" | \"CAD\" | \"KYD\" | \"CLP\" | \"CNY\" | ... 157 more ...",
+        "required": false,
+        "description": "Валюта"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "minority",
+        "type": "number",
+        "required": false,
+        "description": "Количество минорных единиц в валюте"
+      },
+      {
+        "name": "transparentMinor",
+        "type": "boolean",
+        "required": false,
+        "description": "Делает минорную часть полупрозрачной"
+      },
+      {
+        "name": "minorUnits",
+        "type": "number",
+        "required": false,
+        "defaultValue": 100,
+        "description": "Количество минорных единиц в валюте для Клика"
+      },
+      {
+        "name": "showPlus",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать значок + для положительных значений"
+      }
+    ]
+  },
+  "Category": {
+    "description": "",
+    "props": [
+      {
+        "name": "categoryName",
+        "type": "string",
+        "required": true,
+        "description": "Наименование категории"
+      },
+      {
+        "name": "categoryPercent",
+        "type": "number",
+        "required": false,
+        "description": "Процент категории"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля наименования категории используется модификатор -category-name,\nпроцент категории -category-percent, слота справа -category-right-addon"
+      }
+    ]
+  },
+  "Content": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ContentElement",
+        "required": true,
+        "description": "Компоненты"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nИспользуется модификатор -content"
+      }
+    ]
+  },
+  "FooterButton": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"link\" | \"text\" | \"tertiary\" | \"accent\" | \"primary\" | \"secondary\" | \"outlined\" | \"transparent\" | \"filled\" | \"ghost\"",
+        "required": false,
+        "defaultValue": "secondary",
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rectangular",
+        "description": "Форма кнопки"
+      },
+      {
+        "name": "textResizing",
+        "type": "\"fill\" | \"hug\"",
+        "required": false,
+        "defaultValue": "hug",
+        "description": "Ширина текстового контента"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подпись под лейблом (видна только в размерах >= m)"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"xxs\" | \"xs\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": "56",
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "spinnerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для спиннера"
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "nowrap",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Не переносить текст кнопки на новую строку"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nИспользуется модификатор -button"
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hrefLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ping",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "referrerPolicy",
+        "type": "HTMLAttributeReferrerPolicy",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLAnchorElement | HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "FooterText": {
+    "description": "",
+    "props": [
+      {
+        "name": "color",
+        "type": "\"disabled\" | \"link\" | \"tertiary\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "defaultValue": "secondary",
+        "description": "Цвет текста"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nИспользуется модификатор -footer-title"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      }
+    ]
+  },
+  "Footer": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "FooterElement",
+        "required": true,
+        "description": "Компоненты"
+      },
+      {
+        "name": "footerPadding",
+        "type": "\"none\" | \"default\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Вертикальные отступы"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nИспользуется модификатор -footer"
+      }
+    ]
+  },
+  "Graphics": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "GraphicsElement",
+        "required": true,
+        "description": "Компоненты"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nИспользуется модификатор -graphics"
+      },
+      {
+        "name": "verticalAlign",
+        "type": "\"center\" | \"top\" | \"bottom\"",
+        "required": false,
+        "defaultValue": "top",
+        "description": "Вертикальное выравнивание"
+      },
+      {
+        "name": "graphicPadding",
+        "type": "\"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\" | \"max\"",
+        "required": false,
+        "description": "Отступ от графики"
+      },
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Клик по контенту графики."
+      }
+    ]
+  },
+  "Main": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "MainElement",
+        "required": true,
+        "description": "Компоненты"
+      },
+      {
+        "name": "isReverse",
+        "type": "boolean",
+        "required": false,
+        "description": "Позволяет изменить расположение блоков внутри main"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nИспользуется модификатор -main"
+      },
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Клик по контенту."
+      }
+    ]
+  },
+  "Text": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "view",
+        "type": "\"primary-large\" | \"primary-medium\" | \"primary-small\" | \"component\" | \"component-primary\" | \"secondary-large\"",
+        "required": false,
+        "defaultValue": "component-primary",
+        "description": "Размер текста"
+      },
+      {
+        "name": "titleWeight",
+        "type": "\"regular\" | \"bold\"",
+        "required": false,
+        "description": "Толщина title"
+      },
+      {
+        "name": "titleColor",
+        "type": "\"disabled\" | \"link\" | \"tertiary\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"negative\" | ... 7 more ... | \"static-positive\"",
+        "required": true,
+        "description": "Цвет title"
+      },
+      {
+        "name": "value",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Value ячейки"
+      },
+      {
+        "name": "valueColor",
+        "type": "\"disabled\" | \"link\" | \"tertiary\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "description": "Цвет value"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля контента используется модификатор -text_content, для value ячейки -text_value"
+      }
+    ]
+  }
+}

@@ -1,0 +1,611 @@
+{
+  "FormControl": {
+    "description": "",
+    "props": [
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заблокированное состояние"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Cостояние только для чтения"
+      },
+      {
+        "name": "filled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заполненное состояние"
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "description": "Выбранное (фокус) состояние"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под полем"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слота слева используется модификатор -left-addons, слота справа -right-addons,\nошибки -error-message, текста подсказки -hint, внутренней части компонента -inner"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "BaseFormControl": {
+    "description": "",
+    "props": [
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": 48,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заблокированное состояние"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Cостояние только для чтения"
+      },
+      {
+        "name": "filled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заполненное состояние"
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "description": "Выбранное (фокус) состояние"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "defaultValue": "inner",
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под полем"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слота слева используется модификатор -left-addons, слота справа -right-addons,\nошибки -error-message, текста подсказки -hint, внутренней части компонента -inner"
+      },
+      {
+        "name": "styles",
+        "type": "{ [key: string]: string; }",
+        "required": true,
+        "description": "Основные стили компонента."
+      },
+      {
+        "name": "colorStyles",
+        "type": "StyleColors",
+        "required": false,
+        "defaultValue": "{ default: {}, inverted: {} }",
+        "description": "Стили компонента для default и inverted режима."
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "FormControlDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заблокированное состояние"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Cостояние только для чтения"
+      },
+      {
+        "name": "filled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заполненное состояние"
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "description": "Выбранное (фокус) состояние"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под полем"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слота слева используется модификатор -left-addons, слота справа -right-addons,\nошибки -error-message, текста подсказки -hint, внутренней части компонента -inner"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "FormControlMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заблокированное состояние"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Cостояние только для чтения"
+      },
+      {
+        "name": "filled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заполненное состояние"
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "description": "Выбранное (фокус) состояние"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под полем"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля слота слева используется модификатор -left-addons, слота справа -right-addons,\nошибки -error-message, текста подсказки -hint, внутренней части компонента -inner"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

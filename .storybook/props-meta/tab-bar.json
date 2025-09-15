@@ -1,0 +1,759 @@
+{
+  "TabBarComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля таба используется модификатор -tab"
+      },
+      {
+        "name": "tabClassNames",
+        "type": "{ className?: string; selectedClassName?: string; labelClassName?: string | undefined; iconClassName?: string | undefined; } | undefined",
+        "required": false,
+        "description": "Дополнительные классы для таба."
+      },
+      {
+        "name": "children",
+        "type": "TabElementType[]",
+        "required": true,
+        "description": "Список табов"
+      },
+      {
+        "name": "selectedId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор выбранного таба"
+      },
+      {
+        "name": "border",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает верхний бордер"
+      },
+      {
+        "name": "onChange",
+        "type": "((id: string) => void)",
+        "required": false,
+        "description": "Обработчик изменения выбранного таба"
+      },
+      {
+        "name": "accentColor",
+        "type": "\"primary\" | \"secondary\"",
+        "required": false,
+        "defaultValue": "primary",
+        "description": "Цвет активного таба"
+      },
+      {
+        "name": "bgColor",
+        "type": "\"modal-bg-primary\" | \"modal-bg-alt-primary\"",
+        "required": false,
+        "defaultValue": "modal-bg-primary",
+        "description": "Цвет фона"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Tab": {
+    "description": "",
+    "props": [
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "defaultValue": "href ? 'a' : 'button'",
+        "description": "Кастомный компонент таба."
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": "Идентификатор таба"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Лейбл"
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Иконка"
+      },
+      {
+        "name": "showIndicator",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать индикатор"
+      },
+      {
+        "name": "indicatorProps",
+        "type": "Omit<IndicatorProps, \"color\" | \"border\" | \"height\" | \"size\" | \"view\" | \"backgroundColor\">",
+        "required": false,
+        "description": "Свойства индикатора"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс таба"
+      },
+      {
+        "name": "selectedClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс таба в выбранном состоянии"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс подписи"
+      },
+      {
+        "name": "iconClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс враппера иконки"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "list",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "acceptCharset",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "action",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "allowFullScreen",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "allowTransparency",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "as",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "async",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoPlay",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capture",
+        "type": "boolean | \"user\" | \"environment\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cellPadding",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cellSpacing",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "charSet",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "challenge",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cite",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "classID",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "cols",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "colSpan",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "coords",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "data",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dateTime",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "default",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "defer",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "encType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "frameBorder",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "headers",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "high",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hrefLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "htmlFor",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "httpEquiv",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "integrity",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keyParams",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keyType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "loop",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "low",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "manifest",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "marginHeight",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "marginWidth",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "mediaGroup",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "method",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "muted",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "noValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "optimum",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pattern",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "playsInline",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "poster",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "preload",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "reversed",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rows",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rowSpan",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "sandbox",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scope",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scoped",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "scrolling",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "seamless",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "selected",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "shape",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "sizes",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "span",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "srcDoc",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "srcLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "srcSet",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "start",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "summary",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "useMap",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "wmode",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "wrap",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

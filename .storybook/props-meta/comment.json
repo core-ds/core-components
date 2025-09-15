@@ -1,0 +1,31 @@
+{
+  "Comment": {
+    "description": "",
+    "props": [
+      {
+        "name": "rowLimit",
+        "type": "2 | 5",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Сss класс для стилизации общей обёртки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      }
+    ]
+  }
+}

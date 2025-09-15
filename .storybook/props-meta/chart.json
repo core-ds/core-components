@@ -1,0 +1,453 @@
+{
+  "Chart": {
+    "description": "",
+    "props": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": "Индефикатор графика"
+      },
+      {
+        "name": "responsiveContainer",
+        "type": "ResponsiveContainerProps",
+        "required": false,
+        "description": "Компонент контейнера, позволяющий адаптировать диаграммы к размеру родительского контейнера"
+      },
+      {
+        "name": "composeChart",
+        "type": "ComposedChartProps",
+        "required": true,
+        "description": "Диаграмма, состоящая из bar, linear и area диаграмм"
+      },
+      {
+        "name": "cartesianGrid",
+        "type": "CartesianGridProps",
+        "required": false,
+        "description": "Отображение линий осей графика"
+      },
+      {
+        "name": "xAxis",
+        "type": "XAxisProps",
+        "required": true,
+        "description": "Настройки оси Х"
+      },
+      {
+        "name": "yAxis",
+        "type": "YAxisProps",
+        "required": true,
+        "description": "Настройки оси У"
+      },
+      {
+        "name": "tooltip",
+        "type": "TooltipProps",
+        "required": false,
+        "description": "Всплывающаяся подсказка"
+      },
+      {
+        "name": "brush",
+        "type": "BrushProps",
+        "required": false,
+        "description": "Компонент маштабирования графика"
+      },
+      {
+        "name": "legend",
+        "type": "LegendProps",
+        "required": false,
+        "description": "Компонент подписи графиков"
+      },
+      {
+        "name": "series",
+        "type": "SeriaProps[]",
+        "required": true,
+        "description": "Mассив объектов с параметрами грaфиков с обязательным полем"
+      },
+      {
+        "name": "labels",
+        "type": "(string | number)[]",
+        "required": true,
+        "description": "Mассив меток"
+      }
+    ]
+  },
+  "CustomizedLabel": {
+    "description": "",
+    "props": []
+  },
+  "Dot": {
+    "description": "",
+    "props": [
+      {
+        "name": "activeDot",
+        "type": "number | null",
+        "required": true,
+        "description": "Индекс активной точки на графике."
+      },
+      {
+        "name": "cx",
+        "type": "number",
+        "required": true,
+        "description": "Координата Х."
+      },
+      {
+        "name": "cy",
+        "type": "number",
+        "required": true,
+        "description": "Координата У."
+      },
+      {
+        "name": "dataKey",
+        "type": "string",
+        "required": true,
+        "description": "Ключ данных."
+      },
+      {
+        "name": "dotSettings",
+        "type": "DotSettingProps",
+        "required": false,
+        "description": "Параметры точки."
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": true,
+        "description": "Индекс."
+      },
+      {
+        "name": "stroke",
+        "type": "string",
+        "required": true,
+        "description": "Цвет линии."
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "Значения по этим координатам."
+      },
+      {
+        "name": "ref",
+        "type": "Ref<SVGSVGElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Legends": {
+    "description": "",
+    "props": [
+      {
+        "name": "legend",
+        "type": "LegendProps",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "series",
+        "type": "SeriaProps[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "charts",
+        "type": "DataDynamicBooleanProps",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "toggleChart",
+        "type": "(item: SeriaProps) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLUListElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "LinearGradient": {
+    "description": "",
+    "props": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": "Индефикатор графика."
+      },
+      {
+        "name": "gid",
+        "type": "string",
+        "required": true,
+        "description": "Индефикатор градиента."
+      },
+      {
+        "name": "points",
+        "type": "GradientProps[]",
+        "required": true,
+        "description": "Массив настроек градинта."
+      }
+    ]
+  },
+  "RectBar": {
+    "description": "",
+    "props": []
+  },
+  "Tick": {
+    "description": "",
+    "props": [
+      {
+        "name": "payload",
+        "type": "{ coordinate: number; value: number; }",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "tickFormatter",
+        "type": "(value: string | number) => ReactText",
+        "required": true,
+        "description": "Функция форматирования"
+      },
+      {
+        "name": "x",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "y",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "xAxis",
+        "type": "XAxisProps",
+        "required": true,
+        "description": "Настройки оси Х"
+      }
+    ]
+  },
+  "TooltipContent": {
+    "description": "",
+    "props": [
+      {
+        "name": "payload",
+        "type": "PayloadProps[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "series",
+        "type": "SeriaProps[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "separator",
+        "type": "string",
+        "required": false,
+        "description": "Разделитель между именем и значением."
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "required": false,
+        "description": "Размер смещения между положением всплывающей подсказки и активной позицией."
+      },
+      {
+        "name": "filterNull",
+        "type": "boolean",
+        "required": false,
+        "description": "Когда элемент полезной нагрузки имеет значение null или undefined, этот элемент не отображается."
+      },
+      {
+        "name": "cursor",
+        "type": "boolean | ReactElement<any, string | JSXElementConstructor<any>> | SVGProps<SVGElement>",
+        "required": false,
+        "description": "Если установлено false, курсор не будет отображаться, когда всплывающая подсказка активна.\nЕсли установлен объект, опция - это конфигурация курсора.\nЕсли установлен элемент React, опция является настраиваемым элементом реакции курсора рисования."
+      },
+      {
+        "name": "position",
+        "type": "{ x: number; y: number; }",
+        "required": false,
+        "description": "Если это поле установлено, положение всплывающей подсказки будет фиксированным и больше не будет перемещаться."
+      },
+      {
+        "name": "isAnimationActive",
+        "type": "boolean",
+        "required": false,
+        "description": "Если установлено false, анимация всплывающей подсказки будет отключена."
+      },
+      {
+        "name": "animationBegin",
+        "type": "number",
+        "required": false,
+        "description": "Указывает, когда должна начинаться анимация, единица измерения этого параметра - мс."
+      },
+      {
+        "name": "animationDuration",
+        "type": "number",
+        "required": false,
+        "description": "Определяет продолжительность анимации, единица измерения этого параметра - мс."
+      },
+      {
+        "name": "animationEasing",
+        "type": "AnimationTiming",
+        "required": false,
+        "description": "Тип функции плавности."
+      },
+      {
+        "name": "arrow",
+        "type": "boolean",
+        "required": true,
+        "description": "Отображение стрелки тултипа"
+      },
+      {
+        "name": "tooltipArrowSide",
+        "type": "boolean",
+        "required": false,
+        "description": "Высчитывается автоматичекси, направление стрелки"
+      },
+      {
+        "name": "labelFormatter",
+        "type": "((value: any) => ReactText)",
+        "required": false,
+        "description": "Функция форматирования метки во всплывающей подсказке."
+      },
+      {
+        "name": "labelStyle",
+        "type": "Record<string, unknown>",
+        "required": false,
+        "description": "Стиль метки всплывающей подсказки по умолчанию, которая является элементом p."
+      },
+      {
+        "name": "label",
+        "type": "string | number",
+        "required": false,
+        "description": "Значение метки, которое сейчас активно, обычно рассчитывается внутри компании."
+      },
+      {
+        "name": "content",
+        "type": "any",
+        "required": false,
+        "description": "Контент для тултипа"
+      }
+    ]
+  },
+  "CircleIcon": {
+    "description": "",
+    "props": [
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#FF5C5C",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": 16,
+        "description": ""
+      }
+    ]
+  },
+  "CircleLineIcon": {
+    "description": "",
+    "props": [
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#FF5C5C",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": 16,
+        "description": ""
+      }
+    ]
+  },
+  "FilledCircleIcon": {
+    "description": "",
+    "props": [
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#5A8ECF",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": 16,
+        "description": ""
+      }
+    ]
+  },
+  "PointIcon": {
+    "description": "",
+    "props": [
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#5A8ECF",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": 16,
+        "description": ""
+      }
+    ]
+  },
+  "StrokeCircleIcon": {
+    "description": "",
+    "props": [
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#5A8ECF",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": 16,
+        "description": ""
+      }
+    ]
+  }
+}

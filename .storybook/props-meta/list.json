@@ -1,0 +1,92 @@
+{
+  "List": {
+    "description": "",
+    "props": [
+      {
+        "name": "tag",
+        "type": "\"ul\" | \"ol\"",
+        "required": false,
+        "defaultValue": "ul",
+        "description": "HTML тег"
+      },
+      {
+        "name": "marker",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "'–' for ul and 'decimal' for ol",
+        "description": "Маркер"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Css-класс для стилизации"
+      },
+      {
+        "name": "colorMarker",
+        "type": "ColorMarkerType",
+        "required": false,
+        "description": "Цвет маркера"
+      },
+      {
+        "name": "reversed",
+        "type": "boolean",
+        "required": false,
+        "description": "Список обратного счета"
+      },
+      {
+        "name": "start",
+        "type": "number",
+        "required": false,
+        "description": "Начало отсчета элементов списка"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      }
+    ]
+  },
+  "ListItem": {
+    "description": "",
+    "props": [
+      {
+        "name": "caption",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный текст"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "markerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для маркера"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для маркера"
+      }
+    ]
+  }
+}

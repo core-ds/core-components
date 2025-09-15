@@ -1,0 +1,51 @@
+{
+  "GenericWrapper": {
+    "description": "",
+    "props": [
+      {
+        "name": "column",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Свойство управляет направлением основной оси внутри флекс-контейнера"
+      },
+      {
+        "name": "padding",
+        "type": "PaddingPropType",
+        "required": false,
+        "description": "Внутренние отступы\n@description 3xs, 2xs, xs, s, m, l, xl deprecated,\nиспользуйте 0, 2, 4, 8, 12, 16, 20, 24"
+      },
+      {
+        "name": "alignItems",
+        "type": "\"stretch\" | \"end\" | \"start\" | \"center\" | \"baseline\"",
+        "required": false,
+        "description": "Свойство для выравнивания элементов внутри контейнера по поперечной оси."
+      },
+      {
+        "name": "justifyContent",
+        "type": "\"end\" | \"start\" | \"center\" | \"between\" | \"around\" | \"evenly\"",
+        "required": false,
+        "description": "Свойство выравнивает флекс-элементы внутри флекс-контейнера по основной оси."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "grow",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Позволяет заполнить всё доступное пространство родительского элемента."
+      },
+      {
+        "name": "gap",
+        "type": "GapType",
+        "required": false,
+        "description": "Отступы между элементами флекс-контейнера"
+      }
+    ]
+  }
+}

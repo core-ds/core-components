@@ -1,0 +1,38 @@
+{
+  "Mq": {
+    "description": "",
+    "props": [
+      {
+        "name": "query",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Media выражение или кастомный запрос из `mq.json`, например `--mobile`."
+      },
+      {
+        "name": "touch",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрос на поддержку тач-событий"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "onMatchChange",
+        "type": "((isMatched: boolean) => void)",
+        "required": false,
+        "description": "Обработчик изменений в совпадении запросов"
+      }
+    ]
+  }
+}

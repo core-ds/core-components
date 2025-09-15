@@ -1,0 +1,144 @@
+{
+  "Space": {
+    "description": "Позаимствовано с благодарностью из Ant Design",
+    "props": [
+      {
+        "name": "align",
+        "type": "Align",
+        "required": false,
+        "description": "Выравнивание"
+      },
+      {
+        "name": "direction",
+        "type": "Direction",
+        "required": false,
+        "description": "Направление"
+      },
+      {
+        "name": "size",
+        "type": "Size | [Size, Size]",
+        "required": false,
+        "description": "Размер отступов"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние компоненты"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "wrap",
+        "type": "boolean",
+        "required": false,
+        "description": "Автоматический перенос строк, полезно при direction = 'horizontal'"
+      },
+      {
+        "name": "divider",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Компонент разделителя"
+      },
+      {
+        "name": "fullWidth",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивать ли компонент на всю ширину"
+      },
+      {
+        "name": "useCssGaps",
+        "type": "boolean",
+        "required": false,
+        "description": "Использовать css gap\n@description Поддержка ограничена. см https://caniuse.com/?search=gap"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Item": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "dividerClassName",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "horizontalSize",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "verticalSize",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "length",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "direction",
+        "type": "Direction",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "divider",
+        "type": "ReactNode",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "wrap",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "useCssGaps",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      }
+    ]
+  }
+}

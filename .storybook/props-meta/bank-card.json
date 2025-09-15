@@ -1,0 +1,77 @@
+{
+  "BankCard": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#EF3124",
+        "description": "Цвет фона карты"
+      },
+      {
+        "name": "bankLogo",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "<AlfaBankSignMIcon width={30} height={40} />",
+        "description": "Иконка логотипа банка (размер L)"
+      },
+      {
+        "name": "inputLabel",
+        "type": "string",
+        "required": false,
+        "defaultValue": "getDefaultInputLabel(maskType)",
+        "description": "Лэйбл поля ввода"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Значение поля ввода"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: ChangeEvent<HTMLInputElement>, payload: { value: string; }) => void)",
+        "required": false,
+        "description": "Обработчик ввода"
+      },
+      {
+        "name": "onUsePhoto",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик вызова камеры"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "maskType",
+        "type": "MaskType",
+        "required": false,
+        "defaultValue": "MaskTypeEnum.Default",
+        "description": "Тип вводимой маски. Позволяет устанавливать необходимый тип номера (номер карты или номер счёта)\nЕсли параметр не передавать - работает с обоими типами номеров"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

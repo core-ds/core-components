@@ -1,0 +1,173 @@
+{
+  "ActionButton": {
+    "description": "",
+    "props": [
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Иконка кнопки"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | 48",
+        "required": false,
+        "defaultValue": 48,
+        "description": "Размер кнопки\n@description s deprecated, используйте 48"
+      },
+      {
+        "name": "view",
+        "type": "\"primary\" | \"secondary\"",
+        "required": false,
+        "defaultValue": "primary",
+        "description": "Тип кнопки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "iconWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки иконки"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Значение href для ссылки"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заблокировать кнопку"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader"
+      },
+      {
+        "name": "colors",
+        "type": "Colors",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Палитра, в контексте которой используется кнопка"
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hrefLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ping",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "defaultValue": "button",
+        "description": ""
+      },
+      {
+        "name": "referrerPolicy",
+        "type": "HTMLAttributeReferrerPolicy",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLAnchorElement | HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

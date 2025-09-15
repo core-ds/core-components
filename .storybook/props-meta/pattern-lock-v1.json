@@ -1,0 +1,468 @@
+{
+  "PatternLockV1": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение об ошибке"
+      },
+      {
+        "name": "message",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение над графическим ключом"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля сообщения используется модификатор -message, ошибки -error,\nкнопки \"забыли код\" -forgot-code-btn"
+      },
+      {
+        "name": "observeTokens",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Следить ли за изменениями значений цветовых токенов"
+      },
+      {
+        "name": "observerParams",
+        "type": "{ getTarget?: (() => Node); options?: MutationObserverInit; } | undefined",
+        "required": false,
+        "description": "Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)"
+      },
+      {
+        "name": "messageClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для message/errorMessage"
+      },
+      {
+        "name": "justifyNodes",
+        "type": "\"space-around\" | \"space-between\"",
+        "required": false,
+        "defaultValue": "space-available",
+        "description": "Метод выравнивания узлов."
+      },
+      {
+        "name": "onComplete",
+        "type": "((code: number[], nodes: TNodes) => void)",
+        "required": false,
+        "description": "Коллбек, вызываемый после завершения ввода кода."
+      },
+      {
+        "name": "onDragStart",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Коллбек, вызываемый при начале ввода кода."
+      },
+      {
+        "name": "themeState",
+        "type": "string",
+        "required": false,
+        "description": "Состояние темы."
+      },
+      {
+        "name": "extraBounds",
+        "type": "[number, number, number, number]",
+        "required": false,
+        "description": "Дополнительные границы в пикселях.\nСвойство позволяет расширить область прослушивания touch события.\nПо-умолчанию область ограничена размерами canvas."
+      },
+      {
+        "name": "showForgotCodeBtn",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\"Забыли код?\"",
+        "description": "Показать кнопку \"забыли код\""
+      },
+      {
+        "name": "forgotCodeBtnText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "\"Забыли код?\"",
+        "description": "Текст кнопки \"забыли код\""
+      },
+      {
+        "name": "onForgotBtnClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Коллбэк, вызываемый при клике на кнопку \"Забыли код\""
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<TPatternLockInstance>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "BasePatternLock": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение об ошибке"
+      },
+      {
+        "name": "message",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение над графическим ключом"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля сообщения используется модификатор -message, ошибки -error,\nкнопки \"забыли код\" -forgot-code-btn"
+      },
+      {
+        "name": "observeTokens",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Следить ли за изменениями значений цветовых токенов"
+      },
+      {
+        "name": "observerParams",
+        "type": "{ getTarget?: (() => Node); options?: MutationObserverInit; } | undefined",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)"
+      },
+      {
+        "name": "messageClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для message/errorMessage"
+      },
+      {
+        "name": "justifyNodes",
+        "type": "\"space-around\" | \"space-between\"",
+        "required": false,
+        "defaultValue": "space-between",
+        "description": "Метод выравнивания узлов."
+      },
+      {
+        "name": "onComplete",
+        "type": "((code: number[], nodes: TNodes) => void)",
+        "required": false,
+        "description": "Коллбек, вызываемый после завершения ввода кода."
+      },
+      {
+        "name": "onDragStart",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Коллбек, вызываемый при начале ввода кода."
+      },
+      {
+        "name": "themeState",
+        "type": "string",
+        "required": false,
+        "description": "Состояние темы."
+      },
+      {
+        "name": "extraBounds",
+        "type": "[number, number, number, number]",
+        "required": false,
+        "defaultValue": "[75, 50, 75, 50]",
+        "description": "Дополнительные границы в пикселях.\nСвойство позволяет расширить область прослушивания touch события.\nПо-умолчанию область ограничена размерами canvas."
+      },
+      {
+        "name": "showForgotCodeBtn",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Показать кнопку \"забыли код\""
+      },
+      {
+        "name": "forgotCodeBtnText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Забыли код?",
+        "description": "Текст кнопки \"забыли код\""
+      },
+      {
+        "name": "onForgotBtnClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Коллбэк, вызываемый при клике на кнопку \"Забыли код\""
+      },
+      {
+        "name": "hover",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает ховер-эффект"
+      },
+      {
+        "name": "styles",
+        "type": "{ [key: string]: string; }",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Стили компонента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<TPatternLockInstance>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "PatternLockDesktopV1": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение об ошибке"
+      },
+      {
+        "name": "message",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение над графическим ключом"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля сообщения используется модификатор -message, ошибки -error,\nкнопки \"забыли код\" -forgot-code-btn"
+      },
+      {
+        "name": "observeTokens",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Следить ли за изменениями значений цветовых токенов"
+      },
+      {
+        "name": "observerParams",
+        "type": "{ getTarget?: (() => Node); options?: MutationObserverInit; } | undefined",
+        "required": false,
+        "description": "Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)"
+      },
+      {
+        "name": "messageClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для message/errorMessage"
+      },
+      {
+        "name": "justifyNodes",
+        "type": "\"space-around\" | \"space-between\"",
+        "required": false,
+        "defaultValue": "space-available",
+        "description": "Метод выравнивания узлов."
+      },
+      {
+        "name": "onComplete",
+        "type": "((code: number[], nodes: TNodes) => void)",
+        "required": false,
+        "description": "Коллбек, вызываемый после завершения ввода кода."
+      },
+      {
+        "name": "onDragStart",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Коллбек, вызываемый при начале ввода кода."
+      },
+      {
+        "name": "themeState",
+        "type": "string",
+        "required": false,
+        "description": "Состояние темы."
+      },
+      {
+        "name": "extraBounds",
+        "type": "[number, number, number, number]",
+        "required": false,
+        "description": "Дополнительные границы в пикселях.\nСвойство позволяет расширить область прослушивания touch события.\nПо-умолчанию область ограничена размерами canvas."
+      },
+      {
+        "name": "showForgotCodeBtn",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\"Забыли код?\"",
+        "description": "Показать кнопку \"забыли код\""
+      },
+      {
+        "name": "forgotCodeBtnText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "\"Забыли код?\"",
+        "description": "Текст кнопки \"забыли код\""
+      },
+      {
+        "name": "onForgotBtnClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Коллбэк, вызываемый при клике на кнопку \"Забыли код\""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<TPatternLockInstance>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "PatternLockMobileV1": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение об ошибке"
+      },
+      {
+        "name": "message",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Сообщение над графическим ключом"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля сообщения используется модификатор -message, ошибки -error,\nкнопки \"забыли код\" -forgot-code-btn"
+      },
+      {
+        "name": "observeTokens",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Следить ли за изменениями значений цветовых токенов"
+      },
+      {
+        "name": "observerParams",
+        "type": "{ getTarget?: (() => Node); options?: MutationObserverInit; } | undefined",
+        "required": false,
+        "description": "Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)"
+      },
+      {
+        "name": "messageClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для message/errorMessage"
+      },
+      {
+        "name": "justifyNodes",
+        "type": "\"space-around\" | \"space-between\"",
+        "required": false,
+        "defaultValue": "space-available",
+        "description": "Метод выравнивания узлов."
+      },
+      {
+        "name": "onComplete",
+        "type": "((code: number[], nodes: TNodes) => void)",
+        "required": false,
+        "description": "Коллбек, вызываемый после завершения ввода кода."
+      },
+      {
+        "name": "onDragStart",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Коллбек, вызываемый при начале ввода кода."
+      },
+      {
+        "name": "themeState",
+        "type": "string",
+        "required": false,
+        "description": "Состояние темы."
+      },
+      {
+        "name": "extraBounds",
+        "type": "[number, number, number, number]",
+        "required": false,
+        "description": "Дополнительные границы в пикселях.\nСвойство позволяет расширить область прослушивания touch события.\nПо-умолчанию область ограничена размерами canvas."
+      },
+      {
+        "name": "showForgotCodeBtn",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "\"Забыли код?\"",
+        "description": "Показать кнопку \"забыли код\""
+      },
+      {
+        "name": "forgotCodeBtnText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "\"Забыли код?\"",
+        "description": "Текст кнопки \"забыли код\""
+      },
+      {
+        "name": "onForgotBtnClick",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Коллбэк, вызываемый при клике на кнопку \"Забыли код\""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<TPatternLockInstance>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

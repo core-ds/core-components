@@ -1,0 +1,1047 @@
+{
+  "CustomButton": {
+    "description": "",
+    "props": [
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rectangular",
+        "description": "Форма кнопки"
+      },
+      {
+        "name": "textResizing",
+        "type": "\"fill\" | \"hug\"",
+        "required": false,
+        "defaultValue": "hug",
+        "description": "Ширина текстового контента"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подпись под лейблом (видна только в размерах >= m)"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": "56",
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "spinnerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для спиннера"
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "nowrap",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Не переносить текст кнопки на новую строку"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет кнопки"
+      },
+      {
+        "name": "contentColor",
+        "type": "\"black\" | \"white\" | \"static-black\" | \"static-white\"",
+        "required": false,
+        "description": "Цвет контента"
+      },
+      {
+        "name": "stateType",
+        "type": "\"darkening\" | \"lightening\" | \"static-darkening\" | \"static-lightening\"",
+        "required": false,
+        "description": "Затемнение или осветление кнопки при hover и active"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокировка кнопки"
+      },
+      {
+        "name": "disableType",
+        "type": "\"default\" | \"static\" | \"inverted\" | \"static-inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Тип цвета для заблокированного состояния"
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hrefLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ping",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "referrerPolicy",
+        "type": "HTMLAttributeReferrerPolicy",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLAnchorElement | HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "BaseCustomButton": {
+    "description": "",
+    "props": [
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rectangular",
+        "description": "Форма кнопки"
+      },
+      {
+        "name": "textResizing",
+        "type": "\"fill\" | \"hug\"",
+        "required": false,
+        "defaultValue": "hug",
+        "description": "Ширина текстового контента"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подпись под лейблом (видна только в размерах >= m)"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": "56",
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "spinnerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для спиннера"
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "nowrap",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Не переносить текст кнопки на новую строку"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "#FF45C3",
+        "description": "Цвет кнопки"
+      },
+      {
+        "name": "contentColor",
+        "type": "\"black\" | \"white\" | \"static-black\" | \"static-white\"",
+        "required": false,
+        "defaultValue": "white",
+        "description": "Цвет контента"
+      },
+      {
+        "name": "stateType",
+        "type": "\"darkening\" | \"lightening\" | \"static-darkening\" | \"static-lightening\"",
+        "required": false,
+        "defaultValue": "darkening",
+        "description": "Затемнение или осветление кнопки при hover и active"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокировка кнопки"
+      },
+      {
+        "name": "disableType",
+        "type": "\"default\" | \"static\" | \"inverted\" | \"static-inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Тип цвета для заблокированного состояния"
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hrefLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ping",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "referrerPolicy",
+        "type": "HTMLAttributeReferrerPolicy",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "componentButton",
+        "type": "ForwardRefExoticComponent<ButtonProps & RefAttributes<HTMLAnchorElement | HTMLButtonElement>> | ForwardRefExoticComponent<...>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLAnchorElement | HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CustomButtonDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rectangular",
+        "description": "Форма кнопки"
+      },
+      {
+        "name": "textResizing",
+        "type": "\"fill\" | \"hug\"",
+        "required": false,
+        "defaultValue": "hug",
+        "description": "Ширина текстового контента"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подпись под лейблом (видна только в размерах >= m)"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": "56",
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "spinnerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для спиннера"
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "nowrap",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Не переносить текст кнопки на новую строку"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет кнопки"
+      },
+      {
+        "name": "contentColor",
+        "type": "\"black\" | \"white\" | \"static-black\" | \"static-white\"",
+        "required": false,
+        "description": "Цвет контента"
+      },
+      {
+        "name": "stateType",
+        "type": "\"darkening\" | \"lightening\" | \"static-darkening\" | \"static-lightening\"",
+        "required": false,
+        "description": "Затемнение или осветление кнопки при hover и active"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокировка кнопки"
+      },
+      {
+        "name": "disableType",
+        "type": "\"default\" | \"static\" | \"inverted\" | \"static-inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Тип цвета для заблокированного состояния"
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hrefLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ping",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "referrerPolicy",
+        "type": "HTMLAttributeReferrerPolicy",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLAnchorElement | HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CustomButtonMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Выводит ссылку в виде кнопки"
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rectangular",
+        "description": "Форма кнопки"
+      },
+      {
+        "name": "textResizing",
+        "type": "\"fill\" | \"hug\"",
+        "required": false,
+        "defaultValue": "hug",
+        "description": "Ширина текстового контента"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подпись под лейблом (видна только в размерах >= m)"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "size",
+        "type": "\"xxs\" | \"xs\" | \"s\" | \"m\" | \"l\" | \"xl\" | 32 | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": "56",
+        "description": "Размер компонента\n@description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "spinnerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для спиннера"
+      },
+      {
+        "name": "Component",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Показать лоадер"
+      },
+      {
+        "name": "nowrap",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Не переносить текст кнопки на новую строку"
+      },
+      {
+        "name": "allowBackdropBlur",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице."
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет кнопки"
+      },
+      {
+        "name": "contentColor",
+        "type": "\"black\" | \"white\" | \"static-black\" | \"static-white\"",
+        "required": false,
+        "description": "Цвет контента"
+      },
+      {
+        "name": "stateType",
+        "type": "\"darkening\" | \"lightening\" | \"static-darkening\" | \"static-lightening\"",
+        "required": false,
+        "description": "Затемнение или осветление кнопки при hover и active"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокировка кнопки"
+      },
+      {
+        "name": "disableType",
+        "type": "\"default\" | \"static\" | \"inverted\" | \"static-inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Тип цвета для заблокированного состояния"
+      },
+      {
+        "name": "download",
+        "type": "any",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hrefLang",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "media",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ping",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "referrerPolicy",
+        "type": "HTMLAttributeReferrerPolicy",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLAnchorElement | HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

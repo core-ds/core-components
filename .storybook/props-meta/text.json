@@ -1,0 +1,70 @@
+{
+  "Text": {
+    "description": "",
+    "props": [
+      {
+        "name": "tag",
+        "type": "\"span\" | \"p\" | \"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+        "required": false,
+        "description": "HTML тег"
+      },
+      {
+        "name": "view",
+        "type": "TypographyType",
+        "required": false,
+        "defaultValue": "paragraph-primary-medium",
+        "description": "Cтиль типографики"
+      },
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\" | \"right\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание текста"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "description": "Цвет текста"
+      },
+      {
+        "name": "textBackgroundColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет фона"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "monospaceNumbers",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Делает цифры моноширинными"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования."
+      }
+    ]
+  }
+}

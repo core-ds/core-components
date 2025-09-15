@@ -1,0 +1,384 @@
+{
+  "CalendarRange": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "valueFrom",
+        "type": "string",
+        "required": false,
+        "description": "Значение инпута (используется и для календаря)"
+      },
+      {
+        "name": "valueTo",
+        "type": "string",
+        "required": false,
+        "description": "Значение инпута (используется и для календаря)"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "number",
+        "required": false,
+        "description": "Месяц в календаре по умолчанию"
+      },
+      {
+        "name": "minDate",
+        "type": "number",
+        "required": false,
+        "description": "Минимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "maxDate",
+        "type": "number",
+        "required": false,
+        "description": "Максимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "onDateFromChange",
+        "type": "((payload: { date: number | null; value: string; }) => void)",
+        "required": false,
+        "description": "Обработчик изменения даты от"
+      },
+      {
+        "name": "onDateToChange",
+        "type": "((payload: { date: number | null; value: string; }) => void)",
+        "required": false,
+        "description": "Обработчик изменения даты до"
+      },
+      {
+        "name": "onChange",
+        "type": "((payload: { dateFrom: number | null; valueFrom: string; dateTo: number | null; valueTo: string; }) => void)",
+        "required": false,
+        "description": "Обработчик изменения"
+      },
+      {
+        "name": "onError",
+        "type": "((hasError: boolean) => void)",
+        "required": false,
+        "description": "Коллбэк, срабатывающий при возникновении ошибок валидации дат внутри компонента."
+      },
+      {
+        "name": "events",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список событий"
+      },
+      {
+        "name": "offDays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список выходных"
+      },
+      {
+        "name": "inputFromProps",
+        "type": "CalendarInputResponsiveProps",
+        "required": false,
+        "description": "Пропсы для инпута даты от"
+      },
+      {
+        "name": "inputToProps",
+        "type": "CalendarInputResponsiveProps",
+        "required": false,
+        "description": "Пропсы для инпута даты до"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "calendarPosition",
+        "type": "\"static\" | \"popover\"",
+        "required": false,
+        "defaultValue": "static",
+        "description": "Определяет, как рендерить календарь — в поповере или снизу инпута"
+      },
+      {
+        "name": "defaultMonthPosition",
+        "type": "\"left\" | \"right\"",
+        "required": false,
+        "description": "calendarPosition = static\nОтображать начальный месяц слева или справа (влияет только на начальный рендер)"
+      },
+      {
+        "name": "returnInvalidDates",
+        "type": "boolean",
+        "required": false,
+        "description": "Возвращать невалидную дату для кастомной валидации"
+      },
+      {
+        "name": "calendarContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контейнера календаря"
+      }
+    ]
+  },
+  "Divider": {
+    "description": "",
+    "props": [
+      {
+        "name": "inputFromProps",
+        "type": "CalendarInputResponsiveProps",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "inputToProps",
+        "type": "CalendarInputResponsiveProps",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CalendarRangePopover": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "valueFrom",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Значение инпута (используется и для календаря)"
+      },
+      {
+        "name": "valueTo",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Значение инпута (используется и для календаря)"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "startOfMonth(new Date()).getTime()",
+        "description": "Месяц в календаре по умолчанию"
+      },
+      {
+        "name": "minDate",
+        "type": "number",
+        "required": false,
+        "description": "Минимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "maxDate",
+        "type": "number",
+        "required": false,
+        "description": "Максимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "onDateFromChange",
+        "type": "((payload: { date: number | null; value: string; }) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик изменения даты от"
+      },
+      {
+        "name": "onDateToChange",
+        "type": "((payload: { date: number | null; value: string; }) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик изменения даты до"
+      },
+      {
+        "name": "onChange",
+        "type": "((payload: { dateFrom: number | null; valueFrom: string; dateTo: number | null; valueTo: string; }) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик изменения"
+      },
+      {
+        "name": "onError",
+        "type": "((hasError: boolean) => void)",
+        "required": false,
+        "description": "Коллбэк, срабатывающий при возникновении ошибок валидации дат внутри компонента."
+      },
+      {
+        "name": "events",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список событий"
+      },
+      {
+        "name": "offDays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список выходных"
+      },
+      {
+        "name": "inputFromProps",
+        "type": "CalendarInputResponsiveProps",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Пропсы для инпута даты от"
+      },
+      {
+        "name": "inputToProps",
+        "type": "CalendarInputResponsiveProps",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Пропсы для инпута даты до"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "defaultMonthPosition",
+        "type": "\"left\" | \"right\"",
+        "required": false,
+        "description": "calendarPosition = static\nОтображать начальный месяц слева или справа (влияет только на начальный рендер)"
+      },
+      {
+        "name": "returnInvalidDates",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Возвращать невалидную дату для кастомной валидации"
+      },
+      {
+        "name": "calendarContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контейнера календаря"
+      }
+    ]
+  },
+  "CalendarRangeStatic": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "valueFrom",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Значение инпута (используется и для календаря)"
+      },
+      {
+        "name": "valueTo",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Значение инпута (используется и для календаря)"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "startOfMonth(new Date()).getTime()",
+        "description": "Месяц в календаре по умолчанию"
+      },
+      {
+        "name": "minDate",
+        "type": "number",
+        "required": false,
+        "description": "Минимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "maxDate",
+        "type": "number",
+        "required": false,
+        "description": "Максимальная дата, доступная для выбора (timestamp)"
+      },
+      {
+        "name": "onDateFromChange",
+        "type": "((payload: { date: number | null; value: string; }) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик изменения даты от"
+      },
+      {
+        "name": "onDateToChange",
+        "type": "((payload: { date: number | null; value: string; }) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик изменения даты до"
+      },
+      {
+        "name": "onChange",
+        "type": "((payload: { dateFrom: number | null; valueFrom: string; dateTo: number | null; valueTo: string; }) => void)",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Обработчик изменения"
+      },
+      {
+        "name": "onError",
+        "type": "((hasError: boolean) => void)",
+        "required": false,
+        "description": "Коллбэк, срабатывающий при возникновении ошибок валидации дат внутри компонента."
+      },
+      {
+        "name": "events",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список событий"
+      },
+      {
+        "name": "offDays",
+        "type": "(number | Date)[]",
+        "required": false,
+        "description": "Список выходных"
+      },
+      {
+        "name": "inputFromProps",
+        "type": "CalendarInputResponsiveProps",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Пропсы для инпута даты от"
+      },
+      {
+        "name": "inputToProps",
+        "type": "CalendarInputResponsiveProps",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Пропсы для инпута даты до"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "defaultMonthPosition",
+        "type": "\"left\" | \"right\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "calendarPosition = static\nОтображать начальный месяц слева или справа (влияет только на начальный рендер)\nОтображать начальный месяц слева или справа (влияет только на начальный рендер)"
+      },
+      {
+        "name": "returnInvalidDates",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Возвращать невалидную дату для кастомной валидации"
+      },
+      {
+        "name": "calendarContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контейнера календаря"
+      }
+    ]
+  }
+}

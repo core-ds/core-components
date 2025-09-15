@@ -1,0 +1,164 @@
+{
+  "Amount": {
+    "description": "Компонент для отображения суммы, согласно следующему гайдлайну:\nhttps://design.alfabank.ru/patterns/amount",
+    "props": [
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "Денежное значение в минорных единицах"
+      },
+      {
+        "name": "currency",
+        "type": "\"ALL\" | \"AFN\" | \"ARS\" | \"AWG\" | \"AUD\" | \"AZN\" | \"BSD\" | \"BBD\" | \"BYN\" | \"BZD\" | \"BMD\" | \"BOB\" | \"BOV\" | \"BAM\" | \"BWP\" | \"BGN\" | \"BRL\" | \"BND\" | \"KHR\" | \"CAD\" | \"KYD\" | \"CLP\" | \"CNY\" | ... 157 more ...",
+        "required": false,
+        "description": "Валюта"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "minority",
+        "type": "number",
+        "required": true,
+        "description": "Количество минорных единиц в валюте"
+      },
+      {
+        "name": "codeFormat",
+        "type": "\"letter\" | \"symbolic\"",
+        "required": false,
+        "defaultValue": "symbolic",
+        "description": "Формат отображения кода валюты"
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"withZeroMinorPart\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "default - не отображаем копейки, если их значение 0\nwithZeroMinorPart - отображаем копейки, даже если их значение равно 0"
+      },
+      {
+        "name": "bold",
+        "type": "\"full\" | \"major\" | \"none\"",
+        "required": false,
+        "description": "Управление жирностью"
+      },
+      {
+        "name": "transparentMinor",
+        "type": "boolean",
+        "required": false,
+        "description": "Делает минорную часть полупрозрачной"
+      },
+      {
+        "name": "showPlus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Показывать значок + для положительных значений"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "trimZero",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Обрезать ноль в минорной части. Например: 1.70 -> 1.7"
+      }
+    ]
+  },
+  "PureAmount": {
+    "description": "Компонент для отображения суммы, согласно следующему гайдлайну:\nhttps://design.alfabank.ru/patterns/amount\nНе содержит стилей кроме неразрывности строки",
+    "props": [
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "Денежное значение в минорных единицах"
+      },
+      {
+        "name": "currency",
+        "type": "\"ALL\" | \"AFN\" | \"ARS\" | \"AWG\" | \"AUD\" | \"AZN\" | \"BSD\" | \"BBD\" | \"BYN\" | \"BZD\" | \"BMD\" | \"BOB\" | \"BOV\" | \"BAM\" | \"BWP\" | \"BGN\" | \"BRL\" | \"BND\" | \"KHR\" | \"CAD\" | \"KYD\" | \"CLP\" | \"CNY\" | ... 157 more ...",
+        "required": false,
+        "description": "Валюта"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "minority",
+        "type": "number",
+        "required": true,
+        "description": "Количество минорных единиц в валюте"
+      },
+      {
+        "name": "codeFormat",
+        "type": "\"letter\" | \"symbolic\"",
+        "required": false,
+        "defaultValue": "symbolic",
+        "description": "Формат отображения кода валюты"
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"withZeroMinorPart\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "default - не отображаем копейки, если их значение 0\nwithZeroMinorPart - отображаем копейки, даже если их значение равно 0"
+      },
+      {
+        "name": "bold",
+        "type": "\"full\" | \"major\" | \"none\"",
+        "required": false,
+        "description": "Управление жирностью"
+      },
+      {
+        "name": "transparentMinor",
+        "type": "boolean",
+        "required": false,
+        "description": "Делает минорную часть полупрозрачной"
+      },
+      {
+        "name": "showPlus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Показывать значок + для положительных значений"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "trimZero",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Обрезать ноль в минорной части. Например: 1.70 -> 1.7"
+      }
+    ]
+  }
+}

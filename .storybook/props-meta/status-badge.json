@@ -1,0 +1,45 @@
+{
+  "StatusBadge": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "size",
+        "type": "StatusBadgeSizes",
+        "required": false,
+        "defaultValue": 24,
+        "description": "Размер компонента"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "view",
+        "type": "StatusBadgeViews",
+        "required": true,
+        "description": "Вид бейджа."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "customIcons",
+        "type": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>>",
+        "required": false,
+        "description": "Кастомные иконки"
+      }
+    ]
+  }
+}

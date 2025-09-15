@@ -1,0 +1,38 @@
+{
+  "ListHeader": {
+    "description": "",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Заголовок"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительное описание"
+      },
+      {
+        "name": "filled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Наличие фоновой подложки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "Steps": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "defaultActiveStep",
+        "type": "number",
+        "required": false,
+        "defaultValue": 1,
+        "description": "Активный шаг, указанный по умолчанию"
+      },
+      {
+        "name": "activeStep",
+        "type": "number",
+        "required": false,
+        "description": "Активный шаг"
+      },
+      {
+        "name": "isMarkCompletedSteps",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управление возможностью отключения пометки пройденного шага"
+      },
+      {
+        "name": "checkIsStepDisabled",
+        "type": "((stepNumber: number) => boolean)",
+        "required": false,
+        "description": "Кастомный метод для управления состоянием disabled шага и\nвозможностью перехода на этот шаг\n@param stepNumber - номер шага\n@return Флаг состояния disabled"
+      },
+      {
+        "name": "checkIsStepError",
+        "type": "((stepNumber: number) => boolean)",
+        "required": false,
+        "description": "Кастомный метод для управления состоянием шага error\n@param stepNumber - номер шага\n@return Флаг состояния error"
+      },
+      {
+        "name": "checkIsStepCriticalError",
+        "type": "((stepNumber: number) => boolean)",
+        "required": false,
+        "description": "Кастомный метод для управления состоянием шага criticalError\n@param stepNumber - номер шага\n@return Флаг состояния error"
+      },
+      {
+        "name": "checkIsStepWarning",
+        "type": "((stepNumber: number) => boolean)",
+        "required": false,
+        "description": "Кастомный метод для управления состоянием шага warning\n@param stepNumber - номер шага\n@return Флаг состояния warning"
+      },
+      {
+        "name": "checkIsStepWaiting",
+        "type": "((stepNumber: number) => boolean)",
+        "required": false,
+        "description": "Кастомный метод для управления состоянием шага waiting\n@param stepNumber - номер шага\n@return Флаг состояния waiting"
+      },
+      {
+        "name": "checkIsStepPositive",
+        "type": "((stepNumber: number) => boolean)",
+        "required": false,
+        "description": "Кастомный метод для управления состоянием шага positive\n@param stepNumber - номер шага\n@return Флаг состояния positive"
+      },
+      {
+        "name": "checkIsStepCustom",
+        "type": "((stepNumber: number) => StepIndicatorProps | null)",
+        "required": false,
+        "description": "Кастомный метод для установки кастомного индикатора шага\n@param stepNumber - номер шага\n@return Объект StepIndicatorProps { className, content, iconColor } или null"
+      },
+      {
+        "name": "onChange",
+        "type": "((stepNumber: number) => void)",
+        "required": false,
+        "description": "Обработчик клика на шаг\n@param stepNumber - номер активного шага"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "isVerticalAlign",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Управление ориентацией компонента"
+      },
+      {
+        "name": "ordered",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управление отображением номера шага"
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Включение / отключение интерактивности шагов"
+      },
+      {
+        "name": "fullWidth",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Растягивание шагов на всю ширину блока для вертикальной ориентации"
+      },
+      {
+        "name": "minSpaceBetweenSteps",
+        "type": "8 | 16 | 24 | 32",
+        "required": false,
+        "defaultValue": 24,
+        "description": "Минимальное расстояние между шагами для горизонтального расположения компонента\n@description Значение 8 устарело и будет удалено в будущих версиях. Используйте 16, 24 или 32."
+      },
+      {
+        "name": "completedDashColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет тире выполненного шага"
+      }
+    ]
+  },
+  "StepIndicator": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "content",
+        "type": "number | ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "description": "Контент компонента"
+      },
+      {
+        "name": "iconColor",
+        "type": "IconColorType",
+        "required": false,
+        "description": "Цветовое оформление бейджа при view='icon'"
+      }
+    ]
+  },
+  "Step": {
+    "description": "",
+    "props": [
+      {
+        "name": "stepNumber",
+        "type": "number",
+        "required": true,
+        "description": "Номер шага"
+      },
+      {
+        "name": "isSelected",
+        "type": "boolean",
+        "required": true,
+        "description": "Маркер того, что текущий шаг выбран"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": true,
+        "description": "Маркер того, что текущий шаг доступен для клика"
+      },
+      {
+        "name": "isPositive",
+        "type": "boolean",
+        "required": true,
+        "description": "Маркер того, что текущий шаг находится в состоянии \"Positive\""
+      },
+      {
+        "name": "isError",
+        "type": "boolean",
+        "required": true,
+        "description": "Маркер того, что текущий шаг находится в состоянии \"Error\""
+      },
+      {
+        "name": "isCriticalError",
+        "type": "boolean",
+        "required": true,
+        "description": "Маркер того, что текущий шаг находится в состоянии \"isCriticalError\""
+      },
+      {
+        "name": "isWarning",
+        "type": "boolean",
+        "required": true,
+        "description": "Маркер того, что текущий шаг находится в состоянии \"Warning\""
+      },
+      {
+        "name": "isWaiting",
+        "type": "boolean",
+        "required": true,
+        "description": "Маркер того, что текущий шаг находится в состоянии \"Waiting\""
+      },
+      {
+        "name": "isStepCompleted",
+        "type": "boolean",
+        "required": true,
+        "description": "Маркер того, что текущий шаг нужно пометить как завершенный"
+      },
+      {
+        "name": "customStepIndicator",
+        "type": "StepIndicatorProps | null",
+        "required": false,
+        "description": "Свойства кастомного индикатора текущего шага"
+      },
+      {
+        "name": "isNotLastStep",
+        "type": "boolean",
+        "required": false,
+        "description": "Указывает, является ли текущий шаг последним в списке"
+      },
+      {
+        "name": "onClick",
+        "type": "(stepNumber: number) => void",
+        "required": true,
+        "description": "Обработчик нажатия на текущей шаг\n@param stepNumber - номер шага"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "isVerticalAlign",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управление ориентацией компонента"
+      },
+      {
+        "name": "ordered",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление отображением номера шага"
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "description": "Включение / отключение интерактивности шагов"
+      },
+      {
+        "name": "fullWidth",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Растягивание шагов на всю ширину блока для вертикальной ориентации"
+      },
+      {
+        "name": "minSpaceBetweenSteps",
+        "type": "8 | 16 | 24 | 32",
+        "required": false,
+        "defaultValue": 24,
+        "description": "Минимальное расстояние между шагами для горизонтального расположения компонента\n@description Значение 8 устарело и будет удалено в будущих версиях. Используйте 16, 24 или 32."
+      },
+      {
+        "name": "completedDashColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет тире выполненного шага"
+      }
+    ]
+  }
+}

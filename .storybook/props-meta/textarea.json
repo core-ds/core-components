@@ -1,0 +1,325 @@
+{
+  "Textarea": {
+    "description": "",
+    "props": [
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "defaultValue": "on",
+        "description": ""
+      },
+      {
+        "name": "cols",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dirName",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": "Максимальное количество символов (native prop)"
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "rows",
+        "type": "number",
+        "required": false,
+        "defaultValue": "autosize ? 1 : 3",
+        "description": ""
+      },
+      {
+        "name": "wrap",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Значение поля ввода"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Начальное значение поля"
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": 48,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "defaultValue": "inner",
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под компонентом"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "textareaClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс textarea"
+      },
+      {
+        "name": "autosize",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управление возможностью подстраивать высоту компонента под высоту текста"
+      },
+      {
+        "name": "maxRows",
+        "type": "number",
+        "required": false,
+        "description": "Максимальное количество отображаемых строк (работает только вместе с autosize)"
+      },
+      {
+        "name": "minRows",
+        "type": "number",
+        "required": false,
+        "description": "Минимальное количество отображаемых строк (работает только вместе c autosize)"
+      },
+      {
+        "name": "maxHeight",
+        "type": "number",
+        "required": false,
+        "description": "Максимальная высота элемента"
+      },
+      {
+        "name": "resize",
+        "type": "\"vertical\" | \"none\"",
+        "required": false,
+        "defaultValue": "none",
+        "description": "Управление возможностью изменения размеров компонента (не работает вместе c autosize)"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: ChangeEvent<HTMLTextAreaElement>, payload: { value: string; }) => void)",
+        "required": false,
+        "description": "Обработчик ввода"
+      },
+      {
+        "name": "onHeightChange",
+        "type": "((height?: number) => void)",
+        "required": false,
+        "description": "Обработчик события изменения высоты компонента (работает только вместе c autosize)"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control"
+      },
+      {
+        "name": "showCounter",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Показывать счетчик введенных символов"
+      },
+      {
+        "name": "getCounterText",
+        "type": "((textLength: number, maxLength?: number) => string)",
+        "required": false,
+        "defaultValue": "(textLength: number, maxLength = 0): string =>\n    `${textLength}/${maxLength} символов`",
+        "description": "Функция, возвращающая текст для счетчика"
+      },
+      {
+        "name": "nativeScrollbar",
+        "type": "boolean",
+        "required": false,
+        "description": "Нужно ли использовать нативный скроллбар."
+      },
+      {
+        "name": "allowOverflow",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Разрешить переполнение, если количество символов превышает maxLength"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "wrapperRef",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для обертки textarea"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLTextAreaElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "PseudoTextArea": {
+    "description": "",
+    "props": [
+      {
+        "name": "pseudoTextareaClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс компонента"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Значение PseudoTextArea, разделяется на 2 части по maxLength"
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": true,
+        "description": "Максимальное количество символов, символы свыше maxLength будут выделены"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": 48,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

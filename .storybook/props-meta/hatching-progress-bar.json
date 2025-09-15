@@ -1,0 +1,50 @@
+{
+  "HatchingProgressBar": {
+    "description": "",
+    "props": [
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "Значение заполненной части 0-100"
+      },
+      {
+        "name": "hatchValue",
+        "type": "number",
+        "required": true,
+        "description": "Значение будущей заполненной части 0-100"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Css-класс для стилизации"
+      },
+      {
+        "name": "view",
+        "type": "\"positive\" | \"negative\" | \"attention\" | \"link\" | \"tertiary\" | \"secondary\" | \"primary\" | \"accent\"",
+        "required": false,
+        "defaultValue": "positive",
+        "description": "Цвет заполнения"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

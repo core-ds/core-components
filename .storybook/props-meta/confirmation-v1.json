@@ -1,0 +1,655 @@
+{
+  "ConfirmationV1": {
+    "description": "",
+    "props": [
+      {
+        "name": "code",
+        "type": "string",
+        "required": true,
+        "description": "Значение поля ввода"
+      },
+      {
+        "name": "codeChecking",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Флаг состояния обработки введенного кода."
+      },
+      {
+        "name": "codeSending",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Флаг состояния отправки кода."
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Состояние ошибки подписания"
+      },
+      {
+        "name": "errorOverlimit",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Состояние ошибки лимитов - превышено кол-во попыток ввода или запросов кода"
+      },
+      {
+        "name": "errorOverlimitIsFatal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Состояние критической ошибки лимитов - превышены все лимиты и попытки, пользователя блокируют"
+      },
+      {
+        "name": "errorText",
+        "type": "string",
+        "required": false,
+        "description": "Текст ошибки подписания"
+      },
+      {
+        "name": "additionalContent",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дополнительный контент"
+      },
+      {
+        "name": "errorIsFatal",
+        "type": "boolean",
+        "required": false,
+        "description": "Флаг критичности ошибки подписания.\nЕсли true - ошибка подписания рисуется на экране без поля ввода, но с кнопкой \"Запросить код\"\nЕсли false - ошибка подписания рисуется под полем ввода кода"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": "Номер телефона, на который отправляется сообщение."
+      },
+      {
+        "name": "hasPhoneMask",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управление необходимостью маскировать номер телефона"
+      },
+      {
+        "name": "requiredCharAmount",
+        "type": "number",
+        "required": false,
+        "defaultValue": 5,
+        "description": "Количество символов, которое можно ввести в поле ввода подписания до того, как произойдет автоотправка"
+      },
+      {
+        "name": "hasSmsCountdown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управление отображением таймера с кнопкой \"Запросить код\""
+      },
+      {
+        "name": "countdownDuration",
+        "type": "number",
+        "required": false,
+        "defaultValue": 60000,
+        "description": "Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах"
+      },
+      {
+        "name": "signTitle",
+        "type": "ReactNode",
+        "required": false,
+        "defaultValue": "Введите код из сообщения",
+        "description": "Заголовок экрана подписания"
+      },
+      {
+        "name": "overlimitTitle",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Превышено количество\n попыток ввода кода",
+        "description": "Заголовок экрана ошибки лимитов"
+      },
+      {
+        "name": "overlimitText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Повторное подтверждение кодом из SMS\n будет возможно через",
+        "description": "Текстовое описание блокировки формы при превышении лимитов"
+      },
+      {
+        "name": "overlimitCountdownDuration",
+        "type": "number",
+        "required": false,
+        "description": "Длительно блокировки при превышении лимитов, в милисекундах"
+      },
+      {
+        "name": "errorTitle",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Превышено количество попыток ввода кода",
+        "description": "Заголовок экрана блокирующей ошибки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "codeCheckingText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Проверка кода",
+        "description": "Текст лоадера при проверке кода"
+      },
+      {
+        "name": "codeSendingText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Отправляем код",
+        "description": "Текст лоадера при отправке кода"
+      },
+      {
+        "name": "buttonErrorText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Понятно",
+        "description": "Текст кнопки при блокирующей ошибке"
+      },
+      {
+        "name": "buttonReturnText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Вернуться назад",
+        "description": "Текст кнопки \"Вернуться назад\" на экране помощи"
+      },
+      {
+        "name": "buttonRetryText",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Запросить новый код",
+        "description": "Текст кнопки \"Запросить новый код\""
+      },
+      {
+        "name": "alignContent",
+        "type": "ContentAlign",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Позиционирование контента"
+      },
+      {
+        "name": "noAttemptsLeftMessage",
+        "type": "string",
+        "required": false,
+        "description": "Сообщение, если не осталось попыток ввода кода.\nКнопка повторной отправки смс при этом скрывается."
+      },
+      {
+        "name": "countdownContent",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Кастомный контент для компонента Countdown"
+      },
+      {
+        "name": "onInputFinished",
+        "type": "({ code }: { code: string; }) => void",
+        "required": true,
+        "description": "Обработчик события завершения ввода кода подписания"
+      },
+      {
+        "name": "onInputChange",
+        "type": "({ code }: { code: string; }) => void",
+        "required": true,
+        "description": "Обработчик события изменения значения поля ввода кода подписания"
+      },
+      {
+        "name": "onSmsRetryClick",
+        "type": "() => void",
+        "required": true,
+        "description": "Обработчик события нажатия на кнопку \"Запросить код\""
+      },
+      {
+        "name": "onOverlimitSmsRetryClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на кнопку \"Запросить код\" в блоке превышение лимитов"
+      },
+      {
+        "name": "onCountdownFinished",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события завершения обратного отсчета для повторного запроса сообщения"
+      },
+      {
+        "name": "onOverlimitCountdownFinished",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события завершения обратного отсчета для блокировки формы"
+      },
+      {
+        "name": "onSmsHintLinkClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на ссылку \"не приходит сообщение?\""
+      },
+      {
+        "name": "onActionWithFatalError",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на кнопку buttonErrorText (по дефолту \"Понятно\"), которая появляется при критической ошибке.\nЕсли не передан, то вызывается onSmsRetryClick"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CodeInput": {
+    "description": "",
+    "props": [
+      {
+        "name": "processing",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      {
+        "name": "slotsCount",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alignContent",
+        "type": "ContentAlign",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "handleChange",
+        "type": "(code: string) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "handleInputKeyDown",
+        "type": "(event: KeyboardEvent<Element>) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CountdownLoader": {
+    "description": "",
+    "props": [
+      {
+        "name": "progress",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "formatMsAsMinutes": {
+    "description": "TODO: Вынести это в utils\nФорматирование миллисекунд в hh:mm:ss.",
+    "props": [
+      {
+        "name": "toString",
+        "type": "(radix?: number) => string",
+        "required": false,
+        "description": "Returns a string representation of an object.\n@param radix Specifies a radix for converting numeric values to strings. This value is only used for numbers."
+      },
+      {
+        "name": "toFixed",
+        "type": "(fractionDigits?: number | undefined) => string",
+        "required": true,
+        "description": "Returns a string representing a number in fixed-point notation.\n@param fractionDigits Number of digits after the decimal point. Must be in the range 0 - 20, inclusive."
+      },
+      {
+        "name": "toExponential",
+        "type": "(fractionDigits?: number | undefined) => string",
+        "required": true,
+        "description": "Returns a string containing a number represented in exponential notation.\n@param fractionDigits Number of digits after the decimal point. Must be in the range 0 - 20, inclusive."
+      },
+      {
+        "name": "toPrecision",
+        "type": "(precision?: number | undefined) => string",
+        "required": true,
+        "description": "Returns a string containing a number represented either in exponential or fixed-point notation with a specified number of digits.\n@param precision Number of significant digits. Must be in the range 1 - 21, inclusive."
+      },
+      {
+        "name": "valueOf",
+        "type": "() => number",
+        "required": false,
+        "description": "Returns the primitive value of the specified object."
+      },
+      {
+        "name": "toLocaleString",
+        "type": "{ (locales?: string | string[], options?: NumberFormatOptions): string; (locales?: LocalesArgument, options?: NumberFormatOptions | undefined): string; }",
+        "required": false,
+        "description": "Converts a number to a string by using the current or specified locale.\n@param locales A locale string or array of locale strings that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.\n@param options An object that contains one or more properties that specify comparison options.\n@param locales A locale string, array of locale strings, Intl.Locale object, or array of Intl.Locale objects that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.\n@param options An object that contains one or more properties that specify comparison options."
+      }
+    ]
+  },
+  "Countdown": {
+    "description": "",
+    "props": [
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "defaultValue": 5000,
+        "description": ""
+      },
+      {
+        "name": "hasPhoneMask",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": ""
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": ""
+      },
+      {
+        "name": "alignContent",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "buttonRetryText",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "noAttemptsLeftMessage",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hasError",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "content",
+        "type": "ReactNode",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "onCountdownFinished",
+        "type": "(() => void)",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "onRepeatSms",
+        "type": "(event: MouseEvent<Element, MouseEvent>) => void",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "Overlimit": {
+    "description": "",
+    "props": [
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "defaultValue": 60000,
+        "description": ""
+      },
+      {
+        "name": "buttonRetryText",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "hasFatalError",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onOverlimitCountdownFinished",
+        "type": "() => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onOverlimitRepeatSms",
+        "type": "(event: MouseEvent<Element, MouseEvent>) => void",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "SignConfirmation": {
+    "description": "",
+    "props": [
+      {
+        "name": "codeChecking",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "codeSending",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "smsHintVisible",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "requiredCharAmount",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "countdownDuration",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "additionalContent",
+        "type": "ReactNode",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "hasPhoneMask",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "errorText",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "error",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "codeCheckingText",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "codeSendingText",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "hasSmsCountdown",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "inputRef",
+        "type": "MutableRefObject<HTMLInputElement | null>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "alignContent",
+        "type": "ContentAlign",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "noAttemptsLeftMessage",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "buttonRetryText",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "countdownContent",
+        "type": "ReactNode",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "onInputFinished",
+        "type": "({ code }: { code: string; }) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onInputChange",
+        "type": "({ code }: { code: string; }) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onSmsRetryClick",
+        "type": "(event: MouseEvent<Element, MouseEvent>) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onCountdownFinished",
+        "type": "() => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onSmsHintLinkClick",
+        "type": "(event: MouseEvent<Element, MouseEvent>) => void",
+        "required": true,
+        "description": ""
+      }
+    ]
+  }
+}

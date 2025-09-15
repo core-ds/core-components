@@ -1,0 +1,192 @@
+{
+  "PageIndicatorBullet": {
+    "description": "",
+    "props": [
+      {
+        "name": "activeElement",
+        "type": "number",
+        "required": true,
+        "description": "Индекс выбранного элемента"
+      },
+      {
+        "name": "elements",
+        "type": "number",
+        "required": false,
+        "defaultValue": "10",
+        "description": "Количество элементов (минимум 2)"
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": 8,
+        "description": "Высота компонента"
+      },
+      {
+        "name": "gap",
+        "type": "number",
+        "required": false,
+        "defaultValue": 8,
+        "description": "Расстояние между элементами"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\" | \"static\" | \"static-inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      }
+    ]
+  },
+  "PageIndicatorDynamic": {
+    "description": "",
+    "props": [
+      {
+        "name": "defaultActiveElement",
+        "type": "number",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Индекс выбранного элемента по-умолчанию"
+      },
+      {
+        "name": "activeElement",
+        "type": "number",
+        "required": false,
+        "description": "Индекс выбранного элемента"
+      },
+      {
+        "name": "elements",
+        "type": "number",
+        "required": false,
+        "defaultValue": "10",
+        "description": "Количество элементов (минимум 2)"
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": "8",
+        "description": "Высота компонента"
+      },
+      {
+        "name": "activeElementWidth",
+        "type": "number",
+        "required": false,
+        "defaultValue": "size * 7",
+        "description": "Ширина выбранного элемента"
+      },
+      {
+        "name": "gap",
+        "type": "number",
+        "required": false,
+        "defaultValue": "8",
+        "description": "Расстояние между элементами"
+      },
+      {
+        "name": "duration",
+        "type": "((activeElement: number) => number)",
+        "required": false,
+        "defaultValue": "3000",
+        "description": "Продолжительность прогресса выбранного элемента, в миллисекундах"
+      },
+      {
+        "name": "onActiveElementChange",
+        "type": "((nextActiveElement: number) => void)",
+        "required": false,
+        "description": "Обработчик при изменении выбранного элемента. Вызывается при заполнении прогресса предыдущего выбранного элемента"
+      },
+      {
+        "name": "cycle",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Зациклен ли обход элементов"
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Активен ли прогресс выбранного элемента"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\" | \"static\" | \"static-inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      }
+    ]
+  },
+  "PageIndicatorRunner": {
+    "description": "",
+    "props": [
+      {
+        "name": "activeElement",
+        "type": "number",
+        "required": true,
+        "description": "Индекс выбранного элемента"
+      },
+      {
+        "name": "elements",
+        "type": "number",
+        "required": false,
+        "defaultValue": "10",
+        "description": "Количество элементов (минимум 2)"
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": 4,
+        "description": "Высота компонента"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\" | \"static\" | \"static-inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      }
+    ]
+  },
+  "PageIndicatorStep": {
+    "description": "",
+    "props": [
+      {
+        "name": "activeElement",
+        "type": "number",
+        "required": true,
+        "description": "Индекс выбранного элемента"
+      },
+      {
+        "name": "elements",
+        "type": "number",
+        "required": false,
+        "defaultValue": "10",
+        "description": "Количество элементов (минимум 2)"
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "defaultValue": 4,
+        "description": "Высота компонента"
+      },
+      {
+        "name": "gap",
+        "type": "number",
+        "required": false,
+        "defaultValue": 4,
+        "description": "Расстояние между элементами"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\" | \"static\" | \"static-inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      }
+    ]
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "Radio": {
+    "description": "",
+    "props": [
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capture",
+        "type": "boolean | \"user\" | \"environment\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "list",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pattern",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки снизу"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подписи"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | 20 | 24",
+        "required": false,
+        "defaultValue": 20,
+        "description": "Размер компонента\n@description s и m deprecated, используйте вместо них 20 и 24 соответственно"
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление состоянием отмечен/не отмечен"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление состоянием включен / выключен"
+      },
+      {
+        "name": "inactive",
+        "type": "boolean",
+        "required": false,
+        "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props disabled\nУправление состоянием активен / неактивен"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Html аттрибут name инпута"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Класс компонента"
+      },
+      {
+        "name": "circleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс радио кнопки"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс контента"
+      },
+      {
+        "name": "align",
+        "type": "Align",
+        "required": false,
+        "defaultValue": "start",
+        "description": "Выравнивание"
+      },
+      {
+        "name": "addons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дополнительный слот"
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивать ли компонент на всю ширину"
+      },
+      {
+        "name": "labelProps",
+        "type": "DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>",
+        "required": false,
+        "description": "Пропсы для label"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: ChangeEvent<HTMLInputElement>, payload: { checked: boolean; name?: string; }) => void)",
+        "required": false,
+        "description": "Обработчик на выбор элемента"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLLabelElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

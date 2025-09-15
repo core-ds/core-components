@@ -1,0 +1,1745 @@
+{
+  "UniversalModalResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia"
+      },
+      {
+        "name": "scrollableContainerRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Реф контейнера на котором происходит scroll"
+      },
+      {
+        "name": "horizontalAlign",
+        "type": "\"start\" | \"center\" | \"end\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение по горизонтали и сторона с которой модал “выезжает” при открытии"
+      },
+      {
+        "name": "verticalAlign",
+        "type": "\"center\" | \"top\" | \"bottom\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение модального окна по вертикали"
+      },
+      {
+        "name": "width",
+        "type": "number | \"fullWidth\"",
+        "required": false,
+        "defaultValue": "500",
+        "description": "Ширина модального окна\nfullWidth - ширина модального окна подстроится под viewport\nminWidth - 500"
+      },
+      {
+        "name": "height",
+        "type": "number | \"fullHeight\" | \"hugContent\"",
+        "required": false,
+        "defaultValue": "fullHeight",
+        "description": "Высота модального окна\nfullHeight - высота модального окна подстроится под viewport\nhugContent - высота модального окна зафиксируется под размер содержимого\nminHeight - 264"
+      },
+      {
+        "name": "overlay",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Наличие оверлея"
+      },
+      {
+        "name": "margin",
+        "type": "TMargin",
+        "required": false,
+        "description": "Устанавливает отступы модального окна"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "appearance",
+        "type": "\"bottom\" | \"right\"",
+        "required": false,
+        "description": "Сторона с которой будет появляться модальное окно"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "BaseContent": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "ContentDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"s\" | 500",
+        "required": false,
+        "description": "Размер (только для desktop версии компонента)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "ContentMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "ContentResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"s\" | 500",
+        "required": false,
+        "description": "Размер (только для desktop версии компонента)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "BaseFooter": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент футера"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует футер"
+      },
+      {
+        "name": "layout",
+        "type": "\"start\" | \"center\" | \"space-between\" | \"column\"",
+        "required": false,
+        "description": "Выравнивание элементов футера"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "isHighlighted",
+        "type": "boolean",
+        "required": false,
+        "description": "Отбивка бордером"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "FooterDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"s\" | 500",
+        "required": false,
+        "description": "Размер (только для desktop версии компонента)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент футера"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует футер"
+      },
+      {
+        "name": "layout",
+        "type": "\"start\" | \"center\" | \"space-between\" | \"column\"",
+        "required": false,
+        "description": "Выравнивание элементов футера"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "isHighlighted",
+        "type": "boolean",
+        "required": false,
+        "description": "Отбивка бордером"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "FooterMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент футера"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует футер"
+      },
+      {
+        "name": "layout",
+        "type": "\"start\" | \"center\" | \"space-between\" | \"column\"",
+        "required": false,
+        "defaultValue": "start",
+        "description": "Выравнивание элементов футера"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "isHighlighted",
+        "type": "boolean",
+        "required": false,
+        "description": "Отбивка бордером"
+      }
+    ]
+  },
+  "FooterResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"s\" | 500",
+        "required": false,
+        "description": "Размер (только для desktop версии компонента)"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент футера"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует футер"
+      },
+      {
+        "name": "layout",
+        "type": "\"start\" | \"center\" | \"space-between\" | \"column\"",
+        "required": false,
+        "description": "Выравнивание элементов футера"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "isHighlighted",
+        "type": "boolean",
+        "required": false,
+        "description": "Отбивка бордером"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "HeaderDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "bigTitle",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Заголовок в шапке крупного размера"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок шапки"
+      },
+      {
+        "name": "addonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс для аддонов"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для closer"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие компонента крестика"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "backButtonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для правого аддона"
+      },
+      {
+        "name": "backButtonProps",
+        "type": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\">",
+        "required": false,
+        "description": "Дополнительные пропсы для кнопки \"Назад\""
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "bottomAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для нижнего аддона"
+      },
+      {
+        "name": "align",
+        "type": "\"center\" | \"left\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "trim",
+        "type": "boolean",
+        "required": false,
+        "description": "Обрезать ли заголовок"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение"
+      },
+      {
+        "name": "closerIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Иконка closer."
+      },
+      {
+        "name": "closerProps",
+        "type": "Omit<CloserProps, \"onClose\" | \"view\">",
+        "required": false,
+        "description": "Дополнительные пропсы для компонента Closer."
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "scrollableParentRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ссылка на родительскую ноду overflow: auto"
+      },
+      {
+        "name": "dataName",
+        "type": "string",
+        "required": false,
+        "description": "Data атрибут для компонента"
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для title"
+      },
+      {
+        "name": "titleRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для title элемента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "HeaderMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "titleSize",
+        "type": "\"default\" | \"compact\"",
+        "required": false,
+        "description": "Размер заголовка (compact доступен только в мобильной версии)"
+      },
+      {
+        "name": "subtitle",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подзаголовок (доступен только в мобильной версии)"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок шапки"
+      },
+      {
+        "name": "addonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс для аддонов"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для closer"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие компонента крестика"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "backButtonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для правого аддона"
+      },
+      {
+        "name": "backButtonProps",
+        "type": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\">",
+        "required": false,
+        "description": "Дополнительные пропсы для кнопки \"Назад\""
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "bottomAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для нижнего аддона"
+      },
+      {
+        "name": "align",
+        "type": "\"center\" | \"left\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "trim",
+        "type": "boolean",
+        "required": false,
+        "description": "Обрезать ли заголовок"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение"
+      },
+      {
+        "name": "closerIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Иконка closer."
+      },
+      {
+        "name": "closerProps",
+        "type": "Omit<CloserProps, \"onClose\" | \"view\">",
+        "required": false,
+        "description": "Дополнительные пропсы для компонента Closer."
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "scrollableParentRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ссылка на родительскую ноду overflow: auto"
+      },
+      {
+        "name": "dataName",
+        "type": "string",
+        "required": false,
+        "description": "Data атрибут для компонента"
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для title"
+      },
+      {
+        "name": "titleRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для title элемента"
+      }
+    ]
+  },
+  "HeaderResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "bigTitle",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Заголовок в шапке крупного размера"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок шапки"
+      },
+      {
+        "name": "addonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс для аддонов"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для closer"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие компонента крестика"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "backButtonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для правого аддона"
+      },
+      {
+        "name": "backButtonProps",
+        "type": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\">",
+        "required": false,
+        "description": "Дополнительные пропсы для кнопки \"Назад\""
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "bottomAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для нижнего аддона"
+      },
+      {
+        "name": "align",
+        "type": "\"center\" | \"left\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "trim",
+        "type": "boolean",
+        "required": false,
+        "description": "Обрезать ли заголовок"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение"
+      },
+      {
+        "name": "closerIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Иконка closer."
+      },
+      {
+        "name": "closerProps",
+        "type": "Omit<CloserProps, \"onClose\" | \"view\">",
+        "required": false,
+        "description": "Дополнительные пропсы для компонента Closer."
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "scrollableParentRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ссылка на родительскую ноду overflow: auto"
+      },
+      {
+        "name": "dataName",
+        "type": "string",
+        "required": false,
+        "description": "Data атрибут для компонента"
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для title"
+      },
+      {
+        "name": "titleRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для title элемента"
+      },
+      {
+        "name": "titleSize",
+        "type": "\"default\" | \"compact\"",
+        "required": false,
+        "description": "Размер заголовка (compact доступен только в мобильной версии)"
+      },
+      {
+        "name": "subtitle",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подзаголовок (доступен только в мобильной версии)"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "UniversalModalDesktopComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "scrollableContainerRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Реф контейнера на котором происходит scroll"
+      },
+      {
+        "name": "horizontalAlign",
+        "type": "\"start\" | \"center\" | \"end\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение по горизонтали и сторона с которой модал “выезжает” при открытии"
+      },
+      {
+        "name": "verticalAlign",
+        "type": "\"center\" | \"top\" | \"bottom\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение модального окна по вертикали"
+      },
+      {
+        "name": "width",
+        "type": "number | \"fullWidth\"",
+        "required": false,
+        "defaultValue": "500",
+        "description": "Ширина модального окна\nfullWidth - ширина модального окна подстроится под viewport\nminWidth - 500"
+      },
+      {
+        "name": "height",
+        "type": "number | \"fullHeight\" | \"hugContent\"",
+        "required": false,
+        "defaultValue": "fullHeight",
+        "description": "Высота модального окна\nfullHeight - высота модального окна подстроится под viewport\nhugContent - высота модального окна зафиксируется под размер содержимого\nminHeight - 264"
+      },
+      {
+        "name": "overlay",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Наличие оверлея"
+      },
+      {
+        "name": "margin",
+        "type": "TMargin",
+        "required": false,
+        "description": "Устанавливает отступы модального окна"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "UniversalModalDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "scrollableContainerRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Реф контейнера на котором происходит scroll"
+      },
+      {
+        "name": "horizontalAlign",
+        "type": "\"start\" | \"center\" | \"end\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение по горизонтали и сторона с которой модал “выезжает” при открытии"
+      },
+      {
+        "name": "verticalAlign",
+        "type": "\"center\" | \"top\" | \"bottom\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение модального окна по вертикали"
+      },
+      {
+        "name": "width",
+        "type": "number | \"fullWidth\"",
+        "required": false,
+        "defaultValue": "500",
+        "description": "Ширина модального окна\nfullWidth - ширина модального окна подстроится под viewport\nminWidth - 500"
+      },
+      {
+        "name": "height",
+        "type": "number | \"fullHeight\" | \"hugContent\"",
+        "required": false,
+        "defaultValue": "fullHeight",
+        "description": "Высота модального окна\nfullHeight - высота модального окна подстроится под viewport\nhugContent - высота модального окна зафиксируется под размер содержимого\nminHeight - 264"
+      },
+      {
+        "name": "overlay",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Наличие оверлея"
+      },
+      {
+        "name": "margin",
+        "type": "TMargin",
+        "required": false,
+        "description": "Устанавливает отступы модального окна"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ArrowButtonDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "onClick",
+        "type": "((e: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CrossButtonDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CenterModal": {
+    "description": "",
+    "props": [
+      {
+        "name": "scrollableContainerRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Реф контейнера на котором происходит scroll"
+      },
+      {
+        "name": "horizontalAlign",
+        "type": "\"start\" | \"center\" | \"end\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение по горизонтали и сторона с которой модал “выезжает” при открытии"
+      },
+      {
+        "name": "verticalAlign",
+        "type": "\"center\" | \"top\" | \"bottom\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение модального окна по вертикали"
+      },
+      {
+        "name": "width",
+        "type": "number | \"fullWidth\"",
+        "required": false,
+        "defaultValue": "500",
+        "description": "Ширина модального окна\nfullWidth - ширина модального окна подстроится под viewport\nminWidth - 500"
+      },
+      {
+        "name": "height",
+        "type": "number | \"fullHeight\" | \"hugContent\"",
+        "required": false,
+        "defaultValue": "fullHeight",
+        "description": "Высота модального окна\nfullHeight - высота модального окна подстроится под viewport\nhugContent - высота модального окна зафиксируется под размер содержимого\nminHeight - 264"
+      },
+      {
+        "name": "overlay",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Наличие оверлея"
+      },
+      {
+        "name": "margin",
+        "type": "TMargin",
+        "required": false,
+        "description": "Устанавливает отступы модального окна"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ModalContent": {
+    "description": "",
+    "props": [
+      {
+        "name": "wheelDeltaY",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "scrollableContainerRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Реф контейнера на котором происходит scroll"
+      },
+      {
+        "name": "height",
+        "type": "number | \"fullHeight\" | \"hugContent\"",
+        "required": false,
+        "defaultValue": "fullHeight",
+        "description": "Высота модального окна\nfullHeight - высота модального окна подстроится под viewport\nhugContent - высота модального окна зафиксируется под размер содержимого\nminHeight - 264"
+      }
+    ]
+  },
+  "SideModal": {
+    "description": "",
+    "props": [
+      {
+        "name": "scrollableContainerRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Реф контейнера на котором происходит scroll"
+      },
+      {
+        "name": "horizontalAlign",
+        "type": "\"start\" | \"center\" | \"end\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение по горизонтали и сторона с которой модал “выезжает” при открытии"
+      },
+      {
+        "name": "verticalAlign",
+        "type": "\"center\" | \"top\" | \"bottom\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Расположение модального окна по вертикали"
+      },
+      {
+        "name": "width",
+        "type": "number | \"fullWidth\"",
+        "required": false,
+        "defaultValue": "500",
+        "description": "Ширина модального окна\nfullWidth - ширина модального окна подстроится под viewport\nminWidth - 500"
+      },
+      {
+        "name": "height",
+        "type": "number | \"fullHeight\" | \"hugContent\"",
+        "required": false,
+        "defaultValue": "fullHeight",
+        "description": "Высота модального окна\nfullHeight - высота модального окна подстроится под viewport\nhugContent - высота модального окна зафиксируется под размер содержимого\nminHeight - 264"
+      },
+      {
+        "name": "overlay",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Наличие оверлея"
+      },
+      {
+        "name": "margin",
+        "type": "TMargin",
+        "required": false,
+        "description": "Устанавливает отступы модального окна"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "UniversalModalMobileComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "appearance",
+        "type": "\"bottom\" | \"right\"",
+        "required": false,
+        "description": "Сторона с которой будет появляться модальное окно"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "UniversalModalMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "appearance",
+        "type": "\"bottom\" | \"right\"",
+        "required": false,
+        "description": "Сторона с которой будет появляться модальное окно"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ArrowButtonMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "onClick",
+        "type": "((e: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CrossButtonMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

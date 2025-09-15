@@ -1,0 +1,157 @@
+{
+  "Notification": {
+    "description": "",
+    "props": [
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для заголовка"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контентной области"
+      },
+      {
+        "name": "actionSectionClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для области с кнопкой действия"
+      },
+      {
+        "name": "badge",
+        "type": "unsafe_BadgeProps | StatusBadgeViews",
+        "required": false,
+        "description": "Вид бэйджа"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева, заменяет стандартную иконку"
+      },
+      {
+        "name": "actionButton",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Кнопка действия"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управляет отображением кнопки закрытия уведомления"
+      },
+      {
+        "name": "closerWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс враппера кнопки \"закрыть\"."
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс кнопки \"закрыть\"."
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "onClose",
+        "type": "((event?: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по крестику"
+      },
+      {
+        "name": "getBadgeIcons",
+        "type": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>>",
+        "required": false,
+        "description": "Функция, с помощью которой можно переопределить иконки в StatusBadge"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление видимостью компонента"
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "required": false,
+        "defaultValue": 108,
+        "description": "Отступ от верхнего края"
+      },
+      {
+        "name": "autoCloseDelay",
+        "type": "number | null",
+        "required": false,
+        "defaultValue": 5000,
+        "description": "Время до закрытия компонента"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Использовать портал"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "defaultValue": 1000,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "position",
+        "type": "\"top\" | \"bottom\"",
+        "required": false,
+        "defaultValue": "top",
+        "description": "Позиционирование компонента от верхнего или нижнего края экрана"
+      },
+      {
+        "name": "onCloseTimeout",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события истечения времени до закрытия компонента"
+      },
+      {
+        "name": "onClickOutside",
+        "type": "((event?: MouseEvent<any, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика вне компонента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

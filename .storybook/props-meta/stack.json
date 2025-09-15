@@ -1,0 +1,20 @@
+{
+  "Stack": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "(value: number) => ReactNode",
+        "required": true,
+        "description": "Render prop, в который передается функция.\nФункция принимает аргумент со значением z-index из текущего контекста."
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "defaultValue": 10,
+        "description": "Исходное значение для z-index."
+      }
+    ]
+  }
+}

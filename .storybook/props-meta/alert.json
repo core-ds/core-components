@@ -1,0 +1,656 @@
+{
+  "AlertResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "folded",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление видимостью контента (controlled)"
+      },
+      {
+        "name": "subAddons",
+        "type": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]",
+        "required": false,
+        "description": "Слот для субаддонов (слева от крестика)"
+      },
+      {
+        "name": "rounded",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить скругление"
+      },
+      {
+        "name": "border",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/Выключить обводку"
+      },
+      {
+        "name": "shadow",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить тени"
+      },
+      {
+        "name": "limitContentWidth",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить ограничение максимальной ширины контента в 560px"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок компонента"
+      },
+      {
+        "name": "titleView",
+        "type": "\"bold\" | \"light\"",
+        "required": false,
+        "description": "Вид заголовка"
+      },
+      {
+        "name": "view",
+        "type": "\"common\" | \"negative\" | \"positive\" | \"attention\" | \"custom\"",
+        "required": false,
+        "description": "Вид компонента"
+      },
+      {
+        "name": "background",
+        "type": "string",
+        "required": false,
+        "description": "Фон компонента при view=custom"
+      },
+      {
+        "name": "borderColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет бордера у компонента при view=custom"
+      },
+      {
+        "name": "buttons",
+        "type": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]",
+        "required": false,
+        "description": "Набор действий"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "buttonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для кнопок"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "subAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для субаддонов"
+      },
+      {
+        "name": "onClick",
+        "type": "((event?: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по плашке"
+      },
+      {
+        "name": "onClose",
+        "type": "((event?: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по крестику"
+      },
+      {
+        "name": "onToggle",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, payload: { folded: boolean; }) => void)",
+        "required": false,
+        "description": "Обработчик сворачивания"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      }
+    ]
+  },
+  "AlertBase": {
+    "description": "",
+    "props": [
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "folded",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление видимостью контента (controlled)"
+      },
+      {
+        "name": "subAddons",
+        "type": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]",
+        "required": false,
+        "description": "Слот для субаддонов (слева от крестика)"
+      },
+      {
+        "name": "rounded",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить скругление"
+      },
+      {
+        "name": "border",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/Выключить обводку"
+      },
+      {
+        "name": "shadow",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить тени"
+      },
+      {
+        "name": "limitContentWidth",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить ограничение максимальной ширины контента в 560px"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок компонента"
+      },
+      {
+        "name": "titleView",
+        "type": "\"bold\" | \"light\"",
+        "required": false,
+        "description": "Вид заголовка"
+      },
+      {
+        "name": "view",
+        "type": "\"common\" | \"negative\" | \"positive\" | \"attention\" | \"custom\"",
+        "required": false,
+        "description": "Вид компонента"
+      },
+      {
+        "name": "background",
+        "type": "string",
+        "required": false,
+        "description": "Фон компонента при view=custom"
+      },
+      {
+        "name": "borderColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет бордера у компонента при view=custom"
+      },
+      {
+        "name": "buttons",
+        "type": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]",
+        "required": false,
+        "description": "Набор действий"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "buttonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для кнопок"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "subAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для субаддонов"
+      },
+      {
+        "name": "onClick",
+        "type": "((event?: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по плашке"
+      },
+      {
+        "name": "onClose",
+        "type": "((event?: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по крестику"
+      },
+      {
+        "name": "onToggle",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, payload: { folded: boolean; }) => void)",
+        "required": false,
+        "description": "Обработчик сворачивания"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "Plate",
+        "type": "ForwardRefExoticComponent<Omit<BasePlateProps, \"styles\"> & { breakpoint?: number | undefined; client?: \"desktop\" | \"mobile\" | undefined; defaultMatchMediaValue?: boolean | (() => boolean) | undefined; } & RefAttributes<...>> | ForwardRefExoticComponent<...> | ForwardRefExoticComponent<...>",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "AlertDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "folded",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление видимостью контента (controlled)"
+      },
+      {
+        "name": "subAddons",
+        "type": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]",
+        "required": false,
+        "description": "Слот для субаддонов (слева от крестика)"
+      },
+      {
+        "name": "rounded",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить скругление"
+      },
+      {
+        "name": "border",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/Выключить обводку"
+      },
+      {
+        "name": "shadow",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить тени"
+      },
+      {
+        "name": "limitContentWidth",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить ограничение максимальной ширины контента в 560px"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок компонента"
+      },
+      {
+        "name": "titleView",
+        "type": "\"bold\" | \"light\"",
+        "required": false,
+        "description": "Вид заголовка"
+      },
+      {
+        "name": "view",
+        "type": "\"common\" | \"negative\" | \"positive\" | \"attention\" | \"custom\"",
+        "required": false,
+        "description": "Вид компонента"
+      },
+      {
+        "name": "background",
+        "type": "string",
+        "required": false,
+        "description": "Фон компонента при view=custom"
+      },
+      {
+        "name": "borderColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет бордера у компонента при view=custom"
+      },
+      {
+        "name": "buttons",
+        "type": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]",
+        "required": false,
+        "description": "Набор действий"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "buttonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для кнопок"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "subAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для субаддонов"
+      },
+      {
+        "name": "onClick",
+        "type": "((event?: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по плашке"
+      },
+      {
+        "name": "onClose",
+        "type": "((event?: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по крестику"
+      },
+      {
+        "name": "onToggle",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, payload: { folded: boolean; }) => void)",
+        "required": false,
+        "description": "Обработчик сворачивания"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      }
+    ]
+  },
+  "AlertMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление наличием закрывающего крестика"
+      },
+      {
+        "name": "folded",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление видимостью контента (controlled)"
+      },
+      {
+        "name": "subAddons",
+        "type": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]",
+        "required": false,
+        "description": "Слот для субаддонов (слева от крестика)"
+      },
+      {
+        "name": "rounded",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить скругление"
+      },
+      {
+        "name": "border",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/Выключить обводку"
+      },
+      {
+        "name": "shadow",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить тени"
+      },
+      {
+        "name": "limitContentWidth",
+        "type": "boolean",
+        "required": false,
+        "description": "Включить/выключить ограничение максимальной ширины контента в 560px"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок компонента"
+      },
+      {
+        "name": "titleView",
+        "type": "\"bold\" | \"light\"",
+        "required": false,
+        "description": "Вид заголовка"
+      },
+      {
+        "name": "view",
+        "type": "\"common\" | \"negative\" | \"positive\" | \"attention\" | \"custom\"",
+        "required": false,
+        "description": "Вид компонента"
+      },
+      {
+        "name": "background",
+        "type": "string",
+        "required": false,
+        "description": "Фон компонента при view=custom"
+      },
+      {
+        "name": "borderColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет бордера у компонента при view=custom"
+      },
+      {
+        "name": "buttons",
+        "type": "ReactNode | ReactElement<ButtonProps, string | JSXElementConstructor<any>>[]",
+        "required": false,
+        "description": "Набор действий"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "buttonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для кнопок"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "subAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для субаддонов"
+      },
+      {
+        "name": "onClick",
+        "type": "((event?: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по плашке"
+      },
+      {
+        "name": "onClose",
+        "type": "((event?: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по крестику"
+      },
+      {
+        "name": "onToggle",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, payload: { folded: boolean; }) => void)",
+        "required": false,
+        "description": "Обработчик сворачивания"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      }
+    ]
+  }
+}

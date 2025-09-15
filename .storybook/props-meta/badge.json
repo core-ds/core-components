@@ -1,0 +1,79 @@
+{
+  "Badge": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "view",
+        "type": "\"icon\" | \"count\"",
+        "required": true,
+        "description": "Вид компонента"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\"",
+        "required": false,
+        "defaultValue": "m",
+        "description": "Размер компонента (только для view=icon)\n//deprecated(используйте height для view=count )"
+      },
+      {
+        "name": "visibleIconOutline",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Видимость белой обводки вокруг иконки"
+      },
+      {
+        "name": "visibleColorOutline",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Видимость цветной обводки вокруг иконки (только для view=icon)"
+      },
+      {
+        "name": "content",
+        "type": "number | ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "description": "Контент компонента"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "defaultValue": 16,
+        "description": "Высота компонента, min = 16; max = 48 (только для view=count)"
+      },
+      {
+        "name": "color",
+        "type": "\"accent\" | \"primary\" | \"specialbg-secondary-transparent\"",
+        "required": false,
+        "defaultValue": "accent",
+        "description": "Цветовое оформление бейджа при view='count'"
+      },
+      {
+        "name": "iconColor",
+        "type": "IconColorType",
+        "required": false,
+        "description": "Цветовое оформление бейджа при view='icon'"
+      },
+      {
+        "name": "iconUnderlayColor",
+        "type": "\"primary\" | \"static-light\"",
+        "required": false,
+        "defaultValue": "static-light",
+        "description": "Цвет подложки под иконкой"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

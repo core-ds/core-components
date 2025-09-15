@@ -1,0 +1,448 @@
+{
+  "Text": {
+    "description": "",
+    "props": [
+      {
+        "name": "view",
+        "type": "\"primary-large\" | \"primary-medium\" | \"primary-small\" | \"secondary-large\" | \"secondary-medium\" | \"secondary-small\" | \"component\" | \"component-primary\" | \"component-secondary\" | \"caps\" | \"tagline\"",
+        "required": false,
+        "defaultValue": "primary-medium",
+        "description": "[Вариант начертания](https://core-ds.github.io/core-components/master/?path=/docs/tokens-assets-типографика--docs)"
+      },
+      {
+        "name": "color",
+        "type": "\"tertiary\" | \"disabled\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"link\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "description": "Цвет текста"
+      },
+      {
+        "name": "weight",
+        "type": "\"regular\" | \"medium\" | \"bold\"",
+        "required": false,
+        "description": "Толщина шрифта"
+      },
+      {
+        "name": "monospaceNumbers",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Делает цифры моноширинными"
+      },
+      {
+        "name": "tag",
+        "type": "\"span\" | \"div\" | \"p\"",
+        "required": false,
+        "description": "HTML тег"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "defaultMargins",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Добавляет отступы к тэгу 'p'"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "TextSkeletonProps",
+        "required": false,
+        "description": "Пропы для скелетона"
+      },
+      {
+        "name": "font",
+        "type": "\"alfasans\" | null",
+        "required": false,
+        "description": "Шрифт текста"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<TextElementType>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "TitleMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "tag",
+        "type": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+        "required": true,
+        "description": "HTML тег"
+      },
+      {
+        "name": "view",
+        "type": "\"medium\" | \"xlarge\" | \"large\" | \"small\" | \"xsmall\"",
+        "required": false,
+        "description": "[Вариант начертания](?path=/docs/guidelines-typography--page)"
+      },
+      {
+        "name": "color",
+        "type": "\"tertiary\" | \"disabled\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"link\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "description": "Цвет текста"
+      },
+      {
+        "name": "weight",
+        "type": "\"regular\" | \"medium\" | \"bold\" | \"semibold\"",
+        "required": false,
+        "description": "Толщина шрифта"
+      },
+      {
+        "name": "font",
+        "type": "\"alfasans\" | \"styrene\" | \"system\" | { font: \"alfasans\"; systemCompat: boolean; }",
+        "required": false,
+        "description": "Шрифт текста"
+      },
+      {
+        "name": "defaultMargins",
+        "type": "boolean",
+        "required": false,
+        "description": "Добавляет отступы"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "TextSkeletonProps",
+        "required": false,
+        "description": "Пропы для скелетона"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement | HTMLHeadingElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "TitleResponsive": {
+    "description": "",
+    "props": [
+      {
+        "name": "tag",
+        "type": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+        "required": true,
+        "description": "HTML тег"
+      },
+      {
+        "name": "view",
+        "type": "\"medium\" | \"xlarge\" | \"large\" | \"small\" | \"xsmall\"",
+        "required": false,
+        "description": "[Вариант начертания](?path=/docs/guidelines-typography--page)"
+      },
+      {
+        "name": "color",
+        "type": "\"tertiary\" | \"disabled\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"link\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "description": "Цвет текста"
+      },
+      {
+        "name": "weight",
+        "type": "\"regular\" | \"medium\" | \"bold\" | \"semibold\"",
+        "required": false,
+        "description": "Толщина шрифта"
+      },
+      {
+        "name": "font",
+        "type": "\"alfasans\" | \"styrene\" | \"system\" | { font: \"alfasans\"; systemCompat: boolean; }",
+        "required": false,
+        "description": "Шрифт текста"
+      },
+      {
+        "name": "defaultMargins",
+        "type": "boolean",
+        "required": false,
+        "description": "Добавляет отступы"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "TextSkeletonProps",
+        "required": false,
+        "description": "Пропы для скелетона"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement | HTMLHeadingElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "TitleBase": {
+    "description": "",
+    "props": [
+      {
+        "name": "tag",
+        "type": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+        "required": true,
+        "description": "HTML тег"
+      },
+      {
+        "name": "view",
+        "type": "\"medium\" | \"xlarge\" | \"large\" | \"small\" | \"xsmall\"",
+        "required": false,
+        "defaultValue": "medium",
+        "description": "[Вариант начертания](?path=/docs/guidelines-typography--page)"
+      },
+      {
+        "name": "color",
+        "type": "\"tertiary\" | \"disabled\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"link\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "description": "Цвет текста"
+      },
+      {
+        "name": "weight",
+        "type": "\"regular\" | \"medium\" | \"bold\" | \"semibold\"",
+        "required": false,
+        "defaultValue": "getDefaultWeight(isObject(fontProp) ? fontProp.font : fontProp, platform)",
+        "description": "Толщина шрифта"
+      },
+      {
+        "name": "font",
+        "type": "\"alfasans\" | \"styrene\" | \"system\" | { font: \"alfasans\"; systemCompat: boolean; }",
+        "required": false,
+        "description": "Шрифт текста"
+      },
+      {
+        "name": "defaultMargins",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Добавляет отступы"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "TextSkeletonProps",
+        "required": false,
+        "description": "Пропы для скелетона"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia"
+      },
+      {
+        "name": "styles",
+        "type": "{ [key: string]: string; }",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "platform",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "ref",
+        "type": "Ref<TitleElementType>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Title": {
+    "description": "",
+    "props": [
+      {
+        "name": "tag",
+        "type": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+        "required": true,
+        "description": "HTML тег"
+      },
+      {
+        "name": "view",
+        "type": "\"medium\" | \"xlarge\" | \"large\" | \"small\" | \"xsmall\"",
+        "required": false,
+        "description": "[Вариант начертания](?path=/docs/guidelines-typography--page)"
+      },
+      {
+        "name": "color",
+        "type": "\"tertiary\" | \"disabled\" | \"accent\" | \"primary\" | \"attention\" | \"positive\" | \"secondary\" | \"tertiary-inverted\" | \"primary-inverted\" | \"secondary-inverted\" | \"link\" | \"negative\" | ... 8 more ...",
+        "required": false,
+        "description": "Цвет текста"
+      },
+      {
+        "name": "weight",
+        "type": "\"regular\" | \"medium\" | \"bold\" | \"semibold\"",
+        "required": false,
+        "description": "Толщина шрифта"
+      },
+      {
+        "name": "font",
+        "type": "\"alfasans\" | \"styrene\" | \"system\" | { font: \"alfasans\"; systemCompat: boolean; }",
+        "required": false,
+        "description": "Шрифт текста"
+      },
+      {
+        "name": "defaultMargins",
+        "type": "boolean",
+        "required": false,
+        "description": "Добавляет отступы"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "rowLimit",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "description": "Количество строк"
+      },
+      {
+        "name": "showSkeleton",
+        "type": "boolean",
+        "required": false,
+        "description": "Показать скелетон"
+      },
+      {
+        "name": "skeletonProps",
+        "type": "TextSkeletonProps",
+        "required": false,
+        "description": "Пропы для скелетона"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement | HTMLHeadingElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

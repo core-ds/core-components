@@ -1,0 +1,104 @@
+{
+  "Col": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "align",
+        "type": "\"top\" | \"middle\" | \"bottom\"",
+        "required": false,
+        "description": "Управление выравниванием колонок по вертикальной оси"
+      },
+      {
+        "name": "width",
+        "type": "ResponsivePropertyType",
+        "required": false,
+        "description": "Управление шириной колонки.\nВозможные значения: `[1..12, available, auto]`\nили `{ mobile: [1..12], tablet: [1..12], desktop: [1..12] }`\nили `{ mobile: { xs: [1..12], s: [1..12], m: [1..12], l: [1..12] },\ntablet: { s: [1..12], m: [1..12] },\ndesktop: { s: [1..12], m: [1..12], l: [1..12], xl: [1..12] } }`."
+      },
+      {
+        "name": "offset",
+        "type": "ResponsivePropertyType",
+        "required": false,
+        "description": "Управлние смещением колонки.\nВозможные значения: `[1..11]`\nили `{ mobile: [1..11], tablet: [1..11], desktop: [1..11] }`\nили `{ mobile:{ xs: [1..11], { s: [1..11], m: [1..11], l: [1..11] },\ntablet: { s: [1..11], m: [1..11] },\ndesktop: { s: [1..11], m: [1..11], l: [1..11], xl: [1..11] } }`."
+      },
+      {
+        "name": "order",
+        "type": "ResponsivePropertyType",
+        "required": false,
+        "description": "Управление порядком колонок.\nВозможные значения: `[1..12, first, last]`\nили `{ mobile: [1..last], tablet: [1..last], desktop: [1..last] }`\nили `{ mobile: { xs: [1..last], s: [1..last], m: [1..last], l: [1..last] },\ntablet: { s: [1..last], m: [1..last] },\ndesktop: { s: [1..last], m: [1..last], l: [1..last], xl: [1..last] } }`."
+      },
+      {
+        "name": "tag",
+        "type": "keyof IntrinsicElements",
+        "required": false,
+        "description": "Html тег компонента."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "Row": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "gutter",
+        "type": "ResponsivePropertyType",
+        "required": false,
+        "defaultValue": "{\n        mobile: {\n            s: 16,\n        },\n        desktop: {\n            m: 24,\n        },\n    }",
+        "description": "Горизонтальный отступ между колонками.\nВозможные значения: `[0, 8, 16, 24]`\nили `{ mobile: [0..24], tablet: [0..24], desktop: [0..24] }`\nили `{ mobile: { xs: [0..24], s: [0..24], m: [0..24], l: [0..24] },\ntablet: { s: [0..24], m: [0..24] },\ndesktop: { s: [0..24], m: [0..24], l: [0..24], xl: [0..24] } }`."
+      },
+      {
+        "name": "align",
+        "type": "\"top\" | \"middle\" | \"bottom\"",
+        "required": false,
+        "description": "Управление выравниванием колонок по вертикальной оси"
+      },
+      {
+        "name": "justify",
+        "type": "\"center\" | \"left\" | \"right\" | \"around\" | \"between\"",
+        "required": false,
+        "defaultValue": "between",
+        "description": "Управление выравниванием колонок по горизонтальной оси"
+      },
+      {
+        "name": "tag",
+        "type": "keyof IntrinsicElements",
+        "required": false,
+        "description": "Html тег компонента.\nИз-за <a href=\"https://github.com/philipwalton/flexbugs#flexbug-9\" target=\"_blank\">ограничений и багов</a>,\nсуществующих во флексбоксах, невозможно использовать\nнекоторые элементы HTML как flex-контейнеры."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

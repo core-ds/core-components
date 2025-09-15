@@ -1,0 +1,189 @@
+{
+  "NavigationBar": {
+    "description": "",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Заголовок"
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "description": "Подзаголовок"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "defaultValue": "center",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "var(--color-light-base-bg-primary)",
+        "description": "Цвет фона"
+      },
+      {
+        "name": "border",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие бордера"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "contentWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки контента"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "rightAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для правого аддона"
+      },
+      {
+        "name": "leftAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для левого аддона"
+      },
+      {
+        "name": "bottomAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для нижнего аддона"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования."
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "ActionIconAddon": {
+    "description": "",
+    "props": [
+      {
+        "name": "action",
+        "type": "\"back\" | \"floatingBack\" | \"close\"",
+        "required": false,
+        "defaultValue": "back",
+        "description": "Тип действия"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик клика"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования."
+      }
+    ]
+  },
+  "ActionTextAddon": {
+    "description": "",
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "defaultValue": "Назад",
+        "description": "Текст после иконки"
+      },
+      {
+        "name": "action",
+        "type": "\"primary\" | \"secondary\"",
+        "required": false,
+        "description": "Тип действия"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик клика"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования."
+      }
+    ]
+  }
+}

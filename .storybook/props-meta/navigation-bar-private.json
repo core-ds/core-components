@@ -1,0 +1,355 @@
+{
+  "NavigationBarPrivate": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок шапки"
+      },
+      {
+        "name": "subtitle",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подзаголовок (доступен только в мобильной версии)"
+      },
+      {
+        "name": "titleSize",
+        "type": "\"default\" | \"compact\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Размер заголовка (compact доступен только в мобильной версии)"
+      },
+      {
+        "name": "addonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс для аддонов"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для closer"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие компонента крестика"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "backButtonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для правого аддона"
+      },
+      {
+        "name": "backButtonProps",
+        "type": "Omit<BackArrowAddonProps, \"view\" | \"onClick\" | \"textOpacity\">",
+        "required": false,
+        "description": "Дополнительные пропсы для кнопки \"Назад\""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "bottomAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для нижнего аддона"
+      },
+      {
+        "name": "align",
+        "type": "\"left\" | \"center\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "trim",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Обрезать ли заголовок"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение"
+      },
+      {
+        "name": "closerIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Иконка closer."
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "closerProps",
+        "type": "Omit<CloserProps, \"view\" | \"onClose\">",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Дополнительные пропсы для компонента Closer."
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "view",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": "Вид шапки - мобильный или десктоп"
+      },
+      {
+        "name": "scrollableParentRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ссылка на родительскую ноду overflow: auto"
+      },
+      {
+        "name": "dataName",
+        "type": "string",
+        "required": false,
+        "description": "Data атрибут для компонента"
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для title"
+      },
+      {
+        "name": "titleRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для title элемента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "BackArrowAddon": {
+    "description": "",
+    "props": [
+      {
+        "name": "text",
+        "type": "string | null",
+        "required": false,
+        "defaultValue": "Назад",
+        "description": "Текст после иконки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "view",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": "Вид компонента"
+      },
+      {
+        "name": "textOpacity",
+        "type": "number",
+        "required": false,
+        "defaultValue": 1,
+        "description": "Прозрачность текста"
+      },
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик клика"
+      }
+    ]
+  },
+  "Closer": {
+    "description": "",
+    "props": [
+      {
+        "name": "view",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": "Вид компонента"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "align",
+        "type": "\"left\" | \"right\"",
+        "required": false,
+        "description": "Позиция крестика"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует крестик"
+      },
+      {
+        "name": "icon",
+        "type": "ElementType<any>",
+        "required": false,
+        "defaultValue": "view === 'desktop' ? CrossHeavyMIcon : CrossMIcon",
+        "description": "Иконка"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Коллбэк закрытия."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"button\" | \"submit\" | \"reset\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

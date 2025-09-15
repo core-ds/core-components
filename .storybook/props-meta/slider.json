@@ -1,0 +1,111 @@
+{
+  "Slider": {
+    "description": "",
+    "props": [
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "defaultValue": 0,
+        "description": "Мин. допустимое число"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "defaultValue": 100,
+        "description": "Макс. допустимое число"
+      },
+      {
+        "name": "step",
+        "type": "number",
+        "required": false,
+        "defaultValue": 1,
+        "description": "Шаг (должен нацело делить отрезок между мин и макс)"
+      },
+      {
+        "name": "pips",
+        "type": "Pips",
+        "required": false,
+        "description": "Отображение подписей\nhttps://refreshless.com/nouislider/pips/"
+      },
+      {
+        "name": "range",
+        "type": "RangeOptions",
+        "required": false,
+        "defaultValue": "{ min, max }",
+        "description": "Настройка шагов\nhttps://refreshless.com/nouislider/pips/#section-range"
+      },
+      {
+        "name": "snap",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Флаг точной привязки к range\nhttps://refreshless.com/nouislider/examples/#section-skipping"
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "defaultValue": 0,
+        "description": "Значение слайдера"
+      },
+      {
+        "name": "valueTo",
+        "type": "number",
+        "required": false,
+        "description": "Второе значение слайдера (значение второго ползунка)\nесли передать ValueTo, то слайдер будет работать как range"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Заблокированное состояние"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "behaviour",
+        "type": "\"unconstrained-tap\" | \"tap\"",
+        "required": false,
+        "defaultValue": "tap",
+        "description": "Поведение ползунка"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | 2 | 4",
+        "required": false,
+        "defaultValue": 2,
+        "description": "Размер\n@description s, m deprecated, используйте вместо них 2, 4 соответственно"
+      },
+      {
+        "name": "onChange",
+        "type": "((payload: { value: number; valueTo?: number; }) => void)",
+        "required": false,
+        "description": "Обработчик поля ввода"
+      },
+      {
+        "name": "onStart",
+        "type": "(() => void)",
+        "required": false,
+        "description": "@deprecated Обработчик начала перетаскивания ползунка"
+      },
+      {
+        "name": "onEnd",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик окончания перетаскивания ползунка\n@description https://refreshless.com/nouislider/events-callbacks/#section-change"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "Gap": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "Size",
+        "required": true,
+        "description": "Размер отступа\n@description 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl deprecated,\nиспользуйте 2, 4, 8, 12, 16, 20, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256"
+      },
+      {
+        "name": "direction",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "defaultValue": "vertical",
+        "description": "Вид отступа (вертикальный или горизонтальный)"
+      },
+      {
+        "name": "tag",
+        "type": "\"div\" | \"span\"",
+        "required": false,
+        "defaultValue": "'div'",
+        "description": "HTML тег"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

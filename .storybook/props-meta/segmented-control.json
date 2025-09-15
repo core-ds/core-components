@@ -1,0 +1,124 @@
+{
+  "SegmentedControl": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный className"
+      },
+      {
+        "name": "onChange",
+        "type": "(id: IDType) => void",
+        "required": true,
+        "description": "Обработчик смены выбранного сегмента"
+      },
+      {
+        "name": "selectedId",
+        "type": "IDType",
+        "required": true,
+        "description": "ID выбранного сегмента"
+      },
+      {
+        "name": "size",
+        "type": "\"xs\" | \"xxs\" | 32 | 40",
+        "required": false,
+        "defaultValue": 32,
+        "description": "Размер компонента\n@description xs, xxs deprecated, используйте вместо них 40, 32 соответственно"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rectangular",
+        "description": "Форма компонента"
+      },
+      {
+        "name": "children",
+        "type": "ReactElement<SegmentProps, string | JSXElementConstructor<any>>[]",
+        "required": true,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Дополнительные инлайн стили для враппера"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Отключает пользовательский ввод"
+      }
+    ]
+  },
+  "Segment": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный className"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный className для контента сегмента"
+      },
+      {
+        "name": "id",
+        "type": "IDType",
+        "required": true,
+        "description": "ID сегмента"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Заголовок сегмента"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент выбранного сегмента"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

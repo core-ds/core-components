@@ -1,0 +1,371 @@
+{
+  "PopupSheet": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "Backdrop",
+        "type": "ComponentType<BackdropProps>",
+        "required": false,
+        "description": "Компонент бэкдропа"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает автоматический перевод фокуса на модалку при открытии"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при нажатии Escape"
+      },
+      {
+        "name": "disableBackdropClick",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает вызов `callback` при клике на бэкдроп"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Содержимое модалки всегда в DOM"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью модалки"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "wrapperProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на dialog wrapper"
+      },
+      {
+        "name": "contentProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на обертку контента"
+      },
+      {
+        "name": "componentDivProps",
+        "type": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на компонентную обертку контента"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки (Modal)"
+      },
+      {
+        "name": "scrollHandler",
+        "type": "\"content\" | MutableRefObject<HTMLDivElement | null> | \"wrapper\"",
+        "required": false,
+        "description": "Обработчик скролла контента"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<CSSTransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы для анимации (CSSTransition)"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "onBackdropClick",
+        "type": "((event: MouseEvent<Element, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на бэкдроп"
+      },
+      {
+        "name": "onEscapeKeyDown",
+        "type": "((event: KeyboardEvent<Element>) => void)",
+        "required": false,
+        "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе"
+      },
+      {
+        "name": "onMount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onEntered компонента Transition"
+      },
+      {
+        "name": "onUnmount",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик события onExited компонента Transition"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "componentRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф, который должен быть установлен компонентной области"
+      },
+      {
+        "name": "contentElementRef",
+        "type": "MutableRefObject<HTMLDivElement | null>",
+        "required": false,
+        "description": "Реф контентной области"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS."
+      },
+      {
+        "name": "onWheel",
+        "type": "((e: WheelEvent<HTMLElement>) => void)",
+        "required": false,
+        "description": "Хэндлер события прокрутки колесиком"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки закрытия"
+      },
+      {
+        "name": "swipeable",
+        "type": "boolean",
+        "required": false,
+        "description": "Будет ли свайпаться шторка"
+      },
+      {
+        "name": "padding",
+        "type": "PaddingType",
+        "required": false,
+        "defaultValue": 32,
+        "description": "Отступы"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\" | \"swipe\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля кнопки закрытия используется модификатор -closer"
+      },
+      {
+        "name": "closerProps",
+        "type": "Omit<CloserProps, \"onClose\" | \"view\">",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Дополнительные пропсы для компонента Closer."
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "PopupBackdrop": {
+    "description": "",
+    "props": [
+      {
+        "name": "timeout",
+        "type": "number | { appear?: number; enter?: number; exit?: number | undefined; } | { appear?: number | undefined; enter?: number | undefined; exit?: number | undefined; } | undefined",
+        "required": false,
+        "description": "The duration of the transition, in milliseconds. Required unless addEndListener is provided.\n\nYou may specify a single timeout for all transitions:\n```js\n  timeout={500}\n```\nor individually:\n```js\ntimeout={{\n appear: 500,\n enter: 300,\n exit: 500,\n}}\n```\n- appear defaults to the value of `enter`\n- enter defaults to `0`\n- exit defaults to `0`"
+      },
+      {
+        "name": "addEndListener",
+        "type": "((node: HTMLElement, done: () => void) => void)",
+        "required": false,
+        "description": "Add a custom transition end trigger. Called with the transitioning DOM\nnode and a done callback. Allows for more fine grained transition end\nlogic. Note: Timeouts are still used as a fallback if provided."
+      },
+      {
+        "name": "in",
+        "type": "boolean",
+        "required": false,
+        "description": "Show the component; triggers the enter or exit states"
+      },
+      {
+        "name": "mountOnEnter",
+        "type": "boolean",
+        "required": false,
+        "description": "By default the child component is mounted immediately along with the\nparent Transition component. If you want to \"lazy mount\" the component on\nthe first `in={true}` you can set `mountOnEnter`. After the first enter\ntransition the component will stay mounted, even on \"exited\", unless you\nalso specify `unmountOnExit`."
+      },
+      {
+        "name": "unmountOnExit",
+        "type": "boolean",
+        "required": false,
+        "description": "By default the child component stays mounted after it reaches the\n'exited' state. Set `unmountOnExit` if you'd prefer to unmount the\ncomponent after it finishes exiting."
+      },
+      {
+        "name": "onEnter",
+        "type": "((node: HTMLElement, isAppearing: boolean) => void)",
+        "required": false,
+        "description": "Callback fired before the \"entering\" status is applied. An extra\nparameter `isAppearing` is supplied to indicate if the enter stage is\noccurring on the initial mount"
+      },
+      {
+        "name": "onEntering",
+        "type": "((node: HTMLElement, isAppearing: boolean) => void)",
+        "required": false,
+        "description": "Callback fired after the \"entering\" status is applied. An extra parameter\nisAppearing is supplied to indicate if the enter stage is occurring on\nthe initial mount"
+      },
+      {
+        "name": "onEntered",
+        "type": "((node: HTMLElement, isAppearing: boolean) => void)",
+        "required": false,
+        "description": "Callback fired after the \"entered\" status is applied. An extra parameter\nisAppearing is supplied to indicate if the enter stage is occurring on\nthe initial mount"
+      },
+      {
+        "name": "onExit",
+        "type": "((node: HTMLElement) => void)",
+        "required": false,
+        "description": "Callback fired before the \"exiting\" status is applied."
+      },
+      {
+        "name": "onExiting",
+        "type": "((node: HTMLElement) => void)",
+        "required": false,
+        "description": "Callback fired after the \"exiting\" status is applied."
+      },
+      {
+        "name": "onExited",
+        "type": "((node: HTMLElement) => void)",
+        "required": false,
+        "description": "Callback fired after the \"exited\" status is applied."
+      },
+      {
+        "name": "children",
+        "type": "((string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | ((status: TransitionStatus, childProps?: Record<...>) => ReactNode)) & (string | ... 4 more ... | ReactPortal)) | null",
+        "required": false,
+        "description": "A function child can be used instead of a React element. This function is\ncalled with the current transition status ('entering', 'entered',\n'exiting',  'exited', 'unmounted'), which can be used to apply context\nspecific props to a component.\n```jsx\n   <Transition in={this.state.in} timeout={150}>\n       {state => (\n           <MyComponent className={`fade fade-${state}`} />\n       )}\n   </Transition>\n```\nДочерние элементы."
+      },
+      {
+        "name": "nodeRef",
+        "type": "Ref<undefined>",
+        "required": false,
+        "description": "A React reference to DOM element that need to transition: https://stackoverflow.com/a/51127130/4671932\nWhen `nodeRef` prop is used, node is not passed to callback functions (e.g. onEnter) because user already has direct access to the node.\nWhen changing `key` prop of `Transition` in a `TransitionGroup` a new `nodeRef` need to be provided to `Transition` with changed `key`\nprop (@see https://github.com/reactjs/react-transition-group/blob/master/test/Transition-test.js)."
+      },
+      {
+        "name": "invisible",
+        "type": "boolean",
+        "required": false,
+        "description": "Прозрачный бэкдроп\n@deprecated данное свойство больше не используется, временно оставлено для обратной совместимости\nИспользуйте свойство transparent"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управляет видимостью компонента"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по бэкдропу"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "transitionClassNames",
+        "type": "string | CSSTransitionClassNames",
+        "required": false,
+        "description": "Классы анимации\n\nhttp://reactcommunity.org/react-transition-group/css-transition#CSSTransition-prop-classNames"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "transparent",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управляет прозрачностью бэкдроп"
+      }
+    ]
+  }
+}

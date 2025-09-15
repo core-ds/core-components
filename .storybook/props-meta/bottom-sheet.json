@@ -1,0 +1,819 @@
+{
+  "BottomSheet": {
+    "description": "",
+    "props": [
+      {
+        "name": "adjustContainerHeight",
+        "type": "((height: number) => number)",
+        "required": false,
+        "defaultValue": "(value: number) => value",
+        "description": "Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управление видимостью"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок"
+      },
+      {
+        "name": "titleSize",
+        "type": "\"default\" | \"compact\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Размер заголовка"
+      },
+      {
+        "name": "subtitle",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подзаголовок."
+      },
+      {
+        "name": "actionButton",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Кнопка действия (обычно, это кнопка закрытия)"
+      },
+      {
+        "name": "container",
+        "type": "(() => Element)",
+        "required": false,
+        "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы"
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерить ли в контейнер через портал."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "containerProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Дополнительные пропсы на контейнер."
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "\"primary\" | \"secondary\"",
+        "required": false,
+        "description": "Цвет фона"
+      },
+      {
+        "name": "headerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс шапки"
+      },
+      {
+        "name": "footerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс футера"
+      },
+      {
+        "name": "addonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для компонента крестика"
+      },
+      {
+        "name": "backerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для компонента стрелки назад"
+      },
+      {
+        "name": "modalClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для компонента модального окна"
+      },
+      {
+        "name": "modalWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для обертки модального окна"
+      },
+      {
+        "name": "showSwipeMarker",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Дефолтный маркер"
+      },
+      {
+        "name": "swipeableMarkerClassName",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "swipeableMarker",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "description": "Кастомный маркер"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<TransitionProps<undefined>>",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "TransitionProps, прокидываются в компонент CSSTransitionProps."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля заголовка используется модификатор -header"
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "z-index компонента"
+      },
+      {
+        "name": "swipeable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Будет ли свайпаться шторка"
+      },
+      {
+        "name": "swipeableContent",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Будет ли свайпаться контент"
+      },
+      {
+        "name": "swipeThreshold",
+        "type": "number",
+        "required": false,
+        "defaultValue": 5,
+        "description": "Порог свайпа"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие компонента крестика"
+      },
+      {
+        "name": "hasBacker",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие компонента стрелки назад"
+      },
+      {
+        "name": "backButtonProps",
+        "type": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\">",
+        "required": false,
+        "description": "Дополнительные пропсы для кнопки \"Назад\""
+      },
+      {
+        "name": "titleAlign",
+        "type": "BottomSheetTitleAlign",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "stickyHeader",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "stickyFooter",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Фиксирует футер"
+      },
+      {
+        "name": "initialHeight",
+        "type": "\"default\" | \"full\"",
+        "required": false,
+        "defaultValue": "default",
+        "description": "Высота шторки"
+      },
+      {
+        "name": "hideOverlay",
+        "type": "boolean",
+        "required": false,
+        "description": "Будет ли виден оверлэй"
+      },
+      {
+        "name": "hideHeader",
+        "type": "boolean",
+        "required": false,
+        "description": "Будет ли видна шапка"
+      },
+      {
+        "name": "trimTitle",
+        "type": "boolean",
+        "required": false,
+        "description": "Будет ли обрезан заголовок"
+      },
+      {
+        "name": "disableOverlayClick",
+        "type": "boolean",
+        "required": false,
+        "description": "Запретить закрытие шторки кликом на оверлэй"
+      },
+      {
+        "name": "disableBlockingScroll",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает блокировку скролла при открытии модального окна"
+      },
+      {
+        "name": "disableFocusLock",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает ловушку фокуса"
+      },
+      {
+        "name": "ignoreScreenChange",
+        "type": "boolean",
+        "required": false,
+        "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nНе анимировать шторку при изменении размера вьюпорта"
+      },
+      {
+        "name": "backdropProps",
+        "type": "(Partial<BackdropProps> & Record<string, unknown>)",
+        "required": false,
+        "description": "Свойства для Бэкдропа"
+      },
+      {
+        "name": "scrollableContainerRef",
+        "type": "RefObject<HTMLElement>",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Реф на контейнер, в котором происходит скролл"
+      },
+      {
+        "name": "bottomSheetInstanceRef",
+        "type": "RefObject<{ scrollToArea: (idx: number) => void; }>",
+        "required": false,
+        "description": "Реф для управления компонентом."
+      },
+      {
+        "name": "sheetContainerRef",
+        "type": "RefObject<HTMLElement>",
+        "required": false,
+        "defaultValue": "() => null",
+        "description": "Реф на контейнер, в котором находится шторка"
+      },
+      {
+        "name": "magneticAreas",
+        "type": "(string | number)[]",
+        "required": false,
+        "description": "Магнитные области видимой высоты шторки.\nМожно использовать значения в пикселях - 10(число), либо в процентах - 10%(строка).\nПо-умолчанию -[0, window.innerHeight - '24px']\nмассив должен состоять минимум из 2 элементов"
+      },
+      {
+        "name": "initialActiveAreaIndex",
+        "type": "number",
+        "required": false,
+        "description": "Индекс точки из magneticAreas, к которому нужно примагнититься при первом открытии шторки."
+      },
+      {
+        "name": "scrollLocked",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает скролл контентной области."
+      },
+      {
+        "name": "hideScrollbar",
+        "type": "boolean",
+        "required": false,
+        "description": "Скрыть скроллбар внутри шторки"
+      },
+      {
+        "name": "headerOffset",
+        "type": "number",
+        "required": false,
+        "defaultValue": 24,
+        "description": "Верхний отступ шторки, если она открыта на максимальную высоту"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "description": "Содержимое bottom-sheet всегда в DOM"
+      },
+      {
+        "name": "disableAutoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает автоматический перевод фокуса на bottom-sheet при открытии"
+      },
+      {
+        "name": "disableRestoreFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия bottom-sheet"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "description": "Отключает вызов `onClose` при нажатии Escape"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": true,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик нажатия на стрелку назад"
+      },
+      {
+        "name": "onMagnetize",
+        "type": "((index: number) => void)",
+        "required": false,
+        "description": "Вызывается в начале анимации притягивания к одной из `magneticAreas`"
+      },
+      {
+        "name": "onMagnetizeEnd",
+        "type": "((index: number) => void)",
+        "required": false,
+        "description": "Вызывается после окончания анимации притягивания"
+      },
+      {
+        "name": "onOffsetChange",
+        "type": "((offset: number, percent: number) => void)",
+        "required": false,
+        "description": "Вызывается при изменении положения шторки"
+      },
+      {
+        "name": "onSwipeStart",
+        "type": "((event: HandledEvents) => void)",
+        "required": false,
+        "description": "Вызывается в начале свайпа"
+      },
+      {
+        "name": "onSwipeEnd",
+        "type": "((event: HandledEvents | null) => void)",
+        "required": false,
+        "description": "Вызывается после окончания свайпа"
+      },
+      {
+        "name": "iOSLock",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS"
+      },
+      {
+        "name": "virtualKeyboard",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": false,
+        "description": "Учитывать высоту виртуальной клавиатуры"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "Footer": {
+    "description": "",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент футера"
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует футер"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  },
+  "Header": {
+    "description": "",
+    "props": [
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Заголовок шапки"
+      },
+      {
+        "name": "titleSize",
+        "type": "\"default\" | \"compact\"",
+        "required": false,
+        "description": "Размер заголовка (compact доступен только в мобильной версии)"
+      },
+      {
+        "name": "subtitle",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подзаголовок (доступен только в мобильной версии)"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для контента"
+      },
+      {
+        "name": "addonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Доп. класс для аддонов"
+      },
+      {
+        "name": "closerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для closer"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот снизу"
+      },
+      {
+        "name": "hasCloser",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие компонента крестика"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Контент шапки"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\") => void)",
+        "required": false,
+        "description": "Обработчик закрытия"
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": "обработчик клика по кнопке \"назад\""
+      },
+      {
+        "name": "backButtonProps",
+        "type": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\">",
+        "required": false,
+        "description": "Дополнительные пропсы для кнопки \"Назад\""
+      },
+      {
+        "name": "sticky",
+        "type": "boolean",
+        "required": false,
+        "description": "Фиксирует шапку"
+      },
+      {
+        "name": "hasBackButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Наличие кнопки \"Назад\""
+      },
+      {
+        "name": "backButtonClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для правого аддона"
+      },
+      {
+        "name": "bottomAddonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для нижнего аддона"
+      },
+      {
+        "name": "align",
+        "type": "\"center\" | \"left\"",
+        "required": false,
+        "defaultValue": "left",
+        "description": "Выравнивание заголовка"
+      },
+      {
+        "name": "trim",
+        "type": "boolean",
+        "required": false,
+        "description": "Обрезать ли заголовок"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение"
+      },
+      {
+        "name": "closerIcon",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Иконка closer."
+      },
+      {
+        "name": "closerProps",
+        "type": "Omit<CloserProps, \"onClose\" | \"view\">",
+        "required": false,
+        "description": "Дополнительные пропсы для компонента Closer."
+      },
+      {
+        "name": "scrollableParentRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ссылка на родительскую ноду overflow: auto"
+      },
+      {
+        "name": "dataName",
+        "type": "string",
+        "required": false,
+        "description": "Data атрибут для компонента"
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для title"
+      },
+      {
+        "name": "titleRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для title элемента"
+      },
+      {
+        "name": "headerRef",
+        "type": "RefObject<HTMLDivElement>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "headerOffset",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "showSwipeMarker",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "SwipeableBackdrop": {
+    "description": "",
+    "props": [
+      {
+        "name": "timeout",
+        "type": "number | { appear?: number; enter?: number; exit?: number | undefined; } | { appear?: number | undefined; enter?: number | undefined; exit?: number | undefined; } | undefined",
+        "required": false,
+        "description": "The duration of the transition, in milliseconds. Required unless addEndListener is provided.\n\nYou may specify a single timeout for all transitions:\n```js\n  timeout={500}\n```\nor individually:\n```js\ntimeout={{\n appear: 500,\n enter: 300,\n exit: 500,\n}}\n```\n- appear defaults to the value of `enter`\n- enter defaults to `0`\n- exit defaults to `0`"
+      },
+      {
+        "name": "addEndListener",
+        "type": "((node: HTMLElement, done: () => void) => void)",
+        "required": false,
+        "description": "Add a custom transition end trigger. Called with the transitioning DOM\nnode and a done callback. Allows for more fine grained transition end\nlogic. Note: Timeouts are still used as a fallback if provided."
+      },
+      {
+        "name": "in",
+        "type": "boolean",
+        "required": false,
+        "description": "Show the component; triggers the enter or exit states"
+      },
+      {
+        "name": "mountOnEnter",
+        "type": "boolean",
+        "required": false,
+        "description": "By default the child component is mounted immediately along with the\nparent Transition component. If you want to \"lazy mount\" the component on\nthe first `in={true}` you can set `mountOnEnter`. After the first enter\ntransition the component will stay mounted, even on \"exited\", unless you\nalso specify `unmountOnExit`."
+      },
+      {
+        "name": "unmountOnExit",
+        "type": "boolean",
+        "required": false,
+        "description": "By default the child component stays mounted after it reaches the\n'exited' state. Set `unmountOnExit` if you'd prefer to unmount the\ncomponent after it finishes exiting."
+      },
+      {
+        "name": "onEnter",
+        "type": "((node: HTMLElement, isAppearing: boolean) => void)",
+        "required": false,
+        "description": "Callback fired before the \"entering\" status is applied. An extra\nparameter `isAppearing` is supplied to indicate if the enter stage is\noccurring on the initial mount"
+      },
+      {
+        "name": "onEntering",
+        "type": "((node: HTMLElement, isAppearing: boolean) => void)",
+        "required": false,
+        "description": "Callback fired after the \"entering\" status is applied. An extra parameter\nisAppearing is supplied to indicate if the enter stage is occurring on\nthe initial mount"
+      },
+      {
+        "name": "onEntered",
+        "type": "((node: HTMLElement, isAppearing: boolean) => void)",
+        "required": false,
+        "description": "Callback fired after the \"entered\" status is applied. An extra parameter\nisAppearing is supplied to indicate if the enter stage is occurring on\nthe initial mount"
+      },
+      {
+        "name": "onExit",
+        "type": "((node: HTMLElement) => void)",
+        "required": false,
+        "description": "Callback fired before the \"exiting\" status is applied."
+      },
+      {
+        "name": "onExiting",
+        "type": "((node: HTMLElement) => void)",
+        "required": false,
+        "description": "Callback fired after the \"exiting\" status is applied."
+      },
+      {
+        "name": "onExited",
+        "type": "((node: HTMLElement) => void)",
+        "required": false,
+        "description": "Callback fired after the \"exited\" status is applied."
+      },
+      {
+        "name": "children",
+        "type": "((string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | ((status: TransitionStatus, childProps?: Record<...>) => ReactNode)) & (string | ... 4 more ... | ReactPortal)) | null",
+        "required": false,
+        "description": "A function child can be used instead of a React element. This function is\ncalled with the current transition status ('entering', 'entered',\n'exiting',  'exited', 'unmounted'), which can be used to apply context\nspecific props to a component.\n```jsx\n   <Transition in={this.state.in} timeout={150}>\n       {state => (\n           <MyComponent className={`fade fade-${state}`} />\n       )}\n   </Transition>\n```\nДочерние элементы."
+      },
+      {
+        "name": "nodeRef",
+        "type": "Ref<undefined>",
+        "required": false,
+        "description": "A React reference to DOM element that need to transition: https://stackoverflow.com/a/51127130/4671932\nWhen `nodeRef` prop is used, node is not passed to callback functions (e.g. onEnter) because user already has direct access to the node.\nWhen changing `key` prop of `Transition` in a `TransitionGroup` a new `nodeRef` need to be provided to `Transition` with changed `key`\nprop (@see https://github.com/reactjs/react-transition-group/blob/master/test/Transition-test.js)."
+      },
+      {
+        "name": "invisible",
+        "type": "boolean",
+        "required": false,
+        "description": "Прозрачный бэкдроп\n@deprecated данное свойство больше не используется, временно оставлено для обратной совместимости\nИспользуйте свойство transparent"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Управляет видимостью компонента"
+      },
+      {
+        "name": "onClose",
+        "type": "((event: MouseEvent<HTMLElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по бэкдропу"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "transitionClassNames",
+        "type": "string | CSSTransitionClassNames",
+        "required": false,
+        "description": "Классы анимации\n\nhttp://reactcommunity.org/react-transition-group/css-transition#CSSTransition-prop-classNames"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "transparent",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Управляет прозрачностью бэкдроп"
+      },
+      {
+        "name": "opacity",
+        "type": "number",
+        "required": false,
+        "description": "Прозрачность бэкдропа"
+      },
+      {
+        "name": "handlers",
+        "type": "SwipeableHandlers",
+        "required": false,
+        "description": "Обработчики свайпа"
+      },
+      {
+        "name": "opacityTimeout",
+        "type": "number",
+        "required": false,
+        "description": "Время анимации opacity"
+      }
+    ]
+  }
+}

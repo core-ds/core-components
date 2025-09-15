@@ -1,0 +1,66 @@
+{
+  "Status": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "view",
+        "type": "\"contrast\" | \"soft\" | \"muted\" | \"muted-alt\"",
+        "required": false,
+        "defaultValue": "muted-alt",
+        "description": "Вид компонента\n@description soft deprecated, используйте вместо него muted-alt"
+      },
+      {
+        "name": "color",
+        "type": "\"green\" | \"orange\" | \"red\" | \"blue\" | \"grey\" | \"teal\" | \"purple\"",
+        "required": false,
+        "defaultValue": "green",
+        "description": "Цветовое оформление компонента"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы."
+      },
+      {
+        "name": "size",
+        "type": "20 | 24 | 32 | 40",
+        "required": false,
+        "defaultValue": 20,
+        "description": "Размер компонента"
+      },
+      {
+        "name": "shape",
+        "type": "\"rounded\" | \"rectangular\"",
+        "required": false,
+        "defaultValue": "rectangular",
+        "description": "Форма компонента"
+      },
+      {
+        "name": "uppercase",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Текст компонента в верхнем регистре"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      }
+    ]
+  }
+}

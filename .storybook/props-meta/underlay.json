@@ -1,0 +1,80 @@
+{
+  "Underlay": {
+    "description": "",
+    "props": [
+      {
+        "name": "dimensions",
+        "type": "DimensionsType",
+        "required": false,
+        "description": "Размеры подложки"
+      },
+      {
+        "name": "padding",
+        "type": "string | PaddingType",
+        "required": false,
+        "description": "Внутренние отступы"
+      },
+      {
+        "name": "borderRadius",
+        "type": "UnderlayBorderRadius | CornersRadiusType",
+        "required": false,
+        "description": "Радиус бордера"
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет фона"
+      },
+      {
+        "name": "borderSize",
+        "type": "BorderSizeType",
+        "required": false,
+        "description": "Ширина бордера"
+      },
+      {
+        "name": "borderColor",
+        "type": "BorderColorType",
+        "required": false,
+        "description": "Цвет бордера"
+      },
+      {
+        "name": "overflow",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Настройка переполнения (true - разрешена)\ndefault: true"
+      },
+      {
+        "name": "shadow",
+        "type": "ShadowType",
+        "required": false,
+        "description": "Тень"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "contentProps",
+        "type": "ContentPropsType",
+        "required": false,
+        "description": "Пропсы для стилизации контента подложки"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+}

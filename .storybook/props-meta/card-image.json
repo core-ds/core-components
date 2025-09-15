@@ -1,0 +1,77 @@
+{
+  "CardImage": {
+    "description": "",
+    "props": [
+      {
+        "name": "cardId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор карты\n(например: ER, GQ, SU)"
+      },
+      {
+        "name": "layers",
+        "type": "string",
+        "required": false,
+        "defaultValue": "BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE",
+        "description": "Какие слои показывать, через запятую без пробелов\n(полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,\nPAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)"
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "defaultValue": 280,
+        "description": "Ширина изображения"
+      },
+      {
+        "name": "rounded",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Скругление углов"
+      },
+      {
+        "name": "baseUrl",
+        "type": "string",
+        "required": false,
+        "defaultValue": "https://online.alfabank.ru/cards-images/cards/",
+        "description": "Базовый URL сервиса с изображениями"
+      },
+      {
+        "name": "onLoad",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Колбек, вызываемый при загрузке изображения"
+      },
+      {
+        "name": "onError",
+        "type": "ReactEventHandler<HTMLImageElement>",
+        "required": false,
+        "description": "Колбек, вызываемый при ошибке загрузки изображения"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": "Текстовое описание изображения"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "Уникальный идентификатор блока"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      }
+    ]
+  }
+}

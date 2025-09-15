@@ -1,0 +1,359 @@
+{
+  "FileUploadItemComponent": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Идентификатор элемента"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Имя файла / заголовок"
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "description": "Подзаголовок файла"
+      },
+      {
+        "name": "size",
+        "type": "string | number",
+        "required": false,
+        "description": "Размер файла"
+      },
+      {
+        "name": "uploadDate",
+        "type": "string",
+        "required": false,
+        "description": "Дата загрузки файла"
+      },
+      {
+        "name": "downloadLink",
+        "type": "string",
+        "required": false,
+        "description": "Ссылка на файл. Если прокидывается этот параметр, то появляется кнопка скачивания"
+      },
+      {
+        "name": "download",
+        "type": "string | true",
+        "required": false,
+        "description": "Рекомендует браузеру скачивать контент по ссылке.\nВ проп может быть передано рекомендуемое название скачиваемого файла."
+      },
+      {
+        "name": "showDelete",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки удаления"
+      },
+      {
+        "name": "showRestore",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки восстановления"
+      },
+      {
+        "name": "uploadStatus",
+        "type": "FileUploadItemStatus",
+        "required": false,
+        "description": "Статус загрузки файла"
+      },
+      {
+        "name": "error",
+        "type": "string | string[]",
+        "required": false,
+        "description": "Сообщение об ошибке"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "onDownload",
+        "type": "((id: string) => void)",
+        "required": false,
+        "description": "Обработчик загрузки файла"
+      },
+      {
+        "name": "onDelete",
+        "type": "((id: string, event?: MouseEvent<HTMLElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик удаления файла"
+      },
+      {
+        "name": "onRestore",
+        "type": "((id: string) => void)",
+        "required": false,
+        "description": "Обработчик восстановления файла"
+      },
+      {
+        "name": "disableButtons",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление активностью кнопок"
+      },
+      {
+        "name": "isClickable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управление отображением кликабельности элемента Content"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": "Указывает, где открыть скачиваемый документ"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "iconStyle",
+        "type": "\"gray\" | \"colored\"",
+        "required": false,
+        "defaultValue": "gray",
+        "description": "Цвет заполнения иконки"
+      },
+      {
+        "name": "customIcon",
+        "type": "ElementType<{ className?: string; }>",
+        "required": false,
+        "description": "Кастомная иконка"
+      },
+      {
+        "name": "progressBar",
+        "type": "number",
+        "required": false,
+        "defaultValue": 0,
+        "description": "Шкала прогресса\nот 0 до 100"
+      },
+      {
+        "name": "customContent",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Кастомный контент"
+      },
+      {
+        "name": "truncate",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отсечение контента"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой"
+      }
+    ]
+  },
+  "FileUploadItem": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "defaultValue": "0",
+        "description": "Идентификатор элемента"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Имя файла / заголовок"
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "description": "Подзаголовок файла"
+      },
+      {
+        "name": "size",
+        "type": "string | number",
+        "required": false,
+        "description": "Размер файла"
+      },
+      {
+        "name": "uploadDate",
+        "type": "string",
+        "required": false,
+        "description": "Дата загрузки файла"
+      },
+      {
+        "name": "downloadLink",
+        "type": "string",
+        "required": false,
+        "description": "Ссылка на файл. Если прокидывается этот параметр, то появляется кнопка скачивания"
+      },
+      {
+        "name": "download",
+        "type": "string | true",
+        "required": false,
+        "description": "Рекомендует браузеру скачивать контент по ссылке.\nВ проп может быть передано рекомендуемое название скачиваемого файла."
+      },
+      {
+        "name": "showDelete",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки удаления"
+      },
+      {
+        "name": "showRestore",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение кнопки восстановления"
+      },
+      {
+        "name": "uploadStatus",
+        "type": "FileUploadItemStatus",
+        "required": false,
+        "description": "Статус загрузки файла"
+      },
+      {
+        "name": "error",
+        "type": "string | string[]",
+        "required": false,
+        "description": "Сообщение об ошибке"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "onDownload",
+        "type": "((id: string) => void)",
+        "required": false,
+        "description": "Обработчик загрузки файла"
+      },
+      {
+        "name": "onDelete",
+        "type": "((id: string, event?: MouseEvent<HTMLElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик удаления файла"
+      },
+      {
+        "name": "onRestore",
+        "type": "((id: string) => void)",
+        "required": false,
+        "description": "Обработчик восстановления файла"
+      },
+      {
+        "name": "disableButtons",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление активностью кнопок"
+      },
+      {
+        "name": "isClickable",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Управление отображением кликабельности элемента Content"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": "Указывает, где открыть скачиваемый документ"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "iconStyle",
+        "type": "\"gray\" | \"colored\"",
+        "required": false,
+        "defaultValue": "gray",
+        "description": "Цвет заполнения иконки"
+      },
+      {
+        "name": "customIcon",
+        "type": "ElementType<{ className?: string; }>",
+        "required": false,
+        "description": "Кастомная иконка"
+      },
+      {
+        "name": "progressBar",
+        "type": "number",
+        "required": false,
+        "defaultValue": 0,
+        "description": "Шкала прогресса\nот 0 до 100"
+      },
+      {
+        "name": "customContent",
+        "type": "ElementType<any>",
+        "required": false,
+        "description": "Кастомный контент"
+      },
+      {
+        "name": "truncate",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Отсечение контента"
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false,
+        "description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой"
+      }
+    ]
+  },
+  "ProgressBar": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "strokeDasharray",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "strokeDashoffset",
+        "type": "number",
+        "required": true,
+        "description": ""
+      }
+    ]
+  }
+}

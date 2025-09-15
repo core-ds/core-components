@@ -1,0 +1,164 @@
+{
+  "CircularProgressBar": {
+    "description": "Компонент круглого прогресс бара.",
+    "props": [
+      {
+        "name": "value",
+        "type": "number | { timer: number; counting?: \"forward\" | \"backward\" | undefined; onFinish?: (() => void) | undefined; }",
+        "required": true,
+        "description": "Уровень прогресса, %"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Основной текст"
+      },
+      {
+        "name": "contentColor",
+        "type": "string",
+        "required": false,
+        "defaultValue": "secondary",
+        "description": "Цвет контента"
+      },
+      {
+        "name": "titleColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет заголовка\nПриоритет выше чем у `contentColor`"
+      },
+      {
+        "name": "subtitleColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет подзаголовка\nПриоритет выше чем у `contentColor`"
+      },
+      {
+        "name": "subtitle",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дополнительный текст"
+      },
+      {
+        "name": "titleComplete",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Основной текст при 100%"
+      },
+      {
+        "name": "subtitleComplete",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дополнительный текст при 100%"
+      },
+      {
+        "name": "view",
+        "type": "\"positive\" | \"negative\"",
+        "required": false,
+        "defaultValue": "positive",
+        "description": "Цвет заполнения"
+      },
+      {
+        "name": "size",
+        "type": "ComponentSize",
+        "required": false,
+        "defaultValue": 64,
+        "description": "Размер (xxl — 144×144px, xl — 128×128px, l — 80×80px, m — 64×64px, s — 48×48px, xs — 24×24px)\n@description xs, s, m, l, xl, xxl deprecated, используйте вместо них 24, 48, 64, 80, 128, 144 соответственно"
+      },
+      {
+        "name": "stroke",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Наличие желоба"
+      },
+      {
+        "name": "fillComplete",
+        "type": "boolean",
+        "required": false,
+        "description": "Заливка при 100%"
+      },
+      {
+        "name": "completeTextColor",
+        "type": "\"primary\" | \"positive\" | \"negative\" | \"primary-inverted\"",
+        "required": false,
+        "description": "Цвет текста при 100%"
+      },
+      {
+        "name": "completeIconColor",
+        "type": "\"tertiary\" | \"positive\" | \"negative\" | \"primary-inverted\"",
+        "required": false,
+        "defaultValue": "tertiary",
+        "description": "Цвет иконки при 100%"
+      },
+      {
+        "name": "icon",
+        "type": "ElementType<{ className?: string; }>",
+        "required": false,
+        "description": "Компонент иконки"
+      },
+      {
+        "name": "iconComplete",
+        "type": "ElementType<{ className?: string; }>",
+        "required": false,
+        "description": "Компонент иконки при 100%"
+      },
+      {
+        "name": "direction",
+        "type": "\"clockwise\" | \"counter-clockwise\"",
+        "required": false,
+        "defaultValue": "clockwise",
+        "description": "Направление прогресса (clockwise - по часовой стрелке, counter-clockwise - против часовой стрелки)"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "description": "Высота компонента, min = 24; max = 144\nиспользовать совместно с size :\nxxl от 144\nxl  от 128 до 143\nl   от 80 до 127\nm   от 64 до 79\ns   от 48 до 63\nxs  от 24 до 47"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Id компонента для тестов"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Дочерние элементы"
+      },
+      {
+        "name": "progressStrokeColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет прогресса"
+      },
+      {
+        "name": "circleColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет заливки внутри круга"
+      },
+      {
+        "name": "strokeColor",
+        "type": "string",
+        "required": false,
+        "description": "Цвет желоба"
+      },
+      {
+        "name": "directionType",
+        "type": "\"desc\" | \"asc\"",
+        "required": false,
+        "defaultValue": "asc",
+        "description": "Направление заполнения круга"
+      }
+    ]
+  }
+}

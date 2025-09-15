@@ -1,0 +1,3144 @@
+{
+  "InternationalPhoneInput": {
+    "description": "",
+    "props": [
+      {
+        "name": "country",
+        "type": "Country",
+        "required": false,
+        "description": "Выбранная страна"
+      },
+      {
+        "name": "countries",
+        "type": "string[]",
+        "required": false,
+        "description": "Список необходимых iso2 стран"
+      },
+      {
+        "name": "defaultIso2",
+        "type": "string",
+        "required": false,
+        "description": "Дефолтный код страны"
+      },
+      {
+        "name": "customCountriesList",
+        "type": "CountriesData[]",
+        "required": false,
+        "description": "Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)"
+      },
+      {
+        "name": "clearableCountryCode",
+        "type": "boolean | \"preserve\"",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Возможность стереть код страны\n@description Используйте `'preserve'` для сохранения кода страны при автозаполнении (актуально для Safari). При этом код страны можно удалить в случае использования `true`"
+      },
+      {
+        "name": "countrySelectProps",
+        "type": "SharedCountrySelectProps",
+        "required": false,
+        "description": "Свойства селекта выбора стран"
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать крестик очистки\nФлаг, показать крестик для очистки поля"
+      },
+      {
+        "name": "filterFn",
+        "type": "((value: string, option: OptionShape) => boolean)",
+        "required": false,
+        "description": "Функция фильтрации номеров для автокомплита"
+      },
+      {
+        "name": "onCountryChange",
+        "type": "((country?: Country) => void)",
+        "required": false,
+        "description": "Обработчик события изменения страны"
+      },
+      {
+        "name": "onChange",
+        "type": "((phone: string) => void)",
+        "required": false,
+        "description": "Обработчик изменения номера"
+      },
+      {
+        "name": "onBlur",
+        "type": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void))",
+        "required": false,
+        "description": "Обработчик блюра поля"
+      },
+      {
+        "name": "onFocus",
+        "type": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void))",
+        "required": false,
+        "description": "Обработчик фокуса поля"
+      },
+      {
+        "name": "autoFill",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Включить автозаполнение номера"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "type",
+        "type": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\"",
+        "required": false,
+        "description": "Атрибут type"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Значение поля ввода"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Начальное значение поля"
+      },
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по полю"
+      },
+      {
+        "name": "onMouseDown",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик MouseDown по полю"
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capture",
+        "type": "boolean | \"user\" | \"environment\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление возможностью выбора значения"
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "list",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": "Возможность выбрать несколько значений"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Атрибут name"
+      },
+      {
+        "name": "pattern",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Плейсхолдер поля"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Поле доступно только для чтения"
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение иконки успеха"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки\nПодсказка под полем"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента\nЛейбл поля"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "wrapperRef",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для обертки input"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под инпутом"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс инпута"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "focusedClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен при фокусе"
+      },
+      {
+        "name": "filledClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен, если в поле есть значение"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control\nИдентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control"
+      },
+      {
+        "name": "disableUserInput",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает ввод с клавиатуры"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "boolean | (() => boolean)",
+        "required": false,
+        "defaultValue": "client === undefined ? undefined : client === 'desktop'",
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "options",
+        "type": "(OptionShape | GroupShape)[]",
+        "required": true,
+        "description": "Список вариантов выбора"
+      },
+      {
+        "name": "optionsListClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс выпадающего меню"
+      },
+      {
+        "name": "optionClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для пункта меню"
+      },
+      {
+        "name": "optionGroupClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для компонента группы пунктов"
+      },
+      {
+        "name": "popperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поповера"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "description": "Начальное состояние селекта"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление открытием"
+      },
+      {
+        "name": "optionsSize",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер пунктов меню\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "optionsListWidth",
+        "type": "\"content\" | \"field\"",
+        "required": false,
+        "description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля"
+      },
+      {
+        "name": "allowUnselect",
+        "type": "boolean",
+        "required": false,
+        "description": "Позволяет снять выбранное значение"
+      },
+      {
+        "name": "closeOnSelect",
+        "type": "boolean",
+        "required": false,
+        "description": "Закрывать меню после выбора?"
+      },
+      {
+        "name": "circularNavigation",
+        "type": "boolean",
+        "required": false,
+        "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот."
+      },
+      {
+        "name": "preventFlip",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу"
+      },
+      {
+        "name": "selected",
+        "type": "string | OptionShape | (string | OptionShape)[] | null",
+        "required": false,
+        "description": "Список value выбранных пунктов (controlled-селект)"
+      },
+      {
+        "name": "popoverPosition",
+        "type": "Position",
+        "required": false,
+        "description": "Позиционирование выпадающего списка"
+      },
+      {
+        "name": "visibleOptions",
+        "type": "number",
+        "required": false,
+        "description": "Количество видимых пунктов меню (5 = 5.5)"
+      },
+      {
+        "name": "valueSeparator",
+        "type": "string",
+        "required": false,
+        "description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)"
+      },
+      {
+        "name": "Arrow",
+        "type": "false | ComponentType<ArrowProps> | null",
+        "required": false,
+        "description": "Компонент стрелки"
+      },
+      {
+        "name": "fieldProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент поля"
+      },
+      {
+        "name": "optionsListProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент списка"
+      },
+      {
+        "name": "optionProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент пункта меню"
+      },
+      {
+        "name": "groupOptionProps",
+        "type": "AnyObject",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент группового пункта меню"
+      },
+      {
+        "name": "OptionsList",
+        "type": "ComponentType<OptionsListProps & RefAttributes<HTMLDivElement>>",
+        "required": false,
+        "description": "Компонент выпадающего меню"
+      },
+      {
+        "name": "Optgroup",
+        "type": "ComponentType<OptgroupProps>",
+        "required": false,
+        "description": "Компонент группы"
+      },
+      {
+        "name": "Option",
+        "type": "ComponentType<OptionProps>",
+        "required": false,
+        "description": "Компонент пункта меню"
+      },
+      {
+        "name": "onOpen",
+        "type": "((payload: { open?: boolean; name?: string; }) => void) | undefined",
+        "required": false,
+        "description": "Обработчик открытия\\закрытия селекта"
+      },
+      {
+        "name": "updatePopover",
+        "type": "MutableRefObject<(() => void)>",
+        "required": false,
+        "description": "Хранит функцию, с помощью которой можно обновить положение поповера"
+      },
+      {
+        "name": "zIndexPopover",
+        "type": "number",
+        "required": false,
+        "description": "z-index поповера"
+      },
+      {
+        "name": "showEmptyOptionsList",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать OptionsList, если он пустой"
+      },
+      {
+        "name": "popoverProps",
+        "type": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\">",
+        "required": false,
+        "description": "Дополнительные пропсы для Popover"
+      },
+      {
+        "name": "limitDynamicOptionGroupSize",
+        "type": "boolean",
+        "required": false,
+        "description": "Ограничение динамического размера группы вариантов выбора"
+      },
+      {
+        "name": "Input",
+        "type": "ComponentType<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined",
+        "required": false,
+        "description": "Компонент ввода значения"
+      },
+      {
+        "name": "inputProps",
+        "type": "(Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & Record<...>) | undefined",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в инпут"
+      },
+      {
+        "name": "isBottomSheet",
+        "type": "boolean",
+        "required": false,
+        "description": "Открывать в bottom-sheet"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<TransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы анимации контента (CSSTransition)"
+      },
+      {
+        "name": "onApply",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку «Продолжить» в BottomSheet или модальном окне"
+      },
+      {
+        "name": "onCancel",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку «Отмена» в BottomSheet или модальном окне"
+      },
+      {
+        "name": "virtualKeyboard",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Учитывать высоту виртуальной клавиатуры в BottomSheet"
+      }
+    ]
+  },
+  "BaseInternationalPhoneInput": {
+    "description": "",
+    "props": [
+      {
+        "name": "country",
+        "type": "Country",
+        "required": false,
+        "description": "Выбранная страна"
+      },
+      {
+        "name": "countries",
+        "type": "string[]",
+        "required": false,
+        "description": "Список необходимых iso2 стран"
+      },
+      {
+        "name": "defaultIso2",
+        "type": "string",
+        "required": false,
+        "description": "Дефолтный код страны"
+      },
+      {
+        "name": "customCountriesList",
+        "type": "CountriesData[]",
+        "required": false,
+        "description": "Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)"
+      },
+      {
+        "name": "clearableCountryCode",
+        "type": "boolean | \"preserve\"",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Возможность стереть код страны\n@description Используйте `'preserve'` для сохранения кода страны при автозаполнении (актуально для Safari). При этом код страны можно удалить в случае использования `true`"
+      },
+      {
+        "name": "countrySelectProps",
+        "type": "SharedCountrySelectProps",
+        "required": false,
+        "description": "Свойства селекта выбора стран"
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать крестик очистки\nКрестик для очистки поля\nФлаг, показать крестик для очистки поля"
+      },
+      {
+        "name": "filterFn",
+        "type": "((value: string, option: OptionShape) => boolean)",
+        "required": false,
+        "description": "Функция фильтрации номеров для автокомплита"
+      },
+      {
+        "name": "onCountryChange",
+        "type": "((country?: Country) => void)",
+        "required": false,
+        "description": "Обработчик события изменения страны"
+      },
+      {
+        "name": "onChange",
+        "type": "((phone: string) => void)",
+        "required": false,
+        "description": "Обработчик изменения номера"
+      },
+      {
+        "name": "onBlur",
+        "type": "(((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void))",
+        "required": false,
+        "description": "Обработчик блюра поля"
+      },
+      {
+        "name": "onFocus",
+        "type": "(((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void))",
+        "required": false,
+        "description": "Обработчик фокуса поля"
+      },
+      {
+        "name": "autoFill",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": true,
+        "description": "Включить автозаполнение номера"
+      },
+      {
+        "name": "Input",
+        "type": "FC<InputProps> & (ComponentType<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined)",
+        "required": false,
+        "description": "Компонент ввода значения"
+      },
+      {
+        "name": "InputAutocomplete",
+        "type": "FC<InputAutocompleteProps>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "SelectComponent",
+        "type": "ElementType<any>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "defaultValue": 56,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "type",
+        "type": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\"",
+        "required": false,
+        "description": "Атрибут type"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Значение поля ввода"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Начальное значение поля"
+      },
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по полю"
+      },
+      {
+        "name": "onMouseDown",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик MouseDown по полю"
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capture",
+        "type": "boolean | \"user\" | \"environment\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление возможностью выбора значения"
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "list",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": "Возможность выбрать несколько значений"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Атрибут name"
+      },
+      {
+        "name": "pattern",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Плейсхолдер поля"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Поле доступно только для чтения"
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение иконки успеха"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки\nПодсказка под полем"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента\nЛейбл поля"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "wrapperRef",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для обертки input"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под инпутом"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс инпута"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "focusedClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен при фокусе"
+      },
+      {
+        "name": "filledClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен, если в поле есть значение"
+      },
+      {
+        "name": "onClear",
+        "type": "(((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) & ((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void))",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку очистки\nОбработчик нажатия на крестик для очистки поля"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control\nИдентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control"
+      },
+      {
+        "name": "disableUserInput",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает ввод с клавиатуры"
+      },
+      {
+        "name": "breakpoint",
+        "type": "number",
+        "required": false,
+        "defaultValue": "1024\n1024",
+        "description": "Контрольная точка, с нее начинается desktop версия"
+      },
+      {
+        "name": "client",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "description": "Версия, которая будет использоваться при серверном рендеринге"
+      },
+      {
+        "name": "defaultMatchMediaValue",
+        "type": "((boolean | (() => boolean)) & (boolean | (() => boolean)))",
+        "required": false,
+        "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client\n@deprecated Используйте client"
+      },
+      {
+        "name": "options",
+        "type": "(OptionShape | GroupShape)[]",
+        "required": false,
+        "description": "Список вариантов выбора"
+      },
+      {
+        "name": "optionsListClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс выпадающего меню"
+      },
+      {
+        "name": "optionClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для пункта меню"
+      },
+      {
+        "name": "optionGroupClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для компонента группы пунктов"
+      },
+      {
+        "name": "popperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поповера"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "description": "Начальное состояние селекта"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление открытием"
+      },
+      {
+        "name": "optionsSize",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер пунктов меню\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "optionsListWidth",
+        "type": "\"content\" | \"field\"",
+        "required": false,
+        "description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля"
+      },
+      {
+        "name": "allowUnselect",
+        "type": "boolean",
+        "required": false,
+        "description": "Позволяет снять выбранное значение"
+      },
+      {
+        "name": "closeOnSelect",
+        "type": "boolean",
+        "required": false,
+        "description": "Закрывать меню после выбора?"
+      },
+      {
+        "name": "circularNavigation",
+        "type": "boolean",
+        "required": false,
+        "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот."
+      },
+      {
+        "name": "preventFlip",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу"
+      },
+      {
+        "name": "selected",
+        "type": "string | OptionShape | (string | OptionShape)[] | null",
+        "required": false,
+        "description": "Список value выбранных пунктов (controlled-селект)"
+      },
+      {
+        "name": "popoverPosition",
+        "type": "Position",
+        "required": false,
+        "description": "Позиционирование выпадающего списка"
+      },
+      {
+        "name": "visibleOptions",
+        "type": "number",
+        "required": false,
+        "description": "Количество видимых пунктов меню (5 = 5.5)"
+      },
+      {
+        "name": "valueSeparator",
+        "type": "string",
+        "required": false,
+        "description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)"
+      },
+      {
+        "name": "Arrow",
+        "type": "false | ComponentType<ArrowProps> | null",
+        "required": false,
+        "description": "Компонент стрелки"
+      },
+      {
+        "name": "fieldProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент поля"
+      },
+      {
+        "name": "optionsListProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент списка"
+      },
+      {
+        "name": "optionProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент пункта меню"
+      },
+      {
+        "name": "groupOptionProps",
+        "type": "AnyObject",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент группового пункта меню"
+      },
+      {
+        "name": "OptionsList",
+        "type": "ComponentType<OptionsListProps & RefAttributes<HTMLDivElement>>",
+        "required": false,
+        "description": "Компонент выпадающего меню"
+      },
+      {
+        "name": "Optgroup",
+        "type": "ComponentType<OptgroupProps>",
+        "required": false,
+        "description": "Компонент группы"
+      },
+      {
+        "name": "Option",
+        "type": "ComponentType<OptionProps>",
+        "required": false,
+        "description": "Компонент пункта меню"
+      },
+      {
+        "name": "onOpen",
+        "type": "((payload: { open?: boolean; name?: string; }) => void) | undefined",
+        "required": false,
+        "description": "Обработчик открытия\\закрытия селекта"
+      },
+      {
+        "name": "updatePopover",
+        "type": "MutableRefObject<(() => void)>",
+        "required": false,
+        "description": "Хранит функцию, с помощью которой можно обновить положение поповера"
+      },
+      {
+        "name": "zIndexPopover",
+        "type": "number",
+        "required": false,
+        "description": "z-index поповера"
+      },
+      {
+        "name": "showEmptyOptionsList",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать OptionsList, если он пустой"
+      },
+      {
+        "name": "popoverProps",
+        "type": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\">",
+        "required": false,
+        "description": "Дополнительные пропсы для Popover"
+      },
+      {
+        "name": "limitDynamicOptionGroupSize",
+        "type": "boolean",
+        "required": false,
+        "description": "Ограничение динамического размера группы вариантов выбора"
+      },
+      {
+        "name": "inputProps",
+        "type": "(Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & Record<...>) | undefined",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в инпут"
+      },
+      {
+        "name": "mobileProps",
+        "type": "MobileProps",
+        "required": false,
+        "description": "Пропсы для мобильного компонента"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "CountrySelect": {
+    "description": "",
+    "props": [
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "onChange",
+        "type": "((payload: BaseSelectChangePayload) => void)",
+        "required": false,
+        "description": "Обработчик выбора"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление возможностью выбора значения"
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": "Возможность выбрать несколько значений"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Атрибут name"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Плейсхолдер поля"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "Атрибут id"
+      },
+      {
+        "name": "onFocus",
+        "type": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик фокуса поля"
+      },
+      {
+        "name": "onBlur",
+        "type": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void)",
+        "required": false,
+        "description": "Обработчик блюра поля"
+      },
+      {
+        "name": "onScroll",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик скрола"
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "description": "Флаг, показать крестик для очистки поля"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подсказка под полем"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл поля"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "onClear",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик нажатия на крестик для очистки поля"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control"
+      },
+      {
+        "name": "autocomplete",
+        "type": "boolean",
+        "required": false,
+        "description": "Возможность использовать селект как input-autocomplete"
+      },
+      {
+        "name": "nativeSelect",
+        "type": "boolean",
+        "required": false,
+        "description": "Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)"
+      },
+      {
+        "name": "searchProps",
+        "type": "{ componentProps?: SearchProps; accessor?: ((option: OptionShape) => string); filterFn?: ((optionText: string, search: string) => boolean) | undefined; value?: string | undefined; onChange?: ((value: string) => void) | undefined; filterGroup?: boolean | undefined; groupAccessor?: ((group: Gro...",
+        "required": false,
+        "description": "Настройки поиска"
+      },
+      {
+        "name": "showSearch",
+        "type": "boolean",
+        "required": false,
+        "description": "Включает отображение поиска"
+      },
+      {
+        "name": "Search",
+        "type": "ComponentType<SearchProps>",
+        "required": false,
+        "description": "Компонент поиска"
+      },
+      {
+        "name": "valueRenderer",
+        "type": "(({ selected, selectedMultiple, }: { selected?: OptionShape; selectedMultiple: OptionShape[]; valueSeparator?: string; }) => ReactNode) | undefined",
+        "required": false,
+        "description": "Кастомный рендер выбранного пункта"
+      },
+      {
+        "name": "optionsListClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс выпадающего меню"
+      },
+      {
+        "name": "optionClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для пункта меню"
+      },
+      {
+        "name": "optionGroupClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для компонента группы пунктов"
+      },
+      {
+        "name": "popperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поповера"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "description": "Начальное состояние селекта"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление открытием"
+      },
+      {
+        "name": "optionsSize",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер пунктов меню\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "optionsListWidth",
+        "type": "\"content\" | \"field\"",
+        "required": false,
+        "description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля"
+      },
+      {
+        "name": "allowUnselect",
+        "type": "boolean",
+        "required": false,
+        "description": "Позволяет снять выбранное значение"
+      },
+      {
+        "name": "closeOnSelect",
+        "type": "boolean",
+        "required": false,
+        "description": "Закрывать меню после выбора?"
+      },
+      {
+        "name": "circularNavigation",
+        "type": "boolean",
+        "required": false,
+        "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот."
+      },
+      {
+        "name": "preventFlip",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу"
+      },
+      {
+        "name": "popoverPosition",
+        "type": "Position",
+        "required": false,
+        "description": "Позиционирование выпадающего списка"
+      },
+      {
+        "name": "visibleOptions",
+        "type": "number",
+        "required": false,
+        "description": "Количество видимых пунктов меню (5 = 5.5)"
+      },
+      {
+        "name": "valueSeparator",
+        "type": "string",
+        "required": false,
+        "description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)"
+      },
+      {
+        "name": "Arrow",
+        "type": "false | ComponentType<ArrowProps> | null",
+        "required": false,
+        "description": "Компонент стрелки"
+      },
+      {
+        "name": "optionsListProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент списка"
+      },
+      {
+        "name": "optionProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент пункта меню"
+      },
+      {
+        "name": "groupOptionProps",
+        "type": "AnyObject",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент группового пункта меню"
+      },
+      {
+        "name": "Optgroup",
+        "type": "ComponentType<OptgroupProps>",
+        "required": false,
+        "description": "Компонент группы"
+      },
+      {
+        "name": "Option",
+        "type": "ComponentType<OptionProps>",
+        "required": false,
+        "description": "Компонент пункта меню"
+      },
+      {
+        "name": "onOpen",
+        "type": "((payload: { open?: boolean; name?: string; }) => void) | undefined",
+        "required": false,
+        "description": "Обработчик открытия\\закрытия селекта"
+      },
+      {
+        "name": "updatePopover",
+        "type": "MutableRefObject<(() => void)>",
+        "required": false,
+        "description": "Хранит функцию, с помощью которой можно обновить положение поповера"
+      },
+      {
+        "name": "zIndexPopover",
+        "type": "number",
+        "required": false,
+        "description": "z-index поповера"
+      },
+      {
+        "name": "showEmptyOptionsList",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать OptionsList, если он пустой"
+      },
+      {
+        "name": "popoverProps",
+        "type": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\">",
+        "required": false,
+        "description": "Дополнительные пропсы для Popover"
+      },
+      {
+        "name": "limitDynamicOptionGroupSize",
+        "type": "boolean",
+        "required": false,
+        "description": "Ограничение динамического размера группы вариантов выбора"
+      },
+      {
+        "name": "fieldProps",
+        "type": "Record<string, unknown>",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент поля"
+      },
+      {
+        "name": "hideCountrySelect",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "countries",
+        "type": "Country[][]",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "country",
+        "type": "Country",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "fieldWidth",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"desktop\" | \"mobile\"",
+        "required": false,
+        "defaultValue": "desktop",
+        "description": ""
+      },
+      {
+        "name": "SelectComponent",
+        "type": "ElementType<any>",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  "FlagIcon": {
+    "description": "Компонент флага в виде иконки.",
+    "props": [
+      {
+        "name": "country",
+        "type": "string",
+        "required": false,
+        "defaultValue": "",
+        "description": "Код страны из <a href=\"https://ru.wikipedia.org/wiki/ISO_3166-1_alpha-2\" target=\"_blank\">ISO 3166-1 alpha-2</a>"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      }
+    ]
+  },
+  "SelectField": {
+    "description": "",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс"
+      },
+      {
+        "name": "selected",
+        "type": "OptionShape",
+        "required": false,
+        "description": "Выбранный пункт"
+      },
+      {
+        "name": "selectedMultiple",
+        "type": "OptionShape[]",
+        "required": false,
+        "description": "Список выбранных пунктов"
+      },
+      {
+        "name": "setSelectedItems",
+        "type": "(selected: OptionShape[]) => void",
+        "required": true,
+        "description": "Метод для ручной установки выбранных пунктов"
+      },
+      {
+        "name": "toggleMenu",
+        "type": "() => void",
+        "required": true,
+        "description": "Метод переключающий видимость выпадающего списка"
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": "Флаг, можно ли выбрать несколько значений"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Флаг, открыто ли меню"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Флаг, поле заблокировано"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл поля"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Плейсхолдер поля"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение иконки успеха"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Подсказка под полем"
+      },
+      {
+        "name": "Arrow",
+        "type": "false | ReactElement<any, string | JSXElementConstructor<any>> | null",
+        "required": false,
+        "description": "Компонент стрелки"
+      },
+      {
+        "name": "valueRenderer",
+        "type": "(({ selected, selectedMultiple, }: { selected?: OptionShape; selectedMultiple: OptionShape[]; valueSeparator?: string; }) => ReactNode) | undefined",
+        "required": false,
+        "description": "Кастомный рендер выбранного пункта"
+      },
+      {
+        "name": "valueSeparator",
+        "type": "string",
+        "required": false,
+        "description": "Кастомный разделитель выбранных пунктов"
+      },
+      {
+        "name": "innerProps",
+        "type": "{ onBlur?: ((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void); onFocus?: ((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void); onClick?: ((event: MouseEvent<...>) => void) | undefined; tabIndex?: number | undefined; id: string; } & RefAttributes<......",
+        "required": false,
+        "defaultValue": "{}",
+        "description": "Внутренние свойства, которые должны быть установлены компоненту."
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  "InternationalPhoneInputDesktop": {
+    "description": "",
+    "props": [
+      {
+        "name": "country",
+        "type": "Country",
+        "required": false,
+        "description": "Выбранная страна"
+      },
+      {
+        "name": "countries",
+        "type": "string[]",
+        "required": false,
+        "description": "Список необходимых iso2 стран"
+      },
+      {
+        "name": "defaultIso2",
+        "type": "string",
+        "required": false,
+        "description": "Дефолтный код страны"
+      },
+      {
+        "name": "customCountriesList",
+        "type": "CountriesData[]",
+        "required": false,
+        "description": "Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)"
+      },
+      {
+        "name": "clearableCountryCode",
+        "type": "boolean | \"preserve\"",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Возможность стереть код страны\n@description Используйте `'preserve'` для сохранения кода страны при автозаполнении (актуально для Safari). При этом код страны можно удалить в случае использования `true`"
+      },
+      {
+        "name": "countrySelectProps",
+        "type": "SharedCountrySelectProps",
+        "required": false,
+        "description": "Свойства селекта выбора стран"
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать крестик очистки\nФлаг, показать крестик для очистки поля"
+      },
+      {
+        "name": "filterFn",
+        "type": "((value: string, option: OptionShape) => boolean)",
+        "required": false,
+        "description": "Функция фильтрации номеров для автокомплита"
+      },
+      {
+        "name": "onCountryChange",
+        "type": "((country?: Country) => void)",
+        "required": false,
+        "description": "Обработчик события изменения страны"
+      },
+      {
+        "name": "onChange",
+        "type": "((phone: string) => void)",
+        "required": false,
+        "description": "Обработчик изменения номера"
+      },
+      {
+        "name": "onBlur",
+        "type": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void))",
+        "required": false,
+        "description": "Обработчик блюра поля"
+      },
+      {
+        "name": "onFocus",
+        "type": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void))",
+        "required": false,
+        "description": "Обработчик фокуса поля"
+      },
+      {
+        "name": "autoFill",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Включить автозаполнение номера"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "type",
+        "type": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\"",
+        "required": false,
+        "description": "Атрибут type"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Значение поля ввода"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Начальное значение поля"
+      },
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по полю"
+      },
+      {
+        "name": "onMouseDown",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик MouseDown по полю"
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capture",
+        "type": "boolean | \"user\" | \"environment\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление возможностью выбора значения"
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "list",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": "Возможность выбрать несколько значений"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Атрибут name"
+      },
+      {
+        "name": "pattern",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Плейсхолдер поля"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Поле доступно только для чтения"
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение иконки успеха"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки\nПодсказка под полем"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента\nЛейбл поля"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "wrapperRef",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для обертки input"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под инпутом"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс инпута"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "focusedClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен при фокусе"
+      },
+      {
+        "name": "filledClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен, если в поле есть значение"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control\nИдентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control"
+      },
+      {
+        "name": "disableUserInput",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает ввод с клавиатуры"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "options",
+        "type": "(OptionShape | GroupShape)[]",
+        "required": true,
+        "description": "Список вариантов выбора"
+      },
+      {
+        "name": "optionsListClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс выпадающего меню"
+      },
+      {
+        "name": "optionClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для пункта меню"
+      },
+      {
+        "name": "optionGroupClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для компонента группы пунктов"
+      },
+      {
+        "name": "popperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поповера"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "description": "Начальное состояние селекта"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление открытием"
+      },
+      {
+        "name": "optionsSize",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер пунктов меню\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "optionsListWidth",
+        "type": "\"content\" | \"field\"",
+        "required": false,
+        "description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля"
+      },
+      {
+        "name": "allowUnselect",
+        "type": "boolean",
+        "required": false,
+        "description": "Позволяет снять выбранное значение"
+      },
+      {
+        "name": "closeOnSelect",
+        "type": "boolean",
+        "required": false,
+        "description": "Закрывать меню после выбора?"
+      },
+      {
+        "name": "circularNavigation",
+        "type": "boolean",
+        "required": false,
+        "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот."
+      },
+      {
+        "name": "preventFlip",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу"
+      },
+      {
+        "name": "selected",
+        "type": "string | OptionShape | (string | OptionShape)[] | null",
+        "required": false,
+        "description": "Список value выбранных пунктов (controlled-селект)"
+      },
+      {
+        "name": "popoverPosition",
+        "type": "Position",
+        "required": false,
+        "description": "Позиционирование выпадающего списка"
+      },
+      {
+        "name": "visibleOptions",
+        "type": "number",
+        "required": false,
+        "description": "Количество видимых пунктов меню (5 = 5.5)"
+      },
+      {
+        "name": "valueSeparator",
+        "type": "string",
+        "required": false,
+        "description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)"
+      },
+      {
+        "name": "Arrow",
+        "type": "false | ComponentType<ArrowProps> | null",
+        "required": false,
+        "description": "Компонент стрелки"
+      },
+      {
+        "name": "fieldProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент поля"
+      },
+      {
+        "name": "optionsListProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент списка"
+      },
+      {
+        "name": "optionProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент пункта меню"
+      },
+      {
+        "name": "groupOptionProps",
+        "type": "AnyObject",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент группового пункта меню"
+      },
+      {
+        "name": "OptionsList",
+        "type": "ComponentType<OptionsListProps & RefAttributes<HTMLDivElement>>",
+        "required": false,
+        "description": "Компонент выпадающего меню"
+      },
+      {
+        "name": "Optgroup",
+        "type": "ComponentType<OptgroupProps>",
+        "required": false,
+        "description": "Компонент группы"
+      },
+      {
+        "name": "Option",
+        "type": "ComponentType<OptionProps>",
+        "required": false,
+        "description": "Компонент пункта меню"
+      },
+      {
+        "name": "onOpen",
+        "type": "((payload: { open?: boolean; name?: string; }) => void) | undefined",
+        "required": false,
+        "description": "Обработчик открытия\\закрытия селекта"
+      },
+      {
+        "name": "updatePopover",
+        "type": "MutableRefObject<(() => void)>",
+        "required": false,
+        "description": "Хранит функцию, с помощью которой можно обновить положение поповера"
+      },
+      {
+        "name": "zIndexPopover",
+        "type": "number",
+        "required": false,
+        "description": "z-index поповера"
+      },
+      {
+        "name": "showEmptyOptionsList",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать OptionsList, если он пустой"
+      },
+      {
+        "name": "popoverProps",
+        "type": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\">",
+        "required": false,
+        "description": "Дополнительные пропсы для Popover"
+      },
+      {
+        "name": "limitDynamicOptionGroupSize",
+        "type": "boolean",
+        "required": false,
+        "description": "Ограничение динамического размера группы вариантов выбора"
+      },
+      {
+        "name": "Input",
+        "type": "ComponentType<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined",
+        "required": false,
+        "description": "Компонент ввода значения"
+      },
+      {
+        "name": "inputProps",
+        "type": "(Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & Record<...>) | undefined",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в инпут"
+      }
+    ]
+  },
+  "InternationalPhoneInputMobile": {
+    "description": "",
+    "props": [
+      {
+        "name": "country",
+        "type": "Country",
+        "required": false,
+        "description": "Выбранная страна"
+      },
+      {
+        "name": "countries",
+        "type": "string[]",
+        "required": false,
+        "description": "Список необходимых iso2 стран"
+      },
+      {
+        "name": "defaultIso2",
+        "type": "string",
+        "required": false,
+        "description": "Дефолтный код страны"
+      },
+      {
+        "name": "customCountriesList",
+        "type": "CountriesData[]",
+        "required": false,
+        "description": "Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)"
+      },
+      {
+        "name": "clearableCountryCode",
+        "type": "boolean | \"preserve\"",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Возможность стереть код страны\n@description Используйте `'preserve'` для сохранения кода страны при автозаполнении (актуально для Safari). При этом код страны можно удалить в случае использования `true`"
+      },
+      {
+        "name": "countrySelectProps",
+        "type": "SharedCountrySelectProps",
+        "required": false,
+        "description": "Свойства селекта выбора стран"
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать крестик очистки\nФлаг, показать крестик для очистки поля"
+      },
+      {
+        "name": "filterFn",
+        "type": "((value: string, option: OptionShape) => boolean)",
+        "required": false,
+        "description": "Функция фильтрации номеров для автокомплита"
+      },
+      {
+        "name": "onCountryChange",
+        "type": "((country?: Country) => void)",
+        "required": false,
+        "description": "Обработчик события изменения страны"
+      },
+      {
+        "name": "onChange",
+        "type": "((phone: string) => void)",
+        "required": false,
+        "description": "Обработчик изменения номера"
+      },
+      {
+        "name": "onBlur",
+        "type": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void))",
+        "required": false,
+        "description": "Обработчик блюра поля"
+      },
+      {
+        "name": "onFocus",
+        "type": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void))",
+        "required": false,
+        "description": "Обработчик фокуса поля"
+      },
+      {
+        "name": "autoFill",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "true",
+        "description": "Включить автозаполнение номера"
+      },
+      {
+        "name": "size",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер компонента\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "type",
+        "type": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\"",
+        "required": false,
+        "description": "Атрибут type"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Значение поля ввода"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Начальное значение поля"
+      },
+      {
+        "name": "onClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик клика по полю"
+      },
+      {
+        "name": "onMouseDown",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "description": "Обработчик MouseDown по полю"
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "capture",
+        "type": "boolean | \"user\" | \"environment\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "crossOrigin",
+        "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление возможностью выбора значения"
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formAction",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formEncType",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formMethod",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formNoValidate",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "formTarget",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "list",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": "Возможность выбрать несколько значений"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Атрибут name"
+      },
+      {
+        "name": "pattern",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Плейсхолдер поля"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Поле доступно только для чтения"
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "block",
+        "type": "boolean",
+        "required": false,
+        "description": "Растягивает компонент на ширину контейнера"
+      },
+      {
+        "name": "colors",
+        "type": "\"default\" | \"inverted\"",
+        "required": false,
+        "description": "Набор цветов для компонента"
+      },
+      {
+        "name": "error",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Отображение ошибки"
+      },
+      {
+        "name": "success",
+        "type": "boolean",
+        "required": false,
+        "description": "Отображение иконки успеха"
+      },
+      {
+        "name": "hint",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Текст подсказки\nПодсказка под полем"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Лейбл компонента\nЛейбл поля"
+      },
+      {
+        "name": "labelView",
+        "type": "\"inner\" | \"outer\"",
+        "required": false,
+        "description": "Вид лейбла внутри / снаружи"
+      },
+      {
+        "name": "wrapperRef",
+        "type": "Ref<HTMLDivElement>",
+        "required": false,
+        "description": "Ref для обертки input"
+      },
+      {
+        "name": "leftAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот слева"
+      },
+      {
+        "name": "rightAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот справа"
+      },
+      {
+        "name": "leftAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки левых аддонов"
+      },
+      {
+        "name": "rightAddonsProps",
+        "type": "HTMLAttributes<HTMLDivElement>",
+        "required": false,
+        "description": "Свойства для обертки правых аддонов"
+      },
+      {
+        "name": "bottomAddons",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Слот под инпутом"
+      },
+      {
+        "name": "fieldClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поля"
+      },
+      {
+        "name": "inputClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс инпута"
+      },
+      {
+        "name": "labelClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для лейбла"
+      },
+      {
+        "name": "addonsClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для аддонов"
+      },
+      {
+        "name": "focusedClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен при фокусе"
+      },
+      {
+        "name": "filledClassName",
+        "type": "string",
+        "required": false,
+        "description": "Класс, который будет установлен, если в поле есть значение"
+      },
+      {
+        "name": "dataTestId",
+        "type": "string",
+        "required": false,
+        "description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control\nИдентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control"
+      },
+      {
+        "name": "disableUserInput",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает ввод с клавиатуры"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom"
+      },
+      {
+        "name": "key",
+        "type": "Key | null",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "options",
+        "type": "(OptionShape | GroupShape)[]",
+        "required": true,
+        "description": "Список вариантов выбора"
+      },
+      {
+        "name": "optionsListClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс выпадающего меню"
+      },
+      {
+        "name": "optionClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для пункта меню"
+      },
+      {
+        "name": "optionGroupClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для компонента группы пунктов"
+      },
+      {
+        "name": "popperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Дополнительный класс для поповера"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "description": "Начальное состояние селекта"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Управление открытием"
+      },
+      {
+        "name": "optionsSize",
+        "type": "\"s\" | \"m\" | \"l\" | \"xl\" | 40 | 48 | 56 | 64 | 72",
+        "required": false,
+        "description": "Размер пунктов меню\n@description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно"
+      },
+      {
+        "name": "optionsListWidth",
+        "type": "\"content\" | \"field\"",
+        "required": false,
+        "description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля"
+      },
+      {
+        "name": "allowUnselect",
+        "type": "boolean",
+        "required": false,
+        "description": "Позволяет снять выбранное значение"
+      },
+      {
+        "name": "closeOnSelect",
+        "type": "boolean",
+        "required": false,
+        "description": "Закрывать меню после выбора?"
+      },
+      {
+        "name": "circularNavigation",
+        "type": "boolean",
+        "required": false,
+        "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот."
+      },
+      {
+        "name": "preventFlip",
+        "type": "boolean",
+        "required": false,
+        "description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу"
+      },
+      {
+        "name": "selected",
+        "type": "string | OptionShape | (string | OptionShape)[] | null",
+        "required": false,
+        "description": "Список value выбранных пунктов (controlled-селект)"
+      },
+      {
+        "name": "popoverPosition",
+        "type": "Position",
+        "required": false,
+        "description": "Позиционирование выпадающего списка"
+      },
+      {
+        "name": "visibleOptions",
+        "type": "number",
+        "required": false,
+        "description": "Количество видимых пунктов меню (5 = 5.5)"
+      },
+      {
+        "name": "valueSeparator",
+        "type": "string",
+        "required": false,
+        "description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)"
+      },
+      {
+        "name": "Arrow",
+        "type": "false | ComponentType<ArrowProps> | null",
+        "required": false,
+        "description": "Компонент стрелки"
+      },
+      {
+        "name": "fieldProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент поля"
+      },
+      {
+        "name": "optionsListProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент списка"
+      },
+      {
+        "name": "optionProps",
+        "type": "unknown",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент пункта меню"
+      },
+      {
+        "name": "groupOptionProps",
+        "type": "AnyObject",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в компонент группового пункта меню"
+      },
+      {
+        "name": "OptionsList",
+        "type": "ComponentType<OptionsListProps & RefAttributes<HTMLDivElement>>",
+        "required": false,
+        "description": "Компонент выпадающего меню"
+      },
+      {
+        "name": "Optgroup",
+        "type": "ComponentType<OptgroupProps>",
+        "required": false,
+        "description": "Компонент группы"
+      },
+      {
+        "name": "Option",
+        "type": "ComponentType<OptionProps>",
+        "required": false,
+        "description": "Компонент пункта меню"
+      },
+      {
+        "name": "onOpen",
+        "type": "((payload: { open?: boolean; name?: string; }) => void) | undefined",
+        "required": false,
+        "description": "Обработчик открытия\\закрытия селекта"
+      },
+      {
+        "name": "updatePopover",
+        "type": "MutableRefObject<(() => void)>",
+        "required": false,
+        "description": "Хранит функцию, с помощью которой можно обновить положение поповера"
+      },
+      {
+        "name": "zIndexPopover",
+        "type": "number",
+        "required": false,
+        "description": "z-index поповера"
+      },
+      {
+        "name": "showEmptyOptionsList",
+        "type": "boolean",
+        "required": false,
+        "description": "Показывать OptionsList, если он пустой"
+      },
+      {
+        "name": "popoverProps",
+        "type": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\">",
+        "required": false,
+        "description": "Дополнительные пропсы для Popover"
+      },
+      {
+        "name": "limitDynamicOptionGroupSize",
+        "type": "boolean",
+        "required": false,
+        "description": "Ограничение динамического размера группы вариантов выбора"
+      },
+      {
+        "name": "Input",
+        "type": "ComponentType<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined",
+        "required": false,
+        "description": "Компонент ввода значения"
+      },
+      {
+        "name": "inputProps",
+        "type": "(Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number; client?: \"desktop\" | \"mobile\"; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & Record<...>) | undefined",
+        "required": false,
+        "description": "Пропсы, которые будут прокинуты в инпут"
+      },
+      {
+        "name": "isBottomSheet",
+        "type": "boolean",
+        "required": false,
+        "description": "Открывать в bottom-sheet"
+      },
+      {
+        "name": "transitionProps",
+        "type": "Partial<TransitionProps<undefined>>",
+        "required": false,
+        "description": "Пропсы анимации контента (CSSTransition)"
+      },
+      {
+        "name": "onApply",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку «Продолжить» в BottomSheet или модальном окне"
+      },
+      {
+        "name": "onCancel",
+        "type": "(() => void)",
+        "required": false,
+        "description": "Обработчик нажатия на кнопку «Отмена» в BottomSheet или модальном окне"
+      },
+      {
+        "name": "virtualKeyboard",
+        "type": "boolean",
+        "required": false,
+        "defaultValue": "false",
+        "description": "Учитывать высоту виртуальной клавиатуры в BottomSheet"
+      }
+    ]
+  }
+}
