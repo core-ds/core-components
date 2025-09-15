@@ -2,6 +2,8 @@ import path from 'node:path';
 import slash from 'slash';
 import ts from 'typescript';
 
+import { unquote } from '../utils.cjs';
+
 import { matchCoreComponentsModule } from './utils.mjs';
 
 /**
@@ -73,11 +75,4 @@ export function transformDeclarations(build) {
     };
 
     return transform;
-}
-
-/**
- * @param {string} text
- */
-function unquote(text) {
-    return text.replace(/(['"])(.*)(\1)/, '$2');
 }

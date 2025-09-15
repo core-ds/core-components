@@ -1,5 +1,5 @@
 /* eslint-disable no-negated-condition, complexity */
-import { SyntheticEvent } from 'react';
+import { type SyntheticEvent } from 'react';
 import { differenceInDays, format as dateFnsFormat, isSameDay, parse, startOfDay } from 'date-fns';
 
 import { getDataTestId } from '@alfalab/core-components-shared';

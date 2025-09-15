@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .accordion {
     width: 100%;
@@ -26,7 +26,9 @@
     overflow: hidden;
     visibility: hidden;
     height: 0;
-    transition: height 400ms cubic-bezier(0.2, 0, 0.2, 1.25), visibility 0s linear 400ms;
+    transition:
+        height 400ms cubic-bezier(0.2, 0, 0.2, 1.25),
+        visibility 0s linear 400ms;
 }
 
 .expandedBody {

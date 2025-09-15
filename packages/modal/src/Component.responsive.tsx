@@ -7,7 +7,7 @@ import { Controls } from './components/controls';
 import { Footer } from './components/footer/Component';
 import { Header } from './components/header/Component';
 import { Modal } from './Component';
-import type { ModalResponsiveProps } from './typings';
+import { type ModalResponsiveProps } from './typings';
 
 const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps>(
     (

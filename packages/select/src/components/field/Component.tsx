@@ -1,11 +1,11 @@
-import React, { ElementType, useCallback, useRef, useState } from 'react';
+import React, { type ElementType, Fragment, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import type { FormControlProps } from '@alfalab/core-components-form-control';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
-import { FieldProps as BaseFieldProps } from '../../typings';
+import { type FieldProps as BaseFieldProps } from '../../typings';
 import { joinOptions } from '../../utils';
 import { ClearButton } from '../clear-button';
 
@@ -59,6 +59,8 @@ export const Field = ({
     const showLabel = !!label || labelView === 'outer';
     const showPlaceholder = !!placeholder && !filled && (open || !label || labelView === 'outer');
 
+    const shouldShowClearButton = clear && filled;
+
     return (
         <div
             className={styles.component}
@@ -83,22 +85,27 @@ export const Field = ({
                     error={error}
                     hint={hint}
                     rightAddons={
+                        /**
+                         * Right addon priority [4] <= [3] <= [2] <= [1]
+                         * [4] - Clear
+                         * [3] - Status (error, success)
+                         * [2] - Common (info, e.g.)
+                         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+                         */
                         (Arrow || rightAddons) && (
-                            <React.Fragment>
-                                {rightAddons}
-                                {clear && filled ? (
+                            <Fragment>
+                                {shouldShowClearButton && (
                                     <ClearButton
                                         onClick={onClear}
                                         disabled={disabled}
                                         dataTestId={getDataTestId(dataTestId, 'clear-icon')}
                                         size={size}
                                     />
-                                ) : null}
+                                )}
+                                {rightAddons}
                                 {/* TODO: стоит переделать, но это будет мажорка */}
-                                {Arrow
-                                    ? React.cloneElement(Arrow, { className: styles.arrow })
-                                    : null}
-                            </React.Fragment>
+                                {Arrow && React.cloneElement(Arrow, { className: styles.arrow })}
+                            </Fragment>
                         )
                     }
                     data-test-id={dataTestId}

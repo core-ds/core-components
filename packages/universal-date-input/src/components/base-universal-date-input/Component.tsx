@@ -1,8 +1,8 @@
 import React, {
-    FocusEvent,
+    type FocusEvent,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
+    type KeyboardEvent,
+    type MouseEvent,
     useEffect,
     useMemo,
     useRef,
@@ -22,7 +22,7 @@ import {
     HOURS_MINUTES_SEPARATOR,
 } from '../../consts';
 import { createMaskOptions } from '../../mask';
-import { BaseUniversalDateInputProps } from '../../types';
+import { type BaseUniversalDateInputProps } from '../../types';
 import { DateInput } from '../date-input';
 import { DateRangeInput } from '../date-range-input';
 import { MonthInput } from '../month-input';

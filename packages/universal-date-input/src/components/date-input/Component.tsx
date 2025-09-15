@@ -1,9 +1,16 @@
-import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useRef, useState } from 'react';
+import React, {
+    type ChangeEvent,
+    type FocusEvent,
+    forwardRef,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { isValid } from 'date-fns';
 
-import type { CalendarProps } from '@alfalab/core-components-calendar';
+import { type CalendarProps } from '@alfalab/core-components-calendar';
 import { Input } from '@alfalab/core-components-input';
 import { Popover } from '@alfalab/core-components-popover';
 import { getDataTestId } from '@alfalab/core-components-shared';
@@ -17,7 +24,7 @@ import {
     DEFAULT_MAX_DATE,
     DEFAULT_MIN_DATE,
 } from '../../consts';
-import type { InnerDateInputProps } from '../../types';
+import { type InnerDateInputProps } from '../../types';
 import {
     formatDate,
     isCompleteDate,

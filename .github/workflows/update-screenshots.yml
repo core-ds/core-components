@@ -17,7 +17,7 @@ jobs:
         needs: build-demo
         if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   # used GH_TOKEN to trigger github actions on branch update
                   # GITHUB_TOKEN doesn't trigger any action
@@ -28,7 +28,7 @@ jobs:
             - uses: ./.github/actions/ci-setup
 
             - name: download build
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v5
               with:
                   name: build
                   path: build
@@ -42,7 +42,7 @@ jobs:
 
             - name: check git status
               id: git-status
-              uses: actions/github-script@v7
+              uses: actions/github-script@v8
               with:
                   script: |
                       const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);

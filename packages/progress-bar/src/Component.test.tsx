@@ -87,6 +87,6 @@ describe('ProgressBar', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<ProgressBar value={20} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

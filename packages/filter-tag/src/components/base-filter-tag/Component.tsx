@@ -1,4 +1,4 @@
-import React, { forwardRef, KeyboardEvent, MouseEvent, useRef } from 'react';
+import React, { forwardRef, type KeyboardEvent, type MouseEvent, useRef } from 'react';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
@@ -9,8 +9,8 @@ import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
 import { getSizeClassName } from '../../helpers/get-size-class-name';
 import { isKeyBoardEvent } from '../../helpers/is-keyboard-event';
-import { PrivateProps } from '../../types/base-filter-tag-private-props';
-import { BaseFilterTagProps } from '../../types/base-filter-tag-props';
+import { type PrivateProps } from '../../types/base-filter-tag-private-props';
+import { type BaseFilterTagProps } from '../../types/base-filter-tag-props';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';

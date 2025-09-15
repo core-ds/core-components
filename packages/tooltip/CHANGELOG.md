@@ -1,5 +1,15 @@
 # @alfalab/core-components-tooltip
 
+## 8.0.2
+
+### Patch Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1831](https://github.com/core-ds/core-components/pull/1831)
+
+-   Исправлена проблема со специфичностью в компоненте `Tooltip`
+
 ## 8.0.1
 
 ### Patch Changes

@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import { InputProps } from '@alfalab/core-components-input';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { ConditionalProps, DateRangeInputProps } from './components/date-range-input';
+import { type ConditionalProps, type DateRangeInputProps } from './components/date-range-input';
 import { DateRangeInputDesktop } from './desktop';
 import { DateRangeInputMobile } from './mobile';
 

@@ -1,11 +1,11 @@
-import React, { FC, Ref, useContext } from 'react';
+import React, { type FC, type Ref, useContext } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
-import { ContentProps } from '../../typings';
+import { type ContentProps } from '../../typings';
 import { getSizeStyle } from '../../utils';
 
 import desktopStyles from './desktop.module.css';

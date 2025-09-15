@@ -1,7 +1,14 @@
-import React, { ComponentType, FC, ReactNode, useCallback, useRef, useState } from 'react';
+import React, {
+    type ComponentType,
+    type FC,
+    type ReactNode,
+    useCallback,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
-import { Overlay as DefaultOverlay, OverlayProps } from './components';
+import { Overlay as DefaultOverlay, type OverlayProps } from './components';
 import { preventAndStopEvent } from './utils';
 
 import styles from './index.module.css';

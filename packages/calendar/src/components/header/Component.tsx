@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 import cn from 'classnames';
 
-import { SelectorView } from '../../typings';
+import { type SelectorView } from '../../typings';
 
 import styles from './index.module.css';
 

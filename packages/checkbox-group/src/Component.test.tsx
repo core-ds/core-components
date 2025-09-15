@@ -126,7 +126,7 @@ describe('Checkbox', () => {
         it('should unmount without errors', () => {
             const { unmount } = render(<Group />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
 
         it('should contain label', () => {
@@ -193,7 +193,7 @@ describe('Interaction tests', () => {
             fireEvent.click(checkbox);
         }
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     test('should call `onChange` callback if click on tag', () => {
@@ -207,6 +207,6 @@ describe('Interaction tests', () => {
             fireEvent.click(tag);
         }
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 });

@@ -56,6 +56,7 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
         const translateX = Math.max(-100, Math.min(0, value - 100));
 
         return (
+            // eslint-disable-next-line jsx-a11y/control-has-associated-label
             <div
                 role='progressbar'
                 aria-valuenow={Math.round(value)}

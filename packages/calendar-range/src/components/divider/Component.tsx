@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
-import { CalendarRangeProps } from '../../Component';
+import { type CalendarRangeProps } from '../../Component';
 
 import styles from './index.module.css';
 

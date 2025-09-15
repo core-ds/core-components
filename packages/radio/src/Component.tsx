@@ -1,11 +1,11 @@
 import React, {
-    ChangeEvent,
-    DetailedHTMLProps,
+    type ChangeEvent,
+    type DetailedHTMLProps,
     forwardRef,
-    InputHTMLAttributes,
-    LabelHTMLAttributes,
-    ReactNode,
-    Ref,
+    type InputHTMLAttributes,
+    type LabelHTMLAttributes,
+    type ReactNode,
+    type Ref,
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';

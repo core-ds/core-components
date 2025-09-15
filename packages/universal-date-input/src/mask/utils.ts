@@ -2,7 +2,7 @@
 import { clamp, getDaysInMonth } from 'date-fns';
 
 import { DATE_MAX_VALUES, DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR } from '../consts';
-import { DateSegments, DateTemplate } from '../types';
+import { type DateSegments, type DateTemplate } from '../types';
 
 function fillMask(len: number) {
     return Array(len).fill(/\d/);
@@ -191,18 +191,21 @@ export function findCursorPlace(
  * segments: ['00', '12'], separators: ['.', '.'] -> [/\d/, /\d/, '.', /\d/, /\d/]
  */
 export function segmentsToPattern(segments: string[], separators: string[]) {
-    return segments.reduce((mask, segment, idx) => {
-        const hasNextSegment = segments[idx + 1] !== undefined;
-        const segmentsLen = segment.length;
+    return segments.reduce(
+        (mask, segment, idx) => {
+            const hasNextSegment = segments[idx + 1] !== undefined;
+            const segmentsLen = segment.length;
 
-        if (idx > 0 && (segment.length || hasNextSegment)) {
-            mask.push(...separators[idx - 1].split(''));
-        }
+            if (idx > 0 && (segment.length || hasNextSegment)) {
+                mask.push(...separators[idx - 1].split(''));
+            }
 
-        mask.push(...fillMask(segmentsLen));
+            mask.push(...fillMask(segmentsLen));
 
-        return mask;
-    }, [] as Array<RegExp | string>);
+            return mask;
+        },
+        [] as Array<RegExp | string>,
+    );
 }
 
 /**

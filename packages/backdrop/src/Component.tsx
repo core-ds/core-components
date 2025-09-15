@@ -1,7 +1,7 @@
-import React, { MouseEvent, ReactNode, useRef } from 'react';
+import React, { type MouseEvent, type ReactNode, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { CSSTransitionClassNames } from 'react-transition-group/CSSTransition';
-import { TransitionProps } from 'react-transition-group/Transition';
+import { type CSSTransitionClassNames } from 'react-transition-group/CSSTransition';
+import { type TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
 import styles from './index.module.css';

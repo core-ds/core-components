@@ -1,8 +1,8 @@
 import React, {
-    AnchorHTMLAttributes,
-    FC,
-    KeyboardEvent,
-    ReactNode,
+    type AnchorHTMLAttributes,
+    type FC,
+    type KeyboardEvent,
+    type ReactNode,
     useCallback,
     useState,
 } from 'react';
@@ -12,7 +12,7 @@ import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
 import { useMeasureHeight } from './hooks';
-import { ControlPosition } from './typings';
+import { type ControlPosition } from './typings';
 
 import styles from './index.module.css';
 

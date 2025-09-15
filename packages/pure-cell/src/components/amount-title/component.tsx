@@ -8,8 +8,8 @@ import {
     TypographyTitleResponsive,
 } from '@alfalab/core-components-typography';
 
-import { PureCellContext } from '../../component';
-import { AmountProps as AmountType } from '../typesProps';
+import { PureCellContext } from '../../context';
+import { type AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';
 

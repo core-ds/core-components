@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
-import type {
-    AdditionalMobileProps,
-    BottomSheetSelectMobileProps,
+import {
+    type AdditionalMobileProps,
+    type BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 
-import { PickerButtonDesktop, PickerButtonDesktopProps } from './desktop';
+import { PickerButtonDesktop, type PickerButtonDesktopProps } from './desktop';
 import { PickerButtonMobile } from './mobile';
 
 export type PickerButtonResponsiveProps = PickerButtonDesktopProps &

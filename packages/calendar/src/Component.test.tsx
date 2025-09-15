@@ -605,7 +605,7 @@ describe('Calendar', () => {
 
             fireEvent.click(getByText('10'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onMonthChange callback in full view', async () => {
@@ -628,7 +628,7 @@ describe('Calendar', () => {
 
             fireEvent.click(getByText('2019'));
 
-            expect(cb).toBeCalledTimes(2);
+            expect(cb).toHaveBeenCalledTimes(2);
         });
 
         it('should call onMonthChange callback in month-only view', () => {
@@ -644,7 +644,7 @@ describe('Calendar', () => {
             fireEvent.click(getByLabelText('Следующий период'));
             fireEvent.click(getByLabelText('Предыдущий период'));
 
-            expect(cb).toBeCalledTimes(2);
+            expect(cb).toHaveBeenCalledTimes(2);
         });
 
         it('should call onPeriodClick callback in month-only view', () => {
@@ -659,7 +659,7 @@ describe('Calendar', () => {
 
             fireEvent.click(getByText('Ноябрь 2020'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onMonthClick callback in full view', () => {
@@ -673,7 +673,7 @@ describe('Calendar', () => {
             );
 
             fireEvent.click(getByText('Ноябрь'));
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onYearClick callback in full view', () => {
@@ -687,7 +687,7 @@ describe('Calendar', () => {
             );
 
             fireEvent.click(getByText('2020'));
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should not call onApply when close button is clicked', () => {
@@ -1408,7 +1408,7 @@ describe('Calendar', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<Calendar />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

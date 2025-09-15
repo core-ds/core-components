@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useMemo } from 'react';
+import React, { type FC, type MouseEvent, useMemo } from 'react';
 import cn from 'classnames';
 import { endOfWeek, startOfWeek } from 'date-fns';
 

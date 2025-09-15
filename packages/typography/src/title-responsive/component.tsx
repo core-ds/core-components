@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { Title, TitleProps } from '../title';
+import { Title, type TitleProps } from '../title';
 import { TitleMobile } from '../title-mobile';
 
 export type TitleResponsiveProps = TitleProps & {

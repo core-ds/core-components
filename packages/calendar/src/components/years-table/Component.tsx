@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 import { isSameYear, isThisYear } from 'date-fns';
 
-import { SelectButton, SelectButtonProps } from '../select-button';
+import { SelectButton, type SelectButtonProps } from '../select-button';
 
 import styles from './index.module.css';
 
