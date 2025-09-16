@@ -1,11 +1,18 @@
 # @alfalab/core-components-masked-input
 
+## 7.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.2
+
 ## 7.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-input@16.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.1
 
 ## 7.0.0
 
@@ -23,64 +30,64 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-input@16.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.0
 
 ## 6.3.39
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.6.2
+- Обновлены зависимости
+    - input@15.6.2
 
 ## 6.3.38
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.6.1
+- Обновлены зависимости
+    - input@15.6.1
 
 ## 6.3.37
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.6.0
+- Обновлены зависимости
+    - input@15.6.0
 
 ## 6.3.36
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.5
+- Обновлены зависимости
+    - input@15.5.5
 
 ## 6.3.35
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.4
+- Обновлены зависимости
+    - input@15.5.4
 
 ## 6.3.34
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.3
+- Обновлены зависимости
+    - input@15.5.3
 
 ## 6.3.33
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.2
+- Обновлены зависимости
+    - input@15.5.2
 
 ## 6.3.32
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.5.1
+- Обновлены зависимости
+    - input@15.5.1
 
 ## 6.3.31
 
@@ -90,10 +97,10 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   input@15.5.0
+- Обновлены зависимости
+    - input@15.5.0
 
 ## 6.3.30
 
@@ -103,10 +110,10 @@
 
 ### [#1497](https://github.com/core-ds/core-components/pull/1497)
 
--   Добавлено sideEffects: false (package.json)
+- Добавлено sideEffects: false (package.json)
 
--   Обновлены зависимости
-    -   input@15.4.0
+- Обновлены зависимости
+    - input@15.4.0
 
 ## 6.3.29
 
@@ -116,87 +123,87 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   input@15.3.4
+- Обновлены зависимости
+    - input@15.3.4
 
 ## 6.3.28
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.3
+- Обновлены зависимости
+    - input@15.3.3
 
 ## 6.3.27
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.2
+- Обновлены зависимости
+    - input@15.3.2
 
 ## 6.3.26
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.1
+- Обновлены зависимости
+    - input@15.3.1
 
 ## 6.3.25
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.0
+- Обновлены зависимости
+    - input@15.3.0
 
 ## 6.3.24
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.2.1
+- Обновлены зависимости
+    - input@15.2.1
 
 ## 6.3.23
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.2.0
+- Обновлены зависимости
+    - input@15.2.0
 
 ## 6.3.22
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.1.3
+- Обновлены зависимости
+    - input@15.1.3
 
 ## 6.3.21
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.1.2
+- Обновлены зависимости
+    - input@15.1.2
 
 ## 6.3.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.1.1
+- Обновлены зависимости
+    - input@15.1.1
 
 ## 6.3.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.1.0
+- Обновлены зависимости
+    - input@15.1.0
 
 ## 6.3.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.5
+- Обновлены зависимости
+    - input@15.0.5
 
 ## 6.3.17
 
@@ -206,56 +213,56 @@
 
 ### [#1342](https://github.com/core-ds/core-components/pull/1342)
 
--   Экспорт типа TextMaskConfig для фикса ошибки ts
+- Экспорт типа TextMaskConfig для фикса ошибки ts
 
 ## 6.3.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.4
+- Обновлены зависимости
+    - input@15.0.4
 
 ## 6.3.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.3
+- Обновлены зависимости
+    - input@15.0.3
 
 ## 6.3.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.2
+- Обновлены зависимости
+    - input@15.0.2
 
 ## 6.3.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.1
+- Обновлены зависимости
+    - input@15.0.1
 
 ## 6.3.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.0
+- Обновлены зависимости
+    - input@15.0.0
 
 ## 6.3.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.7
+- Обновлены зависимости
+    - input@14.4.7
 
 ## 6.3.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.6
+- Обновлены зависимости
+    - input@14.4.6
 
 ## 6.3.9
 
@@ -265,66 +272,66 @@
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
--   Обновлены зависимости
-    -   input@14.4.5
+- Обновлены зависимости
+    - input@14.4.5
 
 ## 6.3.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.4
+- Обновлены зависимости
+    - input@14.4.4
 
 ## 6.3.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.3
+- Обновлены зависимости
+    - input@14.4.3
 
 ## 6.3.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.2
+- Обновлены зависимости
+    - input@14.4.2
 
 ## 6.3.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.1
+- Обновлены зависимости
+    - input@14.4.1
 
 ## 6.3.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.0
+- Обновлены зависимости
+    - input@14.4.0
 
 ## 6.3.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.3
+- Обновлены зависимости
+    - input@14.3.3
 
 ## 6.3.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.2
+- Обновлены зависимости
+    - input@14.3.2
 
 ## 6.3.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.1
+- Обновлены зависимости
+    - input@14.3.1
 
 ## 6.3.0
 
@@ -334,145 +341,145 @@
 
 ### [#1021](https://github.com/core-ds/core-components/pull/1021)
 
--   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+- Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.0
+- Обновлены зависимости
+    - input@14.3.0
 
 ## 6.2.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.2.0
+- Обновлены зависимости
+    - input@14.2.0
 
 ## 6.2.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.1.2
+- Обновлены зависимости
+    - input@14.1.2
 
 ## 6.2.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.1.1
+- Обновлены зависимости
+    - input@14.1.1
 
 ## 6.2.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.1.0
+- Обновлены зависимости
+    - input@14.1.0
 
 ## 6.2.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.0.1
+- Обновлены зависимости
+    - input@14.0.1
 
 ## 6.2.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.0.0
+- Обновлены зависимости
+    - input@14.0.0
 
 ## 6.2.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@13.0.2
+- Обновлены зависимости
+    - input@13.0.2
 
 ## 6.2.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@13.0.1
+- Обновлены зависимости
+    - input@13.0.1
 
 ## 6.2.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@13.0.0
+- Обновлены зависимости
+    - input@13.0.0
 
 ## 6.2.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.3.0
+- Обновлены зависимости
+    - input@12.3.0
 
 ## 6.2.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.2.1
+- Обновлены зависимости
+    - input@12.2.1
 
 ## 6.2.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.2.0
+- Обновлены зависимости
+    - input@12.2.0
 
 ## 6.2.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.4
+- Обновлены зависимости
+    - input@12.1.4
 
 ## 6.2.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.3
+- Обновлены зависимости
+    - input@12.1.3
 
 ## 6.2.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.2
+- Обновлены зависимости
+    - input@12.1.2
 
 ## 6.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.1
+- Обновлены зависимости
+    - input@12.1.1
 
 ## 6.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.0
+- Обновлены зависимости
+    - input@12.1.0
 
 ## 6.2.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.0.2
+- Обновлены зависимости
+    - input@12.0.2
 
 ## 6.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.0.1
+- Обновлены зависимости
+    - input@12.0.1
 
 ## 6.2.0
 
@@ -480,12 +487,12 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.0.0
+- Обновлены зависимости
+    - input@12.0.0
 
 ## 6.1.18
 
@@ -493,66 +500,66 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   input@11.1.18
+- Обновлены зависимости
+    - input@11.1.18
 
 ## 6.1.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.17
+- Обновлены зависимости
+    - input@11.1.17
 
 ## 6.1.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.16
+- Обновлены зависимости
+    - input@11.1.16
 
 ## 6.1.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.15
+- Обновлены зависимости
+    - input@11.1.15
 
 ## 6.1.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.14
+- Обновлены зависимости
+    - input@11.1.14
 
 ## 6.1.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.13
+- Обновлены зависимости
+    - input@11.1.13
 
 ## 6.1.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.12
+- Обновлены зависимости
+    - input@11.1.12
 
 ## 6.1.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.11
+- Обновлены зависимости
+    - input@11.1.11
 
 ## 6.1.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.10
+- Обновлены зависимости
+    - input@11.1.10
 
 ## 6.1.9
 
@@ -560,17 +567,17 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   input@11.1.9
+- Обновлены зависимости
+    - input@11.1.9
 
 ## 6.1.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.8
+- Обновлены зависимости
+    - input@11.1.8
 
 ## 6.1.7
 
@@ -578,45 +585,45 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   input@11.1.7
+- Обновлены зависимости
+    - input@11.1.7
 
 ## 6.1.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.6
+- Обновлены зависимости
+    - input@11.1.6
 
 ## 6.1.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.5
+- Обновлены зависимости
+    - input@11.1.5
 
 ## 6.1.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.4
+- Обновлены зависимости
+    - input@11.1.4
 
 ## 6.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.3
+- Обновлены зависимости
+    - input@11.1.3
 
 ## 6.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.2
+- Обновлены зависимости
+    - input@11.1.2
 
 ## 6.1.1
 
@@ -624,10 +631,10 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   input@11.1.1
+- Обновлены зависимости
+    - input@11.1.1
 
 ## 6.1.0
 
@@ -635,19 +642,19 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
--   В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.0
+- Обновлены зависимости
+    - input@11.1.0
 
 ## 6.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.0.2
+- Обновлены зависимости
+    - input@11.0.2
 
 ## 6.0.1
 
@@ -655,10 +662,10 @@
 
 ### [#320](https://github.com/core-ds/core-components/pull/320)
 
--   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+- Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
 
--   Обновлены зависимости
-    -   input@11.0.1
+- Обновлены зависимости
+    - input@11.0.1
 
 ## 6.0.0
 
@@ -666,40 +673,40 @@
 
 ### [#286](https://github.com/core-ds/core-components/pull/286)
 
--   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
--   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+- Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+- Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.0.0
+- Обновлены зависимости
+    - input@11.0.0
 
 ## 5.0.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@10.2.5
+- Обновлены зависимости
+    - input@10.2.5
 
 ## 5.0.9
 
 ### Patch Changes
 
--   @alfalab/core-components-input@10.2.4
+- @alfalab/core-components-input@10.2.4
 
 ## 5.0.8
 
 ### Patch Changes
 
--   Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
-    -   @alfalab/core-components-input@10.2.3
+- Updated dependencies [[#208](https://github.com/core-ds/core-components/pull/208)]
+    - @alfalab/core-components-input@10.2.3
 
 ## 5.0.7
 
 ### Patch Changes
 
--   Updated dependencies [[#189](https://github.com/core-ds/core-components/pull/189)]
-    -   @alfalab/core-components-input@10.2.2
+- Updated dependencies [[#189](https://github.com/core-ds/core-components/pull/189)]
+    - @alfalab/core-components-input@10.2.2
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -732,12 +739,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -745,7 +752,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 ## [4.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.5.0...@alfalab/core-components-masked-input@4.5.1) (2022-08-11)
 
@@ -755,7 +762,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [4.4.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.4.3...@alfalab/core-components-masked-input@4.4.4) (2022-07-25)
 
@@ -769,7 +776,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [4.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.4.0...@alfalab/core-components-masked-input@4.4.1) (2022-07-14)
 
@@ -779,7 +786,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 ## [4.3.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.3.6...@alfalab/core-components-masked-input@4.3.7) (2022-06-23)
 
@@ -793,7 +800,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+- Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 ## [4.2.14](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.2.13...@alfalab/core-components-masked-input@4.2.14) (2022-02-17)
 
@@ -855,7 +862,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   change error type to ReactNode ([#825](https://github.com/core-ds/core-components/issues/825)) ([c6d95c1](https://github.com/core-ds/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+- change error type to ReactNode ([#825](https://github.com/core-ds/core-components/issues/825)) ([c6d95c1](https://github.com/core-ds/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
 
 ## [4.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.1.4...@alfalab/core-components-masked-input@4.1.5) (2021-08-27)
 
@@ -869,7 +876,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   **input:** smart error icon ([#746](https://github.com/core-ds/core-components/issues/746)) ([f1950d6](https://github.com/core-ds/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/core-ds/core-components/issues/782)
+- **input:** smart error icon ([#746](https://github.com/core-ds/core-components/issues/746)) ([f1950d6](https://github.com/core-ds/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/core-ds/core-components/issues/782)
 
 ## [4.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.1.1...@alfalab/core-components-masked-input@4.1.2) (2021-08-11)
 
@@ -883,7 +890,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **date-input:** add component ([#751](https://github.com/core-ds/core-components/issues/751)) ([4b94bee](https://github.com/core-ds/core-components/commit/4b94beec36acc73ac6c62cf37f87061c0ada4b35))
+- **date-input:** add component ([#751](https://github.com/core-ds/core-components/issues/751)) ([4b94bee](https://github.com/core-ds/core-components/commit/4b94beec36acc73ac6c62cf37f87061c0ada4b35))
 
 ## [4.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.0.1...@alfalab/core-components-masked-input@4.0.2) (2021-07-19)
 
@@ -897,7 +904,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [3.2.27](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@3.2.26...@alfalab/core-components-masked-input@3.2.27) (2021-06-22)
 
@@ -907,7 +914,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   **masked-input:** inline module types ([#692](https://github.com/core-ds/core-components/issues/692)) ([004e60a](https://github.com/core-ds/core-components/commit/004e60ab61f51251b9d65d4d04fd9562eda5e766))
+- **masked-input:** inline module types ([#692](https://github.com/core-ds/core-components/issues/692)) ([004e60a](https://github.com/core-ds/core-components/commit/004e60ab61f51251b9d65d4d04fd9562eda5e766))
 
 ## [3.2.25](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@3.2.24...@alfalab/core-components-masked-input@3.2.25) (2021-05-31)
 
@@ -957,13 +964,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+- one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 ## [3.2.12](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@3.2.10...@alfalab/core-components-masked-input@3.2.12) (2021-03-16)
 
 ### Bug Fixes
 
--   border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+- border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
 
 ## [3.2.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@3.2.9...@alfalab/core-components-masked-input@3.2.10) (2021-03-15)
 

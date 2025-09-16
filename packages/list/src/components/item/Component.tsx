@@ -1,9 +1,9 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { type ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { TypographyText } from '@alfalab/core-components-typography';
 
-import { ListContext } from '../../Component';
+import { ListContext } from '../../context';
 
 import styles from './index.module.css';
 

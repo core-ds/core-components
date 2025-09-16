@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ImageCard, Overlay, Text } from '../components';
 import { WIDTH_TO_SIZE } from '../consts';
-import { SingleCommonProps } from '../typings';
+import { type SingleCommonProps } from '../typings';
 
 import styles from './index.module.css';
 

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { BaseButton } from '../components/base-button';
-import { CommonButtonProps } from '../typings';
+import { type CommonButtonProps } from '../typings';
 
 import defaultColors from './default.desktop.module.css';
 import styles from './desktop.module.css';

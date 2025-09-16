@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { type FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { TypographyText } from '@alfalab/core-components-typography';

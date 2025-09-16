@@ -1,6 +1,6 @@
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { ModalResponsiveProps } from './typings';
+import { type ModalResponsiveProps } from './typings';
 
 export function getModalTestIds(dataTestId: string) {
     return {

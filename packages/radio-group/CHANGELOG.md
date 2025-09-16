@@ -1,5 +1,15 @@
 # @alfalab/core-components-radio-group
 
+## 5.2.0
+
+### Minor Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1813](https://github.com/core-ds/core-components/pull/1813)
+
+-   Добавлена возможность прокидывать restProps на root для компонентов RadioGroup, Space, Tab и Tabs
+
 ## 5.1.0
 
 ### Minor Changes

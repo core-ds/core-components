@@ -1,12 +1,12 @@
 /* eslint-disable complexity */
-import React, { ElementType, ReactNode, useMemo } from 'react';
+import React, { type ElementType, type ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId, isObject, noop } from '@alfalab/core-components-shared';
 import { TypographyText, TypographyTitleMobile } from '@alfalab/core-components-typography';
 
-import { ComponentSize } from './types/component-size';
-import { TypographyColor } from './types/typography-color';
+import { type ComponentSize } from './types/component-size';
+import { type TypographyColor } from './types/typography-color';
 import { isTypographyColor } from './utils/is-typography-color';
 import {
     MAX_PROGRESS_VALUE,
@@ -217,8 +217,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     const [timerValue, timerTitle] = useTimer(
         isTimer ? Math.min(Math.max(valueFromProps.timer, MIN_TIMER_VALUE), MAX_TIMER_VALUE) : -1,
         isTimer,
-        isTimer ? valueFromProps.counting ?? 'backward' : 'backward',
-        isTimer ? valueFromProps.onFinish ?? noop : noop,
+        isTimer ? (valueFromProps.counting ?? 'backward') : 'backward',
+        isTimer ? (valueFromProps.onFinish ?? noop) : noop,
     );
     let value: number;
     let title: React.ReactNode;

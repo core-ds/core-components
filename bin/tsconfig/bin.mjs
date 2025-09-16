@@ -50,6 +50,11 @@ await yargs(hideBin(argv))
                     description: 'Generate tsconfig for storybook',
                     default: false,
                 })
+                .option('type-gen', {
+                    type: 'boolean',
+                    description: 'Generate tsconfig for react-docgen-typescript',
+                    default: false,
+                })
                 .option('all', {
                     type: 'boolean',
                     description: 'Generate tsconfig for all',
@@ -60,7 +65,8 @@ await yargs(hideBin(argv))
                 [
                     ...(yargs.storybook || yargs.all ? ['storybook'] : []),
                     ...(yargs.test || yargs.all ? ['test'] : []),
-                    ...(yargs.all ? INTERNAL_PACKAGES_NAMES : yargs.scope ?? []),
+                    ...(yargs['type-gen'] || yargs.all ? ['type-gen'] : []),
+                    ...(yargs.all ? INTERNAL_PACKAGES_NAMES : (yargs.scope ?? [])),
                 ].map(async (id) =>
                     Promise.all(
                         configs.map(async (config) => {
@@ -85,30 +91,32 @@ await yargs(hideBin(argv))
         async () => {
             const errors = (
                 await Promise.all(
-                    ['storybook', 'test', ...INTERNAL_PACKAGES_NAMES].map(async (id) => {
-                        const result = await Promise.all(
-                            configs.map(async (config) => {
-                                const options = resolveOptions(config, id);
+                    ['storybook', 'test', 'type-gen', ...INTERNAL_PACKAGES_NAMES].map(
+                        async (id) => {
+                            const result = await Promise.all(
+                                configs.map(async (config) => {
+                                    const options = resolveOptions(config, id);
 
-                                if (options.skip) {
-                                    return true;
-                                }
+                                    if (options.skip) {
+                                        return true;
+                                    }
 
-                                if (existsSync(options.out)) {
-                                    const [expected, actual] = await Promise.all([
-                                        makeTsConfig(options),
-                                        fse.readJson(options.out, { encoding: 'utf8' }),
-                                    ]);
+                                    if (existsSync(options.out)) {
+                                        const [expected, actual] = await Promise.all([
+                                            makeTsConfig(options),
+                                            fse.readJson(options.out, { encoding: 'utf8' }),
+                                        ]);
 
-                                    return isEqual(expected, actual);
-                                }
+                                        return isEqual(expected, actual);
+                                    }
 
-                                return false;
-                            }),
-                        );
+                                    return false;
+                                }),
+                            );
 
-                        return [id, result.every((isEqual) => isEqual)];
-                    }),
+                            return [id, result.every((isEqual) => isEqual)];
+                        },
+                    ),
                 )
             ).filter(([, isEqual]) => !isEqual);
 
@@ -286,7 +294,7 @@ function resolveOptions(config, id) {
         dir,
         out,
         packages,
-        storybook: override.storybook ?? rules.storybook ? STORYBOOK_PATH : undefined,
+        storybook: (override.storybook ?? rules.storybook) ? STORYBOOK_PATH : undefined,
         template: path.resolve(dirname, override.template ?? rules.template),
         references,
         referencesValues,

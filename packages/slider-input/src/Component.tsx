@@ -1,19 +1,19 @@
 import React, {
-    ChangeEvent,
+    type ChangeEvent,
     cloneElement,
-    ComponentType,
+    type ComponentType,
     forwardRef,
     Fragment,
     isValidElement,
-    ReactNode,
+    type ReactNode,
     useCallback,
 } from 'react';
 import cn from 'classnames';
 
-import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
-import { Slider, SliderProps } from '@alfalab/core-components-slider';
+import { Input as DefaultInput, type InputProps } from '@alfalab/core-components-input';
+import { Slider, type SliderProps } from '@alfalab/core-components-slider';
 
-import { OnChangeType, OnInputChangeType } from './types/propTypes';
+import { type OnChangeType, type OnInputChangeType } from './types/propTypes';
 
 import styles from './index.module.css';
 

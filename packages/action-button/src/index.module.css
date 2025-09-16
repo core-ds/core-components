@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .component {
     position: relative;
@@ -18,7 +18,9 @@
     text-align: center;
     text-decoration: none;
     text-transform: none;
-    transition: color 0.2s ease, opacity 0.2s ease;
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
     user-select: none;
     font-family: inherit;
     appearance: none;

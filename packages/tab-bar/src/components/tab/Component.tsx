@@ -1,11 +1,11 @@
-import React, { cloneElement, forwardRef, isValidElement, MouseEvent } from 'react';
+import React, { cloneElement, forwardRef, isValidElement, type MouseEvent } from 'react';
 import cn from 'classnames';
 
 import { Indicator } from '@alfalab/core-components-indicator';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { INDICATOR_BG_COLOR, INDICATOR_BORDER_COLOR } from '../../consts';
-import { PrivateTabProps, TabProps } from '../../types';
+import { type PrivateTabProps, type TabProps } from '../../types';
 
 import styles from './index.module.css';
 

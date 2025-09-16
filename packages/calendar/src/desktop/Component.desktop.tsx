@@ -1,4 +1,11 @@
-import React, { forwardRef, MouseEvent, SyntheticEvent, useMemo, useRef, useState } from 'react';
+import React, {
+    forwardRef,
+    type MouseEvent,
+    type SyntheticEvent,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 import { endOfDay, startOfDay, startOfMonth } from 'date-fns';
 
@@ -11,7 +18,7 @@ import { MonthYearHeader } from '../components/month-year-header';
 import { MonthsTable } from '../components/months-table';
 import { PeriodSlider } from '../components/period-slider';
 import { YearsTable } from '../components/years-table';
-import { DayAddons, SelectorView, View } from '../typings';
+import { type DayAddons, type SelectorView, type View } from '../typings';
 import { useCalendar } from '../useCalendar';
 import { useRange } from '../useRange';
 import { limitDate } from '../utils';

@@ -1,6 +1,6 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
 
-import { ButtonProps } from '@alfalab/core-components-button';
+import { type ButtonProps } from '@alfalab/core-components-button';
 
 export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
     /**

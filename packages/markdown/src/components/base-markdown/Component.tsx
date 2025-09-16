@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 import cn from 'classnames';
 
 import { strikethroughRemarkPlugin } from '../../remark-plugins';
-import { BaseMarkdownProps } from '../../typings';
+import { type BaseMarkdownProps } from '../../typings';
 
 import { useOverrides } from './use-overrides';
 

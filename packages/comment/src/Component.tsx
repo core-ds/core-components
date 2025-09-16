@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import cn from 'classnames';
 
 import { TypographyText } from '@alfalab/core-components-typography';

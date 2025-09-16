@@ -1,8 +1,8 @@
-import React, { FC, useRef } from 'react';
+import React, { type FC, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import type { FieldProps } from '@alfalab/core-components-select/shared';
+import { type FieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus } from '@alfalab/hooks';
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 

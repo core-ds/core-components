@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { TagMobile } from '@alfalab/core-components-tag/mobile';
 
-import { SecondaryTabListProps } from '../../typings';
+import { type SecondaryTabListProps } from '../../typings';
 
 import { SecondaryTabList } from './Component';
 

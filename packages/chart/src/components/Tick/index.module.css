@@ -1,13 +1,8 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .tickText {
     fill: var(--color-light-text-primary);
     @mixin paragraph_primary_medium;
-}
-
-.circle {
-    opacity: 0.3;
-    fill: var(--color-dark-base-bg-primary);
 }
 
 .circle {

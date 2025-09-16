@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const { globby } = require('globby');
+const { glob } = require('tinyglobby');
 const os = require('os');
 
 const apiUrl = 'http://design/design-system-usage/api/stats/component-usages';
@@ -68,7 +68,7 @@ async function fetchUsagesForStory(storyPath) {
 }
 
 async function updateUsages() {
-    const files = await globby(
+    const files = await glob(
         [path.join(process.cwd(), 'packages') + `/**/src/docs/*.{stories,docs}.mdx`],
         {},
     );

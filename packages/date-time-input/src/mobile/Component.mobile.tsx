@@ -5,7 +5,7 @@ import { CalendarMobile } from '@alfalab/core-components-calendar/mobile';
 import { InputProps } from '@alfalab/core-components-input';
 import { InputMobile } from '@alfalab/core-components-input/mobile';
 
-import { DateTimeInput, DateTimeInputProps } from '../components/date-time-input/Component';
+import { DateTimeInput, type DateTimeInputProps } from '../components/date-time-input/Component';
 
 export type DateTimeInputMobileProps = Omit<DateTimeInputProps, 'view' | 'InputComponent'>;
 

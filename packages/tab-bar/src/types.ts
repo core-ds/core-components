@@ -1,14 +1,14 @@
-import type {
-    AllHTMLAttributes,
-    ElementType,
-    ForwardRefExoticComponent,
-    HTMLAttributes,
-    ReactElement,
-    ReactNode,
-    RefAttributes,
+import {
+    type AllHTMLAttributes,
+    type ElementType,
+    type ForwardRefExoticComponent,
+    type HTMLAttributes,
+    type ReactElement,
+    type ReactNode,
+    type RefAttributes,
 } from 'react';
 
-import type { IndicatorProps } from '@alfalab/core-components-indicator';
+import { type IndicatorProps } from '@alfalab/core-components-indicator';
 
 type TabElementType = ReactElement<
     TabProps,

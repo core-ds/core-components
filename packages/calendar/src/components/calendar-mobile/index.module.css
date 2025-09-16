@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 @import '../../../../modal/src/vars.css';
 
@@ -36,12 +36,8 @@
 }
 
 .month {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
+    @mixin accent_caps;
+
     color: var(--color-light-text-primary);
     margin-bottom: var(--gap-8);
 

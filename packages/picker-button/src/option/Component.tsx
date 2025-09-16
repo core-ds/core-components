@@ -1,9 +1,9 @@
-import React, { FC, SVGProps } from 'react';
+import React, { type FC, type SVGProps } from 'react';
 
 import {
     Option as BaseOption,
-    OptionProps as BaseOptionProps,
-    OptionShape,
+    type OptionProps as BaseOptionProps,
+    type OptionShape,
 } from '@alfalab/core-components-select/shared';
 
 import styles from './index.module.css';

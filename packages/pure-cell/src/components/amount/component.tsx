@@ -5,8 +5,8 @@ import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { type Color, TypographyText } from '@alfalab/core-components-typography';
 
-import { PureCellContext } from '../../component';
-import { AmountProps as AmountType } from '../typesProps';
+import { PureCellContext } from '../../context';
+import { type AmountProps as AmountType } from '../typesProps';
 
 import styles from './index.module.css';
 

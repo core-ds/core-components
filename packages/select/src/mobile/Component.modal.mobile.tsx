@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { SelectModalMobileProps } from '../typings';
+import { type SelectModalMobileProps } from '../typings';
 
 import { SelectMobile } from './Component.mobile';
 

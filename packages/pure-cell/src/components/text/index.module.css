@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .horizontal {
     padding: var(--gap-2) var(--gap-0);
@@ -20,9 +20,7 @@
     justify-content: space-between;
     margin: var(--gap-2) var(--gap-0);
     word-break: break-word;
-}
 
-.component {
     & .vertical {
         justify-content: center;
     }

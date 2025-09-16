@@ -1,5 +1,5 @@
 /* eslint-disable complexity */
-import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
+import React, { type FC, type MouseEvent, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import { addMonths, endOfMonth, isSameMonth, max, startOfMonth, subMonths } from 'date-fns';
 
@@ -12,12 +12,12 @@ import {
 } from '@alfalab/core-components-calendar-input/shared';
 import {
     DateInput,
-    DateInputProps,
+    type DateInputProps,
     isCompleteDateInput,
 } from '@alfalab/core-components-date-input';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { CalendarRangeProps } from '../Component';
+import { type CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';
 import { useSelectionProps, useStaticViewMonthes } from '../hooks';
 import { isDayButton } from '../utils';
