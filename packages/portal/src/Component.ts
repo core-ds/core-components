@@ -1,4 +1,4 @@
-import { forwardRef, type ReactNode, useImperativeHandle, useEffect, useState } from 'react';
+import { forwardRef, type ReactNode, useImperativeHandle, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
