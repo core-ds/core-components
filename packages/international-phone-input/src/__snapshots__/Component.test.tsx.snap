@@ -26,6 +26,7 @@ exports[`InternationalPhoneInput should match snapshot 1`] = `
             >
               <div
                 aria-controls="downshift-:r0:-menu"
+                aria-label="Сменить код страны"
                 aria-labelledby="downshift-:r0:-label"
                 class="inner"
                 id="downshift-:r0:-input"

@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, {
+    type AriaAttributes,
     type FocusEvent,
     forwardRef,
     type KeyboardEvent,
@@ -849,6 +850,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         tabIndex: disabled ? undefined : nativeSelect ? -1 : 0,
                         ref: inputProps.ref,
                         id: inputProps.id,
+                        'aria-label': (optionProps as AriaAttributes)['aria-label'],
                         'aria-labelledby': inputProps['aria-labelledby'],
                         'aria-controls': inputProps['aria-controls'],
                         'aria-autocomplete': autocomplete
