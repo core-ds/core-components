@@ -89,15 +89,67 @@
 
     & :global(.noUi-pips) {
         @mixin paragraph_component_secondary;
-        margin-top: 6px;
+        margin-top: var(--gap-12);
         height: 18px;
         color: var(--color-light-text-secondary);
         position: relative;
         width: 100%;
     }
 
-    & :global(.noUi-marker) {
+    & :global(.noUi-marker-large) {
+        position: absolute;
+        top: calc(-10px - var(--slider-marker-offset) / 2);
+        transform: translateY(-50%);
+
+        &:first-child {
+            transform: translateX(6px) translateY(-50%);
+        }
+
+        &:nth-last-child(2) {
+            transform: translateX(calc(-100% - 6px)) translateY(-50%);
+        }
+
+        &:global([data-current='true']) {
+            opacity: 0;
+        }
+
+        &:global([data-passed='true']:not([data-current='true'])) {
+            background: white;
+        }
+    }
+
+    & :global(.noUi-marker-sub) {
+        position: absolute;
+        top: calc(-10px - var(--slider-marker-offset) / 2);
+        transform: translateY(-50%);
+
+        &:global([data-current='true']) {
+            opacity: 0;
+        }
+
+        &:global([data-passed='true']:not([data-current='true'])) {
+            background: white;
+        }
+    }
+
+    & :global(.noUi-marker-normal) {
         display: none;
+    }
+
+    & :global(.noUi-marker) {
+        width: var(--slider-marker-size);
+        height: var(--slider-marker-size);
+        background: var(--slider-marker-color);
+        border-radius: var(--border-radius-circle);
+        transition: opacity 0.15s ease, background 0.15s ease;
+
+        &:global([data-current='true']) {
+            opacity: 0;
+        }
+
+        &:global([data-passed='true']:not([data-current='true'])) {
+            background: white;
+        }
     }
 
     & :global(.noUi-value) {
@@ -108,11 +160,11 @@
         transform: translateX(-50%);
 
         &:nth-child(2) {
-            transform: none;
+            transform: translateX(4px);
         }
 
         &:last-child {
-            transform: translateX(-100%);
+            transform: translateX(calc(-100% - 4px));
         }
     }
 }
@@ -140,5 +192,19 @@
         top: calc(var(--slider-clickable-area-half-size) - var(--slider-progress-m-height) / 2);
         height: var(--slider-progress-m-height);
         border-radius: var(--slider-progress-m-border-radius);
+    }
+}
+
+.dotsDisabled {
+    /* Скрываем маркеры и подписи */
+    & :global(.noUi-marker) {
+        display: none;
+    }
+}
+
+.numbersDisabled {
+    /* Скрываем только числовые значения, оставляя точки */
+    & :global(.noUi-value) {
+        display: none !important;
     }
 }

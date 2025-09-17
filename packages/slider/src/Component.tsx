@@ -1,6 +1,9 @@
-import React, { type FC, useEffect, useRef } from 'react';
+import React, { type FC, useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
-import noUiSlider, { type API, type Options } from 'nouislider';
+import noUiSlider, { API } from 'nouislider';
+
+import { useSliderMarkers } from './hooks';
+import { createPipsConfig } from './utils';
 
 import styles from './index.module.css';
 
@@ -91,6 +94,37 @@ export type SliderProps = {
     size?: 's' | 'm' | 2 | 4;
 
     /**
+     * Включение/отключение отображения точек на слайдере
+     * @default false
+     */
+    dots?: boolean;
+
+    /**
+     * Тип отображения точек на слайдере: 'step' - по шагу, 'custom' - произвольные
+     * @default 'step'
+     */
+    dotsSlider?: 'step' | 'custom';
+
+    /**
+     * Массив значений для произвольного размещения точек
+     */
+    customDots?: number[];
+
+    /**
+     * Включение/отключение отображения чисел под точками
+     * Действует на все точки кроме dotsSlider
+     * @default true
+     */
+    showNumbers?: boolean;
+
+    /**
+     * Скрытие чисел только для кастомных точек
+     * При hideCustomDotsNumbers=true числа скрываются только у customDots, остальные числа остаются видимыми
+     * @default false
+     */
+    hideCustomDotsNumbers?: boolean;
+
+    /**
      * Обработчик поля ввода
      */
     onChange?: (payload: { value: number; valueTo?: number }) => void;
@@ -131,6 +165,11 @@ export const Slider: FC<SliderProps> = ({
     behaviour = 'tap',
     range = { min, max },
     size = 2,
+    dots = false,
+    dotsSlider = 'step',
+    customDots,
+    showNumbers = false,
+    hideCustomDotsNumbers = false,
     className,
     onChange,
     onStart,
@@ -144,6 +183,47 @@ export const Slider: FC<SliderProps> = ({
 
     const getSlider = () => sliderRef.current?.noUiSlider;
 
+    const shouldCreatePipsConfig = pips || customDots?.length;
+
+    const pipsConfig = useMemo(() => {
+        if (!shouldCreatePipsConfig) {
+            return undefined;
+        }
+
+        const configParams = {
+            dotsSlider,
+            customDots: dotsSlider === 'custom' ? customDots : undefined,
+            showNumbers,
+            hideCustomDotsNumbers: dotsSlider === 'custom' ? hideCustomDotsNumbers : undefined,
+            pips,
+            min,
+            max,
+            step,
+        };
+
+        return createPipsConfig(configParams);
+    }, [
+        shouldCreatePipsConfig,
+        dotsSlider,
+        customDots,
+        showNumbers,
+        hideCustomDotsNumbers,
+        pips,
+        min,
+        max,
+        step,
+    ]);
+
+    const { updateMarkersState, createSlideHandler } = useSliderMarkers({
+        sliderRef,
+        hasValueTo,
+        value,
+        valueTo,
+        min,
+        max,
+        onChange,
+    });
+
     useEffect(() => {
         if (!sliderRef.current) return;
 
@@ -152,7 +232,7 @@ export const Slider: FC<SliderProps> = ({
             connect: valueTo ? true : [true, false],
             behaviour,
             step,
-            pips: pips as Options['pips'],
+            pips: pipsConfig,
             range,
             snap,
         });
@@ -194,12 +274,12 @@ export const Slider: FC<SliderProps> = ({
             {
                 step,
                 range,
-                pips: pips as Options['pips'],
+                pips: pipsConfig,
                 snap,
             },
             true,
         );
-    }, [pips, range, snap, step]);
+    }, [pipsConfig, range, snap, step]);
 
     useEffect(() => {
         const slider = getSlider();
@@ -219,31 +299,25 @@ export const Slider: FC<SliderProps> = ({
 
         if (!slider) return;
 
-        const handler = () => {
-            if (onChange) {
-                if (hasValueTo) {
-                    const sliderValues = slider.get() as string[];
-                    const from = Number(sliderValues[0]);
-                    const to = Number(sliderValues[1]);
-
-                    if (from <= to) {
-                        onChange({ value: from, valueTo: to });
-                    } else {
-                        onChange({ value: to, valueTo: from });
-                    }
-                } else {
-                    onChange({ value: Number(slider.get()) });
-                }
-            }
-        };
+        const handler = createSlideHandler(slider);
 
         slider.off('slide');
         slider.on('slide', handler);
-    }, [onChange, hasValueTo]);
 
+        if (hasValueTo) {
+            updateMarkersState(value, valueTo);
+        } else {
+            updateMarkersState(value);
+        }
+    }, [onChange, hasValueTo, value, valueTo, createSlideHandler, updateMarkersState]);
+
+    // todo: переделать логику отображения цифр и точек
     return (
         <div
-            className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]])}
+            className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]], {
+                [styles.dotsDisabled]: !dots,
+                // [styles.numbersDisabled]: dots && dotsSlider === 'custom' && !customDots?.length,
+            })}
             ref={sliderRef}
             data-test-id={dataTestId}
             {...{ disabled }}

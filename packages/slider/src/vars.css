@@ -18,8 +18,12 @@
     --slider-progress-hover-background: var(--color-light-neutral-translucent-300);
     --slider-clickable-area-size: 16px;
     --slider-clickable-area-half-size: calc(var(--slider-clickable-area-size) / 2);
-
-    /* Отступы по бокам — на мобилке thumb не должен заходить за края контрола */
-    --slider-origin-width: 100%;
-    --slider-origin-right: var(--gap-0);
+    --slider-origin-width: calc(100% - 16px);
+    --slider-origin-right: 8px;
+    --slider-marker-size: 2px;
+    --slider-marker-offset: 4px;
+    --slider-marker-border-radius: var(--border-radius-circle);
+    --slider-marker-color: var(--color-light-neutral-translucent-700);
+    --slider-marker-color-passed: var(--color-light-accent-primary);
+    --slider-marker-color-disabled: var(--color-light-neutral-translucent-300);
 }

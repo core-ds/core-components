@@ -217,7 +217,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                 const { value: inputValue } = event.target as HTMLInputElement;
                 const validValue = getValidInputValue(inputValue);
 
-                const getEventPayloadValue = (payload: number | '') => {
+                const getEventPayloadValue = (payload: number) => {
                     if (payload > max) {
                         return max;
                     }
@@ -232,12 +232,12 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                 if (lockLimit) {
                     if (onChange) {
                         onChange(null, {
-                            value: getEventPayloadValue(validValue),
+                            value: getEventPayloadValue(validValue as number),
                         });
                     }
                     if (onInputChange) {
                         onInputChange(null, {
-                            value: getEventPayloadValue(validValue),
+                            value: getEventPayloadValue(validValue as number),
                         });
                     }
                 }
