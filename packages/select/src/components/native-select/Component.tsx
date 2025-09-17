@@ -1,6 +1,6 @@
-import React, { forwardRef, SelectHTMLAttributes, useCallback } from 'react';
+import React, { forwardRef, type SelectHTMLAttributes, useCallback } from 'react';
 
-import { GroupShape, OptionShape } from '../../typings';
+import { type GroupShape, type OptionShape } from '../../typings';
 import { isGroup } from '../../utils';
 
 export type NativeSelectProps = SelectHTMLAttributes<HTMLSelectElement> & {

@@ -42,7 +42,8 @@
 
 .exitActive {
     opacity: 1;
-    animation: step_1 200ms cubic-bezier(0, 0, 1, 0),
+    animation:
+        step_1 200ms cubic-bezier(0, 0, 1, 0),
         step_2 200ms cubic-bezier(0, 0, 0, 1) 200ms forwards;
 }
 

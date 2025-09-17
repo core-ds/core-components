@@ -1,6 +1,9 @@
 import React, { forwardRef, useEffect, useState } from 'react';
-import type { Theme, TPatternLockInstance } from 'react-canvas-pattern-lock';
-import { ReactCanvasPatternLock } from 'react-canvas-pattern-lock';
+import {
+    ReactCanvasPatternLock,
+    type Theme,
+    type TPatternLockInstance,
+} from 'react-canvas-pattern-lock';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
@@ -12,7 +15,7 @@ import {
     OBSERVE_OPTIONS,
     THEME_STATE,
 } from '../../consts';
-import type { CommonPatternLockProps, PrivatePatternLockProps } from '../../typings';
+import { type CommonPatternLockProps, type PrivatePatternLockProps } from '../../typings';
 import { getColorByToken, getDefaultObserveTarget, getSizes, getTheme } from '../../utils';
 
 import commonStyles from './index.module.css';

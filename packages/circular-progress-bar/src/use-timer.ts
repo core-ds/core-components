@@ -8,6 +8,7 @@ function makeTitle(time: number) {
     return `${Math.trunc(time / 60)}:${`${time % 60}`.padStart(2, '0')}`;
 }
 
+// eslint-disable-next-line max-params
 export function useTimer(
     time: number,
     active = true,

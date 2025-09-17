@@ -1,6 +1,6 @@
-import { RefObject, useContext, useEffect } from 'react';
+import { type RefObject, useContext, useEffect } from 'react';
 
-import { ScrollbarProps } from '@alfalab/core-components-scrollbar';
+import { type ScrollbarProps } from '@alfalab/core-components-scrollbar';
 
 import { UniversalModalContext } from '../../context/universal-modal-context';
 

@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useEffect, useState } from 'react';
+import { forwardRef, type ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { usePortalContainer } from './hooks/usePortalContainer';

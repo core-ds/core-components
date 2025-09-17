@@ -1,4 +1,4 @@
-import { StatusBadgeCustomIcon } from '@alfalab/core-components-status-badge';
+import { type StatusBadgeCustomIcon } from '@alfalab/core-components-status-badge';
 
 type GetCustomIcons = StatusBadgeCustomIcon | null;
 

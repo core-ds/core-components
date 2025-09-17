@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 import cn from 'classnames';
 
-import type { TypographyType } from '@alfalab/core-components-types';
+import { type TypographyType } from '@alfalab/core-components-types';
 
 import styles from './index.module.css';
 import mixin from './mixin.module.css';

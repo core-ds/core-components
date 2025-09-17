@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { BaseRadioGroupProps } from './components/base-radio-group';
+import { type BaseRadioGroupProps } from './components/base-radio-group';
 import { RadioGroupDesktop } from './desktop';
 import { RadioGroupMobile } from './mobile';
 

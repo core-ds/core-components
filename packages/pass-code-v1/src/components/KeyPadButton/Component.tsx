@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import cn from 'classnames';
 
-import { ButtonMobile, ButtonMobileProps } from '@alfalab/core-components-button/mobile';
+import { ButtonMobile, type ButtonMobileProps } from '@alfalab/core-components-button/mobile';
 
 import styles from './index.module.css';
 

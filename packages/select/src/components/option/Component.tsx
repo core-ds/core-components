@@ -1,8 +1,8 @@
-import React, { FC, isValidElement } from 'react';
+import React, { type FC, isValidElement } from 'react';
 import cn from 'classnames';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import { OptionCommonProps } from '../../typings';
+import { type OptionCommonProps } from '../../typings';
 
 import type stylesDesktop from './desktop/index.module.css';
 import type stylesMobile from './mobile/index.module.css';

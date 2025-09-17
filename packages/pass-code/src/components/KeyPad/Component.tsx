@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { BackspaceXxlIcon } from '@alfalab/icons-glyph/BackspaceXxlIcon';

@@ -68,7 +68,10 @@
     outline: none;
     white-space: nowrap;
     font-family: var(--font-family);
-    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
     margin: var(--gap-0);
 
     &.block {

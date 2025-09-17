@@ -1,14 +1,14 @@
-import React, { FC, useRef } from 'react';
+import React, { type FC, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { type BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
 import { useModalHighlighted } from '../../hooks/use-modal-highlighted';
 import { useOutsideScroll } from '../../hooks/use-outside-scroll';
 import { useSetScrollbarHeight } from '../../hooks/use-set-scrollbar-height';
-import type { UniversalModalDesktopProps } from '../../types/props';
+import { type UniversalModalDesktopProps } from '../../types/props';
 import { setFooterAndHeaderRefs } from '../../utils/set-footer-and-header-refs';
 
 import styles from './modal-content.module.css';

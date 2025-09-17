@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import glob from 'glob';
+import { globSync } from 'tinyglobby';
 
 type PathData = { url: string; group?: string };
 
@@ -13,12 +13,12 @@ export const findComponentPath = (componentName: string, packageName: string) =>
         return cache.get(packageName)!;
     }
 
-    const mdxStory = glob.sync(
+    const mdxStory = globSync(
         path.join(path.resolve(__dirname, `../../../packages/${packageName}`), '**/*.stories.mdx'),
         {},
     )?.[0];
 
-    const tsxStory = glob.sync(
+    const tsxStory = globSync(
         path.join(path.resolve(__dirname, `../../../packages/${packageName}`), '**/*.stories.tsx'),
         {},
     )?.[0];

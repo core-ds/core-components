@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback, useState } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { Input, type InputProps } from '@alfalab/core-components-input';
 import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
 import { EyeOffMIcon } from '@alfalab/icons-glyph/EyeOffMIcon';
 
@@ -80,6 +80,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                 colors={colors}
                 className={cn(className)}
                 rightAddons={
+                    /* eslint-disable jsx-a11y/control-has-associated-label */
                     <React.Fragment>
                         {rightAddons}
                         <IconButton
@@ -93,6 +94,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                             title={isPasswordVisible ? visible : hidden}
                         />
                     </React.Fragment>
+                    /* eslint-enable jsx-a11y/control-has-associated-label */
                 }
                 inputClassName={styles.input}
             />

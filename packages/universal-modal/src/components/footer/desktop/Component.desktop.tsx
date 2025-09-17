@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { UniversalModalContext } from '../../../context/universal-modal-context';
 import { FOOTER_MEDIUM_BREAKPOINT } from '../../../desktop/constants';
-import { type FooterProps, BaseFooter } from '../base-footer/base-footer';
+import { BaseFooter, type FooterProps } from '../base-footer/base-footer';
 
 import styles from './desktop.module.css';
 import layoutStyles from './layout.module.css';

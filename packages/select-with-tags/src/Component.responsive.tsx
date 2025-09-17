@@ -7,7 +7,7 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 import { Popover } from '@alfalab/core-components-popover';
 
 import { BaseSelectWithTags } from './components/base-select-with-tags';
-import { SelectWithTagsProps } from './types';
+import { type SelectWithTagsProps } from './types';
 
 export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
     (

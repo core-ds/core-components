@@ -1,4 +1,9 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, ReactNode } from 'react';
+import {
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
+    type ElementType,
+    type ReactNode,
+} from 'react';
 
 export type StyleColors = {
     default: {

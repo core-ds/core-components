@@ -82,8 +82,7 @@
 @each $shadow in shadow-xs, shadow-s, shadow-m, shadow-l, shadow-xl, shadow-xs-hard, shadow-s-hard,
     shadow-m-hard, shadow-l-hard, shadow-xl-hard, shadow-xs-up, shadow-s-up, shadow-m-up,
     shadow-l-up, shadow-xl-up, shadow-xs-hard-up, shadow-s-hard-up, shadow-m-hard-up,
-    shadow-l-hard-up, shadow-xl-hard-up
-{
+    shadow-l-hard-up, shadow-xl-hard-up {
     .$(shadow) {
         box-shadow: var(--$(shadow));
     }
@@ -93,8 +92,7 @@
     secondary-inverted, tertiary, tertiary-inverted, underline, underline-inverted,
     graphic-attention, graphic-link, graphic-negative, graphic-positive,
     specialbg-secondary-transparent, specialbg-secondary-transparent-inverted,
-    specialbg-tertiary-transparent, specialbg-tertiary-transparent-inverted
-{
+    specialbg-tertiary-transparent, specialbg-tertiary-transparent-inverted {
     .border-color-$(borderColor) {
         border-color: var(--underline-border-color-$(borderColor));
     }

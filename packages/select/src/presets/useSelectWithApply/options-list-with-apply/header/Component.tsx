@@ -1,10 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Checkbox, CheckboxProps } from '@alfalab/core-components-checkbox';
+import { Checkbox, type CheckboxProps } from '@alfalab/core-components-checkbox';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../../../consts';
-import { OptionsListProps } from '../../../../typings';
+import { type OptionsListProps } from '../../../../typings';
 
 import styles from './index.module.css';
 

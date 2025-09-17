@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { BaseToastProps } from './components/base-toast';
+import { type BaseToastProps } from './components/base-toast';
 import { ToastDesktop } from './desktop';
 import { ToastMobile } from './mobile';
 

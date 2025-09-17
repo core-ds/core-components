@@ -1,6 +1,6 @@
 import { hasOwnProperty } from '@alfalab/core-components-shared';
 
-import type { UniversalModalDesktopProps } from '../types/props';
+import { type UniversalModalDesktopProps } from '../types/props';
 
 interface Params {
     styles: Record<string, string>;

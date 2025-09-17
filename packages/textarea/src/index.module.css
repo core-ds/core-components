@@ -89,7 +89,9 @@
 }
 
 .textarea::placeholder {
-    transition: opacity 0.2s ease, color 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        color 0.2s ease;
 }
 
 .hasInnerLabel::placeholder {

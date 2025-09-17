@@ -4,7 +4,7 @@ import { FormControlDesktop } from '@alfalab/core-components-form-control/deskto
 import { Popover } from '@alfalab/core-components-popover';
 
 import { BaseSelectWithTags } from '../components/base-select-with-tags';
-import { SelectWithTagsDesktopProps } from '../types';
+import { type SelectWithTagsDesktopProps } from '../types';
 
 export const SelectWithTagsDesktop = React.forwardRef<HTMLInputElement, SelectWithTagsDesktopProps>(
     (props, ref) => (

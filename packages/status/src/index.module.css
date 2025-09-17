@@ -103,10 +103,7 @@
             color: var(--color-light-decorative-text-$(color));
         }
     }
-}
 
-.soft,
-.muted-alt {
     &.grey {
         background: var(--color-light-neutral-translucent-300);
         color: var(--color-light-text-secondary);
@@ -126,9 +123,7 @@
             background: var(--color-light-decorative-$(color));
         }
     }
-}
 
-.contrast {
     &.grey {
         background: var(--color-light-neutral-700);
     }
@@ -145,9 +140,7 @@
             color: var(--color-light-decorative-text-$(color));
         }
     }
-}
 
-.muted {
     &.grey {
         background: var(--color-light-neutral-translucent-200);
         color: var(--color-light-text-secondary);

@@ -8,7 +8,7 @@ import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { BackArrowAddon } from './components/back-arrow-addon';
 import { Closer } from './components/closer';
-import type { ContentParams, NavigationBarPrivateProps } from './types';
+import { type ContentParams, type NavigationBarPrivateProps } from './types';
 
 import styles from './index.module.css';
 

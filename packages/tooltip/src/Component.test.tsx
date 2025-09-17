@@ -122,7 +122,7 @@ describe('Render tests', () => {
             open: true,
         });
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });
 
@@ -153,8 +153,8 @@ describe('Click event tests', () => {
 
         expect(content).not.toBeInTheDocument();
 
-        expect(onOpen).toBeCalledTimes(1);
-        expect(onClose).toBeCalledTimes(1);
+        expect(onOpen).toHaveBeenCalledTimes(1);
+        expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('should close if click outside', async () => {
@@ -263,8 +263,8 @@ describe('Hover event tests', () => {
 
         expect(content).not.toBeInTheDocument();
 
-        expect(onOpen).toBeCalledTimes(1);
-        expect(onClose).toBeCalledTimes(1);
+        expect(onOpen).toHaveBeenCalledTimes(1);
+        expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('should stay open if prop `open` is `true`', async () => {
@@ -392,8 +392,8 @@ describe('Props test', () => {
 
         expect(content).toBeInTheDocument();
 
-        expect(onTargetClick).toBeCalledTimes(1);
+        expect(onTargetClick).toHaveBeenCalledTimes(1);
 
-        expect(onTargetClick).toBeCalledWith(expect.anything());
+        expect(onTargetClick).toHaveBeenCalledWith(expect.anything());
     });
 });

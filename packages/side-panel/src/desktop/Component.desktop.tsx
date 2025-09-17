@@ -2,16 +2,16 @@ import React, { cloneElement, forwardRef, isValidElement, useContext, useRef } f
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { Drawer, DrawerProps } from '@alfalab/core-components-drawer';
+import { type BaseModalProps } from '@alfalab/core-components-base-modal';
+import { Drawer, type DrawerProps } from '@alfalab/core-components-drawer';
 
 import { ContentDesktop } from '../components/content/Component.desktop';
-import { Controls, ControlsProps } from '../components/controls';
+import { Controls, type ControlsProps } from '../components/controls';
 import { FooterDesktop } from '../components/footer/Component.desktop';
-import { Header, HeaderProps } from '../components/header/Component';
+import { Header, type HeaderProps } from '../components/header/Component';
 import { SIZE_TO_CLASSNAME_MAP } from '../consts';
 import { ResponsiveContext } from '../ResponsiveContext';
-import { TResponsiveModalContext } from '../typings';
+import { type TResponsiveModalContext } from '../typings';
 
 import styles from './desktop.module.css';
 import transitions from './transitions.desktop.module.css';

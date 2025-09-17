@@ -320,7 +320,7 @@ describe('FileUploadItem', () => {
 
             fireEvent.click(getByLabelText('удалить'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
 
@@ -335,7 +335,7 @@ describe('FileUploadItem', () => {
 
             fireEvent.click(getByLabelText('восстановить'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
 
@@ -352,7 +352,7 @@ describe('FileUploadItem', () => {
 
             fireEvent.click(downloadButton);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
     });
@@ -366,6 +366,6 @@ describe('FileUploadItem', () => {
             </FileUploadItem>,
         );
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

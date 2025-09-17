@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { type Button } from '@alfalab/core-components-button';
+import { type ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { type ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { DEFAULT_BUTTON_COLOR, DEFAULT_CONTENT_COLOR } from '../../constants/default-colors';
-import { CustomButtonProps } from '../../types/props';
+import { type CustomButtonProps } from '../../types/props';
 
 import styles from './index.module.css';
 

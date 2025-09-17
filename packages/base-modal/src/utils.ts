@@ -1,4 +1,4 @@
-import { getModalStore, SavedStyle } from '@alfalab/core-components-global-store';
+import { getModalStore, type SavedStyle } from '@alfalab/core-components-global-store';
 import { browser } from '@alfalab/core-components-shared';
 
 export function isScrolledToTop(target: HTMLElement) {

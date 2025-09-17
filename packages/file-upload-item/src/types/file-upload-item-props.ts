@@ -1,4 +1,9 @@
-import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
+import {
+    type ElementType,
+    type HTMLAttributeAnchorTarget,
+    type MouseEvent,
+    type ReactNode,
+} from 'react';
 
 import { type FileUploadItemStatus } from './status';
 
@@ -67,7 +72,7 @@ export type FileUploadItemProps = {
     /**
      * Дочерние элементы
      */
-    children?: React.ReactNode;
+    children?: ReactNode;
 
     /**
      * Обработчик загрузки файла

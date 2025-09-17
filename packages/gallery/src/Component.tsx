@@ -1,6 +1,6 @@
-import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
+import React, { type FC, type MouseEvent, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
-import SwiperCore from 'swiper';
+import type SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { useIsDesktop } from '@alfalab/core-components-mq';
@@ -11,7 +11,7 @@ import { Subtitles } from './components/subtitles';
 import { Header, HeaderMobile, ImageViewer, InfoBar, NavigationBar } from './components';
 import { SWIPE_THRESHOLD } from './constants';
 import { GalleryContext } from './context';
-import { GalleryImage, ImageMeta } from './types';
+import { type GalleryImage, type ImageMeta } from './types';
 
 import styles from './index.module.css';
 

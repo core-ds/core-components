@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Confirmation Snapshot tests should match snapshot 1`] = `
 <div>
@@ -178,6 +178,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
           >
             <div
               class="gradient"
+              style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
             />
           </foreignobject>
         </svg>
@@ -472,6 +473,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
           >
             <div
               class="gradient"
+              style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
             />
           </foreignobject>
         </svg>

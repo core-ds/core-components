@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { BaseConfirmation } from '../components/base-confirmation';
-import { ConfirmationProps } from '../types';
+import { type ConfirmationProps } from '../types';
 
 import styles from './mobile.module.css';
 

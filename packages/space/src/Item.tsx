@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Direction } from './utils';
+import { type Direction } from './utils';
 
 export interface ItemProps {
     className: string;

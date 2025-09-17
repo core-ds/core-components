@@ -20,9 +20,7 @@
     justify-content: space-between;
     margin: var(--gap-2) var(--gap-0);
     word-break: break-word;
-}
 
-.component {
     & .vertical {
         justify-content: center;
     }

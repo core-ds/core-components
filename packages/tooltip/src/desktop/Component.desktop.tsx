@@ -1,7 +1,7 @@
 import React, {
-    FC,
+    type FC,
     Fragment,
-    HTMLAttributes,
+    type HTMLAttributes,
     useCallback,
     useEffect,
     useRef,
@@ -12,7 +12,7 @@ import cn from 'classnames';
 
 import { Popover } from '@alfalab/core-components-popover';
 
-import type { TooltipDesktopProps } from '../types';
+import { type TooltipDesktopProps } from '../types';
 
 import defaultColors from '../default.module.css';
 import styles from '../index.module.css';
@@ -95,11 +95,11 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
 
     const clickedOutside = useCallback(
         (node: Element): boolean => {
-            if (target && target.contains(node)) {
+            if (target?.contains(node)) {
                 return false;
             }
 
-            if (contentRef.current && contentRef.current.contains(node)) {
+            if (contentRef.current?.contains(node)) {
                 return false;
             }
 

@@ -1,8 +1,8 @@
-import React, { createRef, FC, useMemo } from 'react';
+import React, { createRef, type FC, useMemo } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
-import { PageIndicatorBulletProps } from '../../types';
+import { type PageIndicatorBulletProps } from '../../types';
 
 import { calcParams } from './utils';
 

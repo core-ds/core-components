@@ -83,7 +83,9 @@
     bottom: var(--gap-0);
     left: var(--gap-0);
     background-color: var(--primary-tablist-line-color);
-    transition: transform 0.2s ease, width 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        width 0.2s ease;
 }
 
 .option {

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';

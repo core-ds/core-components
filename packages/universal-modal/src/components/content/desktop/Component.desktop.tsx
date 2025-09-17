@@ -1,8 +1,8 @@
-import React, { FC, useContext } from 'react';
+import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { UniversalModalContext } from '../../../context/universal-modal-context';
-import { BaseContent, ContentProps } from '../base-content/base-content';
+import { BaseContent, type ContentProps } from '../base-content/base-content';
 
 import styles from './desktop.module.css';
 

@@ -217,7 +217,7 @@ describe('Textarea', () => {
 
             fireEvent.change(textarea, { target: { value } });
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(textarea.value).toBe(value);
         });
 
@@ -227,7 +227,7 @@ describe('Textarea', () => {
 
             fireEvent.focus(screen.getByRole('textbox'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onBlur` prop', () => {
@@ -236,7 +236,7 @@ describe('Textarea', () => {
 
             fireEvent.blur(screen.getByRole('textbox'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should not call `onChange` prop if disabled', () => {
@@ -247,13 +247,13 @@ describe('Textarea', () => {
 
             userEvent.type(textarea, '123');
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<Textarea value='value' onChange={jest.fn()} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

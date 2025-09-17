@@ -15,12 +15,12 @@ jobs:
             published: ${{ steps.snapshot-release.outputs.published }}
             published-packages: ${{ steps.snapshot-release.outputs.published-packages }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - uses: ./.github/actions/ci-setup
 
-            - uses: ./.github/actions/changesets-snapshot-release
-              id: snapshot-release
+            - id: snapshot-release
+              uses: core-ds/changesets-snapshot-release@v1
               with:
                   version: 'yarn version-packages:snapshot'
                   publish: 'yarn release:snapshot'
@@ -46,11 +46,11 @@ jobs:
         if: ${{ needs.snapshot-release.outputs.published == 'true' && needs.pull-request.outputs.number != '' }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - name: prepare comment
               id: prepare-comment
-              uses: actions/github-script@v7
+              uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |

@@ -1,4 +1,4 @@
-import React, { FC, ReactEventHandler, useEffect, useRef, useState } from 'react';
+import React, { type FC, type ReactEventHandler, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';

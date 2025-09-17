@@ -1,5 +1,5 @@
-import { CoordinatesProps } from './coordinates.types';
-import { DataProps } from './data.types';
+import { type CoordinatesProps } from './coordinates.types';
+import { type DataProps } from './data.types';
 
 export interface DotSettingProps {
     /**

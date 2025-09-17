@@ -1,4 +1,4 @@
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { type BaseModalProps } from '@alfalab/core-components-base-modal';
 
 export interface BaseUniversalModalMobileProps {
     /** Сторона с которой будет появляться модальное окно */

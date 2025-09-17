@@ -1,6 +1,6 @@
-import { StatusBadgeProps } from '@alfalab/core-components-status-badge';
+import { type StatusBadgeProps } from '@alfalab/core-components-status-badge';
 
-import { unsafe_BadgeProps } from '../types/unsafeBadgeProps';
+import { type unsafe_BadgeProps } from '../types/unsafeBadgeProps';
 
 const unsafeBadgeValues: string[] = ['negative', 'positive', 'attention'];
 

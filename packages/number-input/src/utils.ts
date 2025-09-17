@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign */
 import {
-    MaskitoOptions,
-    MaskitoPlugin,
-    MaskitoPostprocessor,
-    MaskitoPreprocessor,
+    type MaskitoOptions,
+    type MaskitoPlugin,
+    type MaskitoPostprocessor,
+    type MaskitoPreprocessor,
     maskitoTransform,
 } from '@maskito/core';
 

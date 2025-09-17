@@ -1,11 +1,11 @@
-import React, { forwardRef, ReactNode, useContext, useRef } from 'react';
+import React, { forwardRef, type ReactNode, useContext, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
 
 import { SegmentedControlContext } from '../../context';
-import { IDType } from '../../typing';
+import { type IDType } from '../../typing';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';

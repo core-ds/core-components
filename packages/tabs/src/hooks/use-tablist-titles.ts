@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { TabListProps } from '../typings';
+import { type TabListProps } from '../typings';
 
 import { useCollapsibleElements } from './use-collapsible-elements';
 import { useTabs } from './use-tabs';

@@ -1,4 +1,4 @@
-import { Children, isValidElement, ReactNode } from 'react';
+import { Children, isValidElement, type ReactNode } from 'react';
 
 /** Позволяет узнать если в переданных элементах аддона компонент Steppers */
 export const hasStepperInRightAddon = (rightAddon: ReactNode): boolean =>
@@ -10,7 +10,7 @@ export const hasStepperInRightAddon = (rightAddon: ReactNode): boolean =>
                 return true;
             }
 
-            if (child.props && child.props.children) {
+            if (child.props?.children) {
                 return hasStepperInRightAddon(child.props.children);
             }
         }

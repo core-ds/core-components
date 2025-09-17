@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { BaseFormControl, BaseFormControlProps } from '../components/base-form-control';
+import { BaseFormControl, type BaseFormControlProps } from '../components/base-form-control';
 
 import defaultColors from './default.mobile.module.css';
 import invertedColors from './inverted.mobile.module.css';

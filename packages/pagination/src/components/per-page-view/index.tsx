@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
-import { PaginationProps } from '../../Component';
+import { type PaginationProps } from '../../Component';
 
 import styles from './index.module.css';
 

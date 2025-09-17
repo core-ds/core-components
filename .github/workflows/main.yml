@@ -16,7 +16,7 @@ jobs:
         name: build
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - uses: ./.github/actions/ci-setup
 
@@ -29,13 +29,21 @@ jobs:
         name: lint
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - uses: ./.github/actions/ci-setup
+
+            - name: check package.json
+              run: |
+                  yarn check-package-json
 
             - name: check tsconfig
               run: |
                   yarn tsconfig check
+
+            - name: run format
+              run: |
+                  yarn format
 
             - name: run lint
               run: |
@@ -45,7 +53,7 @@ jobs:
         name: test
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - uses: ./.github/actions/ci-setup
 
@@ -91,14 +99,14 @@ jobs:
         runs-on: ubuntu-latest
         needs: build-demo
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   lfs: true
 
             - uses: ./.github/actions/ci-setup
 
             - name: download build
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v5
               with:
                   name: build
                   path: build

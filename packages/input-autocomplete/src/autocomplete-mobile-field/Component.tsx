@@ -1,17 +1,17 @@
-import React, { ElementType, Fragment, useRef, useState } from 'react';
+import React, { type ElementType, Fragment, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import {
     FormControlMobile,
-    FormControlMobileProps,
+    type FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
 import { ClearButton } from '@alfalab/core-components-input/shared';
-import type { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
+import { type FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus } from '@alfalab/hooks';
 
-import { InputAutocompleteCommonProps } from '../types';
+import { type InputAutocompleteCommonProps } from '../types';
 
 import styles from './index.module.css';
 

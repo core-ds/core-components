@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from 'react';
+import { type RefObject, useEffect } from 'react';
 
 import { SCROLLBAR_DEFAULT_GAP } from '../constants';
 

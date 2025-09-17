@@ -1,8 +1,8 @@
-import { ICON_MAP, IconMap } from '../consts/iconMap';
+import { ICON_MAP, type IconMap } from '../consts/iconMap';
 import {
-    StatusBadgeCustomIcon,
-    StatusBadgeSizes,
-    StatusBadgeViews,
+    type StatusBadgeCustomIcon,
+    type StatusBadgeSizes,
+    type StatusBadgeViews,
 } from '../types/statusBadgePropTypes';
 
 export const useStatusBadgeIcon = (

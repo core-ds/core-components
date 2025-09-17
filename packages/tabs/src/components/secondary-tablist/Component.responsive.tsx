@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { SecondaryTabListProps } from '../../typings';
+import { type SecondaryTabListProps } from '../../typings';
 
 import { SecondaryTabListDesktop } from './Component.desktop';
 import { SecondaryTabListMobile } from './Component.mobile';

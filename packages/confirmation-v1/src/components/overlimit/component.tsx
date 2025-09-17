@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
+import React, { type FC, type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';

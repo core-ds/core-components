@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { DragMIcon } from '@alfalab/icons-glyph/DragMIcon';
 
-import { SortableItemProps } from '../../types';
+import { type SortableItemProps } from '../../types';
 
 import styles from './index.module.css';
 

@@ -1,8 +1,8 @@
 import React, {
     createRef,
-    FocusEventHandler,
+    type FocusEventHandler,
     forwardRef,
-    RefObject,
+    type RefObject,
     useEffect,
     useImperativeHandle,
     useMemo,
@@ -12,12 +12,12 @@ import React, {
 import cn from 'classnames';
 
 import {
-    BaseCodeInputProps,
-    CredentialOtp,
-    CredentialRequestOtpOptions,
-    CustomInputRef,
+    type BaseCodeInputProps,
+    type CredentialOtp,
+    type CredentialRequestOtpOptions,
+    type CustomInputRef,
 } from '../../typings';
-import { Input, InputProps } from '..';
+import { Input, type InputProps } from '..';
 
 import styles from './index.module.css';
 
@@ -131,7 +131,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
             setValues(newValues);
 
-            if (nextRef && nextRef.current) {
+            if (nextRef?.current) {
                 nextRef.current.focus();
 
                 nextRef.current.select();

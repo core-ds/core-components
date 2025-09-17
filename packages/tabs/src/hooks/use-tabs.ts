@@ -1,8 +1,8 @@
 import {
-    KeyboardEvent,
-    MouseEvent,
-    MutableRefObject,
-    Ref,
+    type KeyboardEvent,
+    type MouseEvent,
+    type MutableRefObject,
+    type Ref,
     useCallback,
     useRef,
     useState,
@@ -11,7 +11,7 @@ import mergeRefs from 'react-merge-refs';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { TabListTitle, UseTabsProps } from '../typings';
+import { type TabListTitle, type UseTabsProps } from '../typings';
 
 export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
     const [selectedTab, setSelectedTab] = useState<HTMLButtonElement | null>(null);

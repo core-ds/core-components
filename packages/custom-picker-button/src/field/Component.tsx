@@ -1,13 +1,18 @@
-import React, { ButtonHTMLAttributes, ComponentType, Fragment, SVGProps } from 'react';
+import React, {
+    type ButtonHTMLAttributes,
+    type ComponentType,
+    Fragment,
+    type SVGProps,
+} from 'react';
 import cn from 'classnames';
 
-import { CustomButton, CustomButtonProps } from '@alfalab/core-components-custom-button';
+import { CustomButton, type CustomButtonProps } from '@alfalab/core-components-custom-button';
 import {
     getIcon,
-    PickerButtonSize,
-    PickerButtonVariant,
+    type PickerButtonSize,
+    type PickerButtonVariant,
 } from '@alfalab/core-components-picker-button/shared';
-import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
+import { type FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 
 import styles from './index.module.css';
 

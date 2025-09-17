@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import reactFastCompare from 'react-fast-compare';
 
-import type { AnyObject, BaseSelectProps, OptionShape } from '../../typings';
+import { SELECT_ALL_KEY } from '../../consts';
+import { type AnyObject, type BaseSelectProps, type OptionShape } from '../../typings';
 import {
     defaultAccessor,
     defaultFilterFn,
@@ -80,8 +81,6 @@ export type UseSelectWithApplyProps = {
      */
     resetName?: string;
 };
-
-export const SELECT_ALL_KEY = 'select_all';
 
 const selectAllOption = { key: SELECT_ALL_KEY, content: 'Выбрать все' };
 

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { BaseRadioGroup, BaseRadioGroupProps } from '../components/base-radio-group';
+import { BaseRadioGroup, type BaseRadioGroupProps } from '../components/base-radio-group';
 
 import styles from './desktop.module.css';
 

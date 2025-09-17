@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 
-import { OptionsProps } from '../../types/options.types';
-import { DataDynamicBooleanProps, DataDynamicProps } from '../../types/utils/data.types';
+import { type OptionsProps } from '../../types/options.types';
+import { type DataDynamicBooleanProps, type DataDynamicProps } from '../../types/utils/data.types';
 
 import { setComposedChartsMargin } from './utils/setComposedChartsMargin';
 import { setDatas } from './utils/setDatas';

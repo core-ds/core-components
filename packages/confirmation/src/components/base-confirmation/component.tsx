@@ -1,10 +1,10 @@
-import React, { ComponentType, FC, useEffect, useMemo } from 'react';
+import React, { type ComponentType, type FC, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 
 import { usePrevious } from '@alfalab/hooks';
 
 import { ConfirmationContext } from '../../context';
-import { ConfirmationProps, defaultTexts, TConfirmationContext } from '../../types';
+import { type ConfirmationProps, defaultTexts, type TConfirmationContext } from '../../types';
 import { ONE_DAY, ONE_MINUTE, useCountdown } from '../../utils';
 import { FatalError, Hint, Initial, TempBlock, TempBlockOver } from '../screens';
 
@@ -119,10 +119,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         onFatalErrorOkButtonClick: handleFatalErrorOkButtonClick,
     };
 
-    const customScreen = useMemo(
-        () => getScreensMap && getScreensMap(confirmationScreens),
-        [getScreensMap],
-    );
+    const customScreen = useMemo(() => getScreensMap?.(confirmationScreens), [getScreensMap]);
 
     const screensMap = customScreen || confirmationScreens;
 

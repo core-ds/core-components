@@ -1,5 +1,5 @@
 const fs = require('fs');
-const glob = require('glob');
+const { glob } = require('tinyglobby');
 const path = require('path');
 const postcss = require('postcss');
 const postcssColorMod = require('postcss-color-mod-function');
@@ -14,7 +14,9 @@ const DASH = '-';
 const colorsDir = path.join(uiPrimitivesPath, 'styles');
 const deprecatedPalettes = ['colors.json', 'colors_indigo.json'];
 
-glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
+(async () => {
+    const files = await glob(path.join(colorsDir, 'colors*.json'), { absolute: true });
+
     files.forEach((pathname) => {
         const colors = requireColors(pathname);
 
@@ -52,7 +54,7 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
                 }
             });
     });
-});
+})();
 
 function buildDarkThemeVars(colors) {
     const mixinsDir = path.resolve(__dirname, '../packages/themes/src/mixins');

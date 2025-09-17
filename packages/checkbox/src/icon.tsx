@@ -1,4 +1,4 @@
-import React, { FC, SVGProps } from 'react';
+import React, { type FC, type SVGProps } from 'react';
 
 export const CheckIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
     <svg width='10' height='8' fill='currentColor' xmlns='http://www.w3.org/2000/svg' {...props}>

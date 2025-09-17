@@ -2,14 +2,14 @@ import React, { forwardRef } from 'react';
 import {
     closestCenter,
     DndContext,
-    DragEndEvent,
-    DragOverEvent,
+    type DragEndEvent,
+    type DragOverEvent,
     DragOverlay,
-    DragStartEvent,
+    type DragStartEvent,
     KeyboardSensor,
     MouseSensor,
     TouchSensor,
-    UniqueIdentifier,
+    type UniqueIdentifier,
     useSensor,
     useSensors,
 } from '@dnd-kit/core';
@@ -20,7 +20,7 @@ import { Portal } from '@alfalab/core-components-portal';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SortableItem } from './components/item/Components';
-import type { Items, SortableItemProps, SortableListProps } from './types';
+import { type Items, type SortableItemProps, type SortableListProps } from './types';
 import { restrictToParentElement, restrictToVerticalAxis } from './utils';
 
 import styles from './index.module.css';

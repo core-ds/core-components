@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { TabListProps } from '../../typings';
+import { type TabListProps } from '../../typings';
 
 import { PrimaryTabListDesktop } from './Component.desktop';
 import { PrimaryTabListMobile } from './Component.mobile';

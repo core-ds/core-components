@@ -15,7 +15,7 @@ import {
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 import kebab from 'lodash/kebabCase';
-import { ScreenshotOpts, EvaluateFn } from './setupScreenshotTesting';
+import { ScreenshotOpts, EvaluateFn } from './types';
 
 type CustomSnapshotIdentifierParams = {
     currentTestName: string;

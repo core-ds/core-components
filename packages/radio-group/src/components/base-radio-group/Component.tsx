@@ -1,15 +1,15 @@
 import React, {
-    AriaAttributes,
-    ChangeEvent,
+    type AriaAttributes,
+    type ChangeEvent,
     Children,
     cloneElement,
-    FocusEvent,
+    type FocusEvent,
     forwardRef,
-    HTMLAttributes,
+    type HTMLAttributes,
     isValidElement,
-    MouseEvent,
-    ReactElement,
-    ReactNode,
+    type MouseEvent,
+    type ReactElement,
+    type ReactNode,
     useState,
 } from 'react';
 import cn from 'classnames';

@@ -143,7 +143,7 @@ describe('Custom component', () => {
             </Link>,
         );
 
-        expect(cb).toBeCalled();
+        expect(cb).toHaveBeenCalled();
 
         const props = cb.mock.calls[0][0];
 
@@ -156,6 +156,6 @@ describe('Render tests', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Link href=''>Link</Link>);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

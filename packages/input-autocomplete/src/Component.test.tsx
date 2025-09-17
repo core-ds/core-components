@@ -297,7 +297,7 @@ describe('InputAutocompleteMobile', () => {
 
             const option = await findByText(options[0].content);
             fireEvent.click(option);
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onApply', async () => {
@@ -307,7 +307,7 @@ describe('InputAutocompleteMobile', () => {
             );
 
             fireEvent.click(getByTestId(dataTestId + '-apply'));
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onCancel', async () => {
@@ -317,7 +317,7 @@ describe('InputAutocompleteMobile', () => {
             );
 
             fireEvent.click(getByTestId(dataTestId + '-clear'));
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onBlur', async () => {
@@ -330,12 +330,12 @@ describe('InputAutocompleteMobile', () => {
             const option = await findByText(options[0].content);
 
             fireEvent.click(option);
-            await waitFor(() => expect(onExited).toBeCalled(), {
+            await waitFor(() => expect(onExited).toHaveBeenCalled(), {
                 timeout: 4000,
             });
             await userEvent.tab();
 
-            expect(onBlur).toBeCalled();
+            expect(onBlur).toHaveBeenCalled();
         });
 
         it('should restore prev value when click cancel ', async () => {
@@ -377,8 +377,8 @@ describe('InputAutocompleteMobile', () => {
             fireEvent.change(input, { target: { value: '123' } });
             fireEvent.click(getByTestId(dataTestId + '-apply'));
 
-            expect(cb).toBeCalledTimes(1);
-            expect(cb).toBeCalledWith('123');
+            expect(cb).toHaveBeenCalledTimes(1);
+            expect(cb).toHaveBeenCalledWith('123');
         });
     });
 
@@ -386,7 +386,7 @@ describe('InputAutocompleteMobile', () => {
         it('should unmount without errors', () => {
             const { unmount } = render(<InputAutocompleteMobileWrapper />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

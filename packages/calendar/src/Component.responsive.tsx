@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { CalendarMobile, CalendarMobileProps } from './components/calendar-mobile';
-import { CalendarDesktop, CalendarDesktopProps } from './desktop';
+import { CalendarMobile, type CalendarMobileProps } from './components/calendar-mobile';
+import { CalendarDesktop, type CalendarDesktopProps } from './desktop';
 
 export type ResponsiveCalendarProps = CalendarDesktopProps &
     CalendarMobileProps & {

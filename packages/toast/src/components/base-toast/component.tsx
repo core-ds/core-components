@@ -1,7 +1,7 @@
 import React, {
     forwardRef,
-    MouseEventHandler,
-    TouchEventHandler,
+    type MouseEventHandler,
+    type TouchEventHandler,
     useCallback,
     useEffect,
     useRef,
@@ -10,14 +10,14 @@ import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { Popover, type PopoverProps } from '@alfalab/core-components-popover';
 import { Portal } from '@alfalab/core-components-portal';
 import { noop } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 import {
-    ToastPlate as ToastPlateComponent,
-    ToastPlateProps,
+    type ToastPlate as ToastPlateComponent,
+    type ToastPlateProps,
 } from '@alfalab/core-components-toast-plate';
 import { useClickOutside, usePrevious } from '@alfalab/hooks';
 

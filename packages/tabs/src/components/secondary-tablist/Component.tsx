@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import { useTabs } from '../../hooks/use-tabs';
-import { PlatformProps, SecondaryTabListProps, Styles } from '../../typings';
+import { type PlatformProps, type SecondaryTabListProps, type Styles } from '../../typings';
 import { ScrollableContainer } from '../scrollable-container';
 
 function getBorderRadius(

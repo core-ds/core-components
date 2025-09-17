@@ -1,15 +1,15 @@
 import React, {
-    AriaAttributes,
+    type AriaAttributes,
     Children,
     forwardRef,
-    HTMLAttributes,
+    type HTMLAttributes,
     isValidElement,
-    ReactNode,
+    type ReactNode,
 } from 'react';
 import cn from 'classnames';
 
 import Item from './Item';
-import { Align, Direction, Size } from './utils';
+import { type Align, type Direction, type Size } from './utils';
 
 import styles from './index.module.css';
 

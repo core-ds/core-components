@@ -1,6 +1,8 @@
 @define-mixin exit-active {
     opacity: 0;
-    transition: opacity 200ms ease-out, transform 200ms ease-out;
+    transition:
+        opacity 200ms ease-out,
+        transform 200ms ease-out;
 }
 
 .enterRight {
@@ -16,7 +18,9 @@
 .enterActive {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 200ms ease-in, transform 200ms ease-in;
+    transition:
+        opacity 200ms ease-in,
+        transform 200ms ease-in;
 }
 
 .exit {

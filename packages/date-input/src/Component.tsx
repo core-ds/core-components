@@ -1,7 +1,14 @@
-import React, { ChangeEvent, FocusEvent, forwardRef, useEffect, useRef, useState } from 'react';
+import React, {
+    type ChangeEvent,
+    type FocusEvent,
+    forwardRef,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { Input, type InputProps } from '@alfalab/core-components-input';
 
 import {
     format,

@@ -1,9 +1,14 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef, useContext } from 'react';
+import React, {
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
+    forwardRef,
+    useContext,
+} from 'react';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import { Button, type ButtonProps } from '@alfalab/core-components-button';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { PureCellContext } from '../../component';
+import { PureCellContext } from '../../context';
 
 import styles from './index.module.css';
 

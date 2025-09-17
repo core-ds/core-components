@@ -11,6 +11,7 @@ declare namespace NodeJS {
 }
 
 interface Window {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-imports
     coreComponentsStore?: import('@alfalab/core-components-global-store/GlobalStore').GlobalStore;
 }
 

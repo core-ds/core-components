@@ -1,5 +1,5 @@
-import { BrushProps } from '../../../types/brush.types';
-import { LegendProps } from '../../../types/legend.types';
+import { type BrushProps } from '../../../types/brush.types';
+import { type LegendProps } from '../../../types/legend.types';
 
 export const setLegendMargin = (brush: BrushProps, legend: LegendProps): number => {
     let top = 0;

@@ -82,7 +82,7 @@ describe('Plate', () => {
         const background = 'red';
         const { container } = render(<Plate view='custom' background={background} />);
 
-        expect(container.firstElementChild).toHaveStyle({ 'background-color': 'red' });
+        expect(container.firstElementChild).toHaveStyle({ 'background-color': 'rgb(255, 0, 0)' });
     });
 
     it('should set `borderColor` style', () => {
@@ -322,7 +322,7 @@ describe('Plate', () => {
 
             fireEvent.click(el);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onToggle` prop', async () => {
@@ -339,7 +339,7 @@ describe('Plate', () => {
 
             fireEvent.click(folderEl);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onClose` prop', async () => {
@@ -354,7 +354,7 @@ describe('Plate', () => {
 
             fireEvent.click(closeEl);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should hide, if clicked on closer', () => {
@@ -373,6 +373,6 @@ describe('Plate', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Plate />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

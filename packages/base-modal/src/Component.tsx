@@ -1,28 +1,28 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, {
-    ComponentType,
+    type ComponentType,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
-    MutableRefObject,
-    ReactNode,
-    Ref,
+    type KeyboardEvent,
+    type MouseEvent,
+    type MutableRefObject,
+    type ReactNode,
+    type Ref,
     useCallback,
     useEffect,
     useMemo,
     useRef,
     useState,
-    WheelEvent,
+    type WheelEvent,
 } from 'react';
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
-import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
+import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
-import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
-import { Portal, PortalProps } from '@alfalab/core-components-portal';
+import { Backdrop as DefaultBackdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
+import { Portal, type PortalProps } from '@alfalab/core-components-portal';
 import { browser, os } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';

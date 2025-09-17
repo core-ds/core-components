@@ -1,4 +1,4 @@
-import { useState, WheelEvent } from 'react';
+import { useState, type WheelEvent } from 'react';
 
 export const useModalWheel = (overlay: boolean) => {
     const [wheelDeltaY, setWheelDeltaY] = useState<number>(0);

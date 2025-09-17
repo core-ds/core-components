@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { Popover } from '@alfalab/core-components-popover';
 import {
-    AnyObject,
+    type AnyObject,
     BaseSelect,
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
@@ -10,7 +10,7 @@ import {
 } from '@alfalab/core-components-select/shared';
 
 import { AutocompleteField } from '../autocomplete-field';
-import { InputAutocompleteCommonProps } from '../types';
+import { type InputAutocompleteCommonProps } from '../types';
 
 export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutocompleteCommonProps>(
     (

@@ -1,9 +1,9 @@
 /* eslint-disable complexity, no-param-reassign */
 import React, { useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { conformToMask, TextMaskConfig } from 'text-mask-core';
+import { conformToMask, type TextMaskConfig } from 'text-mask-core';
 
-import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
+import { MaskedInput, type MaskedInputProps } from '@alfalab/core-components-masked-input';
 
 import { checkInsertBefore } from './utils/check-insert-before';
 import { deleteFormatting, deleteMaskChar, getInsertedNumber, setCaretPosition } from './utils';

@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Snapshots tests should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -84,7 +84,7 @@ Object {
 `;
 
 exports[`Snapshots tests should render left slot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -203,7 +203,7 @@ Object {
 `;
 
 exports[`Snapshots tests should render pseudo link snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -286,7 +286,7 @@ Object {
 `;
 
 exports[`Snapshots tests should render right slot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>

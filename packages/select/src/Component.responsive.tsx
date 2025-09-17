@@ -4,7 +4,7 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { SelectDesktop } from './desktop';
 import { SelectMobile } from './mobile';
-import type { SelectFieldProps, SelectProps } from './typings';
+import { type SelectFieldProps, type SelectProps } from './typings';
 
 export const SelectResponsive = forwardRef<
     HTMLDivElement,

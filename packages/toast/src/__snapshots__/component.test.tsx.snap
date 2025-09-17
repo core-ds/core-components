@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Toast Snapshots tests should match snapshot when closed 1`] = `
 <body>
@@ -58,7 +58,7 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
       data-popper-escaped="true"
       data-popper-placement="left"
       data-popper-reference-hidden="true"
-      style="z-index: 1000; width: 0px; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(0px, 0px);"
+      style="z-index: 1000; width: 0px; position: absolute; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(0px, 0px);"
     >
       <div
         class="inner popoverInner"
@@ -116,7 +116,7 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
       data-popper-escaped="true"
       data-popper-placement="left"
       data-popper-reference-hidden="true"
-      style="z-index: 1000; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(0px, 0px);"
+      style="z-index: 1000; position: absolute; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(0px, 0px);"
     >
       <div
         class="inner popoverInner"

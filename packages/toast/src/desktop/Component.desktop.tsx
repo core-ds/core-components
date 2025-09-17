@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { ToastPlateDesktop } from '@alfalab/core-components-toast-plate/desktop';
 
-import { BaseToast, BaseToastProps } from '../components/base-toast';
+import { BaseToast, type BaseToastProps } from '../components/base-toast';
 
 export type ToastDesktopProps = Omit<BaseToastProps, 'bottomButtonPosition' | 'breakpoint'>;
 

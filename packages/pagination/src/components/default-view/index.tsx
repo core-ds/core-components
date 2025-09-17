@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import React, { FC, useCallback } from 'react';
+import React, { type FC, useCallback } from 'react';
 
-import { PaginationProps } from '../../Component';
+import { type PaginationProps } from '../../Component';
 import { Tag } from '../tag';
 
 import styles from './index.module.css';

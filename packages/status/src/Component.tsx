@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 import cn from 'classnames';
 
-import { COLORS, SIZES } from './consts';
+import { type COLORS, type SIZES } from './consts';
 
 import styles from './index.module.css';
 

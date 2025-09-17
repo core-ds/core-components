@@ -1,7 +1,7 @@
 import React, {
-    FC,
-    KeyboardEventHandler,
-    MouseEventHandler,
+    type FC,
+    type KeyboardEventHandler,
+    type MouseEventHandler,
     useContext,
     useEffect,
     useRef,
@@ -18,7 +18,7 @@ import {
     PREVIEW_WIDTH_MOBILE,
 } from '../../constants';
 import { GalleryContext } from '../../context';
-import { GalleryImage } from '../../types';
+import { type GalleryImage } from '../../types';
 import { getImageAlt, isVideo } from '../../utils';
 
 import { NoImagePaths } from './paths';

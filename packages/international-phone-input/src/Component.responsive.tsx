@@ -4,7 +4,7 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { InternationalPhoneInputDesktop } from './desktop';
 import { InternationalPhoneInputMobile } from './mobile';
-import type { InternationalPhoneInputProps } from './types';
+import { type InternationalPhoneInputProps } from './types';
 
 export const InternationalPhoneInput = forwardRef<HTMLInputElement, InternationalPhoneInputProps>(
     (

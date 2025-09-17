@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { ConfirmationDesktop } from './desktop';
 import { ConfirmationMobile } from './mobile';
-import { ConfirmationProps } from './types';
+import { type ConfirmationProps } from './types';
 
 export type ResponsiveConfirmationProps = Omit<
     ConfirmationProps,

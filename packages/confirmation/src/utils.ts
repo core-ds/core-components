@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { ConfirmationProps } from './types';
+import { type ConfirmationProps } from './types';
 
 /**
  * Форматирование миллисекунд в hh:mm:ss.

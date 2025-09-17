@@ -5,7 +5,7 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 import { browser, os } from '@alfalab/core-components-shared';
 
 import { useModalWheel } from '../../hooks/useModalWheel';
-import type { UniversalModalDesktopProps } from '../../types/props';
+import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
 import { getMarginStyles } from '../../utils/get-margin-styles';

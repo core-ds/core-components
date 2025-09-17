@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { BaseCodeInput } from '../components/base-code-input';
-import { BaseCodeInputProps, CustomInputRef } from '../typings';
+import { type BaseCodeInputProps, type CustomInputRef } from '../typings';
 
 import styles from './mobile.module.css';
 

@@ -1,10 +1,10 @@
-import React, { FC, ReactElement, useCallback, useEffect, useRef } from 'react';
+import React, { type FC, type ReactElement, useCallback, useEffect, useRef } from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
-import { SegmentProps } from './components';
-import { ContextType, SegmentedControlContext } from './context';
-import { IDType } from './typing';
+import { type SegmentProps } from './components';
+import { type ContextType, SegmentedControlContext } from './context';
+import { type IDType } from './typing';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';

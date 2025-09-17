@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { HeaderDesktop, HeaderDesktopProps } from '../desktop/Component.desktop';
-import { HeaderMobile, HeaderMobileProps } from '../mobile/Component.mobile';
+import { HeaderDesktop, type HeaderDesktopProps } from '../desktop/Component.desktop';
+import { HeaderMobile, type HeaderMobileProps } from '../mobile/Component.mobile';
 
 export interface HeaderResponsiveProps extends HeaderDesktopProps, HeaderMobileProps {}
 

@@ -18,8 +18,7 @@
 }
 
 @each $breakpoint in mobile, mobile-xs, mobile-s, mobile-m, mobile-l, tablet, tablet-s, tablet-m,
-    desktop, desktop-s, desktop-m, desktop-l, desktop-xl
-{
+    desktop, desktop-s, desktop-m, desktop-l, desktop-xl {
     @media (--$(breakpoint)) {
         @for $i from 8 to 24 by 8 {
             .row.gutter-$(breakpoint)-$(i) {

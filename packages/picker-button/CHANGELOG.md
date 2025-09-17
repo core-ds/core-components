@@ -1,5 +1,12 @@
 # @alfalab/core-components-picker-button
 
+## 12.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.1.0
+
 ## 12.0.1
 
 ### Patch Changes
@@ -8,13 +15,13 @@
 
 #### [#1820](https://github.com/core-ds/core-components/pull/1820)
 
--   Обновлены `@alfalab/icons-*` пакеты
+- Обновлены `@alfalab/icons-*` пакеты
 
--   Обновлены зависимости
-    -   @alfalab/core-components-select@18.0.1
-    -   @alfalab/core-components-popover@7.1.0
-    -   @alfalab/core-components-button@12.0.1
-    -   @alfalab/core-components-mq@5.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.0.1
+    - @alfalab/core-components-popover@7.1.0
+    - @alfalab/core-components-button@12.0.1
+    - @alfalab/core-components-mq@5.0.1
 
 ## 12.0.0
 
@@ -32,11 +39,11 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-button@12.0.0
-    -   @alfalab/core-components-mq@5.0.0
-    -   @alfalab/core-components-popover@7.0.0
-    -   @alfalab/core-components-select@18.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.0.0
+    - @alfalab/core-components-mq@5.0.0
+    - @alfalab/core-components-popover@7.0.0
+    - @alfalab/core-components-select@18.0.0
 
 ## 11.13.0
 
@@ -46,178 +53,178 @@
 
 ### [#1764](https://github.com/core-ds/core-components/pull/1764)
 
--   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
--   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+- Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+- Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.24.0
+- Обновлены зависимости
+    - select@17.24.0
 
 ## 11.12.33
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.23.0
-    -   popover@6.4.0
+- Обновлены зависимости
+    - select@17.23.0
+    - popover@6.4.0
 
 ## 11.12.32
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.22.0
+- Обновлены зависимости
+    - select@17.22.0
 
 ## 11.12.31
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.21.5
+- Обновлены зависимости
+    - select@17.21.5
 
 ## 11.12.30
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.21.4
-    -   shared@0.18.0
-    -   button@11.11.10
-    -   popover@6.3.11
+- Обновлены зависимости
+    - select@17.21.4
+    - shared@0.18.0
+    - button@11.11.10
+    - popover@6.3.11
 
 ## 11.12.29
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.21.3
+- Обновлены зависимости
+    - select@17.21.3
 
 ## 11.12.28
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
-    -   button@11.11.9
-    -   select@17.21.2
-    -   popover@6.3.10
+- Обновлены зависимости
+    - shared@0.17.1
+    - button@11.11.9
+    - select@17.21.2
+    - popover@6.3.10
 
 ## 11.12.27
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.21.1
+- Обновлены зависимости
+    - select@17.21.1
 
 ## 11.12.26
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.21.0
+- Обновлены зависимости
+    - select@17.21.0
 
 ## 11.12.25
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
-    -   button@11.11.8
-    -   select@17.20.14
-    -   popover@6.3.9
+- Обновлены зависимости
+    - shared@0.17.0
+    - button@11.11.8
+    - select@17.20.14
+    - popover@6.3.9
 
 ## 11.12.24
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.13
+- Обновлены зависимости
+    - select@17.20.13
 
 ## 11.12.23
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.12
+- Обновлены зависимости
+    - select@17.20.12
 
 ## 11.12.22
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.11.7
-    -   select@17.20.11
+- Обновлены зависимости
+    - button@11.11.7
+    - select@17.20.11
 
 ## 11.12.21
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.10
+- Обновлены зависимости
+    - select@17.20.10
 
 ## 11.12.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.9
+- Обновлены зависимости
+    - select@17.20.9
 
 ## 11.12.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.8
-    -   button@11.11.6
+- Обновлены зависимости
+    - select@17.20.8
+    - button@11.11.6
 
 ## 11.12.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.7
+- Обновлены зависимости
+    - select@17.20.7
 
 ## 11.12.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.16.0
-    -   select@17.20.6
-    -   button@11.11.5
-    -   popover@6.3.8
+- Обновлены зависимости
+    - shared@0.16.0
+    - select@17.20.6
+    - button@11.11.5
+    - popover@6.3.8
 
 ## 11.12.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.5
+- Обновлены зависимости
+    - select@17.20.5
 
 ## 11.12.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.4
+- Обновлены зависимости
+    - select@17.20.4
 
 ## 11.12.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.3
-    -   shared@0.15.0
-    -   button@11.11.4
-    -   popover@6.3.7
+- Обновлены зависимости
+    - select@17.20.3
+    - shared@0.15.0
+    - button@11.11.4
+    - popover@6.3.7
 
 ## 11.12.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.2
+- Обновлены зависимости
+    - select@17.20.2
 
 ## 11.12.12
 
@@ -227,17 +234,17 @@
 
 ### [#1532](https://github.com/core-ds/core-components/pull/1532)
 
--   Убрана передача невалидных пропсов в DOM
+- Убрана передача невалидных пропсов в DOM
 
--   Обновлены зависимости
-    -   select@17.20.1
+- Обновлены зависимости
+    - select@17.20.1
 
 ## 11.12.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.20.0
+- Обновлены зависимости
+    - select@17.20.0
 
 ## 11.12.10
 
@@ -247,12 +254,12 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   button@11.11.3
-    -   popover@6.3.6
-    -   select@17.19.0
+- Обновлены зависимости
+    - button@11.11.3
+    - popover@6.3.6
+    - select@17.19.0
 
 ## 11.12.9
 
@@ -262,14 +269,14 @@
 
 ### [#1502](https://github.com/core-ds/core-components/pull/1502)
 
--   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+- Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
 
--   Обновлены зависимости
-    -   mq@4.4.1
-    -   select@17.18.1
-    -   popover@6.3.5
-    -   shared@0.14.1
-    -   button@11.11.2
+- Обновлены зависимости
+    - mq@4.4.1
+    - select@17.18.1
+    - popover@6.3.5
+    - shared@0.14.1
+    - button@11.11.2
 
 ## 11.12.8
 
@@ -279,12 +286,12 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   button@11.11.1
-    -   popover@6.3.4
-    -   select@17.18.0
+- Обновлены зависимости
+    - button@11.11.1
+    - popover@6.3.4
+    - select@17.18.0
 
 ## 11.12.7
 
@@ -294,58 +301,58 @@
 
 ### [#1480](https://github.com/core-ds/core-components/pull/1480)
 
--   Добавлено sideEffects: false
+- Добавлено sideEffects: false
 
--   Обновлены зависимости
-    -   button@11.11.0
-    -   select@17.17.5
+- Обновлены зависимости
+    - button@11.11.0
+    - select@17.17.5
 
 ## 11.12.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.17.4
+- Обновлены зависимости
+    - select@17.17.4
 
 ## 11.12.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.4.0
-    -   button@11.10.2
-    -   select@17.17.3
+- Обновлены зависимости
+    - mq@4.4.0
+    - button@11.10.2
+    - select@17.17.3
 
 ## 11.12.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
-    -   button@11.10.1
-    -   select@17.17.2
-    -   popover@6.3.3
+- Обновлены зависимости
+    - shared@0.14.0
+    - button@11.10.1
+    - select@17.17.2
+    - popover@6.3.3
 
 ## 11.12.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.17.1
+- Обновлены зависимости
+    - select@17.17.1
 
 ## 11.12.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.17.0
+- Обновлены зависимости
+    - select@17.17.0
 
 ## 11.12.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.16.1
+- Обновлены зависимости
+    - select@17.16.1
 
 ## 11.12.0
 
@@ -355,48 +362,48 @@
 
 ### [#1387](https://github.com/core-ds/core-components/pull/1387)
 
--   Обновление темы corp
+- Обновление темы corp
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.10.0
-    -   select@17.16.0
+- Обновлены зависимости
+    - button@11.10.0
+    - select@17.16.0
 
 ## 11.11.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.15.2
+- Обновлены зависимости
+    - select@17.15.2
 
 ## 11.11.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.15.1
+- Обновлены зависимости
+    - select@17.15.1
 
 ## 11.11.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.15.0
+- Обновлены зависимости
+    - select@17.15.0
 
 ## 11.11.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.14.2
+- Обновлены зависимости
+    - select@17.14.2
 
 ## 11.11.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.14.1
+- Обновлены зависимости
+    - select@17.14.1
 
 ## 11.11.0
 
@@ -406,15 +413,15 @@
 
 ### [#1213](https://github.com/core-ds/core-components/pull/1213)
 
--   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+- Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.9.0
-    -   select@17.14.0
-    -   shared@0.13.0
-    -   popover@6.3.2
+- Обновлены зависимости
+    - button@11.9.0
+    - select@17.14.0
+    - shared@0.13.0
+    - popover@6.3.2
 
 ## 11.10.0
 
@@ -424,21 +431,21 @@
 
 ### [#1386](https://github.com/core-ds/core-components/pull/1386)
 
--   Откат обновления темизации corp из версии 47.16.0
+- Откат обновления темизации corp из версии 47.16.0
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.8.0
-    -   select@17.13.0
+- Обновлены зависимости
+    - button@11.8.0
+    - select@17.13.0
 
 ## 11.9.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.7.1
-    -   select@17.12.1
+- Обновлены зависимости
+    - button@11.7.1
+    - select@17.12.1
 
 ## 11.9.0
 
@@ -448,7 +455,7 @@
 
 ### [#1360](https://github.com/core-ds/core-components/pull/1360)
 
--   Обновление темы corp
+- Обновление темы corp
 
 ### Patch Changes
 
@@ -456,18 +463,18 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
 <sup><time>13.09.2024</time></sup>
 
 ### [#1368](https://github.com/core-ds/core-components/pull/1368)
 
--   Исправлен расчет высоты списка опций
+- Исправлен расчет высоты списка опций
 
--   Обновлены зависимости
-    -   select@17.12.0
-    -   button@11.7.0
-    -   popover@6.3.1
+- Обновлены зависимости
+    - select@17.12.0
+    - button@11.7.0
+    - popover@6.3.1
 
 ## 11.8.0
 
@@ -477,14 +484,14 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.6.0
-    -   popover@6.3.0
-    -   select@17.11.0
+- Обновлены зависимости
+    - button@11.6.0
+    - popover@6.3.0
+    - select@17.11.0
 
 ## 11.7.18
 
@@ -494,117 +501,117 @@
 
 ### [#1355](https://github.com/core-ds/core-components/pull/1355)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
--   Обновлены зависимости
-    -   select@17.10.1
-    -   button@11.5.5
+- Обновлены зависимости
+    - select@17.10.1
+    - button@11.5.5
 
 ## 11.7.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.10.0
+- Обновлены зависимости
+    - select@17.10.0
 
 ## 11.7.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.9.0
+- Обновлены зависимости
+    - select@17.9.0
 
 ## 11.7.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.5.4
-    -   select@17.8.5
-    -   popover@6.2.5
+- Обновлены зависимости
+    - button@11.5.4
+    - select@17.8.5
+    - popover@6.2.5
 
 ## 11.7.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.8.4
+- Обновлены зависимости
+    - select@17.8.4
 
 ## 11.7.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.8.3
+- Обновлены зависимости
+    - select@17.8.3
 
 ## 11.7.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.8.2
-    -   button@11.5.3
+- Обновлены зависимости
+    - select@17.8.2
+    - button@11.5.3
 
 ## 11.7.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.8.1
-    -   button@11.5.2
+- Обновлены зависимости
+    - select@17.8.1
+    - button@11.5.2
 
 ## 11.7.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.8.0
+- Обновлены зависимости
+    - select@17.8.0
 
 ## 11.7.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   popover@6.2.4
-    -   select@17.7.2
+- Обновлены зависимости
+    - popover@6.2.4
+    - select@17.7.2
 
 ## 11.7.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   popover@6.2.3
-    -   button@11.5.1
-    -   select@17.7.1
+- Обновлены зависимости
+    - popover@6.2.3
+    - button@11.5.1
+    - select@17.7.1
 
 ## 11.7.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.5.0
-    -   select@17.7.0
+- Обновлены зависимости
+    - button@11.5.0
+    - select@17.7.0
 
 ## 11.7.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.6.1
+- Обновлены зависимости
+    - select@17.6.1
 
 ## 11.7.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.6.0
+- Обновлены зависимости
+    - select@17.6.0
 
 ## 11.7.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.5.1
+- Обновлены зависимости
+    - select@17.5.1
 
 ## 11.7.3
 
@@ -614,28 +621,28 @@
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
--   Обновлены зависимости
-    -   button@11.4.5
-    -   popover@6.2.2
-    -   select@17.5.0
+- Обновлены зависимости
+    - button@11.4.5
+    - popover@6.2.2
+    - select@17.5.0
 
 ## 11.7.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.4.4
-    -   select@17.4.5
+- Обновлены зависимости
+    - button@11.4.4
+    - select@17.4.5
 
 ## 11.7.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.4.4
-    -   button@11.4.3
+- Обновлены зависимости
+    - select@17.4.4
+    - button@11.4.3
 
 ## 11.7.0
 
@@ -645,7 +652,7 @@
 
 ### [#1209](https://github.com/core-ds/core-components/pull/1209)
 
--   Добавлено новое свойство icon, которое позволяет передать кастомную иконку при использовании типа кнопки compact
+- Добавлено новое свойство icon, которое позволяет передать кастомную иконку при использовании типа кнопки compact
 
 ### Patch Changes
 
@@ -653,16 +660,16 @@
 
 ### [#1210](https://github.com/core-ds/core-components/pull/1210)
 
--   Изменены типы принимаемых компонентов
+- Изменены типы принимаемых компонентов
 
 <sup><time>24.05.2024</time></sup>
 
 ### [#1212](https://github.com/core-ds/core-components/pull/1212)
 
--   Исправлено предупреждение, которое возникало из-за передачи FormControlComponent в компонент Button
+- Исправлено предупреждение, которое возникало из-за передачи FormControlComponent в компонент Button
 
--   Обновлены зависимости
-    -   select@17.4.3
+- Обновлены зависимости
+    - select@17.4.3
 
 ## 11.6.8
 
@@ -672,62 +679,62 @@
 
 ### [#1197](https://github.com/core-ds/core-components/pull/1197)
 
--   Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
+- Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
 
--   Обновлены зависимости
-    -   select@17.4.2
+- Обновлены зависимости
+    - select@17.4.2
 
 ## 11.6.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.4.2
-    -   select@17.4.1
+- Обновлены зависимости
+    - button@11.4.2
+    - select@17.4.1
 
 ## 11.6.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.4.0
-    -   button@11.4.1
+- Обновлены зависимости
+    - select@17.4.0
+    - button@11.4.1
 
 ## 11.6.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.3.5
+- Обновлены зависимости
+    - select@17.3.5
 
 ## 11.6.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.3.4
-    -   button@11.4.0
+- Обновлены зависимости
+    - select@17.3.4
+    - button@11.4.0
 
 ## 11.6.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.3.3
+- Обновлены зависимости
+    - select@17.3.3
 
 ## 11.6.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.3.2
+- Обновлены зависимости
+    - select@17.3.2
 
 ## 11.6.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.3.1
+- Обновлены зависимости
+    - select@17.3.1
 
 ## 11.6.0
 
@@ -737,43 +744,43 @@
 
 ### [#1021](https://github.com/core-ds/core-components/pull/1021)
 
--   Добавлены новые способы указать размеры - 32, 40, 48, 56, 64, 72. Буквенные значения размеров xxs, xs, s, m, l, xl теперь deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
+- Добавлены новые способы указать размеры - 32, 40, 48, 56, 64, 72. Буквенные значения размеров xxs, xs, s, m, l, xl теперь deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.3.0
-    -   button@11.3.0
+- Обновлены зависимости
+    - select@17.3.0
+    - button@11.3.0
 
 ## 11.5.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.2.1
+- Обновлены зависимости
+    - select@17.2.1
 
 ## 11.5.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.2.0
-    -   select@17.2.0
+- Обновлены зависимости
+    - button@11.2.0
+    - select@17.2.0
 
 ## 11.5.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.1.2
+- Обновлены зависимости
+    - select@17.1.2
 
 ## 11.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.1.1
-    -   button@11.1.1
+- Обновлены зависимости
+    - select@17.1.1
+    - button@11.1.1
 
 ## 11.5.0
 
@@ -781,25 +788,25 @@
 
 ### [#1007](https://github.com/core-ds/core-components/pull/1007)
 
--   Обновлена зависимость @alfalab/icons-glyph
+- Обновлена зависимость @alfalab/icons-glyph
 
 ### Patch Changes
 
 ### [#1001](https://github.com/core-ds/core-components/pull/1001)
 
--   Изменен отступ до аддонов в размерах xxs, xs с 4px до 6px
+- Изменен отступ до аддонов в размерах xxs, xs с 4px до 6px
 
--   Обновлены зависимости
-    -   button@11.1.0
-    -   select@17.1.0
-    -   popover@6.2.1
+- Обновлены зависимости
+    - button@11.1.0
+    - select@17.1.0
+    - popover@6.2.1
 
 ## 11.4.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@17.0.1
+- Обновлены зависимости
+    - select@17.0.1
 
 ## 11.4.0
 
@@ -807,14 +814,14 @@
 
 ### [#966](https://github.com/core-ds/core-components/pull/966)
 
--   В компонентах CustomButton, Link и PickerButton цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+- В компонентах CustomButton, Link и PickerButton цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   popover@6.2.0
-    -   select@17.0.0
-    -   button@11.0.0
+- Обновлены зависимости
+    - popover@6.2.0
+    - select@17.0.0
+    - button@11.0.0
 
 ## 11.3.3
 
@@ -822,26 +829,26 @@
 
 ### [#987](https://github.com/core-ds/core-components/pull/987)
 
--   Немного изменена структура файлов в пакетах для корректной сборки в vite
+- Немного изменена структура файлов в пакетах для корректной сборки в vite
 
--   Обновлены зависимости
-    -   button@10.0.2
-    -   select@16.0.3
+- Обновлены зависимости
+    - button@10.0.2
+    - select@16.0.3
 
 ## 11.3.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@16.0.2
+- Обновлены зависимости
+    - select@16.0.2
 
 ## 11.3.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@10.0.1
-    -   select@16.0.1
+- Обновлены зависимости
+    - button@10.0.1
+    - select@16.0.1
 
 ## 11.3.0
 
@@ -849,13 +856,13 @@
 
 ### [#931](https://github.com/core-ds/core-components/pull/931)
 
--   В компонентах ActionButton, Badge, IconButton, InternationalPhoneInput, PickerButton, Spinner, StepperInput, UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+- В компонентах ActionButton, Badge, IconButton, InternationalPhoneInput, PickerButton, Spinner, StepperInput, UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@16.0.0
-    -   button@10.0.0
+- Обновлены зависимости
+    - select@16.0.0
+    - button@10.0.0
 
 ## 11.2.0
 
@@ -863,27 +870,27 @@
 
 ### [#944](https://github.com/core-ds/core-components/pull/944)
 
--   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+- Добавлен package.json с module полем в mobile, desktop, shared точки входа
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@9.1.0
-    -   select@15.3.0
+- Обновлены зависимости
+    - button@9.1.0
+    - select@15.3.0
 
 ## 11.1.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.2.3
+- Обновлены зависимости
+    - select@15.2.3
 
 ## 11.1.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.2.2
+- Обновлены зависимости
+    - select@15.2.2
 
 ## 11.1.8
 
@@ -891,62 +898,62 @@
 
 ### [#899](https://github.com/core-ds/core-components/pull/899)
 
--   Из типов удалены применимые только для селекта свойства
+- Из типов удалены применимые только для селекта свойства
 
--   Обновлены зависимости
-    -   select@15.2.1
-    -   button@9.0.6
+- Обновлены зависимости
+    - select@15.2.1
+    - button@9.0.6
 
 ## 11.1.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.2.0
+- Обновлены зависимости
+    - select@15.2.0
 
 ## 11.1.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@9.0.5
-    -   select@15.1.6
+- Обновлены зависимости
+    - button@9.0.5
+    - select@15.1.6
 
 ## 11.1.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.1.5
+- Обновлены зависимости
+    - select@15.1.5
 
 ## 11.1.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.1.4
+- Обновлены зависимости
+    - select@15.1.4
 
 ## 11.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.1.3
+- Обновлены зависимости
+    - select@15.1.3
 
 ## 11.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.1.2
-    -   button@9.0.4
+- Обновлены зависимости
+    - select@15.1.2
+    - button@9.0.4
 
 ## 11.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.1.1
+- Обновлены зависимости
+    - select@15.1.1
 
 ## 11.1.0
 
@@ -954,27 +961,27 @@
 
 ### [#805](https://github.com/core-ds/core-components/pull/805)
 
--   feat(select): добавлена возможность фильтрации пунктов
+- feat(select): добавлена возможность фильтрации пунктов
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.1.0
-    -   button@9.0.3
+- Обновлены зависимости
+    - select@15.1.0
+    - button@9.0.3
 
 ## 11.0.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.0.4
+- Обновлены зависимости
+    - select@15.0.4
 
 ## 11.0.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.0.3
+- Обновлены зависимости
+    - select@15.0.3
 
 ## 11.0.2
 
@@ -982,19 +989,19 @@
 
 ### [#798](https://github.com/core-ds/core-components/pull/798)
 
--   Изменен цвет кнопки с view='link'. Теперь фон будет различаться в зависимости от состояния open
+- Изменен цвет кнопки с view='link'. Теперь фон будет различаться в зависимости от состояния open
 
--   Обновлены зависимости
-    -   button@9.0.2
-    -   select@15.0.2
+- Обновлены зависимости
+    - button@9.0.2
+    - select@15.0.2
 
 ## 11.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.0.1
-    -   button@9.0.1
+- Обновлены зависимости
+    - select@15.0.1
+    - button@9.0.1
 
 ## 11.0.0
 
@@ -1002,26 +1009,26 @@
 
 ### [#711](https://github.com/core-ds/core-components/pull/711)
 
--   Удалена responsive точка входа.
+- Удалена responsive точка входа.
 
 ### Minor Changes
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@15.0.0
-    -   button@9.0.0
+- Обновлены зависимости
+    - select@15.0.0
+    - button@9.0.0
 
 ## 10.3.30
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@14.3.5
+- Обновлены зависимости
+    - select@14.3.5
 
 ## 10.3.29
 
@@ -1029,40 +1036,40 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   button@8.5.1
-    -   select@14.3.4
+- Обновлены зависимости
+    - button@8.5.1
+    - select@14.3.4
 
 ## 10.3.28
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@8.5.0
-    -   select@14.3.3
+- Обновлены зависимости
+    - button@8.5.0
+    - select@14.3.3
 
 ## 10.3.27
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@14.3.2
+- Обновлены зависимости
+    - select@14.3.2
 
 ## 10.3.26
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@14.3.1
+- Обновлены зависимости
+    - select@14.3.1
 
 ## 10.3.25
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@14.3.0
+- Обновлены зависимости
+    - select@14.3.0
 
 ## 10.3.24
 
@@ -1070,11 +1077,11 @@
 
 ### [#680](https://github.com/core-ds/core-components/pull/680)
 
--   Добавлен новый компонент CustomPickerButton
+- Добавлен новый компонент CustomPickerButton
 
--   Обновлены зависимости
-    -   button@8.4.0
-    -   select@14.2.0
+- Обновлены зависимости
+    - button@8.4.0
+    - select@14.2.0
 
 ## 10.3.23
 
@@ -1082,18 +1089,18 @@
 
 ### [#635](https://github.com/core-ds/core-components/pull/635)
 
--   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+- Обновлена версия пакета @alfalab/icons-glyph в зависимостях
 
--   Обновлены зависимости
-    -   select@14.1.2
+- Обновлены зависимости
+    - select@14.1.2
 
 ## 10.3.22
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@8.3.0
-    -   select@14.1.1
+- Обновлены зависимости
+    - button@8.3.0
+    - select@14.1.1
 
 ## 10.3.21
 
@@ -1101,54 +1108,54 @@
 
 ### [#654](https://github.com/core-ds/core-components/pull/654)
 
--   Удалены лишние dependencies, добавлены отсутствующие
+- Удалены лишние dependencies, добавлены отсутствующие
 
--   Обновлены зависимости
-    -   button@8.2.0
-    -   select@14.1.0
+- Обновлены зависимости
+    - button@8.2.0
+    - select@14.1.0
 
 ## 10.3.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@14.0.4
+- Обновлены зависимости
+    - select@14.0.4
 
 ## 10.3.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@8.1.0
-    -   select@14.0.3
+- Обновлены зависимости
+    - button@8.1.0
+    - select@14.0.3
 
 ## 10.3.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@14.0.2
+- Обновлены зависимости
+    - select@14.0.2
 
 ## 10.3.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@14.0.1
+- Обновлены зависимости
+    - select@14.0.1
 
 ## 10.3.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@14.0.0
+- Обновлены зависимости
+    - select@14.0.0
 
 ## 10.3.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.20
+- Обновлены зависимости
+    - select@13.2.20
 
 ## 10.3.14
 
@@ -1156,26 +1163,26 @@
 
 ### [#602](https://github.com/core-ds/core-components/pull/602)
 
--   Небольшое исправление компонента
+- Небольшое исправление компонента
 
 ### [#584](https://github.com/core-ds/core-components/pull/584)
 
--   Удалены хардкод стили выпадающего списка. Теперь стили такие же как и у селекта
+- Удалены хардкод стили выпадающего списка. Теперь стили такие же как и у селекта
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   button@8.0.0
-    -   select@13.2.19
+- Обновлены зависимости
+    - button@8.0.0
+    - select@13.2.19
 
 ## 10.3.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.18
+- Обновлены зависимости
+    - select@13.2.18
 
 ## 10.3.12
 
@@ -1183,39 +1190,39 @@
 
 ### [#557](https://github.com/core-ds/core-components/pull/557)
 
--   Добавлены бордеры у выпадающих меню
+- Добавлены бордеры у выпадающих меню
 
--   Обновлены зависимости
-    -   select@13.2.17
+- Обновлены зависимости
+    - select@13.2.17
 
 ## 10.3.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.16
+- Обновлены зависимости
+    - select@13.2.16
 
 ## 10.3.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.15
+- Обновлены зависимости
+    - select@13.2.15
 
 ## 10.3.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@7.1.1
-    -   select@13.2.14
+- Обновлены зависимости
+    - button@7.1.1
+    - select@13.2.14
 
 ## 10.3.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.13
+- Обновлены зависимости
+    - select@13.2.13
 
 ## 10.3.7
 
@@ -1223,49 +1230,49 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   select@13.2.12
-    -   button@7.1.0
+- Обновлены зависимости
+    - select@13.2.12
+    - button@7.1.0
 
 ## 10.3.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.11
-    -   button@7.0.5
+- Обновлены зависимости
+    - select@13.2.11
+    - button@7.0.5
 
 ## 10.3.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@7.0.4
-    -   select@13.2.10
+- Обновлены зависимости
+    - button@7.0.4
+    - select@13.2.10
 
 ## 10.3.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.9
+- Обновлены зависимости
+    - select@13.2.9
 
 ## 10.3.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.8
+- Обновлены зависимости
+    - select@13.2.8
 
 ## 10.3.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.7
-    -   button@7.0.3
+- Обновлены зависимости
+    - select@13.2.7
+    - button@7.0.3
 
 ## 10.3.1
 
@@ -1273,7 +1280,7 @@
 
 ### [#449](https://github.com/core-ds/core-components/pull/449)
 
--   Убран правый отступ у контейнера аддонов, если нет стрелки действия
+- Убран правый отступ у контейнера аддонов, если нет стрелки действия
 
 ## 10.3.0
 
@@ -1281,12 +1288,12 @@
 
 ### [#431](https://github.com/core-ds/core-components/pull/431)
 
--   Добавленa возможность убирать стрелку через пропс showArrow
+- Добавленa возможность убирать стрелку через пропс showArrow
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.6
+- Обновлены зависимости
+    - select@13.2.6
 
 ## 10.2.2
 
@@ -1294,10 +1301,10 @@
 
 ### [#396](https://github.com/core-ds/core-components/pull/396)
 
--   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+- Обновлена версия пакета @alfalab/icons-glyph в зависимостях
 
--   Обновлены зависимости
-    -   select@13.2.5
+- Обновлены зависимости
+    - select@13.2.5
 
 ## 10.2.1
 
@@ -1305,10 +1312,10 @@
 
 ### [#422](https://github.com/core-ds/core-components/pull/422)
 
--   "export" типов заменен на "export type"
+- "export" типов заменен на "export type"
 
--   Обновлены зависимости
-    -   select@13.2.4
+- Обновлены зависимости
+    - select@13.2.4
 
 ## 10.2.0
 
@@ -1316,27 +1323,27 @@
 
 ### [#334](https://github.com/core-ds/core-components/pull/334)
 
--   В компонентах DateRangeInput, DateTimeInput и CalendarInput добавлены mobile и desktop версии компонентов. Название компонентов было изменено по схеме Component → ComponentDesktop
--   В компонентах Calendar и InputAutocomplete добавлена responsive версия компонентов. Название компонентов было изменено по схеме Component → ComponentResponsive<br />
--   В компонентах PickerButton и Tooltip добавлен новый пропс breakpoint. Название компонентов было изменено по схеме Component -→ ComponentResponsive для PickerButton и Component → ComponentDesktop для Tooltip<br />
--   В компонентах Confirmation и SidePanel добавлен новый пропс breakpoint<br />
+- В компонентах DateRangeInput, DateTimeInput и CalendarInput добавлены mobile и desktop версии компонентов. Название компонентов было изменено по схеме Component → ComponentDesktop
+- В компонентах Calendar и InputAutocomplete добавлена responsive версия компонентов. Название компонентов было изменено по схеме Component → ComponentResponsive<br />
+- В компонентах PickerButton и Tooltip добавлен новый пропс breakpoint. Название компонентов было изменено по схеме Component -→ ComponentResponsive для PickerButton и Component → ComponentDesktop для Tooltip<br />
+- В компонентах Confirmation и SidePanel добавлен новый пропс breakpoint<br />
 
 ### Patch Changes
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   button@7.0.2
-    -   select@13.2.3
+- Обновлены зависимости
+    - button@7.0.2
+    - select@13.2.3
 
 ## 10.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.2
+- Обновлены зависимости
+    - select@13.2.2
 
 ## 10.1.0
 
@@ -1344,40 +1351,40 @@
 
 ### [#370](https://github.com/core-ds/core-components/pull/370)
 
--   feat(picker-button): extend options type
+- feat(picker-button): extend options type
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.1
+- Обновлены зависимости
+    - select@13.2.1
 
 ## 10.0.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.2.0
+- Обновлены зависимости
+    - select@13.2.0
 
 ## 10.0.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.1.2
+- Обновлены зависимости
+    - select@13.1.2
 
 ## 10.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.1.1
+- Обновлены зависимости
+    - select@13.1.1
 
 ## 10.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.1.0
+- Обновлены зависимости
+    - select@13.1.0
 
 ## 10.0.0
 
@@ -1385,20 +1392,20 @@
 
 ### [#344](https://github.com/core-ds/core-components/pull/344)
 
--   При наличии правого аддона, дефолтная иконка кнопки не исчезает
+- При наличии правого аддона, дефолтная иконка кнопки не исчезает
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@7.0.1
-    -   select@13.0.3
+- Обновлены зависимости
+    - button@7.0.1
+    - select@13.0.3
 
 ## 9.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@13.0.2
+- Обновлены зависимости
+    - select@13.0.2
 
 ## 9.0.1
 
@@ -1406,14 +1413,14 @@
 
 ### [#320](https://github.com/core-ds/core-components/pull/320)
 
--   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+- Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
 
 ### [#324](https://github.com/core-ds/core-components/pull/324)
 
--   "export" типов заменен на "export type"
+- "export" типов заменен на "export type"
 
--   Обновлены зависимости
-    -   select@13.0.1
+- Обновлены зависимости
+    - select@13.0.1
 
 ## 9.0.0
 
@@ -1421,28 +1428,28 @@
 
 ### [#292](https://github.com/core-ds/core-components/pull/292)
 
--   Новые стили кнопок в теме default
--   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
--   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
--   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+- Новые стили кнопок в теме default
+- Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+- Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+- Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
 
 ### Patch Changes
 
 ### [#286](https://github.com/core-ds/core-components/pull/286)
 
--   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
--   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+- Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+- Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
 
--   Обновлены зависимости
-    -   button@7.0.0
-    -   select@13.0.0
+- Обновлены зависимости
+    - button@7.0.0
+    - select@13.0.0
 
 ## 8.2.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   select@12.4.7
+- Обновлены зависимости
+    - select@12.4.7
 
 ## 8.2.10
 
@@ -1450,38 +1457,38 @@
 
 ### [#296](https://github.com/core-ds/core-components/pull/296)
 
--   Удалены разделители опций в выпадающем списке для темы "click"
+- Удалены разделители опций в выпадающем списке для темы "click"
 
-*   Обновлены зависимости
-    -   select@12.4.6
+* Обновлены зависимости
+    - select@12.4.6
 
 ## 8.2.9
 
 ### Patch Changes
 
--   Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
-    -   @alfalab/core-components-button@6.1.2
-    -   @alfalab/core-components-select@12.4.5
+- Updated dependencies [[#282](https://github.com/core-ds/core-components/pull/282)]
+    - @alfalab/core-components-button@6.1.2
+    - @alfalab/core-components-select@12.4.5
 
 ## 8.2.8
 
 ### Patch Changes
 
--   [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
-    Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
-    -   @alfalab/core-components-select@12.4.4
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+    - @alfalab/core-components-select@12.4.4
 
 ## 8.2.7
 
 ### Patch Changes
 
--   @alfalab/core-components-select@12.4.3
+- @alfalab/core-components-select@12.4.3
 
 ## 8.2.6
 
 ### Patch Changes
 
--   @alfalab/core-components-select@12.4.2
+- @alfalab/core-components-select@12.4.2
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -1506,13 +1513,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
+- temporary fix for non-existing types ([#237](https://github.com/core-ds/core-components/issues/237)) ([cadb48c](https://github.com/core-ds/core-components/commit/cadb48cdc966690ceb26ed3f6c74f1af2481b6b0))
 
 # [8.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.1.2...@alfalab/core-components-picker-button@8.2.0) (2022-09-01)
 
 ### Features
 
--   testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+- testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
 
 ## [8.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.1.1...@alfalab/core-components-picker-button@8.1.2) (2022-08-31)
 
@@ -1526,24 +1533,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **picker-button:** new component picker-button-mobile ([#193](https://github.com/core-ds/core-components/issues/193)) ([6074d38](https://github.com/core-ds/core-components/commit/6074d38861c28cf796699cb3e6ec6304303c4481))
+- **picker-button:** new component picker-button-mobile ([#193](https://github.com/core-ds/core-components/issues/193)) ([6074d38](https://github.com/core-ds/core-components/commit/6074d38861c28cf796699cb3e6ec6304303c4481))
 
 ## [8.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@8.0.0...@alfalab/core-components-picker-button@8.0.1) (2022-08-19)
 
 ### Bug Fixes
 
--   **picker-button:** increased css specificity ([#190](https://github.com/core-ds/core-components/issues/190)) ([e089871](https://github.com/core-ds/core-components/commit/e08987199825fa5d0dc4b4f1e158849155bb34dc))
+- **picker-button:** increased css specificity ([#190](https://github.com/core-ds/core-components/issues/190)) ([e089871](https://github.com/core-ds/core-components/commit/e08987199825fa5d0dc4b4f1e158849155bb34dc))
 
 # [8.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.4...@alfalab/core-components-picker-button@8.0.0) (2022-08-17)
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -1551,7 +1558,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 ## [7.11.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.11.2...@alfalab/core-components-picker-button@7.11.3) (2022-08-12)
 
@@ -1569,7 +1576,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [7.10.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.10.8...@alfalab/core-components-picker-button@7.10.9) (2022-07-25)
 
@@ -1595,7 +1602,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [7.10.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.10.2...@alfalab/core-components-picker-button@7.10.3) (2022-07-14)
 
@@ -1613,7 +1620,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
+- **select:** add select-modal-mobile ([#47](https://github.com/core-ds/core-components/issues/47)) ([5ec4268](https://github.com/core-ds/core-components/commit/5ec42688065bb279d721541ec21bde242675ab8a))
 
 ## [7.9.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.9.1...@alfalab/core-components-picker-button@7.9.2) (2022-06-30)
 
@@ -1627,7 +1634,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 ## [7.8.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.8.4...@alfalab/core-components-picker-button@7.8.5) (2022-06-24)
 
@@ -1641,7 +1648,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
+- fixed launch storybook in IE ([#52](https://github.com/core-ds/core-components/issues/52)) ([379528b](https://github.com/core-ds/core-components/commit/379528b4ee24183dec38930ea15a31661b994085))
 
 ## [7.8.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.8.1...@alfalab/core-components-picker-button@7.8.2) (2022-06-20)
 
@@ -1655,7 +1662,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
+- **scrollbar:** new component scrollbar ([#48](https://github.com/core-ds/core-components/issues/48)) ([5ea6fa3](https://github.com/core-ds/core-components/commit/5ea6fa352ff943cda8c52e35f9d96da9bea97fa3))
 
 ## [7.7.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.7.3...@alfalab/core-components-picker-button@7.7.4) (2022-06-03)
 
@@ -1677,31 +1684,31 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   move icon from select to picker-button ([#1020](https://github.com/core-ds/core-components/issues/1020)) ([0d23257](https://github.com/core-ds/core-components/commit/0d23257b561329092be551d237389cc06c3d5607))
--   update glyph deps ([#1019](https://github.com/core-ds/core-components/issues/1019)) ([3e910d0](https://github.com/core-ds/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+- move icon from select to picker-button ([#1020](https://github.com/core-ds/core-components/issues/1020)) ([0d23257](https://github.com/core-ds/core-components/commit/0d23257b561329092be551d237389cc06c3d5607))
+- update glyph deps ([#1019](https://github.com/core-ds/core-components/issues/1019)) ([3e910d0](https://github.com/core-ds/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
 
 # [7.6.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.5.0...@alfalab/core-components-picker-button@7.6.0) (2022-03-03)
 
 ### Features
 
--   **picker-button:** added new view and updated dropdown options ([#1013](https://github.com/core-ds/core-components/issues/1013)) ([050fb3e](https://github.com/core-ds/core-components/commit/050fb3eb6fd6dde057bbfcad5dd807d354125b63))
+- **picker-button:** added new view and updated dropdown options ([#1013](https://github.com/core-ds/core-components/issues/1013)) ([050fb3e](https://github.com/core-ds/core-components/commit/050fb3eb6fd6dde057bbfcad5dd807d354125b63))
 
 # [7.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.4.3...@alfalab/core-components-picker-button@7.5.0) (2022-03-01)
 
 ### Bug Fixes
 
--   **picker-button:** fixed type of picker-button size prop ([#1006](https://github.com/core-ds/core-components/issues/1006)) ([38b56c1](https://github.com/core-ds/core-components/commit/38b56c11d45410a258e18d411aa0ce12b8a6c7e4)), closes [#986](https://github.com/core-ds/core-components/issues/986)
--   changed dropdown component's box shadow styles ([#1010](https://github.com/core-ds/core-components/issues/1010)) ([2f997f5](https://github.com/core-ds/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+- **picker-button:** fixed type of picker-button size prop ([#1006](https://github.com/core-ds/core-components/issues/1006)) ([38b56c1](https://github.com/core-ds/core-components/commit/38b56c11d45410a258e18d411aa0ce12b8a6c7e4)), closes [#986](https://github.com/core-ds/core-components/issues/986)
+- changed dropdown component's box shadow styles ([#1010](https://github.com/core-ds/core-components/issues/1010)) ([2f997f5](https://github.com/core-ds/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
 
 ### Features
 
--   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+- Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 ## [7.4.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.4.2...@alfalab/core-components-picker-button@7.4.3) (2022-02-17)
 
 ### Bug Fixes
 
--   imports for glyph icons ([#994](https://github.com/core-ds/core-components/issues/994)) ([8e807f2](https://github.com/core-ds/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+- imports for glyph icons ([#994](https://github.com/core-ds/core-components/issues/994)) ([8e807f2](https://github.com/core-ds/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
 
 ## [7.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.4.1...@alfalab/core-components-picker-button@7.4.2) (2022-02-15)
 
@@ -1715,7 +1722,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **picker-button:** add conditional righAddons prop for custom icon ([#975](https://github.com/core-ds/core-components/issues/975)) ([d2544b7](https://github.com/core-ds/core-components/commit/d2544b74e56deda9cae735e5b3ca6a2d97aef94d))
+- **picker-button:** add conditional righAddons prop for custom icon ([#975](https://github.com/core-ds/core-components/issues/975)) ([d2544b7](https://github.com/core-ds/core-components/commit/d2544b74e56deda9cae735e5b3ca6a2d97aef94d))
 
 ## [7.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.3.0...@alfalab/core-components-picker-button@7.3.1) (2022-02-02)
 
@@ -1725,20 +1732,20 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **picker-button:** gap между picker-button и popover в 8px ([#935](https://github.com/core-ds/core-components/issues/935)) ([9b3aa2b](https://github.com/core-ds/core-components/commit/9b3aa2b70b534d8e571baa62b973e1f67667ac43))
--   **select:** add OptionsListWithApply ([#948](https://github.com/core-ds/core-components/issues/948)) ([d8ef8dd](https://github.com/core-ds/core-components/commit/d8ef8dd257dfc100095c923c4f3e317787ed1877))
+- **picker-button:** gap между picker-button и popover в 8px ([#935](https://github.com/core-ds/core-components/issues/935)) ([9b3aa2b](https://github.com/core-ds/core-components/commit/9b3aa2b70b534d8e571baa62b973e1f67667ac43))
+- **select:** add OptionsListWithApply ([#948](https://github.com/core-ds/core-components/issues/948)) ([d8ef8dd](https://github.com/core-ds/core-components/commit/d8ef8dd257dfc100095c923c4f3e317787ed1877))
 
 # [7.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.1.4...@alfalab/core-components-picker-button@7.2.0) (2021-12-29)
 
 ### Features
 
--   **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/core-ds/core-components/issues/903)) ([f5638ef](https://github.com/core-ds/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
+- **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/core-ds/core-components/issues/903)) ([f5638ef](https://github.com/core-ds/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
 
 ## [7.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.1.3...@alfalab/core-components-picker-button@7.1.4) (2021-12-14)
 
 ### Bug Fixes
 
--   **picker-button:** wrap field with div ([b51bce8](https://github.com/core-ds/core-components/commit/b51bce85b39583e7bb1107f56c6e64a6f2b96d5c)), closes [#914](https://github.com/core-ds/core-components/issues/914)
+- **picker-button:** wrap field with div ([b51bce8](https://github.com/core-ds/core-components/commit/b51bce85b39583e7bb1107f56c6e64a6f2b96d5c)), closes [#914](https://github.com/core-ds/core-components/issues/914)
 
 ## [7.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@7.1.2...@alfalab/core-components-picker-button@7.1.3) (2021-12-08)
 
@@ -1756,42 +1763,42 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/core-ds/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/core-ds/core-components/issues/758)
+- **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/core-ds/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/core-ds/core-components/issues/758)
 
 # [7.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@6.2.5...@alfalab/core-components-picker-button@7.0.0) (2021-11-26)
 
 ### Features
 
--   **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
+- **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
 
 ### BREAKING CHANGES
 
--   **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-    заменить размер на xxs. Можно воспользоваться codemod.
+- **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+  заменить размер на xxs. Можно воспользоваться codemod.
 
--   feat(codemod): add button xs to xxs transformer
+- feat(codemod): add button xs to xxs transformer
 
--   feat(tag): добавлен тэг размера 40px, изменены отступы
+- feat(tag): добавлен тэг размера 40px, изменены отступы
 
 Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
 на xxs.
 
--   **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-    заменить размер на xxs. Можно воспользоваться codemod.
+- **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+  заменить размер на xxs. Можно воспользоваться codemod.
 
--   test: update screenshots
+- test: update screenshots
 
--   test: update screenshots
+- test: update screenshots
 
--   feat(button): linter fix
+- feat(button): linter fix
 
--   feat(button): fix min-width
+- feat(button): fix min-width
 
--   feat(tag): remove vertical paddings
+- feat(tag): remove vertical paddings
 
--   feat(tag): remove vertical paddings
+- feat(tag): remove vertical paddings
 
--   feat(button): updates
+- feat(button): updates
 
 ## [6.2.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@6.2.4...@alfalab/core-components-picker-button@6.2.5) (2021-11-16)
 
@@ -1817,7 +1824,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **select:** controlled open ([#839](https://github.com/core-ds/core-components/issues/839)) ([95d0470](https://github.com/core-ds/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
+- **select:** controlled open ([#839](https://github.com/core-ds/core-components/issues/839)) ([95d0470](https://github.com/core-ds/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
 
 ## [6.1.12](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@6.1.11...@alfalab/core-components-picker-button@6.1.12) (2021-09-14)
 
@@ -1871,13 +1878,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **select:** dont highlight first option on open ([015a084](https://github.com/core-ds/core-components/commit/015a084be6e5d837b6368afe6ca63a0a4c325435))
+- **select:** dont highlight first option on open ([015a084](https://github.com/core-ds/core-components/commit/015a084be6e5d837b6368afe6ca63a0a4c325435))
 
 # [6.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@5.0.5...@alfalab/core-components-picker-button@6.0.0) (2021-07-08)
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [5.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@5.0.4...@alfalab/core-components-picker-button@5.0.5) (2021-06-28)
 
@@ -1891,7 +1898,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   **select:** fix top bottom paddings ([#683](https://github.com/core-ds/core-components/issues/683)) ([866bc3b](https://github.com/core-ds/core-components/commit/866bc3bee9428f0f67f443b3be0ae23342213b0d))
+- **select:** fix top bottom paddings ([#683](https://github.com/core-ds/core-components/issues/683)) ([866bc3b](https://github.com/core-ds/core-components/commit/866bc3bee9428f0f67f443b3be0ae23342213b0d))
 
 ## [5.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@5.0.1...@alfalab/core-components-picker-button@5.0.2) (2021-06-04)
 
@@ -1905,11 +1912,11 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **button:** add inverted ([#649](https://github.com/core-ds/core-components/issues/649)) ([be321b0](https://github.com/core-ds/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/core-ds/core-components/issues/658) [#657](https://github.com/core-ds/core-components/issues/657)
+- **button:** add inverted ([#649](https://github.com/core-ds/core-components/issues/649)) ([be321b0](https://github.com/core-ds/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/core-ds/core-components/issues/658) [#657](https://github.com/core-ds/core-components/issues/657)
 
 ### BREAKING CHANGES
 
--   **button:** remove inverted themes
+- **button:** remove inverted themes
 
 ## [4.0.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@4.0.3...@alfalab/core-components-picker-button@4.0.4) (2021-05-25)
 
@@ -1931,67 +1938,67 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **stack:** add new component ([#612](https://github.com/core-ds/core-components/issues/612)) ([c520f91](https://github.com/core-ds/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
+- **stack:** add new component ([#612](https://github.com/core-ds/core-components/issues/612)) ([c520f91](https://github.com/core-ds/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
 
 ### BREAKING CHANGES
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(modal): remove z-index, add stack component
-
-remove z-index, add stack component
-
--   **stack:** remove z-index, add stack component
-
--   feat(notification-manager): remove z-index, add stack component
+- feat(modal): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(notification): remove z-index, add stack component
-
-remove z-index, add stack component
-
--   **stack:** remove z-index, add stack component
-
--   feat(popover): remove z-index, add stack component
+- feat(notification-manager): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(select): remove z-index, add stack component
-
-remove z-index, add stack component
-
--   **stack:** remove z-index, add stack component
-
--   feat(toast): remove z-index, add stack component
+- feat(notification): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(tooltip): remove z-index, add stack component
+- feat(popover): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(stack): fix comment
+- feat(select): remove z-index, add stack component
 
--   Revert "feat(modal): remove z-index, add stack component"
+remove z-index, add stack component
+
+- **stack:** remove z-index, add stack component
+
+- feat(toast): remove z-index, add stack component
+
+remove z-index, add stack component
+
+- **stack:** remove z-index, add stack component
+
+- feat(tooltip): remove z-index, add stack component
+
+remove z-index, add stack component
+
+- **stack:** remove z-index, add stack component
+
+- feat(stack): fix comment
+
+- Revert "feat(modal): remove z-index, add stack component"
 
 This reverts commit fcae901c6ec58311701cd491296a7b04016a9a65.
 
--   feat(base-modal): remove z-index, add stack component
+- feat(base-modal): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   test(file-upload-item): update snapshot
+- test(file-upload-item): update snapshot
 
 ## [3.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@3.3.1...@alfalab/core-components-picker-button@3.3.2) (2021-04-26)
 
@@ -2005,11 +2012,11 @@ remove z-index, add stack component
 
 ### Bug Fixes
 
--   **select:** options list width calc ([5294af7](https://github.com/core-ds/core-components/commit/5294af78ef61b50edde42ed255e66e6ea004c0fd))
+- **select:** options list width calc ([5294af7](https://github.com/core-ds/core-components/commit/5294af78ef61b50edde42ed255e66e6ea004c0fd))
 
 ### Features
 
--   **vars:** fresh colors ([10907ec](https://github.com/core-ds/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+- **vars:** fresh colors ([10907ec](https://github.com/core-ds/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
 
 ## [3.2.22](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@3.2.21...@alfalab/core-components-picker-button@3.2.22) (2021-04-01)
 
@@ -2035,13 +2042,13 @@ remove z-index, add stack component
 
 ### Bug Fixes
 
--   one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+- one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 ## [3.2.15](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@3.2.13...@alfalab/core-components-picker-button@3.2.15) (2021-03-16)
 
 ### Bug Fixes
 
--   border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+- border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
 
 ## [3.2.13](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@3.2.12...@alfalab/core-components-picker-button@3.2.13) (2021-03-15)
 
@@ -2051,13 +2058,13 @@ remove z-index, add stack component
 
 ### Bug Fixes
 
--   **button:** set type button by default ([#564](https://github.com/core-ds/core-components/issues/564)) ([59fdefd](https://github.com/core-ds/core-components/commit/59fdefd4f37fbe589840aa8944d88bde5b8cda6e))
+- **button:** set type button by default ([#564](https://github.com/core-ds/core-components/issues/564)) ([59fdefd](https://github.com/core-ds/core-components/commit/59fdefd4f37fbe589840aa8944d88bde5b8cda6e))
 
 ## [3.2.11](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@3.2.10...@alfalab/core-components-picker-button@3.2.11) (2021-03-11)
 
 ### Bug Fixes
 
--   **toast:** remove extra timer clearing ([#559](https://github.com/core-ds/core-components/issues/559)) ([ae5d811](https://github.com/core-ds/core-components/commit/ae5d81169d4db0427ae5baf0bffd784adee184ee))
+- **toast:** remove extra timer clearing ([#559](https://github.com/core-ds/core-components/issues/559)) ([ae5d811](https://github.com/core-ds/core-components/commit/ae5d81169d4db0427ae5baf0bffd784adee184ee))
 
 ## [3.2.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@3.2.9...@alfalab/core-components-picker-button@3.2.10) (2021-03-10)
 
@@ -2103,7 +2110,7 @@ remove z-index, add stack component
 
 ### Features
 
--   **select:** add visible-options ([#506](https://github.com/core-ds/core-components/issues/506)) ([0154866](https://github.com/core-ds/core-components/commit/0154866bb8fc8308945d32f115b3ab1e46f98db6))
+- **select:** add visible-options ([#506](https://github.com/core-ds/core-components/issues/506)) ([0154866](https://github.com/core-ds/core-components/commit/0154866bb8fc8308945d32f115b3ab1e46f98db6))
 
 ## [3.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-picker-button@3.1.0...@alfalab/core-components-picker-button@3.1.1) (2021-02-18)
 

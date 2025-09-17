@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import { DateInputProps } from '@alfalab/core-components-date-input';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { CalendarInputProps } from './components/calendar-input/Component';
+import { type CalendarInputProps } from './components/calendar-input/Component';
 import { CalendarInputDesktop } from './desktop';
 import { CalendarInputMobile } from './mobile';
 

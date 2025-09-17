@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { TagDesktop as CoreTag } from '@alfalab/core-components-tag/desktop';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 
-import { TagComponent } from '../../types';
+import { type TagComponent } from '../../types';
 
 import styles from './index.module.css';
 

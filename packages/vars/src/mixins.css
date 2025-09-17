@@ -74,8 +74,7 @@
 @define-mixin bg-class-list {
     @each $backgroundColorBg in accent, info, attention-muted, positive-muted, negative-muted,
         primary, primary-inverted, secondary, secondary-inverted, tertiary, tertiary-inverted,
-        quaternary, quaternary-inverted
-    {
+        quaternary, quaternary-inverted {
         .background-$(backgroundColorBg) {
             background-color: var(--color-light-bg-$(backgroundColorBg));
         }
@@ -84,8 +83,7 @@
     @each $backgroundColor in specialbg-component, specialbg-component-inverted,
         specialbg-primary-grouped, specialbg-secondary-grouped, specialbg-tertiary-grouped,
         specialbg-secondary-transparent, specialbg-secondary-transparent-inverted,
-        specialbg-tertiary-transparent, specialbg-tertiary-transparent-inverted
-    {
+        specialbg-tertiary-transparent, specialbg-tertiary-transparent-inverted {
         .background-$(backgroundColor) {
             background-color: var(--color-light-$(backgroundColor));
         }

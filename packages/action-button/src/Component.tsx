@@ -1,6 +1,6 @@
 import React, {
-    AnchorHTMLAttributes,
-    ButtonHTMLAttributes,
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
     forwardRef,
     Fragment,
     useRef,
