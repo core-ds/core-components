@@ -81,7 +81,7 @@ render(() => {
                     >
                        Код длинной 6 знаков
                     </Button>
-                    <Gap size='m' />
+                    <Gap size={16} />
                     <Button
                         block
                         onClick={() => {
@@ -99,8 +99,8 @@ render(() => {
     if (screen === SCREENS.SUCCESS) {
         return (
             <div style={{ display: 'flex', flexFlow: 'column nowrap', height: 600 }}>
-                <Gap size='xl' />
-                <Gap size='8xl' />
+                <Gap size={24} />
+                <Gap size={128} />
                 <div
                     style={{
                         display: 'flex',
@@ -118,7 +118,7 @@ render(() => {
                             <CheckmarkMIcon style={{ fill: '#fff' }} />
                         </SuperEllipse>
 
-                        <Gap size='m' />
+                        <Gap size={16} />
 
                         <Typography.Title view='small' font='system'>
                             Введён корректный пароль

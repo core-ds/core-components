@@ -13,7 +13,7 @@
         size={isMobile() ? 48 : 56}
         breakpoint={BREAKPOINT}
     />
-    <Gap size='m' />
+    <Gap size={16} />
     <Input
         placeholder='Введите email'
         block={true}
@@ -46,11 +46,11 @@ render(() => {
                     error={error}
                 />
             </div>
-            <Gap size='xl' />
+            <Gap size={24} />
             <Button size={32} view='secondary' onClick={() => setError(false)}>
                 По умолчанию
             </Button>
-            <Gap size='s' direction='horizontal' />
+            <Gap size={12} direction='horizontal' />
             <Button size={32} view='secondary' onClick={() => setError('Error message')}>
                 Состояние ошибки
             </Button>
@@ -81,7 +81,7 @@ render(() => {
                     {...inputProps}
                 />
             </div>
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <Space direction='horizontal' wrap={true}>
                 <Button size={32} view='secondary' onClick={() => setInputProps({})}>
@@ -297,7 +297,7 @@ render(() => {
                     />
                 }
             />
-            <Gap size='l' />
+            <Gap size={20} />
             <Input
                 value={valueTwo}
                 block={true}

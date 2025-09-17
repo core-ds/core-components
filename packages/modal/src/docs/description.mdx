@@ -323,7 +323,7 @@ render(() => {
                 Показать модалку
             </Button>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <RadioGroup onChange={handleSizeChange} value={size} label='Размер модалки'>
                 {SIZES.map((item) => (
@@ -331,7 +331,7 @@ render(() => {
                 ))}
             </RadioGroup>
 
-            <Gap size='3xl' />
+            <Gap size={40} />
 
             <CheckboxGroup label='Настройки шапки' onChange={handleHeaderSettingsChange}>
                 {HEADER_SETTINGS.map((item) => (
@@ -345,7 +345,7 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <CheckboxGroup
                 label='Примеры наполнения контентной части'
@@ -359,7 +359,7 @@ render(() => {
                 />
             </CheckboxGroup>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>
                 {FOOTER_SETTINGS.map((item) => (
@@ -392,7 +392,7 @@ render(() => {
                             <Typography.Title view='medium' tag='h3' font='system'>
                                 {`Почему банк проверяет мои операции?`}
                             </Typography.Title>
-                            <Gap size='m' />
+                            <Gap size={16} />
                         </>
                     ) : undefined}
                     <Text />
@@ -556,7 +556,7 @@ render(() => {
                 Показать модалку
             </Button>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки шапки</p>
 
@@ -569,7 +569,7 @@ render(() => {
                 Option={BaseOption}
             />
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <CheckboxGroup onChange={handleHeaderSettingsChange}>
                 {HEADER_SETTINGS.map((item) => (
@@ -583,7 +583,7 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <CheckboxGroup
                 label='Примеры наполнения контентной части'
@@ -597,7 +597,7 @@ render(() => {
                 />
             </CheckboxGroup>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки футера</p>
 
@@ -610,7 +610,7 @@ render(() => {
                 Option={BaseOption}
             />
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>
                 {FOOTER_SETTINGS.map((item) => (
@@ -675,7 +675,7 @@ render(() => {
                             <Typography.Title view='xsmall' tag='div' font='system'>
                                 {`Почему банк проверяет мои операции?`}
                             </Typography.Title>
-                            <Gap size='m' />
+                            <Gap size={16} />
                         </>
                     ) : undefined}
 

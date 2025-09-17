@@ -19,7 +19,7 @@ render(() => {
                 hint='Бесплатно без СМС'
                 onChange={() => setChecked1((prevState) => !prevState)}
             />
-            <Gap size='xl' />
+            <Gap size={24} />
             <Switch
                 block={true}
                 reversed={true}
@@ -42,11 +42,11 @@ render(() => {
     return (
         <>
             <Switch checked={true} label='Выбран' />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch checked={true} label='Выбран и недоступен' disabled={true} />
-            <Gap size='xl' />
+            <Gap size={24} />
             <Switch checked={false} label='По умолчанию' />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch checked={false} label='По умолчанию и недоступен' disabled={true} />
         </>
     );
