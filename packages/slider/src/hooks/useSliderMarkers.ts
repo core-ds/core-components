@@ -1,7 +1,7 @@
-import { MutableRefObject, useCallback, useEffect } from 'react';
-import { API } from 'nouislider';
+import { type MutableRefObject, useCallback, useEffect } from 'react';
+import { type API } from 'nouislider';
 
-import { SliderProps } from '../Component';
+import { type SliderProps } from '../types';
 import { getMarkerValue, isMarkerCurrent, isMarkerPassed, updateMarkerAttributes } from '../utils';
 
 export type SliderRef = MutableRefObject<(HTMLDivElement & { noUiSlider: API }) | null>;

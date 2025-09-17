@@ -1,16 +1,15 @@
 import { createPipsConfig } from './createPipsConfig';
 
-// todo: после upgrade jest до 27+ переписать на it.each и $description
 describe('Unit/utils/function/createPipsConfig', () => {
     describe('Success cases', () => {
-        const successCases = [
+        it.each([
             {
                 description: 'Should create step pips config with default parameters',
                 input: {
                     min: 0,
                     max: 100,
                     step: 10,
-                    dotsSlider: 'step' as const,
+                    dotsSlider: 'step',
                     showNumbers: true,
                 },
                 expected: {
@@ -24,7 +23,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     min: 0,
                     max: 50,
                     step: 5,
-                    dotsSlider: 'custom' as const,
+                    dotsSlider: 'custom',
                     customDots: [10, 25, 40],
                     showNumbers: true,
                 },
@@ -35,41 +34,39 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     format: expect.any(Object),
                 },
             },
-            // {
-            //     description: 'Should merge pips and custom dots when both provided',
-            //     input: {
-            //         min: 0,
-            //         max: 100,
-            //         step: 10,
-            //         dotsSlider: 'step' as const,
-            //         showNumbers: true,
-            //         hideCustomDotsNumbers: false,
-            //         pips: { mode: 'values', values: [0, 25, 50, 75, 100] } as any,
-            //         customDots: [10, 30, 60, 90],
-            //     },
-            //     expected: {
-            //         mode: 'values',
-            //         values: [0, 10, 20, 30, 50, 60, 75, 90, 100],
-            //     },
-            // },
-        ];
+            {
+                description: 'Should merge pips and custom dots when both provided',
+                input: {
+                    min: 0,
+                    max: 100,
+                    step: 10,
+                    dotsSlider: 'step',
+                    showNumbers: true,
+                    hideCustomDotsNumbers: false,
+                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] },
+                    customDots: [10, 30, 60, 90],
+                },
+                expected: {
+                    mode: 'values',
+                    values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                },
+            },
+        ])('$description', ({ input, expected }) => {
+            const result = createPipsConfig(input as any);
 
-        successCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const result = createPipsConfig(input);
-                expect(result).toMatchObject(expected);
-            });
+            expect(result).toMatchObject(expected);
         });
     });
 
     describe('Edge cases', () => {
-        const edgeCases = [
+        it.each([
             {
+                description: 'Should handle min equals max',
                 input: {
                     min: 0,
                     max: 0,
                     step: 1,
-                    dotsSlider: 'step' as const,
+                    dotsSlider: 'step',
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
                     pips: undefined,
@@ -79,14 +76,14 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     mode: 'values',
                     values: [0],
                 },
-                description: 'Should handle min equals max',
             },
             {
+                description: 'Should handle negative range with custom dots',
                 input: {
                     min: -10,
                     max: 10,
                     step: 5,
-                    dotsSlider: 'custom' as const,
+                    dotsSlider: 'custom',
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
                     pips: undefined,
@@ -98,14 +95,14 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     filter: expect.any(Function),
                     format: expect.any(Object),
                 },
-                description: 'Should handle negative range with custom dots',
             },
             {
+                description: 'Should handle decimal step values',
                 input: {
                     min: 0,
                     max: 1,
                     step: 0.25,
-                    dotsSlider: 'step' as const,
+                    dotsSlider: 'step',
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
                     pips: undefined,
@@ -115,14 +112,14 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     mode: 'values',
                     values: [0, 0.25, 0.5, 0.75, 1],
                 },
-                description: 'Should handle decimal step values',
             },
             {
+                description: 'Should handle empty custom dots array',
                 input: {
                     min: 0,
                     max: 100,
                     step: 10,
-                    dotsSlider: 'custom' as const,
+                    dotsSlider: 'custom',
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
                     pips: undefined,
@@ -134,29 +131,26 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     filter: expect.any(Function),
                     format: expect.any(Object),
                 },
-                description: 'Should handle empty custom dots array',
             },
-        ];
+        ])('$description', ({ input, expected }) => {
+            const result = createPipsConfig(input as any);
 
-        edgeCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const result = createPipsConfig(input);
-                expect(result).toMatchObject(expected);
-            });
+            expect(result).toMatchObject(expected);
         });
     });
 
     describe('Pips integration cases', () => {
-        const pipsCases = [
+        it.each([
             {
+                description: 'Should merge pips values with custom dots',
                 input: {
                     min: 0,
                     max: 100,
                     step: 10,
-                    dotsSlider: 'custom' as const,
+                    dotsSlider: 'custom',
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] } as any,
+                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] },
                     customDots: [10, 30, 60, 90],
                 },
                 expected: {
@@ -165,37 +159,18 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     filter: expect.any(Function),
                     format: expect.any(Object),
                 },
-                description: 'Should merge pips values with custom dots',
             },
             {
-                input: {
-                    min: 0,
-                    max: 100,
-                    step: 10,
-                    dotsSlider: 'custom' as const,
-                    showNumbers: true,
-                    hideCustomDotsNumbers: true,
-                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] } as any,
-                    customDots: [10, 30, 60, 90],
-                },
-                expected: {
-                    mode: 'values',
-                    values: [0, 10, 25, 30, 50, 60, 75, 90, 100],
-                    filter: expect.any(Function),
-                    format: expect.any(Object),
-                },
                 description:
                     'Should merge pips values with custom dots and hideCustomDotsNumbers=true',
-            },
-            {
                 input: {
                     min: 0,
                     max: 100,
                     step: 10,
-                    dotsSlider: 'custom' as const,
-                    showNumbers: false,
-                    hideCustomDotsNumbers: false,
-                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] } as any,
+                    dotsSlider: 'custom',
+                    showNumbers: true,
+                    hideCustomDotsNumbers: true,
+                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] },
                     customDots: [10, 30, 60, 90],
                 },
                 expected: {
@@ -204,66 +179,79 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     filter: expect.any(Function),
                     format: expect.any(Object),
                 },
-                description: 'Should merge pips values with custom dots and showNumbers=false',
             },
-        ];
+            {
+                description: 'Should merge pips values with custom dots and showNumbers=false',
+                input: {
+                    min: 0,
+                    max: 100,
+                    step: 10,
+                    dotsSlider: 'custom',
+                    showNumbers: false,
+                    hideCustomDotsNumbers: false,
+                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] },
+                    customDots: [10, 30, 60, 90],
+                },
+                expected: {
+                    mode: 'values',
+                    values: [0, 10, 25, 30, 50, 60, 75, 90, 100],
+                    filter: expect.any(Function),
+                    format: expect.any(Object),
+                },
+            },
+        ])('$description', ({ input, expected }) => {
+            const result = createPipsConfig(input as any);
 
-        pipsCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const result = createPipsConfig(input);
-                expect(result).toMatchObject(expected);
-            });
+            expect(result).toMatchObject(expected);
         });
     });
 
     describe('Return pips directly cases', () => {
-        const returnPipsCases = [
+        it.each([
             {
+                description: 'Should return pips directly when no custom dots',
                 input: {
                     min: 0,
                     max: 100,
                     step: 10,
-                    dotsSlider: 'step' as const,
+                    dotsSlider: 'step',
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] } as any,
+                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] },
                     customDots: undefined,
                 },
                 expected: { mode: 'values', values: [0, 25, 50, 75, 100] },
-                description: 'Should return pips directly when no custom dots',
             },
             {
+                description: 'Should return pips directly when custom dots is empty array',
                 input: {
                     min: 0,
                     max: 100,
                     step: 10,
-                    dotsSlider: 'step' as const,
+                    dotsSlider: 'step',
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] } as any,
+                    pips: { mode: 'values', values: [0, 25, 50, 75, 100] },
                     customDots: [],
                 },
                 expected: { mode: 'values', values: [0, 25, 50, 75, 100] },
-                description: 'Should return pips directly when custom dots is empty array',
             },
-        ];
+        ])('$description', ({ input, expected }) => {
+            const result = createPipsConfig(input as any);
 
-        returnPipsCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const result = createPipsConfig(input);
-                expect(result).toEqual(expected);
-            });
+            expect(result).toEqual(expected);
         });
     });
 
     describe('Error cases', () => {
-        const errorCases = [
+        it.each([
             {
+                description: 'Should handle NaN min value',
                 input: {
                     min: NaN,
                     max: 100,
                     step: 10,
-                    dotsSlider: 'step' as const,
+                    dotsSlider: 'step',
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
                     pips: undefined,
@@ -273,15 +261,11 @@ describe('Unit/utils/function/createPipsConfig', () => {
                     mode: 'values',
                     values: [],
                 },
-                description: 'Should handle NaN min value',
             },
-        ];
+        ])('$description', ({ input, expected }) => {
+            const result = createPipsConfig(input as any);
 
-        errorCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const result = createPipsConfig(input);
-                expect(result).toMatchObject(expected);
-            });
+            expect(result).toMatchObject(expected);
         });
     });
 
@@ -338,7 +322,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                 dotsSlider: 'custom',
                 showNumbers: true,
                 customDots: [25, 50, 75],
-                pips: { mode: 'values', values: [0, 25, 50, 75, 100] } as any,
+                pips: { mode: 'values', values: [0, 25, 50, 75, 100] },
             });
 
             expect(result).toMatchObject({

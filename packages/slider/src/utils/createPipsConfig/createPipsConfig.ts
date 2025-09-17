@@ -1,10 +1,10 @@
-import { Options } from 'nouislider';
+import { type Options } from 'nouislider';
 
-import { Pips } from '../../Component';
+import { type Pips } from '../../types';
 
 import { config } from './config';
 
-type CreatePipsConfigParams = {
+interface CreatePipsConfigParams {
     /** Мин. допустимое число */
     min: number;
 
@@ -49,8 +49,8 @@ export const createPipsConfig = ({
     max,
     step,
     dotsSlider = 'step',
-    showNumbers,
-    hideCustomDotsNumbers,
+    showNumbers = true,
+    hideCustomDotsNumbers = false,
     pips,
     customDots = [],
 }: CreatePipsConfigParams): Options['pips'] => {

@@ -220,41 +220,57 @@ render(() => {
 });
 ```
 
-### Кастомные точки и управление отображением
+### Точки
 
-#### Типы отображения точек
-
-Слайдер поддерживает два типа отображения точек:
-
--   **`'step'`** - точки отображаются по шагу слайдера (по умолчанию)
--   **`'custom'`** - произвольное расположение точек
-
-#### Произвольные точки
-
-Можно задать произвольное расположение точек с помощью `dotsSlider='custom'` и `customDots`. В этом случае отображаются только точки в указанных позициях без чисел.
+Точки могут использоваться только с с высотой желоба равной 4рх. Точки могут несовпадать с подписями и шагом слайдера.
 
 ```jsx live
 render(() => {
-    const [value, setValue] = React.useState(4);
+    const [value1, setValue1] = React.useState(2.5);
+    const [value2, setValue2] = React.useState(2.5);
 
-    const handleChange = ({ value }) => setValue(value);
+    const handleChange1 = ({ value }) => setValue1(value);
+    const handleChange2 = ({ value }) => setValue2(value);
 
     return (
         <>
-            <div>Value: {value}</div>
+            <div>Value: {value1}</div>
             <br />
             <Slider
                 min={1}
-                max={8}
+                max={10}
                 step={0.5}
-                value={value}
-                onChange={handleChange}
+                value={value1}
+                onChange={handleChange1}
+                size={4}
+                dots
+                dotsSlider='steps'
+                showNumbers={false}
+                pips={{
+                    mode: 'values',
+                    values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                }}
+            />
+            <br />
+            <br />
+            <div>Value: {value2}</div>
+            <br />
+            <Slider
+                min={1}
+                max={7}
+                step={0.5}
+                value={value2}
+                onChange={handleChange2}
                 size={4}
                 dots
                 dotsSlider='custom'
                 showNumbers={true}
+                hideCustomDotsNumbers={true}
                 customDots={[4, 5.5, 7]}
-                pips={{ mode: 'values', values: [1, 2, 3, 5, 6] }}
+                pips={{
+                    mode: 'values',
+                    values: [1, 2, 3, 4, 5, 6, 7]
+                }}
             />
         </>
     );

@@ -76,12 +76,14 @@ describe('Unit/utils/function/createPipsFormat', () => {
 
         successCases.forEach(({ input, expected, description }) => {
             it(description, () => {
-                const format = createPipsFormat(
-                    input.customDots,
-                    input.showNumbers,
-                    input.hideCustomDotsNumbers,
-                    input.pipsValues,
-                );
+                const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = input;
+
+                const format = createPipsFormat({
+                    customDots,
+                    showNumbers,
+                    hideCustomDotsNumbers,
+                    pipsValues,
+                });
                 const result = format.to(input.value);
                 expect(result).toBe(expected);
             });
@@ -160,12 +162,15 @@ describe('Unit/utils/function/createPipsFormat', () => {
 
         edgeCases.forEach(({ input, expected, description }) => {
             it(description, () => {
-                const format = createPipsFormat(
-                    input.customDots,
-                    input.showNumbers,
-                    input.hideCustomDotsNumbers,
-                    input.pipsValues,
-                );
+                const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = input;
+
+                const format = createPipsFormat({
+                    customDots,
+                    showNumbers,
+                    hideCustomDotsNumbers,
+                    pipsValues,
+                });
+
                 const result = format.to(input.value);
                 expect(result).toBe(expected);
             });
@@ -245,12 +250,15 @@ describe('Unit/utils/function/createPipsFormat', () => {
 
         pipsCases.forEach(({ input, expected, description }) => {
             it(description, () => {
-                const format = createPipsFormat(
-                    input.customDots,
-                    input.showNumbers,
-                    input.hideCustomDotsNumbers,
-                    input.pipsValues,
-                );
+                const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = input;
+
+                const format = createPipsFormat({
+                    customDots,
+                    showNumbers,
+                    hideCustomDotsNumbers,
+                    pipsValues,
+                });
+
                 const result = format.to(input.value);
                 expect(result).toBe(expected);
             });
@@ -318,12 +326,15 @@ describe('Unit/utils/function/createPipsFormat', () => {
 
         errorCases.forEach(({ input, expected, description }) => {
             it(description, () => {
-                const format = createPipsFormat(
-                    input.customDots,
-                    input.showNumbers,
-                    input.hideCustomDotsNumbers,
-                    input.pipsValues,
-                );
+                const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = input;
+
+                const format = createPipsFormat({
+                    customDots,
+                    showNumbers,
+                    hideCustomDotsNumbers,
+                    pipsValues,
+                });
+
                 const result = format.to(input.value);
                 expect(result).toBe(expected);
             });
@@ -332,7 +343,12 @@ describe('Unit/utils/function/createPipsFormat', () => {
 
     describe('Function behavior', () => {
         it('Should create a reusable format function', () => {
-            const format = createPipsFormat([25, 50, 75], true, false);
+            const format = createPipsFormat({
+                customDots: [25, 50, 75],
+                showNumbers: true,
+                hideCustomDotsNumbers: false,
+                pipsValues: undefined,
+            });
 
             expect(format.to(25)).toBe(25);
             expect(format.to(50)).toBe(50);
@@ -341,23 +357,48 @@ describe('Unit/utils/function/createPipsFormat', () => {
         });
 
         it('Should handle different showNumbers settings', () => {
-            const formatWithNumbers = createPipsFormat([25, 50, 75], true, false);
-            const formatWithoutNumbers = createPipsFormat([25, 50, 75], false, false);
+            const formatWithNumbers = createPipsFormat({
+                customDots: [25, 50, 75],
+                showNumbers: true,
+                hideCustomDotsNumbers: false,
+                pipsValues: undefined,
+            });
+            const formatWithoutNumbers = createPipsFormat({
+                customDots: [25, 50, 75],
+                showNumbers: false,
+                hideCustomDotsNumbers: false,
+                pipsValues: undefined,
+            });
 
             expect(formatWithNumbers.to(25)).toBe(25);
             expect(formatWithoutNumbers.to(25)).toBe('');
         });
 
         it('Should handle different hideCustomDotsNumbers settings', () => {
-            const formatShowCustom = createPipsFormat([25, 50, 75], true, false);
-            const formatHideCustom = createPipsFormat([25, 50, 75], true, true);
+            const formatShowCustom = createPipsFormat({
+                customDots: [25, 50, 75],
+                showNumbers: true,
+                hideCustomDotsNumbers: false,
+                pipsValues: undefined,
+            });
+            const formatHideCustom = createPipsFormat({
+                customDots: [25, 50, 75],
+                showNumbers: true,
+                hideCustomDotsNumbers: true,
+                pipsValues: undefined,
+            });
 
             expect(formatShowCustom.to(25)).toBe(25);
             expect(formatHideCustom.to(25)).toBe('');
         });
 
         it('Should handle pips integration correctly', () => {
-            const format = createPipsFormat([25, 50, 75], true, false, [10, 20, 30]);
+            const format = createPipsFormat({
+                customDots: [25, 50, 75],
+                showNumbers: true,
+                hideCustomDotsNumbers: false,
+                pipsValues: [10, 20, 30],
+            });
 
             expect(format.to(10)).toBe(10); // pips value
             expect(format.to(25)).toBe(25); // custom dot

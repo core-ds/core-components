@@ -1,4 +1,4 @@
-import { Options } from 'nouislider';
+import { type Options } from 'nouislider';
 
 import { createPipsFilter } from '../createPipsFilter';
 import { createPipsFormat } from '../createPipsFormat';
@@ -9,8 +9,8 @@ type PipsConfigParams = {
     max: number;
     step: number;
     customDots: number[];
-    showNumbers?: boolean;
-    hideCustomDotsNumbers?: boolean;
+    showNumbers: boolean;
+    hideCustomDotsNumbers: boolean;
     pipsValues?: number[];
 };
 
@@ -30,12 +30,10 @@ export const config: Record<'step' | 'custom', PipsConfig> = {
         ({
             mode: 'values',
             values: createRangeValues?.({ min, max, step }),
-        } as Options['pips']),
+        }) as Options['pips'],
 
-    custom: (params) => {
-        const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = params;
-
-        if (pipsValues?.length) {
+    custom: ({ customDots, showNumbers, hideCustomDotsNumbers, pipsValues }) => {
+        if (customDots?.length && pipsValues?.length) {
             const mergeValues = Array.from(new Set([...pipsValues, ...customDots])).sort(
                 (a, b) => a - b,
             );
@@ -44,12 +42,12 @@ export const config: Record<'step' | 'custom', PipsConfig> = {
                 mode: 'values',
                 values: mergeValues,
                 filter: createPipsFilter(mergeValues),
-                format: createPipsFormat(
+                format: createPipsFormat({
+                    pipsValues,
                     customDots,
                     showNumbers,
                     hideCustomDotsNumbers,
-                    pipsValues,
-                ),
+                }),
             } as Options['pips'];
         }
 
@@ -57,7 +55,11 @@ export const config: Record<'step' | 'custom', PipsConfig> = {
             mode: 'values',
             values: customDots,
             filter: createPipsFilter(customDots),
-            format: createPipsFormat(customDots, showNumbers, hideCustomDotsNumbers),
+            format: createPipsFormat({
+                customDots,
+                showNumbers,
+                hideCustomDotsNumbers,
+            }),
         } as Options['pips'];
     },
 } as const;

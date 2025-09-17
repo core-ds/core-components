@@ -14,7 +14,7 @@ export const getMarkerValue = ({
 }: GetMarkerValueParams): number | null => {
     const nextElement = markerElement.nextElementSibling as HTMLElement;
 
-    if (nextElement && nextElement.classList.contains('noUi-value')) {
+    if (nextElement?.classList.contains('noUi-value')) {
         return parseFloat(nextElement.getAttribute('data-value') || '0');
     }
 
