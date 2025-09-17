@@ -40,7 +40,7 @@ render(() => {
                         {...(error && { error: 'Error message' })}
                     />
                 </div>
-                <Gap size='20' />
+                <Gap size={20} />
                 <div style={{ marginLeft: '8px' }}>
                     <Checkbox
                         block={true}
@@ -54,16 +54,16 @@ render(() => {
                     />
                 </div>
             </div>
-            <Gap size='20' />
+            <Gap size={20} />
             <Divider />
-            <Gap size='20' />
+            <Gap size={20} />
             <Switch
                 block={true}
                 checked={switchChecked}
                 label='Подпись под лейблом'
                 onChange={() => setSwitchChecked((prevState) => !prevState)}
             />
-            <Gap size='20' />
+            <Gap size={20} />
 
             <Button view='secondary' size='32' onClick={() => setError((prevState) => !prevState)}>
                 Ошибка
@@ -92,9 +92,9 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <Checkbox size={24} label='Неопределён' indeterminate={true} block={true} />
-            <Gap size='20' />
+            <Gap size={20} />
             <Checkbox size={24} label='Выбран' checked={true} block={true} />
-            <Gap size='20' />
+            <Gap size={20} />
             <Checkbox
                 size={24}
                 label='Выбран и недоступен'
@@ -102,9 +102,9 @@ render(() => {
                 checked={true}
                 block={true}
             />
-            <Gap size='20' />
+            <Gap size={20} />
             <Checkbox size={24} label='По умолчанию' checked={false} block={true} />
-            <Gap size='20' />
+            <Gap size={20} />
             <Checkbox
                 size={24}
                 label='По умолчанию и недоступен'

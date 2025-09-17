@@ -27,7 +27,7 @@ render(() => {
                 </ButtonDesktop>
             </Space>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <Switch
                 checked={disabled}
@@ -46,27 +46,27 @@ render(() => {
             <ButtonMobile block={true} disabled={disabled} view='accent'>
                 Accent
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='primary'>
                 Primary
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='secondary'>
                 Secondary
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='outlined'>
                 Outlined
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='transparent'>
                 Transparent
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='text'>
                 Text
             </ButtonMobile>
-            <Gap size='xl' />
+            <Gap size={24} />
             <Switch
                 checked={disabled}
                 onChange={() => setDisabled((prevState) => !prevState)}
@@ -102,7 +102,7 @@ render(
                 </ButtonDesktop>
             ))}
         </Space>
-        <Gap size='l' />
+        <Gap size={20} />
         <Space direction='horizontal' align='center'>
             {SMALL_SIZES.map((size) => (
                 <ButtonDesktop key={size} size={size} view='primary'>
@@ -130,7 +130,7 @@ render(
                 <ButtonMobile block={true} size={size} view='primary'>
                     {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
                 </ButtonMobile>
-                {SIZES.length - 1 !== idx && <Gap size='l' />}
+                {SIZES.length - 1 !== idx && <Gap size={20} />}
             </React.Fragment>
         ))}
     </Container>,
@@ -151,7 +151,7 @@ render(() => {
                 Label
             </Button>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <RadioGroup
                 label='Shape'
@@ -176,14 +176,14 @@ render(() => {
 ```jsx live
 <div style={{ textAlign: isMobile() ? 'center' : 'left' }}>
     <Button breakpoint={BREAKPOINT}>Мин.</Button>
-    <Gap size='l' />
+    <Gap size={20} />
     <Button breakpoint={BREAKPOINT}>Ширина зависит от лейбла</Button>
-    <Gap size='l' />
+    <Gap size={20} />
     <style>{'.button { width: 300px; }'}</style>
     <Button breakpoint={BREAKPOINT} className='button'>
         Ширина задана вручную
     </Button>
-    <Gap size='l' />
+    <Gap size={20} />
     <Button block={true} size={56} nowrap={true} breakpoint={BREAKPOINT}>
         Занимает всю ширину контейнера
     </Button>
@@ -221,14 +221,14 @@ render(() => {
                 {label && 'Label'}
             </Button>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <Switch label='Label' checked={label} onChange={handleLabelChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='Hint' checked={hint} onChange={handleHintChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />
         </div>
     );
@@ -257,7 +257,7 @@ render(() => {
                 Label
             </Button>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <RadioGroup
                 label='Поведение текста'
@@ -429,7 +429,7 @@ render(() => {
                 Отправить запрос
             </Button>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <RadioGroup value={loadTimeout} onChange={handleTimeoutChange}>
                 <Radio value='30' label='Быстрый запрос (30ms)' />

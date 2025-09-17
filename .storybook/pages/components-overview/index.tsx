@@ -47,21 +47,24 @@ export const ComponentsOverview = () => {
     }, []);
 
     const data = query
-        ? Object.keys(CONFIG).reduce((res, groupName) => {
-              const group = CONFIG[groupName].filter((componentName) =>
-                  componentName.toLowerCase().includes(query.toLowerCase()),
-              );
+        ? Object.keys(CONFIG).reduce(
+              (res, groupName) => {
+                  const group = CONFIG[groupName].filter((componentName) =>
+                      componentName.toLowerCase().includes(query.toLowerCase()),
+                  );
 
-              if (group.length > 0) {
-                  if (!res[EMPTY_GROUP]) {
-                      res[EMPTY_GROUP] = [];
+                  if (group.length > 0) {
+                      if (!res[EMPTY_GROUP]) {
+                          res[EMPTY_GROUP] = [];
+                      }
+
+                      res[EMPTY_GROUP].push(...group);
                   }
 
-                  res[EMPTY_GROUP].push(...group);
-              }
-
-              return res;
-          }, {} as typeof CONFIG)
+                  return res;
+              },
+              {} as typeof CONFIG,
+          )
         : CONFIG;
 
     const handleSearch: InputProps['onChange'] = (_, { value }) => setQuery(value);
@@ -79,7 +82,7 @@ export const ComponentsOverview = () => {
                 Витрина компонентов
             </Title>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <Input
                 block

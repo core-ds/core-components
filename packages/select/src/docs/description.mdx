@@ -296,7 +296,7 @@ render(() => {
                     setSelectedFirst(selected);
                 }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectDesktop
                 allowUnselect={true}
                 size={56}
@@ -314,7 +314,7 @@ render(() => {
                     },
                 })}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectDesktop
                 allowUnselect={true}
                 size={56}
@@ -377,7 +377,7 @@ render(() => {
                     setSelected(selectedMultiple.map((option) => option.key));
                 }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectMobile
                 allowUnselect={true}
                 size={56}
@@ -698,13 +698,13 @@ render(() => {
                 <GenericWrapper>
                     <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
                 </GenericWrapper>
-                <Gap size='m' direction='horizontal' />
+                <Gap size={16} direction='horizontal' />
                 <GenericWrapper>
                     <GenericWrapper column>
                         <Typography.Text color='secondary' view='primary-small'>
                             {text}
                         </Typography.Text>
-                        <Gap size='3xs' />
+                        <Gap size={2} />
                         <Typography.Text>
                             <Amount
                                 value={amount}
@@ -802,13 +802,13 @@ render(() => {
                 <GenericWrapper>
                     <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
                 </GenericWrapper>
-                <Gap size='m' direction='horizontal' />
+                <Gap size={16} direction='horizontal' />
                 <GenericWrapper>
                     <GenericWrapper column>
                         <Typography.Text color='secondary' view='primary-small'>
                             {text}
                         </Typography.Text>
-                        <Gap size='3xs' />
+                        <Gap size={2} />
                         <Typography.Text>
                             <Amount
                                 value={amount}
@@ -878,7 +878,7 @@ render(() => {
                     setSelectedFirst(selectedMultiple.map((option) => option.key))
                 }
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectMobile
                 allowUnselect={true}
                 placeholder='Выберите счёт'
@@ -1221,13 +1221,13 @@ render(() => {
                 />
             </div>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <Button size={40} type='submit'>
                 Отправить
             </Button>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <div>serialized: {serialized}</div>
         </form>

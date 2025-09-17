@@ -123,11 +123,11 @@ render(() => {
             </div>
 
             <div>
-                <Gap size='m' />
+                <Gap size={16} />
 
                 <Divider />
 
-                <Gap size='m' />
+                <Gap size={16} />
 
                 <div style={{ maxWidth: 320 }}>
                     <Select
@@ -140,7 +140,7 @@ render(() => {
                     />
                 </div>
 
-                <Gap size='m' />
+                <Gap size={16} />
 
                 <CheckboxGroup onChange={handleSettingsChange}>
                     {Object.keys(SETTINGS_MAP).map((name) => (
@@ -289,7 +289,7 @@ render(() => {
 
             <Button onClick={() => setOpen(true)}>Открыть модалку</Button>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <div style={{ maxWidth: 320 }}>
                 <Select
@@ -302,7 +302,7 @@ render(() => {
                 />
             </div>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <CheckboxGroup onChange={handleSettingsChange}>
                 {Object.keys(SETTINGS_MAP).map((name) => (

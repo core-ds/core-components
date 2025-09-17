@@ -47,9 +47,9 @@ export const status_badge: Story = {
                 {isPreview ? (
                     <>
                         <StatusBadge view='positive-checkmark' />
-                        <Gap size='xs' direction='horizontal' />
+                        <Gap size={8} direction='horizontal' />
                         <StatusBadge view='attention-alert' />
-                        <Gap size='xs' direction='horizontal' />
+                        <Gap size={8} direction='horizontal' />
                         <StatusBadge view='negative-cross' />
                     </>
                 ) : (

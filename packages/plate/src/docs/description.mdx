@@ -24,14 +24,14 @@ render(() => {
                 }
                 breakpoint={BREAKPOINT}
             />
-            <Gap size='xl' />
+            <Gap size={24} />
             <Switch
                 block={true}
                 checked={rounded}
                 label='Скругление'
                 onChange={() => setRounded(!rounded)}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch
                 block={true}
                 checked={border}
@@ -53,28 +53,28 @@ render(() => {
         leftAddons={<StatusBadge view='positive-checkmark' />}
         breakpoint={BREAKPOINT}
     />
-    <Gap size='l' />
+    <Gap size={20} />
     <Plate
         view='negative'
         title='Пример уведомления'
         leftAddons={<StatusBadge view='negative-alert' />}
         breakpoint={BREAKPOINT}
     />
-    <Gap size='l' />
+    <Gap size={20} />
     <Plate
         view='attention'
         title='Пример уведомления'
         leftAddons={<StatusBadge view='attention-alert' />}
         breakpoint={BREAKPOINT}
     />
-    <Gap size='l' />
+    <Gap size={20} />
     <Plate
         view='common'
         title='Пример уведомления'
         leftAddons={<StatusBadge view='neutral-information' />}
         breakpoint={BREAKPOINT}
     />
-    <Gap size='l' />
+    <Gap size={20} />
     <Plate
         view='custom'
         background='rgba(207, 112, 255, 0.1)'
@@ -84,7 +84,7 @@ render(() => {
         leftAddons={<DiamondsMIcon color='#CF70FF' />}
         breakpoint={BREAKPOINT}
     />
-    <Gap size='l' />
+    <Gap size={20} />
     <Plate
         view='custom'
         title='Пример уведомления'
@@ -144,7 +144,7 @@ render(() => {
                 экзистенциализма, его новелла 1864 года «Записки из подполья» считается одним из
                 первых произведений экзистенциалистской литературы.}
             </Plate>
-            <Gap size='xl' />
+            <Gap size={24} />
             <RadioGroup
                 label='Бейдж'
                 direction='vertical'
@@ -155,7 +155,7 @@ render(() => {
                 <Radio size='m' label='Нет' value='no' />
                 <Radio size='m' label='Есть' value='yes' />
             </RadioGroup>
-            <Gap size='xl' />
+            <Gap size={24} />
             <RadioGroup
                 label='Заголовок'
                 direction='vertical'
@@ -166,7 +166,7 @@ render(() => {
                 <Radio size='m' label='Обычный' value='bold' />
                 <Radio size='m' label='Облегчённый' value='light' />
             </RadioGroup>
-            <Gap size='xl' />
+            <Gap size={24} />
             <RadioGroup
                 label='Вспомогательный текст'
                 direction='vertical'
@@ -177,7 +177,7 @@ render(() => {
                 <Radio size='m' label='Без ограничения по высоте' value='no' />
                 <Radio size='m' label='Ограничен тремя строками' value='limit' />
             </RadioGroup>
-            <Gap size='xl' />
+            <Gap size={24} />
             <RadioGroup
                 label='Кнопки'
                 direction='vertical'
@@ -189,7 +189,7 @@ render(() => {
                 <Radio size='m' label='Справа от заголовка' value='right' />
                 <Radio size='m' label='Под контентом' value='bottom' />
             </RadioGroup>
-            <Gap size='xl' />
+            <Gap size={24} />
             <RadioGroup
                 label='Ограничение ширины контентной части'
                 direction='vertical'
@@ -200,7 +200,7 @@ render(() => {
                 <Radio size='m' label='С ограничением' value='limit' />
                 <Radio size='m' label='Без ограничения' value='no' />
             </RadioGroup>
-            <Gap size='xl' />
+            <Gap size={24} />
             <RadioGroup
                 label='Механика'
                 direction='vertical'
