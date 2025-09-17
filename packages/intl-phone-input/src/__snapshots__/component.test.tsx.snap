@@ -10,7 +10,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component component m size-56 size-56 block hasLeftAddons"
+      class="component component size-56 size-56 size-56 block hasLeftAddons"
     >
       <div
         class="inner inner inner inner filled"
@@ -30,7 +30,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
               tabindex="-1"
             >
               <div
-                class="component m"
+                class="component 56"
               >
                 <div
                   aria-controls="downshift-:r1:-menu"
@@ -71,7 +71,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
                     </span>
                   </span>
                   <svg
-                    class="arrow size-m"
+                    class="arrow size-56"
                     fill="currentColor"
                     focusable="false"
                     height="24"
@@ -92,14 +92,14 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
           class="inputWrapper"
         >
           <div
-            class="input size-m"
+            class="input size-56"
           >
             <input
               aria-autocomplete="list"
               aria-controls="downshift-:r0:-menu"
               aria-labelledby="downshift-:r0:-label"
               autocomplete="off"
-              class="input size-m input"
+              class="input size-56 input"
               id="downshift-:r0:-input"
               tabindex="0"
               type="tel"

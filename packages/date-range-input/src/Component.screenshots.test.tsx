@@ -20,7 +20,7 @@ describe('DateRangeInput', () =>
         {
             componentName: 'DateRangeInput',
             knobs: {
-                size: 'm',
+                size: 56,
                 value: '21.12.2022 – 20.06.2023',
                 label: 'Диапазон дат',
                 block: true,
@@ -43,7 +43,7 @@ describe(
                     size: { width: 350, height: 400 },
                     knobs: {
                         value: ['12.12.2021 - 10.04.2022', '02.03.2002 - 10.06.2010'],
-                        size: ['s', 'm', 'l'],
+                        size: [48, 56, 64],
                     },
                 }),
             ],
@@ -149,7 +149,7 @@ describe('DateRangeInput | picker', () => {
             testStory: false,
             knobs: {
                 picker: true,
-                size: 'm',
+                size: 56,
                 defaultMonth: 1769310391747,
             },
         });

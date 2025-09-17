@@ -16,7 +16,7 @@ describe('TimeInput', () =>
         {
             componentName: 'TimeInput',
             knobs: {
-                size: 'm',
+                size: 56,
                 value: '12:48',
                 label: 'Время',
                 block: true,
@@ -39,7 +39,7 @@ describe(
                     size: { width: 350, height: 400 },
                     knobs: {
                         value: ['00:00', '20:32'],
-                        size: ['s', 'm', 'l'],
+                        size: [48, 56, 64],
                     },
                 }),
             ],

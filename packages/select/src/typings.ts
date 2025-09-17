@@ -149,9 +149,9 @@ export type BaseSelectProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     * @default 48
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: FormControlProps['size'];
 
     /**
      * Размер пунктов меню
