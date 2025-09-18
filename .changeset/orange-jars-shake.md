@@ -1,4 +1,5 @@
 ---
+'@alfalab/core-components': patch
 '@alfalab/core-components-side-panel': patch
 ---
 
