@@ -1,6 +1,7 @@
 type CreatePipsFormatParams = {
     showNumbers: boolean;
-    hideCustomDotsNumbers: boolean;
+    hideCustomDotsNumbers?: boolean;
+    hideLargePips?: boolean;
     customDots?: number[];
     pipsValues?: number[];
 };
@@ -27,17 +28,48 @@ export const createPipsFormat = ({
         const isPips = pipsValues?.includes(value) ?? false;
         const isWhole = Number.isInteger(value);
 
+        console.log('createPipsFormat:', {
+            value,
+            showNumbers,
+            hideCustomDotsNumbers,
+            isCustom,
+            isPips,
+            isWhole,
+            customDots,
+            pipsValues,
+        });
+
+        if (hideCustomDotsNumbers) {
+            // Если значение есть и в pipsValues и в customDots - показываем число
+            if (isPips && isCustom) {
+                return value;
+            }
+
+            // Если значение есть только в pipsValues - показываем число (для типа 0)
+            if (isPips) {
+                return value;
+            }
+
+            // Если значение есть только в customDots - скрываем число (для типа 2)
+            if (isCustom) {
+                return '';
+            }
+
+            // Для остальных целых чисел показываем число (для типа 0)
+            return isWhole ? value : '';
+        }
+
         // Если есть объединение с pips
         if (pipsValues?.length) {
             if (isPips) return value;
-            if (isCustom) return hideCustomDotsNumbers ? '' : value;
+            if (isCustom) return value;
 
             return isWhole ? value : '';
         }
 
         // Если есть кастомные точки без объединения
         if (customDots?.length) {
-            if (isCustom) return hideCustomDotsNumbers ? '' : value;
+            if (isCustom) return value;
 
             return isWhole ? value : '';
         }

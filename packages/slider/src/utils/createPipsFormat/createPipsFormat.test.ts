@@ -82,6 +82,7 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     customDots,
                     showNumbers,
                     hideCustomDotsNumbers,
+                    hideLargePips: false,
                     pipsValues,
                 });
                 const result = format.to(input.value);
@@ -168,6 +169,7 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     customDots,
                     showNumbers,
                     hideCustomDotsNumbers,
+                    hideLargePips: false,
                     pipsValues,
                 });
 
@@ -256,6 +258,7 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     customDots,
                     showNumbers,
                     hideCustomDotsNumbers,
+                    hideLargePips: false,
                     pipsValues,
                 });
 
@@ -332,6 +335,7 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     customDots,
                     showNumbers,
                     hideCustomDotsNumbers,
+                    hideLargePips: false,
                     pipsValues,
                 });
 

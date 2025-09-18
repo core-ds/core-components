@@ -35,6 +35,12 @@ interface CreatePipsConfigParams {
     hideCustomDotsNumbers?: boolean;
 
     /**
+     * Отключение больших точек с числами (тип 1) через CSS стили
+     * @default false
+     */
+    hideLargePips?: boolean;
+
+    /**
      * Отображение подписей с values
      * https://refreshless.com/nouislider/pips/
      */
@@ -42,7 +48,7 @@ interface CreatePipsConfigParams {
 
     /** Массив значений для произвольного размещения точек */
     customDots?: number[];
-};
+}
 
 export const createPipsConfig = ({
     min,
@@ -51,6 +57,7 @@ export const createPipsConfig = ({
     dotsSlider = 'step',
     showNumbers = true,
     hideCustomDotsNumbers = false,
+    hideLargePips = true,
     pips,
     customDots = [],
 }: CreatePipsConfigParams): Options['pips'] => {
@@ -65,6 +72,7 @@ export const createPipsConfig = ({
         customDots,
         showNumbers,
         hideCustomDotsNumbers,
+        hideLargePips,
         pipsValues: pips && 'values' in pips && Array.isArray(pips.values) ? pips.values : [],
     });
 };

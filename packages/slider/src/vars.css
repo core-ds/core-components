@@ -16,6 +16,9 @@
     --slider-progress-m-border-radius: var(--border-radius-4);
     --slider-progress-background: var(--color-light-neutral-translucent-300);
     --slider-progress-hover-background: var(--color-light-neutral-translucent-300);
+    --slider-progress-disabled-background: var(--color-light-neutral-500);
+    --slider-progress-disabled-hover-background: var(--color-light-neutral-500);
+    --slider-progress-disabled-active-background: var(--color-light-neutral-500);
     --slider-clickable-area-size: 16px;
     --slider-clickable-area-half-size: calc(var(--slider-clickable-area-size) / 2);
     --slider-origin-width: calc(100% - 16px);

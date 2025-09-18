@@ -11,6 +11,7 @@ type PipsConfigParams = {
     customDots: number[];
     showNumbers: boolean;
     hideCustomDotsNumbers: boolean;
+    hideLargePips: boolean;
     pipsValues?: number[];
 };
 
@@ -26,22 +27,31 @@ type PipsConfig = (params: PipsConfigParams) => Options['pips'];
  */
 export const config: Record<'step' | 'custom', PipsConfig> = {
     // todo: как будто другие `mode` не учтены, мб не пробрасывать дефолтное значение чтобы починить эту логику?
-    step: ({ min, max, step }) =>
+    step: ({ min, max, step, showNumbers, hideLargePips }) =>
         ({
             mode: 'values',
             values: createRangeValues?.({ min, max, step }),
+            format: createPipsFormat({ showNumbers, hideLargePips }),
         }) as Options['pips'],
 
-    custom: ({ customDots, showNumbers, hideCustomDotsNumbers, pipsValues }) => {
+    custom: ({ customDots, showNumbers, hideCustomDotsNumbers, hideLargePips, pipsValues }) => {
         if (customDots?.length && pipsValues?.length) {
             const mergeValues = Array.from(new Set([...pipsValues, ...customDots])).sort(
                 (a, b) => a - b,
             );
 
+            console.log('mergeValues:', mergeValues);
+
             return {
                 mode: 'values',
                 values: mergeValues,
-                filter: createPipsFilter(mergeValues),
+                filter: createPipsFilter({
+                    hideCustomDotsNumbers,
+                    pipsValues,
+                    customDots,
+                    mergeValues,
+                    hideLargePips,
+                }),
                 format: createPipsFormat({
                     pipsValues,
                     customDots,
@@ -54,11 +64,17 @@ export const config: Record<'step' | 'custom', PipsConfig> = {
         return {
             mode: 'values',
             values: customDots,
-            filter: createPipsFilter(customDots),
+            filter: createPipsFilter({
+                customDots,
+                hideCustomDotsNumbers,
+                hideLargePips,
+                pipsValues: [],
+            }),
             format: createPipsFormat({
                 customDots,
                 showNumbers,
                 hideCustomDotsNumbers,
+                pipsValues: [],
             }),
         } as Options['pips'];
     },

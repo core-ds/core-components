@@ -5,7 +5,7 @@ interface RangeOptions {
     min: SubRange;
     max: SubRange;
     [key: string]: SubRange;
-};
+}
 
 export interface Pips {
     mode: 'range' | 'steps' | 'positions' | 'count' | 'values';
@@ -16,7 +16,7 @@ export interface Pips {
         from?: (value: string) => number | false;
     };
     stepped?: boolean;
-};
+}
 
 export interface SliderProps {
     /**
@@ -116,6 +116,12 @@ export interface SliderProps {
     hideCustomDotsNumbers?: boolean;
 
     /**
+     * Отключение больших точек с числами (тип 1) через CSS стили
+     * @default false
+     */
+    hideLargePips?: boolean;
+
+    /**
      * Обработчик поля ввода
      */
     onChange?: (payload: { value: number; valueTo?: number }) => void;
@@ -136,4 +142,4 @@ export interface SliderProps {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+}

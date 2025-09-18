@@ -31,6 +31,7 @@ export const Slider: FC<SliderProps> = ({
     customDots,
     showNumbers = false,
     hideCustomDotsNumbers = false,
+    hideLargePips = true,
     className,
     onChange,
     onStart,
@@ -41,6 +42,9 @@ export const Slider: FC<SliderProps> = ({
     const sliderRef = useRef<(HTMLDivElement & { noUiSlider: API }) | null>(null);
     const busyRef = useRef<boolean>(false);
     const hasValueTo = valueTo !== undefined;
+    const hasCustomDotsSlider = dotsSlider === 'custom';
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const pipsValues = pips && 'values' in pips && Array.isArray(pips.values) ? pips.values : [];
 
     const getSlider = () => sliderRef.current?.noUiSlider;
 
@@ -53,9 +57,10 @@ export const Slider: FC<SliderProps> = ({
 
         const configParams = {
             dotsSlider,
-            customDots: dotsSlider === 'custom' ? customDots : undefined,
+            customDots: hasCustomDotsSlider ? customDots : undefined,
             showNumbers,
-            hideCustomDotsNumbers: dotsSlider === 'custom' ? hideCustomDotsNumbers : undefined,
+            hideCustomDotsNumbers: hasCustomDotsSlider ? hideCustomDotsNumbers : undefined,
+            hideLargePips,
             pips,
             min,
             max,
@@ -65,10 +70,12 @@ export const Slider: FC<SliderProps> = ({
         return createPipsConfig(configParams);
     }, [
         shouldCreatePipsConfig,
+        hasCustomDotsSlider,
         dotsSlider,
         customDots,
         showNumbers,
         hideCustomDotsNumbers,
+        hideLargePips,
         pips,
         min,
         max,
@@ -172,11 +179,41 @@ export const Slider: FC<SliderProps> = ({
         }
     }, [onChange, hasValueTo, value, valueTo, createSlideHandler, updateMarkersState]);
 
+    useEffect(() => {
+        if (!hideLargePips || !pipsValues.length || dotsSlider === 'step' || !sliderRef.current)
+            return;
+
+        const markers = sliderRef.current.querySelectorAll('.noUi-marker-large');
+
+        markers.forEach((marker) => {
+            const nextElement = marker.nextElementSibling as HTMLElement;
+
+            if (nextElement?.classList.contains('noUi-value')) {
+                const dataValue = nextElement.getAttribute('data-value');
+                const value = dataValue ? parseFloat(dataValue) : null;
+
+                if (value !== null && pipsValues.includes(value)) {
+                    const isAlsoInCustomDots = customDots?.includes(value) ?? false;
+
+                    if (isAlsoInCustomDots) {
+                        marker.classList.remove('hide-for-pips-value');
+                    } else {
+                        marker.classList.add('hide-for-pips-value');
+                    }
+                } else {
+                    marker.classList.remove('hide-for-pips-value');
+                }
+            }
+        });
+    }, [hideLargePips, pipsValues, customDots, dotsSlider]);
+
     return (
         <div
             className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]], {
+                [styles.numbersDisabled]: hasCustomDotsSlider && !customDots?.length,
+                [styles.hideLargePips]: hideLargePips,
                 [styles.dotsDisabled]: !dots,
-                [styles.numbersDisabled]: dots && dotsSlider === 'custom' && !customDots?.length,
+                [styles.disabled]: disabled,
             })}
             ref={sliderRef}
             data-test-id={dataTestId}

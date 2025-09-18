@@ -34,7 +34,12 @@ describe('Unit/utils/function/createPipsFilter', () => {
                 expected: 2,
             },
         ])('$description', ({ input, expected }) => {
-            const filter = createPipsFilter(input.customDots);
+            const filter = createPipsFilter({
+                customDots: input.customDots,
+                hideCustomDotsNumbers: false,
+                hideLargePips: false,
+                pipsValues: [],
+            });
             const result = filter(input.value, input.type);
 
             expect(result).toBe(expected);
@@ -74,7 +79,12 @@ describe('Unit/utils/function/createPipsFilter', () => {
                 expected: 0,
             },
         ])('$description', ({ input, expected }) => {
-            const filter = createPipsFilter(input.customDots);
+            const filter = createPipsFilter({
+                customDots: input.customDots,
+                hideCustomDotsNumbers: false,
+                hideLargePips: false,
+                pipsValues: [],
+            });
             const result = filter(input.value, input.type);
             expect(result).toBe(expected);
         });
@@ -126,7 +136,12 @@ describe('Unit/utils/function/createPipsFilter', () => {
                 expected: 1,
             },
         ])('$description', ({ input, expected }) => {
-            const filter = createPipsFilter(input.customDots);
+            const filter = createPipsFilter({
+                customDots: input.customDots,
+                hideCustomDotsNumbers: false,
+                hideLargePips: false,
+                pipsValues: [],
+            });
             const result = filter(input.value, input.type);
             expect(result).toBe(expected);
         });
@@ -134,7 +149,12 @@ describe('Unit/utils/function/createPipsFilter', () => {
 
     describe('Function behavior', () => {
         it('Should create a reusable filter function', () => {
-            const filter = createPipsFilter([25, 50, 75]);
+            const filter = createPipsFilter({
+                customDots: [25, 50, 75],
+                hideCustomDotsNumbers: false,
+                hideLargePips: false,
+                pipsValues: [],
+            });
 
             expect(filter(25, 0)).toBe(1);
             expect(filter(50, 0)).toBe(1);
@@ -143,7 +163,12 @@ describe('Unit/utils/function/createPipsFilter', () => {
         });
 
         it('Should handle different original types correctly', () => {
-            const filter = createPipsFilter([25, 50, 75]);
+            const filter = createPipsFilter({
+                customDots: [25, 50, 75],
+                hideCustomDotsNumbers: false,
+                hideLargePips: false,
+                pipsValues: [],
+            });
 
             expect(filter(25, -1)).toBe(1); // custom dot overrides -1
             expect(filter(25, 0)).toBe(1); // custom dot overrides 0
@@ -152,7 +177,12 @@ describe('Unit/utils/function/createPipsFilter', () => {
         });
 
         it('Should preserve original type when no custom dots', () => {
-            const filter = createPipsFilter();
+            const filter = createPipsFilter({
+                customDots: undefined,
+                hideCustomDotsNumbers: false,
+                hideLargePips: false,
+                pipsValues: [],
+            });
 
             expect(filter(10, -1)).toBe(-1);
             expect(filter(10, 0)).toBe(0);
