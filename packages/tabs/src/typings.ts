@@ -12,6 +12,18 @@ import { type SkeletonProps } from '@alfalab/core-components-skeleton';
 import { type TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
+export type TitleProps = Omit<
+    HTMLAttributes<HTMLButtonElement>,
+    | 'onClick'
+    | 'onKeyDown'
+    | 'className'
+    | 'disabled'
+    | 'id'
+    | 'role'
+    | 'tabIndex'
+    | 'aria-selected'
+> &
+    AriaAttributes;
 
 export interface TabsProps
     extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'children' | 'className'>,
@@ -151,6 +163,11 @@ export interface TabsProps
      * Доп. пропсы для скелетона
      */
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
+
+    /**
+     * Доп. пропсы для заголовка таба
+     */
+    titleProps?: TitleProps;
 }
 
 export interface TabProps extends AriaAttributes {
@@ -208,9 +225,14 @@ export interface TabProps extends AriaAttributes {
      * Реф для кнопки переключения таба
      */
     toggleRef?: Ref<HTMLDivElement>;
+
+    /**
+     * Доп. пропсы для заголовка таба
+     */
+    titleProps?: TitleProps;
 }
 
-export interface TabListTitle {
+export interface TabListTitle extends AriaAttributes {
     title: NonNullable<ReactNode>;
     id: SelectedId;
     disabled?: boolean;
@@ -221,6 +243,7 @@ export interface TabListTitle {
     collapsed?: boolean;
     dataTestId?: string;
     toggleRef?: Ref<HTMLDivElement>;
+    titleProps?: TitleProps;
 }
 
 export interface TabListProps
