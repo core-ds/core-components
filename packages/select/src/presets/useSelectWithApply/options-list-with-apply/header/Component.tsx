@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
         <Checkbox
             block={true}
             indeterminate={indeterminate}
-            size='m'
+            size={24}
             onChange={onChange}
             checked={checked}
             label='Выбрать все'

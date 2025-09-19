@@ -45,9 +45,9 @@ render(() => {
                 onChange={(_, { value }) => setClearableCountryCode(value === 'preserve' ? value : value === 'true')}
                 value={`${clearableCountryCode}`}
             >
-                <Radio size='m' label='Нет' value='false' />
-                <Radio size='m' label='Да' value='true' />
-                <Radio size='m' label='Сохранить' value='preserve' />
+                <Radio size={24} label='Нет' value='false' />
+                <Radio size={24} label='Да' value='true' />
+                <Radio size={24} label='Сохранить' value='preserve' />
             </RadioGroup>
             <Gap size={16} />
             <Switch
