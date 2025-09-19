@@ -6,7 +6,7 @@ import { Slider } from './index';
 describe('Slider', () => {
     it('should match snapshot', () => {
         const { container } = render(<Slider step={1} />);
-        
+
         expect(container).toMatchSnapshot();
     });
 
