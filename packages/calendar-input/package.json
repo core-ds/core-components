@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-input",
-    "version": "11.0.2",
+    "version": "11.0.3",
     "description": "Calendar input component",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-calendar": "^8.0.1",
+        "@alfalab/core-components-calendar": "^8.0.2",
         "@alfalab/core-components-date-input": "^5.0.2",
         "@alfalab/core-components-mq": "^5.0.1",
         "@alfalab/core-components-popover": "^7.1.0",
