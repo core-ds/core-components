@@ -19,7 +19,7 @@ import { type HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, isClient, isIOS } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, type HeaderProps } from './components/header/Component';
@@ -144,7 +144,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 }
             }
 
-            const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
+            const viewHeight = isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
         }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
@@ -647,7 +647,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div
                         className={cn(styles.component, bgClassName, className, {
                             [styles.withTransition]: swipingInProgress === false,
-                            [styles.safeAreaBottom]: os.isIOS(),
+                            [styles.safeAreaBottom]: isIOS(),
                         })}
                         style={{
                             ...getSwipeStyles(),
