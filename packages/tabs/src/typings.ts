@@ -165,9 +165,7 @@ export interface TabsProps
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
 
     /**
-     * Дополнительные HTML-атрибуты для кнопок табов.
-     * Позволяет передавать data-*, aria-* и другие атрибуты напрямую на элементы кнопок всех табов.
-     * Исключены атрибуты, которые контролируются компонентом.
+     * Доп. пропсы для заголовка таба
      */
     titleProps?: TitleProps;
 }
@@ -226,12 +224,10 @@ export interface TabProps extends AriaAttributes {
     /**
      * Реф для кнопки переключения таба
      */
-    toggleRef?: Ref<HTMLButtonElement>;
+    toggleRef?: Ref<HTMLDivElement>;
 
     /**
-     * Дополнительные HTML-атрибуты для кнопки таба.
-     * Позволяет передавать data-*, aria-* и другие атрибуты напрямую на элемент кнопки.
-     * Исключены атрибуты, которые контролируются компонентом.
+     * Доп. пропсы для заголовка таба
      */
     titleProps?: TitleProps;
 }
@@ -246,7 +242,7 @@ export interface TabListTitle extends AriaAttributes {
     selected?: boolean;
     collapsed?: boolean;
     dataTestId?: string;
-    toggleRef?: Ref<HTMLButtonElement>;
+    toggleRef?: Ref<HTMLDivElement>;
     titleProps?: TitleProps;
 }
 
