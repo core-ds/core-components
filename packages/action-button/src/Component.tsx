@@ -12,6 +12,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
+import { LOADER_MIN_DISPLAY_INTERVAL } from './constants/loader-min-display-interval';
 import { useLoader } from './hooks';
 
 import defaultColors from './default.module.css';
@@ -25,12 +26,6 @@ const colorStyles = {
     static: staticColors,
 };
 
-/**
- * Минимальное время отображения лоадера - 500мс,
- * чтобы при быстрых ответах от сервера кнопка не «моргала».
- */
-const LOADER_MIN_DISPLAY_INTERVAL = 500;
-
 type Colors = 'default' | 'inverted' | 'static';
 
 type ComponentProps = {
@@ -41,9 +36,8 @@ type ComponentProps = {
 
     /**
      *  Размер кнопки
-     * @description s deprecated, используйте 48
      */
-    size?: 's' | 48;
+    size?: 48;
 
     /**
      * Тип кнопки
@@ -87,11 +81,6 @@ type ComponentProps = {
     colors?: Colors;
 };
 
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-48',
-    48: 'size-48',
-};
-
 type AnchorProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type ButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 export type ActionButtonProps = Partial<AnchorProps | ButtonProps>;
@@ -121,11 +110,13 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
 
         const { showLoader } = useLoader(!!loading, LOADER_MIN_DISPLAY_INTERVAL);
 
+        const styleSize = `size-${size}`;
+
         const componentProps = {
             className: cn(
                 styles.component,
                 colorStyles[colors][view],
-                styles[SIZE_TO_CLASSNAME_MAP[size]],
+                styles[styleSize],
                 {
                     [styles.focused]: focused,
                     [styles.disabled]: disabled,
@@ -144,7 +135,7 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
                     className={cn(
                         styles.iconWrapper,
                         colorStyles[colors].iconWrapper,
-                        styles[SIZE_TO_CLASSNAME_MAP[size]],
+                        styles[styleSize],
                         iconWrapperClassName,
                     )}
                 >

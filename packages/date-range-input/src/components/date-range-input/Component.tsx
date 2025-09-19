@@ -478,7 +478,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                                         ref={iconRef}
                                         onClick={inputDisabled ? undefined : handleIconButtonClick}
                                         icon={CalendarMIcon}
-                                        size='s'
+                                        size={48}
                                     />
                                 )}
                             </React.Fragment>

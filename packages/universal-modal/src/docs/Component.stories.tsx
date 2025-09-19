@@ -77,7 +77,7 @@ export const modal: Story = {
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
-                <Button type='button' size='xs' onClick={() => setOpen(true)}>
+                <Button type='button' size={40} onClick={() => setOpen(true)}>
                     Открыть
                 </Button>
                 <UniversalModalDesktop
@@ -144,7 +144,7 @@ export const side_panel: Story = {
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
-                <Button type='button' size='xs' onClick={() => setOpen(true)}>
+                <Button type='button' size={40} onClick={() => setOpen(true)}>
                     Открыть
                 </Button>
                 <UniversalModalDesktop
@@ -207,7 +207,7 @@ export const mobile: Story = {
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
-                <Button type='button' size='xs' onClick={() => setOpen(true)}>
+                <Button type='button' size={40} onClick={() => setOpen(true)}>
                     Открыть
                 </Button>
                 <UniversalModalMobile

@@ -36,7 +36,7 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
             </TypographyText>
 
             <Button
-                size={mobile ? 'xs' : 's'}
+                size={mobile ? 40 : 48}
                 view='secondary'
                 onClick={onFatalErrorOkButtonClick}
                 className={styles.button}

@@ -406,7 +406,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                                 className={commonStyles.closer}
                                 aria-label='закрыть'
                                 icon={CrossMIcon}
-                                size='xxs'
+                                size={24}
                                 onClick={handleClose}
                             />
                         </div>
