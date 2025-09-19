@@ -84,7 +84,7 @@ render(() => {
                     label='Индикатор'
                 >
                     {INDICATOR_OPTIONS.map((option, idx) => (
-                        <Radio size='m' value={String(idx)} label={option.label} key={idx} />
+                        <Radio size={24} value={String(idx)} label={option.label} key={idx} />
                     ))}
                 </RadioGroup>
 
@@ -95,8 +95,8 @@ render(() => {
                     value={accentColor}
                     label='Цвет активного таба'
                 >
-                    <Radio label='Accent-primary' value='primary' size='m' />
-                    <Radio label='Accent-secondary' value='secondary' size='m' />
+                    <Radio label='Accent-primary' value='primary' size={24} />
+                    <Radio label='Accent-secondary' value='secondary' size={24} />
                 </RadioGroup>
 
                 <Gap size={24} />
@@ -106,8 +106,8 @@ render(() => {
                     value={bgColor}
                     label='Цвет подложки'
                 >
-                    <Radio label='Modal-bg-primary' value='modal-bg-primary' size='m' />
-                    <Radio label='Modal-bg-alt-primary' value='modal-bg-alt-primary' size='m' />
+                    <Radio label='Modal-bg-primary' value='modal-bg-primary' size={24} />
+                    <Radio label='Modal-bg-alt-primary' value='modal-bg-alt-primary' size={24} />
                 </RadioGroup>
                 <Gap size={20} />
             </div>

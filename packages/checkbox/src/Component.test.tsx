@@ -156,10 +156,10 @@ describe('Checkbox', () => {
             expect(cb).not.toHaveBeenCalled();
         });
 
-        test('should not call `onChange` prop if inactive', () => {
+        test('should not call `onChange` prop if disabled', () => {
             const cb = jest.fn();
 
-            const { container } = render(<Checkbox onChange={cb} inactive={true} />);
+            const { container } = render(<Checkbox onChange={cb} disabled={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);
@@ -168,10 +168,10 @@ describe('Checkbox', () => {
             expect(cb).not.toHaveBeenCalled();
         });
 
-        test('should not call `onChange` prop if inactive and checked', () => {
+        test('should not call `onChange` prop if disabled and checked', () => {
             const cb = jest.fn();
 
-            const { container } = render(<Checkbox onChange={cb} checked={true} inactive={true} />);
+            const { container } = render(<Checkbox onChange={cb} checked={true} disabled={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);

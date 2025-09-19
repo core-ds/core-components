@@ -220,10 +220,10 @@ render(() => {
                     onChange={onTextStyleChange}
                     value={textStyle}
             >
-                <Radio size='m' label='Заголовок' value='headline' />
-                <Radio size='m' label='Обычный текст' value='defaultText' />
-                <Radio size='m' label='Зелёный текст' value='positive' />
-                <Radio size='m' label='Красный текст' value='accent' />
+                <Radio size={24} label='Заголовок' value='headline' />
+                <Radio size={24} label='Обычный текст' value='defaultText' />
+                <Radio size={24} label='Зелёный текст' value='positive' />
+                <Radio size={24} label='Красный текст' value='accent' />
             </RadioGroup>
             <Gap size={24}/>
             <RadioGroup
@@ -233,9 +233,9 @@ render(() => {
                 onChange={onBoldChange}
                 value={bold}
             >
-                <Radio size='m' label='Без модификатора' value='none' />
-                <Radio size='m' label='Только для мажорной части' value='major' />
-                <Radio size='m' label='Для всей суммы' value='full' />
+                <Radio size={24} label='Без модификатора' value='none' />
+                <Radio size={24} label='Только для мажорной части' value='major' />
+                <Radio size={24} label='Для всей суммы' value='full' />
             </RadioGroup>
             <Gap size={24}/>
             <RadioGroup
@@ -245,8 +245,8 @@ render(() => {
                 onChange={onTransparentChange}
                 value={transparent}
             >
-                <Radio size='m' label='Без модификатора' value='none' />
-                <Radio size='m' label='Только для минорной и валютной части' value='minor' />
+                <Radio size={24} label='Без модификатора' value='none' />
+                <Radio size={24} label='Только для минорной и валютной части' value='minor' />
             </RadioGroup>
         </Container>
     );
