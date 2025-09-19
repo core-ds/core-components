@@ -12,6 +12,18 @@ import { type SkeletonProps } from '@alfalab/core-components-skeleton';
 import { type TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
+export type TitleProps = Omit<
+    HTMLAttributes<HTMLButtonElement>,
+    | 'onClick'
+    | 'onKeyDown'
+    | 'className'
+    | 'disabled'
+    | 'id'
+    | 'role'
+    | 'tabIndex'
+    | 'aria-selected'
+> &
+    AriaAttributes;
 
 export interface TabsProps
     extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'children' | 'className'>,
@@ -151,6 +163,13 @@ export interface TabsProps
      * Доп. пропсы для скелетона
      */
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
+
+    /**
+     * Дополнительные HTML-атрибуты для кнопок табов.
+     * Позволяет передавать data-*, aria-* и другие атрибуты напрямую на элементы кнопок всех табов.
+     * Исключены атрибуты, которые контролируются компонентом.
+     */
+    titleProps?: TitleProps;
 }
 
 export interface TabProps extends AriaAttributes {
@@ -207,15 +226,17 @@ export interface TabProps extends AriaAttributes {
     /**
      * Реф для кнопки переключения таба
      */
-    toggleRef?: Ref<HTMLDivElement>;
+    toggleRef?: Ref<HTMLButtonElement>;
+
+    /**
+     * Дополнительные HTML-атрибуты для кнопки таба.
+     * Позволяет передавать data-*, aria-* и другие атрибуты напрямую на элемент кнопки.
+     * Исключены атрибуты, которые контролируются компонентом.
+     */
+    titleProps?: TitleProps;
 }
 
-export interface TabListTitle
-    extends Omit<
-            HTMLAttributes<HTMLDivElement>,
-            'onChange' | 'children' | 'className' | 'id' | 'title'
-        >,
-        AriaAttributes {
+export interface TabListTitle extends AriaAttributes {
     title: NonNullable<ReactNode>;
     id: SelectedId;
     disabled?: boolean;
@@ -225,7 +246,8 @@ export interface TabListTitle
     selected?: boolean;
     collapsed?: boolean;
     dataTestId?: string;
-    toggleRef?: Ref<HTMLDivElement>;
+    toggleRef?: Ref<HTMLButtonElement>;
+    titleProps?: TitleProps;
 }
 
 export interface TabListProps

@@ -3,4 +3,4 @@
 '@alfalab/core-components': minor
 ---
 
-- Добавлена возможность прокидывать aria и data атрибуты в titles компонента Tabs
+- Добавлена возможность прокидывать aria- и data- атрибуты в titles компонента Tabs
