@@ -7,6 +7,7 @@ import {
     closeBrowser,
     createPreview,
     createSpriteStorybookUrl,
+    generateTestCases,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -49,6 +50,7 @@ describe('InputAutocomplete | screenshots rightAddons', () => {
                             options: [[{ key: '1', content: 'Вариант из списка' }]],
                             success: [true, false],
                             error: [undefined, 'Error'],
+                            showErrorIcon: true,
                         },
                         size: { width: 200, height: 150 },
                     }),

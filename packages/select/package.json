@@ -23,6 +23,7 @@
         "@alfalab/core-components-scrollbar": "^4.0.0",
         "@alfalab/core-components-shared": "^1.1.0",
         "@alfalab/core-components-skeleton": "^6.0.0",
+        "@alfalab/core-components-status-badge": "^2.0.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.247.0",
         "@juggle/resize-observer": "^3.3.1",

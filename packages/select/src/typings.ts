@@ -22,6 +22,7 @@ import {
 import { type PopoverProps } from '@alfalab/core-components-popover';
 
 import { type UseSelectWithApplyProps } from './presets/useSelectWithApply/hook';
+import { type StatusProps } from './types/status-props';
 
 // eslint-disable-next-line
 export type AnyObject = Record<string, any>;
@@ -73,7 +74,7 @@ export type BaseSelectChangePayload = {
     name?: string;
 };
 
-export type BaseSelectProps = {
+export type BaseSelectProps = StatusProps & {
     /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для пункта меню используется модификатор -option, компонента поиска -search,
@@ -184,11 +185,6 @@ export type BaseSelectProps = {
      * Плейсхолдер поля
      */
     placeholder?: string;
-
-    /**
-     * Отображение ошибки
-     */
-    error?: ReactNode | boolean;
 
     /**
      * Подсказка под полем
@@ -404,7 +400,7 @@ export type BaseSelectProps = {
 };
 
 // TODO: использовать InputProps
-export type FieldProps = {
+export type FieldProps = StatusProps & {
     /**
      * Дополнительный класс
      */
@@ -459,16 +455,6 @@ export type FieldProps = {
      * Плейсхолдер поля
      */
     placeholder?: string;
-
-    /**
-     * Отображение ошибки
-     */
-    error?: ReactNode | boolean;
-
-    /**
-     * Отображение иконки успеха
-     */
-    success?: boolean;
 
     /**
      * Подсказка под полем

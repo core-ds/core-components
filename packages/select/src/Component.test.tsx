@@ -1036,6 +1036,49 @@ describe('Select', () => {
         });
     });
 
+    describe('status icon tests', () => {
+        it('should render error icon for desktop', () => {
+            const testId = 'select-test-id';
+
+            render(
+                <Select options={options} dataTestId={testId} error='error' showErrorIcon={true} />,
+            );
+
+            expect(screen.queryByTestId(`${testId}-field-error-icon`)).toBeInTheDocument();
+        });
+
+        it('should render error icon for mobile', () => {
+            const testId = 'select-test-id';
+
+            render(
+                <SelectMobile
+                    options={options}
+                    dataTestId={testId}
+                    error='error'
+                    showErrorIcon={true}
+                />,
+            );
+
+            expect(screen.queryByTestId(`${testId}-field-error-icon`)).toBeInTheDocument();
+        });
+
+        it('should render success icon for desktop', () => {
+            const testId = 'select-test-id';
+
+            render(<Select options={options} dataTestId={testId} success={true} />);
+
+            expect(screen.queryByTestId(`${testId}-field-success-icon`)).toBeInTheDocument();
+        });
+
+        it('should render success icon for mobile', () => {
+            const testId = 'select-test-id';
+
+            render(<SelectMobile options={options} dataTestId={testId} success={true} />);
+
+            expect(screen.queryByTestId(`${testId}-field-success-icon`)).toBeInTheDocument();
+        });
+    });
+
     describe('Environment tests', () => {
         it('should pass environment prop to downshift', async () => {
             const mockEnvironment = {
