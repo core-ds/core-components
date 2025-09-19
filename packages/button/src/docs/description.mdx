@@ -82,23 +82,15 @@ render(() => {
 Кнопка доступна в размерах 72, 64, 56, 48, 40, 32.
 
 ```jsx live mobileHeight={460}
-const BIG_SIZES = ['xl', 'l', 'm'];
-const SMALL_SIZES = ['s', 'xs', 'xxs'];
-const SIZES_MAP = {
-    xl: 72,
-    l: 64,
-    m: 56,
-    s: 48,
-    xs: 40,
-    xxs: 32,
-};
+const BIG_SIZES = [72, 64, 56];
+const SMALL_SIZES = [48, 40, 32];
 
 render(
     <>
         <Space direction='horizontal' align='center'>
             {BIG_SIZES.map((size) => (
                 <ButtonDesktop key={size} size={size} view='primary'>
-                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                    {`${size}px`}
                 </ButtonDesktop>
             ))}
         </Space>
@@ -106,29 +98,21 @@ render(
         <Space direction='horizontal' align='center'>
             {SMALL_SIZES.map((size) => (
                 <ButtonDesktop key={size} size={size} view='primary'>
-                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                    {`${size}px`}
                 </ButtonDesktop>
             ))}
         </Space>
     </>,
 );
 //MOBILE
-const SIZES_MAP = {
-    xl: 72,
-    l: 64,
-    m: 56,
-    s: 48,
-    xs: 40,
-    xxs: 32,
-};
-const SIZES = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+const SIZES = [72, 64, 56, 48, 40, 32];
 
 render(
     <Container>
         {SIZES.map((size, idx) => (
             <React.Fragment key={size}>
                 <ButtonMobile block={true} size={size} view='primary'>
-                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                    {`${size}px`}
                 </ButtonMobile>
                 {SIZES.length - 1 !== idx && <Gap size={20} />}
             </React.Fragment>
@@ -324,6 +308,7 @@ render(() => {
     );
 });
 ```
+
 ## Размытие фона
 
 Для кнопок можно включить размытие фона, если она полупрозрачная, располагается поверх динамического контента или изображения.
@@ -338,14 +323,14 @@ render(() => {
         borderRadius: '16px',
         width: '330px',
         height: '100px',
-    }
+    };
 
     const image = {
         width: '100%',
         height: '100%',
         borderRadius: 'inherit',
         objectFit: 'cover',
-    }
+    };
 
     const wrapperButton = {
         position: 'absolute',
@@ -353,39 +338,31 @@ render(() => {
         inset: '0px',
         padding: '20px',
         justifyContent: 'space-between',
-    }
+    };
 
     return (
-    <>
-        <div style={wrapper}>
-        <img style={image} src='./images/buttonBlur.png' />
-        <div style={wrapperButton}>
-            <Button
-                view='primary'
-                colors='inverted'
-                disabled={true}
-                allowBackdropBlur={checked}
-            >
-                Disabled
-            </Button>
-            <Button
-                view='secondary'
-                colors='inverted'
-                allowBackdropBlur={checked}
-            >
-                Secondary
-            </Button>
-        </div>
-        </div>
+        <>
+            <div style={wrapper}>
+                <img style={image} src='./images/buttonBlur.png' />
+                <div style={wrapperButton}>
+                    <Button
+                        view='primary'
+                        colors='inverted'
+                        disabled={true}
+                        allowBackdropBlur={checked}
+                    >
+                        Disabled
+                    </Button>
+                    <Button view='secondary' colors='inverted' allowBackdropBlur={checked}>
+                        Secondary
+                    </Button>
+                </div>
+            </div>
 
-        <Row align='middle'>
-            <Switch
-                label='Включить размытие'
-                checked={checked}
-                onChange={handleChange}
-            />
-        </Row>
-    </>
+            <Row align='middle'>
+                <Switch label='Включить размытие' checked={checked} onChange={handleChange} />
+            </Row>
+        </>
     );
 });
 ```

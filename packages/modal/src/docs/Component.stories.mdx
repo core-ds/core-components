@@ -42,7 +42,7 @@ export const Content = ({ isPreview }) => {
                     <Text />
                 </>
             )}
-            <Button className='showMoreButton' size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
+            <Button className='showMoreButton' size={40} type='Button' onClick={() => setShowMore(!showMore)}>
                 {showMore ? 'Скрыть' : 'Показать еще'}
             </Button>
         </>
@@ -94,7 +94,7 @@ export const ModalComponent = ModalDesktop;
         const FooterButton = isMobile ? ButtonMobile : ButtonDesktop;
         return (
             <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
-                <Button type='button' size='xs' onClick={handleModalOpen}>
+                <Button type='button' size={40} onClick={handleModalOpen}>
                     Открыть модалку
                 </Button>
                 <ModalComponent
@@ -126,12 +126,12 @@ export const ModalComponent = ModalDesktop;
                                 layout={footerLayout}
                                 gap={footerGap}
                                 primary={
-                                    <FooterButton size={isMobile ? 'm' : 's'} view='primary'>
+                                    <FooterButton size={isMobile ? 56 : 48} view='primary'>
                                         {isPreview ? 'Кнопка' : 'Сохранить'}
                                     </FooterButton>
                                 }
                                 secondary={
-                                    <FooterButton size={isMobile ? 'm' : 's'} view='secondary'>
+                                    <FooterButton size={isMobile ? 56 : 48} view='secondary'>
                                         {isPreview ? 'Кнопка' : 'Отмена'}
                                     </FooterButton>
                                 }

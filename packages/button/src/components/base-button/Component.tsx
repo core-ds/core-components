@@ -2,6 +2,7 @@
 import React, {
     type AnchorHTMLAttributes,
     type ButtonHTMLAttributes,
+    forwardRef,
     useEffect,
     useRef,
     useState,
@@ -13,11 +14,8 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
-import {
-    type CommonButtonProps,
-    type ComponentProps,
-    type PrivateButtonProps,
-} from '../../typings';
+import { LOADER_MIN_DISPLAY_INTERVAL } from '../../constants/loader-min-display-interval';
+import { type CommonButtonProps, type PrivateButtonProps } from '../../typings';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -28,47 +26,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-/**
- * Минимальное время отображения лоадера - 500мс,
- * чтобы при быстрых ответах от сервера кнопка не «моргала».
- */
-export const LOADER_MIN_DISPLAY_INTERVAL = 500;
-
-const logWarning = (view: Required<ComponentProps>['view']) => {
-    if (process.env.NODE_ENV !== 'development') {
-        return;
-    }
-
-    const viewsMap: { [key: string]: string } = {
-        link: 'transparent',
-        ghost: 'text',
-    };
-
-    // eslint-disable-next-line no-console
-    console.warn(
-        // eslint-disable-next-line prefer-template
-        `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
-            `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
-            'npx @alfalab/core-components-codemod --transformers=button-views-45 src/**/*.tsx',
-    );
-};
-
-const SIZE_TO_CLASSNAME_MAP = {
-    xxs: 'size-32',
-    xs: 'size-40',
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    32: 'size-32',
-    40: 'size-40',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
-};
-
-export const BaseButton = React.forwardRef<
+export const BaseButton = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
     CommonButtonProps & PrivateButtonProps
 >(
@@ -99,10 +57,6 @@ export const BaseButton = React.forwardRef<
         },
         ref,
     ) => {
-        if (['link', 'ghost'].includes(view)) {
-            logWarning(view);
-        }
-
         const buttonRef = useRef<HTMLElement>(null);
 
         const [focused] = useFocus(buttonRef, 'keyboard');
@@ -113,18 +67,19 @@ export const BaseButton = React.forwardRef<
 
         const showLoader = loading || !loaderTimePassed;
 
-        const showHint =
-            hint && ['size-56', 'size-64', 'size-72'].includes(SIZE_TO_CLASSNAME_MAP[size]);
+        const showHint = hint && [56, 64, 72].includes(size);
 
         const iconOnly = !children;
+
+        const sizeStyle = `size-${size}`;
 
         const componentProps = {
             className: cn(
                 commonStyles.component,
                 commonStyles[view],
-                commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
+                commonStyles[sizeStyle],
                 commonStyles[textResizing],
-                shape === 'rectangular' && styles[SIZE_TO_CLASSNAME_MAP[size]],
+                shape === 'rectangular' && styles[sizeStyle],
                 shape === 'rounded' && commonStyles[shape],
                 colorStyles[colors].component,
                 colorStyles[colors][view],

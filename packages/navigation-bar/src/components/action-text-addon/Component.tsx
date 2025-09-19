@@ -43,7 +43,7 @@ export const ActionTextAddon: React.FC<ActionTextAddonProps> = ({
 }) => (
     <ButtonMobile
         view='text'
-        size='s'
+        size={48}
         onClick={onClick}
         aria-label={text}
         className={cn(styles.component, className)}

@@ -385,7 +385,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                                         className={styles.calendarIcon}
                                         onClick={inputDisabled ? undefined : handleIconButtonClick}
                                         icon={CalendarMIcon}
-                                        size='s'
+                                        size={48}
                                     />
                                 )}
                             </React.Fragment>

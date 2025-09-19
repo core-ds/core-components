@@ -33,12 +33,6 @@
     }
 }
 
-.ghost {
-    &:active {
-        color: var(--button-inverted-ghost-mobile-active-color);
-    }
-}
-
 .component[disabled] {
     &.primary {
         color: var(--button-inverted-primary-mobile-disabled-color);
@@ -69,15 +63,7 @@
         color: var(--button-inverted-transparent-mobile-disabled-color);
     }
 
-    &.link {
-        color: var(--button-inverted-link-mobile-disabled-color);
-    }
-
     &.text {
         color: var(--button-inverted-text-mobile-disabled-color);
-    }
-
-    &.ghost {
-        color: var(--button-inverted-ghost-mobile-disabled-color);
     }
 }

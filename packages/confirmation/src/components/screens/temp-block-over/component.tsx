@@ -41,7 +41,7 @@ export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
             </TypographyText>
 
             <Button
-                size={mobile ? 'xs' : 's'}
+                size={mobile ? 40 : 48}
                 view='secondary'
                 onClick={handleReturnButtonClick}
                 className={styles.button}

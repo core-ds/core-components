@@ -33,12 +33,6 @@
     }
 }
 
-.ghost {
-    &:active {
-        color: var(--button-ghost-mobile-active-color);
-    }
-}
-
 .component[disabled] {
     &.primary {
         color: var(--button-primary-mobile-disabled-color);
@@ -69,15 +63,7 @@
         color: var(--button-transparent-mobile-disabled-color);
     }
 
-    &.link {
-        color: var(--button-link-mobile-disabled-color);
-    }
-
     &.text {
         color: var(--button-text-mobile-disabled-color);
-    }
-
-    &.ghost {
-        color: var(--button-ghost-mobile-disabled-color);
     }
 }

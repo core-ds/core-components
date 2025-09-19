@@ -65,7 +65,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     if (timePassed) {
         return (
             <Button
-                size={mobile ? 'xs' : 'xxs'}
+                size={mobile ? 40 : 32}
                 view='secondary'
                 onClick={handleSmsRetryClick}
                 className={cn(styles.getCodeButton, { [styles.getCodeButtonMobile]: mobile })}
