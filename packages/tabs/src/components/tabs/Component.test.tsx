@@ -208,27 +208,24 @@ describe('Tabs', () => {
     });
 
     describe('Aria and data attributes', () => {
-        it('should pass aria and data attributes to tab titles', () => {
-            const { container } = renderTabs(
-                TabsDesktop,
-                {},
-                {
-                    'aria-label': 'Custom aria label',
-                    'data-custom': 'custom-value',
-                    'data-test-id': 'custom-test-id',
+        it('should pass aria and data attributes through titleProps', () => {
+            const { container } = renderTabs(TabsDesktop, {
+                titleProps: {
+                    'aria-describedby': 'description-id',
+                    'data-custom-title': 'custom-title-value',
                 },
-            );
+            });
 
             const allButtons = container.querySelectorAll('button[role="tab"]');
             expect(allButtons.length).toBeGreaterThan(0);
 
             const ariaButton = Array.from(allButtons).find(
-                (button) => button.getAttribute('aria-label') === 'Custom aria label',
+                (button) => button.getAttribute('aria-describedby') === 'description-id',
             );
             expect(ariaButton).toBeInTheDocument();
 
             const dataButton = Array.from(allButtons).find(
-                (button) => button.getAttribute('data-custom') === 'custom-value',
+                (button) => button.getAttribute('data-custom-title') === 'custom-title-value',
             );
             expect(dataButton).toBeInTheDocument();
         });
