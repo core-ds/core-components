@@ -6,18 +6,6 @@
     padding-top: var(--slider-progress-s-height);
     position: relative;
 
-    & :global(.noUi-base) {
-        @mixin hover {
-            & :global(.noUi-connects) {
-                background: var(--slider-progress-hover-background);
-            }
-
-            & :global(.noUi-connect) {
-                background: var(--slider-progress-hover-color);
-            }
-        }
-    }
-
     & :global(.noUi-handle .noUi-touch-area) {
         @mixin hover {
             background: var(--slider-thumb-hover-color);
@@ -35,6 +23,16 @@
         transform: translateY(-50%);
 
         cursor: pointer;
+
+        @mixin hover {
+            & :global(.noUi-connects) {
+                background: var(--slider-progress-hover-background);
+            }
+
+            & :global(.noUi-connect) {
+                background: var(--slider-progress-hover-color);
+            }
+        }
     }
 
     & :global(.noUi-origin) {

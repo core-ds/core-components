@@ -59,12 +59,12 @@ export const updateMarkerAttributes = ({
     }
 };
 
-type IsMarkerPassedParams = {
+interface MarkerParams {
     markerValue: number;
     currentValue: number;
     currentValueTo?: number;
     hasValueTo?: boolean;
-};
+}
 
 /**
  * Определяет, пройден ли маркер (покрыт connect)
@@ -74,7 +74,7 @@ export const isMarkerPassed = ({
     currentValue,
     currentValueTo,
     hasValueTo,
-}: IsMarkerPassedParams): boolean => {
+}: MarkerParams): boolean => {
     if (hasValueTo && currentValueTo !== undefined) {
         return (
             markerValue >= Math.min(currentValue, currentValueTo) &&
@@ -85,13 +85,6 @@ export const isMarkerPassed = ({
     return markerValue < currentValue;
 };
 
-type IsMarkerCurrentParams = {
-    markerValue: number;
-    currentValue: number;
-    currentValueTo?: number;
-    hasValueTo?: boolean;
-};
-
 /**
  * Определяет, находится ли слайдер точно на маркере
  */
@@ -100,10 +93,48 @@ export const isMarkerCurrent = ({
     currentValue,
     currentValueTo,
     hasValueTo,
-}: IsMarkerCurrentParams): boolean => {
+}: MarkerParams): boolean => {
     if (hasValueTo && currentValueTo !== undefined) {
         return markerValue === currentValue || markerValue === currentValueTo;
     }
 
     return markerValue === currentValue;
+};
+
+type UpdateMarkerClassesParams = {
+    sliderElement: HTMLElement;
+    pipsValues: number[];
+    customDots?: number[];
+};
+
+/**
+ * Обновляет CSS классы маркеров для скрытия точек в режиме dotsSlider: 'custom'
+ */
+export const updateMarkerClasses = ({
+    sliderElement,
+    pipsValues,
+    customDots = [],
+}: UpdateMarkerClassesParams): void => {
+    const markers = sliderElement.querySelectorAll('.noUi-marker-large');
+
+    markers.forEach((marker) => {
+        const nextElement = marker.nextElementSibling as HTMLElement;
+
+        if (nextElement?.classList.contains('noUi-value')) {
+            const dataValue = nextElement.getAttribute('data-value');
+            const value = dataValue ? parseFloat(dataValue) : null;
+
+            if (value !== null && pipsValues.includes(value)) {
+                const isAlsoInCustomDots = customDots.includes(value);
+
+                if (isAlsoInCustomDots) {
+                    marker.classList.remove('hide-for-pips-value');
+                } else {
+                    marker.classList.add('hide-for-pips-value');
+                }
+            } else {
+                marker.classList.remove('hide-for-pips-value');
+            }
+        }
+    });
 };

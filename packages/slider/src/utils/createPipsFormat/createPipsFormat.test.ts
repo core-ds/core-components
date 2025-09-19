@@ -1,187 +1,177 @@
 import { createPipsFormat } from './createPipsFormat';
 
-// todo: после upgrade jest до 27+ переписать на it.each и $description
 describe('Unit/utils/function/createPipsFormat', () => {
     describe('Success cases', () => {
-        const successCases = [
+        it.each([
             {
+                description:
+                    'Should return value for custom dot when showNumbers=true and hideCustomDotsNumbers=false',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 25,
                 },
                 expected: 25,
-                description:
-                    'Should return value for custom dot when showNumbers=true and hideCustomDotsNumbers=false',
             },
             {
+                description:
+                    'Should return empty string for custom dot when hideCustomDotsNumbers=true',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: true,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 25,
                 },
                 expected: '',
-                description:
-                    'Should return empty string for custom dot when hideCustomDotsNumbers=true',
             },
             {
+                description: 'Should return value for integer when custom dots exist',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 10,
                 },
                 expected: 10,
-                description: 'Should return value for integer when custom dots exist',
             },
             {
+                description: 'Should return empty string for decimal when custom dots exist',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 10.5,
                 },
                 expected: '',
-                description: 'Should return empty string for decimal when custom dots exist',
             },
             {
-                input: {
-                    customDots: undefined,
-                    showNumbers: true,
-                    hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
-                    value: 10,
-                },
-                expected: 10,
                 description: 'Should return value for any number when no custom dots',
-            },
-            {
                 input: {
                     customDots: [],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
+                    value: 10,
+                },
+                expected: 10,
+            },
+            {
+                description: 'Should return empty string for decimal when no custom dots',
+                input: {
+                    customDots: [],
+                    showNumbers: true,
+                    hideCustomDotsNumbers: false,
+                    pipsValues: [],
                     value: 10.5,
                 },
-                expected: 10.5,
-                description: 'Should return value for decimal when no custom dots',
+                expected: '',
             },
-        ];
+        ])('$description', ({ input, expected }) => {
+            const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues, value } = input;
 
-        successCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = input;
-
-                const format = createPipsFormat({
-                    customDots,
-                    showNumbers,
-                    hideCustomDotsNumbers,
-                    hideLargePips: false,
-                    pipsValues,
-                });
-                const result = format.to(input.value);
-                expect(result).toBe(expected);
+            const format = createPipsFormat({
+                customDots: customDots || [],
+                showNumbers,
+                hideCustomDotsNumbers,
+                pipsValues: pipsValues || [],
             });
+            const result = format.to(value);
+            expect(result).toBe(expected);
         });
     });
 
     describe('Edge cases', () => {
-        const edgeCases = [
+        it.each([
             {
+                description: 'Should handle zero as custom dot',
                 input: {
                     customDots: [0],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 0,
                 },
                 expected: 0,
-                description: 'Should handle zero as custom dot',
             },
             {
+                description: 'Should handle negative custom dots',
                 input: {
                     customDots: [-5, 0, 5],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: -5,
                 },
                 expected: -5,
-                description: 'Should handle negative custom dots',
             },
             {
+                description: 'Should handle decimal custom dots',
                 input: {
                     customDots: [1.5, 2.5],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 1.5,
                 },
                 expected: 1.5,
-                description: 'Should handle decimal custom dots',
             },
             {
+                description: 'Should return empty string when showNumbers=false',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: false,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 25,
                 },
                 expected: '',
-                description: 'Should return empty string when showNumbers=false',
             },
             {
+                description: 'Should return empty string for any value when showNumbers=false',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: false,
                     hideCustomDotsNumbers: true,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 10,
                 },
                 expected: '',
-                description: 'Should return empty string for any value when showNumbers=false',
             },
             {
+                description: 'Should handle integer-like decimal values for custom dots',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: 25.0,
                 },
                 expected: 25,
-                description: 'Should handle integer-like decimal values for custom dots',
             },
-        ];
+        ])('$description', ({ input, expected }) => {
+            const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues, value } = input;
 
-        edgeCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = input;
-
-                const format = createPipsFormat({
-                    customDots,
-                    showNumbers,
-                    hideCustomDotsNumbers,
-                    hideLargePips: false,
-                    pipsValues,
-                });
-
-                const result = format.to(input.value);
-                expect(result).toBe(expected);
+            const format = createPipsFormat({
+                customDots: customDots || [],
+                showNumbers,
+                hideCustomDotsNumbers,
+                pipsValues: pipsValues || [],
             });
+
+            const result = format.to(value);
+            expect(result).toBe(expected);
         });
     });
 
     describe('Pips integration cases', () => {
-        const pipsCases = [
+        it.each([
             {
+                description: 'Should return value for pips value when pips integration exists',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
@@ -190,9 +180,9 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     value: 10,
                 },
                 expected: 10,
-                description: 'Should return value for pips value when pips integration exists',
             },
             {
+                description: 'Should return value for custom dot when pips integration exists',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
@@ -201,9 +191,10 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     value: 25,
                 },
                 expected: 25,
-                description: 'Should return value for custom dot when pips integration exists',
             },
             {
+                description:
+                    'Should return empty string for custom dot when hideCustomDotsNumbers=true and pips integration exists',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
@@ -212,10 +203,9 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     value: 25,
                 },
                 expected: '',
-                description:
-                    'Should return empty string for custom dot when hideCustomDotsNumbers=true and pips integration exists',
             },
             {
+                description: 'Should return value for integer when pips integration exists',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
@@ -224,9 +214,9 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     value: 15,
                 },
                 expected: 15,
-                description: 'Should return value for integer when pips integration exists',
             },
             {
+                description: 'Should return empty string for decimal when pips integration exists',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
@@ -235,9 +225,9 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     value: 15.5,
                 },
                 expected: '',
-                description: 'Should return empty string for decimal when pips integration exists',
             },
             {
+                description: 'Should return empty string for pips value when showNumbers=false',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: false,
@@ -246,168 +236,172 @@ describe('Unit/utils/function/createPipsFormat', () => {
                     value: 10,
                 },
                 expected: '',
-                description: 'Should return empty string for pips value when showNumbers=false',
             },
-        ];
+        ])('$description', ({ input, expected }) => {
+            const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues, value } = input;
 
-        pipsCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = input;
-
-                const format = createPipsFormat({
-                    customDots,
-                    showNumbers,
-                    hideCustomDotsNumbers,
-                    hideLargePips: false,
-                    pipsValues,
-                });
-
-                const result = format.to(input.value);
-                expect(result).toBe(expected);
+            const format = createPipsFormat({
+                customDots: customDots || [],
+                showNumbers,
+                hideCustomDotsNumbers,
+                pipsValues: pipsValues || [],
             });
+
+            const result = format.to(value);
+            expect(result).toBe(expected);
         });
     });
 
     describe('Error cases', () => {
-        const errorCases = [
+        it.each([
             {
+                description: 'Should handle NaN values gracefully',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: NaN,
                 },
                 expected: '',
-                description: 'Should handle NaN values gracefully',
             },
             {
+                description: 'Should handle Infinity values gracefully',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: Infinity,
                 },
                 expected: '',
-                description: 'Should handle Infinity values gracefully',
             },
             {
+                description: 'Should handle negative Infinity values gracefully',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: -Infinity,
                 },
                 expected: '',
-                description: 'Should handle negative Infinity values gracefully',
             },
             {
+                description: 'Should handle very large integer values',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: Number.MAX_SAFE_INTEGER,
                 },
                 expected: Number.MAX_SAFE_INTEGER,
-                description: 'Should handle very large integer values',
             },
             {
+                description: 'Should handle very small integer values',
                 input: {
                     customDots: [25, 50, 75],
                     showNumbers: true,
                     hideCustomDotsNumbers: false,
-                    pipsValues: undefined,
+                    pipsValues: [],
                     value: Number.MIN_SAFE_INTEGER,
                 },
                 expected: Number.MIN_SAFE_INTEGER,
-                description: 'Should handle very small integer values',
             },
-        ];
+        ])('$description', ({ input, expected }) => {
+            const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues, value } = input;
 
-        errorCases.forEach(({ input, expected, description }) => {
-            it(description, () => {
-                const { customDots, showNumbers, hideCustomDotsNumbers, pipsValues } = input;
-
-                const format = createPipsFormat({
-                    customDots,
-                    showNumbers,
-                    hideCustomDotsNumbers,
-                    hideLargePips: false,
-                    pipsValues,
-                });
-
-                const result = format.to(input.value);
-                expect(result).toBe(expected);
+            const format = createPipsFormat({
+                customDots: customDots || [],
+                showNumbers,
+                hideCustomDotsNumbers,
+                pipsValues: pipsValues || [],
             });
+
+            const result = format.to(value);
+            expect(result).toBe(expected);
         });
     });
 
     describe('Function behavior', () => {
-        it('Should create a reusable format function', () => {
-            const format = createPipsFormat({
-                customDots: [25, 50, 75],
-                showNumbers: true,
-                hideCustomDotsNumbers: false,
-                pipsValues: undefined,
+        it.each([
+            {
+                description: 'Should create a reusable format function',
+                input: {
+                    customDots: [25, 50, 75],
+                    showNumbers: true,
+                    hideCustomDotsNumbers: false,
+                    pipsValues: [],
+                },
+                testCases: [
+                    { value: 25, expected: 25 },
+                    { value: 50, expected: 50 },
+                    { value: 10, expected: 10 },
+                    { value: 10.5, expected: '' },
+                ],
+            },
+            {
+                description: 'Should handle different showNumbers settings - with numbers',
+                input: {
+                    customDots: [25, 50, 75],
+                    showNumbers: true,
+                    hideCustomDotsNumbers: false,
+                    pipsValues: [],
+                },
+                testCases: [{ value: 25, expected: 25 }],
+            },
+            {
+                description: 'Should handle different showNumbers settings - without numbers',
+                input: {
+                    customDots: [25, 50, 75],
+                    showNumbers: false,
+                    hideCustomDotsNumbers: false,
+                    pipsValues: [],
+                },
+                testCases: [{ value: 25, expected: '' }],
+            },
+            {
+                description: 'Should handle different hideCustomDotsNumbers settings - show custom',
+                input: {
+                    customDots: [25, 50, 75],
+                    showNumbers: true,
+                    hideCustomDotsNumbers: false,
+                    pipsValues: [],
+                },
+                testCases: [{ value: 25, expected: 25 }],
+            },
+            {
+                description: 'Should handle different hideCustomDotsNumbers settings - hide custom',
+                input: {
+                    customDots: [25, 50, 75],
+                    showNumbers: true,
+                    hideCustomDotsNumbers: true,
+                    pipsValues: [],
+                },
+                testCases: [{ value: 25, expected: '' }],
+            },
+            {
+                description: 'Should handle pips integration correctly',
+                input: {
+                    customDots: [25, 50, 75],
+                    showNumbers: true,
+                    hideCustomDotsNumbers: false,
+                    pipsValues: [10, 20, 30],
+                },
+                testCases: [
+                    { value: 10, expected: 10 }, // pips value
+                    { value: 25, expected: 25 }, // custom dot
+                    { value: 15, expected: 15 }, // integer
+                    { value: 15.5, expected: '' }, // decimal
+                ],
+            },
+        ])('$description', ({ input, testCases }) => {
+            const format = createPipsFormat(input);
+
+            testCases.forEach(({ value, expected }) => {
+                expect(format.to(value)).toBe(expected);
             });
-
-            expect(format.to(25)).toBe(25);
-            expect(format.to(50)).toBe(50);
-            expect(format.to(10)).toBe(10);
-            expect(format.to(10.5)).toBe('');
-        });
-
-        it('Should handle different showNumbers settings', () => {
-            const formatWithNumbers = createPipsFormat({
-                customDots: [25, 50, 75],
-                showNumbers: true,
-                hideCustomDotsNumbers: false,
-                pipsValues: undefined,
-            });
-            const formatWithoutNumbers = createPipsFormat({
-                customDots: [25, 50, 75],
-                showNumbers: false,
-                hideCustomDotsNumbers: false,
-                pipsValues: undefined,
-            });
-
-            expect(formatWithNumbers.to(25)).toBe(25);
-            expect(formatWithoutNumbers.to(25)).toBe('');
-        });
-
-        it('Should handle different hideCustomDotsNumbers settings', () => {
-            const formatShowCustom = createPipsFormat({
-                customDots: [25, 50, 75],
-                showNumbers: true,
-                hideCustomDotsNumbers: false,
-                pipsValues: undefined,
-            });
-            const formatHideCustom = createPipsFormat({
-                customDots: [25, 50, 75],
-                showNumbers: true,
-                hideCustomDotsNumbers: true,
-                pipsValues: undefined,
-            });
-
-            expect(formatShowCustom.to(25)).toBe(25);
-            expect(formatHideCustom.to(25)).toBe('');
-        });
-
-        it('Should handle pips integration correctly', () => {
-            const format = createPipsFormat({
-                customDots: [25, 50, 75],
-                showNumbers: true,
-                hideCustomDotsNumbers: false,
-                pipsValues: [10, 20, 30],
-            });
-
-            expect(format.to(10)).toBe(10); // pips value
-            expect(format.to(25)).toBe(25); // custom dot
-            expect(format.to(15)).toBe(15); // integer
-            expect(format.to(15.5)).toBe(''); // decimal
         });
     });
 });

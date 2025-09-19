@@ -1,10 +1,4 @@
-type CreatePipsFormatParams = {
-    showNumbers: boolean;
-    hideCustomDotsNumbers?: boolean;
-    hideLargePips?: boolean;
-    customDots?: number[];
-    pipsValues?: number[];
-};
+import { type PipsFormat } from '../../types';
 
 /**
  * Создает format функцию для pips
@@ -20,7 +14,7 @@ export const createPipsFormat = ({
     showNumbers,
     hideCustomDotsNumbers,
     pipsValues,
-}: CreatePipsFormatParams) => ({
+}: PipsFormat) => ({
     to: (value: number): string | number => {
         if (!showNumbers) return '';
 
@@ -28,53 +22,10 @@ export const createPipsFormat = ({
         const isPips = pipsValues?.includes(value) ?? false;
         const isWhole = Number.isInteger(value);
 
-        console.log('createPipsFormat:', {
-            value,
-            showNumbers,
-            hideCustomDotsNumbers,
-            isCustom,
-            isPips,
-            isWhole,
-            customDots,
-            pipsValues,
-        });
-
         if (hideCustomDotsNumbers) {
-            // Если значение есть и в pipsValues и в customDots - показываем число
-            if (isPips && isCustom) {
-                return value;
-            }
-
-            // Если значение есть только в pipsValues - показываем число (для типа 0)
-            if (isPips) {
-                return value;
-            }
-
-            // Если значение есть только в customDots - скрываем число (для типа 2)
-            if (isCustom) {
-                return '';
-            }
-
-            // Для остальных целых чисел показываем число (для типа 0)
-            return isWhole ? value : '';
+            return isPips || (isWhole && !isCustom) ? value : '';
         }
 
-        // Если есть объединение с pips
-        if (pipsValues?.length) {
-            if (isPips) return value;
-            if (isCustom) return value;
-
-            return isWhole ? value : '';
-        }
-
-        // Если есть кастомные точки без объединения
-        if (customDots?.length) {
-            if (isCustom) return value;
-
-            return isWhole ? value : '';
-        }
-
-        // Для обычных случаев всегда показываем числа
-        return value;
+        return isPips || isCustom || isWhole ? value : '';
     },
 });

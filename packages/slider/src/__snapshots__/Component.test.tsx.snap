@@ -3,7 +3,7 @@
 exports[`Slider should match snapshot 1`] = `
 <div>
   <div
-    class="component size-2 hideLargePips dotsDisabled noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
+    class="component size-2 dotsDisabled noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
   >
     <div
       class="noUi-base"

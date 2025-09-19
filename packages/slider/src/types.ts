@@ -1,5 +1,15 @@
 type SubRange = number | [number] | [number, number];
-type PipsType = -1 | 0 | 1 | 2;
+
+/**
+ * Типы отображения точек в noUiSlider pips
+ *
+ * @description
+ * - -1: скрыть элемент
+ * - 0: большая метка без точки (только число)
+ * - 1: большая точка с числом
+ * - 2: маленькая точка без числа
+ */
+export type PipsType = -1 | 0 | 1 | 2;
 
 interface RangeOptions {
     min: SubRange;
@@ -103,7 +113,7 @@ export interface SliderProps {
 
     /**
      * Включение/отключение отображения чисел под точками
-     * Действует на все точки кроме dotsSlider
+     * Действует на все точки кроме customDots
      * @default true
      */
     showNumbers?: boolean;
@@ -114,12 +124,6 @@ export interface SliderProps {
      * @default false
      */
     hideCustomDotsNumbers?: boolean;
-
-    /**
-     * Отключение больших точек с числами (тип 1) через CSS стили
-     * @default false
-     */
-    hideLargePips?: boolean;
 
     /**
      * Обработчик поля ввода
@@ -142,4 +146,27 @@ export interface SliderProps {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+}
+
+export type CreatePipsConfigParams = {
+    dotsSlider: 'step' | 'custom';
+    pips?: Pips;
+    pipsValues: number[];
+    customDots: number[];
+    hideCustomDotsNumbers: boolean;
+    showNumbers: boolean;
+} & Omit<Pips, 'mode' | 'values'>;
+
+interface BasePipsParams {
+    pipsValues: number[];
+    customDots: number[];
+    hideCustomDotsNumbers: boolean;
+}
+
+export interface PipsFilter extends BasePipsParams {
+    mergeValues: number[];
+}
+
+export interface PipsFormat extends BasePipsParams {
+    showNumbers: boolean;
 }

@@ -1,6 +1,6 @@
 ---
-'@alfalab/core-components-slider': minor
-'@alfalab/core-components': minor
+'@alfalab/core-components-slider': major
+'@alfalab/core-components': major
 ---
 
 - Добавлена возможность динамического отображения маркеров слайдера в зависимости от состояния (скрытие при точном совпадении позиции, изменение цвета при прохождении)

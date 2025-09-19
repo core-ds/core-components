@@ -1,78 +1,72 @@
 import { type Options } from 'nouislider';
 
-import { type Pips } from '../../types';
+import { type CreatePipsConfigParams } from '../../types';
+import { createPipsFilter } from '../createPipsFilter';
+import { createPipsFormat } from '../createPipsFormat';
 
-import { config } from './config';
+type PipsConfig = (params: Omit<CreatePipsConfigParams, 'dotsSlider'>) => Options['pips'];
 
-interface CreatePipsConfigParams {
-    /** Мин. допустимое число */
-    min: number;
+/**
+ * Создает конфигурацию pips dotsSlider: 'step | custom' для noUiSlider
+ *
+ * @returns {Options['pips']} объект с полями:
+ *   - mode: 'values' - режим отображения точек по значениям
+ *   - values: number[] - объединенный и отсортированный массив значений из pips.values и customDots
+ *   - filter: Function - функция фильтрации точек (из pips.filter или созданная через createPipsFilter)
+ *   - format: Function - функция форматирования (из pips.format или созданный через createPipsFormat)
+ *   - ...restPipsProps - остальные свойства из pips (например, stepped)
+ */
+export const config: Record<'step' | 'custom', PipsConfig> = {
+    step: ({ pips, showNumbers }) => {
+        if (!pips) return undefined;
 
-    /** Макс. допустимое число */
-    max: number;
+        if (showNumbers) {
+            return pips as Options['pips'];
+        }
 
-    /** Шаг (должен нацело делить отрезок между мин и макс) */
-    step: number;
+        const { format: providedFormat, ...rest } = pips;
 
-    /**
-     * Тип отображения точек на слайдере: 'step' - по шагу, 'custom' - произвольные
-     * @default 'step'
-     */
-    dotsSlider: 'step' | 'custom';
+        if (providedFormat) {
+            return pips as Options['pips'];
+        }
 
-    /**
-     * Включение/отключение отображения чисел под точками.
-     * Действует на все точки кроме dotsSlider
-     * @default true
-     */
-    showNumbers: boolean;
+        return {
+            ...rest,
+            format: { to: () => '' },
+        } as Options['pips'];
+    },
 
-    /**
-     * Скрытие чисел только для кастомных точек.
-     * При hideCustomDotsNumbers=true числа скрываются только у customDots, остальные числа остаются видимыми
-     * @default false
-     */
-    hideCustomDotsNumbers?: boolean;
+    custom: (params: Omit<CreatePipsConfigParams, 'dotsSlider'>) => {
+        const { pips, customDots, hideCustomDotsNumbers, showNumbers } = params;
 
-    /**
-     * Отключение больших точек с числами (тип 1) через CSS стили
-     * @default false
-     */
-    hideLargePips?: boolean;
+        const { values, filter, format, ...restPipsProps } = pips || {};
+        const pipsValues = Array.isArray(values) ? values : [];
+        const pipsProps = { pipsValues, customDots, hideCustomDotsNumbers };
+        const mergeValues = Array.from(new Set([...pipsValues, ...customDots])).sort(
+            (a, b) => a - b,
+        );
 
-    /**
-     * Отображение подписей с values
-     * https://refreshless.com/nouislider/pips/
-     */
-    pips?: Pips;
-
-    /** Массив значений для произвольного размещения точек */
-    customDots?: number[];
-}
+        return {
+            ...restPipsProps,
+            mode: 'values',
+            values: mergeValues,
+            filter:
+                filter ||
+                createPipsFilter({
+                    mergeValues,
+                    ...pipsProps,
+                }),
+            format:
+                format ||
+                createPipsFormat({
+                    showNumbers,
+                    ...pipsProps,
+                }),
+        } as Options['pips'];
+    },
+};
 
 export const createPipsConfig = ({
-    min,
-    max,
-    step,
-    dotsSlider = 'step',
-    showNumbers = true,
-    hideCustomDotsNumbers = false,
-    hideLargePips = true,
-    pips,
-    customDots = [],
-}: CreatePipsConfigParams): Options['pips'] => {
-    if (pips && !customDots?.length) {
-        return pips as Options['pips'];
-    }
-
-    return config[dotsSlider]?.({
-        min,
-        max,
-        step,
-        customDots,
-        showNumbers,
-        hideCustomDotsNumbers,
-        hideLargePips,
-        pipsValues: pips && 'values' in pips && Array.isArray(pips.values) ? pips.values : [],
-    });
-};
+    dotsSlider,
+    ...restProps
+}: CreatePipsConfigParams): Options['pips'] => config[dotsSlider]?.({ ...restProps });
