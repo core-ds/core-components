@@ -22,7 +22,7 @@ describe('AmountInput', () => {
     });
 
     function renderAmountInput(
-        value: AmountInputProps['value'],
+        defaultValue: AmountInputProps['defaultValue'],
         currency: CurrencyCodes | null = 'RUR',
         props: AmountInputProps = {},
     ) {
@@ -30,7 +30,7 @@ describe('AmountInput', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(
             <AmountInput
-                value={value}
+                defaultValue={defaultValue}
                 currency={currency as CurrencyCodes}
                 minority={100}
                 dataTestId={dataTestId}
@@ -483,7 +483,7 @@ describe('AmountInput', () => {
         it.each`
             initialValue | eventValue  | expectValue
             ${123456}    | ${'1234,'}  | ${`1${MMSP}234`}
-            ${123456}    | ${'1234,5'} | ${`1${MMSP}234,5`}
+            ${123456}    | ${'1234,5'} | ${`1${MMSP}234,50`}
             ${123456}    | ${'1234'}   | ${`1${MMSP}234`}
         `('drop decimal if value is $eventValue', ({ initialValue, eventValue, expectValue }) => {
             const input = renderAmountInput(initialValue, null);
@@ -514,18 +514,20 @@ describe('AmountInput', () => {
             },
         ];
 
-        testCases.forEach(({ value, valueString }) => {
-            it(`should contain value=${valueString} if initialValue=${value}`, () => {
+        it.each(testCases)(
+            'should contain value=$valueString if initialValue=$value',
+            ({ value, valueString }) => {
                 const input = renderAmountInput(value, undefined, {
                     view: 'withZeroMinorPart',
                 });
 
                 expect(input.value).toBe(valueString);
-            });
-        });
+            },
+        );
 
-        testCases.forEach(({ userInput, value, valueString }) => {
-            it(`should emit blur event with value=${value} and valueString=${valueString} when userInput=${userInput}`, () => {
+        it.each(testCases)(
+            'should emit blur event with value=$value and valueString=$valueString when userInput=$userInput',
+            ({ userInput, value, valueString }) => {
                 const onChange = jest.fn();
                 const input = renderAmountInput(null, undefined, {
                     onChange,
@@ -539,64 +541,112 @@ describe('AmountInput', () => {
                     value: value,
                     valueString: valueString,
                 });
-            });
-        });
+            },
+        );
     });
 
-    describe('should emit value in minority on change event', () => {
-        const dataTestId = 'test-id';
+    it.each([
+        {
+            minority: 100,
+            userInput: '1',
+            expectedValue: 100,
+            expectedValueString: '1',
+        },
+        {
+            minority: 100,
+            userInput: '1,1',
+            expectedValue: 110,
+            expectedValueString: '1,10',
+        },
+        {
+            minority: 1000,
+            userInput: '2',
+            expectedValue: 2000,
+            expectedValueString: '2',
+        },
+        {
+            minority: 1000,
+            userInput: '2,2',
+            expectedValue: 2200,
+            expectedValueString: '2,200',
+        },
+    ])(
+        'should emit change event on blur with value=$expectedValue valueString=$expectedValueString when minority=$minority and userInput=$userInput',
+        async ({ minority, userInput, expectedValue, expectedValueString }) => {
+            const dataTestId = 'test-id';
+            const handleChangeMock = jest.fn();
+            const { getByTestId } = render(
+                <AmountInput
+                    minority={minority}
+                    dataTestId={dataTestId}
+                    onChange={handleChangeMock}
+                />,
+            );
+            const input = getByTestId(dataTestId) as HTMLInputElement;
 
-        const testCases = [
-            {
-                minority: 100,
-                userInput: '1',
-                expectedValue: 100,
-            },
-            {
-                minority: 100,
-                userInput: '1,1',
-                expectedValue: 110,
-            },
-            {
-                minority: 1000,
-                userInput: '2',
-                expectedValue: 2000,
-            },
-            {
-                minority: 1000,
-                userInput: '2,2',
-                expectedValue: 2200,
-            },
-            {
-                minority: 100,
-                userInput: '9,12',
-                expectedValue: 912,
-            },
-        ];
+            await userEvent.click(input);
 
-        testCases.forEach(({ minority, userInput, expectedValue }) => {
-            it(`should emit event with value=${expectedValue} when minority=${minority} and userInput=${userInput}`, async () => {
-                const handleChangeMock = jest.fn();
-                const { getByTestId } = render(
-                    <AmountInput
-                        minority={minority}
-                        dataTestId={dataTestId}
-                        onChange={handleChangeMock}
-                    />,
-                );
-                const input = getByTestId(dataTestId) as HTMLInputElement;
+            await userEvent.paste(userInput);
 
-                await userEvent.click(input);
+            input.blur();
 
-                await userEvent.paste(userInput);
-
-                expect(handleChangeMock).toHaveBeenCalledWith(expect.anything(), {
-                    value: expectedValue,
-                    valueString: userInput,
-                });
+            expect(handleChangeMock).toHaveBeenCalledWith(null, {
+                value: expectedValue,
+                valueString: expectedValueString,
             });
-        });
-    });
+        },
+    );
+
+    it.each([
+        {
+            minority: 100,
+            userInput: '1,00',
+            expectedValue: 100,
+        },
+        {
+            minority: 100,
+            userInput: '1,10',
+            expectedValue: 110,
+        },
+        {
+            minority: 1000,
+            userInput: '2,000',
+            expectedValue: 2000,
+        },
+        {
+            minority: 1000,
+            userInput: '2,200',
+            expectedValue: 2200,
+        },
+        {
+            minority: 100,
+            userInput: '9,12',
+            expectedValue: 912,
+        },
+    ])(
+        'should emit event with value=$expectedValue when minority=$minority and userInput=$userInput',
+        async ({ minority, userInput, expectedValue }) => {
+            const dataTestId = 'test-id';
+            const handleChangeMock = jest.fn();
+            const { getByTestId } = render(
+                <AmountInput
+                    minority={minority}
+                    dataTestId={dataTestId}
+                    onChange={handleChangeMock}
+                />,
+            );
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            await userEvent.click(input);
+
+            await userEvent.paste(userInput);
+
+            expect(handleChangeMock).toHaveBeenCalledWith(expect.anything(), {
+                value: expectedValue,
+                valueString: userInput,
+            });
+        },
+    );
 
     it('should has passed `inputClassName` too', () => {
         const input = renderAmountInput(null, 'RUR', { inputClassName: 'foo' });
