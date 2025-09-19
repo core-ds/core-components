@@ -1,5 +1,21 @@
 # @alfalab/core-components-tabs
 
+## 9.2.0
+
+### Minor Changes
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1884](https://github.com/core-ds/core-components/pull/1884)
+
+- Добавлена возможность прокидывать aria- и data- атрибуты в titles компонента Tabs
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-skeleton@6.0.1
+    - @alfalab/core-components-picker-button@12.0.3
+
 ## 9.1.1
 
 ### Patch Changes
