@@ -17,8 +17,6 @@ import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
 
 import styles from './index.module.css';
 
-const COUNTRY_SELECT_ARIA_LABEL = 'Сменить код страны';
-
 export type SharedCountrySelectProps = Omit<
     BaseSelectProps,
     'fieldProps' | 'options' | 'Field' | 'OptionsList' | 'selected'
@@ -120,7 +118,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     onChange={onChange}
                     Field={SelectField}
                     optionProps={{
-                        'aria-label': COUNTRY_SELECT_ARIA_LABEL,
+                        'aria-label': 'Сменить код страны',
                     }}
                     OptionsList={isMobile ? VirtualOptionsList : renderOptionsList}
                     {...(isMobile && {
