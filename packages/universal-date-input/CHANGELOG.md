@@ -1,5 +1,78 @@
 # @alfalab/core-components-universal-date-input
 
+## 4.0.0-next.0
+
+### Major Changes
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в core-components@45.x.x
+- Удален `view=filled`, который был помечен как `deprecated` в core-components@21.x.x
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1689](https://github.com/core-ds/core-components/pull/1689)
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+- Удален пропс `fullscreen`, который был отмечен как `deprecated` в core-components@25.x.x. Вместо него передавайте `fullscreen` в пропс `size`
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1685](https://github.com/core-ds/core-components/pull/1685)
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1635](https://github.com/core-ds/core-components/pull/1635)
+
+- Удалён matches полифил для поддержки работы focusLock в ie 11
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1841](https://github.com/core-ds/core-components/pull/1841)
+
+- Обновлен `date-fns` до `4` версии
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.0.0-next.0
+    - @alfalab/core-components-input@17.0.0-next.0
+    - @alfalab/core-components-popover@8.0.0-next.0
+    - @alfalab/core-components-mq@6.0.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 3.0.2
 
 ### Patch Changes
