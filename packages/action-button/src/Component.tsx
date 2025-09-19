@@ -33,11 +33,22 @@ const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
 type Colors = 'default' | 'inverted' | 'static';
 
-type ComponentProps = {
+interface HrefConfig {
+    href: string;
+    hrefType: 'href' | 'to';
+}
+
+interface ComponentProps {
     /**
      * Иконка кнопки
      */
     icon: React.ReactNode;
+
+    /**
+     * Имя пропа для передачи href в кастомный компонент
+     * Позволяет явно указывать какой проп использовать для передачи href в кастомный компонент (href/to).
+     */
+    href: string | HrefConfig;
 
     /**
      *  Размер кнопки
@@ -61,11 +72,6 @@ type ComponentProps = {
     iconWrapperClassName?: string;
 
     /**
-     * Значение href для ссылки
-     */
-    href?: string;
-
-    /**
      * Заблокировать кнопку
      */
     disabled?: boolean;
@@ -85,7 +91,7 @@ type ComponentProps = {
      * Палитра, в контексте которой используется кнопка
      */
     colors?: Colors;
-};
+}
 
 const SIZE_TO_CLASSNAME_MAP = {
     s: 'size-48',
@@ -164,13 +170,16 @@ export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, Ac
         );
 
         if (href) {
+            const hrefValue = typeof href === 'string' ? href : href.href;
+            const hrefType = typeof href === 'string' ? 'href' : href.hrefType;
+
             return (
                 <a
                     role='button'
                     ref={mergeRefs([componentRef, ref])}
-                    href={href}
                     aria-disabled={disabled || loading}
                     {...componentProps}
+                    {...{ [hrefType]: hrefValue }}
                     {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
                 >
                     {buttonChildren}
