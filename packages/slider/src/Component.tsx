@@ -8,7 +8,7 @@ import { createPipsConfig, updateMarkerClasses } from './utils';
 
 import styles from './index.module.css';
 
-export const SIZE_TO_CLASSNAME_MAP = {
+const SIZE_TO_CLASSNAME_MAP = {
     s: 'size-2',
     m: 'size-4',
     2: 'size-2',
@@ -29,7 +29,7 @@ export const Slider: FC<SliderProps> = ({
     dots = false,
     dotsSlider = 'step',
     customDots,
-    showNumbers = false,
+    showNumbers = true,
     hideCustomDotsNumbers = false,
     className,
     onChange,
