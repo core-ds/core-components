@@ -235,6 +235,20 @@ describe('Confirmation', () => {
 
             expect(getByText(`Отправили на ${phone}`)).toBeInTheDocument();
         });
+
+        it('should render with custom title tag', () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} titleTag='h1' />);
+
+            const titleElement = container.querySelector('h1');
+            expect(titleElement).toBeInTheDocument();
+        });
+
+        it('should render with default h3 title tag when titleTag is not provided', () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
+
+            const titleElement = container.querySelector('h3');
+            expect(titleElement).toBeInTheDocument();
+        });
     });
 
     it('Should render custom screens', () => {

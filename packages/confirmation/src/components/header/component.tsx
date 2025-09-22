@@ -15,12 +15,18 @@ export type HeaderProps = {
      * Отображать в мобильной версии экран компонента
      */
     mobile?: boolean;
+
+    /**
+     * HTML тег для заголовка
+     * @default 'h3'
+     */
+    titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
-export const Header: FC<HeaderProps> = ({ mobile, children }) => (
+export const Header: FC<HeaderProps> = ({ mobile, children, titleTag = 'h3' }) => (
     <TypographyTitle
         className={cn(styles.header, styles.typography, { [styles.typographyMobile]: mobile })}
-        tag='h3'
+        tag={titleTag}
         color='primary'
     >
         {children}

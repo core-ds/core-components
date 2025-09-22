@@ -1,5 +1,23 @@
 # @alfalab/core-components-amount-input
 
+## 8.1.0
+
+### Minor Changes
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1889](https://github.com/core-ds/core-components/pull/1889)
+
+- Добавлен проп `defaultValue` для задания значения по-умолчанию
+
+### Patch Changes
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1889](https://github.com/core-ds/core-components/pull/1889)
+
+- Исправлено поведение при контроллируем использовании - при задание проп `value`
+
 ## 8.0.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @alfalab/core-components-accordion
 
+## 2.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@5.0.2
+
 ## 2.0.1
 
 ### Patch Changes
@@ -8,11 +15,11 @@
 
 #### [#1820](https://github.com/core-ds/core-components/pull/1820)
 
--   Обновлены `@alfalab/icons-*` пакеты
+- Обновлены `@alfalab/icons-*` пакеты
 
--   Обновлены зависимости
-    -   @alfalab/core-components-shared@1.1.0
-    -   @alfalab/core-components-typography@5.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-typography@5.0.1
 
 ## 2.0.0
 
@@ -30,65 +37,65 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-shared@1.0.0
-    -   @alfalab/core-components-typography@5.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.0.0
+    - @alfalab/core-components-typography@5.0.0
 
 ## 1.2.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.14.3
+- Обновлены зависимости
+    - typography@4.14.3
 
 ## 1.2.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.14.2
+- Обновлены зависимости
+    - typography@4.14.2
 
 ## 1.2.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.14.1
+- Обновлены зависимости
+    - typography@4.14.1
 
 ## 1.2.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.14.0
+- Обновлены зависимости
+    - typography@4.14.0
 
 ## 1.2.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.13.1
+- Обновлены зависимости
+    - typography@4.13.1
 
 ## 1.2.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.13.0
+- Обновлены зависимости
+    - typography@4.13.0
 
 ## 1.2.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.12.0
+- Обновлены зависимости
+    - typography@4.12.0
 
 ## 1.2.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.11.4
+- Обновлены зависимости
+    - typography@4.11.4
 
 ## 1.2.7
 
@@ -98,10 +105,10 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   typography@4.11.3
+- Обновлены зависимости
+    - typography@4.11.3
 
 ## 1.2.6
 
@@ -111,10 +118,10 @@
 
 ### [#1502](https://github.com/core-ds/core-components/pull/1502)
 
--   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+- Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
 
--   Обновлены зависимости
-    -   typography@4.11.2
+- Обновлены зависимости
+    - typography@4.11.2
 
 ## 1.2.5
 
@@ -124,37 +131,37 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 <sup><time>13.12.2024</time></sup>
 
 ### [#1473](https://github.com/core-ds/core-components/pull/1473)
 
--   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+- Переход на атомарные импорты Typography.\[Name] -> \[Name]
 
--   Обновлены зависимости
-    -   typography@4.11.1
+- Обновлены зависимости
+    - typography@4.11.1
 
 ## 1.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.11.0
+- Обновлены зависимости
+    - typography@4.11.0
 
 ## 1.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.10.3
+- Обновлены зависимости
+    - typography@4.10.3
 
 ## 1.2.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.10.2
+- Обновлены зависимости
+    - typography@4.10.2
 
 ## 1.2.1
 
@@ -164,10 +171,10 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
--   Обновлены зависимости
-    -   typography@4.10.1
+- Обновлены зависимости
+    - typography@4.10.1
 
 ## 1.2.0
 
@@ -177,12 +184,12 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.10.0
+- Обновлены зависимости
+    - typography@4.10.0
 
 ## 1.1.4
 
@@ -192,10 +199,10 @@
 
 ### [#1353](https://github.com/core-ds/core-components/pull/1353)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
--   Обновлены зависимости
-    -   typography@4.9.0
+- Обновлены зависимости
+    - typography@4.9.0
 
 ## 1.1.3
 
@@ -205,21 +212,21 @@
 
 ### [#1344](https://github.com/core-ds/core-components/pull/1344)
 
--   Исправление SSR
+- Исправление SSR
 
 ## 1.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.8.0
+- Обновлены зависимости
+    - typography@4.8.0
 
 ## 1.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.7.0
+- Обновлены зависимости
+    - typography@4.7.0
 
 ## 1.1.0
 
@@ -229,7 +236,7 @@
 
 ### [#1274](https://github.com/core-ds/core-components/pull/1274)
 
--   Добавлен проп 'bodyContentClassName'
+- Добавлен проп 'bodyContentClassName'
 
 ### Patch Changes
 
@@ -237,7 +244,7 @@
 
 ### [#1274](https://github.com/core-ds/core-components/pull/1274)
 
--   Исправлен расчет высоты контента
+- Исправлен расчет высоты контента
 
 ## 1.0.2
 
@@ -247,17 +254,17 @@
 
 ### [#1250](https://github.com/core-ds/core-components/pull/1250)
 
--   Изменен элемент наблюдения ResizeObserver с contentRef.current на contentCaseRef.current, теперь контейнер контента динамически изменяет высоту при добавлении контента
+- Изменен элемент наблюдения ResizeObserver с contentRef.current на contentCaseRef.current, теперь контейнер контента динамически изменяет высоту при добавлении контента
 
--   Обновлены зависимости
-    -   typography@4.6.0
+- Обновлены зависимости
+    - typography@4.6.0
 
 ## 1.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.5.1
+- Обновлены зависимости
+    - typography@4.5.1
 
 ## 1.0.0
 
@@ -267,4 +274,4 @@
 
 ### [#1164](https://github.com/core-ds/core-components/pull/1164)
 
--   Добавлен новый компонент Accordion
+- Добавлен новый компонент Accordion

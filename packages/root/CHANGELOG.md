@@ -1,5 +1,90 @@
 # @alfalab/core-components
 
+## 49.5.0
+
+### Minor Changes
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1889](https://github.com/core-ds/core-components/pull/1889)
+
+- Добавлен проп `defaultValue` для задания значения по-умолчанию
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1879](https://github.com/core-ds/core-components/pull/1879)
+
+- Добавлен опциональный props `titleTag` для возможности управлять уровнем заголовка
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1884](https://github.com/core-ds/core-components/pull/1884)
+
+- Добавлена возможность прокидывать aria- и data- атрибуты в titles компонента Tabs
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1885](https://github.com/core-ds/core-components/pull/1885)
+
+- Добавлена поддержка aria-label для улучшения доступности в компонентах InternationalPhoneInput и Select
+
+### Patch Changes
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1888](https://github.com/core-ds/core-components/pull/1888)
+
+- Исправлен баг, при котором hasFooter не сбрасывался в false при размонтировании компонента
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1887](https://github.com/core-ds/core-components/pull/1887)
+
+- Исправлен расчет высоты элементов текстового скелетона. Теперь размер совпадает не с fontSize, а с размером начертания глифов от базовой линии.
+
+- Обновлены зависимости
+    - @alfalab/core-components-amount-input@8.1.0
+    - @alfalab/core-components-confirmation@14.1.0
+    - @alfalab/core-components-tabs@9.2.0
+    - @alfalab/core-components-side-panel@6.0.2
+    - @alfalab/core-components-skeleton@6.0.1
+    - @alfalab/core-components-international-phone-input@3.2.0
+    - @alfalab/core-components-select@18.2.0
+    - @alfalab/core-components-calendar-with-skeleton@6.0.2
+    - @alfalab/core-components-typography@5.0.2
+    - @alfalab/core-components-custom-picker-button@3.0.3
+    - @alfalab/core-components-input-autocomplete@13.0.3
+    - @alfalab/core-components-intl-phone-input@10.0.3
+    - @alfalab/core-components-picker-button@12.0.3
+    - @alfalab/core-components-select-with-tags@9.0.3
+    - @alfalab/core-components-table@3.0.3
+    - @alfalab/core-components-accordion@2.0.2
+    - @alfalab/core-components-calendar@8.0.2
+    - @alfalab/core-components-chart@4.0.2
+    - @alfalab/core-components-circular-progress-bar@4.0.2
+    - @alfalab/core-components-comment@3.0.2
+    - @alfalab/core-components-file-upload-item@7.0.2
+    - @alfalab/core-components-gallery@6.0.4
+    - @alfalab/core-components-list@4.0.2
+    - @alfalab/core-components-list-header@4.0.2
+    - @alfalab/core-components-markdown@2.1.1
+    - @alfalab/core-components-navigation-bar@2.0.2
+    - @alfalab/core-components-navigation-bar-private@1.0.2
+    - @alfalab/core-components-product-cover@2.0.2
+    - @alfalab/core-components-pure-cell@5.0.2
+    - @alfalab/core-components-stepped-progress-bar@3.0.2
+    - @alfalab/core-components-tab-bar@3.0.2
+    - @alfalab/core-components-universal-modal@2.0.3
+    - @alfalab/core-components-calendar-input@11.0.3
+    - @alfalab/core-components-calendar-range@8.0.3
+    - @alfalab/core-components-date-range-input@4.0.3
+    - @alfalab/core-components-date-time-input@5.0.3
+    - @alfalab/core-components-universal-date-input@3.0.3
+    - @alfalab/core-components-bottom-sheet@7.0.2
+    - @alfalab/core-components-modal@10.0.2
+    - @alfalab/core-components-popup-sheet@2.0.4
+    - @alfalab/core-components-tooltip@8.0.3
+
 ## 49.4.0
 
 ### Minor Changes

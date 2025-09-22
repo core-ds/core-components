@@ -73,7 +73,7 @@ export type BaseSelectChangePayload = {
     name?: string;
 };
 
-export type BaseSelectProps = {
+export interface BaseSelectProps {
     /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для пункта меню используется модификатор -option, компонента поиска -search,
@@ -401,7 +401,7 @@ export type BaseSelectProps = {
      * @default window
      */
     environment?: Environment;
-};
+}
 
 // TODO: использовать InputProps
 export type FieldProps = {
@@ -824,12 +824,12 @@ export type OptionCommonProps = {
     align?: 'start' | 'center';
 };
 
-export type OptionProps = OptionCommonProps & {
+export interface OptionProps extends OptionCommonProps, AriaAttributes {
     /**
      * Мобильная версия option.
      */
     mobile?: boolean;
-};
+}
 
 export type CheckmarkProps = {
     /**
