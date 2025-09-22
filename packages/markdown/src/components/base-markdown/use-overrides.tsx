@@ -11,10 +11,9 @@ import styles from './index.module.css';
 
 export const useOverrides = (
     Title: BaseMarkdownProps['Title'],
-    font?: FontType
+    font?: FontType,
 ): OverridesComponents =>
     useMemo(() => {
-
         return {
             h1: (props) => (
                 <Title

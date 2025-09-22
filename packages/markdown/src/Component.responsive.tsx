@@ -13,7 +13,7 @@ export const MarkdownResponsiveComponent: React.FC<MarkdownResponsiveProps> = ({
     children,
     ...restProps
 }) => {
-    const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue)
+    const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
     if (isDesktop) {
         return <MarkdownDesktop {...restProps}>{children}</MarkdownDesktop>;
