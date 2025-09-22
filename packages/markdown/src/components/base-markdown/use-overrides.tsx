@@ -13,8 +13,8 @@ export const useOverrides = (
     Title: BaseMarkdownProps['Title'],
     font?: FontType,
 ): OverridesComponents =>
-    useMemo(() => {
-        return {
+    useMemo(
+        () => ({
             h1: (props) => (
                 <Title
                     font={font}
@@ -118,7 +118,8 @@ export const useOverrides = (
                     {props.children}
                 </Text>
             ),
-        };
+        }),
         // Зависимости от DI импортов (Title) не нужны
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [font]);
+        [font],
+    );
