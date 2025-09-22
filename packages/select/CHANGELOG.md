@@ -1,5 +1,22 @@
 # @alfalab/core-components-select
 
+## 18.2.0
+
+### Minor Changes
+
+<sup><time>19.09.2025</time></sup>
+
+#### [#1885](https://github.com/core-ds/core-components/pull/1885)
+
+- Добавлена поддержка aria-label для улучшения доступности в компонентах InternationalPhoneInput и Select
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-skeleton@6.0.1
+    - @alfalab/core-components-bottom-sheet@7.0.2
+    - @alfalab/core-components-modal@10.0.2
+
 ## 18.1.0
 
 ### Minor Changes

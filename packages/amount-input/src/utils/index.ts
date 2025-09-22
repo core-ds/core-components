@@ -8,6 +8,8 @@ import { formatAmount, getCurrencySymbol } from '@alfalab/utils';
 
 import { type AmountInputProps } from '../Component';
 
+export const SEP = ',';
+
 /**
  * Форматирует введенное значение
  * @param enteredValue Значение введенное в инпут
@@ -15,20 +17,22 @@ import { type AmountInputProps } from '../Component';
  * @param minority количество минорных единиц
  */
 export function getFormattedValue(enteredValue: string, currency: CurrencyCodes, minority: number) {
-    if (!enteredValue || enteredValue === '-') {
+    if (enteredValue === '' || enteredValue === '-') {
         return enteredValue;
     }
 
     // eslint-disable-next-line prefer-const
-    let [head, tail] = enteredValue.split(',');
+    let [head, tail] = enteredValue.split(SEP);
 
     // При вводе "-," указываем, что имеется в виду "-0,"
     if (head === '-') {
         head = '-0';
+    } else if (head === '') {
+        head = '0';
     }
 
     let { majorPart } = formatAmount({
-        value: Number(head) * minority,
+        value: parseInt(head, 10) * minority,
         currency,
         minority,
         negativeSymbol: 'hyphen-minus',
@@ -39,12 +43,12 @@ export function getFormattedValue(enteredValue: string, currency: CurrencyCodes,
         majorPart = `-${majorPart}`;
     }
 
-    if (!tail && enteredValue.includes(',')) {
-        return majorPart.concat(',');
+    if (!tail && enteredValue.includes(SEP)) {
+        return majorPart.concat(SEP);
     }
 
     if (tail) {
-        return majorPart.concat(',', tail.slice(0, minority.toString().length - 1));
+        return majorPart.concat(SEP, tail.slice(0, minority.toString().length - 1));
     }
 
     return majorPart;
@@ -55,7 +59,13 @@ export function getAmountValueFromStr(str: string, minority: number) {
         return null;
     }
 
-    return Math.round(Number(str.replace(',', '.').replace(/[^0-9.-]/g, '')) * minority);
+    const numberOrNaN = Number(str.replace(SEP, '.').replace(/[^0-9.-]/g, ''));
+
+    if (Number.isNaN(numberOrNaN)) {
+        return null;
+    }
+
+    return Math.round(numberOrNaN * minority);
 }
 
 export function getCurrencyCodeWithFormat(

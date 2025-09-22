@@ -18,8 +18,14 @@ export type TempBlockProps = {
 };
 
 export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
-    const { alignContent, texts, tempBlockDuration, onChangeScreen, onTempBlockFinished } =
-        useContext(ConfirmationContext);
+    const {
+        alignContent,
+        titleTag,
+        texts,
+        tempBlockDuration,
+        onChangeScreen,
+        onTempBlockFinished,
+    } = useContext(ConfirmationContext);
 
     const [timeLeft, startTimer] = useCountdown(tempBlockDuration);
 
@@ -35,7 +41,9 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.tempBlockTitle}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.tempBlockTitle}
+            </Header>
 
             <TypographyText
                 view='primary-medium'
