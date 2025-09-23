@@ -33,20 +33,16 @@ export const ProgressBar: FC<ProgressBarProps> = (props) => {
                 y1='0%'
                 x2='0%'
                 y2='100%'
-                gradientUnits='objectBoundingBox'
                 gradientTransform='rotate(0)'
             >
                 <stop offset='0%' stopColor={stroke} stopOpacity='0' />
                 <stop offset='100%' stopColor={stroke} stopOpacity='1' />
                 <animateTransform
                     attributeName='gradientTransform'
-                    attributeType='XML'
                     type='rotate'
                     values='0 0.5 0.5;360 0.5 0.5'
                     dur='2s'
                     repeatCount='indefinite'
-                    begin='0s'
-                    calcMode='linear'
                 />
             </linearGradient>
         </defs>
