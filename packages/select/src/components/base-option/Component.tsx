@@ -60,6 +60,7 @@ export const BaseOption: FC<OptionProps> = ({
                 [styles.checkmarkBefore]: !isTextContent && checkmarkPosition === 'before',
             })}
             data-test-id={dataTestId}
+            aria-label={option?.value?.name}
         >
             {checkmarkPosition === 'before' && renderCheckmark()}
 

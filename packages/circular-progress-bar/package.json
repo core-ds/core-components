@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-circular-progress-bar",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -11,7 +11,7 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-shared": "^1.1.0",
-        "@alfalab/core-components-typography": "^5.0.1",
+        "@alfalab/core-components-typography": "^5.0.2",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-comment",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "Comment",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-typography": "^5.0.1",
+        "@alfalab/core-components-typography": "^5.0.2",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

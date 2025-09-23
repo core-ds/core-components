@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-markdown",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "",
     "license": "MIT",
     "sideEffects": [
@@ -10,9 +10,9 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-link": "^6.0.0",
-        "@alfalab/core-components-list": "^4.0.1",
+        "@alfalab/core-components-list": "^4.0.2",
         "@alfalab/core-components-mq": "^5.0.1",
-        "@alfalab/core-components-typography": "^5.0.1",
+        "@alfalab/core-components-typography": "^5.0.2",
         "classnames": "^2.5.1",
         "mdast-util-gfm-strikethrough": "^0.2.3",
         "micromark-extension-gfm-strikethrough": "^0.6.5",

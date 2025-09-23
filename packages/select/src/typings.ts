@@ -9,6 +9,7 @@ import {
     type RefAttributes,
     type SVGProps,
 } from 'react';
+import { type Environment } from 'downshift';
 
 import { type BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
 import { type FormControlProps } from '@alfalab/core-components-form-control';
@@ -72,7 +73,7 @@ export type BaseSelectChangePayload = {
     name?: string;
 };
 
-export type BaseSelectProps = {
+export interface BaseSelectProps {
     /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для пункта меню используется модификатор -option, компонента поиска -search,
@@ -394,7 +395,13 @@ export type BaseSelectProps = {
      * Ограничение динамического размера группы вариантов выбора
      */
     limitDynamicOptionGroupSize?: boolean;
-};
+
+    /**
+     * Контекст окружения для downshift.js
+     * @default window
+     */
+    environment?: Environment;
+}
 
 // TODO: использовать InputProps
 export type FieldProps = {
@@ -817,12 +824,12 @@ export type OptionCommonProps = {
     align?: 'start' | 'center';
 };
 
-export type OptionProps = OptionCommonProps & {
+export interface OptionProps extends OptionCommonProps, AriaAttributes {
     /**
      * Мобильная версия option.
      */
     mobile?: boolean;
-};
+}
 
 export type CheckmarkProps = {
     /**

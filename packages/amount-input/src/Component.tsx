@@ -4,14 +4,16 @@ import React, {
     Fragment,
     useCallback,
     useEffect,
+    useLayoutEffect,
+    useMemo,
     useState,
 } from 'react';
 import cn from 'classnames';
 
 import { Input, type InputProps } from '@alfalab/core-components-input';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
-import { getMinMaxOrDefault, parseNumber } from '@alfalab/core-components-number-input/utils';
-import { fnUtils } from '@alfalab/core-components-shared';
+import { getMinMaxOrDefault } from '@alfalab/core-components-number-input/utils';
+import { fnUtils, isNonNullable } from '@alfalab/core-components-shared';
 import { withSuffix, type withSuffixProps } from '@alfalab/core-components-with-suffix';
 import { type CurrencyCodes } from '@alfalab/data';
 import { formatAmount, MMSP, THINSP } from '@alfalab/utils';
@@ -21,6 +23,7 @@ import {
     getCurrencyCodeWithFormat,
     getFormattedValue,
     getVisiblePlaceholder,
+    SEP,
 } from './utils';
 
 import defaultColors from './default.module.css';
@@ -32,12 +35,16 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
+export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
-     * Значение null - значит не установлено
      */
     value?: string | number | null;
+
+    /**
+     * Значение по-умолчанию в минорных единицах
+     */
+    defaultValue?: string | number | null;
 
     /**
      * Формат отображения кода валюты
@@ -144,14 +151,15 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
     (
         {
             view = 'default',
-            value = null,
-            integerLength: integerLengthProp = 9,
+            defaultValue = null,
+            value: valueFromProps = null,
+            integerLength: integerLengthFromProps = 9,
             minority = 100,
             currency = 'RUR',
             suffix = currency,
             codeFormat = 'symbolic',
-            placeholder = `0\u2009${
-                suffix === currency ? getCurrencyCodeWithFormat(currency, codeFormat) || '' : suffix
+            placeholder = `0${THINSP}${
+                suffix === currency ? getCurrencyCodeWithFormat(currency, codeFormat) : suffix
             }`,
             integersOnly = false,
             positiveOnly = true,
@@ -172,26 +180,20 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             inputClassName,
             label,
             labelView,
-            stepper = {},
+            stepper,
             rightAddons,
             ...restProps
         },
         ref,
     ) => {
-        const integerLength = Math.min(integerLengthProp, 15);
-
-        const { min: minStepperValue, max: maxStepperValue } = getMinMaxOrDefault({
-            minProp: stepper.min,
-            maxProp: stepper.max,
-        });
-        const withStepper = !fnUtils.isNil(stepper?.step);
+        const controlled = isNonNullable(valueFromProps);
 
         const getFormattedAmount = useCallback(
             (val: string | number | null) => {
                 if (val === '' || val === null || val === '-') return '';
 
                 return formatAmount({
-                    value: +val,
+                    value: parseInt(`${val}`, 10),
                     currency,
                     minority,
                     view,
@@ -200,35 +202,55 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             },
             [currency, minority, view],
         );
+        const [numberValue, setNumberValue] = useState(valueFromProps ?? defaultValue);
+        const [inputValue, setInputValue] = useState(() => getFormattedAmount(numberValue));
+        const [shouldSyncInputValue, setShouldSyncInputValue] = useState(false);
 
-        const [inputValue, setInputValue] = useState<string>(() => getFormattedAmount(value));
-        const [isFocused, setIsFocused] = useState<boolean>(false);
+        if (controlled && !(numberValue === valueFromProps)) {
+            setNumberValue(valueFromProps);
+        }
 
-        const [majorPart, minorPart] = inputValue.split(',');
-        const currencyCode = getCurrencyCodeWithFormat(currency, codeFormat);
+        useLayoutEffect(() => {
+            setInputValue(getFormattedAmount(numberValue));
+        }, [getFormattedAmount, numberValue]);
 
         useEffect(() => {
-            const currentAmountValue = getAmountValueFromStr(inputValue, minority);
-
-            if (currentAmountValue !== value) {
-                setInputValue(getFormattedAmount(value));
+            if (shouldSyncInputValue) {
+                setInputValue(getFormattedAmount(numberValue));
+                setShouldSyncInputValue(false);
             }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [value, getFormattedAmount]);
+        }, [getFormattedAmount, shouldSyncInputValue, numberValue]);
 
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            const input = e.target;
-            let enteredValue = input.value
-                .replace(/\s/g, '')
-                .replace('.', ',')
-                .replace(/[^0-9,-]/g, '');
+        const numberValueOrZero = useMemo(
+            () => parseInt(`${numberValue || '0'}`, 10),
+            [numberValue],
+        );
+
+        const integerLength = Math.min(integerLengthFromProps, 15);
+
+        const { min: minStepperValue, max: maxStepperValue } = getMinMaxOrDefault({
+            minProp: stepper?.min,
+            maxProp: stepper?.max,
+        });
+        const withStepper = !fnUtils.isNil(stepper?.step);
+
+        const minorityLength = Math.trunc(Math.log10(minority));
+
+        const [isFocused, setIsFocused] = useState(false);
+        const [majorPart, minorPart] = inputValue.split(SEP);
+        const currencyCode = getCurrencyCodeWithFormat(currency, codeFormat);
+
+        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            const input = event.target;
+            let caret = input.selectionStart ?? 0;
+            let enteredValue = input.value.replace('.', SEP).replace(/[^0-9,-]/g, '');
 
             if (integersOnly) {
-                [enteredValue] = enteredValue.split(',');
+                [enteredValue] = enteredValue.split(SEP);
             }
 
             // Эта проверка нужна для того, чтобы обрабатывать значение, переданное в input, длина которого превышает integerLength
-            const integer = integersOnly ? enteredValue : enteredValue.split(',')[0];
+            const integer = integersOnly ? enteredValue : enteredValue.split(SEP)[0];
 
             if (integer.length > integerLength) {
                 enteredValue = enteredValue.slice(0, integerLength);
@@ -238,8 +260,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             const isCorrectEnteredValue = RegExp(
                 `(^${positiveOnly ? '' : '-?'}[0-9]{0,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
             ).test(enteredValue);
-
-            let caret = input.selectionStart as number;
 
             if (isCorrectEnteredValue) {
                 if (inputValue[caret] === MMSP) {
@@ -263,15 +283,12 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
                     // Узнаем длину оригинального инпута с условием обрезания лишних символов
 
-                    const [head, tail] = input.value.split(/\.|,/);
+                    const [head, tail] = input.value.split(SEP);
                     let notFormattedEnteredValueLength = head.length;
 
                     if (tail) {
                         notFormattedEnteredValueLength += 1; // запятая или точка
-                        notFormattedEnteredValueLength += tail.slice(
-                            0,
-                            minority.toString().length - 1,
-                        ).length; // символы в минорной части
+                        notFormattedEnteredValueLength += tail.slice(0, minorityLength).length; // символы в минорной части
                     }
 
                     const diff = newFormattedValue.length - notFormattedEnteredValueLength;
@@ -285,13 +302,27 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 }
 
                 setInputValue(newFormattedValue);
-                onChange?.(e, {
-                    value: getAmountValueFromStr(newFormattedValue, minority),
+
+                const [, minor = ''] = newFormattedValue.split(SEP);
+
+                if (!integersOnly && minor.replace(/[^0-9]/g, '').length < minorityLength) {
+                    return;
+                }
+
+                const nextValue = getAmountValueFromStr(newFormattedValue, minority);
+
+                onChange?.(event, {
+                    value: nextValue,
                     valueString: newFormattedValue,
                 });
+
+                setShouldSyncInputValue(true);
+
+                if (!controlled) {
+                    setNumberValue(nextValue);
+                }
             } else {
-                // Не двигаем каретку когда вставляется невалидный символ
-                caret -= 1;
+                caret = -1;
 
                 window.requestAnimationFrame(() => {
                     input.selectionStart = caret;
@@ -319,13 +350,13 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         const handleClear = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
-                setInputValue('');
+                onClear?.(event);
 
-                if (onClear) {
-                    onClear(event);
+                if (!controlled) {
+                    setNumberValue(null);
                 }
             },
-            [onClear],
+            [controlled, onClear],
         );
 
         /**
@@ -333,32 +364,44 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
          * 123, => 123
          */
         const dropDecimalSeparator = (event: FocusEvent<HTMLInputElement>) => {
-            if (inputValue.endsWith(',')) {
-                const pattern = /[,\s]/g; // пробелы и запятые
-                const newValue = Number(inputValue.replace(pattern, '')) * minority;
-                const formatted = getFormattedAmount(newValue);
+            const { value } = event.target;
 
-                setInputValue(formatted);
-                onChange?.(event, {
-                    value: newValue,
-                    valueString: formatted,
-                });
+            const newValue = getAmountValueFromStr(
+                value.endsWith(SEP) ? value.slice(0, -1) : value,
+                minority,
+            );
+
+            const formatted = getFormattedAmount(newValue);
+
+            onChange?.(null, {
+                value: newValue,
+                valueString: formatted,
+            });
+
+            setShouldSyncInputValue(true);
+
+            if (!controlled) {
+                setNumberValue(newValue);
             }
         };
 
         const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+            const { value } = event.target;
+
             if (view === 'withZeroMinorPart') {
-                const newValue = getAmountValueFromStr(inputValue, minority);
+                const newValue = getAmountValueFromStr(value, minority);
+                const formatted = getFormattedAmount(newValue);
 
-                if (newValue !== null) {
-                    const formatted = getFormattedAmount(newValue);
+                if (numberValue !== newValue) {
+                    onChange?.(event, {
+                        value: newValue,
+                        valueString: formatted,
+                    });
 
-                    if (formatted !== inputValue) {
-                        setInputValue(formatted);
-                        onChange?.(event, {
-                            value: newValue,
-                            valueString: formatted,
-                        });
+                    setShouldSyncInputValue(true);
+
+                    if (!controlled) {
+                        setNumberValue(newValue);
                     }
                 }
             }
@@ -373,30 +416,34 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         };
 
         const handleDecrement = () => {
-            if (stepper.step) {
-                const newValue = parseNumber(value) - stepper.step;
+            if (stepper?.step) {
+                const newValue = numberValueOrZero - stepper.step;
                 const newFormattedValue = getFormattedAmount(newValue);
-
-                setInputValue(newFormattedValue);
 
                 onChange?.(null, {
                     value: newValue,
                     valueString: newFormattedValue,
                 });
+
+                if (!controlled) {
+                    setNumberValue(newValue);
+                }
             }
         };
 
         const handleIncrement = () => {
-            if (stepper.step) {
-                const newValue = parseNumber(value) + stepper.step;
+            if (stepper?.step) {
+                const newValue = numberValueOrZero + stepper.step;
                 const newFormattedValue = getFormattedAmount(newValue);
-
-                setInputValue(newFormattedValue);
 
                 onChange?.(null, {
                     value: newValue,
                     valueString: newFormattedValue,
                 });
+
+                if (!controlled) {
+                    setNumberValue(newValue);
+                }
             }
         };
 
@@ -410,7 +457,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             dataTestId={dataTestId}
                             disabled={restProps.disabled}
                             focused={isFocused && !restProps.disableUserInput}
-                            value={parseNumber(value)}
+                            value={numberValueOrZero}
                             min={minStepperValue}
                             max={maxStepperValue}
                             onIncrement={handleIncrement}
@@ -445,7 +492,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                                     [colorStyles[colors].readOnly]: restProps.readOnly,
                                 })}
                             >
-                                {minorPart !== undefined && `,${minorPart}`}
+                                {minorPart !== undefined && `${SEP}${minorPart}`}
                                 {THINSP}
                                 {suffix === currency ? currencyCode : suffix}
                             </span>

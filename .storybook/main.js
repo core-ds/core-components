@@ -121,6 +121,9 @@ function disableReactRefreshOverlay(config) {
     }
 }
 
+/**
+ * @type {import('@storybook/react-webpack5').StorybookConfig}
+ */
 module.exports = {
     stories: [
         '../packages/**/*.docs.@(ts|md)x',
@@ -152,6 +155,24 @@ module.exports = {
     docs: {
         autodocs: false,
         defaultName: 'Docs',
+    },
+    typescript: {
+        reactDocgenTypescriptOptions: {
+            // needs to resolve typescript paths correctly
+            tsconfigPath: path.resolve(__dirname, '..', 'tsconfig.react-docgen-typescript.json'),
+            // see https://github.com/styleguidist/react-docgen-typescript/blob/e1f8f5fe45e18c5c82761d335d6f11660858dc7a/README.md?plain=1#L111
+            propFilter: (prop) => {
+                if (prop.declarations !== undefined && prop.declarations.length > 0) {
+                    const hasPropAdditionalDescription = prop.declarations.find((declaration) => {
+                        return !declaration.fileName.includes('node_modules');
+                    });
+
+                    return Boolean(hasPropAdditionalDescription);
+                }
+
+                return true;
+            },
+        },
     },
     staticDirs: ['./public'],
     webpackFinal: async (config, { configType: mode }) => {

@@ -54,6 +54,10 @@ export const Footer: FC<FooterProps> = ({
 
     useEffect(() => {
         setHasFooter(true);
+
+        return () => {
+            setHasFooter(false);
+        };
     }, [setHasFooter]);
 
     return (

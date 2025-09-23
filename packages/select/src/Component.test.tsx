@@ -17,6 +17,7 @@ import {
 import { SelectDesktop as Select } from './desktop';
 import { SelectMobile, SelectModalMobile } from './mobile';
 import { getSelectTestIds } from './utils';
+import { Environment } from 'downshift';
 
 function SelectWithApplyComponent({ testId }: { testId: string }) {
     const selectProps = useSelectWithApply({
@@ -1032,6 +1033,82 @@ describe('Select', () => {
             const { container } = render(<Arrow disabled={true} />);
 
             expect(container.firstElementChild).toHaveClass('disabled');
+        });
+    });
+
+    describe('Environment tests', () => {
+        it('should pass environment prop to downshift', async () => {
+            const mockEnvironment = {
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                document: document,
+                Node: window.Node,
+            };
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    options={options}
+                    environment={mockEnvironment}
+                    dataTestId='select'
+                />,
+            );
+
+            expect(getByTestId('select')).toBeInTheDocument();
+
+            fireEvent.click(getByTestId('select-field'));
+            await waitFor(() => {
+                expect(screen.getByRole('listbox')).toBeInTheDocument();
+            });
+        });
+
+        it('should work with ShadowRoot-like environment', async () => {
+            const mockShadowRootEnvironment: Environment = {
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                document: {
+                    ...document,
+                    // activeElement null или элемент из shadow DOM
+                    activeElement: null,
+                    elementFromPoint: jest.fn().mockReturnValue(null),
+                    // ShadowRoot имеет свой document
+                    ownerDocument: document,
+                } as unknown as Document,
+                Node: window.Node,
+            };
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    options={options}
+                    environment={mockShadowRootEnvironment}
+                    dataTestId='select'
+                />,
+            );
+
+            expect(getByTestId('select')).toBeInTheDocument();
+
+            fireEvent.click(getByTestId('select-field'));
+            await waitFor(() => {
+                expect(screen.getByRole('listbox')).toBeInTheDocument();
+            });
+
+            const option = screen.getByText(options[0].content);
+            fireEvent.click(option);
+            expect(screen.getByText(options[0].content)).toBeInTheDocument();
+        });
+
+        it('should work without environment prop (default behavior)', async () => {
+            const { getByTestId } = render(
+                <Select {...baseProps} options={options} dataTestId='select' />,
+            );
+
+            expect(getByTestId('select')).toBeInTheDocument();
+
+            fireEvent.click(getByTestId('select-field'));
+            await waitFor(() => {
+                expect(screen.getByRole('listbox')).toBeInTheDocument();
+            });
         });
     });
 });

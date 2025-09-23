@@ -21,14 +21,14 @@ const ignored = ['.eslintignore', '.gitignore']
     );
 
 /**
- * @type {import('eslint').Linter.Config}
+ * @type {import('eslint').Linter.LegacyConfig}
  */
 const config = {
     root: true,
     parserOptions: {
         project: [path.join(process.cwd(), 'tsconfig.json')],
     },
-    ignorePatterns: ['**/*.test*', '**/*.stories*', ...ignored],
+    ignorePatterns: ['**/*.test.*', '**/*.stories.*', ...ignored],
     extends: resolve.sync('@alfalab/lint-preset/eslint', { basedir: __dirname }),
     overrides: [
         {

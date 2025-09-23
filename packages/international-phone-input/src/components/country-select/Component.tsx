@@ -103,7 +103,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
     );
 
     const renderCountrySelect = () => {
-        const selected = options.find((c) => c.key === country?.iso2)?.key;
+        const selected = options.find((c) => c.key === country?.iso2);
 
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
@@ -114,9 +114,12 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     {...restProps}
                     dataTestId={getDataTestId(dataTestId, 'country-select')}
                     options={options}
-                    selected={selected || EMPTY_COUNTRY_SELECT_FIELD}
+                    selected={selected?.key || EMPTY_COUNTRY_SELECT_FIELD}
                     onChange={onChange}
                     Field={SelectField}
+                    optionProps={{
+                        'aria-label': selected?.value?.name || 'Сменить код страны',
+                    }}
                     OptionsList={isMobile ? VirtualOptionsList : renderOptionsList}
                     {...(isMobile && {
                         bottomSheetProps: {

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar",
-    "version": "8.0.1",
+    "version": "8.0.2",
     "description": "Calendar component",
     "keywords": [],
     "license": "MIT",
@@ -12,10 +12,10 @@
     "dependencies": {
         "@alfalab/core-components-button": "^12.0.1",
         "@alfalab/core-components-icon-button": "^7.0.1",
-        "@alfalab/core-components-modal": "^10.0.1",
+        "@alfalab/core-components-modal": "^10.0.2",
         "@alfalab/core-components-mq": "^5.0.1",
         "@alfalab/core-components-shared": "^1.1.0",
-        "@alfalab/core-components-typography": "^5.0.1",
+        "@alfalab/core-components-typography": "^5.0.2",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.247.0",
         "@juggle/resize-observer": "^3.3.1",

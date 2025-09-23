@@ -24,9 +24,11 @@ export const Tabs = ({
     skeletonProps,
     textStyle,
     style,
+    titleProps,
     ...restProps
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
+
     const titles = tabsArray.map(
         ({
             props: {
@@ -48,6 +50,7 @@ export const Tabs = ({
             toggleClassName,
             dataTestId: toggleTestId,
             toggleRef,
+            ...titleProps,
         }),
     );
 
