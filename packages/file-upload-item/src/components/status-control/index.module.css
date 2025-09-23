@@ -25,6 +25,10 @@
             }
         }
 
+        &.loading {
+            color: var(--color-light-neutral-500);
+        }
+
         &.error {
             & path {
                 stroke: var(--color-light-status-negative);

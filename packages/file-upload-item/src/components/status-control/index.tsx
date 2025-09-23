@@ -7,7 +7,6 @@ import { FileUploadItemContext } from '../../context/file-upload-item-context';
 import { isErrorStatus, isLoadingStatus, isSuccessStatus } from '../../utils';
 
 import { ExtensionIcon } from './extension-icon';
-import { LoadingSpinner } from './loading-spinner';
 import { ProgressBar } from './progress-bar';
 
 import styles from './index.module.css';
@@ -28,16 +27,6 @@ export const StatusControl = () => {
 
     const hasFullStatus = isSuccessStatus(uploadStatus) || isErrorStatus(uploadStatus);
 
-    const customProps = {
-        className: cn(styles.progress, {
-            [styles.success]: isSuccessStatus(uploadStatus),
-            [styles.error]: isErrorStatus(uploadStatus),
-        }),
-        size: 56,
-        strokeWidth: 2,
-        strokeDasharray,
-    };
-
     return (
         <div
             className={cn(styles.container, {
@@ -48,14 +37,16 @@ export const StatusControl = () => {
                 <ExtensionIcon />
             </SuperEllipse>
 
-            {!progressBarAvailable && isLoadingStatus(uploadStatus) ? (
-                <LoadingSpinner {...customProps} strokeDashoffset={0} />
-            ) : (
-                <ProgressBar
-                    {...customProps}
-                    strokeDashoffset={hasFullStatus ? 0 : strokeDashoffset}
-                />
-            )}
+            <ProgressBar
+                className={cn(styles.progress, {
+                    [styles.loading]: !progressBarAvailable && isLoadingStatus(uploadStatus),
+                    [styles.error]: isErrorStatus(uploadStatus),
+                    [styles.success]: isSuccessStatus(uploadStatus),
+                })}
+                strokeDasharray={strokeDasharray}
+                strokeDashoffset={hasFullStatus ? 0 : strokeDashoffset}
+                isIndeterminate={!progressBarAvailable && isLoadingStatus(uploadStatus)}
+            />
         </div>
     );
 };

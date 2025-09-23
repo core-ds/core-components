@@ -92,9 +92,18 @@ render(() => {
 ```jsx live mobileHeight={500}
 render(() => {
     const [status, setStatus] = React.useState('INITIAL');
+    const [title, setTitle] = React.useState('Прикрепите файл');
     const [progressBar, setProgressBar] = React.useState(0);
-    const [error, setError] = React.useState('');
     const [isProgressKnown, setIsProgressKnown] = React.useState(false);
+    const [error, setError] = React.useState('');
+
+    const isUploading = status === 'UPLOADING' || status === 'LOADING';
+    const subtitle = isUploading ? 'Загружается' : 'Нет файла';
+
+    const distance = 100;
+    const duration = 500;
+    const spinnerDuration = 5000;
+    let startAnimation = null;
 
     const resetState = () => {
         setError('');
@@ -102,49 +111,62 @@ render(() => {
         setStatus('INITIAL');
     };
 
-    const startUpload = (finalStatus, errorMessage) => {
-        setError('');
-        setProgressBar(0);
-        setStatus(isProgressKnown ? 'UPLOADING' : 'LOADING');
+    const measure = (timestamp, status, isSpinner = false) => {
+        if (!startAnimation) {
+            startAnimation = timestamp;
+        }
 
-        if (isProgressKnown) {
-            let currentProgress = 0;
+        const elapsed = timestamp - startAnimation;
+        const currentDuration = isSpinner ? spinnerDuration : duration;
 
-            const animateProgress = () => {
-                currentProgress += 2;
-                setProgressBar(currentProgress);
-
-                if (currentProgress >= 100) {
-                    clearInterval(interval);
-                    setStatus(finalStatus);
-
-                    if (errorMessage) setError(errorMessage);
-                }
-            };
-
-            const interval = setInterval(animateProgress, 20);
+        if (isSpinner) {
+            if (elapsed < currentDuration) {
+                return requestAnimationFrame((t) => measure(t, status, isSpinner));
+            }
         } else {
-            // Для режима без прогресса показываем загрузку дольше
-            setTimeout(() => {
-                setStatus(finalStatus);
-                if (errorMessage) setError(errorMessage);
-            }, 5000);
+            const progress = elapsed / currentDuration;
+            const progressValue = progress * distance;
+            setProgressBar(progressValue);
+
+            if (progress < 1) {
+                return requestAnimationFrame((t) => measure(t, status, isSpinner));
+            }
+        }
+
+        if (status === 'SUCCESS') {
+            setStatus(status);
+        } else if (status === 'ERROR') {
+            setStatus('ERROR');
+            setError('Описание первой ошибки');
+        } else if (status === 'MULTI_ERROR') {
+            setStatus('ERROR');
+            setError(['Описание первой ошибки', 'Описание второй ошибки']);
         }
     };
 
-    const handleSuccess = () => startUpload('SUCCESS');
+    const startUpload = (finalStatus, errorMessage) => {
+        setError('');
+        setProgressBar(0);
+        setTitle('Пример.docx');
+
+        if (!isProgressKnown) {
+            setStatus('LOADING');
+            requestAnimationFrame((t) => measure(t, finalStatus, true));
+        } else {
+            setStatus('UPLOADING');
+            requestAnimationFrame((t) => measure(t, finalStatus));
+        }
+    };
+
+    const handleSuccessClick = () => startUpload('SUCCESS');
     const handleError = () => startUpload('ERROR', 'Описание первой ошибки');
     const handleMultiError = () =>
-        startUpload('ERROR', ['Описание первой ошибки', 'Описание второй ошибки']);
+        startUpload('MULTI_ERROR', ['Описание первой ошибки', 'Описание второй ошибки']);
 
     const handleToggleChange = () => {
         setIsProgressKnown((prev) => !prev);
         resetState();
     };
-
-    const isUploading = status === 'UPLOADING' || status === 'LOADING';
-    const title = isUploading ? 'Пример.docx' : 'Прикрепите файл';
-    const subtitle = isUploading ? 'Загружается' : 'Нет файла';
 
     return (
         <React.Fragment>
@@ -164,7 +186,7 @@ render(() => {
             </FileUploadItem>
             <Gap size={20} />
             <div>
-                <Button size={32} onClick={handleSuccess}>
+                <Button size={32} onClick={handleSuccessClick}>
                     Успех
                 </Button>
                 <Gap size={8} direction='horizontal' />
@@ -232,7 +254,7 @@ render(() => {
                 </FileUploadItem>
                 <Gap size={20} />
                 <FileUploadItem
-                    title='gagarin_yu_a.png.png'
+                    title='gagarin_yu_a.png'
                     size={27262976}
                     uploadDate='01.05.1998'
                     uploadStatus={'UPLOADED'}
@@ -331,7 +353,17 @@ render(() => {
 
 ```jsx live mobileHeight={500}
 render(() => {
-    const [files, setFiles] = React.useState([]);
+    const [files, setFiles] = React.useState([
+        {
+            file: {
+                lastModified: 1757484252153,
+                lastModifiedDate: new Date(),
+                name: 'Пример 1.docx',
+                size: 2097152, // 2mb
+            },
+            status: 'SUCCESS',
+        },
+    ]);
 
     const distance = 100;
     const duration = 500;
@@ -412,7 +444,7 @@ render(() => {
                     </div>
                 );
             })}
-            <FileUploadItem title='Прикрепите файл' subtitle='Нет файла' uploadStatus='INITIAL'>
+            <FileUploadItem title='Прикрепите файл' uploadStatus='INITIAL'>
                 <label htmlFor='multi-file-input-id' style={{ display: 'flex', width: 320 }}>
                     <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
