@@ -355,6 +355,27 @@ describe('Plate', () => {
             expect(cb).toBeCalledTimes(1);
         });
 
+        it('should call `onClose` prop with custom aria label', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const closerAriaLabel = 'скрыть подсказку';
+            const { getByTestId } = render(
+                <Plate
+                    hasCloser={true}
+                    onClose={cb}
+                    dataTestId={dataTestId}
+                    closerAriaLabel={closerAriaLabel}
+                />,
+            );
+
+            const el = getByTestId(dataTestId);
+            const closeEl = el.querySelector(`[aria-label="${closerAriaLabel}"]`) as Element;
+
+            fireEvent.click(closeEl);
+
+            expect(cb).toHaveBeenCalledTimes(1);
+        });
+
         it('should hide, if clicked on closer', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Plate hasCloser={true} dataTestId={dataTestId} />);
