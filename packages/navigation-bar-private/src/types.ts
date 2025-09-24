@@ -1,7 +1,7 @@
-import React, { ReactNode, RefObject } from 'react';
+import { type CSSProperties, type ElementType, type ReactNode, type RefObject } from 'react';
 
-import { BackArrowAddonProps } from './components/back-arrow-addon';
-import type { CloserProps } from './components/closer';
+import { type BackArrowAddonProps } from './components/back-arrow-addon';
+import { type CloserProps } from './components/closer';
 
 export type ColorType = 'default' | 'inverted';
 
@@ -88,6 +88,7 @@ export type NavigationBarPrivateProps = {
 
     /**
      * Выравнивание заголовка
+     * @default left
      */
     align?: 'left' | 'center';
 
@@ -114,7 +115,7 @@ export type NavigationBarPrivateProps = {
     /**
      * Иконка closer.
      */
-    closerIcon?: React.ElementType;
+    closerIcon?: ElementType;
 
     /**
      * Обработчик закрытия
@@ -139,7 +140,7 @@ export type NavigationBarPrivateProps = {
     /**
      * Ссылка на родительскую ноду overflow: auto
      */
-    scrollableParentRef?: React.RefObject<HTMLDivElement>;
+    scrollableParentRef?: RefObject<HTMLDivElement>;
 
     /**
      * Data атрибут для компонента
@@ -169,7 +170,8 @@ export type NavigationBarPrivateProps = {
 
 export type ContentParams = {
     extraClassName?: string;
-    wrapperRef?: React.RefObject<HTMLDivElement>;
-    style?: React.CSSProperties;
+    wrapperRef?: RefObject<HTMLDivElement>;
+    style?: CSSProperties;
     hidden?: boolean;
+    extraAlign?: NavigationBarPrivateProps['align'];
 };

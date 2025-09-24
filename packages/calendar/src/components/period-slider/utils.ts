@@ -19,7 +19,7 @@ import startOfYear from 'date-fns/startOfYear';
 
 import { formatDate, monthName } from '../../utils';
 
-import { PeriodType } from '.';
+import { type PeriodType } from '.';
 
 export const formatPeriod = (
     valueFrom: Date,

@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
-import type { TPatternLockInstance } from 'react-canvas-pattern-lock';
+import { type TPatternLockInstance } from 'react-canvas-pattern-lock';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { PatternLockDesktopV1 } from './desktop';
 import { PatternLockMobileV1 } from './mobile';
-import { PatternLockProps } from './typings';
+import { type PatternLockProps } from './typings';
 
 /**
  * @deprecated

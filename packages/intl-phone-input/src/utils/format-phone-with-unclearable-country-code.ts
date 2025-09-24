@@ -1,4 +1,4 @@
-import { Country } from '@alfalab/utils';
+import { type Country } from '@alfalab/utils';
 
 const RUSSIAN_DIAL_CODE = '7';
 const RUSSIAN_NATIONAL_DIAL_CODE = '8';

@@ -138,8 +138,8 @@ describe('Confirmation', () => {
             />,
         );
 
-        expect(onCountdownFinished).not.toBeCalled();
-        await waitFor(() => expect(onCountdownFinished).toBeCalledTimes(1));
+        expect(onCountdownFinished).not.toHaveBeenCalled();
+        await waitFor(() => expect(onCountdownFinished).toHaveBeenCalledTimes(1));
     });
 
     describe('Fatal error tests', () => {
@@ -191,8 +191,8 @@ describe('Confirmation', () => {
             const buttonError = getByText(defaultButtonErrorText as string);
             buttonError.click();
 
-            expect(onSmsRetryClick).not.toBeCalled();
-            expect(onActionWithFatalError).toBeCalled();
+            expect(onSmsRetryClick).not.toHaveBeenCalled();
+            expect(onActionWithFatalError).toHaveBeenCalled();
         });
 
         it('should call onSmsRetryClick when click on buttonError if onActionWithFatalError is not passed', () => {
@@ -210,7 +210,7 @@ describe('Confirmation', () => {
             const buttonError = getByText(defaultButtonErrorText as string);
             buttonError.click();
 
-            expect(onSmsRetryClick).toBeCalled();
+            expect(onSmsRetryClick).toHaveBeenCalled();
         });
     });
 
@@ -278,7 +278,7 @@ describe('Confirmation', () => {
             const buttonRetry = await findByText(buttonRetryText);
             buttonRetry.click();
 
-            expect(onSmsRetryClick).toBeCalled();
+            expect(onSmsRetryClick).toHaveBeenCalled();
         });
 
         it('should call onSmsRetryClick when click retry button in hint', async () => {
@@ -301,7 +301,7 @@ describe('Confirmation', () => {
             const buttonRetryInHint = await findByText(buttonReturnInHintText);
             buttonRetryInHint.click();
 
-            expect(onSmsRetryClick).toBeCalled();
+            expect(onSmsRetryClick).toHaveBeenCalled();
         });
 
         it('should call onSmsHintLinkClick when click hintLink', async () => {
@@ -321,7 +321,7 @@ describe('Confirmation', () => {
             const smsHintButton = await findByText(hintLinkText);
             smsHintButton.click();
 
-            expect(onSmsHintLinkClick).toBeCalled();
+            expect(onSmsHintLinkClick).toHaveBeenCalled();
         });
     });
 
@@ -387,7 +387,7 @@ describe('Confirmation', () => {
 
             await userEvent.type(getActiveElement(), '1');
 
-            expect(onInputChange).toBeCalledWith({ code: '1' });
+            expect(onInputChange).toHaveBeenCalledWith({ code: '1' });
         });
 
         it('should call onInputFinished when input is finished', async () => {
@@ -413,7 +413,7 @@ describe('Confirmation', () => {
             rerender(getComponent());
             await userEvent.type(getActiveElement(), '2');
 
-            expect(onInputFinished).toBeCalledTimes(1);
+            expect(onInputFinished).toHaveBeenCalledTimes(1);
         });
 
         it('should not allow type code longer than requiredCharAmount', async () => {
@@ -440,9 +440,9 @@ describe('Confirmation', () => {
             rerender(getComponent());
             await userEvent.type(getActiveElement(), '3');
 
-            expect(onInputChange).nthCalledWith(1, { code: '1' });
-            expect(onInputChange).nthCalledWith(2, { code: '12' });
-            expect(onInputChange).toBeCalledTimes(2);
+            expect(onInputChange).toHaveBeenNthCalledWith(1, { code: '1' });
+            expect(onInputChange).toHaveBeenNthCalledWith(2, { code: '12' });
+            expect(onInputChange).toHaveBeenCalledTimes(2);
         });
     });
 
@@ -505,7 +505,7 @@ describe('Confirmation', () => {
             );
 
             expect(screen.queryByText(buttonRetryText)).toEqual(null);
-            expect(onOverlimitCountdownFinished).toBeCalledTimes(0);
+            expect(onOverlimitCountdownFinished).toHaveBeenCalledTimes(0);
 
             const spyDateNow = jest
                 .spyOn(global.Date, 'now')
@@ -513,11 +513,11 @@ describe('Confirmation', () => {
 
             await screen.findByText(buttonRetryText);
             expect(screen.getByText(buttonRetryText)).toBeInTheDocument();
-            expect(onOverlimitCountdownFinished).toBeCalledTimes(1);
+            expect(onOverlimitCountdownFinished).toHaveBeenCalledTimes(1);
 
-            expect(onOverlimitSmsRetryClick).toBeCalledTimes(0);
+            expect(onOverlimitSmsRetryClick).toHaveBeenCalledTimes(0);
             await userEvent.click(screen.getByText(buttonRetryText));
-            expect(onOverlimitSmsRetryClick).toBeCalledTimes(1);
+            expect(onOverlimitSmsRetryClick).toHaveBeenCalledTimes(1);
 
             spyDateNow.mockClear();
         });

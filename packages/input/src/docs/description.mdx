@@ -171,14 +171,6 @@ render(() => {
     const [success, setSuccess] = React.useState(false);
     const [value, setValue] = React.useState('');
 
-    /* Не показываем вторую иконку ошибки в теме сайта */
-    const css = `
-        :root {
-            --input-error-icon-display: none;
-            --input-error-icon-not-alone-display: none;
-        }
-    `;
-
     const handleChange = (e) => {
         const value = e.target.value;
         setValue(value);
@@ -190,11 +182,10 @@ render(() => {
         }
     };
 
-    const hasError = value !== '' && !success;
+    const hasError = value.length > 5;
 
     return (
         <div style={{ width: 320 }}>
-            <style>{css}</style>
             <Input
                 value={value}
                 block={true}
@@ -206,7 +197,6 @@ render(() => {
                 breakpoint={BREAKPOINT}
                 success={success}
                 error={hasError}
-                rightAddons={hasError ? <StatusBadge view='negative-alert' /> : undefined}
             />
         </div>
     );

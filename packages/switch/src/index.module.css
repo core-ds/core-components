@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import './vars.css';
 
 .component {
@@ -42,7 +42,9 @@
     margin: var(--gap-2);
     flex-shrink: 0;
     border: 2px solid var(--switch-border-color);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
     box-sizing: border-box;
 }
 

@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .segment {
     flex: 1;
@@ -12,7 +12,9 @@
     background-color: transparent;
     position: relative;
     font-family: var(--font-family-system);
-    transition: font-weight 0.2s ease, color 0.2s ease;
+    transition:
+        font-weight 0.2s ease,
+        color 0.2s ease;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;

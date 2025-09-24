@@ -1,4 +1,4 @@
-import { DependencyList, useRef, useState } from 'react';
+import { type DependencyList, useRef, useState } from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -24,7 +24,7 @@ export const useCollapsibleElements = <
             const addon = addonRef.current;
             const containerWidth =
                 (inlineSize || container.clientWidth) - (addon?.scrollWidth || 0) * 1.5; // при расчётах, даём кнопке "Ещё" чуть больше места, чтобы точно влезла
-            const elements = Array.from(container.querySelectorAll(selectors)) as HTMLElement[];
+            const elements = Array.from(container.querySelectorAll<HTMLElement>(selectors));
 
             const collapsedIds = elements.reduce<string[]>((acc, element) => {
                 const { offsetLeft, scrollWidth, id } = element;

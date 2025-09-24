@@ -1,5 +1,10 @@
 name: setup ci
 
+inputs:
+    node-version:
+        description: Version spec of node.js
+        required: false
+
 runs:
     using: composite
     steps:
@@ -7,16 +12,20 @@ runs:
           shell: bash
           run: |
               NODE_VERSION_FILE=.node-version
-              NODE_VERSION=18
+              NODE_VERSION='${{ inputs.node-version }}'
 
-              if [ -f $NODE_VERSION_FILE ]; then
-                  NODE_VERSION="$(cat $NODE_VERSION_FILE)"
+              if [ "$NODE_VERSION" = "" ]; then
+                  if [ -f $NODE_VERSION_FILE ]; then
+                      NODE_VERSION="$(cat $NODE_VERSION_FILE)"
+                  else
+                      NODE_VERSION=22
+                  fi
               fi
 
               echo "node-version=$NODE_VERSION" >> "$GITHUB_OUTPUT"
 
         - name: setup nodejs
-          uses: actions/setup-node@v4
+          uses: actions/setup-node@v5
           with:
               node-version: ${{ steps.detect.outputs.node-version }}
               cache: yarn

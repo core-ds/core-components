@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import cn from 'classnames';
 
-import { THeadCell, THeadCellProps } from '../thead-cell';
+import { THeadCell, type THeadCellProps } from '../thead-cell';
 
 import { SortIconAsc } from './sort-icon-asc';
 import { SortIconDesc } from './sort-icon-desc';

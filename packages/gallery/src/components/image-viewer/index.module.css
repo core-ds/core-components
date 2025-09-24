@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .component {
     display: flex;
@@ -144,7 +144,7 @@
 .brokenImgIcon {
     width: 80px;
     height: 80px;
-    margin-bottom: var(--gap-2xs);
+    margin-bottom: var(--gap-4);
 }
 
 .fullScreenImage {

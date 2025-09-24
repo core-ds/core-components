@@ -122,10 +122,10 @@ describe('Collapse', () => {
             const buttonEl = container.getElementsByTagName('button')[0];
 
             fireEvent.click(buttonEl);
-            expect(onExpandedChange).toBeCalledWith(true);
+            expect(onExpandedChange).toHaveBeenCalledWith(true);
 
             fireEvent.click(buttonEl);
-            expect(onExpandedChange).toBeCalledWith(false);
+            expect(onExpandedChange).toHaveBeenCalledWith(false);
         });
     });
 });

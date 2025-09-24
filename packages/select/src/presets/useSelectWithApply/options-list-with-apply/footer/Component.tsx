@@ -5,7 +5,7 @@ import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../../../consts';
-import { OptionShape, OptionsListProps } from '../../../../typings';
+import { type OptionShape, type OptionsListProps } from '../../../../typings';
 
 import styles from './index.module.css';
 

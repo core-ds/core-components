@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { BackgroundColorType, GraphicColorType } from '@alfalab/core-components-types';
+import { type BackgroundColorType, type GraphicColorType } from '@alfalab/core-components-types';
 
 import styles from './index.module.css';
 

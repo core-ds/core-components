@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
@@ -19,7 +19,7 @@ export type HintProps = {
 };
 
 export const Hint: FC<HintProps> = ({ mobile }) => {
-    const { alignContent, texts, onChangeScreen, onChangeState, breakpoint, client } =
+    const { alignContent, titleTag, texts, onChangeScreen, onChangeState, breakpoint, client } =
         useContext(ConfirmationContext);
 
     const { domesticPhone = '', internationalPhone = '', hintButton } = texts;
@@ -31,7 +31,9 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.hintTitle}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.hintTitle}
+            </Header>
 
             <Text
                 view='primary-medium'

@@ -1,18 +1,15 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import React, {
-    AnchorHTMLAttributes,
-    ButtonHTMLAttributes,
-    ElementType,
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
+    type ElementType,
     forwardRef,
-    HTMLAttributes,
+    type HTMLAttributes,
     useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonProps } from '@alfalab/core-components-button';
 import { Comment } from '@alfalab/core-components-comment';
 import { useFocus } from '@alfalab/hooks';
 
@@ -23,24 +20,16 @@ import { Category } from './components/category';
 import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { FooterButton } from './components/footer-button';
-import { FooterText, FooterTextProps } from './components/footer-text';
+import { FooterText } from './components/footer-text';
 import { Graphics } from './components/graphics';
 import { Main } from './components/main';
 import { Text } from './components/text';
-import { PureCellElement } from './components/types';
+import { type PureCellElement } from './components/types';
+import { PureCellContext, type PureCellContextValue } from './context';
 
 import styles from './index.module.css';
 
-export type PureCellContext = {
-    /** Направление */
-    direction?: 'horizontal' | 'vertical';
-    dataTestId?: string;
-    setMainHover?: () => void;
-    unsetMainHover?: () => void;
-};
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const PureCellContext = React.createContext<PureCellContext>({});
+export { PureCellContext };
 
 type BasePureCellProps = {
     /**
@@ -152,7 +141,8 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
             [styles.active]: activeState,
         };
 
-        const contextState: PureCellContext = {
+        // eslint-disable-next-line react/jsx-no-constructed-context-values
+        const contextState: PureCellContextValue = {
             direction,
             dataTestId,
             setMainHover: setHover,
@@ -223,7 +213,7 @@ const PureCellComponent = forwardRef<HTMLElement, PureCellProps>(
     },
 );
 
-const ExtraSubtitle = FooterText as React.FC<FooterTextProps>;
+const ExtraSubtitle = FooterText;
 
 /**
  * Универсальный конструктор для сборки любой ячейки.

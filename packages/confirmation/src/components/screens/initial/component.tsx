@@ -1,10 +1,13 @@
-import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
 import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
-import { BaseCodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input/shared';
+import {
+    type BaseCodeInputProps,
+    type CustomInputRef,
+} from '@alfalab/core-components-code-input/shared';
 import { Link } from '@alfalab/core-components-link';
 import { Text } from '@alfalab/core-components-typography';
 import { useLayoutEffect_SAFE_FOR_SSR, usePrevious } from '@alfalab/hooks';
@@ -29,6 +32,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
     const {
         state,
         alignContent,
+        titleTag,
         texts,
         requiredCharAmount,
         timeLeft,
@@ -169,7 +173,9 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.title}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.title}
+            </Header>
 
             {phone ? (
                 <Text

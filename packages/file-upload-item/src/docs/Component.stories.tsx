@@ -63,17 +63,4 @@ export const file_upload_item: Story = {
     },
 };
 
-export const file_upload_item_left_addon: Story = {
-    name: 'FileUploadItem.StatusControl',
-    render: () => {
-        return (
-            <div style={{ width: 456 }}>
-                <FileUploadItem uploadStatus={'UPLOADING'} progressBar={number('progressBar', 0)}>
-                    <FileUploadItem.StatusControl />
-                </FileUploadItem>
-            </div>
-        );
-    },
-};
-
 export default meta;

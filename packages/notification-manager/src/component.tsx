@@ -1,12 +1,12 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef, type HTMLAttributes } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
 
-import { Portal, PortalProps } from '@alfalab/core-components-portal';
+import { Portal, type PortalProps } from '@alfalab/core-components-portal';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
-import { Notification, NotificationElement } from './components';
+import { Notification, type NotificationElement } from './components';
 
 import styles from './index.module.css';
 

@@ -1,5 +1,16 @@
 # @alfalab/core-components-card-image
 
+## 4.1.0
+
+### Minor Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1863](https://github.com/core-ds/core-components/pull/1863)
+
+-   Добавлен обработчик ошибки загрузки изображения "onError"
+-   Исправлено описание свойства "alt"
+
 ## 4.0.0
 
 ### Major Changes

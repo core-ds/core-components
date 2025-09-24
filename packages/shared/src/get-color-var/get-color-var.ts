@@ -1,6 +1,6 @@
 import { modifyColor } from './modify-color';
 import { translateColors } from './translatecolors';
-import { Color, HexColor, PaletteColor, Theme } from './types';
+import { type Color, type HexColor, type PaletteColor, type Theme } from './types';
 
 const getColorWithTheme = (color: PaletteColor, theme: Theme) => {
     const cssColorValue = translateColors(color);

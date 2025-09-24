@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     --dropzone-active-bg: transparent;
@@ -8,7 +8,9 @@
 .component {
     display: inline-block;
     position: relative;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
     border-radius: var(--dropzone-border-radius);
     border: 1px dashed var(--color-light-neutral-translucent-1300);
 }

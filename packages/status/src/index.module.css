@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '@alfalab/core-components-vars/src/colors-decorative.css';
 
 .component {
@@ -7,7 +7,7 @@
     justify-content: center;
     height: initial;
     padding: 0;
-    border-radius: 0;
+    border-radius: var(--border-radius-0);
     text-align: center;
     text-transform: initial;
     letter-spacing: 0.5px;
@@ -103,10 +103,7 @@
             color: var(--color-light-decorative-text-$(color));
         }
     }
-}
 
-.soft,
-.muted-alt {
     &.grey {
         background: var(--color-light-neutral-translucent-300);
         color: var(--color-light-text-secondary);
@@ -126,9 +123,7 @@
             background: var(--color-light-decorative-$(color));
         }
     }
-}
 
-.contrast {
     &.grey {
         background: var(--color-light-neutral-700);
     }
@@ -145,9 +140,7 @@
             color: var(--color-light-decorative-text-$(color));
         }
     }
-}
 
-.muted {
     &.grey {
         background: var(--color-light-neutral-translucent-200);
         color: var(--color-light-text-secondary);

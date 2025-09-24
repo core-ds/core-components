@@ -6,7 +6,7 @@ import { BaseModal } from '@alfalab/core-components-base-modal';
 
 import { SIZE_TO_CLASSNAME_MAP } from './consts';
 import { ResponsiveContext } from './ResponsiveContext';
-import { ModalDesktopProps, View } from './typings';
+import { type ModalDesktopProps, type View } from './typings';
 
 import desktopStyles from './desktop/desktop.module.css';
 import mobileStyles from './mobile/mobile.module.css';

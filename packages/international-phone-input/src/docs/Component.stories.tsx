@@ -47,6 +47,7 @@ export const international_phone_input: Story = {
                         true,
                     )}
                     clear={boolean('clear', false)}
+                    success={boolean('success', false)}
                 />
             </div>
         );

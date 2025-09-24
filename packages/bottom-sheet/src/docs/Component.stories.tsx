@@ -89,6 +89,7 @@ export const bottom_sheet: Story = {
                     actionButton={
                         boolean('renderActionButton', true) && (
                             <Button
+                                className='showMoreButton'
                                 view={isPreview ? 'primary' : 'secondary'}
                                 colors={colors}
                                 block={true}

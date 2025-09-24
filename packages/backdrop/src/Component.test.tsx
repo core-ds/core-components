@@ -126,7 +126,7 @@ describe('Backdrop', () => {
 
         fireEvent.click(getByTestId(dataTestId));
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     it('should set `transparent` class', () => {
@@ -141,6 +141,6 @@ describe('Backdrop', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Backdrop open={true} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

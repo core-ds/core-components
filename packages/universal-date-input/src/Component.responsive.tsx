@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { BaseUniversalDateInput } from './components/base-universal-date-input';
-import type { UniversalDateInputProps } from './types';
+import { type UniversalDateInputProps } from './types';
 
 export const UniversalDateInput = forwardRef<HTMLInputElement, UniversalDateInputProps>(
     (

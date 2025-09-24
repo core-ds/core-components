@@ -1,10 +1,16 @@
-import React, { FC, KeyboardEvent, MutableRefObject, ReactNode, useCallback } from 'react';
+import React, {
+    type FC,
+    type KeyboardEvent,
+    type MutableRefObject,
+    type ReactNode,
+    useCallback,
+} from 'react';
 import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
 import { Loader } from '@alfalab/core-components-loader';
 
-import { ContentAlign } from '../../component';
+import { type ContentAlign } from '../../component';
 import { CodeInput } from '../code-input';
 import { Countdown } from '../countdown';
 

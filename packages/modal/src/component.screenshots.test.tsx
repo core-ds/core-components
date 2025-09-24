@@ -187,6 +187,83 @@ describe(
     }),
 );
 
+describe(
+    'ModalMobile | title alignment',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    ModalComponent: 'ModalMobile',
+                    open: true,
+                    header: true,
+                    showMore: true,
+                    'header.title': 'Заголовок',
+                    'header.hasBackButton': true,
+                    'header.sticky': [true, false],
+                    'header.align': ['left', 'center'],
+                },
+            }),
+            ...generateTestCases({
+                componentName: 'Modal',
+                testStory: false,
+                knobs: {
+                    ModalComponent: 'ModalMobile',
+                    open: true,
+                    header: true,
+                    showMore: true,
+                    'header.title': 'Заголовок',
+                    'header.sticky': true,
+                    'header.hasBackButton': false,
+                    'header.align': ['left', 'center'],
+                },
+            }),
+        ],
+        viewport: {
+            width: 320,
+            height: 600,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+    }),
+);
+
+describe(
+    'ModalMobile | animated title alignment',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Modal',
+            testStory: false,
+            knobs: {
+                ModalComponent: 'ModalMobile',
+                open: true,
+                header: true,
+                showMore: true,
+                'header.title': 'Заголовок',
+                'header.sticky': true,
+                'header.hasBackButton': true,
+                'header.align': ['left', 'center'],
+            },
+        }),
+        viewport: {
+            width: 320,
+            height: 600,
+        },
+        screenshotOpts: {
+            fullPage: true,
+        },
+        evaluate: async (page) => {
+            await page.waitForTimeout(500);
+            await page.$eval('button[class*=showMoreButton]', (el) => {
+                el.scrollIntoView();
+            });
+            await page.waitForTimeout(500);
+        },
+    }),
+);
+
 // DESKTOP
 
 describe('ModalDesktop', () => {

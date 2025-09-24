@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../slider/src/vars.css';
 @import '../../form-control/src/vars.css';
 
@@ -28,7 +28,7 @@
     display: block;
 }
 
-.slider {
+.component .slider {
     width: calc(100% - var(--slider-input-progress-margin-horizontal) * 2);
     margin-left: var(--slider-input-progress-margin-horizontal);
     margin-right: var(--slider-input-progress-margin-horizontal);

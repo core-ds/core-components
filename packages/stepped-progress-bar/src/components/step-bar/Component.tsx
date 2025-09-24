@@ -1,7 +1,7 @@
-import React, { FC, memo } from 'react';
+import React, { type FC, memo } from 'react';
 import cn from 'classnames';
 
-import { SteppedProgressBarView } from '../../Component';
+import { type SteppedProgressBarView } from '../../Component';
 
 import styles from './index.module.css';
 

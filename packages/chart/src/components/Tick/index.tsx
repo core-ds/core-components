@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { TickProps } from '../../types/utils/tick.types';
+import { type TickProps } from '../../types/utils/tick.types';
 
 import styles from './index.module.css';
 

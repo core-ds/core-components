@@ -1,16 +1,16 @@
-import type { ElementType, FC, FocusEvent } from 'react';
+import { type ElementType, type FC, type FocusEvent } from 'react';
 
-import type { InputProps } from '@alfalab/core-components-input';
-import type { InputDesktopProps } from '@alfalab/core-components-input/desktop';
-import type { InputMobileProps } from '@alfalab/core-components-input/mobile';
-import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
-import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
-import type { InputAutocompleteMobileProps } from '@alfalab/core-components-input-autocomplete/mobile';
-import type { OptionShape } from '@alfalab/core-components-select/typings';
-import type { Country } from '@alfalab/core-components-types';
+import { type InputProps } from '@alfalab/core-components-input';
+import { type InputDesktopProps } from '@alfalab/core-components-input/desktop';
+import { type InputMobileProps } from '@alfalab/core-components-input/mobile';
+import { type InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
+import { type InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
+import { type InputAutocompleteMobileProps } from '@alfalab/core-components-input-autocomplete/mobile';
+import { type OptionShape } from '@alfalab/core-components-select/typings';
+import { type Country } from '@alfalab/core-components-types';
 
-import type { SharedCountrySelectProps } from './components/country-select';
-import type { CountriesData } from './data/country-data';
+import { type SharedCountrySelectProps } from './components/country-select';
+import { type CountriesData } from './data/country-data';
 
 export type { Country } from '@alfalab/core-components-types';
 
@@ -81,6 +81,13 @@ export type CommonPhoneInputProps = {
      * Обработчик фокуса поля
      */
     onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+
+    /**
+     * Включить автозаполнение номера
+     *
+     * @default true
+     */
+    autoFill?: boolean;
 };
 
 export type BaseInternationalPhoneInputProps = CommonPhoneInputProps & {

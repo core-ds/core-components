@@ -1,7 +1,7 @@
 import { createContext } from 'react';
-import SwiperCore from 'swiper';
+import type SwiperCore from 'swiper';
 
-import { GalleryImage, ImageMeta } from './types';
+import { type GalleryImage, type ImageMeta } from './types';
 
 export type GalleryContext = {
     view: 'desktop' | 'mobile';

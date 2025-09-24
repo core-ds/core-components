@@ -1,12 +1,11 @@
-import React, { FC, forwardRef, RefAttributes, useCallback, useEffect } from 'react';
+import React, { type FC, forwardRef, type RefAttributes, useCallback, useEffect } from 'react';
 
 import { OptionsList as DefaultOptionsList } from '../../../components/options-list';
-import { DEFAULT_VISIBLE_OPTIONS } from '../../../consts';
-import { OptionShape, OptionsListProps } from '../../../typings';
-import { SELECT_ALL_KEY } from '../hook';
+import { DEFAULT_VISIBLE_OPTIONS, SELECT_ALL_KEY } from '../../../consts';
+import { type OptionShape, type OptionsListProps } from '../../../typings';
 
-import { Footer as DefaultFooter, FooterProps } from './footer/Component';
-import { Header as DefaultHeader, HeaderProps } from './header/Component';
+import { Footer as DefaultFooter, type FooterProps } from './footer/Component';
+import { Header as DefaultHeader, type HeaderProps } from './header/Component';
 
 type OptionsListWithApplyProps = OptionsListProps & {
     showClear?: boolean;

@@ -1,6 +1,6 @@
 import qs from 'querystring';
 
-import { CSSProperties } from 'react';
+import { type CSSProperties } from 'react';
 
 export const queryParams = qs.parse(document.location.search);
 
@@ -11,14 +11,17 @@ export const getQueryParam = (param: string, parse = false) => {
 };
 
 export const parseKnobs = () =>
-    Object.entries(queryParams).reduce((acc, [k, v]) => {
-        if (k.startsWith('knob-')) {
-            acc[k.replace('knob-', '')] = parseValue(v as string);
-        }
+    Object.entries(queryParams).reduce(
+        (acc, [k, v]) => {
+            if (k.startsWith('knob-')) {
+                acc[k.replace('knob-', '')] = parseValue(v as string);
+            }
 
-        return acc;
-        // eslint-disable-next-line
-    }, {} as Record<string, any>);
+            return acc;
+        },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        {} as Record<string, any>,
+    );
 
 export function parseValue(value: string) {
     const isBoolean = () => ['true', 'false'].includes(value);

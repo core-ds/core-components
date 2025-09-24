@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
-import type { PaddingType } from '@alfalab/core-components-types';
+import { type PaddingType } from '@alfalab/core-components-types';
 
 export type SystemMessageBaseProps = {
     /**

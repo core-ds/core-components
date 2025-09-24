@@ -41,15 +41,18 @@ export const ScreenshotsSprite = () => {
     return (
         <div className={styles.container}>
             {propsList.map((props, index) => {
-                const parsedProps = Object.keys(props).reduce((acc, key) => {
-                    if (isJsonObj(props[key])) {
-                        acc[key] = JSON.parse(props[key] as string);
-                    } else {
-                        acc[key] = props[key];
-                    }
+                const parsedProps = Object.keys(props).reduce(
+                    (acc, key) => {
+                        if (isJsonObj(props[key])) {
+                            acc[key] = JSON.parse(props[key] as string);
+                        } else {
+                            acc[key] = props[key];
+                        }
 
-                    return acc;
-                }, {} as Record<string, unknown>);
+                        return acc;
+                    },
+                    {} as Record<string, unknown>,
+                );
 
                 const invertedBg =
                     getQueryParam('inverted', true) || (parsedProps as any).colors === 'inverted';

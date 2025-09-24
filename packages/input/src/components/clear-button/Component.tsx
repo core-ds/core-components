@@ -5,7 +5,7 @@ import { Button } from '@alfalab/core-components-button';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
-import { BaseInputProps } from '../base-input';
+import { type BaseInputProps } from '../base-input';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';

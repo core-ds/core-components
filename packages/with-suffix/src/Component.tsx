@@ -1,16 +1,16 @@
 import React, {
-    FC,
+    type FC,
     forwardRef,
     Fragment,
-    ReactNode,
-    RefAttributes,
+    type ReactNode,
+    type RefAttributes,
     useCallback,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { InputProps } from '@alfalab/core-components-input';
+import { type InputProps } from '@alfalab/core-components-input';
 import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';

@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '@alfalab/core-components-vars/src/safe-area.css';
 
 .container {
@@ -57,7 +57,9 @@
     text-align: center;
     opacity: 1;
     z-index: 1;
-    transition: opacity 500ms ease-in-out, margin-bottom 270ms ease-in-out;
+    transition:
+        opacity 500ms ease-in-out,
+        margin-bottom 270ms ease-in-out;
 }
 
 .hideSubtitles {

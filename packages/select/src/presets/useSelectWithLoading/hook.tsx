@@ -3,7 +3,7 @@ import React from 'react';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import { Option as DefaultOption } from '../../components/option';
-import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';
+import { type BaseSelectProps, type OptionProps, type OptionShape } from '../../typings';
 
 import styles from './index.module.css';
 

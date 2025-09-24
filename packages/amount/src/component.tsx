@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, formatAmount } from '@alfalab/utils';
 
 import { trimTrailingZeros } from './utils/trimTrailingZeros';
-import { AmountProps } from './types';
+import { type AmountProps } from './types';
 
 import styles from './index.module.css';
 

@@ -1,4 +1,4 @@
-import type { TMainSize } from './component';
+import { type TMainSize } from './component';
 
 export type TNames = 'top' | 'bottom' | 'topBottom' | 'none' | 'indicator' | 'indicatorBottom';
 

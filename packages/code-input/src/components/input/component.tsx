@@ -1,11 +1,11 @@
 import React, {
-    ChangeEvent,
-    ChangeEventHandler,
+    type ChangeEvent,
+    type ChangeEventHandler,
     forwardRef,
-    InputHTMLAttributes,
-    KeyboardEvent,
-    KeyboardEventHandler,
-    MouseEventHandler,
+    type InputHTMLAttributes,
+    type KeyboardEvent,
+    type KeyboardEventHandler,
+    type MouseEventHandler,
 } from 'react';
 import cn from 'classnames';
 

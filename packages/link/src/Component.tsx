@@ -1,4 +1,10 @@
-import React, { AnchorHTMLAttributes, ElementType, forwardRef, ReactNode, useRef } from 'react';
+import React, {
+    type AnchorHTMLAttributes,
+    type ElementType,
+    forwardRef,
+    type ReactNode,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 

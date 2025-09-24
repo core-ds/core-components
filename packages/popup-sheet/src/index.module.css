@@ -1,6 +1,6 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
-.component {
+.component.component {
     position: fixed;
     bottom: var(--gap-0);
     margin: auto var(--gap-8) var(--gap-8);

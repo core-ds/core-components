@@ -1,4 +1,12 @@
-import { KeyboardEvent, MouseEvent, Ref, useCallback, useMemo, useRef, useState } from 'react';
+import {
+    type KeyboardEvent,
+    type MouseEvent,
+    type Ref,
+    useCallback,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import addMonths from 'date-fns/addMonths';
 import addYears from 'date-fns/addYears';
@@ -9,7 +17,7 @@ import setYear from 'date-fns/setYear';
 import startOfMonth from 'date-fns/startOfMonth';
 import subYears from 'date-fns/subYears';
 
-import { DateShift, Day, DayAddons, Month, View } from './typings';
+import { type DateShift, type Day, type DayAddons, type Month, type View } from './typings';
 import {
     addonArrayToHashTable,
     dateArrayToHashTable,
@@ -103,7 +111,7 @@ export function useCalendar({
 
     const uncontrolled = month === undefined;
 
-    const activeMonth = uncontrolled ? monthState : (month as Date);
+    const activeMonth = uncontrolled ? monthState : month;
 
     const dateRefs = useRef<HTMLElement[]>([]);
     const rootRef = useRef<HTMLDivElement>(null);
@@ -208,7 +216,7 @@ export function useCalendar({
         (shift: DateShift) => {
             const focusedNode = getFocusedDate();
 
-            if (focusedNode && focusedNode.dataset.date) {
+            if (focusedNode?.dataset.date) {
                 const focusedDate = new Date(+focusedNode.dataset.date);
                 const newDate = modifyDateByShift(shift, focusedDate, minDate, maxDate, offDaysMap);
 
@@ -251,7 +259,7 @@ export function useCalendar({
         (offset: number) => {
             const focusedNode = getFocusedDate();
 
-            if (focusedNode && focusedNode.dataset.date) {
+            if (focusedNode?.dataset.date) {
                 const focusedMonth = new Date(+focusedNode.dataset.date).getMonth();
                 const newFocusedMonth = focusedMonth + offset;
 
@@ -269,7 +277,7 @@ export function useCalendar({
         (offset: number) => {
             const focusedNode = getFocusedDate();
 
-            if (focusedNode && focusedNode.dataset.date) {
+            if (focusedNode?.dataset.date) {
                 const focusedYear = new Date(+focusedNode.dataset.date).getFullYear();
                 const newFocusedYear = focusedYear + offset;
                 const currentYear = new Date().getFullYear();
@@ -296,7 +304,7 @@ export function useCalendar({
              * Возвращаем фокус внутрь компонента после переключения
              * Но только если фокус и раньше был внутри
              */
-            if (rootRef.current && rootRef.current.contains(document.activeElement)) {
+            if (rootRef.current?.contains(document.activeElement)) {
                 rootRef.current.focus();
             }
         },
@@ -311,7 +319,7 @@ export function useCalendar({
                 setMonthByDate(setYear(activeMonth, new Date(+date).getFullYear()));
             }
 
-            if (rootRef.current && rootRef.current.contains(document.activeElement)) {
+            if (rootRef.current?.contains(document.activeElement)) {
                 rootRef.current.focus();
             }
         },

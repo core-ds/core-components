@@ -1,9 +1,9 @@
-import React, { FC, useCallback, useContext, useEffect } from 'react';
+import React, { type FC, useCallback, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import {
     NavigationBarPrivate,
-    NavigationBarPrivateProps,
+    type NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 

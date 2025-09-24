@@ -2,12 +2,12 @@ import React, { forwardRef } from 'react';
 
 import { SelectMobile } from '@alfalab/core-components-select/mobile';
 import {
-    AdditionalMobileProps,
-    BottomSheetSelectMobileProps,
+    type AdditionalMobileProps,
+    type BottomSheetSelectMobileProps,
     Optgroup as DefaultOptgroup,
 } from '@alfalab/core-components-select/shared';
 
-import type { PickerButtonDesktopProps } from '../desktop';
+import { type PickerButtonDesktopProps } from '../desktop';
 import { Field as DefaultField } from '../field';
 import { Option as DefaultOption } from '../option';
 

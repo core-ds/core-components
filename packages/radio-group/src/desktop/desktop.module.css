@@ -7,9 +7,21 @@
 .label {
     @mixin paragraph_primary_medium;
     color: var(--radio-group-label-color);
+    margin-bottom: var(--gap-12);
     padding-left: var(--radio-group-sub-padding-left);
 }
 
 .sub {
+    @mixin paragraph_component_secondary;
+    margin-top: var(--gap-12);
     padding-left: var(--radio-group-sub-padding-left);
+}
+
+.error {
+    padding-left: var(--radio-group-error-padding-left);
+    border-left: var(--radio-group-error-border-left);
+
+    &.tag {
+        padding-left: var(--gap-8);
+    }
 }

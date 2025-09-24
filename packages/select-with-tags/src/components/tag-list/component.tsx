@@ -1,12 +1,12 @@
 import React, {
-    ChangeEvent,
-    FC,
-    ForwardRefExoticComponent,
-    KeyboardEventHandler,
-    MouseEventHandler,
-    ReactNode,
-    RefAttributes,
-    RefObject,
+    type ChangeEvent,
+    type FC,
+    type ForwardRefExoticComponent,
+    type KeyboardEventHandler,
+    type MouseEventHandler,
+    type ReactNode,
+    type RefAttributes,
+    type RefObject,
     useCallback,
     useEffect,
     useMemo,
@@ -16,11 +16,11 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import type { FormControlProps } from '@alfalab/core-components-form-control';
-import type { FieldProps } from '@alfalab/core-components-select/shared';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { type FieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import type { TagComponent } from '../../types';
+import { type TagComponent } from '../../types';
 import { calculateTotalElementsPerRow } from '../../utils/calculate-collapse-size';
 import { Tag as DefaultTag } from '../tag';
 

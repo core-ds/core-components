@@ -1,7 +1,7 @@
-import React, { FC, MutableRefObject } from 'react';
+import React, { type FC, type MutableRefObject } from 'react';
 import cn from 'classnames';
 
-import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
+import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-button';
 import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';

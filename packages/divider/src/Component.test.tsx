@@ -31,6 +31,6 @@ describe('Divider', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Divider />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

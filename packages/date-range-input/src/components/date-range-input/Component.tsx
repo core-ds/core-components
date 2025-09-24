@@ -1,9 +1,9 @@
 /* eslint-disable no-useless-escape, jsx-a11y/click-events-have-key-events */
 import React, {
-    ChangeEvent,
-    ElementType,
-    FocusEvent,
-    MouseEvent,
+    type ChangeEvent,
+    type ElementType,
+    type FocusEvent,
+    type MouseEvent,
     useEffect,
     useRef,
     useState,
@@ -13,12 +13,12 @@ import cn from 'classnames';
 import dateFnsIsValid from 'date-fns/isValid';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import type { CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
-import type { CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
+import { type CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
+import { type CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
 import { usePeriod } from '@alfalab/core-components-calendar/shared';
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { InputProps } from '@alfalab/core-components-input';
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { type InputProps } from '@alfalab/core-components-input';
+import { Popover, type PopoverProps } from '@alfalab/core-components-popover';
 import { useDidUpdateEffect } from '@alfalab/hooks';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
@@ -473,6 +473,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                             <React.Fragment>
                                 {rightAddons}
                                 {picker && (
+                                    // eslint-disable-next-line jsx-a11y/control-has-associated-label
                                     <IconButton
                                         className={styles.calendarIcon}
                                         ref={iconRef}

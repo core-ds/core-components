@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactText } from 'react';
-import { DataKey } from 'recharts/types/util/types';
+import { type ReactText } from 'react';
+import { type DataKey } from 'recharts/types/util/types';
 
 export interface BrushProps {
     /**

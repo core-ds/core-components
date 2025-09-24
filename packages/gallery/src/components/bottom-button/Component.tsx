@@ -1,4 +1,4 @@
-import React, { MouseEvent, useContext, useEffect, useRef, useState } from 'react';
+import React, { type MouseEvent, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
