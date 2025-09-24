@@ -7,7 +7,7 @@ import {
     type NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 
-import { ColorType } from '../../types';
+import { type ColorType } from '../../types';
 import { getColorStyles } from '../../utils';
 
 import defaultColors from './default.module.css';

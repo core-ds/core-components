@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 
-import { ColorType } from '../../types';
+import { type ColorType } from '../../types';
 import { getColorStyles } from '../../utils';
 
 import defaultColors from './default.module.css';

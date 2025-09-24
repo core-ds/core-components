@@ -1,6 +1,6 @@
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { ColorType } from './types';
+import { type ColorType } from './types';
 
 export const TIMEOUT = 500;
 export const SWIPE_VELOCITY = 0.4;
