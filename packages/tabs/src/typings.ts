@@ -11,6 +11,9 @@ import {
 import { type SkeletonProps } from '@alfalab/core-components-skeleton';
 import { type TagProps } from '@alfalab/core-components-tag';
 
+import { type ScrollableContainerDesktop } from './components/scrollable-container/Component.desktop';
+import { type ScrollableContainerMobile } from './components/scrollable-container/Component.mobile';
+
 export type SelectedId = string | number;
 export type TitleProps = Omit<
     HTMLAttributes<HTMLButtonElement>,
@@ -285,6 +288,11 @@ export interface TabListProps
      * Дополнительные инлайн стили для заголовка
      */
     inlineStyle?: React.CSSProperties;
+
+    /**
+     * Компонент ScrollableContainer
+     */
+    ScrollableContainer: typeof ScrollableContainerDesktop | typeof ScrollableContainerMobile;
 }
 
 export interface SecondaryTabListProps extends TabListProps {

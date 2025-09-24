@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { TagMobile } from '@alfalab/core-components-tag/mobile';
 
 import { type SecondaryTabListProps } from '../../typings';
+import { ScrollableContainerMobile } from '../scrollable-container/Component.mobile';
 
 import { SecondaryTabList } from './Component';
 
@@ -26,6 +27,7 @@ export const SecondaryTabListMobile = ({
     <SecondaryTabList
         {...restProps}
         TagComponent={TagMobile}
+        ScrollableContainer={ScrollableContainerMobile}
         styles={styles}
         className={cn(className, styles.mobile, {
             [styles.transparentView]: tagView === 'transparent',

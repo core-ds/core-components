@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { type TabListProps } from '../../typings';
+import { ScrollableContainerMobile } from '../scrollable-container/Component.mobile';
 
 import { PrimaryTabList } from './Component';
 
@@ -15,5 +16,10 @@ const styles = {
 export type PrimaryTabListMobileProps = Omit<TabListProps, 'size' | 'collapsedTabsIds'>;
 
 export const PrimaryTabListMobile = (props: PrimaryTabListMobileProps) => (
-    <PrimaryTabList {...props} styles={styles} platform='mobile' />
+    <PrimaryTabList
+        {...props}
+        ScrollableContainer={ScrollableContainerMobile}
+        styles={styles}
+        platform='mobile'
+    />
 );
