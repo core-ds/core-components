@@ -40,11 +40,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
               class="wrapper"
             >
               <div
-<<<<<<< HEAD
                 class="component component"
-=======
-                class="component"
->>>>>>> next
                 style="height: unset; max-height: 744px;"
               >
                 <div
@@ -133,11 +129,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
               class="wrapper"
             >
               <div
-<<<<<<< HEAD
                 class="component component"
-=======
-                class="component"
->>>>>>> next
                 style="height: unset; max-height: 744px;"
               >
                 <div
