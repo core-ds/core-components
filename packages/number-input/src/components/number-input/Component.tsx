@@ -13,7 +13,7 @@ import { type MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
 import { type InputProps } from '@alfalab/core-components-input';
-import { fnUtils, os } from '@alfalab/core-components-shared';
+import { fnUtils, isIOS } from '@alfalab/core-components-shared';
 
 import {
     createMaskOptions,
@@ -230,7 +230,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                 maxLength={getMaxLength(value)}
                 {...restProps}
                 // В iOS в цифровой клавиатуре невозможно ввести минус.
-                inputMode={min < 0 && os.isIOS() ? 'text' : 'decimal'}
+                inputMode={min < 0 && isIOS() ? 'text' : 'decimal'}
                 ref={mergeRefs([ref, maskRef])}
                 value={value}
                 onInput={handleChange}

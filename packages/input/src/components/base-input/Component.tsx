@@ -66,9 +66,9 @@ export type BaseInputProps = Omit<
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     * @default 48
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: FormControlProps['size'];
 
     /**
      * Набор цветов для компонента
@@ -210,18 +210,6 @@ export type BaseInputProps = Omit<
      * Запрещает ввод с клавиатуры
      */
     disableUserInput?: boolean;
-};
-
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    40: 'size-40',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
 };
 
 const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
@@ -500,7 +488,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             [styles.disableUserInput]: disableUserInput,
                             [colorCommonStyles[colors].disableUserInput]: disableUserInput,
                             [colorCommonStyles[colors].error]: error,
-                            [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
+                            [styles[`size-${size}`]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
                         },

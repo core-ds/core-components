@@ -2,12 +2,14 @@
 import React, { type FC, type RefCallback, useCallback, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
-import isEqual from 'date-fns/isEqual';
-import isLastDayOfMonth from 'date-fns/isLastDayOfMonth';
-import isSameDay from 'date-fns/isSameDay';
-import isToday from 'date-fns/isToday';
-import isWithinInterval from 'date-fns/isWithinInterval';
-import startOfMonth from 'date-fns/startOfMonth';
+import {
+    isEqual,
+    isLastDayOfMonth,
+    isSameDay,
+    isToday,
+    isWithinInterval,
+    startOfMonth,
+} from 'date-fns';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { usePrevious } from '@alfalab/hooks';
@@ -195,7 +197,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                 <Button
                     type='button'
                     view='text'
-                    size='xs'
+                    size={40}
                     disabled={day.disabled}
                     className={cn(styles.day, styles[shape], {
                         [styles.dayAddons]: day.dayAddon,

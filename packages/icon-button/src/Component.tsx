@@ -9,8 +9,6 @@ import cn from 'classnames';
 
 import { Button, type ButtonProps } from '@alfalab/core-components-button';
 
-import { transformSize } from './helpers/transformSize';
-
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
@@ -33,9 +31,9 @@ export type IconButtonProps = {
 
     /**
      * Размер компонента
-     * @description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно
+     * @default 48
      */
-    size?: 'xxs' | 'xs' | 's' | 24 | 32 | 40 | 48 | 56;
+    size?: 24 | 32 | 40 | 48 | 56;
 
     /**
      * Дополнительный класс
@@ -67,17 +65,6 @@ export type IconButtonProps = {
     Pick<ButtonProps, 'Component' | 'href' | 'loading' | 'breakpoint'> &
     Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'>;
 
-const SIZE_TO_CLASSNAME_MAP = {
-    xxs: 'size-24',
-    xs: 'size-32',
-    s: 'size-48',
-    24: 'size-24',
-    32: 'size-32',
-    40: 'size-40',
-    48: 'size-48',
-    56: 'size-56',
-};
-
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (
         {
@@ -101,21 +88,15 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                 className,
                 colorStyles[colors][view],
                 colorStyles[colors].component,
-                styles[`border-${transformSize(size)}`],
+                styles[`border-${size}`],
                 {
                     [colorStyles[colors].loader]: restProps.loading,
                     [colorStyles[colors].transparentBg]: transparentBg,
                 },
             )}
-            size='s'
+            size={48}
         >
-            <span
-                className={cn(
-                    styles.iconWrapper,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
-                    styles[alignIcon],
-                )}
-            >
+            <span className={cn(styles.iconWrapper, styles[`size-${size}`], styles[alignIcon])}>
                 {React.isValidElement(Icon) ? (
                     React.cloneElement(Icon as ReactElement<{ className?: string }>, {
                         className: cn(

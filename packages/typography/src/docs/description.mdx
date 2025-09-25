@@ -56,7 +56,7 @@ render(() => {
                 onChange={handleChange}
                 selected={selected}
             />
-            <Gap size='xl' />
+            <Gap size={24} />
             {VIEW_TYPES.map((view) => (
                 <React.Fragment key={view}>
                     <Typography.TitleResponsive
@@ -67,7 +67,7 @@ render(() => {
                     >
                         {view}
                     </Typography.TitleResponsive>
-                    <Gap size='m' />
+                    <Gap size={16} />
                 </React.Fragment>
             ))}
         </div>
@@ -101,7 +101,7 @@ render(() => {
                 onChange={handleChange}
                 selected={selected}
             />
-            <Gap size='xl' />
+            <Gap size={24} />
             {VIEW_TYPES.map((view) => (
                 <React.Fragment key={view}>
                     <Typography.TitleMobile
@@ -112,7 +112,7 @@ render(() => {
                     >
                         {view}
                     </Typography.TitleMobile>
-                    <Gap size='m' />
+                    <Gap size={16} />
                 </React.Fragment>
             ))}
         </div>
@@ -166,13 +166,13 @@ render(() => {
                 selected={selected}
                 breakpoint={BREAKPOINT}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch
                 checked={monospaceNumbers}
                 onChange={() => setMonospaceNumbers(!monospaceNumbers)}
                 label='MonospaceNumbers'
             />
-            <Gap size='xl' />
+            <Gap size={24} />
             {Object.keys(VIEW_TYPES).map((view) => (
                 <React.Fragment key={view}>
                     <Typography.Text
@@ -184,7 +184,7 @@ render(() => {
                     >
                         {VIEW_TYPES[view]} 123456
                     </Typography.Text>
-                    <Gap size='m' />
+                    <Gap size={16} />
                 </React.Fragment>
             ))}
         </div>
@@ -209,7 +209,7 @@ render(() => {
                 onChange={() => setShowSkeleton((p) => !p)}
             />
 
-            <Gap size='l' />
+            <Gap size={20} />
 
             <Typography.TitleResponsive
                 view='small'
@@ -220,7 +220,7 @@ render(() => {
                 Почему банк проверяет мои операции?
             </Typography.TitleResponsive>
 
-            <Gap size='s' />
+            <Gap size={12} />
 
             <Typography.Text tag='p' view='primary-medium' showSkeleton={showSkeleton}>
                 {`В 2001 году в России начал действовать Федеральный закон №115 «О противодействии

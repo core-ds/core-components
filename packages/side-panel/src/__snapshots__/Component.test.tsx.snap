@@ -77,7 +77,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component border-40"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component border-48"
                     type="button"
                   >
                     <span
@@ -194,7 +194,11 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                         </svg>
                       </div>
                       <span
+<<<<<<< HEAD
                         class="text text component medium"
+=======
+                        class="text component-primary medium"
+>>>>>>> next
                         style="opacity: 1;"
                       >
                         Назад

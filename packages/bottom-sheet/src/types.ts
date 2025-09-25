@@ -246,12 +246,6 @@ export type BottomSheetProps = {
     disableFocusLock?: boolean;
 
     /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Не анимировать шторку при изменении размера вьюпорта
-     */
-    ignoreScreenChange?: boolean;
-
-    /**
      * Свойства для Бэкдропа
      */
     backdropProps?: BaseModalProps['backdropProps'];

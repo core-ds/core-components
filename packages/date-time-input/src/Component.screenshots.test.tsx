@@ -20,7 +20,7 @@ describe('DateTimeInput', () =>
         {
             componentName: 'DateTimeInput',
             knobs: {
-                size: 'm',
+                size: 56,
                 value: '01.01.2023, 12:48',
                 label: 'Дата и время',
                 block: true,
@@ -43,7 +43,7 @@ describe(
                     size: { width: 350, height: 400 },
                     knobs: {
                         value: ['12.12.2021, 14:22', '07.09.2020, 00:00'],
-                        size: ['s', 'm', 'l'],
+                        size: [48, 56, 64],
                     },
                 }),
             ],
@@ -149,7 +149,7 @@ describe('DateTimeInput | picker', () => {
             testStory: false,
             knobs: {
                 picker: true,
-                size: 'm',
+                size: 56,
                 defaultMonth: 1769310391747,
             },
         });

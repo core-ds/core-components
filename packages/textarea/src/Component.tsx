@@ -9,7 +9,6 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
-import { SIZE_TO_CLASSNAME_MAP } from './consts';
 import { type TextareaProps } from './typings';
 
 import defaultColors from './default.module.css';
@@ -157,7 +156,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         const textareaClassNameCalc = cn(
             styles.textarea,
             colorStyles[colors].textarea,
-            styles[SIZE_TO_CLASSNAME_MAP[size]],
+            styles[`size-${size}`],
             {
                 [styles.overflowHidden]: autosize && !maxRows,
                 [styles.customScrollbar]: !nativeScrollbar,
@@ -213,7 +212,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                     [styles.focusVisible]: focusVisible,
                     [styles['resizable-40']]: resize === 'vertical' && size === 40,
                 })}
-                inputWrapperClassName={cn(styles.wrapper, styles[SIZE_TO_CLASSNAME_MAP[size]], {
+                inputWrapperClassName={cn(styles.wrapper, styles[`size-${size}`], {
                     [styles.hasInnerLabel]: hasInnerLabel,
                     [styles.resizeVertical]: resize === 'vertical',
                 })}

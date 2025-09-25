@@ -4,8 +4,8 @@
     padding-left: var(--gap-0);
 }
 
-.l,
-.xl {
+.size-64,
+.size-72 {
     & .addons {
         padding-left: var(--gap-0);
     }

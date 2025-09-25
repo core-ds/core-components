@@ -37,7 +37,7 @@ import {
                                     <DiamondsMIcon aria-label='diamonds' />
                                 </SuperEllipse>
                             </GenericWrapper>
-                            <Gap size='m' direction='horizontal' />
+                            <Gap size={16} direction='horizontal' />
                         </>
                     }
 
@@ -46,7 +46,7 @@ import {
                             <Typography.Text view='component-primary'>{ isPreview ? 'Draggable item' :`Элемент списка ${item.id}`}</Typography.Text>
                             {!isPreview &&
                             <>
-                                <Gap size='2xs' />
+                                <Gap size={4} />
                                 <Typography.Text view='primary-small' color='secondary'>
                                     Перетащи меня
                                 </Typography.Text>

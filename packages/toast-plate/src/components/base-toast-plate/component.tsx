@@ -12,15 +12,11 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import {
     StatusBadge,
     type StatusBadgeCustomIcon,
-    type StatusBadgeProps,
     type StatusBadgeViews,
 } from '@alfalab/core-components-status-badge';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import { useCustomIcons } from './hooks/useCustomIcons';
-import { useDeprecatedBadge } from './hooks/useDeprecatedBadge';
-import { type unsafe_BadgeProps } from './types/unsafeBadgeProps';
-import { isUnsafeBadge } from './utils/isUnsafeBadge';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -65,7 +61,7 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Вид бэйджа
      */
-    badge?: unsafe_BadgeProps | StatusBadgeViews;
+    badge?: StatusBadgeViews;
 
     /**
      * Слот слева, заменяет стандартную иконку
@@ -156,7 +152,6 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
 
-        const { transformDeprecatedBadge } = useDeprecatedBadge();
         const { getCustomIcons } = useCustomIcons();
 
         const handleClose = useCallback(
@@ -167,12 +162,6 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             },
             [onClose],
         );
-
-        let statusBadgeView = badge;
-
-        if (badge && isUnsafeBadge(badge)) {
-            statusBadgeView = transformDeprecatedBadge(badge);
-        }
 
         const customIcons = getCustomIcons(getBadgeIcons);
 
@@ -198,7 +187,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                                 {leftAddons ||
                                     (badge && (
                                         <StatusBadge
-                                            view={statusBadgeView as StatusBadgeProps['view']}
+                                            view={badge}
                                             dataTestId={getDataTestId(dataTestId, 'badge')}
                                             {...(customIcons && { customIcons })}
                                         />

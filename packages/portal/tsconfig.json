@@ -6,19 +6,25 @@
         "rootDir": "src",
         "outDir": "no-dist",
         "paths": {
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-config": ["../config/src"],
+            "@alfalab/core-components-config/*": ["../config/src/*"],
             "@alfalab/core-components-portal": ["./src"],
             "@alfalab/core-components-portal/*": ["./src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
-            "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-space": ["../space/src"],
+            "@alfalab/core-components-space/*": ["../space/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
             "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
     "references": [
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../config/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
-        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../space/tsconfig.build.json" },
         { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

@@ -49,4 +49,4 @@ export const getColorStyles = <T extends Record<string, string>>(
     colors: ColorType = 'default',
     defaultStyles: T,
     invertedStyles: T,
-): T => ({ default: defaultStyles, inverted: invertedStyles }[colors]);
+): T => ({ default: defaultStyles, inverted: invertedStyles })[colors];

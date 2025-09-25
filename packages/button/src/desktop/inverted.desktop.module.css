@@ -37,12 +37,6 @@
     }
 }
 
-.ghost {
-    &:active {
-        color: var(--button-inverted-ghost-active-color);
-    }
-}
-
 .component[disabled] {
     &.primary {
         color: var(--button-inverted-primary-disabled-color);
@@ -73,15 +67,7 @@
         color: var(--button-inverted-transparent-disabled-color);
     }
 
-    &.link {
-        color: var(--button-inverted-link-disabled-color);
-    }
-
     &.text {
         color: var(--button-inverted-text-disabled-color);
-    }
-
-    &.ghost {
-        color: var(--button-inverted-ghost-disabled-color);
     }
 }

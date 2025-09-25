@@ -27,7 +27,7 @@ $ npx @alfalab/core-components-codemod --transformers=button-xs,button-views --g
 ## Список доступных трансформеров
 
 | Название              | Описание                                                                                                                                                                                                                            |
-|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | paragraph             | Меняет компонент `Paragraph` из `arui-feather` на актульный компонент из `core-components`                                                                                                                                          |
 | label                 | Меняет компонент `Label` из `arui-feather` на актульный компонент из `core-components`                                                                                                                                              |
 | heading               | Меняет компонент `Heading` из `arui-feather` на актульный компонент из `core-components`                                                                                                                                            |
@@ -43,12 +43,12 @@ $ npx @alfalab/core-components-codemod --transformers=button-xs,button-views --g
 |                       | `--color-static-bg-neutral-light`: `--color-static-bg-quaternary-light`                                                                                                                                                             |
 |                       | `--color-static-bg-neutral-dark`: `--color-static-bg-quaternary-dark`                                                                                                                                                               |
 | delete-dist           | Удаляет '/dist' в импортах отдельных пакетов. Может принимать дополнительный аргумент командной строки --packages, в котором указывается список компонентов, импорты которых нужно обработать, например (--packages="modal,button") |
-| button-breakpoint-768 | Добавляет свойство breakpoint со значением 768 к респонсивной кнопке |
-| button-views-45 | Меняет вид кнопки с view `tertiary` на `outlined`, `link` на `transparent`, `ghost` на `text` |
-| skeleton-blur | Добавляет свойство `allowBackdropBlur` со значение true к компоненту Skeleton |
-| status-soft | Изменяет view компонента Status с `soft` на `muted-alt`|
-| input-type-card | Заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input |
-| spinner | Меняет `size` на `preset` |
+| button-breakpoint-768 | Добавляет свойство breakpoint со значением 768 к респонсивной кнопке                                                                                                                                                                |
+| button-views-45       | Меняет вид кнопки с view `tertiary` на `outlined`, `link` на `transparent`, `ghost` на `text`                                                                                                                                       |
+| skeleton-blur         | Добавляет свойство `allowBackdropBlur` со значение true к компоненту Skeleton                                                                                                                                                       |
+| status-soft           | Изменяет view компонента Status с `soft` на `muted-alt`                                                                                                                                                                             |
+| input-type-card       | Заменяет атрибут type со значением 'card' на inputMode со значением 'numeric' в компоненте Input                                                                                                                                    |
+| spinner               | Меняет `size` на `preset`                                                                                                                                                                                                           |
 
 ### 42 мажорный релиз
 
@@ -197,6 +197,27 @@ $ npx @alfalab/core-components-codemod --transformers=button-xs,button-views --g
 ```
 npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42-calendar,42-calendar-input,42-checkbox-group,42-code-input,42-confirmation,42-date-range-input,42-date-time-input,42-filter-tag,42-form-control,42-input,42-modal,42-picker-button,42-plate,42-radio-group,42-select,42-side-panel,42-system-message,42-tabs,42-tag,42-toast,42-toast-plate,42-tooltip --glob='src/**/*.tsx'
 ```
+
+### 50 мажорный релиз
+
+<table>
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>50-replace-transparent-color-vars</td>
+            <td>
+                Заменяет цветовые токены из палитры <code>colors-transparent.css</code> <br/><br/>
+                <b>Запуск</b><br/>
+                <code>npx @alfalab/core-components-codemod --transformers=50-replace-transparent-color-vars --glob='src/**/*.tsx' </code>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## Разработка
 
