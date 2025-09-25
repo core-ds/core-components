@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useRef, useState } from 'react';
 
 import { VideoContext } from '@alfalab/core-components-video/context';
+import { useVideoHotkeys } from '@alfalab/core-components-video/shared/hooks/use-keys';
 
 import { BottomControls } from '../common/bottom-controls';
 import { MidControls } from '../common/mid-controls';
@@ -18,6 +19,7 @@ export const DesktopControlsLayer = ({ videoName }: Props) => {
     const [visible, setVisible] = useState(true);
     const timerRef = useRef<number>();
 
+    useVideoHotkeys();
     const { togglePause } = useContext(VideoContext);
 
     const showControls = useCallback(() => {

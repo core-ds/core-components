@@ -7,7 +7,6 @@ import { MobileControlsLayer } from './components/controls/layers/mobile';
 import { VideoError } from './components/player/error';
 import { VideoComponent } from './components/player/video-component';
 import { VideoWrapper } from './components/player/video-wrapper';
-import { useVideoHotkeys } from './shared/hooks/use-keys';
 import { VideoContext } from './context';
 import { useSaveState, useVideoControls, useVideoLoader } from './shared';
 import { type FitMode, type Position } from './types';
@@ -93,8 +92,6 @@ export const Video: FC<VideoProps> = ({
     const { volume, isMuted, currentTime, setCurrentTime } = videoControls;
 
     useSaveState(playerRef, url, { volume, isMuted, currentTime, setCurrentTime });
-
-    useVideoHotkeys();
 
     const contextValue = useMemo(
         () => ({
