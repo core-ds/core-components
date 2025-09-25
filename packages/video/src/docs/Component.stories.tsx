@@ -15,12 +15,7 @@ export const videoPlayer: Story = {
     name: 'VideoPlayer',
     render: () => {
         return (
-            <div
-                style={{
-                    width: '600px',
-                    height: '400px',
-                }}
-            >
+            <div>
                 <Video
                     url='https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8'
                     // url='https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8'

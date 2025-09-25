@@ -34,7 +34,7 @@ const config = {
                             path.join(dirname, '.eslintrc.cjs'),
                         );
 
-                        return `lerna exec --scope ${name} -- "eslint src --max-warnings 0 --config '${eslintConfig}'"`;
+                        return `lerna exec --scope ${name} -- "eslint src --config '${eslintConfig}'"`;
                     },
             }),
             {},
