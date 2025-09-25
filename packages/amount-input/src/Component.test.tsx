@@ -710,6 +710,23 @@ describe('AmountInput', () => {
         });
     });
 
+    it.each(['Delete', 'Backspace'])(
+        'should be empty on selecting whole value and pressing "%s" key',
+        async (key) => {
+            const input = renderAmountInput(12345, 'RUR');
+
+            expect(input).toHaveValue('123,45');
+
+            await userEvent.click(input);
+
+            input.setSelectionRange(0, input.value.length);
+
+            await userEvent.keyboard(`{${key}}`);
+
+            expect(input).toHaveValue('');
+        },
+    );
+
     /**
      * + тест на адекватность (снапшот)
      * + тест на дефолтные значения (нужно разобраться про label)

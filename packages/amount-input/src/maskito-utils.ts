@@ -117,6 +117,29 @@ function replaceLeadingZeroWithDataPreprocessorGenerator(
     };
 }
 
+const deleteWholeValuePreprocessor: MaskitoPreprocessor = ({ elementState, data }, actionType) => {
+    const {
+        selection: [from, to],
+        value,
+    } = elementState;
+
+    if (
+        (actionType === 'deleteBackward' || actionType === 'deleteForward') &&
+        from === 0 &&
+        to === value.length
+    ) {
+        return {
+            elementState: {
+                selection: [0, 0],
+                value: '',
+            },
+            data,
+        };
+    }
+
+    return { elementState, data };
+};
+
 export function stringifyNumber(
     val: number | string | null,
     numberParams: NumberParams,
@@ -170,6 +193,7 @@ export function maskitoOptionsGenerator(
             }),
         ],
         preprocessors: [
+            deleteWholeValuePreprocessor,
             deleteThousandSeparatorPreprocessorGenerator(numberParams),
             appendZeroToDataPreprocessorGenerator(numberParams),
             forbidLeadingZeroPreprocessor,
