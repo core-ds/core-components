@@ -27,7 +27,7 @@ export const useVideoControls = (
 
     const { isPaused, setIsPaused, togglePause } = usePause(playerRef);
 
-    const { qualities, currentQuality, setQuality, setAutoQuality } = useQuality(
+    const { qualities, currentLevel, isAutoQuality, setQuality, setAutoQuality } = useQuality(
         hlsRef,
         playerRef,
         levels,
@@ -145,10 +145,11 @@ export const useVideoControls = (
         playbackRate,
         duration,
         qualities,
-        currentQuality,
+        currentLevel,
         seekIndicator,
         seekTime,
         buffer,
+        isAutoQuality,
         togglePause,
         setIsMuted,
         toggleMute,

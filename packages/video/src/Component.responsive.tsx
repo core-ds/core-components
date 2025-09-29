@@ -130,39 +130,27 @@ export const Video: FC<VideoProps> = ({
                 )}
             </VideoWrapper>
 
-            <p>кнопочки для смены качества</p>
-            <button
-                type='button'
-                onClick={() => {
-                    contextValue.setQuality(1);
-                }}
-            >
-                1
-            </button>
-            <button
-                type='button'
-                onClick={() => {
-                    contextValue.setQuality(2);
-                }}
-            >
-                2
-            </button>
-            <button
-                type='button'
-                onClick={() => {
-                    contextValue.setQuality(3);
-                }}
-            >
-                3 (720)
-            </button>
-            <button
-                type='button'
-                onClick={() => {
-                    contextValue.setQuality(4);
-                }}
-            >
-                4 (1080)
-            </button>
+            {/* Это тут временно.
+            Так удобнее переключать чем через текущий вариант реализованный по фигме */}
+            <p>Смена качества для тестирования</p>
+            {contextValue.currentLevel !== null && (
+                <p>
+                    Текущее качество:{' '}
+                    {contextValue.isAutoQuality
+                        ? `Auto(${contextValue.qualities[contextValue.currentLevel].height}p)`
+                        : `${contextValue.qualities[contextValue.currentLevel].height}p`}
+                </p>
+            )}
+            {contextValue.qualities.map((q, i) => (
+                <button
+                    type='button'
+                    onClick={() => {
+                        contextValue.setQuality(i);
+                    }}
+                >
+                    {q.height}
+                </button>
+            ))}
         </VideoContext.Provider>
     );
 };

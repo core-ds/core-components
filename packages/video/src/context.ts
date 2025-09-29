@@ -15,11 +15,12 @@ export type VideoContext = {
     skipBackwardStep?: number;
     playbackRate: number;
     isLoading: boolean;
-    currentQuality: number;
+    currentLevel: number | null;
     fullscreen: boolean;
     seekIndicator: SeekIndicator;
     seekTime: number;
     buffer: number;
+    isAutoQuality: boolean;
     qualities: Array<{
         index: number;
         height: number;
@@ -55,9 +56,10 @@ export const VideoContext = createContext<VideoContext>({
     skipBackwardStep: 0,
     isLoading: true,
     fullscreen: false,
-    currentQuality: 0,
+    currentLevel: -1,
     seekTime: 0,
     buffer: 0,
+    isAutoQuality: true,
     seekIndicator: {
         direction: 'forward',
         amount: 0,

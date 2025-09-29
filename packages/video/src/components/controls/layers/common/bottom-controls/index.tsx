@@ -8,14 +8,14 @@ import { VideoContext } from '@alfalab/core-components-video/context';
 import { useOutsideClick, useShowSoundSlider } from '@alfalab/core-components-video/shared';
 import { ArrowsInMIcon } from '@alfalab/icons-glyph/ArrowsInMIcon';
 import { ArrowsOutMIcon } from '@alfalab/icons-glyph/ArrowsOutMIcon';
-import { AScoresCircleMIcon } from '@alfalab/icons-glyph/AScoresCircleMIcon';
 import { DotsHorizontalMIcon } from '@alfalab/icons-glyph/DotsHorizontalMIcon';
 import { PauseCircleMIcon } from '@alfalab/icons-glyph/PauseCircleMIcon';
 import { PlayCircleMIcon } from '@alfalab/icons-glyph/PlayCircleMIcon';
+import { Rewind15CcwMIcon } from '@alfalab/icons-glyph/Rewind15CcwMIcon';
+import { Rewind15CwMIcon } from '@alfalab/icons-glyph/Rewind15CwMIcon';
 import { SoundOffSIcon } from '@alfalab/icons-glyph/SoundOffSIcon';
 import { SoundSIcon } from '@alfalab/icons-glyph/SoundSIcon';
 
-import { SeekIndicator } from '../../../seek-indicator';
 import { CustomSlider } from '../../../slider';
 
 import { ChooseSpeed } from './choose-speed';
@@ -48,7 +48,6 @@ export const BottomControls = () => {
         skipForwardStep,
         skipBackwardStep,
         fullscreen,
-        seekIndicator,
         seekTime,
         buffer,
         togglePause,
@@ -138,7 +137,7 @@ export const BottomControls = () => {
                             <IconButton
                                 size={24}
                                 style={{ color: 'white' }}
-                                icon={AScoresCircleMIcon}
+                                icon={Rewind15CcwMIcon}
                                 onClick={skipBackward}
                             />
                         )}
@@ -147,7 +146,7 @@ export const BottomControls = () => {
                             <IconButton
                                 size={24}
                                 style={{ color: 'white' }}
-                                icon={AScoresCircleMIcon}
+                                icon={Rewind15CwMIcon}
                                 onClick={skipForward}
                             />
                         )}
@@ -243,12 +242,6 @@ export const BottomControls = () => {
                     <Subtitles />
                 </div>
             )}
-
-            <SeekIndicator
-                amount={seekIndicator.amount}
-                direction={seekIndicator.direction}
-                visible={seekIndicator.visible}
-            />
         </div>
     );
 };

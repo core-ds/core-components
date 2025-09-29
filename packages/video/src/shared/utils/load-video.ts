@@ -41,7 +41,12 @@ export const loadVideo = ({ src, hlsRef, playerRef, onInit }: Props) => {
             return undefined;
         }
 
-        const hls: HLS = hlsRef?.current ?? new Hls();
+        const hls: HLS =
+            hlsRef?.current ??
+            new Hls({
+                startLevel: -1,
+                enableWorker: true,
+            });
 
         onInit?.(hls);
 

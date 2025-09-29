@@ -3,7 +3,6 @@ import type Hls from 'hls.js';
 
 import { Events } from '@alfalab/core-components-video/hls-types';
 
-// TODO: доработать смену качества
 export const useQuality = (
     hlsRef: RefObject<Hls | undefined>,
     playerRef: RefObject<HTMLVideoElement>,
@@ -11,8 +10,11 @@ export const useQuality = (
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
     togglePause: (force?: boolean | undefined) => void,
 ) => {
-    const [currentQuality, setCurrentQuality] = useState(-1);
     const [qualities, setQualities] = useState<Array<{ index: number; height: number }>>([]);
+    const [currentLevel, setCurrentLevel] = useState<number | null>(null);
+    const [isAutoQuality, setIsAutoQuality] = useState(true);
+
+    const [isQualitySwitching, setIsQualitySwitching] = useState(false);
 
     const setQuality = useCallback(
         (index: number) => {
@@ -21,26 +23,31 @@ export const useQuality = (
 
             if (!hls || !video) return;
 
+            if (isAutoQuality && currentLevel === index) {
+                setIsAutoQuality(false);
+
+                return;
+            }
+
+            if (currentLevel === index) return;
+
             setIsLoading(true);
             togglePause(true);
-
-            hls.once(Events.LEVEL_SWITCHED, () => {
-                setIsLoading(false);
-                togglePause(false);
-                setCurrentQuality(index);
-            });
+            setIsAutoQuality(false);
+            setIsQualitySwitching(true);
 
             hls.currentLevel = index;
         },
-        [hlsRef, playerRef, setIsLoading, togglePause],
+        [isAutoQuality, currentLevel, hlsRef, playerRef, setIsLoading, togglePause],
     );
 
     const setAutoQuality = useCallback(() => {
-        if (!hlsRef.current) return;
+        const hls = hlsRef.current;
 
-        // eslint-disable-next-line no-param-reassign
-        hlsRef.current.currentLevel = -1;
-        setCurrentQuality(-1);
+        if (!hls) return;
+
+        hls.currentLevel = -1;
+        setIsAutoQuality(true);
     }, [hlsRef]);
 
     useEffect(() => {
@@ -52,48 +59,59 @@ export const useQuality = (
     useEffect(() => {
         const hls = hlsRef.current;
 
-        if (!hls) return;
+        if (!hls || levels.length === 0) return;
 
-        const handleLevelSwitch = (_: Events.LEVEL_SWITCHED, data: { level: number }) => {
-            setCurrentQuality(data.level);
+        const updateState = () => {
+            setCurrentLevel(hls.currentLevel);
         };
 
-        hls.on(Events.LEVEL_SWITCHED, handleLevelSwitch);
+        hls.on(Events.LEVEL_SWITCHED, updateState);
 
         // eslint-disable-next-line consistent-return
         return () => {
-            hls.off(Events.LEVEL_SWITCHED, handleLevelSwitch);
+            hls.off(Events.LEVEL_SWITCHED, updateState);
         };
-    }, [hlsRef]);
+    }, [levels, hlsRef]);
 
     useEffect(() => {
         const hls = hlsRef.current;
-        const video = playerRef.current;
 
-        if (!hls || !video) return;
+        if (!hls) return;
 
-        const handleLevelSwitching = () => {
-            setIsLoading(true);
-            // togglePause(true);
-            video.pause();
-        };
-
-        const handleFragLoaded = () => {
-            if (video.readyState >= 3) {
-                setIsLoading(false);
-                togglePause(false);
+        const handleFragBuffered = () => {
+            if (isQualitySwitching) {
+                setTimeout(() => {
+                    setIsLoading(false);
+                    togglePause(false);
+                    setIsQualitySwitching(false);
+                }, 200);
             }
         };
 
-        hls.on(Events.LEVEL_SWITCHING, handleLevelSwitching);
-        hls.on(Events.FRAG_LOADED, handleFragLoaded);
+        hls.on(Events.BUFFER_APPENDED, handleFragBuffered);
 
         // eslint-disable-next-line consistent-return
         return () => {
-            hls.off(Events.LEVEL_SWITCHING, handleLevelSwitching);
-            hls.off(Events.FRAG_LOADED, handleFragLoaded);
+            hls.off(Events.BUFFER_APPENDED, handleFragBuffered);
         };
-    }, [hlsRef, playerRef, setIsLoading, togglePause]);
+    }, [hlsRef, isQualitySwitching, setIsLoading, togglePause]);
 
-    return { qualities, currentQuality, setQuality, setAutoQuality };
+    useEffect(() => {
+        const hls = hlsRef.current;
+
+        if (!hls) return;
+
+        setIsAutoQuality(hls.autoLevelEnabled);
+        if (hls.currentLevel >= 0) {
+            setCurrentLevel(hls.currentLevel);
+        }
+    }, [hlsRef]);
+
+    return {
+        qualities,
+        currentLevel,
+        isAutoQuality,
+        setQuality,
+        setAutoQuality,
+    };
 };
