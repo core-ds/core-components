@@ -117,21 +117,17 @@ function replaceLeadingZeroWithDataPreprocessorGenerator(
     };
 }
 
-const deleteWholeValuePreprocessor: MaskitoPreprocessor = ({ elementState, data }, actionType) => {
+const deletePreprocessor: MaskitoPreprocessor = ({ elementState, data }, actionType) => {
     const {
         selection: [from, to],
         value,
     } = elementState;
 
-    if (
-        (actionType === 'deleteBackward' || actionType === 'deleteForward') &&
-        from === 0 &&
-        to === value.length
-    ) {
+    if (actionType === 'deleteBackward' || actionType === 'deleteForward') {
         return {
             elementState: {
-                selection: [0, 0],
-                value: '',
+                selection: [from, from],
+                value: `${value.slice(0, from)}${value.slice(to, value.length)}`,
             },
             data,
         };
@@ -193,7 +189,7 @@ export function maskitoOptionsGenerator(
             }),
         ],
         preprocessors: [
-            deleteWholeValuePreprocessor,
+            deletePreprocessor,
             deleteThousandSeparatorPreprocessorGenerator(numberParams),
             appendZeroToDataPreprocessorGenerator(numberParams),
             forbidLeadingZeroPreprocessor,

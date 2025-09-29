@@ -710,20 +710,39 @@ describe('AmountInput', () => {
         });
     });
 
-    it.each(['Delete', 'Backspace'])(
-        'should be empty on selecting whole value and pressing "%s" key',
-        async (key) => {
-            const input = renderAmountInput(12345, 'RUR');
+    it.each`
+        userValue   | selectionStart | selectionEnd | key            | inputValue
+        ${'123.45'} | ${0}           | ${6}         | ${'Delete'}    | ${''}
+        ${'123.45'} | ${0}           | ${6}         | ${'Backspace'} | ${''}
+        ${'123.45'} | ${1}           | ${6}         | ${'Delete'}    | ${'1'}
+        ${'123.45'} | ${1}           | ${6}         | ${'Backspace'} | ${'1'}
+        ${'123.45'} | ${2}           | ${5}         | ${'Delete'}    | ${'125'}
+        ${'123.45'} | ${2}           | ${5}         | ${'Backspace'} | ${'125'}
+    `(
+        'should has inputValue=$inputValue on input value=$userValue then selecting selectionStart=$selectionStart selectionEnd=$selectionEnd value and pressing "%s" key',
+        async ({
+            userValue,
+            selectionStart,
+            selectionEnd,
+            key,
+            inputValue,
+        }: {
+            userValue: string;
+            selectionStart: number;
+            selectionEnd: number;
+            key: string;
+            inputValue: string;
+        }) => {
+            const input = renderAmountInput(null, 'RUR');
+            expect(input).toHaveValue('');
 
-            expect(input).toHaveValue('123,45');
+            await userEvent.type(input, userValue);
+            expect(input).not.toHaveValue('');
 
             await userEvent.click(input);
-
-            input.setSelectionRange(0, input.value.length);
-
+            input.setSelectionRange(selectionStart, selectionEnd);
             await userEvent.keyboard(`{${key}}`);
-
-            expect(input).toHaveValue('');
+            expect(input).toHaveValue(inputValue);
         },
     );
 
