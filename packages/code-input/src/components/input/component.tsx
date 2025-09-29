@@ -1,6 +1,8 @@
 import React, {
     type ChangeEvent,
     type ChangeEventHandler,
+    type ClipboardEvent,
+    type ClipboardEventHandler,
     forwardRef,
     type InputHTMLAttributes,
     type KeyboardEvent,
@@ -13,7 +15,7 @@ import styles from './index.module.css';
 
 export type InputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'onKeyDown' | 'enterKeyHint'
+    'value' | 'onChange' | 'onKeyDown' | 'onPaste' | 'enterKeyHint'
 > & {
     index: number;
     value: string;
@@ -21,6 +23,7 @@ export type InputProps = Omit<
     compact?: boolean;
     onChange: (event: ChangeEvent<HTMLInputElement>, payload: { index: number }) => void;
     onKeyDown: (event: KeyboardEvent<HTMLInputElement>, payload: { index: number }) => void;
+    onPaste?: (event: ClipboardEvent<HTMLInputElement>, payload: { index: number }) => void;
     stylesInput?: { [key: string]: string };
 };
 
@@ -34,6 +37,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             compact = false,
             onChange,
             onKeyDown,
+            onPaste,
             onFocus,
             stylesInput = {},
         },
@@ -45,6 +49,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
         const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
             onKeyDown(event, { index });
+        };
+
+        const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
+            onPaste?.(event, { index });
         };
 
         const handleClick: MouseEventHandler = (event) => {
@@ -79,6 +87,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 pattern='[0-9]*'
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
+                onPaste={handlePaste}
                 onFocus={onFocus}
                 onClick={handleClick}
             />

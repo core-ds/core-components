@@ -171,6 +171,19 @@ describe('CodeInput', () => {
             expect(getByDisplayValue('4')).toBeInTheDocument();
         });
 
+        it('should call onPaste callback when paste event occurs', async () => {
+            const onPaste = jest.fn();
+            const { container } = render(<CodeInput onPaste={onPaste} />);
+
+            const input = getInput(container, 0);
+
+            input.focus();
+            await userEvent.paste('1234');
+
+            expect(onPaste).toHaveBeenCalledTimes(1);
+            expect(onPaste).toHaveBeenCalledWith(expect.any(Object), '1234');
+        });
+
         it('should be cut code properly in copypast case', async () => {
             const { container, getByDisplayValue } = render(<CodeInput />);
 

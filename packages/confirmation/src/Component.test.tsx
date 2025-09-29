@@ -358,6 +358,36 @@ describe('Confirmation', () => {
                 expect(onChangeState).toHaveBeenCalledWith('INITIAL');
             });
         });
+
+        it('should handle paste event correctly without switching to HINT screen', async () => {
+            const onChangeScreen = jest.fn();
+            const onInputFinished = jest.fn();
+
+            const { container } = render(
+                <ConfirmationDesktop
+                    {...baseProps}
+                    onChangeScreen={onChangeScreen}
+                    onInputFinished={onInputFinished}
+                    requiredCharAmount={4}
+                />,
+            );
+
+            const input = container.querySelector('input') as HTMLInputElement;
+
+            const pasteEvent = {
+                clipboardData: {
+                    getData: jest.fn(() => '1234'),
+                },
+                preventDefault: jest.fn(),
+            };
+
+            input.focus();
+            fireEvent.paste(input, pasteEvent);
+
+            expect(onInputFinished).toHaveBeenCalledWith('1234');
+
+            expect(onChangeScreen).not.toHaveBeenCalledWith('HINT');
+        });
     });
 
     describe('Classes tests', () => {

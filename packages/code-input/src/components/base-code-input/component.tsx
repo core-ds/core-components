@@ -1,4 +1,5 @@
 import React, {
+    type ClipboardEvent,
     createRef,
     type FocusEventHandler,
     forwardRef,
@@ -38,6 +39,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             onErrorAnimationEnd,
             onChange,
             onComplete,
+            onPaste,
             stylesInput = {},
         },
         ref,
@@ -233,6 +235,22 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             });
         };
 
+        const handlePaste = (
+            event: ClipboardEvent<HTMLInputElement>,
+            payload: { index: number },
+        ) => {
+            const { index } = payload;
+            const pastedText = event.clipboardData.getData('text');
+            const numericText = pastedText.replace(/\D/g, '');
+
+            if (numericText.length > 0) {
+                event.preventDefault();
+
+                handleChange(numericText, index, true);
+                onPaste?.(event, numericText);
+            }
+        };
+
         const handleErrorAnimationEnd = () => {
             clearErrorTimerId.current = setTimeout(() => {
                 if (clearCodeOnError) {
@@ -304,6 +322,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                             onChange={handleChangeFromEvent}
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
+                            onPaste={handlePaste}
                             stylesInput={stylesInput}
                             compact={fields > 6}
                         />

@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { type ClipboardEvent, type ReactNode } from 'react';
 
 export type BaseCodeInputProps = {
     /**
@@ -57,6 +57,11 @@ export type BaseCodeInputProps = {
      * Коллбек полного заполнения
      */
     onComplete?: (code: string) => void;
+
+    /**
+     * Коллбек вставки текста
+     */
+    onPaste?: (event: ClipboardEvent<HTMLInputElement>, code: string) => void;
 
     /**
      * Основные стили компонента.
