@@ -1,7 +1,7 @@
 import React, { type FC, type ReactNode } from 'react';
 import cn from 'classnames';
 
-import { TypographyTitle } from '@alfalab/core-components-typography';
+import { TitleDesktop } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
@@ -24,11 +24,11 @@ export type HeaderProps = {
 };
 
 export const Header: FC<HeaderProps> = ({ mobile, children, titleTag = 'h3' }) => (
-    <TypographyTitle
+    <TitleDesktop
         className={cn(styles.header, styles.typography, { [styles.typographyMobile]: mobile })}
         tag={titleTag}
         color='primary'
     >
         {children}
-    </TypographyTitle>
+    </TitleDesktop>
 );

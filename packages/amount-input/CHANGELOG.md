@@ -1,5 +1,15 @@
 # @alfalab/core-components-amount-input
 
+## 8.1.1
+
+### Patch Changes
+
+<sup><time>29.09.2025</time></sup>
+
+#### [#1896](https://github.com/core-ds/core-components/pull/1896)
+
+- Исправлен ввод цифр в начало инпута при уже введенном значении. Например, '2 000' -> '12 000'
+
 ## 8.1.0
 
 ### Minor Changes

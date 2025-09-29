@@ -28,6 +28,7 @@ type TFileUploadItemContext = {
     customIcon?: ElementType<{ className?: string }>;
     iconStyle?: 'gray' | 'colored';
     progressBar?: number;
+    progressBarAvailable?: boolean;
     customContent?: ElementType;
     truncate?: boolean;
     imageUrl?: string;
@@ -56,6 +57,7 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     iconStyle: 'gray',
     customIcon: undefined,
     progressBar: 0,
+    progressBarAvailable: true,
     customContent: undefined,
     truncate: false,
     imageUrl: undefined,
