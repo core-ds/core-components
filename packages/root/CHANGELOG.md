@@ -1,5 +1,35 @@
 # @alfalab/core-components
 
+## 49.6.0
+
+### Minor Changes
+
+<sup><time>29.09.2025</time></sup>
+
+#### [#1861](https://github.com/core-ds/core-components/pull/1861)
+
+- Реализована анимация прогресса загрузки для режима с неизвестным прогрессом
+- Добавлен новый props `progressBarAvailable` для возможности включения/отключения ProgressBar
+
+### Patch Changes
+
+<sup><time>29.09.2025</time></sup>
+
+#### [#1896](https://github.com/core-ds/core-components/pull/1896)
+
+- Исправлен ввод цифр в начало инпута при уже введенном значении. Например, '2 000' -> '12 000'
+
+<sup><time>29.09.2025</time></sup>
+
+#### [#1894](https://github.com/core-ds/core-components/pull/1894)
+
+- Исправлена типизация для `disableFocusLock` пропса
+
+- Обновлены зависимости
+    - @alfalab/core-components-amount-input@8.1.1
+    - @alfalab/core-components-universal-modal@2.0.4
+    - @alfalab/core-components-file-upload-item@7.1.0
+
 ## 49.5.0
 
 ### Minor Changes
