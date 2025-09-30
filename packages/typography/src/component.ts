@@ -24,3 +24,4 @@ export {
     TitleResponsive as TypographyTitleResponsive,
     TitleMobile as TypographyTitleMobile,
 };
+export { Text, Title as TitleDesktop, TitleResponsive, TitleMobile };
