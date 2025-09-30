@@ -2,6 +2,7 @@ import React, {
     forwardRef,
     Fragment,
     type MouseEvent,
+    type RefObject,
     useCallback,
     useEffect,
     useRef,
@@ -75,6 +76,11 @@ export type NotificationProps = ToastPlateDesktopProps & {
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickOutside?: (event?: MouseEvent<any>) => void;
+
+    /**
+     * Ссылка на контейнер компонента, к которому применяется анимация
+     */
+    containerRef?: RefObject<HTMLDivElement>;
 };
 
 const notificationClassNameSelector = `.${styles.notificationComponent}`;
@@ -98,6 +104,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             onMouseEnter,
             onMouseLeave,
             onClickOutside,
+            containerRef,
             ...restProps
         },
         ref,
@@ -205,7 +212,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             <Stack value={zIndex}>
                 {(computedZIndex) => (
                     <Wrapper>
-                        <div {...swipeableHandlers}>
+                        <div {...swipeableHandlers} ref={containerRef}>
                             <ToastPlateDesktop
                                 className={cn(
                                     styles.notificationComponent,
