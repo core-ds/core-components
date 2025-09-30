@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-date-input",
-    "version": "5.0.2",
+    "version": "6.0.0-next.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-input": "^16.0.2",
+        "@alfalab/core-components-input": "^17.0.0-next.0",
         "date-fns": "^4.1.0",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
@@ -24,5 +24,5 @@
         "directory": "dist"
     },
     "themesVersion": "14.1.2",
-    "varsVersion": "10.1.0"
+    "varsVersion": "11.0.0-next.0"
 }
