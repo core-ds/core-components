@@ -45,7 +45,7 @@ render(() => {
                 {SIZES.map((size) => {
                     if (component === 'Rectangle' && size === '16') return;
                     return (
-                        <Component size={size} mainSize={mainSize[size]} border={true}>
+                        <Component key={size} size={size} mainSize={mainSize[size]} border={true}>
                             {size === '128' || size === '80' ? (
                                 <DiamondsXxlIcon />
                             ) : size <= '20' ? (
