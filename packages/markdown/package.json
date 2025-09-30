@@ -16,7 +16,7 @@
         "classnames": "^2.5.1",
         "mdast-util-gfm-strikethrough": "^0.2.3",
         "micromark-extension-gfm-strikethrough": "^0.6.5",
-        "react-markdown": "6.0.2",
+        "react-markdown": "8.0.5",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {

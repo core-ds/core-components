@@ -1,4 +1,5 @@
-import { type NormalComponents, type SpecialComponents } from 'react-markdown/src/ast-to-react';
+import { type SpecialComponents } from 'react-markdown/lib/ast-to-react';
+import { type NormalComponents } from 'react-markdown/lib/complex-types';
 
 export type FontType = 'styrene' | 'system' | undefined;
 export type PlatformType = 'desktop' | 'mobile';
