@@ -212,7 +212,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             wrapperRef: inputWrapperRef,
             addonsClassName: styles.addons,
             type: 'tel',
-            autocomplete: autoFill ? 'tel' : undefined,
+            autoComplete: autoFill ? 'tel' : undefined,
             clear: getClear(clearProp, clearableCountryCode, value, country?.countryCode),
             ...restProps.inputProps,
         } as const;
