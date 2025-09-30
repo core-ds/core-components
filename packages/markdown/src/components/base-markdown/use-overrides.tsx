@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { type ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
@@ -9,12 +9,21 @@ import { type FontType, type OverridesComponents, type PlatformType } from '../.
 
 import styles from './index.module.css';
 
+type HeadingProps = { children: ReactNode };
+type ParagraphProps = { children: ReactNode };
+type BlockquoteProps = { children: ReactNode };
+type AnchorProps = { children: ReactNode; href?: string };
+type CodeProps = { children: ReactNode };
+type ImageProps = { alt?: string; src?: string };
+type ListProps = { children: ReactNode[]; ordered?: boolean };
+type ListItemProps = { children: ReactNode };
+
 export const useOverrides = (platform?: PlatformType, font?: FontType): OverridesComponents =>
     useMemo(() => {
         const Title = platform === 'desktop' ? TitleDesktop : TitleMobile;
 
         return {
-            h1: (props) => (
+            h1: ({ children }: HeadingProps) => (
                 <Title
                     font={font}
                     className={cn(styles.h1, 'h1')}
@@ -22,10 +31,10 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     view='medium'
                     color='primary'
                 >
-                    {props.children}
+                    {children}
                 </Title>
             ),
-            h2: (props) => (
+            h2: ({ children }: HeadingProps) => (
                 <Title
                     font={font}
                     className={cn(styles.h2, 'h2')}
@@ -33,10 +42,10 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     view='small'
                     color='primary'
                 >
-                    {props.children}
+                    {children}
                 </Title>
             ),
-            h3: (props) => (
+            h3: ({ children }: HeadingProps) => (
                 <Title
                     font={font}
                     className={cn(styles.h3, 'h3')}
@@ -44,10 +53,10 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     view='xsmall'
                     color='primary'
                 >
-                    {props.children}
+                    {children}
                 </Title>
             ),
-            h4: (props) => (
+            h4: ({ children }: HeadingProps) => (
                 <Title
                     font={font}
                     className={cn(styles.h4, 'h4')}
@@ -55,66 +64,57 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     view='xsmall'
                     color='primary'
                 >
-                    {props.children}
+                    {children}
                 </Title>
             ),
-            p: (props) => (
+            p: ({ children }: ParagraphProps) => (
                 <Text className='p' tag='p' view='primary-medium' color='primary'>
-                    {props.children}
+                    {children}
                 </Text>
             ),
-            blockquote: (props) => (
+            blockquote: ({ children }: BlockquoteProps) => (
                 <Text
                     className={cn(styles.blockquote, 'blockquote')}
                     tag='div'
                     view='primary-small'
                     color='secondary'
                 >
-                    {props.children}
+                    {children}
                 </Text>
             ),
-            a: (props) => (
-                <Link
-                    className='a'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    href={props.href as string}
-                >
-                    {props.children}
+            a: ({ children, href }: AnchorProps) => (
+                <Link className='a' target='_blank' rel='noopener noreferrer' href={href}>
+                    {children}
                 </Link>
             ),
-            code: (props) => (
+            code: ({ children }: CodeProps) => (
                 <Text
                     tag='span'
                     className={cn(styles.code, 'code')}
                     view='primary-small'
                     color='secondary'
                 >
-                    {props.children}
+                    {children}
                 </Text>
             ),
-            img: (props) => (
-                <div className={cn(styles.imageContainer, 'img')}>
-                    <img
-                        alt={props.alt as string}
-                        src={props.src as string}
-                        className={styles.image}
-                    />
-                </div>
+            img: ({ alt, src }: ImageProps) => (
+                <span className={cn(styles.imageContainer, 'img')}>
+                    <img alt={alt} src={src} className={styles.image} />
+                </span>
             ),
-            ul: (props) => (
-                <List className={cn(styles.list, 'ul')} tag={props.ordered ? 'ol' : 'ul'}>
-                    {props.children.filter((el) => el !== '\n')}
+            ul: ({ children, ordered }: ListProps) => (
+                <List className={cn(styles.list, 'ul')} tag={ordered ? 'ol' : 'ul'}>
+                    {children.filter((el) => el !== '\n')}
                 </List>
             ),
-            ol: (props) => (
-                <List className={cn(styles.list, 'ol')} tag={props.ordered ? 'ol' : 'ul'}>
-                    {props.children.filter((el) => el !== '\n')}
+            ol: ({ children, ordered }: ListProps) => (
+                <List className={cn(styles.list, 'ol')} tag={ordered ? 'ol' : 'ul'}>
+                    {children.filter((el) => el !== '\n')}
                 </List>
             ),
-            li: (props) => (
+            li: ({ children }: ListItemProps) => (
                 <Text className={cn(styles.li, 'li')} view='primary-medium'>
-                    {props.children}
+                    {children}
                 </Text>
             ),
         };
