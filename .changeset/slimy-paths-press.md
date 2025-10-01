@@ -3,4 +3,4 @@
 '@alfalab/core-components': patch
 ---
 
-Возвращен `inputMode='decimal'` для `AmountInput`
+Корретный `inputMode` для `AmountInput`
