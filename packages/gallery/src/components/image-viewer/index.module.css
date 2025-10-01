@@ -5,6 +5,14 @@
     flex-grow: 1;
     justify-content: center;
     background-color: var(--color-static-neutral-0-inverted);
+
+    /* При скрытой навигации компонент перекрывает оставшееся место от header/footer */
+    &.hiddenNavigation {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+    }
 }
 
 .swiper {
@@ -24,6 +32,16 @@
     &.mobileVideo {
         max-height: 100vh;
     }
+
+    &.hiddenNavigation {
+        max-height: 100vh;
+        height: 100vh; 
+        padding: 0; 
+    }
+
+    &.mobile.hiddenNavigation {
+        max-height: 100vh; 
+    }
 }
 
 .singleSlideContainer {
@@ -42,6 +60,17 @@
 
     &.mobileVideo {
         max-height: 100vh;
+    }
+
+    &.hiddenNavigation {
+        max-height: 100vh;
+        height: 100vh; 
+        padding: 0; 
+    }
+
+    &.mobile.hiddenNavigation {
+        max-height: 100vh;
+        height: 100vh;
     }
 }
 
@@ -78,6 +107,11 @@
     &.mobile {
         border-radius: var(--border-radius-0);
     }
+}
+
+.singleSlideContainer.hiddenNavigation .image,
+.singleSlideContainer.hiddenNavigation .placeholder {
+    border-radius: var(--border-radius-0);
 }
 
 .smallImage {

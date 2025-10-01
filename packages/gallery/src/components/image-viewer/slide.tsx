@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext, useEffect, useRef } from 'react';
+import React, { FC, ReactNode, useContext, useRef } from 'react';
 import cn from 'classnames';
 
 import { Spinner } from '@alfalab/core-components-spinner';
@@ -90,25 +90,21 @@ export const Slide: FC<SlideProps> = ({
     const horizontalImageFit = !small && containerAspectRatio <= imageAspectRatio;
 
     const singleClickTimeoutRef = useRef<number | null>(null);
+    const clickCountRef = useRef<number>(0);
 
-    useEffect(() => () => {
-        if (singleClickTimeoutRef.current) {
-            window.clearTimeout(singleClickTimeoutRef.current);
-            singleClickTimeoutRef.current = null;
-        }
-    }, []);
-
-    const handleContainerClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
-        if (singleClickTimeoutRef.current) {
-            window.clearTimeout(singleClickTimeoutRef.current);
-            singleClickTimeoutRef.current = null;
-        }
-
-        if (event.detail === 1) {
+    const handleContainerClick: React.MouseEventHandler<HTMLDivElement> = () => {
+        clickCountRef.current += 1;
+        if (clickCountRef.current === 1) {
             singleClickTimeoutRef.current = window.setTimeout(() => {
                 setHideNavigation(!hideNavigation);
                 singleClickTimeoutRef.current = null;
+                clickCountRef.current = 0;
             }, 300);
+            
+        } else if(singleClickTimeoutRef.current) {
+            window.clearTimeout(singleClickTimeoutRef.current);
+            singleClickTimeoutRef.current = null;
+            clickCountRef.current = 0;
         }
     };
 

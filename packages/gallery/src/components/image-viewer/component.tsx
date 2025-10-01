@@ -31,6 +31,7 @@ export const ImageViewer: FC = () => {
         slidePrev,
         slideNext,
         getCurrentImage,
+        hideNavigation,
     } = useContext(GalleryContext);
 
     const { handleWrapperClick, isMobile, rightArrowRef, leftArrowRef } = useHandleImageViewer();
@@ -73,6 +74,7 @@ export const ImageViewer: FC = () => {
                 [styles.fullScreenVideo]: fullScreen && isVideo(currentImage?.src),
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
+                [styles.hiddenNavigation]: hideNavigation,
             }),
             controller: { control: swiper },
             a11y: {
@@ -86,7 +88,7 @@ export const ImageViewer: FC = () => {
                 toggle: true,
                 containerClass: 'zoom-container',
                 zoomedSlideClass: 'zoomed-slide',
-                
+
             },
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
@@ -100,6 +102,7 @@ export const ImageViewer: FC = () => {
             initialSlide,
             setSwiper,
             handleSlideChange,
+            hideNavigation,
         ],
     );
 
@@ -115,6 +118,7 @@ export const ImageViewer: FC = () => {
             className={cn(styles.component, {
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
+                [styles.hiddenNavigation]: hideNavigation,
             })}
             aria-hidden={true}
             onClick={handleWrapperClick}
