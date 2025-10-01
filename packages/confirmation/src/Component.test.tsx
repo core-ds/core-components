@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ConfirmationDesktop, DesktopConfirmationProps } from './desktop';
 
 /**
@@ -357,6 +358,34 @@ describe('Confirmation', () => {
                 expect(onChangeState).toHaveBeenCalledTimes(1);
                 expect(onChangeState).toHaveBeenCalledWith('INITIAL');
             });
+        });
+
+        it('should focus first input when clicking on any empty input', async () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
+
+            const inputs = container.querySelectorAll('input');
+            const firstInput = inputs[0] as HTMLInputElement;
+            const thirdInput = inputs[2] as HTMLInputElement;
+
+            fireEvent.click(thirdInput);
+
+            await waitFor(() => {
+                expect(firstInput).toHaveFocus();
+            });
+        });
+
+        it('should focus target input when inputs are not all empty', async () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
+
+            const inputs = container.querySelectorAll('input');
+            const firstInput = inputs[0] as HTMLInputElement;
+            const secondInput = inputs[1] as HTMLInputElement;
+
+            await userEvent.type(firstInput, '1');
+
+            await userEvent.click(secondInput);
+
+            expect(secondInput).toHaveFocus();
         });
     });
 
