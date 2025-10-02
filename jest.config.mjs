@@ -32,9 +32,11 @@ const REACT_MARKDOWN_IGNORED_MODULES = [
     'decode-named-character-reference',
     'trim-lines',
     'property-information',
-    'hast-util-whitespace',
-    'space-separated-tokens',
-    'comma-separated-tokens',
+    'hast-util-.*',
+    '.*-separated-tokens',
+    'devlop',
+    'estree-util-is-identifier-name',
+    'html-url-attributes',
 ];
 
 const IGNORED_MODULES = ['@alfalab/hooks', 'simplebar', 'uuid', ...REACT_MARKDOWN_IGNORED_MODULES];
