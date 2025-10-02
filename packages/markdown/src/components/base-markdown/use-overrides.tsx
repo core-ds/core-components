@@ -1,4 +1,4 @@
-import React, { type ReactNode, useMemo } from 'react';
+import React, { Children, useMemo } from 'react';
 import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
@@ -9,21 +9,12 @@ import { type FontType, type OverridesComponents, type PlatformType } from '../.
 
 import styles from './index.module.css';
 
-type HeadingProps = { children: ReactNode };
-type ParagraphProps = { children: ReactNode };
-type BlockquoteProps = { children: ReactNode };
-type AnchorProps = { children: ReactNode; href?: string };
-type CodeProps = { children: ReactNode };
-type ImageProps = { alt?: string; src?: string };
-type ListProps = { children: ReactNode[]; ordered?: boolean };
-type ListItemProps = { children: ReactNode };
-
 export const useOverrides = (platform?: PlatformType, font?: FontType): OverridesComponents =>
     useMemo(() => {
         const Title = platform === 'desktop' ? TitleDesktop : TitleMobile;
 
         return {
-            h1: ({ children }: HeadingProps) => (
+            h1: ({ children }) => (
                 <Title
                     font={font}
                     className={cn(styles.h1, 'h1')}
@@ -34,7 +25,7 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {children}
                 </Title>
             ),
-            h2: ({ children }: HeadingProps) => (
+            h2: ({ children }) => (
                 <Title
                     font={font}
                     className={cn(styles.h2, 'h2')}
@@ -45,7 +36,7 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {children}
                 </Title>
             ),
-            h3: ({ children }: HeadingProps) => (
+            h3: ({ children }) => (
                 <Title
                     font={font}
                     className={cn(styles.h3, 'h3')}
@@ -56,7 +47,7 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {children}
                 </Title>
             ),
-            h4: ({ children }: HeadingProps) => (
+            h4: ({ children }) => (
                 <Title
                     font={font}
                     className={cn(styles.h4, 'h4')}
@@ -67,12 +58,12 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {children}
                 </Title>
             ),
-            p: ({ children }: ParagraphProps) => (
+            p: ({ children }) => (
                 <Text className='p' tag='p' view='primary-medium' color='primary'>
                     {children}
                 </Text>
             ),
-            blockquote: ({ children }: BlockquoteProps) => (
+            blockquote: ({ children }) => (
                 <Text
                     className={cn(styles.blockquote, 'blockquote')}
                     tag='div'
@@ -82,12 +73,12 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {children}
                 </Text>
             ),
-            a: ({ children, href }: AnchorProps) => (
+            a: ({ children, href }) => (
                 <Link className='a' target='_blank' rel='noopener noreferrer' href={href}>
                     {children}
                 </Link>
             ),
-            code: ({ children }: CodeProps) => (
+            code: ({ children }) => (
                 <Text
                     tag='span'
                     className={cn(styles.code, 'code')}
@@ -97,22 +88,22 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {children}
                 </Text>
             ),
-            img: ({ alt, src }: ImageProps) => (
+            img: ({ alt, src }) => (
                 <span className={cn(styles.imageContainer, 'img')}>
                     <img alt={alt} src={src} className={styles.image} />
                 </span>
             ),
-            ul: ({ children, ordered }: ListProps) => (
-                <List className={cn(styles.list, 'ul')} tag={ordered ? 'ol' : 'ul'}>
-                    {children.filter((el) => el !== '\n')}
+            ul: ({ children }) => (
+                <List className={cn(styles.list, 'ul')} tag='ul'>
+                    {Children.toArray(children).filter((el) => el !== '\n')}
                 </List>
             ),
-            ol: ({ children, ordered }: ListProps) => (
-                <List className={cn(styles.list, 'ol')} tag={ordered ? 'ol' : 'ul'}>
-                    {children.filter((el) => el !== '\n')}
+            ol: ({ children }) => (
+                <List className={cn(styles.list, 'ol')} tag='ol'>
+                    {Children.toArray(children).filter((el) => el !== '\n')}
                 </List>
             ),
-            li: ({ children }: ListItemProps) => (
+            li: ({ children }) => (
                 <Text className={cn(styles.li, 'li')} view='primary-medium'>
                     {children}
                 </Text>
