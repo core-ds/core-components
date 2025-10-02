@@ -26,12 +26,12 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
           class="addons rightAddons rightAddons size-48"
         >
           <button
-            class="component text size-48 hug size-48 component text component text cc-icon-button eye secondary component component border_24"
+            class="component component component component component text text text size48 hug size48 cc-icon-button eye secondary component component border_24 component"
             title="Показать"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               <span
                 class="iconWrapper size-24 center"

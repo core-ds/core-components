@@ -9,13 +9,13 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
   >
     <button
       aria-label="Предыдущий период"
-      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
+      class="component component component component component text text text size48 hug size48 cc-icon-button arrow primary component component border_32 component"
       data-test-id="period-slider-btn-previous-day"
       disabled=""
       type="button"
     >
       <span
-        class="label stretchText"
+        class="label"
       >
         <span
           class="iconWrapper size-32 center"
@@ -43,13 +43,13 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider default title snapsh
     </span>
     <button
       aria-label="Следующий период"
-      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
+      class="component component component component component text text text size48 hug size48 cc-icon-button arrow primary component component border_32 component"
       data-test-id="period-slider-btn-next-day"
       disabled=""
       type="button"
     >
       <span
-        class="label stretchText"
+        class="label"
       >
         <span
           class="iconWrapper size-32 center"
@@ -83,13 +83,13 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
   >
     <button
       aria-label="Предыдущий период"
-      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
+      class="component component component component component text text text size48 hug size48 cc-icon-button arrow primary component component border_32 component"
       data-test-id="period-slider-btn-previous-day"
       disabled=""
       type="button"
     >
       <span
-        class="label stretchText"
+        class="label"
       >
         <span
           class="iconWrapper size-32 center"
@@ -117,13 +117,13 @@ exports[`PeriodSlider empty PeriodSlider empty PeriodSlider specific title snaps
     </span>
     <button
       aria-label="Следующий период"
-      class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
+      class="component component component component component text text text size48 hug size48 cc-icon-button arrow primary component component border_32 component"
       data-test-id="period-slider-btn-next-day"
       disabled=""
       type="button"
     >
       <span
-        class="label stretchText"
+        class="label"
       >
         <span
           class="iconWrapper size-32 center"
