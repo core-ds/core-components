@@ -39,11 +39,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             1
           </span>
@@ -53,11 +53,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             2
           </span>
@@ -67,11 +67,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             3
           </span>
@@ -81,11 +81,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             4
           </span>
@@ -95,11 +95,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             5
           </span>
@@ -109,11 +109,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             6
           </span>
@@ -123,11 +123,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             7
           </span>
@@ -137,11 +137,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             8
           </span>
@@ -151,11 +151,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             9
           </span>
@@ -166,10 +166,14 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with code length 1`] = 
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary iconOnly button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
-          0
+          <span
+            class="label"
+          >
+            0
+          </span>
         </button>
       </div>
       <div />
@@ -206,11 +210,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             1
           </span>
@@ -220,11 +224,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             2
           </span>
@@ -234,11 +238,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             3
           </span>
@@ -248,11 +252,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             4
           </span>
@@ -262,11 +266,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             5
           </span>
@@ -276,11 +280,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             6
           </span>
@@ -290,11 +294,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             7
           </span>
@@ -304,11 +308,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             8
           </span>
@@ -318,11 +322,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             9
           </span>
@@ -333,21 +337,25 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with error prop 1`] = `
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary iconOnly button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
-          0
+          <span
+            class="label"
+          >
+            0
+          </span>
         </button>
       </div>
       <div
         class="component"
       >
         <button
-          class="component text size-56 hug size-56 component text component text button text"
+          class="component component component component component text text text size56 hug size56 button text component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <svg
               fill="currentColor"
@@ -400,11 +408,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             1
           </span>
@@ -414,11 +422,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             2
           </span>
@@ -428,11 +436,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             3
           </span>
@@ -442,11 +450,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             4
           </span>
@@ -456,11 +464,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             5
           </span>
@@ -470,11 +478,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             6
           </span>
@@ -484,11 +492,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             7
           </span>
@@ -498,11 +506,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             8
           </span>
@@ -512,11 +520,11 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             9
           </span>
@@ -527,10 +535,14 @@ exports[`PassCodeV1 Snapshot tests should match snapshot with unknown code lengt
         class="component"
       >
         <button
-          class="component secondary size-56 hug size-56 component secondary component secondary iconOnly button secondary digit"
+          class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
           type="button"
         >
-          0
+          <span
+            class="label"
+          >
+            0
+          </span>
         </button>
       </div>
       <div />

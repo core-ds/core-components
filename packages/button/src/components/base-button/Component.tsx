@@ -1,21 +1,11 @@
-/* eslint-disable complexity */
-import React, {
-    type AnchorHTMLAttributes,
-    type ButtonHTMLAttributes,
-    forwardRef,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
-import mergeRefs from 'react-merge-refs';
+import React, { Children, forwardRef } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
-import { Spinner } from '@alfalab/core-components-spinner';
-import { useFocus } from '@alfalab/hooks';
-
-import { LOADER_MIN_DISPLAY_INTERVAL } from '../../constants/loader-min-display-interval';
-import { type CommonButtonProps, type PrivateButtonProps } from '../../typings';
+import { useLoading } from '../../shared';
+import { type ButtonRef, type CommonButtonProps, type PrivateButtonProps } from '../../typings';
+import { BaseButtonCandidate } from '../base-button-candidate';
+import { ButtonComponent } from '../button-component';
+import { ButtonContent } from '../button-content';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -24,12 +14,9 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
+} as const;
 
-export const BaseButton = forwardRef<
-    HTMLAnchorElement | HTMLButtonElement,
-    CommonButtonProps & PrivateButtonProps
->(
+export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButtonProps>(
     (
         {
             allowBackdropBlur,
@@ -41,81 +28,83 @@ export const BaseButton = forwardRef<
             leftAddons,
             rightAddons,
             size = 56,
-            block = false,
-            className,
+            className: classNameFromProps,
             spinnerClassName,
-            dataTestId,
-            href,
-            loading = false,
-            nowrap = false,
+            loaderClassName = spinnerClassName,
+            loading: loadingFromProps,
+            nowrap,
             colors = 'default',
-            Component = href ? 'a' : 'button',
-            onClick,
+            Component = ButtonComponent,
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
+            disabled,
             ...restProps
         },
         ref,
     ) => {
-        const buttonRef = useRef<HTMLElement>(null);
+        const loading = useLoading(loadingFromProps);
+        const hasLabel = Children.toArray(children).length > 0;
+        const showHint = size >= 56 && Children.toArray(hint).length > 0;
+        const sizeStyle = `size${size}`;
+        const blurred =
+            allowBackdropBlur &&
+            (view === 'secondary' || (disabled && (view === 'accent' || view === 'primary')));
 
-        const [focused] = useFocus(buttonRef, 'keyboard');
+        const className = cn(
+            commonStyles.component,
+            colorStyles[colors].component,
+            styles.component,
+            colorStylesMap[colors].component,
+            commonStyles[view],
+            colorStyles[colors][view],
+            colorStylesMap[colors][view],
+            commonStyles[sizeStyle],
+            commonStyles[textResizing],
+            {
+                [commonStyles[shape]]: shape === 'rounded',
+                [styles[sizeStyle]]: shape === 'rectangular',
+                [commonStyles.defaultPaddings]: hasLabel && view !== 'text',
+                [commonStyles.defaultWidth]: hasLabel && view !== 'text',
+                [commonStyles.minWidth]: !hasLabel && view !== 'text',
+                [commonStyles.minHeight]: view !== 'text',
+                [commonStyles.blurred]: blurred,
+            },
+            loading && [
+                commonStyles.loading,
+                colorStyles[colors].loading,
+                colorStylesMap[colors].loading,
+            ],
+            classNameFromProps,
+        );
 
-        const [loaderTimePassed, setLoaderTimePassed] = useState(true);
-
-        const timerId = useRef(0);
-
-        const showLoader = loading || !loaderTimePassed;
-
-        const showHint = hint && [56, 64, 72].includes(size);
-
-        const iconOnly = !children;
-
-        const sizeStyle = `size-${size}`;
-
-        const componentProps = {
-            className: cn(
-                commonStyles.component,
-                commonStyles[view],
-                commonStyles[sizeStyle],
-                commonStyles[textResizing],
-                shape === 'rectangular' && styles[sizeStyle],
-                shape === 'rounded' && commonStyles[shape],
-                colorStyles[colors].component,
-                colorStyles[colors][view],
-                colorStylesMap[colors].component,
-                {
-                    [commonStyles.allowBackdropBlur]: allowBackdropBlur,
-                    [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
-                    [commonStyles.focused]: focused,
-                    [commonStyles.block]: block,
-                    [commonStyles.iconOnly]: iconOnly,
-                    [commonStyles.loading]: showLoader,
-                    [commonStyles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
-                    [commonStyles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
-                    [colorStyles[colors].loading]: showLoader,
-                    [colorStylesMap[colors].loading]: showLoader,
-                },
-                className,
-            ),
-            'data-test-id': dataTestId || null,
-        };
-
-        const {
-            disabled,
-            type = 'button',
-            ...restButtonProps
-        } = restProps as ButtonHTMLAttributes<HTMLButtonElement>;
-
-        const buttonChildren = (
-            <React.Fragment>
-                {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
-                {children && (
+        return (
+            <BaseButtonCandidate
+                {...restProps}
+                ref={ref}
+                className={className}
+                Content={ButtonContent}
+                Component={Component}
+                loading={loading}
+                loaderClassName={cn(
+                    commonStyles.loader,
+                    colorStyles[colors].loader,
+                    colorStylesMap[colors].loader,
+                    loaderClassName,
+                )}
+                disabled={disabled}
+                disabledClassName={cn(
+                    colorStylesMap[colors].disabled,
+                    colorStyles[colors].disabled,
+                )}
+            >
+                {Children.toArray(leftAddons).length > 0 && (
+                    <span className={commonStyles.addon}>{leftAddons}</span>
+                )}
+                {hasLabel && (
                     <span
                         className={cn(commonStyles.label, {
                             [commonStyles.nowrap]: nowrap,
-                            [commonStyles.stretchText]:
-                                !(leftAddons || rightAddons) || textResizing === 'fill',
+                            [commonStyles.stretchText]: textResizing === 'fill',
                         })}
                     >
                         {children}
@@ -132,87 +121,10 @@ export const BaseButton = forwardRef<
                         )}
                     </span>
                 )}
-
-                {showLoader && (
-                    <Spinner
-                        preset={24}
-                        dataTestId={getDataTestId(dataTestId, 'loader')}
-                        visible={true}
-                        className={cn(
-                            commonStyles.loader,
-                            colorStyles[colors].loader,
-                            colorStylesMap[colors].loader,
-                            spinnerClassName,
-                        )}
-                    />
+                {Children.toArray(rightAddons).length > 0 && (
+                    <span className={commonStyles.addon}>{rightAddons}</span>
                 )}
-
-                {rightAddons && <span className={commonStyles.addons}>{rightAddons}</span>}
-            </React.Fragment>
-        );
-
-        useEffect(() => {
-            if (loading) {
-                setLoaderTimePassed(false);
-
-                timerId.current = window.setTimeout(() => {
-                    setLoaderTimePassed(true);
-                }, LOADER_MIN_DISPLAY_INTERVAL);
-            }
-        }, [loading]);
-
-        useEffect(
-            () => () => {
-                window.clearTimeout(timerId.current);
-            },
-            [],
-        );
-
-        const handleClick = (
-            e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
-                React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        ) => {
-            if (disabled || showLoader) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                return;
-            }
-            onClick?.(e);
-        };
-
-        if (href) {
-            const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
-
-            // Для совместимости с react-router-dom, меняем href на to
-            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
-
-            return (
-                <Component
-                    rel={target === '_blank' ? 'noreferrer noopener' : undefined}
-                    {...componentProps}
-                    {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
-                    {...hrefProps}
-                    onClick={handleClick}
-                    disabled={disabled || showLoader}
-                    ref={mergeRefs([buttonRef, ref])}
-                >
-                    {buttonChildren}
-                </Component>
-            );
-        }
-
-        return (
-            <Component
-                {...componentProps}
-                {...restButtonProps}
-                onClick={handleClick}
-                type={type}
-                disabled={disabled || showLoader}
-                ref={mergeRefs([buttonRef, ref])}
-            >
-                {buttonChildren}
-            </Component>
+            </BaseButtonCandidate>
         );
     },
 );

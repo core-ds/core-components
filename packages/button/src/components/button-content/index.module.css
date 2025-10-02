@@ -1,0 +1,8 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+.component {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}

@@ -1,0 +1,32 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+.component {
+    @mixin reset-tap-highlight-color;
+
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+
+    /* Block */
+
+    &.block {
+        display: flex;
+        width: 100%;
+    }
+
+    /* Focus */
+
+    &.focused {
+        @mixin focus-outline;
+    }
+
+    /* Disabled */
+
+    @mixin disabled {
+        cursor: var(--disabled-cursor);
+
+        & * {
+            pointer-events: none;
+        }
+    }
+}

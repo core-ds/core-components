@@ -15,11 +15,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
         class="component monthYear"
       >
         <button
-          class="component text size-40 hug size-40 component text component text button filled button month"
+          class="component component component component component text text text size40 hug size40 button filled button month component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -44,11 +44,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           </span>
         </button>
         <button
-          class="component text size-40 hug size-40 component text component text button filled button year"
+          class="component component component component component text text text size40 hug size40 button filled button year component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -135,11 +135,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -162,11 +162,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -187,11 +187,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -212,11 +212,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -237,11 +237,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -262,11 +262,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -287,11 +287,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -312,11 +312,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -339,11 +339,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -364,11 +364,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -389,11 +389,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -414,11 +414,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -439,11 +439,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -464,11 +464,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -489,11 +489,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -516,11 +516,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -541,11 +541,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -566,11 +566,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -591,11 +591,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -616,11 +616,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -641,11 +641,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -666,11 +666,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -693,11 +693,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -718,11 +718,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -743,11 +743,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -768,11 +768,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -793,11 +793,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -818,11 +818,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -843,11 +843,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -870,11 +870,11 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               tabindex="0"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded selected"
+                class="component component component component component text text text size40 hug size40 day rounded selected component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -916,11 +916,11 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         class="component monthYear"
       >
         <button
-          class="component text size-40 hug size-40 component text component text button filled button month"
+          class="component component component component component text text text size40 hug size40 button filled button month component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -945,11 +945,11 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
           </span>
         </button>
         <button
-          class="component text size-40 hug size-40 component text component text button filled button year"
+          class="component component component component component text text text size40 hug size40 button filled button year component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -983,156 +983,156 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
       >
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1577836800000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Январь
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1580515200000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Февраль
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1583020800000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Март
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1585699200000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Апрель
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1588291200000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Май
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1590969600000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Июнь
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1593561600000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Июль
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1596240000000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Август
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1598918400000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Сентябрь
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1601510400000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Октябрь
           </span>
         </button>
         <button
           aria-selected="true"
-          class="component text size-40 hug size-40 component text component text button selected button"
+          class="component component component component component text text text size40 hug size40 button selected button component"
           data-date="1604188800000"
           tabindex="0"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Ноябрь
           </span>
         </button>
         <button
           aria-selected="false"
-          class="component text size-40 hug size-40 component text component text button default button"
+          class="component component component component component text text text size40 hug size40 button default button component"
           data-date="1606780800000"
           tabindex="-1"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             Декабрь
           </span>
@@ -1158,11 +1158,11 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
         class="component monthYear"
       >
         <button
-          class="component text size-40 hug size-40 component text component text button filled button month"
+          class="component component component component component text text text size40 hug size40 button filled button month component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -1187,11 +1187,11 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </span>
         </button>
         <button
-          class="component text size-40 hug size-40 component text component text button filled button year"
+          class="component component component component component text text text size40 hug size40 button filled button year component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -1228,1235 +1228,1235 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
         >
           <button
             aria-selected="true"
-            class="component text size-40 hug size-40 component text component text button selected button"
+            class="component component component component component text text text size40 hug size40 button selected button component"
             data-date="1577836800000"
             tabindex="0"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2020
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1546300800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2019
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1514764800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2018
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1483228800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2017
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1451606400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2016
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1420070400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2015
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1388534400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2014
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1356998400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2013
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1325376000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2012
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1293840000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2011
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1262304000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2010
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1230768000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2009
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1199145600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2008
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1167609600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2007
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1136073600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2006
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1104537600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2005
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1072915200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2004
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1041379200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2003
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="1009843200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2002
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="978307200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2001
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="946684800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               2000
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="915148800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1999
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="883612800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1998
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="852076800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1997
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="820454400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1996
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="788918400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1995
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="757382400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1994
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="725846400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1993
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="694224000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1992
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="662688000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1991
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="631152000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1990
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="599616000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1989
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="567993600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1988
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="536457600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1987
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="504921600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1986
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="473385600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1985
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="441763200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1984
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="410227200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1983
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="378691200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1982
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="347155200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1981
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="315532800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1980
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="283996800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1979
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="252460800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1978
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="220924800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1977
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="189302400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1976
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="157766400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1975
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="126230400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1974
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="94694400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1973
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="63072000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1972
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="31536000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1971
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="0"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1970
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-31536000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1969
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-63158400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1968
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-94694400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1967
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-126230400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1966
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-157766400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1965
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-189388800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1964
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-220924800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1963
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-252460800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1962
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-283996800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1961
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-315619200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1960
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-347155200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1959
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-378691200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1958
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-410227200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1957
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-441849600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1956
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-473385600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1955
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-504921600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1954
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-536457600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1953
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-568080000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1952
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-599616000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1951
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-631152000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1950
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-662688000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1949
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-694310400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1948
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-725846400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1947
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-757382400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1946
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-788918400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1945
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-820540800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1944
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-852076800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1943
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-883612800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1942
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-915148800000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1941
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-946771200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1940
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-978307200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1939
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1009843200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1938
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1041379200000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1937
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1073001600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1936
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1104537600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1935
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1136073600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1934
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1167609600000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1933
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1199232000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1932
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1230768000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1931
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1262304000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1930
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1293840000000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1929
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1325462400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1928
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1356998400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1927
             </span>
           </button>
           <button
             aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
+            class="component component component component component text text text size40 hug size40 button default button component"
             data-date="-1388534400000"
             tabindex="-1"
             type="button"
           >
             <span
-              class="label stretchText"
+              class="label"
             >
               1926
             </span>
@@ -2483,11 +2483,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
         class="component monthYear"
       >
         <button
-          class="component text size-40 hug size-40 component text component text button filled button month"
+          class="component component component component component text text text size40 hug size40 button filled button month component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -2512,11 +2512,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           </span>
         </button>
         <button
-          class="component text size-40 hug size-40 component text component text button filled button year"
+          class="component component component component component text text text size40 hug size40 button filled button year component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -2603,11 +2603,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2630,11 +2630,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2655,11 +2655,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2680,11 +2680,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2705,11 +2705,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2730,11 +2730,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2755,11 +2755,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2780,11 +2780,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2807,11 +2807,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2832,11 +2832,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2857,11 +2857,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2882,11 +2882,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2907,11 +2907,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2932,11 +2932,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2957,11 +2957,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -2984,11 +2984,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3009,11 +3009,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3034,11 +3034,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3059,11 +3059,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3084,11 +3084,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3109,11 +3109,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3134,11 +3134,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3161,11 +3161,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3186,11 +3186,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3211,11 +3211,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3236,11 +3236,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3261,11 +3261,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3286,11 +3286,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3311,11 +3311,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3338,11 +3338,11 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               tabindex="0"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded selected"
+                class="component component component component component text text text size40 hug size40 day rounded selected component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3386,12 +3386,12 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       >
         <button
           aria-label="Предыдущий период"
-          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
+          class="component component component component component text text text size48 hug size48 cc-icon-button arrow primary component component border_32 component"
           data-test-id="period-slider-btn-previous-day"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="iconWrapper size-32 center"
@@ -3419,12 +3419,12 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
         </span>
         <button
           aria-label="Следующий период"
-          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
+          class="component component component component component text text text size48 hug size48 cc-icon-button arrow primary component component border_32 component"
           data-test-id="period-slider-btn-next-day"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="iconWrapper size-32 center"
@@ -3508,11 +3508,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3535,11 +3535,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3560,11 +3560,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3585,11 +3585,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3610,11 +3610,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3635,11 +3635,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3660,11 +3660,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3685,11 +3685,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3712,11 +3712,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3737,11 +3737,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3762,11 +3762,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3787,11 +3787,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3812,11 +3812,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3837,11 +3837,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3862,11 +3862,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3889,11 +3889,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3914,11 +3914,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3939,11 +3939,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3964,11 +3964,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -3989,11 +3989,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4014,11 +4014,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4039,11 +4039,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4066,11 +4066,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4091,11 +4091,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4116,11 +4116,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4141,11 +4141,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4166,11 +4166,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4191,11 +4191,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4216,11 +4216,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4243,11 +4243,11 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
               tabindex="0"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded selected"
+                class="component component component component component text text text size40 hug size40 day rounded selected component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4289,11 +4289,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
         class="component monthYear"
       >
         <button
-          class="component text size-40 hug size-40 component text component text button filled button month"
+          class="component component component component component text text text size40 hug size40 button filled button month component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -4318,11 +4318,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           </span>
         </button>
         <button
-          class="component text size-40 hug size-40 component text component text button filled button year"
+          class="component component component component component text text text size40 hug size40 button filled button year component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="label"
           >
             <span
               class="buttonContent"
@@ -4409,11 +4409,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4436,11 +4436,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4461,11 +4461,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4486,11 +4486,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4511,11 +4511,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4536,11 +4536,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4561,11 +4561,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4586,11 +4586,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4613,11 +4613,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4638,11 +4638,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4663,11 +4663,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4688,11 +4688,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4713,11 +4713,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4738,11 +4738,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4763,11 +4763,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4790,11 +4790,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4815,11 +4815,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4840,11 +4840,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4865,11 +4865,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4890,11 +4890,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4915,11 +4915,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4940,11 +4940,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4967,11 +4967,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -4992,11 +4992,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -5017,11 +5017,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -5042,11 +5042,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -5067,11 +5067,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -5092,11 +5092,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -5117,11 +5117,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="-1"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded"
+                class="component component component component component text text text size40 hug size40 day rounded component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"
@@ -5144,11 +5144,11 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               tabindex="0"
             >
               <button
-                class="component text size-40 hug size-40 component text component text day rounded selected"
+                class="component component component component component text text text size40 hug size40 day rounded selected component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <span
                     class="dayContent"

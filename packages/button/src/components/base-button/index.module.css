@@ -1,304 +1,99 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 
-.component {
-    @mixin reset-tap-highlight-color;
+@define-mixin button-size-mixin $height, $width, $gap, $padding-inline {
+    &.minWidth {
+        min-width: $height;
+    }
 
+    &.minHeight {
+        min-height: $height;
+    }
+
+    &.defaultWidth {
+        min-width: $width;
+    }
+
+    &.defaultPaddings {
+        padding: var(--gap-0) calc($padding-inline - var(--button-border-width));
+    }
+
+    .addon:first-child {
+        margin-right: $gap;
+    }
+
+    .addon:last-child {
+        margin-left: $gap;
+    }
+}
+
+.component {
     position: relative;
-    display: inline-flex;
-    vertical-align: middle;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
-    margin: var(--gap-0);
-    padding: var(--gap-0) 23px;
-    text-decoration: none;
-    outline: none;
-    box-shadow: none;
-    user-select: none;
-    cursor: pointer;
-    transition:
-        background 0.2s ease,
-        border 0.2s ease,
-        color 0.2s ease;
-    box-sizing: border-box;
-}
 
-.hug {
-    justify-content: center;
-    text-align: center;
-}
+    /* Loading */
 
-.fill {
-    text-align: left;
-}
+    &.loading > *:not(.loader) {
+        opacity: 0;
+    }
 
-.hint {
-    @mixin paragraph_primary_small;
+    /* Shape */
 
-    display: block;
-}
+    &.rounded {
+        border-radius: var(--border-radius-pill);
+    }
 
-.allowBackdropBlur {
-    &.secondary,
-    &.accent[disabled],
-    &.primary[disabled] {
-        backdrop-filter: blur(80px);
+    /* Text resing */
+
+    &.hug {
+        justify-content: center;
+        text-align: center;
+    }
+
+    &.fill {
+        text-align: left;
+    }
+
+    /* Size */
+
+    /* prettier-ignore */
+    @each $size, $typography-mixin, $height, $width, $gap, $padding-inline in
+        (32, action_primary_small, var(--size-xxs-height), 80px, var(--gap-6), var(--gap-16)),
+        (40, action_primary_small, var(--size-xs-height), 88px, var(--gap-6), var(--gap-20)),
+        (48, action_component_primary, var(--size-s-height), 104px, var(--gap-8), var(--gap-24)),
+        (56, action_component_primary, var(--size-m-height), 128px, var(--gap-8), 28px),
+        (64, action_primary_large, var(--size-l-height), 160px, var(--gap-12), var(--gap-32)),
+        (72, action_primary_large, var(--size-xl-height), 168px, var(--gap-12), 36px) {
+        &.size$(size) {
+            @mixin $(typography-mixin);
+            @mixin button-size-mixin $(height), $(width), $(gap), $(padding-inline);
+        }
     }
 }
 
-.focused {
-    @mixin focus-outline;
-}
-
-.loading .label,
-.loading .addons {
-    opacity: 0;
-}
-
-.stretchText {
-    flex-grow: 1;
-}
-
-.loader {
-    position: absolute;
-    left: var(--gap-0);
-    right: var(--gap-0);
-    margin: var(--gap-0) auto;
-}
-
-/* Size */
-
-/* За счет того, что у кнопок есть border 1px,
-для полного соответствия макетам padding необходимо уменьшить на 1px (16px -> 15px) */
-.size-32 {
-    min-width: 80px;
-    min-height: var(--size-xxs-height);
-    padding: var(--gap-0) 15px;
-
-    @mixin action_primary_small;
-
-    &.iconOnly {
-        min-width: var(--size-xxs-height);
-    }
-}
-
-.size-40 {
-    min-width: 88px;
-    min-height: var(--size-xs-height);
-    padding: var(--gap-0) 19px;
-
-    @mixin action_primary_small;
-
-    &.iconOnly {
-        min-width: var(--size-xs-height);
-    }
-}
-
-.size-48 {
-    min-width: 104px;
-    min-height: var(--size-s-height);
-
-    @mixin action_component_primary;
-
-    line-height: 20px;
-
-    &.iconOnly {
-        min-width: var(--size-s-height);
-    }
-}
-
-.size-56 {
-    min-width: 128px;
-    min-height: var(--size-m-height);
-    padding: var(--gap-0) 27px;
-
-    @mixin action_component_primary;
-
-    &.iconOnly {
-        min-width: var(--size-m-height);
-    }
-}
-
-.size-64 {
-    min-width: 160px;
-    min-height: var(--size-l-height);
-    padding: var(--gap-0) 31px;
-
-    @mixin action_primary_large;
-
-    &.iconOnly {
-        min-width: var(--size-l-height);
-    }
-}
-
-.size-72 {
-    min-width: 168px;
-    min-height: var(--size-xl-height);
-    padding: var(--gap-0) 35px;
-
-    @mixin action_primary_large;
-
-    &.iconOnly {
-        min-width: var(--size-xl-height);
-    }
-}
-
-.withRightAddons {
-    &.size-32 {
-        padding-right: 11px;
-    }
-
-    &.size-40 {
-        padding-right: 15px;
-    }
-
-    &.size-48 {
-        padding-right: 19px;
-    }
-
-    &.size-56 {
-        padding-right: 23px;
-    }
-
-    &.size-64 {
-        padding-right: 27px;
-    }
-
-    &.size-72 {
-        padding-right: 31px;
-    }
-
-    &.text {
-        padding-right: var(--gap-0);
-    }
-}
-
-.withLeftAddons {
-    &.size-32 {
-        padding-left: 11px;
-    }
-
-    &.size-40 {
-        padding-left: 15px;
-    }
-
-    &.size-48 {
-        padding-left: 19px;
-    }
-
-    &.size-56 {
-        padding-left: 23px;
-    }
-
-    &.size-64 {
-        padding-left: 27px;
-    }
-
-    &.size-72 {
-        padding-left: 31px;
-    }
-
-    &.text {
-        padding-left: var(--gap-0);
-    }
-}
-
-.transparent {
-    min-width: 0;
-}
-
-.text.text {
-    min-width: 0;
-    min-height: 0;
-    padding: var(--gap-0);
-    border: none;
-    appearance: none;
-
-    &.iconOnly {
-        min-width: 0;
-    }
-
-    &.size-48,
-    &.size-56 {
-        min-height: 24px;
-    }
-}
-
-/* Disabled */
-
-.component[disabled] {
-    cursor: var(--disabled-cursor);
-
-    & * {
-        pointer-events: none;
-    }
+.blurred {
+    backdrop-filter: blur(80px);
 }
 
 /* Addons */
 
-.addons {
+.addon {
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    margin: var(--gap-0);
 
-    &:first-child {
-        margin-right: var(--gap-6);
-    }
-
-    &:last-child {
-        margin-left: var(--gap-6);
-    }
-
-    &:only-child {
-        margin: var(--gap-0);
+    .defaultPaddings & {
+        &:first-child {
+            margin-left: var(--gap-4-neg);
+        }
+        &:last-child {
+            margin-right: var(--gap-4-neg);
+        }
     }
 }
 
-.size-48,
-.size-56 {
-    & .addons:first-child {
-        margin-right: var(--gap-8);
-    }
-
-    & .addons:last-child {
-        margin-left: var(--gap-8);
-    }
-
-    & .addons:only-child {
-        margin: var(--gap-0);
-    }
-}
-
-.size-64,
-.size-72 {
-    & .addons:first-child {
-        margin-right: var(--gap-12);
-    }
-
-    & .addons:last-child {
-        margin-left: var(--gap-12);
-    }
-
-    & .addons:only-child {
-        margin: var(--gap-0);
-    }
-}
-
-.iconOnly {
-    padding: var(--gap-0);
-}
-
-/* Block */
-
-.block {
-    display: flex;
-    width: 100%;
-}
-
-/* Nowrap */
+/* Label */
 
 .nowrap {
     overflow: hidden;
@@ -306,6 +101,13 @@
     text-overflow: ellipsis;
 }
 
-.rounded {
-    border-radius: var(--border-radius-pill);
+.stretchText {
+    flex-grow: 1;
+}
+
+/* Hint */
+
+.hint {
+    display: block;
+    @mixin paragraph_primary_small;
 }

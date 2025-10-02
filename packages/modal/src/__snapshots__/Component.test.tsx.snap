@@ -27,11 +27,11 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component text size-48 hug size-48 component text component text component component"
+                class="component component component component component text text text size48 hug size48 component component component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <div
                     class="flex"
@@ -74,11 +74,11 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component component border_48"
+                  class="component component component component component text text text size48 hug size48 cc-icon-button button button primary component component border_48 component"
                   type="button"
                 >
                   <span
-                    class="label stretchText"
+                    class="label"
                   >
                     <span
                       class="iconWrapper size-48 center"
@@ -165,11 +165,11 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component text size-32 hug size-32 component text component text component component mobileComponent"
+                class="component component component component component text text text size32 hug size32 component component mobileComponent component"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="label"
                 >
                   <div
                     class="flex"
@@ -212,11 +212,11 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component component border_32"
+                  class="component component component component component text text text size48 hug size48 cc-icon-button button button mobile primary component component border_32 component"
                   type="button"
                 >
                   <span
-                    class="label stretchText"
+                    class="label"
                   >
                     <span
                       class="iconWrapper size-32 center"

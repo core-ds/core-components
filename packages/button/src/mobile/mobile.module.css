@@ -1,25 +1,16 @@
 @import '../vars.css';
 
-.size-32 {
-    border-radius: var(--button-xxs-size-mobile-border-radius);
-}
-
-.size-40 {
-    border-radius: var(--button-xs-size-mobile-border-radius);
-}
-
-.size-48 {
-    border-radius: var(--button-s-size-mobile-border-radius);
-}
-
-.size-56 {
-    border-radius: var(--button-m-size-mobile-border-radius);
-}
-
-.size-64 {
-    border-radius: var(--button-l-size-mobile-border-radius);
-}
-
-.size-72 {
-    border-radius: var(--button-xl-size-mobile-border-radius);
+.component {
+    /* prettier-ignore */
+    @each $size, $border-radius in
+        (32, --button-xxs-size-mobile-border-radius),
+        (40, --button-xs-size-mobile-border-radius),
+        (48, --button-s-size-mobile-border-radius),
+        (56, --button-m-size-mobile-border-radius),
+        (64, --button-l-size-mobile-border-radius),
+        (72, --button-xl-size-mobile-border-radius) {
+        &.size$(size) {
+            border-radius: var($(border-radius));
+        }
+    }
 }
