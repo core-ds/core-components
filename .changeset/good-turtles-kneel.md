@@ -1,7 +1,7 @@
 ---
-'@alfalab/core-components': patch
-'@alfalab/core-components-markdown': patch
+'@alfalab/core-components': minor
+'@alfalab/core-components-markdown': minor
 ---
 
-- Обновлена библиотека `react-markdown@8.0.5`
+- Обновлена библиотека `react-markdown@9.1.0`
 - Исправлена ошибка связанная с неправильной структурой `DOM` элементов
