@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { BaseButton } from '../components/base-button';
-import { type CommonButtonProps } from '../typings';
+import { type ButtonRef, type CommonButtonProps } from '../typings';
 
 import defaultColors from './default.desktop.module.css';
 import styles from './desktop.module.css';
@@ -12,8 +12,6 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export const ButtonDesktop = forwardRef<HTMLAnchorElement | HTMLButtonElement, CommonButtonProps>(
-    (restProps, ref) => (
-        <BaseButton {...restProps} ref={ref} styles={styles} colorStylesMap={colorStyles} />
-    ),
-);
+export const ButtonDesktop = forwardRef<ButtonRef, CommonButtonProps>((restProps, ref) => (
+    <BaseButton {...restProps} ref={ref} styles={styles} colorStylesMap={colorStyles} />
+));
