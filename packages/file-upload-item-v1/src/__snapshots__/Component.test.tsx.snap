@@ -49,6 +49,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
           </div>
         </div>
         <a
+          aria-disabled="false"
           aria-label="скачать"
           class="component text size-48 hug size-48 component text component text cc-icon-button download primary component border-24"
           download="новое_название_файла"
@@ -151,6 +152,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
         </div>
       </div>
       <a
+        aria-disabled="false"
         aria-label="скачать"
         class="component text size-48 hug size-48 component text component text cc-icon-button download primary component border-24"
         download="новое_название_файла"
