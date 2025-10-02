@@ -1,20 +1,22 @@
 import {
     type AnchorHTMLAttributes,
     type ButtonHTMLAttributes,
-    type ElementType,
+    type ComponentType,
+    type ForwardRefExoticComponent,
     type ReactNode,
+    type RefAttributes,
 } from 'react';
 
-export type StyleColors = {
-    default: {
-        [key: string]: string;
-    };
-    inverted: {
-        [key: string]: string;
-    };
-};
+interface StylesMap {
+    [key: string]: string;
+}
 
-type ComponentProps = {
+export interface StyleColors {
+    default: StylesMap;
+    inverted: StylesMap;
+}
+
+interface ComponentProps {
     /**
      * Тип кнопки
      * @default secondary
@@ -78,7 +80,17 @@ type ComponentProps = {
     /**
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
      */
-    Component?: ElementType;
+    Component?:
+        | ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+        | ComponentType<ButtonHTMLAttributes<HTMLButtonElement>>
+        | ComponentType<ButtonComponentProps>
+        | ForwardRefExoticComponent<
+              AnchorHTMLAttributes<HTMLAnchorElement> & RefAttributes<HTMLAnchorElement>
+          >
+        | ForwardRefExoticComponent<
+              ButtonHTMLAttributes<HTMLButtonElement> & RefAttributes<HTMLButtonElement>
+          >
+        | ForwardRefExoticComponent<ButtonComponentProps & RefAttributes<HTMLElement>>;
 
     /**
      * Идентификатор для систем автоматизированного тестирования.
@@ -113,24 +125,35 @@ type ComponentProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
-};
+}
 
-export type PrivateButtonProps = {
+export interface PrivateButtonProps {
     /**
      * Основные стили компонента.
      */
-    styles: { [key: string]: string };
+    styles: StylesMap;
 
     /**
      * Стили компонента для default и inverted режима.
      */
     colorStylesMap: StyleColors;
-};
+}
 
-export type CommonButtonProps = ComponentProps &
-    Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
+export type ButtonRef = HTMLElement;
 
-export type ButtonProps = CommonButtonProps & {
+export interface ButtonComponentProps
+    extends ButtonHTMLAttributes<HTMLElement>,
+        Omit<AnchorHTMLAttributes<HTMLElement>, keyof ButtonHTMLAttributes<HTMLElement>> {}
+
+export interface CommonButtonProps
+    extends ComponentProps,
+        Omit<ButtonHTMLAttributes<HTMLElement>, keyof ComponentProps>,
+        Omit<
+            AnchorHTMLAttributes<HTMLElement>,
+            keyof ButtonHTMLAttributes<HTMLElement> | keyof ComponentProps
+        > {}
+
+export interface ButtonProps extends CommonButtonProps {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -147,4 +170,4 @@ export type ButtonProps = CommonButtonProps & {
      * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
-};
+}

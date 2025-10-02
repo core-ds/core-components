@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { BaseButton } from '../components/base-button';
-import { type CommonButtonProps } from '../typings';
+import { type ButtonRef, type CommonButtonProps } from '../typings';
 
 import defaultColors from './default.mobile.module.css';
 import invertedColors from './inverted.mobile.module.css';
@@ -12,8 +12,6 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export const ButtonMobile = forwardRef<HTMLAnchorElement | HTMLButtonElement, CommonButtonProps>(
-    (restProps, ref) => (
-        <BaseButton {...restProps} ref={ref} colorStylesMap={colorStyles} styles={styles} />
-    ),
-);
+export const ButtonMobile = forwardRef<ButtonRef, CommonButtonProps>((restProps, ref) => (
+    <BaseButton {...restProps} ref={ref} colorStylesMap={colorStyles} styles={styles} />
+));

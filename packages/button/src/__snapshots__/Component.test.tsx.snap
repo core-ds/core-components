@@ -77,6 +77,7 @@ exports[`Button Snapshots tests should render anchor if href pass 1`] = `
   "baseElement": <body>
     <div>
       <a
+        aria-disabled="false"
         class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
         href="https://some-url"
       />
@@ -84,6 +85,7 @@ exports[`Button Snapshots tests should render anchor if href pass 1`] = `
   </body>,
   "container": <div>
     <a
+      aria-disabled="false"
       class="component secondary size-56 hug size-56 component secondary component secondary iconOnly"
       href="https://some-url"
     />
@@ -306,8 +308,8 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
   "baseElement": <body>
     <div>
       <a
+        aria-disabled="false"
         class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
-        disabled=""
         href="https://some-url"
       >
         <svg
@@ -351,8 +353,8 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
   </body>,
   "container": <div>
     <a
+      aria-disabled="false"
       class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
-      disabled=""
       href="https://some-url"
     >
       <svg
@@ -454,7 +456,6 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
     <div>
       <button
         class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
-        disabled=""
         type="button"
       >
         <svg
@@ -499,7 +500,6 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
   "container": <div>
     <button
       class="component secondary size-56 hug size-56 component secondary component secondary iconOnly loading"
-      disabled=""
       type="button"
     >
       <svg

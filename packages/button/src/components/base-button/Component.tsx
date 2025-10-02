@@ -1,21 +1,15 @@
 /* eslint-disable complexity */
-import React, {
-    type AnchorHTMLAttributes,
-    type ButtonHTMLAttributes,
-    forwardRef,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { forwardRef, type MouseEventHandler, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, isNonNullable } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
 import { LOADER_MIN_DISPLAY_INTERVAL } from '../../constants/loader-min-display-interval';
-import { type CommonButtonProps, type PrivateButtonProps } from '../../typings';
+import { type ButtonRef, type CommonButtonProps, type PrivateButtonProps } from '../../typings';
+import { ButtonComponent } from '../button-component';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -26,10 +20,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export const BaseButton = forwardRef<
-    HTMLAnchorElement | HTMLButtonElement,
-    CommonButtonProps & PrivateButtonProps
->(
+export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButtonProps>(
     (
         {
             allowBackdropBlur,
@@ -45,14 +36,15 @@ export const BaseButton = forwardRef<
             className,
             spinnerClassName,
             dataTestId,
-            href,
             loading = false,
             nowrap = false,
             colors = 'default',
-            Component = href ? 'a' : 'button',
+            Component = ButtonComponent,
             onClick,
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
+            disabled = false,
+            type = 'button',
             ...restProps
         },
         ref,
@@ -63,7 +55,7 @@ export const BaseButton = forwardRef<
 
         const [loaderTimePassed, setLoaderTimePassed] = useState(true);
 
-        const timerId = useRef(0);
+        const timerId = useRef<number | null>(null);
 
         const showLoader = loading || !loaderTimePassed;
 
@@ -98,14 +90,8 @@ export const BaseButton = forwardRef<
                 },
                 className,
             ),
-            'data-test-id': dataTestId || null,
+            'data-test-id': dataTestId,
         };
-
-        const {
-            disabled,
-            type = 'button',
-            ...restButtonProps
-        } = restProps as ButtonHTMLAttributes<HTMLButtonElement>;
 
         const buttonChildren = (
             <React.Fragment>
@@ -151,58 +137,36 @@ export const BaseButton = forwardRef<
 
                 timerId.current = window.setTimeout(() => {
                     setLoaderTimePassed(true);
+                    timerId.current = null;
                 }, LOADER_MIN_DISPLAY_INTERVAL);
             }
         }, [loading]);
 
         useEffect(
             () => () => {
-                window.clearTimeout(timerId.current);
+                if (isNonNullable(timerId.current)) {
+                    window.clearTimeout(timerId.current);
+                }
             },
             [],
         );
 
-        const handleClick = (
-            e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
-                React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        ) => {
+        const handleClick: MouseEventHandler<HTMLElement> = (event) => {
             if (disabled || showLoader) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                return;
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                onClick?.(event);
             }
-            onClick?.(e);
         };
-
-        if (href) {
-            const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
-
-            // Для совместимости с react-router-dom, меняем href на to
-            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
-
-            return (
-                <Component
-                    rel={target === '_blank' ? 'noreferrer noopener' : undefined}
-                    {...componentProps}
-                    {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
-                    {...hrefProps}
-                    onClick={handleClick}
-                    disabled={disabled || showLoader}
-                    ref={mergeRefs([buttonRef, ref])}
-                >
-                    {buttonChildren}
-                </Component>
-            );
-        }
 
         return (
             <Component
                 {...componentProps}
-                {...restButtonProps}
-                onClick={handleClick}
+                {...restProps}
                 type={type}
-                disabled={disabled || showLoader}
+                disabled={disabled}
+                onClick={handleClick}
                 ref={mergeRefs([buttonRef, ref])}
             >
                 {buttonChildren}

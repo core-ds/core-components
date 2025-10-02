@@ -6,6 +6,7 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
   "baseElement": <body>
     <div>
       <a
+        aria-disabled="false"
         class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
         data-test-id="test-id"
         href="http://example.com"
@@ -36,6 +37,7 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
   </body>,
   "container": <div>
     <a
+      aria-disabled="false"
       class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
       data-test-id="test-id"
       href="http://example.com"
