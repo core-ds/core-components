@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
+import React, { type FC, type KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
 import SwiperCore, { A11y, Controller, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -105,12 +105,12 @@ export const ImageViewer: FC = () => {
     const swiperAspectRatio = swiperWidth / swiperHeight;
 
     return (
-        /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
         <div
             className={cn(styles.component, {
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             })}
+            aria-hidden={true}
             onClick={handleWrapperClick}
         >
             {showControls && (

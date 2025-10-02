@@ -1,4 +1,4 @@
-import React, { TdHTMLAttributes, useContext } from 'react';
+import React, { type TdHTMLAttributes, useContext } from 'react';
 import cn from 'classnames';
 
 import { TableContext } from '../table-context';

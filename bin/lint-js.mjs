@@ -3,21 +3,28 @@
 import path from 'node:path';
 import { cwd, exit } from 'node:process';
 
+import { ESLINT_IGNORED_PACKAGES } from '../tools/eslint.cjs';
 import { $ } from '../tools/execa.mjs';
-import { readPackagesFile } from '../tools/read-packages-file.cjs';
 
 async function main() {
-    const ESLINT_IGNORED_PACKAGES = await readPackagesFile(
-        path.resolve(cwd(), 'tools/.eslint-ignored-packages'),
-    );
-
     const exitCodes = (
         await Promise.all([
-            $('eslint', ['bin', 'tools', '--ext', '.cjs,.mjs,.js', '--max-warnings', '0'], {
-                preferLocal: true,
-                stdio: 'inherit',
-                reject: false,
-            }),
+            $(
+                'eslint',
+                [
+                    'bin',
+                    'tools',
+                    '--ext',
+                    '.js,.jsx,.ts,.tsx,.mjs,.mts,.cjs,.cts',
+                    '--max-warnings',
+                    '0',
+                ],
+                {
+                    preferLocal: true,
+                    stdio: 'inherit',
+                    reject: false,
+                },
+            ),
             $(
                 'lerna',
                 [
@@ -29,7 +36,7 @@ async function main() {
                     'eslint',
                     'src',
                     '--ext',
-                    '.ts,.tsx,.js,.jsx',
+                    '.js,.jsx,.ts,.tsx,.mjs,.mts,.cjs,.cts',
                     '--max-warnings',
                     '0',
                     '--config',

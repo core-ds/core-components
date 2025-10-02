@@ -83,7 +83,7 @@ describe('Accordion', () => {
 
             control.click();
 
-            expect(onExpandedChange).toBeCalledTimes(1);
+            expect(onExpandedChange).toHaveBeenCalledTimes(1);
         });
     });
 

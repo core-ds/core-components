@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { render } from '@testing-library/react';
 
 import { CardImage } from '@alfalab/core-components-card-image';
+
 import { Space } from './index';
 
 // TODO: more tests

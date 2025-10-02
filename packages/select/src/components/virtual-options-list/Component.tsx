@@ -8,7 +8,7 @@ import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { isClient } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
+import { type GroupShape, type OptionShape, type OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVirtualVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 

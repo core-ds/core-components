@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 
-import { Footer, FooterProps } from './Component';
+import { Footer, type FooterProps } from './Component';
 
 import styles from './desktop.module.css';
 

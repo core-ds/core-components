@@ -1,0 +1,1 @@
+export { BaseMarkdown } from './Component';

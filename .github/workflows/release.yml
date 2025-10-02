@@ -15,7 +15,7 @@ jobs:
         if: ${{ github.repository == 'core-ds/core-components' }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   # used GH_TOKEN to trigger github actions on branch update
                   # GITHUB_TOKEN doesn't trigger any action

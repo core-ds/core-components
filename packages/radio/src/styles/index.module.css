@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .container {
     display: inline-flex;
@@ -29,7 +29,9 @@
     border-radius: var(--border-radius-circle);
     position: relative;
     margin: var(--gap-2);
-    transition: background-color 0.2s ease, border 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        border 0.2s ease;
 
     &:before {
         content: '';

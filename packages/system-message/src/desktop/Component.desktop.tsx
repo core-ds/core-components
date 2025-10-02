@@ -6,7 +6,7 @@ import { Controls } from '../components/controls';
 import { Graphic } from '../components/graphic';
 import { Subtitle } from '../components/subtitle';
 import { Title } from '../components/title';
-import type { SystemMessageDesktopProps } from '../types';
+import { type SystemMessageDesktopProps } from '../types';
 import { createCompound } from '../utils';
 
 const SystemMessageDesktopComponent: React.FC<SystemMessageDesktopProps> = ({

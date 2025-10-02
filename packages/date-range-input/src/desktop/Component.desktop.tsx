@@ -6,9 +6,9 @@ import { InputProps } from '@alfalab/core-components-input';
 import { InputDesktop } from '@alfalab/core-components-input/desktop';
 
 import {
-    ConditionalProps,
+    type ConditionalProps,
     DateRangeInput,
-    DateRangeInputProps,
+    type DateRangeInputProps,
 } from '../components/date-range-input';
 
 export type DateRangeInputDesktopProps = Omit<

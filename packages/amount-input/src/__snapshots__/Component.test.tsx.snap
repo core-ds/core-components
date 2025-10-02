@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`AmountInput Snapshots tests should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -22,8 +22,6 @@ Object {
               >
                 <input
                   class="input size-48 input input"
-                  inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -78,8 +76,6 @@ Object {
             >
               <input
                 class="input size-48 input input"
-                inputmode="decimal"
-                pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 ₽"
                 type="text"
                 value=""
@@ -170,7 +166,7 @@ Object {
 `;
 
 exports[`AmountInput Snapshots tests should match snapshot 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -191,8 +187,6 @@ Object {
               >
                 <input
                   class="input size-48 input input"
-                  inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -246,8 +240,6 @@ Object {
               >
                 <input
                   class="input size-48 input input"
-                  inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 $"
                   type="text"
                   value="12 345,67"
@@ -311,8 +303,6 @@ Object {
             >
               <input
                 class="input size-48 input input"
-                inputmode="decimal"
-                pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 $"
                 type="text"
                 value="12 345,67"

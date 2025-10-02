@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
 
-import { BaseInput, BaseInputProps } from '../components/base-input';
+import { BaseInput, type BaseInputProps } from '../components/base-input';
 
 export type InputDesktopProps = Omit<BaseInputProps, 'FormControlComponent'>;
 

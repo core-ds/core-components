@@ -1,7 +1,7 @@
-import type { BorderColorType, ShadowType } from '@alfalab/core-components-types';
+import { type BorderColorType, type ShadowType } from '@alfalab/core-components-types';
 
 import { BACKGROUND } from '../constants';
-import type { BorderSizeType } from '../types';
+import { type BorderSizeType } from '../types';
 
 import styles from '../index.module.css';
 

@@ -372,7 +372,7 @@ describe('Input', () => {
 
             fireEvent.change(input, { target: { value } });
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(input.value).toBe(value);
         });
 
@@ -383,7 +383,7 @@ describe('Input', () => {
 
             fireEvent.focus(getByTestId(dataTestId));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onBlur` prop', () => {
@@ -393,7 +393,7 @@ describe('Input', () => {
 
             fireEvent.blur(getByTestId(dataTestId));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should not call `onChange` prop if disabled', async () => {
@@ -407,7 +407,7 @@ describe('Input', () => {
 
             await userEvent.type(input, '123');
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         it('should call `onClear` prop when clear button clicked', () => {
@@ -416,13 +416,13 @@ describe('Input', () => {
 
             fireEvent.click(getByLabelText('Очистить'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<Input value='value' onChange={jest.fn()} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

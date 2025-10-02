@@ -1,5 +1,28 @@
 # @alfalab/core-components-checkbox-group
 
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1731](https://github.com/core-ds/core-components/pull/1731)
+
+-   Убрана красная линия и отступ слева в состоянии ошибки:
+
+    -   Для мобильных компонентов во всех темах
+    -   Для десктопных компонентов в теме `click`
+
+-   Изменены отступы для групп с `type="tag"`:
+    -   Между label и группой: с 12px до 8px
+    -   Между группой и hint/error: с 12px до 8px
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-mq@5.0.1
+
 ## 5.0.0
 
 ### Major Changes

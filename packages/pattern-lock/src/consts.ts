@@ -1,6 +1,6 @@
-import type { ReactPatternLockProps } from '@alfalab/react-canvas-pattern-lock';
+import { type ReactPatternLockProps } from '@alfalab/react-canvas-pattern-lock';
 
-import type { ObservableTokens } from './typings';
+import { type ObservableTokens } from './typings';
 
 export const OBSERVE_OPTIONS: MutationObserverInit = {
     childList: true,

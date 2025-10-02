@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .coreChart {
     & :global(.recharts-line path) {
@@ -13,7 +13,9 @@
 }
 
 .bar {
-    transition: opacity 0.2s ease-out, d 0.2s ease-out;
+    transition:
+        opacity 0.2s ease-out,
+        d 0.2s ease-out;
 }
 
 .unfocused {

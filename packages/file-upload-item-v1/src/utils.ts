@@ -4,22 +4,6 @@ import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { DocumentTxtMIcon } from '@alfalab/icons-glyph/DocumentTxtMIcon';
 import { DocumentUnknownMIcon } from '@alfalab/icons-glyph/DocumentUnknownMIcon';
 
-export function humanFileSize(size: string | number) {
-    const units = ['Б', 'КБ', 'МБ', 'ГБ'];
-
-    let humanSize: string | number = Number(size);
-    let factor = 0;
-
-    while (humanSize >= 1024 && factor < units.length - 1) {
-        humanSize /= 1024;
-        factor += 1;
-    }
-
-    humanSize = humanSize.toFixed(2);
-
-    return `${Number(humanSize)} ${units[factor]}`;
-}
-
 export const getExtension = (filename: string) => filename.toLowerCase().split('.').pop();
 
 export function fileIcon(filename: string) {

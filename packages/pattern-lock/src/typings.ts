@@ -1,6 +1,6 @@
-import { MouseEvent } from 'react';
+import { type MouseEvent } from 'react';
 
-import { ReactPatternLockProps } from '@alfalab/react-canvas-pattern-lock';
+import { type ReactPatternLockProps } from '@alfalab/react-canvas-pattern-lock';
 
 type ConditionalProps =
     | {

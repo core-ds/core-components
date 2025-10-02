@@ -1,7 +1,7 @@
-import { KeyboardEvent } from 'react';
-import { MaskitoPlugin } from '@maskito/core';
+import { type KeyboardEvent } from 'react';
+import { type MaskitoPlugin } from '@maskito/core';
 
-import { DateTemplate } from '../types';
+import { type DateTemplate } from '../types';
 
 import { findCursorPlace, getValueSegments } from './utils';
 

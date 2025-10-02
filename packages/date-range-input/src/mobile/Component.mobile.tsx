@@ -6,9 +6,9 @@ import { InputProps } from '@alfalab/core-components-input';
 import { InputMobile } from '@alfalab/core-components-input/mobile';
 
 import {
-    ConditionalProps,
+    type ConditionalProps,
     DateRangeInput,
-    DateRangeInputProps,
+    type DateRangeInputProps,
 } from '../components/date-range-input';
 
 export type DateRangeInputMobileProps = Omit<

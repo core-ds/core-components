@@ -1,5 +1,18 @@
 # @alfalab/core-components-pagination
 
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-tag@9.0.1
+
 ## 3.0.0
 
 ### Major Changes

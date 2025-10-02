@@ -1,10 +1,10 @@
-import type { HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
-import type { HandledEvents } from 'react-swipeable/es/types';
-import type { TransitionProps } from 'react-transition-group/Transition';
+import { type HTMLAttributes, type ReactElement, type ReactNode, type RefObject } from 'react';
+import { type HandledEvents } from 'react-swipeable/es/types';
+import { type TransitionProps } from 'react-transition-group/Transition';
 
-import type { BaseModalProps } from '@alfalab/core-components-base-modal';
-import type { NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
-import type { BackgroundColorType } from '@alfalab/core-components-types';
+import { type BaseModalProps } from '@alfalab/core-components-base-modal';
+import { type NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
+import { type BackgroundColorType } from '@alfalab/core-components-types';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
