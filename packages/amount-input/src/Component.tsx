@@ -120,24 +120,19 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onCh
     transparentMinor?: boolean;
 
     /**
-     * Добавляет компонент "Stepper" в правый аддон
+     * Добавляет компонент "Stepper" в правый аддонx
      */
-    stepper?: {
-        /**
-         * Шаг инкремента / декремента
-         */
-        step: number;
-        /**
-         * Минимальное значение
-         * @default Number.MIN_SAFE_INTEGER
-         */
-        min?: number;
-        /**
-         * Максимальное значение
-         * @default Number.MAX_SAFE_INTEGER
-         */
-        max?: number;
-    };
+    step: number;
+    /**
+     * Минимальное значение
+     * @default Number.MIN_SAFE_INTEGER
+     */
+    min?: number;
+    /**
+     * Максимальное значение
+     * @default Number.MAX_SAFE_INTEGER
+     */
+    max?: number;
 };
 
 /**
@@ -360,7 +355,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                                 })}
                             >
                                 {minorPart !== undefined && (
-                                    <span className={styles.suffixMinor}>{`${numberParams.decimalSeparator}${minorPart}`}</span>
+                                    <span
+                                        className={styles.suffixMinor}
+                                    >{`${numberParams.decimalSeparator}${minorPart}`}</span>
                                 )}
                                 {THINSP}
                                 <span className={styles.suffixCurrency}>
