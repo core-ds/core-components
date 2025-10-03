@@ -1,5 +1,42 @@
 # @alfalab/core-components
 
+## 49.7.0
+
+### Minor Changes
+
+<sup><time>03.10.2025</time></sup>
+
+#### [#1893](https://github.com/core-ds/core-components/pull/1893)
+
+- Добавлена поддержка aria-label для улучшения доступности в компоненте Plate
+
+### Patch Changes
+
+<sup><time>03.10.2025</time></sup>
+
+#### [#1811](https://github.com/core-ds/core-components/pull/1811)
+
+- Добавлена span обертка над значениями `amount-input`
+- Исправлен баг с некорректным отображением при выделении текста на os Windows
+
+<sup><time>03.10.2025</time></sup>
+
+#### [#1907](https://github.com/core-ds/core-components/pull/1907)
+
+- Исправлена типизация компонента `Input` для `SliderInput`
+
+<sup><time>03.10.2025</time></sup>
+
+#### [#1905](https://github.com/core-ds/core-components/pull/1905)
+
+- Корректный `inputMode` для `AmountInput`
+
+- Обновлены зависимости
+    - @alfalab/core-components-amount-input@8.1.2
+    - @alfalab/core-components-slider-input@10.0.4
+    - @alfalab/core-components-plate@8.1.0
+    - @alfalab/core-components-alert@5.0.2
+
 ## 49.6.0
 
 ### Minor Changes
