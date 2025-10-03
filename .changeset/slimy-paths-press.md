@@ -3,4 +3,4 @@
 '@alfalab/core-components': patch
 ---
 
-Корретный `inputMode` для `AmountInput`
+Корректный `inputMode` для `AmountInput`
