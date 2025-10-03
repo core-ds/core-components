@@ -3,17 +3,18 @@ import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
 import { List } from '@alfalab/core-components-list';
-import { Text, TitleDesktop, TitleMobile } from '@alfalab/core-components-typography';
+import { Text } from '@alfalab/core-components-typography';
 
-import { type FontType, type OverridesComponents, type PlatformType } from '../../typings';
+import { type BaseMarkdownProps, type FontType, type OverridesComponents } from '../../typings';
 
 import styles from './index.module.css';
 
-export const useOverrides = (platform?: PlatformType, font?: FontType): OverridesComponents =>
-    useMemo(() => {
-        const Title = platform === 'desktop' ? TitleDesktop : TitleMobile;
-
-        return {
+export const useOverrides = (
+    Title: BaseMarkdownProps['Title'],
+    font?: FontType,
+): OverridesComponents =>
+    useMemo(
+        () => ({
             h1: (props) => (
                 <Title
                     font={font}
@@ -117,5 +118,8 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     {props.children}
                 </Text>
             ),
-        };
-    }, [font, platform]);
+        }),
+        // Зависимости от DI импортов (Title) не нужны
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [font],
+    );
