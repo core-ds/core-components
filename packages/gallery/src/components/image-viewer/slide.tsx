@@ -100,8 +100,7 @@ export const Slide: FC<SlideProps> = ({
                 singleClickTimeoutRef.current = null;
                 clickCountRef.current = 0;
             }, 300);
-            
-        } else if(singleClickTimeoutRef.current) {
+        } else if (singleClickTimeoutRef.current) {
             window.clearTimeout(singleClickTimeoutRef.current);
             singleClickTimeoutRef.current = null;
             clickCountRef.current = 0;

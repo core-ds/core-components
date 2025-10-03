@@ -35,12 +35,12 @@
 
     &.hiddenNavigation {
         max-height: 100vh;
-        height: 100vh; 
-        padding: 0; 
+        height: 100vh;
+        padding: 0;
     }
 
     &.mobile.hiddenNavigation {
-        max-height: 100vh; 
+        max-height: 100vh;
     }
 }
 
@@ -64,8 +64,8 @@
 
     &.hiddenNavigation {
         max-height: 100vh;
-        height: 100vh; 
-        padding: 0; 
+        height: 100vh;
+        padding: 0;
     }
 
     &.mobile.hiddenNavigation {
