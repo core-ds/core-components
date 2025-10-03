@@ -29,6 +29,12 @@ export type BasePlateProps = {
     hasCloser?: boolean;
 
     /**
+     * Лейбл доступности для закрывающего крестика
+     * @default закрыть
+     */
+    closerAriaLabel?: string;
+
+    /**
      * Управление наличием стрелки скрытия контента
      */
     foldable?: boolean;
@@ -167,6 +173,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
     (
         {
             hasCloser,
+            closerAriaLabel = 'закрыть',
             foldable: foldableProp = false,
             folded: foldedProp,
             defaultFolded = true,
@@ -404,7 +411,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                         <div className={commonStyles.rightAddons}>
                             <IconButton
                                 className={commonStyles.closer}
-                                aria-label='закрыть'
+                                aria-label={closerAriaLabel}
                                 icon={CrossMIcon}
                                 size='xxs'
                                 onClick={handleClose}
