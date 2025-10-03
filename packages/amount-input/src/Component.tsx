@@ -173,6 +173,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onChange,
             onClear,
             onFocus,
+            onBlur,
             onKeyDown,
             breakpoint,
             client,
@@ -268,6 +269,12 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             setIsFocused(true);
 
             onFocus?.(e);
+        };
+
+        const handleBlur: withSuffixProps['onBlur'] = (e) => {
+            setIsFocused(false);
+
+            onBlur?.(e);
         };
 
         const handleClear = useCallback(
@@ -384,6 +391,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onChange={handleChange}
                     onClear={handleClear}
                     onFocus={handleFocus}
+                    onBlur={handleBlur}
                     inputMode={numberParams.maximumFractionDigits === 0 ? 'numeric' : 'decimal'}
                     dataTestId={dataTestId}
                     ref={mergeRefs([ref, inputRef])}
