@@ -1,5 +1,26 @@
 # @alfalab/core-components-file-upload-item-v1
 
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+- Обновлены `@alfalab/icons-*` пакеты
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1823](https://github.com/core-ds/core-components/pull/1823)
+
+- Функция `humanFileSize` вынесена в модуль `shared`
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@7.0.1
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-spinner@5.0.1
+
 ## 2.0.0
 
 ### Major Changes
@@ -16,65 +37,65 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-icon-button@7.0.0
-    -   @alfalab/core-components-link@6.0.0
-    -   @alfalab/core-components-spinner@5.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@7.0.0
+    - @alfalab/core-components-link@6.0.0
+    - @alfalab/core-components-spinner@5.0.0
 
 ## 1.0.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   spinner@4.0.9
-    -   icon-button@6.11.13
+- Обновлены зависимости
+    - spinner@4.0.9
+    - icon-button@6.11.13
 
 ## 1.0.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   spinner@4.0.8
-    -   icon-button@6.11.12
+- Обновлены зависимости
+    - spinner@4.0.8
+    - icon-button@6.11.12
 
 ## 1.0.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   spinner@4.0.7
-    -   icon-button@6.11.11
+- Обновлены зависимости
+    - spinner@4.0.7
+    - icon-button@6.11.11
 
 ## 1.0.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   spinner@4.0.6
-    -   icon-button@6.11.10
+- Обновлены зависимости
+    - spinner@4.0.6
+    - icon-button@6.11.10
 
 ## 1.0.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.11.9
+- Обновлены зависимости
+    - icon-button@6.11.9
 
 ## 1.0.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   spinner@4.0.5
-    -   icon-button@6.11.8
+- Обновлены зависимости
+    - spinner@4.0.5
+    - icon-button@6.11.8
 
 ## 1.0.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   spinner@4.0.4
-    -   icon-button@6.11.7
+- Обновлены зависимости
+    - spinner@4.0.4
+    - icon-button@6.11.7
 
 ## 1.0.5
 
@@ -84,12 +105,12 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   icon-button@6.11.6
-    -   link@5.3.4
-    -   spinner@4.0.3
+- Обновлены зависимости
+    - icon-button@6.11.6
+    - link@5.3.4
+    - spinner@4.0.3
 
 ## 1.0.4
 
@@ -99,12 +120,12 @@
 
 ### [#1497](https://github.com/core-ds/core-components/pull/1497)
 
--   Добавлено sideEffects: false (package.json)
+- Добавлено sideEffects: false (package.json)
 
--   Обновлены зависимости
-    -   icon-button@6.11.5
-    -   link@5.3.3
-    -   spinner@4.0.2
+- Обновлены зависимости
+    - icon-button@6.11.5
+    - link@5.3.3
+    - spinner@4.0.2
 
 ## 1.0.3
 
@@ -114,26 +135,26 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   icon-button@6.11.4
-    -   link@5.3.2
-    -   spinner@4.0.1
+- Обновлены зависимости
+    - icon-button@6.11.4
+    - link@5.3.2
+    - spinner@4.0.1
 
 ## 1.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.11.3
+- Обновлены зависимости
+    - icon-button@6.11.3
 
 ## 1.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.11.2
+- Обновлены зависимости
+    - icon-button@6.11.2
 
 ## 1.0.0
 
@@ -166,6 +187,6 @@ import { FileUploadItemV1 } from '@alfalab/core-components/file-upload-item-v1';
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   spinner@4.0.0
-    -   icon-button@6.11.1
+- Обновлены зависимости
+    - spinner@4.0.0
+    - icon-button@6.11.1

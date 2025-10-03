@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { ContainerMIcon } from '@alfalab/icons-glyph/ContainerMIcon';

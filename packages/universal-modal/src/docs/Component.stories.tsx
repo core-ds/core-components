@@ -40,7 +40,12 @@ const Content = () => {
                     <Text />
                 </>
             )}
-            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
+            <Button
+                className='showMoreButton'
+                size={40}
+                type='Button'
+                onClick={() => setShowMore(!showMore)}
+            >
                 {showMore ? 'Скрыть' : 'Показать еще'}
             </Button>
         </>
@@ -197,6 +202,8 @@ export const mobile: Story = {
         );
         const open = boolean('open', false);
         const appearance = select('appearance', ['bottom', 'right'], 'bottom');
+        const hasCloser = boolean('header.hasCloser', false);
+        const hasBackButton = boolean('header.hasBackButton', false);
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -213,6 +220,8 @@ export const mobile: Story = {
                             sticky={stickyHeader}
                             title={headerTitle}
                             align={headerAlign}
+                            hasCloser={hasCloser}
+                            hasBackButton={hasBackButton}
                         />
                     )}
                     <UniversalModalMobile.Content>

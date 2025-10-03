@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import { OptgroupProps } from '../../typings';
+import { type OptgroupProps } from '../../typings';
 
 import styles from './index.module.css';
 

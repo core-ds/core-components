@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { Tab } from './components/tab';
-import { TabBarProps } from './types';
+import { type TabBarProps } from './types';
 
 import styles from './index.module.css';
 

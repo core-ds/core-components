@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { SwipeableHandlers } from 'react-swipeable';
+import React, { type FC } from 'react';
+import { type SwipeableHandlers } from 'react-swipeable';
 
-import { Backdrop, BackdropProps } from '@alfalab/core-components-backdrop';
+import { Backdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 
 export type SwipeableBackdropProps = BackdropProps & {
     /**

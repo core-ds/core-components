@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { BaseCustomButton } from '../components/base-custom-button';
-import { CustomButtonProps } from '../types/props';
+import { type CustomButtonProps } from '../types/props';
 
 export const CustomButtonMobile = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,

@@ -162,7 +162,7 @@ describe('Tabs', () => {
         it.each(tabVariants)('should unmount without errors', (Component, view) => {
             const { unmount } = renderTabs(Component, { view });
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
 
         it('should not render empty tabs', () => {
@@ -191,7 +191,7 @@ describe('Tabs', () => {
                 fireEvent.click(tab[0]);
             }
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it.each(tabVariants)('should not call `onChange` for selected tab', (Component, view) => {
@@ -203,7 +203,50 @@ describe('Tabs', () => {
                 fireEvent.click(tab);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('Aria and data attributes', () => {
+        it('should pass aria and data attributes through titleProps', () => {
+            const { container } = renderTabs(TabsDesktop, {
+                titleProps: {
+                    'aria-describedby': 'description-id',
+                    'data-custom-title': 'custom-title-value',
+                },
+            });
+
+            const allButtons = container.querySelectorAll('button[role="tab"]');
+            expect(allButtons.length).toBeGreaterThan(0);
+
+            const ariaButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('aria-describedby') === 'description-id',
+            );
+            expect(ariaButton).toBeInTheDocument();
+
+            const dataButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('data-custom-title') === 'custom-title-value',
+            );
+            expect(dataButton).toBeInTheDocument();
+        });
+
+        it('should prioritize dataTestId prop over data-test-id attribute', () => {
+            const { container } = renderTabs(
+                TabsDesktop,
+                {},
+                {
+                    'data-test-id': 'attribute-test-id',
+                    dataTestId: 'prop-test-id',
+                },
+            );
+
+            const allButtons = container.querySelectorAll('button[role="tab"]');
+            expect(allButtons.length).toBeGreaterThan(0);
+
+            const tabButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('data-test-id') === 'prop-test-id-toggle',
+            );
+            expect(tabButton).toBeInTheDocument();
         });
     });
 });

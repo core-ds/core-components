@@ -1,8 +1,8 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { type ReactNode, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { compute } from 'compute-scroll-into-view';
 
-import { PlatformProps, TabsProps } from '../../typings';
+import { type PlatformProps, type TabsProps } from '../../typings';
 import { ScrollControls } from '../scroll-controls';
 
 import styles from './index.module.css';

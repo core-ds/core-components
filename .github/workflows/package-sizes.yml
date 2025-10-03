@@ -11,7 +11,7 @@ jobs:
         name: analyze target package sizes
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   ref: ${{ github.base_ref }}
 
@@ -32,7 +32,7 @@ jobs:
         name: analyze current package sizes
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - uses: ./.github/actions/ci-setup
 
@@ -54,23 +54,23 @@ jobs:
         outputs:
             result: ${{ steps.compare.outputs.result }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
 
             - name: download target
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v5
               with:
                   name: target
                   path: target
 
             - name: download current
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v5
               with:
                   name: current
                   path: current
 
             - name: compare package sizes
               id: compare
-              uses: actions/github-script@v7
+              uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |
@@ -104,7 +104,7 @@ jobs:
 
             - name: delete outdated comment
               if: ${{ needs.compare.outputs.result == '' && steps.find-comment.outputs.comment-id != '' }}
-              uses: actions/github-script@v7
+              uses: actions/github-script@v8
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   script: |

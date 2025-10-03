@@ -8,7 +8,7 @@ import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
 import { pluralize } from '@alfalab/utils';
 
 import { TYPOGRAPHY_VIEW_FOR_SIZE } from '../../consts';
-import { Size } from '../../typings';
+import { type Size } from '../../typings';
 import { showNumberOfCards } from '../../utils';
 
 import styles from './index.module.css';

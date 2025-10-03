@@ -1,8 +1,8 @@
 import React, {
-    ChangeEvent,
+    type ChangeEvent,
     forwardRef,
-    MouseEvent,
-    ReactNode,
+    type MouseEvent,
+    type ReactNode,
     useCallback,
     useEffect,
     useState,
@@ -18,7 +18,7 @@ import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
 
 import { getDefaultInputLabel } from './helpers/getDefaultInputLabel';
 import { MaskTypeEnum } from './enums';
-import { MaskType } from './types';
+import { type MaskType } from './types';
 import { validateCardNumber } from './utils';
 
 import styles from './index.module.css';

@@ -1,7 +1,7 @@
 /* eslint-disable complexity */
 import React, {
-    AnchorHTMLAttributes,
-    ButtonHTMLAttributes,
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
     useEffect,
     useRef,
     useState,
@@ -13,7 +13,11 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
-import { CommonButtonProps, ComponentProps, PrivateButtonProps } from '../../typings';
+import {
+    type CommonButtonProps,
+    type ComponentProps,
+    type PrivateButtonProps,
+} from '../../typings';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';

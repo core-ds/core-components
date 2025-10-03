@@ -94,19 +94,6 @@ async function main(args) {
         path.resolve(cwd(), 'bin/build-root.mjs'),
         'link',
     ]);
-
-    const PURGECSS_IGNORED_PACKAGES = await readPackagesFile(
-        path.join(dirname, '.purgecss-ignored-packages'),
-    );
-
-    await $('lerna', [
-        'exec',
-        '--stream',
-        ...PURGECSS_IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
-        '--',
-        'node',
-        path.resolve(cwd(), 'bin/purgecss.mjs'),
-    ]);
 }
 
 await main(hideBin(argv));

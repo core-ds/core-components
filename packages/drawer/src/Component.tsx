@@ -1,9 +1,13 @@
 import React, { forwardRef, useMemo } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { TransitionProps } from 'react-transition-group/Transition';
+import { type TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalContext, BaseModalProps } from '@alfalab/core-components-base-modal';
+import {
+    BaseModal,
+    BaseModalContext,
+    type BaseModalProps,
+} from '@alfalab/core-components-base-modal';
 
 import styles from './index.module.css';
 

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext, useEffect } from 'react';
+import React, { type FC, type ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { BaseModalContext } from '@alfalab/core-components-base-modal';

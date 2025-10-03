@@ -71,6 +71,6 @@ describe('HatchingProgressBar', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<HatchingProgressBar value={20} hatchValue={40} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import addDays from 'date-fns/addDays';
 import addMonths from 'date-fns/addMonths';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
@@ -25,8 +25,15 @@ import subMonths from 'date-fns/subMonths';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { DateShift, Day, DayAddons, Month, SpecialDays, SpecialDaysAddon } from './typings';
-import { CalendarProps } from '.';
+import {
+    type DateShift,
+    type Day,
+    type DayAddons,
+    type Month,
+    type SpecialDays,
+    type SpecialDaysAddon,
+} from './typings';
+import { type CalendarProps } from '.';
 
 export const DAYS_IN_WEEK = 7;
 export const MONTHS_IN_YEAR = 12;

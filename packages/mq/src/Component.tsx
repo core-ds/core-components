@@ -1,4 +1,4 @@
-import React, { FC, Fragment, ReactNode, useEffect } from 'react';
+import React, { type FC, Fragment, type ReactNode, useEffect } from 'react';
 
 import { useMatchMedia } from './useMatchMedia';
 import { isPointerEventsSupported, isTouchSupported } from './utils';

@@ -1,4 +1,4 @@
-import { XAxisProps } from '../xAxis.types';
+import { type XAxisProps } from '../xAxis.types';
 
 export interface TickProps {
     /*

@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import {
     NavigationBarPrivate,
-    NavigationBarPrivateProps,
+    type NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
@@ -13,16 +13,17 @@ import { UniversalModalContext } from '../../../context/universal-modal-context'
 import styles from '../base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
 
-export type HeaderDesktopProps = Omit<
-    NavigationBarPrivateProps,
-    'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle'
-> & {
+export interface HeaderDesktopProps
+    extends Omit<
+        NavigationBarPrivateProps,
+        'size' | 'view' | 'parentRef' | 'titleSize' | 'subtitle'
+    > {
     /**
      * Заголовок в шапке крупного размера
      * @default false
      */
     bigTitle?: boolean;
-};
+}
 
 export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((props, ref) => {
     const {
