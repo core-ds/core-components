@@ -1,11 +1,18 @@
 # @alfalab/core-components-phone-input
 
+## 8.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-masked-input@7.0.2
+
 ## 8.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-masked-input@7.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-masked-input@7.0.1
 
 ## 8.0.0
 
@@ -23,8 +30,8 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-masked-input@7.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-masked-input@7.0.0
 
 ## 7.5.8
 
@@ -34,65 +41,65 @@
 
 ### [#1698](https://github.com/core-ds/core-components/pull/1698)
 
--   При вставке номера телефона без знака "+" номер не обрезается.
+- При вставке номера телефона без знака "+" номер не обрезается.
 
 <sup><time>23.06.2025</time></sup>
 
 ### [#1729](https://github.com/core-ds/core-components/pull/1729)
 
--   Исправлено определение вставки чисел перед знаком `+` или после него. Ранее могло приводить к ошибкам при управлении компонентом с помощью изменения `value`
+- Исправлено определение вставки чисел перед знаком `+` или после него. Ранее могло приводить к ошибкам при управлении компонентом с помощью изменения `value`
 
--   Обновлены зависимости
-    -   masked-input@6.3.39
+- Обновлены зависимости
+    - masked-input@6.3.39
 
 ## 7.5.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.38
+- Обновлены зависимости
+    - masked-input@6.3.38
 
 ## 7.5.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.37
+- Обновлены зависимости
+    - masked-input@6.3.37
 
 ## 7.5.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.36
+- Обновлены зависимости
+    - masked-input@6.3.36
 
 ## 7.5.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.35
+- Обновлены зависимости
+    - masked-input@6.3.35
 
 ## 7.5.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.34
+- Обновлены зависимости
+    - masked-input@6.3.34
 
 ## 7.5.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.33
+- Обновлены зависимости
+    - masked-input@6.3.33
 
 ## 7.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.32
+- Обновлены зависимости
+    - masked-input@6.3.32
 
 ## 7.5.0
 
@@ -102,19 +109,19 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Добавлен 40 размер
+- Добавлен 40 размер
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.31
+- Обновлены зависимости
+    - masked-input@6.3.31
 
 ## 7.4.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.30
+- Обновлены зависимости
+    - masked-input@6.3.30
 
 ## 7.4.6
 
@@ -124,45 +131,45 @@
 
 ### [#1486](https://github.com/core-ds/core-components/pull/1486)
 
--   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+- Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
 
--   Обновлены зависимости
-    -   masked-input@6.3.29
+- Обновлены зависимости
+    - masked-input@6.3.29
 
 ## 7.4.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.28
+- Обновлены зависимости
+    - masked-input@6.3.28
 
 ## 7.4.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.27
+- Обновлены зависимости
+    - masked-input@6.3.27
 
 ## 7.4.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.26
+- Обновлены зависимости
+    - masked-input@6.3.26
 
 ## 7.4.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.25
+- Обновлены зависимости
+    - masked-input@6.3.25
 
 ## 7.4.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.24
+- Обновлены зависимости
+    - masked-input@6.3.24
 
 ## 7.4.0
 
@@ -172,105 +179,105 @@
 
 ### [#1371](https://github.com/core-ds/core-components/pull/1371)
 
--   Исправлено удаление номера в режиме clearableCountryCode
+- Исправлено удаление номера в режиме clearableCountryCode
 
 ## 7.3.24
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.23
+- Обновлены зависимости
+    - masked-input@6.3.23
 
 ## 7.3.23
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.22
+- Обновлены зависимости
+    - masked-input@6.3.22
 
 ## 7.3.22
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.21
+- Обновлены зависимости
+    - masked-input@6.3.21
 
 ## 7.3.21
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.20
+- Обновлены зависимости
+    - masked-input@6.3.20
 
 ## 7.3.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.19
+- Обновлены зависимости
+    - masked-input@6.3.19
 
 ## 7.3.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.18
+- Обновлены зависимости
+    - masked-input@6.3.18
 
 ## 7.3.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.17
+- Обновлены зависимости
+    - masked-input@6.3.17
 
 ## 7.3.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.16
+- Обновлены зависимости
+    - masked-input@6.3.16
 
 ## 7.3.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.15
+- Обновлены зависимости
+    - masked-input@6.3.15
 
 ## 7.3.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.14
+- Обновлены зависимости
+    - masked-input@6.3.14
 
 ## 7.3.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.13
+- Обновлены зависимости
+    - masked-input@6.3.13
 
 ## 7.3.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.12
+- Обновлены зависимости
+    - masked-input@6.3.12
 
 ## 7.3.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.11
+- Обновлены зависимости
+    - masked-input@6.3.11
 
 ## 7.3.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.10
+- Обновлены зависимости
+    - masked-input@6.3.10
 
 ## 7.3.10
 
@@ -280,52 +287,52 @@
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
--   Обновлены зависимости
-    -   masked-input@6.3.9
+- Обновлены зависимости
+    - masked-input@6.3.9
 
 ## 7.3.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.8
+- Обновлены зависимости
+    - masked-input@6.3.8
 
 ## 7.3.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.7
+- Обновлены зависимости
+    - masked-input@6.3.7
 
 ## 7.3.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.6
+- Обновлены зависимости
+    - masked-input@6.3.6
 
 ## 7.3.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.5
+- Обновлены зависимости
+    - masked-input@6.3.5
 
 ## 7.3.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.4
+- Обновлены зависимости
+    - masked-input@6.3.4
 
 ## 7.3.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.3
+- Обновлены зависимости
+    - masked-input@6.3.3
 
 ## 7.3.3
 
@@ -335,21 +342,21 @@
 
 ### [#1139](https://github.com/core-ds/core-components/pull/1139)
 
--   Исправлена ошибка при вставке номера телефона без указания кода страны (когда цифра 7 находится на второй позиции). Например, раньше при вставке номера 9706531700 номер форматировался в +7 906 531 70 0. Теперь цифра 7 не удаляется из вставляемого телефона
+- Исправлена ошибка при вставке номера телефона без указания кода страны (когда цифра 7 находится на второй позиции). Например, раньше при вставке номера 9706531700 номер форматировался в +7 906 531 70 0. Теперь цифра 7 не удаляется из вставляемого телефона
 
 ## 7.3.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.2
+- Обновлены зависимости
+    - masked-input@6.3.2
 
 ## 7.3.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.1
+- Обновлены зависимости
+    - masked-input@6.3.1
 
 ## 7.3.0
 
@@ -359,82 +366,82 @@
 
 ### [#1021](https://github.com/core-ds/core-components/pull/1021)
 
--   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+- Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.3.0
+- Обновлены зависимости
+    - masked-input@6.3.0
 
 ## 7.2.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.19
+- Обновлены зависимости
+    - masked-input@6.2.19
 
 ## 7.2.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.18
+- Обновлены зависимости
+    - masked-input@6.2.18
 
 ## 7.2.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.17
+- Обновлены зависимости
+    - masked-input@6.2.17
 
 ## 7.2.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.16
+- Обновлены зависимости
+    - masked-input@6.2.16
 
 ## 7.2.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.15
+- Обновлены зависимости
+    - masked-input@6.2.15
 
 ## 7.2.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.14
+- Обновлены зависимости
+    - masked-input@6.2.14
 
 ## 7.2.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.13
+- Обновлены зависимости
+    - masked-input@6.2.13
 
 ## 7.2.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.12
+- Обновлены зависимости
+    - masked-input@6.2.12
 
 ## 7.2.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.11
+- Обновлены зависимости
+    - masked-input@6.2.11
 
 ## 7.2.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.10
+- Обновлены зависимости
+    - masked-input@6.2.10
 
 ## 7.2.10
 
@@ -442,52 +449,52 @@
 
 ### [#900](https://github.com/core-ds/core-components/pull/900)
 
--   Исправлен формат номера телефона (удалены скобки и тире)
+- Исправлен формат номера телефона (удалены скобки и тире)
 
--   Обновлены зависимости
-    -   masked-input@6.2.9
+- Обновлены зависимости
+    - masked-input@6.2.9
 
 ## 7.2.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.8
+- Обновлены зависимости
+    - masked-input@6.2.8
 
 ## 7.2.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.7
+- Обновлены зависимости
+    - masked-input@6.2.7
 
 ## 7.2.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.6
+- Обновлены зависимости
+    - masked-input@6.2.6
 
 ## 7.2.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.5
+- Обновлены зависимости
+    - masked-input@6.2.5
 
 ## 7.2.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.4
+- Обновлены зависимости
+    - masked-input@6.2.4
 
 ## 7.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.3
+- Обновлены зависимости
+    - masked-input@6.2.3
 
 ## 7.2.3
 
@@ -495,14 +502,14 @@
 
 ### [#802](https://github.com/core-ds/core-components/pull/802)
 
--   Исправлена ошибка, из-за которой в поле вставлялась лишняя 7 при вводе значения перед +7
+- Исправлена ошибка, из-за которой в поле вставлялась лишняя 7 при вводе значения перед +7
 
 ## 7.2.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.2
+- Обновлены зависимости
+    - masked-input@6.2.2
 
 ## 7.2.1
 
@@ -510,10 +517,10 @@
 
 ### [#794](https://github.com/core-ds/core-components/pull/794)
 
--   Исправлена ошибка, из-за которой невозможно было программно установить фокус
+- Исправлена ошибка, из-за которой невозможно было программно установить фокус
 
--   Обновлены зависимости
-    -   masked-input@6.2.1
+- Обновлены зависимости
+    - masked-input@6.2.1
 
 ## 7.2.0
 
@@ -521,12 +528,12 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.2.0
+- Обновлены зависимости
+    - masked-input@6.2.0
 
 ## 7.1.18
 
@@ -534,38 +541,38 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   masked-input@6.1.18
+- Обновлены зависимости
+    - masked-input@6.1.18
 
 ## 7.1.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.17
+- Обновлены зависимости
+    - masked-input@6.1.17
 
 ## 7.1.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.16
+- Обновлены зависимости
+    - masked-input@6.1.16
 
 ## 7.1.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.15
+- Обновлены зависимости
+    - masked-input@6.1.15
 
 ## 7.1.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.14
+- Обновлены зависимости
+    - masked-input@6.1.14
 
 ## 7.1.13
 
@@ -573,31 +580,31 @@
 
 ### [#654](https://github.com/core-ds/core-components/pull/654)
 
--   Удалены лишние dependencies, добавлены отсутствующие
+- Удалены лишние dependencies, добавлены отсутствующие
 
--   Обновлены зависимости
-    -   masked-input@6.1.13
+- Обновлены зависимости
+    - masked-input@6.1.13
 
 ## 7.1.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.12
+- Обновлены зависимости
+    - masked-input@6.1.12
 
 ## 7.1.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.11
+- Обновлены зависимости
+    - masked-input@6.1.11
 
 ## 7.1.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.10
+- Обновлены зависимости
+    - masked-input@6.1.10
 
 ## 7.1.9
 
@@ -605,17 +612,17 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   masked-input@6.1.9
+- Обновлены зависимости
+    - masked-input@6.1.9
 
 ## 7.1.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.8
+- Обновлены зависимости
+    - masked-input@6.1.8
 
 ## 7.1.7
 
@@ -623,45 +630,45 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   masked-input@6.1.7
+- Обновлены зависимости
+    - masked-input@6.1.7
 
 ## 7.1.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.6
+- Обновлены зависимости
+    - masked-input@6.1.6
 
 ## 7.1.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.5
+- Обновлены зависимости
+    - masked-input@6.1.5
 
 ## 7.1.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.4
+- Обновлены зависимости
+    - masked-input@6.1.4
 
 ## 7.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.3
+- Обновлены зависимости
+    - masked-input@6.1.3
 
 ## 7.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.2
+- Обновлены зависимости
+    - masked-input@6.1.2
 
 ## 7.1.1
 
@@ -669,10 +676,10 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   masked-input@6.1.1
+- Обновлены зависимости
+    - masked-input@6.1.1
 
 ## 7.1.0
 
@@ -680,19 +687,19 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
--   В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.0
+- Обновлены зависимости
+    - masked-input@6.1.0
 
 ## 7.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.0.2
+- Обновлены зависимости
+    - masked-input@6.0.2
 
 ## 7.0.1
 
@@ -700,10 +707,10 @@
 
 ### [#320](https://github.com/core-ds/core-components/pull/320)
 
--   Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
+- Скрыт нативный спиннер (стрелочки) у компонента Input при type='number'
 
--   Обновлены зависимости
-    -   masked-input@6.0.1
+- Обновлены зависимости
+    - masked-input@6.0.1
 
 ## 7.0.0
 
@@ -711,38 +718,38 @@
 
 ### [#286](https://github.com/core-ds/core-components/pull/286)
 
--   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
--   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+- Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+- Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.0.0
+- Обновлены зависимости
+    - masked-input@6.0.0
 
 ## 6.1.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@5.0.10
+- Обновлены зависимости
+    - masked-input@5.0.10
 
 ## 6.1.5
 
 ### Patch Changes
 
--   @alfalab/core-components-masked-input@5.0.9
+- @alfalab/core-components-masked-input@5.0.9
 
 ## 6.1.4
 
 ### Patch Changes
 
--   @alfalab/core-components-masked-input@5.0.8
+- @alfalab/core-components-masked-input@5.0.8
 
 ## 6.1.3
 
 ### Patch Changes
 
--   @alfalab/core-components-masked-input@5.0.7
+- @alfalab/core-components-masked-input@5.0.7
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -759,7 +766,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+- testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
 
 ## [6.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@6.0.2...@alfalab/core-components-phone-input@6.0.3) (2022-08-31)
 
@@ -777,12 +784,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -790,7 +797,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 ## [5.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.5.0...@alfalab/core-components-phone-input@5.5.1) (2022-08-11)
 
@@ -800,7 +807,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [5.4.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.4.3...@alfalab/core-components-phone-input@5.4.4) (2022-07-25)
 
@@ -814,7 +821,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [5.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.4.0...@alfalab/core-components-phone-input@5.4.1) (2022-07-14)
 
@@ -824,7 +831,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 ## [5.3.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.3.6...@alfalab/core-components-phone-input@5.3.7) (2022-06-23)
 
@@ -838,13 +845,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+- Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 ## [5.2.14](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.2.13...@alfalab/core-components-phone-input@5.2.14) (2022-02-17)
 
 ### Bug Fixes
 
--   imports for glyph icons ([#994](https://github.com/core-ds/core-components/issues/994)) ([8e807f2](https://github.com/core-ds/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+- imports for glyph icons ([#994](https://github.com/core-ds/core-components/issues/994)) ([8e807f2](https://github.com/core-ds/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
 
 ## [5.2.13](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.2.12...@alfalab/core-components-phone-input@5.2.13) (2022-02-15)
 
@@ -902,7 +909,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   change error type to ReactNode ([#825](https://github.com/core-ds/core-components/issues/825)) ([c6d95c1](https://github.com/core-ds/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+- change error type to ReactNode ([#825](https://github.com/core-ds/core-components/issues/825)) ([c6d95c1](https://github.com/core-ds/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
 
 ## [5.1.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.1.6...@alfalab/core-components-phone-input@5.1.7) (2021-08-27)
 
@@ -916,7 +923,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   **input:** smart error icon ([#746](https://github.com/core-ds/core-components/issues/746)) ([f1950d6](https://github.com/core-ds/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/core-ds/core-components/issues/782)
+- **input:** smart error icon ([#746](https://github.com/core-ds/core-components/issues/746)) ([f1950d6](https://github.com/core-ds/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/core-ds/core-components/issues/782)
 
 ## [5.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.1.3...@alfalab/core-components-phone-input@5.1.4) (2021-08-11)
 
@@ -934,13 +941,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   **phone-input:** value prop ([#757](https://github.com/core-ds/core-components/issues/757)) ([3ba0168](https://github.com/core-ds/core-components/commit/3ba01686ffa950bd74d9ab28bfa961c6cf74a5d8))
+- **phone-input:** value prop ([#757](https://github.com/core-ds/core-components/issues/757)) ([3ba0168](https://github.com/core-ds/core-components/commit/3ba01686ffa950bd74d9ab28bfa961c6cf74a5d8))
 
 # [5.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.0.1...@alfalab/core-components-phone-input@5.1.0) (2021-07-19)
 
 ### Features
 
--   **phone-input:** add 'clearableCountyCode' prop ([#749](https://github.com/core-ds/core-components/issues/749)) ([d110ae7](https://github.com/core-ds/core-components/commit/d110ae76594ccbf7f6d8a5764d3c2a72b1ae9a26))
+- **phone-input:** add 'clearableCountyCode' prop ([#749](https://github.com/core-ds/core-components/issues/749)) ([d110ae7](https://github.com/core-ds/core-components/commit/d110ae76594ccbf7f6d8a5764d3c2a72b1ae9a26))
 
 ## [5.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@5.0.0...@alfalab/core-components-phone-input@5.0.1) (2021-07-09)
 
@@ -950,7 +957,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [4.0.20](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@4.0.19...@alfalab/core-components-phone-input@4.0.20) (2021-06-22)
 
@@ -1008,13 +1015,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+- one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 ## [4.0.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@4.0.3...@alfalab/core-components-phone-input@4.0.5) (2021-03-16)
 
 ### Bug Fixes
 
--   border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+- border-radius in packages ([781749e](https://github.com/core-ds/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
 
 ## [4.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@4.0.2...@alfalab/core-components-phone-input@4.0.3) (2021-03-15)
 
@@ -1032,11 +1039,11 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **phone-input:** changed size L (72 → 64), added size XL (72) ([13257c5](https://github.com/core-ds/core-components/commit/13257c54543b2f1a870527093df11c532143dab9))
+- **phone-input:** changed size L (72 → 64), added size XL (72) ([13257c5](https://github.com/core-ds/core-components/commit/13257c54543b2f1a870527093df11c532143dab9))
 
 ### BREAKING CHANGES
 
--   **phone-input:** size L changed to size XL
+- **phone-input:** size L changed to size XL
 
 ## [3.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-phone-input@3.2.6...@alfalab/core-components-phone-input@3.2.7) (2021-03-03)
 
@@ -1062,4 +1069,4 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
+- update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))

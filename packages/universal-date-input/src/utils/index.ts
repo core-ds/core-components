@@ -1,5 +1,5 @@
 /* eslint-disable no-negated-condition, complexity */
-import { SyntheticEvent } from 'react';
+import { type SyntheticEvent } from 'react';
 import differenceInDays from 'date-fns/differenceInDays';
 import dateFnsFormat from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';

@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef, ReactElement } from 'react';
+import React, { type CSSProperties, forwardRef, type ReactElement } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';

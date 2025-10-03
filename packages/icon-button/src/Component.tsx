@@ -1,13 +1,13 @@
 import React, {
-    AnchorHTMLAttributes,
-    ButtonHTMLAttributes,
-    ElementType,
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
+    type ElementType,
     forwardRef,
-    ReactElement,
+    type ReactElement,
 } from 'react';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import { Button, type ButtonProps } from '@alfalab/core-components-button';
 
 import { transformSize } from './helpers/transformSize';
 

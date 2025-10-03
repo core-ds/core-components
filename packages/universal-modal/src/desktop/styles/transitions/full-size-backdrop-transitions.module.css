@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     --universal-modal-backdrop-visible-background: var(--color-light-overlay-default);
@@ -42,7 +42,8 @@
 
 .exitActive {
     opacity: 1;
-    animation: step_1 200ms cubic-bezier(0, 0, 1, 0),
+    animation:
+        step_1 200ms cubic-bezier(0, 0, 1, 0),
         step_2 200ms cubic-bezier(0, 0, 0, 1) 200ms forwards;
 }
 

@@ -1,5 +1,15 @@
 # @alfalab/core-components-themes
 
+## 14.1.2
+
+### Patch Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1805](https://github.com/core-ds/core-components/pull/1805)
+
+-   Переменные типографики вынесены в отдельный файл `typography-vars.css`
+
 ## 14.1.1
 
 ### Patch Changes

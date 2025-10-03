@@ -1,6 +1,6 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
-@define-mixin hover {
+@define-mixin hover-before {
     @media (hover: hover) {
         &:hover:before {
             @mixin-content;
@@ -51,7 +51,7 @@
     }
 
     &.darkening {
-        @mixin hover {
+        @mixin hover-before {
             background-color: var(--color-light-neutral-translucent-200);
         }
 
@@ -61,7 +61,7 @@
     }
 
     &.lightening {
-        @mixin hover {
+        @mixin hover-before {
             background-color: var(--color-light-neutral-translucent-200-inverted);
         }
 
@@ -71,7 +71,7 @@
     }
 
     &.static-darkening {
-        @mixin hover {
+        @mixin hover-before {
             background-color: rgba(0, 0, 0, 0.07);
         }
 
@@ -81,7 +81,7 @@
     }
 
     &.static-lightening {
-        @mixin hover {
+        @mixin hover-before {
             background-color: rgba(255, 255, 255, 0.07);
         }
 

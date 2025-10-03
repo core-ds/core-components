@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import './vars.css';
 
 .component {
@@ -200,7 +200,9 @@
 }
 
 .folder {
-    transition: transform 0.15s ease-in-out, opacity 0.2s ease;
+    transition:
+        transform 0.15s ease-in-out,
+        opacity 0.2s ease;
     transform: var(--arrow-transform);
 
     &.isFolded {

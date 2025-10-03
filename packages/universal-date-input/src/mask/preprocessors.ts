@@ -1,9 +1,9 @@
-import { MaskitoPreprocessor } from '@maskito/core';
-import { ElementState } from '@maskito/core/lib/types';
+import { type MaskitoPreprocessor } from '@maskito/core';
+import { type ElementState } from '@maskito/core/lib/types';
 import isValid from 'date-fns/isValid';
 
 import { DATE_RANGE_SEPARATOR } from '../consts';
-import { DateTemplate } from '../types';
+import { type DateTemplate } from '../types';
 import { parseDateString } from '../utils';
 
 import {

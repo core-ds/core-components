@@ -108,7 +108,7 @@ describe('ScrollableList', () => {
                 fireEvent.mouseDown(item);
             });
 
-            expect(onDragStart).toBeCalledTimes(1);
+            expect(onDragStart).toHaveBeenCalledTimes(1);
         });
 
         it('should call onDragEnd', async () => {
@@ -126,8 +126,8 @@ describe('ScrollableList', () => {
                 fireEvent.mouseUp(item);
             });
 
-            expect(onDragEnd).toBeCalledTimes(1);
-            expect(onDragEnd).toBeCalledWith(expect.anything(), items);
+            expect(onDragEnd).toHaveBeenCalledTimes(1);
+            expect(onDragEnd).toHaveBeenCalledWith(expect.anything(), items);
         });
 
         it('should set border-radius', async () => {
@@ -182,7 +182,7 @@ describe('ScrollableList', () => {
         it('should unmount without errors', () => {
             const { unmount } = render(<SortableListWrapper />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

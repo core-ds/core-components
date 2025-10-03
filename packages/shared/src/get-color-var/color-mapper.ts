@@ -1,5 +1,9 @@
-import { ColorValue, WithoutThemeColorValue, WithThemeColorValue } from './translatecolors';
-import { Color } from './types';
+import {
+    type ColorValue,
+    type WithoutThemeColorValue,
+    type WithThemeColorValue,
+} from './translatecolors';
+import { type Color } from './types';
 
 export type TColorMapper = Record<Color, ColorValue>;
 

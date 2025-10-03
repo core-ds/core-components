@@ -12,8 +12,8 @@
     "dependencies": {
         "@alfalab/core-components-icon-button": "^7.0.1",
         "@alfalab/core-components-link": "^6.0.0",
-        "@alfalab/core-components-spinner": "^5.0.1",
         "@alfalab/core-components-shared": "^1.1.0",
+        "@alfalab/core-components-spinner": "^5.0.1",
         "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
@@ -26,6 +26,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.1",
+    "themesVersion": "14.1.2",
     "varsVersion": "10.1.0"
 }

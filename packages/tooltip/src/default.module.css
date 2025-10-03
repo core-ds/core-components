@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     --tooltip-border-color: var(--color-light-neutral-300);
@@ -8,7 +8,7 @@
     --tooltip-hint-box-shadow: var(--shadow-m-hard);
 }
 
-.hint {
+.hint.hint {
     background-color: var(--tooltip-hint-bg-color);
     box-shadow: var(--tooltip-hint-box-shadow);
     color: var(--tooltip-hint-text-color);

@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     --checkbox-error-color: var(--color-light-text-negative);
@@ -38,7 +38,9 @@
     height: 20px;
     margin: var(--gap-2);
     border-radius: var(--border-radius-4);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
     box-sizing: border-box;
     overflow: hidden;
 }

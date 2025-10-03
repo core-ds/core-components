@@ -1,8 +1,8 @@
-import type { RefObject } from 'react';
+import { type RefObject } from 'react';
 
-import type { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { type BaseModalProps } from '@alfalab/core-components-base-modal';
 
-import type { TMargin } from '../../typings/margin-type';
+import { type TMargin } from '../../typings/margin-type';
 
 export interface BaseUniversalModalProps {
     /**
@@ -61,6 +61,7 @@ export interface UniversalModalDesktopProps
                 | 'backdropProps'
                 | 'disableBackdropClick'
                 | 'onClose'
+                | 'disableFocusLock'
             >
         > {
     /**

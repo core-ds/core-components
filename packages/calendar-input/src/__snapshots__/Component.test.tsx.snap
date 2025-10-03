@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`CalendarInput Display tests should match snapshot 1`] = `
 <div>
@@ -22,7 +22,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
               autocomplete="off"
               class="input size-48 input"
               inputmode="decimal"
-              pattern="[0-9\\\\.]*"
+              pattern="[0-9\\.]*"
               placeholder="ДД.ММ.ГГГГ"
               type="text"
               value=""
@@ -58,7 +58,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
 `;
 
 exports[`CalendarInput Display tests should render left addons 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -92,7 +92,7 @@ Object {
                   autocomplete="off"
                   class="input size-48 input"
                   inputmode="decimal"
-                  pattern="[0-9\\\\.]*"
+                  pattern="[0-9\\.]*"
                   placeholder="ДД.ММ.ГГГГ"
                   type="text"
                   value=""
@@ -154,7 +154,7 @@ Object {
                 autocomplete="off"
                 class="input size-48 input"
                 inputmode="decimal"
-                pattern="[0-9\\\\.]*"
+                pattern="[0-9\\.]*"
                 placeholder="ДД.ММ.ГГГГ"
                 type="text"
                 value=""
@@ -242,7 +242,7 @@ Object {
 `;
 
 exports[`CalendarInput Display tests should render right addons 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -269,7 +269,7 @@ Object {
                   autocomplete="off"
                   class="input size-48 input"
                   inputmode="decimal"
-                  pattern="[0-9\\\\.]*"
+                  pattern="[0-9\\.]*"
                   placeholder="ДД.ММ.ГГГГ"
                   type="text"
                   value=""
@@ -327,7 +327,7 @@ Object {
                 autocomplete="off"
                 class="input size-48 input"
                 inputmode="decimal"
-                pattern="[0-9\\\\.]*"
+                pattern="[0-9\\.]*"
                 placeholder="ДД.ММ.ГГГГ"
                 type="text"
                 value=""

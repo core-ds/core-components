@@ -8,7 +8,9 @@
 .enterActive {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 200ms ease-in, transform 200ms ease-in;
+    transition:
+        opacity 200ms ease-in,
+        transform 200ms ease-in;
 }
 
 .exit {
@@ -20,5 +22,7 @@
 .exitDone {
     opacity: 0;
     transform: translateY(15px);
-    transition: opacity 200ms ease-out, transform 200ms ease-out;
+    transition:
+        opacity 200ms ease-out,
+        transform 200ms ease-out;
 }

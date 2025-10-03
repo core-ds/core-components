@@ -1,5 +1,5 @@
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { Theme, ThemeParams } from '@alfalab/react-canvas-pattern-lock';
+import { type Theme, type ThemeParams } from '@alfalab/react-canvas-pattern-lock';
 
 import { OBSERVABLE_TOKENS, THEME_STATE } from './consts';
 

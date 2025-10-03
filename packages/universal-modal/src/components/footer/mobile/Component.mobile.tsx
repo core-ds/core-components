@@ -1,8 +1,8 @@
-import React, { FC, useContext } from 'react';
+import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { ModalContext } from '../../../Context';
-import { type FooterProps, BaseFooter } from '../base-footer/base-footer';
+import { BaseFooter, type FooterProps } from '../base-footer/base-footer';
 
 import layoutStylesMobile from './layout.mobile.module.css';
 import styles from './mobile.module.css';

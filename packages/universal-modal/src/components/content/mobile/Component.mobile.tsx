@@ -1,8 +1,8 @@
-import React, { FC, useContext } from 'react';
+import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { ModalContext } from '../../../Context';
-import { type ContentProps, BaseContent } from '../base-content/base-content';
+import { BaseContent, type ContentProps } from '../base-content/base-content';
 
 import styles from './mobile.module.css';
 

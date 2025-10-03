@@ -1,16 +1,16 @@
-import React, { Ref, useEffect, useMemo, useRef } from 'react';
+import React, { type Ref, useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import {
     PickerButtonDesktop,
-    PickerButtonDesktopProps,
+    type PickerButtonDesktopProps,
 } from '@alfalab/core-components-picker-button/desktop';
 
 import { useTablistTitles } from '../../hooks/use-tablist-titles';
 import { createSyntheticMouseEvent } from '../../synthetic-events';
-import { TabListProps } from '../../typings';
+import { type TabListProps } from '../../typings';
 import { Title } from '../title';
 
 import styles from './index.module.css';

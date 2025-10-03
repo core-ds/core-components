@@ -19,7 +19,7 @@ jobs:
         outputs:
             url: ${{ steps.url.outputs.result }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   ref: gh-pages
                   lfs: true
@@ -31,7 +31,7 @@ jobs:
                   rm -rf ${{ inputs.dir }}
 
             - name: download build
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v5
               with:
                   name: build
                   path: ${{ inputs.dir }}
@@ -51,7 +51,7 @@ jobs:
 
             - name: demo url
               id: url
-              uses: actions/github-script@v7
+              uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |

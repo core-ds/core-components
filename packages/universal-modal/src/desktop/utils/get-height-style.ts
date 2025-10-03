@@ -1,6 +1,6 @@
 import { hasOwnProperty, isClient } from '@alfalab/core-components-shared';
 
-import type { UniversalModalDesktopProps } from '../types/props';
+import { type UniversalModalDesktopProps } from '../types/props';
 
 export const getHeightStyle = (
     height: Exclude<UniversalModalDesktopProps['height'], undefined>,

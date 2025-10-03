@@ -15,9 +15,8 @@
     ],
     "compilerOptions": {
         "types": ["@alfalab/core-components-env", "@types/webpack-env"],
-        "outDir": "build",
+        "noEmit": true,
         "paths": {
-            "storybook/*": ["./*"],
             "@alfalab/core-components-accordion": ["../packages/accordion/src"],
             "@alfalab/core-components-accordion/*": ["../packages/accordion/src/*"],
             "@alfalab/core-components-account-select": ["../packages/account-select/src"],
@@ -312,6 +311,7 @@
             "@alfalab/core-components-vars/*": ["../packages/vars/src/*"],
             "@alfalab/core-components-with-suffix": ["../packages/with-suffix/src"],
             "@alfalab/core-components-with-suffix/*": ["../packages/with-suffix/src/*"]
+            "storybook/*": ["./*"]
         }
     }
 }

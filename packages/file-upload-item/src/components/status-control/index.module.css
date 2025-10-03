@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .container {
     position: relative;
@@ -24,6 +24,10 @@
             & path {
                 stroke: var(--color-light-status-positive);
             }
+        }
+
+        &.loading {
+            color: var(--color-light-neutral-500);
         }
 
         &.error {

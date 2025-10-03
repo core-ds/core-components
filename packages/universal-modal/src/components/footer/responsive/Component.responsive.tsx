@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { type FooterDesktopProps, FooterDesktop } from '../desktop/Component.desktop';
-import { type FooterMobileProps, FooterMobile } from '../mobile/Component.mobile';
+import { FooterDesktop, type FooterDesktopProps } from '../desktop/Component.desktop';
+import { FooterMobile, type FooterMobileProps } from '../mobile/Component.mobile';
 
 export interface FooterResponsiveProps extends FooterDesktopProps, FooterMobileProps {}
 

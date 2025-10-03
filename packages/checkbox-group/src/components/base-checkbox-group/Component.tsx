@@ -1,13 +1,13 @@
 import React, {
-    ChangeEvent,
+    type ChangeEvent,
     Children,
     cloneElement,
-    FocusEvent,
+    type FocusEvent,
     forwardRef,
     isValidElement,
-    MouseEvent,
-    ReactElement,
-    ReactNode,
+    type MouseEvent,
+    type ReactElement,
+    type ReactNode,
 } from 'react';
 import cn from 'classnames';
 

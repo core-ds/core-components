@@ -8,7 +8,9 @@
 .enterActive {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 200ms cubic-bezier(0, 0, 0, 1), transform 200ms cubic-bezier(0, 0, 0, 1);
+    transition:
+        opacity 200ms cubic-bezier(0, 0, 0, 1),
+        transform 200ms cubic-bezier(0, 0, 0, 1);
 }
 
 .exit {
@@ -20,5 +22,7 @@
 .exitDone {
     opacity: 0;
     transform: translateY(-40px);
-    transition: opacity 200ms cubic-bezier(0, 0, 1, 0), transform 200ms cubic-bezier(0, 0, 1, 0);
+    transition:
+        opacity 200ms cubic-bezier(0, 0, 1, 0),
+        transform 200ms cubic-bezier(0, 0, 1, 0);
 }

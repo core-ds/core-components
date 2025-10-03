@@ -1,5 +1,12 @@
 # @alfalab/core-components-number-input
 
+## 3.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.2
+
 ## 3.0.1
 
 ### Patch Changes
@@ -8,13 +15,13 @@
 
 #### [#1820](https://github.com/core-ds/core-components/pull/1820)
 
--   Обновлены `@alfalab/icons-*` пакеты
+- Обновлены `@alfalab/icons-*` пакеты
 
--   Обновлены зависимости
-    -   @alfalab/core-components-input@16.0.1
-    -   @alfalab/core-components-icon-button@7.0.1
-    -   @alfalab/core-components-shared@1.1.0
-    -   @alfalab/core-components-mq@5.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.1
+    - @alfalab/core-components-icon-button@7.0.1
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-mq@5.0.1
 
 ## 3.0.0
 
@@ -32,29 +39,29 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-icon-button@7.0.0
-    -   @alfalab/core-components-input@16.0.0
-    -   @alfalab/core-components-mq@5.0.0
-    -   @alfalab/core-components-shared@1.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@7.0.0
+    - @alfalab/core-components-input@16.0.0
+    - @alfalab/core-components-mq@5.0.0
+    - @alfalab/core-components-shared@1.0.0
 
 ## 2.7.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.18.0
-    -   input@15.6.2
-    -   icon-button@6.11.13
+- Обновлены зависимости
+    - shared@0.18.0
+    - input@15.6.2
+    - icon-button@6.11.13
 
 ## 2.7.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
-    -   input@15.6.1
-    -   icon-button@6.11.12
+- Обновлены зависимости
+    - shared@0.17.1
+    - input@15.6.1
+    - icon-button@6.11.12
 
 ## 2.7.0
 
@@ -64,56 +71,56 @@
 
 ### [#1673](https://github.com/core-ds/core-components/pull/1673)
 
--   Внутренняя оптимизация кодовой базы компонента
--   `Stepper` теперь доступен для импорта из директории `shared`
+- Внутренняя оптимизация кодовой базы компонента
+- `Stepper` теперь доступен для импорта из директории `shared`
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.6.0
+- Обновлены зависимости
+    - input@15.6.0
 
 ## 2.6.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
-    -   input@15.5.5
-    -   icon-button@6.11.11
+- Обновлены зависимости
+    - shared@0.17.0
+    - input@15.5.5
+    - icon-button@6.11.11
 
 ## 2.6.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.11.10
-    -   input@15.5.4
+- Обновлены зависимости
+    - icon-button@6.11.10
+    - input@15.5.4
 
 ## 2.6.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.11.9
-    -   input@15.5.3
+- Обновлены зависимости
+    - icon-button@6.11.9
+    - input@15.5.3
 
 ## 2.6.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.16.0
-    -   input@15.5.2
-    -   icon-button@6.11.8
+- Обновлены зависимости
+    - shared@0.16.0
+    - input@15.5.2
+    - icon-button@6.11.8
 
 ## 2.6.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.15.0
-    -   input@15.5.1
-    -   icon-button@6.11.7
+- Обновлены зависимости
+    - shared@0.15.0
+    - input@15.5.1
+    - icon-button@6.11.7
 
 ## 2.6.0
 
@@ -123,13 +130,13 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Добавлен 40 размер
+- Добавлен 40 размер
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.11.6
-    -   input@15.5.0
+- Обновлены зависимости
+    - icon-button@6.11.6
+    - input@15.5.0
 
 ## 2.5.7
 
@@ -139,13 +146,13 @@
 
 ### [#1509](https://github.com/core-ds/core-components/pull/1509)
 
--   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+- Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
 
--   Обновлены зависимости
-    -   icon-button@6.11.5
-    -   mq@4.4.1
-    -   input@15.4.0
-    -   shared@0.14.1
+- Обновлены зависимости
+    - icon-button@6.11.5
+    - mq@4.4.1
+    - input@15.4.0
+    - shared@0.14.1
 
 ## 2.5.6
 
@@ -155,52 +162,52 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   icon-button@6.11.4
-    -   input@15.3.4
+- Обновлены зависимости
+    - icon-button@6.11.4
+    - input@15.3.4
 
 ## 2.5.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.3
-    -   icon-button@6.11.3
+- Обновлены зависимости
+    - input@15.3.3
+    - icon-button@6.11.3
 
 ## 2.5.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.4.0
-    -   input@15.3.2
-    -   icon-button@6.11.2
+- Обновлены зависимости
+    - mq@4.4.0
+    - input@15.3.2
+    - icon-button@6.11.2
 
 ## 2.5.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
-    -   input@15.3.1
-    -   icon-button@6.11.1
+- Обновлены зависимости
+    - shared@0.14.0
+    - input@15.3.1
+    - icon-button@6.11.1
 
 ## 2.5.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.3.0
+- Обновлены зависимости
+    - input@15.3.0
 
 ## 2.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.11.0
-    -   input@15.2.1
+- Обновлены зависимости
+    - icon-button@6.11.0
+    - input@15.2.1
 
 ## 2.5.0
 
@@ -210,39 +217,39 @@
 
 ### [#1213](https://github.com/core-ds/core-components/pull/1213)
 
--   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+- Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.2.0
-    -   shared@0.13.0
-    -   icon-button@6.10.1
+- Обновлены зависимости
+    - input@15.2.0
+    - shared@0.13.0
+    - icon-button@6.10.1
 
 ## 2.4.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.10.0
-    -   input@15.1.3
+- Обновлены зависимости
+    - icon-button@6.10.0
+    - input@15.1.3
 
 ## 2.4.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.9.1
-    -   input@15.1.2
+- Обновлены зависимости
+    - icon-button@6.9.1
+    - input@15.1.2
 
 ## 2.4.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.9.0
-    -   input@15.1.1
-    -   shared@0.12.1
+- Обновлены зависимости
+    - icon-button@6.9.0
+    - input@15.1.1
+    - shared@0.12.1
 
 ## 2.4.0
 
@@ -252,13 +259,13 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.8.0
-    -   input@15.1.0
+- Обновлены зависимости
+    - icon-button@6.8.0
+    - input@15.1.0
 
 ## 2.3.17
 
@@ -268,68 +275,68 @@
 
 ### [#1355](https://github.com/core-ds/core-components/pull/1355)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
--   Обновлены зависимости
-    -   input@15.0.5
-    -   icon-button@6.7.5
+- Обновлены зависимости
+    - input@15.0.5
+    - icon-button@6.7.5
 
 ## 2.3.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.0
-    -   input@15.0.4
-    -   icon-button@6.7.4
+- Обновлены зависимости
+    - shared@0.12.0
+    - input@15.0.4
+    - icon-button@6.7.4
 
 ## 2.3.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.3
+- Обновлены зависимости
+    - input@15.0.3
 
 ## 2.3.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.3.0
-    -   input@15.0.2
-    -   icon-button@6.7.3
+- Обновлены зависимости
+    - mq@4.3.0
+    - input@15.0.2
+    - icon-button@6.7.3
 
 ## 2.3.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.7.2
-    -   input@15.0.1
+- Обновлены зависимости
+    - icon-button@6.7.2
+    - input@15.0.1
 
 ## 2.3.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@15.0.0
+- Обновлены зависимости
+    - input@15.0.0
 
 ## 2.3.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.11.0
-    -   input@14.4.7
-    -   icon-button@6.7.1
+- Обновлены зависимости
+    - shared@0.11.0
+    - input@14.4.7
+    - icon-button@6.7.1
 
 ## 2.3.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.7.0
-    -   input@14.4.6
+- Обновлены зависимости
+    - icon-button@6.7.0
+    - input@14.4.6
 
 ## 2.3.9
 
@@ -339,73 +346,73 @@
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
--   Обновлены зависимости
-    -   icon-button@6.6.1
-    -   input@14.4.5
+- Обновлены зависимости
+    - icon-button@6.6.1
+    - input@14.4.5
 
 ## 2.3.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.6.0
-    -   input@14.4.4
+- Обновлены зависимости
+    - icon-button@6.6.0
+    - input@14.4.4
 
 ## 2.3.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.10.0
-    -   input@14.4.3
-    -   icon-button@6.5.7
+- Обновлены зависимости
+    - shared@0.10.0
+    - input@14.4.3
+    - icon-button@6.5.7
 
 ## 2.3.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.2
+- Обновлены зависимости
+    - input@14.4.2
 
 ## 2.3.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.1
+- Обновлены зависимости
+    - input@14.4.1
 
 ## 2.3.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.4.0
-    -   icon-button@6.5.6
+- Обновлены зависимости
+    - input@14.4.0
+    - icon-button@6.5.6
 
 ## 2.3.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.5.5
-    -   input@14.3.3
+- Обновлены зависимости
+    - icon-button@6.5.5
+    - input@14.3.3
 
 ## 2.3.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.5.4
-    -   input@14.3.2
+- Обновлены зависимости
+    - icon-button@6.5.4
+    - input@14.3.2
 
 ## 2.3.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.1
+- Обновлены зависимости
+    - input@14.3.1
 
 ## 2.3.0
 
@@ -415,13 +422,13 @@
 
 ### [#1021](https://github.com/core-ds/core-components/pull/1021)
 
--   Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+- Добавлены новые способы указать размеры - 48, 56, 64, 72. Буквенные значения размеров s, m, l, xl теперь deprecated, используйте вместо них 48, 56, 64, 72 соответственно
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.3.0
-    -   icon-button@6.5.3
+- Обновлены зависимости
+    - input@14.3.0
+    - icon-button@6.5.3
 
 ## 2.2.0
 
@@ -429,29 +436,29 @@
 
 ### [#1049](https://github.com/core-ds/core-components/pull/1049)
 
--   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+- Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.2.0
-    -   icon-button@6.5.2
+- Обновлены зависимости
+    - input@14.2.0
+    - icon-button@6.5.2
 
 ## 2.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.1.2
+- Обновлены зависимости
+    - input@14.1.2
 
 ## 2.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.1
-    -   input@14.1.1
-    -   icon-button@6.5.1
+- Обновлены зависимости
+    - shared@0.9.1
+    - input@14.1.1
+    - icon-button@6.5.1
 
 ## 2.1.0
 
@@ -459,33 +466,33 @@
 
 ### [#1007](https://github.com/core-ds/core-components/pull/1007)
 
--   Обновлена зависимость @alfalab/icons-glyph
+- Обновлена зависимость @alfalab/icons-glyph
 
 ### Patch Changes
 
 ### [#1016](https://github.com/core-ds/core-components/pull/1016)
 
--   Изменили CSS-токен для фона в степпере с neutral_inverted/1500 на neutral-translucent/0 в дефолтном наборе цветов и с neutral/1500 на neutral-translucent_inverted/0 в инвертированном
+- Изменили CSS-токен для фона в степпере с neutral_inverted/1500 на neutral-translucent/0 в дефолтном наборе цветов и с neutral/1500 на neutral-translucent_inverted/0 в инвертированном
 
--   Обновлены зависимости
-    -   input@14.1.0
-    -   icon-button@6.5.0
-    -   shared@0.9.0
+- Обновлены зависимости
+    - input@14.1.0
+    - icon-button@6.5.0
+    - shared@0.9.0
 
 ## 2.0.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.0.1
+- Обновлены зависимости
+    - input@14.0.1
 
 ## 2.0.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@14.0.0
-    -   icon-button@6.4.3
+- Обновлены зависимости
+    - input@14.0.0
+    - icon-button@6.4.3
 
 ## 2.0.2
 
@@ -493,11 +500,11 @@
 
 ### [#987](https://github.com/core-ds/core-components/pull/987)
 
--   Немного изменена структура файлов в пакетах для корректной сборки в vite
+- Немного изменена структура файлов в пакетах для корректной сборки в vite
 
--   Обновлены зависимости
-    -   input@13.0.2
-    -   icon-button@6.4.2
+- Обновлены зависимости
+    - input@13.0.2
+    - icon-button@6.4.2
 
 ## 2.0.1
 
@@ -505,11 +512,11 @@
 
 ### [#961](https://github.com/core-ds/core-components/pull/961)
 
--   Заменены токены для stepper
+- Заменены токены для stepper
 
--   Обновлены зависимости
-    -   icon-button@6.4.1
-    -   input@13.0.1
+- Обновлены зависимости
+    - icon-button@6.4.1
+    - input@13.0.1
 
 ## 2.0.0
 
@@ -517,25 +524,25 @@
 
 ### [#901](https://github.com/core-ds/core-components/pull/901)
 
--   Изменен тип коллбэка onChange, теперь в payload приходит только число
--   Добавлены пропы min, max
--   Удален prop allowSign. Теперь, чтобы появилась возможность вводить знак "-", достаточно указать min < 0
--   Добавлен проп step.
--   Удален StepperInput, используйте вместо него NumberInput с пропом step
+- Изменен тип коллбэка onChange, теперь в payload приходит только число
+- Добавлены пропы min, max
+- Удален prop allowSign. Теперь, чтобы появилась возможность вводить знак "-", достаточно указать min < 0
+- Добавлен проп step.
+- Удален StepperInput, используйте вместо него NumberInput с пропом step
 
 # Миграция с предыдущей версии
 
--   Заменить onChange с (event, {value, valueString}) на (event, {value}).
--   allowSign был удален, знак "+" больше указать невозможно. "-" можно указать по-умолчанию.
-    Чтобы запретить указывать знак "-", достаточно передать проп min={0}
--   <StepperInput .../> нужно заменить на <NumberInput step={1} .../>
+- Заменить onChange с (event, {value, valueString}) на (event, {value}).
+- allowSign был удален, знак "+" больше указать невозможно. "-" можно указать по-умолчанию.
+  Чтобы запретить указывать знак "-", достаточно передать проп min={0}
+- <StepperInput .../> нужно заменить на <NumberInput step={1} .../>
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@13.0.0
-    -   icon-button@6.4.0
-    -   shared@0.8.0
+- Обновлены зависимости
+    - input@13.0.0
+    - icon-button@6.4.0
+    - shared@0.8.0
 
 ## 1.3.0
 
@@ -543,54 +550,54 @@
 
 ### [#944](https://github.com/core-ds/core-components/pull/944)
 
--   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+- Добавлен package.json с module полем в mobile, desktop, shared точки входа
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.3.0
+- Обновлены зависимости
+    - input@12.3.0
 
 ## 1.2.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.2.1
+- Обновлены зависимости
+    - input@12.2.1
 
 ## 1.2.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.2.0
+- Обновлены зависимости
+    - input@12.2.0
 
 ## 1.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.4
+- Обновлены зависимости
+    - input@12.1.4
 
 ## 1.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.3
+- Обновлены зависимости
+    - input@12.1.3
 
 ## 1.2.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.2
+- Обновлены зависимости
+    - input@12.1.2
 
 ## 1.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.1
+- Обновлены зависимости
+    - input@12.1.1
 
 ## 1.2.0
 
@@ -598,26 +605,26 @@
 
 ### [#817](https://github.com/core-ds/core-components/pull/817)
 
--   Добавлена мобильная и десктопная версия компонента
+- Добавлена мобильная и десктопная версия компонента
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.1.0
+- Обновлены зависимости
+    - input@12.1.0
 
 ## 1.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.0.2
+- Обновлены зависимости
+    - input@12.0.2
 
 ## 1.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.0.1
+- Обновлены зависимости
+    - input@12.0.1
 
 ## 1.1.0
 
@@ -625,12 +632,12 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@12.0.0
+- Обновлены зависимости
+    - input@12.0.0
 
 ## 1.0.16
 
@@ -638,66 +645,66 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   input@11.1.18
+- Обновлены зависимости
+    - input@11.1.18
 
 ## 1.0.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.17
+- Обновлены зависимости
+    - input@11.1.17
 
 ## 1.0.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.16
+- Обновлены зависимости
+    - input@11.1.16
 
 ## 1.0.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.15
+- Обновлены зависимости
+    - input@11.1.15
 
 ## 1.0.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.14
+- Обновлены зависимости
+    - input@11.1.14
 
 ## 1.0.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.13
+- Обновлены зависимости
+    - input@11.1.13
 
 ## 1.0.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.12
+- Обновлены зависимости
+    - input@11.1.12
 
 ## 1.0.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.11
+- Обновлены зависимости
+    - input@11.1.11
 
 ## 1.0.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.10
+- Обновлены зависимости
+    - input@11.1.10
 
 ## 1.0.7
 
@@ -705,10 +712,10 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   input@11.1.9
+- Обновлены зависимости
+    - input@11.1.9
 
 ## 1.0.6
 
@@ -716,7 +723,7 @@
 
 ### [#565](https://github.com/core-ds/core-components/pull/565)
 
--   Исправлена ошибка, из-за которой не вызывался onChange, если было передано недопустимое значение
+- Исправлена ошибка, из-за которой не вызывался onChange, если было передано недопустимое значение
 
 ## 1.0.5
 
@@ -724,14 +731,14 @@
 
 ### [#564](https://github.com/core-ds/core-components/pull/564)
 
--   Значение value при сбросе изменено на null
+- Значение value при сбросе изменено на null
 
 ## 1.0.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   input@11.1.8
+- Обновлены зависимости
+    - input@11.1.8
 
 ## 1.0.3
 
@@ -739,28 +746,28 @@
 
 ### [#517](https://github.com/core-ds/core-components/pull/517)
 
--   Изменили внутренний компонент с MaskedInput на Input
+- Изменили внутренний компонент с MaskedInput на Input
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   input@11.1.7
+- Обновлены зависимости
+    - input@11.1.7
 
 ## 1.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.6
+- Обновлены зависимости
+    - masked-input@6.1.6
 
 ## 1.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   masked-input@6.1.5
+- Обновлены зависимости
+    - masked-input@6.1.5
 
 ## 1.0.0
 
@@ -768,4 +775,4 @@
 
 ### [#455](https://github.com/core-ds/core-components/pull/455)
 
--   Добавлен новый компонент NumberInput
+- Добавлен новый компонент NumberInput

@@ -1,5 +1,13 @@
 # @alfalab/core-components-markdown
 
+## 2.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@5.0.2
+    - @alfalab/core-components-list@4.0.2
+
 ## 2.1.0
 
 ### Minor Changes
@@ -8,16 +16,16 @@
 
 #### [#1833](https://github.com/core-ds/core-components/pull/1833)
 
--   Добавлен пропс `transformLinkUri` позволяющий отключить трансформацию для ссылок с неизвестными форматами
+- Добавлен пропс `transformLinkUri` позволяющий отключить трансформацию для ссылок с неизвестными форматами
 
 ## 2.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-mq@5.0.1
-    -   @alfalab/core-components-typography@5.0.1
-    -   @alfalab/core-components-list@4.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-mq@5.0.1
+    - @alfalab/core-components-typography@5.0.1
+    - @alfalab/core-components-list@4.0.1
 
 ## 2.0.0
 
@@ -35,11 +43,11 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-link@6.0.0
-    -   @alfalab/core-components-list@4.0.0
-    -   @alfalab/core-components-mq@5.0.0
-    -   @alfalab/core-components-typography@5.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-link@6.0.0
+    - @alfalab/core-components-list@4.0.0
+    - @alfalab/core-components-mq@5.0.0
+    - @alfalab/core-components-typography@5.0.0
 
 ## 1.7.0
 
@@ -49,88 +57,88 @@
 
 ### [#1765](https://github.com/core-ds/core-components/pull/1765)
 
--   Заменено длинное тире на среднее "–" в маркерах списков
--   Изменено выравнивание текста в контейнере с маркером на правое с сохранением ширины
+- Заменено длинное тире на среднее "–" в маркерах списков
+- Изменено выравнивание текста в контейнере с маркером на правое с сохранением ширины
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   list@3.6.0
+- Обновлены зависимости
+    - list@3.6.0
 
 ## 1.6.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.18.0
-    -   typography@4.14.3
-    -   list@3.5.7
+- Обновлены зависимости
+    - shared@0.18.0
+    - typography@4.14.3
+    - list@3.5.7
 
 ## 1.6.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
-    -   typography@4.14.2
-    -   list@3.5.6
+- Обновлены зависимости
+    - shared@0.17.1
+    - typography@4.14.2
+    - list@3.5.6
 
 ## 1.6.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.14.1
-    -   list@3.5.5
+- Обновлены зависимости
+    - typography@4.14.1
+    - list@3.5.5
 
 ## 1.6.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.14.0
-    -   list@3.5.4
+- Обновлены зависимости
+    - typography@4.14.0
+    - list@3.5.4
 
 ## 1.6.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
-    -   typography@4.13.1
-    -   list@3.5.3
+- Обновлены зависимости
+    - shared@0.17.0
+    - typography@4.13.1
+    - list@3.5.3
 
 ## 1.6.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.13.0
-    -   list@3.5.2
+- Обновлены зависимости
+    - typography@4.13.0
+    - list@3.5.2
 
 ## 1.6.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.12.0
-    -   list@3.5.1
+- Обновлены зависимости
+    - typography@4.12.0
+    - list@3.5.1
 
 ## 1.6.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.16.0
+- Обновлены зависимости
+    - shared@0.16.0
 
 ## 1.6.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   list@3.5.0
-    -   shared@0.15.0
-    -   typography@4.11.4
+- Обновлены зависимости
+    - list@3.5.0
+    - shared@0.15.0
+    - typography@4.11.4
 
 ## 1.6.7
 
@@ -140,23 +148,23 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   link@5.3.4
-    -   list@3.4.7
-    -   typography@4.11.3
+- Обновлены зависимости
+    - link@5.3.4
+    - list@3.4.7
+    - typography@4.11.3
 
 ## 1.6.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.4.1
-    -   shared@0.14.1
-    -   link@5.3.3
-    -   typography@4.11.2
-    -   list@3.4.6
+- Обновлены зависимости
+    - mq@4.4.1
+    - shared@0.14.1
+    - link@5.3.3
+    - typography@4.11.2
+    - list@3.4.6
 
 ## 1.6.5
 
@@ -166,18 +174,18 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 <sup><time>13.12.2024</time></sup>
 
 ### [#1473](https://github.com/core-ds/core-components/pull/1473)
 
--   Переход на атомарные импорты Typography.\[Name] -> \[Name]
+- Переход на атомарные импорты Typography.\[Name] -> \[Name]
 
--   Обновлены зависимости
-    -   link@5.3.2
-    -   list@3.4.5
-    -   typography@4.11.1
+- Обновлены зависимости
+    - link@5.3.2
+    - list@3.4.5
+    - typography@4.11.1
 
 ## 1.6.4
 
@@ -187,31 +195,31 @@
 
 ### [#1480](https://github.com/core-ds/core-components/pull/1480)
 
--   Добавлено sideEffects: false
+- Добавлено sideEffects: false
 
 ## 1.6.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.11.0
-    -   list@3.4.4
+- Обновлены зависимости
+    - typography@4.11.0
+    - list@3.4.4
 
 ## 1.6.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.4.0
-    -   typography@4.10.3
-    -   list@3.4.3
+- Обновлены зависимости
+    - mq@4.4.0
+    - typography@4.10.3
+    - list@3.4.3
 
 ## 1.6.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
+- Обновлены зависимости
+    - shared@0.14.0
 
 ## 1.6.0
 
@@ -221,7 +229,7 @@
 
 ### [#1387](https://github.com/core-ds/core-components/pull/1387)
 
--   Обновление темы corp
+- Обновление темы corp
 
 ## 1.5.2
 
@@ -231,15 +239,15 @@
 
 ### [#1382](https://github.com/core-ds/core-components/pull/1382)
 
--   Исправлено скругление картинок до `16px`
+- Исправлено скругление картинок до `16px`
 
 ## 1.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.10.2
-    -   list@3.4.2
+- Обновлены зависимости
+    - typography@4.10.2
+    - list@3.4.2
 
 ## 1.5.0
 
@@ -249,12 +257,12 @@
 
 ### [#1213](https://github.com/core-ds/core-components/pull/1213)
 
--   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+- Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.13.0
+- Обновлены зависимости
+    - shared@0.13.0
 
 ## 1.4.1
 
@@ -264,19 +272,19 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
 <sup><time>13.09.2024</time></sup>
 
 ### [#1358](https://github.com/core-ds/core-components/pull/1358)
 
--   Обновлены наименования переменных скругления
+- Обновлены наименования переменных скругления
 
--   Обновлены зависимости
-    -   typography@4.10.1
-    -   link@5.3.1
-    -   list@3.4.1
-    -   shared@0.12.1
+- Обновлены зависимости
+    - typography@4.10.1
+    - link@5.3.1
+    - list@3.4.1
+    - shared@0.12.1
 
 ## 1.4.0
 
@@ -286,14 +294,14 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   link@5.3.0
-    -   list@3.4.0
-    -   typography@4.10.0
+- Обновлены зависимости
+    - link@5.3.0
+    - list@3.4.0
+    - typography@4.10.0
 
 ## 1.3.2
 
@@ -303,19 +311,19 @@
 
 ### [#1355](https://github.com/core-ds/core-components/pull/1355)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
--   Обновлены зависимости
-    -   typography@4.9.0
-    -   link@5.2.3
-    -   list@3.3.11
+- Обновлены зависимости
+    - typography@4.9.0
+    - link@5.2.3
+    - list@3.3.11
 
 ## 1.3.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.0
+- Обновлены зависимости
+    - shared@0.12.0
 
 ## 1.3.0
 
@@ -325,106 +333,106 @@
 
 ### [#1305](https://github.com/core-ds/core-components/pull/1305)
 
--   Добавление заголовка h4
+- Добавление заголовка h4
 
 ## 1.2.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.8.0
-    -   list@3.3.10
+- Обновлены зависимости
+    - typography@4.8.0
+    - list@3.3.10
 
 ## 1.2.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.3.0
-    -   typography@4.7.0
-    -   list@3.3.9
+- Обновлены зависимости
+    - mq@4.3.0
+    - typography@4.7.0
+    - list@3.3.9
 
 ## 1.2.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.11.0
+- Обновлены зависимости
+    - shared@0.11.0
 
 ## 1.2.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.6.0
-    -   list@3.3.8
+- Обновлены зависимости
+    - typography@4.6.0
+    - list@3.3.8
 
 ## 1.2.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   link@5.2.2
+- Обновлены зависимости
+    - link@5.2.2
 
 ## 1.2.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.10.0
-    -   typography@4.5.1
-    -   list@3.3.7
+- Обновлены зависимости
+    - shared@0.10.0
+    - typography@4.5.1
+    - list@3.3.7
 
 ## 1.2.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   link@5.2.1
+- Обновлены зависимости
+    - link@5.2.1
 
 ## 1.2.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.5.0
-    -   list@3.3.6
+- Обновлены зависимости
+    - typography@4.5.0
+    - list@3.3.6
 
 ## 1.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.4.0
-    -   shared@0.9.1
-    -   list@3.3.5
+- Обновлены зависимости
+    - typography@4.4.0
+    - shared@0.9.1
+    - list@3.3.5
 
 ## 1.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.3.0
-    -   shared@0.9.0
-    -   list@3.3.4
+- Обновлены зависимости
+    - typography@4.3.0
+    - shared@0.9.0
+    - list@3.3.4
 
 ## 1.2.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   link@5.2.0
-    -   typography@4.2.1
-    -   list@3.3.3
+- Обновлены зависимости
+    - link@5.2.0
+    - typography@4.2.1
+    - list@3.3.3
 
 ## 1.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.2.0
-    -   shared@0.8.0
-    -   list@3.3.2
+- Обновлены зависимости
+    - typography@4.2.0
+    - shared@0.8.0
+    - list@3.3.2
 
 ## 1.2.0
 
@@ -432,12 +440,12 @@
 
 ### [#944](https://github.com/core-ds/core-components/pull/944)
 
--   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+- Добавлен package.json с module полем в mobile, desktop, shared точки входа
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.7.0
+- Обновлены зависимости
+    - shared@0.7.0
 
 ## 1.1.1
 
@@ -445,7 +453,7 @@
 
 ### [#937](https://github.com/core-ds/core-components/pull/937)
 
--   Версия react-markdown снижена до 6.0.2. 6.0.3 сломана
+- Версия react-markdown снижена до 6.0.2. 6.0.3 сломана
 
 ## 1.1.0
 
@@ -453,19 +461,19 @@
 
 ### [#911](https://github.com/core-ds/core-components/pull/911)
 
--   Добавлено распознавание gfm strikethrough синтаксиса (~~strikethrough~~)
+- Добавлено распознавание gfm strikethrough синтаксиса (~~strikethrough~~)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   link@5.1.1
+- Обновлены зависимости
+    - link@5.1.1
 
 ## 1.0.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.6.0
+- Обновлены зависимости
+    - shared@0.6.0
 
 ## 1.0.6
 
@@ -473,36 +481,36 @@
 
 ### [#861](https://github.com/core-ds/core-components/pull/861)
 
--   Понижена версия зависимости react-markdown
+- Понижена версия зависимости react-markdown
 
 ## 1.0.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.5.0
+- Обновлены зависимости
+    - shared@0.5.0
 
 ## 1.0.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.4.0
+- Обновлены зависимости
+    - shared@0.4.0
 
 ## 1.0.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.3.0
+- Обновлены зависимости
+    - shared@0.3.0
 
 ## 1.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@4.1.0
-    -   list@3.3.1
+- Обновлены зависимости
+    - typography@4.1.0
+    - list@3.3.1
 
 ## 1.0.1
 
@@ -510,10 +518,10 @@
 
 ### [#793](https://github.com/core-ds/core-components/pull/793)
 
--   Добавлены недостающие зависимости в package.json
+- Добавлены недостающие зависимости в package.json
 
--   Обновлены зависимости
-    -   shared@0.2.0
+- Обновлены зависимости
+    - shared@0.2.0
 
 ## 1.0.0
 
@@ -521,4 +529,4 @@
 
 ### [#767](https://github.com/core-ds/core-components/pull/767)
 
--   Добавлен новый компонент Markdown
+- Добавлен новый компонент Markdown

@@ -1,14 +1,14 @@
 import React, {
-    AnimationEvent,
-    ChangeEvent,
-    ElementType,
+    type AnimationEvent,
+    type ChangeEvent,
+    type ElementType,
     Fragment,
-    HTMLAttributes,
-    InputHTMLAttributes,
-    KeyboardEvent,
-    MouseEvent,
-    ReactNode,
-    RefAttributes,
+    type HTMLAttributes,
+    type InputHTMLAttributes,
+    type KeyboardEvent,
+    type MouseEvent,
+    type ReactNode,
+    type RefAttributes,
     useCallback,
     useRef,
     useState,
@@ -16,7 +16,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { FormControlProps } from '@alfalab/core-components-form-control';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -414,8 +414,17 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 
         const renderRightAddons = () => {
             const addonsVisible = clearButtonVisible || rightAddons || error || success;
+            const shouldShowSuccessIcon = success && !error;
+            const statusBadgeSize = size === 40 ? 16 : 20;
 
             return (
+                /**
+                 * Right addon priority [4] <= [3] <= [2] <= [1]
+                 * [4] - Clear
+                 * [3] - Status (error, success)
+                 * [2] - Common (info, e.g.)
+                 * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+                 */
                 addonsVisible && (
                     <Fragment>
                         {clearButtonVisible && (
@@ -427,25 +436,25 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                                 size={size}
                             />
                         )}
-                        {rightAddons}
                         {error && (
                             <div className={cn(styles.errorIcon)} data-addon='error-icon'>
                                 <StatusBadge
                                     view='negative-alert'
-                                    size={size === 40 ? 16 : 20}
+                                    size={statusBadgeSize}
                                     dataTestId={getDataTestId(dataTestId, 'error-icon')}
                                 />
                             </div>
                         )}
-                        {success && !error && (
+                        {shouldShowSuccessIcon && (
                             <div className={cn(styles.successIcon)}>
                                 <StatusBadge
                                     view='positive-checkmark'
-                                    size={size === 40 ? 16 : 20}
+                                    size={statusBadgeSize}
                                     dataTestId={getDataTestId(dataTestId, 'success-icon')}
                                 />
                             </div>
                         )}
+                        {rightAddons}
                     </Fragment>
                 )
             );

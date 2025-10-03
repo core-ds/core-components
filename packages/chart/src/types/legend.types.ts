@@ -1,4 +1,4 @@
-import { Formatter } from 'recharts/types/component/DefaultLegendContent';
+import { type Formatter } from 'recharts/types/component/DefaultLegendContent';
 
 export interface LegendProps {
     /**

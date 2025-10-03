@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
-import { TooltipMobileProps } from '../types';
+import { type TooltipMobileProps } from '../types';
 
 import styles from './mobile.module.css';
 

@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../../../toast-plate/src/vars.css';
 
 :root {
@@ -37,7 +37,9 @@
     &.enterActive {
         opacity: 1;
         transform: scale(1);
-        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+        transition:
+            opacity 150ms ease-in-out,
+            transform 150ms ease-in-out;
     }
 
     &.exit {
@@ -48,6 +50,8 @@
     &.exitActive {
         opacity: 0;
         transform: scale(0.98);
-        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+        transition:
+            opacity 150ms ease-in-out,
+            transform 150ms ease-in-out;
     }
 }
