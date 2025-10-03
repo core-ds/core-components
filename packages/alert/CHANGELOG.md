@@ -1,11 +1,18 @@
 # @alfalab/core-components-alert
 
+## 5.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-plate@8.1.0
+
 ## 5.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-plate@8.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-plate@8.0.1
 
 ## 5.0.0
 
@@ -23,57 +30,57 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-plate@8.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-plate@8.0.0
 
 ## 4.2.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.14
+- Обновлены зависимости
+    - plate@7.8.14
 
 ## 4.2.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.13
+- Обновлены зависимости
+    - plate@7.8.13
 
 ## 4.2.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.12
+- Обновлены зависимости
+    - plate@7.8.12
 
 ## 4.2.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.11
+- Обновлены зависимости
+    - plate@7.8.11
 
 ## 4.2.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.10
+- Обновлены зависимости
+    - plate@7.8.10
 
 ## 4.2.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.9
+- Обновлены зависимости
+    - plate@7.8.9
 
 ## 4.2.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.8
+- Обновлены зависимости
+    - plate@7.8.8
 
 ## 4.2.13
 
@@ -83,7 +90,7 @@
 
 ### [#1516](https://github.com/core-ds/core-components/pull/1516)
 
--   Добавлены десктоп/мобайл импорты
+- Добавлены десктоп/мобайл импорты
 
 ## 4.2.12
 
@@ -93,17 +100,17 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   plate@7.8.7
+- Обновлены зависимости
+    - plate@7.8.7
 
 ## 4.2.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.6
+- Обновлены зависимости
+    - plate@7.8.6
 
 ## 4.2.10
 
@@ -113,10 +120,10 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   plate@7.8.5
+- Обновлены зависимости
+    - plate@7.8.5
 
 ## 4.2.9
 
@@ -126,66 +133,66 @@
 
 ### [#1480](https://github.com/core-ds/core-components/pull/1480)
 
--   Добавлено sideEffects: false
+- Добавлено sideEffects: false
 
--   Обновлены зависимости
-    -   plate@7.8.4
+- Обновлены зависимости
+    - plate@7.8.4
 
 ## 4.2.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.3
+- Обновлены зависимости
+    - plate@7.8.3
 
 ## 4.2.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.2
+- Обновлены зависимости
+    - plate@7.8.2
 
 ## 4.2.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.1
+- Обновлены зависимости
+    - plate@7.8.1
 
 ## 4.2.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.8.0
+- Обновлены зависимости
+    - plate@7.8.0
 
 ## 4.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.7.0
+- Обновлены зависимости
+    - plate@7.7.0
 
 ## 4.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.6.3
+- Обновлены зависимости
+    - plate@7.6.3
 
 ## 4.2.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.6.2
+- Обновлены зависимости
+    - plate@7.6.2
 
 ## 4.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.6.1
+- Обновлены зависимости
+    - plate@7.6.1
 
 ## 4.2.0
 
@@ -195,180 +202,180 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.6.0
+- Обновлены зависимости
+    - plate@7.6.0
 
 ## 4.1.31
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.5.3
+- Обновлены зависимости
+    - plate@7.5.3
 
 ## 4.1.30
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.5.2
+- Обновлены зависимости
+    - plate@7.5.2
 
 ## 4.1.29
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.5.1
+- Обновлены зависимости
+    - plate@7.5.1
 
 ## 4.1.28
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.5.0
+- Обновлены зависимости
+    - plate@7.5.0
 
 ## 4.1.27
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.4.0
+- Обновлены зависимости
+    - plate@7.4.0
 
 ## 4.1.26
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.12
+- Обновлены зависимости
+    - plate@7.3.12
 
 ## 4.1.25
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.11
+- Обновлены зависимости
+    - plate@7.3.11
 
 ## 4.1.24
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.10
+- Обновлены зависимости
+    - plate@7.3.10
 
 ## 4.1.23
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.9
+- Обновлены зависимости
+    - plate@7.3.9
 
 ## 4.1.22
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.8
+- Обновлены зависимости
+    - plate@7.3.8
 
 ## 4.1.21
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.7
+- Обновлены зависимости
+    - plate@7.3.7
 
 ## 4.1.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.6
+- Обновлены зависимости
+    - plate@7.3.6
 
 ## 4.1.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.5
+- Обновлены зависимости
+    - plate@7.3.5
 
 ## 4.1.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.4
+- Обновлены зависимости
+    - plate@7.3.4
 
 ## 4.1.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.3
+- Обновлены зависимости
+    - plate@7.3.3
 
 ## 4.1.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.2
+- Обновлены зависимости
+    - plate@7.3.2
 
 ## 4.1.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.1
+- Обновлены зависимости
+    - plate@7.3.1
 
 ## 4.1.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.3.0
+- Обновлены зависимости
+    - plate@7.3.0
 
 ## 4.1.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.2.0
+- Обновлены зависимости
+    - plate@7.2.0
 
 ## 4.1.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.1.3
+- Обновлены зависимости
+    - plate@7.1.3
 
 ## 4.1.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.1.2
+- Обновлены зависимости
+    - plate@7.1.2
 
 ## 4.1.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.1.1
+- Обновлены зависимости
+    - plate@7.1.1
 
 ## 4.1.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.1.0
+- Обновлены зависимости
+    - plate@7.1.0
 
 ## 4.1.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.0.8
+- Обновлены зависимости
+    - plate@7.0.8
 
 ## 4.1.7
 
@@ -376,52 +383,52 @@
 
 ### [#868](https://github.com/core-ds/core-components/pull/868)
 
--   Исправлены цвета бордера в соответствии с макетом
+- Исправлены цвета бордера в соответствии с макетом
 
--   Обновлены зависимости
-    -   plate@7.0.7
+- Обновлены зависимости
+    - plate@7.0.7
 
 ## 4.1.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.0.6
+- Обновлены зависимости
+    - plate@7.0.6
 
 ## 4.1.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.0.5
+- Обновлены зависимости
+    - plate@7.0.5
 
 ## 4.1.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.0.4
+- Обновлены зависимости
+    - plate@7.0.4
 
 ## 4.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.0.3
+- Обновлены зависимости
+    - plate@7.0.3
 
 ## 4.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.0.2
+- Обновлены зависимости
+    - plate@7.0.2
 
 ## 4.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.0.1
+- Обновлены зависимости
+    - plate@7.0.1
 
 ## 4.1.0
 
@@ -429,12 +436,12 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@7.0.0
+- Обновлены зависимости
+    - plate@7.0.0
 
 ## 4.0.28
 
@@ -442,52 +449,52 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   plate@6.3.20
+- Обновлены зависимости
+    - plate@6.3.20
 
 ## 4.0.27
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.19
+- Обновлены зависимости
+    - plate@6.3.19
 
 ## 4.0.26
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.18
+- Обновлены зависимости
+    - plate@6.3.18
 
 ## 4.0.25
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.17
+- Обновлены зависимости
+    - plate@6.3.17
 
 ## 4.0.24
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.16
+- Обновлены зависимости
+    - plate@6.3.16
 
 ## 4.0.23
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.15
+- Обновлены зависимости
+    - plate@6.3.15
 
 ## 4.0.22
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.14
+- Обновлены зависимости
+    - plate@6.3.14
 
 ## 4.0.21
 
@@ -495,24 +502,24 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   plate@6.3.13
+- Обновлены зависимости
+    - plate@6.3.13
 
 ## 4.0.20
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.12
+- Обновлены зависимости
+    - plate@6.3.12
 
 ## 4.0.19
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.11
+- Обновлены зависимости
+    - plate@6.3.11
 
 ## 4.0.18
 
@@ -520,45 +527,45 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   plate@6.3.10
+- Обновлены зависимости
+    - plate@6.3.10
 
 ## 4.0.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.9
+- Обновлены зависимости
+    - plate@6.3.9
 
 ## 4.0.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.8
+- Обновлены зависимости
+    - plate@6.3.8
 
 ## 4.0.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.7
+- Обновлены зависимости
+    - plate@6.3.7
 
 ## 4.0.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.6
+- Обновлены зависимости
+    - plate@6.3.6
 
 ## 4.0.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.5
+- Обновлены зависимости
+    - plate@6.3.5
 
 ## 4.0.12
 
@@ -566,38 +573,38 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   plate@6.3.4
+- Обновлены зависимости
+    - plate@6.3.4
 
 ## 4.0.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.3
+- Обновлены зависимости
+    - plate@6.3.3
 
 ## 4.0.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.2
+- Обновлены зависимости
+    - plate@6.3.2
 
 ## 4.0.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.1
+- Обновлены зависимости
+    - plate@6.3.1
 
 ## 4.0.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   plate@6.3.0
+- Обновлены зависимости
+    - plate@6.3.0
 
 ## 4.0.7
 
@@ -605,19 +612,19 @@
 
 ### [#292](https://github.com/core-ds/core-components/pull/292)
 
--   Новые стили кнопок в теме default
--   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
--   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
--   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+- Новые стили кнопок в теме default
+- Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+- Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+- Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
 
--   Обновлены зависимости
-    -   plate@6.2.2
+- Обновлены зависимости
+    - plate@6.2.2
 
 ## 4.0.6
 
 ### Patch Changes
 
--   @alfalab/core-components-plate@6.2.1
+- @alfalab/core-components-plate@6.2.1
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -646,12 +653,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -659,11 +666,11 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 ### Features
 
--   **plate:** subAddons slot, on/off border&shadow&borderRadius, new view 'custom' ([#158](https://github.com/core-ds/core-components/issues/158)) ([b2fc570](https://github.com/core-ds/core-components/commit/b2fc5703f083d493f0e5222d9a1f752cac190dbf)), closes [#161](https://github.com/core-ds/core-components/issues/161)
+- **plate:** subAddons slot, on/off border&shadow&borderRadius, new view 'custom' ([#158](https://github.com/core-ds/core-components/issues/158)) ([b2fc570](https://github.com/core-ds/core-components/commit/b2fc5703f083d493f0e5222d9a1f752cac190dbf)), closes [#161](https://github.com/core-ds/core-components/issues/161)
 
 ## [3.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@3.3.0...@alfalab/core-components-alert@3.3.1) (2022-08-11)
 
@@ -673,7 +680,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [3.2.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@3.2.3...@alfalab/core-components-alert@3.2.4) (2022-07-25)
 
@@ -687,7 +694,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [3.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@3.2.0...@alfalab/core-components-alert@3.2.1) (2022-07-14)
 
@@ -697,7 +704,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 ## [3.1.6](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@3.1.5...@alfalab/core-components-alert@3.1.6) (2022-06-23)
 
@@ -751,36 +758,36 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
+- **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
 
 ### BREAKING CHANGES
 
--   **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-    заменить размер на xxs. Можно воспользоваться codemod.
+- **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+  заменить размер на xxs. Можно воспользоваться codemod.
 
--   feat(codemod): add button xs to xxs transformer
+- feat(codemod): add button xs to xxs transformer
 
--   feat(tag): добавлен тэг размера 40px, изменены отступы
+- feat(tag): добавлен тэг размера 40px, изменены отступы
 
 Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
 на xxs.
 
--   **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-    заменить размер на xxs. Можно воспользоваться codemod.
+- **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+  заменить размер на xxs. Можно воспользоваться codemod.
 
--   test: update screenshots
+- test: update screenshots
 
--   test: update screenshots
+- test: update screenshots
 
--   feat(button): linter fix
+- feat(button): linter fix
 
--   feat(button): fix min-width
+- feat(button): fix min-width
 
--   feat(tag): remove vertical paddings
+- feat(tag): remove vertical paddings
 
--   feat(tag): remove vertical paddings
+- feat(tag): remove vertical paddings
 
--   feat(button): updates
+- feat(button): updates
 
 ## [2.0.9](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@2.0.8...@alfalab/core-components-alert@2.0.9) (2021-09-14)
 
@@ -822,7 +829,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [1.1.10](https://github.com/core-ds/core-components/compare/@alfalab/core-components-alert@1.1.9...@alfalab/core-components-alert@1.1.10) (2021-06-04)
 
@@ -868,4 +875,4 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **alert:** add component ([#548](https://github.com/core-ds/core-components/issues/548)) ([264cbf8](https://github.com/core-ds/core-components/commit/264cbf8f7465d2ecaf043bf0f67530e040fc83f6))
+- **alert:** add component ([#548](https://github.com/core-ds/core-components/issues/548)) ([264cbf8](https://github.com/core-ds/core-components/commit/264cbf8f7465d2ecaf043bf0f67530e040fc83f6))
