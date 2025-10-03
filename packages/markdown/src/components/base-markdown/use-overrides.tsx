@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { Children, useMemo } from 'react';
 import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
@@ -14,7 +14,7 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
         const Title = platform === 'desktop' ? TitleDesktop : TitleMobile;
 
         return {
-            h1: (props) => (
+            h1: ({ children }) => (
                 <Title
                     font={font}
                     className={cn(styles.h1, 'h1')}
@@ -22,10 +22,10 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     view='medium'
                     color='primary'
                 >
-                    {props.children}
+                    {children}
                 </Title>
             ),
-            h2: (props) => (
+            h2: ({ children }) => (
                 <Title
                     font={font}
                     className={cn(styles.h2, 'h2')}
@@ -33,10 +33,10 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     view='small'
                     color='primary'
                 >
-                    {props.children}
+                    {children}
                 </Title>
             ),
-            h3: (props) => (
+            h3: ({ children }) => (
                 <Title
                     font={font}
                     className={cn(styles.h3, 'h3')}
@@ -44,10 +44,10 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     view='xsmall'
                     color='primary'
                 >
-                    {props.children}
+                    {children}
                 </Title>
             ),
-            h4: (props) => (
+            h4: ({ children }) => (
                 <Title
                     font={font}
                     className={cn(styles.h4, 'h4')}
@@ -55,66 +55,57 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                     view='xsmall'
                     color='primary'
                 >
-                    {props.children}
+                    {children}
                 </Title>
             ),
-            p: (props) => (
+            p: ({ children }) => (
                 <Text className='p' tag='p' view='primary-medium' color='primary'>
-                    {props.children}
+                    {children}
                 </Text>
             ),
-            blockquote: (props) => (
+            blockquote: ({ children }) => (
                 <Text
                     className={cn(styles.blockquote, 'blockquote')}
                     tag='div'
                     view='primary-small'
                     color='secondary'
                 >
-                    {props.children}
+                    {children}
                 </Text>
             ),
-            a: (props) => (
-                <Link
-                    className='a'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    href={props.href as string}
-                >
-                    {props.children}
+            a: ({ children, href }) => (
+                <Link className='a' target='_blank' rel='noopener noreferrer' href={href}>
+                    {children}
                 </Link>
             ),
-            code: (props) => (
+            code: ({ children }) => (
                 <Text
                     tag='span'
                     className={cn(styles.code, 'code')}
                     view='primary-small'
                     color='secondary'
                 >
-                    {props.children}
+                    {children}
                 </Text>
             ),
-            img: (props) => (
-                <div className={cn(styles.imageContainer, 'img')}>
-                    <img
-                        alt={props.alt as string}
-                        src={props.src as string}
-                        className={styles.image}
-                    />
-                </div>
+            img: ({ alt, src }) => (
+                <span className={cn(styles.imageContainer, 'img')}>
+                    <img alt={alt} src={src} className={styles.image} />
+                </span>
             ),
-            ul: (props) => (
-                <List className={cn(styles.list, 'ul')} tag={props.ordered ? 'ol' : 'ul'}>
-                    {props.children.filter((el) => el !== '\n')}
+            ul: ({ children }) => (
+                <List className={cn(styles.list, 'ul')} tag='ul'>
+                    {Children.toArray(children).filter((el) => el !== '\n')}
                 </List>
             ),
-            ol: (props) => (
-                <List className={cn(styles.list, 'ol')} tag={props.ordered ? 'ol' : 'ul'}>
-                    {props.children.filter((el) => el !== '\n')}
+            ol: ({ children }) => (
+                <List className={cn(styles.list, 'ol')} tag='ol'>
+                    {Children.toArray(children).filter((el) => el !== '\n')}
                 </List>
             ),
-            li: (props) => (
+            li: ({ children }) => (
                 <Text className={cn(styles.li, 'li')} view='primary-medium'>
-                    {props.children}
+                    {children}
                 </Text>
             ),
         };
