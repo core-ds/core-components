@@ -61,6 +61,7 @@ export interface UniversalModalDesktopProps
                 | 'backdropProps'
                 | 'disableBackdropClick'
                 | 'onClose'
+                | 'disableFocusLock'
             >
         > {
     /**

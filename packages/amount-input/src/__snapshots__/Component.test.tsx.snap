@@ -23,7 +23,6 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                 <input
                   class="input size-48 input input"
                   inputmode="decimal"
-                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -72,7 +71,6 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
               <input
                 class="input size-48 input input"
                 inputmode="decimal"
-                pattern="[0-9\\s\\.,]*"
                 placeholder="0 ₽"
                 type="text"
                 value=""
@@ -178,7 +176,6 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 <input
                   class="input size-48 input input"
                   inputmode="decimal"
-                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -226,7 +223,6 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 <input
                   class="input size-48 input input"
                   inputmode="decimal"
-                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 $"
                   type="text"
                   value="12 345,67"
@@ -279,7 +275,6 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
               <input
                 class="input size-48 input input"
                 inputmode="decimal"
-                pattern="[0-9\\s\\.,]*"
                 placeholder="0 $"
                 type="text"
                 value="12 345,67"
