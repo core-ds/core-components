@@ -5,7 +5,7 @@ import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
 import { InputProps } from '@alfalab/core-components-input';
 import { InputDesktop } from '@alfalab/core-components-input/desktop';
 
-import { DateTimeInput, DateTimeInputProps } from '../components/date-time-input/Component';
+import { DateTimeInput, type DateTimeInputProps } from '../components/date-time-input/Component';
 
 export type DateTimeInputDesktopProps = Omit<DateTimeInputProps, 'view' | 'InputComponent'>;
 

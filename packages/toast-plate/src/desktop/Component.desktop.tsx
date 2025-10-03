@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { BaseToastPlate, BaseToastPlateProps } from '../components/base-toast-plate';
+import { BaseToastPlate, type BaseToastPlateProps } from '../components/base-toast-plate';
 
 import styles from './desktop.module.css';
 

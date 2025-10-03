@@ -168,7 +168,7 @@ describe('ProgressBar', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<CircularProgressBar value={20} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     describe('Timer tests', () => {
@@ -395,8 +395,8 @@ describe('ProgressBar', () => {
             const title = screen.getByTestId(testIds.title);
             const subtitle = screen.getByTestId(testIds.subtitle);
 
-            expect(title).toHaveStyle({ color: 'tomato' });
-            expect(subtitle).toHaveStyle({ color: 'tomato' });
+            expect(title).toHaveStyle({ color: 'rgb(255, 99, 71)' });
+            expect(subtitle).toHaveStyle({ color: 'rgb(255, 99, 71)' });
         });
 
         it('should override "contentColor" with "titleColor"', () => {
@@ -418,8 +418,8 @@ describe('ProgressBar', () => {
             const title = screen.getByTestId(testIds.title);
             const subtitle = screen.getByTestId(testIds.subtitle);
 
-            expect(title).toHaveStyle({ color: 'blue' });
-            expect(subtitle).toHaveStyle({ color: 'tomato' });
+            expect(title).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+            expect(subtitle).toHaveStyle({ color: 'rgb(255, 99, 71)' });
         });
 
         it('should override "contentColor" with "subtitleColor"', () => {
@@ -441,8 +441,8 @@ describe('ProgressBar', () => {
             const subtitle = screen.getByTestId(testIds.subtitle);
             const title = screen.getByTestId(testIds.title);
 
-            expect(title).toHaveStyle({ color: 'tomato' });
-            expect(subtitle).toHaveStyle({ color: 'blue' });
+            expect(title).toHaveStyle({ color: 'rgb(255, 99, 71)' });
+            expect(subtitle).toHaveStyle({ color: 'rgb(0, 0, 255)' });
         });
     });
 });

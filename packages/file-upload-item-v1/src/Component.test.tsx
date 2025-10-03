@@ -74,7 +74,7 @@ describe('FileUploadItemV1', () => {
 
             fireEvent.click(getByLabelText('удалить'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
 
@@ -87,7 +87,7 @@ describe('FileUploadItemV1', () => {
 
             fireEvent.click(getByText('Восстановить'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
 
@@ -107,7 +107,7 @@ describe('FileUploadItemV1', () => {
 
             fireEvent.click(downloadButton);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
     });
@@ -115,6 +115,6 @@ describe('FileUploadItemV1', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<FileUploadItemV1 />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

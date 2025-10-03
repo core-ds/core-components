@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { BaseInputProps } from './components/base-input';
+import { type BaseInputProps } from './components/base-input';
 import { InputDesktop } from './desktop';
 import { InputMobile } from './mobile';
 

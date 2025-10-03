@@ -13,6 +13,8 @@
             "@alfalab/core-components-icon-button/*": ["../icon-button/src/*"],
             "@alfalab/core-components-link": ["../link/src"],
             "@alfalab/core-components-link/*": ["../link/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-spinner": ["../spinner/src"],
             "@alfalab/core-components-spinner/*": ["../spinner/src/*"]
         }
@@ -20,6 +22,7 @@
     "references": [
         { "path": "../icon-button/tsconfig.build.json" },
         { "path": "../link/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
         { "path": "../spinner/tsconfig.build.json" }
     ]
 }

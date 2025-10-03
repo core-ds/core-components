@@ -71,6 +71,7 @@ export const bottom_sheet: Story = {
                     actionButton={
                         renderActionButton && (
                             <Button
+                                className='showMoreButton'
                                 view={isPreview ? 'primary' : 'secondary'}
                                 block={true}
                                 size='s'

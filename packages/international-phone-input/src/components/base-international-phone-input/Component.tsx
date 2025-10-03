@@ -1,7 +1,7 @@
 import React, {
-    ChangeEvent,
+    type ChangeEvent,
     forwardRef,
-    MouseEvent,
+    type MouseEvent,
     useEffect,
     useMemo,
     useRef,
@@ -11,12 +11,12 @@ import mergeRefs from 'react-merge-refs';
 import { maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
-import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
-import { AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
-import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
+import { type InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
+import { type AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
+import { type BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
 import { isNullable } from '@alfalab/core-components-shared';
 
-import type { BaseInternationalPhoneInputProps, Country } from '../../types';
+import { type BaseInternationalPhoneInputProps, type Country } from '../../types';
 import {
     createMaskOptions,
     filterPhones,
@@ -56,6 +56,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             open: openProps,
             defaultOpen,
             customCountriesList,
+            autoFill = true,
             ...restProps
         },
         ref,
@@ -211,6 +212,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             wrapperRef: inputWrapperRef,
             addonsClassName: styles.addons,
             type: 'tel',
+            autocomplete: autoFill ? 'tel' : undefined,
             clear: getClear(clearProp, clearableCountryCode, value, country?.countryCode),
             ...restProps.inputProps,
         } as const;

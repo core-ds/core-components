@@ -1,4 +1,4 @@
-import { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { type ElementType, type HTMLAttributes, type ReactNode } from 'react';
 
 export type Size = 16 | 32 | 40 | 48 | 96 | 128 | 164;
 
@@ -130,10 +130,12 @@ export type SingleCommonProps = {
     dataTestId?: string;
 };
 
+// eslint-disable-next-line no-restricted-syntax
 export type SingleProps = Omit<SingleCommonProps, 'numberOfСards' | 'numberOfCards' | 'align'>;
 
 export type BankCardImageProps = Omit<
     SingleCommonProps,
+    // eslint-disable-next-line no-restricted-syntax
     'size' | 'numberOfСards' | 'numberOfCards' | 'className' | 'dataTestId' | 'align'
 >;
 

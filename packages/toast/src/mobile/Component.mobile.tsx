@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { ToastPlateMobile } from '@alfalab/core-components-toast-plate/mobile';
 
-import { BaseToast, BaseToastProps } from '../components/base-toast';
+import { BaseToast, type BaseToastProps } from '../components/base-toast';
 
 export type ToastMobileProps = Omit<BaseToastProps, 'breakpoint'>;
 

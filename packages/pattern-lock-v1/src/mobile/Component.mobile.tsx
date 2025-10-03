@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
-import type { TPatternLockInstance } from 'react-canvas-pattern-lock';
+import { type TPatternLockInstance } from 'react-canvas-pattern-lock';
 
 import { BasePatternLock } from '../components/base-pattern-lock';
-import { CommonPatternLockProps } from '../typings';
+import { type CommonPatternLockProps } from '../typings';
 
 import styles from './mobile.module.css';
 

@@ -184,6 +184,6 @@ describe('FormControl', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<FormControl />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

@@ -1,13 +1,13 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { CrossMediumMIcon } from '@alfalab/icons-glyph/CrossMediumMIcon';
 
 import styles from './cross-button.module.css';
 
-type CrossButtonProps = {
+interface CrossButtonProps {
     onClick?: () => void;
-};
+}
 
 export const CrossButtonDesktop: FC<CrossButtonProps> = (props) => {
     const { onClick } = props;

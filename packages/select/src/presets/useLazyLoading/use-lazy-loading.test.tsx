@@ -161,7 +161,7 @@ describe('Select useLazyLoading hook', () => {
         /*
          * Шаг 3. Убедимся, что мы следим за пересечением правильных элементов.
          */
-        expect(observe).toBeCalledWith(
+        expect(observe).toHaveBeenCalledWith(
             getAllByTestId('select-option')[LIMIT - 1],
             getByTestId('select-options-list').firstElementChild,
         );
@@ -220,7 +220,7 @@ describe('Select useLazyLoading hook', () => {
 
         await waitFor(() => {
             expect(queryAllByTestId('skeleton')).toHaveLength(0);
-            expect(fetchOptions).toBeCalledTimes(3);
+            expect(fetchOptions).toHaveBeenCalledTimes(3);
         });
 
         /*

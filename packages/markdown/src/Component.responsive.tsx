@@ -2,8 +2,8 @@ import React from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { Markdown } from './Component';
-import { MarkdownResponsiveProps } from './typings';
+import { BaseMarkdown } from './components/base-markdown';
+import { type MarkdownResponsiveProps } from './typings';
 
 export const MarkdownResponsiveComponent: React.FC<MarkdownResponsiveProps> = ({
     breakpoint,
@@ -15,8 +15,8 @@ export const MarkdownResponsiveComponent: React.FC<MarkdownResponsiveProps> = ({
     const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
     return (
-        <Markdown {...restProps} platform={isDesktop ? 'desktop' : 'mobile'}>
+        <BaseMarkdown {...restProps} platform={isDesktop ? 'desktop' : 'mobile'}>
             {children}
-        </Markdown>
+        </BaseMarkdown>
     );
 };

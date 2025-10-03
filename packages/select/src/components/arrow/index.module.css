@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 
 .arrow {
@@ -7,7 +7,9 @@
     height: 24px;
     color: var(--select-arrow-color);
 
-    transition: transform 0.15s ease-in-out, opacity 0.2s ease;
+    transition:
+        transform 0.15s ease-in-out,
+        opacity 0.2s ease;
 
     &.disabled {
         color: var(--select-arrow-disabled-color);

@@ -35,8 +35,8 @@ render(() => {
     };
 
     const handleSwitchChange = () => {
-        setSwitchChecked(prev => !prev)
-    }
+        setSwitchChecked((prev) => !prev);
+    };
 
     const isImg = radioButtons[checked].extension === 'Img';
 
@@ -52,7 +52,7 @@ render(() => {
                     progressBar={progressBar}
                     {...(checked !== 0 && { showDelete: true })}
                     {...(isImg && { imageUrl: './images/gagarin_yu_a.png' })}
-                    {...(switchChecked && {iconStyle: 'colored'})}
+                    {...(switchChecked && { iconStyle: 'colored' })}
                     onDelete={handleDelete}
                 >
                     <FileUploadItem.StatusControl />
@@ -79,11 +79,7 @@ render(() => {
             <Gap size={20} />
             <Divider />
             <Gap size={20} />
-            <Switch
-                checked={switchChecked}
-                label='Цветные иконки'
-                onChange={handleSwitchChange}
-            />
+            <Switch checked={switchChecked} label='Цветные иконки' onChange={handleSwitchChange} />
         </React.Fragment>
     );
 });
@@ -98,23 +94,43 @@ render(() => {
     const [status, setStatus] = React.useState('INITIAL');
     const [title, setTitle] = React.useState('Прикрепите файл');
     const [progressBar, setProgressBar] = React.useState(0);
+    const [isProgressKnown, setIsProgressKnown] = React.useState(false);
     const [error, setError] = React.useState('');
+
+    const isUploading = status === 'UPLOADING' || status === 'LOADING';
+    const subtitle = isUploading ? 'Загружается' : 'Нет файла';
 
     const distance = 100;
     const duration = 500;
+    const spinnerDuration = 5000;
     let startAnimation = null;
 
-    const measure = (timestamp, status) => {
+    const resetState = () => {
+        setError('');
+        setProgressBar(0);
+        setStatus('INITIAL');
+    };
+
+    const measure = (timestamp, status, isSpinner = false) => {
         if (!startAnimation) {
             startAnimation = timestamp;
         }
 
-        const progress = (timestamp - startAnimation) / duration;
-        const progressValue = progress * distance;
-        setProgressBar(progressValue);
+        const elapsed = timestamp - startAnimation;
+        const currentDuration = isSpinner ? spinnerDuration : duration;
 
-        if (progress < 1) {
-            return requestAnimationFrame((t) => measure(t, status));
+        if (isSpinner) {
+            if (elapsed < currentDuration) {
+                return requestAnimationFrame((t) => measure(t, status, isSpinner));
+            }
+        } else {
+            const progress = elapsed / currentDuration;
+            const progressValue = progress * distance;
+            setProgressBar(progressValue);
+
+            if (progress < 1) {
+                return requestAnimationFrame((t) => measure(t, status, isSpinner));
+            }
         }
 
         if (status === 'SUCCESS') {
@@ -128,33 +144,38 @@ render(() => {
         }
     };
 
-    const handleSuccessClick = () => {
+    const startUpload = (finalStatus, errorMessage) => {
         setError('');
         setProgressBar(0);
-        setStatus('UPLOADING');
         setTitle('Пример.docx');
-        requestAnimationFrame((t) => measure(t, 'SUCCESS'));
+
+        if (!isProgressKnown) {
+            setStatus('LOADING');
+            requestAnimationFrame((t) => measure(t, finalStatus, true));
+        } else {
+            setStatus('UPLOADING');
+            requestAnimationFrame((t) => measure(t, finalStatus));
+        }
     };
 
-    const handleError = () => {
-        setProgressBar(0);
-        setStatus('UPLOADING');
-        requestAnimationFrame((t) => measure(t, 'ERROR'));
-    };
+    const handleSuccessClick = () => startUpload('SUCCESS');
+    const handleError = () => startUpload('ERROR', 'Описание первой ошибки');
+    const handleMultiError = () =>
+        startUpload('MULTI_ERROR', ['Описание первой ошибки', 'Описание второй ошибки']);
 
-    const handleMultiError = () => {
-        setProgressBar(0);
-        setStatus('UPLOADING');
-        requestAnimationFrame((t) => measure(t, 'MULTI_ERROR'));
+    const handleToggleChange = () => {
+        setIsProgressKnown((prev) => !prev);
+        resetState();
     };
 
     return (
         <React.Fragment>
             <FileUploadItem
                 title={title}
-                subtitle='Нет файла'
+                subtitle={subtitle}
                 uploadStatus={status}
-                progressBar={progressBar}
+                progressBar={isProgressKnown ? progressBar : undefined}
+                progressBarAvailable={isProgressKnown}
                 uploadDate='22.07.2024'
                 size={2097152} // 2mb
                 error={error}
@@ -177,6 +198,12 @@ render(() => {
                     Несколько ошибок
                 </Button>
             </div>
+            <Gap size={20} />
+            <Switch
+                checked={isProgressKnown}
+                label='Известен прогресс загрузки'
+                onChange={handleToggleChange}
+            />
         </React.Fragment>
     );
 });
@@ -227,7 +254,7 @@ render(() => {
                 </FileUploadItem>
                 <Gap size={20} />
                 <FileUploadItem
-                    title='gagarin_yu_a.png.png'
+                    title='gagarin_yu_a.png'
                     size={27262976}
                     uploadDate='01.05.1998'
                     uploadStatus={'UPLOADED'}
@@ -326,7 +353,17 @@ render(() => {
 
 ```jsx live mobileHeight={500}
 render(() => {
-    const [files, setFiles] = React.useState([]);
+    const [files, setFiles] = React.useState([
+        {
+            file: {
+                lastModified: 1757484252153,
+                lastModifiedDate: new Date(),
+                name: 'Пример 1.docx',
+                size: 2097152, // 2mb
+            },
+            status: 'SUCCESS',
+        },
+    ]);
 
     const distance = 100;
     const duration = 500;
@@ -407,7 +444,7 @@ render(() => {
                     </div>
                 );
             })}
-            <FileUploadItem title='Прикрепите файл' subtitle='Нет файла' uploadStatus='INITIAL'>
+            <FileUploadItem title='Прикрепите файл' uploadStatus='INITIAL'>
                 <label htmlFor='multi-file-input-id' style={{ display: 'flex', width: 320 }}>
                     <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />

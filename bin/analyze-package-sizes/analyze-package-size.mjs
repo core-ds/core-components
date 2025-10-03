@@ -1,8 +1,8 @@
 import { build } from 'esbuild';
 import fse from 'fs-extra';
-import { globby } from 'globby';
 import { EOL } from 'node:os';
 import { cwd, stdout } from 'node:process';
+import { glob } from 'tinyglobby';
 
 const ENTRY_POINTS = [
     'desktop',
@@ -20,7 +20,7 @@ const EXTENTIONS = ['js', 'jsx', 'ts', 'tsx'];
 
 async function main() {
     const pkg = await fse.readJson('package.json', { encoding: 'utf8' });
-    const entryPoints = await globby([
+    const entryPoints = await glob([
         `src/index.{${EXTENTIONS.join(',')}}`,
         `src/{${ENTRY_POINTS.join(',')}}/index.{${EXTENTIONS.join(',')}}`,
     ]);

@@ -1,9 +1,9 @@
 import React, {
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
-    ReactElement,
-    ReactNode,
+    type KeyboardEvent,
+    type MouseEvent,
+    type ReactElement,
+    type ReactNode,
     useCallback,
     useRef,
     useState,
@@ -11,7 +11,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { ButtonProps } from '@alfalab/core-components-button';
+import { type ButtonProps } from '@alfalab/core-components-button';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
@@ -231,13 +231,11 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
 
                 const target = event.target as HTMLDivElement;
 
-                const eventInsideComponent = plateRef.current && plateRef.current.contains(target);
+                const eventInsideComponent = plateRef.current?.contains(target);
 
-                const eventInsideContent =
-                    contentRef.current && contentRef.current.contains(target);
+                const eventInsideContent = contentRef.current?.contains(target);
 
-                const eventInsideSubAddons =
-                    subAddonsRef.current && subAddonsRef.current.contains(target);
+                const eventInsideSubAddons = subAddonsRef.current?.contains(target);
 
                 const shouldChangeIsFolded =
                     eventInsideComponent && !eventInsideContent && !eventInsideSubAddons;
