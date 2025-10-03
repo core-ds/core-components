@@ -53,12 +53,14 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         const [values, setValues] = useState(initialValues.split(''));
 
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
+        const programmaticFocusRef = useRef(false);
 
         const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
             inputRef?.current?.focus();
         };
 
         const focus = (index = 0) => {
+            programmaticFocusRef.current = true;
             focusOnInput(inputRefs[index]);
         };
 
@@ -132,6 +134,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             setValues(newValues);
 
             if (nextRef?.current) {
+                programmaticFocusRef.current = true;
                 nextRef.current.focus();
 
                 nextRef.current.select();
@@ -224,6 +227,26 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
             event.persist();
             const target = event.target as HTMLInputElement;
+
+            if (programmaticFocusRef.current) {
+                programmaticFocusRef.current = false;
+
+                requestAnimationFrame(() => {
+                    target?.select();
+                });
+
+                return;
+            }
+
+            const targetIndex = inputRefs.findIndex((inputRef) => inputRef.current === target);
+            const allEmpty = values.every((value) => !value);
+
+            if (allEmpty && targetIndex > 0) {
+                programmaticFocusRef.current = true;
+                focusOnInput(inputRefs[0]);
+
+                return;
+            }
 
             /**
              * В сафари выделение корректно работает только с асинхронным вызовом
