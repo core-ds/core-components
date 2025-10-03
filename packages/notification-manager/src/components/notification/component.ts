@@ -1,4 +1,4 @@
-import { cloneElement, type FC, type ReactElement, useCallback, useMemo } from 'react';
+import { cloneElement, type FC, type ReactElement, type RefObject, useCallback } from 'react';
 import cn from 'classnames';
 
 import { type NotificationProps as CoreNotificationProps } from '@alfalab/core-components-notification';
@@ -9,12 +9,14 @@ type NotificationProps = {
     element: NotificationElement;
     className: string;
     onRemoveNotification: (id: string) => void;
+    containerRef: RefObject<HTMLDivElement>;
 };
 
 export const Notification: FC<NotificationProps> = ({
     element,
     className,
     onRemoveNotification,
+    containerRef,
 }) => {
     const { onClose, onCloseTimeout } = element.props;
 
@@ -34,18 +36,16 @@ export const Notification: FC<NotificationProps> = ({
         onRemoveNotification(element.props.id);
     }, [element.props.id, onCloseTimeout, onRemoveNotification]);
 
-    const notificationProps = useMemo<CoreNotificationProps>(
-        () => ({
-            ...element.props,
-            visible: true,
-            className: cn(className, element.props.className),
-            usePortal: false,
-            offset: 0,
-            onClose: handleClose,
-            onCloseTimeout: handleCloseTimeout,
-        }),
-        [element, handleClose, handleCloseTimeout, className],
-    );
+    const notificationProps = {
+        ...element.props,
+        visible: true,
+        className: cn(className, element.props.className),
+        usePortal: false,
+        offset: 0,
+        onClose: handleClose,
+        onCloseTimeout: handleCloseTimeout,
+        containerRef,
+    };
 
     return cloneElement(element, notificationProps);
 };
