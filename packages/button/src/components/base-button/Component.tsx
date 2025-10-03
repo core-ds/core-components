@@ -36,6 +36,7 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
             className,
             spinnerClassName,
             dataTestId,
+            href,
             loading = false,
             nowrap = false,
             colors = 'default',
@@ -65,20 +66,23 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
 
         const sizeStyle = `size-${size}`;
 
+        const passDisabledClass = disabled && Boolean(href);
+
         const componentProps = {
             className: cn(
                 commonStyles.component,
+                colorStyles[colors].component,
+                styles.component,
+                colorStylesMap[colors].component,
                 commonStyles[view],
+                colorStyles[colors][view],
+                colorStylesMap[colors][view],
                 commonStyles[sizeStyle],
                 commonStyles[textResizing],
                 shape === 'rectangular' && styles[sizeStyle],
                 shape === 'rounded' && commonStyles[shape],
-                colorStyles[colors].component,
-                colorStyles[colors][view],
-                colorStylesMap[colors].component,
                 {
                     [commonStyles.allowBackdropBlur]: allowBackdropBlur,
-                    [colorStylesMap[colors][view]]: Boolean(colorStylesMap[colors][view]),
                     [commonStyles.focused]: focused,
                     [commonStyles.block]: block,
                     [commonStyles.iconOnly]: iconOnly,
@@ -88,6 +92,7 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
                     [colorStyles[colors].loading]: showLoader,
                     [colorStylesMap[colors].loading]: showLoader,
                 },
+                passDisabledClass && [styles.disabled, colorStyles[colors].disabled],
                 className,
             ),
             'data-test-id': dataTestId,
@@ -164,6 +169,7 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
             <Component
                 {...componentProps}
                 {...restProps}
+                href={href}
                 type={type}
                 disabled={disabled}
                 onClick={handleClick}

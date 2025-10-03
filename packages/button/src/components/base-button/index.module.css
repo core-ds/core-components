@@ -1,6 +1,10 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 
+@define-mixin backdrop-filter {
+    backdrop-filter: blur(80px);
+}
+
 .component {
     && {
         font-weight: var(--button-font-weight);
@@ -16,301 +20,290 @@
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    margin: var(--gap-0);
-    padding: var(--gap-0) 23px;
-    text-decoration: none;
-    outline: none;
-    box-shadow: none;
-    user-select: none;
-    cursor: pointer;
     transition:
         background 0.2s ease,
         border 0.2s ease,
         color 0.2s ease;
     box-sizing: border-box;
-}
 
-.hug {
-    justify-content: center;
-    text-align: center;
-}
-
-.fill {
-    text-align: left;
-}
-
-.hint {
-    @mixin paragraph_primary_small;
-
-    display: block;
-}
-
-.allowBackdropBlur {
-    &.secondary,
-    &.accent[disabled],
-    &.primary[disabled] {
-        backdrop-filter: blur(80px);
+    &.rounded {
+        border-radius: var(--border-radius-pill);
     }
-}
 
-.focused {
-    @mixin focus-outline;
-}
+    /* Block */
 
-.loading .label,
-.loading .addons {
-    opacity: 0;
-}
+    &.block {
+        display: flex;
+        width: 100%;
+    }
 
-.stretchText {
-    flex-grow: 1;
-}
+    &.hug {
+        justify-content: center;
+        text-align: center;
+    }
 
-.loader {
-    position: absolute;
-    left: var(--gap-0);
-    right: var(--gap-0);
-    margin: var(--gap-0) auto;
-}
+    &.fill {
+        text-align: left;
+    }
 
-/* Size */
+    /* Nowrap */
 
-/* За счет того, что у кнопок есть border 1px,
+    .nowrap {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .stretchText {
+        flex-grow: 1;
+    }
+
+    .hint {
+        @mixin paragraph_primary_small;
+
+        display: block;
+    }
+
+    .loader {
+        position: absolute;
+        left: var(--gap-0);
+        right: var(--gap-0);
+        margin: var(--gap-0) auto;
+    }
+
+    &.focused {
+        @mixin focus-outline;
+    }
+
+    &.loading {
+        .label,
+        .addons {
+            opacity: 0;
+        }
+    }
+
+    &.allowBackdropBlur {
+        &.secondary {
+            @mixin backdrop-filter;
+        }
+        &.accent,
+        &.primary {
+            @mixin disabled {
+                @mixin backdrop-filter;
+            }
+        }
+    }
+
+    /* Size */
+
+    /* За счет того, что у кнопок есть border 1px,
 для полного соответствия макетам padding необходимо уменьшить на 1px (16px -> 15px) */
-.size-32 {
-    min-width: 80px;
-    min-height: var(--size-xxs-height);
-    padding: var(--gap-0) 15px;
-
-    @mixin action_primary_small;
-
-    &.iconOnly {
-        min-width: var(--size-xxs-height);
-    }
-}
-
-.size-40 {
-    min-width: 88px;
-    min-height: var(--size-xs-height);
-    padding: var(--gap-0) 19px;
-
-    @mixin action_primary_small;
-
-    &.iconOnly {
-        min-width: var(--size-xs-height);
-    }
-}
-
-.size-48 {
-    min-width: 104px;
-    min-height: var(--size-s-height);
-
-    @mixin action_component_primary;
-
-    line-height: 20px;
-
-    &.iconOnly {
-        min-width: var(--size-s-height);
-    }
-}
-
-.size-56 {
-    min-width: 128px;
-    min-height: var(--size-m-height);
-    padding: var(--gap-0) 27px;
-
-    @mixin action_component_primary;
-
-    &.iconOnly {
-        min-width: var(--size-m-height);
-    }
-}
-
-.size-64 {
-    min-width: 160px;
-    min-height: var(--size-l-height);
-    padding: var(--gap-0) 31px;
-
-    @mixin action_primary_large;
-
-    &.iconOnly {
-        min-width: var(--size-l-height);
-    }
-}
-
-.size-72 {
-    min-width: 168px;
-    min-height: var(--size-xl-height);
-    padding: var(--gap-0) 35px;
-
-    @mixin action_primary_large;
-
-    &.iconOnly {
-        min-width: var(--size-xl-height);
-    }
-}
-
-.withRightAddons {
     &.size-32 {
-        padding-right: 11px;
+        &:not(.iconOnly):not(.text):not(.transparent) {
+            min-width: 80px;
+        }
+        &:not(.text) {
+            min-height: var(--size-xxs-height);
+            padding: var(--gap-0) 15px;
+
+            &.withLeftAddons {
+                padding-left: 11px;
+            }
+
+            &.withRightAddons {
+                padding-right: 11px;
+            }
+        }
+
+        @mixin action_primary_small;
+
+        &:not(.text).iconOnly {
+            min-width: var(--size-xxs-height);
+        }
     }
 
     &.size-40 {
-        padding-right: 15px;
+        &:not(.iconOnly):not(.text):not(.transparent) {
+            min-width: 88px;
+        }
+        &:not(.text) {
+            min-height: var(--size-xs-height);
+            padding: var(--gap-0) 19px;
+
+            &.withLeftAddons {
+                padding-left: 15px;
+            }
+
+            &.withRightAddons {
+                padding-right: 15px;
+            }
+        }
+
+        @mixin action_primary_small;
+
+        &:not(.text).iconOnly {
+            min-width: var(--size-xs-height);
+        }
     }
 
     &.size-48 {
-        padding-right: 19px;
+        &:not(.iconOnly):not(.text):not(.transparent) {
+            min-width: 104px;
+        }
+        &:not(.text) {
+            min-height: var(--size-s-height);
+            padding: var(--gap-0) 23px;
+
+            &.withLeftAddons {
+                padding-left: 19px;
+            }
+
+            &.withRightAddons {
+                padding-right: 19px;
+            }
+        }
+
+        @mixin action_component_primary;
+
+        line-height: 20px;
+
+        &:not(.text).iconOnly {
+            min-width: var(--size-s-height);
+        }
     }
 
     &.size-56 {
-        padding-right: 23px;
+        &:not(.iconOnly):not(.text):not(.transparent) {
+            min-width: 128px;
+        }
+        &:not(.text) {
+            min-height: var(--size-m-height);
+            padding: var(--gap-0) 27px;
+
+            &.withLeftAddons {
+                padding-left: 23px;
+            }
+
+            &.withRightAddons {
+                padding-right: 23px;
+            }
+        }
+
+        @mixin action_component_primary;
+
+        &:not(.text).iconOnly {
+            min-width: var(--size-m-height);
+        }
     }
 
     &.size-64 {
-        padding-right: 27px;
+        &:not(.iconOnly):not(.text):not(.transparent) {
+            min-width: 160px;
+        }
+        &:not(.text) {
+            min-height: var(--size-l-height);
+            padding: var(--gap-0) 31px;
+
+            &.withLeftAddons {
+                padding-left: 27px;
+            }
+
+            &.withRightAddons {
+                padding-right: 27px;
+            }
+        }
+
+        @mixin action_primary_large;
+
+        &:not(.text).iconOnly {
+            min-width: var(--size-l-height);
+        }
     }
 
     &.size-72 {
-        padding-right: 31px;
+        &:not(.iconOnly):not(.text):not(.transparent) {
+            min-width: 168px;
+        }
+        &:not(.text) {
+            min-height: var(--size-xl-height);
+            padding: var(--gap-0) 35px;
+
+            &.withLeftAddons {
+                padding-left: 31px;
+            }
+
+            &.withRightAddons {
+                &.size-72 {
+                    padding-right: 31px;
+                }
+            }
+        }
+
+        @mixin action_primary_large;
+
+        &:not(.text).iconOnly {
+            min-width: var(--size-xl-height);
+        }
     }
 
-    &.text {
-        padding-right: var(--gap-0);
-    }
-}
+    /* Addons */
 
-.withLeftAddons {
-    &.size-32 {
-        padding-left: 11px;
-    }
+    .addons {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        margin: var(--gap-0);
 
-    &.size-40 {
-        padding-left: 15px;
-    }
+        &:first-child {
+            margin-right: 6px;
+        }
 
-    &.size-48 {
-        padding-left: 19px;
-    }
+        &:last-child {
+            margin-left: 6px;
+        }
 
-    &.size-56 {
-        padding-left: 23px;
-    }
-
-    &.size-64 {
-        padding-left: 27px;
-    }
-
-    &.size-72 {
-        padding-left: 31px;
-    }
-
-    &.text {
-        padding-left: var(--gap-0);
-    }
-}
-
-.transparent {
-    min-width: 0;
-}
-
-.text.text {
-    min-width: 0;
-    min-height: 0;
-    padding: var(--gap-0);
-    border: none;
-    appearance: none;
-
-    &.iconOnly {
-        min-width: 0;
+        &:only-child {
+            margin: var(--gap-0);
+        }
     }
 
     &.size-48,
     &.size-56 {
-        min-height: 24px;
-    }
-}
-
-/* Disabled */
-
-.component[disabled] {
-    cursor: var(--disabled-cursor);
-
-    & * {
-        pointer-events: none;
-    }
-}
-
-/* Addons */
-
-.addons {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    margin: var(--gap-0);
-
-    &:first-child {
-        margin-right: 6px;
+        & .addons {
+            &:first-child {
+                margin-right: var(--gap-8);
+            }
+            &:last-child {
+                margin-left: var(--gap-8);
+            }
+            &:only-child {
+                margin: var(--gap-0);
+            }
+        }
     }
 
-    &:last-child {
-        margin-left: 6px;
+    &.size-64,
+    &.size-72 {
+        & .addons {
+            &:first-child {
+                margin-right: var(--gap-12);
+            }
+            &:last-child {
+                margin-left: var(--gap-12);
+            }
+            &:only-child {
+                margin: var(--gap-0);
+            }
+        }
     }
 
-    &:only-child {
-        margin: var(--gap-0);
+    /* Disabled */
+
+    @mixin disabled {
+        cursor: var(--disabled-cursor);
+
+        & * {
+            pointer-events: none;
+        }
     }
-}
-
-.size-48,
-.size-56 {
-    & .addons:first-child {
-        margin-right: var(--gap-8);
-    }
-
-    & .addons:last-child {
-        margin-left: var(--gap-8);
-    }
-
-    & .addons:only-child {
-        margin: var(--gap-0);
-    }
-}
-
-.size-64,
-.size-72 {
-    & .addons:first-child {
-        margin-right: var(--gap-12);
-    }
-
-    & .addons:last-child {
-        margin-left: var(--gap-12);
-    }
-
-    & .addons:only-child {
-        margin: var(--gap-0);
-    }
-}
-
-.iconOnly {
-    padding: var(--gap-0);
-}
-
-/* Block */
-
-.block {
-    display: flex;
-    width: 100%;
-}
-
-/* Nowrap */
-
-.nowrap {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.rounded {
-    border-radius: var(--border-radius-pill);
 }
