@@ -120,19 +120,24 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onCh
     transparentMinor?: boolean;
 
     /**
-     * Добавляет компонент "Stepper" в правый аддонx
+     * Добавляет компонент "Stepper" в правый аддон
      */
-    step: number;
-    /**
-     * Минимальное значение
-     * @default Number.MIN_SAFE_INTEGER
-     */
-    min?: number;
-    /**
-     * Максимальное значение
-     * @default Number.MAX_SAFE_INTEGER
-     */
-    max?: number;
+    stepper?: {
+        /**
+         * Шаг инкремента / декремента
+         */
+        step: number;
+        /**
+         * Минимальное значение
+         * @default Number.MIN_SAFE_INTEGER
+         */
+        min?: number;
+        /**
+         * Максимальное значение
+         * @default Number.MAX_SAFE_INTEGER
+         */
+        max?: number;
+    };
 };
 
 /**
