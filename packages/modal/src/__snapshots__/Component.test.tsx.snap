@@ -27,7 +27,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component text size-48 hug size-48 component text component text component component"
+                class="component component component component text text text size-48 hug size-48 component component component"
                 type="button"
               >
                 <span
@@ -74,7 +74,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component border-48"
+                  class="component component component component text text text size-48 hug size-48 cc-icon-button button button primary component border-48 component"
                   type="button"
                 >
                   <span
@@ -161,7 +161,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component text size-32 hug size-32 component text component text component component mobileComponent"
+                class="component component component component text text text size-32 hug size-32 component component mobileComponent component"
                 type="button"
               >
                 <span
@@ -208,7 +208,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component border-32"
+                  class="component component component component text text text size-48 hug size-48 cc-icon-button button button mobile primary component border-32 component"
                   type="button"
                 >
                   <span

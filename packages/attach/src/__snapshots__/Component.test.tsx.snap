@@ -6,7 +6,7 @@ exports[`Attach Snapshots tests should match snapshot 1`] = `
     class="component size-48"
   >
     <button
-      class="component secondary size-48 hug size-48 component secondary component secondary withLeftAddons"
+      class="component component component component secondary secondary secondary size-48 hug size-48 withLeftAddons component"
       type="button"
     >
       <span

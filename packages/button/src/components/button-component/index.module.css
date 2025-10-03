@@ -1,0 +1,15 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '../../vars.css';
+
+.component {
+    margin: var(--gap-0);
+    padding: var(--gap-0);
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+    user-select: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}

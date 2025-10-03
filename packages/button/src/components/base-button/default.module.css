@@ -1,191 +1,191 @@
 @import '../../vars.css';
 
-.accent {
-    color: var(--button-accent-color);
-    background-color: var(--button-accent-base-bg-color);
-    border: 1px solid transparent;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-accent-hover-bg-color);
-        }
-    }
-
-    &:active {
-        background-color: var(--button-accent-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-static-color);
-    }
-}
-
-.primary {
-    border: 1px solid transparent;
-
-    & .hint {
-        color: var(--button-primary-hint-color);
-    }
-}
-
-.secondary {
-    color: var(--button-secondary-color);
-    border: 1px solid var(--button-secondary-base-border-color);
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
-    }
-
-    & .hint {
-        color: var(--button-secondary-hint-color);
-    }
-}
-
-.outlined {
-    color: var(--button-outlined-color);
-    background-color: var(--button-outlined-base-bg-color);
-    border: 1px solid var(--button-outlined-base-border-color);
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-outlined-hover-bg-color);
-            border-color: var(--button-outlined-hover-border-color);
-        }
-    }
-
-    &:active {
-        background-color: var(--button-outlined-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
-    }
-
-    & .hint {
-        color: var(--button-outlined-hint-color);
-    }
-}
-
-.tertiary {
-    color: var(--button-tertiary-color);
-    background-color: var(--button-tertiary-base-bg-color);
-    border: 1px solid var(--button-tertiary-base-border-color);
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-tertiary-hover-bg-color);
-            border-color: var(--button-tertiary-hover-border-color);
-        }
-    }
-
-    &:active {
-        background-color: var(--button-tertiary-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
-    }
-
-    & .hint {
-        color: var(--button-tertiary-hint-color);
-    }
-}
-
-.transparent {
-    color: var(--button-transparent-base-color);
-    background-color: transparent;
-    border: 1px solid transparent;
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-transparent-hover-bg-color);
-        }
-    }
-
-    &:active {
-        background-color: var(--button-transparent-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
-    }
-
-    & .hint {
-        color: var(--button-transparent-base-hint-color);
-    }
-}
-
-.text {
-    background-color: transparent;
-    color: var(--button-text-base-color);
-
-    @media (hover: hover) {
-        &:hover {
-            color: var(--button-text-hover-color);
-        }
-    }
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
-    }
-
-    & .hint {
-        color: var(--button-text-base-hint-color);
-    }
-}
-
-/* Disabled */
-
-.component[disabled] {
+.component {
     &.accent {
-        color: var(--button-accent-disabled-color);
-        background-color: var(--button-accent-disabled-bg-color);
+        color: var(--button-accent-color);
+        background-color: var(--button-accent-base-bg-color);
+        border: var(--button-border-width) solid transparent;
 
-        &.loading {
-            color: var(--button-accent-color);
-            background-color: var(--button-accent-base-bg-color);
+        @mixin not-disabled {
+            @mixin hover {
+                background-color: var(--button-accent-hover-bg-color);
+            }
+        }
+
+        &:active {
+            background-color: var(--button-accent-active-bg-color);
+        }
+
+        & > .loader {
+            color: var(--button-spinner-static-color);
+        }
+    }
+
+    &.primary {
+        border: var(--button-border-width) solid transparent;
+
+        & .hint {
+            color: var(--button-primary-hint-color);
         }
     }
 
     &.secondary {
-        border-color: var(--button-secondary-disabled-border-color);
+        color: var(--button-secondary-color);
+        border: var(--button-border-width) solid var(--button-secondary-base-border-color);
 
-        &.loading {
-            color: var(--button-secondary-color);
-            background-color: var(--button-secondary-base-bg-color);
-            border-color: var(--button-secondary-base-border-color);
+        & > .loader {
+            color: var(--button-spinner-default-color);
+        }
+
+        & .hint {
+            color: var(--button-secondary-hint-color);
         }
     }
 
     &.outlined {
-        background-color: var(--button-outlined-disabled-bg-color);
+        color: var(--button-outlined-color);
+        background-color: var(--button-outlined-base-bg-color);
+        border: var(--button-border-width) solid var(--button-outlined-base-border-color);
 
-        &.loading {
-            color: var(--button-outlined-color);
-            border-color: var(--button-outlined-base-border-color);
+        @mixin not-disabled {
+            @mixin hover {
+                background-color: var(--button-outlined-hover-bg-color);
+                border-color: var(--button-outlined-hover-border-color);
+            }
+        }
+
+        &:active {
+            background-color: var(--button-outlined-active-bg-color);
+        }
+
+        & > .loader {
+            color: var(--button-spinner-default-color);
+        }
+
+        & .hint {
+            color: var(--button-outlined-hint-color);
         }
     }
 
     &.tertiary {
-        background-color: var(--button-tertiary-disabled-bg-color);
+        color: var(--button-tertiary-color);
+        background-color: var(--button-tertiary-base-bg-color);
+        border: var(--button-border-width) solid var(--button-tertiary-base-border-color);
 
-        &.loading {
-            color: var(--button-tertiary-color);
-            border-color: var(--button-tertiary-base-border-color);
+        @mixin not-disabled {
+            @mixin hover {
+                background-color: var(--button-tertiary-hover-bg-color);
+                border-color: var(--button-tertiary-hover-border-color);
+            }
+        }
+
+        &:active {
+            background-color: var(--button-tertiary-active-bg-color);
+        }
+
+        & > .loader {
+            color: var(--button-spinner-default-color);
+        }
+
+        & .hint {
+            color: var(--button-tertiary-hint-color);
         }
     }
 
     &.transparent {
+        color: var(--button-transparent-base-color);
         background-color: transparent;
+        border: var(--button-border-width) solid transparent;
 
-        &.loading {
-            color: var(--button-transparent-base-color);
+        @mixin not-disabled {
+            @mixin hover {
+                background-color: var(--button-transparent-hover-bg-color);
+            }
+        }
+
+        &:active {
+            background-color: var(--button-transparent-active-bg-color);
+        }
+
+        & > .loader {
+            color: var(--button-spinner-default-color);
+        }
+
+        & .hint {
+            color: var(--button-transparent-base-hint-color);
         }
     }
 
     &.text {
-        &.loading {
-            color: var(--button-text-base-color);
+        background-color: transparent;
+        color: var(--button-text-base-color);
+
+        @mixin not-disabled {
+            @mixin hover {
+                color: var(--button-text-hover-color);
+            }
+        }
+
+        & > .loader {
+            color: var(--button-spinner-default-color);
+        }
+
+        & .hint {
+            color: var(--button-text-base-hint-color);
+        }
+    }
+
+    @mixin disabled {
+        &.accent {
+            color: var(--button-accent-disabled-color);
+            background-color: var(--button-accent-disabled-bg-color);
+
+            &.loading {
+                color: var(--button-accent-color);
+                background-color: var(--button-accent-base-bg-color);
+            }
+        }
+
+        &.secondary {
+            border-color: var(--button-secondary-disabled-border-color);
+
+            &.loading {
+                color: var(--button-secondary-color);
+                background-color: var(--button-secondary-base-bg-color);
+                border-color: var(--button-secondary-base-border-color);
+            }
+        }
+
+        &.outlined {
+            background-color: var(--button-outlined-disabled-bg-color);
+
+            &.loading {
+                color: var(--button-outlined-color);
+                border-color: var(--button-outlined-base-border-color);
+            }
+        }
+
+        &.tertiary {
+            background-color: var(--button-tertiary-disabled-bg-color);
+
+            &.loading {
+                color: var(--button-tertiary-color);
+                border-color: var(--button-tertiary-base-border-color);
+            }
+        }
+
+        &.transparent {
+            background-color: transparent;
+
+            &.loading {
+                color: var(--button-transparent-base-color);
+            }
+        }
+
+        &.text {
+            &.loading {
+                color: var(--button-text-base-color);
+            }
         }
     }
 }

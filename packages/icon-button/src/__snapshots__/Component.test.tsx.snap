@@ -7,7 +7,7 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
     <div>
       <a
         aria-disabled="false"
-        class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
+        class="component component component component text text text size-48 hug size-48 cc-icon-button primary component border-48 component"
         data-test-id="test-id"
         href="http://example.com"
       >
@@ -38,7 +38,7 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
   "container": <div>
     <a
       aria-disabled="false"
-      class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
+      class="component component component component text text text size-48 hug size-48 cc-icon-button primary component border-48 component"
       data-test-id="test-id"
       href="http://example.com"
     >
@@ -125,7 +125,7 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
+        class="component component component component text text text size-48 hug size-48 cc-icon-button primary component border-48 component"
         type="button"
       >
         <span
@@ -154,7 +154,7 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
+      class="component component component component text text text size-48 hug size-48 cc-icon-button primary component border-48 component"
       type="button"
     >
       <span
