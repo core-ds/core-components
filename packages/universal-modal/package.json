@@ -18,7 +18,7 @@
         "@alfalab/core-components-scrollbar": "^4.0.0",
         "@alfalab/core-components-shared": "^1.1.0",
         "@alfalab/core-components-typography": "^5.0.2",
-        "@alfalab/icons-glyph": "^2.247.0",
+        "@alfalab/icons-glyph": "^2.260.0",
         "@types/react-transition-group": "^4.4.12",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
