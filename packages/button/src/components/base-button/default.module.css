@@ -16,7 +16,7 @@
             background-color: var(--button-accent-active-bg-color);
         }
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-static-color);
         }
     }
@@ -33,7 +33,7 @@
         color: var(--button-secondary-color);
         border: var(--button-border-width) solid var(--button-secondary-base-border-color);
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-default-color);
         }
 
@@ -58,7 +58,7 @@
             background-color: var(--button-outlined-active-bg-color);
         }
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-default-color);
         }
 
@@ -83,7 +83,7 @@
             background-color: var(--button-tertiary-active-bg-color);
         }
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-default-color);
         }
 
@@ -107,7 +107,7 @@
             background-color: var(--button-transparent-active-bg-color);
         }
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-default-color);
         }
 
@@ -126,7 +126,7 @@
             }
         }
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-default-color);
         }
 

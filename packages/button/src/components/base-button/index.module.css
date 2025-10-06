@@ -5,36 +5,26 @@
     backdrop-filter: blur(80px);
 }
 
+@define-mixin addon-label-gap $gap {
+    .addons + .label,
+    .label + .addons,
+    .addons + .addons {
+        margin-left: $gap;
+    }
+}
+
 .component {
-    && {
+    &&& {
         font-weight: var(--button-font-weight);
         font-family: var(--font-family);
     }
-
-    @mixin reset-tap-highlight-color;
-
-    position: relative;
-    display: inline-flex;
-    vertical-align: middle;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
     transition:
         background 0.2s ease,
         border 0.2s ease,
         color 0.2s ease;
-    box-sizing: border-box;
 
     &.rounded {
         border-radius: var(--border-radius-pill);
-    }
-
-    /* Block */
-
-    &.block {
-        display: flex;
-        width: 100%;
     }
 
     &.hug {
@@ -64,24 +54,6 @@
         display: block;
     }
 
-    .loader {
-        position: absolute;
-        left: var(--gap-0);
-        right: var(--gap-0);
-        margin: var(--gap-0) auto;
-    }
-
-    &.focused {
-        @mixin focus-outline;
-    }
-
-    &.loading {
-        .label,
-        .addons {
-            opacity: 0;
-        }
-    }
-
     &.allowBackdropBlur {
         &.secondary {
             @mixin backdrop-filter;
@@ -104,12 +76,13 @@
         }
         &:not(.text) {
             min-height: var(--size-xxs-height);
-            padding: var(--gap-0) 15px;
 
+            &:not(.iconOnly) {
+                padding: var(--gap-0) 15px;
+            }
             &.withLeftAddons {
                 padding-left: 11px;
             }
-
             &.withRightAddons {
                 padding-right: 11px;
             }
@@ -128,12 +101,13 @@
         }
         &:not(.text) {
             min-height: var(--size-xs-height);
-            padding: var(--gap-0) 19px;
 
+            &:not(.iconOnly) {
+                padding: var(--gap-0) 19px;
+            }
             &.withLeftAddons {
                 padding-left: 15px;
             }
-
             &.withRightAddons {
                 padding-right: 15px;
             }
@@ -152,12 +126,13 @@
         }
         &:not(.text) {
             min-height: var(--size-s-height);
-            padding: var(--gap-0) 23px;
 
+            &:not(.iconOnly) {
+                padding: var(--gap-0) 23px;
+            }
             &.withLeftAddons {
                 padding-left: 19px;
             }
-
             &.withRightAddons {
                 padding-right: 19px;
             }
@@ -178,12 +153,13 @@
         }
         &:not(.text) {
             min-height: var(--size-m-height);
-            padding: var(--gap-0) 27px;
 
+            &:not(.iconOnly) {
+                padding: var(--gap-0) 27px;
+            }
             &.withLeftAddons {
                 padding-left: 23px;
             }
-
             &.withRightAddons {
                 padding-right: 23px;
             }
@@ -202,12 +178,13 @@
         }
         &:not(.text) {
             min-height: var(--size-l-height);
-            padding: var(--gap-0) 31px;
 
+            &:not(.iconOnly) {
+                padding: var(--gap-0) 31px;
+            }
             &.withLeftAddons {
                 padding-left: 27px;
             }
-
             &.withRightAddons {
                 padding-right: 27px;
             }
@@ -226,12 +203,13 @@
         }
         &:not(.text) {
             min-height: var(--size-xl-height);
-            padding: var(--gap-0) 35px;
 
+            &:not(.iconOnly) {
+                padding: var(--gap-0) 35px;
+            }
             &.withLeftAddons {
                 padding-left: 31px;
             }
-
             &.withRightAddons {
                 &.size-72 {
                     padding-right: 31px;
@@ -252,49 +230,18 @@
         display: flex;
         flex-shrink: 0;
         align-items: center;
-        margin: var(--gap-0);
-
-        &:first-child {
-            margin-right: 6px;
-        }
-
-        &:last-child {
-            margin-left: 6px;
-        }
-
-        &:only-child {
-            margin: var(--gap-0);
-        }
     }
+
+    @mixin addon-label-gap 6px;
 
     &.size-48,
     &.size-56 {
-        & .addons {
-            &:first-child {
-                margin-right: var(--gap-8);
-            }
-            &:last-child {
-                margin-left: var(--gap-8);
-            }
-            &:only-child {
-                margin: var(--gap-0);
-            }
-        }
+        @mixin addon-label-gap var(--gap-8);
     }
 
     &.size-64,
     &.size-72 {
-        & .addons {
-            &:first-child {
-                margin-right: var(--gap-12);
-            }
-            &:last-child {
-                margin-left: var(--gap-12);
-            }
-            &:only-child {
-                margin: var(--gap-0);
-            }
-        }
+        @mixin addon-label-gap var(--gap-12);
     }
 
     /* Disabled */

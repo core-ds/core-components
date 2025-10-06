@@ -1,14 +1,9 @@
-/* eslint-disable complexity */
-import React, { forwardRef, type MouseEventHandler, useEffect, useRef, useState } from 'react';
-import mergeRefs from 'react-merge-refs';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
-import { getDataTestId, isNonNullable } from '@alfalab/core-components-shared';
-import { Spinner } from '@alfalab/core-components-spinner';
-import { useFocus } from '@alfalab/hooks';
-
-import { LOADER_MIN_DISPLAY_INTERVAL } from '../../constants/loader-min-display-interval';
+import { useLoading } from '../../shared';
 import { type ButtonRef, type CommonButtonProps, type PrivateButtonProps } from '../../typings';
+import { BaseButtonCandidate } from '../base-button-candidate';
 import { ButtonComponent } from '../button-component';
 
 import defaultColors from './default.module.css';
@@ -32,16 +27,13 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
             leftAddons,
             rightAddons,
             size = 56,
-            block = false,
             className,
             spinnerClassName,
-            dataTestId,
             href,
             loading = false,
             nowrap = false,
             colors = 'default',
             Component = ButtonComponent,
-            onClick,
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
             disabled = false,
@@ -50,15 +42,7 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
         },
         ref,
     ) => {
-        const buttonRef = useRef<HTMLElement>(null);
-
-        const [focused] = useFocus(buttonRef, 'keyboard');
-
-        const [loaderTimePassed, setLoaderTimePassed] = useState(true);
-
-        const timerId = useRef<number | null>(null);
-
-        const showLoader = loading || !loaderTimePassed;
+        const showLoader = useLoading(loading);
 
         const showHint = hint && [56, 64, 72].includes(size);
 
@@ -83,8 +67,6 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
                 shape === 'rounded' && commonStyles[shape],
                 {
                     [commonStyles.allowBackdropBlur]: allowBackdropBlur,
-                    [commonStyles.focused]: focused,
-                    [commonStyles.block]: block,
                     [commonStyles.iconOnly]: iconOnly,
                     [commonStyles.loading]: showLoader,
                     [commonStyles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
@@ -92,14 +74,29 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
                     [colorStyles[colors].loading]: showLoader,
                     [colorStylesMap[colors].loading]: showLoader,
                 },
-                passDisabledClass && [styles.disabled, colorStyles[colors].disabled],
+                passDisabledClass && [commonStyles.disabled, colorStyles[colors].disabled],
                 className,
             ),
-            'data-test-id': dataTestId,
         };
 
-        const buttonChildren = (
-            <React.Fragment>
+        const loaderClassName = cn(
+            colorStyles[colors].loader,
+            colorStylesMap[colors].loader,
+            spinnerClassName,
+        );
+
+        return (
+            <BaseButtonCandidate
+                {...componentProps}
+                {...restProps}
+                Component={Component}
+                loaderClassName={loaderClassName}
+                loading={showLoader}
+                href={href}
+                type={type}
+                disabled={disabled}
+                ref={ref}
+            >
                 {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
                 {children && (
                     <span
@@ -117,66 +114,8 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
                         )}
                     </span>
                 )}
-
-                {showLoader && (
-                    <Spinner
-                        preset={24}
-                        dataTestId={getDataTestId(dataTestId, 'loader')}
-                        visible={true}
-                        className={cn(
-                            commonStyles.loader,
-                            colorStyles[colors].loader,
-                            colorStylesMap[colors].loader,
-                            spinnerClassName,
-                        )}
-                    />
-                )}
-
                 {rightAddons && <span className={commonStyles.addons}>{rightAddons}</span>}
-            </React.Fragment>
-        );
-
-        useEffect(() => {
-            if (loading) {
-                setLoaderTimePassed(false);
-
-                timerId.current = window.setTimeout(() => {
-                    setLoaderTimePassed(true);
-                    timerId.current = null;
-                }, LOADER_MIN_DISPLAY_INTERVAL);
-            }
-        }, [loading]);
-
-        useEffect(
-            () => () => {
-                if (isNonNullable(timerId.current)) {
-                    window.clearTimeout(timerId.current);
-                }
-            },
-            [],
-        );
-
-        const handleClick: MouseEventHandler<HTMLElement> = (event) => {
-            if (disabled || showLoader) {
-                event.preventDefault();
-                event.stopPropagation();
-            } else {
-                onClick?.(event);
-            }
-        };
-
-        return (
-            <Component
-                {...componentProps}
-                {...restProps}
-                href={href}
-                type={type}
-                disabled={disabled}
-                onClick={handleClick}
-                ref={mergeRefs([buttonRef, ref])}
-            >
-                {buttonChildren}
-            </Component>
+            </BaseButtonCandidate>
         );
     },
 );

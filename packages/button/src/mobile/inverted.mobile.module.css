@@ -15,7 +15,7 @@
             background-color: var(--button-inverted-primary-mobile-active-bg-color);
         }
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-inverted-primary-mobile-color);
         }
     }

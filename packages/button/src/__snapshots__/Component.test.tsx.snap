@@ -6,14 +6,14 @@ exports[`Button Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+      class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
       type="button"
     />
   </div>,
@@ -78,7 +78,7 @@ exports[`Button Snapshots tests should render anchor if href pass 1`] = `
     <div>
       <a
         aria-disabled="false"
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         href="https://some-url"
       />
     </div>
@@ -86,7 +86,7 @@ exports[`Button Snapshots tests should render anchor if href pass 1`] = `
   "container": <div>
     <a
       aria-disabled="false"
-      class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+      class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
       href="https://some-url"
     />
   </div>,
@@ -150,14 +150,14 @@ exports[`Button Snapshots tests should render button by default 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+      class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
       type="button"
     />
   </div>,
@@ -221,7 +221,7 @@ exports[`Button Snapshots tests should render left addons 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         type="button"
       >
         <span
@@ -236,7 +236,7 @@ exports[`Button Snapshots tests should render left addons 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+      class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
       type="button"
     >
       <span
@@ -309,7 +309,7 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
     <div>
       <a
         aria-disabled="false"
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly loading component"
+        class="component loading component component component component secondary secondary secondary size-56 hug size-56 iconOnly loading component"
         href="https://some-url"
       >
         <svg
@@ -354,7 +354,7 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
   "container": <div>
     <a
       aria-disabled="false"
-      class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly loading component"
+      class="component loading component component component component secondary secondary secondary size-56 hug size-56 iconOnly loading component"
       href="https://some-url"
     >
       <svg
@@ -455,7 +455,7 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly loading component"
+        class="component loading component component component component secondary secondary secondary size-56 hug size-56 iconOnly loading component"
         type="button"
       >
         <svg
@@ -499,7 +499,7 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly loading component"
+      class="component loading component component component component secondary secondary secondary size-56 hug size-56 iconOnly loading component"
       type="button"
     >
       <svg
@@ -600,7 +600,7 @@ exports[`Button Snapshots tests should render right addons 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         type="button"
       >
         <span
@@ -615,7 +615,7 @@ exports[`Button Snapshots tests should render right addons 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
+      class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
       type="button"
     >
       <span

@@ -13,7 +13,7 @@ exports[`Snapshots tests should display correctly 1`] = `
       <button
         aria-controls="downshift-:r0:-menu"
         aria-labelledby="downshift-:r0:-label"
-        class="component component component component secondary secondary secondary size-56 hug size-56 block withRightAddons component"
+        class="component block component component component component secondary secondary secondary size-56 hug size-56 withRightAddons component"
         id="downshift-:r0:-input"
         tabindex="0"
         type="button"
@@ -68,7 +68,7 @@ exports[`Snapshots tests should display correctly 2`] = `
       <button
         aria-controls="downshift-:r2:-menu"
         aria-labelledby="downshift-:r2:-label"
-        class="component component component component secondary secondary secondary size-56 hug size-56 block withRightAddons component"
+        class="component block component component component component secondary secondary secondary size-56 hug size-56 withRightAddons component"
         id="downshift-:r2:-input"
         tabindex="0"
         type="button"
@@ -123,7 +123,7 @@ exports[`Snapshots tests should display correctly 3`] = `
       <button
         aria-controls="downshift-:r4:-menu"
         aria-labelledby="downshift-:r4:-label"
-        class="component component component component secondary secondary secondary size-56 hug size-56 block withRightAddons component"
+        class="component block component component component component secondary secondary secondary size-56 hug size-56 withRightAddons component"
         id="downshift-:r4:-input"
         tabindex="0"
         type="button"
@@ -178,7 +178,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
       <button
         aria-controls="downshift-:r1:-menu"
         aria-labelledby="downshift-:r1:-label"
-        class="component component component component secondary secondary secondary size-56 hug size-56 block iconOnly component"
+        class="component block component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         id="downshift-:r1:-input"
         tabindex="0"
         type="button"
@@ -223,7 +223,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
       <button
         aria-controls="downshift-:r1:-menu"
         aria-labelledby="downshift-:r1:-label"
-        class="component component component component secondary secondary secondary size-56 hug size-56 block iconOnly component"
+        class="component block component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         id="downshift-:r1:-input"
         tabindex="0"
         type="button"
@@ -268,7 +268,7 @@ exports[`Snapshots tests should display opened correctly 3`] = `
       <button
         aria-controls="downshift-:r3:-menu"
         aria-labelledby="downshift-:r3:-label"
-        class="component component component component secondary secondary secondary size-56 hug size-56 block iconOnly component"
+        class="component block component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         id="downshift-:r3:-input"
         tabindex="0"
         type="button"
@@ -359,7 +359,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component component component component text text text size-48 hug size-48 cc-icon-button button button mobile primary component border-32 component"
+                            class="component component component component component text text text size-48 hug size-48 cc-icon-button button button mobile primary component border-32 component"
                             type="button"
                           >
                             <span
@@ -1382,7 +1382,7 @@ exports[`Snapshots tests should display opened correctly 5`] = `
       <button
         aria-controls="downshift-:r5:-menu"
         aria-labelledby="downshift-:r5:-label"
-        class="component component component component secondary secondary secondary size-56 hug size-56 block iconOnly component"
+        class="component block component component component component secondary secondary secondary size-56 hug size-56 iconOnly component"
         id="downshift-:r5:-input"
         tabindex="0"
         type="button"
@@ -1473,7 +1473,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component component component component text text text size-48 hug size-48 cc-icon-button button button mobile primary component border-32 component"
+                            class="component component component component component text text text size-48 hug size-48 cc-icon-button button button mobile primary component border-32 component"
                             type="button"
                           >
                             <span

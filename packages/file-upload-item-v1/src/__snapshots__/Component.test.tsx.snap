@@ -51,7 +51,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
         <a
           aria-disabled="false"
           aria-label="скачать"
-          class="component component component component text text text size-48 hug size-48 cc-icon-button download primary component border-24 component"
+          class="component component component component component text text text size-48 hug size-48 cc-icon-button download primary component border-24 component"
           download="новое_название_файла"
           href="/link"
         >
@@ -79,7 +79,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
         </a>
         <button
           aria-label="удалить"
-          class="component component component component text text text size-48 hug size-48 cc-icon-button delete primary component border-24 component"
+          class="component component component component component text text text size-48 hug size-48 cc-icon-button delete primary component border-24 component"
           type="button"
         >
           <span
@@ -154,7 +154,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
       <a
         aria-disabled="false"
         aria-label="скачать"
-        class="component component component component text text text size-48 hug size-48 cc-icon-button download primary component border-24 component"
+        class="component component component component component text text text size-48 hug size-48 cc-icon-button download primary component border-24 component"
         download="новое_название_файла"
         href="/link"
       >
@@ -182,7 +182,7 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
       </a>
       <button
         aria-label="удалить"
-        class="component component component component text text text size-48 hug size-48 cc-icon-button delete primary component border-24 component"
+        class="component component component component component text text text size-48 hug size-48 cc-icon-button delete primary component border-24 component"
         type="button"
       >
         <span
