@@ -77,7 +77,7 @@ export type SliderInputProps = Omit<
     /**
      * Компонент поля ввода
      */
-    Input?: ComponentType<Omit<InputProps, 'onChange' | 'value'>>;
+    Input?: ComponentType<Omit<InputProps, 'onChange' | 'value' | 'defaultValue'>>;
 
     /**
      * Кастомные пропсы для поля ввода
