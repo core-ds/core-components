@@ -15,7 +15,6 @@ export const ButtonComponent = forwardRef<HTMLElement, ButtonComponentProps>(
             <Tag
                 {...restProps}
                 className={cn(className, styles.component)}
-                // className={className}
                 ref={mergeRefs([ref])}
                 rel={
                     rel ??

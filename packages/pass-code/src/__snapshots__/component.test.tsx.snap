@@ -53,7 +53,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
       class="component"
     >
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -63,7 +63,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -73,7 +73,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -83,7 +83,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -93,7 +93,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -103,7 +103,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -113,7 +113,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -123,7 +123,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -133,7 +133,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -144,7 +144,7 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
       </button>
       <div />
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly button secondary digit component"
         type="button"
       >
         0
@@ -179,7 +179,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
       class="component"
     >
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -189,7 +189,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -199,7 +199,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -209,7 +209,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -219,7 +219,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -229,7 +229,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -239,7 +239,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -249,7 +249,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -259,7 +259,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         </span>
       </button>
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
         type="button"
       >
         <span
@@ -270,7 +270,7 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
       </button>
       <div />
       <button
-        class="component component component component secondary secondary secondary size-56 hug size-56 iconOnly button secondary digit component"
+        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly button secondary digit component"
         type="button"
       >
         0

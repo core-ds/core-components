@@ -15,7 +15,7 @@
             background-color: var(--button-primary-active-bg-color);
         }
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-primary-color);
         }
     }

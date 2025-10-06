@@ -1,0 +1,1 @@
+export { BaseButtonCandidate } from './Component';

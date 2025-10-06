@@ -9,7 +9,7 @@
     box-shadow: none;
     user-select: none;
     appearance: none;
-    background: transparent;
+    background: none;
     border: none;
     cursor: pointer;
 }

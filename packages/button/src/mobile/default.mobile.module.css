@@ -13,7 +13,7 @@
             background-color: var(--button-primary-mobile-active-bg-color);
         }
 
-        & > .loader {
+        & .loader {
             color: var(--button-spinner-primary-mobile-color);
         }
     }
