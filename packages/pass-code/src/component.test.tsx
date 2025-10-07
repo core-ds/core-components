@@ -45,7 +45,7 @@ describe('PassCode', () => {
 
             const { getByText } = render(<PassCode value={currentValue} onChange={cb} />);
 
-            const button = getByText(pressedDigit).parentNode as HTMLButtonElement;
+            const button = getByText(pressedDigit) as HTMLButtonElement;
 
             fireEvent.click(button);
 
