@@ -53,105 +53,65 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
       class="component"
     >
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          1
-        </span>
+        1
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          2
-        </span>
+        2
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          3
-        </span>
+        3
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          4
-        </span>
+        4
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          5
-        </span>
+        5
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          6
-        </span>
+        6
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          7
-        </span>
+        7
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          8
-        </span>
+        8
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          9
-        </span>
+        9
       </button>
       <div />
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          0
-        </span>
+        0
       </button>
       <div />
     </div>
@@ -183,105 +143,65 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
       class="component"
     >
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          1
-        </span>
+        1
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          2
-        </span>
+        2
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          3
-        </span>
+        3
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          4
-        </span>
+        4
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          5
-        </span>
+        5
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          6
-        </span>
+        6
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          7
-        </span>
+        7
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          8
-        </span>
+        8
       </button>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          9
-        </span>
+        9
       </button>
       <div />
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label"
-        >
-          0
-        </span>
+        0
       </button>
       <div />
     </div>
