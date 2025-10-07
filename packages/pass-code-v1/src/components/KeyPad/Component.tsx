@@ -81,10 +81,14 @@ export const KeyPad: React.FC<KeyPadProps> = ({
                 return <div key='right-addon-empty' />;
             }
 
+            const handleDigitClick = () => {
+                onClick(digit);
+            };
+
             return (
                 <KeyPadButton
                     key={digit}
-                    onClick={onClick}
+                    onClick={handleDigitClick}
                     view='secondary'
                     buttonClassName={styles.digit}
                     dataTestId={getDataTestId(dataTestId, 'keypad-button')}
