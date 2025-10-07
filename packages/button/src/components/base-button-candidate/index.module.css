@@ -36,4 +36,16 @@
     &.loading > *:not(.loader) {
         opacity: 0;
     }
+
+    /* Disabled */
+
+    /* Disabled */
+
+    @mixin disabled {
+        cursor: var(--disabled-cursor);
+
+        & * {
+            pointer-events: none;
+        }
+    }
 }

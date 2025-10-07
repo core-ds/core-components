@@ -7,7 +7,9 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { Button, type ButtonProps } from '@alfalab/core-components-button';
+import { type ButtonProps } from '@alfalab/core-components-button';
+import { BaseButtonCandidate } from '@alfalab/core-components-button/components/base-button-candidate';
+import { useLoading } from '@alfalab/core-components-button/shared';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -27,7 +29,7 @@ export type IconButtonProps = {
     /**
      * Тип кнопки
      */
-    view?: 'primary' | 'secondary' | 'transparent' | 'tertiary' | 'negative';
+    view?: 'primary' | 'secondary' | 'transparent' /* @deprecated */ | 'tertiary' | 'negative';
 
     /**
      * Размер компонента
@@ -75,41 +77,46 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             colors = 'default',
             alignIcon = 'center',
             transparentBg = false,
+            loading: loadingFromProps,
             ...restProps
         },
         ref,
-    ) => (
-        <Button
-            {...restProps}
-            ref={ref}
-            view='text'
-            className={cn(
-                'cc-icon-button',
-                className,
-                colorStyles[colors][view],
-                colorStyles[colors].component,
-                styles[`border-${size}`],
-                {
-                    [colorStyles[colors].loader]: restProps.loading,
-                    [colorStyles[colors].transparentBg]: transparentBg,
-                },
-            )}
-            size={48}
-        >
-            <span className={cn(styles.iconWrapper, styles[`size-${size}`], styles[alignIcon])}>
-                {React.isValidElement(Icon) ? (
-                    React.cloneElement(Icon as ReactElement<{ className?: string }>, {
-                        className: cn(
-                            styles.icon,
-                            (Icon as ReactElement<{ className?: string }>).props.className,
-                        ),
-                    })
-                ) : (
-                    <Icon className={styles.icon} />
+    ) => {
+        const loading = useLoading(loadingFromProps);
+
+        return (
+            <BaseButtonCandidate
+                {...restProps}
+                ref={ref}
+                disabledClassName={colorStyles[colors].disabled}
+                loading={loading}
+                className={cn(
+                    'cc-icon-button',
+                    className,
+                    colorStyles[colors][view],
+                    colorStyles[colors].component,
+                    styles[`border-${size}`],
+                    {
+                        [colorStyles[colors].loader]: loading,
+                        [colorStyles[colors].transparentBg]: transparentBg,
+                    },
                 )}
-            </span>
-        </Button>
-    ),
+            >
+                <span className={cn(styles.iconWrapper, styles[`size-${size}`], styles[alignIcon])}>
+                    {React.isValidElement(Icon) ? (
+                        React.cloneElement(Icon as ReactElement<{ className?: string }>, {
+                            className: cn(
+                                styles.icon,
+                                (Icon as ReactElement<{ className?: string }>).props.className,
+                            ),
+                        })
+                    ) : (
+                        <Icon className={styles.icon} />
+                    )}
+                </span>
+            </BaseButtonCandidate>
+        );
+    },
 );
 
 IconButton.displayName = 'IconButton';

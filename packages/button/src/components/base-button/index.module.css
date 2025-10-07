@@ -247,14 +247,4 @@
     &.size-72 {
         @mixin addon-label-gap var(--gap-12);
     }
-
-    /* Disabled */
-
-    @mixin disabled {
-        cursor: var(--disabled-cursor);
-
-        & * {
-            pointer-events: none;
-        }
-    }
 }

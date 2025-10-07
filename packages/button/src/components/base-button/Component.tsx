@@ -27,7 +27,7 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
             leftAddons,
             rightAddons,
             size = 56,
-            className,
+            className: classNameFromProps,
             spinnerClassName,
             href,
             loading = false,
@@ -50,34 +50,29 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
 
         const sizeStyle = `size-${size}`;
 
-        const passDisabledClass = disabled && Boolean(href);
-
-        const componentProps = {
-            className: cn(
-                commonStyles.component,
-                colorStyles[colors].component,
-                styles.component,
-                colorStylesMap[colors].component,
-                commonStyles[view],
-                colorStyles[colors][view],
-                colorStylesMap[colors][view],
-                commonStyles[sizeStyle],
-                commonStyles[textResizing],
-                shape === 'rectangular' && styles[sizeStyle],
-                shape === 'rounded' && commonStyles[shape],
-                {
-                    [commonStyles.allowBackdropBlur]: allowBackdropBlur,
-                    [commonStyles.iconOnly]: iconOnly,
-                    [commonStyles.loading]: showLoader,
-                    [commonStyles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
-                    [commonStyles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
-                    [colorStyles[colors].loading]: showLoader,
-                    [colorStylesMap[colors].loading]: showLoader,
-                },
-                passDisabledClass && [commonStyles.disabled, colorStyles[colors].disabled],
-                className,
-            ),
-        };
+        const className = cn(
+            commonStyles.component,
+            colorStyles[colors].component,
+            styles.component,
+            colorStylesMap[colors].component,
+            commonStyles[view],
+            colorStyles[colors][view],
+            colorStylesMap[colors][view],
+            commonStyles[sizeStyle],
+            commonStyles[textResizing],
+            shape === 'rectangular' && styles[sizeStyle],
+            shape === 'rounded' && commonStyles[shape],
+            {
+                [commonStyles.allowBackdropBlur]: allowBackdropBlur,
+                [commonStyles.iconOnly]: iconOnly,
+                [commonStyles.loading]: showLoader,
+                [commonStyles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
+                [commonStyles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
+                [colorStyles[colors].loading]: showLoader,
+                [colorStylesMap[colors].loading]: showLoader,
+            },
+            classNameFromProps,
+        );
 
         const loaderClassName = cn(
             colorStyles[colors].loader,
@@ -87,15 +82,16 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
 
         return (
             <BaseButtonCandidate
-                {...componentProps}
                 {...restProps}
-                Component={Component}
-                loaderClassName={loaderClassName}
-                loading={showLoader}
+                ref={ref}
                 href={href}
                 type={type}
+                className={className}
+                Component={Component}
+                loading={showLoader}
+                loaderClassName={loaderClassName}
                 disabled={disabled}
-                ref={ref}
+                disabledClassName={cn(commonStyles.disabled, colorStyles[colors].disabled)}
             >
                 {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
                 {children && (
