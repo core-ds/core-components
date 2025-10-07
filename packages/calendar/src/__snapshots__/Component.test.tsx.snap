@@ -3399,30 +3399,26 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       >
         <button
           aria-label="Предыдущий период"
-          class="component component component component component text text text size-48 hug size-48 cc-icon-button arrow primary component border-32 component"
+          class="component cc-icon-button arrow primary component border-32 component"
           data-test-id="period-slider-btn-previous-day"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="iconWrapper size-32 center"
           >
-            <span
-              class="iconWrapper size-32 center"
+            <svg
+              class="icon"
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
             >
-              <svg
-                class="icon"
-                fill="currentColor"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path
-                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+              />
+            </svg>
           </span>
         </button>
         <span
@@ -3432,30 +3428,26 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
         </span>
         <button
           aria-label="Следующий период"
-          class="component component component component component text text text size-48 hug size-48 cc-icon-button arrow primary component border-32 component"
+          class="component cc-icon-button arrow primary component border-32 component"
           data-test-id="period-slider-btn-next-day"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="iconWrapper size-32 center"
           >
-            <span
-              class="iconWrapper size-32 center"
+            <svg
+              class="icon"
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
             >
-              <svg
-                class="icon"
-                fill="currentColor"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path
-                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+              />
+            </svg>
           </span>
         </button>
       </div>

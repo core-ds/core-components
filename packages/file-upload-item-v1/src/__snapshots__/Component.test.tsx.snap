@@ -51,57 +51,49 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
         <a
           aria-disabled="false"
           aria-label="скачать"
-          class="component component component component component text text text size-48 hug size-48 cc-icon-button download primary component border-24 component"
+          class="component cc-icon-button download primary component border-24 component"
           download="новое_название_файла"
           href="/link"
         >
           <span
-            class="label stretchText"
+            class="iconWrapper size-24 center"
           >
-            <span
-              class="iconWrapper size-24 center"
+            <svg
+              class="icon"
+              fill="currentColor"
+              focusable="false"
+              height="16"
+              role="img"
+              viewBox="0 0 16 16"
+              width="16"
             >
-              <svg
-                class="icon"
-                fill="currentColor"
-                focusable="false"
-                height="16"
-                role="img"
-                viewBox="0 0 16 16"
-                width="16"
-              >
-                <path
-                  d="M10.963 6.623L8.667 8.87V2H7.333v6.87L5.037 6.622l-.932.954L8 11.387l3.895-3.81-.932-.954zM13.333 14v-1.333H2.667V14h10.666z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M10.963 6.623L8.667 8.87V2H7.333v6.87L5.037 6.622l-.932.954L8 11.387l3.895-3.81-.932-.954zM13.333 14v-1.333H2.667V14h10.666z"
+              />
+            </svg>
           </span>
         </a>
         <button
           aria-label="удалить"
-          class="component component component component component text text text size-48 hug size-48 cc-icon-button delete primary component border-24 component"
+          class="component cc-icon-button delete primary component border-24 component"
           type="button"
         >
           <span
-            class="label stretchText"
+            class="iconWrapper size-24 center"
           >
-            <span
-              class="iconWrapper size-24 center"
+            <svg
+              class="icon"
+              fill="currentColor"
+              focusable="false"
+              height="16"
+              role="img"
+              viewBox="0 0 16 16"
+              width="16"
             >
-              <svg
-                class="icon"
-                fill="currentColor"
-                focusable="false"
-                height="16"
-                role="img"
-                viewBox="0 0 16 16"
-                width="16"
-              >
-                <path
-                  d="M7.057 8L4 11l1 1 3-3.057L11 12l1-1-3.057-3L12 5l-1-1-3 3.057L5 4 4 5l3.057 3z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M7.057 8L4 11l1 1 3-3.057L11 12l1-1-3.057-3L12 5l-1-1-3 3.057L5 4 4 5l3.057 3z"
+              />
+            </svg>
           </span>
         </button>
       </div>
@@ -154,57 +146,49 @@ exports[`FileUploadItemV1 Snapshots tests should match snapshot 1`] = `
       <a
         aria-disabled="false"
         aria-label="скачать"
-        class="component component component component component text text text size-48 hug size-48 cc-icon-button download primary component border-24 component"
+        class="component cc-icon-button download primary component border-24 component"
         download="новое_название_файла"
         href="/link"
       >
         <span
-          class="label stretchText"
+          class="iconWrapper size-24 center"
         >
-          <span
-            class="iconWrapper size-24 center"
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="16"
+            role="img"
+            viewBox="0 0 16 16"
+            width="16"
           >
-            <svg
-              class="icon"
-              fill="currentColor"
-              focusable="false"
-              height="16"
-              role="img"
-              viewBox="0 0 16 16"
-              width="16"
-            >
-              <path
-                d="M10.963 6.623L8.667 8.87V2H7.333v6.87L5.037 6.622l-.932.954L8 11.387l3.895-3.81-.932-.954zM13.333 14v-1.333H2.667V14h10.666z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M10.963 6.623L8.667 8.87V2H7.333v6.87L5.037 6.622l-.932.954L8 11.387l3.895-3.81-.932-.954zM13.333 14v-1.333H2.667V14h10.666z"
+            />
+          </svg>
         </span>
       </a>
       <button
         aria-label="удалить"
-        class="component component component component component text text text size-48 hug size-48 cc-icon-button delete primary component border-24 component"
+        class="component cc-icon-button delete primary component border-24 component"
         type="button"
       >
         <span
-          class="label stretchText"
+          class="iconWrapper size-24 center"
         >
-          <span
-            class="iconWrapper size-24 center"
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="16"
+            role="img"
+            viewBox="0 0 16 16"
+            width="16"
           >
-            <svg
-              class="icon"
-              fill="currentColor"
-              focusable="false"
-              height="16"
-              role="img"
-              viewBox="0 0 16 16"
-              width="16"
-            >
-              <path
-                d="M7.057 8L4 11l1 1 3-3.057L11 12l1-1-3.057-3L12 5l-1-1-3 3.057L5 4 4 5l3.057 3z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M7.057 8L4 11l1 1 3-3.057L11 12l1-1-3.057-3L12 5l-1-1-3 3.057L5 4 4 5l3.057 3z"
+            />
+          </svg>
         </span>
       </button>
     </div>

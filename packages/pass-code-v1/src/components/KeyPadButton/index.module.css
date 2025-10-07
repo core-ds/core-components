@@ -6,64 +6,54 @@
     justify-content: center;
     align-items: center;
     padding: var(--gap-0);
-}
 
-.button.button {
-    @mixin action_component_secondary;
+    .button.button {
+        @mixin action_component_secondary;
 
-    border-radius: var(--border-radius-circle);
-    padding: var(--gap-0);
-    min-width: 64px;
-    width: 64px;
-    height: 64px;
-    text-align: center;
+        border-radius: var(--border-radius-circle);
+        width: 64px;
+        height: 64px;
+        text-align: center;
 
-    & > span {
-        vertical-align: middle;
-
-        & > * {
+        & > span {
             vertical-align: middle;
+
+            & > * {
+                vertical-align: middle;
+            }
         }
-    }
-}
 
-.secondary.secondary {
-    color: var(--color-light-text-primary);
-    background: var(--button-bg-color);
+        &.secondary.secondary {
+            padding: var(--gap-0);
+            min-width: 64px;
+            color: var(--color-light-text-primary);
+            background: var(--button-bg-color);
 
-    &:hover {
-        color: var(--color-light-text-primary);
-    }
+            @mixin not-disabled {
+                @mixin hover {
+                    color: var(--color-light-text-primary);
+                }
 
-    &:active {
-        background: var(--button-bg-color-active);
-    }
-}
+                &:active {
+                    background: var(--button-bg-color-active);
+                }
+            }
+        }
 
-.ghost.ghost {
-    color: var(--color-light-text-primary);
+        @media screen and (min-width: 360px) {
+            & {
+                min-width: 76px;
+                height: 76px;
+                width: 76px;
+            }
+        }
 
-    &:hover {
-        color: var(--color-light-text-primary);
-    }
-
-    &:active {
-        background: var(--button-bg-color-active);
-    }
-}
-
-@media screen and (min-width: 360px) {
-    .button.button {
-        min-width: 76px;
-        height: 76px;
-        width: 76px;
-    }
-}
-
-@media screen and (min-width: 390px) {
-    .button.button {
-        min-width: 86px;
-        width: 86px;
-        height: 86px;
+        @media screen and (min-width: 390px) {
+            & {
+                min-width: 86px;
+                width: 86px;
+                height: 86px;
+            }
+        }
     }
 }

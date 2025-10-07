@@ -38,6 +38,11 @@ interface ComponentProps {
     loaderClassName?: string;
 
     /**
+     * Дополнительный класc при отключении кнопки
+     */
+    disabledClassName?: string;
+
+    /**
      * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
      */
     Component?:
@@ -78,18 +83,21 @@ export const BaseButtonCandidate = forwardRef<HTMLElement, BaseButtonCandidatePr
             block = false,
             className,
             loaderClassName,
+            disabledClassName,
             dataTestId,
             loading = false,
             Component = ButtonComponent,
             disabled = false,
             type = 'button',
             onClick,
+            href,
             ...restProps
         },
         ref,
     ) => {
         const buttonRef = useRef<HTMLElement>(null);
         const [focused] = useFocus(buttonRef, 'keyboard');
+        const passDisabledClassName = disabled && Boolean(href);
 
         const handleClick: MouseEventHandler<HTMLElement> = (event) => {
             if (disabled || loading) {
@@ -104,6 +112,7 @@ export const BaseButtonCandidate = forwardRef<HTMLElement, BaseButtonCandidatePr
             <Component
                 data-test-id={dataTestId}
                 {...restProps}
+                href={href}
                 className={cn(
                     styles.component,
                     {
@@ -111,6 +120,7 @@ export const BaseButtonCandidate = forwardRef<HTMLElement, BaseButtonCandidatePr
                         [styles.block]: block,
                         [styles.loading]: loading,
                     },
+                    passDisabledClassName && [styles.disabled, disabledClassName],
                     className,
                 )}
                 type={type}

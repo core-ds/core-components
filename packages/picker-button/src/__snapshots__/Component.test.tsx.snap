@@ -359,29 +359,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component component component component component text text text size-48 hug size-48 cc-icon-button button button mobile primary component border-32 component"
+                            class="component cc-icon-button button button mobile primary component border-32 component"
                             type="button"
                           >
                             <span
-                              class="label stretchText"
+                              class="iconWrapper size-32 center"
                             >
-                              <span
-                                class="iconWrapper size-32 center"
+                              <svg
+                                class="icon"
+                                fill="currentColor"
+                                focusable="false"
+                                height="24"
+                                role="img"
+                                viewBox="0 0 24 24"
+                                width="24"
                               >
-                                <svg
-                                  class="icon"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
-                                >
-                                  <path
-                                    d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                                  />
-                                </svg>
-                              </span>
+                                <path
+                                  d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                                />
+                              </svg>
                             </span>
                           </button>
                         </div>
@@ -1473,29 +1469,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                         >
                           <button
                             aria-label="закрыть"
-                            class="component component component component component text text text size-48 hug size-48 cc-icon-button button button mobile primary component border-32 component"
+                            class="component cc-icon-button button button mobile primary component border-32 component"
                             type="button"
                           >
                             <span
-                              class="label stretchText"
+                              class="iconWrapper size-32 center"
                             >
-                              <span
-                                class="iconWrapper size-32 center"
+                              <svg
+                                class="icon"
+                                fill="currentColor"
+                                focusable="false"
+                                height="24"
+                                role="img"
+                                viewBox="0 0 24 24"
+                                width="24"
                               >
-                                <svg
-                                  class="icon"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
-                                >
-                                  <path
-                                    d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                                  />
-                                </svg>
-                              </span>
+                                <path
+                                  d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                                />
+                              </svg>
                             </span>
                           </button>
                         </div>
