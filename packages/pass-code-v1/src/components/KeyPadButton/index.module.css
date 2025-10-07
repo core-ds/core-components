@@ -2,58 +2,41 @@
 @import '../../vars.css';
 
 .component {
-    display: flex;
+    @mixin action_component_secondary;
+
+    border-radius: var(--border-radius-circle);
+    width: 64px;
+    height: 64px;
+
     justify-content: center;
     align-items: center;
-    padding: var(--gap-0);
+    color: var(--color-light-text-primary);
 
-    .button.button {
-        @mixin action_component_secondary;
+    &.secondary {
+        background: var(--button-bg-color);
 
-        border-radius: var(--border-radius-circle);
-        width: 64px;
-        height: 64px;
-        text-align: center;
+        &:active {
+            background: var(--button-bg-color-active);
+        }
+    }
 
-        & > span {
-            vertical-align: middle;
-
-            & > * {
-                vertical-align: middle;
-            }
+    &.text {
+        @mixin hover {
+            color: var(--color-light-text-primary-hover);
         }
 
-        &.secondary.secondary {
-            padding: var(--gap-0);
-            min-width: 64px;
-            color: var(--color-light-text-primary);
-            background: var(--button-bg-color);
-
-            @mixin not-disabled {
-                @mixin hover {
-                    color: var(--color-light-text-primary);
-                }
-
-                &:active {
-                    background: var(--button-bg-color-active);
-                }
-            }
+        &:active {
+            color: var(--color-light-text-primary-press);
         }
+    }
 
-        @media screen and (min-width: 360px) {
-            & {
-                min-width: 76px;
-                height: 76px;
-                width: 76px;
-            }
-        }
+    @media screen and (min-width: 360px) {
+        height: 76px;
+        width: 76px;
+    }
 
-        @media screen and (min-width: 390px) {
-            & {
-                min-width: 86px;
-                width: 86px;
-                height: 86px;
-            }
-        }
+    @media screen and (min-width: 390px) {
+        width: 86px;
+        height: 86px;
     }
 }
