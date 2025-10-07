@@ -1,64 +1,48 @@
-import React, { type ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 import cn from 'classnames';
 
-import { ButtonMobile, type ButtonMobileProps } from '@alfalab/core-components-button/mobile';
+import { BaseButtonCandidate } from '@alfalab/core-components-button/components/base-button-candidate';
 
 import styles from './index.module.css';
 
-export type KeyPadButtonProps<T> = {
+export interface KeyPadButtonProps {
     /**
-     * Вид кнопки
+     * Значение.
      */
-    view: ButtonMobileProps['view'];
+    children?: ReactNode;
 
     /**
-     * Значение
-     */
-    children: T;
-
-    /**
-     * Дополнительный класс
+     * Дополнительный класс.
      */
     className?: string;
 
     /**
-     * Дополнительный класс кнопки
+     * Дополнительный класс кнопки.
      */
     buttonClassName?: string;
 
     /**
-     * Коллбэк нажатия на кнопку
+     * Коллбэк нажатия на кнопку.
      */
-    onClick?: (payload: T) => void;
+    onClick?: () => void;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Идентификатор для систем автоматизированного тестирования.
      */
     dataTestId?: string;
-
-    /**
-     * Заголовок кнопки
-     */
-    title?: string;
-};
-
-export function KeyPadButton<T extends ReactNode>({
-    children,
-    onClick,
-    view = 'secondary',
-    buttonClassName,
-    dataTestId,
-    title,
-}: KeyPadButtonProps<T>) {
-    return (
-        <ButtonMobile
-            className={cn(styles.button, styles[view], buttonClassName)}
-            view={view}
-            onClick={() => onClick?.(children)}
-            dataTestId={dataTestId}
-            {...(title && { title })}
-        >
-            {children}
-        </ButtonMobile>
-    );
 }
+
+export const KeyPadButton: FC<KeyPadButtonProps> = ({
+    buttonClassName,
+    children,
+    dataTestId,
+    onClick,
+}) => (
+    <BaseButtonCandidate
+        className={cn(styles.component, buttonClassName)}
+        onClick={onClick}
+        dataTestId={dataTestId}
+    >
+        {children}
+    </BaseButtonCandidate>
+);
