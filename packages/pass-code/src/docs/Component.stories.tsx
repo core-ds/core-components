@@ -38,14 +38,12 @@ export const pass_code: Story = {
                         disabled={boolean('disabled', false)}
                         leftAddons={
                             boolean('leftAddons', false) && (
-                                <KeyPadButton view='text' key='left-addon'>
-                                    Забыли код?
-                                </KeyPadButton>
+                                <KeyPadButton key='left-addon'>Забыли код?</KeyPadButton>
                             )
                         }
                         rightAddons={
                             boolean('rightAddons', false) && (
-                                <KeyPadButton view='text' key='right-addon'>
+                                <KeyPadButton key='right-addon'>
                                     <SfFaceIdXxlIcon />
                                 </KeyPadButton>
                             )

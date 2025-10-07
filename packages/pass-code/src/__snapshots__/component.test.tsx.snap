@@ -53,98 +53,62 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
       class="component"
     >
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          1
-        </span>
+        1
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          2
-        </span>
+        2
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          3
-        </span>
+        3
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          4
-        </span>
+        4
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          5
-        </span>
+        5
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          6
-        </span>
+        6
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          7
-        </span>
+        7
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          8
-        </span>
+        8
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          9
-        </span>
+        9
       </button>
       <div />
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly button secondary digit component"
+        class="component component digit component"
         type="button"
       >
         0
@@ -179,98 +143,62 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
       class="component"
     >
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          1
-        </span>
+        1
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          2
-        </span>
+        2
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          3
-        </span>
+        3
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          4
-        </span>
+        4
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          5
-        </span>
+        5
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          6
-        </span>
+        6
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          7
-        </span>
+        7
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          8
-        </span>
+        8
       </button>
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 button secondary digit component"
+        class="component component digit component"
         type="button"
       >
-        <span
-          class="label stretchText"
-        >
-          9
-        </span>
+        9
       </button>
       <div />
       <button
-        class="component component component component component secondary secondary secondary size-56 hug size-56 iconOnly button secondary digit component"
+        class="component component digit component"
         type="button"
       >
         0
