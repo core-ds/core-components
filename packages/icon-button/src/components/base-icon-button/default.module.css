@@ -36,60 +36,70 @@
     &.primary {
         color: var(--icon-button-primary-base-color);
 
-        @mixin hover {
-            color: var(--icon-button-primary-hover-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                color: var(--icon-button-primary-hover-color);
+            }
 
-        &:active {
-            color: var(--icon-button-primary-active-color);
+            &:active {
+                color: var(--icon-button-primary-active-color);
+            }
         }
     }
 
     &.secondary {
         color: var(--icon-button-secondary-base-color);
 
-        @mixin hover {
-            color: var(--icon-button-secondary-hover-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                color: var(--icon-button-secondary-hover-color);
+            }
 
-        &:active {
-            color: var(--icon-button-secondary-active-color);
+            &:active {
+                color: var(--icon-button-secondary-active-color);
+            }
         }
     }
 
     &.transparent {
         color: var(--icon-button-transparent-base-color);
 
-        @mixin hover {
-            color: var(--icon-button-transparent-hover-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                color: var(--icon-button-transparent-hover-color);
+            }
 
-        &:active {
-            color: var(--icon-button-transparent-active-color);
+            &:active {
+                color: var(--icon-button-transparent-active-color);
+            }
         }
     }
 
     &.negative {
         color: var(--icon-button-negative-base-color);
 
-        @mixin hover {
-            color: var(--icon-button-negative-hover-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                color: var(--icon-button-negative-hover-color);
+            }
 
-        &:active {
-            color: var(--icon-button-negative-active-color);
+            &:active {
+                color: var(--icon-button-negative-active-color);
+            }
         }
     }
 
     &.tertiary {
         color: var(--icon-button-tertiary-base-color);
 
-        @mixin hover {
-            color: var(--icon-button-tertiary-hover-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                color: var(--icon-button-tertiary-hover-color);
+            }
 
-        &:active {
-            color: var(--icon-button-tertiary-active-color);
+            &:active {
+                color: var(--icon-button-tertiary-active-color);
+            }
         }
     }
 
@@ -97,87 +107,105 @@
         &.primary {
             color: var(--color-light-text-primary);
 
-            @mixin hover {
-                background: var(--color-light-transparent-default-hover);
-            }
+            @mixin not-disabled {
+                @mixin hover {
+                    background: var(--color-light-transparent-default-hover);
+                }
 
-            &:active {
-                background: var(--color-light-transparent-default-press);
+                &:active {
+                    background: var(--color-light-transparent-default-press);
+                }
             }
         }
 
         &.secondary {
             color: var(--color-light-text-secondary);
 
-            @mixin hover {
-                background: var(--color-light-transparent-default-hover);
-            }
+            @mixin not-disabled {
+                @mixin hover {
+                    background: var(--color-light-transparent-default-hover);
+                }
 
-            &:active {
-                background: var(--color-light-transparent-default-press);
+                &:active {
+                    background: var(--color-light-transparent-default-press);
+                }
             }
         }
 
         &.negative {
             color: var(--color-light-text-negative);
 
-            @mixin hover {
-                background: var(--color-light-transparent-default-hover);
-            }
+            @mixin not-disabled {
+                @mixin hover {
+                    background: var(--color-light-transparent-default-hover);
+                }
 
-            &:active {
-                background: var(--color-light-transparent-default-press);
+                &:active {
+                    background: var(--color-light-transparent-default-press);
+                }
             }
         }
 
         &.tertiary {
             color: var(--color-light-text-tertiary);
 
-            @mixin hover {
-                background: var(--color-light-transparent-default-hover);
-            }
+            @mixin not-disabled {
+                @mixin hover {
+                    background: var(--color-light-transparent-default-hover);
+                }
 
-            &:active {
-                background: var(--color-light-transparent-default-press);
+                &:active {
+                    background: var(--color-light-transparent-default-press);
+                }
             }
         }
     }
 
-    &.component:disabled {
-        &.primary {
-            color: var(--icon-button-primary-disabled-color);
+    &.component {
+        @mixin disabled {
+            &.primary {
+                color: var(--icon-button-primary-disabled-color);
 
-            &.loader {
-                color: var(--icon-button-primary-base-color);
+                &.loader {
+                    color: var(--icon-button-primary-base-color);
+                }
             }
-        }
 
-        &.secondary {
-            color: var(--icon-button-secondary-disabled-color);
+            &.secondary {
+                color: var(--icon-button-secondary-disabled-color);
 
-            &.loader {
-                color: var(--icon-button-secondary-base-color);
+                &.loader {
+                    color: var(--icon-button-secondary-base-color);
+                }
             }
-        }
 
-        &.negative {
-            color: var(--icon-button-negative-disabled-color);
+            &.transparent {
+                color: var(--icon-button-transparent-disabled-color);
 
-            &.loader {
-                color: var(--icon-button-negative-base-color);
+                &.loader {
+                    color: var(--icon-button-transparent-base-color);
+                }
             }
-        }
 
-        &.tertiary {
-            color: var(--icon-button-tertiary-disabled-color);
+            &.negative {
+                color: var(--icon-button-negative-disabled-color);
 
-            &.loader {
-                color: var(--icon-button-tertiary-base-color);
+                &.loader {
+                    color: var(--icon-button-negative-base-color);
+                }
             }
-        }
 
-        &.transparentBg {
-            background: transparent;
+            &.tertiary {
+                color: var(--icon-button-tertiary-disabled-color);
+
+                &.loader {
+                    color: var(--icon-button-tertiary-base-color);
+                }
+            }
+
+            &.transparentBg {
+                background: transparent;
+            }
         }
     }
 }
