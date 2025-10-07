@@ -5,14 +5,14 @@
         color: var(--button-primary-color);
         background-color: var(--button-primary-base-bg-color);
 
-        @media (hover: hover) {
-            &:hover {
+        @mixin not-disabled {
+            @mixin hover {
                 background-color: var(--button-primary-hover-bg-color);
             }
-        }
 
-        &:active {
-            background-color: var(--button-primary-active-bg-color);
+            &:active {
+                background-color: var(--button-primary-active-bg-color);
+            }
         }
 
         & .loader {
@@ -23,18 +23,22 @@
     &.secondary {
         background-color: var(--button-secondary-base-bg-color);
 
-        &:hover {
-            background-color: var(--button-secondary-hover-bg-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                background-color: var(--button-secondary-hover-bg-color);
+            }
 
-        &:active {
-            background-color: var(--button-secondary-active-bg-color);
+            &:active {
+                background-color: var(--button-secondary-active-bg-color);
+            }
         }
     }
 
     &.text {
-        &:active {
-            color: var(--button-text-active-color);
+        @mixin not-disabled {
+            &:active {
+                color: var(--button-text-active-color);
+            }
         }
     }
 

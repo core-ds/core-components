@@ -6,12 +6,14 @@
         background-color: var(--button-inverted-accent-base-bg-color);
         border: var(--button-border-width) solid transparent;
 
-        @mixin hover {
-            background-color: var(--button-inverted-accent-hover-bg-color);
-        }
+        @mixin not-disabled {
+            @mixin hover {
+                background-color: var(--button-inverted-accent-hover-bg-color);
+            }
 
-        &:active {
-            background-color: var(--button-inverted-accent-active-bg-color);
+            &:active {
+                background-color: var(--button-inverted-accent-active-bg-color);
+            }
         }
 
         & .loader {
@@ -45,15 +47,15 @@
         background-color: var(--button-inverted-outlined-base-bg-color);
         border: var(--button-border-width) solid var(--button-inverted-outlined-base-border-color);
 
-        @media (hover: hover) {
-            &:hover {
+        @mixin not-disabled {
+            @mixin hover {
                 background-color: var(--button-inverted-outlined-hover-bg-color);
                 border-color: var(--button-inverted-outlined-hover-border-color);
             }
-        }
 
-        &:active {
-            background-color: var(--button-inverted-outlined-active-bg-color);
+            &:active {
+                background-color: var(--button-inverted-outlined-active-bg-color);
+            }
         }
 
         & .loader {
@@ -70,15 +72,15 @@
         background-color: var(--button-inverted-tertiary-base-bg-color);
         border: var(--button-border-width) solid var(--button-inverted-tertiary-base-border-color);
 
-        @media (hover: hover) {
-            &:hover {
+        @mixin not-disabled {
+            @mixin hover {
                 background-color: var(--button-inverted-tertiary-hover-bg-color);
                 border-color: var(--button-inverted-tertiary-hover-border-color);
             }
-        }
 
-        &:active {
-            background-color: var(--button-inverted-tertiary-active-bg-color);
+            &:active {
+                background-color: var(--button-inverted-tertiary-active-bg-color);
+            }
         }
 
         & .loader {
@@ -95,14 +97,14 @@
         background-color: transparent;
         border: var(--button-border-width) solid transparent;
 
-        @media (hover: hover) {
-            &:hover {
+        @mixin not-disabled {
+            @mixin hover {
                 background-color: var(--button-inverted-transparent-hover-bg-color);
             }
-        }
 
-        &:active {
-            background-color: var(--button-inverted-transparent-active-bg-color);
+            &:active {
+                background-color: var(--button-inverted-transparent-active-bg-color);
+            }
         }
 
         & .loader {
