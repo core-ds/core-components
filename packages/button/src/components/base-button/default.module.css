@@ -10,10 +10,10 @@
             @mixin hover {
                 background-color: var(--button-accent-hover-bg-color);
             }
-        }
 
-        &:active {
-            background-color: var(--button-accent-active-bg-color);
+            &:active {
+                background-color: var(--button-accent-active-bg-color);
+            }
         }
 
         & .loader {
@@ -52,10 +52,10 @@
                 background-color: var(--button-outlined-hover-bg-color);
                 border-color: var(--button-outlined-hover-border-color);
             }
-        }
 
-        &:active {
-            background-color: var(--button-outlined-active-bg-color);
+            &:active {
+                background-color: var(--button-outlined-active-bg-color);
+            }
         }
 
         & .loader {
@@ -77,10 +77,10 @@
                 background-color: var(--button-tertiary-hover-bg-color);
                 border-color: var(--button-tertiary-hover-border-color);
             }
-        }
 
-        &:active {
-            background-color: var(--button-tertiary-active-bg-color);
+            &:active {
+                background-color: var(--button-tertiary-active-bg-color);
+            }
         }
 
         & .loader {
@@ -101,10 +101,10 @@
             @mixin hover {
                 background-color: var(--button-transparent-hover-bg-color);
             }
-        }
 
-        &:active {
-            background-color: var(--button-transparent-active-bg-color);
+            &:active {
+                background-color: var(--button-transparent-active-bg-color);
+            }
         }
 
         & .loader {
