@@ -1,8 +1,9 @@
 import React, { forwardRef, type ReactElement } from 'react';
 import cn from 'classnames';
 
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { BaseButtonCandidate } from '@alfalab/core-components-button/components/base-button-candidate';
+import { ButtonContent } from '@alfalab/core-components-button/components/button-content';
+import { useLoading } from '@alfalab/core-components-button/shared';
 
 import { type IconButtonProps } from '../../types/icon-button-props';
 
@@ -13,14 +14,14 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
+} as const;
 
-type BaseIconButtonProps = {
-    client: 'desktop' | 'mobile';
-    clientStyles: Record<string, string>;
-};
-
-export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & BaseIconButtonProps>(
+export const BaseIconButton = forwardRef<
+    HTMLButtonElement,
+    IconButtonProps & {
+        clientStyles: Record<string, string>;
+    }
+>(
     (
         {
             className,
@@ -30,36 +31,40 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
             colors = 'default',
             alignIcon = 'center',
             transparentBg = false,
-            client,
             clientStyles,
+            loading: loadingFromProps,
             ...restProps
         },
         ref,
     ) => {
-        const Component = client === 'desktop' ? ButtonDesktop : ButtonMobile;
+        const loading = useLoading(loadingFromProps);
 
         return (
-            <Component
+            <BaseButtonCandidate
                 {...restProps}
+                Content={ButtonContent}
                 ref={ref}
-                view='text'
+                disabledClassName={colorStyles[colors].disabled}
+                loading={loading}
+                loaderClassName={styles.loader}
                 className={cn(
                     'cc-icon-button',
                     className,
+                    styles.component,
                     colorStyles[colors][view],
                     colorStyles[colors].component,
                     clientStyles.component,
                     clientStyles[`border_${size}`],
                     {
-                        [colorStyles[colors].loader]: restProps.loading,
+                        [styles.loading]: loading,
+                        [colorStyles[colors].loader]: loading,
                         [colorStyles[colors].transparentBg]: transparentBg,
                     },
                 )}
-                size={48}
             >
                 <span className={cn(styles.iconWrapper, styles[`size-${size}`], styles[alignIcon])}>
                     {React.isValidElement(Icon) ? (
-                        React.cloneElement(Icon as ReactElement<{ className?: string }>, {
+                        React.cloneElement(Icon, {
                             className: cn(
                                 styles.icon,
                                 (Icon as ReactElement<{ className?: string }>).props.className,
@@ -69,7 +74,7 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
                         <Icon className={styles.icon} />
                     )}
                 </span>
-            </Component>
+            </BaseButtonCandidate>
         );
     },
 );

@@ -1,6 +1,16 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 
+.component {
+    position: relative;
+
+    /* Loading */
+
+    &.loading > *:not(.loader) {
+        opacity: 0;
+    }
+}
+
 .size-24 {
     width: var(--icon-button-xxs-size);
     height: var(--icon-button-xxs-size);
