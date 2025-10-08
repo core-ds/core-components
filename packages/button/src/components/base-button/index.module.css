@@ -13,6 +13,34 @@
     }
 }
 
+@define-mixin adjust-size $height {
+    min-height: $height;
+
+    &.iconOnly.iconOnly {
+        min-width: $height;
+        padding: var(--gap-0);
+    }
+
+    &.transparent,
+    &.text {
+        min-width: auto;
+    }
+
+    &.text {
+        padding: var(--gap-0);
+        min-height: 24px;
+    }
+}
+
+@define-mixin with-addons-padding $padding {
+    &.withLeftAddons {
+        padding-left: $padding;
+    }
+    &.withRightAddons {
+        padding-right: $padding;
+    }
+}
+
 .component {
     &&& {
         font-weight: var(--button-font-weight);
@@ -71,157 +99,57 @@
     /* За счет того, что у кнопок есть border 1px,
 для полного соответствия макетам padding необходимо уменьшить на 1px (16px -> 15px) */
     &.size-32 {
-        &:not(.iconOnly):not(.text):not(.transparent) {
-            min-width: 80px;
-        }
-        &:not(.text) {
-            min-height: var(--size-xxs-height);
-
-            &:not(.iconOnly) {
-                padding: var(--gap-0) 15px;
-            }
-            &.withLeftAddons {
-                padding-left: 11px;
-            }
-            &.withRightAddons {
-                padding-right: 11px;
-            }
-        }
-
+        min-width: 80px;
+        padding: var(--gap-0) 15px;
         @mixin action_primary_small;
-
-        &:not(.text).iconOnly {
-            min-width: var(--size-xxs-height);
-        }
+        @mixin with-addons-padding 11px;
+        @mixin adjust-size var(--size-xxs-height);
+        @mixin addon-label-gap 6px;
     }
 
     &.size-40 {
-        &:not(.iconOnly):not(.text):not(.transparent) {
-            min-width: 88px;
-        }
-        &:not(.text) {
-            min-height: var(--size-xs-height);
-
-            &:not(.iconOnly) {
-                padding: var(--gap-0) 19px;
-            }
-            &.withLeftAddons {
-                padding-left: 15px;
-            }
-            &.withRightAddons {
-                padding-right: 15px;
-            }
-        }
-
+        min-width: 88px;
+        padding: var(--gap-0) 19px;
         @mixin action_primary_small;
-
-        &:not(.text).iconOnly {
-            min-width: var(--size-xs-height);
-        }
+        @mixin with-addons-padding 15px;
+        @mixin adjust-size var(--size-xs-height);
+        @mixin addon-label-gap 6px;
     }
 
     &.size-48 {
-        &:not(.iconOnly):not(.text):not(.transparent) {
-            min-width: 104px;
-        }
-        &:not(.text) {
-            min-height: var(--size-s-height);
-
-            &:not(.iconOnly) {
-                padding: var(--gap-0) 23px;
-            }
-            &.withLeftAddons {
-                padding-left: 19px;
-            }
-            &.withRightAddons {
-                padding-right: 19px;
-            }
-        }
-
+        min-width: 104px;
+        padding: var(--gap-0) 23px;
         @mixin action_component_primary;
-
-        line-height: 20px;
-
-        &:not(.text).iconOnly {
-            min-width: var(--size-s-height);
-        }
+        @mixin with-addons-padding 19px;
+        @mixin adjust-size var(--size-s-height);
+        @mixin addon-label-gap var(--gap-8);
     }
 
     &.size-56 {
-        &:not(.iconOnly):not(.text):not(.transparent) {
-            min-width: 128px;
-        }
-        &:not(.text) {
-            min-height: var(--size-m-height);
-
-            &:not(.iconOnly) {
-                padding: var(--gap-0) 27px;
-            }
-            &.withLeftAddons {
-                padding-left: 23px;
-            }
-            &.withRightAddons {
-                padding-right: 23px;
-            }
-        }
-
+        min-width: 128px;
+        padding: var(--gap-0) 27px;
         @mixin action_component_primary;
-
-        &:not(.text).iconOnly {
-            min-width: var(--size-m-height);
-        }
+        @mixin with-addons-padding 23px;
+        @mixin adjust-size var(--size-m-height);
+        @mixin addon-label-gap var(--gap-8);
     }
 
     &.size-64 {
-        &:not(.iconOnly):not(.text):not(.transparent) {
-            min-width: 160px;
-        }
-        &:not(.text) {
-            min-height: var(--size-l-height);
-
-            &:not(.iconOnly) {
-                padding: var(--gap-0) 31px;
-            }
-            &.withLeftAddons {
-                padding-left: 27px;
-            }
-            &.withRightAddons {
-                padding-right: 27px;
-            }
-        }
-
+        min-width: 160px;
+        padding: var(--gap-0) 31px;
         @mixin action_primary_large;
-
-        &:not(.text).iconOnly {
-            min-width: var(--size-l-height);
-        }
+        @mixin with-addons-padding 27px;
+        @mixin adjust-size var(--size-l-height);
+        @mixin addon-label-gap var(--gap-12);
     }
 
     &.size-72 {
-        &:not(.iconOnly):not(.text):not(.transparent) {
-            min-width: 168px;
-        }
-        &:not(.text) {
-            min-height: var(--size-xl-height);
-
-            &:not(.iconOnly) {
-                padding: var(--gap-0) 35px;
-            }
-            &.withLeftAddons {
-                padding-left: 31px;
-            }
-            &.withRightAddons {
-                &.size-72 {
-                    padding-right: 31px;
-                }
-            }
-        }
-
+        min-width: 168px;
+        padding: var(--gap-0) 35px;
         @mixin action_primary_large;
-
-        &:not(.text).iconOnly {
-            min-width: var(--size-xl-height);
-        }
+        @mixin with-addons-padding 31px;
+        @mixin adjust-size var(--size-xl-height);
+        @mixin addon-label-gap var(--gap-12);
     }
 
     /* Addons */
@@ -230,17 +158,5 @@
         display: flex;
         flex-shrink: 0;
         align-items: center;
-    }
-
-    @mixin addon-label-gap 6px;
-
-    &.size-48,
-    &.size-56 {
-        @mixin addon-label-gap var(--gap-8);
-    }
-
-    &.size-64,
-    &.size-72 {
-        @mixin addon-label-gap var(--gap-12);
     }
 }

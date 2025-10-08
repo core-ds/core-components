@@ -66,8 +66,10 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
                 [commonStyles.allowBackdropBlur]: allowBackdropBlur,
                 [commonStyles.iconOnly]: iconOnly,
                 [commonStyles.loading]: showLoader,
-                [commonStyles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
-                [commonStyles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
+                [commonStyles.withRightAddons]:
+                    Boolean(rightAddons) && !iconOnly && !(view === 'text'),
+                [commonStyles.withLeftAddons]:
+                    Boolean(leftAddons) && !iconOnly && !(view === 'text'),
                 [colorStyles[colors].loading]: showLoader,
                 [colorStylesMap[colors].loading]: showLoader,
             },
