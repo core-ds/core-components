@@ -1,316 +1,162 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 
-.component {
-    && {
-        font-weight: var(--button-font-weight);
-        font-family: var(--font-family);
-    }
-
-    @mixin reset-tap-highlight-color;
-
-    position: relative;
-    display: inline-flex;
-    vertical-align: middle;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
-    margin: var(--gap-0);
-    padding: var(--gap-0) 23px;
-    text-decoration: none;
-    outline: none;
-    box-shadow: none;
-    user-select: none;
-    cursor: pointer;
-    transition:
-        background 0.2s ease,
-        border 0.2s ease,
-        color 0.2s ease;
-    box-sizing: border-box;
+@define-mixin backdrop-filter {
+    backdrop-filter: blur(80px);
 }
 
-.hug {
-    justify-content: center;
-    text-align: center;
-}
-
-.fill {
-    text-align: left;
-}
-
-.hint {
-    @mixin paragraph_primary_small;
-
-    display: block;
-}
-
-.allowBackdropBlur {
-    &.secondary,
-    &.accent[disabled],
-    &.primary[disabled] {
-        backdrop-filter: blur(80px);
+@define-mixin addon-label-gap $gap {
+    .addons + .label,
+    .label + .addons,
+    .addons + .addons {
+        margin-left: $gap;
     }
 }
 
-.focused {
-    @mixin focus-outline;
-}
+@define-mixin adjust-size $height {
+    min-height: $height;
 
-.loading .label,
-.loading .addons {
-    opacity: 0;
-}
-
-.stretchText {
-    flex-grow: 1;
-}
-
-.loader {
-    position: absolute;
-    left: var(--gap-0);
-    right: var(--gap-0);
-    margin: var(--gap-0) auto;
-}
-
-/* Size */
-
-/* За счет того, что у кнопок есть border 1px,
-для полного соответствия макетам padding необходимо уменьшить на 1px (16px -> 15px) */
-.size-32 {
-    min-width: 80px;
-    min-height: var(--size-xxs-height);
-    padding: var(--gap-0) 15px;
-
-    @mixin action_primary_small;
-
-    &.iconOnly {
-        min-width: var(--size-xxs-height);
-    }
-}
-
-.size-40 {
-    min-width: 88px;
-    min-height: var(--size-xs-height);
-    padding: var(--gap-0) 19px;
-
-    @mixin action_primary_small;
-
-    &.iconOnly {
-        min-width: var(--size-xs-height);
-    }
-}
-
-.size-48 {
-    min-width: 104px;
-    min-height: var(--size-s-height);
-
-    @mixin action_component_primary;
-
-    line-height: 20px;
-
-    &.iconOnly {
-        min-width: var(--size-s-height);
-    }
-}
-
-.size-56 {
-    min-width: 128px;
-    min-height: var(--size-m-height);
-    padding: var(--gap-0) 27px;
-
-    @mixin action_component_primary;
-
-    &.iconOnly {
-        min-width: var(--size-m-height);
-    }
-}
-
-.size-64 {
-    min-width: 160px;
-    min-height: var(--size-l-height);
-    padding: var(--gap-0) 31px;
-
-    @mixin action_primary_large;
-
-    &.iconOnly {
-        min-width: var(--size-l-height);
-    }
-}
-
-.size-72 {
-    min-width: 168px;
-    min-height: var(--size-xl-height);
-    padding: var(--gap-0) 35px;
-
-    @mixin action_primary_large;
-
-    &.iconOnly {
-        min-width: var(--size-xl-height);
-    }
-}
-
-.withRightAddons {
-    &.size-32 {
-        padding-right: 11px;
+    &.iconOnly.iconOnly {
+        min-width: $height;
+        padding: var(--gap-0);
     }
 
-    &.size-40 {
-        padding-right: 15px;
-    }
-
-    &.size-48 {
-        padding-right: 19px;
-    }
-
-    &.size-56 {
-        padding-right: 23px;
-    }
-
-    &.size-64 {
-        padding-right: 27px;
-    }
-
-    &.size-72 {
-        padding-right: 31px;
+    &.transparent,
+    &.text {
+        min-width: auto;
     }
 
     &.text {
-        padding-right: var(--gap-0);
-    }
-}
-
-.withLeftAddons {
-    &.size-32 {
-        padding-left: 11px;
-    }
-
-    &.size-40 {
-        padding-left: 15px;
-    }
-
-    &.size-48 {
-        padding-left: 19px;
-    }
-
-    &.size-56 {
-        padding-left: 23px;
-    }
-
-    &.size-64 {
-        padding-left: 27px;
-    }
-
-    &.size-72 {
-        padding-left: 31px;
-    }
-
-    &.text {
-        padding-left: var(--gap-0);
-    }
-}
-
-.transparent {
-    min-width: 0;
-}
-
-.text.text {
-    min-width: 0;
-    min-height: 0;
-    padding: var(--gap-0);
-    border: none;
-    appearance: none;
-
-    &.iconOnly {
-        min-width: 0;
-    }
-
-    &.size-48,
-    &.size-56 {
+        padding: var(--gap-0);
         min-height: 24px;
     }
 }
 
-/* Disabled */
-
-.component[disabled] {
-    cursor: var(--disabled-cursor);
-
-    & * {
-        pointer-events: none;
+@define-mixin with-addons-padding $padding {
+    &.withLeftAddons {
+        padding-left: $padding;
+    }
+    &.withRightAddons {
+        padding-right: $padding;
     }
 }
 
-/* Addons */
-
-.addons {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    margin: var(--gap-0);
-
-    &:first-child {
-        margin-right: 6px;
+.component {
+    &&& {
+        font-weight: var(--button-font-weight);
+        font-family: var(--font-family);
     }
 
-    &:last-child {
-        margin-left: 6px;
+    &.rounded {
+        border-radius: var(--border-radius-pill);
     }
 
-    &:only-child {
-        margin: var(--gap-0);
-    }
-}
-
-.size-48,
-.size-56 {
-    & .addons:first-child {
-        margin-right: var(--gap-8);
+    &.hug {
+        justify-content: center;
+        text-align: center;
     }
 
-    & .addons:last-child {
-        margin-left: var(--gap-8);
+    &.fill {
+        text-align: left;
     }
 
-    & .addons:only-child {
-        margin: var(--gap-0);
-    }
-}
+    /* Nowrap */
 
-.size-64,
-.size-72 {
-    & .addons:first-child {
-        margin-right: var(--gap-12);
+    .nowrap {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
-    & .addons:last-child {
-        margin-left: var(--gap-12);
+    .stretchText {
+        flex-grow: 1;
     }
 
-    & .addons:only-child {
-        margin: var(--gap-0);
+    .hint {
+        @mixin paragraph_primary_small;
+
+        display: block;
     }
-}
 
-.iconOnly {
-    padding: var(--gap-0);
-}
+    &.allowBackdropBlur {
+        &.secondary {
+            @mixin backdrop-filter;
+        }
+        &.accent,
+        &.primary {
+            @mixin disabled {
+                @mixin backdrop-filter;
+            }
+        }
+    }
 
-/* Block */
+    &.text {
+        min-height: 24px;
+    }
 
-.block {
-    display: flex;
-    width: 100%;
-}
+    /* Size */
 
-/* Nowrap */
+    /* За счет того, что у кнопок есть border 1px,
+для полного соответствия макетам padding необходимо уменьшить на 1px (16px -> 15px) */
+    &.size-32 {
+        min-width: 80px;
+        padding: var(--gap-0) 15px;
+        @mixin action_primary_small;
+        @mixin with-addons-padding 11px;
+        @mixin adjust-size var(--size-xxs-height);
+        @mixin addon-label-gap 6px;
+    }
 
-.nowrap {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
+    &.size-40 {
+        min-width: 88px;
+        padding: var(--gap-0) 19px;
+        @mixin action_primary_small;
+        @mixin with-addons-padding 15px;
+        @mixin adjust-size var(--size-xs-height);
+        @mixin addon-label-gap 6px;
+    }
 
-.rounded {
-    border-radius: var(--border-radius-pill);
+    &.size-48 {
+        min-width: 104px;
+        padding: var(--gap-0) 23px;
+        @mixin action_component_primary;
+        @mixin with-addons-padding 19px;
+        @mixin adjust-size var(--size-s-height);
+        @mixin addon-label-gap var(--gap-8);
+    }
+
+    &.size-56 {
+        min-width: 128px;
+        padding: var(--gap-0) 27px;
+        @mixin action_component_primary;
+        @mixin with-addons-padding 23px;
+        @mixin adjust-size var(--size-m-height);
+        @mixin addon-label-gap var(--gap-8);
+    }
+
+    &.size-64 {
+        min-width: 160px;
+        padding: var(--gap-0) 31px;
+        @mixin action_primary_large;
+        @mixin with-addons-padding 27px;
+        @mixin adjust-size var(--size-l-height);
+        @mixin addon-label-gap var(--gap-12);
+    }
+
+    &.size-72 {
+        min-width: 168px;
+        padding: var(--gap-0) 35px;
+        @mixin action_primary_large;
+        @mixin with-addons-padding 31px;
+        @mixin adjust-size var(--size-xl-height);
+        @mixin addon-label-gap var(--gap-12);
+    }
+
+    /* Addons */
+
+    .addons {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+    }
 }
