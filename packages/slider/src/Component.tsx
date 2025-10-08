@@ -1,119 +1,14 @@
-import React, { type FC, useEffect, useRef } from 'react';
+import React, { type FC, useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
-import noUiSlider, { type API, type Options } from 'nouislider';
+import noUiSlider, { type API } from 'nouislider';
+
+import { useSliderMarkers } from './hooks';
+import { type SliderProps } from './types';
+import { createPipsConfig, updateMarkerClasses } from './utils';
 
 import styles from './index.module.css';
 
-type SubRange = number | [number] | [number, number];
-type RangeOptions = {
-    min: SubRange;
-    max: SubRange;
-    [key: string]: SubRange;
-};
-
-type PipsType = -1 | 0 | 1 | 2;
-
-type Pips = {
-    mode: 'range' | 'steps' | 'positions' | 'count' | 'values';
-    values: number | number[];
-    filter?: (value: number, type: PipsType) => PipsType;
-    format?: {
-        to: (value: number) => string | number;
-        from?: (value: string) => number | false;
-    };
-    stepped?: boolean;
-};
-
-export type SliderProps = {
-    /**
-     * Мин. допустимое число
-     */
-    min?: number;
-
-    /**
-     * Макс. допустимое число
-     */
-    max?: number;
-
-    /**
-     * Шаг (должен нацело делить отрезок между мин и макс)
-     */
-    step?: number;
-
-    /**
-     * Отображение подписей
-     * https://refreshless.com/nouislider/pips/
-     */
-    pips?: Pips;
-
-    /**
-     * Настройка шагов
-     * https://refreshless.com/nouislider/pips/#section-range
-     */
-    range?: RangeOptions;
-
-    /**
-     * Флаг точной привязки к range
-     * https://refreshless.com/nouislider/examples/#section-skipping
-     */
-    snap?: boolean;
-
-    /**
-     * Значение слайдера
-     */
-    value?: number;
-
-    /**
-     * Второе значение слайдера (значение второго ползунка)
-     * если передать ValueTo, то слайдер будет работать как range
-     */
-    valueTo?: number;
-
-    /**
-     * Заблокированное состояние
-     */
-    disabled?: boolean;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Поведение ползунка
-     */
-    behaviour?: 'unconstrained-tap' | 'tap';
-
-    /**
-     * Размер
-     * @description s, m deprecated, используйте вместо них 2, 4 соответственно
-     */
-    size?: 's' | 'm' | 2 | 4;
-
-    /**
-     * Обработчик поля ввода
-     */
-    onChange?: (payload: { value: number; valueTo?: number }) => void;
-
-    /**
-     * @deprecated
-     * Обработчик начала перетаскивания ползунка
-     */
-    onStart?: () => void;
-
-    /**
-     * Обработчик окончания перетаскивания ползунка
-     * @description https://refreshless.com/nouislider/events-callbacks/#section-change
-     */
-    onEnd?: () => void;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-};
-
-export const SIZE_TO_CLASSNAME_MAP = {
+const SIZE_TO_CLASSNAME_MAP = {
     s: 'size-2',
     m: 'size-4',
     2: 'size-2',
@@ -131,6 +26,11 @@ export const Slider: FC<SliderProps> = ({
     behaviour = 'tap',
     range = { min, max },
     size = 2,
+    dots = false,
+    dotsSlider = 'step',
+    customDots,
+    showNumbers = true,
+    hideCustomDotsNumbers = false,
     className,
     onChange,
     onStart,
@@ -141,8 +41,34 @@ export const Slider: FC<SliderProps> = ({
     const sliderRef = useRef<(HTMLDivElement & { noUiSlider: API }) | null>(null);
     const busyRef = useRef<boolean>(false);
     const hasValueTo = valueTo !== undefined;
+    const { values } = pips || {};
+    const hasCustomDotsSlider = dotsSlider === 'custom';
+    const shouldCreatePipsConfig = pips || customDots?.length;
 
     const getSlider = () => sliderRef.current?.noUiSlider;
+
+    const pipsConfig = useMemo(() => {
+        const configParams = {
+            dotsSlider,
+            pips,
+            pipsValues: Array.isArray(values) ? values : [],
+            customDots: Array.isArray(customDots) ? customDots : [],
+            showNumbers,
+            hideCustomDotsNumbers,
+        };
+
+        return createPipsConfig(configParams);
+    }, [values, pips, dotsSlider, customDots, showNumbers, hideCustomDotsNumbers]);
+
+    const { updateMarkersState, createSlideHandler } = useSliderMarkers({
+        sliderRef,
+        hasValueTo,
+        value,
+        valueTo,
+        min,
+        max,
+        onChange,
+    });
 
     useEffect(() => {
         if (!sliderRef.current) return;
@@ -152,7 +78,7 @@ export const Slider: FC<SliderProps> = ({
             connect: valueTo ? true : [true, false],
             behaviour,
             step,
-            pips: pips as Options['pips'],
+            pips: shouldCreatePipsConfig ? pipsConfig : undefined,
             range,
             snap,
         });
@@ -194,12 +120,12 @@ export const Slider: FC<SliderProps> = ({
             {
                 step,
                 range,
-                pips: pips as Options['pips'],
+                pips: shouldCreatePipsConfig ? pipsConfig : undefined,
                 snap,
             },
             true,
         );
-    }, [pips, range, snap, step]);
+    }, [pipsConfig, shouldCreatePipsConfig, range, snap, step]);
 
     useEffect(() => {
         const slider = getSlider();
@@ -219,31 +145,38 @@ export const Slider: FC<SliderProps> = ({
 
         if (!slider) return;
 
-        const handler = () => {
-            if (onChange) {
-                if (hasValueTo) {
-                    const sliderValues = slider.get() as string[];
-                    const from = Number(sliderValues[0]);
-                    const to = Number(sliderValues[1]);
-
-                    if (from <= to) {
-                        onChange({ value: from, valueTo: to });
-                    } else {
-                        onChange({ value: to, valueTo: from });
-                    }
-                } else {
-                    onChange({ value: Number(slider.get()) });
-                }
-            }
-        };
+        const handler = createSlideHandler(slider);
 
         slider.off('slide');
         slider.on('slide', handler);
-    }, [onChange, hasValueTo]);
+
+        if (hasValueTo) {
+            updateMarkersState(value, valueTo);
+        } else {
+            updateMarkersState(value);
+        }
+    }, [onChange, hasValueTo, value, valueTo, createSlideHandler, updateMarkersState]);
+
+    useEffect(() => {
+        const pipsValues = Array.isArray(values) ? values : [];
+
+        if (!hasCustomDotsSlider || !pipsValues.length || !sliderRef.current) return;
+
+        updateMarkerClasses({
+            sliderElement: sliderRef.current,
+            pipsValues,
+            customDots,
+        });
+    }, [customDots, dotsSlider, hasCustomDotsSlider, values]);
 
     return (
         <div
-            className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]])}
+            className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]], {
+                [styles.numbersDisabled]: hasCustomDotsSlider && !customDots?.length,
+                [styles.hideLargePips]: hasCustomDotsSlider,
+                [styles.dotsDisabled]: !dots,
+                [styles.disabled]: disabled,
+            })}
             ref={sliderRef}
             data-test-id={dataTestId}
             {...{ disabled }}
