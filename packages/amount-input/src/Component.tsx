@@ -173,6 +173,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onChange,
             onClear,
             onFocus,
+            onBlur,
             onKeyDown,
             breakpoint,
             client,
@@ -270,6 +271,12 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onFocus?.(e);
         };
 
+        const handleBlur: withSuffixProps['onBlur'] = (e) => {
+            setIsFocused(false);
+
+            onBlur?.(e);
+        };
+
         const handleClear = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
                 onClear?.(event);
@@ -342,6 +349,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 className={cn(styles.container, {
                     [styles.bold]: bold,
                     [styles.filled]: Boolean(inputValue),
+                    [styles.focused]: isFocused,
                 })}
             >
                 <SuffixInput
@@ -349,7 +357,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
-                            {majorPart}
+                            <span className={styles.suffixMajor}>{majorPart}</span>
+
                             <span
                                 className={cn({
                                     [colorStyles[colors].minorPartAndCurrency]: transparentMinor,
@@ -357,10 +366,15 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                                     [colorStyles[colors].readOnly]: restProps.readOnly,
                                 })}
                             >
-                                {minorPart !== undefined &&
-                                    `${numberParams.decimalSeparator}${minorPart}`}
+                                {minorPart !== undefined && (
+                                    <span
+                                        className={styles.suffixMinor}
+                                    >{`${numberParams.decimalSeparator}${minorPart}`}</span>
+                                )}
                                 {THINSP}
-                                {suffix === currency ? currencyCode : suffix}
+                                <span className={styles.suffixCurrency}>
+                                    {suffix === currency ? currencyCode : suffix}
+                                </span>
                             </span>
                         </Fragment>
                     }
@@ -377,6 +391,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onChange={handleChange}
                     onClear={handleClear}
                     onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    inputMode={numberParams.maximumFractionDigits === 0 ? 'numeric' : 'decimal'}
                     dataTestId={dataTestId}
                     ref={mergeRefs([ref, inputRef])}
                     breakpoint={breakpoint}

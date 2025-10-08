@@ -22,6 +22,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
               >
                 <input
                   class="input size-48 input input"
+                  inputmode="decimal"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -37,10 +38,17 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -69,6 +77,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
             >
               <input
                 class="input size-48 input input"
+                inputmode="decimal"
                 placeholder="0 ₽"
                 type="text"
                 value=""
@@ -84,10 +93,17 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                   class="suffix"
                 >
                   <span
+                    class="suffixMajor"
+                  />
+                  <span
                     class="minorPartAndCurrency"
                   >
                      
-                    ₽
+                    <span
+                      class="suffixCurrency"
+                    >
+                      ₽
+                    </span>
                   </span>
                 </div>
               </div>
@@ -173,6 +189,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
               >
                 <input
                   class="input size-48 input input"
+                  inputmode="decimal"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -188,10 +205,17 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -219,6 +243,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
               >
                 <input
                   class="input size-48 input input"
+                  inputmode="decimal"
                   placeholder="0 $"
                   type="text"
                   value="12 345,67"
@@ -235,13 +260,25 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                   <div
                     class="suffix"
                   >
-                    12 345
+                    <span
+                      class="suffixMajor"
+                    >
+                      12 345
+                    </span>
                     <span
                       class="minorPartAndCurrency"
                     >
-                      ,67
+                      <span
+                        class="suffixMinor"
+                      >
+                        ,67
+                      </span>
                        
-                      $
+                      <span
+                        class="suffixCurrency"
+                      >
+                        $
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -270,6 +307,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
             >
               <input
                 class="input size-48 input input"
+                inputmode="decimal"
                 placeholder="0 $"
                 type="text"
                 value="12 345,67"
@@ -286,13 +324,25 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 <div
                   class="suffix"
                 >
-                  12 345
+                  <span
+                    class="suffixMajor"
+                  >
+                    12 345
+                  </span>
                   <span
                     class="minorPartAndCurrency"
                   >
-                    ,67
+                    <span
+                      class="suffixMinor"
+                    >
+                      ,67
+                    </span>
                      
-                    $
+                    <span
+                      class="suffixCurrency"
+                    >
+                      $
+                    </span>
                   </span>
                 </div>
               </div>
