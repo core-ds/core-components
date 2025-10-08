@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-form-control",
-    "version": "13.0.1",
+    "version": "14.0.0-next.0",
     "description": "FormControl component",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-mq": "^5.0.1",
-        "@alfalab/core-components-shared": "^1.1.0",
+        "@alfalab/core-components-mq": "^6.0.0-next.0",
+        "@alfalab/core-components-shared": "^2.0.0-next.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -24,5 +24,5 @@
         "directory": "dist"
     },
     "themesVersion": "14.1.2",
-    "varsVersion": "10.1.0"
+    "varsVersion": "11.0.0-next.0"
 }
