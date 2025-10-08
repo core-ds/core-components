@@ -212,5 +212,92 @@ describe('CodeInput', () => {
             expect(queryByDisplayValue('2')).not.toBeInTheDocument();
             expect(queryByDisplayValue('1')).not.toBeInTheDocument();
         });
+
+        describe('focus first input on empty functionality', () => {
+            it('should focus first input when clicking on any empty input', async () => {
+                const { container } = render(<CodeInput />);
+
+                const inputs = getInputs(container);
+                const firstInput = inputs[0];
+                const thirdInput = inputs[2];
+
+                await userEvent.click(thirdInput);
+                await waitFor(() => {
+                    expect(firstInput).toHaveFocus();
+                });
+            });
+
+            it('should focus target input when inputs are not all empty', async () => {
+                const { container } = render(<CodeInput />);
+
+                const inputs = getInputs(container);
+                const firstInput = inputs[0];
+                const secondInput = inputs[1];
+
+                await userEvent.type(firstInput, '1');
+                await userEvent.click(secondInput);
+
+                expect(secondInput).toHaveFocus();
+            });
+
+            it('should focus first input when clicking on first input', async () => {
+                const { container } = render(<CodeInput />);
+
+                const inputs = getInputs(container);
+                const firstInput = inputs[0];
+
+                await userEvent.click(firstInput);
+
+                expect(firstInput).toHaveFocus();
+            });
+
+            it('should focus first input after all inputs are cleared', async () => {
+                const { container } = render(<CodeInput />);
+
+                const inputs = getInputs(container);
+                const firstInput = inputs[0];
+                const secondInput = inputs[1];
+                const thirdInput = inputs[2];
+
+                await userEvent.type(firstInput, '12');
+
+                await userEvent.type(secondInput, '{backspace}');
+                await userEvent.type(firstInput, '{backspace}');
+
+                // Ждем достаточно времени чтобы прошло пользовательское взаимодействие
+                await new Promise((resolve) => setTimeout(resolve, 150));
+                await userEvent.click(thirdInput);
+
+                await waitFor(() => {
+                    expect(firstInput).toHaveFocus();
+                });
+            });
+
+            it('should not redirect focus during SMS autofill', async () => {
+                const { container } = render(<CodeInput />);
+
+                const inputs = getInputs(container);
+                const thirdInput = inputs[2];
+                const fourthInput = inputs[3];
+
+                // Симулируем автозаполнение SMS
+                await userEvent.type(thirdInput, '1234');
+
+                expect(fourthInput).toHaveFocus();
+                expect(inputs[0]).not.toHaveFocus();
+            });
+
+            it('should redirect focus to first input when clicking empty field without autofill', async () => {
+                const { container } = render(<CodeInput />);
+
+                const inputs = getInputs(container);
+                const thirdInput = inputs[2];
+
+                await userEvent.click(thirdInput);
+                await waitFor(() => {
+                    expect(inputs[0]).toHaveFocus();
+                });
+            });
+        });
     });
 });
