@@ -2,6 +2,7 @@
 @import '../../vars.css';
 
 .component {
+    font: var(--font-family);
     @mixin action_component_secondary;
 
     border-radius: var(--border-radius-circle);

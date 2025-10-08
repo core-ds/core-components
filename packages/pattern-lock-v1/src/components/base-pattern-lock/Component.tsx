@@ -128,14 +128,16 @@ export const BasePatternLock = forwardRef<
                 />
 
                 {showForgotCodeBtn ? (
-                    <ButtonMobile
-                        view='transparent'
-                        className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
-                        onClick={onForgotBtnClick}
-                        dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
-                    >
-                        {forgotCodeBtnText}
-                    </ButtonMobile>
+                    <div className={cn(commonStyles.forgotBtnContainer, styles.forgotBtnContainer)}>
+                        <ButtonMobile
+                            view='transparent'
+                            className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
+                            onClick={onForgotBtnClick}
+                            dataTestId={getDataTestId(dataTestId, 'forgot-code-btn')}
+                        >
+                            {forgotCodeBtnText}
+                        </ButtonMobile>
+                    </div>
                 ) : (
                     <div
                         className={cn(commonStyles.forgotBtn, styles.forgotBtn, {
