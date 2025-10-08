@@ -1,0 +1,39 @@
+.settings {
+    position: absolute;
+    right: 12px;
+    bottom: 72px;
+    width: 300px;
+    background-color: var(--color-static-monochrome-black-80);
+    border-radius: var(--border-radius-8);
+
+    .settingElement {
+        box-sizing: border-box;
+        width: 100%;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        gap: var(--gap-12);
+
+        padding: var(--gap-12);
+
+        .settingLabel {
+            flex-grow: 1;
+        }
+
+        .swiper {
+            min-width: 116px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
+
+.leftArrow {
+    transform: rotate(180deg);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
