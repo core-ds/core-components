@@ -33,6 +33,7 @@
     justify-content: center;
 }
 
+.forgotBtnContainer,
 .forgotBtn.forgotBtn.forgotBtn {
     min-height: var(--size-xs-height);
 }

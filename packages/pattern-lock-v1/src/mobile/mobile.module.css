@@ -14,6 +14,7 @@
     .forgotBtnContainer {
         margin-top: var(--gap-32);
     }
+    .forgotBtnContainer,
     .forgotBtn.forgotBtn.forgotBtn {
         min-height: var(--size-s-height);
     }
@@ -24,6 +25,7 @@
 }
 
 @media screen and (min-width: 390px) {
+    .forgotBtnContainer,
     .forgotBtn.forgotBtn.forgotBtn {
         min-height: var(--size-m-height);
     }

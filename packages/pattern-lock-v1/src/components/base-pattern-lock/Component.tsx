@@ -126,9 +126,14 @@ export const BasePatternLock = forwardRef<
                     extraBounds={extraBounds}
                     hover={hover}
                 />
-
-                {showForgotCodeBtn ? (
-                    <div className={cn(commonStyles.forgotBtnContainer, styles.forgotBtnContainer)}>
+                <div
+                    className={cn(
+                        commonStyles.forgotBtnContainer,
+                        styles.forgotBtnContainer,
+                        styles.hiddenBtn,
+                    )}
+                >
+                    {showForgotCodeBtn && (
                         <ButtonMobile
                             view='transparent'
                             className={cn(commonStyles.forgotBtn, styles.forgotBtn)}
@@ -137,14 +142,8 @@ export const BasePatternLock = forwardRef<
                         >
                             {forgotCodeBtnText}
                         </ButtonMobile>
-                    </div>
-                ) : (
-                    <div
-                        className={cn(commonStyles.forgotBtn, styles.forgotBtn, {
-                            [styles.hiddenBtn]: Boolean(styles.hiddenBtn),
-                        })}
-                    />
-                )}
+                    )}
+                </div>
             </div>
         );
     },
