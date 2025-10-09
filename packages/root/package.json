@@ -48,6 +48,7 @@
         "@alfalab/core-components-file-upload-item": "^7.1.0",
         "@alfalab/core-components-file-upload-item-v1": "^2.0.1",
         "@alfalab/core-components-filter-tag": "^6.0.1",
+        "@alfalab/core-components-filter-button": "^1.0.0",
         "@alfalab/core-components-form-control": "^13.0.1",
         "@alfalab/core-components-gallery": "^6.0.4",
         "@alfalab/core-components-gap": "^2.0.0",

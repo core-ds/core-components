@@ -50,6 +50,7 @@
         "packages/file-upload-item",
         "packages/file-upload-item-v1",
         "packages/filter-tag",
+        "packages/filter-button",
         "packages/form-control",
         "packages/gallery",
         "packages/gap",

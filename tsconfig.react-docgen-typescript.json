@@ -96,6 +96,8 @@
             ],
             "@alfalab/core-components-filter-tag": ["./packages/filter-tag/src"],
             "@alfalab/core-components-filter-tag/*": ["./packages/filter-tag/src/*"],
+            "@alfalab/core-components-filter-button": ["./packages/filter-button/src"],
+            "@alfalab/core-components-filter-button/*": ["./packages/filter-button/src/*"],
             "@alfalab/core-components-form-control": ["./packages/form-control/src"],
             "@alfalab/core-components-form-control/*": ["./packages/form-control/src/*"],
             "@alfalab/core-components-gallery": ["./packages/gallery/src"],
