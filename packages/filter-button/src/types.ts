@@ -15,4 +15,4 @@ export interface BaseFilterButtonProps {
      * Дополнительный класс
      */
     className?: string;
-};
+}

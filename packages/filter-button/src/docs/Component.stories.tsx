@@ -5,7 +5,6 @@ import { FilterButton } from '@alfalab/core-components-filter-button';
 import { FilterButtonMobile } from '@alfalab/core-components-filter-button/mobile';
 import { FilterButtonDesktop } from '@alfalab/core-components-filter-button/desktop';
 
-
 const meta: Meta = {
     title: 'Components/FilterButton',
     component: FilterButton,
@@ -32,9 +31,7 @@ export const filter_button = {
                     bottom: 0,
                 }}
             >
-                <FilterButton>
-                    {text('children', 'FilterButton')}
-                </FilterButton>
+                <FilterButton>{text('children', 'FilterButton')}</FilterButton>
             </div>
         );
     },
@@ -60,9 +57,7 @@ export const filter_button_mobile = {
                     bottom: 0,
                 }}
             >
-                <FilterButtonMobile>
-                    {text('children', 'FilterButton')}
-                </FilterButtonMobile>
+                <FilterButtonMobile>{text('children', 'FilterButton')}</FilterButtonMobile>
             </div>
         );
     },
@@ -88,9 +83,7 @@ export const filter_button_desktop = {
                     bottom: 0,
                 }}
             >
-                <FilterButtonDesktop>
-                    {text('children', 'FilterButton')}
-                </FilterButtonDesktop>
+                <FilterButtonDesktop>{text('children', 'FilterButton')}</FilterButtonDesktop>
             </div>
         );
     },
