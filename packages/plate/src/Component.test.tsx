@@ -348,7 +348,7 @@ describe('Plate', () => {
             );
 
             const el = getByTestId(dataTestId);
-            const closeEl = el.querySelector('[aria-label="закрыть"]') as Element;
+            const closeEl = el.querySelector('[aria-label="Закрыть"]') as Element;
 
             fireEvent.click(closeEl);
 
@@ -381,7 +381,7 @@ describe('Plate', () => {
             const { getByTestId } = render(<Plate hasCloser={true} dataTestId={dataTestId} />);
 
             const el = getByTestId(dataTestId);
-            const closeEl = el.querySelector('[aria-label="закрыть"]') as Element;
+            const closeEl = el.querySelector('[aria-label="Закрыть"]') as Element;
 
             fireEvent.click(closeEl);
 
