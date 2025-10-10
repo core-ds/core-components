@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.9.0
+
+### Minor Changes
+
+<sup><time>10.10.2025</time></sup>
+
+### [#1913](https://github.com/core-ds/core-components/pull/1913)
+
+-   Добавлена поддержка aria-label для улучшения доступности в компоненте Plate
+
 ## 7.8.15
 
 ### Patch Changes
