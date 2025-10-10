@@ -173,7 +173,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
     (
         {
             hasCloser,
-            closerAriaLabel = 'закрыть',
+            closerAriaLabel = 'Закрыть',
             foldable: foldableProp = false,
             folded: foldedProp,
             defaultFolded = true,
