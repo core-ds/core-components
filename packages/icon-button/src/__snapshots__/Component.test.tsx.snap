@@ -6,42 +6,10 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
   "baseElement": <body>
     <div>
       <a
-        class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
+        aria-disabled="false"
+        class="component cc-icon-button primary component border-48 component"
         data-test-id="test-id"
         href="http://example.com"
-      >
-        <span
-          class="label stretchText"
-        >
-          <span
-            class="iconWrapper size-48 center"
-          >
-            <svg
-              class="icon"
-              fill="currentColor"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                d="M11.063 3.505c.324-.866 1.55-.866 1.873 0l1.794 4.798a1 1 0 00.893.649l5.118.223c.924.04 1.302 1.206.578 1.782l-4.008 3.189a1 1 0 00-.341 1.05l1.369 4.935c.247.892-.745 1.612-1.516 1.102l-4.271-2.827a1 1 0 00-1.104 0l-4.272 2.827c-.77.51-1.762-.21-1.515-1.102l1.368-4.936a1 1 0 00-.34-1.05l-4.01-3.188c-.723-.576-.344-1.741.58-1.782l5.117-.223a1 1 0 00.893-.65l1.794-4.797z"
-              />
-            </svg>
-          </span>
-        </span>
-      </a>
-    </div>
-  </body>,
-  "container": <div>
-    <a
-      class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
-      data-test-id="test-id"
-      href="http://example.com"
-    >
-      <span
-        class="label stretchText"
       >
         <span
           class="iconWrapper size-48 center"
@@ -60,6 +28,32 @@ exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
             />
           </svg>
         </span>
+      </a>
+    </div>
+  </body>,
+  "container": <div>
+    <a
+      aria-disabled="false"
+      class="component cc-icon-button primary component border-48 component"
+      data-test-id="test-id"
+      href="http://example.com"
+    >
+      <span
+        class="iconWrapper size-48 center"
+      >
+        <svg
+          class="icon"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="M11.063 3.505c.324-.866 1.55-.866 1.873 0l1.794 4.798a1 1 0 00.893.649l5.118.223c.924.04 1.302 1.206.578 1.782l-4.008 3.189a1 1 0 00-.341 1.05l1.369 4.935c.247.892-.745 1.612-1.516 1.102l-4.271-2.827a1 1 0 00-1.104 0l-4.272 2.827c-.77.51-1.762-.21-1.515-1.102l1.368-4.936a1 1 0 00-.34-1.05l-4.01-3.188c-.723-.576-.344-1.741.58-1.782l5.117-.223a1 1 0 00.893-.65l1.794-4.797z"
+          />
+        </svg>
       </span>
     </a>
   </div>,
@@ -123,40 +117,8 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
+        class="component cc-icon-button primary component border-48 component"
         type="button"
-      >
-        <span
-          class="label stretchText"
-        >
-          <span
-            class="iconWrapper size-48 center"
-          >
-            <svg
-              class="icon"
-              fill="currentColor"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                d="M11.063 3.505c.324-.866 1.55-.866 1.873 0l1.794 4.798a1 1 0 00.893.649l5.118.223c.924.04 1.302 1.206.578 1.782l-4.008 3.189a1 1 0 00-.341 1.05l1.369 4.935c.247.892-.745 1.612-1.516 1.102l-4.271-2.827a1 1 0 00-1.104 0l-4.272 2.827c-.77.51-1.762-.21-1.515-1.102l1.368-4.936a1 1 0 00-.34-1.05l-4.01-3.188c-.723-.576-.344-1.741.58-1.782l5.117-.223a1 1 0 00.893-.65l1.794-4.797z"
-              />
-            </svg>
-          </span>
-        </span>
-      </button>
-    </div>
-  </body>,
-  "container": <div>
-    <button
-      class="component text size-48 hug size-48 component text component text cc-icon-button primary component border-48"
-      type="button"
-    >
-      <span
-        class="label stretchText"
       >
         <span
           class="iconWrapper size-48 center"
@@ -175,6 +137,30 @@ exports[`IconButton Snapshots tests should match snapshot 1`] = `
             />
           </svg>
         </span>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component cc-icon-button primary component border-48 component"
+      type="button"
+    >
+      <span
+        class="iconWrapper size-48 center"
+      >
+        <svg
+          class="icon"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="M11.063 3.505c.324-.866 1.55-.866 1.873 0l1.794 4.798a1 1 0 00.893.649l5.118.223c.924.04 1.302 1.206.578 1.782l-4.008 3.189a1 1 0 00-.341 1.05l1.369 4.935c.247.892-.745 1.612-1.516 1.102l-4.271-2.827a1 1 0 00-1.104 0l-4.272 2.827c-.77.51-1.762-.21-1.515-1.102l1.368-4.936a1 1 0 00-.34-1.05l-4.01-3.188c-.723-.576-.344-1.741.58-1.782l5.117-.223a1 1 0 00.893-.65l1.794-4.797z"
+          />
+        </svg>
       </span>
     </button>
   </div>,
