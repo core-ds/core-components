@@ -1,0 +1,38 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '../../vars.css';
+
+.wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.indicatorWrapper {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: inline-flex;
+}
+
+.indicator {
+    pointer-events: none;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.size-40 {
+}
+
+.size-32 {
+}

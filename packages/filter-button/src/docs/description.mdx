@@ -1,11 +1,114 @@
-## FilterButton
+import { FilterButton } from '../Component.responsive';
 
+## FilterButton
 
 ```jsx live
 render(() => {
+    const [colors, setColors] = React.useState('default');
+    const [size, setSize] = React.useState(40);
+    const [indicator, setIndicator] = React.useState(false);
+    const [indicatorType, setIndicatorType] = React.useState('dot');
+    const [indicatorValue, setIndicatorValue] = React.useState(3);
+    const [fixedWidth, setFixedWidth] = React.useState(true);
+
+    const wrapperStyle = {
+        backgroundColor:
+            colors === 'inverted' ? 'var(--color-light-base-bg-primary-inverted)' : 'transparent',
+        padding: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        flexWrap: 'wrap',
+    };
+
     return (
-        <div>
-            Здесь будет компонент FilterButton
+        <div style={{ display: 'grid', gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                <label>
+                    colors:
+                    <select value={colors} onChange={(e) => setColors(e.target.value)}>
+                        <option value='default'>default</option>
+                        <option value='inverted'>inverted</option>
+                    </select>
+                </label>
+                <label>
+                    size:
+                    <select value={String(size)} onChange={(e) => setSize(Number(e.target.value))}>
+                        <option value='32'>32</option>
+                        <option value='40'>40</option>
+                    </select>
+                </label>
+                <label>
+                    indicator:
+                    <input
+                        type='checkbox'
+                        checked={indicator}
+                        onChange={(e) => setIndicator(e.target.checked)}
+                    />
+                </label>
+                <label>
+                    indicatorType:
+                    <select
+                        value={indicatorType}
+                        onChange={(e) => setIndicatorType(e.target.value)}
+                    >
+                        <option value='dot'>dot</option>
+                        <option value='count'>count</option>
+                    </select>
+                </label>
+                <label>
+                    indicatorValue:
+                    <input
+                        type='number'
+                        min={0}
+                        max={99}
+                        value={indicatorValue}
+                        onChange={(e) => setIndicatorValue(Number(e.target.value))}
+                    />
+                </label>
+                <label>
+                    fixedWidth:
+                    <input
+                        type='checkbox'
+                        checked={fixedWidth}
+                        onChange={(e) => setFixedWidth(e.target.checked)}
+                    />
+                </label>
+            </div>
+
+            <div style={wrapperStyle}>
+                <FilterButton
+                    colors={colors}
+                    size={size}
+                    indicator={indicator}
+                    indicatorType={indicatorType}
+                    indicatorValue={indicatorValue}
+                    fixedWidth={fixedWidth}
+                >
+                    FB
+                </FilterButton>
+
+                <FilterButton
+                    colors={colors}
+                    size={size}
+                    indicator={true}
+                    indicatorType='dot'
+                    fixedWidth={fixedWidth}
+                >
+                    FB
+                </FilterButton>
+
+                <FilterButton
+                    colors={colors}
+                    size={size}
+                    indicator={true}
+                    indicatorType='count'
+                    indicatorValue={10}
+                    fixedWidth={fixedWidth}
+                >
+                    FB
+                </FilterButton>
+            </div>
         </div>
     );
 });

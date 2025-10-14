@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { FilterButton } from '@alfalab/core-components-filter-button';
 import { FilterButtonMobile } from '@alfalab/core-components-filter-button/mobile';
 import { FilterButtonDesktop } from '@alfalab/core-components-filter-button/desktop';
@@ -15,6 +15,15 @@ export const filter_button = {
     name: 'FilterButton',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select(
+            'size',
+            [32, 40] as unknown as string[],
+            40 as unknown as string,
+        ) as unknown as 32 | 40;
+        const indicator = boolean('indicator', false);
+        const indicatorType = select('indicatorType', ['dot', 'count'], 'dot') as 'dot' | 'count';
+        const indicatorValue = number('indicatorValue', 3);
+        const fixedWidth = boolean('fixedWidth', true);
 
         return (
             <div
@@ -31,7 +40,16 @@ export const filter_button = {
                     bottom: 0,
                 }}
             >
-                <FilterButton>{text('children', 'FilterButton')}</FilterButton>
+                <FilterButton
+                    colors={colors as 'default' | 'inverted'}
+                    size={size}
+                    indicator={indicator}
+                    indicatorType={indicatorType}
+                    indicatorValue={indicatorValue}
+                    fixedWidth={fixedWidth}
+                >
+                    {text('children', 'FB')}
+                </FilterButton>
             </div>
         );
     },
@@ -41,6 +59,15 @@ export const filter_button_mobile = {
     name: 'FilterButtonMobile',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select(
+            'size',
+            [32, 40] as unknown as string[],
+            32 as unknown as string,
+        ) as unknown as 32 | 40;
+        const indicator = boolean('indicator', false);
+        const indicatorType = select('indicatorType', ['dot', 'count'], 'dot') as 'dot' | 'count';
+        const indicatorValue = number('indicatorValue', 1);
+        const fixedWidth = boolean('fixedWidth', true);
 
         return (
             <div
@@ -57,7 +84,16 @@ export const filter_button_mobile = {
                     bottom: 0,
                 }}
             >
-                <FilterButtonMobile>{text('children', 'FilterButton')}</FilterButtonMobile>
+                <FilterButtonMobile
+                    colors={colors as 'default' | 'inverted'}
+                    size={size}
+                    indicator={indicator}
+                    indicatorType={indicatorType}
+                    indicatorValue={indicatorValue}
+                    fixedWidth={fixedWidth}
+                >
+                    {text('children', 'FB')}
+                </FilterButtonMobile>
             </div>
         );
     },
@@ -67,6 +103,15 @@ export const filter_button_desktop = {
     name: 'FilterButtonDesktop',
     render: () => {
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const size = select(
+            'size',
+            [32, 40] as unknown as string[],
+            40 as unknown as string,
+        ) as unknown as 32 | 40;
+        const indicator = boolean('indicator', false);
+        const indicatorType = select('indicatorType', ['dot', 'count'], 'dot') as 'dot' | 'count';
+        const indicatorValue = number('indicatorValue', 5);
+        const fixedWidth = boolean('fixedWidth', true);
 
         return (
             <div
@@ -83,7 +128,16 @@ export const filter_button_desktop = {
                     bottom: 0,
                 }}
             >
-                <FilterButtonDesktop>{text('children', 'FilterButton')}</FilterButtonDesktop>
+                <FilterButtonDesktop
+                    colors={colors as 'default' | 'inverted'}
+                    size={size}
+                    indicator={indicator}
+                    indicatorType={indicatorType}
+                    indicatorValue={indicatorValue}
+                    fixedWidth={fixedWidth}
+                >
+                    {text('children', 'FB')}
+                </FilterButtonDesktop>
             </div>
         );
     },

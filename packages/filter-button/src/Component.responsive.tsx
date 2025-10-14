@@ -6,8 +6,6 @@ import { FilterButtonDesktop } from './desktop';
 import { FilterButtonMobile } from './mobile';
 import { type BaseFilterButtonProps } from './types';
 
-// todo: обратить внимание на codemode и разобраться зачем нужно 42-filter-button
-
 export type FilterButtonProps = BaseFilterButtonProps & {
     /**
      * Контрольная точка, с нее начинается desktop версия
@@ -27,7 +25,7 @@ export type FilterButtonProps = BaseFilterButtonProps & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
-export const FilterButton = forwardRef<HTMLDivElement, FilterButtonProps>(
+export const FilterButton = forwardRef<HTMLButtonElement, FilterButtonProps>(
     (
         {
             children,
