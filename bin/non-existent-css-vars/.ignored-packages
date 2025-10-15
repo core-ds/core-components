@@ -1,4 +1,6 @@
+@alfalab/core-components-alfasans-theme
 @alfalab/core-components-bank-card
+@alfalab/core-components-default-theme
 @alfalab/core-components-screenshot-utils
 @alfalab/core-components-test-utils
 @alfalab/core-components-themes
