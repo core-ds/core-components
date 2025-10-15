@@ -17,6 +17,7 @@
         "cm": "git-cz",
         "format": "prettier --check \"{packages,bin,tools}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "generate-dark-colors": "node bin/dark-colors-generator.mjs",
+        "generate-default-theme": "lerna exec --scope @alfalab/core-components-default-theme -- node '$LERNA_ROOT_PATH/bin/generate-theme-styles.mjs'",
         "generate-major-changeset": "node bin/generate-major-changeset.mjs",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
         "lint:css": "stylelint packages/**/*.css",

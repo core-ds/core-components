@@ -13,7 +13,12 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { encoding: 'utf8' });
 
 const IGNORED_PACKAGES = ['@alfalab/core-components-codemod'];
-const IGNORED_MODULES = ['@alfalab/hooks', 'simplebar', 'uuid'];
+const IGNORED_MODULES = [
+    '@alfalab/core-components-internal-tools',
+    '@alfalab/hooks',
+    'simplebar',
+    'uuid',
+];
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
 

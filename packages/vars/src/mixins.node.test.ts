@@ -1,60 +1,18 @@
-import fs from 'node:fs/promises';
 import path from 'node:path';
-import postcss, { Plugin } from 'postcss';
-import { glob } from 'tinyglobby';
-
-interface Options {
-    importTo?: (names: string[]) => void;
-}
-
-function postcssMixinNames(options: Options = {}): Plugin {
-    return {
-        postcssPlugin: 'postcss-mixin-names',
-        prepare: () => {
-            const names: string[] = [];
-
-            return {
-                Once: (root) => {
-                    root.walkAtRules('define-mixin', (atRule) => {
-                        const [name] = atRule.params.split(/\s/);
-
-                        names.push(name);
-                    });
-                },
-                OnceExit: () => {
-                    options.importTo?.(names);
-                },
-            };
-        },
-    };
-}
-
-async function getMixinNames(file: string) {
-    let mixins: string[] = [];
-    const content = await fs.readFile(file, { encoding: 'utf8' });
-
-    await postcss(
-        postcssMixinNames({
-            importTo: (names) => {
-                mixins = names;
-            },
-        }),
-    ).process(content, { from: file });
-
-    return mixins;
-}
+import { globSync } from 'tinyglobby';
+import { getMixinsNames } from '@alfalab/core-components-internal-tools/utils';
 
 describe('mixins', () => {
-    test('all typographies must have the same mixins', async () => {
-        const entryPoints = await glob('*typography.css', { absolute: true, cwd: __dirname });
-        const mixinsList = await Promise.all(entryPoints.map(getMixinNames));
+    const typographyFiles = globSync('*typography.css', { absolute: true, cwd: __dirname });
 
-        expect(mixinsList).not.toHaveLength(0);
+    test('some typographies must be defined', async () => {
+        expect(typographyFiles.length).toBeGreaterThan(1);
+    });
 
-        mixinsList.forEach((mixins) => {
-            expect(mixins).toBeInstanceOf(Array);
-            expect(mixins).not.toHaveLength(0);
-        });
+    test('all typographies must have the same set of mixins', async () => {
+        const mixinsList = await Promise.all(typographyFiles.map(getMixinsNames));
+
+        expect.assertions(mixinsList.length + (mixinsList.length === 2 ? 0 : 1));
 
         mixinsList.forEach((mixins, index, arr) => {
             if (index === arr.length - 1) {
@@ -67,11 +25,11 @@ describe('mixins', () => {
         });
     });
 
-    test.each(['typography.css'])(
-        "`no-typography-index.css` shouldn't contain `%s` mixins",
+    test.each(typographyFiles.map((file) => path.relative(__dirname, file)))(
+        `"no-typography-index.css" shouldn't contain %p mixins`,
         async (file) => {
-            const mixins = await getMixinNames(path.resolve(__dirname, file));
-            const nonMixins = await getMixinNames(
+            const mixins = await getMixinsNames(path.resolve(__dirname, file));
+            const nonMixins = await getMixinsNames(
                 path.resolve(__dirname, 'no-typography-index.css'),
             );
 

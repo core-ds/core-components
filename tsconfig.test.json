@@ -81,6 +81,8 @@
             "@alfalab/core-components-date-range-input/*": ["./packages/date-range-input/src/*"],
             "@alfalab/core-components-date-time-input": ["./packages/date-time-input/src"],
             "@alfalab/core-components-date-time-input/*": ["./packages/date-time-input/src/*"],
+            "@alfalab/core-components-default-theme": ["./packages/default-theme/src"],
+            "@alfalab/core-components-default-theme/*": ["./packages/default-theme/src/*"],
             "@alfalab/core-components-divider": ["./packages/divider/src"],
             "@alfalab/core-components-divider/*": ["./packages/divider/src/*"],
             "@alfalab/core-components-drawer": ["./packages/drawer/src"],

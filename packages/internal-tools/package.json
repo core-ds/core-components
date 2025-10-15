@@ -1,0 +1,17 @@
+{
+    "name": "@alfalab/core-components-internal-tools",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        "./package.json": "./package.json",
+        "./postcss": {
+            "types": "./postcss/index.d.ts",
+            "default": "./postcss/index.js"
+        },
+        "./utils": {
+            "types": "./utils/index.d.ts",
+            "default": "./utils/index.js"
+        }
+    }
+}
