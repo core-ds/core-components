@@ -34,6 +34,7 @@ export const Header: FC<HeaderProps> = ({
     showSwipeMarker,
     title,
     children,
+    contentClassName,
     ...restProps
 }) => {
     const { setHeaderOffset, setHasHeader, headerHighlighted, onClose } =
@@ -65,7 +66,7 @@ export const Header: FC<HeaderProps> = ({
                 [colorStyle.hasContent]: hasContent,
                 [styles.sticky]: sticky,
             })}
-            contentClassName={cn(styles.title)}
+            contentClassName={cn(styles.title, contentClassName)}
             titleClassName={cn(colorStyle.title)}
             subtitleClassName={cn(styles.subtitle, colorStyle.subtitle)}
             colors={colors}
