@@ -12,6 +12,7 @@
     "eslint.workingDirectories": [
         "packages/accordion",
         "packages/action-button",
+        "packages/alfasans-theme",
         "packages/alert",
         "packages/amount",
         "packages/amount-input",
