@@ -1,17 +1,36 @@
-import { createContext, useContext } from 'react';
+import { createContext, type ReactNode, useContext } from 'react';
 
-export type CoreConfigContextValue = {
+import { typographyStyles } from '@alfalab/core-components-default-theme';
+import { type TypographyStyles } from '@alfalab/core-components-types';
+
+export interface TypographyConfig {
+    styles: TypographyStyles;
+}
+
+export interface CoreConfigContextValue {
     breakpoint: number;
     client: 'desktop' | 'mobile';
     getPortalContainer?: () => Element | null | undefined;
-};
+    typography?: TypographyConfig;
+}
 
-export const CoreConfigContext = createContext<CoreConfigContextValue>({
+export interface CoreConfigContextProviderProps extends CoreConfigContextValue {
+    children?: ReactNode;
+}
+
+export const INITIAL_CORE_CONFIG_VALUE: CoreConfigContextValue = {
     breakpoint: 1024,
     client: 'desktop',
-});
+    typography: {
+        styles: typographyStyles,
+    },
+};
 
-export const useCoreConfig = (overrides: Partial<CoreConfigContextValue> = {}) => {
+export const CoreConfigContext = createContext(INITIAL_CORE_CONFIG_VALUE);
+
+export function useCoreConfig(
+    overrides: Partial<CoreConfigContextValue> = {},
+): CoreConfigContextValue {
     const config = useContext(CoreConfigContext);
     const passedOverrides = Object.fromEntries(
         Object.entries(overrides).filter(([, value]) => !(value === undefined)),
@@ -21,4 +40,4 @@ export const useCoreConfig = (overrides: Partial<CoreConfigContextValue> = {}) =
         ...config,
         ...passedOverrides,
     };
-};
+}
