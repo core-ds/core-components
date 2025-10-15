@@ -3,8 +3,10 @@
  */
 export const postcssRemoveComment = () => ({
     postcssPlugin: 'postcss-remove-comment',
-    Comment: (comment) => {
-        comment.remove();
+    OnceExit: (root) => {
+        root.walkComments((comment) => {
+            comment.remove();
+        });
     },
 });
 
