@@ -10,6 +10,8 @@
             "@alfalab/core-components-action-button/*": ["./packages/action-button/src/*"],
             "@alfalab/core-components-alert": ["./packages/alert/src"],
             "@alfalab/core-components-alert/*": ["./packages/alert/src/*"],
+            "@alfalab/core-components-alfasans-theme": ["./packages/alfasans-theme/src"],
+            "@alfalab/core-components-alfasans-theme/*": ["./packages/alfasans-theme/src/*"],
             "@alfalab/core-components-amount": ["./packages/amount/src"],
             "@alfalab/core-components-amount/*": ["./packages/amount/src/*"],
             "@alfalab/core-components-amount-input": ["./packages/amount-input/src"],
