@@ -90,12 +90,12 @@ export const account_select_desktop: Story = {
 
         return (
             <AccountSelectDesktop
-                size='s'
+                size='xl'
                 onChange={(e) => {
                     console.log(e);
                 }}
                 label={text('label', 'Элемент')}
-                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                fieldProps={{ leftAddons: <ProductCover.Single size={48} /> }}
                 cardAddingProps={{
                     content: (
                         <PureCell verticalPadding='default'>
@@ -133,6 +133,7 @@ export const account_select_mobile: Story = {
     name: 'AccountSelectMobile',
     render: () => (
         <AccountSelectMobile
+            size='xl'
             label={text('label', 'Элемент')}
             options={getOptions('mobile')}
             cardAddingProps={{

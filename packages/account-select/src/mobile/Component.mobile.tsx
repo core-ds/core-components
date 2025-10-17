@@ -12,8 +12,17 @@ const MobileCustomField = (props: CustomFieldProps) => <CustomField {...props} v
 
 export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectProps>(
     (
-        { cardAddingProps, options, closeOnSelect = true, dataTestId, block = true, onChange, ...restProps },
-        ref
+        {
+            cardAddingProps,
+            options,
+            closeOnSelect = true,
+            dataTestId,
+            block = true,
+            onChange,
+            size = 72,
+            ...restProps
+        },
+        ref,
     ) => {
         const [error, setError] = useState<string | null>(null);
         const { content, ...restCardAddingProps } = cardAddingProps ?? {};
@@ -46,6 +55,7 @@ export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectPro
                     error={error}
                     ref={ref}
                     onChange={handleChange}
+                    size={size}
                     {...restProps}
                     options={enhancedOptions}
                     closeOnSelect={closeOnSelect}

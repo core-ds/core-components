@@ -36,6 +36,7 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
             cardAddingProps,
             dataTestId,
             onChange,
+            size = 72,
             ...restProps
         },
         ref,
@@ -80,6 +81,7 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
                     OptionsList={OptionsList}
                     Arrow={Arrow}
                     optionClassName={styles.option}
+                    size={size}
                     {...restProps}
                     fieldProps={{
                         ...(restProps.fieldProps as AnyObject),

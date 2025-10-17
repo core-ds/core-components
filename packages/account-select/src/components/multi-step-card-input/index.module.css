@@ -39,6 +39,11 @@
     background: transparent;
     padding: 0;
     display: flex;
-    gap: 24px;
     align-items: center;
+}
+
+.inputs {
+    display: flex;
+    gap: 24px;
+    padding: var(--gap-2s) var(--gap-12);
 }

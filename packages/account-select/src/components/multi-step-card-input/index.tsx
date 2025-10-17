@@ -33,6 +33,13 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const [cardCvv, setCardCvv] = useState<string>('');
         const [isCardNumberFocused, setIsCardNumberFocused] = useState<boolean>(false);
 
+        const isShowExpiry = needExpiryDate && step >= 2 && validateCardNumber(cardNumber);
+        const isShowCvv =
+            needCvv &&
+            step >= 3 &&
+            validateCardNumber(cardNumber) &&
+            validateExpiry(String(cardExpiry));
+
         const { setError } = useAccountSelectContext();
 
         const numberRef = useRef<HTMLInputElement | null>(null);
@@ -193,47 +200,49 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             >
                 <ProductCover.Single
                     cardNumber={cardNumber.length >= 16 ? Number(cardNumber) : undefined}
-                    size={32}
                     {...cardImage}
+                    size={cardImage?.size ?? 48}
                 />
-                <input
-                    ref={numberRefCallback}
-                    type='text'
-                    value={getDisplayCardNumber()}
-                    onInput={handleCardNumberChange}
-                    onFocus={handleCardNumberFocus}
-                    onBlur={handleCardNumberBlur}
-                    className={cn(styles.multistepInput, styles.cardNumberInput)}
-                    inputMode='numeric'
-                    pattern='[0-9]*'
-                />
-                {needExpiryDate && step >= 2 && (
+                <div className={styles.inputs}>
                     <input
-                        ref={expiryRefCallback}
+                        ref={numberRefCallback}
                         type='text'
-                        value={cardExpiry as string}
-                        onInput={handleExpiryChange}
-                        onBlur={handleExpiryBlur}
-                        className={cn(styles.multistepInput, styles.expiryInput)}
+                        value={getDisplayCardNumber()}
+                        onInput={handleCardNumberChange}
+                        onFocus={handleCardNumberFocus}
+                        onBlur={handleCardNumberBlur}
+                        className={cn(styles.multistepInput, styles.cardNumberInput)}
                         inputMode='numeric'
                         pattern='[0-9]*'
-                        placeholder='ММ/ГГ'
                     />
-                )}
-                {needCvv && step >= 3 && (
-                    <input
-                        ref={cvvRefCallback}
-                        type='password'
-                        value={cardCvv || ''}
-                        onInput={handleCvvChange}
-                        onBlur={handleCvvBlur}
-                        className={cn(styles.multistepInput, styles.cvvInput)}
-                        inputMode='numeric'
-                        pattern='[0-9]*'
-                        placeholder='CVC'
-                        maxLength={3}
-                    />
-                )}
+                    {isShowExpiry && (
+                        <input
+                            ref={expiryRefCallback}
+                            type='text'
+                            value={String(cardExpiry)}
+                            onInput={handleExpiryChange}
+                            onBlur={handleExpiryBlur}
+                            className={cn(styles.multistepInput, styles.expiryInput)}
+                            inputMode='numeric'
+                            pattern='[0-9]*'
+                            placeholder='ММ/ГГ'
+                        />
+                    )}
+                    {isShowCvv && (
+                        <input
+                            ref={cvvRefCallback}
+                            type='password'
+                            value={cardCvv || ''}
+                            onInput={handleCvvChange}
+                            onBlur={handleCvvBlur}
+                            className={cn(styles.multistepInput, styles.cvvInput)}
+                            inputMode='numeric'
+                            pattern='[0-9]*'
+                            placeholder='CVC'
+                            maxLength={3}
+                        />
+                    )}
+                </div>
             </div>
         );
     },

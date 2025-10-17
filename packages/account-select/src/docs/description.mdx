@@ -81,7 +81,7 @@ render(() => {
             content: (
                 <PureCell verticalPadding='airy'>
                     <PureCell.Graphics verticalAlign='center'>
-                        <ProductCover.Single size={32} />
+                        <ProductCover.Single size={48} />
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
@@ -105,7 +105,7 @@ render(() => {
             content: (
                 <PureCell verticalPadding='airy'>
                     <PureCell.Graphics verticalAlign='center'>
-                        <ProductCover.Single size={32} />
+                        <ProductCover.Single size={48} />
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
@@ -127,9 +127,9 @@ render(() => {
     ];
     return (
         <AccountSelect
-            size='m'
+            size='xl'
             label='Карта получателя'
-            fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+            fieldProps={{ leftAddons: <ProductCover.Single size={48} /> }}
             options={options}
         />
     );
@@ -150,7 +150,7 @@ render(() => {
                 <PureCell verticalPadding='compact'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single
-                            size={32}
+                            size={48}
                             baseUrl='https://online.alfabank.ru/cards-images/cards/'
                             layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                             cardId='RM'
@@ -179,7 +179,7 @@ render(() => {
                 <PureCell verticalPadding='compact'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single
-                            size={32}
+                            size={48}
                             baseUrl='https://online.alfabank.ru/cards-images/cards/'
                             layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                             cardId='RM'
@@ -220,15 +220,16 @@ render(() => {
     return (
         <div>
             <AccountSelect
+                size='xl'
                 label='Карта отправителя'
-                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                fieldProps={{ leftAddons: <ProductCover.Single size={48} /> }}
                 options={options}
                 cardAddingProps={{
                     content: (
                         <PureCell verticalPadding='airy'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
-                                    size={32}
+                                    size={48}
                                     iconColor='var(--color-light-neutral-700)'
                                     backgroundColor='var(--color-light-neutral-200)'
                                     icon={PlusMIcon}
@@ -281,7 +282,7 @@ render(() => {
                 <PureCell verticalPadding='compact'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single
-                            size={32}
+                            size={48}
                             baseUrl='https://online.alfabank.ru/cards-images/cards/'
                             layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                             cardId='RM'
@@ -311,7 +312,7 @@ render(() => {
                 <PureCell verticalPadding='compact'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single
-                            size={32}
+                            size={48}
                             baseUrl='https://online.alfabank.ru/cards-images/cards/'
                             layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                             cardId='RM'
@@ -351,15 +352,16 @@ render(() => {
     return (
         <div>
             <AccountSelect
+                size='xl'
                 label='Карта получателя'
-                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
+                fieldProps={{ leftAddons: <ProductCover.Single size={48} /> }}
                 options={options}
                 cardAddingProps={{
                     content: (
                         <PureCell verticalPadding='airy'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
-                                    size={32}
+                                    size={48}
                                     iconColor='var(--color-light-neutral-700)'
                                     backgroundColor='var(--color-light-neutral-200)'
                                     icon={PlusMIcon}

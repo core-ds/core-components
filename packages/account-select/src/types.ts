@@ -1,4 +1,4 @@
-import { BankCardImageProps } from '@alfalab/core-components-product-cover/typings';
+import { SingleProps } from '@alfalab/core-components-product-cover/typings';
 import { BaseSelectProps } from '@alfalab/core-components-select/shared';
 
 export interface CardData {
@@ -31,10 +31,7 @@ export interface CardAddingProps {
     /**
      * Данные карты для отображения
      */
-    cardImage?: Pick<
-        BankCardImageProps,
-        'baseUrl' | 'layers' | 'cardId' | 'backgroundColor' | 'borderColor'
-    >;
+    cardImage?: SingleProps;
 
     /**
      * Нужно ли отображать поле для ввода CVV
