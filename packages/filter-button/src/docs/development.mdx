@@ -1,0 +1,23 @@
+import { ArgsTabs, CssVars } from 'storybook/blocks';
+import { FilterButtonDesktop } from '../desktop';
+import { FilterButtonMobile } from '../mobile';
+import { FilterButton } from '../Component.responsive';
+import styles from '!!raw-loader!../components/base-filter-button/index.module.css';
+
+## Подключение
+
+```jsx
+import { FilterButton } from '@alfalab/core-components/filter-button';
+import { FilterButtonMobile } from '@alfalab/core-components/filter-button/mobile';
+import { FilterButtonDesktop } from '@alfalab/core-components/filter-button/desktop';
+```
+
+Из индекса импортируется responsive версия компонента.
+
+## Свойства
+
+<ArgsTabs components={{ FilterButtonDesktop, FilterButtonMobile, FilterButton }} />
+
+## Переменные
+
+<CssVars css={styles} />

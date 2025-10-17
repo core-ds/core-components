@@ -1,0 +1,5 @@
+@import '../../vars.css';
+
+.bgColor {
+    background-color: var(--filter-button-inverted-background-color);
+}

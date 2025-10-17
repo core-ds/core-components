@@ -14,7 +14,16 @@ export type IndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Значение индикатора
      */
-    value?: number | ReactElement;
+    value?: number | string | ReactElement;
+
+    /**
+     * Максимальное отображаемое значение
+     * @description При достижении maxValue отображается (maxValue - 1)+
+     * @default 100
+     * @example maxValue=100, value=150 → "99+"
+     * @example maxValue=10, value=15 → "9+"
+     */
+    maxValue?: number;
 
     /**
      * Цвет значения
@@ -73,8 +82,12 @@ function getSize(height?: number, value?: IndicatorProps['value']) {
     return 48;
 }
 
-function formatValue(rawValue: IndicatorProps['value']) {
-    if (typeof rawValue === 'number' && rawValue >= 100) return '99+';
+function formatValue(rawValue: IndicatorProps['value'], maxValue = 100): IndicatorProps['value'] {
+    const max = maxValue ?? 100;
+
+    if (typeof rawValue === 'number' && rawValue >= max) {
+        return `${max - 1}+`;
+    }
 
     return rawValue;
 }
@@ -129,6 +142,7 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
             dataTestId,
             style,
             size = getSize(height, value) as keyof typeof SIZE_TO_CLASSNAME_MAP,
+            maxValue = 100,
             ...restProps
         },
         ref,
@@ -159,7 +173,9 @@ export const Indicator = forwardRef<HTMLDivElement, IndicatorProps>(
                 data-test-id={dataTestId}
                 {...restProps}
             >
-                {showContent && <span className={styles.content}>{formatValue(value)}</span>}
+                {showContent && (
+                    <span className={styles.content}>{formatValue(value, maxValue)}</span>
+                )}
             </div>
         );
     },

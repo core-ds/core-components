@@ -1,0 +1,16 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+:root {
+    --filter-button-background-color: var(--color-light-neutral-translucent-100);
+    --filter-button-background-color-hover: var(--color-light-neutral-translucent-200);
+    --filter-button-background-color-active: var(--color-light-neutral-translucent-300);
+    --filter-button-text-color: var(--color-light-text-primary);
+    --filter-button-inverted-background-color: var(--color-light-neutral-translucent-100-inverted);
+    --filter-button-inverted-background-color-hover: var(
+        --color-light-neutral-translucent-200-inverted
+    );
+    --filter-button-inverted-background-color-active: var(
+        --color-light-neutral-translucent-300-inverted
+    );
+    --filter-button-inverted-text-color: var(--color-light-text-primary-inverted);
+}

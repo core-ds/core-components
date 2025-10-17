@@ -85,6 +85,8 @@
             "@alfalab/core-components-file-upload-item/*": ["../file-upload-item/src/*"],
             "@alfalab/core-components-file-upload-item-v1": ["../file-upload-item-v1/src"],
             "@alfalab/core-components-file-upload-item-v1/*": ["../file-upload-item-v1/src/*"],
+            "@alfalab/core-components-filter-button": ["../filter-button/src"],
+            "@alfalab/core-components-filter-button/*": ["../filter-button/src/*"],
             "@alfalab/core-components-filter-tag": ["../filter-tag/src"],
             "@alfalab/core-components-filter-tag/*": ["../filter-tag/src/*"],
             "@alfalab/core-components-form-control": ["../form-control/src"],
@@ -264,128 +266,377 @@
         }
     },
     "references": [
-        { "path": "../accordion/tsconfig.build.json" },
-        { "path": "../action-button/tsconfig.build.json" },
-        { "path": "../alert/tsconfig.build.json" },
-        { "path": "../amount/tsconfig.build.json" },
-        { "path": "../amount-input/tsconfig.build.json" },
-        { "path": "../attach/tsconfig.build.json" },
-        { "path": "../backdrop/tsconfig.build.json" },
-        { "path": "../badge/tsconfig.build.json" },
-        { "path": "../bank-card/tsconfig.build.json" },
-        { "path": "../base-modal/tsconfig.build.json" },
-        { "path": "../bottom-sheet/tsconfig.build.json" },
-        { "path": "../button/tsconfig.build.json" },
-        { "path": "../calendar/tsconfig.build.json" },
-        { "path": "../calendar-input/tsconfig.build.json" },
-        { "path": "../calendar-range/tsconfig.build.json" },
-        { "path": "../calendar-with-skeleton/tsconfig.build.json" },
-        { "path": "../card-image/tsconfig.build.json" },
-        { "path": "../cdn-icon/tsconfig.build.json" },
-        { "path": "../chart/tsconfig.build.json" },
-        { "path": "../checkbox/tsconfig.build.json" },
-        { "path": "../checkbox-group/tsconfig.build.json" },
-        { "path": "../circular-progress-bar/tsconfig.build.json" },
-        { "path": "../code-input/tsconfig.build.json" },
-        { "path": "../collapse/tsconfig.build.json" },
-        { "path": "../comment/tsconfig.build.json" },
-        { "path": "../config/tsconfig.build.json" },
-        { "path": "../confirmation/tsconfig.build.json" },
-        { "path": "../confirmation-v1/tsconfig.build.json" },
-        { "path": "../custom-button/tsconfig.build.json" },
-        { "path": "../custom-picker-button/tsconfig.build.json" },
-        { "path": "../date-input/tsconfig.build.json" },
-        { "path": "../date-range-input/tsconfig.build.json" },
-        { "path": "../date-time-input/tsconfig.build.json" },
-        { "path": "../divider/tsconfig.build.json" },
-        { "path": "../drawer/tsconfig.build.json" },
-        { "path": "../dropzone/tsconfig.build.json" },
-        { "path": "../file-upload-item/tsconfig.build.json" },
-        { "path": "../file-upload-item-v1/tsconfig.build.json" },
-        { "path": "../filter-tag/tsconfig.build.json" },
-        { "path": "../form-control/tsconfig.build.json" },
-        { "path": "../gallery/tsconfig.build.json" },
-        { "path": "../gap/tsconfig.build.json" },
-        { "path": "../generic-wrapper/tsconfig.build.json" },
-        { "path": "../global-store/tsconfig.build.json" },
-        { "path": "../grid/tsconfig.build.json" },
-        { "path": "../hatching-progress-bar/tsconfig.build.json" },
-        { "path": "../icon-button/tsconfig.build.json" },
-        { "path": "../icon-view/tsconfig.build.json" },
-        { "path": "../indicator/tsconfig.build.json" },
-        { "path": "../input/tsconfig.build.json" },
-        { "path": "../input-autocomplete/tsconfig.build.json" },
-        { "path": "../international-phone-input/tsconfig.build.json" },
-        { "path": "../intl-phone-input/tsconfig.build.json" },
-        { "path": "../keyboard-focusable/tsconfig.build.json" },
-        { "path": "../link/tsconfig.build.json" },
-        { "path": "../list/tsconfig.build.json" },
-        { "path": "../list-header/tsconfig.build.json" },
-        { "path": "../loader/tsconfig.build.json" },
-        { "path": "../markdown/tsconfig.build.json" },
-        { "path": "../masked-input/tsconfig.build.json" },
-        { "path": "../modal/tsconfig.build.json" },
-        { "path": "../mq/tsconfig.build.json" },
-        { "path": "../navigation-bar/tsconfig.build.json" },
-        { "path": "../navigation-bar-private/tsconfig.build.json" },
-        { "path": "../notification/tsconfig.build.json" },
-        { "path": "../notification-manager/tsconfig.build.json" },
-        { "path": "../number-input/tsconfig.build.json" },
-        { "path": "../page-indicator/tsconfig.build.json" },
-        { "path": "../pagination/tsconfig.build.json" },
-        { "path": "../pass-code/tsconfig.build.json" },
-        { "path": "../pass-code-v1/tsconfig.build.json" },
-        { "path": "../password-input/tsconfig.build.json" },
-        { "path": "../pattern-lock/tsconfig.build.json" },
-        { "path": "../pattern-lock-v1/tsconfig.build.json" },
-        { "path": "../phone-input/tsconfig.build.json" },
-        { "path": "../picker-button/tsconfig.build.json" },
-        { "path": "../plate/tsconfig.build.json" },
-        { "path": "../popover/tsconfig.build.json" },
-        { "path": "../popup-sheet/tsconfig.build.json" },
-        { "path": "../portal/tsconfig.build.json" },
-        { "path": "../product-cover/tsconfig.build.json" },
-        { "path": "../progress-bar/tsconfig.build.json" },
-        { "path": "../pure-cell/tsconfig.build.json" },
-        { "path": "../radio/tsconfig.build.json" },
-        { "path": "../radio-group/tsconfig.build.json" },
-        { "path": "../scrollbar/tsconfig.build.json" },
-        { "path": "../segmented-control/tsconfig.build.json" },
-        { "path": "../select/tsconfig.build.json" },
-        { "path": "../select-with-tags/tsconfig.build.json" },
-        { "path": "../shared/tsconfig.build.json" },
-        { "path": "../side-panel/tsconfig.build.json" },
-        { "path": "../skeleton/tsconfig.build.json" },
-        { "path": "../slider/tsconfig.build.json" },
-        { "path": "../slider-input/tsconfig.build.json" },
-        { "path": "../sortable-list/tsconfig.build.json" },
-        { "path": "../space/tsconfig.build.json" },
-        { "path": "../spinner/tsconfig.build.json" },
-        { "path": "../stack/tsconfig.build.json" },
-        { "path": "../stack-context/tsconfig.build.json" },
-        { "path": "../status/tsconfig.build.json" },
-        { "path": "../status-badge/tsconfig.build.json" },
-        { "path": "../stepped-progress-bar/tsconfig.build.json" },
-        { "path": "../steps/tsconfig.build.json" },
-        { "path": "../switch/tsconfig.build.json" },
-        { "path": "../system-message/tsconfig.build.json" },
-        { "path": "../tab-bar/tsconfig.build.json" },
-        { "path": "../table/tsconfig.build.json" },
-        { "path": "../tabs/tsconfig.build.json" },
-        { "path": "../tag/tsconfig.build.json" },
-        { "path": "../text/tsconfig.build.json" },
-        { "path": "../textarea/tsconfig.build.json" },
-        { "path": "../themes/tsconfig.build.json" },
-        { "path": "../time-input/tsconfig.build.json" },
-        { "path": "../toast/tsconfig.build.json" },
-        { "path": "../toast-plate/tsconfig.build.json" },
-        { "path": "../tooltip/tsconfig.build.json" },
-        { "path": "../types/tsconfig.build.json" },
-        { "path": "../typography/tsconfig.build.json" },
-        { "path": "../underlay/tsconfig.build.json" },
-        { "path": "../universal-date-input/tsconfig.build.json" },
-        { "path": "../universal-modal/tsconfig.build.json" },
-        { "path": "../vars/tsconfig.build.json" },
-        { "path": "../with-suffix/tsconfig.build.json" }
+        {
+            "path": "../accordion/tsconfig.build.json"
+        },
+        {
+            "path": "../action-button/tsconfig.build.json"
+        },
+        {
+            "path": "../alert/tsconfig.build.json"
+        },
+        {
+            "path": "../amount/tsconfig.build.json"
+        },
+        {
+            "path": "../amount-input/tsconfig.build.json"
+        },
+        {
+            "path": "../attach/tsconfig.build.json"
+        },
+        {
+            "path": "../backdrop/tsconfig.build.json"
+        },
+        {
+            "path": "../badge/tsconfig.build.json"
+        },
+        {
+            "path": "../bank-card/tsconfig.build.json"
+        },
+        {
+            "path": "../base-modal/tsconfig.build.json"
+        },
+        {
+            "path": "../bottom-sheet/tsconfig.build.json"
+        },
+        {
+            "path": "../button/tsconfig.build.json"
+        },
+        {
+            "path": "../calendar/tsconfig.build.json"
+        },
+        {
+            "path": "../calendar-input/tsconfig.build.json"
+        },
+        {
+            "path": "../calendar-range/tsconfig.build.json"
+        },
+        {
+            "path": "../calendar-with-skeleton/tsconfig.build.json"
+        },
+        {
+            "path": "../card-image/tsconfig.build.json"
+        },
+        {
+            "path": "../cdn-icon/tsconfig.build.json"
+        },
+        {
+            "path": "../chart/tsconfig.build.json"
+        },
+        {
+            "path": "../checkbox/tsconfig.build.json"
+        },
+        {
+            "path": "../checkbox-group/tsconfig.build.json"
+        },
+        {
+            "path": "../circular-progress-bar/tsconfig.build.json"
+        },
+        {
+            "path": "../code-input/tsconfig.build.json"
+        },
+        {
+            "path": "../collapse/tsconfig.build.json"
+        },
+        {
+            "path": "../comment/tsconfig.build.json"
+        },
+        {
+            "path": "../config/tsconfig.build.json"
+        },
+        {
+            "path": "../confirmation/tsconfig.build.json"
+        },
+        {
+            "path": "../confirmation-v1/tsconfig.build.json"
+        },
+        {
+            "path": "../custom-button/tsconfig.build.json"
+        },
+        {
+            "path": "../custom-picker-button/tsconfig.build.json"
+        },
+        {
+            "path": "../date-input/tsconfig.build.json"
+        },
+        {
+            "path": "../date-range-input/tsconfig.build.json"
+        },
+        {
+            "path": "../date-time-input/tsconfig.build.json"
+        },
+        {
+            "path": "../divider/tsconfig.build.json"
+        },
+        {
+            "path": "../drawer/tsconfig.build.json"
+        },
+        {
+            "path": "../dropzone/tsconfig.build.json"
+        },
+        {
+            "path": "../file-upload-item/tsconfig.build.json"
+        },
+        {
+            "path": "../file-upload-item-v1/tsconfig.build.json"
+        },
+        {
+            "path": "../filter-button/tsconfig.build.json"
+        },
+        {
+            "path": "../filter-tag/tsconfig.build.json"
+        },
+        {
+            "path": "../form-control/tsconfig.build.json"
+        },
+        {
+            "path": "../gallery/tsconfig.build.json"
+        },
+        {
+            "path": "../gap/tsconfig.build.json"
+        },
+        {
+            "path": "../generic-wrapper/tsconfig.build.json"
+        },
+        {
+            "path": "../global-store/tsconfig.build.json"
+        },
+        {
+            "path": "../grid/tsconfig.build.json"
+        },
+        {
+            "path": "../hatching-progress-bar/tsconfig.build.json"
+        },
+        {
+            "path": "../icon-button/tsconfig.build.json"
+        },
+        {
+            "path": "../icon-view/tsconfig.build.json"
+        },
+        {
+            "path": "../indicator/tsconfig.build.json"
+        },
+        {
+            "path": "../input/tsconfig.build.json"
+        },
+        {
+            "path": "../input-autocomplete/tsconfig.build.json"
+        },
+        {
+            "path": "../international-phone-input/tsconfig.build.json"
+        },
+        {
+            "path": "../intl-phone-input/tsconfig.build.json"
+        },
+        {
+            "path": "../keyboard-focusable/tsconfig.build.json"
+        },
+        {
+            "path": "../link/tsconfig.build.json"
+        },
+        {
+            "path": "../list/tsconfig.build.json"
+        },
+        {
+            "path": "../list-header/tsconfig.build.json"
+        },
+        {
+            "path": "../loader/tsconfig.build.json"
+        },
+        {
+            "path": "../markdown/tsconfig.build.json"
+        },
+        {
+            "path": "../masked-input/tsconfig.build.json"
+        },
+        {
+            "path": "../modal/tsconfig.build.json"
+        },
+        {
+            "path": "../mq/tsconfig.build.json"
+        },
+        {
+            "path": "../navigation-bar/tsconfig.build.json"
+        },
+        {
+            "path": "../navigation-bar-private/tsconfig.build.json"
+        },
+        {
+            "path": "../notification/tsconfig.build.json"
+        },
+        {
+            "path": "../notification-manager/tsconfig.build.json"
+        },
+        {
+            "path": "../number-input/tsconfig.build.json"
+        },
+        {
+            "path": "../page-indicator/tsconfig.build.json"
+        },
+        {
+            "path": "../pagination/tsconfig.build.json"
+        },
+        {
+            "path": "../pass-code/tsconfig.build.json"
+        },
+        {
+            "path": "../pass-code-v1/tsconfig.build.json"
+        },
+        {
+            "path": "../password-input/tsconfig.build.json"
+        },
+        {
+            "path": "../pattern-lock/tsconfig.build.json"
+        },
+        {
+            "path": "../pattern-lock-v1/tsconfig.build.json"
+        },
+        {
+            "path": "../phone-input/tsconfig.build.json"
+        },
+        {
+            "path": "../picker-button/tsconfig.build.json"
+        },
+        {
+            "path": "../plate/tsconfig.build.json"
+        },
+        {
+            "path": "../popover/tsconfig.build.json"
+        },
+        {
+            "path": "../popup-sheet/tsconfig.build.json"
+        },
+        {
+            "path": "../portal/tsconfig.build.json"
+        },
+        {
+            "path": "../product-cover/tsconfig.build.json"
+        },
+        {
+            "path": "../progress-bar/tsconfig.build.json"
+        },
+        {
+            "path": "../pure-cell/tsconfig.build.json"
+        },
+        {
+            "path": "../radio/tsconfig.build.json"
+        },
+        {
+            "path": "../radio-group/tsconfig.build.json"
+        },
+        {
+            "path": "../scrollbar/tsconfig.build.json"
+        },
+        {
+            "path": "../segmented-control/tsconfig.build.json"
+        },
+        {
+            "path": "../select/tsconfig.build.json"
+        },
+        {
+            "path": "../select-with-tags/tsconfig.build.json"
+        },
+        {
+            "path": "../shared/tsconfig.build.json"
+        },
+        {
+            "path": "../side-panel/tsconfig.build.json"
+        },
+        {
+            "path": "../skeleton/tsconfig.build.json"
+        },
+        {
+            "path": "../slider/tsconfig.build.json"
+        },
+        {
+            "path": "../slider-input/tsconfig.build.json"
+        },
+        {
+            "path": "../sortable-list/tsconfig.build.json"
+        },
+        {
+            "path": "../space/tsconfig.build.json"
+        },
+        {
+            "path": "../spinner/tsconfig.build.json"
+        },
+        {
+            "path": "../stack/tsconfig.build.json"
+        },
+        {
+            "path": "../stack-context/tsconfig.build.json"
+        },
+        {
+            "path": "../status/tsconfig.build.json"
+        },
+        {
+            "path": "../status-badge/tsconfig.build.json"
+        },
+        {
+            "path": "../stepped-progress-bar/tsconfig.build.json"
+        },
+        {
+            "path": "../steps/tsconfig.build.json"
+        },
+        {
+            "path": "../switch/tsconfig.build.json"
+        },
+        {
+            "path": "../system-message/tsconfig.build.json"
+        },
+        {
+            "path": "../tab-bar/tsconfig.build.json"
+        },
+        {
+            "path": "../table/tsconfig.build.json"
+        },
+        {
+            "path": "../tabs/tsconfig.build.json"
+        },
+        {
+            "path": "../tag/tsconfig.build.json"
+        },
+        {
+            "path": "../text/tsconfig.build.json"
+        },
+        {
+            "path": "../textarea/tsconfig.build.json"
+        },
+        {
+            "path": "../themes/tsconfig.build.json"
+        },
+        {
+            "path": "../time-input/tsconfig.build.json"
+        },
+        {
+            "path": "../toast/tsconfig.build.json"
+        },
+        {
+            "path": "../toast-plate/tsconfig.build.json"
+        },
+        {
+            "path": "../tooltip/tsconfig.build.json"
+        },
+        {
+            "path": "../types/tsconfig.build.json"
+        },
+        {
+            "path": "../typography/tsconfig.build.json"
+        },
+        {
+            "path": "../underlay/tsconfig.build.json"
+        },
+        {
+            "path": "../universal-date-input/tsconfig.build.json"
+        },
+        {
+            "path": "../universal-modal/tsconfig.build.json"
+        },
+        {
+            "path": "../vars/tsconfig.build.json"
+        },
+        {
+            "path": "../with-suffix/tsconfig.build.json"
+        }
     ]
 }
