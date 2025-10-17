@@ -6,7 +6,7 @@ import { FilterButtonDesktop } from './desktop';
 import { FilterButtonMobile } from './mobile';
 import { type BaseFilterButtonProps } from './types';
 
-export type FilterButtonProps = BaseFilterButtonProps & {
+export type FilterButtonProps = Omit<BaseFilterButtonProps, 'size'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -17,25 +17,11 @@ export type FilterButtonProps = BaseFilterButtonProps & {
      * Версия, которая будет использоваться при серверном рендеринге
      */
     client?: 'desktop' | 'mobile';
-
-    /**
-     * Значение по-умолчанию для хука useMatchMedia
-     * @deprecated Используйте client
-     */
-    defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
 export const FilterButton = forwardRef<HTMLButtonElement, FilterButtonProps>(
-    (
-        {
-            children,
-            breakpoint,
-            client,
-            defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
-            ...restProps
-        },
-        ref,
-    ) => {
+    ({ children, breakpoint, client, ...restProps }, ref) => {
+        const defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop';
         const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
 
         const Component = isDesktop ? FilterButtonDesktop : FilterButtonMobile;

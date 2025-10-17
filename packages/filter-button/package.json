@@ -10,9 +10,9 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-mq": "^5.0.1",
+        "@alfalab/core-components-icon-button": "^7.0.1",
         "@alfalab/core-components-indicator": "^3.0.0",
-        "@alfalab/core-components-button": "^6.0.0",
+        "@alfalab/core-components-mq": "^5.0.1",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {

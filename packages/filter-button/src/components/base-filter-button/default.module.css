@@ -1,5 +1,5 @@
 @import '../../vars.css';
 
-.dot {
-    background-color: var(--color-light-accent-primary);
+.bgColor {
+    background-color: var(--filter-button-background-color);
 }

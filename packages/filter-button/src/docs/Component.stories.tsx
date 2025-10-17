@@ -20,10 +20,8 @@ export const filter_button = {
             [32, 40] as unknown as string[],
             40 as unknown as string,
         ) as unknown as 32 | 40;
-        const indicator = boolean('indicator', false);
-        const indicatorType = select('indicatorType', ['dot', 'count'], 'dot') as 'dot' | 'count';
+        const showIndicator = boolean('showIndicator', false);
         const indicatorValue = number('indicatorValue', 3);
-        const fixedWidth = boolean('fixedWidth', true);
 
         return (
             <div
@@ -43,10 +41,13 @@ export const filter_button = {
                 <FilterButton
                     colors={colors as 'default' | 'inverted'}
                     size={size}
-                    indicator={indicator}
-                    indicatorType={indicatorType}
-                    indicatorValue={indicatorValue}
-                    fixedWidth={fixedWidth}
+                    indicatorProps={
+                        showIndicator
+                            ? {
+                                  value: indicatorValue,
+                              }
+                            : undefined
+                    }
                 >
                     {text('children', 'FB')}
                 </FilterButton>
@@ -64,10 +65,8 @@ export const filter_button_mobile = {
             [32, 40] as unknown as string[],
             32 as unknown as string,
         ) as unknown as 32 | 40;
-        const indicator = boolean('indicator', false);
-        const indicatorType = select('indicatorType', ['dot', 'count'], 'dot') as 'dot' | 'count';
+        const showIndicator = boolean('showIndicator', true);
         const indicatorValue = number('indicatorValue', 1);
-        const fixedWidth = boolean('fixedWidth', true);
 
         return (
             <div
@@ -87,10 +86,13 @@ export const filter_button_mobile = {
                 <FilterButtonMobile
                     colors={colors as 'default' | 'inverted'}
                     size={size}
-                    indicator={indicator}
-                    indicatorType={indicatorType}
-                    indicatorValue={indicatorValue}
-                    fixedWidth={fixedWidth}
+                    indicatorProps={
+                        showIndicator
+                            ? {
+                                  value: indicatorValue,
+                              }
+                            : undefined
+                    }
                 >
                     {text('children', 'FB')}
                 </FilterButtonMobile>
@@ -108,10 +110,8 @@ export const filter_button_desktop = {
             [32, 40] as unknown as string[],
             40 as unknown as string,
         ) as unknown as 32 | 40;
-        const indicator = boolean('indicator', false);
-        const indicatorType = select('indicatorType', ['dot', 'count'], 'dot') as 'dot' | 'count';
+        const showIndicator = boolean('showIndicator', true);
         const indicatorValue = number('indicatorValue', 5);
-        const fixedWidth = boolean('fixedWidth', true);
 
         return (
             <div
@@ -131,10 +131,13 @@ export const filter_button_desktop = {
                 <FilterButtonDesktop
                     colors={colors as 'default' | 'inverted'}
                     size={size}
-                    indicator={indicator}
-                    indicatorType={indicatorType}
-                    indicatorValue={indicatorValue}
-                    fixedWidth={fixedWidth}
+                    indicatorProps={
+                        showIndicator
+                            ? {
+                                  value: indicatorValue,
+                              }
+                            : undefined
+                    }
                 >
                     {text('children', 'FB')}
                 </FilterButtonDesktop>

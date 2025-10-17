@@ -1,10 +1,14 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { IconButton } from '@alfalab/core-components-icon-button';
 import { Indicator } from '@alfalab/core-components-indicator';
+import { SlidersMIcon } from '@alfalab/icons-glyph/SlidersMIcon';
 
 import { type BaseFilterButtonProps, type TFilterButtonSize } from '../../types';
+import { getVariant } from '../../utils';
+
+import { MaskedContent } from './MaskedContent';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -22,67 +26,45 @@ const SIZE_TO_CLASSNAME_MAP: Record<TFilterButtonSize, 'size-32' | 'size-40'> = 
 
 export const BaseFilterButton = forwardRef<HTMLButtonElement, BaseFilterButtonProps>(
     (
-        {
-            children,
-            className,
-            dataTestId,
-            colors = 'default',
-            size = 40,
-            disabled,
-            onClick,
-            indicator = false,
-            indicatorType = 'dot',
-            indicatorValue,
-            fixedWidth = true,
-            optionsList,
-        },
+        { className, dataTestId, colors = 'default', size, pathMask = 'rectangle', indicatorProps },
         ref,
     ) => {
-        const hasCount = indicatorType === 'count' && typeof indicatorValue !== 'undefined';
-        const showIndicator = indicator && (indicatorType === 'dot' || hasCount);
+        const hasIndicator = Boolean(indicatorProps);
+        const variant = getVariant({ hasIndicator, indicatorProps });
 
         return (
-            <div
-                className={cn(
-                    styles.wrapper,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
-                    fixedWidth && styles.fixedWidth,
-                    className,
-                )}
-                data-test-id={dataTestId}
-            >
-                <Button
-                    ref={ref}
-                    view='secondary'
-                    shape='rectangular'
+            <div className={cn(styles.wrapper, styles[SIZE_TO_CLASSNAME_MAP[size]], className)}>
+                <MaskedContent
+                    className={colorStyles[colors].bgColor}
+                    variant={variant}
                     size={size}
-                    textResizing='hug'
-                    colors={colors}
-                    disabled={disabled}
-                    onClick={disabled ? undefined : onClick}
-                    block={fixedWidth}
-                    dataTestId={dataTestId}
+                    pathMask={pathMask}
                 >
-                    {children}
-                </Button>
+                    <IconButton
+                        ref={ref}
+                        colors={colors}
+                        size={size}
+                        icon={SlidersMIcon}
+                        dataTestId={dataTestId}
+                        aria-label='Filter'
+                    />
+                </MaskedContent>
 
-                {showIndicator && (
-                    <span className={styles.indicatorWrapper} aria-hidden={true}>
-                        {hasCount ? (
-                            <Indicator
-                                className={styles.indicator}
-                                height={20}
-                                value={indicatorValue && indicatorValue > 9 ? 9 : indicatorValue}
-                                view={colors === 'inverted' ? 'white' : 'red'}
-                                data-test-id={dataTestId ? `${dataTestId}-indicator` : undefined}
-                            />
-                        ) : (
-                            <span className={cn(styles.dot, colorStyles[colors].dot)} />
-                        )}
-                    </span>
+                {hasIndicator && (
+                    <div
+                        className={cn(styles.indicatorWrapper, {
+                            [styles.dots]: !indicatorProps?.value,
+                        })}
+                    >
+                        <Indicator
+                            view='red'
+                            border={false}
+                            size={indicatorProps?.value ? 16 : 8}
+                            maxValue={10}
+                            {...indicatorProps}
+                        />
+                    </div>
                 )}
-
-                {optionsList}
             </div>
         );
     },

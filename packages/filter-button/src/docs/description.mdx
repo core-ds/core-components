@@ -1,15 +1,17 @@
 import { FilterButton } from '../Component.responsive';
+import { Indicator } from '@alfalab/core-components-indicator';
+import { FilterTag } from '@alfalab/core-components-filter-tag';
 
 ## FilterButton
+
+FilterButton - кнопка для открытия модального окна со списком всех фильтров.
 
 ```jsx live
 render(() => {
     const [colors, setColors] = React.useState('default');
     const [size, setSize] = React.useState(40);
-    const [indicator, setIndicator] = React.useState(false);
-    const [indicatorType, setIndicatorType] = React.useState('dot');
-    const [indicatorValue, setIndicatorValue] = React.useState(3);
-    const [fixedWidth, setFixedWidth] = React.useState(true);
+    const [appliedFiltersCount, setAppliedFiltersCount] = React.useState(3);
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
 
     const wrapperStyle = {
         backgroundColor:
@@ -19,6 +21,11 @@ render(() => {
         alignItems: 'center',
         gap: '12px',
         flexWrap: 'wrap',
+    };
+
+    const handleOpenFilters = () => {
+        setIsModalOpen(true);
+        console.log('Открываем список всех фильтров');
     };
 
     return (
@@ -39,39 +46,13 @@ render(() => {
                     </select>
                 </label>
                 <label>
-                    indicator:
-                    <input
-                        type='checkbox'
-                        checked={indicator}
-                        onChange={(e) => setIndicator(e.target.checked)}
-                    />
-                </label>
-                <label>
-                    indicatorType:
-                    <select
-                        value={indicatorType}
-                        onChange={(e) => setIndicatorType(e.target.value)}
-                    >
-                        <option value='dot'>dot</option>
-                        <option value='count'>count</option>
-                    </select>
-                </label>
-                <label>
-                    indicatorValue:
+                    Применено фильтров:
                     <input
                         type='number'
                         min={0}
                         max={99}
-                        value={indicatorValue}
-                        onChange={(e) => setIndicatorValue(Number(e.target.value))}
-                    />
-                </label>
-                <label>
-                    fixedWidth:
-                    <input
-                        type='checkbox'
-                        checked={fixedWidth}
-                        onChange={(e) => setFixedWidth(e.target.checked)}
+                        value={appliedFiltersCount}
+                        onChange={(e) => setAppliedFiltersCount(Number(e.target.value))}
                     />
                 </label>
             </div>
@@ -80,34 +61,175 @@ render(() => {
                 <FilterButton
                     colors={colors}
                     size={size}
-                    indicator={indicator}
-                    indicatorType={indicatorType}
-                    indicatorValue={indicatorValue}
-                    fixedWidth={fixedWidth}
-                >
-                    FB
-                </FilterButton>
+                    onClick={handleOpenFilters}
+                    indicatorProps={
+                        appliedFiltersCount > 0 ? { value: appliedFiltersCount } : undefined
+                    }
+                />
+            </div>
+        </div>
+    );
+});
+```
 
+### Использование с FilterTag
+
+```jsx live
+render(() => {
+    const [colors, setColors] = React.useState('default');
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+    const [filters, setFilters] = React.useState({
+        category: true,
+        price: true,
+        brand: false,
+        rating: false,
+        inStock: false,
+    });
+
+    const wrapperStyle = {
+        backgroundColor:
+            colors === 'inverted' ? 'var(--color-light-base-bg-primary-inverted)' : 'transparent',
+        padding: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        flexWrap: 'wrap',
+    };
+
+    const activeFiltersCount = Object.values(filters).filter(Boolean).length;
+
+    const handleOpenFilters = () => {
+        setIsModalOpen(true);
+        console.log('Открываем модалку со всеми фильтрами');
+    };
+
+    const handleClearFilter = (filterKey) => {
+        setFilters((prev) => ({ ...prev, [filterKey]: false }));
+    };
+
+    return (
+        <div style={{ display: 'grid', gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                <label>
+                    colors:
+                    <select value={colors} onChange={(e) => setColors(e.target.value)}>
+                        <option value='default'>default</option>
+                        <option value='inverted'>inverted</option>
+                    </select>
+                </label>
+            </div>
+
+            <div style={wrapperStyle}>
+                {/* FilterButton показывает общее количество примененных фильтров */}
                 <FilterButton
                     colors={colors}
-                    size={size}
-                    indicator={true}
-                    indicatorType='dot'
-                    fixedWidth={fixedWidth}
-                >
-                    FB
-                </FilterButton>
+                    onClick={handleOpenFilters}
+                    indicatorProps={
+                        activeFiltersCount > 0 ? { value: activeFiltersCount } : undefined
+                    }
+                />
 
+                {/* Активные фильтры отображаются как FilterTag */}
+                {filters.category && (
+                    <FilterTag
+                        colors={colors}
+                        checked
+                        onClear={() => handleClearFilter('category')}
+                    >
+                        Категория
+                    </FilterTag>
+                )}
+
+                {filters.price && (
+                    <FilterTag colors={colors} checked onClear={() => handleClearFilter('price')}>
+                        Цена
+                    </FilterTag>
+                )}
+            </div>
+        </div>
+    );
+});
+```
+
+### Индикатор без значения
+
+Когда нужно просто показать наличие примененных фильтров без указания количества, используйте Indicator без `value`:
+
+```jsx live
+render(() => {
+    const [colors, setColors] = React.useState('default');
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+    const [filters, setFilters] = React.useState({
+        category: true,
+        price: true,
+        brand: true,
+    });
+
+    const wrapperStyle = {
+        backgroundColor:
+            colors === 'inverted' ? 'var(--color-light-base-bg-primary-inverted)' : 'transparent',
+        padding: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        flexWrap: 'wrap',
+    };
+
+    const hasActiveFilters = Object.values(filters).some(Boolean);
+
+    const handleOpenFilters = () => {
+        setIsModalOpen(true);
+        console.log('Открываем модалку со всеми фильтрами');
+    };
+
+    const handleClearFilter = (filterKey) => {
+        setFilters((prev) => ({ ...prev, [filterKey]: false }));
+    };
+
+    return (
+        <div style={{ display: 'grid', gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                <label>
+                    colors:
+                    <select value={colors} onChange={(e) => setColors(e.target.value)}>
+                        <option value='default'>default</option>
+                        <option value='inverted'>inverted</option>
+                    </select>
+                </label>
+            </div>
+
+            <div style={wrapperStyle}>
+                {/* FilterButton с индикатором-точкой (без числа) */}
                 <FilterButton
                     colors={colors}
-                    size={size}
-                    indicator={true}
-                    indicatorType='count'
-                    indicatorValue={10}
-                    fixedWidth={fixedWidth}
-                >
-                    FB
-                </FilterButton>
+                    onClick={handleOpenFilters}
+                    indicatorProps={hasActiveFilters ? {} : undefined}
+                />
+
+                {/* Активные фильтры отображаются как FilterTag */}
+                {filters.category && (
+                    <FilterTag
+                        colors={colors}
+                        checked
+                        onClear={() => handleClearFilter('category')}
+                    >
+                        Категория
+                    </FilterTag>
+                )}
+
+                {filters.price && (
+                    <FilterTag colors={colors} checked onClear={() => handleClearFilter('price')}>
+                        Цена
+                    </FilterTag>
+                )}
+
+                {filters.brand && (
+                    <FilterTag colors={colors} checked onClear={() => handleClearFilter('brand')}>
+                        Бренд
+                    </FilterTag>
+                )}
             </div>
         </div>
     );

@@ -1,21 +1,19 @@
-import { type MouseEvent, type ReactNode } from 'react';
+import { type AriaAttributes, type ReactNode } from 'react';
+
+import { type IndicatorProps } from '@alfalab/core-components-indicator';
 
 export type TFilterButtonSize = 32 | 40;
 
 export type TFilterButtonColors = 'default' | 'inverted';
 
-export type TIndicatorType = 'dot' | 'count';
+export type TMaskVariant = 'none' | 'dot' | 'count';
+export type TPathMask = 'rectangle';
 
-export type BaseFilterButtonProps = {
+export interface BaseFilterButtonProps extends AriaAttributes {
     /**
-     * Контент (иконка или текст)
+     * Контент
      */
     children?: ReactNode;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
 
     /**
      * Дополнительный класс
@@ -23,53 +21,41 @@ export type BaseFilterButtonProps = {
     className?: string;
 
     /**
-     * Размер
-     * @default 40
-     * @description высота: 40|32, ширина по умолчанию 40
+     * Идентификатор для систем автоматизированного тестирования
      */
-    size?: TFilterButtonSize;
+    dataTestId?: string;
 
     /**
-     * Набор цветов
+     * Размер компонента
+     * @default 40
+     * @description высота: 32, 40, ширина по умолчанию 40
+     */
+    size: TFilterButtonSize;
+
+    /**
+     * Набор цветов для компонента
      * @default default
      */
     colors?: TFilterButtonColors;
 
-    /**
-     * Состояние блокировки
-     */
-    disabled?: boolean;
+    // /**
+    //  * Состояние блокировки
+    //  */
+    // disabled?: boolean;
 
     /**
-     * Обработчик клика
+     * Пропсы для компонента Indicator
      */
-    onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+    indicatorProps?: Partial<Omit<IndicatorProps, 'size'>>;
+
+    // /**
+    //  * Обработчик клика
+    //  * @description Должен открывать модальное окно со списком всех фильтров
+    //  */
+    // onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
-     * Показать индикатор
+     * Маска
      */
-    indicator?: boolean;
-
-    /**
-     * Тип индикатора
-     * @default dot
-     */
-    indicatorType?: TIndicatorType;
-
-    /**
-     * Значение индикатора. Если > 9, отображается 9+
-     */
-    indicatorValue?: number;
-
-    /**
-     * Фиксированная ширина 40px
-     * @default true
-     */
-    fixedWidth?: boolean;
-
-    /**
-     * Слот списка опций (например, @options-list/)
-     * Компонент рендерится рядом с кнопкой; управление его видимостью — на вашей стороне
-     */
-    optionsList?: ReactNode;
-};
+    pathMask?: TPathMask;
+}
