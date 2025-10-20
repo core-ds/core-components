@@ -6,7 +6,7 @@ render(() => {
         {
             key: '1',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Content>
                         <PureCell.Main>
                             <Typography.Text color='secondary' view='component'>
@@ -27,7 +27,7 @@ render(() => {
         {
             key: '2',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Content>
                         <PureCell.Main>
                             <Typography.Text color='secondary' view='component'>
@@ -48,7 +48,7 @@ render(() => {
         {
             key: '3',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Content>
                         <PureCell.Main>
                             <Typography.Text color='secondary' view='component'>
@@ -67,7 +67,7 @@ render(() => {
             ),
         },
     ];
-    return <AccountSelect size='m' label='Куда' options={options} />;
+    return <AccountSelect label='Куда' options={options} />;
 });
 ```
 
@@ -79,7 +79,7 @@ render(() => {
         {
             key: '1',
             content: (
-                <PureCell verticalPadding='airy'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single size={48} />
                     </PureCell.Graphics>
@@ -103,7 +103,7 @@ render(() => {
         {
             key: '2',
             content: (
-                <PureCell verticalPadding='airy'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single size={48} />
                     </PureCell.Graphics>
@@ -127,7 +127,6 @@ render(() => {
     ];
     return (
         <AccountSelect
-            size='xl'
             label='Карта получателя'
             fieldProps={{ leftAddons: <ProductCover.Single size={48} /> }}
             options={options}
@@ -147,7 +146,7 @@ render(() => {
         {
             key: '1',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single
                             size={48}
@@ -176,7 +175,7 @@ render(() => {
         {
             key: '2',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single
                             size={48}
@@ -220,13 +219,12 @@ render(() => {
     return (
         <div>
             <AccountSelect
-                size='xl'
                 label='Карта отправителя'
                 fieldProps={{ leftAddons: <ProductCover.Single size={48} /> }}
                 options={options}
                 cardAddingProps={{
                     content: (
-                        <PureCell verticalPadding='airy'>
+                        <PureCell verticalPadding='default'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
                                     size={48}
@@ -279,7 +277,7 @@ render(() => {
         {
             key: '1',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single
                             size={48}
@@ -309,7 +307,7 @@ render(() => {
         {
             key: '2',
             content: (
-                <PureCell verticalPadding='compact'>
+                <PureCell verticalPadding='default'>
                     <PureCell.Graphics verticalAlign='center'>
                         <ProductCover.Single
                             size={48}
@@ -358,7 +356,7 @@ render(() => {
                 options={options}
                 cardAddingProps={{
                     content: (
-                        <PureCell verticalPadding='airy'>
+                        <PureCell verticalPadding='default'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
                                     size={48}
