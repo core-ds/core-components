@@ -32,6 +32,7 @@ type TFileUploadItemContext = {
     customContent?: ElementType;
     truncate?: boolean;
     imageUrl?: string;
+    backgroundColor?: string;
     actionsPresent?: boolean;
     setActionsPresent?: (present: boolean) => void;
 };
@@ -61,6 +62,7 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     customContent: undefined,
     truncate: false,
     imageUrl: undefined,
+    backgroundColor: undefined,
     actionsPresent: false,
     setActionsPresent: undefined,
 });
