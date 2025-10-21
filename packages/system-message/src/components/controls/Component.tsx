@@ -6,6 +6,8 @@ import { type PaddingType } from '@alfalab/core-components-types';
 
 import { SystemMessageContext } from '../../Context';
 
+import { hasMultipleChildren } from './utils';
+
 import styles from './index.module.css';
 
 type ControlsProps = {
@@ -43,7 +45,7 @@ export const Controls: React.FC<ControlsProps> = ({
     const { dataTestId, view } = useContext(SystemMessageContext);
     const defaultDirection = view === 'mobile' ? 'column' : 'row';
     const direction = directionProp || defaultDirection;
-    const isMultipleElements = React.Children.toArray(children).length > 1;
+    const isMultipleElements = hasMultipleChildren(children);
     const isColumn = isMultipleElements && direction === 'column';
     const padding =
         paddingProp ?? (view === 'mobile' ? DEFAULT_MOBILE_PADDING : DEFAULT_DESKTOP_PADDING);
