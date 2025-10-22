@@ -1,5 +1,12 @@
 # @alfalab/core-components-gallery
 
+## 6.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-view@4.0.1
+
 ## 6.0.4
 
 ### Patch Changes

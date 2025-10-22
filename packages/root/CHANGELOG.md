@@ -1,5 +1,27 @@
 # @alfalab/core-components
 
+## 49.7.1
+
+### Patch Changes
+
+<sup><time>22.10.2025</time></sup>
+
+#### [#1917](https://github.com/core-ds/core-components/pull/1917)
+
+- Обновлены SVG paths SuperEllipse для всех вариантов (none, top, bottom, topBottom, indicator, indicatorBottom на размере 40
+
+<sup><time>22.10.2025</time></sup>
+
+#### [#1918](https://github.com/core-ds/core-components/pull/1918)
+
+- Исправлена специфичность компонента, путем оптимизации вложенности элементов
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-view@4.0.1
+    - @alfalab/core-components-system-message@3.0.2
+    - @alfalab/core-components-file-upload-item@7.1.1
+    - @alfalab/core-components-gallery@6.0.5
+
 ## 49.7.0
 
 ### Minor Changes
