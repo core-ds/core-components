@@ -54,6 +54,7 @@
 }
 
 .imageContainer {
+    display: inline-block;
     margin-top: var(--gap-16);
     margin-bottom: var(--gap-24);
 }
