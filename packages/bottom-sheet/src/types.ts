@@ -86,6 +86,11 @@ export type BottomSheetProps = {
     headerClassName?: string;
 
     /**
+     * Дополнительный класс для контента шапки
+     */
+    headerContentClassName?: string;
+
+    /**
      * Дополнительный класс футера
      */
     footerClassName?: string;
