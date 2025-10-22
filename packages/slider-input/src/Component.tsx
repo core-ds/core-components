@@ -266,7 +266,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             >
                 <Input
                     {...restProps}
-                    {...customInputProps}
                     ref={ref}
                     value={value.toString()}
                     onChange={handleInputChange}
@@ -320,6 +319,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                             </Fragment>
                         )
                     }
+                    {...customInputProps}
                 />
                 {/* eslint-disable react/no-array-index-key */}
                 {steps.length > 0 && !error && (
