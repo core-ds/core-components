@@ -28,8 +28,6 @@ const IS_ROOT_PACKAGE = pkg.name === '@alfalab/core-components';
 
 const CSS_PACKAGES = readPackagesFileSync(path.join(dirname, '../.css-packages'));
 
-const THEME_PACKAGES = readPackagesFileSync(path.join(dirname, '../.theme-packages'));
-
 const externals = [
     ...Object.keys(pkg.dependencies ?? {}),
     ...Object.keys(pkg.peerDependencies ?? {}),
@@ -277,6 +275,6 @@ export default env.BUILD_MODERN_ONLY === 'true'
           es5(),
           modern(),
           esm(),
-          !CSS_PACKAGES.includes(pkg.name) && !THEME_PACKAGES.includes(pkg.name) && cssm(),
-          !CSS_PACKAGES.includes(pkg.name) && !THEME_PACKAGES.includes(pkg.name) && moderncssm(),
+          !CSS_PACKAGES.includes(pkg.name) && cssm(),
+          !CSS_PACKAGES.includes(pkg.name) && moderncssm(),
       ].filter(Boolean);
