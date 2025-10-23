@@ -1,10 +1,10 @@
-import { createContext, type ReactNode, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 import { typographyStyles } from '@alfalab/core-components-default-theme';
-import { type TypographyStyles } from '@alfalab/core-components-types';
+import { type TypographyStyle } from '@alfalab/core-components-types';
 
 export interface TypographyConfig {
-    styles: TypographyStyles;
+    styles: TypographyStyle;
 }
 
 export interface CoreConfigContextValue {
@@ -12,10 +12,6 @@ export interface CoreConfigContextValue {
     client: 'desktop' | 'mobile';
     getPortalContainer?: () => Element | null | undefined;
     typography?: TypographyConfig;
-}
-
-export interface CoreConfigContextProviderProps extends CoreConfigContextValue {
-    children?: ReactNode;
 }
 
 export const INITIAL_CORE_CONFIG_VALUE: CoreConfigContextValue = {
