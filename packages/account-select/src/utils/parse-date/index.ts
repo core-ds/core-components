@@ -4,7 +4,7 @@
  * @returns объект Date с последним днем указанного месяца и года
  */
 export const parseDate = (expiryString: string): Date => {
-    if (!expiryString || !expiryString.includes('/')) {
+    if (!expiryString?.includes('/')) {
         throw new Error('Неверный формат даты. Ожидается формат "ММ/ГГ"');
     }
 

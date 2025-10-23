@@ -1,5 +1,5 @@
-import { SingleProps } from '@alfalab/core-components-product-cover/typings';
-import { BaseSelectProps } from '@alfalab/core-components-select/shared';
+import { type SingleProps } from '@alfalab/core-components-product-cover/typings';
+import { type BaseSelectProps } from '@alfalab/core-components-select/shared';
 
 export interface CardData {
     number: string;

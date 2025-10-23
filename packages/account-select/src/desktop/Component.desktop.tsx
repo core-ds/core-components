@@ -2,20 +2,20 @@ import React, { forwardRef, useMemo, useState } from 'react';
 
 import { Popover } from '@alfalab/core-components-popover';
 import {
-    AnyObject,
+    type AnyObject,
     Arrow,
     BaseOption,
     BaseSelect,
-    BaseSelectChangePayload,
+    type BaseSelectChangePayload,
     Optgroup as DefaultOptgroup,
-    OptionProps,
+    type OptionProps,
     OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select/shared';
 
 import { CustomField } from '../components/custom-field';
 import { ADD_CARD_KEY } from '../constants';
 import { AccountSelectContext } from '../context';
-import { AccountSelectProps } from '../types';
+import { type AccountSelectProps } from '../types';
 
 import styles from './index.module.css';
 

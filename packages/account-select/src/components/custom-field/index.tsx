@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
-import { Field, FieldProps, OptionShape } from '@alfalab/core-components-select/shared';
+import { Field, type FieldProps, type OptionShape } from '@alfalab/core-components-select/shared';
 
 import { ADD_CARD_KEY } from '../../constants';
 import { MultiStepCardInput } from '../multi-step-card-input';

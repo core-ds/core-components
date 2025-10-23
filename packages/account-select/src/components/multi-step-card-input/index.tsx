@@ -6,7 +6,7 @@ import { ProductCover } from '@alfalab/core-components-product-cover';
 
 import { CARD_MASK, CVV_MASK, EXPIRY_MASK, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
 import { useAccountSelectContext } from '../../context';
-import { CardAddingProps, CardData } from '../../types';
+import { type CardAddingProps, type CardData } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
 import { parseDate } from '../../utils/parse-date';
 import { validateCardNumber, validateCvv, validateExpiry } from '../../utils/validate';
@@ -57,11 +57,13 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                             value,
                             selection: [, to],
                         } = state;
+
                         if (to >= 5 && !validateExpiry(value)) {
                             setError('Введена неверная дата');
                         } else {
                             setError(null);
                         }
+
                         return state;
                     },
                 ],
@@ -71,7 +73,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
         const numberRefCallback = useCallback(
             (element: HTMLInputElement | null) => {
-                (numberRef as React.MutableRefObject<HTMLInputElement | null>).current = element;
+                numberRef.current = element;
                 numberMaskRef(element);
             },
             [numberMaskRef],
@@ -79,7 +81,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
         const expiryRefCallback = useCallback(
             (element: HTMLInputElement | null) => {
-                (expiryRef as React.MutableRefObject<HTMLInputElement | null>).current = element;
+                expiryRef.current = element;
                 expiryMaskRef(element);
             },
             [expiryMaskRef],
@@ -87,7 +89,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
         const cvvRefCallback = useCallback(
             (element: HTMLInputElement | null) => {
-                (cvvRef as React.MutableRefObject<HTMLInputElement | null>).current = element;
+                cvvRef.current = element;
                 cvvMaskRef(element);
             },
             [cvvMaskRef],
@@ -166,7 +168,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                     expiryRef.current?.blur();
                     onSubmit?.({
                         number: cardNumber,
-                        expiryDate: expiryAsDate ? parseDate(value as string) : value,
+                        expiryDate: expiryAsDate ? parseDate(value) : value,
                     });
                 }
             }

@@ -1,5 +1,6 @@
-import { MaskitoOptions } from '@maskito/core';
-import { Size } from '@alfalab/core-components-product-cover/typings';
+import { type MaskitoOptions } from '@maskito/core';
+
+import { type Size } from '@alfalab/core-components-product-cover/typings';
 
 export const ADD_CARD_KEY = '#ADD_NEW_CARD';
 

@@ -1,12 +1,12 @@
 import React, { forwardRef, useMemo, useState } from 'react';
 
 import { SelectMobile } from '@alfalab/core-components-select/mobile';
-import { BaseSelectChangePayload } from '@alfalab/core-components-select/shared';
+import { type BaseSelectChangePayload } from '@alfalab/core-components-select/shared';
 
-import { CustomField, CustomFieldProps } from '../components/custom-field';
+import { CustomField, type CustomFieldProps } from '../components/custom-field';
 import { ADD_CARD_KEY } from '../constants';
 import { AccountSelectContext } from '../context';
-import { AccountSelectProps } from '../types';
+import { type AccountSelectProps } from '../types';
 
 const MobileCustomField = (props: CustomFieldProps) => <CustomField {...props} view='mobile' />;
 

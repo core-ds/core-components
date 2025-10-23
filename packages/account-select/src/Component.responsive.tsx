@@ -4,7 +4,7 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { AccountSelectDesktop } from './desktop';
 import { AccountSelectMobile } from './mobile';
-import type { AccountSelectResponsiveProps } from './types';
+import { type AccountSelectResponsiveProps } from './types';
 
 export const AccountSelectResponsive = forwardRef<HTMLInputElement, AccountSelectResponsiveProps>(
     ({ breakpoint, client, ...restProps }, ref) => {
