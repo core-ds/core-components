@@ -1,6 +1,7 @@
 import React, { type HTMLAttributes, type ReactNode } from 'react';
 import cn from 'classnames';
 
+import { useCoreConfig } from '@alfalab/core-components-config';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import defaultColors from './default.module.css';
@@ -183,6 +184,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
         },
         ref,
     ) => {
+        const { typography } = useCoreConfig();
         const errorMessage = typeof error === 'boolean' ? '' : error;
 
         return (
@@ -206,6 +208,9 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         data-test-id={getDataTestId(dataTestId, 'label')}
                         className={cn(
                             commonStyles.above,
+                            size === 40
+                                ? typography?.styles.paragraphSecondaryMedium
+                                : typography?.styles.paragraphComponentSecondary,
                             commonStyles[`size-${size}`],
                             styles.above,
                             colorCommonStyles[colors].label,
@@ -267,6 +272,9 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                                 <div
                                     className={cn(
                                         commonStyles.label,
+                                        size === 40
+                                            ? typography?.styles.paragraphComponentSecondary
+                                            : typography?.styles.paragraphComponentPrimary,
                                         colorCommonStyles[colors].label,
                                         labelClassName,
                                     )}
@@ -309,6 +317,9 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         data-test-id={getDataTestId(dataTestId, 'error-message')}
                         className={cn(
                             commonStyles.sub,
+                            size === 40
+                                ? typography?.styles.paragraphSecondaryMedium
+                                : typography?.styles.paragraphComponentSecondary,
                             commonStyles[`size-${size}`],
                             styles.error,
                             colorCommonStyles[colors].error,

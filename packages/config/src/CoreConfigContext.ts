@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import { typographyStyles } from '@alfalab/core-components-default-theme';
+import { typographyStyles } from '@alfalab/core-components-alfasans-theme';
 import { type TypographyStyle } from '@alfalab/core-components-types';
 
 export interface TypographyConfig {

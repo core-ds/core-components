@@ -19,7 +19,7 @@ export const typography_title: Story = {
         const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
-        const systemCompat = boolean('systemCompat', false);
+        const systemCompat = font === 'alfasans' && boolean('systemCompat', false);
 
         return (
             <>
@@ -47,7 +47,7 @@ export const typography_title_responsive: Story = {
         const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
-        const systemCompat = boolean('systemCompat', false);
+        const systemCompat = font === 'alfasans' && boolean('systemCompat', false);
         return (
             <>
                 {VIEW_TYPES.map((view) => (
@@ -74,11 +74,12 @@ export const typography_title_mobile: Story = {
         const color = select('color', colors, 'primary');
         const weight = select('weight', ['regular', 'medium', 'bold', 'semibold', '-'], '-');
         const font = select('font', ['styrene', 'system', 'alfasans'], 'styrene');
-        const systemCompat = boolean('systemCompat', false);
+        const systemCompat = font === 'alfasans' && boolean('systemCompat', false);
         return (
             <>
                 {VIEW_TYPES.map((view) => (
                     <Typography.TitleMobile
+                        defaultMargins={boolean('defaultMargins', false)}
                         view={view}
                         color={color}
                         weight={weight}
@@ -111,7 +112,7 @@ export const typography_text: Story = {
         const color = select('color', colors, 'primary');
         const font = select('font', ['default', 'alfasans'], 'default');
         const tag = select('tag', ['div', 'p', 'span'], 'p');
-        const weight = select('weight', ['regular', 'medium', 'bold', undefined], 'regular');
+        const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');
         const monospace = boolean('monospaceNumbers', false);
         const defaultMargins = tag === 'p' ? boolean('defaultMargins', true) : undefined;
         return (

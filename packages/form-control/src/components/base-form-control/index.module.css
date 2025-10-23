@@ -1,7 +1,6 @@
 @import '../../vars.css';
 
 .component {
-    font-family: var(--form-control-font-family);
     width: max-content;
     max-width: 100%;
 }
@@ -48,7 +47,6 @@
 
 .input > * {
     padding: var(--form-control-paddings);
-    font-family: var(--form-control-font-family);
 }
 
 .input.size-40 > * {
@@ -56,8 +54,6 @@
 }
 
 .label {
-    @mixin paragraph_component;
-
     position: absolute;
     display: flex;
     align-items: center;
@@ -92,18 +88,14 @@
 }
 
 .sub {
-    @mixin paragraph_component_secondary;
     @mixin form-control-sub;
 
     &.size-40 {
-        @mixin paragraph_secondary_medium;
         margin-top: var(--gap-4);
     }
 }
 
 .above {
-    @mixin paragraph_component_secondary;
-
     display: block;
     margin-bottom: calc(var(--gap-12) / 2);
     white-space: nowrap;
@@ -111,7 +103,6 @@
     text-overflow: ellipsis;
 
     &.size-40 {
-        @mixin paragraph_secondary_medium;
         margin-bottom: var(--gap-4);
     }
 }
@@ -133,7 +124,6 @@
     }
 
     & .label {
-        @mixin paragraph_component_secondary;
         top: calc(var(--form-control-40-min-height) / 2);
         left: var(--gap-8);
     }

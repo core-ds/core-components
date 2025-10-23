@@ -10,6 +10,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { useCoreConfig } from '@alfalab/core-components-config';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
@@ -57,6 +58,7 @@ export const BaseButton = forwardRef<
         },
         ref,
     ) => {
+        const { typography } = useCoreConfig();
         const buttonRef = useRef<HTMLElement>(null);
 
         const [focused] = useFocus(buttonRef, 'keyboard');
@@ -96,6 +98,9 @@ export const BaseButton = forwardRef<
                     [colorStyles[colors].loading]: showLoader,
                     [colorStylesMap[colors].loading]: showLoader,
                 },
+                (size === 32 || size === 40) && typography?.styles.actionPrimarySmall,
+                (size === 48 || size === 56) && typography?.styles.actionPrimaryMedium,
+                (size === 64 || size === 72) && typography?.styles.actionPrimaryLarge,
                 className,
             ),
             'data-test-id': dataTestId || null,
@@ -120,7 +125,13 @@ export const BaseButton = forwardRef<
                     >
                         {children}
                         {showHint && (
-                            <span className={cn(commonStyles.hint, colorStyles[colors].hint)}>
+                            <span
+                                className={cn(
+                                    commonStyles.hint,
+                                    colorStyles[colors].hint,
+                                    typography?.styles.paragraphPrimarySmall,
+                                )}
+                            >
                                 {hint}
                             </span>
                         )}

@@ -1,63 +1,24 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../margins.module.css';
-@import '../common.module.css';
 
-.styrene-xlarge {
-    @mixin headline_xlarge;
-}
+.component {
+    &.margins-xlarge {
+        @mixin margin-large;
+    }
 
-.styrene-large {
-    @mixin headline_large;
-}
+    &.margins-large {
+        @mixin margin-medium;
+    }
 
-.styrene-medium {
-    @mixin headline_medium;
-}
+    &.margins-medium {
+        @mixin margin-medium;
+    }
 
-.styrene-small {
-    @mixin headline_small;
-}
+    &.margins-small {
+        @mixin margin-small;
+    }
 
-.styrene-xsmall {
-    @mixin headline_xsmall;
-}
-
-.system-xlarge {
-    @mixin headline-system_xlarge;
-}
-
-.system-large {
-    @mixin headline-system_large;
-}
-
-.system-medium {
-    @mixin headline-system_medium;
-}
-
-.system-small {
-    @mixin headline-system_small;
-}
-
-.system-xsmall {
-    @mixin headline-system_xsmall;
-}
-
-.margins-xlarge {
-    @mixin margin-large;
-}
-
-.margins-large {
-    @mixin margin-medium;
-}
-
-.margins-medium {
-    @mixin margin-medium;
-}
-
-.margins-small {
-    @mixin margin-small;
-}
-
-.margins-xsmall {
-    @mixin margin-small;
+    &.margins-xsmall {
+        @mixin margin-small;
+    }
 }

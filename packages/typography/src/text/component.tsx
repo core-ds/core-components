@@ -1,14 +1,15 @@
 import React, { forwardRef, type HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+import camelCase from 'lodash/camelCase';
 
+import { useCoreConfig } from '@alfalab/core-components-config';
 import { type TextSkeletonProps, useSkeleton } from '@alfalab/core-components-skeleton';
 
 import { type Color } from '../colors';
 import { type TextElementType } from '../types';
 
 import colors from '../colors.module.css';
-import alfasansStyles from './alfasans-index.module.css';
 import styles from './index.module.css';
 
 type NativeProps = HTMLAttributes<HTMLSpanElement>;
@@ -86,6 +87,8 @@ type TextBaseProps = {
 
     /**
      * Шрифт текста
+     *
+     * @deprecated
      */
     font?: 'alfasans' | undefined | null;
 };
@@ -102,7 +105,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
         {
             view = 'primary-medium',
             tag: Component = 'span',
-            weight,
+            weight = 'regular',
             monospaceNumbers = false,
             defaultMargins = true,
             color,
@@ -117,6 +120,7 @@ export const Text = forwardRef<TextElementType, TextProps>(
         },
         ref,
     ) => {
+        const { typography } = useCoreConfig();
         const { renderSkeleton, textRef } = useSkeleton(showSkeleton, skeletonProps);
 
         const skeleton = renderSkeleton({
@@ -130,21 +134,28 @@ export const Text = forwardRef<TextElementType, TextProps>(
             return skeleton;
         }
 
+        const kind = (
+            {
+                regular: 'paragraph',
+                medium: 'action',
+                bold: 'accent',
+            } as const
+        )[weight];
+        const typographyStyle = camelCase(`${kind}-${view}`);
+
         return (
             <Component
                 className={cn(
+                    typography?.styles[typographyStyle],
                     {
                         [styles.paragraph]: Component === 'p' && !defaultMargins,
                         [styles.paragraphWithMargins]: Component === 'p' && defaultMargins,
                         [styles.monospace]: monospaceNumbers,
                         [styles[`rowLimit${rowLimit}`]]: rowLimit,
                         [styles.transparent]: showSkeleton,
-                        [alfasansStyles.text]: font === 'alfasans',
                     },
-                    className,
                     color && colors[color],
-                    (font === 'alfasans' ? alfasansStyles : styles)[view],
-                    weight && (font === 'alfasans' ? alfasansStyles : styles)[weight],
+                    className,
                 )}
                 data-test-id={dataTestId}
                 ref={mergeRefs([ref, textRef])}
