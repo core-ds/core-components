@@ -9,7 +9,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-default-theme": "^0.0.1",
+        "@alfalab/core-components-alfasans-theme": "^0.0.1",
         "@alfalab/core-components-types": "^1.0.0",
         "tslib": "^2.4.0"
     },
