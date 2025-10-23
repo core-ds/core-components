@@ -83,10 +83,10 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
                     optionClassName={styles.option}
                     size={size}
                     {...restProps}
-                     fieldProps={{
+                    fieldProps={{
                         ...(restProps.fieldProps as AnyObject),
                         ...restCardAddingProps,
-                         size
+                        size,
                     }}
                 />
             </AccountSelectContext.Provider>

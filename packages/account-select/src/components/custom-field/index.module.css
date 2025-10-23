@@ -1,3 +1,5 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
 .leftAddon{
     padding-left: var(--gap-8);
 }
