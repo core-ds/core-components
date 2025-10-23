@@ -58,7 +58,6 @@ export interface AccountSelectProps
         | 'searchProps'
         | 'showSearch'
         | 'Search'
-        | 'valueRenderer'
     > {
     /**
      * Пропсы для добавления новой карты
@@ -66,7 +65,7 @@ export interface AccountSelectProps
     cardAddingProps?: CardAddingProps;
 }
 
-export interface AccountSelectResonsiveProps extends AccountSelectProps {
+export interface AccountSelectResponsiveProps extends AccountSelectProps {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
@@ -6,6 +6,8 @@ import { Field, FieldProps, OptionShape } from '@alfalab/core-components-select/
 
 import { ADD_CARD_KEY } from '../../constants';
 import { MultiStepCardInput } from '../multi-step-card-input';
+
+import styles from './index.module.css';
 
 export interface CustomFieldProps extends FieldProps {
     view?: 'desktop' | 'mobile';
@@ -23,39 +25,49 @@ export const CustomField = ({
     view = 'desktop',
     cardImage,
     leftAddons,
+    valueRenderer,
+    size,
     ...restProps
 }: CustomFieldProps) => {
-    const valueRenderer = useCallback(
-        ({ selected: selectedOption }: { selected?: OptionShape }) => {
-            if (selectedOption?.key === ADD_CARD_KEY) {
-                return (
-                    <MultiStepCardInput
-                        onSubmit={onSubmit}
-                        onInput={onInput}
-                        cardImage={cardImage}
-                        needCvv={needCvv}
-                        needExpiryDate={needExpiryDate}
-                        expiryAsDate={expiryAsDate}
-                    />
-                );
-            }
+    const fieldRenderer = ({
+        selected: selectedOption,
+        selectedMultiple: selectedOptions,
+    }: {
+        selected?: OptionShape;
+        selectedMultiple: OptionShape[];
+    }) => {
+        if (selectedOption?.key === ADD_CARD_KEY) {
+            return (
+                <MultiStepCardInput
+                    onSubmit={onSubmit}
+                    onInput={onInput}
+                    cardImage={cardImage}
+                    needCvv={needCvv}
+                    needExpiryDate={needExpiryDate}
+                    expiryAsDate={expiryAsDate}
+                    size={size}
+                />
+            );
+        }
 
-            return selectedOption?.content;
-        },
-        [onSubmit, onInput, cardImage, needCvv, needExpiryDate, expiryAsDate],
-    );
+        return valueRenderer && selected
+            ? valueRenderer({ selected: selectedOption, selectedMultiple: selectedOptions })
+            : selectedOption?.content;
+    };
 
     const FormControlComponent = view === 'mobile' ? FormControlMobile : FormControlDesktop;
 
     return (
         <Field
             FormControlComponent={FormControlComponent}
+            size={size}
             label={selected ? null : label}
             selected={selected}
             innerProps={innerProps}
             leftAddons={selected ? undefined : leftAddons}
+            addonsClassName={styles.leftAddon}
             {...restProps}
-            valueRenderer={valueRenderer}
+            valueRenderer={fieldRenderer}
         />
     );
 };

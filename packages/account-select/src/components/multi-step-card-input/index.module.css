@@ -22,8 +22,12 @@
     width: 19ch;
 }
 
-.cardNumberInput:not(:focus) {
+.cardNumberInputValid {
     width: 5ch;
+
+    &:focus {
+        width: 19ch;
+    }
 }
 
 .expiryInput {

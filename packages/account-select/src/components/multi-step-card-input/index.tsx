@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import { ProductCover } from '@alfalab/core-components-product-cover';
 
-import { CARD_MASK, CVV_MASK, EXPIRY_MASK } from '../../constants';
+import { CARD_MASK, CVV_MASK, EXPIRY_MASK, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
 import { useAccountSelectContext } from '../../context';
 import { CardAddingProps, CardData } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
@@ -16,7 +16,7 @@ import styles from './index.module.css';
 type MultiStepCardInputProps = Pick<
     CardAddingProps,
     'onSubmit' | 'onInput' | 'cardImage' | 'needCvv' | 'needExpiryDate' | 'expiryAsDate'
->;
+> & { size: 40 | 48 | 56 | 64 | 72 };
 
 export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
     ({
@@ -26,6 +26,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         needCvv = true,
         needExpiryDate = true,
         expiryAsDate = true,
+        size,
     }) => {
         const [step, setStep] = useState<number>(1);
         const [cardNumber, setCardNumber] = useState<CardData['number']>('');
@@ -201,7 +202,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 <ProductCover.Single
                     cardNumber={cardNumber.length >= 16 ? Number(cardNumber) : undefined}
                     {...cardImage}
-                    size={cardImage?.size ?? 48}
+                    size={cardImage?.size ?? PRODUCT_COVER_SIZE_MAPPER[size]}
                 />
                 <div className={styles.inputs}>
                     <input
@@ -211,7 +212,9 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                         onInput={handleCardNumberChange}
                         onFocus={handleCardNumberFocus}
                         onBlur={handleCardNumberBlur}
-                        className={cn(styles.multistepInput, styles.cardNumberInput)}
+                        className={cn(styles.multistepInput, styles.cardNumberInput, {
+                            [styles.cardNumberInputValid]: validateCardNumber(cardNumber),
+                        })}
                         inputMode='numeric'
                         pattern='[0-9]*'
                     />

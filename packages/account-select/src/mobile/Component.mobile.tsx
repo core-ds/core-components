@@ -64,6 +64,7 @@ export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectPro
                     fieldProps={{
                         ...(restProps.fieldProps as object),
                         ...restCardAddingProps,
+                        size
                     }}
                 />
             </AccountSelectContext.Provider>
