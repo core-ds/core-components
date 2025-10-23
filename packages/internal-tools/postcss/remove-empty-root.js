@@ -1,7 +1,7 @@
 /**
- * @returns {import('postcss').Plugin}
+ * @type {import('postcss').PluginCreator<undefined>}
  */
-const postcssRemoveEmptyRoot = () => ({
+export const postcssRemoveEmptyRoot = () => ({
     postcssPlugin: 'postcss-remove-empty-root',
     OnceExit: (root) => {
         root.walkRules(':root', (rule) => {
@@ -12,4 +12,4 @@ const postcssRemoveEmptyRoot = () => ({
     },
 });
 
-module.exports = postcssRemoveEmptyRoot;
+postcssRemoveEmptyRoot.postcss = true;
