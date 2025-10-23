@@ -80,7 +80,9 @@
 .line {
     position: absolute;
     height: 3px;
-    bottom: var(--gap-0);
+
+    /* В макете полоска выбранного Таба находится над линией */
+    bottom: calc(var(--gap-2) / 2);
     left: var(--gap-0);
     background-color: var(--primary-tablist-line-color);
     transition:
