@@ -7,28 +7,29 @@ render(() => {
         { text: 'Экспресс-счёт ··0909', amount: 100000099, id: '2' },
         { text: 'Депозитный счёт ··4567', amount: 0, id: '3' },
     ];
-    const getOptions = DATA.map((el) => ({
-        key: el.id,
-        value: el,
-        content: (
-            <PureCell verticalPadding='default'>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <Typography.Text color='secondary' view='primary-small'>
-                            {el.text}
-                        </Typography.Text>
-                        <Amount
-                            value={el.amount}
-                            minority={100}
-                            currency='RUR'
-                            bold='major'
-                            transparentMinor={true}
-                        />
-                    </PureCell.Main>
-                </PureCell.Content>
-            </PureCell>
-        ),
-    }));
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: (
+                <PureCell verticalPadding='default'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <Typography.Text color='secondary' view='primary-small'>
+                                {el.text}
+                            </Typography.Text>
+                            <Amount
+                                value={el.amount}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        }));
 
     return (
         <AccountSelect
@@ -68,31 +69,32 @@ render(() => {
         { text: 'Карта с кредитным лимитом', amount: 999999, id: '2' },
         { text: 'Карта с вашим дизайном', amount: 0, id: '3' },
     ];
-    const getOptions = DATA.map((el) => ({
-        key: el.id,
-        value: el,
-        content: (
-            <PureCell verticalPadding='default'>
-                <PureCell.Graphics verticalAlign='center'>
-                    <ProductCover.Single size={isDesktop ? 48 : 40} />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <Typography.Text color='secondary' view='primary-small'>
-                            {el.text}
-                        </Typography.Text>
-                        <Amount
-                            value={el.amount}
-                            minority={100}
-                            currency='RUR'
-                            bold='major'
-                            transparentMinor={true}
-                        />
-                    </PureCell.Main>
-                </PureCell.Content>
-            </PureCell>
-        ),
-    }));
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: (
+                <PureCell verticalPadding='default'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single size={isDesktop ? 48 : 40} />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <Typography.Text color='secondary' view='primary-small'>
+                                {el.text}
+                            </Typography.Text>
+                            <Amount
+                                value={el.amount}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        }));
     return (
         <AccountSelect
             label='Карта получателя'
@@ -138,36 +140,37 @@ render(() => {
         { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
         { text: 'Карта с кредитным лимитом', amount: 2500000, id: '2' },
     ];
-    const getOptions = DATA.map((el) => ({
-        key: el.id,
-        value: el,
-        content: (
-            <PureCell verticalPadding='default'>
-                <PureCell.Graphics verticalAlign='center'>
-                    <ProductCover.Single
-                        size={isDesktop ? 48 : 40}
-                        baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                        layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
-                        cardId='RM'
-                    />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <Typography.Text color='secondary' view='primary-small'>
-                            {el.text}
-                        </Typography.Text>
-                        <Amount
-                            value={el.amount}
-                            minority={100}
-                            currency='RUR'
-                            bold='major'
-                            transparentMinor={true}
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: (
+                <PureCell verticalPadding='default'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single
+                            size={isDesktop ? 48 : 40}
+                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                            cardId='RM'
                         />
-                    </PureCell.Main>
-                </PureCell.Content>
-            </PureCell>
-        ),
-    }));
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <Typography.Text color='secondary' view='primary-small'>
+                                {el.text}
+                            </Typography.Text>
+                            <Amount
+                                value={el.amount}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        }));
 
     const [cvv, setCvv] = React.useState(true);
     const [expiry, setExpiry] = React.useState(true);
@@ -192,7 +195,12 @@ render(() => {
                     return (
                         <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single size={isDesktop ? 48 : 40} />
+                                <ProductCover.Single
+                                    size={isDesktop ? 48 : 40}
+                                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                                    cardId='RM'
+                                />
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
@@ -321,7 +329,12 @@ render(() => {
                     return (
                         <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single size={isDesktop ? 48 : 40} />
+                                <ProductCover.Single
+                                    size={isDesktop ? 48 : 40}
+                                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                                    cardId='RM'
+                                />
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
