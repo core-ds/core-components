@@ -1,0 +1,385 @@
+## Выбор счёта
+
+```jsx live
+render(() => {
+    const DATA = [
+        { text: 'Основной счёт ··1234', amount: 100000099, id: '1' },
+        { text: 'Экспресс-счёт ··0909', amount: 100000099, id: '2' },
+        { text: 'Депозитный счёт ··4567', amount: 0, id: '3' },
+    ];
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: (
+                <PureCell verticalPadding='default'>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <Typography.Text color='secondary' view='primary-small'>
+                                {el.text}
+                            </Typography.Text>
+                            <Amount
+                                value={el.amount}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        }));
+
+    return (
+        <AccountSelect
+            size={56}
+            valueRenderer={({ selected }) => {
+                return (
+                    <PureCell verticalPadding='none'>
+                        <PureCell.Main>
+                            <Typography.Text color='secondary' view='primary-small'>
+                                {selected.value.text}
+                            </Typography.Text>
+                            <Amount
+                                value={selected.value.amount}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell>
+                );
+            }}
+            label='Куда'
+            options={getOptions()}
+        />
+    );
+});
+```
+
+## Выбор карты
+
+```jsx live
+render(() => {
+    const isDesktop = useIsDesktop();
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 999999, id: '2' },
+        { text: 'Карта с вашим дизайном', amount: 0, id: '3' },
+    ];
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: (
+                <PureCell verticalPadding='default'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single size={isDesktop ? 48 : 40} />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <Typography.Text color='secondary' view='primary-small'>
+                                {el.text}
+                            </Typography.Text>
+                            <Amount
+                                value={el.amount}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        }));
+    return (
+        <AccountSelect
+            label='Карта получателя'
+            valueRenderer={({ selected }) => {
+                return (
+                    <PureCell verticalPadding='none'>
+                        <PureCell.Graphics verticalAlign='center'>
+                            <ProductCover.Single size={isDesktop ? 48 : 40} />
+                        </PureCell.Graphics>
+                        <PureCell.Content>
+                            <PureCell.Main>
+                                <Typography.Text color='secondary' view='primary-small'>
+                                    {selected.value.text}
+                                </Typography.Text>
+                                <Amount
+                                    value={selected.value.amount}
+                                    minority={100}
+                                    currency='RUR'
+                                    bold='major'
+                                    transparentMinor={true}
+                                />
+                            </PureCell.Main>
+                        </PureCell.Content>
+                    </PureCell>
+                );
+            }}
+            fieldProps={{ leftAddons: <ProductCover.Single size={isDesktop ? 48 : 40} /> }}
+            options={getOptions()}
+        />
+    );
+});
+```
+
+## Добавление новой карты отправителя
+
+Для карты отправителя можно использовать механику с запросом CVV или без него.
+После ввода 6-го символа определяется банк и платёжная система. При необходимости, можно настроить отображение различных рубашек карт для банков РФ. В примере для карты начинающейся с номера 1234 56 будет определён банк и изменится рубашка.
+
+```jsx live
+render(() => {
+    const isDesktop = useIsDesktop();
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 2500000, id: '2' },
+    ];
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: (
+                <PureCell verticalPadding='default'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single
+                            size={isDesktop ? 48 : 40}
+                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                            cardId='RM'
+                        />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <Typography.Text color='secondary' view='primary-small'>
+                                {el.text}
+                            </Typography.Text>
+                            <Amount
+                                value={el.amount}
+                                minority={100}
+                                currency='RUR'
+                                bold='major'
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        }));
+
+    const [cvv, setCvv] = React.useState(true);
+    const [expiry, setExpiry] = React.useState(true);
+    const [cardImage, setCardImage] = React.useState(undefined);
+    const handleInput = (data) => {
+        if (data.number.startsWith('123456')) {
+            setCardImage({
+                baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+                layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+                cardId: 'RM',
+            });
+        }
+    };
+
+    return (
+        <div>
+            <AccountSelect
+                label='Карта отправителя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={isDesktop ? 48 : 40} /> }}
+                options={getOptions()}
+                valueRenderer={({ selected }) => {
+                    return (
+                        <PureCell verticalPadding='none'>
+                            <PureCell.Graphics verticalAlign='center'>
+                                <ProductCover.Single
+                                    size={isDesktop ? 48 : 40}
+                                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                                    cardId='RM'
+                                />
+                            </PureCell.Graphics>
+                            <PureCell.Content>
+                                <PureCell.Main>
+                                    <Typography.Text color='secondary' view='primary-small'>
+                                        {selected.value.text}
+                                    </Typography.Text>
+                                    <Amount
+                                        value={selected.value.amount}
+                                        minority={100}
+                                        currency='RUR'
+                                        bold='major'
+                                        transparentMinor={true}
+                                    />
+                                </PureCell.Main>
+                            </PureCell.Content>
+                        </PureCell>
+                    );
+                }}
+                cardAddingProps={{
+                    content: (
+                        <PureCell verticalPadding='default'>
+                            <PureCell.Graphics verticalAlign='center'>
+                                <ProductCover.Single
+                                    size={isDesktop ? 48 : 40}
+                                    iconColor='var(--color-light-neutral-700)'
+                                    backgroundColor='var(--color-light-neutral-200)'
+                                    icon={PlusMIcon}
+                                />
+                            </PureCell.Graphics>
+                            <PureCell.Content>
+                                <PureCell.Main>
+                                    <PureCell.Text titleColor='primary' view='primary-medium'>
+                                        Новая карта
+                                    </PureCell.Text>
+                                </PureCell.Main>
+                            </PureCell.Content>
+                        </PureCell>
+                    ),
+                    needCvv: cvv,
+                    needExpiryDate: expiry,
+                    onInput: handleInput,
+                    cardImage,
+                }}
+            />
+            <Gap size='m' />
+            <Switch
+                checked={cvv}
+                label='Нужен CVV'
+                onChange={() => {
+                    setCvv((prevState) => !prevState);
+                }}
+            />
+            <Gap size='s' />
+            <Switch
+                checked={expiry}
+                label='Нужна дата окончания действия карты'
+                onChange={() => {
+                    setExpiry((prevState) => !prevState);
+                }}
+            />
+        </div>
+    );
+});
+```
+
+## Добавление новой карты получателя
+
+```jsx live
+render(() => {
+    const isDesktop = useIsDesktop();
+    const DATA = [
+        { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
+        { text: 'Карта с кредитным лимитом', amount: 100099, id: '2' },
+    ];
+    const getOptions = () =>
+        DATA.map((el) => ({
+            key: el.id,
+            value: el,
+            content: (
+                <PureCell verticalPadding='default'>
+                    <PureCell.Graphics verticalAlign='center'>
+                        <ProductCover.Single
+                            size={isDesktop ? 48 : 40}
+                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                            cardId='RM'
+                        />
+                    </PureCell.Graphics>
+                    <PureCell.Content>
+                        <PureCell.Main>
+                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                                {el.text}
+                            </PureCell.Text>
+                            <PureCell.Amount
+                                value={el.amount}
+                                minorUnits={100}
+                                currency='RUR'
+                                color='primary'
+                                view={'withZeroMinorPart'}
+                                transparentMinor={true}
+                            />
+                        </PureCell.Main>
+                    </PureCell.Content>
+                </PureCell>
+            ),
+        }));
+
+    const [cardImage, setCardImage] = React.useState(undefined);
+    const handleInput = (data) => {
+        if (data.number.startsWith('123456')) {
+            setCardImage({
+                baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
+                layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
+                cardId: 'RM',
+            });
+        }
+    };
+
+    return (
+        <div>
+            <AccountSelect
+                label='Карта получателя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={isDesktop ? 48 : 40} /> }}
+                options={getOptions()}
+                valueRenderer={({ selected }) => {
+                    return (
+                        <PureCell verticalPadding='none'>
+                            <PureCell.Graphics verticalAlign='center'>
+                                <ProductCover.Single
+                                    size={isDesktop ? 48 : 40}
+                                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                                    cardId='RM'
+                                />
+                            </PureCell.Graphics>
+                            <PureCell.Content>
+                                <PureCell.Main>
+                                    <Typography.Text color='secondary' view='primary-small'>
+                                        {selected.value.text}
+                                    </Typography.Text>
+                                    <Amount
+                                        value={selected.value.amount}
+                                        minority={100}
+                                        currency='RUR'
+                                        bold='major'
+                                        transparentMinor={true}
+                                    />
+                                </PureCell.Main>
+                            </PureCell.Content>
+                        </PureCell>
+                    );
+                }}
+                cardAddingProps={{
+                    content: (
+                        <PureCell verticalPadding='default'>
+                            <PureCell.Graphics verticalAlign='center'>
+                                <ProductCover.Single
+                                    size={isDesktop ? 48 : 40}
+                                    iconColor='var(--color-light-neutral-700)'
+                                    backgroundColor='var(--color-light-neutral-200)'
+                                    icon={PlusMIcon}
+                                />
+                            </PureCell.Graphics>
+                            <PureCell.Content>
+                                <PureCell.Main>
+                                    <PureCell.Text titleColor='primary' view='primary-medium'>
+                                        Новая карта
+                                    </PureCell.Text>
+                                </PureCell.Main>
+                            </PureCell.Content>
+                        </PureCell>
+                    ),
+                    needCvv: false,
+                    needExpiryDate: false,
+                    onInput: handleInput,
+                    cardImage,
+                }}
+            />
+        </div>
+    );
+});
+```
