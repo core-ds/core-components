@@ -82,9 +82,7 @@ export const account_select_desktop: Story = {
                     return (
                         <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single
-                                    size={PRODUCT_COVER_SIZE_MAPPER[size]}
-                                />
+                                <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
@@ -105,9 +103,7 @@ export const account_select_desktop: Story = {
                 }}
                 label={text('label', 'Элемент')}
                 fieldProps={{
-                    leftAddons: (
-                        <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />
-                    ),
+                    leftAddons: <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />,
                 }}
                 cardAddingProps={{
                     content: (
@@ -152,17 +148,13 @@ export const account_select_mobile: Story = {
                 label={text('label', 'Элемент')}
                 options={getOptions('mobile')}
                 fieldProps={{
-                    leftAddons: (
-                        <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />
-                    ),
+                    leftAddons: <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />,
                 }}
                 valueRenderer={({ selected }) => {
                     return (
                         <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single
-                                    size={PRODUCT_COVER_SIZE_MAPPER[size]}
-                                />
+                                <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>

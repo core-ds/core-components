@@ -52,12 +52,7 @@ export interface CardAddingProps {
 export interface AccountSelectProps
     extends Omit<
         BaseSelectProps,
-        | 'autocomplete'
-        | 'Field'
-        | 'nativeSelect'
-        | 'searchProps'
-        | 'showSearch'
-        | 'Search'
+        'autocomplete' | 'Field' | 'nativeSelect' | 'searchProps' | 'showSearch' | 'Search'
     > {
     /**
      * Пропсы для добавления новой карты
