@@ -20,6 +20,8 @@
     cursor: pointer;
     outline: none;
     white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 
     &:disabled {
         cursor: var(--disabled-cursor);
