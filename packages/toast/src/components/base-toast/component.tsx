@@ -112,6 +112,7 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
             useAnchorWidth,
             closeWithClickOutside = true,
             fallbackPlacements,
+            client = 'desktop',
             ...restProps
         },
         ref,
@@ -164,14 +165,22 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
 
         useClickOutside(plateRef, closeWithClickOutside ? handleClickOutside : noop);
 
+        const eventHandlers: Record<typeof client, object> = {
+            desktop: {
+                onMouseEnter: handleMouseEnter,
+                onMouseLeave: handleMouseLeave,
+            },
+            mobile: {
+                onTouchStart: handleTouchStart,
+            },
+        };
+
         const props = {
             block,
             titleClassName: cn(titleClassName, styles.title),
             onClose,
-            onMouseEnter: handleMouseEnter,
-            onMouseLeave: handleMouseLeave,
-            onTouchStart: handleTouchStart,
             ref: mergeRefs([ref, plateRef]),
+            ...eventHandlers[client],
         };
 
         if (anchorElement) {
