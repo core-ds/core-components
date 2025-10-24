@@ -12,6 +12,6 @@ const DefaultToastPlateMobile: BaseToastProps['ToastPlate'] = forwardRef((props,
 
 export const ToastMobile = forwardRef<HTMLDivElement, ToastMobileProps>(
     ({ ToastPlate = DefaultToastPlateMobile, ...restProps }, ref) => (
-        <BaseToast ToastPlate={ToastPlate} {...restProps} ref={ref} />
+        <BaseToast ToastPlate={ToastPlate} {...restProps} ref={ref} client='mobile' />
     ),
 );

@@ -24,7 +24,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         const Component = isDesktop ? ToastDesktop : ToastMobile;
 
         return (
-            <Component ref={ref} {...restProps}>
+            <Component ref={ref} {...restProps} client={isDesktop ? 'desktop' : 'mobile'}>
                 {children}
             </Component>
         );
