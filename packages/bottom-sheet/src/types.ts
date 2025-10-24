@@ -6,6 +6,8 @@ import { type BaseModalProps } from '@alfalab/core-components-base-modal';
 import { type NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
 import { type BackgroundColorType } from '@alfalab/core-components-types';
 
+export type ColorType = 'default' | 'inverted';
+
 export type BottomSheetTitleAlign = 'center' | 'left';
 
 export type BottomSheetProps = {
@@ -361,4 +363,10 @@ export type BottomSheetProps = {
      * Учитывать высоту виртуальной клавиатуры
      */
     virtualKeyboard?: boolean;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: ColorType;
 };

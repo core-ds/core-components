@@ -7,16 +7,23 @@ import {
     type NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 
+import { type ColorType } from '../../types';
+import { getColorStyles } from '../../utils';
+
+import defaultColors from './default.module.css';
 import styles from './index.module.css';
+import invertedColors from './inverted.module.css';
 
 export type HeaderProps = Omit<NavigationBarPrivateProps, 'view' | 'size'> & {
     headerRef: RefObject<HTMLDivElement>;
     headerOffset: number;
+    colors?: ColorType;
     showSwipeMarker?: boolean;
 };
 
 export const Header: FC<HeaderProps> = ({
     className,
+    colors = 'default',
     sticky,
     headerRef,
     headerOffset,
@@ -36,6 +43,7 @@ export const Header: FC<HeaderProps> = ({
         setHasHeader(true);
     }, [setHasHeader]);
 
+    const colorStyle = getColorStyles(colors, defaultColors, invertedColors);
     const hasContent = Boolean(title || children);
 
     return (
@@ -49,11 +57,14 @@ export const Header: FC<HeaderProps> = ({
             className={cn(className, {
                 [styles.headerWrapper]: showSwipeMarker,
                 [styles.headerWrapperWithoutSwipeMarker]: !showSwipeMarker,
-                [styles.highlighted]: hasContent && headerHighlighted && sticky,
+                [colorStyle.highlighted]: hasContent && headerHighlighted && sticky,
+                [colorStyle.hasContent]: hasContent,
                 [styles.sticky]: sticky,
-                [styles.hasContent]: hasContent,
             })}
             contentClassName={cn(styles.title)}
+            titleClassName={cn(colorStyle.title)}
+            subtitleClassName={cn(styles.subtitle, colorStyle.subtitle)}
+            colors={colors}
         >
             {children}
         </NavigationBarPrivate>
