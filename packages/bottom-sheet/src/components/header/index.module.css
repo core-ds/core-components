@@ -17,10 +17,6 @@
     padding: var(--gap-8) var(--gap-8) var(--gap-4);
 }
 
-.hasContent {
-    background-color: inherit;
-}
-
 .header {
     display: flex;
 }
@@ -28,10 +24,6 @@
 .sticky {
     position: sticky;
     top: var(--gap-0);
-}
-
-.highlighted {
-    border-bottom: var(--bottom-sheet-header-border-bottom);
 }
 
 .justifyEnd {
@@ -71,4 +63,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.subtitle {
+    width: 100%;
+    font-size: var(--bottom-sheet-subtitle-font-size);
+    font-weight: var(--bottom-sheet-subtitle-font-weight);
+    line-height: var(--bottom-sheet-subtitle-line-height);
+    font-family: var(--bottom-sheet-subtitle-font-family);
 }
