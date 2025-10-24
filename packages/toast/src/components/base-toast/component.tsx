@@ -3,7 +3,6 @@ import React, {
     type MouseEventHandler,
     type TouchEventHandler,
     useCallback,
-    useEffect,
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
@@ -19,7 +18,9 @@ import {
     type ToastPlate as ToastPlateComponent,
     type ToastPlateProps,
 } from '@alfalab/core-components-toast-plate';
-import { useClickOutside, usePrevious } from '@alfalab/hooks';
+import { useClickOutside } from '@alfalab/hooks';
+
+import { useTimer } from './use-timer';
 
 import styles from './index.module.css';
 
@@ -116,20 +117,12 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
         ref,
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
-        const timerId = useRef(0);
-        const prevOpen = usePrevious(open);
 
-        const startTimer = useCallback(() => {
-            clearTimeout(timerId.current);
-
-            timerId.current = window.setTimeout(() => {
-                onClose?.();
-            }, autoCloseDelay);
-        }, [autoCloseDelay, onClose]);
-
-        const stopTimer = useCallback(() => {
-            clearTimeout(timerId.current);
-        }, []);
+        const { start: startTimer, stop: stopTimer } = useTimer({
+            open,
+            delay: autoCloseDelay,
+            onTimeout: onClose,
+        });
 
         const handleMouseEnter = useCallback<MouseEventHandler<HTMLDivElement>>(
             (event) => {
@@ -170,14 +163,6 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
         }, [onClose, stopTimer]);
 
         useClickOutside(plateRef, closeWithClickOutside ? handleClickOutside : noop);
-
-        useEffect(() => () => clearTimeout(timerId.current), []);
-
-        useEffect(() => {
-            if (open !== prevOpen && open) {
-                startTimer();
-            }
-        }, [open, prevOpen, startTimer, stopTimer]);
 
         const props = {
             block,
