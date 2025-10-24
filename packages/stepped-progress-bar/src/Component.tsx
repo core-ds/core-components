@@ -22,7 +22,8 @@ export type SteppedProgressBarView =
     | 'tertiary'
     | 'secondary'
     | 'primary'
-    | 'accent';
+    | 'accent'
+    | `--color-${string}`;
 
 export type SteppedProgressBarProps = {
     /**
@@ -70,25 +71,26 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
     colors = 'default',
     className,
 }) => {
-    const validMaxSteps = maxStep <= 0 ? 1 : maxStep;
+    const validMaxSteps = Math.max(1, maxStep);
     const isViewString = typeof view === 'string';
+    const currentColors = colorStyles[colors];
 
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <div className={styles.stepsContainer}>
-                {Array.from(Array(validMaxSteps), (_, index) => (
+                {Array.from({ length: validMaxSteps }, (_, index) => (
                     <StepBar
                         key={index}
                         isDone={index < step}
-                        view={(isViewString ? view : view?.[index]) as SteppedProgressBarView}
-                        classNameStep={colorStyles[colors].bar}
+                        view={isViewString ? view : view?.[index]}
+                        classNameStep={currentColors.bar}
                     />
                 ))}
             </div>
             {description && (
                 <Text
                     tag='div'
-                    className={cn(styles.description, colorStyles[colors].description)}
+                    className={cn(styles.description, currentColors.description)}
                     view='primary-small'
                 >
                     Шаг {step} из {maxStep}: {description}

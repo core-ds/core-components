@@ -70,4 +70,39 @@ describe('SteppedProgressBar', () => {
             expect(doneBars.length).toBe(1);
         });
     });
+
+    describe('token color support', () => {
+        it('should apply custom color token when step is done', () => {
+            const { container } = render(
+                <SteppedProgressBar step={1} maxStep={2} view='--color-light-accent-primary' />,
+            );
+
+            const firstBar = container.querySelector('[data-test-id="on"]');
+            expect(firstBar).toHaveStyle('background: var(--color-light-accent-primary)');
+        });
+
+        it('should work with array of views including tokens', () => {
+            const { container } = render(
+                <SteppedProgressBar
+                    step={2}
+                    maxStep={3}
+                    view={['positive', '--color-light-accent-primary', 'negative']}
+                />,
+            );
+
+            const bars = container.querySelectorAll('[data-test-id="on"]');
+            expect(bars[0]).toHaveClass('positive');
+            expect(bars[1]).toHaveStyle('background: var(--color-light-accent-primary)');
+        });
+
+        it('should fallback to CSS class for non-token views', () => {
+            const { container } = render(
+                <SteppedProgressBar step={1} maxStep={2} view='positive' />,
+            );
+
+            const firstBar = container.querySelector('[data-test-id="on"]');
+            expect(firstBar).toHaveClass('positive');
+            expect(firstBar).not.toHaveStyle('background: var(--color-light-accent-primary)');
+        });
+    });
 });
