@@ -7,6 +7,7 @@ import { ToastDesktop as Toast, ToastDesktopProps as ToastProps } from './deskto
 
 import { asyncRender } from '@alfalab/core-components-test-utils';
 import { useTimer } from './components/base-toast/use-timer';
+import { ToastMobile } from './mobile';
 
 type PopoverComponent = {
     render?: ForwardRefRenderFunction<HTMLDivElement, PopoverProps>;
@@ -219,7 +220,7 @@ describe('Toast', () => {
         it('should not call onClose if touch ToastPlate', () => {
             const onClose = jest.fn();
             render(
-                <Toast
+                <ToastMobile
                     onClose={onClose}
                     open={true}
                     autoCloseDelay={3000}
