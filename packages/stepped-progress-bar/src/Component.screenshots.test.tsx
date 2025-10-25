@@ -75,6 +75,24 @@ describe(
                     size: { width: 500, height: 100 },
                 }),
             ],
+            [
+                'custom color tokens',
+                createSpriteStorybookUrl({
+                    componentName: 'SteppedProgressBar',
+                    knobs: {
+                        step: 2,
+                        maxStep: 4,
+                        view: [
+                            '--color-light-accent-primary',
+                            'positive',
+                            '--color-light-accent-secondary',
+                            'negative',
+                        ],
+                        description: 'Выбор карты',
+                    },
+                    size: { width: 500, height: 100 },
+                }),
+            ],
         ],
     }),
 );
