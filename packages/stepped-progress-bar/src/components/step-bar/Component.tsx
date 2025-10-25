@@ -11,9 +11,15 @@ type StepBarProps = {
     classNameStep?: string;
 };
 
-export const StepBar: FC<StepBarProps> = memo(({ isDone, view = 'positive', classNameStep }) => (
-    <span
-        data-test-id={isDone ? 'on' : 'off'}
-        className={cn(styles.bar, isDone && styles[view], classNameStep)}
-    />
-));
+export const StepBar: FC<StepBarProps> = memo(({ isDone, view = 'positive', classNameStep }) => {
+    const isToken = String(view).startsWith('--color-');
+    const isCssMode = isDone && !isToken;
+
+    return (
+        <span
+            data-test-id={isDone ? 'on' : 'off'}
+            className={cn(styles.bar, isCssMode && styles[view], classNameStep)}
+            style={isCssMode ? undefined : { background: `var(${view})` }}
+        />
+    );
+});
