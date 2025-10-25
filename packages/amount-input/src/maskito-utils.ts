@@ -39,31 +39,47 @@ function appendZeroToDataPreprocessorGenerator(
     };
 }
 
-const forbidLeadingZeroPreprocessor: MaskitoPreprocessor = ({ elementState, data }, actionType) => {
-    const {
-        selection: [from, to],
-        value,
-    } = elementState;
+const forbidLeadingZeroPreprocessor =
+    (numberParams: Pick<NumberParams, 'decimalSeparator'>): MaskitoPreprocessor =>
+    ({ elementState, data }, actionType) => {
+        const {
+            selection: [from, to],
+            value,
+        } = elementState;
 
-    if (
-        actionType === 'insert' &&
-        data === '0' &&
-        value.length > 0 &&
-        from === 0 &&
-        !(to === value.length)
-    ) {
-        return { elementState, data: '' };
-    }
+        const idx = value.indexOf(numberParams.decimalSeparator);
 
-    return { elementState, data };
-};
+        if (
+            actionType === 'insert' &&
+            data === '0' &&
+            value.length > 0 &&
+            //
+            /**
+             * Не даем напечатать первый ноль, а так же если пытаются вставить после ноля
+             * Например 0,00, не должны дать вставить ноль перед запятой
+             */
+            (from === 0 || (from === 1 && idx === 1 && value[0] === '0')) &&
+            !(to === value.length)
+        ) {
+            return { elementState, data: '' };
+        }
+
+        return { elementState, data };
+    };
 
 function replaceLeadingZeroWithDataPreprocessorGenerator(
-    numberParams: Pick<NumberParams, 'minusSign'>,
+    numberParams: Pick<NumberParams, 'minusSign' | 'maximumFractionDigits' | 'decimalSeparator'>,
 ): MaskitoPreprocessor {
     return ({ elementState, data }, actionType) => {
         const { selection, value } = elementState;
         const REPLACED_VALUES = ['0', `${numberParams.minusSign}0`];
+
+        if (numberParams.maximumFractionDigits) {
+            REPLACED_VALUES.push(
+                `0${numberParams.decimalSeparator}${'0'.repeat(numberParams.maximumFractionDigits)}`,
+            );
+        }
+
         const idx = REPLACED_VALUES.indexOf(value);
 
         if (
@@ -132,7 +148,7 @@ export function maskitoOptionsGenerator(
         ],
         preprocessors: [
             appendZeroToDataPreprocessorGenerator(numberParams),
-            forbidLeadingZeroPreprocessor,
+            forbidLeadingZeroPreprocessor(numberParams),
             replaceLeadingZeroWithDataPreprocessorGenerator(numberParams),
             ...(numberOptions.preprocessors ?? []),
         ],
