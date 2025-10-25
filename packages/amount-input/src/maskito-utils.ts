@@ -13,47 +13,12 @@ export type NumberParams = Required<
         | 'decimalSeparator'
         | 'thousandSeparator'
         | 'maximumFractionDigits'
+        | 'minimumFractionDigits'
         | 'minusSign'
         | 'min'
         | 'max'
     >
 >;
-
-function deleteThousandSeparatorPreprocessorGenerator({
-    thousandSeparator,
-}: Pick<NumberParams, 'thousandSeparator'>): MaskitoPreprocessor {
-    return ({ elementState, data }, actionType) => {
-        const { value } = elementState;
-        const [from, to] = elementState.selection;
-
-        if (to - from === 1 && value[from] === thousandSeparator) {
-            if (actionType === 'deleteBackward') {
-                const nextValue = `${value.slice(0, from - 1)}${value.slice(to)}`;
-
-                return {
-                    elementState: {
-                        value: nextValue,
-                        selection: [from - 1, from - 1],
-                    },
-                    data,
-                };
-            }
-            if (actionType === 'deleteForward') {
-                const nextValue = `${value.slice(0, from)}${value.slice(to + 1)}`;
-
-                return {
-                    elementState: {
-                        value: nextValue,
-                        selection: [from, from],
-                    },
-                    data,
-                };
-            }
-        }
-
-        return { elementState, data };
-    };
-}
 
 function appendZeroToDataPreprocessorGenerator(
     numberParams: Pick<NumberParams, 'decimalSeparator' | 'maximumFractionDigits'>,
@@ -117,25 +82,6 @@ function replaceLeadingZeroWithDataPreprocessorGenerator(
     };
 }
 
-const deletePreprocessor: MaskitoPreprocessor = ({ elementState, data }, actionType) => {
-    const {
-        selection: [from, to],
-        value,
-    } = elementState;
-
-    if (actionType === 'deleteBackward' || actionType === 'deleteForward') {
-        return {
-            elementState: {
-                selection: [from, from],
-                value: `${value.slice(0, from)}${value.slice(to, value.length)}`,
-            },
-            data,
-        };
-    }
-
-    return { elementState, data };
-};
-
 export function stringifyNumber(
     val: number | string | null,
     numberParams: NumberParams,
@@ -145,11 +91,7 @@ export function stringifyNumber(
 
     const value = maskitoStringifyNumber(
         Number(`${val}`) / 10 ** numberParams.maximumFractionDigits,
-        {
-            ...numberParams,
-            minimumFractionDigits:
-                view === 'withZeroMinorPart' ? numberParams.maximumFractionDigits : 0,
-        },
+        numberParams,
     );
 
     const idx = value.indexOf(numberParams.decimalSeparator);
@@ -189,8 +131,6 @@ export function maskitoOptionsGenerator(
             }),
         ],
         preprocessors: [
-            deletePreprocessor,
-            deleteThousandSeparatorPreprocessorGenerator(numberParams),
             appendZeroToDataPreprocessorGenerator(numberParams),
             forbidLeadingZeroPreprocessor,
             replaceLeadingZeroWithDataPreprocessorGenerator(numberParams),
