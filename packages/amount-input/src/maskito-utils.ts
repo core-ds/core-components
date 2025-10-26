@@ -98,6 +98,30 @@ function replaceLeadingZeroWithDataPreprocessorGenerator(
     };
 }
 
+const deletePreprocessor =
+    (numberParams: Pick<NumberParams, 'decimalSeparator'>): MaskitoPreprocessor =>
+    ({ elementState, data }, actionType) => {
+        const {
+            selection: [from, to],
+            value,
+        } = elementState;
+
+        const idx = value.indexOf(numberParams.decimalSeparator);
+
+        // Нужно игнорировать удаление разделителя дробной части, чтобы maskito это сделал самостоятельно по mask
+        if ((actionType === 'deleteBackward' || actionType === 'deleteForward') && idx !== from) {
+            return {
+                elementState: {
+                    selection: [from, from],
+                    value: `${value.slice(0, from)}${value.slice(to, value.length)}`,
+                },
+                data,
+            };
+        }
+
+        return { elementState, data };
+    };
+
 export function stringifyNumber(
     val: number | string | null,
     numberParams: NumberParams,
@@ -147,6 +171,7 @@ export function maskitoOptionsGenerator(
             }),
         ],
         preprocessors: [
+            deletePreprocessor(numberParams),
             appendZeroToDataPreprocessorGenerator(numberParams),
             forbidLeadingZeroPreprocessor(numberParams),
             replaceLeadingZeroWithDataPreprocessorGenerator(numberParams),
