@@ -1,4 +1,5 @@
 import React, {
+    type CSSProperties,
     forwardRef,
     type KeyboardEvent,
     type MouseEvent,
@@ -166,6 +167,11 @@ export type BasePlateProps = {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
+
+    /**
+     * Кастомный радиус скругления (px, rem, em и т.д.)
+     */
+    borderRadius?: string;
 };
 
 /* eslint-disable complexity */
@@ -200,6 +206,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             styles = {},
             background,
             borderColor,
+            borderRadius,
         },
         ref,
     ) => {
@@ -320,6 +327,11 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                 style={{
                     ...setCustomViewColors(),
                     ...setCustomViewRectangleBorderColor(),
+                    ...(borderRadius
+                        ? ({
+                              '--plate-border-radius': borderRadius,
+                          } as CSSProperties)
+                        : {}),
                 }}
                 onClick={handleClick}
                 onKeyDown={handleClick}

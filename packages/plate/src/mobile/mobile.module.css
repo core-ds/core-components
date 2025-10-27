@@ -15,9 +15,9 @@
 }
 
 .rounded {
-    border-radius: var(--plate-rounded-border-radius-mobile);
+    border-radius: var(--plate-border-radius, var(--plate-rounded-border-radius-mobile));
 
     &.shadow:after {
-        border-radius: var(--plate-rounded-shadow-border-radius-mobile);
+        border-radius: var(--plate-border-radius, var(--plate-rounded-shadow-border-radius-mobile));
     }
 }
