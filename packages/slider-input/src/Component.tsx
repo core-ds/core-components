@@ -140,6 +140,7 @@ export type SliderInputProps = Omit<
 
     /**
      * Жирность текста
+     * @default true
      */
     bold?: boolean;
 };
