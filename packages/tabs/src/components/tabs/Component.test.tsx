@@ -1,6 +1,6 @@
 /* eslint-disable multiline-comment-style */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import { TabsDesktop } from './Component.desktop';
 import { TabsMobile } from './Component.mobile';
@@ -247,6 +247,46 @@ describe('Tabs', () => {
                 (button) => button.getAttribute('data-test-id') === 'prop-test-id-toggle',
             );
             expect(tabButton).toBeInTheDocument();
+        });
+
+        it('<Tab> should render aria attributes', () => {
+            render(
+                <Tab
+                    dataTestId='tab'
+                    title='Таб 1'
+                    id='tab-1'
+                    rightAddons='addon'
+                    aria-label='test-aria-label'
+                    aria-selected={true}
+                >
+                    Таб 1
+                </Tab>,
+            );
+
+            const tabElement = screen.getByTestId('tab');
+
+            expect(tabElement).toHaveAttribute('aria-label', 'test-aria-label');
+            expect(tabElement).toHaveAttribute('aria-selected', 'true');
+        });
+
+        it('<Tab> should not render <Title> attributes', () => {
+            render(
+                <Tab
+                    dataTestId='tab'
+                    title='Таб 1'
+                    id='tab-1'
+                    rightAddons='addon'
+                    aria-label='test-aria-label'
+                    aria-selected={true}
+                >
+                    Таб 1
+                </Tab>,
+            );
+
+            const tabElement = screen.getByTestId('tab');
+
+            expect(tabElement.hasAttribute('title')).toBe(false);
+            expect(tabElement.hasAttribute('rightAddons')).toBe(false);
         });
     });
 });
