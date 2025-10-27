@@ -1,5 +1,4 @@
 import React, {
-    type CSSProperties,
     forwardRef,
     type KeyboardEvent,
     type MouseEvent,
@@ -327,11 +326,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                 style={{
                     ...setCustomViewColors(),
                     ...setCustomViewRectangleBorderColor(),
-                    ...(borderRadius
-                        ? ({
-                              '--plate-border-radius': borderRadius,
-                          } as CSSProperties)
-                        : {}),
+                    ...(borderRadius && { borderRadius }),
                 }}
                 onClick={handleClick}
                 onKeyDown={handleClick}
