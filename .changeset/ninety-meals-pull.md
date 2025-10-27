@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-tag':
+'@alfalab/core-components-tag': patch
 '@alfalab/core-components': patch
 ---
 
