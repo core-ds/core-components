@@ -51,7 +51,7 @@
 }
 
 .title {
-    padding: 10px var(--gap-8);
+    padding: 10px var(--gap-12);
     width: 100%;
     font-size: var(--bottom-sheet-title-font-size);
     font-weight: var(--bottom-sheet-title-font-weight);
