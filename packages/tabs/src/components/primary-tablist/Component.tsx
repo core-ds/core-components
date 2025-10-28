@@ -7,7 +7,6 @@ import { fnUtils } from '@alfalab/core-components-shared';
 
 import { useTabs } from '../../hooks/use-tabs';
 import { type PlatformProps, type Styles, type TabListProps } from '../../typings';
-import { ScrollableContainer } from '../scrollable-container';
 import { Title } from '../title';
 
 export const PrimaryTabList = ({
@@ -26,6 +25,7 @@ export const PrimaryTabList = ({
     inlineStyle,
     showSkeleton,
     skeletonProps,
+    ScrollableContainer,
 }: TabListProps & Styles & PlatformProps) => {
     const lineRef = useRef<HTMLDivElement>(null);
 
@@ -33,6 +33,7 @@ export const PrimaryTabList = ({
         titles,
         selectedId,
         onChange,
+        ScrollableContainer,
     });
 
     // расчет размера и положения нижней полосы
@@ -102,7 +103,6 @@ export const PrimaryTabList = ({
             fullWidthScroll={fullWidthScroll}
             view='primary'
             size={textStyle ? undefined : size}
-            platform={platform}
             inlineStyle={inlineStyle}
             showSkeleton={showSkeleton}
         >
