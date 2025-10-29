@@ -1,5 +1,6 @@
 ---
 '@alfalab/core-components-bottom-sheet': minor
+'@alfalab/core-components': minor
 ---
 
-classname prop for headerContent added
+Добавлен опциональный проп headerContentClassName в BottomSheet для кастомизации хэдера
