@@ -9,10 +9,10 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
         class="container bold"
       >
         <div
-          class="component component component hasSuffix size-48 size-48"
+          class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner"
+            class="field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -64,10 +64,10 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
       class="container bold"
     >
       <div
-        class="component component component hasSuffix size-48 size-48"
+        class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
       >
         <div
-          class="inner inner inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -176,10 +176,10 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
         class="container bold"
       >
         <div
-          class="component component component hasSuffix size-48 size-48"
+          class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner"
+            class="field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -230,10 +230,10 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
         class="container bold filled"
       >
         <div
-          class="component component component suffixVisible hasSuffix size-48 size-48"
+          class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner filled"
+            class="field inner inner inner inner filled"
           >
             <div
               class="inputWrapper"
@@ -294,10 +294,10 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
       class="container bold filled"
     >
       <div
-        class="component component component suffixVisible hasSuffix size-48 size-48"
+        class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
       >
         <div
-          class="inner inner inner inner filled"
+          class="field inner inner inner inner filled"
         >
           <div
             class="inputWrapper"
