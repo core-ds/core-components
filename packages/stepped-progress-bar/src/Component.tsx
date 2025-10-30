@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { Text } from '@alfalab/core-components-typography';
 
 import { StepBar } from './components/step-bar';
+import { type SteppedProgressBarView } from './types';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -14,18 +15,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SteppedProgressBarView =
-    | 'positive'
-    | 'negative'
-    | 'attention'
-    | 'link'
-    | 'tertiary'
-    | 'secondary'
-    | 'primary'
-    | 'accent'
-    | `--color-${string}`;
-
-export type SteppedProgressBarProps = {
+export interface SteppedProgressBarProps {
     /**
      * Общее количество шагов
      */
@@ -44,7 +34,7 @@ export type SteppedProgressBarProps = {
     /**
      * Цвет заполнения
      */
-    view?: SteppedProgressBarView | SteppedProgressBarView[];
+    view?: SteppedProgressBarView | SteppedProgressBarView[] | string | string[];
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -60,7 +50,7 @@ export type SteppedProgressBarProps = {
      * Дополнительный класс
      */
     className?: string;
-};
+}
 
 export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
     maxStep,

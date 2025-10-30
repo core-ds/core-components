@@ -1,25 +1,27 @@
 import React, { type FC, memo } from 'react';
 import cn from 'classnames';
 
-import { type SteppedProgressBarView } from '../../Component';
+import { resolveBackground } from '../../shared/resolveBackground';
+import { type SteppedProgressBarView } from '../../types';
 
 import styles from './index.module.css';
 
-type StepBarProps = {
+interface StepBarProps {
     isDone: boolean;
-    view?: SteppedProgressBarView;
+    view?: SteppedProgressBarView | string;
     classNameStep?: string;
-};
+}
 
 export const StepBar: FC<StepBarProps> = memo(({ isDone, view = 'positive', classNameStep }) => {
-    const isToken = String(view).startsWith('--color-');
-    const isCssMode = isDone && !isToken;
+    const preset = resolveBackground(view);
+    const isPreset = isDone && preset;
+    const customBackground = isDone && !isPreset && typeof view === 'string' ? view : undefined;
 
     return (
         <span
             data-test-id={isDone ? 'on' : 'off'}
-            className={cn(styles.bar, isCssMode && styles[view], classNameStep)}
-            style={isCssMode ? undefined : { background: `var(${view})` }}
+            className={cn(styles.bar, isPreset && styles[preset], classNameStep)}
+            style={customBackground ? { background: customBackground } : undefined}
         />
     );
 });
