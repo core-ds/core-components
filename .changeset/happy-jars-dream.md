@@ -1,5 +1,5 @@
 ---
-'@alfalab/core-components-navigation-bar-private':
+'@alfalab/core-components-navigation-bar-private': minor
 '@alfalab/core-components-navigation': minor
 ---
 

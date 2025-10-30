@@ -42,8 +42,8 @@ export const bottom_sheet: Story = {
 
         const bgColor =
             colors === 'inverted'
-                ? 'var(--color-light-base-bg-secondary-inverted)'
-                : 'var(--color-light-base-bg-secondary)';
+                ? 'var(--color-light-base-bg-primary-inverted)'
+                : 'var(--color-light-base-bg-primary)';
 
         return (
             <div
