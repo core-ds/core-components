@@ -6,6 +6,8 @@ import {
     openBrowserPage,
     createSpriteStorybookUrl,
     createPreview,
+    generateTestCases,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -468,4 +470,54 @@ describe('SelectMobile | screenshots addons', () => {
         })();
 
     ['default', 'site'].forEach((theme) => testCase(theme));
+});
+
+describe('SelectDesktopOptionList', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'SelectDesktopOptionList',
+                    testStory: false,
+                    knobs: {},
+                }),
+            ],
+            viewport: {
+                width: 180,
+                height: 320,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+
+    ['default', 'site', 'corp'].forEach((theme) => testCase(theme));
+});
+
+describe('SelectMobileOptionList', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'SelectMobileOptionList',
+                    testStory: false,
+                    knobs: {},
+                }),
+            ],
+            viewport: {
+                width: 500,
+                height: 500,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+
+    ['default', 'site', 'corp'].forEach((theme) => testCase(theme));
 });
