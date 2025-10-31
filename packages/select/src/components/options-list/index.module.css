@@ -6,6 +6,31 @@
     outline: none;
     box-sizing: border-box;
     position: relative;
+
+    & .scrollable {
+        overflow: auto;
+        width: 100%;
+
+        & .verticalBar.verticalBar {
+            top: var(--select-options-list-scrollbar-gap);
+            height: calc(100% - 2 * var(--select-options-list-scrollbar-gap));
+
+            &.verticalBarWithHeader {
+                top: 0;
+                height: calc(100% - var(--select-options-list-scrollbar-gap));
+            }
+
+            &.verticalBarWithFooter {
+                top: var(--select-options-list-scrollbar-gap);
+                height: calc(100% - var(--select-options-list-scrollbar-gap));
+            }
+
+            &.verticalBarWithHeader.verticalBarWithFooter {
+                top: 0;
+                height: 100%;
+            }
+        }
+    }
 }
 
 .optionsListHeader {
@@ -28,11 +53,6 @@
     &.withBorder {
         border-top-color: var(--color-light-neutral-300);
     }
-}
-
-.scrollable {
-    overflow: auto;
-    width: 100%;
 }
 
 .mask {
