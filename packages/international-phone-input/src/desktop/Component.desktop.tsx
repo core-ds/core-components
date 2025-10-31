@@ -5,9 +5,9 @@ import { InputAutocompleteDesktop } from '@alfalab/core-components-input-autocom
 import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 
 import { BaseInternationalPhoneInput } from '../components/base-international-phone-input';
-import type {
-    BaseInternationalPhoneInputProps,
-    InternationalPhoneInputDesktopProps,
+import {
+    type BaseInternationalPhoneInputProps,
+    type InternationalPhoneInputDesktopProps,
 } from '../types';
 
 export const InternationalPhoneInputDesktop = forwardRef<

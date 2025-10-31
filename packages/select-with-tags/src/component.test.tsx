@@ -35,7 +35,7 @@ describe('SelectWithTags', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Display tests', () => {
         it('should match snapshot', () => {
             const { container } = render(
@@ -65,7 +65,7 @@ describe('SelectWithTags', () => {
 
             render(<SelectWithTags options={options} value='' onInput={jest.fn()} ref={ref} />);
 
-            expect(ref).toBeCalled();
+            expect(ref).toHaveBeenCalled();
         });
 
         it('should pass value', () => {
@@ -105,6 +105,26 @@ describe('SelectWithTags', () => {
             expect(input).toBeInTheDocument();
         });
 
+        it('should pass fieldProps correctly', () => {
+            const customFieldProps = {
+                'data-testid': 'custom-field',
+                'aria-label': 'custom-label',
+            };
+
+            const { container } = render(
+                <SelectWithTags
+                    options={options}
+                    value=''
+                    onInput={jest.fn()}
+                    fieldProps={customFieldProps}
+                />,
+            );
+
+            const field = container.querySelector('[data-testid="custom-field"]');
+
+            expect(field).toBeInTheDocument();
+        });
+
         it('should not render input if autocomplete=`false`', () => {
             const { container } = render(
                 <SelectWithTags
@@ -134,7 +154,7 @@ describe('SelectWithTags', () => {
 
             fireEvent.change(input, event);
 
-            expect(cb).toBeCalled();
+            expect(cb).toHaveBeenCalled();
         });
 
         it('should call `match` fn', () => {
@@ -149,7 +169,7 @@ describe('SelectWithTags', () => {
 
             fireEvent.change(input, event);
 
-            expect(match).toBeCalled();
+            expect(match).toHaveBeenCalled();
         });
     });
 
@@ -263,7 +283,7 @@ describe('SelectWithTags', () => {
                 <SelectWithTags options={options} value='' onInput={jest.fn()} />,
             );
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

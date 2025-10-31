@@ -10,7 +10,7 @@ import { SuperEllipse, Circle, Rectangle, NoShape } from '../components';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof SuperEllipse | typeof Circle | typeof Rectangle | typeof NoShape> = {
     title: 'Components/IconView',
@@ -65,6 +65,7 @@ export const super_ellipse: Story = {
 
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
+        const scale = select('scale', ['fill', 'fit'], 'fill');
 
         const addonsIcon = (
             <Circle size={getAddonSize(size)}>
@@ -91,6 +92,7 @@ export const super_ellipse: Story = {
                 backgroundColor={backgroundColor}
                 border={border}
                 imageUrl={text('imageUrl', '')}
+                scale={scale}
                 topAddons={topAddons && addonsIcon}
                 bottomAddons={bottomAddons && addonsIcon}
                 indicator={indicator && <Indicator view='red' />}
@@ -113,6 +115,7 @@ export const circle: Story = {
         const size = select('size', sizes, 64);
 
         const mainSize = select('mainSize', sizes, undefined);
+        const scale = select('scale', ['fill', 'fit'], 'fill');
 
         const addonsIcon = (
             <Circle size={getAddonSize(size)}>
@@ -126,6 +129,7 @@ export const circle: Story = {
                 backgroundColor={text('backgroundColor', '#f3f4f5')}
                 border={boolean('border', false)}
                 imageUrl={text('imageUrl', '')}
+                scale={scale}
                 topAddons={topAddons && addonsIcon}
                 bottomAddons={bottomAddons && addonsIcon}
                 indicator={indicator && <Indicator view='red' />}
@@ -147,6 +151,7 @@ export const rectangle: Story = {
 
         const backgroundColor = text('backgroundColor', '#f3f4f5');
         const border = boolean('border', false);
+        const scale = select('scale', ['fill', 'fit'], 'fill');
 
         return (
             <Rectangle
@@ -154,6 +159,7 @@ export const rectangle: Story = {
                 backgroundColor={backgroundColor}
                 border={border}
                 imageUrl={text('imageUrl', '')}
+                scale={scale}
                 text={text('text', '')}
                 mainSize={mainSize}
             >
@@ -171,12 +177,14 @@ export const no_shape: Story = {
         const mainSize = select('mainSize', sizes, undefined);
 
         const backgroundColor = text('backgroundColor', '#f3f4f5');
+        const scale = select('scale', ['fill', 'fit'], 'fill');
 
         return (
             <NoShape
                 size={size}
                 backgroundColor={backgroundColor}
                 imageUrl={text('imageUrl', '')}
+                scale={scale}
                 text={text('text', '')}
                 mainSize={mainSize}
             >

@@ -3,9 +3,9 @@ import cn from 'classnames';
 
 import { Text } from '@alfalab/core-components-typography';
 
-import { PayloadProps } from '../../types/payload.types';
-import { SeriaProps } from '../../types/seria.types';
-import { TooltipProps } from '../../types/tooltip.types';
+import { type PayloadProps } from '../../types/payload.types';
+import { type SeriaProps } from '../../types/seria.types';
+import { type TooltipProps } from '../../types/tooltip.types';
 
 import styles from './index.module.css';
 

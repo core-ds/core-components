@@ -91,7 +91,7 @@ describe('IconButton', () => {
 
             fireEvent.click(getByTestId(dataTestId));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should not call `onClick` prop if disabled', () => {
@@ -108,7 +108,7 @@ describe('IconButton', () => {
 
             fireEvent.click(getByTestId(dataTestId));
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         /**
@@ -134,6 +134,6 @@ describe('IconButton', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<IconButton icon={StarMIcon}>Text</IconButton>);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

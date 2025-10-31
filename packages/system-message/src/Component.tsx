@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { createPaddingStyle } from '@alfalab/core-components-shared';
 
 import { SystemMessageContext } from './Context';
-import type { SystemMessageBaseProps } from './types';
+import { type SystemMessageBaseProps } from './types';
 
 import styles from './index.module.css';
 

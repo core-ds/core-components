@@ -12,7 +12,7 @@
     --form-control-mobile-xl-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
     --form-control-mobile-sub-paddings: 0;
     --form-control-bg-backdrop-filter: blur(20px);
-    --form-control-border-bottom: 1px solid var(--color-light-neutral-500);
+    --form-control-border-bottom: 2px solid var(--color-light-neutral-500);
     --form-control-inverted-border-bottom: 1px solid var(--color-light-neutral-500-inverted);
     --form-control-bg-color: var(--color-light-neutral-translucent-100);
     --form-control-inverted-bg-color: var(--color-light-neutral-translucent-100-inverted);

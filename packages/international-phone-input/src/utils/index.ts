@@ -1,13 +1,13 @@
-import { RefObject } from 'react';
-import type { MaskitoOptions } from '@maskito/core';
+import { type RefObject } from 'react';
+import { type MaskitoOptions } from '@maskito/core';
 
-import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
-import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-select/shared';
+import { type InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
+import { type GroupShape, isGroup, type OptionShape } from '@alfalab/core-components-select/shared';
 import { getDataTestId, maskUtils } from '@alfalab/core-components-shared';
 
 import { DEFAULT_PHONE_FORMAT } from '../consts';
-import { CountriesData, countriesData } from '../data/country-data';
-import type { AreaItem, Country } from '../types';
+import { type CountriesData, countriesData } from '../data/country-data';
+import { type AreaItem, type Country } from '../types';
 
 export function initCountries(iso2s?: string[], customCountriesList?: CountriesData[]) {
     const data = customCountriesList ?? countriesData;
@@ -30,13 +30,14 @@ export function initCountries(iso2s?: string[], customCountriesList?: CountriesD
 
         if (country[6]) {
             country[6]?.forEach((areaCode) => {
-                const areaItem: Partial<AreaItem> = { ...countryItem };
+                const areaItem: AreaItem = {
+                    ...countryItem,
+                    dialCode: country[3] + areaCode,
+                    isAreaCode: true,
+                    areaCodeLength: areaCode.length,
+                };
 
-                areaItem.dialCode = country[3] + areaCode;
-                areaItem.isAreaCode = true;
-                areaItem.areaCodeLength = areaCode.length;
-
-                areaItems.push(areaItem as AreaItem);
+                areaItems.push(areaItem);
             });
         }
 
@@ -72,29 +73,32 @@ export function findCountry(
 
 export function guessCountry(inputNumber: string, data: Country[][]) {
     const inputNumberDialCode = inputNumber.slice(0, 6);
-    const result = data.reduce((selectedCountry, countryData) => {
-        let guess;
+    const result = data.reduce(
+        (selectedCountry, countryData) => {
+            let guess;
 
-        countryData.forEach((country) => {
-            if (inputNumberDialCode.startsWith(country.dialCode)) {
-                const selectedCountryDialCode = selectedCountry?.dialCode || '';
-                const selectedCountryPriority = selectedCountry?.priority || 100;
+            countryData.forEach((country) => {
+                if (inputNumberDialCode.startsWith(country.dialCode)) {
+                    const selectedCountryDialCode = selectedCountry?.dialCode || '';
+                    const selectedCountryPriority = selectedCountry?.priority || 100;
 
-                if (country.dialCode.length > selectedCountryDialCode.length) {
-                    guess = country;
+                    if (country.dialCode.length > selectedCountryDialCode.length) {
+                        guess = country;
+                    }
+
+                    if (
+                        country.dialCode.length === selectedCountryDialCode.length &&
+                        country.priority < selectedCountryPriority
+                    ) {
+                        guess = country;
+                    }
                 }
+            });
 
-                if (
-                    country.dialCode.length === selectedCountryDialCode.length &&
-                    country.priority < selectedCountryPriority
-                ) {
-                    guess = country;
-                }
-            }
-        });
-
-        return guess || selectedCountry;
-    }, undefined as Country | undefined);
+            return guess || selectedCountry;
+        },
+        undefined as Country | undefined,
+    );
 
     if (!result && inputNumber.startsWith('8')) {
         const matchContry = data.some(([{ dialCode }]) => dialCode.startsWith(inputNumberDialCode));

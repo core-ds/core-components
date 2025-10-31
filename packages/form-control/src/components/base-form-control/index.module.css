@@ -11,7 +11,9 @@
     position: relative;
     min-height: 100%;
     backdrop-filter: var(--form-control-bg-backdrop-filter);
-    transition: background 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
     box-sizing: border-box;
     outline: none;
     transform: translateZ(0);
@@ -25,7 +27,9 @@
     width: 100%;
     bottom: var(--gap-0);
     height: 0;
-    transition: transform 0.2s ease, border 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        border 0.2s ease;
     transform-origin: bottom;
 }
 
@@ -187,6 +191,7 @@
 
 .size-72 .label {
     left: var(--gap-16);
+    top: calc(var(--form-control-xl-min-height) / 2);
 }
 
 .size-72 .input > * {
@@ -215,10 +220,6 @@
 
 .size-72.hasRightAddons .input > * {
     padding-right: var(--gap-12);
-}
-
-.size-72 .label {
-    top: calc(var(--form-control-xl-min-height) / 2);
 }
 
 /* DISABLED STATE */

@@ -1,8 +1,8 @@
-import React, { FC, isValidElement } from 'react';
+import React, { type FC, isValidElement } from 'react';
 import cn from 'classnames';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import { OptionProps } from '../../typings';
+import { type OptionProps } from '../../typings';
 import { BaseCheckmark } from '../base-checkmark';
 
 import styles from './index.module.css';
@@ -61,6 +61,7 @@ export const BaseOption: FC<OptionProps> = ({
                 [styles.checkmarkBefore]: !isTextContent && checkmarkPosition === 'before',
             })}
             data-test-id={dataTestId}
+            aria-label={option?.value?.name}
         >
             <div className={cn(styles.content)}>{content}</div>
             {renderCheckmark()}

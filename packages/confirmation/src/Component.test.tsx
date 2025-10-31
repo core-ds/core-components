@@ -235,6 +235,20 @@ describe('Confirmation', () => {
 
             expect(getByText(`Отправили на ${phone}`)).toBeInTheDocument();
         });
+
+        it('should render with custom title tag', () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} titleTag='h1' />);
+
+            const titleElement = container.querySelector('h1');
+            expect(titleElement).toBeInTheDocument();
+        });
+
+        it('should render with default h3 title tag when titleTag is not provided', () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
+
+            const titleElement = container.querySelector('h3');
+            expect(titleElement).toBeInTheDocument();
+        });
     });
 
     it('Should render custom screens', () => {
@@ -302,7 +316,7 @@ describe('Confirmation', () => {
             fireEvent.change(inputs[0], { target: { value: '1' } });
             fireEvent.change(inputs[1], { target: { value: '2' } });
 
-            expect(onInputFinished).toBeCalledTimes(1);
+            expect(onInputFinished).toHaveBeenCalledTimes(1);
         });
 
         it('should call onFatalErrorOkButtonClick when click on button', () => {
@@ -320,7 +334,7 @@ describe('Confirmation', () => {
 
             fireEvent.click(button);
 
-            expect(onFatalErrorOkButtonClick).toBeCalledTimes(1);
+            expect(onFatalErrorOkButtonClick).toHaveBeenCalledTimes(1);
         });
 
         it('should call onChangeState when error occurred', async () => {
@@ -340,8 +354,8 @@ describe('Confirmation', () => {
             fireEvent.animationEnd(codeInput);
 
             await waitFor(() => {
-                expect(onChangeState).toBeCalledTimes(1);
-                expect(onChangeState).toBeCalledWith('INITIAL');
+                expect(onChangeState).toHaveBeenCalledTimes(1);
+                expect(onChangeState).toHaveBeenCalledWith('INITIAL');
             });
         });
     });

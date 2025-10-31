@@ -1,8 +1,7 @@
-import type { MouseEvent, MutableRefObject, ReactElement, ReactNode } from 'react';
-import React from 'react';
+import { type MouseEvent, type MutableRefObject, type ReactElement, type ReactNode } from 'react';
 
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { PopoverProps, Position } from '@alfalab/core-components-popover';
+import { type BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { type PopoverProps, type Position } from '@alfalab/core-components-popover';
 
 type Trigger = 'click' | 'hover';
 
@@ -151,6 +150,10 @@ export type TooltipDesktopProps = {
      */
     targetTag?: 'div' | 'span';
 
+    /**
+     * Обработчик клика по целевому элементу
+     * Событие всплытия останавливается до вызова этого обработчика
+     */
     onTargetClick?: (event: MouseEvent<HTMLElement>) => void;
 };
 
@@ -166,6 +169,7 @@ export type TooltipMobileProps = Omit<Partial<BottomSheetProps>, 'actionButton'>
         | 'dataTestId'
         | 'getPortalContainer'
         | 'targetTag'
+        | 'onTargetClick'
     > & {
         /**
          * Заголовок кнопки в футере
@@ -177,12 +181,12 @@ export type TooltipResponsiveProps = Omit<TooltipDesktopProps, 'onClose' | 'onOp
     /**
      * Обработчик открытия
      */
-    onOpen?: (event?: React.MouseEvent<HTMLElement>) => void;
+    onOpen?: (event?: MouseEvent<HTMLElement>) => void;
 
     /**
      * Обработчик закрытия
      */
-    onClose?: (event?: React.MouseEvent<HTMLElement>) => void;
+    onClose?: (event?: MouseEvent<HTMLElement>) => void;
 
     /**
      * Заголовок кнопки в футере

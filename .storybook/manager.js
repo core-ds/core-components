@@ -4,8 +4,9 @@ import alfaTheme from './theme';
 import { STORY_RENDERED, STORY_MISSING, STORY_ERRORED } from '@storybook/core-events';
 import { renderLabel } from './render-label';
 
-import '../packages/vars/src/index.css';
 import { setManagerMetricsConnection } from './addons/utils';
+
+import '@alfalab/core-components-vars/src/index.css';
 
 if (process.env.NODE_ENV !== 'development') {
     setManagerMetricsConnection();

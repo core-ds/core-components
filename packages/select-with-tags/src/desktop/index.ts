@@ -1,2 +1,2 @@
 export { SelectWithTagsDesktop } from './Component.desktop';
-export { SelectWithTagsDesktopProps } from '../types';
+export type { SelectWithTagsDesktopProps } from '../types';

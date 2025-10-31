@@ -1,43 +1,48 @@
 const assert = require('node:assert/strict');
-const crypto = require('node:crypto');
-const { AtRule, Rule } = require('postcss');
+const stringHash = require('string-hash');
 
-function sha256(str) {
-    return crypto.createHash('sha256').update(str, 'utf8').digest('hex');
-}
-
+/**
+ * @returns {import('postcss').AcceptedPlugin}
+ */
 const postcssSubtractMixin = () => ({
-    postcssPlugin: 'postcss-subtract-mixin-plugin',
+    postcssPlugin: 'postcss-subtract-mixin',
     prepare: () => {
-        const store = [];
+        /**
+         * @type {Array<Array<import('postcss').Rule>>}
+         */
+        const rulesets = [];
 
         return {
-            Once(root) {
-                root.walkAtRules((atrule) => {
-                    if (atrule.name === 'subtract-mixin') {
-                        const mixinNamess = atrule.params.split(',').map((name) => name.trim());
+            AtRule: {
+                'subtract-mixin': (atRule, helpers) => {
+                    const mixinNames = atRule.params.split(',').map((name) => name.trim());
 
-                        const rules = mixinNamess.map(
-                            (mixinName) =>
-                                new Rule({
-                                    selector: `.${sha256(`${mixinName}-${Math.random()}`)}`,
-                                    nodes: [new AtRule({ name: 'mixin', params: mixinName })],
-                                }),
-                        );
+                    const rules = mixinNames.map((mixinName) => {
+                        const selector = `.${stringHash(`${mixinName}-${Math.random()}`).toString(
+                            36,
+                        )}`;
 
-                        atrule.replaceWith(rules);
-                        store.push(rules);
-                    }
-                });
+                        return helpers.postcss.rule({
+                            selector,
+                            nodes: [helpers.postcss.atRule({ name: 'mixin', params: mixinName })],
+                        });
+                    });
+
+                    atRule.replaceWith(rules);
+                    rulesets.push(rules);
+                },
             },
             OnceExit: () => {
-                while (store.length > 0) {
-                    const rules = store.pop();
-                    // rules.forEach((rule) => {
-                    //     // every rule must have declarations only
-                    //     assert(rule.nodes.every((node) => node.type == 'decl'));
-                    // });
-                    const [source, ...rest] = rules;
+                while (rulesets.length > 0) {
+                    const ruleset = rulesets.pop();
+
+                    ruleset.forEach((rule) => {
+                        assert(
+                            rule.nodes.every((node) => node.type === 'decl'),
+                            'Every rule must have declarations only',
+                        );
+                    });
+                    const [source, ...rest] = ruleset;
                     const subtracts = rest.map(({ nodes }) => nodes).reduce((a, b) => a.concat(b));
 
                     const result = source.nodes.filter(
@@ -50,13 +55,13 @@ const postcssSubtractMixin = () => ({
                     );
 
                     source.parent.append(result);
-                    rules.forEach((rule) => rule.remove());
+                    ruleset.forEach((rule) => {
+                        rule.remove();
+                    });
                 }
             },
         };
     },
 });
-
-postcssSubtractMixin.postcss = true;
 
 module.exports = postcssSubtractMixin;

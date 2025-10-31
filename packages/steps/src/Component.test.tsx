@@ -115,7 +115,7 @@ describe('Steps', () => {
                 </Steps>,
             );
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 

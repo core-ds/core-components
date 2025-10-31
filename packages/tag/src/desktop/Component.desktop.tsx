@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { BaseTag, BaseTagProps } from '../components/base-tag';
+import { BaseTag, type BaseTagProps } from '../components/base-tag';
 
 import defaultColors from './default.desktop.module.css';
 import styles from './desktop.module.css';

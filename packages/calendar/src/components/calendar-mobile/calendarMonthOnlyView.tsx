@@ -10,7 +10,7 @@ import startOfMonth from 'date-fns/startOfMonth';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { ActiveMonths, Month } from '../../typings';
+import { type ActiveMonths, type Month } from '../../typings';
 import { useCalendar } from '../../useCalendar';
 import { useRange } from '../../useRange';
 import {
@@ -26,7 +26,7 @@ import {
 } from '../../utils';
 import { DaysTable } from '../days-table';
 
-import { CalendarContentProps } from './typings';
+import { type CalendarContentProps } from './typings';
 
 import styles from './index.module.css';
 

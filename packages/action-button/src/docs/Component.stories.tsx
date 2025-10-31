@@ -8,7 +8,7 @@ import { ActionButton } from '@alfalab/core-components-action-button';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof ActionButton> = {
     title: 'Components/ActionButton',

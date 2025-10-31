@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { type ReactNode, useEffect } from 'react';
 import cn from 'classnames';
 
 import { LoadingStatus, useIcon } from './hooks/use-icon';

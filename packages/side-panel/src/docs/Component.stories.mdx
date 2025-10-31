@@ -15,7 +15,7 @@ import Changelog from '../../CHANGELOG.md?raw';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/SidePanel' id='SidePanel' />
 
@@ -44,7 +44,7 @@ export const Content = ({ isPreview }) => {
                     <Text />
                 </>
             )}
-            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
+            <Button className='showMoreButton' size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
                 {showMore ? 'Скрыть' : 'Показать еще'}
             </Button>
         </>
@@ -66,6 +66,7 @@ export let SidePanelComponent = SidePanelDesktop;
         const headerTitle = text('header.title');
         const headerAlign = select('header.align', ['left', 'center'], 'left');
         const hasCloser = boolean('header.hasCloser', true);
+        const hasBackButton = boolean('header.hasBackButton', false);
         const trim = boolean('header.trim', true);
         const stickyHeader = boolean('header.sticky', false);
         const stickyFooter = boolean('footer.sticky', false);
@@ -107,9 +108,11 @@ export let SidePanelComponent = SidePanelDesktop;
                         <SidePanelComponent.Header
                             sticky={stickyHeader}
                             hasCloser={hasCloser}
+                            hasBackButton={hasBackButton}
                             title={headerTitle}
                             trim={trim}
                             align={headerAlign}
+                            {...(isMobile && {titleSize: select('titleSize', ['default', 'compact'], 'default')})}
                         />
                     )}
                     <SidePanelComponent.Content>

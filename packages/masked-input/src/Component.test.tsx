@@ -21,7 +21,7 @@ describe('MaskedInput', () => {
             dispatchEvent: jest.fn(),
         })),
     });
-    
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             expect(render(<MaskedInput />)).toMatchSnapshot();
@@ -86,13 +86,13 @@ describe('MaskedInput', () => {
 
         fireEvent.change(input, { target: { value: 'before1234123412341234after±!@#$%^&*()_+' } });
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
         expect(cb.mock.calls[0][1].value).toBe('1234 1234 1234 1234');
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<MaskedInput />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

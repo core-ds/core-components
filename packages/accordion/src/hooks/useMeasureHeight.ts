@@ -1,4 +1,4 @@
-import { Ref, useEffect, useRef, useState } from 'react';
+import { type Ref, useEffect, useRef, useState } from 'react';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 
 import { fnUtils, isClient } from '@alfalab/core-components-shared';

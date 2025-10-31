@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`AmountInput Snapshots tests should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -23,7 +23,6 @@ Object {
                 <input
                   class="input size-48 input input"
                   inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -39,10 +38,17 @@ Object {
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -72,7 +78,6 @@ Object {
               <input
                 class="input size-48 input input"
                 inputmode="decimal"
-                pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 ₽"
                 type="text"
                 value=""
@@ -88,10 +93,17 @@ Object {
                   class="suffix"
                 >
                   <span
+                    class="suffixMajor"
+                  />
+                  <span
                     class="minorPartAndCurrency"
                   >
                      
-                    ₽
+                    <span
+                      class="suffixCurrency"
+                    >
+                      ₽
+                    </span>
                   </span>
                 </div>
               </div>
@@ -156,7 +168,7 @@ Object {
 `;
 
 exports[`AmountInput Snapshots tests should match snapshot 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -178,7 +190,6 @@ Object {
                 <input
                   class="input size-48 input input"
                   inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -194,10 +205,17 @@ Object {
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -226,7 +244,6 @@ Object {
                 <input
                   class="input size-48 input input"
                   inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 $"
                   type="text"
                   value="12 345,67"
@@ -243,13 +260,25 @@ Object {
                   <div
                     class="suffix"
                   >
-                    12 345
+                    <span
+                      class="suffixMajor"
+                    >
+                      12 345
+                    </span>
                     <span
                       class="minorPartAndCurrency"
                     >
-                      ,67
+                      <span
+                        class="suffixMinor"
+                      >
+                        ,67
+                      </span>
                        
-                      $
+                      <span
+                        class="suffixCurrency"
+                      >
+                        $
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -279,7 +308,6 @@ Object {
               <input
                 class="input size-48 input input"
                 inputmode="decimal"
-                pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 $"
                 type="text"
                 value="12 345,67"
@@ -296,13 +324,25 @@ Object {
                 <div
                   class="suffix"
                 >
-                  12 345
+                  <span
+                    class="suffixMajor"
+                  >
+                    12 345
+                  </span>
                   <span
                     class="minorPartAndCurrency"
                   >
-                    ,67
+                    <span
+                      class="suffixMinor"
+                    >
+                      ,67
+                    </span>
                      
-                    $
+                    <span
+                      class="suffixCurrency"
+                    >
+                      $
+                    </span>
                   </span>
                 </div>
               </div>

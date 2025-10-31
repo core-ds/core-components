@@ -1,10 +1,10 @@
 import React, {
-    ChangeEvent,
-    ElementType,
-    FocusEvent,
+    type ChangeEvent,
+    type ElementType,
+    type FocusEvent,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
+    type KeyboardEvent,
+    type MouseEvent,
     useEffect,
     useRef,
     useState,
@@ -12,17 +12,17 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import type { CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
-import type { CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
+import { type CalendarDesktopProps } from '@alfalab/core-components-calendar/desktop';
+import { type CalendarMobileProps } from '@alfalab/core-components-calendar/mobile';
 import { dateInLimits } from '@alfalab/core-components-calendar/shared';
 import {
     DateInput,
-    DateInputProps,
+    type DateInputProps,
     formatDate,
     isCompleteDateInput,
     parseDateString,
 } from '@alfalab/core-components-date-input';
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { Popover, type PopoverProps } from '@alfalab/core-components-popover';
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import { SUPPORTS_INPUT_TYPE_DATE } from '../../utils';

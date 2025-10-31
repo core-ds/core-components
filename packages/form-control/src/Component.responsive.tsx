@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { BaseFormControlProps } from './components/base-form-control';
+import { type BaseFormControlProps } from './components/base-form-control';
 import { FormControlDesktop } from './desktop';
 import { FormControlMobile } from './mobile';
 

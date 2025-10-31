@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 export const createSyntheticEvent = <T extends Element, E extends Event>(
     event: E,

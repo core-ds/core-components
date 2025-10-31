@@ -1,6 +1,6 @@
 import React, {
-    MouseEvent,
-    ReactEventHandler,
+    type MouseEvent,
+    type ReactEventHandler,
     useCallback,
     useContext,
     useEffect,
@@ -151,9 +151,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     );
 
     const onPlay: ReactEventHandler<HTMLVideoElement> = () => {
-        if (image && image.onPlay) {
-            image.onPlay();
-        }
+        image?.onPlay?.();
 
         if (timer.current) {
             clearTimeout(timer.current);
@@ -165,9 +163,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     };
 
     const onPause: ReactEventHandler<HTMLVideoElement> = () => {
-        if (image && image.onPause) {
-            image.onPause();
-        }
+        image?.onPause?.();
 
         if (timer.current) {
             clearTimeout(timer.current);

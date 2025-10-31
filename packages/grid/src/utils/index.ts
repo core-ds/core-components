@@ -1,8 +1,8 @@
 import {
-    BreakpointObjectKeysType,
-    BreakpointObjectType,
-    BreakpointsKeysType,
-    ResponsivePropertyType,
+    type BreakpointObjectKeysType,
+    type BreakpointObjectType,
+    type BreakpointsKeysType,
+    type ResponsivePropertyType,
 } from '../typings';
 
 export function createClassNames(

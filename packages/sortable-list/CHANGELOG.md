@@ -1,5 +1,39 @@
 # @alfalab/core-components-sortable-list
 
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+-   Обновлены `@alfalab/icons-*` пакеты
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-shared@1.1.0
+    -   @alfalab/core-components-portal@4.0.1
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   @alfalab/core-components-portal@4.0.0
+    -   @alfalab/core-components-shared@1.0.0
+
 ## 1.6.11
 
 ### Patch Changes

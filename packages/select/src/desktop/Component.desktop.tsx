@@ -10,7 +10,7 @@ import { Optgroup as DefaultOptgroup } from '../components/optgroup';
 import { Option as DefaultOption } from '../components/option';
 import { OptionsList as DefaultOptionsList } from '../components/options-list';
 import { Search as DefaultSearch } from '../components/search';
-import { SelectDesktopProps } from '../typings';
+import { type SelectDesktopProps } from '../typings';
 
 export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
     (

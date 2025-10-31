@@ -1,10 +1,11 @@
 /* eslint-disable no-nested-ternary */
 import React, {
-    FocusEvent,
+    type AriaAttributes,
+    type FocusEvent,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
-    RefAttributes,
+    type KeyboardEvent,
+    type MouseEvent,
+    type RefAttributes,
     useCallback,
     useEffect,
     useMemo,
@@ -17,15 +18,20 @@ import { compute } from 'compute-scroll-into-view';
 import {
     useCombobox,
     useMultipleSelection,
-    UseMultipleSelectionProps,
-    UseMultipleSelectionState,
+    type UseMultipleSelectionProps,
+    type UseMultipleSelectionState,
 } from 'downshift';
 
-import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, isClient } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import type { AnyObject, OptionShape, OptionsListProps, SearchProps } from '../../typings';
+import {
+    type AnyObject,
+    type OptionShape,
+    type OptionsListProps,
+    type SearchProps,
+} from '../../typings';
 import {
     defaultAccessor,
     defaultFilterFn,
@@ -35,7 +41,7 @@ import {
 } from '../../utils';
 import { NativeSelect } from '../native-select';
 
-import { ComponentProps } from './types/component-types';
+import { type ComponentProps } from './types/component-types';
 
 import styles from './index.module.css';
 import mobileStyles from './mobile.module.css';
@@ -117,6 +123,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             ModalMobile,
             BottomSheet,
             limitDynamicOptionGroupSize,
+            environment = isClient() ? window : undefined,
         } = props;
         const shouldSearchBlurRef = useRef(true);
         const rootRef = useRef<HTMLDivElement>(null);
@@ -199,8 +206,9 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 const { type, changes } = actionAndChanges;
 
                 if (
-                    !allowUnselect &&
-                    type === useMultipleSelection.stateChangeTypes.DropdownKeyDownBackspace
+                    type === useMultipleSelection.stateChangeTypes.DropdownKeyDownBackspace &&
+                    (!allowUnselect ||
+                        environment?.document.activeElement?.isSameNode(searchRef.current))
                 ) {
                     return state;
                 }
@@ -242,6 +250,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             isItemDisabled,
             defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
             scrollIntoView,
+            environment,
             onSelectedItemChange: (changes) => {
                 const selectedItem = changes.selectedItem || initiatorRef.current;
 
@@ -487,7 +496,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     ? rootRef.current.getBoundingClientRect().width
                     : 0;
 
-                listRef.current.setAttribute('style', '');
+                listRef.current.removeAttribute('style');
                 listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
             }
         }, [view, optionsListWidth]);
@@ -524,7 +533,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         const renderNativeSelect = () => {
             const value = multiple
                 ? selectedItems.map((option) => option.key)
-                : (selectedItems[0] || {}).key;
+                : selectedItems[0]?.key;
 
             return (
                 <NativeSelect
@@ -841,6 +850,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         tabIndex: disabled ? undefined : nativeSelect ? -1 : 0,
                         ref: inputProps.ref,
                         id: inputProps.id,
+                        'aria-label': (optionProps as AriaAttributes)['aria-label'],
                         'aria-labelledby': inputProps['aria-labelledby'],
                         'aria-controls': inputProps['aria-controls'],
                         'aria-autocomplete': autocomplete

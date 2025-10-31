@@ -1,4 +1,29 @@
-# Change Log
+# @alfalab/core-components-card-image
+
+## 4.1.0
+
+### Minor Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1863](https://github.com/core-ds/core-components/pull/1863)
+
+-   Добавлен обработчик ошибки загрузки изображения "onError"
+-   Исправлено описание свойства "alt"
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
 
 ## 3.2.3
 

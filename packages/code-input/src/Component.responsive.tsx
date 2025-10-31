@@ -4,7 +4,7 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { CodeInputDesktop } from './desktop';
 import { CodeInputMobile } from './mobile';
-import { BaseCodeInputProps, CustomInputRef } from './typings';
+import { type BaseCodeInputProps, type CustomInputRef } from './typings';
 
 export type CodeInputProps = Omit<BaseCodeInputProps, 'stylesInput'> & {
     /**

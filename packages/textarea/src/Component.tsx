@@ -10,7 +10,7 @@ import { useFocus } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
 import { SIZE_TO_CLASSNAME_MAP } from './consts';
-import { TextareaProps } from './typings';
+import { type TextareaProps } from './typings';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -151,7 +151,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 return stateValue.length;
             }
 
-            return (value as string).length;
+            return value.length;
         };
 
         const textareaClassNameCalc = cn(

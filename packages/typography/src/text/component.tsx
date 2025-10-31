@@ -1,11 +1,11 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef, type HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { type TextSkeletonProps, useSkeleton } from '@alfalab/core-components-skeleton';
 
-import { Color } from '../colors';
-import { TextElementType } from '../types';
+import { type Color } from '../colors';
+import { type TextElementType } from '../types';
 
 import colors from '../colors.module.css';
 import alfasansStyles from './alfasans-index.module.css';

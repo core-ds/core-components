@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { TagDesktop } from '@alfalab/core-components-tag/desktop';
 
-import { SecondaryTabListProps } from '../../typings';
+import { type SecondaryTabListProps } from '../../typings';
 
 import { SecondaryTabList } from './Component';
 

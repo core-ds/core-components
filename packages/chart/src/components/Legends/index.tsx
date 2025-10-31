@@ -7,9 +7,9 @@ import { CircleIcon } from '../../icons/Circle';
 import { CircleLineIcon } from '../../icons/CircleLine';
 import { FilledCircleIcon } from '../../icons/FilledCircle';
 import { StrokeCircleIcon } from '../../icons/StrokeCircle';
-import { LegendProps } from '../../types/legend.types';
-import { SeriaProps } from '../../types/seria.types';
-import { DataDynamicBooleanProps } from '../../types/utils/data.types';
+import { type LegendProps } from '../../types/legend.types';
+import { type SeriaProps } from '../../types/seria.types';
+import { type DataDynamicBooleanProps } from '../../types/utils/data.types';
 
 import styles from './index.module.css';
 

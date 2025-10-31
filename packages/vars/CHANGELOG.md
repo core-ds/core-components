@@ -1,4 +1,28 @@
-# Change Log
+# @alfalab/core-components-vars
+
+## 10.1.0
+
+### Minor Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1827](https://github.com/core-ds/core-components/pull/1827)
+
+-   Добавлен общий `@define-mixin hover` и обновлены `icon-button` компоненты для использования миксина
+
+## 10.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
 
 ## 9.21.0
 

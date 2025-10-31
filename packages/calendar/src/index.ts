@@ -1,4 +1,2 @@
-export {
-    CalendarResponsive as Calendar,
-    ResponsiveCalendarProps as CalendarProps,
-} from './Component.responsive';
+export { CalendarResponsive as Calendar } from './Component.responsive';
+export type { ResponsiveCalendarProps as CalendarProps } from './Component.responsive';

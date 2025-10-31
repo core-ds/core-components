@@ -1,8 +1,8 @@
-import React, { createRef, FC, useMemo } from 'react';
+import React, { createRef, type FC, useMemo } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
-import { PageIndicatorBulletProps } from '../../types';
+import { type PageIndicatorBulletProps } from '../../types';
 
 import { calcParams } from './utils';
 
@@ -28,7 +28,10 @@ export const PageIndicatorBullet: FC<PageIndicatorBulletProps> = ({
     gap = 8,
     colors = 'default',
 }) => {
-    const refs = useMemo(() => Array.from({ length: count }, createRef<HTMLLIElement>), [count]);
+    const refs = useMemo(
+        () => Array.from({ length: count }, () => createRef<HTMLLIElement>()),
+        [count],
+    );
     const [height, width, offset, elementSize, firstVisibleElementIndex, lastVisibleElementIndex] =
         useMemo(
             () => calcParams(size, gap, activeElementIndex, count),

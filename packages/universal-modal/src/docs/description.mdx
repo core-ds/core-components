@@ -662,11 +662,6 @@ render(() => {
                 {(headerTitle || headerButtonArrow || headerButtonCross) && (
                     <UniversalModalMobile.Header
                         sticky={true}
-                        {...(headerTitle &&
-                            !headerButtonArrow && {
-                                align: 'left',
-                                title: 'Почему банк проверяет мои операции?',
-                            })}
                         {...(headerButtonArrow && {
                             leftAddons: (
                                 <ButtonMobile
@@ -682,11 +677,10 @@ render(() => {
                                     onClick={() => setOpen(false)}
                                 />
                             ),
-                            align: 'left',
-                            ...(headerTitle && { title: 'Почему банк проверяет мои операции?' }),
                         })}
                         hasCloser={headerButtonCross}
                         {...(alignment && { align: 'center' })}
+                        {...(headerTitle && { title: 'Почему банк проверяет мои операции?' })}
                         {...(subtitle && { subtitle: 'Подпись', titleSize: 'compact' })}
                     />
                 )}

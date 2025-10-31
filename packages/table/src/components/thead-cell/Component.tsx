@@ -1,7 +1,7 @@
-import React, { ThHTMLAttributes, useContext } from 'react';
+import React, { type ThHTMLAttributes, useContext } from 'react';
 import cn from 'classnames';
 
-import { TextAlignProperty } from '../../typings';
+import { type TextAlignProperty } from '../../typings';
 import { TableContext } from '../table-context';
 
 import styles from './index.module.css';

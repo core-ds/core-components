@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { BasePlate, BasePlateProps } from '../components/base-plate';
+import { BasePlate, type BasePlateProps } from '../components/base-plate';
 
 import styles from './desktop.module.css';
 

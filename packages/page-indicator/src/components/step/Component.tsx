@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { PageIndicatorStepProps } from '../../types';
+import { type PageIndicatorStepProps } from '../../types';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';

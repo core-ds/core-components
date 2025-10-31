@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Radio Display tests should display correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -102,7 +102,7 @@ Object {
 `;
 
 exports[`Radio Display tests should display with description correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -213,7 +213,7 @@ Object {
 `;
 
 exports[`Radio Display tests should display without label or hint 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>

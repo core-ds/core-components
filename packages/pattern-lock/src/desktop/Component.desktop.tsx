@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 
-import type { TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
+import { type TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
 
 import { BasePatternLock } from '../components/base-pattern-lock';
-import { CommonPatternLockProps } from '../typings';
+import { type CommonPatternLockProps } from '../typings';
 
 import styles from './desktop.module.css';
 

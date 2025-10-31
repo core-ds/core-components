@@ -1,13 +1,13 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { type FC, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import startOfMonth from 'date-fns/startOfMonth';
 
-import { CalendarInput, CalendarInputProps } from '@alfalab/core-components-calendar-input';
+import { CalendarInput, type CalendarInputProps } from '@alfalab/core-components-calendar-input';
 import { isValidInputValue, parseDateString } from '@alfalab/core-components-calendar-input/shared';
 import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 import { useDidUpdateEffect } from '@alfalab/hooks';
 
-import { CalendarRangeProps } from '../Component';
+import { type CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';
 import { usePopoverViewMonthes } from '../hooks';
 

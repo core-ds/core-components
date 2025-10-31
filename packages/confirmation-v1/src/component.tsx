@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';

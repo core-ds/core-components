@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactElement, ReactText, SVGProps } from 'react';
-import { AnimationTiming } from 'recharts/types/util/types';
+import { type ReactElement, type ReactText, type SVGProps } from 'react';
+import { type AnimationTiming } from 'recharts/types/util/types';
 
 export interface TooltipProps {
     /**

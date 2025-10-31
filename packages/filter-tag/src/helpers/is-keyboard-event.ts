@@ -1,4 +1,4 @@
-import { KeyboardEvent, MouseEvent } from 'react';
+import { type KeyboardEvent, type MouseEvent } from 'react';
 
 export const isKeyBoardEvent = (
     event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,

@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Display tests should display correctly 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -81,7 +81,7 @@ Object {
 `;
 
 exports[`Display tests should display correctly if tooltip open 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -92,7 +92,7 @@ Object {
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"
-        style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
+        style="z-index: 50; position: absolute; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(-16px, 0px);"
       >
         <div
           class="inner popper tooltip tooltip popper"
@@ -189,7 +189,7 @@ Object {
 `;
 
 exports[`Display tests should display correctly if tooltip open with view \`hint\` 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div
@@ -200,7 +200,7 @@ Object {
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"
-        style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
+        style="z-index: 50; position: absolute; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(-16px, 0px);"
       >
         <div
           class="inner popper hint hint hint"

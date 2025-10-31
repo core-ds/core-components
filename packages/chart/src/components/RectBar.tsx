@@ -16,16 +16,16 @@ const getPath = (
     `
         M${x + ((height !== 0 && bottomRadius) || 0)} ${initY + initHeight || 0}
         Q${x} ${initY + initHeight} ${x} ${
-        initY + initHeight - ((height !== 0 && bottomRadius) || 0)
-    }
+            initY + initHeight - ((height !== 0 && bottomRadius) || 0)
+        }
         L${x} ${initY + ((height !== 0 && topRadius) || 0)}
         Q${x} ${initY} ${x + ((height !== 0 && topRadius) || 0)} ${initY}
         L${x + width - ((height !== 0 && topRadius) || 0)} ${initY}
         Q${x + width} ${initY} ${x + width} ${initY + (topRadius || 0)}
         L${x + width} ${initY + initHeight - ((height !== 0 && bottomRadius) || 0)}
         Q${x + width} ${initY + initHeight} ${x + width - ((height !== 0 && bottomRadius) || 0)} ${
-        initY + initHeight
-    }
+            initY + initHeight
+        }
         Z
     `;
 

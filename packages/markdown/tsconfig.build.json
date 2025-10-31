@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-link": ["../link/src"],
+            "@alfalab/core-components-link/*": ["../link/src/*"],
+            "@alfalab/core-components-list": ["../list/src"],
+            "@alfalab/core-components-list/*": ["../list/src/*"],
+            "@alfalab/core-components-markdown": ["./src"],
+            "@alfalab/core-components-markdown/*": ["./src/*"],
+            "@alfalab/core-components-mq": ["../mq/src"],
+            "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-typography": ["../typography/src"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../link/tsconfig.build.json" },
+        { "path": "../list/tsconfig.build.json" },
+        { "path": "../mq/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
+    ]
+}

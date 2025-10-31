@@ -448,7 +448,7 @@ describe('CalendarRange', () => {
 
             fireEvent.change(getByTestId(dtiTo), { target: { value: dateTo } });
 
-            expect(onChange).toBeCalledWith({
+            expect(onChange).toHaveBeenCalledWith({
                 dateFrom: new Date('2023.05.05').getTime(),
                 dateTo: new Date('2023.05.04').getTime(),
                 valueFrom: dateFrom,
@@ -464,7 +464,7 @@ describe('CalendarRange', () => {
             fireEvent.click(calendars[0].querySelector('*[data-date]') as HTMLButtonElement);
             fireEvent.click(calendars[1].querySelector('*[data-date]') as HTMLButtonElement);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
 
             const { date } = cb.mock.calls[0][0];
 
@@ -480,7 +480,7 @@ describe('CalendarRange', () => {
             fireEvent.click(calendars[0].querySelector('*[data-date]') as HTMLButtonElement);
             fireEvent.click(calendars[1].querySelector('*[data-date]') as HTMLButtonElement);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
 
             const { date } = cb.mock.calls[0][0];
 
@@ -491,14 +491,14 @@ describe('CalendarRange', () => {
             const cb = jest.fn();
             render(<CalendarRange onError={cb} valueFrom='10.10.2021' valueTo='10.10.2022' />);
 
-            expect(cb).toBeCalledWith(false);
+            expect(cb).toHaveBeenCalledWith(false);
         });
 
         it('should call onError callback with "true" arg', async () => {
             const cb = jest.fn();
             render(<CalendarRange onError={cb} valueFrom='10.10.2022' valueTo='10.10.2021' />);
 
-            expect(cb).toBeCalledWith(true);
+            expect(cb).toHaveBeenCalledWith(true);
         });
 
         it('should not call onChange on mount (popover)', () => {
@@ -531,11 +531,11 @@ describe('CalendarRange', () => {
             fireEvent.change(getByTestId(dtiFrom), { target: { value: '10.10.2021' } });
             fireEvent.change(getByTestId(dtiTo), { target: { value: '10.10.2022' } });
 
-            expect(onInputFromChange).toBeCalledWith(expect.any(Object), {
+            expect(onInputFromChange).toHaveBeenCalledWith(expect.any(Object), {
                 date: new Date('2021-10-10'),
                 value: '10.10.2021',
             });
-            expect(onInputToChange).toBeCalledWith(expect.any(Object), {
+            expect(onInputToChange).toHaveBeenCalledWith(expect.any(Object), {
                 date: new Date('2022-10-10'),
                 value: '10.10.2022',
             });
@@ -560,11 +560,11 @@ describe('CalendarRange', () => {
             fireEvent.change(inputFrom, { target: { value: '10.10.2021' } });
             fireEvent.change(inputTo, { target: { value: '10.10.2022' } });
 
-            expect(onInputFromChange).toBeCalledWith(expect.any(Object), {
+            expect(onInputFromChange).toHaveBeenCalledWith(expect.any(Object), {
                 date: new Date('2021-10-10'),
                 value: '10.10.2021',
             });
-            expect(onInputToChange).toBeCalledWith(expect.any(Object), {
+            expect(onInputToChange).toHaveBeenCalledWith(expect.any(Object), {
                 date: new Date('2022-10-10'),
                 value: '10.10.2022',
             });
@@ -621,7 +621,7 @@ describe('CalendarRange', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<CalendarRange />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

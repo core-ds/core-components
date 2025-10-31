@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { type FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
-import noUiSlider, { API, Options } from 'nouislider';
+import noUiSlider, { type API, type Options } from 'nouislider';
 
 import styles from './index.module.css';
 

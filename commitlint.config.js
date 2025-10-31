@@ -1,17 +1,35 @@
-const {
-    utils: { getPackages },
-} = require('@commitlint/config-lerna-scopes');
+// @ts-check
 
-const PACKAGE_NAME_PREFIX_REG_EXP = /^core-components-/;
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { RuleConfigSeverity } = require('@commitlint/types');
+const assert = require('node:assert/strict');
+const { getPackages } = require('./tools/monorepo.cjs');
 
-function deletePackagesPrefix(arr) {
-    return arr.map(packageName => packageName.replace(PACKAGE_NAME_PREFIX_REG_EXP, ''));
+const CORE_COMPONENTS_REGEXP = /^@alfalab\/core-components-/;
+
+function getScopes() {
+    const { packages } = getPackages();
+
+    return packages.map(({ packageJson: { name } }) => {
+        if (name === '@alfalab/core-components') {
+            return 'root';
+        }
+
+        assert(CORE_COMPONENTS_REGEXP.test(name), name);
+
+        return name.replace(CORE_COMPONENTS_REGEXP, '');
+    });
 }
 
-module.exports = {
-    extends: ['@commitlint/config-conventional'],
+/**
+ * @type {import('@commitlint/types').UserConfig}
+ */
+const config = {
+    extends: '@alfalab/lint-preset/commitlint',
     rules: {
-      'scope-enum': async ctx =>
-          [2, 'always', [...(deletePackagesPrefix(await getPackages(ctx)))]],
+        'scope-empty': [RuleConfigSeverity.Disabled],
+        'scope-enum': () => [RuleConfigSeverity.Error, 'always', getScopes()],
     },
 };
+
+module.exports = config;

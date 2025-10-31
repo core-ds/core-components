@@ -1,1 +1,2 @@
-export { PickerButtonDesktop, PickerButtonDesktopProps } from './Component.desktop';
+export { PickerButtonDesktop } from './Component.desktop';
+export type { PickerButtonDesktopProps } from './Component.desktop';

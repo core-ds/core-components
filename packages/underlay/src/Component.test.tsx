@@ -88,13 +88,13 @@ describe('Underlay', () => {
 
             fireEvent.click(el);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<Underlay />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

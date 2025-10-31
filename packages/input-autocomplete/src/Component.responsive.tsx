@@ -4,7 +4,7 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { InputAutocompleteDesktop } from './desktop';
 import { InputAutocompleteMobile } from './mobile';
-import { InputAutocompleteProps } from './types';
+import { type InputAutocompleteProps } from './types';
 
 export const InputAutocomplete = forwardRef<
     HTMLInputElement | HTMLDivElement,

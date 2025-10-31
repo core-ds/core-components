@@ -1,11 +1,11 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef, type HTMLAttributes } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { isObject } from '@alfalab/core-components-shared';
 import { type TextSkeletonProps, useSkeleton } from '@alfalab/core-components-skeleton';
 
-import { Color } from '../colors';
+import { type Color } from '../colors';
 
 import { getDefaultWeight } from './utils';
 

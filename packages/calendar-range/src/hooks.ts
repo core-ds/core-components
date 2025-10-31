@@ -141,13 +141,13 @@ export function useStaticViewMonthes({
         const toMonthOnScreen = toMonthOnLeft || toMonthOnRight;
 
         if (fromMonthOnLeft && toMonthOnLeft) {
-            setMonthTo(max([addMonths(selectedFromMonth as number, 1), monthTo]).getTime());
+            setMonthTo(max([addMonths(selectedFromMonth, 1), monthTo]).getTime());
 
             return;
         }
 
         if (fromMonthOnRight && toMonthOnRight) {
-            setMonthFrom(min([subMonths(selectedToMonth as number, 1), monthFrom]).getTime());
+            setMonthFrom(min([subMonths(selectedToMonth, 1), monthFrom]).getTime());
 
             return;
         }

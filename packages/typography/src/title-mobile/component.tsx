@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { TitleBase, TitleProps } from '../title/component';
+import { TitleBase, type TitleProps } from '../title/component';
 
 import commonStyles from '../title/common.module.css';
 import alfasansStyles from './alfasans-index.module.css';

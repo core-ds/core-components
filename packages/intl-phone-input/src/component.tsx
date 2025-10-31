@@ -1,15 +1,15 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { AsYouType, CountryCode } from 'libphonenumber-js';
+import { type AsYouType, type CountryCode } from 'libphonenumber-js/min';
 
 import {
     InputAutocompleteDesktop,
-    InputAutocompleteDesktopProps,
+    type InputAutocompleteDesktopProps,
 } from '@alfalab/core-components-input-autocomplete/desktop';
-import type { SelectProps } from '@alfalab/core-components-select';
-import type { OptionShape } from '@alfalab/core-components-select/shared';
+import { type SelectProps } from '@alfalab/core-components-select';
+import { type OptionShape } from '@alfalab/core-components-select/shared';
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
-import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
+import { type Country, getCountries, getCountriesHash } from '@alfalab/utils';
 
 import { calculateCaretPos } from './utils/calculateCaretPos';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
@@ -485,7 +485,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
             import(/* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/min')
                 .then((utils) => {
-                    phoneLibUtils.current = utils.AsYouType as typeof AsYouType;
+                    phoneLibUtils.current = utils.AsYouType;
 
                     if (canBeEmptyCountry) {
                         changePhone(value);
@@ -554,9 +554,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                                 selected={countryIso2}
                                 countries={countries}
                                 onChange={handleSelectChange}
-                                fieldWidth={
-                                    inputWrapperRef && inputWrapperRef.getBoundingClientRect().width
-                                }
+                                fieldWidth={inputWrapperRef?.getBoundingClientRect().width ?? null}
                                 preventFlip={preventFlip}
                             />
                         )

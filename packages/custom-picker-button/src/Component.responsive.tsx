@@ -3,12 +3,12 @@ import React, { forwardRef } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { CustomButtonProps } from '@alfalab/core-components-custom-button';
 import { useIsDesktop } from '@alfalab/core-components-mq';
-import type {
-    AdditionalMobileProps,
-    BottomSheetSelectMobileProps,
+import {
+    type AdditionalMobileProps,
+    type BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 
-import { CustomPickerButtonDesktop, CustomPickerButtonDesktopProps } from './desktop';
+import { CustomPickerButtonDesktop, type CustomPickerButtonDesktopProps } from './desktop';
 import { CustomPickerButtonMobile } from './mobile';
 
 export type CustomPickerButtonResponsiveProps = CustomPickerButtonDesktopProps &

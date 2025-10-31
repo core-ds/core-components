@@ -1,10 +1,10 @@
-import React, { Reducer, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+import React, { type Reducer, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 
-import { InputProps } from '@alfalab/core-components-input';
+import { type InputProps } from '@alfalab/core-components-input';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import { Option as DefaultOption } from '../../components/option';
-import { OptionProps, OptionShape } from '../../typings';
+import { type OptionProps, type OptionShape } from '../../typings';
 
 import 'intersection-observer';
 

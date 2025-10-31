@@ -87,6 +87,6 @@ describe('NavigationBar', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<NavigationBarWrapper />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

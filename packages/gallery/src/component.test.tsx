@@ -330,6 +330,6 @@ describe('Gallery desktop', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Gallery open={true} images={images} onClose={() => null} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

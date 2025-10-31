@@ -1,7 +1,7 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef, type HTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import { TCell, TCellProps } from '../tcell';
+import { type TCell, type TCellProps } from '../tcell';
 
 import styles from './index.module.css';
 

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { IDType } from './typing';
+import { type IDType } from './typing';
 
 export type ContextType = {
     onChange: (id: IDType) => void;

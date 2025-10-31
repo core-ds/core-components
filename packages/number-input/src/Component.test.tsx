@@ -154,7 +154,7 @@ describe('NumberInput', () => {
 
             fireEvent.click(getByTestId(incrementButtonId));
 
-            expect(cb).toBeCalledWith(expect.any(Object), { value: 13 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: 13 });
         });
 
         it('should decrease value by 3', () => {
@@ -167,7 +167,7 @@ describe('NumberInput', () => {
 
             fireEvent.click(getByTestId(decrementButtonId));
 
-            expect(cb).toBeCalledWith(expect.any(Object), { value: 7 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: 7 });
         });
 
         it('should call onChange with valid value if max min is set', () => {
@@ -178,15 +178,15 @@ describe('NumberInput', () => {
             );
 
             fireEvent.input(getByTestId(dataTestId), { target: { value: 1 } });
-            expect(cb).toBeCalledWith(expect.any(Object), { value: 1 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: 1 });
 
             rerender(<NumberInput min={-50} max={-10} onChange={cb} dataTestId={dataTestId} />);
 
             fireEvent.input(getByTestId(dataTestId), { target: { value: -1 } });
-            expect(cb).toBeCalledWith(expect.any(Object), { value: -1 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: -1 });
 
             fireEvent.input(getByTestId(dataTestId), { target: { value: 1 } });
-            expect(cb).toBeCalledWith(expect.any(Object), { value: -10 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: -10 });
         });
 
         it('should call onChange with max value if value > max', () => {
@@ -197,7 +197,7 @@ describe('NumberInput', () => {
             );
 
             fireEvent.input(getByTestId(dataTestId), { target: { value: 101 } });
-            expect(cb).toBeCalledWith(expect.any(Object), { value: 99 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: 99 });
         });
 
         it('should call onChange with min value if value < min', () => {
@@ -208,9 +208,9 @@ describe('NumberInput', () => {
             );
 
             fireEvent.input(getByTestId(dataTestId), { target: { value: 5 } });
-            expect(cb).toBeCalledWith(expect.any(Object), { value: 5 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: 5 });
             fireEvent.blur(getByTestId(dataTestId));
-            expect(cb).toBeCalledWith(expect.any(Object), { value: 10 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: 10 });
         });
 
         it('should call `onChange` prop', () => {
@@ -223,7 +223,7 @@ describe('NumberInput', () => {
 
             fireEvent.input(inputNumber, { target: { value } });
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(inputNumber.value).toBe(value);
         });
 
@@ -234,7 +234,7 @@ describe('NumberInput', () => {
 
             fireEvent.focus(getByTestId(dataTestId));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onBlur` prop', () => {
@@ -244,7 +244,7 @@ describe('NumberInput', () => {
 
             fireEvent.blur(getByTestId(dataTestId));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should not call `onChange` prop if disabled', async () => {
@@ -258,7 +258,7 @@ describe('NumberInput', () => {
 
             await userEvent.type(inputNumber, '123');
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         it('should call `onClear` prop when clear button clicked', () => {
@@ -269,7 +269,7 @@ describe('NumberInput', () => {
 
             fireEvent.click(getByLabelText('Очистить'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call `onChange` with valid value, when initial state is bad', async () => {
@@ -283,7 +283,7 @@ describe('NumberInput', () => {
 
             await userEvent.type(inputNumber, '{backspace}');
 
-            expect(cb).toBeCalledWith(expect.any(Object), { value: 123.3 });
+            expect(cb).toHaveBeenCalledWith(expect.any(Object), { value: 123.3 });
         });
     });
 
@@ -291,7 +291,7 @@ describe('NumberInput', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<NumberInput value='123' onChange={jest.fn()} />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });
