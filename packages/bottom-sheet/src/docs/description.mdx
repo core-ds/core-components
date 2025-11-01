@@ -85,7 +85,7 @@ render(() => {
 
     return (
         <Container>
-            <ButtonMobile type='button' size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile type='button' size='48' onClick={handleOpen} block={true}>
                 Показать анатомию
             </ButtonMobile>
             <BottomSheet
@@ -248,7 +248,7 @@ render(() => {
 
     return (
         <Container>
-            <ButtonMobile size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile size='48' onClick={handleOpen} block={true}>
                 Показать шторку
             </ButtonMobile>
 
@@ -352,8 +352,8 @@ render(() => {
                 value={backgroundColorSelected}
                 onChange={(_, { value }) => setBackgroundColor(value)}
             >
-                <Radio size='m' label='Primary' value='primary' />
-                <Radio size='m' label='Alt-primary' value='secondary' />
+                <Radio size='24' label='Primary' value='primary' />
+                <Radio size='24' label='Alt-primary' value='secondary' />
             </RadioGroup>
 
             <BottomSheet
@@ -420,7 +420,7 @@ render(() => {
                                 <ButtonMobile
                                     view='secondary'
                                     colors={colors}
-                                    size='m'
+                                    size='56'
                                     onClick={handleClose}
                                     block={true}
                                 >
@@ -437,7 +437,7 @@ render(() => {
                                 <ButtonMobile
                                     view='primary'
                                     colors={colors}
-                                    size='m'
+                                    size='56'
                                     onClick={handleClose}
                                     block={true}
                                 >
@@ -520,7 +520,7 @@ render(() => {
 
     return (
         <Container>
-            <ButtonMobile size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile size='48' onClick={handleOpen} block={true}>
                 Показать шторку
             </ButtonMobile>
 
@@ -537,7 +537,7 @@ render(() => {
                 showSwipeMarker={false}
                 actionButton={
                     <ButtonMobile
-                        size='m'
+                        size='56'
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose
@@ -652,7 +652,7 @@ render(() => {
         >
             <ButtonMobile
                 view={isNotLastAreaWithExtTrigger ? 'accent' : 'secondary'}
-                size='s'
+                size='48'
                 onClick={openWithExternalTrigger ? magnetizeToLastArea : handleOpen}
                 block={true}
             >
@@ -673,7 +673,7 @@ render(() => {
                         value={item.value}
                         key={item.value}
                         hint={item.desc}
-                        size='m'
+                        size='24'
                     />
                 ))}
             </RadioGroup>
