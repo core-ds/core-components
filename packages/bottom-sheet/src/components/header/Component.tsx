@@ -8,7 +8,6 @@ import {
 } from '@alfalab/core-components-navigation-bar-private';
 
 import { type ColorType } from '../../types';
-import { getColorStyles } from '../../utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -20,6 +19,11 @@ export type HeaderProps = Omit<NavigationBarPrivateProps, 'view' | 'size'> & {
     colors?: ColorType;
     showSwipeMarker?: boolean;
 };
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+} as const;
 
 export const Header: FC<HeaderProps> = ({
     className,
@@ -43,7 +47,7 @@ export const Header: FC<HeaderProps> = ({
         setHasHeader(true);
     }, [setHasHeader]);
 
-    const colorStyle = getColorStyles(colors, defaultColors, invertedColors);
+    const colorStyle = colorStyles[colors];
     const hasContent = Boolean(title || children);
 
     return (

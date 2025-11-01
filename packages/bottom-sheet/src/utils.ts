@@ -1,7 +1,5 @@
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { type ColorType } from './types';
-
 export const TIMEOUT = 500;
 export const SWIPE_VELOCITY = 0.4;
 export const MARKER_HEIGHT = 24;
@@ -44,9 +42,3 @@ export function getBottomSheetTestIds(dataTestId: string) {
         backButton: getDataTestId(dataTestId, 'header-back-button'),
     };
 }
-
-export const getColorStyles = <T extends Record<string, string>>(
-    colors: ColorType = 'default',
-    defaultStyles: T,
-    invertedStyles: T,
-): T => ({ default: defaultStyles, inverted: invertedStyles })[colors];

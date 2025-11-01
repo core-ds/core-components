@@ -31,7 +31,6 @@ import { type BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
     convertPercentToNumber,
-    getColorStyles,
     MARKER_HEIGHT,
     SCROLL_OFFSET,
     SWIPE_VELOCITY,
@@ -45,6 +44,11 @@ import invertedColors from './inverted.module.css';
 const { isNil } = fnUtils;
 
 const adjustContainerHeightDefault = (value: number) => value;
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+} as const;
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     // eslint-disable-next-line complexity
@@ -171,7 +175,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const emptyHeader = !hasCloser && !leftAddons && !title && !hasBacker && !rightAddons;
         const titleIsReactElement = React.isValidElement(title);
 
-        const colorStyle = getColorStyles(colors, defaultColors, invertedColors);
+        const colorStyle = colorStyles[colors];
 
         const headerProps: HeaderProps = {
             ...(titleIsReactElement

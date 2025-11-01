@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 
 import { type ColorType } from '../../types';
-import { getColorStyles } from '../../utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -38,6 +37,11 @@ export type FooterProps = {
     colors?: ColorType;
 };
 
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+} as const;
+
 export const Footer: FC<FooterProps> = ({
     children,
     className,
@@ -51,7 +55,7 @@ export const Footer: FC<FooterProps> = ({
         setHasFooter(true);
     }, [setHasFooter]);
 
-    const colorStyle = getColorStyles(colors, defaultColors, invertedColors);
+    const colorStyle = colorStyles[colors];
 
     return (
         <div
