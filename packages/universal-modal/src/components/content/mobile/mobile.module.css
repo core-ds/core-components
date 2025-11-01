@@ -1,7 +1,7 @@
 @import '../../../vars.css';
 
 .content {
-    padding: var(--gap-16);
+    padding: var(--gap-20);
 
     &.withHeader {
         padding-top: var(--gap-0);
