@@ -137,6 +137,12 @@ export type SliderInputProps = Omit<
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Жирность текста
+     * @default true
+     */
+    bold?: boolean;
 };
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -185,6 +191,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             pips,
             range,
             dataTestId,
+            bold = true,
             ...restProps
         },
         ref,
@@ -258,6 +265,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         [styles.filled]: Boolean(value),
                         [styles.hasLabel]: label,
                         [styles.hasError]: Boolean(error),
+                        [styles.bold]: bold,
                     },
                     styles[SIZE_TO_CLASSNAME_MAP[size]],
                     className,
