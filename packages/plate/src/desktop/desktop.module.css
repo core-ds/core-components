@@ -18,6 +18,6 @@
     border-radius: var(--plate-rounded-border-radius-desktop);
 
     &.shadow:after {
-        border-radius: var(--plate-rounded-shadow-border-radius-desktop);
+        border-radius: inherit;
     }
 }
