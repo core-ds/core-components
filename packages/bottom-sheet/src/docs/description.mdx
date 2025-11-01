@@ -206,7 +206,7 @@ render(() => {
         inverted: false,
     }));
 
-    const colors = themeSettings.inverted ? 'inverted' : 'default'
+    const colors = themeSettings.inverted ? 'inverted' : 'default';
 
     const [backgroundColorSelected, setBackgroundColor] = React.useState('primary');
 
@@ -271,7 +271,6 @@ render(() => {
                 {HEADER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={headerSettings[item.name]}
@@ -286,7 +285,6 @@ render(() => {
                 onChange={handleHeaderSettingsChange}
             >
                 <Switch
-                    size='m'
                     label='Заголовок в контентной области'
                     name='titleInContent'
                     checked={headerSettings.titleInContent}
@@ -312,7 +310,6 @@ render(() => {
                 {FOOTER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={footerSettings[item.name]}
@@ -326,7 +323,6 @@ render(() => {
                 {MECHANICS_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={mechanics[item.name]}
@@ -338,7 +334,6 @@ render(() => {
 
             <CheckboxGroup label='Инверсия' onChange={handleThemeChange}>
                 <Switch
-                    size='m'
                     label='Инвертировать цвета'
                     name='inverted'
                     checked={themeSettings.inverted}
@@ -457,10 +452,7 @@ render(() => {
                     </>
                 ) : undefined}
 
-                <Text
-                    onClose={handleClose}
-                    colors={colors}
-                />
+                <Text onClose={handleClose} colors={colors} />
             </BottomSheet>
         </Container>
     );
