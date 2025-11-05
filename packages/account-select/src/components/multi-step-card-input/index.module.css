@@ -51,3 +51,7 @@
     gap: 24px;
     padding: var(--gap-2s) var(--gap-12);
 }
+
+.productCover {
+    flex-shrink: 0;
+}

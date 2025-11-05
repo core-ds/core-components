@@ -33,7 +33,6 @@ render(() => {
 
     return (
         <AccountSelect
-            size={56}
             valueRenderer={({ selected }) => {
                 return (
                     <PureCell verticalPadding='none'>
@@ -172,8 +171,11 @@ render(() => {
             ),
         }));
 
-    const [cvv, setCvv] = React.useState(true);
-    const [expiry, setExpiry] = React.useState(true);
+    const [valueRadio, setValueRadio] = React.useState('1');
+
+    const onChange = (_, payload) => {
+        setValueRadio(payload.value);
+    };
     const [cardImage, setCardImage] = React.useState(undefined);
     const handleInput = (data) => {
         if (data.number.startsWith('123456')) {
@@ -239,28 +241,24 @@ render(() => {
                             </PureCell.Content>
                         </PureCell>
                     ),
-                    needCvv: cvv,
-                    needExpiryDate: expiry,
+                    needCvv: valueRadio === '1',
+                    needExpiryDate: true,
                     onInput: handleInput,
                     cardImage,
                 }}
             />
             <Gap size='m' />
-            <Switch
-                checked={cvv}
-                label='Нужен CVV'
-                onChange={() => {
-                    setCvv((prevState) => !prevState);
-                }}
-            />
-            <Gap size='s' />
-            <Switch
-                checked={expiry}
-                label='Нужна дата окончания действия карты'
-                onChange={() => {
-                    setExpiry((prevState) => !prevState);
-                }}
-            />
+            <RadioGroup
+                direction='horizontal'
+                name='radioGroup'
+                onChange={onChange}
+                hint='Выберите один из вариантов'
+                error={error}
+                value={valueRadio}
+            >
+                <Radio label='Дата + CVV' value='1' size={24} />
+                <Radio label='Только дата' value='2' size={24} />
+            </RadioGroup>
         </div>
     );
 });

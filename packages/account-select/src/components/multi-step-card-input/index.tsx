@@ -37,9 +37,8 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const isShowExpiry = needExpiryDate && step >= 2 && validateCardNumber(cardNumber);
         const isShowCvv =
             needCvv &&
-            step >= 3 &&
-            validateCardNumber(cardNumber) &&
-            validateExpiry(String(cardExpiry));
+            step >= 2 &&
+            validateCardNumber(cardNumber);
 
         const { setError } = useAccountSelectContext();
 
@@ -205,6 +204,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                     cardNumber={cardNumber.length >= 16 ? Number(cardNumber) : undefined}
                     {...cardImage}
                     size={cardImage?.size ?? PRODUCT_COVER_SIZE_MAPPER[size]}
+                    className={cn(styles.productCover, cardImage?.className)}
                 />
                 <div className={styles.inputs}>
                     <input
