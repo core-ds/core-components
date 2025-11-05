@@ -18,6 +18,6 @@
     border-radius: var(--plate-rounded-border-radius-mobile);
 
     &.shadow:after {
-        border-radius: inherit;
+        border-radius: var(--plate-rounded-shadow-border-radius-mobile);
     }
 }
