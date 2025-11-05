@@ -1,5 +1,15 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 1.1.0
+
+### Minor Changes
+
+<sup><time>05.11.2025</time></sup>
+
+#### [#1923](https://github.com/core-ds/core-components/pull/1923)
+
+- Добавлена возможность пробрасывать colors в `NavigationBar` для того, чтобы динамически изменять инверсию элементов `hasCloser` и `hasBacker`
+
 ## 1.0.2
 
 ### Patch Changes
