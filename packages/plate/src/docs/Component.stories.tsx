@@ -55,11 +55,6 @@ export const plate: Story = {
                     title={text('title', 'Поздравляем, полный успех')}
                     background={text('background', undefined)}
                     borderColor={text('borderColor', undefined)}
-                    borderRadius={select(
-                        'borderRadius',
-                        [undefined, '12px', '16px', '24px'],
-                        '16px',
-                    )}
                     foldable={boolean('foldable', false)}
                     hasCloser={boolean('hasCloser', false)}
                     rounded={boolean('rounded', true)}
@@ -128,11 +123,6 @@ export const plate_mobile: Story = {
                     title={text('title', 'Поздравляем, полный успех')}
                     background={text('background', undefined)}
                     borderColor={text('borderColor', undefined)}
-                    borderRadius={select(
-                        'borderRadius',
-                        [undefined, '12px', '16px', '24px'],
-                        '16px',
-                    )}
                     foldable={boolean('foldable', false)}
                     hasCloser={boolean('hasCloser', false)}
                     rounded={boolean('rounded', true)}
@@ -200,11 +190,6 @@ export const plate_desktop: Story = {
                     title={text('title', 'Поздравляем, полный успех')}
                     background={text('background', undefined)}
                     borderColor={text('borderColor', undefined)}
-                    borderRadius={select(
-                        'borderRadius',
-                        [undefined, '12px', '16px', '24px'],
-                        '16px',
-                    )}
                     foldable={boolean('foldable', false)}
                     hasCloser={boolean('hasCloser', false)}
                     rounded={boolean('rounded', true)}
