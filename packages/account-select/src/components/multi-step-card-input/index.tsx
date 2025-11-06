@@ -35,10 +35,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const [isCardNumberFocused, setIsCardNumberFocused] = useState<boolean>(false);
 
         const isShowExpiry = needExpiryDate && step >= 2 && validateCardNumber(cardNumber);
-        const isShowCvv =
-            needCvv &&
-            step >= 2 &&
-            validateCardNumber(cardNumber);
+        const isShowCvv = needCvv && step >= 2 && validateCardNumber(cardNumber);
 
         const { setError } = useAccountSelectContext();
 
