@@ -183,6 +183,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             labelView,
             stepper,
             rightAddons,
+            // useless prop because maskito
+            pattern,
             ...restProps
         },
         ref,
