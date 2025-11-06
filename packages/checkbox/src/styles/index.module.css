@@ -67,12 +67,55 @@
     margin-left: var(--gap-12);
 }
 
+.checkmarkAfter .content {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.checkmarkAfter .box {
+    margin-top: var(--gap-2);
+    margin-bottom: var(--gap-2);
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.customContent {
+    flex-grow: 1;
+    margin-left: var(--gap-12);
+}
+
+.checkmarkAfter .customContent {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .size-20 .content {
     margin-left: var(--gap-8);
 
     & .label {
         @mixin paragraph_component;
     }
+}
+
+.size-20 .checkmarkAfter .content {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.size-20 .customContent {
+    margin-left: var(--gap-8);
+}
+
+.size-20 .checkmarkAfter .customContent {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.size-20 .checkmarkAfter .box {
+    margin-top: var(--gap-2);
+    margin-bottom: var(--gap-2);
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .label {

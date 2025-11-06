@@ -141,7 +141,6 @@ export function useSelectWithApply({
             ),
         [options, selected, showSearch, filterGroup, filterFn, accessor, search, groupAccessor],
     );
-
     const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
 
     const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);
@@ -206,7 +205,6 @@ export function useSelectWithApply({
     const handleClose = () => setSelectedDraft(selectedOptionsRef.current);
 
     useEffect(() => {
-        // устанавливать selectedDraft если selectedOptions изменились
         if (!reactFastCompare(selectedOptionsRef.current, selectedOptions)) {
             setSelectedDraft(selectedOptions);
         }

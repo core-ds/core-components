@@ -250,7 +250,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                       role="option"
                                     >
                                       <div
-                                        class="checkmark"
+                                        class="checkmark before"
                                       >
                                         <svg
                                           class="displayIcon"
@@ -274,7 +274,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                         Neptunium
                                       </div>
                                       <div
-                                        class="checkmark"
+                                        class="checkmark after"
                                       >
                                         <svg
                                           class="displayIcon"
@@ -301,7 +301,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                       role="option"
                                     >
                                       <div
-                                        class="checkmark"
+                                        class="checkmark before"
                                       >
                                         <svg
                                           class="displayIcon"
@@ -325,7 +325,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                         Plutonium
                                       </div>
                                       <div
-                                        class="checkmark"
+                                        class="checkmark after"
                                       >
                                         <svg
                                           class="displayIcon"

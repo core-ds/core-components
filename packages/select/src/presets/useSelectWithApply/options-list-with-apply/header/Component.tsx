@@ -34,13 +34,6 @@ export const Header: React.FC<HeaderProps> = ({
         })}
     >
         <Checkbox
-            className={cn({
-                [styles.checkmarkBeforeContent]: checkmarkPosition === 'before',
-                [styles.checkmarkAfterContent]: checkmarkPosition === 'after',
-            })}
-            contentClassName={cn({
-                [styles.content]: checkmarkPosition === 'after',
-            })}
             block={true}
             indeterminate={indeterminate}
             size='m'
@@ -48,6 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
             checked={checked}
             label='Выбрать все'
             dataTestId={dataTestId}
+            position={checkmarkPosition}
         />
     </div>
 );

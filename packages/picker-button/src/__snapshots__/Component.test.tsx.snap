@@ -446,7 +446,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -478,7 +478,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -505,7 +505,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -537,7 +537,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -564,7 +564,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -596,7 +596,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -623,7 +623,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -655,7 +655,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -682,7 +682,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -714,7 +714,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -741,7 +741,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -773,7 +773,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -800,7 +800,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -832,7 +832,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -859,7 +859,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -891,7 +891,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -918,7 +918,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -950,7 +950,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -977,7 +977,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1009,7 +1009,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1036,7 +1036,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1068,7 +1068,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1095,7 +1095,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1127,7 +1127,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1154,7 +1154,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1186,7 +1186,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1213,7 +1213,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1245,7 +1245,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1272,7 +1272,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1304,7 +1304,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1560,7 +1560,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1592,7 +1592,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1619,7 +1619,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1651,7 +1651,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1678,7 +1678,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1710,7 +1710,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1737,7 +1737,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1769,7 +1769,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1796,7 +1796,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1828,7 +1828,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1855,7 +1855,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1887,7 +1887,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1914,7 +1914,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1946,7 +1946,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1973,7 +1973,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2005,7 +2005,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2032,7 +2032,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2064,7 +2064,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2091,7 +2091,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2123,7 +2123,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2150,7 +2150,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2182,7 +2182,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2209,7 +2209,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2241,7 +2241,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2268,7 +2268,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2300,7 +2300,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2327,7 +2327,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2359,7 +2359,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2386,7 +2386,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
+                                      class="checkmark before"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2418,7 +2418,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"

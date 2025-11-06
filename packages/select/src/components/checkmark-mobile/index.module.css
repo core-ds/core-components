@@ -15,11 +15,11 @@
     }
 
     &.before {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
     }
 
     &.after {
-        margin-left: var(--gap-xs);
+        margin-left: var(--gap-8);
     }
 }
 

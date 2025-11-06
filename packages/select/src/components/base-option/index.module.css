@@ -19,26 +19,6 @@
         color: var(--select-option-active-color);
     }
 
-    &.checkmarkBefore {
-        padding: var(--gap-0) var(--gap-0) var(--gap-0) var(--gap-12);
-
-        &.mobile {
-            padding-left: var(--gap-16);
-        }
-    }
-
-    &.checkmarkAfter.checkmarkAfter {
-        padding: var(--gap-0) var(--gap-12) var(--gap-0) var(--gap-0);
-
-        &.size-72 {
-            padding-right: var(--gap-16);
-        }
-
-        &.mobile {
-            padding-right: var(--gap-20);
-        }
-    }
-
     &.textContent {
         padding: var(--gap-12);
 
@@ -68,16 +48,4 @@
     cursor: var(--disabled-cursor);
     background: var(--select-option-disabled-background);
     color: var(--select-option-disabled-color);
-}
-
-.checkmarkBeforeContent {
-    margin-right: var(--gap-12);
-}
-
-.checkmarkAfterContent {
-    margin-left: var(--gap-12);
-}
-
-.content {
-    flex: 1;
 }
