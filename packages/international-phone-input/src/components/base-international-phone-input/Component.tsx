@@ -2,6 +2,7 @@ import React, {
     type ChangeEvent,
     forwardRef,
     type MouseEvent,
+    type RefAttributes,
     useEffect,
     useMemo,
     useRef,
@@ -11,6 +12,7 @@ import mergeRefs from 'react-merge-refs';
 import { maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
+import { type InputProps } from '@alfalab/core-components-input';
 import { type InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
 import { type AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
 import { type BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
@@ -55,7 +57,7 @@ export const BaseInternationalPhoneInput = forwardRef<
             open: openProps,
             defaultOpen,
             customCountriesList,
-            autoFill = true,
+            autoFill,
             ...restProps
         },
         ref,
@@ -205,16 +207,16 @@ export const BaseInternationalPhoneInput = forwardRef<
             />
         );
 
-        const inputProps = {
+        const inputProps: InputProps & RefAttributes<HTMLInputElement> = {
             className: styles.component,
             ref: mergeRefs([maskRef, ref, inputRef]),
             wrapperRef: inputWrapperRef,
             addonsClassName: styles.addons,
             type: 'tel',
-            autocomplete: autoFill ? 'tel' : undefined,
+            autoComplete: 'tel',
             clear: getClear(clearProp, clearableCountryCode, value, country?.countryCode),
             ...restProps.inputProps,
-        } as const;
+        };
 
         return Array.isArray(options) ? (
             <InputAutocomplete
