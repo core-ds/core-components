@@ -3,6 +3,6 @@
 '@alfalab/core-components': patch
 ---
 
-InternationalPhoneInput:
+##### InternationalPhoneInput:
 
 - Исправлено автозаполнение номера для Safari 26 в режиме `clearableCountryCode='preserve'`
