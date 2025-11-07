@@ -1,5 +1,31 @@
 # @alfalab/core-components
 
+## 49.9.0
+
+### Minor Changes
+
+<sup><time>07.11.2025</time></sup>
+
+#### [#1915](https://github.com/core-ds/core-components/pull/1915)
+
+- Добавлен опциональный проп headerContentClassName в BottomSheet для кастомизации хэдера
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.2.0
+    - @alfalab/core-components-select@18.2.2
+    - @alfalab/core-components-select-with-tags@9.0.5
+    - @alfalab/core-components-tooltip@8.0.5
+    - @alfalab/core-components-custom-picker-button@3.0.5
+    - @alfalab/core-components-input-autocomplete@13.0.5
+    - @alfalab/core-components-international-phone-input@3.2.2
+    - @alfalab/core-components-intl-phone-input@10.0.5
+    - @alfalab/core-components-picker-button@12.0.5
+    - @alfalab/core-components-table@3.0.5
+    - @alfalab/core-components-gallery@6.0.6
+    - @alfalab/core-components-tabs@9.2.2
+
 ## 49.8.0
 
 ### Minor Changes

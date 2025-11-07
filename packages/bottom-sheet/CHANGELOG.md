@@ -1,5 +1,15 @@
 # @alfalab/core-components-bottom-sheet
 
+## 7.2.0
+
+### Minor Changes
+
+<sup><time>07.11.2025</time></sup>
+
+#### [#1915](https://github.com/core-ds/core-components/pull/1915)
+
+- Добавлен опциональный проп headerContentClassName в BottomSheet для кастомизации хэдера
+
 ## 7.1.0
 
 ### Minor Changes
