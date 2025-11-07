@@ -206,6 +206,14 @@ describe('Bottom sheet', () => {
             expect(document.body.querySelector(`.${className}`)).toBeInTheDocument();
         });
 
+        it('should set headerContentClassName', () => {
+            const className = 'class-name-4';
+
+            render(<BottomSheetWrapper headerContentClassName={className} />);
+
+            expect(document.body.querySelector(`.${className}`)).toBeInTheDocument();
+        });
+
         it('should set z-index', () => {
             const zIndex = 9999;
 
