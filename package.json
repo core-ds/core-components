@@ -69,7 +69,7 @@
         "react-scripts/resolve-url-loader": "^5.0.0"
     },
     "devDependencies": {
-        "@alfalab/icons-glyph": "^2.247.0",
+        "@alfalab/icons-glyph": "^2.260.0",
         "@alfalab/lint-preset": "^1.0.0",
         "@changesets/cli": "^2.29.7",
         "@changesets/get-github-info": "^0.5.1",
