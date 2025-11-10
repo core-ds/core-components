@@ -36,7 +36,9 @@
     --gap-0: 0px;
     --gap-2: var(--gap-3xs);
     --gap-4: var(--gap-2xs);
+    --gap-6: 6px;
     --gap-8: var(--gap-xs);
+    --gap-10: 10px;
     --gap-12: var(--gap-s);
     --gap-16: var(--gap-m);
     --gap-20: var(--gap-l);
