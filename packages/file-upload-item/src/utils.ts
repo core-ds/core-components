@@ -7,3 +7,4 @@ export const isSuccessStatus = (status?: FileUploadItemStatus) => status === 'SU
 export const isErrorStatus = (status?: FileUploadItemStatus) => status === 'ERROR';
 export const isUploadingStatus = (status?: FileUploadItemStatus) => status === 'UPLOADING';
 export const isUploadedStatus = (status?: FileUploadItemStatus) => status === 'UPLOADED';
+export const isLoadingStatus = (status?: FileUploadItemStatus) => status === 'LOADING';

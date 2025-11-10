@@ -6,6 +6,8 @@ import { type BaseModalProps } from '@alfalab/core-components-base-modal';
 import { type NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
 import { type BackgroundColorType } from '@alfalab/core-components-types';
 
+export type ColorType = 'default' | 'inverted';
+
 export type BottomSheetTitleAlign = 'center' | 'left';
 
 export type BottomSheetProps = {
@@ -84,6 +86,11 @@ export type BottomSheetProps = {
      * Дополнительный класс шапки
      */
     headerClassName?: string;
+
+    /**
+     * Дополнительный класс для контента шапки
+     */
+    headerContentClassName?: string;
 
     /**
      * Дополнительный класс футера
@@ -361,4 +368,10 @@ export type BottomSheetProps = {
      * Учитывать высоту виртуальной клавиатуры
      */
     virtualKeyboard?: boolean;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
 };
