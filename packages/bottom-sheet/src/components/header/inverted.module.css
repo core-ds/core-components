@@ -1,0 +1,18 @@
+@import '../../../../vars/src/index.css';
+@import '../../vars.css';
+
+.title {
+    color: var(--bottom-sheet-text-color-inverted);
+}
+
+.hasContent {
+    background-color: inherit;
+}
+
+.subtitle {
+    color: var(--bottom-sheet-text-color-inverted);
+}
+
+.highlighted {
+    border-bottom: var(--bottom-sheet-header-border-bottom-inverted);
+}
