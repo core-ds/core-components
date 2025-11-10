@@ -1,5 +1,23 @@
 # @alfalab/core-components-file-upload-item
 
+## 7.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-view@4.0.1
+
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>29.09.2025</time></sup>
+
+#### [#1861](https://github.com/core-ds/core-components/pull/1861)
+
+- Реализована анимация прогресса загрузки для режима с неизвестным прогрессом
+- Добавлен новый props `progressBarAvailable` для возможности включения/отключения ProgressBar
+
 ## 7.0.2
 
 ### Patch Changes

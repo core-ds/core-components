@@ -27,7 +27,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component text size-48 hug size-48 component text component text component"
+                class="component text size-48 hug size-48 component text component text component component"
                 type="button"
               >
                 <span
@@ -53,7 +53,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
                       </svg>
                     </div>
                     <span
-                      class="text primary-large medium"
+                      class="text text primary-large medium"
                       style="opacity: 1;"
                     >
                       Назад
@@ -161,7 +161,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component text size-32 hug size-32 component text component text component mobileComponent"
+                class="component text size-32 hug size-32 component text component text component component mobileComponent"
                 type="button"
               >
                 <span
@@ -187,7 +187,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
                       </svg>
                     </div>
                     <span
-                      class="text component medium"
+                      class="text text component medium"
                       style="opacity: 1;"
                     >
                       Назад

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-file-upload-item-v1",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -11,7 +11,7 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-icon-button": "^7.0.1",
-        "@alfalab/core-components-link": "^6.0.0",
+        "@alfalab/core-components-link": "^6.1.0",
         "@alfalab/core-components-shared": "^1.1.0",
         "@alfalab/core-components-spinner": "^5.0.1",
         "@alfalab/icons-glyph": "^2.260.0",
@@ -26,6 +26,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.2",
-    "varsVersion": "10.1.0"
+    "themesVersion": "14.1.3",
+    "varsVersion": "10.1.1"
 }

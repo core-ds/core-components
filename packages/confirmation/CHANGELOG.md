@@ -1,5 +1,12 @@
 # @alfalab/core-components-confirmation
 
+## 14.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-link@6.1.0
+
 ## 14.1.0
 
 ### Minor Changes

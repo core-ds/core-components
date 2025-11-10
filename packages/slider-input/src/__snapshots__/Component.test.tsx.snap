@@ -3,7 +3,7 @@
 exports[`SliderInput should match snapshot 1`] = `
 <div>
   <div
-    class="component size-48"
+    class="component bold size-48"
   >
     <div
       class="component component input size-48 size-48 block"

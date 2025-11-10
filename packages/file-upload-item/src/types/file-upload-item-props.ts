@@ -128,6 +128,12 @@ export type FileUploadItemProps = {
     progressBar?: number;
 
     /**
+     * Шкала прогресса
+     * @default true
+     */
+    progressBarAvailable?: boolean;
+
+    /**
      * Кастомный контент
      */
     customContent?: ElementType;

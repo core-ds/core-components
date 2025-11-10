@@ -1,5 +1,22 @@
 # @alfalab/core-components-universal-modal
 
+## 2.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.0
+
+## 2.0.4
+
+### Patch Changes
+
+<sup><time>29.09.2025</time></sup>
+
+#### [#1894](https://github.com/core-ds/core-components/pull/1894)
+
+- Исправлена типизация для `disableFocusLock` пропса
+
 ## 2.0.3
 
 ### Patch Changes
