@@ -36,11 +36,11 @@
     align-items: center;
 
     &:first-child {
-        margin-right: 6px;
+        margin-right: var(--gap-6);
     }
 
     &:last-child {
-        margin-left: 6px;
+        margin-left: var(--gap-6);
     }
 
     &:only-child {
