@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 import { type MutableRefObject } from 'react';
 import { type MaskitoOptions, type MaskitoPlugin } from '@maskito/core';
 
@@ -205,10 +206,7 @@ function createMaskitoAutofillPlugin(
         let { value } = element;
 
         const handleInput = () => {
-            if (
-                element.value === '' /* iOS 26 */ ||
-                element.value.indexOf('+') === -1 /* iOS {17,18} */
-            ) {
+            if (element.value.indexOf('+') === -1 && /^\+\d+/.test(value)) {
                 // eslint-disable-next-line no-param-reassign
                 beforeAutofillValueRef.current = value;
             }
