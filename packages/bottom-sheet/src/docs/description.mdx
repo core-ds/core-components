@@ -85,7 +85,7 @@ render(() => {
 
     return (
         <Container>
-            <ButtonMobile type='button' size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile type='button' size='48' onClick={handleOpen} block={true}>
                 Показать анатомию
             </ButtonMobile>
             <BottomSheet
@@ -108,7 +108,7 @@ render(() => {
 Ниже представлены самые популярные кейсы настройки шторки.
 
 ```jsx live mobileHeight={640} mobileOnly
-const Text = ({ onClose }) => (
+const Text = ({ colors, onClose }) => (
     <>
         <Typography.Text tag='p'>
             В 2001 году в России начал действовать Федеральный закон №115 «О противодействии
@@ -116,9 +116,11 @@ const Text = ({ onClose }) => (
             закона банки могут блокировать карты, отказывать в проведении сомнительных операций,
             ограничить доступ в интернет-банк или запрашивать документы, если по операции клиента
             возникли подозрения.{' '}
-            <Link onClick={onClose}>Нажмите сюда, чтобы закрыть шторку без крестика</Link>
+            <Link colors={colors} onClick={onClose}>
+                Нажмите сюда, чтобы закрыть шторку без крестика
+            </Link>
         </Typography.Text>
-        <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+        <Collapse colors={colors} collapsedLabel='Подробнее' expandedLabel='Скрыть'>
             <Typography.Text tag='p'>
                 Требования 115-ФЗ и связанных с ним документов Банка России часто меняются,
                 предприниматели не всегда успевают за ними следить. Последствия нарушений
@@ -200,6 +202,14 @@ render(() => {
         MECHANICS_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),
     );
 
+    const [themeSettings, setThemeSettings] = React.useState(() => ({
+        inverted: false,
+    }));
+
+    const colors = themeSettings.inverted ? 'inverted' : 'default';
+
+    const [backgroundColorSelected, setBackgroundColor] = React.useState('primary');
+
     const showHeader =
         headerViewSelected !== HEADER_SELECT_OPTIONS[0].key ||
         headerSettings.hasCloser ||
@@ -212,6 +222,8 @@ render(() => {
             ...headerSettings,
             ...mechanics,
             ...footerSettings,
+            ...themeSettings,
+            backgroundColor: backgroundColorSelected,
         })}-${headerViewSelected}-${footerViewSelected}`;
 
     const handleOpen = () => setOpen(true);
@@ -230,9 +242,13 @@ render(() => {
         setMechanics((prevState) => ({ ...prevState, [name]: checked }));
     };
 
+    const handleThemeChange = (_, { name, checked }) => {
+        setThemeSettings((prevState) => ({ ...prevState, [name]: checked }));
+    };
+
     return (
         <Container>
-            <ButtonMobile size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile size='48' onClick={handleOpen} block={true}>
                 Показать шторку
             </ButtonMobile>
 
@@ -255,7 +271,6 @@ render(() => {
                 {HEADER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={headerSettings[item.name]}
@@ -270,7 +285,6 @@ render(() => {
                 onChange={handleHeaderSettingsChange}
             >
                 <Switch
-                    size='m'
                     label='Заголовок в контентной области'
                     name='titleInContent'
                     checked={headerSettings.titleInContent}
@@ -296,7 +310,6 @@ render(() => {
                 {FOOTER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={footerSettings[item.name]}
@@ -310,13 +323,33 @@ render(() => {
                 {MECHANICS_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={mechanics[item.name]}
                     />
                 ))}
             </CheckboxGroup>
+
+            <Gap size='32' />
+
+            <CheckboxGroup label='Инверсия' onChange={handleThemeChange}>
+                <Switch
+                    label='Инвертировать цвета'
+                    name='inverted'
+                    checked={themeSettings.inverted}
+                />
+            </CheckboxGroup>
+
+            <Gap size='16' />
+
+            <RadioGroup
+                label='Цвет шторки'
+                value={backgroundColorSelected}
+                onChange={(_, { value }) => setBackgroundColor(value)}
+            >
+                <Radio size='24' label='Primary' value='primary' />
+                <Radio size='24' label='Alt-primary' value='secondary' />
+            </RadioGroup>
 
             <BottomSheet
                 open={open}
@@ -367,6 +400,8 @@ render(() => {
                 swipeable={mechanics.swipeable}
                 showSwipeMarker={false}
                 initialHeight={mechanics.adaptive ? 'default' : 'full'}
+                colors={colors}
+                backgroundColor={backgroundColorSelected}
                 actionButton={
                     showFooter ? (
                         <div
@@ -379,7 +414,8 @@ render(() => {
                             {footerSettings.hasSecondaryButton && (
                                 <ButtonMobile
                                     view='secondary'
-                                    size='m'
+                                    colors={colors}
+                                    size='56'
                                     onClick={handleClose}
                                     block={true}
                                 >
@@ -395,7 +431,8 @@ render(() => {
                             {footerSettings.hasPrimaryButton && (
                                 <ButtonMobile
                                     view='primary'
-                                    size='m'
+                                    colors={colors}
+                                    size='56'
                                     onClick={handleClose}
                                     block={true}
                                 >
@@ -415,7 +452,7 @@ render(() => {
                     </>
                 ) : undefined}
 
-                <Text onClose={handleClose} />
+                <Text onClose={handleClose} colors={colors} />
             </BottomSheet>
         </Container>
     );
@@ -475,7 +512,7 @@ render(() => {
 
     return (
         <Container>
-            <ButtonMobile size='s' onClick={handleOpen} block={true}>
+            <ButtonMobile size='48' onClick={handleOpen} block={true}>
                 Показать шторку
             </ButtonMobile>
 
@@ -492,7 +529,7 @@ render(() => {
                 showSwipeMarker={false}
                 actionButton={
                     <ButtonMobile
-                        size='m'
+                        size='56'
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose
@@ -607,7 +644,7 @@ render(() => {
         >
             <ButtonMobile
                 view={isNotLastAreaWithExtTrigger ? 'accent' : 'secondary'}
-                size='s'
+                size='48'
                 onClick={openWithExternalTrigger ? magnetizeToLastArea : handleOpen}
                 block={true}
             >

@@ -1,5 +1,25 @@
 # @alfalab/core-components-input-autocomplete
 
+## 13.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.2
+
+## 13.0.4
+
+### Patch Changes
+
+<sup><time>05.11.2025</time></sup>
+
+#### [#1923](https://github.com/core-ds/core-components/pull/1923)
+
+- Добавлена инверсия BottomSheet через props `colors`
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.1
+
 ## 13.0.3
 
 ### Patch Changes
