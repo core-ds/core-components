@@ -1,5 +1,22 @@
 # @alfalab/core-components-vars
 
+## 11.0.0-next.0
+
+### Major Changes
+
+<sup><time>11.11.2025</time></sup>
+
+#### [#1529](https://github.com/core-ds/core-components/pull/1529)
+
+Удалён deprecated набор цветов colors-transparent.css
+Если в вашем проекте используется данная палитра, воспользуйтесь кодмодом `50-replace-transparent-color-vars`
+
+<sup><time>11.11.2025</time></sup>
+
+#### [#1639](https://github.com/core-ds/core-components/pull/1639)
+
+- Удалён deprecated набор цветов colors.css
+
 ## 10.1.1
 
 ### Patch Changes
