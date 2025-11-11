@@ -1,4 +1,15 @@
-import { createPreview } from '@alfalab/core-components-screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createStorybookUrl,
+    createPreview,
+} from '@alfalab/core-components-screenshot-utils';
+
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
+});
 
 describe('UniversalDateInput', () =>
     createPreview(
@@ -18,3 +29,37 @@ describe('UniversalDateInput', () =>
             viewport: { width: 1024, height: 600 },
         },
     ));
+
+describe('UniversalDateInput | calendar popover', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme — desktop calendar popover`,
+                    createStorybookUrl({
+                        packageName: 'universal-date-input',
+                        componentName: 'UniversalDateInputDesktopCalendarPopover',
+                        knobs: {
+                            view: 'date',
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme — mobile calendar popover`,
+                    createStorybookUrl({
+                        packageName: 'universal-date-input',
+                        componentName: 'UniversalDateInputMobileCalendarPopover',
+                        knobs: {
+                            view: 'date',
+                        },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['default', 'site', 'corp'].forEach((theme) => testCase(theme));
+});

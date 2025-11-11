@@ -1,4 +1,3 @@
 @define-mixin universal-date-input-corp {
-    /* border */
-    --calendar-popover-border-radius: var(--border-radius-12);
+    --calendar-popover-border-radius: var(--border-radius-16);
 }

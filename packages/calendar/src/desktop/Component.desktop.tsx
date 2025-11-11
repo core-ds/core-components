@@ -187,6 +187,12 @@ export type CalendarDesktopProps = {
     hideDisabledArrows?: boolean;
 
     /**
+     * Применяет стили контейнера (border-radius, border, box-shadow)
+     * @default true
+     */
+    hasContainerStyles?: boolean;
+
+    /**
      * CalendarDesktop используется в мобильной и десктопной версии
      * Пропс позволяет определить платформу
      */
@@ -226,6 +232,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             shape = 'rounded',
             showCurrentYearSelector = false,
             hideDisabledArrows = true,
+            hasContainerStyles = true,
             mobile,
         },
         ref,
@@ -381,6 +388,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                 className={cn('cc-calendar', styles.component, className, {
                     [styles.sixWeeks]: weeks.length === 6,
                     [styles.responsive]: responsive,
+                    [styles.hasContainerStyles]: hasContainerStyles,
                 })}
                 data-test-id={dataTestId}
             >

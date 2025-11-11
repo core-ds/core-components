@@ -301,6 +301,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                                 : maxDate &&
                                   max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()
                         }
+                        hasContainerStyles={false}
                         {...rangeProps}
                     />
                 </div>
@@ -340,6 +341,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                                 : minDate && startOfMonth(addMonths(minDate, 1)).getTime()
                         }
                         maxDate={maxDate}
+                        hasContainerStyles={false}
                         {...rangeProps}
                     />
                 </div>
