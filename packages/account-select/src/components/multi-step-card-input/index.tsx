@@ -233,7 +233,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                     {isShowCvv && (
                         <input
                             ref={cvvRefCallback}
-                            type='password'
+                            type='text'
                             value={cardCvv || ''}
                             onInput={handleCvvChange}
                             onBlur={handleCvvBlur}

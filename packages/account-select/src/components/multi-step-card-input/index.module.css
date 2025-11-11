@@ -36,6 +36,11 @@
 
 .cvvInput {
     width: 4ch;
+
+    &:not(:placeholder-shown) {
+        font-family: 'text-security-disc';
+        -webkit-text-security: disc;
+    }
 }
 
 .multistepCardInputWrapper {

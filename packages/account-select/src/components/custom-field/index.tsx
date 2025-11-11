@@ -7,8 +7,6 @@ import { Field, type FieldProps, type OptionShape } from '@alfalab/core-componen
 import { ADD_CARD_KEY } from '../../constants';
 import { MultiStepCardInput } from '../multi-step-card-input';
 
-import styles from './index.module.css';
-
 export interface CustomFieldProps extends FieldProps {
     view?: 'desktop' | 'mobile';
 }
@@ -65,7 +63,6 @@ export const CustomField = ({
             selected={selected}
             innerProps={innerProps}
             leftAddons={selected ? undefined : leftAddons}
-            addonsClassName={styles.leftAddon}
             {...restProps}
             valueRenderer={fieldRenderer}
         />
