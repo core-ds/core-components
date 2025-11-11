@@ -2,7 +2,6 @@
 @import '../../vars.css';
 
 .input {
-    @mixin paragraph_component;
     position: relative;
     display: block;
     width: 100%;
@@ -16,7 +15,6 @@
     -webkit-appearance: none;
 
     &.size-40 {
-        @mixin paragraph_component_secondary;
         padding: var(--gap-0) var(--gap-8);
     }
 
@@ -26,11 +24,6 @@
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-        &:first-line {
-            @mixin paragraph_component;
-            font-family: var(--form-control-font-family);
-        }
-
         /* Hack from http://stackoverflow.com/a/29350537 */
         transition: background-color 999999s ease-in-out 0s;
     }

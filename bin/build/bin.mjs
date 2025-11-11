@@ -9,13 +9,13 @@ import { readPackagesFile } from '../../tools/read-packages-file.cjs';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
- *
  * @param {string[]} args
  */
 async function main(args) {
-    await $('yarn', ['clean']);
-
     const CSS_PACKAGES = await readPackagesFile(path.join(cwd(), 'tools/.css-packages'));
+    const THEME_PACKAGES = await readPackagesFile(path.join(cwd(), 'tools/.theme-packages'));
+
+    await $('yarn', ['clean']);
 
     await $('lerna', [
         'exec',
@@ -82,7 +82,14 @@ async function main(args) {
         'rollup',
         '-c',
         path.resolve(cwd(), 'tools/rollup/rollup.config.mjs'),
-        '--silent',
+    ]);
+
+    await $('lerna', [
+        'exec',
+        ...THEME_PACKAGES.flatMap((pkg) => ['--scope', pkg]),
+        '--',
+        'node',
+        path.resolve(cwd(), 'bin/build-theme.mjs'),
     ]);
 
     await $('lerna', [

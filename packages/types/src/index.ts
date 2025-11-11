@@ -197,3 +197,97 @@ export type Country = {
     priority: number;
     mainCode?: boolean;
 };
+
+interface CoreComponentsTypographyStyle {
+    accentCaps: string;
+    accentComponentPrimary: string;
+    accentComponentSecondary: string;
+    accentPrimaryLarge: string;
+    accentPrimaryMedium: string;
+    accentPrimarySmall: string;
+    accentSecondaryLarge: string;
+    accentSecondaryMedium: string;
+    accentSecondarySmall: string;
+    accentTagline: string;
+    actionCaps: string;
+    actionComponentPrimary: string;
+    actionComponentSecondary: string;
+    actionPrimaryLarge: string;
+    actionPrimaryMedium: string;
+    actionPrimarySmall: string;
+    actionSecondaryLarge: string;
+    actionSecondaryMedium: string;
+    actionSecondarySmall: string;
+    actionTagline: string;
+    headlineLarge: string;
+    headlineMedium: string;
+    headlineSmall: string;
+    headlineXlarge: string;
+    headlineXsmall: string;
+    headlineMobileLarge: string;
+    headlineMobileMedium: string;
+    headlineMobileSmall: string;
+    headlineMobileXlarge: string;
+    headlineMobileXsmall: string;
+    headlineSystemLarge: string;
+    headlineSystemMedium: string;
+    headlineSystemSmall: string;
+    headlineSystemXlarge: string;
+    headlineSystemXsmall: string;
+    headlineSystemMobileLarge: string;
+    headlineSystemMobileMedium: string;
+    headlineSystemMobileSmall: string;
+    headlineSystemMobileXlarge: string;
+    headlineSystemMobileXsmall: string;
+    keyLarge: string;
+    keyMedium: string;
+    keySmall: string;
+    keyXlarge: string;
+    keyXsmall: string;
+    paragraphCaps: string;
+    paragraphComponentPrimary: string;
+    paragraphComponentSecondary: string;
+    paragraphPrimaryLarge: string;
+    paragraphPrimaryMedium: string;
+    paragraphPrimarySmall: string;
+    paragraphSecondaryLarge: string;
+    paragraphSecondaryMedium: string;
+    paragraphSecondarySmall: string;
+    paragraphTagline: string;
+    promoLarge: string;
+    promoMedium: string;
+    promoSmall: string;
+    promoXlarge: string;
+    promoXsmall: string;
+    promoMobileLarge: string;
+    promoMobileMedium: string;
+    promoMobileSmall: string;
+    promoMobileXlarge: string;
+    promoMobileXsmall: string;
+    promoSystemLarge: string;
+    promoSystemMedium: string;
+    promoSystemSmall: string;
+    promoSystemXlarge: string;
+    promoSystemXsmall: string;
+    promoSystemMobileLarge: string;
+    promoSystemMobileMedium: string;
+    promoSystemMobileSmall: string;
+    promoSystemMobileXlarge: string;
+    promoSystemMobileXsmall: string;
+    /**
+     * @deprecated Используйте {@link CoreComponentsTypographyStyle.accentComponentPrimary}
+     */
+    accentComponent: string;
+    /**
+     * @deprecated Используйте {@link CoreComponentsTypographyStyle.actionComponentPrimary}
+     */
+    actionComponent: string;
+    /**
+     * @deprecated Используйте {@link CoreComponentsTypographyStyle.paragraphComponentPrimary}
+     */
+    paragraphComponent: string;
+}
+
+export interface TypographyStyle
+    extends Record<string, string | undefined>,
+        CoreComponentsTypographyStyle {}
