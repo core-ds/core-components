@@ -281,11 +281,23 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             (event: React.MouseEvent<HTMLButtonElement>) => {
                 onClear?.(event);
 
+                const newValue = null;
+                const newFormattedValue = getFormattedAmount(newValue);
+
+                // Обновляем оба состояния
+                setInputValue(newFormattedValue);
+
                 if (!controlled) {
-                    setNumberValue(null);
+                    setNumberValue(newValue);
                 }
+
+                // Вызываем onChange с очищенными значениями
+                onChange?.(null, {
+                    value: newValue,
+                    valueString: newFormattedValue,
+                });
             },
-            [controlled, onClear],
+            [controlled, onClear, onChange, getFormattedAmount],
         );
 
         const handleDecrement = () => {
