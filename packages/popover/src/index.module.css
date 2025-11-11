@@ -46,7 +46,7 @@
     right: 5px;
 
     &:after {
-        top: -var(--gap-6);
+        top: var(--gap-6-neg);
         border-bottom: none;
         border-left: none;
     }
@@ -58,7 +58,7 @@
     left: -7px;
 
     &:after {
-        top: -var(--gap-6);
+        top: var(--gap-6-neg);
         border-top: none;
         border-right: none;
     }
@@ -70,7 +70,7 @@
     bottom: 5px;
 
     &:after {
-        left: -var(--gap-6);
+        left: var(--gap-6-neg);
         border-top: none;
         border-left: none;
     }
@@ -82,7 +82,7 @@
     top: -7px;
 
     &:after {
-        left: -var(--gap-6);
+        left: var(--gap-6-neg);
         border-bottom: none;
         border-right: none;
     }
