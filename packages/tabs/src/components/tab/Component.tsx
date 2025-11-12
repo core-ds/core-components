@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { type AriaAttributes } from 'react';
 import cn from 'classnames';
-
-import { extractAriaProps } from '@alfalab/core-components-shared/extract-aria-props';
 
 import { type TabProps } from '../../typings';
 
@@ -13,6 +11,10 @@ export const Tab = ({
     className,
     disabled,
     dataTestId,
+    // useless props
+    id,
+    title,
+    rightAddons,
     ...restProps
 }: TabProps) =>
     children ? (
@@ -28,7 +30,7 @@ export const Tab = ({
             role='tabpanel'
             tabIndex={disabled ? -1 : 0}
             data-test-id={dataTestId}
-            {...extractAriaProps(restProps)}
+            {...(restProps as AriaAttributes)}
         >
             {children}
         </div>

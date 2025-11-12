@@ -269,24 +269,38 @@ describe('Tabs', () => {
             expect(tabElement).toHaveAttribute('aria-selected', 'true');
         });
 
-        it('<Tab> should not render <Title> attributes', () => {
-            render(
-                <Tab
-                    dataTestId='tab'
-                    title='Таб 1'
-                    id='tab-1'
-                    rightAddons='addon'
-                    aria-label='test-aria-label'
-                    aria-selected={true}
-                >
-                    Таб 1
-                </Tab>,
-            );
+        describe('should not render useless attributes', () => {
+            const renderTab = () => {
+                render(
+                    <Tab
+                        dataTestId='tab'
+                        title='Таб 1'
+                        id='tab-1'
+                        rightAddons='addon'
+                        aria-label='test-aria-label'
+                        aria-selected={true}
+                    >
+                        Таб 1
+                    </Tab>,
+                );
 
-            const tabElement = screen.getByTestId('tab');
+                return screen.getByTestId('tab');
+            };
 
-            expect(tabElement.hasAttribute('title')).toBe(false);
-            expect(tabElement.hasAttribute('rightAddons')).toBe(false);
+            it('<Tab> should not render "title" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('title')).toBe(false);
+            });
+
+            it('<Tab> should not render "rightAddons" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('rightAddons')).toBe(false);
+            });
+
+            it('<Tab> should not render "id" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('id')).toBe(false);
+            });
         });
     });
 });
