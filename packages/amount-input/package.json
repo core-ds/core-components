@@ -16,11 +16,7 @@
         "@alfalab/core-components-with-suffix": "^5.0.2",
         "@alfalab/data": "^1.9.2",
         "@alfalab/utils": "^1.18.0",
-        "@maskito/core": "^3.10.3",
-        "@maskito/kit": "^3.10.3",
-        "@maskito/react": "^3.10.3",
         "classnames": "^2.5.1",
-        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
