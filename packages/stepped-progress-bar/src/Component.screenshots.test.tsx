@@ -83,9 +83,9 @@ describe(
                         step: 2,
                         maxStep: 4,
                         view: [
-                            '--color-light-accent-primary',
+                            { background: 'var(--color-light-accent-primary)' },
                             'positive',
-                            '--color-light-accent-secondary',
+                            { background: 'var(--color-light-accent-secondary)' },
                             'negative',
                         ],
                         description: 'Выбор карты',

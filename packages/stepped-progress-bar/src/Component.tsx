@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { Text } from '@alfalab/core-components-typography';
 
 import { StepBar } from './components/step-bar';
-import { type SteppedProgressBarView } from './types';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -14,6 +13,18 @@ const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
 };
+
+type SteppedProgressBarView =
+    | 'positive'
+    | 'negative'
+    | 'attention'
+    | 'link'
+    | 'tertiary'
+    | 'secondary'
+    | 'primary'
+    | 'accent';
+
+type CustomProgressBarView = { background: string };
 
 export interface SteppedProgressBarProps {
     /**
@@ -34,7 +45,10 @@ export interface SteppedProgressBarProps {
     /**
      * Цвет заполнения
      */
-    view?: SteppedProgressBarView | SteppedProgressBarView[] | string | string[];
+    view?:
+        | SteppedProgressBarView
+        | Array<SteppedProgressBarView | CustomProgressBarView>
+        | CustomProgressBarView;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -62,7 +76,7 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
     className,
 }) => {
     const validMaxSteps = Math.max(1, maxStep);
-    const isViewString = typeof view === 'string';
+    const isViewArray = Array.isArray(view);
     const currentColors = colorStyles[colors];
 
     return (
@@ -72,7 +86,7 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
                     <StepBar
                         key={index}
                         isDone={index < step}
-                        view={isViewString ? view : view?.[index]}
+                        view={isViewArray ? view[index] : view}
                         classNameStep={currentColors.bar}
                     />
                 ))}

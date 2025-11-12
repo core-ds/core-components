@@ -77,7 +77,7 @@ describe('SteppedProgressBar', () => {
                 <SteppedProgressBar
                     step={1}
                     maxStep={2}
-                    view='var(--color-light-accent-primary)'
+                    view={{ background: 'var(--color-light-accent-primary)' }}
                 />,
             );
 
@@ -92,9 +92,9 @@ describe('SteppedProgressBar', () => {
                     maxStep={4}
                     view={[
                         'positive',
-                        'var(--color-light-accent-primary)',
-                        '#fff',
-                        'rgb(255, 255, 255)',
+                        { background: 'var(--color-light-accent-primary)' },
+                        { background: '#fff' },
+                        { background: 'rgb(255, 255, 255)' },
                     ]}
                 />,
             );
@@ -132,7 +132,7 @@ describe('SteppedProgressBar', () => {
                 ${'transparent'}                       | ${'transparent keyword'}
             `('should apply $description color through style', ({ color }) => {
                 const { container } = render(
-                    <SteppedProgressBar step={1} maxStep={2} view={color} />,
+                    <SteppedProgressBar step={1} maxStep={2} view={{ background: color }} />,
                 );
 
                 const firstBar = container.querySelector('[data-test-id="on"]');
@@ -166,7 +166,7 @@ describe('SteppedProgressBar', () => {
 
         it('should not apply custom color for inactive steps', () => {
             const { container } = render(
-                <SteppedProgressBar step={1} maxStep={3} view='#ff0000' />,
+                <SteppedProgressBar step={1} maxStep={3} view={{ background: '#ff0000' }} />,
             );
 
             const bars = container.querySelectorAll('[data-test-id="off"]');
@@ -181,7 +181,13 @@ describe('SteppedProgressBar', () => {
                 <SteppedProgressBar
                     step={5}
                     maxStep={5}
-                    view={['positive', 'negative', '#fff', 'attention', 'rgb(0,0,0)']}
+                    view={[
+                        'positive',
+                        'negative',
+                        { background: '#fff' },
+                        'attention',
+                        { background: 'rgb(0,0,0)' },
+                    ]}
                 />,
             );
 
