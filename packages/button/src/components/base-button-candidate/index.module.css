@@ -1,0 +1,54 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+.component {
+    @mixin reset-tap-highlight-color;
+
+    display: inline-flex;
+    vertical-align: middle;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    position: relative;
+
+    transition:
+        background 0.2s ease,
+        border 0.2s ease,
+        color 0.2s ease;
+
+    /* Block */
+
+    &.block {
+        display: flex;
+        width: 100%;
+    }
+
+    /* Focus */
+
+    &.focused {
+        @mixin focus-outline;
+    }
+
+    /* Loading */
+
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+    }
+
+    &.loading > *:not(.loader) {
+        opacity: 0;
+    }
+
+    /* Disabled */
+
+    @mixin disabled {
+        cursor: var(--disabled-cursor);
+
+        & * {
+            pointer-events: none;
+        }
+    }
+}

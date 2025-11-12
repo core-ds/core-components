@@ -119,3 +119,16 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+@define-mixin disabled {
+    &:disabled,
+    &.disabled {
+        @mixin-content;
+    }
+}
+
+@define-mixin not-disabled {
+    &:not(:disabled):not(.disabled) {
+        @mixin-content;
+    }
+}

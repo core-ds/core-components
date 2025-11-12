@@ -18,7 +18,7 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
           >
             <button
               aria-label="назад"
-              class="component text size-48 hug size-48 component text component text component component"
+              class="component component component component component text text text size-48 hug size-48 component component component"
               data-test-id="navigation-bar-dti-back-button"
               type="button"
             >
@@ -66,30 +66,26 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="закрыть"
-                class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component border-48"
+                class="component cc-icon-button button button primary component border-48 component"
                 data-test-id="navigation-bar-dti-closer"
                 type="button"
               >
                 <span
-                  class="label stretchText"
+                  class="iconWrapper size-48 center"
                 >
-                  <span
-                    class="iconWrapper size-48 center"
+                  <svg
+                    class="icon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
                   >
-                    <svg
-                      class="icon"
-                      fill="currentColor"
-                      focusable="false"
-                      height="24"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="24"
-                    >
-                      <path
-                        d="M10 12L3 5.5 5.25 3 12 9.5 18.75 3 21 5.5 14 12l7 6.5-2.25 2.5L12 14.5 5.25 21 3 18.5l7-6.5z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M10 12L3 5.5 5.25 3 12 9.5 18.75 3 21 5.5 14 12l7 6.5-2.25 2.5L12 14.5 5.25 21 3 18.5l7-6.5z"
+                    />
+                  </svg>
                 </span>
               </button>
             </div>

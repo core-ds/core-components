@@ -1,20 +1,20 @@
-import React, { type ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 import cn from 'classnames';
 
-import { ButtonMobile, type ButtonMobileProps } from '@alfalab/core-components-button/mobile';
+import { BaseButtonCandidate } from '@alfalab/core-components-button/components/base-button-candidate';
 
 import styles from './index.module.css';
 
-export type KeyPadButtonProps<T> = {
+export type KeyPadButtonProps = {
     /**
      * Вид кнопки.
      */
-    view: ButtonMobileProps['view'];
+    view: 'secondary' | 'text';
 
     /**
      * Значение.
      */
-    children: T;
+    children?: ReactNode;
 
     /**
      * Дополнительный класс.
@@ -29,7 +29,7 @@ export type KeyPadButtonProps<T> = {
     /**
      * Коллбэк нажатия на кнопку.
      */
-    onClick?: (payload: T) => void;
+    onClick?: () => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования.
@@ -37,24 +37,18 @@ export type KeyPadButtonProps<T> = {
     dataTestId?: string;
 };
 
-export function KeyPadButton<T extends ReactNode>({
-    children,
-    onClick,
-    className,
+export const KeyPadButton: FC<KeyPadButtonProps> = ({
     view = 'secondary',
     buttonClassName,
+    children,
     dataTestId,
-}: KeyPadButtonProps<T>) {
-    return (
-        <div className={cn(styles.component, className)}>
-            <ButtonMobile
-                className={cn(styles.button, styles[view], buttonClassName)}
-                view={view}
-                onClick={() => onClick?.(children)}
-                dataTestId={dataTestId}
-            >
-                {children}
-            </ButtonMobile>
-        </div>
-    );
-}
+    onClick,
+}) => (
+    <BaseButtonCandidate
+        className={cn(styles.component, styles[view], buttonClassName)}
+        onClick={onClick}
+        dataTestId={dataTestId}
+    >
+        {children}
+    </BaseButtonCandidate>
+);

@@ -1,25 +1,27 @@
 @import '../vars.css';
 
-.size-32 {
-    border-radius: var(--button-xxs-size-border-radius);
-}
+.component {
+    &.size-32 {
+        border-radius: var(--button-xxs-size-border-radius);
+    }
 
-.size-40 {
-    border-radius: var(--button-xs-size-border-radius);
-}
+    &.size-40 {
+        border-radius: var(--button-xs-size-border-radius);
+    }
 
-.size-48 {
-    border-radius: var(--button-s-size-border-radius);
-}
+    &.size-48 {
+        border-radius: var(--button-s-size-border-radius);
+    }
 
-.size-56 {
-    border-radius: var(--button-m-size-border-radius);
-}
+    &.size-56 {
+        border-radius: var(--button-m-size-border-radius);
+    }
 
-.size-64 {
-    border-radius: var(--button-l-size-border-radius);
-}
+    &.size-64 {
+        border-radius: var(--button-l-size-border-radius);
+    }
 
-.size-72 {
-    border-radius: var(--button-xl-size-border-radius);
+    &.size-72 {
+        border-radius: var(--button-xl-size-border-radius);
+    }
 }

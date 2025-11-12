@@ -1,35 +1,21 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 
-.button.button {
+.component {
+    font: var(--font-family);
     @mixin action_component_secondary;
 
     border-radius: var(--border-radius-circle);
-    padding: var(--gap-0);
-    min-width: var(--pass-code-button-min-width);
     width: var(--pass-code-button-width);
     height: var(--pass-code-button-height);
 
-    text-align: center;
-
-    & > span {
-        vertical-align: middle;
-
-        & > * {
-            vertical-align: middle;
-        }
-    }
-}
-
-.secondary.secondary,
-.button.button {
+    justify-content: center;
+    align-items: center;
     color: var(--color-light-text-primary);
-    background-color: var(--color-light-transparent-default);
+    background: var(--color-light-transparent-default);
 
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--color-light-transparent-default-hover);
-        }
+    @mixin hover {
+        background-color: var(--color-light-transparent-default-hover);
     }
 
     &:active {

@@ -6,7 +6,7 @@ exports[`CustomButton Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -14,7 +14,7 @@ exports[`CustomButton Snapshots tests should match snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -79,14 +79,14 @@ exports[`CustomButton Snapshots tests should match snapshot 2`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -94,7 +94,7 @@ exports[`CustomButton Snapshots tests should match snapshot 2`] = `
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -159,21 +159,21 @@ exports[`CustomButton Snapshots tests should match snapshot 3`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -181,7 +181,7 @@ exports[`CustomButton Snapshots tests should match snapshot 3`] = `
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -246,7 +246,7 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -254,7 +254,7 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -319,14 +319,14 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -334,7 +334,7 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -399,21 +399,21 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -421,7 +421,7 @@ exports[`CustomButton Snapshots tests should render CustomButton view=primary by
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -486,7 +486,7 @@ exports[`CustomButton Snapshots tests should render black color content 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -494,7 +494,7 @@ exports[`CustomButton Snapshots tests should render black color content 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -559,14 +559,14 @@ exports[`CustomButton Snapshots tests should render black color content 2`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -574,7 +574,7 @@ exports[`CustomButton Snapshots tests should render black color content 2`] = `
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -639,21 +639,21 @@ exports[`CustomButton Snapshots tests should render black color content 3`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
         style="background: rgb(255, 69, 195);"
         type="button"
       />
@@ -661,7 +661,7 @@ exports[`CustomButton Snapshots tests should render black color content 3`] = `
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border black darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border black darkening disableType-default component"
       style="background: rgb(255, 69, 195);"
       type="button"
     />
@@ -726,7 +726,7 @@ exports[`CustomButton Snapshots tests should render custom background color 1`] 
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(0, 255, 0);"
         type="button"
       />
@@ -734,7 +734,7 @@ exports[`CustomButton Snapshots tests should render custom background color 1`] 
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(0, 255, 0);"
       type="button"
     />
@@ -799,14 +799,14 @@ exports[`CustomButton Snapshots tests should render custom background color 2`] 
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(0, 255, 0);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(0, 255, 0);"
         type="button"
       />
@@ -814,7 +814,7 @@ exports[`CustomButton Snapshots tests should render custom background color 2`] 
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(0, 255, 0);"
       type="button"
     />
@@ -879,21 +879,21 @@ exports[`CustomButton Snapshots tests should render custom background color 3`] 
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(0, 255, 0);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(0, 255, 0);"
         type="button"
       />
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+        class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
         style="background: rgb(0, 255, 0);"
         type="button"
       />
@@ -901,7 +901,7 @@ exports[`CustomButton Snapshots tests should render custom background color 3`] 
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly customButton border white darkening disableType-default"
+      class="component component component component component primary primary primary size-56 hug size-56 iconOnly customButton border white darkening disableType-default component"
       style="background: rgb(0, 255, 0);"
       type="button"
     />
@@ -966,8 +966,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 1`] =
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-        disabled=""
+        class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
         style="background: rgb(255, 69, 195);"
         type="button"
       >
@@ -1012,8 +1011,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 1`] =
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-      disabled=""
+      class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
       style="background: rgb(255, 69, 195);"
       type="button"
     >
@@ -1115,8 +1113,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-        disabled=""
+        class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
         style="background: rgb(255, 69, 195);"
         type="button"
       >
@@ -1160,8 +1157,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-        disabled=""
+        class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
         style="background: rgb(255, 69, 195);"
         type="button"
       >
@@ -1206,8 +1202,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 2`] =
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-      disabled=""
+      class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
       style="background: rgb(255, 69, 195);"
       type="button"
     >
@@ -1309,8 +1304,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
   "baseElement": <body>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-        disabled=""
+        class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
         style="background: rgb(255, 69, 195);"
         type="button"
       >
@@ -1354,8 +1348,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-        disabled=""
+        class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
         style="background: rgb(255, 69, 195);"
         type="button"
       >
@@ -1399,8 +1392,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
     </div>
     <div>
       <button
-        class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-        disabled=""
+        class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
         style="background: rgb(255, 69, 195);"
         type="button"
       >
@@ -1445,8 +1437,7 @@ exports[`CustomButton Snapshots tests should render loader if loading pass 3`] =
   </body>,
   "container": <div>
     <button
-      class="component primary size-56 hug size-56 component primary component primary iconOnly loading customButton border white darkening disableType-default customLoading"
-      disabled=""
+      class="component loading component component component component primary primary primary size-56 hug size-56 iconOnly loading customButton border white darkening disableType-default customLoading component"
       style="background: rgb(255, 69, 195);"
       type="button"
     >

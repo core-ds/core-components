@@ -4,9 +4,9 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { ButtonDesktop } from './desktop';
 import { ButtonMobile } from './mobile';
-import { type ButtonProps } from './typings';
+import { type ButtonProps, type ButtonRef } from './typings';
 
-export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<ButtonRef, ButtonProps>(
     (
         {
             children,

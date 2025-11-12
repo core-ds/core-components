@@ -74,9 +74,8 @@ export const KeyPad: React.FC<KeyPadProps> = ({
                         <KeyPadButton
                             key='clear-btn'
                             onClick={onClear}
-                            view='text'
                             dataTestId={getDataTestId(dataTestId, 'backspace-button')}
-                            title='Удалить последний символ'
+                            aria-label='Удалить последний символ'
                         >
                             <BackspaceXxlIcon />
                         </KeyPadButton>
@@ -94,11 +93,14 @@ export const KeyPad: React.FC<KeyPadProps> = ({
                 return <div key='right-addon-empty' />;
             }
 
+            const handleDigitClick = () => {
+                onClick(digit);
+            };
+
             return (
                 <KeyPadButton
                     key={digit}
-                    onClick={onClick}
-                    view='secondary'
+                    onClick={handleDigitClick}
                     buttonClassName={styles.digit}
                     dataTestId={getDataTestId(dataTestId, 'keypad-button')}
                 >

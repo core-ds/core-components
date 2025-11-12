@@ -4,6 +4,7 @@
     /* misc */
     --button-font-family: var(--font-family);
     --button-font-weight: 500;
+    --button-border-width: 1px;
 
     /* border-radius desktop */
     --button-xxs-size-border-radius: var(--border-radius-6);
