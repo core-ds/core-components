@@ -392,7 +392,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onClear={handleClear}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    inputMode={numberParams.maximumFractionDigits === 0 ? 'numeric' : 'decimal'}
                     dataTestId={dataTestId}
                     ref={mergeRefs([ref, inputRef])}
                     breakpoint={breakpoint}
