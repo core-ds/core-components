@@ -39,6 +39,7 @@ describe('Slider | main props', () => {
                         componentName: 'Slider',
                         knobs: {
                             value: [0, 50, 100],
+                            disabled: [false, true],
                         },
                         size: { width: 200, height: 30 },
                     }),
