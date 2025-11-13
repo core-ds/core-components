@@ -1,6 +1,8 @@
 import React, {
+    type ChangeEvent,
     type FC,
     forwardRef,
+    type ForwardRefExoticComponent,
     Fragment,
     type ReactNode,
     type RefAttributes,
@@ -10,13 +12,12 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { type InputProps } from '@alfalab/core-components-input';
 import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export type withSuffixProps = InputProps & {
+export type withSuffixProps<P> = P & {
     /**
      * Дополнительный закрепленный текст справа от основного значения.
      * Например: value='85' suffix=' мес' -> 85 мес
@@ -29,8 +30,27 @@ export type withSuffixProps = InputProps & {
     suffixContainerClassName?: string;
 };
 
-export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement>>) =>
-    forwardRef<HTMLInputElement, withSuffixProps>(
+type ValueLike = string | number | null;
+
+type MinimalInputLikeProps<V extends ValueLike> = {
+    value?: V;
+    defaultValue?: V;
+    onChange?: (event: ChangeEvent<HTMLInputElement> | null, payload: { value: V }) => void;
+    onClear?: (event: ChangeEvent<HTMLInputElement> | null) => void;
+    placeholder?: string;
+    className?: string;
+    disabled?: boolean;
+    readOnly?: boolean;
+    size?: unknown;
+    colors?: unknown;
+};
+
+export const withSuffix = <V extends ValueLike, P extends MinimalInputLikeProps<V>>(
+    Input:
+        | ForwardRefExoticComponent<P & RefAttributes<HTMLInputElement>>
+        | FC<P & RefAttributes<HTMLInputElement>>,
+) =>
+    forwardRef<HTMLInputElement, withSuffixProps<P>>(
         (
             {
                 value,
@@ -51,13 +71,13 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
 
             const [inputNode, setInputNode] = useState<HTMLInputElement | null>(null);
 
-            const [stateValue, setStateValue] = useState(defaultValue || '');
+            const [stateValue, setStateValue] = useState<V>((defaultValue ?? ('' as unknown)) as V);
 
-            const handleInputChange = useCallback<Required<InputProps>['onChange']>(
+            const handleInputChange = useCallback<
+                NonNullable<MinimalInputLikeProps<V>['onChange']>
+            >(
                 (event, payload) => {
-                    if (onChange) {
-                        onChange(event, payload);
-                    }
+                    onChange?.(event, payload);
 
                     if (uncontrolled) {
                         setStateValue(payload.value);
@@ -66,15 +86,13 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                 [onChange, uncontrolled],
             );
 
-            const handleClear = useCallback<Required<InputProps>['onClear']>(
+            const handleClear = useCallback<NonNullable<MinimalInputLikeProps<V>['onClear']>>(
                 (event) => {
                     if (uncontrolled) {
-                        setStateValue('');
+                        setStateValue('' as V);
                     }
 
-                    if (onClear) {
-                        onClear(event);
-                    }
+                    onClear?.(event);
                 },
                 [onClear, uncontrolled],
             );
@@ -87,32 +105,34 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
 
             const visibleValue = uncontrolled ? stateValue : value;
 
-            const isInverted = restProps.colors === 'inverted';
+            const isInverted = (restProps as MinimalInputLikeProps<V>).colors === 'inverted';
 
             return (
                 <Fragment>
                     <Input
                         ref={mergeRefs([ref, setInputNode])}
-                        value={visibleValue}
+                        value={visibleValue as never}
                         disabled={disabled}
                         readOnly={readOnly}
-                        onChange={handleInputChange}
-                        onClear={handleClear}
+                        onChange={handleInputChange as never}
+                        onClear={handleClear as never}
                         placeholder={placeholder}
                         className={cn(className, {
-                            [styles.suffixVisible]: Boolean(visibleValue),
+                            [styles.suffixVisible]: Boolean(visibleValue ?? ''),
                             [styles.hasSuffix]: suffix,
                         })}
-                        {...restProps}
+                        {...(restProps as P)}
                     />
                     <Portal getPortalContainer={getPortalContainer}>
                         <div
                             translate='no'
                             className={cn(styles.suffixContainer, suffixContainerClassName, {
-                                [styles[`size-${restProps.size}`]]: restProps.size,
+                                [styles[`size-${(restProps as MinimalInputLikeProps<V>).size}`]]: (
+                                    restProps as MinimalInputLikeProps<V>
+                                ).size,
                             })}
                         >
-                            <span className={styles.spacer}>{visibleValue}</span>
+                            <span className={styles.spacer}>{`${visibleValue ?? ''}`}</span>
                             {suffix && (
                                 <div
                                     className={cn(styles.suffix, {
