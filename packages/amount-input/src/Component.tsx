@@ -200,11 +200,12 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 decimalSeparator: SEP,
                 thousandSeparator: MMSP,
                 maximumFractionDigits,
+                minimumFractionDigits: view === 'default' ? 0 : maximumFractionDigits,
                 minusSign: '-',
                 min: positiveOnly ? 0 : max * -1,
                 max,
             };
-        }, [integerLengthFromProps, integersOnly, minority, positiveOnly]);
+        }, [integerLengthFromProps, integersOnly, minority, positiveOnly, view]);
         const inputRef = useMaskito({ options: maskitoOptionsGenerator(numberParams, view) });
         const getFormattedAmount = useCallback(
             (val: number | string | null) => stringifyNumber(val, numberParams, view),

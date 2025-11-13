@@ -13,47 +13,12 @@ export type NumberParams = Required<
         | 'decimalSeparator'
         | 'thousandSeparator'
         | 'maximumFractionDigits'
+        | 'minimumFractionDigits'
         | 'minusSign'
         | 'min'
         | 'max'
     >
 >;
-
-function deleteThousandSeparatorPreprocessorGenerator({
-    thousandSeparator,
-}: Pick<NumberParams, 'thousandSeparator'>): MaskitoPreprocessor {
-    return ({ elementState, data }, actionType) => {
-        const { value } = elementState;
-        const [from, to] = elementState.selection;
-
-        if (to - from === 1 && value[from] === thousandSeparator) {
-            if (actionType === 'deleteBackward') {
-                const nextValue = `${value.slice(0, from - 1)}${value.slice(to)}`;
-
-                return {
-                    elementState: {
-                        value: nextValue,
-                        selection: [from - 1, from - 1],
-                    },
-                    data,
-                };
-            }
-            if (actionType === 'deleteForward') {
-                const nextValue = `${value.slice(0, from)}${value.slice(to + 1)}`;
-
-                return {
-                    elementState: {
-                        value: nextValue,
-                        selection: [from, from],
-                    },
-                    data,
-                };
-            }
-        }
-
-        return { elementState, data };
-    };
-}
 
 function appendZeroToDataPreprocessorGenerator(
     numberParams: Pick<NumberParams, 'decimalSeparator' | 'maximumFractionDigits'>,
@@ -74,31 +39,47 @@ function appendZeroToDataPreprocessorGenerator(
     };
 }
 
-const forbidLeadingZeroPreprocessor: MaskitoPreprocessor = ({ elementState, data }, actionType) => {
-    const {
-        selection: [from, to],
-        value,
-    } = elementState;
+const forbidLeadingZeroPreprocessor =
+    (numberParams: Pick<NumberParams, 'decimalSeparator'>): MaskitoPreprocessor =>
+    ({ elementState, data }, actionType) => {
+        const {
+            selection: [from, to],
+            value,
+        } = elementState;
 
-    if (
-        actionType === 'insert' &&
-        data === '0' &&
-        value.length > 0 &&
-        from === 0 &&
-        !(to === value.length)
-    ) {
-        return { elementState, data: '' };
-    }
+        const idx = value.indexOf(numberParams.decimalSeparator);
 
-    return { elementState, data };
-};
+        if (
+            actionType === 'insert' &&
+            data === '0' &&
+            value.length > 0 &&
+            //
+            /**
+             * Не даем напечатать первый ноль, а так же если пытаются вставить после ноля
+             * Например 0,00, не должны дать вставить ноль перед запятой
+             */
+            (from === 0 || (from === 1 && idx === 1 && value[0] === '0')) &&
+            !(to === value.length)
+        ) {
+            return { elementState, data: '' };
+        }
+
+        return { elementState, data };
+    };
 
 function replaceLeadingZeroWithDataPreprocessorGenerator(
-    numberParams: Pick<NumberParams, 'minusSign'>,
+    numberParams: Pick<NumberParams, 'minusSign' | 'maximumFractionDigits' | 'decimalSeparator'>,
 ): MaskitoPreprocessor {
     return ({ elementState, data }, actionType) => {
         const { selection, value } = elementState;
         const REPLACED_VALUES = ['0', `${numberParams.minusSign}0`];
+
+        if (numberParams.maximumFractionDigits) {
+            REPLACED_VALUES.push(
+                `0${numberParams.decimalSeparator}${'0'.repeat(numberParams.maximumFractionDigits)}`,
+            );
+        }
+
         const idx = REPLACED_VALUES.indexOf(value);
 
         if (
@@ -117,24 +98,29 @@ function replaceLeadingZeroWithDataPreprocessorGenerator(
     };
 }
 
-const deletePreprocessor: MaskitoPreprocessor = ({ elementState, data }, actionType) => {
-    const {
-        selection: [from, to],
-        value,
-    } = elementState;
+const deletePreprocessor =
+    (numberParams: Pick<NumberParams, 'decimalSeparator'>): MaskitoPreprocessor =>
+    ({ elementState, data }, actionType) => {
+        const {
+            selection: [from, to],
+            value,
+        } = elementState;
 
-    if (actionType === 'deleteBackward' || actionType === 'deleteForward') {
-        return {
-            elementState: {
-                selection: [from, from],
-                value: `${value.slice(0, from)}${value.slice(to, value.length)}`,
-            },
-            data,
-        };
-    }
+        const idx = value.indexOf(numberParams.decimalSeparator);
 
-    return { elementState, data };
-};
+        // Нужно игнорировать удаление разделителя дробной части, чтобы maskito это сделал самостоятельно по mask
+        if ((actionType === 'deleteBackward' || actionType === 'deleteForward') && idx !== from) {
+            return {
+                elementState: {
+                    selection: [from, from],
+                    value: `${value.slice(0, from)}${value.slice(to, value.length)}`,
+                },
+                data,
+            };
+        }
+
+        return { elementState, data };
+    };
 
 export function stringifyNumber(
     val: number | string | null,
@@ -145,11 +131,7 @@ export function stringifyNumber(
 
     const value = maskitoStringifyNumber(
         Number(`${val}`) / 10 ** numberParams.maximumFractionDigits,
-        {
-            ...numberParams,
-            minimumFractionDigits:
-                view === 'withZeroMinorPart' ? numberParams.maximumFractionDigits : 0,
-        },
+        numberParams,
     );
 
     const idx = value.indexOf(numberParams.decimalSeparator);
@@ -189,10 +171,9 @@ export function maskitoOptionsGenerator(
             }),
         ],
         preprocessors: [
-            deletePreprocessor,
-            deleteThousandSeparatorPreprocessorGenerator(numberParams),
+            deletePreprocessor(numberParams),
             appendZeroToDataPreprocessorGenerator(numberParams),
-            forbidLeadingZeroPreprocessor,
+            forbidLeadingZeroPreprocessor(numberParams),
             replaceLeadingZeroWithDataPreprocessorGenerator(numberParams),
             ...(numberOptions.preprocessors ?? []),
         ],
