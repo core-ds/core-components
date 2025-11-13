@@ -1,7 +1,8 @@
 import { type NormalComponents, type SpecialComponents } from 'react-markdown/src/ast-to-react';
 
+import { type TitleDesktop, type TitleMobile } from '@alfalab/core-components-typography';
+
 export type FontType = 'styrene' | 'system' | undefined;
-export type PlatformType = 'desktop' | 'mobile';
 
 export type OverridesComponents =
     | Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents>
@@ -14,11 +15,6 @@ export type BaseMarkdownProps = {
      * Css класс для обертки разметки
      */
     className?: string;
-
-    /**
-     * Платформа
-     */
-    platform?: PlatformType;
 
     /**
      * Шрифт разметки
@@ -36,13 +32,18 @@ export type BaseMarkdownProps = {
      * @default true
      */
     transformLinkUri?: boolean;
+
+    /**
+     * Компонент Typography Title
+     */
+    Title: typeof TitleDesktop | typeof TitleMobile;
 };
 
-export type MarkdownDesktopProps = Omit<BaseMarkdownProps, 'platform'>;
+export type MarkdownDesktopProps = Omit<BaseMarkdownProps, 'Title'>;
 
-export type MarkdownMobileProps = Omit<BaseMarkdownProps, 'platform'>;
+export type MarkdownMobileProps = Omit<BaseMarkdownProps, 'Title'>;
 
-export type MarkdownResponsiveProps = Omit<BaseMarkdownProps, 'platform'> & {
+export type MarkdownResponsiveProps = Omit<BaseMarkdownProps, 'Title'> & {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
