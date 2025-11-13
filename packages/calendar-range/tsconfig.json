@@ -19,7 +19,9 @@
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
-            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
+            "@alfalab/core-components-universal-date-input": ["../universal-date-input/src"],
+            "@alfalab/core-components-universal-date-input/*": ["../universal-date-input/src/*"]
         }
     },
     "references": [
@@ -28,6 +30,7 @@
         { "path": "../date-input/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
-        { "path": "../test-utils/tsconfig.build.json" }
+        { "path": "../test-utils/tsconfig.build.json" },
+        { "path": "../universal-date-input/tsconfig.build.json" }
     ]
 }
