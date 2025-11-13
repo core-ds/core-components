@@ -4,6 +4,20 @@
     min-width: 360px;
 }
 
-.optionContent {
-    padding-left: var(--gap-16);
+.option.option.option {
+    &.size72 {
+        padding-left: var(--gap-16);
+    }
+    &.size64 {
+        padding-left: var(--gap-12);
+    }
+    &.size56 {
+        padding-left: var(--gap-12);
+    }
+    &.size48 {
+        padding-left: var(--gap-12);
+    }
+    &.size40 {
+        padding-left: var(--gap-12);
+    }
 }

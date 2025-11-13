@@ -1,7 +1,6 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
 .multistepInput {
-    transition: width 0.3s ease-in-out;
     border: none;
     outline: none;
     background: transparent;
@@ -44,11 +43,12 @@
 }
 
 .multistepCardInputWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     border: none;
     background: transparent;
     padding: 0;
-    display: flex;
-    align-items: center;
 }
 
 .inputs {

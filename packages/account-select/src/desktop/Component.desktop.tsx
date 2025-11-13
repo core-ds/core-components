@@ -1,4 +1,5 @@
 import React, { forwardRef, useMemo, useState } from 'react';
+import cn from 'classnames';
 
 import { Popover } from '@alfalab/core-components-popover';
 import {
@@ -19,18 +20,18 @@ import { type AccountSelectProps } from '../types';
 
 import styles from './index.module.css';
 
-const DefaultOption = (props: OptionProps) => (
+/* const DefaultOption = (props: OptionProps) => (
     <BaseOption {...props}>
         <div className={styles.optionContent}>{props.option.content}</div>
     </BaseOption>
-);
+); */
 
 export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectProps>(
     (
         {
             OptionsList = DefaultOptionsList,
             Optgroup = DefaultOptgroup,
-            Option = DefaultOption,
+            Option = BaseOption,
             closeOnSelect = true,
             options,
             cardAddingProps,
@@ -80,7 +81,7 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
                     Optgroup={Optgroup}
                     OptionsList={OptionsList}
                     Arrow={Arrow}
-                    optionClassName={styles.option}
+                    optionClassName={cn(styles.option, styles[`size${size}`])}
                     size={size}
                     {...restProps}
                     fieldProps={{
