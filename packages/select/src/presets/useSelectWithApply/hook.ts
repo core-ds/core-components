@@ -80,6 +80,12 @@ export type UseSelectWithApplyProps = {
      * @default 'reset-footer'
      */
     resetName?: string;
+
+    /**
+     * Позиция чекбокса "Выбрать все" в Header
+     * @default 'before'
+     */
+    checkmarkPosition?: 'before' | 'after';
 };
 
 const selectAllOption = { key: SELECT_ALL_KEY, content: 'Выбрать все' };
@@ -94,6 +100,7 @@ export function useSelectWithApply({
     showClear = true,
     showSelectAll = false,
     showHeaderWithSelectAll = false,
+    checkmarkPosition = 'before',
     showSearch = false,
     searchProps = {},
     applyName = 'apply-footer',
@@ -134,7 +141,6 @@ export function useSelectWithApply({
             ),
         [options, selected, showSearch, filterGroup, filterFn, accessor, search, groupAccessor],
     );
-
     const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
 
     const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);
@@ -199,7 +205,6 @@ export function useSelectWithApply({
     const handleClose = () => setSelectedDraft(selectedOptionsRef.current);
 
     useEffect(() => {
-        // устанавливать selectedDraft если selectedOptions изменились
         if (!reactFastCompare(selectedOptionsRef.current, selectedOptions)) {
             setSelectedDraft(selectedOptions);
         }
@@ -233,6 +238,7 @@ export function useSelectWithApply({
                     selectedDraft.length === flatOptions.length ||
                     flatOptions.every(({ key }) => selectedKeys.includes(key)),
                 onChange: handleToggleAll,
+                checkmarkPosition,
             },
         },
         multiple: true,
@@ -257,6 +263,7 @@ export function useSelectWithApply({
             showClear,
             showSelectAll,
             showHeaderWithSelectAll,
+            checkmarkPosition,
             showSearch,
             searchProps,
             applyName,

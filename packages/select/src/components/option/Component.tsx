@@ -36,6 +36,8 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
 
+    console.log({ content });
+
     return (
         <div
             {...innerProps}

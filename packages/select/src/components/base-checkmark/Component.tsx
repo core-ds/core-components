@@ -14,21 +14,32 @@ export const BaseCheckmark = ({
     className,
     multiple,
     align = 'center',
+    position = 'before',
+    content,
 }: CheckmarkProps) => {
-    const checkmarkClassNames = cn(styles.checkmark, styles[align], className, {
+    const checkmarkClassNames = cn(styles.checkmark, styles[align], styles[position], className, {
         [styles.single]: !multiple,
         [styles.selected]: selected,
     });
 
+    console.log('BaseCheckmark', { multiple, content });
+
     return multiple ? (
         <Checkbox
+            block={true}
             checked={selected}
             disabled={disabled}
             className={checkmarkClassNames}
             size='m'
+            position={position}
+            label={content}
             hiddenInput={true}
         />
     ) : (
-        <CheckmarkMIcon className={checkmarkClassNames} />
+        // todo: тут я что-то сломал и поэтому приходится явно пробрасывать контент
+        <React.Fragment>
+            <CheckmarkMIcon className={checkmarkClassNames} />
+            <div>{content}</div>
+        </React.Fragment>
     );
 };
