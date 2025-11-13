@@ -3,7 +3,7 @@
 exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
 <div>
   <div
-    class="cc-calendar component sixWeeks"
+    class="cc-calendar component sixWeeks hasContainerStyles"
     tabindex="-1"
   >
     <div
@@ -904,7 +904,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
 exports[`Calendar Display tests should match defaultView="months" snapshot 1`] = `
 <div>
   <div
-    class="cc-calendar component sixWeeks"
+    class="cc-calendar component sixWeeks hasContainerStyles"
     tabindex="-1"
   >
     <div
@@ -1146,7 +1146,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
 exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = `
 <div>
   <div
-    class="cc-calendar component sixWeeks"
+    class="cc-calendar component sixWeeks hasContainerStyles"
     tabindex="-1"
   >
     <div
@@ -2484,7 +2484,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
 exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = `
 <div>
   <div
-    class="cc-calendar component sixWeeks"
+    class="cc-calendar component sixWeeks hasContainerStyles"
     tabindex="-1"
   >
     <div
@@ -3385,7 +3385,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
 exports[`Calendar Display tests should match selectorView="month-only" snapshot 1`] = `
 <div>
   <div
-    class="cc-calendar component sixWeeks"
+    class="cc-calendar component sixWeeks hasContainerStyles"
     tabindex="-1"
   >
     <div
@@ -4290,7 +4290,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
 exports[`Calendar Display tests should match snapshot 1`] = `
 <div>
   <div
-    class="cc-calendar component sixWeeks"
+    class="cc-calendar component sixWeeks hasContainerStyles"
     tabindex="-1"
   >
     <div
