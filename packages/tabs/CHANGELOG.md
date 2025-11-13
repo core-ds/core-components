@@ -1,5 +1,28 @@
 # @alfalab/core-components-tabs
 
+## 9.2.3
+
+### Patch Changes
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1930](https://github.com/core-ds/core-components/pull/1930)
+
+- Исправлен проброс параметров в DOM для компонента Tab
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1922](https://github.com/core-ds/core-components/pull/1922)
+
+- В компоненте `Tabs` изменено отображение индикатора выбранного таба
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-icon-button@7.0.2
+    - @alfalab/core-components-picker-button@12.0.6
+    - @alfalab/core-components-tag@9.0.3
+
 ## 9.2.2
 
 ### Patch Changes
