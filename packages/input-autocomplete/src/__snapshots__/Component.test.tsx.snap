@@ -363,7 +363,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                             />
                           </div>
                           <div
-                            class="track vertical"
+                            class="track vertical verticalBar verticalBarWithFooter"
                             style="visibility: hidden;"
                           >
                             <div

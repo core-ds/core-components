@@ -269,4 +269,36 @@ export const select_modal_mobile: Story = {
     },
 };
 
+export const select_desktop_option_list: Story = {
+    name: 'SelectDesktopOptionList',
+    render: () => {
+        const multiple = boolean('multiple', false);
+
+        return (
+            <SelectDesktop
+                defaultOpen={true}
+                label='Option List Test'
+                options={options.slice(0, 5)}
+                multiple={multiple}
+            />
+        );
+    },
+};
+
+export const select_mobile_option_list: Story = {
+    name: 'SelectMobileOptionList',
+    render: () => {
+        const multiple = boolean('multiple', false);
+
+        return (
+            <SelectMobile
+                defaultOpen={true}
+                label='Option List Test'
+                options={options.slice(0, 5)}
+                multiple={multiple}
+            />
+        );
+    },
+};
+
 export default meta;
