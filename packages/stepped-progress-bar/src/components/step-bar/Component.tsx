@@ -14,13 +14,13 @@ interface StepBarProps {
 export const StepBar: FC<StepBarProps> = memo(({ isDone, view = 'positive', classNameStep }) => {
     const isCustomView = typeof view === 'object' && !Array.isArray(view);
     const isPreset = isDone && typeof view === 'string';
-    const customBg = isDone && isCustomView ? view.background : undefined;
+    const background = isDone && isCustomView ? view.background : undefined;
 
     return (
         <span
             data-test-id={isDone ? 'on' : 'off'}
             className={cn(styles.bar, isPreset && styles[view], classNameStep)}
-            style={customBg ? { background: customBg } : undefined}
+            style={{ background }}
         />
     );
 });
