@@ -33,5 +33,13 @@ describe('Markdown', () => {
 
             expect(link).toHaveAttribute('href', 'myapp://product/123');
         });
+
+        it('should render correct href', () => {
+            render(<Markdown>[Google](https://www.google.com/)</Markdown>);
+
+            const link = screen.getByText('Google').closest('a');
+
+            expect(link).toHaveAttribute('href', 'https://www.google.com/');
+        });
     });
 });
