@@ -8,9 +8,11 @@ import styles from './index.module.css';
 
 export const Optgroup = ({ children, className, label, size = 48 }: OptgroupProps) => (
     <React.Fragment>
-        <div className={cn(styles.optgroup, className, styles[SIZE_TO_CLASSNAME_MAP[size]])}>
-            <span className={styles.label}>{label}</span>
-        </div>
+        {label && (
+            <div className={cn(styles.optgroup, className, styles[SIZE_TO_CLASSNAME_MAP[size]])}>
+                <span className={styles.label}>{label}</span>
+            </div>
+        )}
         {children}
     </React.Fragment>
 );

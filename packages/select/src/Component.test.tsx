@@ -853,6 +853,31 @@ describe('Select', () => {
                 ).length,
             ).toBe(0);
         });
+
+        it('should render optgroup header only when label provided', async () => {
+            const groupedOptions = [
+                {
+                    // label: '' | undefined | null | false
+                    options: [
+                        { key: 'group-1-option-1', content: 'Hydrogen' },
+                        { key: 'group-1-option-2', content: 'Helium' },
+                    ],
+                },
+                {
+                    label: 'Metals',
+                    options: [
+                        { key: 'group-2-option-1', content: 'Aurum' },
+                        { key: 'group-2-option-2', content: 'Platinum' },
+                    ],
+                },
+            ];
+
+            await asyncRender(
+                <Select {...baseProps} options={groupedOptions} defaultOpen={true} />,
+            );
+
+            expect(document.querySelectorAll('[class*="optgroup"]').length).toBe(1);
+        });
     });
 
     describe('Callback tests', () => {
