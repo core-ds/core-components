@@ -16,6 +16,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { useCoreConfig } from '@alfalab/core-components-config';
 import { type FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
@@ -259,6 +260,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         },
         ref,
     ) => {
+        const { typography } = useCoreConfig();
         const { onKeyDown } = restProps;
         const uncontrolled = value === undefined;
         const readOnly = readOnlyProp || disableUserInput;
@@ -482,6 +484,9 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                     {...restProps}
                     className={cn(
                         styles.input,
+                        size === 40
+                            ? typography?.styles.paragraphComponentSecondary
+                            : typography?.styles.paragraphComponentPrimary,
                         styles[`size-${size}`],
                         colorCommonStyles[colors].input,
                         {

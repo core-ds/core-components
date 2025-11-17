@@ -2,11 +2,6 @@
 @import '../../vars.css';
 
 .component {
-    && {
-        font-weight: var(--button-font-weight);
-        font-family: var(--font-family);
-    }
-
     @mixin reset-tap-highlight-color;
 
     position: relative;
@@ -40,8 +35,6 @@
 }
 
 .hint {
-    @mixin paragraph_primary_small;
-
     display: block;
 }
 
@@ -82,8 +75,6 @@
     min-height: var(--size-xxs-height);
     padding: var(--gap-0) 15px;
 
-    @mixin action_primary_small;
-
     &.iconOnly {
         min-width: var(--size-xxs-height);
     }
@@ -94,8 +85,6 @@
     min-height: var(--size-xs-height);
     padding: var(--gap-0) 19px;
 
-    @mixin action_primary_small;
-
     &.iconOnly {
         min-width: var(--size-xs-height);
     }
@@ -104,8 +93,6 @@
 .size-48 {
     min-width: 104px;
     min-height: var(--size-s-height);
-
-    @mixin action_component_primary;
 
     line-height: 20px;
 
@@ -119,8 +106,6 @@
     min-height: var(--size-m-height);
     padding: var(--gap-0) 27px;
 
-    @mixin action_component_primary;
-
     &.iconOnly {
         min-width: var(--size-m-height);
     }
@@ -131,8 +116,6 @@
     min-height: var(--size-l-height);
     padding: var(--gap-0) 31px;
 
-    @mixin action_primary_large;
-
     &.iconOnly {
         min-width: var(--size-l-height);
     }
@@ -142,8 +125,6 @@
     min-width: 168px;
     min-height: var(--size-xl-height);
     padding: var(--gap-0) 35px;
-
-    @mixin action_primary_large;
 
     &.iconOnly {
         min-width: var(--size-xl-height);
