@@ -71,12 +71,12 @@ exports[`FileUploadItem Snapshots tests should match snapshot 1`] = `
           class="container clickable"
         >
           <span
-            class="title primary component"
+            class="text title primary component"
           >
             title
           </span>
           <span
-            class="subtitle secondary primary-small"
+            class="text subtitle secondary primary-small"
           >
             subtitle
           </span>
@@ -154,12 +154,12 @@ exports[`FileUploadItem Snapshots tests should match snapshot 1`] = `
         class="container clickable"
       >
         <span
-          class="title primary component"
+          class="text title primary component"
         >
           title
         </span>
         <span
-          class="subtitle secondary primary-small"
+          class="text subtitle secondary primary-small"
         >
           subtitle
         </span>

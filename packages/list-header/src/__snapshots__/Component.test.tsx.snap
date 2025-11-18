@@ -9,12 +9,12 @@ exports[`Snapshots tests should match snapshot with filled background 1`] = `
         class="component filled"
       >
         <span
-          class="secondary-large"
+          class="text secondary-large"
         >
           Title
         </span>
         <span
-          class="description secondary-large"
+          class="text description secondary-large"
         >
           , Description
         </span>
@@ -26,12 +26,12 @@ exports[`Snapshots tests should match snapshot with filled background 1`] = `
       class="component filled"
     >
       <span
-        class="secondary-large"
+        class="text secondary-large"
       >
         Title
       </span>
       <span
-        class="description secondary-large"
+        class="text description secondary-large"
       >
         , Description
       </span>
@@ -100,7 +100,7 @@ exports[`Snapshots tests should match snapshot without filled background 1`] = `
         class="component"
       >
         <span
-          class="secondary-large"
+          class="text secondary-large"
         >
           Title
         </span>
@@ -112,7 +112,7 @@ exports[`Snapshots tests should match snapshot without filled background 1`] = `
       class="component"
     >
       <span
-        class="secondary-large"
+        class="text secondary-large"
       >
         Title
       </span>

@@ -21,7 +21,7 @@ exports[`ProductCover Snapshots tests should match snapshots 1`] = `
       class="component"
     >
       <div
-        class="cardholderName static-primary-light secondary-medium medium"
+        class="text cardholderName static-primary-light secondary-medium medium"
       >
         Cardholder Name
       </div>
@@ -29,7 +29,7 @@ exports[`ProductCover Snapshots tests should match snapshots 1`] = `
         class="cardNumber"
       >
         <span
-          class="static-primary-light primary-medium medium"
+          class="text static-primary-light primary-medium medium"
         >
           ·· 
           1234

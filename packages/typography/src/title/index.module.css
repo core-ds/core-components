@@ -1,63 +1,42 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../margins.module.css';
-@import '../common.module.css';
 
-.styrene-xlarge {
-    @mixin headline_xlarge;
-}
+.component {
+    @each $view in xlarge, large, medium, small, xsmall {
+        &.$(view) {
+            @mixin headline_$(view);
 
-.styrene-large {
-    @mixin headline_large;
-}
+            &.systemCompat {
+                @subtract-mixin headline-system_$(view), headline_$(view);
+            }
+        }
 
-.styrene-medium {
-    @mixin headline_medium;
-}
+        &.regular-$(view) {
+            @subtract-mixin promo_$(view), headline_$(view);
 
-.styrene-small {
-    @mixin headline_small;
-}
+            &.systemCompat {
+                @subtract-mixin promo-system_$(view), promo_$(view), headline-system_$(view), headline_$(view);
+            }
+        }
+    }
 
-.styrene-xsmall {
-    @mixin headline_xsmall;
-}
+    &.margins-xlarge {
+        @mixin margin-large;
+    }
 
-.system-xlarge {
-    @mixin headline-system_xlarge;
-}
+    &.margins-large {
+        @mixin margin-medium;
+    }
 
-.system-large {
-    @mixin headline-system_large;
-}
+    &.margins-medium {
+        @mixin margin-medium;
+    }
 
-.system-medium {
-    @mixin headline-system_medium;
-}
+    &.margins-small {
+        @mixin margin-small;
+    }
 
-.system-small {
-    @mixin headline-system_small;
-}
-
-.system-xsmall {
-    @mixin headline-system_xsmall;
-}
-
-.margins-xlarge {
-    @mixin margin-large;
-}
-
-.margins-large {
-    @mixin margin-medium;
-}
-
-.margins-medium {
-    @mixin margin-medium;
-}
-
-.margins-small {
-    @mixin margin-small;
-}
-
-.margins-xsmall {
-    @mixin margin-small;
+    &.margins-xsmall {
+        @mixin margin-small;
+    }
 }

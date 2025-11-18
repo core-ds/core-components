@@ -9,7 +9,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Введите код из уведомления
       </h3>
@@ -57,7 +57,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="countdownContainer typographyTheme primary-medium"
+        class="text countdownContainer typographyTheme primary-medium"
       >
         Запросить новый можно через
          
@@ -91,7 +91,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Введите код из уведомления
       </h3>
@@ -210,7 +210,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Введите код из уведомления
       </h3>
@@ -264,7 +264,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         </div>
       </div>
       <div
-        class="countdownContainer typographyTheme primary-medium"
+        class="text countdownContainer typographyTheme primary-medium"
       >
         Запросить новый можно через
          
@@ -298,7 +298,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Введите код из уведомления
       </h3>
@@ -352,7 +352,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
         </div>
       </div>
       <div
-        class="countdownContainer typographyTheme primary-medium"
+        class="text countdownContainer typographyTheme primary-medium"
       >
         Запросить новый можно через
          
@@ -386,7 +386,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Введите код из уведомления
       </h3>
@@ -505,12 +505,12 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Ввести код больше нельзя
       </h3>
       <span
-        class="typographyTheme primary primary-medium"
+        class="text typographyTheme primary primary-medium"
       >
         Мы ограничили следующие попытки ввода, потому что код был введён неверно больше 5 раз.
       </span>
@@ -538,12 +538,12 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Не приходит код?
       </h3>
       <span
-        class="text typographyTheme primary primary-medium"
+        class="text text typographyTheme primary primary-medium"
       >
         Если сменили номер, позвоните нам или обратитесь в любой офис банка.
       </span>
@@ -564,7 +564,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
             </span>
           </a>
           <span
-            class="text typographyTheme primary primary-medium"
+            class="text text typographyTheme primary primary-medium"
           >
              — в Москве и за границей
           </span>
@@ -583,14 +583,14 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
             </span>
           </a>
           <span
-            class="text typographyTheme primary primary-medium"
+            class="text text typographyTheme primary primary-medium"
           >
              — для звонков по России
           </span>
         </div>
       </div>
       <span
-        class="text typographyTheme primary primary-medium"
+        class="text text typographyTheme primary primary-medium"
       >
         Если номер не меняли, попробуйте запросить код позже — возможно, перегружен сервис отправки уведомлений.
       </span>
@@ -618,12 +618,12 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK scree
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Ввести код пока нельзя
       </h3>
       <span
-        class="description typographyTheme primary primary-medium"
+        class="text description typographyTheme primary primary-medium"
       >
         Слишком много неверных попыток. Запросите новый позже
       </span>
@@ -666,12 +666,12 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER 
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header typography medium primary"
       >
         Ввод разблокирован
       </h3>
       <span
-        class="description typographyTheme primary primary-medium"
+        class="text description typographyTheme primary primary-medium"
       >
         Теперь можно запросить новый код
       </span>

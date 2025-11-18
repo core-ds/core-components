@@ -1,24 +1,9 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '../common.module.css';
 
 .component {
     margin: var(--gap-0);
     padding: var(--gap-0);
-
-    &.bold {
-        font-weight: bold;
-    }
-
-    &.semibold {
-        font-weight: 600;
-    }
-
-    &.medium {
-        font-weight: 500;
-    }
-
-    &.regular {
-        font-weight: normal;
-    }
 }
 
 .rowLimit1 {
