@@ -12,13 +12,13 @@ exports[`Snapshots tests should match snapshot 1`] = `
           class="item"
         >
           <div
-            class="monospace slot defaultColor primary-medium"
+            class="monospace text slot defaultColor primary-medium"
           >
             –
           </div>
           <div>
             <div
-              class="primary-medium"
+              class="text primary-medium"
             >
               List
             </div>
@@ -35,13 +35,13 @@ exports[`Snapshots tests should match snapshot 1`] = `
         class="item"
       >
         <div
-          class="monospace slot defaultColor primary-medium"
+          class="monospace text slot defaultColor primary-medium"
         >
           –
         </div>
         <div>
           <div
-            class="primary-medium"
+            class="text primary-medium"
           >
             List
           </div>
@@ -115,13 +115,13 @@ exports[`Snapshots tests should match snapshot 2`] = `
           class="item"
         >
           <div
-            class="monospace slot defaultColor primary-medium"
+            class="monospace text slot defaultColor primary-medium"
           >
             1.
           </div>
           <div>
             <div
-              class="primary-medium"
+              class="text primary-medium"
             >
               List
             </div>
@@ -138,13 +138,13 @@ exports[`Snapshots tests should match snapshot 2`] = `
         class="item"
       >
         <div
-          class="monospace slot defaultColor primary-medium"
+          class="monospace text slot defaultColor primary-medium"
         >
           1.
         </div>
         <div>
           <div
-            class="primary-medium"
+            class="text primary-medium"
           >
             List
           </div>

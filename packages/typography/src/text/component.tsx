@@ -8,7 +8,6 @@ import { type Color } from '../colors';
 import { type TextElementType } from '../types';
 
 import colors from '../colors.module.css';
-import alfasansStyles from './alfasans-index.module.css';
 import styles from './index.module.css';
 
 type NativeProps = HTMLAttributes<HTMLSpanElement>;
@@ -87,6 +86,8 @@ type TextBaseProps = {
 
     /**
      * Шрифт текста
+     *
+     * @deprecated
      */
     font?: 'alfasans' | undefined | null;
 };
@@ -161,12 +162,12 @@ export const Text = forwardRef<TextElementType, TextProps>(
                         [styles.monospace]: monospaceNumbers,
                         [styles[`rowLimit${rowLimit}`]]: rowLimit,
                         [styles.transparent]: showSkeleton,
-                        [alfasansStyles.text]: font === 'alfasans',
                     },
+                    styles.text,
                     className,
                     color && colors[color],
-                    (font === 'alfasans' ? alfasansStyles : styles)[view],
-                    weight && (font === 'alfasans' ? alfasansStyles : styles)[weight],
+                    styles[view],
+                    weight && styles[weight],
                 )}
                 data-test-id={dataTestId}
                 ref={mergeRefs([ref, textRef])}
