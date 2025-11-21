@@ -23,7 +23,7 @@
 
     /* mobile */
     --modal-header-mobile-paddings: 0 var(--gap-8);
-    --modal-header-mobile-content-paddings: 10px var(--gap-8) 10px var(--gap-8);
+    --modal-header-mobile-content-paddings: var(--gap-10) var(--gap-8) var(--gap-10) var(--gap-8);
     --modal-header-mobile-font-size: 20px;
     --modal-header-mobile-line-height: 28px;
     --modal-header-mobile-font-family: var(--font-family-styrene);

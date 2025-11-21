@@ -1,12 +1,30 @@
 # @alfalab/core-components-system-message
 
+## 3.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-mq@5.0.2
+
+## 3.0.2
+
+### Patch Changes
+
+<sup><time>05.11.2025</time></sup>
+
+#### [#1918](https://github.com/core-ds/core-components/pull/1918)
+
+- Исправлена специфичность компонента, путем оптимизации вложенности элементов
+
 ## 3.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-shared@1.1.0
-    -   @alfalab/core-components-mq@5.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-mq@5.0.1
 
 ## 3.0.0
 
@@ -24,45 +42,45 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-mq@5.0.0
-    -   @alfalab/core-components-shared@1.0.0
-    -   @alfalab/core-components-types@1.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-mq@5.0.0
+    - @alfalab/core-components-shared@1.0.0
+    - @alfalab/core-components-types@1.0.0
 
 ## 2.6.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.18.0
+- Обновлены зависимости
+    - shared@0.18.0
 
 ## 2.6.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
+- Обновлены зависимости
+    - shared@0.17.1
 
 ## 2.6.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
+- Обновлены зависимости
+    - shared@0.17.0
 
 ## 2.6.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.16.0
+- Обновлены зависимости
+    - shared@0.16.0
 
 ## 2.6.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.15.0
+- Обновлены зависимости
+    - shared@0.15.0
 
 ## 2.6.0
 
@@ -83,7 +101,7 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
 ## 2.5.4
 
@@ -93,11 +111,11 @@
 
 ### [#1509](https://github.com/core-ds/core-components/pull/1509)
 
--   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+- Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
 
--   Обновлены зависимости
-    -   mq@4.4.1
-    -   shared@0.14.1
+- Обновлены зависимости
+    - mq@4.4.1
+    - shared@0.14.1
 
 ## 2.5.3
 
@@ -107,21 +125,21 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 ## 2.5.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.4.0
+- Обновлены зависимости
+    - mq@4.4.0
 
 ## 2.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
+- Обновлены зависимости
+    - shared@0.14.0
 
 ## 2.5.0
 
@@ -131,12 +149,12 @@
 
 ### [#1213](https://github.com/core-ds/core-components/pull/1213)
 
--   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+- Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.13.0
+- Обновлены зависимости
+    - shared@0.13.0
 
 ## 2.4.1
 
@@ -146,10 +164,10 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
--   Обновлены зависимости
-    -   shared@0.12.1
+- Обновлены зависимости
+    - shared@0.12.1
 
 ## 2.4.0
 
@@ -159,7 +177,7 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ## 2.3.5
 
@@ -169,35 +187,35 @@
 
 ### [#1356](https://github.com/core-ds/core-components/pull/1356)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
 ## 2.3.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.0
+- Обновлены зависимости
+    - shared@0.12.0
 
 ## 2.3.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.3.0
+- Обновлены зависимости
+    - mq@4.3.0
 
 ## 2.3.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.11.0
+- Обновлены зависимости
+    - shared@0.11.0
 
 ## 2.3.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.10.0
+- Обновлены зависимости
+    - shared@0.10.0
 
 ## 2.3.0
 
@@ -205,21 +223,21 @@
 
 ### [#1049](https://github.com/core-ds/core-components/pull/1049)
 
--   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+- Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
 
 ## 2.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.1
+- Обновлены зависимости
+    - shared@0.9.1
 
 ## 2.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.0
+- Обновлены зависимости
+    - shared@0.9.0
 
 ## 2.2.2
 
@@ -227,14 +245,14 @@
 
 ### [#987](https://github.com/core-ds/core-components/pull/987)
 
--   Немного изменена структура файлов в пакетах для корректной сборки в vite
+- Немного изменена структура файлов в пакетах для корректной сборки в vite
 
 ## 2.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.8.0
+- Обновлены зависимости
+    - shared@0.8.0
 
 ## 2.2.0
 
@@ -242,40 +260,40 @@
 
 ### [#944](https://github.com/core-ds/core-components/pull/944)
 
--   Добавлен package.json с module полем в mobile, desktop, shared точки входа
+- Добавлен package.json с module полем в mobile, desktop, shared точки входа
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.7.0
+- Обновлены зависимости
+    - shared@0.7.0
 
 ## 2.1.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.6.0
+- Обновлены зависимости
+    - shared@0.6.0
 
 ## 2.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.5.0
+- Обновлены зависимости
+    - shared@0.5.0
 
 ## 2.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.4.0
+- Обновлены зависимости
+    - shared@0.4.0
 
 ## 2.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.3.0
+- Обновлены зависимости
+    - shared@0.3.0
 
 ## 2.1.0
 
@@ -283,13 +301,13 @@
 
 ### [#790](https://github.com/core-ds/core-components/pull/790)
 
--   Добавлен проп padding во все составные части компонента
--   Теперь проп direction будет влиять на расположение кнопок в десктопной версии компонента
+- Добавлен проп padding во все составные части компонента
+- Теперь проп direction будет влиять на расположение кнопок в десктопной версии компонента
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.2.0
+- Обновлены зависимости
+    - shared@0.2.0
 
 ## 2.0.0
 
@@ -297,19 +315,19 @@
 
 ### [#708](https://github.com/core-ds/core-components/pull/708)
 
--   Удалена responsive точка входа
+- Удалена responsive точка входа
 
 ### Minor Changes
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.1.0
-    -   mq@4.2.0
+- Обновлены зависимости
+    - shared@0.1.0
+    - mq@4.2.0
 
 ## 1.0.3
 
@@ -317,10 +335,10 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   mq@4.1.5
+- Обновлены зависимости
+    - mq@4.1.5
 
 ## 1.0.2
 
@@ -328,7 +346,7 @@
 
 ### [#629](https://github.com/core-ds/core-components/pull/629)
 
--   Исправлены заголовки в теме click
+- Исправлены заголовки в теме click
 
 ## 1.0.1
 
@@ -336,10 +354,10 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   mq@4.1.4
+- Обновлены зависимости
+    - mq@4.1.4
 
 ## 1.0.0
 
@@ -347,4 +365,4 @@
 
 ### [#576](https://github.com/core-ds/core-components/pull/576)
 
--   Добавлен новый компонент SystemMessage
+- Добавлен новый компонент SystemMessage

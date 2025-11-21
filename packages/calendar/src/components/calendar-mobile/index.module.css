@@ -24,7 +24,7 @@
     background: var(--modal-header-background);
     top: var(--gap-0);
     height: 32px;
-    padding: var(--gap-0) 6px;
+    padding: var(--gap-0) var(--gap-6);
 
     &.withHeader {
         top: var(--gap-48);
@@ -42,7 +42,7 @@
     margin-bottom: var(--gap-8);
 
     &.clickableMonth {
-        padding: 10px var(--gap-16);
+        padding: var(--gap-10) var(--gap-16);
         align-self: flex-start;
         border-radius: var(--border-radius-pill);
         background-color: var(--color-light-neutral-translucent-100);

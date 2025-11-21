@@ -61,6 +61,18 @@ describe('SliderInput | sprite', () => {
                         size: { width: 260, height: 120 },
                     }),
                 ],
+                [
+                    'bold prop',
+                    createSpriteStorybookUrl({
+                        componentName: 'SliderInput',
+                        knobs: {
+                            label: 'Сумма',
+                            value: 50,
+                            bold: [true, false],
+                        },
+                        size: { width: 260, height: 120 },
+                    }),
+                ],
             ],
             screenshotOpts: {
                 fullPage: true,

@@ -1,11 +1,13 @@
 import React, { forwardRef, ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, renderHook, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { act } from 'react-dom/test-utils';
 import { ToastDesktop as Toast, ToastDesktopProps as ToastProps } from './desktop';
 
 import { asyncRender } from '@alfalab/core-components-test-utils';
+import { useTimer } from './components/base-toast/use-timer';
+import { ToastMobile } from './mobile';
 
 type PopoverComponent = {
     render?: ForwardRefRenderFunction<HTMLDivElement, PopoverProps>;
@@ -218,7 +220,7 @@ describe('Toast', () => {
         it('should not call onClose if touch ToastPlate', () => {
             const onClose = jest.fn();
             render(
-                <Toast
+                <ToastMobile
                     onClose={onClose}
                     open={true}
                     autoCloseDelay={3000}
@@ -254,6 +256,94 @@ describe('Toast', () => {
             );
 
             await waitFor(() => expect(getByTestId(dataTestId)).toBeInTheDocument());
+        });
+    });
+
+    /**
+     * Кейсы
+     * 1. Таймер срабатывает после истечения delay;
+     * 2. stop() предотвращает срабатывание;
+     * 3. start() перезапускает таймер;
+     * 4. Таймер очищается при размонтировании.
+     */
+    describe('useTimer', () => {
+        const onTimeout = jest.fn();
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+            jest.clearAllTimers();
+        });
+
+        it('should start timer when open', () => {
+            const { rerender } = renderHook(
+                ({ open }) =>
+                    useTimer({
+                        open,
+                        delay: 3000,
+                        onTimeout,
+                    }),
+                { initialProps: { open: false } },
+            );
+
+            expect(onTimeout).not.toHaveBeenCalled();
+
+            rerender({ open: true });
+
+            act(() => {
+                jest.advanceTimersByTime(3000);
+            });
+
+            expect(onTimeout).toHaveBeenCalledTimes(1);
+        });
+
+        it('should clear timer when call stop', () => {
+            const { result } = renderHook(() =>
+                useTimer({
+                    open: true,
+                    delay: 5000,
+                    onTimeout,
+                }),
+            );
+
+            act(() => {
+                result.current.stop();
+                jest.advanceTimersByTime(5000);
+            });
+
+            expect(onTimeout).not.toHaveBeenCalled();
+        });
+
+        it('should restart timer when call start', () => {
+            const { result } = renderHook(() =>
+                useTimer({
+                    open: true,
+                    delay: 2000,
+                    onTimeout,
+                }),
+            );
+
+            act(() => {
+                result.current.start();
+                jest.advanceTimersByTime(2000);
+            });
+
+            expect(onTimeout).toHaveBeenCalledTimes(1);
+        });
+
+        it('should clear timer when unmount', () => {
+            const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
+
+            const { unmount } = renderHook(() =>
+                useTimer({
+                    open: true,
+                    delay: 3000,
+                    onTimeout,
+                }),
+            );
+
+            unmount();
+
+            expect(clearTimeoutSpy).toHaveBeenCalled();
         });
     });
 

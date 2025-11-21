@@ -94,7 +94,6 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
       class="component"
       role="tabpanel"
       tabindex="0"
-      title="Таб 2"
     >
       Таб 2
     </div>
@@ -178,7 +177,6 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
       class="component"
       role="tabpanel"
       tabindex="0"
-      title="Таб 2"
     >
       Таб 2
     </div>
@@ -282,7 +280,6 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
       class="component"
       role="tabpanel"
       tabindex="0"
-      title="Таб 2"
     >
       Таб 2
     </div>
@@ -370,7 +367,6 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
       class="component"
       role="tabpanel"
       tabindex="0"
-      title="Таб 2"
     >
       Таб 2
     </div>
@@ -472,7 +468,6 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
       class="component"
       role="tabpanel"
       tabindex="0"
-      title="Таб 2"
     >
       Таб 2
     </div>
@@ -556,7 +551,6 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
       class="component"
       role="tabpanel"
       tabindex="0"
-      title="Таб 2"
     >
       Таб 2
     </div>

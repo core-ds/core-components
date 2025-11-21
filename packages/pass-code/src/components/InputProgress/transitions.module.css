@@ -11,7 +11,7 @@
     opacity: 1;
     width: 12px;
     height: 12px;
-    margin: var(--gap-0) 6px;
+    margin: var(--gap-0) var(--gap-6);
     transition: all 0.15s ease-in;
 }
 
@@ -19,7 +19,7 @@
     opacity: 1;
     width: 12px;
     height: 12px;
-    margin: var(--gap-0) 6px;
+    margin: var(--gap-0) var(--gap-6);
 }
 
 .exitActive {

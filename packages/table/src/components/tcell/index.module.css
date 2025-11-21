@@ -20,8 +20,8 @@
 }
 
 .compactHorizontal {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: var(--gap-6);
+    padding-right: var(--gap-6);
 }
 
 .compact {

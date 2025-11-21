@@ -10,7 +10,7 @@ button.tag.tag {
     height: 32px;
 
     &:not(.arrow) {
-        padding: 0 6px;
+        padding: var(--gap-0) var(--gap-6);
     }
 
     &:disabled:not(.checked) {

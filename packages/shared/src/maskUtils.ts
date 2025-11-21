@@ -181,6 +181,9 @@ function preserveCountryCodePreprocessor(
     };
 }
 
+/**
+ * @deprecated Будет удален в следующей мажорной версии
+ */
 export const maskUtils = {
     insertionPhonePreprocessor,
     prefixPostprocessor,

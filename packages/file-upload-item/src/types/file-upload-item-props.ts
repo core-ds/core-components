@@ -148,4 +148,9 @@ export type FileUploadItemProps = {
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
      */
     imageUrl?: string;
+
+    /**
+     * Цвет заливки `StatusControl`
+     */
+    backgroundColor?: string;
 };

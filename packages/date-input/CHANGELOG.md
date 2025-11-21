@@ -1,5 +1,12 @@
 # @alfalab/core-components-date-input
 
+## 5.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.3
+
 ## 5.0.2
 
 ### Patch Changes
