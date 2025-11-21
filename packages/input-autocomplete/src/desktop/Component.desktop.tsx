@@ -41,6 +41,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
             Field={AutocompleteField}
             Optgroup={Optgroup}
             OptionsList={OptionsList}
+            showCheckmark={false}
             {...restProps}
             fieldProps={{
                 ...(restProps.fieldProps as AnyObject),

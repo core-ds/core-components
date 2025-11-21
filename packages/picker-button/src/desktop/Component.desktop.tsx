@@ -112,6 +112,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
                 {...restProps}
                 Popover={Popover}
                 view='desktop'
+                showCheckmark={false}
                 optionProps={{ Checkmark: null }}
                 ref={ref}
                 Option={Option}

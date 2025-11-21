@@ -304,6 +304,12 @@ export interface BaseSelectProps {
     Option?: ComponentType<OptionProps>;
 
     /**
+     * Отображать ли визуальный чекмарк/checkbox у пунктов списка
+     * @default true
+     */
+    showCheckmark?: boolean;
+
+    /**
      * Включает отображение поиска
      */
     showSearch?: boolean;
@@ -500,7 +506,7 @@ export type FieldProps = {
         tabIndex?: number;
         id: string;
     } & RefAttributes<HTMLDivElement | HTMLInputElement> &
-    AriaAttributes;
+        AriaAttributes;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -806,7 +812,7 @@ export type OptionCommonProps = {
         onMouseMove?: (event: MouseEvent<HTMLDivElement>) => void;
         role?: string;
     } & RefAttributes<HTMLDivElement> &
-    AriaAttributes;
+        AriaAttributes;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -822,6 +828,12 @@ export type OptionCommonProps = {
      * Выравнивание чекбокса или иконки "галочки"
      */
     align?: 'start' | 'center';
+
+    /**
+     * Управление отображением визуального чекмарка/checkbox для пункта
+     * @default true
+     */
+    showCheckmark?: boolean;
 };
 
 export interface OptionProps extends OptionCommonProps, AriaAttributes {
@@ -858,6 +870,11 @@ export type CheckmarkProps = {
     position?: 'before' | 'after';
 
     /**
+     * Дополнительный контент
+     */
+    content?: ReactNode;
+
+    /**
      * Иконка выбранного пункта
      */
     icon?: FC<SVGProps<SVGSVGElement>>;
@@ -866,6 +883,12 @@ export type CheckmarkProps = {
      * Выравнивание чекбокса или иконки "галочки"
      */
     align?: 'start' | 'center';
+
+    /**
+     * Отображение визуальной части отметки
+     * @default true
+     */
+    showCheckmark?: boolean;
 };
 
 export type SearchProps = InputProps & RefAttributes<HTMLInputElement>;

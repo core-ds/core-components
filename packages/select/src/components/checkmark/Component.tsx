@@ -1,9 +1,8 @@
 import React, { useCallback } from 'react';
 import cn from 'classnames';
 
-import { Badge } from '@alfalab/core-components-badge';
 import { Checkbox, type CheckboxProps } from '@alfalab/core-components-checkbox';
-import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { StatusBadge } from '@alfalab/core-components-status-badge';
 import CheckmarkMIcon from '@alfalab/icons-glyph/CheckmarkMIcon';
 
 import { type CheckmarkProps } from '../../typings';
@@ -16,12 +15,13 @@ export const Checkmark = ({
     className,
     multiple,
     position = 'before',
+    content,
 }: CheckmarkProps) => {
     const single = !multiple;
 
     const checkmarkClassNames = cn(styles.checkmark, className, styles[position], {
-        [styles.multiple]: !single,
         [styles.single]: single,
+        [styles.multiple]: !single,
         [styles.selected]: selected,
     });
 
@@ -32,14 +32,19 @@ export const Checkmark = ({
 
     return single ? (
         <div className={checkmarkClassNames}>
-            <CheckmarkMIcon className={cn(styles.displayIcon)} />
+            {position === 'before' ? (
+                <StatusBadge className={styles.after} view='neutral-cross' size={24} />
+            ) : (
+                <CheckmarkMIcon className={cn(styles.displayIcon)} />
+            )}
         </div>
     ) : (
         <Checkbox
             checked={selected}
             disabled={disabled}
             className={checkmarkClassNames}
-            size='m'
+            size={24}
+            label={content}
             onClick={handleCheckboxClick}
         />
     );

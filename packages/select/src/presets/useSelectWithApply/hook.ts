@@ -141,7 +141,6 @@ export function useSelectWithApply({
             ),
         [options, selected, showSearch, filterGroup, filterFn, accessor, search, groupAccessor],
     );
-
     const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
 
     const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);

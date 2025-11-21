@@ -5,12 +5,12 @@
     flex-shrink: 0;
 
     &.before {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-8);
         display: var(--select-checkmark-before-display);
     }
 
     &.after {
-        margin-left: var(--gap-xs);
+        margin-left: var(--gap-8);
         display: var(--select-checkmark-after-display);
     }
 }
@@ -40,6 +40,14 @@
     &.after {
         margin-left: var(--gap-12);
         display: var(--select-checkmark-after-display-multiple);
+    }
+}
+
+.after.after {
+    display: var(--select-checkmark-after-display);
+
+    &.single {
+        display: var(--select-checkmark-after-display-single);
     }
 }
 

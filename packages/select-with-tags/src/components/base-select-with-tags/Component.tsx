@@ -137,6 +137,17 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
         );
 
         const isOpen = Boolean(openProp ?? open);
+        const restOptionProps = (restProps?.optionProps as AnyObject) ?? {};
+        const defaultCheckmarkPosition = view === 'desktop' ? 'before' : 'after';
+
+        const optionProps =
+            Option === DefaultOption
+                ? {
+                    ...restOptionProps,
+                    checkmarkPosition:
+                    restOptionProps.checkmarkPosition ?? defaultCheckmarkPosition,
+                }
+                : restOptionProps;
 
         return (
             <BaseSelect
@@ -172,6 +183,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                         ? { selectedMultiple: frozenValue.current }
                         : null),
                 }}
+                optionProps={optionProps}
                 selected={selected}
                 autocomplete={view === 'desktop' && isAutocomplete}
                 size={size}

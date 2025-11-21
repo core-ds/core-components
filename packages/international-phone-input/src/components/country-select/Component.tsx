@@ -112,6 +112,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     Option={BaseOption}
                     size={size}
                     {...restProps}
+                    showCheckmark={false}
                     dataTestId={getDataTestId(dataTestId, 'country-select')}
                     options={options}
                     selected={selected?.key || EMPTY_COUNTRY_SELECT_FIELD}
