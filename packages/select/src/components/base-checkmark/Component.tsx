@@ -16,16 +16,14 @@ export const BaseCheckmark: FC<CheckmarkProps> = ({
     align = 'center',
     position = 'before',
     content,
-    showCheckmark = true,
 }) => {
-    const renderCheckmarkIcon = () =>
-        showCheckmark ? (
-            <CheckmarkMIcon
-                className={cn(styles.singleIcon, styles[position], {
-                    [styles.selected]: selected,
-                })}
-            />
-        ) : null;
+    const renderCheckmarkIcon = () => (
+        <CheckmarkMIcon
+            className={cn(styles.singleIcon, styles[position], {
+                [styles.selected]: selected,
+            })}
+        />
+    );
 
     return multiple ? (
         <Checkbox

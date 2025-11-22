@@ -63,7 +63,6 @@ export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobil
         return (
             <SelectMobile
                 {...restProps}
-                showCheckmark={false}
                 label={label}
                 Option={Option}
                 bottomSheetProps={{

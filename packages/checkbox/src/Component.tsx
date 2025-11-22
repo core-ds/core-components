@@ -199,13 +199,10 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     <CheckIcon className={cn(styles.checkedIcon, colorStyle.checkedIcon)} />
                 )}
                 {indeterminate && !checked && (
-                    <span
-                        className={cn(styles.indeterminateLine, colorStyle.indeterminateLine)}
-                    />
+                    <span className={cn(styles.indeterminateLine, colorStyle.indeterminateLine)} />
                 )}
             </span>
         );
-
 
         return (
             <label

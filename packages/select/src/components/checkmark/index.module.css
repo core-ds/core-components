@@ -3,14 +3,14 @@
 
 .checkmark {
     flex-shrink: 0;
+    margin: var(--select-checkmark-margin);
 
     &.before {
-        margin-right: var(--gap-8);
         display: var(--select-checkmark-before-display);
     }
 
     &.after {
-        margin-left: var(--gap-8);
+        margin: var(--select-checkmark-margin-after);
         display: var(--select-checkmark-after-display);
     }
 }
@@ -20,9 +20,6 @@
     align-items: center;
     justify-content: center;
     opacity: var(--select-checkmark-unselected-opacity);
-    background: var(--select-checkmark-background);
-    background-size: cover;
-    border-radius: var(--select-checkmark-border-radius);
     width: var(--select-checkmark-size);
     height: var(--select-checkmark-size);
 
@@ -53,4 +50,10 @@
 
 .colorIcon {
     color: var(--color-light-status-positive);
+}
+
+.displayIcon {
+    display: block;
+    width: 100%;
+    height: 100%;
 }

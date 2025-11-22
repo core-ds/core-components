@@ -136,7 +136,6 @@ export const InputAutocompleteMobile = React.forwardRef(
             <Component
                 Field={AutocompleteMobileField}
                 {...restProps}
-                showCheckmark={false}
                 {...(isBottomSheet
                     ? {
                           bottomSheetProps: {

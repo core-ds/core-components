@@ -22,12 +22,9 @@ export const BaseOption: FC<OptionProps> = ({
     dataTestId,
     mobile = false,
     size,
-    showCheckmark = true,
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
-    const shouldRenderCheckmark = showCheckmark && showCheckMark;
-
     const isTextContent = !isValidElement(content);
 
     return (
@@ -45,7 +42,7 @@ export const BaseOption: FC<OptionProps> = ({
             data-test-id={dataTestId}
             aria-label={option?.value?.name}
         >
-            {Checkmark && shouldRenderCheckmark ? (
+            {Checkmark && showCheckMark ? (
                 <Checkmark
                     className={cn({
                         [styles.checkmarkAfter]: !isTextContent && checkmarkPosition === 'after',
@@ -57,7 +54,6 @@ export const BaseOption: FC<OptionProps> = ({
                     align={align}
                     position={checkmarkPosition}
                     content={content}
-                    showCheckmark={shouldRenderCheckmark}
                 />
             ) : (
                 content

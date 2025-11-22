@@ -123,7 +123,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             ModalMobile,
             BottomSheet,
             limitDynamicOptionGroupSize,
-            showCheckmark = true,
             environment = isClient() ? window : undefined,
         } = props;
         const shouldSearchBlurRef = useRef(true);
@@ -450,15 +449,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             [flatOptions, setSelectedItems],
         );
 
-        const optionPropsObject = optionProps as AnyObject;
-
         const getOptionProps = (option: OptionShape, index: number) => ({
-            ...(optionPropsObject as object),
-            showCheckmark:
-                optionPropsObject &&
-                Object.prototype.hasOwnProperty.call(optionPropsObject, 'showCheckmark')
-                    ? optionPropsObject.showCheckmark
-                    : showCheckmark,
+            ...(optionProps as object),
             mobile: view === 'mobile',
             className: cn(optionClassName, {
                 [mobileStyles.option]: view === 'mobile',

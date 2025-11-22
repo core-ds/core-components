@@ -263,6 +263,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -283,6 +302,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                       Plutonium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -305,6 +343,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -325,6 +382,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                       Curium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -347,6 +423,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -367,6 +462,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                       Californium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -389,6 +503,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -409,6 +542,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                       Fermium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -431,6 +583,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -451,6 +622,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                       Nobelium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -473,6 +663,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -493,6 +702,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                       Rutherfordium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -515,6 +743,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -536,6 +783,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -556,6 +822,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                       Bohrium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -666,6 +951,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -686,6 +990,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       Plutonium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -708,6 +1031,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -728,6 +1070,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       Curium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -750,6 +1111,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -770,6 +1150,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       Californium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -792,6 +1191,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -812,6 +1230,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       Fermium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -834,6 +1271,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -854,6 +1310,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       Nobelium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -876,6 +1351,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -896,6 +1390,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       Rutherfordium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -918,6 +1431,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -939,6 +1471,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -959,6 +1510,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       Bohrium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -1069,6 +1639,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -1089,6 +1678,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       Plutonium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -1111,6 +1719,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -1131,6 +1758,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       Curium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -1153,6 +1799,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -1173,6 +1838,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       Californium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -1195,6 +1879,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -1215,6 +1918,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       Fermium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -1237,6 +1959,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -1257,6 +1998,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       Nobelium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -1279,6 +2039,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -1299,6 +2078,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       Rutherfordium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
@@ -1321,6 +2119,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -1342,6 +2159,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 aria-disabled="false"
@@ -1362,6 +2198,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       Bohrium
                     </div>
                   </div>
+                </div>
+                <div
+                  class="checkmark after single"
+                >
+                  <svg
+                    class="displayIcon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>

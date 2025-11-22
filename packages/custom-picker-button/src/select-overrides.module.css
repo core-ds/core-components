@@ -1,0 +1,6 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+.hideCheckmarks {
+    --select-checkmark-after-display: none;
+    --select-checkmark-after-display-single: none;
+}

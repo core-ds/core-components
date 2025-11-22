@@ -143,10 +143,10 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
         const optionProps =
             Option === DefaultOption
                 ? {
-                    ...restOptionProps,
-                    checkmarkPosition:
-                    restOptionProps.checkmarkPosition ?? defaultCheckmarkPosition,
-                }
+                      ...restOptionProps,
+                      checkmarkPosition:
+                          restOptionProps.checkmarkPosition ?? defaultCheckmarkPosition,
+                  }
                 : restOptionProps;
 
         return (

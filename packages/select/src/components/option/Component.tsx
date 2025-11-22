@@ -4,8 +4,6 @@ import cn from 'classnames';
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { type OptionCommonProps } from '../../typings';
 
-import checkmarkStyles from '../checkmark/index.module.css';
-
 type OptionPrivateProps = {
     /**
      * Мобильная версия option.
@@ -32,36 +30,12 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     innerProps,
     dataTestId,
     styles,
-    showCheckmark = true,
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
-    const isCheckmarkVisible = showCheckmark && showCheckMark;
-
-    const shouldRenderSelectionMarker = !multiple && isCheckmarkVisible;
-
-    const renderSelectionMarker = () => {
-        if (!shouldRenderSelectionMarker) {
-            return null;
-        }
-
-        return (
-            <div
-                aria-hidden='true'
-                className={cn(
-                    checkmarkStyles.checkmark,
-                    checkmarkStyles.single,
-                    checkmarkStyles.before,
-                    {
-                        [checkmarkStyles.selected]: selected,
-                    },
-                )}
-            />
-        );
-    };
 
     const renderVisualCheckmark = (position: 'before' | 'after') => {
-        if (!Checkmark || !isCheckmarkVisible) {
+        if (!Checkmark || !showCheckMark) {
             return null;
         }
 
@@ -71,7 +45,6 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
                 selected={selected}
                 multiple={multiple}
                 position={position}
-                showCheckmark={isCheckmarkVisible}
             />
         );
     };
@@ -86,7 +59,6 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
             })}
             data-test-id={dataTestId}
         >
-            {renderSelectionMarker()}
             {checkmarkPosition === 'before' && renderVisualCheckmark('before')}
 
             <div

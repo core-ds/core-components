@@ -304,12 +304,6 @@ export interface BaseSelectProps {
     Option?: ComponentType<OptionProps>;
 
     /**
-     * Отображать ли визуальный чекмарк/checkbox у пунктов списка
-     * @default true
-     */
-    showCheckmark?: boolean;
-
-    /**
      * Включает отображение поиска
      */
     showSearch?: boolean;
@@ -828,12 +822,6 @@ export type OptionCommonProps = {
      * Выравнивание чекбокса или иконки "галочки"
      */
     align?: 'start' | 'center';
-
-    /**
-     * Управление отображением визуального чекмарка/checkbox для пункта
-     * @default true
-     */
-    showCheckmark?: boolean;
 };
 
 export interface OptionProps extends OptionCommonProps, AriaAttributes {
@@ -883,12 +871,6 @@ export type CheckmarkProps = {
      * Выравнивание чекбокса или иконки "галочки"
      */
     align?: 'start' | 'center';
-
-    /**
-     * Отображение визуальной части отметки
-     * @default true
-     */
-    showCheckmark?: boolean;
 };
 
 export type SearchProps = InputProps & RefAttributes<HTMLInputElement>;

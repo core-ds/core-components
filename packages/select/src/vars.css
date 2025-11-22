@@ -36,12 +36,12 @@
 
     --select-checkmark-margin: var(--gap-0) var(--gap-8) var(--gap-0) var(--gap-0);
     --select-checkmark-margin-after: var(--select-checkmark-margin);
-    --select-checkmark-size: 4px;
+    --select-checkmark-size: 24px;
     --select-checkmark-before-display: 'flex';
-    --select-checkmark-after-display: none;
+    --select-checkmark-after-display: flex;
     --select-checkmark-before-display-multiple: block;
     --select-checkmark-after-display-multiple: none;
-    --select-checkmark-after-display-single: none;
+    --select-checkmark-after-display-single: flex;
     --select-checkmark-unselected-opacity: 0;
     --select-checkmark-background: var(--color-light-neutral-translucent-1300);
     --select-checkmark-border-radius: var(--border-radius-circle);
