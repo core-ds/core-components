@@ -4,9 +4,6 @@ import cn from 'classnames';
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { type OptionCommonProps } from '../../typings';
 
-import type stylesDesktop from './desktop/index.module.css';
-import type stylesMobile from './mobile/index.module.css';
-
 type OptionPrivateProps = {
     /**
      * Мобильная версия option.
@@ -15,7 +12,7 @@ type OptionPrivateProps = {
     /**
      * Стили
      */
-    styles: typeof stylesDesktop | typeof stylesMobile;
+    styles: Record<string, string>;
 };
 
 export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
@@ -29,12 +26,28 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     multiple,
     mobile,
     Checkmark,
+    checkmarkPosition = multiple ? 'before' : 'after',
     innerProps,
     dataTestId,
     styles,
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
+
+    const renderVisualCheckmark = (position: 'before' | 'after') => {
+        if (!Checkmark || !showCheckMark) {
+            return null;
+        }
+
+        return (
+            <Checkmark
+                disabled={disabled}
+                selected={selected}
+                multiple={multiple}
+                position={position}
+            />
+        );
+    };
 
     return (
         <div
@@ -46,14 +59,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
             })}
             data-test-id={dataTestId}
         >
-            {Checkmark && showCheckMark && (
-                <Checkmark
-                    disabled={disabled}
-                    selected={selected}
-                    multiple={multiple}
-                    position='before'
-                />
-            )}
+            {checkmarkPosition === 'before' && renderVisualCheckmark('before')}
 
             <div
                 className={cn(styles.content, {
@@ -63,15 +69,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
                 {content}
             </div>
 
-            {/** Workaround чтобы для клика показывать отметку справа и всегда в виде иконки */}
-            {Checkmark && showCheckMark && (
-                <Checkmark
-                    disabled={disabled}
-                    selected={selected}
-                    multiple={multiple}
-                    position='after'
-                />
-            )}
+            {checkmarkPosition === 'after' && renderVisualCheckmark('after')}
         </div>
     );
 };
