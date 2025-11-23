@@ -446,25 +446,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -478,7 +459,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -505,25 +486,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -537,7 +499,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -564,25 +526,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -596,7 +539,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -623,25 +566,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -655,7 +579,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -682,25 +606,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -714,7 +619,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -741,25 +646,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -773,7 +659,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -800,25 +686,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -832,7 +699,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -859,25 +726,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -891,7 +739,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -918,25 +766,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -950,7 +779,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -977,25 +806,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1009,7 +819,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1036,25 +846,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1068,7 +859,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1095,25 +886,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1127,7 +899,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1154,25 +926,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1186,7 +939,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1213,25 +966,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1245,7 +979,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1272,25 +1006,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1304,7 +1019,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1560,25 +1275,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1592,7 +1288,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1619,25 +1315,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1651,7 +1328,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1678,25 +1355,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1710,7 +1368,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1737,25 +1395,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1769,7 +1408,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1796,25 +1435,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1828,7 +1448,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1855,25 +1475,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1887,7 +1488,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1914,25 +1515,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -1946,7 +1528,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -1973,25 +1555,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -2005,7 +1568,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2032,25 +1595,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -2064,7 +1608,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2091,25 +1635,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -2123,7 +1648,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2150,25 +1675,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -2182,7 +1688,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2209,25 +1715,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -2241,7 +1728,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2268,25 +1755,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -2300,7 +1768,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2327,25 +1795,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -2359,7 +1808,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
@@ -2386,25 +1835,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                     role="option"
                                   >
                                     <div
-                                      class="checkmark"
-                                    >
-                                      <svg
-                                        class="displayIcon"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="24"
-                                        role="img"
-                                        viewBox="0 0 24 24"
-                                        width="24"
-                                      >
-                                        <path
-                                          clip-rule="evenodd"
-                                          d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                          fill-rule="evenodd"
-                                        />
-                                      </svg>
-                                    </div>
-                                    <div
                                       class="content"
                                     >
                                       <div
@@ -2418,7 +1848,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="checkmark"
+                                      class="checkmark after"
                                     >
                                       <svg
                                         class="displayIcon"
