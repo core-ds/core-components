@@ -193,6 +193,6 @@ describe('IconView', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<SuperEllipse />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

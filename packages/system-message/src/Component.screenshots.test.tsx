@@ -6,7 +6,7 @@ import {
     Knobs,
     EvaluateFn,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 450, height: 680 };
 const mobileViewport = { width: 370, height: 660 };

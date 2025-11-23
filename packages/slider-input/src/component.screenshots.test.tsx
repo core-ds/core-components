@@ -2,7 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -57,6 +57,18 @@ describe('SliderInput | sprite', () => {
                             label: ['', 'Оставшийся срок по кредиту'],
                             error: ['', 'Ошибка'],
                             steps: [['36 мес', '180 мес', '360 мес']],
+                        },
+                        size: { width: 260, height: 120 },
+                    }),
+                ],
+                [
+                    'bold prop',
+                    createSpriteStorybookUrl({
+                        componentName: 'SliderInput',
+                        knobs: {
+                            label: 'Сумма',
+                            value: 50,
+                            bold: [true, false],
                         },
                         size: { width: 260, height: 120 },
                     }),

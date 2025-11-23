@@ -1,7 +1,7 @@
 const ADDITIONAL_OFFSET = 15;
 
 function getTabs(container: HTMLDivElement) {
-    return Array.from(container.querySelectorAll('button[role="tab"]')) as HTMLButtonElement[];
+    return Array.from(container.querySelectorAll<HTMLButtonElement>('button[role="tab"]'));
 }
 
 function findLastVisibleTab(container: HTMLDivElement) {
@@ -19,13 +19,16 @@ function findLastVisibleTab(container: HTMLDivElement) {
 function findFirstVisibleTab(container: HTMLDivElement) {
     const tabs = getTabs(container);
 
-    return tabs.reduceRight((res, tab) => {
-        if (tab.offsetLeft + tab.clientWidth > container.scrollLeft + ADDITIONAL_OFFSET) {
-            return tab;
-        }
+    return tabs.reduceRight(
+        (res, tab) => {
+            if (tab.offsetLeft + tab.clientWidth > container.scrollLeft + ADDITIONAL_OFFSET) {
+                return tab;
+            }
 
-        return res;
-    }, tabs[tabs.length - 1]);
+            return res;
+        },
+        tabs[tabs.length - 1],
+    );
 }
 
 export function scrollIntoLastTab(container: HTMLDivElement | null) {

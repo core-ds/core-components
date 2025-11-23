@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Snapshots tests should display correctly 1`] = `
 <div>
@@ -336,17 +336,14 @@ exports[`Snapshots tests should display opened correctly 4`] = `
             class="wrapper"
           >
             <div
-              class="component sheet"
-              style="max-height: 744px;"
+              class="component component sheet"
+              style="height: unset; max-height: 744px;"
             >
-              <div
-                class="marker defaultMarker"
-              />
               <div
                 class="scrollableContainer sheetContainer"
               >
                 <div
-                  class="header headerWrapper sticky"
+                  class="header hasContent headerWrapperWithoutSwipeMarker sticky"
                 >
                   <div
                     class="mainLine"
@@ -396,7 +393,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                   />
                 </div>
                 <div
-                  class="content sheetContent noFooter"
+                  class="content content sheetContent noFooter"
                 >
                   <div
                     aria-labelledby="downshift-:r3:-label"
@@ -1453,17 +1450,14 @@ exports[`Snapshots tests should display opened correctly 6`] = `
             class="wrapper"
           >
             <div
-              class="component sheet"
-              style="max-height: 744px;"
+              class="component component sheet"
+              style="height: unset; max-height: 744px;"
             >
-              <div
-                class="marker defaultMarker"
-              />
               <div
                 class="scrollableContainer sheetContainer"
               >
                 <div
-                  class="header headerWrapper sticky"
+                  class="header hasContent headerWrapperWithoutSwipeMarker sticky"
                 >
                   <div
                     class="mainLine"
@@ -1513,7 +1507,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                   />
                 </div>
                 <div
-                  class="content sheetContent noFooter"
+                  class="content content sheetContent noFooter"
                 >
                   <div
                     aria-labelledby="downshift-:r5:-label"

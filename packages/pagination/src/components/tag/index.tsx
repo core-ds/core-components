@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import {
     TagDesktop as CoreTag,
-    TagDesktopProps as TagProps,
+    type TagDesktopProps as TagProps,
 } from '@alfalab/core-components-tag/desktop';
 
 import styles from './index.module.css';
@@ -13,6 +13,9 @@ export const Tag: FC<TagProps> = ({ className, checked, ...restProps }) => (
         {...restProps}
         checked={checked}
         size='xxs'
-        className={cn(className, styles.tag, { [styles.checked]: checked })}
+        className={cn(className, styles.tag, {
+            [styles.checked]: checked,
+            [styles.arrow]: className,
+        })}
     />
 );

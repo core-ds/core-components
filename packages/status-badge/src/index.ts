@@ -1,5 +1,5 @@
 export * from './Component';
-export {
+export type {
     StatusBadgeViews,
     StatusBadgeSizes,
     StatusBadgeIcon,

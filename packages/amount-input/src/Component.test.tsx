@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom-sixteen
- */
-
 import React, { useState } from 'react';
 import { render, fireEvent, act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -539,7 +535,7 @@ describe('AmountInput', () => {
                 fireEvent.change(input, { target: { value: userInput } });
                 fireEvent.blur(input);
 
-                expect(onChange).toBeCalledWith(expect.anything(), {
+                expect(onChange).toHaveBeenCalledWith(expect.anything(), {
                     value: value,
                     valueString: valueString,
                 });
@@ -594,7 +590,7 @@ describe('AmountInput', () => {
 
                 await userEvent.paste(userInput);
 
-                expect(handleChangeMock).toBeCalledWith(expect.anything(), {
+                expect(handleChangeMock).toHaveBeenCalledWith(expect.anything(), {
                     value: expectedValue,
                     valueString: userInput,
                 });

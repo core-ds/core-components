@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { BaseUniversalDateInput } from '../components/base-universal-date-input';
-import type { UniversalDateInputMobileProps } from '../types';
+import { type UniversalDateInputMobileProps } from '../types';
 
 export const UniversalDateInputMobile = forwardRef<HTMLInputElement, UniversalDateInputMobileProps>(
     (props, ref) => (

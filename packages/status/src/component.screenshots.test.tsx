@@ -3,7 +3,7 @@ import {
     createSpriteStorybookUrl,
     generateTestCases,
     setupScreenshotTesting,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 import { COLORS, SIZES } from './consts';
 

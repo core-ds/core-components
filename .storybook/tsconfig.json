@@ -1,3 +1,23 @@
 {
-  "extends": "../tsconfig.storybook"
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": [
+        "addons",
+        "blocks",
+        "components",
+        "metrics",
+        "pages",
+        "theming-wizard",
+        "typings",
+        "utils",
+        "scope.ts",
+        "*.json"
+    ],
+    "compilerOptions": {
+        "types": ["@alfalab/core-components-env", "@types/webpack-env"],
+        "noEmit": true,
+        "paths": {
+            "storybook/*": ["./*"]
+        }
+    }
 }

@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 @import './animations.module.css';
 
@@ -23,7 +23,7 @@
 }
 
 .dot {
-    margin: var(--gap-0) 6px;
+    margin: var(--gap-0) var(--gap-6);
     width: var(--pass-code-dot-width);
     height: var(--pass-code-dot-height);
     background: var(--color-light-neutral-translucent-300);

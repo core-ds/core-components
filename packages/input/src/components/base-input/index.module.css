@@ -19,10 +19,48 @@
         @mixin paragraph_component_secondary;
         padding: var(--gap-0) var(--gap-8);
     }
+
+    /* Убирает синюю заливку при автокомплите */
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        &:first-line {
+            @mixin paragraph_component;
+            font-family: var(--form-control-font-family);
+        }
+
+        /* Hack from http://stackoverflow.com/a/29350537 */
+        transition: background-color 999999s ease-in-out 0s;
+    }
+
+    &:-webkit-autofill {
+        animation: onautofillstart 999999s forwards;
+    }
+
+    &:not(:-webkit-autofill) {
+        /* Позволяет отслеживать autofill через js */
+        animation: onautofillcancel 999999s;
+    }
+
+    /* Убирает нативные стрелочки при type=number */
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    /* Firefox */
+    &[type='number'] {
+        -moz-appearance: textfield;
+    }
 }
 
 .input::placeholder {
-    transition: opacity 0.2s ease, color 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        color 0.2s ease;
 }
 
 .hasInnerLabel {
@@ -89,48 +127,6 @@
 
 .hasInnerLabel:read-only:focus::placeholder {
     opacity: 0;
-}
-
-/* Убирает синюю заливку при автокомплите */
-
-.input {
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-webkit-autofill:active {
-        &:first-line {
-            @mixin paragraph_component;
-            font-family: var(--form-control-font-family);
-        }
-
-        /* Hack from http://stackoverflow.com/a/29350537 */
-        transition: background-color 999999s ease-in-out 0s;
-    }
-}
-
-.input {
-    &:-webkit-autofill {
-        animation: onautofillstart 999999s forwards;
-    }
-
-    &:not(:-webkit-autofill) {
-        /* Позволяет отслеживать autofill через js */
-        animation: onautofillcancel 999999s;
-    }
-}
-
-/* Убирает нативные стрелочки при type=number */
-
-.input {
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-    }
-
-    /* Firefox */
-    &[type='number'] {
-        -moz-appearance: textfield;
-    }
 }
 
 @keyframes onautofillstart {

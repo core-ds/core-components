@@ -1,7 +1,10 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { CheckboxGroupDesktop as CheckboxGroup, CheckboxGroupDesktopProps as CheckboxGroupProps } from './desktop';
+import {
+    CheckboxGroupDesktop as CheckboxGroup,
+    CheckboxGroupDesktopProps as CheckboxGroupProps,
+} from './desktop';
 import { Checkbox } from '../../checkbox/src';
 import { Tag } from '../../tag/src';
 
@@ -123,7 +126,7 @@ describe('Checkbox', () => {
         it('should unmount without errors', () => {
             const { unmount } = render(<Group />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
 
         it('should contain label', () => {
@@ -190,7 +193,7 @@ describe('Interaction tests', () => {
             fireEvent.click(checkbox);
         }
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     test('should call `onChange` callback if click on tag', () => {
@@ -204,6 +207,6 @@ describe('Interaction tests', () => {
             fireEvent.click(tag);
         }
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 });

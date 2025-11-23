@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../../../tag/src/vars.css';
 
 .tag {
@@ -43,7 +43,7 @@
 }
 
 .tagCross {
-    padding: var(--gap-0) 6px;
+    padding: var(--gap-0) var(--gap-6);
     height: 100%;
 
     & > svg {

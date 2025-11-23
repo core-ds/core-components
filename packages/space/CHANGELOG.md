@@ -1,4 +1,28 @@
-# Change Log
+# @alfalab/core-components-space
+
+## 4.1.0
+
+### Minor Changes
+
+<sup><time>05.09.2025</time></sup>
+
+#### [#1813](https://github.com/core-ds/core-components/pull/1813)
+
+-   Добавлена возможность прокидывать restProps на root для компонентов RadioGroup, Space, Tab и Tabs
+
+## 4.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
 
 ## 3.4.2
 

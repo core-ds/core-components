@@ -1,2 +1,2 @@
 export { SelectWithTagsMobile } from './Component.mobile';
-export { SelectWithTagsMobileProps } from '../types';
+export type { SelectWithTagsMobileProps } from '../types';

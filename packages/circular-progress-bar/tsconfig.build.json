@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-circular-progress-bar": ["./src"],
+            "@alfalab/core-components-circular-progress-bar/*": ["./src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-typography": ["../typography/src"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
+    ]
+}

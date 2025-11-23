@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Markdown } from './Component';
-import { MarkdownDesktopProps } from './typings';
+import { BaseMarkdown } from './components/base-markdown';
+import { type MarkdownDesktopProps } from './typings';
 
 export const MarkdownDesktopComponent: React.FC<MarkdownDesktopProps> = ({
     children,
     ...restProps
 }) => (
-    <Markdown {...restProps} platform='desktop'>
+    <BaseMarkdown {...restProps} platform='desktop'>
         {children}
-    </Markdown>
+    </BaseMarkdown>
 );

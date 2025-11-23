@@ -5,7 +5,7 @@ import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof FileUploadItem> = {
     title: 'Components/FileUploadItem',
@@ -58,19 +58,6 @@ export const file_upload_item: Story = {
                         <FileUploadItem.Actions />
                     </FileUploadItem>
                 </div>
-            </div>
-        );
-    },
-};
-
-export const file_upload_item_left_addon: Story = {
-    name: 'FileUploadItem.StatusControl',
-    render: () => {
-        return (
-            <div style={{ width: 456 }}>
-                <FileUploadItem uploadStatus={'UPLOADING'} progressBar={number('progressBar', 0)}>
-                    <FileUploadItem.StatusControl />
-                </FileUploadItem>
             </div>
         );
     },

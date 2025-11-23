@@ -1,14 +1,14 @@
-import React from 'react';
+import type React from 'react';
 
-import { BrushProps } from './brush.types';
-import { CartesianGridProps } from './cartesianGrid.types';
-import { ComposedChartProps } from './composedChart.types';
-import { LegendProps } from './legend.types';
-import { ResponsiveContainerProps } from './responsiveContainer.types';
-import { SeriaProps } from './seria.types';
-import { TooltipProps } from './tooltip.types';
-import { XAxisProps } from './xAxis.types';
-import { YAxisProps } from './yAxis.types';
+import { type BrushProps } from './brush.types';
+import { type CartesianGridProps } from './cartesianGrid.types';
+import { type ComposedChartProps } from './composedChart.types';
+import { type LegendProps } from './legend.types';
+import { type ResponsiveContainerProps } from './responsiveContainer.types';
+import { type SeriaProps } from './seria.types';
+import { type TooltipProps } from './tooltip.types';
+import { type XAxisProps } from './xAxis.types';
+import { type YAxisProps } from './yAxis.types';
 
 export interface OptionsProps {
     /**

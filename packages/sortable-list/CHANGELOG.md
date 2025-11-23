@@ -1,44 +1,86 @@
 # @alfalab/core-components-sortable-list
 
+## 2.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-portal@4.0.2
+
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+- Обновлены `@alfalab/icons-*` пакеты
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-portal@4.0.1
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-portal@4.0.0
+    - @alfalab/core-components-shared@1.0.0
+
 ## 1.6.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.18.0
-    -   portal@3.3.10
+- Обновлены зависимости
+    - shared@0.18.0
+    - portal@3.3.10
 
 ## 1.6.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
-    -   portal@3.3.9
+- Обновлены зависимости
+    - shared@0.17.1
+    - portal@3.3.9
 
 ## 1.6.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
-    -   portal@3.3.8
+- Обновлены зависимости
+    - shared@0.17.0
+    - portal@3.3.8
 
 ## 1.6.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.16.0
-    -   portal@3.3.7
+- Обновлены зависимости
+    - shared@0.16.0
+    - portal@3.3.7
 
 ## 1.6.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.15.0
-    -   portal@3.3.6
+- Обновлены зависимости
+    - shared@0.15.0
+    - portal@3.3.6
 
 ## 1.6.6
 
@@ -48,15 +90,15 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
 ## 1.6.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   portal@3.3.5
-    -   shared@0.14.1
+- Обновлены зависимости
+    - portal@3.3.5
+    - shared@0.14.1
 
 ## 1.6.4
 
@@ -66,37 +108,37 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 <sup><time>13.12.2024</time></sup>
 
 ### [#1486](https://github.com/core-ds/core-components/pull/1486)
 
--   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+- Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
 
 ## 1.6.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
-    -   portal@3.3.4
+- Обновлены зависимости
+    - shared@0.14.0
+    - portal@3.3.4
 
 ## 1.6.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.13.0
-    -   portal@3.3.3
+- Обновлены зависимости
+    - shared@0.13.0
+    - portal@3.3.3
 
 ## 1.6.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.1
-    -   portal@3.3.2
+- Обновлены зависимости
+    - shared@0.12.1
+    - portal@3.3.2
 
 ## 1.6.0
 
@@ -106,23 +148,23 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ## 1.5.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.0
-    -   portal@3.3.1
+- Обновлены зависимости
+    - shared@0.12.0
+    - portal@3.3.1
 
 ## 1.5.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   portal@3.3.0
-    -   shared@0.11.0
+- Обновлены зависимости
+    - portal@3.3.0
+    - shared@0.11.0
 
 ## 1.5.3
 
@@ -132,10 +174,10 @@
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
--   Обновлены зависимости
-    -   portal@3.2.1
+- Обновлены зависимости
+    - portal@3.2.1
 
 ## 1.5.2
 
@@ -145,14 +187,14 @@
 
 ### [#1229](https://github.com/core-ds/core-components/pull/1229)
 
--   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+- Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
 
 ## 1.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.10.0
+- Обновлены зависимости
+    - shared@0.10.0
 
 ## 1.5.0
 
@@ -160,18 +202,18 @@
 
 ### [#1049](https://github.com/core-ds/core-components/pull/1049)
 
--   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+- Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
 
 ### [#1076](https://github.com/core-ds/core-components/pull/1076)
 
--   Добавлен проп itemContentClassName
+- Добавлен проп itemContentClassName
 
 ## 1.4.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.1
+- Обновлены зависимости
+    - shared@0.9.1
 
 ## 1.4.0
 
@@ -179,12 +221,12 @@
 
 ### [#1007](https://github.com/core-ds/core-components/pull/1007)
 
--   Обновлена зависимость @alfalab/icons-glyph
+- Обновлена зависимость @alfalab/icons-glyph
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.0
+- Обновлены зависимости
+    - shared@0.9.0
 
 ## 1.3.0
 
@@ -192,14 +234,14 @@
 
 ### [#992](https://github.com/core-ds/core-components/pull/992)
 
--   В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+- В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
 
 ## 1.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.8.0
+- Обновлены зависимости
+    - shared@0.8.0
 
 ## 1.2.0
 
@@ -207,41 +249,41 @@
 
 ### [#947](https://github.com/core-ds/core-components/pull/947)
 
--   DragOverlay теперь рендерится через портал
--   Добавлены пропы portalProps и dragOverlayProps
+- DragOverlay теперь рендерится через портал
+- Добавлены пропы portalProps и dragOverlayProps
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.7.0
+- Обновлены зависимости
+    - shared@0.7.0
 
 ## 1.1.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.6.0
+- Обновлены зависимости
+    - shared@0.6.0
 
 ## 1.1.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.5.0
+- Обновлены зависимости
+    - shared@0.5.0
 
 ## 1.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.4.0
+- Обновлены зависимости
+    - shared@0.4.0
 
 ## 1.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.3.0
+- Обновлены зависимости
+    - shared@0.3.0
 
 ## 1.1.1
 
@@ -249,10 +291,10 @@
 
 ### [#793](https://github.com/core-ds/core-components/pull/793)
 
--   Добавлены недостающие зависимости в package.json
+- Добавлены недостающие зависимости в package.json
 
--   Обновлены зависимости
-    -   shared@0.2.0
+- Обновлены зависимости
+    - shared@0.2.0
 
 ## 1.1.0
 
@@ -260,12 +302,12 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.1.0
+- Обновлены зависимости
+    - shared@0.1.0
 
 ## 1.0.3
 
@@ -273,7 +315,7 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
 ## 1.0.2
 
@@ -281,7 +323,7 @@
 
 ### [#635](https://github.com/core-ds/core-components/pull/635)
 
--   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+- Обновлена версия пакета @alfalab/icons-glyph в зависимостях
 
 ## 1.0.1
 
@@ -289,7 +331,7 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
 ## 1.0.0
 
@@ -297,4 +339,4 @@
 
 ### [#532](https://github.com/core-ds/core-components/pull/532)
 
--   Добавлен новый компонент SortableList
+- Добавлен новый компонент SortableList

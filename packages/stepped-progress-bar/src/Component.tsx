@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { Text } from '@alfalab/core-components-typography';
@@ -14,7 +14,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SteppedProgressBarView =
+type SteppedProgressBarView =
     | 'positive'
     | 'negative'
     | 'attention'
@@ -24,7 +24,9 @@ export type SteppedProgressBarView =
     | 'primary'
     | 'accent';
 
-export type SteppedProgressBarProps = {
+type CustomProgressBarView = { background: string };
+
+export interface SteppedProgressBarProps {
     /**
      * Общее количество шагов
      */
@@ -43,7 +45,10 @@ export type SteppedProgressBarProps = {
     /**
      * Цвет заполнения
      */
-    view?: SteppedProgressBarView | SteppedProgressBarView[];
+    view?:
+        | SteppedProgressBarView
+        | Array<SteppedProgressBarView | CustomProgressBarView>
+        | CustomProgressBarView;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -59,7 +64,7 @@ export type SteppedProgressBarProps = {
      * Дополнительный класс
      */
     className?: string;
-};
+}
 
 export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
     maxStep,
@@ -70,25 +75,26 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
     colors = 'default',
     className,
 }) => {
-    const validMaxSteps = maxStep <= 0 ? 1 : maxStep;
-    const isViewString = typeof view === 'string';
+    const validMaxSteps = Math.max(1, maxStep);
+    const isViewArray = Array.isArray(view);
+    const currentColors = colorStyles[colors];
 
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <div className={styles.stepsContainer}>
-                {Array.from(Array(validMaxSteps), (_, index) => (
+                {Array.from({ length: validMaxSteps }, (_, index) => (
                     <StepBar
                         key={index}
                         isDone={index < step}
-                        view={(isViewString ? view : view?.[index]) as SteppedProgressBarView}
-                        classNameStep={colorStyles[colors].bar}
+                        view={isViewArray ? view[index] : view}
+                        classNameStep={currentColors.bar}
                     />
                 ))}
             </div>
             {description && (
                 <Text
                     tag='div'
-                    className={cn(styles.description, colorStyles[colors].description)}
+                    className={cn(styles.description, currentColors.description)}
                     view='primary-small'
                 >
                     Шаг {step} из {maxStep}: {description}

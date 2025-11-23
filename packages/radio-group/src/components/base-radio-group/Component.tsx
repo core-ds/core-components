@@ -1,13 +1,15 @@
 import React, {
-    ChangeEvent,
+    type AriaAttributes,
+    type ChangeEvent,
     Children,
     cloneElement,
-    FocusEvent,
+    type FocusEvent,
     forwardRef,
+    type HTMLAttributes,
     isValidElement,
-    MouseEvent,
-    ReactElement,
-    ReactNode,
+    type MouseEvent,
+    type ReactElement,
+    type ReactNode,
     useState,
 } from 'react';
 import cn from 'classnames';
@@ -20,7 +22,12 @@ import commonStyles from './index.module.css';
 export type Direction = 'horizontal' | 'vertical';
 export type RadioGroupType = 'radio' | 'tag';
 
-export type BaseRadioGroupProps = {
+export interface BaseRadioGroupProps
+    extends Omit<
+            HTMLAttributes<HTMLDivElement>,
+            'onChange' | 'onBlur' | 'onFocus' | 'children' | 'className'
+        >,
+        AriaAttributes {
     /**
      * Заголовок группы
      */
@@ -106,7 +113,7 @@ export type BaseRadioGroupProps = {
      * Основные стили компонента.
      */
     styles: { [key: string]: string };
-};
+}
 
 export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
     (
@@ -127,6 +134,7 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
             name,
             value,
             styles,
+            ...restProps
         },
         ref,
     ) => {
@@ -201,15 +209,18 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
                 className={cn(
                     commonStyles.component,
                     commonStyles[type],
-                    { [commonStyles.error]: error },
+                    { [styles.error]: error },
                     className,
                 )}
-                data-test-id={dataTestId}
                 ref={ref}
+                data-test-id={dataTestId}
+                {...restProps}
             >
                 {label ? (
                     <span
-                        className={cn(commonStyles.label, styles.label)}
+                        className={cn(styles.label, {
+                            [styles.tag]: type === 'tag',
+                        })}
                         data-test-id={getDataTestId(dataTestId, 'label')}
                     >
                         {label}
@@ -239,7 +250,13 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
 
                 {errorMessage && (
                     <span
-                        className={cn(commonStyles.sub, styles.sub, commonStyles.errorMessage)}
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.errorMessage,
+                        )}
                         role='alert'
                         data-test-id={getDataTestId(dataTestId, 'error')}
                     >
@@ -249,7 +266,13 @@ export const BaseRadioGroup = forwardRef<HTMLDivElement, BaseRadioGroupProps>(
 
                 {hint && !errorMessage && (
                     <span
-                        className={cn(commonStyles.sub, styles.sub, commonStyles.hint)}
+                        className={cn(
+                            styles.sub,
+                            {
+                                [styles.tag]: type === 'tag',
+                            },
+                            commonStyles.hint,
+                        )}
                         data-test-id={getDataTestId(dataTestId, 'hint')}
                     >
                         {hint}

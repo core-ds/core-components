@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
-import { SelectProps } from '@alfalab/core-components-select';
+import { Button, type ButtonProps } from '@alfalab/core-components-button';
+import { type SelectProps } from '@alfalab/core-components-select';
 
 import styles from './index.module.css';
 

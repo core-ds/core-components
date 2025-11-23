@@ -1,4 +1,4 @@
-@import '../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     --badge-icon-bg-color: var(--color-light-neutral-translucent-1300-inverted);
@@ -79,13 +79,13 @@
 .m {
     height: 20px;
     min-width: 20px;
-    padding: var(--gap-0) 6px;
+    padding: var(--gap-0) var(--gap-6);
 }
 
 .l {
     height: 24px;
     min-width: 24px;
-    padding: var(--gap-0) 6px;
+    padding: var(--gap-0) var(--gap-6);
 }
 
 .heightS {

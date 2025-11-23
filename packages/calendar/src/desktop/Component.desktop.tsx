@@ -1,4 +1,11 @@
-import React, { forwardRef, MouseEvent, SyntheticEvent, useMemo, useRef, useState } from 'react';
+import React, {
+    forwardRef,
+    type MouseEvent,
+    type SyntheticEvent,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 import endOfDay from 'date-fns/endOfDay';
 import startOfDay from 'date-fns/startOfDay';
@@ -13,7 +20,7 @@ import { MonthYearHeader } from '../components/month-year-header';
 import { MonthsTable } from '../components/months-table';
 import { PeriodSlider } from '../components/period-slider';
 import { YearsTable } from '../components/years-table';
-import { DayAddons, SelectorView, View } from '../typings';
+import { type DayAddons, type SelectorView, type View } from '../typings';
 import { useCalendar } from '../useCalendar';
 import { useRange } from '../useRange';
 import { limitDate } from '../utils';
@@ -174,6 +181,12 @@ export type CalendarDesktopProps = {
     showCurrentYearSelector?: boolean;
 
     /**
+     * Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'
+     * @default true
+     */
+    hideDisabledArrows?: boolean;
+
+    /**
      * CalendarDesktop используется в мобильной и десктопной версии
      * Пропс позволяет определить платформу
      */
@@ -212,6 +225,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             dayAddons,
             shape = 'rounded',
             showCurrentYearSelector = false,
+            hideDisabledArrows = true,
             mobile,
         },
         ref,
@@ -379,7 +393,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
                                 periodType='month'
                                 prevArrowDisabled={!canSetPrevMonth}
                                 nextArrowDisabled={!canSetNextMonth}
-                                hideDisabledArrows={true}
+                                hideDisabledArrows={hideDisabledArrows}
                                 showCurrentYearSelector={showCurrentYearSelector}
                                 onPrevArrowClick={handlePrevArrowClick}
                                 onNextArrowClick={handleNextArrowClick}

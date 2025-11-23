@@ -1,6 +1,7 @@
+import { humanFileSize } from '@alfalab/core-components-shared';
+
 import {
     getExtension,
-    humanFileSize,
     isErrorStatus,
     isInitialStatus,
     isSuccessStatus,

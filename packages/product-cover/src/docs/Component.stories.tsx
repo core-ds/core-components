@@ -4,7 +4,7 @@ import { text, select, boolean, number } from '@storybook/addon-knobs';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
 import { ProductCover } from '@alfalab/core-components-product-cover';

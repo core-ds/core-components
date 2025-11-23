@@ -10,15 +10,7 @@ render(() => {
     return (
         <>
             <style>{css}</style>
-            <Markdown
-                overrides={{
-                    ul: (props) => (
-                        <List marker='–' tag='ul'>
-                            {props.children.filter((el) => el !== '\n')}
-                        </List>
-                    ),
-                }}
-            >
+            <Markdown>
                 {`
 # Герой нашего времени
 
@@ -40,7 +32,8 @@ render(() => {
 *  Журнал Печорина
 
 *  Часть вторая
-    \`Окончание журнала Печорина\`
+
+    > Окончание журнала Печорина
 
 ## Хронологический порядок глав
 

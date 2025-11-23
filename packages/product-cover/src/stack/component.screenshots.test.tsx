@@ -1,4 +1,7 @@
-import { createSpriteStorybookUrl, setupScreenshotTesting } from '../../../screenshot-utils';
+import {
+    createSpriteStorybookUrl,
+    setupScreenshotTesting,
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,

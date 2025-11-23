@@ -1,2 +1,2 @@
 export * from './Component.desktop';
-export { SystemMessageDesktopProps } from '../types';
+export type { SystemMessageDesktopProps } from '../types';

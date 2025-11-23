@@ -12,7 +12,7 @@ import { Tag } from '@alfalab/core-components-tag';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof RadioGroup> = {
     title: 'Components/RadioGroup',

@@ -15,7 +15,7 @@ import { Search as DefaultSearch } from '../components/search';
 import { VirtualOptionsList as DefaultVirtualOptionsList } from '../components/virtual-options-list';
 import { useSelectWithApply } from '../presets/useSelectWithApply/hook';
 import { Header } from '../presets/useSelectWithApply/options-list-with-apply/header/Component';
-import { AnyObject, OptionShape, SelectMobileProps } from '../typings';
+import { type AnyObject, type OptionShape, type SelectMobileProps } from '../typings';
 
 const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
@@ -124,6 +124,7 @@ export const SelectMobile = forwardRef(
                     : {
                           bottomSheetProps: {
                               bottomAddons,
+                              showSwipeMarker: false,
                               ...restProps.bottomSheetProps,
                           },
                       })}

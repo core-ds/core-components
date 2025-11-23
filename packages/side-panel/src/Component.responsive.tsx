@@ -1,7 +1,7 @@
-import React, { FC, forwardRef, useContext, useMemo } from 'react';
+import React, { type FC, forwardRef, useContext, useMemo } from 'react';
 
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
-import { DrawerProps } from '@alfalab/core-components-drawer';
+import { type BaseModalProps } from '@alfalab/core-components-base-modal';
+import { type DrawerProps } from '@alfalab/core-components-drawer';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { Controls } from './components/controls';
@@ -9,7 +9,7 @@ import { Header } from './components/header/Component';
 import { SidePanelDesktop } from './desktop';
 import { SidePanelMobile } from './mobile';
 import { ResponsiveContext } from './ResponsiveContext';
-import { TResponsiveModalContext } from './typings';
+import { type TResponsiveModalContext } from './typings';
 
 export type SidePanelResponsiveProps = BaseModalProps &
     Pick<DrawerProps, 'contentTransitionProps' | 'placement' | 'nativeScrollbar'> & {

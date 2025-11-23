@@ -1,19 +1,25 @@
-import React, { forwardRef, HTMLAttributes, MouseEvent, ReactNode, useCallback } from 'react';
+import React, {
+    forwardRef,
+    type HTMLAttributes,
+    type MouseEvent,
+    type ReactNode,
+    useCallback,
+} from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import {
     StatusBadge,
-    StatusBadgeCustomIcon,
-    StatusBadgeProps,
-    StatusBadgeViews,
+    type StatusBadgeCustomIcon,
+    type StatusBadgeProps,
+    type StatusBadgeViews,
 } from '@alfalab/core-components-status-badge';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import { useCustomIcons } from './hooks/useCustomIcons';
 import { useDeprecatedBadge } from './hooks/useDeprecatedBadge';
-import { unsafe_BadgeProps } from './types/unsafeBadgeProps';
+import { type unsafe_BadgeProps } from './types/unsafeBadgeProps';
 import { isUnsafeBadge } from './utils/isUnsafeBadge';
 
 import defaultColors from './default.module.css';

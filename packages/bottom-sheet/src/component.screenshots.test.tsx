@@ -6,7 +6,7 @@ import {
     closeBrowser,
     Knobs,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -30,10 +30,6 @@ describe('BottomSheet', () =>
         },
         'transform:scale(1.3);top:250px;maxWidth:500px;',
         {
-            viewport: {
-                width: 860,
-                height: 600,
-            },
             screenshotOpts: {
                 clip: {
                     x: 8,
@@ -133,6 +129,39 @@ describe(
     }),
 );
 
+describe('BottomSheet | inverted views', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme inverted`,
+                    createStorybookUrl({
+                        componentName: 'BottomSheet',
+                        knobs: {
+                            open: true,
+                            title: 'Заголовок',
+                            titleAlign: 'center',
+                            children: 'Контент',
+                            hasCloser: true,
+                            hasBacker: true,
+                            hideOverlay: false,
+                            colors: 'inverted',
+                            initialHeight: 'full',
+                            renderActionButton: true,
+                            backgroundColor: 'secondary',
+                        },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
+});
+
 describe('BottomSheet | interactions tests', () => {
     test('Open sheet', async () => {
         const pageUrl = createStorybookUrl({
@@ -194,4 +223,65 @@ describe('BottomSheet | magnetic areas', () => {
     test('200', () => magneticAreaTest({ initialActiveAreaIndex: 1 }));
     test('100%', () => magneticAreaTest({ initialActiveAreaIndex: 2 }));
     test('negative 200px', () => magneticAreaTest({ magneticAreas: '[0,-200]' }));
+});
+
+const titleTest = async (knobs: Knobs, scroll: boolean = false) => {
+    const pageUrl = createStorybookUrl({
+        componentName: 'BottomSheet',
+        testStory: false,
+        knobs: {
+            hasCloser: true,
+            hasBacker: true,
+            stickyHeader: true,
+            stickyFooter: false,
+            trimTitle: true,
+            title: 'Заголовок',
+            ...knobs,
+        },
+    });
+
+    const { browser, context, page } = await openBrowserPage(pageUrl);
+
+    try {
+        await page.click('#button-2');
+
+        await matchHtml({
+            context,
+            page,
+            expect,
+            viewport: {
+                width: 320,
+                height: 600,
+            },
+            screenshotOpts: { fullPage: true },
+            ...(scroll && {
+                evaluate: async (page) => {
+                    await page.waitForTimeout(500);
+                    await page.$eval('button[class*=showMoreButton]', (el) => {
+                        el.scrollIntoView();
+                    });
+                    await page.waitForTimeout(500);
+                },
+            }),
+        });
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error((error as Error).message);
+
+        throw error;
+    } finally {
+        await closeBrowser({ browser, context, page });
+    }
+};
+
+describe('BottomSheet | header', () => {
+    test('title alignment', () => titleTest({ titleAlign: 'left', stickyHeader: true }));
+    test('title alignment', () => titleTest({ titleAlign: 'left', stickyHeader: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', stickyHeader: true }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', stickyHeader: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'left', hasBacker: false }));
+    test('title alignment', () => titleTest({ titleAlign: 'center', hasBacker: false }));
+
+    test('animated title alignment', () => titleTest({ titleAlign: 'left' }, true));
+    test('animated title alignment', () => titleTest({ titleAlign: 'center' }, true));
 });

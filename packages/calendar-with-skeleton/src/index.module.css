@@ -1,4 +1,4 @@
-@import '../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../calendar/src/vars.css';
 
 .component {
@@ -41,7 +41,7 @@
     height: 32px;
 
     & + .row {
-        margin-top: 10px;
+        margin-top: var(--gap-10);
     }
 }
 

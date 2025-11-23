@@ -1,4 +1,4 @@
-import { createPreview } from '../../screenshot-utils';
+import { createPreview } from '@alfalab/core-components-screenshot-utils';
 
 describe('Space', () =>
     createPreview(

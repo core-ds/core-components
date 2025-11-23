@@ -1,4 +1,4 @@
-@import '../../../../../packages/vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .plate {
     padding: var(--gap-16) var(--gap-20);
@@ -36,7 +36,7 @@
 .description {
     @mixin promo-mobile_small;
 
-    margin-top: 6px;
+    margin-top: var(--gap-6);
 }
 
 @media screen and (min-width: 600px) {

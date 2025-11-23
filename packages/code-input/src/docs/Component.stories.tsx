@@ -5,7 +5,6 @@ import { CodeInput } from '@alfalab/core-components-code-input';
 import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
 import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
 
-
 const meta: Meta<typeof CodeInput> = {
     title: 'Components/CodeInput',
     component: CodeInput,
@@ -55,6 +54,5 @@ export const code_input_desktop: Story = {
         );
     },
 };
-    
-export default meta;
 
+export default meta;

@@ -1,2 +1,2 @@
 export { TooltipDesktop } from './Component.desktop';
-export { TooltipDesktopProps } from '../types';
+export type { TooltipDesktopProps } from '../types';

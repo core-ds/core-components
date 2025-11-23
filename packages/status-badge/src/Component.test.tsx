@@ -73,7 +73,7 @@ describe('Badge', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<StatusBadge view='positive-checkmark' />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     describe('Custom icons', () => {

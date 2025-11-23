@@ -33,7 +33,7 @@ describe('IntlPhoneInput', () => {
             <IntlPhoneInput value='+7 111 111 11 11' onChange={jest.fn()} />,
         );
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     it('should call `onChange` callback after input was changed with dial code of country without priority', async () => {
@@ -166,7 +166,7 @@ describe('IntlPhoneInput', () => {
 
         fireEvent.change(input, { target: { value: '+998 12 345 67 89', selectionStart: 0 } });
 
-        expect(onCountryChange).toBeCalledWith('UZ');
+        expect(onCountryChange).toHaveBeenCalledWith('UZ');
         expect(onCountryChange).toHaveBeenCalledTimes(1);
     });
 
@@ -234,7 +234,7 @@ describe('IntlPhoneInput', () => {
         const icons = screen.getAllByRole('img');
 
         expect(icons[0]).toHaveClass('emptyCountryIcon');
-        expect(onCountryChange).toBeCalledWith(undefined);
+        expect(onCountryChange).toHaveBeenCalledWith(undefined);
     });
 
     it('should call `onChange` with value "+7" when type "8" in empty field with `ruNumberPriority`', async () => {
@@ -254,7 +254,7 @@ describe('IntlPhoneInput', () => {
         await userEvent.type(input, '8');
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith('+7');
+            expect(onChange).toHaveBeenCalledWith('+7');
         });
     });
 
@@ -275,7 +275,7 @@ describe('IntlPhoneInput', () => {
         await userEvent.type(input, '9');
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith('+7 9');
+            expect(onChange).toHaveBeenCalledWith('+7 9');
         });
     });
 
@@ -296,7 +296,7 @@ describe('IntlPhoneInput', () => {
         await userEvent.type(input, '7');
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith('+7');
+            expect(onChange).toHaveBeenCalledWith('+7');
         });
     });
 
@@ -328,7 +328,7 @@ describe('IntlPhoneInput', () => {
         fireEvent.click(clearButton);
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith('+');
+            expect(onChange).toHaveBeenCalledWith('+');
         });
     });
 
@@ -405,7 +405,7 @@ describe('IntlPhoneInput', () => {
         });
 
         await waitFor(() => {
-            expect(onChange).toBeCalledWith('+7 983 123-67');
+            expect(onChange).toHaveBeenCalledWith('+7 983 123-67');
         });
     });
 
@@ -428,7 +428,7 @@ describe('IntlPhoneInput', () => {
         });
 
         await waitFor(() => {
-            expect(onChange).not.toBeCalled();
+            expect(onChange).not.toHaveBeenCalled();
         });
     });
 
@@ -465,7 +465,7 @@ describe('IntlPhoneInput', () => {
         await userEvent.type(input, '0');
 
         await waitFor(() => {
-            expect(onCountryChange).toBeCalledWith('GE-AB');
+            expect(onCountryChange).toHaveBeenCalledWith('GE-AB');
         });
     });
 });

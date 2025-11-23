@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { type FC, useRef } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
@@ -8,8 +8,8 @@ import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
 import { CrossCompactMIcon } from '@alfalab/icons-glyph/CrossCompactMIcon';
 import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
-import { CommonProps } from '../../types/common-props';
-import { StepIndicator, StepIndicatorProps } from '../step-indicator';
+import { type CommonProps } from '../../types/common-props';
+import { StepIndicator, type StepIndicatorProps } from '../step-indicator';
 
 import styles from './index.module.css';
 

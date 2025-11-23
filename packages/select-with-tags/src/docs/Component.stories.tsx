@@ -5,7 +5,7 @@ import { pluralize } from '@alfalab/utils';
 import {
     getQueryParam,
     stylesStringToObj,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 import { SelectWithTags } from '@alfalab/core-components-select-with-tags';
 import { SelectWithTagsDesktop } from '@alfalab/core-components-select-with-tags/desktop';

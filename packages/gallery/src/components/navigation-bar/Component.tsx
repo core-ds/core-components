@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import throttle from 'lodash/throttle';
 

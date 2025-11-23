@@ -1,12 +1,19 @@
-import React, { FocusEvent, forwardRef, Fragment, useCallback, useEffect, useState } from 'react';
+import React, {
+    type FocusEvent,
+    forwardRef,
+    Fragment,
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
-import { Input, InputProps } from '@alfalab/core-components-input';
+import { Input, type InputProps } from '@alfalab/core-components-input';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
 import { getMinMaxOrDefault, parseNumber } from '@alfalab/core-components-number-input/utils';
 import { fnUtils } from '@alfalab/core-components-shared';
-import { withSuffix, withSuffixProps } from '@alfalab/core-components-with-suffix';
-import { CurrencyCodes } from '@alfalab/data';
+import { withSuffix, type withSuffixProps } from '@alfalab/core-components-with-suffix';
+import { type CurrencyCodes } from '@alfalab/data';
 import { formatAmount, MMSP, THINSP } from '@alfalab/utils';
 
 import {
@@ -156,8 +163,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             clear = false,
             onChange,
             onClear,
-            onBlur,
             onFocus,
+            onBlur,
             onKeyDown,
             breakpoint,
             client,
@@ -422,6 +429,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 className={cn(styles.container, {
                     [styles.bold]: bold,
                     [styles.filled]: Boolean(inputValue),
+                    [styles.focused]: isFocused,
                 })}
             >
                 <SuffixInput
@@ -429,7 +437,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
-                            {majorPart}
+                            <span className={styles.suffixMajor}>{majorPart}</span>
 
                             <span
                                 className={cn({
@@ -438,9 +446,13 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                                     [colorStyles[colors].readOnly]: restProps.readOnly,
                                 })}
                             >
-                                {minorPart !== undefined && `,${minorPart}`}
+                                {minorPart !== undefined && (
+                                    <span className={styles.suffixMinor}>{`,${minorPart}`}</span>
+                                )}
                                 {THINSP}
-                                {suffix === currency ? currencyCode : suffix}
+                                <span className={styles.suffixCurrency}>
+                                    {suffix === currency ? currencyCode : suffix}
+                                </span>
                             </span>
                         </Fragment>
                     }
