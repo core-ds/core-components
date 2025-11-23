@@ -70,14 +70,6 @@
     color: var(--select-option-disabled-color);
 }
 
-.checkmarkBeforeContent {
-    margin-right: var(--gap-12);
-}
-
-.checkmarkAfterContent {
-    margin-left: var(--gap-12);
-}
-
 .content {
     flex: 1;
 }

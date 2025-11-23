@@ -7,6 +7,7 @@ import {
 } from '@alfalab/core-components-picker-button/mobile';
 
 import { Field as DefaultField } from '../field';
+import { disableCheckmarks } from '../utils/disableCheckMarks';
 
 const DEFAULT_BUTTON_COLOR = '#FF45C3';
 const DEFAULT_CONTENT_COLOR = 'white';
@@ -20,12 +21,14 @@ export const CustomPickerButtonMobile = forwardRef<HTMLInputElement, CustomPicke
             backgroundColor = DEFAULT_BUTTON_COLOR,
             contentColor = DEFAULT_CONTENT_COLOR,
             stateType = 'darkening',
+            options = [],
             ...restProps
         },
         ref,
     ) => (
         <PickerButtonMobile
             {...restProps}
+            options={disableCheckmarks(options)}
             fieldProps={{
                 backgroundColor,
                 contentColor,
