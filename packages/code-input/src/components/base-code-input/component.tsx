@@ -17,6 +17,7 @@ import {
     type CredentialRequestOtpOptions,
     type CustomInputRef,
 } from '../../typings';
+import { getFocusRestrictionMeta, resolveRestrictedIndex } from '../../utils';
 import { Input, type InputProps } from '..';
 
 import styles from './index.module.css';
@@ -39,6 +40,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             onChange,
             onComplete,
             stylesInput = {},
+            restrictFocus = false,
         },
         ref,
     ) => {
@@ -60,7 +62,6 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         };
 
         const focus = (index = 0) => {
-            programmaticFocusRef.current = true;
             focusOnInput(inputRefs[index]);
         };
 
@@ -135,7 +136,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
             if (nextRef?.current) {
                 programmaticFocusRef.current = true;
-                nextRef.current.focus();
+                focusOnInput(nextRef);
 
                 nextRef.current.select();
             }
@@ -170,6 +171,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
                     if (values[index]) {
                         newValues[index] = '';
+                        focusOnInput(curtRef);
                     } else if (prevRef) {
                         newValues[prevIndex] = '';
 
@@ -185,14 +187,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     event.preventDefault();
 
                     newValues[index] = '';
-
-                    if (!values[nextIndex]) {
-                        focusOnInput(curtRef);
-                    }
-
-                    if (nextRef) {
-                        focusOnInput(nextRef);
-                    }
+                    focusOnInput(curtRef);
 
                     setValues(newValues);
 
@@ -209,6 +204,22 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     break;
                 case 'ArrowRight':
                     event.preventDefault();
+
+                    if (restrictFocus) {
+                        const meta = getFocusRestrictionMeta({ values, fields });
+                        const restrictedIdx = resolveRestrictedIndex({
+                            requestedIndex: nextIndex,
+                            meta,
+                        });
+
+                        const restrictedRef = inputRefs[restrictedIdx];
+
+                        if (restrictedRef) {
+                            focusOnInput(restrictedRef);
+                        }
+
+                        break;
+                    }
 
                     if (nextRef) {
                         focusOnInput(nextRef);
@@ -239,13 +250,30 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             }
 
             const targetIndex = inputRefs.findIndex((inputRef) => inputRef.current === target);
-            const allEmpty = values.every((value) => !value);
+            const allEmpty = values.every((value) => !value) || values.length === 0;
 
             if (allEmpty && targetIndex > 0) {
-                programmaticFocusRef.current = true;
                 focusOnInput(inputRefs[0]);
 
                 return;
+            }
+
+            if (restrictFocus) {
+                const meta = getFocusRestrictionMeta({ values, fields });
+                const restrictedIdx = resolveRestrictedIndex({
+                    requestedIndex: targetIndex,
+                    meta,
+                });
+
+                if (restrictedIdx !== targetIndex) {
+                    const restrictedRef = inputRefs[restrictedIdx];
+
+                    if (restrictedRef) {
+                        focusOnInput(restrictedRef);
+                    }
+
+                    return;
+                }
             }
 
             /**
