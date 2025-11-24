@@ -4495,6 +4495,16 @@
   resolved "https://registry.yarnpkg.com/@maskito/core/-/core-1.7.0.tgz#e486ca1db2219f03beee5085c362688226fbaeec"
   integrity sha512-sjdv1MSJnWWor/Qy1u1+ZZtqejzfVt6zqMUfy5RToEPZSBWlsCg1JSfjRu9WRb3yirpZnj3j80JkTGCicFrvuw==
 
+"@maskito/core@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-4.0.1.tgz#954a4c269ea4fe3f9d87d15b6a1d4143566ee068"
+  integrity sha512-0ewYXnr8X7as/n57duk1DDqjAKF0m32XbFiAhKdd9OX83eMBzO2+4xgUFxh6WZJ18oSw6y2nWjCTDFAFc5JbhA==
+
+"@maskito/kit@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-4.0.1.tgz#149b791bea3153e357b35dc8a5cd33980e9fa730"
+  integrity sha512-GHxK65y5sBwCO0Retl80NvB37uDaIY9g5hezyOe9EG7+zjGRUqDjYc3b04ofJHlGgPtpreOiBDq5bqEr0I/OMw==
+
 "@maskito/react@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@maskito/react/-/react-1.7.0.tgz#9fdf2528ee0bc876c8a9d17c25c3da12e1461863"

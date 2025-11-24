@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
 import { MMSP, THINSP } from '@alfalab/utils';
 import { AmountInput } from './index';
-import { AmountInputProps } from './Component';
+import { AmountInputProps } from './types';
 
 describe('AmountInput', () => {
     Object.defineProperty(window, 'matchMedia', {
