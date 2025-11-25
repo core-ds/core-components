@@ -29,8 +29,6 @@ type FocusRestrictionPayload = {
 type FocusRestrictionMeta = {
     /** Индекс ячейки, на которую можно установить фокус */
     focusIdx: number;
-    /** Индекс последней заполненной ячейки */
-    lastFilledIdx: number;
     /** Флаг, указывающий что все ячейки заполнены */
     isComplete: boolean;
 };
@@ -47,14 +45,12 @@ export const getFocusRestrictionMeta = ({
 
         return {
             focusIdx: lastIndex,
-            lastFilledIdx: lastIndex,
             isComplete: true,
         };
     }
 
     return {
         focusIdx: nextEmptyIdx,
-        lastFilledIdx: Math.max(nextEmptyIdx - 1, 0),
         isComplete: false,
     };
 };
@@ -69,19 +65,12 @@ export const resolveRestrictedIndex = ({
     requestedIndex,
     meta,
 }: ResolveFocusIndexPayload): number => {
-    const { isComplete, focusIdx, lastFilledIdx } = meta;
+    const { focusIdx } = meta;
+    const normalizedIndex = Math.max(requestedIndex, 0);
 
-    if (isComplete) {
+    if (normalizedIndex > focusIdx) {
         return focusIdx;
     }
 
-    if (requestedIndex > focusIdx) {
-        return focusIdx;
-    }
-
-    if (requestedIndex < lastFilledIdx) {
-        return lastFilledIdx;
-    }
-
-    return requestedIndex;
+    return normalizedIndex;
 };

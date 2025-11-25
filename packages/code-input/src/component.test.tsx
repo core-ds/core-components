@@ -384,11 +384,11 @@ describe('CodeInput', () => {
                         expectedFocus: 2,
                     },
                     {
-                        name: 'state [1] [2] [3] [], click idx 1 -> focuses idx 2 (last filled)',
+                        name: 'state [1] [2] [3] [], click idx 1 -> focuses idx 1 (allowed)',
                         fields: 4,
                         preset: ['1', '2', '3', undefined],
                         clickIndex: 1,
-                        expectedFocus: 2,
+                        expectedFocus: 1,
                     },
                     {
                         name: 'all empty, click idx 2 -> focuses idx 0',
@@ -424,17 +424,19 @@ describe('CodeInput', () => {
             });
 
             describe('deletion restrictions', () => {
-                it('click on any cell when fully filled focuses last', async () => {
+                it('click on any filled cell when fully filled keeps that cell focused', async () => {
                     const { container } = render(<CodeInput fields={4} restrictFocus={true} />);
 
                     await fillByArray(container, ['1', '2', '3', '4']);
                     const inputs = getInputs(container);
 
                     await userEvent.click(inputs[1]);
+                    expect(inputs[1]).toHaveFocus();
+                    await userEvent.click(inputs[3]);
                     expect(inputs[3]).toHaveFocus();
                 });
 
-                it('after deleting last, clicks on earlier cells focus last filled only', async () => {
+                it('after deleting last, clicks on filled cells keep their focus and empty fields redirect', async () => {
                     const { container } = render(<CodeInput fields={5} restrictFocus={true} />);
 
                     await fillByArray(container, ['1', '2', '3', '4', '5']);
@@ -444,17 +446,14 @@ describe('CodeInput', () => {
                     inputs[4].focus();
                     await userEvent.type(inputs[4], '{backspace}');
 
-                    // теперь lastFilled = 3 (индекс 3)
                     await userEvent.click(inputs[0]);
-                    expect(inputs[3]).toHaveFocus();
-                    await userEvent.click(inputs[1]);
-                    expect(inputs[3]).toHaveFocus();
+                    expect(inputs[0]).toHaveFocus();
                     await userEvent.click(inputs[2]);
-                    expect(inputs[3]).toHaveFocus();
+                    expect(inputs[2]).toHaveFocus();
 
-                    // разрешаем фокус только на последнюю заполненную (4-ю позицию)
-                    await userEvent.click(inputs[3]);
-                    expect(inputs[3]).toHaveFocus();
+                    // клик по пустой ячейке (индекс 4) приводит к первой пустой
+                    await userEvent.click(inputs[4]);
+                    expect(inputs[4]).toHaveFocus();
                 });
             });
         });
