@@ -1,6 +1,6 @@
 ---
-'@alfalab/core-components-universal-date-input': minor
-'@alfalab/core-components': minor
+'@alfalab/core-components-universal-date-input': patch
+'@alfalab/core-components': patch
 ---
 
 ##### DateInput
