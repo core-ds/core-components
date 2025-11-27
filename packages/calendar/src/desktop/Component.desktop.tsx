@@ -245,6 +245,8 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             onChange,
         });
 
+        console.log({ className, headerClassName, contentClassName })
+
         const selected = useMemo(
             () => (range.value ? new Date(range.value) : undefined),
             [range.value],
@@ -254,7 +256,7 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
             () =>
                 startOfMonth(
                     selected ||
-                        limitDate(defaultMonthTimestamp, minDateTimestamp, maxDateTimestamp),
+                    limitDate(defaultMonthTimestamp, minDateTimestamp, maxDateTimestamp),
                 ),
             // eslint-disable-next-line react-hooks/exhaustive-deps
             [],
@@ -378,10 +380,16 @@ export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
         return (
             <div
                 {...getRootProps({ ref })}
-                className={cn('cc-calendar', styles.component, className, {
-                    [styles.sixWeeks]: weeks.length === 6,
-                    [styles.responsive]: responsive,
-                })}
+                className={cn(
+                    'cc-calendar',
+                    styles.component,
+                    styles.hasContainerStyles,
+                    className,
+                    {
+                        [styles.sixWeeks]: weeks.length === 6,
+                        [styles.responsive]: responsive,
+                    },
+                )}
                 data-test-id={dataTestId}
             >
                 {hasHeader && (

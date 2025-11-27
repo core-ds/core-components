@@ -391,6 +391,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         maxDate={maxDate}
                         offDays={offDays}
                         events={events}
+                        className={styles.container}
                     />
                 ) : null}
             </div>

@@ -28,7 +28,7 @@ export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkele
 
         return (
             <div
-                className={cn(styles.component, className, {
+                className={cn(styles.component, styles.hasContainerStyles, className, {
                     [styles.calendarVisible]: calendarVisible,
                 })}
             >
