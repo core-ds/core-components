@@ -287,7 +287,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                 >
                     <CalendarFromComponent
                         {...calendarFromProps}
-                        className={cn(styles.calendar, calendarFromProps?.className)}
+                        className={cn(styles.calendar, styles.hasContainerStyles, calendarFromProps?.className)}
                         month={monthFrom}
                         selectorView='month-only'
                         offDays={offDays}
@@ -327,7 +327,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                 <div data-test-id={getDataTestId(dataTestId, 'container-to')}>
                     <CalendarToComponent
                         {...calendarToProps}
-                        className={cn(styles.calendar, calendarToProps?.className)}
+                        className={cn(styles.calendar, styles.hasContainerStyles, calendarToProps?.className)}
                         month={monthTo}
                         selectorView='month-only'
                         offDays={offDays}

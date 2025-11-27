@@ -30,15 +30,8 @@ render(() => {
         setFirstRadioValue(payload.value);
     }, []);
 
-    const calendarStyles = {
-        border: '1px solid rgba(233, 233, 235, 1)',
-        borderRadius: '8px',
-        boxShadow: 'var(--shadow-m)',
-    };
-
     return (
         <div style={{ width: 344 }}>
-            <div style={calendarStyles}>
                 <CalendarDesktop
                     value={value}
                     responsive={true}
@@ -46,7 +39,6 @@ render(() => {
                     selectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}
                     showCurrentYearSelector={true}
                 />
-            </div>
             <p style={{ marginTop: 32, marginBottom: 32 }}>
                 Выбранная дата: {value && selectedDate}
             </p>
@@ -153,15 +145,8 @@ render(() => {
         )}`;
     }, [value]);
 
-    const calendarStyles = {
-        border: '1px solid rgba(233, 233, 235, 1)',
-        borderRadius: '8px',
-        boxShadow: 'var(--shadow-m)',
-    };
-
     return (
         <div style={{ width: 344 }}>
-            <div style={calendarStyles}>
                 <CalendarDesktop
                     mode='range'
                     rangeBehavior={rangeBehavior}
@@ -171,7 +156,6 @@ render(() => {
                     showCurrentYearSelector={true}
                     responsive={true}
                 />
-            </div>
             <p style={{ marginTop: 32, marginBottom: 32 }}>Values: {selectedRange}</p>
             <div>
                 <RadioGroup
@@ -297,15 +281,8 @@ render(() => {
         defaultDate.setDate(28),
     ];
 
-    const calendarStyles = {
-        border: '1px solid rgba(233, 233, 235, 1)',
-        borderRadius: '8px',
-        boxSizing: 'border-box',
-        boxShadow: 'var(--shadow-m)',
-    };
-
     return (
-        <div style={{ width: '344px', ...calendarStyles }}>
+        <div style={{ width: '344px', boxSizing: 'border-box' }}>
             <CalendarDesktop
                 defaultMonth={defaultDate.getTime()}
                 value={value}
@@ -384,16 +361,9 @@ render(() => {
         setFirstRadioValue(payload.value);
     }, []);
 
-    const calendarStyles = {
-        border: '1px solid rgba(233, 233, 235, 1)',
-        borderRadius: '8px',
-        boxSizing: 'border-box',
-        boxShadow: 'var(--shadow-m)',
-    };
-
     return (
         <>
-            <div style={{ width: '344px', ...calendarStyles }}>
+            <div style={{ width: '344px', boxSizing: 'border-box' }}>
                 <CalendarDesktop
                     responsive={true}
                     selectorView='month-only'
@@ -494,15 +464,8 @@ render(() => {
         { date: new Date().setDate(7), addon: <div style={thirdAddonStyles} /> },
     ];
 
-    const calendarStyles = {
-        border: '1px solid rgba(233, 233, 235, 1)',
-        borderRadius: '8px',
-        boxSizing: 'border-box',
-        boxShadow: 'var(--shadow-m)',
-    };
-
     return (
-        <div style={{ width: '344px', ...calendarStyles }}>
+        <div style={{ width: '344px', boxSizing: 'border-box', }}>
             <CalendarDesktop
                 responsive={true}
                 value={value}
@@ -580,15 +543,8 @@ render(() => {
     maxDate.setDate(6);
     maxDate.setMonth(6);
 
-    const calendarStyles = {
-        border: '1px solid rgba(233, 233, 235, 1)',
-        borderRadius: '8px',
-        boxSizing: 'border-box',
-        boxShadow: 'var(--shadow-m)',
-    };
-
     return (
-        <div style={{ width: '344px', ...calendarStyles }}>
+        <div style={{ width: '344px', boxSizing: 'border-box' }}>
             <CalendarDesktop
                 responsive={true}
                 value={value}
@@ -642,16 +598,9 @@ render(() => {
     const [value, setValue] = React.useState(() => new Date().setMonth(1));
     const [visible, setVisible] = React.useState(true);
 
-    const calendarStyles = {
-        border: '1px solid rgba(233, 233, 235, 1)',
-        borderRadius: '8px',
-        boxSizing: 'border-box',
-        boxShadow: 'var(--shadow-m)',
-    };
-
     return (
         <>
-            <div style={{ width: '344px', ...calendarStyles }}>
+            <div style={{ width: '344px', boxSizing: 'border-box' }}>
                 <CalendarWithSkeleton
                     value={value}
                     onChange={setValue}

@@ -82,7 +82,7 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
     const handleValidInputTo = useCallback(() => {
         setInputToInvalid(
             inputToValue !== '' &&
-                !isValidInputValue(inputToValue, dateFrom || minDate, maxDate, offDays),
+            !isValidInputValue(inputToValue, dateFrom || minDate, maxDate, offDays),
         );
     }, [dateFrom, inputToValue, maxDate, minDate, offDays]);
 
@@ -187,11 +187,13 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
                 maxDate={maxDate}
                 offDays={offDays}
                 events={events}
+                // className={styles.hasContainerStyles}
                 calendarProps={{
                     ...inputFromProps.calendarProps,
                     month: monthFrom,
                     onMonthChange: handleMonthFromChange,
                     selectorView: 'full',
+                    className: styles.hasContainerStyles
                 }}
             />
 
@@ -211,11 +213,13 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
                 maxDate={maxDate}
                 offDays={offDays}
                 events={events}
+                // className={styles.hasContainerStyles}
                 calendarProps={{
                     ...inputToProps.calendarProps,
                     month: monthTo,
                     onMonthChange: handleMonthToChange,
                     selectorView: 'full',
+                    className: styles.hasContainerStyles
                 }}
             />
         </div>

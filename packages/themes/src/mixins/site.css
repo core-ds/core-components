@@ -11,6 +11,8 @@
 @import './checkbox/site.css';
 @import './radio/site.css';
 @import './switch/site.css';
+@import './universal-date-input/site.css';
+@import './calendar/site.css';
 
 @define-mixin theme-site {
     @mixin button-site;
@@ -26,4 +28,6 @@
     @mixin radio-site;
     @mixin checkbox-site;
     @mixin switch-site;
+    @mixin universal-date-input-site;
+    @mixin calendar-site;
 }

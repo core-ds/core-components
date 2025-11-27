@@ -15,14 +15,32 @@
     & *[class*='calendarIcon_'] {
         margin-right: var(--gap-0);
     }
+
+    &.hasContainerStyles {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
 }
 
 .static {
     & .calendar {
         width: var(--calendar-inner-width);
 
+        &.hasContainerStyles {
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
         & > div:first-child {
             padding: var(--gap-16) var(--gap-0) var(--gap-12);
+        }
+
+        &.hasContainerStyles {
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
         }
     }
 }
