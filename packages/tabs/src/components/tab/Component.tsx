@@ -11,7 +11,10 @@ export const Tab = ({
     className,
     disabled,
     dataTestId,
+    // useless props
     id,
+    title,
+    rightAddons,
     ...restProps
 }: TabProps) =>
     children ? (

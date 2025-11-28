@@ -130,7 +130,7 @@
     }
 
     & .indicator {
-        top: -6px;
+        top: var(--gap-6-neg);
         right: -14px;
     }
 }
@@ -211,16 +211,16 @@
 
     & .topAddons {
         top: var(--gap-8-neg);
-        right: -6px;
+        right: var(--gap-6-neg);
     }
 
     & .bottomAddons {
         bottom: var(--gap-8-neg);
-        right: -6px;
+        right: var(--gap-6-neg);
     }
 
     & .indicator {
-        top: -6px;
+        top: var(--gap-6-neg);
         right: var(--gap-12-neg);
     }
 }

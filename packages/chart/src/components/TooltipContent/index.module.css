@@ -19,7 +19,7 @@
 }
 
 .tooltipItem {
-    margin-bottom: 10px;
+    margin-bottom: var(--gap-10);
 }
 
 .tooltipArrow {

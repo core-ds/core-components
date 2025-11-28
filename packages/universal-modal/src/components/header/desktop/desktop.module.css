@@ -23,10 +23,10 @@
     padding: 11px var(--gap-12);
 
     &.medium {
-        padding: 6px var(--gap-12) var(--gap-16);
+        padding: var(--gap-6) var(--gap-12) var(--gap-16);
     }
 }
 
 .bottomAddons {
-    padding: 6px var(--gap-12) var(--gap-16);
+    padding: var(--gap-6) var(--gap-12) var(--gap-16);
 }
