@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
-export const CustomizedHOC = (Component: any, options: any) => {
-    const NewComponent = (props: any) => <Component {...props} {...options} />;
+export const CustomizedHOC = (Component: any, options: any) => (props: any) => {
+    const { key, ref, ...rest } = props;
 
-    return NewComponent;
+    return <Component key={key} ref={ref} {...rest} {...options} />;
 };
