@@ -165,7 +165,9 @@ a[href='#storybook-preview-wrapper'] {
     font-size: 16px;
     line-height: 1.2;
     font-weight: 400;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .search-field input:hover {
@@ -221,7 +223,7 @@ a[href='#storybook-preview-wrapper'] {
 div.sidebar-subheading {
     padding: var(--gap-0) var(--gap-0) var(--gap-0) 34px;
     margin-top: 22px;
-    margin-bottom: 6px;
+    margin-bottom: var(--gap-6);
     color: var(--color-light-text-secondary);
     font-size: 12px;
     line-height: 16px;
@@ -239,7 +241,7 @@ div.sidebar-subheading > button > span:first-of-type {
     margin-right: var(--gap-8);
     border-top-width: 4px;
     border-bottom-width: 4px;
-    border-left-width: 6px;
+    border-left-width: var(--gap-6);
     border-left-color: #b6bcc3;
 }
 
@@ -263,7 +265,7 @@ div.sidebar-subheading > button > span:first-of-type {
 
 .sidebar-container button.sidebar-item {
     width: 100%;
-    padding: 6px var(--gap-0) 6px var(--gap-4);
+    padding: var(--gap-6) var(--gap-0) var(--gap-6) var(--gap-4);
 }
 
 .sidebar-container .sidebar-item > div > span {
@@ -272,7 +274,7 @@ div.sidebar-subheading > button > span:first-of-type {
     border-radius: 1px;
     border-top-width: 4px;
     border-bottom-width: 4px;
-    border-left-width: 6px;
+    border-left-width: var(--gap-6);
     border-left-color: #b6bcc3;
 }
 
@@ -290,7 +292,7 @@ div.sidebar-subheading > button > span:first-of-type {
 .sidebar-container .sidebar-item .sidebar-icon {
     color: #b6bcc3;
     flex-shrink: 0;
-    margin: auto 6px auto var(--gap-0);
+    margin: auto var(--gap-6) auto var(--gap-0);
 }
 
 #storybook-explorer-tree > div:first-child,
@@ -304,7 +306,7 @@ div.sidebar-subheading > button > span:first-of-type {
 
 .sidebar-item > a {
     font-size: 14px;
-    padding: 6px var(--gap-0) 6px 26px;
+    padding: var(--gap-6) var(--gap-0) var(--gap-6) 26px;
 }
 
 .sidebar-container .sidebar-item:hover {
@@ -497,7 +499,11 @@ ol {
     color: var(--color-light-text-primary);
     font-size: 14px;
     line-height: 1.5;
-    font-family: Consolas, Liberation Mono, Menlo, monospace;
+    font-family:
+        Consolas,
+        Liberation Mono,
+        Menlo,
+        monospace;
     background-color: rgba(11, 31, 53, 0.05);
     border-radius: var(--border-radius-4);
     white-space: pre-wrap;

@@ -1,5 +1,24 @@
 # @alfalab/core-components-confirmation
 
+## 14.2.0
+
+### Minor Changes
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1939](https://github.com/core-ds/core-components/pull/1939)
+
+- Исправлены расхождения в межбуквенном расстоянии и отступами вокруг текста
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-code-input@4.1.0
+    - @alfalab/core-components-button@12.0.2
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-spinner@5.0.2
+    - @alfalab/core-components-typography@5.0.3
+
 ## 14.1.1
 
 ### Patch Changes

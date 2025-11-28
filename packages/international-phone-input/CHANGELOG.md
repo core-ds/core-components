@@ -1,5 +1,33 @@
 # @alfalab/core-components-international-phone-input
 
+## 3.2.3
+
+### Patch Changes
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1943](https://github.com/core-ds/core-components/pull/1943)
+
+##### InternationalPhoneInput:
+
+- Исправлена передача проп `autocomplete` на корректный `autoComplete`
+- Проп `autoFill` помечен как `deprecated` и будет удален в следующей мажорной версии
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1943](https://github.com/core-ds/core-components/pull/1943)
+
+##### InternationalPhoneInput:
+
+- Исправлено автозаполнение номера для Safari 26 в режиме `clearableCountryCode='preserve'`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-input@16.0.3
+    - @alfalab/core-components-input-autocomplete@13.0.6
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-select@18.2.3
+
 ## 3.2.2
 
 ### Patch Changes

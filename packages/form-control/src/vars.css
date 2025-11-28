@@ -112,5 +112,5 @@
     display: block;
 
     /* adjusting overall height 👌 */
-    margin-top: 6px;
+    margin-top: var(--gap-6);
 }

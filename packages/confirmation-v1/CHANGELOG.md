@@ -1,5 +1,12 @@
 # @alfalab/core-components-confirmation-v1
 
+## 2.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.0.2
+
 ## 2.0.2
 
 ### Patch Changes
