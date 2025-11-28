@@ -1,5 +1,21 @@
 # @alfalab/core-components-mq
 
+## 6.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-config@1.1.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 5.0.2
 
 ### Patch Changes

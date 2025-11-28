@@ -1,5 +1,35 @@
 # @alfalab/core-components-attach
 
+## 8.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1690](https://github.com/core-ds/core-components/pull/1690)
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в core-components@45.x.x
+- Удален `view=filled`, который был помечен как `deprecated` в core-components@21.x.x
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-progress-bar@5.0.0-next.0
+    - @alfalab/core-components-button@13.0.0-next.0
+
 ## 7.0.2
 
 ### Patch Changes

@@ -1,5 +1,20 @@
 # @alfalab/core-components-pagination
 
+## 4.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-tag@10.0.0-next.0
+
 ## 3.0.3
 
 ### Patch Changes

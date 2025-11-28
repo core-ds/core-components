@@ -1,5 +1,27 @@
 # @alfalab/core-components-filter-tag
 
+## 7.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1854](https://github.com/core-ds/core-components/pull/1854)
+
+- Удален пропс `variant` (был объявлен как deprecated в core-components@38.x.x)
+- Удалены буквенные варианты пропса `size` (были объявлены как deprecated в core-components@44.x.x)
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-mq@6.0.0-next.0
+
 ## 6.0.2
 
 ### Patch Changes

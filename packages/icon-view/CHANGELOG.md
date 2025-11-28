@@ -1,5 +1,15 @@
 # @alfalab/core-components-icon-view
 
+## 5.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1688](https://github.com/core-ds/core-components/pull/1688)
+
+- Удалены буквенные размеры компонента, которые были отмечены как deprecated в core-components@44.x.x
+
 ## 4.0.1
 
 ### Patch Changes

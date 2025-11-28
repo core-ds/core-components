@@ -1,5 +1,35 @@
 # @alfalab/core-components-popover
 
+## 8.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в core-components@45.x.x
+- Удален `view=filled`, который был помечен как `deprecated` в core-components@21.x.x
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-portal@5.0.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 7.1.1
 
 ### Patch Changes
