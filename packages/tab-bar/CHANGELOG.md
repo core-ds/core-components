@@ -1,5 +1,43 @@
 # @alfalab/core-components-tab-bar
 
+## 4.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1688](https://github.com/core-ds/core-components/pull/1688)
+
+- Удалены буквенные размеры компонента, которые были отмечены как deprecated в core-components@44.x.x
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+    - @alfalab/core-components-indicator@4.0.0-next.0
+
 ## 3.0.3
 
 ### Patch Changes

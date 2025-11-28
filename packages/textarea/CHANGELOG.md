@@ -1,5 +1,28 @@
 # @alfalab/core-components-textarea
 
+## 10.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1685](https://github.com/core-ds/core-components/pull/1685)
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-form-control@14.0.0-next.0
+    - @alfalab/core-components-mq@6.0.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 9.0.2
 
 ### Patch Changes

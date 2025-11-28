@@ -1,5 +1,65 @@
 # @alfalab/core-components-universal-modal
 
+## 3.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в core-components@45.x.x
+- Удален `view=filled`, который был помечен как `deprecated` в core-components@21.x.x
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1635](https://github.com/core-ds/core-components/pull/1635)
+
+- Удалён matches полифил для поддержки работы focusLock в ie 11
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1672](https://github.com/core-ds/core-components/pull/1672)
+
+- Удалены компоненты для внешнего использования `Arrow` и `Cross`. Данные компоненты остались от промежуточной реализации `UniversalModal`
+- Изменена высота по умолчанию для центральной модалки на `hugContent`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.0.0-next.0
+    - @alfalab/core-components-navigation-bar-private@2.0.0-next.0
+    - @alfalab/core-components-mq@6.0.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 2.0.6
 
 ### Patch Changes

@@ -1,5 +1,26 @@
 # @alfalab/core-components-switch
 
+## 6.0.0-next.0
+
+### Major Changes
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>28.11.2025</time></sup>
+
+#### [#1695](https://github.com/core-ds/core-components/pull/1695)
+
+- Удалён пропс `inactive`, который был отмечен как `deprecated` в core-components@43.x.x. Вместо него используйте пропс `disabled`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 5.0.2
 
 ### Patch Changes
