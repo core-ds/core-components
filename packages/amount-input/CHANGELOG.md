@@ -1,5 +1,23 @@
 # @alfalab/core-components-amount-input
 
+## 8.1.3
+
+### Patch Changes
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1950](https://github.com/core-ds/core-components/pull/1950)
+
+##### AmountInput
+
+- Откат измнений #1907, #1896 и #1889
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-input@16.0.3
+    - @alfalab/core-components-number-input@3.0.3
+    - @alfalab/core-components-with-suffix@5.0.3
+
 ## 8.1.2
 
 ### Patch Changes
