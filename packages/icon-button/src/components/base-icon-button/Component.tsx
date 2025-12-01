@@ -9,7 +9,7 @@ import cn from 'classnames';
 
 import { Button, type ButtonProps } from '@alfalab/core-components-button';
 
-import { transformSize } from './helpers/transformSize';
+import { transformSize } from '../../helpers/transformSize';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';

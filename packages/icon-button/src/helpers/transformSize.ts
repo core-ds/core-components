@@ -1,4 +1,4 @@
-import { type IconButtonProps } from '../Component';
+import { type IconButtonProps } from '../components/base-icon-button/Component';
 
 export const transformSize = (size: IconButtonProps['size'] = 48) => {
     switch (size) {
