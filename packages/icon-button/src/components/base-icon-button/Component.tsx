@@ -29,6 +29,7 @@ const SIZE_TO_CLASSNAME_MAP = {
 
 type BaseIconButtonProps = {
     client: 'desktop' | 'mobile';
+    clientStyles: Record<string, string>;
 };
 
 export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & BaseIconButtonProps>(
@@ -42,6 +43,7 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
             alignIcon = 'center',
             transparentBg = false,
             client,
+            clientStyles,
             ...restProps
         },
         ref,
@@ -58,7 +60,8 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
                     className,
                     colorStyles[colors][view],
                     colorStyles[colors].component,
-                    styles[`border-${transformSize(size)}`],
+                    clientStyles.component,
+                    clientStyles[`border_${transformSize(size)}`],
                     {
                         [colorStyles[colors].loader]: restProps.loading,
                         [colorStyles[colors].transparentBg]: transparentBg,
