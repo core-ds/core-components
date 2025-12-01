@@ -26,7 +26,7 @@ const SIZE_TO_CLASSNAME_MAP = {
     56: 'size-56',
 };
 
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (
         {
             className,
@@ -79,4 +79,4 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     ),
 );
 
-IconButton.displayName = 'IconButton';
+BaseIconButton.displayName = 'BaseIconButton';
