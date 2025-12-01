@@ -1,7 +1,8 @@
 import React, { forwardRef, type ReactElement } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { transformSize } from '../../helpers/transformSize';
 import { type IconButtonProps } from '../../types/icon-button-props';
@@ -26,7 +27,11 @@ const SIZE_TO_CLASSNAME_MAP = {
     56: 'size-56',
 };
 
-export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+type BaseIconButtonProps = {
+    client: 'desktop' | 'mobile';
+};
+
+export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & BaseIconButtonProps>(
     (
         {
             className,
@@ -36,47 +41,52 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             colors = 'default',
             alignIcon = 'center',
             transparentBg = false,
+            client,
             ...restProps
         },
         ref,
-    ) => (
-        <Button
-            {...restProps}
-            ref={ref}
-            view='text'
-            className={cn(
-                'cc-icon-button',
-                className,
-                colorStyles[colors][view],
-                colorStyles[colors].component,
-                styles[`border-${transformSize(size)}`],
-                {
-                    [colorStyles[colors].loader]: restProps.loading,
-                    [colorStyles[colors].transparentBg]: transparentBg,
-                },
-            )}
-            size='s'
-        >
-            <span
+    ) => {
+        const Component = client === 'desktop' ? ButtonDesktop : ButtonMobile;
+
+        return (
+            <Component
+                {...restProps}
+                ref={ref}
+                view='text'
                 className={cn(
-                    styles.iconWrapper,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
-                    styles[alignIcon],
+                    'cc-icon-button',
+                    className,
+                    colorStyles[colors][view],
+                    colorStyles[colors].component,
+                    styles[`border-${transformSize(size)}`],
+                    {
+                        [colorStyles[colors].loader]: restProps.loading,
+                        [colorStyles[colors].transparentBg]: transparentBg,
+                    },
                 )}
+                size={48}
             >
-                {React.isValidElement(Icon) ? (
-                    React.cloneElement(Icon as ReactElement<{ className?: string }>, {
-                        className: cn(
-                            styles.icon,
-                            (Icon as ReactElement<{ className?: string }>).props.className,
-                        ),
-                    })
-                ) : (
-                    <Icon className={styles.icon} />
-                )}
-            </span>
-        </Button>
-    ),
+                <span
+                    className={cn(
+                        styles.iconWrapper,
+                        styles[SIZE_TO_CLASSNAME_MAP[size]],
+                        styles[alignIcon],
+                    )}
+                >
+                    {React.isValidElement(Icon) ? (
+                        React.cloneElement(Icon as ReactElement<{ className?: string }>, {
+                            className: cn(
+                                styles.icon,
+                                (Icon as ReactElement<{ className?: string }>).props.className,
+                            ),
+                        })
+                    ) : (
+                        <Icon className={styles.icon} />
+                    )}
+                </span>
+            </Component>
+        );
+    },
 );
 
 BaseIconButton.displayName = 'BaseIconButton';
