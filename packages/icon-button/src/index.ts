@@ -1,2 +1,6 @@
-export { BaseIconButton as IconButton } from './components/base-icon-button/Component';
-export { type IconButtonProps } from './types/icon-button-props';
+export { type IconButtonResponsiveProps, IconButtonResponsive } from './Component.responsive';
+
+export {
+    type IconButtonResponsiveProps as IconButtonProps,
+    IconButtonResponsive as IconButton,
+} from './Component.responsive';
