@@ -9,7 +9,7 @@
     --tooltip-inverted-box-shadow: var(--shadow-m-hard);
 }
 
-.tooltip {
+.tooltip.tooltip {
     background-color: var(--tooltip-inverted-bg-color);
     color: var(--tooltip-inverted-text-color);
     box-shadow: var(--tooltip-inverted-box-shadow);
