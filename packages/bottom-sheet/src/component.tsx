@@ -478,6 +478,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             trackMouse: swipeable,
             trackTouch: swipeable,
             delta: swipeThreshold,
+            preventScrollOnSwipe: true,
         });
 
         const handleExited = (node: HTMLElement) => {
