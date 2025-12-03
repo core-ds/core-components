@@ -1,4 +1,5 @@
 import { type HTMLAttributes, type ReactElement, type ReactNode, type RefObject } from 'react';
+import { type SwipeableProps } from 'react-swipeable';
 import { type HandledEvents } from 'react-swipeable/es/types';
 import { type TransitionProps } from 'react-transition-group/Transition';
 
@@ -10,7 +11,7 @@ export type ColorType = 'default' | 'inverted';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
-export type BottomSheetProps = {
+export type BottomSheetProps = Pick<SwipeableProps, 'preventScrollOnSwipe'> & {
     /**
      * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
