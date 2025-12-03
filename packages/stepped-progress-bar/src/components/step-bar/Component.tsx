@@ -1,13 +1,13 @@
 import React, { type FC, memo } from 'react';
 import cn from 'classnames';
 
-import { type SteppedProgressBarProps } from '../../Component';
+import { type SteppedProgressBarViewValue } from '../../Component';
 
 import styles from './index.module.css';
 
 interface StepBarProps {
     isDone: boolean;
-    view?: SteppedProgressBarProps['view'];
+    view?: SteppedProgressBarViewValue;
     classNameStep?: string;
 }
 
