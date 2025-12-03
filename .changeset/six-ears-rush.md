@@ -1,6 +1,6 @@
 ---
-'@alfalab/core-components-bottom-sheet': patch
-'@alfalab/core-components': patch
+'@alfalab/core-components-bottom-sheet': minor
+'@alfalab/core-components': minor
 ---
 
 ##### BottomSheet
