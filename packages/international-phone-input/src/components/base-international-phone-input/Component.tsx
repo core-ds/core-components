@@ -14,7 +14,6 @@ import { useMaskito } from '@maskito/react';
 import type { InputAutocompleteProps } from '@alfalab/core-components-input-autocomplete';
 import { AnyObject, BaseOption } from '@alfalab/core-components-select/shared';
 import type { BaseSelectChangePayload } from '@alfalab/core-components-select/typings';
-import { isNullable } from '@alfalab/core-components-shared';
 
 import type { BaseInternationalPhoneInputProps, Country } from '../../types';
 import {
@@ -60,7 +59,6 @@ export const BaseInternationalPhoneInput = forwardRef<
         },
         ref,
     ) => {
-        const lastCountryRef = useRef<Country | null>(null);
         const countriesData = useMemo(
             () => initCountries(countries, customCountriesList),
             [countries, customCountriesList],
@@ -72,6 +70,7 @@ export const BaseInternationalPhoneInput = forwardRef<
         const [openCountry, setOpenCountry] = useState<boolean | undefined>(
             countrySelectProps?.defaultOpen,
         );
+        const beforeAutofillValueRef = useRef('');
         const [selectedCountry, setSelectedCountry] = useState<Country | undefined>(() =>
             findCountry(countriesData, value, defaultIso2, countryProp),
         );
@@ -91,7 +90,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                     country,
                     clearableCountryCode,
                     preserveCountryCode,
-                    lastCountryRef,
+                    beforeAutofillValueRef,
                 ),
             [country, clearableCountryCode, preserveCountryCode],
         );
@@ -214,14 +213,6 @@ export const BaseInternationalPhoneInput = forwardRef<
             clear: getClear(clearProp, clearableCountryCode, value, country?.countryCode),
             ...restProps.inputProps,
         } as const;
-
-        useEffect(() => {
-            if (!preserveCountryCode || isNullable(country)) {
-                return;
-            }
-
-            lastCountryRef.current = country;
-        }, [country, preserveCountryCode]);
 
         return Array.isArray(options) ? (
             <InputAutocomplete
