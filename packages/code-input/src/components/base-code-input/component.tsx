@@ -11,13 +11,13 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
+import { useFocusRestriction } from '../../hooks';
 import {
     type BaseCodeInputProps,
     type CredentialOtp,
     type CredentialRequestOtpOptions,
     type CustomInputRef,
 } from '../../typings';
-import { getFocusRestrictionMeta, resolveRestrictedIndex } from '../../utils';
 import { Input, type InputProps } from '..';
 
 import styles from './index.module.css';
@@ -60,6 +60,14 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
             inputRef?.current?.focus();
         };
+
+        const { focusRestrictedInput } = useFocusRestriction({
+            restrictFocus,
+            values,
+            fields,
+            inputRefs,
+            focusOnInput,
+        });
 
         const focus = (index = 0) => {
             focusOnInput(inputRefs[index]);
@@ -202,30 +210,16 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     }
 
                     break;
-                case 'ArrowRight':
+                case 'ArrowRight': {
                     event.preventDefault();
+                    const isRestrictedHandled = focusRestrictedInput(nextIndex);
 
-                    if (restrictFocus) {
-                        const meta = getFocusRestrictionMeta({ values, fields });
-                        const restrictedIdx = resolveRestrictedIndex({
-                            requestedIndex: nextIndex,
-                            meta,
-                        });
-
-                        const restrictedRef = inputRefs[restrictedIdx];
-
-                        if (restrictedRef) {
-                            focusOnInput(restrictedRef);
-                        }
-
-                        break;
-                    }
-
-                    if (nextRef) {
+                    if (!isRestrictedHandled && nextRef) {
                         focusOnInput(nextRef);
                     }
 
                     break;
+                }
                 case 'ArrowUp':
                 case 'ArrowDown':
                     event.preventDefault();
@@ -258,30 +252,13 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 return;
             }
 
-            if (restrictFocus) {
-                const meta = getFocusRestrictionMeta({ values, fields });
-                const restrictedIdx = resolveRestrictedIndex({
-                    requestedIndex: targetIndex,
-                    meta,
+            const isRestrictedHandled = focusRestrictedInput(targetIndex, { skipEqual: true });
+
+            if (!isRestrictedHandled) {
+                requestAnimationFrame(() => {
+                    target?.select();
                 });
-
-                if (restrictedIdx !== targetIndex) {
-                    const restrictedRef = inputRefs[restrictedIdx];
-
-                    if (restrictedRef) {
-                        focusOnInput(restrictedRef);
-                    }
-
-                    return;
-                }
             }
-
-            /**
-             * В сафари выделение корректно работает только с асинхронным вызовом
-             */
-            requestAnimationFrame(() => {
-                target?.select();
-            });
         };
 
         const handleErrorAnimationEnd = () => {

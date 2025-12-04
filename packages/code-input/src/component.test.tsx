@@ -226,47 +226,60 @@ describe('CodeInput', () => {
         });
 
         describe('focus first input on empty functionality', () => {
-            it('should focus first input when clicking on any empty input', async () => {
-                const { container } = render(<CodeInput />);
+            let container: HTMLElement;
+            let inputs: NodeListOf<HTMLInputElement>;
 
-                const inputs = getInputs(container);
-                const firstInput = inputs[0];
-                const thirdInput = inputs[2];
+            type TFocusCase = {
+                name: string;
+                setup: () => Promise<void>;
+                clickIndex: number;
+                expectedFocusIndex: number;
+            };
 
-                await userEvent.click(thirdInput);
+            const focusCases: Array<TFocusCase> = [
+                {
+                    name: 'should focus first input when clicking on any empty input',
+                    setup: async () => { },
+                    clickIndex: 2,
+                    expectedFocusIndex: 0,
+                },
+                {
+                    name: 'should focus target input when inputs are not all empty',
+                    setup: async () => {
+                        await userEvent.type(inputs[0], '1');
+                    },
+                    clickIndex: 1,
+                    expectedFocusIndex: 1,
+                },
+                {
+                    name: 'should focus first input when clicking on first input',
+                    setup: async () => { },
+                    clickIndex: 0,
+                    expectedFocusIndex: 0,
+                },
+                {
+                    name: 'should redirect focus to first input when clicking empty field without autofill',
+                    setup: async () => { },
+                    clickIndex: 2,
+                    expectedFocusIndex: 0,
+                },
+            ];
+
+            beforeEach(() => {
+                ({ container } = render(<CodeInput />));
+                inputs = getInputs(container);
+            });
+
+            it.each(focusCases)('$name', async ({ setup, clickIndex, expectedFocusIndex }) => {
+                await setup();
+                await userEvent.click(inputs[clickIndex]);
+
                 await waitFor(() => {
-                    expect(firstInput).toHaveFocus();
+                    expect(inputs[expectedFocusIndex]).toHaveFocus();
                 });
             });
 
-            it('should focus target input when inputs are not all empty', async () => {
-                const { container } = render(<CodeInput />);
-
-                const inputs = getInputs(container);
-                const firstInput = inputs[0];
-                const secondInput = inputs[1];
-
-                await userEvent.type(firstInput, '1');
-                await userEvent.click(secondInput);
-
-                expect(secondInput).toHaveFocus();
-            });
-
-            it('should focus first input when clicking on first input', async () => {
-                const { container } = render(<CodeInput />);
-
-                const inputs = getInputs(container);
-                const firstInput = inputs[0];
-
-                await userEvent.click(firstInput);
-
-                expect(firstInput).toHaveFocus();
-            });
-
             it('should focus first input after all inputs are cleared', async () => {
-                const { container } = render(<CodeInput />);
-
-                const inputs = getInputs(container);
                 const firstInput = inputs[0];
                 const secondInput = inputs[1];
                 const thirdInput = inputs[2];
@@ -286,9 +299,6 @@ describe('CodeInput', () => {
             });
 
             it('should not redirect focus during SMS autofill', async () => {
-                const { container } = render(<CodeInput />);
-
-                const inputs = getInputs(container);
                 const thirdInput = inputs[2];
                 const fourthInput = inputs[3];
 
@@ -298,66 +308,59 @@ describe('CodeInput', () => {
                 expect(fourthInput).toHaveFocus();
                 expect(inputs[0]).not.toHaveFocus();
             });
-
-            it('should redirect focus to first input when clicking empty field without autofill', async () => {
-                const { container } = render(<CodeInput />);
-
-                const inputs = getInputs(container);
-                const thirdInput = inputs[2];
-
-                await userEvent.click(thirdInput);
-                await waitFor(() => {
-                    expect(inputs[0]).toHaveFocus();
-                });
-            });
         });
 
         describe('restrictFocus', () => {
-            it('redirects focus to next empty when clicking on a later input (state: [1] [] [] [])', async () => {
-                const { container } = render(<CodeInput restrictFocus={true} />);
+            let container: HTMLElement;
+            let inputs: NodeListOf<HTMLInputElement>;
 
-                const inputs = getInputs(container);
-                const firstInput = inputs[0];
-                const secondInput = inputs[1];
-                const thirdInput = inputs[2];
+            type TRestrictClickCase = {
+                name: string;
+                setup: () => Promise<void>;
+                clickIndex: number;
+                expectedFocusIndex: number;
+            };
 
-                await userEvent.type(firstInput, '1');
-                await userEvent.click(thirdInput);
+            const restrictClickCases: Array<TRestrictClickCase> = [
+                {
+                    name: 'redirects focus to next empty when clicking on a later input (state: [1] [] [] [])',
+                    setup: async () => {
+                        await fillByArray(container, ['1', undefined, undefined, undefined]);
+                    },
+                    clickIndex: 2,
+                    expectedFocusIndex: 1,
+                },
+                {
+                    name: 'redirects focus to first empty when clicking far ahead (state: [1] [2] [] [])',
+                    setup: async () => {
+                        await fillByArray(container, ['1', '2', undefined, undefined]);
+                    },
+                    clickIndex: 3,
+                    expectedFocusIndex: 2,
+                },
+                {
+                    name: 'keeps focus constrained after deletion (state: [1] [] [] []), clicking 3rd focuses 2nd',
+                    setup: async () => {
+                        const firstInput = inputs[0];
+                        const secondInput = inputs[1];
+                        await userEvent.type(firstInput, '12');
+                        await userEvent.type(secondInput, '{backspace}');
+                    },
+                    clickIndex: 2,
+                    expectedFocusIndex: 1,
+                },
+            ];
 
-                expect(secondInput).toHaveFocus();
+            beforeEach(() => {
+                ({ container } = render(<CodeInput restrictFocus={true} />));
+                inputs = getInputs(container);
             });
 
-            it('redirects focus to first empty when clicking far ahead (state: [1] [2] [] [])', async () => {
-                const { container } = render(<CodeInput restrictFocus={true} />);
+            it.each(restrictClickCases)('$name', async ({ setup, clickIndex, expectedFocusIndex }) => {
+                await setup();
+                await userEvent.click(inputs[clickIndex]);
 
-                const inputs = getInputs(container);
-                const firstInput = inputs[0];
-                const secondInput = inputs[1];
-                const thirdInput = inputs[2];
-                const fourthInput = inputs[3];
-
-                await userEvent.type(firstInput, '1');
-                await userEvent.type(secondInput, '2');
-
-                await userEvent.click(fourthInput);
-
-                expect(thirdInput).toHaveFocus();
-            });
-
-            it('keeps focus constrained after deletion (state: [1] [] [] []), clicking 3rd focuses 2nd', async () => {
-                const { container } = render(<CodeInput restrictFocus={true} />);
-
-                const inputs = getInputs(container);
-                const firstInput = inputs[0];
-                const secondInput = inputs[1];
-                const thirdInput = inputs[2];
-
-                await userEvent.type(firstInput, '12');
-                await userEvent.type(secondInput, '{backspace}');
-
-                await userEvent.click(thirdInput);
-
-                expect(secondInput).toHaveFocus();
+                expect(inputs[expectedFocusIndex]).toHaveFocus();
             });
 
             describe('click navigation cases', () => {
@@ -398,13 +401,11 @@ describe('CodeInput', () => {
                         expectedFocus: 0,
                     },
                 ])('$name', async ({ fields, preset, clickIndex, expectedFocus }) => {
-                    const { container } = render(
-                        <CodeInput fields={fields} restrictFocus={true} />,
-                    );
+                    ({ container } = render(<CodeInput fields={fields} restrictFocus={true} />));
+                    inputs = getInputs(container);
 
                     await fillByArray(container, preset);
 
-                    const inputs = getInputs(container);
                     await userEvent.click(inputs[clickIndex]);
 
                     expect(inputs[expectedFocus]).toHaveFocus();
@@ -412,11 +413,11 @@ describe('CodeInput', () => {
             });
 
             it('ArrowRight focuses first empty when restricted', async () => {
-                const { container } = render(<CodeInput fields={4} restrictFocus={true} />);
+                ({ container } = render(<CodeInput fields={4} restrictFocus={true} />));
+                inputs = getInputs(container);
 
                 await fillByArray(container, ['1', undefined, undefined, undefined]);
 
-                const inputs = getInputs(container);
                 inputs[0].focus();
                 await userEvent.type(inputs[0], '{arrowright}');
 
@@ -425,10 +426,10 @@ describe('CodeInput', () => {
 
             describe('deletion restrictions', () => {
                 it('click on any filled cell when fully filled keeps that cell focused', async () => {
-                    const { container } = render(<CodeInput fields={4} restrictFocus={true} />);
+                    ({ container } = render(<CodeInput fields={4} restrictFocus={true} />));
+                    inputs = getInputs(container);
 
                     await fillByArray(container, ['1', '2', '3', '4']);
-                    const inputs = getInputs(container);
 
                     await userEvent.click(inputs[1]);
                     expect(inputs[1]).toHaveFocus();
@@ -437,10 +438,10 @@ describe('CodeInput', () => {
                 });
 
                 it('after deleting last, clicks on filled cells keep their focus and empty fields redirect', async () => {
-                    const { container } = render(<CodeInput fields={5} restrictFocus={true} />);
+                    ({ container } = render(<CodeInput fields={5} restrictFocus={true} />));
+                    inputs = getInputs(container);
 
                     await fillByArray(container, ['1', '2', '3', '4', '5']);
-                    const inputs = getInputs(container);
 
                     // удаляем последнюю (5)
                     inputs[4].focus();
