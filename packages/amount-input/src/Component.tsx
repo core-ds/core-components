@@ -21,9 +21,9 @@ import { type CurrencyCodes } from '@alfalab/data';
 import { MMSP, THINSP } from '@alfalab/utils';
 
 import {
+    appendDecimalPart,
     DEFAULT_DECIMAL_SEPARATORS,
     DEFAULT_MINUS_SIGNS,
-    handleDecimalPart,
     maskitoOptionsGenerator,
     type NumberParams,
     parseNumber,
@@ -39,7 +39,7 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
+} as const;
 
 export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onChange' | 'type'> & {
     /**
@@ -194,6 +194,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         },
         ref,
     ) => {
+        const wrapperRef = useRef<HTMLDivElement>(null);
         const inputRef = useRef<HTMLInputElement>(null);
         const uncontrolled = valueFromProps === undefined;
         const numberParams = useMemo<NumberParams>(() => {
@@ -217,7 +218,20 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             };
         }, [integersOnly, minority]);
         const maskitoOptions = useMemo(
-            () => maskitoOptionsGenerator(numberParams, positiveOnly, view, integerLength),
+            () =>
+                maskitoOptionsGenerator(numberParams, positiveOnly, view, integerLength, () => {
+                    const classList = wrapperRef.current?.classList;
+
+                    if (classList) {
+                        if (classList.contains(styles.inputReject0)) {
+                            classList.remove(styles.inputReject0);
+                            classList.add(styles.inputReject1);
+                        } else {
+                            classList.remove(styles.inputReject1);
+                            classList.add(styles.inputReject0);
+                        }
+                    }
+                }),
             [integerLength, numberParams, positiveOnly, view],
         );
         const maskitoRef = useMaskito({ options: maskitoOptions });
@@ -236,9 +250,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         useEffect(() => {
             let valueString = stringifyNumber(numberValue, numberParams);
+            const input = inputRef.current;
 
-            if (!inputRef.current?.matches(':focus')) {
-                valueString = handleDecimalPart(valueString, numberParams, view);
+            if (!input?.matches(':focus')) {
+                valueString = appendDecimalPart(valueString, numberParams, view);
             }
 
             setInputValue((prevInputValue) => {
@@ -249,7 +264,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 ) {
                     const diff = prevInputValue.slice(valueString.length - prevInputValue.length);
 
-                    if (new RegExp(`^(${numberParams.decimalSeparator})?0+$`).test(diff)) {
+                    if (new RegExp(`^${numberParams.decimalSeparator}?0+$`).test(diff)) {
                         return prevInputValue;
                     }
                 }
@@ -276,9 +291,11 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
             if (
                 value.startsWith(numberParams.decimalSeparator) ||
-                new RegExp(
-                    `^${numberParams.minusSign}?0?(${numberParams.decimalSeparator}0*)?$`,
-                ).test(value) ||
+                value.endsWith(numberParams.decimalSeparator) ||
+                (value !== '0' &&
+                    new RegExp(
+                        `^${numberParams.minusSign}?0?(${numberParams.decimalSeparator}0*)?$`,
+                    ).test(value)) ||
                 new RegExp(`^${numberParams.minusSign}?0[^${numberParams.decimalSeparator}]`).test(
                     value,
                 )
@@ -425,6 +442,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     ref={mergeRefs([ref, inputRef, maskitoRef])}
                     breakpoint={breakpoint}
                     client={client}
+                    wrapperRef={mergeRefs([wrapperRef, restProps.wrapperRef ?? null])}
                 />
             </div>
         );

@@ -9,9 +9,8 @@ import {
     maskitoTransform,
     maskitoUpdateElement,
 } from '@maskito/core';
-import { maskitoEventHandler, type MaskitoNumberParams } from '@maskito/kit';
+import { type MaskitoNumberParams, maskitoRejectEvent } from '@maskito/kit';
 import escapeRegExp from 'lodash/escapeRegExp';
-import identity from 'lodash/identity';
 import noop from 'lodash/noop';
 
 export type NumberParams = Required<
@@ -26,26 +25,23 @@ export type NumberParams = Required<
     >
 >;
 
-/**
- * workaround for double-space-to-dot&space feature
- * this feature breaks caret position defined in {@link selectionChangeHandler} handler
- * no spaces - no problems
- */
-export const forbidSpacePressPlugin: MaskitoPlugin = (element) => {
-    const handler = (event: KeyboardEvent) => {
-        // Space key code
-        if (event.keyCode === 32) {
+export const DEFAULT_DECIMAL_SEPARATORS = ['.', ',', 'б', 'ю'];
+export const DEFAULT_MINUS_SIGNS = ['\u002d', '\u2013', '\u2014', '\u2212'];
+export const MINUS_SIGN = '\u2212';
+
+function createClipboardHandler(numberParams: NumberParams) {
+    return (element: MaskitoElement, _: Required<MaskitoOptions>, event: ClipboardEvent): void => {
+        const document = element.ownerDocument;
+        const selection = document.getSelection();
+
+        if (selection) {
+            const clipboardValue = toNumberFormat(selection.toString(), numberParams);
+
+            event.clipboardData?.setData('text/plain', clipboardValue);
             event.preventDefault();
         }
     };
-
-    element.addEventListener('keypress', handler);
-
-    return () => element.removeEventListener('keypress', handler);
-};
-
-export const DEFAULT_DECIMAL_SEPARATORS = ['.', ',', 'б', 'ю'];
-export const DEFAULT_MINUS_SIGNS = ['\u002d', '\u2013', '\u2014', '\u2212'];
+}
 
 function deleteThousandSeparatorPreprocessorGenerator({
     thousandSeparator,
@@ -70,32 +66,39 @@ function deleteThousandSeparatorPreprocessorGenerator({
     };
 }
 
-export function stringifyNumber(val: number | string | null, numberParams: NumberParams): string {
-    if (val === '' || val === null || val === numberParams.minusSign) return '';
+export function stringifyNumber(value: number | string | null, numberParams: NumberParams): string {
+    if (value === '' || value === null || value === numberParams.minusSign) {
+        return '';
+    }
 
-    return maskitoTransform(
-        String(Number(val) / 10 ** numberParams.maximumFractionDigits)
-            .replace('.', numberParams.decimalSeparator)
-            .replace('-', numberParams.minusSign),
-        maskitoOptionsGenerator(numberParams, false, 'default', 15),
-    );
+    const stringValue = `${Number(value) / 10 ** numberParams.maximumFractionDigits}`
+        .replace('.', numberParams.decimalSeparator)
+        .replace('-', numberParams.minusSign);
+    const options = maskitoOptionsGenerator(numberParams, false, 'default', 15);
+
+    return maskitoTransform(stringValue, options);
+}
+
+export function toNumberFormat(
+    numberValue: string,
+    { minusSign, decimalSeparator }: Pick<NumberParams, 'minusSign' | 'decimalSeparator'>,
+): string {
+    return numberValue
+        .replace(new RegExp(`[^0-9${minusSign}${decimalSeparator}]`, 'g'), '')
+        .replace(minusSign, '-')
+        .replace(decimalSeparator, '.');
 }
 
 export function parseNumber(
     value: string,
-    { minusSign, decimalSeparator, maximumFractionDigits }: NumberParams,
+    numberParams: Pick<NumberParams, 'decimalSeparator' | 'minusSign' | 'maximumFractionDigits'>,
 ): null | number {
-    const num = Number(
-        value
-            .replace(new RegExp(`[^0-9${minusSign}${decimalSeparator}]`, 'g'), '')
-            .replace(minusSign, '-')
-            .replace(decimalSeparator, '.'),
-    );
+    const num = Number(toNumberFormat(value, numberParams));
 
-    return Number.isNaN(num) ? null : Math.round(num * 10 ** maximumFractionDigits);
+    return Number.isNaN(num) ? null : Math.round(num * 10 ** numberParams.maximumFractionDigits);
 }
 
-export function handleDecimalPart(
+export function appendDecimalPart(
     val: string,
     numberParams: NumberParams,
     view: 'default' | 'withZeroMinorPart',
@@ -132,7 +135,7 @@ export function handleDecimalPart(
 }
 
 /**
- * copy-paste of
+ * copy-paste of createPseudoCharactersPreprocessor
  * @see https://github.com/taiga-family/maskito/blob/70c50e7eea6209df6cda7ff311df9a4ba1b1c192/projects/kit/src/lib/masks/number/processors/pseudo-character-preprocessor.ts#L11
  */
 export function createPseudoCharactersPreprocessor({
@@ -162,48 +165,44 @@ export function createPseudoCharactersPreprocessor({
     };
 }
 
-export const createCleanDataPreprocessor =
-    ({ minusSign, decimalSeparator }: NumberParams): MaskitoPreprocessor =>
-    ({ elementState, data }) => ({
+export function createCleanDataPreprocessor({
+    minusSign,
+    decimalSeparator,
+}: NumberParams): MaskitoPreprocessor {
+    return ({ elementState, data }) => ({
         elementState,
         data: data.replace(new RegExp(`[^0-9${minusSign}${decimalSeparator}]`, 'g'), ''),
     });
+}
 
-export const createDataNumberPreprocessor = (params: NumberParams): MaskitoPreprocessor => {
+export function createDataNumberPreprocessor(params: NumberParams): MaskitoPreprocessor {
     const { maximumFractionDigits } = params;
+    const { minusSign, decimalSeparator } = params;
 
-    if (maximumFractionDigits) {
-        const { minusSign, decimalSeparator } = params;
-
-        return ({ elementState, data }) => {
-            if (
-                new RegExp(`^${minusSign}?[0-9]*(${escapeRegExp(decimalSeparator)}[0-9]*)?$`).test(
-                    data,
-                )
-            ) {
-                const { decimalPart, ...numberParts } = toNumberParts(data, params);
-
-                return {
-                    elementState,
-                    data: fromNumberParts(
-                        {
-                            ...numberParts,
-                            decimalPart: decimalPart.slice(0, maximumFractionDigits),
-                        },
-                        params,
-                    ),
-                };
-            }
+    return ({ elementState, data }) => {
+        if (
+            new RegExp(`^${minusSign}?[0-9]*(${escapeRegExp(decimalSeparator)}[0-9]*)?$`).test(data)
+        ) {
+            const { decimalPart, ...numberParts } = toNumberParts(data, params);
 
             return {
                 elementState,
-                data: '',
+                data: fromNumberParts(
+                    {
+                        ...numberParts,
+                        decimalPart: decimalPart.slice(0, maximumFractionDigits),
+                    },
+                    params,
+                ),
             };
-        };
-    }
+        }
 
-    return identity;
-};
+        return {
+            elementState,
+            data: '',
+        };
+    };
+}
 
 export function createValidNumberPreprocessor({
     maximumIntegerDigits,
@@ -233,103 +232,26 @@ export function createValidNumberPreprocessor({
             const { integerPart, decimalPart } = toNumberParts(nextValue, params);
 
             if (
-                integerPart.length > maximumIntegerDigits ||
-                decimalPart.length > maximumFractionDigits
+                integerPart.length <= maximumIntegerDigits &&
+                decimalPart.length <= maximumFractionDigits
             ) {
-                if (inputType === 'deleteForward') {
-                    selection = [to, to];
-                } else if (inputType === 'deleteBackward') {
-                    selection = [from, from];
-                }
-
-                return {
-                    elementState: {
-                        value,
-                        selection,
-                    },
-                    data: '',
-                };
+                return { elementState, data };
             }
         }
 
-        return { elementState, data };
-    };
-}
+        if (inputType === 'deleteForward') {
+            selection = [to, to];
+        } else if (inputType === 'deleteBackward') {
+            selection = [from, from];
+        }
 
-export function maskitoOptionsGenerator(
-    params: NumberParams,
-    posivite: boolean,
-    view: 'default' | 'withZeroMinorPart',
-    maximumIntegerDigits: number,
-): MaskitoOptions {
-    const { minusSign, maximumFractionDigits, thousandSeparator, decimalSeparator } = params;
-
-    return {
-        mask: new RegExp(
-            `^${posivite ? '' : `${minusSign}?`}[0-9${thousandSeparator}]*${maximumFractionDigits ? `(${decimalSeparator}[0-9]{0,${maximumFractionDigits}})?` : ''}$`,
-        ),
-        plugins: [
-            maskitoInitialCalibrationPlugin(),
-            forbidSpacePressPlugin,
-            selectionChangeHandler((element, _, event, selection) => {
-                const input = element as HTMLInputElement;
-                const { value } = input;
-                const selectionDirection = input.selectionDirection ?? undefined;
-                let selectionStart = Number(input.selectionStart);
-                let selectionEnd = Number(input.selectionEnd);
-                const prevSelection = { ...selection };
-
-                Object.assign(selection, { selectionStart, selectionEnd });
-
-                if (value[selectionStart] === params.thousandSeparator) {
-                    selectionStart +=
-                        event.type !== 'mouseup' && prevSelection.selectionStart > selectionStart
-                            ? -1
-                            : 1;
-                }
-
-                if (value[selectionEnd] === params.thousandSeparator) {
-                    selectionEnd +=
-                        event.type !== 'mouseup' && prevSelection.selectionEnd > selectionEnd
-                            ? -1
-                            : 1;
-                }
-
-                if (
-                    !(input.selectionStart === selectionStart) ||
-                    !(input.selectionEnd === selectionEnd)
-                ) {
-                    input.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
-                }
-            }),
-            createLeadingZeroesValidationPlugin(params),
-            createNotEmptyIntegerPlugin(params),
-            maskitoEventHandler('blur', (element) => {
-                maskitoUpdateElement(element, handleDecimalPart(element.value, params, view));
-            }),
-        ],
-        preprocessors: [
-            deleteThousandSeparatorPreprocessorGenerator(params),
-            createPseudoCharactersPreprocessor({
-                pseudoCharacters: params.decimalPseudoSeparators,
-                validCharacter: decimalSeparator,
-                ...params,
-            }),
-            createPseudoCharactersPreprocessor({
-                pseudoCharacters: params.minusPseudoSigns,
-                validCharacter: minusSign,
-                ...params,
-            }),
-            createCleanDataPreprocessor(params),
-            createDataNumberPreprocessor(params),
-            createValidNumberPreprocessor({
-                maximumIntegerDigits,
-                ...params,
-            }),
-            createNotEmptyIntegerPartPreprocessor(params),
-        ],
-        postprocessors: [createThousandSeparatorPostprocessor(params)],
-        overwriteMode: 'shift',
+        return {
+            elementState: {
+                value,
+                selection,
+            },
+            data: '',
+        };
     };
 }
 
@@ -477,7 +399,7 @@ export function selectionChangeHandler(
         element: MaskitoElement,
         options: Required<MaskitoOptions>,
         event: Event,
-        prevSelection: Record<'selectionStart' | 'selectionEnd', number>,
+        selection: Record<'selectionStart' | 'selectionEnd', number>,
     ) => void,
 ): MaskitoPlugin {
     return (element, options) => {
@@ -488,7 +410,7 @@ export function selectionChangeHandler(
             isPointerDown = Math.max(--isPointerDown, 0);
         };
         const { selectionStart, selectionEnd } = element;
-        const prevSelection: Record<'selectionStart' | 'selectionEnd', number> = {
+        const selection: Record<'selectionStart' | 'selectionEnd', number> = {
             selectionStart: Number(selectionStart),
             selectionEnd: Number(selectionEnd),
         };
@@ -507,7 +429,7 @@ export function selectionChangeHandler(
                 return;
             }
 
-            handler(element, options, event, prevSelection);
+            handler(element, options, event, selection);
         };
 
         document.addEventListener('selectionchange', listener, { passive: true });
@@ -608,5 +530,158 @@ export function createNotEmptyIntegerPartPreprocessor(params: NumberParams): Mas
             elementState,
             data: digitsBeforeCursor ? data : `0${data}`,
         };
+    };
+}
+
+function maskitoEventHandler<K extends keyof HTMLElementEventMap>(
+    name: K,
+    handler: (
+        element: MaskitoElement,
+        options: Required<MaskitoOptions>,
+        event: HTMLElementEventMap[K],
+    ) => void,
+    eventListenerOptions?: AddEventListenerOptions,
+): MaskitoPlugin;
+function maskitoEventHandler(
+    name: string,
+    handler: (element: MaskitoElement, options: Required<MaskitoOptions>, event: Event) => void,
+    eventListenerOptions?: AddEventListenerOptions,
+): MaskitoPlugin;
+function maskitoEventHandler(
+    name: string,
+    handler: (element: MaskitoElement, options: Required<MaskitoOptions>, event: Event) => void,
+    eventListenerOptions?: AddEventListenerOptions,
+): MaskitoPlugin {
+    return (element, maskitoOptions) => {
+        const listener = (event: Event): void => handler(element, maskitoOptions, event);
+
+        element.addEventListener(name, listener, eventListenerOptions);
+
+        return () => element.removeEventListener(name, listener, eventListenerOptions);
+    };
+}
+
+export function maskitoOptionsGenerator(
+    numberParams: NumberParams,
+    posivite: boolean,
+    view: 'default' | 'withZeroMinorPart',
+    maximumIntegerDigits: number,
+    onInputReject: () => void = noop,
+): MaskitoOptions {
+    const { minusSign, maximumFractionDigits, thousandSeparator, decimalSeparator } = numberParams;
+    const clipboardHandler = createClipboardHandler(numberParams);
+    let isSpace = false;
+
+    return {
+        mask: new RegExp(
+            `^${posivite ? '' : `${minusSign}?`}[0-9${thousandSeparator}]*${maximumFractionDigits ? `(${decimalSeparator}[0-9]{0,${maximumFractionDigits}})?` : ''}$`,
+        ),
+        plugins: [
+            maskitoInitialCalibrationPlugin(),
+            maskitoEventHandler('keydown', (_, __, event) => {
+                isSpace = event.code === 'Space';
+            }),
+            maskitoEventHandler('beforeinput', (_, __, event) => {
+                if (event.inputType === 'insertText' && event.data === '. ') {
+                    event.preventDefault();
+                }
+            }),
+            maskitoEventHandler('blur', () => {
+                isSpace = false;
+            }),
+            selectionChangeHandler((element, _, event, selection) => {
+                /**
+                 * workaround for double-space-to-dot&space feature
+                 * that feature breaks caret position defined in {@link selectionChangeHandler} handler
+                 */
+                if (isSpace) {
+                    isSpace = false;
+
+                    element.setSelectionRange(selection.selectionStart, selection.selectionEnd);
+
+                    return;
+                }
+
+                const input = element as HTMLInputElement;
+                const { value } = input;
+                const selectionDirection = input.selectionDirection ?? undefined;
+                let selectionStart = Number(input.selectionStart);
+                let selectionEnd = Number(input.selectionEnd);
+                const prevSelection = { ...selection };
+
+                Object.assign(selection, { selectionStart, selectionEnd });
+
+                if (value[selectionStart] === numberParams.thousandSeparator) {
+                    selectionStart +=
+                        event.type !== 'mouseup' && prevSelection.selectionStart > selectionStart
+                            ? -1
+                            : 1;
+                }
+
+                if (value[selectionEnd] === numberParams.thousandSeparator) {
+                    selectionEnd +=
+                        event.type !== 'mouseup' && prevSelection.selectionEnd > selectionEnd
+                            ? -1
+                            : 1;
+                }
+
+                if (
+                    !(input.selectionStart === selectionStart) ||
+                    !(input.selectionEnd === selectionEnd)
+                ) {
+                    input.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
+                }
+            }),
+            createLeadingZeroesValidationPlugin(numberParams),
+            createNotEmptyIntegerPlugin(numberParams),
+            maskitoEventHandler('blur', (element) => {
+                const nextValue = appendDecimalPart(element.value, numberParams, view);
+
+                maskitoUpdateElement(element, nextValue);
+            }),
+            maskitoEventHandler('copy', clipboardHandler),
+            maskitoEventHandler('cut', (element, options, event) => {
+                const document = element.ownerDocument;
+                const selection = document.getSelection();
+
+                if (selection) {
+                    clipboardHandler(element, options, event);
+
+                    const { value } = element;
+                    const selectionStart = Number(element.selectionStart);
+                    const selectionEnd = Number(element.selectionEnd);
+                    const nextValue = maskitoTransform(
+                        value.slice(0, selectionStart) + value.slice(selectionEnd),
+                        options,
+                    );
+
+                    maskitoUpdateElement(element, nextValue);
+                }
+            }),
+            maskitoRejectEvent,
+            maskitoEventHandler('maskitoReject', onInputReject),
+        ],
+        preprocessors: [
+            deleteThousandSeparatorPreprocessorGenerator(numberParams),
+            createPseudoCharactersPreprocessor({
+                pseudoCharacters: numberParams.decimalPseudoSeparators,
+                validCharacter: decimalSeparator,
+                ...numberParams,
+            }),
+            createPseudoCharactersPreprocessor({
+                pseudoCharacters: numberParams.minusPseudoSigns,
+                validCharacter: minusSign,
+                ...numberParams,
+            }),
+            createCleanDataPreprocessor(numberParams),
+            createDataNumberPreprocessor(numberParams),
+            createValidNumberPreprocessor({
+                maximumIntegerDigits,
+                ...numberParams,
+            }),
+            createNotEmptyIntegerPartPreprocessor(numberParams),
+        ],
+        postprocessors: [createThousandSeparatorPostprocessor(numberParams)],
+        overwriteMode: 'shift',
     };
 }
