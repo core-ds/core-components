@@ -1,7 +1,7 @@
 /**
- * @returns {import('postcss').Plugin}
+ * @type {import('postcss').PluginCreator<undefined>}
  */
-const postcssRemoveComment = () => ({
+export const postcssRemoveComment = () => ({
     postcssPlugin: 'postcss-remove-comment',
     OnceExit: (root) => {
         root.walkComments((comment) => {
@@ -10,4 +10,4 @@ const postcssRemoveComment = () => ({
     },
 });
 
-module.exports = postcssRemoveComment;
+postcssRemoveComment.postcss = true;

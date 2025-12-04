@@ -14,10 +14,13 @@ import { createFilter } from 'rollup-pluginutils';
 import stringHash from 'string-hash';
 import { globSync } from 'tinyglobby';
 
+import {
+    postcssRemoveComment,
+    postcssRemoveEmptyRoot,
+} from '@alfalab/core-components-internal-tools/postcss';
+
 import postcssConfig from '../../postcss.config.js';
 import { isSamePath } from '../path.cjs';
-import postcssRemoveComment from '../postcss/postcss-remove-comment.cjs';
-import postcssRemoveEmptyRoot from '../postcss/postcss-remove-empty-root.cjs';
 import { resolveInternal } from '../resolve-internal.cjs';
 
 const pkg = fse.readJsonSync('package.json', { encoding: 'utf8' });
