@@ -4,31 +4,44 @@ import React, {
     forwardRef,
     Fragment,
     type MouseEventHandler,
-    useEffect,
     useMemo,
     useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+import escapeRegExp from 'lodash/escapeRegExp';
 
-import { Input, type InputProps } from '@alfalab/core-components-input';
+import { Input } from '@alfalab/core-components-input';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
 import { getMinMaxOrDefault } from '@alfalab/core-components-number-input/utils';
 import { isNonNullable } from '@alfalab/core-components-shared';
 import { withSuffix } from '@alfalab/core-components-with-suffix';
-import { type CurrencyCodes } from '@alfalab/data';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 import { MMSP, THINSP } from '@alfalab/utils';
 
 import {
+    COMPONENT_DECIMAL_SEPARATOR,
+    COMPONENT_MINUS_SIGN,
     DEFAULT_DECIMAL_SEPARATORS,
     DEFAULT_MINUS_SIGNS,
-    handleDecimalPart,
+    dispatchInputRejectEvent,
+    fromDecimalView,
+    fromNumberParts,
+    isCorrectValue,
+    isInputValueCorrect,
     maskitoOptionsGenerator,
     type NumberParams,
     parseNumber,
+    processDecimalPart,
     stringifyNumber,
+    toDecimalView,
+    toFractionDigits,
+    toIntegerDigits,
+    toNumberParts,
+    toValueAsString,
 } from './maskito-utils';
+import { type AmountInputProps } from './types';
 import { useMaskito } from './use-maskito';
 import { getCurrencyCodeWithFormat, getVisiblePlaceholder } from './utils';
 
@@ -39,111 +52,7 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
-
-export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onChange' | 'type'> & {
-    /**
-     * Денежное значение в минорных единицах
-     */
-    value?: string | number | null;
-
-    /**
-     * Значение по-умолчанию в минорных единицах
-     */
-    defaultValue?: string | number | null;
-
-    /**
-     * Формат отображения кода валюты
-     */
-    codeFormat?: 'letter' | 'symbolic';
-
-    /**
-     * default - не отображаем копейки, если их значение 0
-     * withZeroMinorPart - отображаем копейки, даже если их значение равно 0
-     * @default default
-     */
-    view?: 'default' | 'withZeroMinorPart';
-
-    /**
-     * Валюта
-     */
-    currency?: CurrencyCodes;
-
-    /**
-     * Дополнительный закрепленный текст справа от основного значения. (по умолчанию — символ валюты)
-     */
-    suffix?: string;
-
-    /**
-     * Максимальное число знаков до запятой
-     * max 15
-     */
-    integerLength?: number;
-
-    /**
-     * Минорные единицы
-     */
-    minority?: number;
-
-    /**
-     * Позволяет вводить только целые значения
-     */
-    integersOnly?: boolean;
-
-    /**
-     * @default - true. Нельзя вводить отрицательные значения.
-     * Возможность вводить только положительные значения
-     */
-    positiveOnly?: boolean;
-
-    /**
-     * Жир
-     */
-    bold?: boolean;
-
-    /**
-     * Обработчик события изменения значения
-     */
-    onChange?: (
-        e: React.ChangeEvent<HTMLInputElement> | null,
-        payload: {
-            /**
-             * Денежное значение в минорных единицах
-             * Значение null - значит не установлено
-             */
-            value: number | null;
-            /**
-             * Значение инпута
-             */
-            valueString: string;
-        },
-    ) => void;
-
-    /**
-     * Делает минорную часть полупрозрачной
-     */
-    transparentMinor?: boolean;
-
-    /**
-     * Добавляет компонент "Stepper" в правый аддон
-     */
-    stepper?: {
-        /**
-         * Шаг инкремента / декремента
-         */
-        step: number;
-        /**
-         * Минимальное значение
-         * @default Number.MIN_SAFE_INTEGER
-         */
-        min?: number;
-        /**
-         * Максимальное значение
-         * @default Number.MAX_SAFE_INTEGER
-         */
-        max?: number;
-    };
-};
+} as const;
 
 /**
  * Инпут, позволяющий закрепить значок валюты
@@ -165,7 +74,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             suffix = currency,
             codeFormat = 'symbolic',
             placeholder = `0${THINSP}${
-                suffix === currency ? getCurrencyCodeWithFormat(currency, codeFormat) : suffix
+                suffix === currency
+                    ? getCurrencyCodeWithFormat(currency, codeFormat)
+                    : toValueAsString(suffix)
             }`,
             integersOnly = false,
             positiveOnly = true,
@@ -194,79 +105,147 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         },
         ref,
     ) => {
+        const minorityRef = useRef(minority);
+        const [fieldClassName, setFieldClassName] = useState<string>();
         const inputRef = useRef<HTMLInputElement>(null);
         const uncontrolled = valueFromProps === undefined;
         const numberParams = useMemo<NumberParams>(() => {
-            const decimalLength = Math.trunc(Math.log10(minority));
-            const maximumFractionDigits = integersOnly ? 0 : decimalLength;
-            const minusSign = '\u2212';
-            const decimalSeparator = ',';
+            const minusSign = COMPONENT_MINUS_SIGN;
+            const decimalSeparator = COMPONENT_DECIMAL_SEPARATOR;
             const thousandSeparator = MMSP;
             const decimalPseudoSeparators = DEFAULT_DECIMAL_SEPARATORS.filter(
-                (x) => x !== decimalSeparator,
+                (char) =>
+                    char !== decimalSeparator && char !== thousandSeparator && char !== minusSign,
             );
-            const minusPseudoSigns = DEFAULT_MINUS_SIGNS.filter((x) => x !== minusSign);
+            const minusPseudoSigns = DEFAULT_MINUS_SIGNS.filter(
+                (char) =>
+                    char !== decimalSeparator && char !== thousandSeparator && char !== minusSign,
+            );
 
             return {
                 minusSign,
                 decimalSeparator,
                 thousandSeparator,
-                maximumFractionDigits,
+                maximumFractionDigits: integersOnly ? 0 : toFractionDigits(minority),
                 decimalPseudoSeparators,
                 minusPseudoSigns,
             };
         }, [integersOnly, minority]);
-        const maskitoOptions = useMemo(
-            () => maskitoOptionsGenerator(numberParams, positiveOnly, view, integerLength),
-            [integerLength, numberParams, positiveOnly, view],
-        );
+        const maskitoOptions = useMemo(() => {
+            const handleInputReject = () => {
+                setFieldClassName((prevFieldClassName) =>
+                    prevFieldClassName === styles.inputReject0
+                        ? styles.inputReject1
+                        : styles.inputReject0,
+                );
+            };
+
+            return maskitoOptionsGenerator(
+                numberParams,
+                positiveOnly,
+                view,
+                toIntegerDigits(integerLength, toFractionDigits(minority)),
+                handleInputReject,
+            );
+        }, [integerLength, minority, numberParams, positiveOnly, view]);
         const maskitoRef = useMaskito({ options: maskitoOptions });
         const [numberValue, setNumberValue] = useState(valueFromProps ?? defaultValue);
         const [inputValue, setInputValue] = useState(() =>
-            stringifyNumber(numberValue, numberParams),
+            isCorrectValue(numberValue, { integerLength, integersOnly, minority })
+                ? stringifyNumber(toDecimalView(numberValue, minority), numberParams)
+                : '',
         );
 
+        // getDerivedStateFromProps
         if (!uncontrolled) {
             const valueFromPropsOrNull = valueFromProps ?? null;
 
-            if (!(numberValue === valueFromPropsOrNull)) {
+            if (numberValue !== valueFromPropsOrNull) {
                 setNumberValue(valueFromPropsOrNull);
             }
         }
 
-        useEffect(() => {
-            let valueString = stringifyNumber(numberValue, numberParams);
+        // this effect watches `inputValue` change
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (
+                isInputValueCorrect(inputValue, numberParams) &&
+                isCorrectValue(numberValue, { integerLength, integersOnly, minority })
+            ) {
+                const numberValueFromInput = fromDecimalView(
+                    parseNumber(inputValue, numberParams),
+                    minority,
+                );
 
-            if (!inputRef.current?.matches(':focus')) {
-                valueString = handleDecimalPart(valueString, numberParams, view);
-            }
+                // compare strings
+                if (toValueAsString(numberValueFromInput) !== toValueAsString(numberValue)) {
+                    const nextInputValue = stringifyNumber(
+                        toDecimalView(numberValue, minority),
+                        numberParams,
+                    );
 
-            setInputValue((prevInputValue) => {
-                if (
-                    valueString.length > 0 &&
-                    prevInputValue.startsWith(valueString) &&
-                    prevInputValue.length > valueString.length
-                ) {
-                    const diff = prevInputValue.slice(valueString.length - prevInputValue.length);
+                    setInputValue(nextInputValue);
 
-                    if (new RegExp(`^(${numberParams.decimalSeparator})?0+$`).test(diff)) {
-                        return prevInputValue;
+                    // reject if the same minority only
+                    if (minorityRef.current === minority) {
+                        dispatchInputRejectEvent(inputRef.current);
                     }
                 }
+            }
 
-                return valueString;
-            });
-        }, [numberParams, numberValue, view]);
+            minorityRef.current = minority;
+        }, [inputValue, integerLength, integersOnly, minority, numberParams, numberValue]);
 
-        const numberValueOrZero = useMemo(() => Number(`${numberValue || '0'}`), [numberValue]);
+        // this effect watches `numberValue` change
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (isCorrectValue(numberValue, { integerLength, integersOnly, minority })) {
+                const focused = inputRef.current?.matches(':focus');
 
+                setInputValue((prevInputValue) => {
+                    const nextInputValue = stringifyNumber(
+                        toDecimalView(numberValue, minority),
+                        numberParams,
+                    );
+
+                    if (focused) {
+                        if (
+                            nextInputValue &&
+                            prevInputValue.startsWith(nextInputValue) &&
+                            prevInputValue.length > nextInputValue.length
+                        ) {
+                            const diff = prevInputValue.slice(
+                                nextInputValue.length - prevInputValue.length,
+                            );
+
+                            if (
+                                new RegExp(
+                                    `^${escapeRegExp(numberParams.decimalSeparator)}0*$`,
+                                ).test(diff)
+                            ) {
+                                return prevInputValue;
+                            }
+                        }
+
+                        return nextInputValue;
+                    }
+
+                    return processDecimalPart(nextInputValue, numberParams, view);
+                });
+            } else {
+                setInputValue('');
+            }
+        }, [integerLength, integersOnly, minority, numberParams, numberValue, view]);
+
+        const numberValueOrZero = useMemo(() => Number(`${numberValue ?? ''}`), [numberValue]);
         const { min: minStepperValue, max: maxStepperValue } = getMinMaxOrDefault({
             minProp: stepper?.min,
             maxProp: stepper?.max,
         });
         const withStepper = isNonNullable(stepper?.step);
         const [isFocused, setIsFocused] = useState(false);
-        const [majorPart, minorPart] = inputValue.split(numberParams.decimalSeparator);
+        const { minus, integerPart, decimalSeparator, decimalPart } = toNumberParts(
+            inputValue,
+            numberParams,
+        );
         const currencyCode = getCurrencyCodeWithFormat(currency, codeFormat);
 
         const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -274,27 +253,17 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
             setInputValue(value);
 
-            if (
-                value.startsWith(numberParams.decimalSeparator) ||
-                new RegExp(
-                    `^${numberParams.minusSign}?0?(${numberParams.decimalSeparator}0*)?$`,
-                ).test(value) ||
-                new RegExp(`^${numberParams.minusSign}?0[^${numberParams.decimalSeparator}]`).test(
-                    value,
-                )
-            ) {
-                return;
-            }
+            if (isInputValueCorrect(value, numberParams)) {
+                const numOrNull = fromDecimalView(parseNumber(value, numberParams), minority);
 
-            const numOrNull = parseNumber(value, numberParams);
+                onChange?.(event, {
+                    value: numOrNull,
+                    valueString: value,
+                });
 
-            onChange?.(event, {
-                value: numOrNull,
-                valueString: value,
-            });
-
-            if (uncontrolled) {
-                setNumberValue(numOrNull);
+                if (uncontrolled) {
+                    setNumberValue(numOrNull);
+                }
             }
         };
 
@@ -385,8 +354,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
-                            <span className={styles.suffixMajor}>{majorPart}</span>
-
+                            <span className={styles.suffixMajor}>
+                                {fromNumberParts({ minus, integerPart })}
+                            </span>
                             <span
                                 className={cn({
                                     [colorStyles[colors].minorPartAndCurrency]: transparentMinor,
@@ -394,14 +364,11 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                                     [colorStyles[colors].readOnly]: restProps.readOnly,
                                 })}
                             >
-                                {minorPart !== undefined && (
-                                    <span
-                                        className={styles.suffixMinor}
-                                    >{`${numberParams.decimalSeparator}${minorPart}`}</span>
-                                )}
-                                {THINSP}
-                                <span className={styles.suffixCurrency}>
-                                    {suffix === currency ? currencyCode : suffix}
+                                <span className={styles.suffixMinor}>
+                                    {fromNumberParts({ decimalSeparator, decimalPart })}
+                                </span>
+                                <span>
+                                    {`${THINSP}${suffix === currency ? currencyCode : toValueAsString(suffix)}`}
                                 </span>
                             </span>
                         </Fragment>
@@ -420,11 +387,12 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     onClear={handleClear}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    inputMode={numberParams.maximumFractionDigits === 0 ? 'numeric' : 'decimal'}
+                    inputMode={numberParams.maximumFractionDigits ? 'decimal' : 'numeric'}
                     dataTestId={dataTestId}
                     ref={mergeRefs([ref, inputRef, maskitoRef])}
                     breakpoint={breakpoint}
                     client={client}
+                    fieldClassName={cn(fieldClassName, restProps.fieldClassName)}
                 />
             </div>
         );
