@@ -239,7 +239,7 @@ describe('CodeInput', () => {
             const focusCases: Array<TFocusCase> = [
                 {
                     name: 'should focus first input when clicking on any empty input',
-                    setup: async () => { },
+                    setup: async () => {},
                     clickIndex: 2,
                     expectedFocusIndex: 0,
                 },
@@ -253,13 +253,13 @@ describe('CodeInput', () => {
                 },
                 {
                     name: 'should focus first input when clicking on first input',
-                    setup: async () => { },
+                    setup: async () => {},
                     clickIndex: 0,
                     expectedFocusIndex: 0,
                 },
                 {
                     name: 'should redirect focus to first input when clicking empty field without autofill',
-                    setup: async () => { },
+                    setup: async () => {},
                     clickIndex: 2,
                     expectedFocusIndex: 0,
                 },
@@ -356,12 +356,15 @@ describe('CodeInput', () => {
                 inputs = getInputs(container);
             });
 
-            it.each(restrictClickCases)('$name', async ({ setup, clickIndex, expectedFocusIndex }) => {
-                await setup();
-                await userEvent.click(inputs[clickIndex]);
+            it.each(restrictClickCases)(
+                '$name',
+                async ({ setup, clickIndex, expectedFocusIndex }) => {
+                    await setup();
+                    await userEvent.click(inputs[clickIndex]);
 
-                expect(inputs[expectedFocusIndex]).toHaveFocus();
-            });
+                    expect(inputs[expectedFocusIndex]).toHaveFocus();
+                },
+            );
 
             describe('click navigation cases', () => {
                 it.each([
