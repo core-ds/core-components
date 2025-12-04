@@ -171,38 +171,31 @@ export const createCleanDataPreprocessor =
 
 export const createDataNumberPreprocessor = (params: NumberParams): MaskitoPreprocessor => {
     const { maximumFractionDigits } = params;
+    const { minusSign, decimalSeparator } = params;
 
-    if (maximumFractionDigits) {
-        const { minusSign, decimalSeparator } = params;
-
-        return ({ elementState, data }) => {
-            if (
-                new RegExp(`^${minusSign}?[0-9]*(${escapeRegExp(decimalSeparator)}[0-9]*)?$`).test(
-                    data,
-                )
-            ) {
-                const { decimalPart, ...numberParts } = toNumberParts(data, params);
-
-                return {
-                    elementState,
-                    data: fromNumberParts(
-                        {
-                            ...numberParts,
-                            decimalPart: decimalPart.slice(0, maximumFractionDigits),
-                        },
-                        params,
-                    ),
-                };
-            }
+    return ({ elementState, data }) => {
+        if (
+            new RegExp(`^${minusSign}?[0-9]*(${escapeRegExp(decimalSeparator)}[0-9]*)?$`).test(data)
+        ) {
+            const { decimalPart, ...numberParts } = toNumberParts(data, params);
 
             return {
                 elementState,
-                data: '',
+                data: fromNumberParts(
+                    {
+                        ...numberParts,
+                        decimalPart: decimalPart.slice(0, maximumFractionDigits),
+                    },
+                    params,
+                ),
             };
-        };
-    }
+        }
 
-    return identity;
+        return {
+            elementState,
+            data: '',
+        };
+    };
 };
 
 export function createValidNumberPreprocessor({
@@ -233,26 +226,26 @@ export function createValidNumberPreprocessor({
             const { integerPart, decimalPart } = toNumberParts(nextValue, params);
 
             if (
-                integerPart.length > maximumIntegerDigits ||
-                decimalPart.length > maximumFractionDigits
+                integerPart.length <= maximumIntegerDigits &&
+                decimalPart.length <= maximumFractionDigits
             ) {
-                if (inputType === 'deleteForward') {
-                    selection = [to, to];
-                } else if (inputType === 'deleteBackward') {
-                    selection = [from, from];
-                }
-
-                return {
-                    elementState: {
-                        value,
-                        selection,
-                    },
-                    data: '',
-                };
+                return { elementState, data };
             }
         }
 
-        return { elementState, data };
+        if (inputType === 'deleteForward') {
+            selection = [to, to];
+        } else if (inputType === 'deleteBackward') {
+            selection = [from, from];
+        }
+
+        return {
+            elementState: {
+                value,
+                selection,
+            },
+            data: '',
+        };
     };
 }
 
