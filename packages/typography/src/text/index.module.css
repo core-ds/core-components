@@ -5,85 +5,62 @@
     --text-paragraph-margin-bottom: var(--gap-0) var(--gap-0) var(--gap-12);
 }
 
-.paragraph {
-    margin: var(--gap-0);
-    padding: var(--gap-0);
-}
+.text {
+    &.paragraph {
+        margin: var(--gap-0);
+        padding: var(--gap-0);
+    }
 
-.paragraphWithMargins {
-    padding: var(--gap-0);
-    margin: var(--text-paragraph-margin-bottom);
-}
+    &.paragraphWithMargins {
+        padding: var(--gap-0);
+        margin: var(--text-paragraph-margin-bottom);
+    }
 
-.primary-large {
-    @mixin paragraph_primary_large;
-}
+    @each $view in component, caps, tagline {
+        &.$(view) {
+            @mixin paragraph_$(view);
+        }
+    }
 
-.primary-medium {
-    @mixin paragraph_primary_medium;
-}
+    @each $kind in primary, secondary {
+        @each $size in large, medium, small {
+            &.$(kind)-$(size) {
+                /* prettier-ignore */
+                @mixin paragraph_$(kind)_$(size);
+            }
 
-.primary-small {
-    @mixin paragraph_primary_small;
-}
+            &.$(kind)-$(size).bold {
+                @subtract-mixin accent_$(kind)_$(size), paragraph_$(kind)_$(size);
+            }
 
-.secondary-large {
-    @mixin paragraph_secondary_large;
-}
+            &.$(kind)-$(size).medium {
+                @subtract-mixin action_$(kind)_$(size), paragraph_$(kind)_$(size);
+            }
+        }
 
-.secondary-medium {
-    @mixin paragraph_secondary_medium;
-}
+        &.component-$(kind) {
+            @mixin paragraph_component_$(kind);
 
-.secondary-small {
-    @mixin paragraph_secondary_small;
-}
+            &.bold {
+                @subtract-mixin accent_component_$(kind), paragraph_component_$(kind);
+            }
 
-.component {
-    @mixin paragraph_component;
-}
+            &.medium {
+                @subtract-mixin action_component_$(kind), paragraph_component_$(kind);
+            }
+        }
+    }
 
-.component-primary {
-    @mixin paragraph_component_primary;
-}
+    &.rowLimit1 {
+        @mixin row_limit 1;
+        word-break: break-all;
+    }
 
-.component-secondary {
-    @mixin paragraph_component_secondary;
-}
+    &.rowLimit2 {
+        @mixin row_limit 2;
+    }
 
-.caps {
-    @mixin paragraph_caps;
-}
-
-.tagline {
-    @mixin paragraph_tagline;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.medium {
-    font-weight: 500;
-}
-
-.regular {
-    font-weight: normal;
-}
-
-.monospace {
-    font-variant-numeric: tabular-nums;
-}
-
-.rowLimit1 {
-    @mixin row_limit 1;
-    word-break: break-all;
-}
-
-.rowLimit2 {
-    @mixin row_limit 2;
-}
-
-.rowLimit3 {
-    @mixin row_limit 3;
+    &.rowLimit3 {
+        @mixin row_limit 3;
+    }
 }
