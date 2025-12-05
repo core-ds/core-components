@@ -172,4 +172,41 @@ describe('NotificationManager', () => {
 
         expect(container).toContainElement(getByTestId('NotificationManager'));
     });
+
+    it('should inherit position from notifications', () => {
+        const { getByTestId } = render(
+            <NotificationManager
+                dataTestId='NotificationManager'
+                offset={32}
+                onRemoveNotification={jest.fn()}
+                notifications={[
+                    <Notification title='title' key={1} id='1' position='bottom' />,
+                ]}
+            />,
+        );
+
+        const manager = getByTestId('NotificationManager');
+
+        expect(manager).toHaveClass('bottom');
+        expect(manager.style.bottom).toBe('32px');
+    });
+
+    it('should inherit position from NotificationManager props', () => {
+        const { getByTestId } = render(
+            <NotificationManager
+                dataTestId='NotificationManager'
+                offset={32}
+                position='bottom'
+                onRemoveNotification={jest.fn()}
+                notifications={[
+                    <Notification title='title' key={1} id='1' />,
+                ]}
+            />,
+        );
+
+        const manager = getByTestId('NotificationManager');
+
+        expect(manager).toHaveClass('bottom');
+        expect(manager.style.bottom).toBe('32px');
+    });
 });

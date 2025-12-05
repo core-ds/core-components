@@ -2,20 +2,42 @@
 
 .component {
     position: fixed;
-    top: var(--gap-0);
     right: var(--gap-12);
     display: flex;
+}
+
+.top {
+    top: var(--gap-0);
+    bottom: auto;
     flex-direction: column;
+}
+
+.bottom {
+    top: auto;
+    bottom: var(--gap-0);
+    flex-direction: column-reverse;
 }
 
 .component .notification {
     width: calc(100vw - var(--gap-24));
     margin-top: var(--gap-12);
     will-change: transform;
+    transition:
+        transform 0.4s ease-out,
+        opacity 0.2s ease-out;
 
     &.withoutMargin {
         margin-top: var(--gap-0);
     }
+}
+
+.bottom .notification {
+    margin-top: var(--gap-0);
+    margin-bottom: var(--gap-12);
+}
+
+.bottom .notification.withoutMargin {
+    margin-bottom: var(--gap-0);
 }
 
 .component .notification.notification {
@@ -23,14 +45,17 @@
 }
 
 .enter {
-    visibility: hidden;
+    opacity: 0;
     transform: translate(0, -500px);
 }
 
+.bottom .enter {
+    transform: translate(0, 500px);
+}
+
 .enterActive {
-    visibility: visible;
+    opacity: 1;
     transform: translate(0);
-    transition: transform 0.4s ease-out;
 }
 
 @media (--tablet-s) {
@@ -43,6 +68,10 @@
     }
 
     .enter {
+        transform: translate(100%, 0);
+    }
+
+    .bottom .enter {
         transform: translate(100%, 0);
     }
 

@@ -7,7 +7,7 @@ exports[`NotificationManager Snapshots tests should match empty snapshot 1`] = `
     alfa-portal-container=""
   >
     <div
-      class="component"
+      class="component top"
       style="z-index: 1000;"
     />
   </div>
@@ -20,7 +20,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
     alfa-portal-container=""
   >
     <div
-      class="component"
+      class="component top"
       style="z-index: 1000;"
     >
       <div>

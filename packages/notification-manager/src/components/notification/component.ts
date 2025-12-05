@@ -8,11 +8,13 @@ export type NotificationElement = ReactElement<CoreNotificationProps & { id: str
 type NotificationProps = {
     element: NotificationElement;
     className: string;
+    position?: 'top' | 'bottom';
     onRemoveNotification: (id: string) => void;
 };
 
 export const Notification: FC<NotificationProps> = ({
     element,
+    position,
     className,
     onRemoveNotification,
 }) => {
@@ -41,10 +43,11 @@ export const Notification: FC<NotificationProps> = ({
             className: cn(className, element.props.className),
             usePortal: false,
             offset: 0,
+            position: element.props.position ?? position,
             onClose: handleClose,
             onCloseTimeout: handleCloseTimeout,
         }),
-        [element, handleClose, handleCloseTimeout, className],
+        [element, handleClose, handleCloseTimeout, position, className],
     );
 
     return cloneElement(element, notificationProps);
