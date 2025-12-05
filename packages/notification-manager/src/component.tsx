@@ -1,4 +1,4 @@
-import React, { forwardRef, type HTMLAttributes } from 'react';
+import React, { forwardRef, type HTMLAttributes, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
 
@@ -74,44 +74,50 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
             ...restProps
         },
         ref,
-    ) => (
-        <Stack value={zIndex}>
-            {(computedZIndex) => (
-                <Portal getPortalContainer={container}>
-                    <div
-                        className={cn(styles.component, className)}
-                        ref={ref}
-                        data-test-id={dataTestId}
-                        style={{
-                            zIndex: computedZIndex,
-                            top: offset,
-                            ...style,
-                        }}
-                        {...restProps}
-                    >
-                        <TransitionGroup>
-                            {notifications.map((element, index) => (
-                                <CSSTransition
-                                    key={element.props.id}
-                                    timeout={TIMEOUT}
-                                    classNames={CSS_TRANSITION_CLASS_NAMES}
-                                    unmountOnExit={true}
-                                >
-                                    <Notification
-                                        element={element}
-                                        className={cn(styles.notification, {
-                                            [styles.withoutMargin]: offset && index === 0,
-                                        })}
-                                        onRemoveNotification={onRemoveNotification}
-                                    />
-                                </CSSTransition>
-                            ))}
-                        </TransitionGroup>
-                    </div>
-                </Portal>
-            )}
-        </Stack>
-    ),
+    ) => {
+        const nodeRef = useRef<HTMLDivElement>(null);
+
+        return (
+            <Stack value={zIndex}>
+                {(computedZIndex) => (
+                    <Portal getPortalContainer={container}>
+                        <div
+                            className={cn(styles.component, className)}
+                            ref={ref}
+                            data-test-id={dataTestId}
+                            style={{
+                                zIndex: computedZIndex,
+                                top: offset,
+                                ...style,
+                            }}
+                            {...restProps}
+                        >
+                            <TransitionGroup>
+                                {notifications.map((element, index) => (
+                                    <CSSTransition
+                                        key={element.props.id}
+                                        timeout={TIMEOUT}
+                                        classNames={CSS_TRANSITION_CLASS_NAMES}
+                                        unmountOnExit={true}
+                                        nodeRef={nodeRef}
+                                    >
+                                        <Notification
+                                            containerRef={nodeRef}
+                                            element={element}
+                                            className={cn(styles.notification, {
+                                                [styles.withoutMargin]: offset && index === 0,
+                                            })}
+                                            onRemoveNotification={onRemoveNotification}
+                                        />
+                                    </CSSTransition>
+                                ))}
+                            </TransitionGroup>
+                        </div>
+                    </Portal>
+                )}
+            </Stack>
+        );
+    },
 );
 
 NotificationManager.displayName = 'NotificationManager';

@@ -12,7 +12,7 @@
     "dependencies": {
         "@alfalab/core-components-typography": "^5.0.3",
         "classnames": "^2.5.1",
-        "recharts": "^2.12.7",
+        "recharts": "^2.15.4",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
