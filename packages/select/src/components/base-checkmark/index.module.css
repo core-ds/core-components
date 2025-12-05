@@ -14,13 +14,38 @@
     }
 }
 
-.single {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+
+    &.start {
+        align-items: flex-start;
+    }
+
+    &.center {
+        align-items: center;
+    }
+}
+
+.singleIcon {
+    flex-shrink: 0;
     opacity: 0;
 
     &.selected {
         opacity: 1;
     }
+
+    &.before {
+        margin-right: var(--gap-12);
+    }
+
+    &.after {
+        margin-left: var(--gap-12);
+    }
+}
+
+.content {
+    flex: 1;
 }

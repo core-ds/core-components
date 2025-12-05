@@ -10,7 +10,6 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-badge": "^6.0.0",
         "@alfalab/core-components-base-modal": "^6.0.2",
         "@alfalab/core-components-bottom-sheet": "^7.2.1",
         "@alfalab/core-components-button": "^12.0.2",
@@ -23,6 +22,7 @@
         "@alfalab/core-components-scrollbar": "^4.0.0",
         "@alfalab/core-components-shared": "^1.1.1",
         "@alfalab/core-components-skeleton": "^6.0.1",
+        "@alfalab/core-components-status-badge": "^2.0.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.247.0",
         "@juggle/resize-observer": "^3.3.1",
