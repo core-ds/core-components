@@ -3,10 +3,10 @@
 exports[`Calendar Render tests should render calendar when calendarVisible=\`true\` 1`] = `
 <div>
   <div
-    class="component calendarVisible"
+    class="component hasContainerStyles calendarVisible"
   >
     <div
-      class="cc-calendar component sixWeeks responsive"
+      class="cc-calendar component hasContainerStyles sixWeeks responsive"
       tabindex="-1"
     >
       <div
@@ -908,7 +908,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
 exports[`Calendar Render tests should render skeleton when calendarVisible=\`false\` 1`] = `
 <div>
   <div
-    class="component"
+    class="component hasContainerStyles"
   >
     <div
       class="skeleton"

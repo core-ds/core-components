@@ -37,7 +37,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
         class="calendarContainer"
       >
         <div
-          class="cc-calendar component calendar"
+          class="cc-calendar component hasContainerStyles calendar hasContainerStyles"
           tabindex="-1"
         >
           <div
@@ -955,7 +955,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
       </div>
       <div>
         <div
-          class="cc-calendar component calendar sixWeeks"
+          class="cc-calendar component hasContainerStyles calendar hasContainerStyles sixWeeks"
           tabindex="-1"
         >
           <div

@@ -11,6 +11,12 @@
     height: auto;
 }
 
+.hasContainerStyles {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
 .skeleton {
     display: flex;
     flex-direction: column;

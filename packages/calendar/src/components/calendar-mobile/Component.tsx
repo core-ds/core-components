@@ -68,6 +68,8 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
         const [modalRef, setModalRef] = useState<HTMLElement>();
         const monthOnlyView = selectorView === 'month-only';
 
+        console.log({ restProps, className })
+
         const handleClose = () => {
             if (onClose) onClose();
         };
@@ -214,7 +216,7 @@ export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
                         onBack={onBack}
                     />
                 )}
-                <ModalMobile.Content className={styles.contentModal} flex={true}>
+                <ModalMobile.Content className={cn(styles.contentModal, className)} flex={true}>
                     {renderContent()}
                 </ModalMobile.Content>
                 <ModalMobile.Footer
