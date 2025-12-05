@@ -7,7 +7,10 @@ import {
 
 import { type ButtonProps } from '@alfalab/core-components-button';
 
-export type IconButtonProps = {
+export interface IconButtonProps
+    extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>,
+        Pick<ButtonProps, 'Component' | 'href' | 'loading' | 'breakpoint'>,
+        Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'> {
     /**
      * Компонент иконки
      */
@@ -50,6 +53,4 @@ export type IconButtonProps = {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> &
-    Pick<ButtonProps, 'Component' | 'href' | 'loading' | 'breakpoint'> &
-    Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'>;
+}
