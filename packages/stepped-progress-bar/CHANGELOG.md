@@ -1,5 +1,22 @@
 # @alfalab/core-components-stepped-progress-bar
 
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1926](https://github.com/core-ds/core-components/pull/1926)
+
+- Расширена поддержка кастомных цветов в пропсе `view`: теперь можно прокидывать любые CSS-строки (hex, rgba, токены `var(...)`)
+- Пресетные цвета (`positive`, `negative`, `attention` и т.д.) используют CSS классы как раньше
+- Кастомные цвета автоматически применяются через `style={{ background }}`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@5.0.3
+
 ## 3.0.2
 
 ### Patch Changes

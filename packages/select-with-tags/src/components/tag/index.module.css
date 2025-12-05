@@ -43,7 +43,7 @@
 }
 
 .tagCross {
-    padding: var(--gap-0) 6px;
+    padding: var(--gap-0) var(--gap-6);
     height: 100%;
 
     & > svg {
