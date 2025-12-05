@@ -11,6 +11,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
+import { useFocusRestriction } from '../../hooks';
 import {
     type BaseCodeInputProps,
     type CredentialOtp,
@@ -39,6 +40,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             onChange,
             onComplete,
             stylesInput = {},
+            restrictFocus = false,
         },
         ref,
     ) => {
@@ -53,10 +55,19 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         const [values, setValues] = useState(initialValues.split(''));
 
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
+        const programmaticFocusRef = useRef(false);
 
         const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
             inputRef?.current?.focus();
         };
+
+        const { focusRestrictedInput } = useFocusRestriction({
+            restrictFocus,
+            values,
+            fields,
+            inputRefs,
+            focusOnInput,
+        });
 
         const focus = (index = 0) => {
             focusOnInput(inputRefs[index]);
@@ -132,7 +143,8 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             setValues(newValues);
 
             if (nextRef?.current) {
-                nextRef.current.focus();
+                programmaticFocusRef.current = true;
+                focusOnInput(nextRef);
 
                 nextRef.current.select();
             }
@@ -167,6 +179,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
                     if (values[index]) {
                         newValues[index] = '';
+                        focusOnInput(curtRef);
                     } else if (prevRef) {
                         newValues[prevIndex] = '';
 
@@ -182,14 +195,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     event.preventDefault();
 
                     newValues[index] = '';
-
-                    if (!values[nextIndex]) {
-                        focusOnInput(curtRef);
-                    }
-
-                    if (nextRef) {
-                        focusOnInput(nextRef);
-                    }
+                    focusOnInput(curtRef);
 
                     setValues(newValues);
 
@@ -204,14 +210,16 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     }
 
                     break;
-                case 'ArrowRight':
+                case 'ArrowRight': {
                     event.preventDefault();
+                    const isRestrictedHandled = focusRestrictedInput(nextIndex);
 
-                    if (nextRef) {
+                    if (!isRestrictedHandled && nextRef) {
                         focusOnInput(nextRef);
                     }
 
                     break;
+                }
                 case 'ArrowUp':
                 case 'ArrowDown':
                     event.preventDefault();
@@ -225,12 +233,32 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             event.persist();
             const target = event.target as HTMLInputElement;
 
-            /**
-             * В сафари выделение корректно работает только с асинхронным вызовом
-             */
-            requestAnimationFrame(() => {
-                target?.select();
-            });
+            if (programmaticFocusRef.current) {
+                programmaticFocusRef.current = false;
+
+                requestAnimationFrame(() => {
+                    target?.select();
+                });
+
+                return;
+            }
+
+            const targetIndex = inputRefs.findIndex((inputRef) => inputRef.current === target);
+            const allEmpty = values.every((value) => !value) || values.length === 0;
+
+            if (allEmpty && targetIndex > 0) {
+                focusOnInput(inputRefs[0]);
+
+                return;
+            }
+
+            const isRestrictedHandled = focusRestrictedInput(targetIndex, { skipEqual: true });
+
+            if (!isRestrictedHandled) {
+                requestAnimationFrame(() => {
+                    target?.select();
+                });
+            }
         };
 
         const handleErrorAnimationEnd = () => {
