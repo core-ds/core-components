@@ -11,7 +11,7 @@ export type ColorType = 'default' | 'inverted';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
-export type BottomSheetProps = Pick<SwipeableProps, 'preventScrollOnSwipe'> & {
+export type BottomSheetProps = {
     /**
      * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
@@ -375,4 +375,10 @@ export type BottomSheetProps = Pick<SwipeableProps, 'preventScrollOnSwipe'> & {
      * @default default
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Предотвращать скролл во время свайпа
+     * @default false
+     */
+    preventScrollOnSwipe?: SwipeableProps['preventScrollOnSwipe'];
 };
