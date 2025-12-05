@@ -5,14 +5,13 @@ import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { Skeleton } from '../../Component';
 import { type TextSkeletonProps } from '../../types/text-skeleton-props';
+import {
+    getFallbackSkeletonParams,
+    measureSkeletonParams,
+    type TextSkeletonParams,
+} from '../../utils';
 
 import styles from './use-skeleton.module.css';
-
-type TextSkeletonParams = {
-    height: number;
-    padding: string;
-    rows: number;
-};
 
 type SkeletonProps = {
     wrapperClassName?: string;
@@ -20,49 +19,25 @@ type SkeletonProps = {
 };
 
 export function useSkeleton(showSkeleton?: boolean, skeletonProps?: TextSkeletonProps) {
-    const [skeletonParams, setSkeletonParams] = useState<TextSkeletonParams>();
+    const [skeletonParams, setSkeletonParams] = useState<TextSkeletonParams | undefined>(() =>
+        showSkeleton ? getFallbackSkeletonParams(skeletonProps) : undefined,
+    );
     const textRef = useRef<HTMLElement>(null);
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        if (showSkeleton && textRef.current) {
-            const style = getComputedStyle(textRef.current);
-
-            const textHeight = textRef.current.offsetHeight;
-            const fontSize = parseInt(style.fontSize, 10);
-            const lineHeight = parseInt(style.lineHeight, 10);
-
-            let padding =
-                (lineHeight - fontSize) % 2 === 0
-                    ? (lineHeight - fontSize) / 2
-                    : (lineHeight - fontSize - 1) / 2;
-
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-
-            /**
-             * Расчет отступов с учётом размера глифа от базовой линии до верхней границы
-             * Это позволяет отображать более приближённый размер скелетона к начертанию текста
-             * @see DS-12535
-             */
-            if (context && textRef.current.textContent) {
-                context.font = style.font;
-                const metrics = context.measureText(textRef.current.textContent);
-
-                padding = (lineHeight - metrics.actualBoundingBoxAscent) / 2;
-            }
-
-            const rows = skeletonProps?.rows
-                ? skeletonProps?.rows
-                : Math.ceil(textHeight / lineHeight);
-
-            setSkeletonParams({
-                height: lineHeight - padding * 2,
-                padding: `${padding}px 0`,
-                rows,
-            });
-        } else {
+        if (!showSkeleton) {
             setSkeletonParams(undefined);
+
+            return;
         }
+
+        if (textRef.current) {
+            setSkeletonParams(measureSkeletonParams(textRef.current, skeletonProps));
+
+            return;
+        }
+
+        setSkeletonParams((prev) => prev ?? getFallbackSkeletonParams(skeletonProps));
     }, [showSkeleton, skeletonProps?.rows]);
 
     const renderSkeleton = (props: SkeletonProps) => {
