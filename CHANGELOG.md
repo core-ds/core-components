@@ -1,3 +1,30 @@
+## 48.35.0
+
+<sup><time>05.12.2025</time></sup>
+
+### [#1971](https://github.com/core-ds/core-components/pull/1971)
+
+#### Что изменилось
+##### InternationalPhoneInput:
+
+- Исправлено автозаполнение номера для Safari 26 в режиме `clearableCountryCode='preserve'`
+
+#### Влияние на компоненты
+- Патчи<br />`international-phone-input`
+
+
+### [#1969](https://github.com/core-ds/core-components/pull/1969)
+
+#### Что изменилось
+##### BottomSheet
+
+- Добавлен пропс `preventScrollOnSwipe`, который передается в библиотеку `react-swipeable`. Позволяет предотвращать прокрутку во время свайпа.
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
 ## 48.34.0
 
 <sup><time>10.10.2025</time></sup>
