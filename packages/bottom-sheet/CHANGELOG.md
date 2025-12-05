@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.20.0
+
+### Minor Changes
+
+<sup><time>05.12.2025</time></sup>
+
+### [#1969](https://github.com/core-ds/core-components/pull/1969)
+
+##### BottomSheet
+
+-   Добавлен пропс `preventScrollOnSwipe`, который передается в библиотеку `react-swipeable`. Позволяет предотвращать прокрутку во время свайпа.
+
 ## 6.19.1
 
 ### Patch Changes

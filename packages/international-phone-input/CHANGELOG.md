@@ -1,5 +1,21 @@
 # @alfalab/core-components-international-phone-input
 
+## 2.8.2
+
+### Patch Changes
+
+<sup><time>05.12.2025</time></sup>
+
+### [#1971](https://github.com/core-ds/core-components/pull/1971)
+
+##### InternationalPhoneInput:
+
+-   Исправлено автозаполнение номера для Safari 26 в режиме `clearableCountryCode='preserve'`
+
+-   Обновлены зависимости
+    -   select@17.24.2
+    -   input-autocomplete@12.10.2
+
 ## 2.8.1
 
 ### Patch Changes
