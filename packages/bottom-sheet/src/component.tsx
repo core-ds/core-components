@@ -110,6 +110,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             backButtonProps,
             iOSLock = false,
             virtualKeyboard = false,
+            preventScrollOnSwipe,
         },
         ref,
     ) => {
@@ -478,6 +479,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             trackMouse: swipeable,
             trackTouch: swipeable,
             delta: swipeThreshold,
+            preventScrollOnSwipe,
         });
 
         const handleExited = (node: HTMLElement) => {

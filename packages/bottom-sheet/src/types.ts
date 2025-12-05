@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
+import type { SwipeableProps } from 'react-swipeable';
 import type { HandledEvents } from 'react-swipeable/es/types';
 import type { TransitionProps } from 'react-transition-group/Transition';
 
@@ -362,4 +363,10 @@ export type BottomSheetProps = {
      * Учитывать высоту виртуальной клавиатуры
      */
     virtualKeyboard?: boolean;
+
+    /**
+     * Предотвращать скролл во время свайпа
+     * @default false
+     */
+    preventScrollOnSwipe?: SwipeableProps['preventScrollOnSwipe'];
 };
