@@ -41,7 +41,7 @@
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 24px 24px 0;
+    border-width: 0 14px 14px 0;
     border-color: transparent var(--color-light-base-bg-primary) transparent transparent;
 }
 
