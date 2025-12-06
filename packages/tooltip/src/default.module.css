@@ -19,7 +19,7 @@
     border-color: var(--tooltip-hint-bg-color);
 }
 
-.tooltip {
+.tooltip.tooltip {
     border: 1px solid var(--tooltip-border-color);
     background-color: var(--tooltip-bg-color);
 
