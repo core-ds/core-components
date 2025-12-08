@@ -2,11 +2,6 @@
 @import '../../vars.css';
 
 .component {
-    && {
-        font-weight: var(--button-font-weight);
-        font-family: var(--font-family);
-    }
-
     @mixin reset-tap-highlight-color;
 
     position: relative;

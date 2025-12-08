@@ -1,4 +1,3 @@
-@import '../../../../form-control/src/vars.css';
 @import '../../vars.css';
 
 .input {
@@ -28,7 +27,6 @@
     &:-webkit-autofill:active {
         &:first-line {
             @mixin paragraph_component;
-            font-family: var(--form-control-font-family);
         }
 
         /* Hack from http://stackoverflow.com/a/29350537 */

@@ -12,7 +12,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
       >
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-1"
           role="tab"
           tabindex="-1"
@@ -31,7 +31,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="true"
-          class="title selected"
+          class="title selected noTextStyle"
           id="tab-2"
           role="tab"
           tabindex="0"
@@ -45,7 +45,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-3"
           role="tab"
           tabindex="-1"
@@ -59,7 +59,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-4"
           role="tab"
           tabindex="-1"
@@ -73,7 +73,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-5"
           role="tab"
           tabindex="-1"
@@ -199,7 +199,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
         >
           <button
             aria-selected="false"
-            class=""
+            class="undefined"
             id="tab-1"
             role="tab"
             tabindex="-1"
@@ -218,7 +218,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="true"
-            class=""
+            class="undefined"
             id="tab-2"
             role="tab"
             tabindex="0"
@@ -232,7 +232,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="false"
-            class=""
+            class="undefined"
             id="tab-3"
             role="tab"
             tabindex="-1"
@@ -246,7 +246,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="false"
-            class=""
+            class="undefined"
             id="tab-4"
             role="tab"
             tabindex="-1"
@@ -260,7 +260,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="false"
-            class=""
+            class="undefined"
             id="tab-5"
             role="tab"
             tabindex="-1"
@@ -386,7 +386,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
       >
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-1"
           role="tab"
           tabindex="-1"
@@ -405,7 +405,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="true"
-          class="title selected"
+          class="title selected noTextStyle"
           id="tab-2"
           role="tab"
           tabindex="0"
@@ -419,7 +419,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-3"
           role="tab"
           tabindex="-1"
@@ -433,7 +433,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-4"
           role="tab"
           tabindex="-1"
@@ -447,7 +447,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-5"
           role="tab"
           tabindex="-1"
@@ -570,7 +570,7 @@ exports[`Tabs should match snapshot with icon as title 1`] = `
       >
         <button
           aria-selected="false"
-          class="title"
+          class="title noTextStyle"
           id="tab-1"
           role="tab"
           tabindex="-1"
@@ -595,7 +595,7 @@ exports[`Tabs should match snapshot with icon as title 1`] = `
         </button>
         <button
           aria-selected="true"
-          class="title selected"
+          class="title selected noTextStyle"
           id="tab-2"
           role="tab"
           tabindex="0"
