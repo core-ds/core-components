@@ -33,9 +33,14 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
     zIndex?: number;
 
     /**
-     * Отступ от верхнего края
+     * Отступ от края в зависимости от position
      */
     offset?: number;
+
+    /**
+     * Позиционирование компонента от верхнего или нижнего края экрана
+     */
+    position?: 'top' | 'bottom';
 
     /**
      * Удаление нотификации
@@ -69,49 +74,58 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
             zIndex = stackingOrder.TOAST,
             style = {},
             offset,
+            position = 'top',
             onRemoveNotification,
             container,
             ...restProps
         },
         ref,
-    ) => (
-        <Stack value={zIndex}>
-            {(computedZIndex) => (
-                <Portal getPortalContainer={container}>
-                    <div
-                        className={cn(styles.component, className)}
-                        ref={ref}
-                        data-test-id={dataTestId}
-                        style={{
-                            zIndex: computedZIndex,
-                            top: offset,
-                            ...style,
-                        }}
-                        {...restProps}
-                    >
-                        <TransitionGroup>
-                            {notifications.map((element, index) => (
-                                <CSSTransition
-                                    key={element.props.id}
-                                    timeout={TIMEOUT}
-                                    classNames={CSS_TRANSITION_CLASS_NAMES}
-                                    unmountOnExit={true}
-                                >
-                                    <Notification
-                                        element={element}
-                                        className={cn(styles.notification, {
-                                            [styles.withoutMargin]: offset && index === 0,
-                                        })}
-                                        onRemoveNotification={onRemoveNotification}
-                                    />
-                                </CSSTransition>
-                            ))}
-                        </TransitionGroup>
-                    </div>
-                </Portal>
-            )}
-        </Stack>
-    ),
+    ) => {
+        const hasCustomOffset = typeof offset === 'number'
+        const targetSide = position === 'top' ? 'top' : 'bottom';
+        const offsetStyle = { [targetSide]: hasCustomOffset ? offset : 0 };
+
+        return (
+            <Stack value={zIndex}>
+                {(computedZIndex) => (
+                    <Portal getPortalContainer={container}>
+                        <div
+                            className={cn(styles.component, className, {
+                                [styles.bottom]: position === 'bottom',
+                            })}
+                            ref={ref}
+                            data-test-id={dataTestId}
+                            style={{
+                                zIndex: computedZIndex,
+                                ...offsetStyle,
+                                ...style,
+                            }}
+                            {...restProps}
+                        >
+                            <TransitionGroup>
+                                {notifications.map((element, index) => (
+                                    <CSSTransition
+                                        key={element.props.id}
+                                        timeout={TIMEOUT}
+                                        classNames={CSS_TRANSITION_CLASS_NAMES}
+                                        unmountOnExit={true}
+                                    >
+                                        <Notification
+                                            element={element}
+                                            className={cn(styles.notification, {
+                                                [styles.withoutMargin]: hasCustomOffset && index === 0,
+                                            })}
+                                            onRemoveNotification={onRemoveNotification}
+                                        />
+                                    </CSSTransition>
+                                ))}
+                            </TransitionGroup>
+                        </div>
+                    </Portal>
+                )}
+            </Stack>
+        );
+    },
 );
 
 NotificationManager.displayName = 'NotificationManager';
