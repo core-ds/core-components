@@ -2,6 +2,7 @@ import React, { type ElementType, Fragment, useCallback, useRef, useState } from
 import cn from 'classnames';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { LockIcon } from '@alfalab/core-components-input/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
@@ -18,6 +19,7 @@ type FieldProps = {
     FormControlComponent?: ElementType;
 };
 
+// eslint-disable-next-line complexity
 export const Field = ({
     size = 56,
     open,
@@ -44,6 +46,7 @@ export const Field = ({
     valueSeparator,
     ...restProps
 }: BaseFieldProps & FormControlProps & FieldProps) => {
+    const { colors = 'default' } = restProps;
     const [focused, setFocused] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -59,7 +62,8 @@ export const Field = ({
     const showLabel = !!label || labelView === 'outer';
     const showPlaceholder = !!placeholder && !filled && (open || !label || labelView === 'outer');
 
-    const shouldShowClearButton = clear && filled;
+    const shouldShowClearButton = clear && filled && !disabled;
+    const shouldShowArrow = Arrow && !disabled;
 
     return (
         <div
@@ -92,7 +96,7 @@ export const Field = ({
                          * [2] - Common (info, e.g.)
                          * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
                          */
-                        (Arrow || rightAddons) && (
+                        (Arrow || rightAddons || disabled) && (
                             <Fragment>
                                 {shouldShowClearButton && (
                                     <ClearButton
@@ -104,7 +108,9 @@ export const Field = ({
                                 )}
                                 {rightAddons}
                                 {/* TODO: стоит переделать, но это будет мажорка */}
-                                {Arrow && React.cloneElement(Arrow, { className: styles.arrow })}
+                                {shouldShowArrow &&
+                                    React.cloneElement(Arrow, { className: styles.arrow })}
+                                {disabled && <LockIcon colors={colors} size={size} />}
                             </Fragment>
                         )
                     }
