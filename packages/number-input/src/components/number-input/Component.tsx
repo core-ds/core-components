@@ -3,6 +3,7 @@ import React, {
     type FC,
     type FocusEvent,
     forwardRef,
+    Fragment,
     type Ref,
     useEffect,
     useMemo,
@@ -113,6 +114,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
         },
         ref,
     ) => {
+        const { readOnly } = restProps;
         const { min, max } = getMinMaxOrDefault({ minProp, maxProp });
         const withStepper = stepProp !== undefined;
 
@@ -225,6 +227,35 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             setFocused(false);
         };
 
+        const renderStepper = () => (
+            <Steppers
+                colors={colors}
+                dataTestId={dataTestId}
+                disabled={disabled}
+                focused={focused}
+                value={parseNumber(value)}
+                min={min}
+                max={max}
+                onIncrement={handleIncrement}
+                onDecrement={handleDecrement}
+                size={size}
+            />
+        );
+
+        const renderRightAddons = () => {
+            const shouldRenderStepper = withStepper && !disabled && !readOnly;
+            const shouldRenderRightAddons = rightAddons || shouldRenderStepper;
+
+            return (
+                shouldRenderRightAddons && (
+                    <Fragment>
+                        {rightAddons}
+                        {shouldRenderStepper && renderStepper()}
+                    </Fragment>
+                )
+            );
+        };
+
         return (
             <Input
                 maxLength={getMaxLength(value)}
@@ -242,27 +273,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                 size={size}
                 disableUserInput={disableUserInput}
                 clear={clearProp && /\d/.test(value)}
-                rightAddons={
-                    withStepper ? (
-                        <React.Fragment>
-                            {rightAddons}
-                            <Steppers
-                                colors={colors}
-                                dataTestId={dataTestId}
-                                disabled={disabled}
-                                focused={focused}
-                                value={parseNumber(value)}
-                                min={min}
-                                max={max}
-                                onIncrement={handleIncrement}
-                                onDecrement={handleDecrement}
-                                size={size}
-                            />
-                        </React.Fragment>
-                    ) : (
-                        rightAddons
-                    )
-                }
+                rightAddons={renderRightAddons()}
             />
         );
     },

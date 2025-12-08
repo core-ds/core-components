@@ -58,6 +58,7 @@ export const number_input: Story = {
                         size={size}
                         colors={colors}
                         disabled={boolean('disabled', false)}
+                        readOnly={boolean('readOnly', false)}
                         step={number('step', 1)}
                         max={number('max', 10)}
                         min={number('min', 0)}
@@ -71,6 +72,7 @@ export const number_input: Story = {
                         size={size}
                         colors={colors}
                         disabled={boolean('disabled', false)}
+                        readOnly={boolean('readOnly', false)}
                         placeholder={text('placeholder', '')}
                         label={text('label', '')}
                         labelView={select('labelView', ['inner', 'outer'], 'inner')}
@@ -80,7 +82,6 @@ export const number_input: Story = {
                         rightAddons={boolean('rightAddons', false) && <IconComponent />}
                         leftAddons={boolean('leftAddons', false) && <IconComponent />}
                         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
-                        readOnly={boolean('readOnly', false)}
                     />
                 )}
             </div>
