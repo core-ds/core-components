@@ -81,7 +81,7 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
         },
         ref,
     ) => {
-        const hasCustomOffset = typeof offset === 'number'
+        const hasCustomOffset = typeof offset === 'number';
         const targetSide = position === 'top' ? 'top' : 'bottom';
         const offsetStyle = { [targetSide]: hasCustomOffset ? offset : 0 };
 
@@ -113,7 +113,8 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                                         <Notification
                                             element={element}
                                             className={cn(styles.notification, {
-                                                [styles.withoutMargin]: hasCustomOffset && index === 0,
+                                                [styles.withoutMargin]:
+                                                    hasCustomOffset && index === 0,
                                             })}
                                             onRemoveNotification={onRemoveNotification}
                                         />
