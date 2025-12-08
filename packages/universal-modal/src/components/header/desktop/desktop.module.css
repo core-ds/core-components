@@ -1,10 +1,4 @@
 @import '../../../vars.css';
-@import '../../../desktop/vars.css';
-
-.content {
-    font-weight: var(--universal-modal-header-desktop-font-weight);
-    font-family: var(--universal-modal-header-desktop-font-family);
-}
 
 .sticky {
     top: var(--gap-0);

@@ -1,14 +1,8 @@
 @import '../../vars.css';
 
-.content {
-    font-weight: var(--side-panel-header-desktop-font-weight);
-    font-family: var(--side-panel-header-desktop-font-family);
-}
-
 .size-500 .content {
     padding: var(--side-panel-s-header-desktop-content-paddings);
-    font-size: var(--side-panel-s-header-desktop-font-size);
-    line-height: var(--side-panel-s-header-desktop-line-height);
+    @mixin headline-system_medium;
 }
 
 .size-500 {

@@ -295,7 +295,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     const renderTitleString = () =>
         SIZES[size] > 64 ? (
             <TitleMobile
-                className={cn(styles.typography, styles.title)}
+                className={styles.title}
                 color={getTextColor(titleColor)}
                 tag='div'
                 font='system'

@@ -63,7 +63,6 @@
     --form-control-m-min-height: var(--size-m-height);
     --form-control-l-min-height: var(--size-l-height);
     --form-control-xl-min-height: var(--size-xl-height);
-    --form-control-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
     --form-control-bg-backdrop-filter: unset;
 
     /* paddings */
@@ -78,9 +77,6 @@
 
     /* disabled */
     --form-control-disabled-opacity: 1;
-
-    /* font */
-    --form-control-font-family: var(--font-family);
 
     /* border-radius */
     --form-control-40-border-radius: var(--border-radius-8);
