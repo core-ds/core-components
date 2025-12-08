@@ -178,6 +178,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         },
         ref,
     ) => {
+        const { disabled, readOnly } = restProps;
         const integerLength = Math.min(integerLengthProp, 15);
 
         const { min: minStepperValue, max: maxStepperValue } = getMinMaxOrDefault({
@@ -401,27 +402,30 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         };
 
         const renderRightAddons = () => {
-            if (withStepper) {
-                return (
+            const shouldRenderStepper = withStepper && !disabled && !readOnly;
+            const shouldRenderRightAddons = rightAddons || shouldRenderStepper;
+
+            return (
+                shouldRenderRightAddons && (
                     <Fragment>
                         {rightAddons}
-                        <Steppers
-                            colors={colors}
-                            dataTestId={dataTestId}
-                            disabled={restProps.disabled}
-                            focused={isFocused && !restProps.disableUserInput}
-                            value={parseNumber(value)}
-                            min={minStepperValue}
-                            max={maxStepperValue}
-                            onIncrement={handleIncrement}
-                            onDecrement={handleDecrement}
-                            size={restProps.size}
-                        />
+                        {shouldRenderStepper && (
+                            <Steppers
+                                colors={colors}
+                                dataTestId={dataTestId}
+                                disabled={restProps.disabled}
+                                focused={isFocused && !restProps.disableUserInput}
+                                value={parseNumber(value)}
+                                min={minStepperValue}
+                                max={maxStepperValue}
+                                onIncrement={handleIncrement}
+                                onDecrement={handleDecrement}
+                                size={restProps.size}
+                            />
+                        )}
                     </Fragment>
-                );
-            }
-
-            return rightAddons;
+                )
+            );
         };
 
         return (
