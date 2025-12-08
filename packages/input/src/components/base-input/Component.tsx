@@ -1,14 +1,8 @@
 import React, {
     type AnimationEvent,
-    type ChangeEvent,
-    type ElementType,
     Fragment,
-    type HTMLAttributes,
-    type InputHTMLAttributes,
     type KeyboardEvent,
     type MouseEvent,
-    type ReactNode,
-    type RefAttributes,
     useCallback,
     useRef,
     useState,
@@ -16,13 +10,15 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { type FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { hasStepperInRightAddon } from '../../helpers/has-stepper-in-right-addon';
 import { ClearButton } from '../clear-button';
+import { LockIcon } from '../lock-icon';
+
+import { type BaseInputProps } from './types/base-input-props';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -31,185 +27,6 @@ import invertedColors from './inverted.module.css';
 const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
-
-export type BaseInputProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    | 'size'
-    | 'type'
-    | 'value'
-    | 'defaultValue'
-    | 'onChange'
-    | 'onClick'
-    | 'onMouseDown'
-    | 'enterKeyHint'
-> & {
-    /**
-     * Значение поля ввода
-     */
-    value?: string;
-
-    /**
-     * Начальное значение поля
-     */
-    defaultValue?: string;
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
-
-    /**
-     * Крестик для очистки поля
-     */
-    clear?: boolean;
-
-    /**
-     * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
-     */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
-
-    /**
-     * Набор цветов для компонента
-     */
-    colors?: 'default' | 'inverted';
-
-    /**
-     * Отображение ошибки
-     */
-    error?: ReactNode | boolean;
-
-    /**
-     * Отображение иконки успеха
-     */
-    success?: boolean;
-
-    /**
-     * Текст подсказки
-     */
-    hint?: ReactNode;
-
-    /**
-     * Лейбл компонента
-     */
-    label?: React.ReactNode;
-
-    /**
-     * Вид лейбла внутри / снаружи
-     */
-    labelView?: 'inner' | 'outer';
-
-    /**
-     * Атрибут type
-     */
-    type?: 'number' | 'email' | 'money' | 'password' | 'tel' | 'text';
-
-    /**
-     * Ref для обертки input
-     */
-    wrapperRef?: React.Ref<HTMLDivElement> | null;
-
-    /**
-     * Слот слева
-     */
-    leftAddons?: React.ReactNode;
-
-    /**
-     * Слот справа
-     */
-    rightAddons?: React.ReactNode;
-
-    /**
-     * Свойства для обертки левых аддонов
-     */
-    leftAddonsProps?: HTMLAttributes<HTMLDivElement>;
-
-    /**
-     * Свойства для обертки правых аддонов
-     */
-    rightAddonsProps?: HTMLAttributes<HTMLDivElement>;
-
-    /**
-     * Слот под инпутом
-     */
-    bottomAddons?: React.ReactNode;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для поля
-     */
-    fieldClassName?: string;
-
-    /**
-     * Дополнительный класс инпута
-     */
-    inputClassName?: string;
-
-    /**
-     * Дополнительный класс для лейбла
-     */
-    labelClassName?: string;
-
-    /**
-     * Дополнительный класс для аддонов
-     */
-    addonsClassName?: string;
-
-    /**
-     * Класс, который будет установлен при фокусе
-     */
-    focusedClassName?: string;
-
-    /**
-     * Класс, который будет установлен, если в поле есть значение
-     */
-    filledClassName?: string;
-
-    /**
-     * Обработчик поля ввода
-     */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
-
-    /**
-     * Обработчик нажатия на кнопку очистки
-     */
-    onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
-
-    /**
-     * Обработчик клика по полю
-     */
-    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Обработчик MouseDown по полю
-     */
-    onMouseDown?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Обработчик MouseUp по полю
-     */
-    onMouseUp?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Компонент FormControl
-     */
-    FormControlComponent?: ElementType<FormControlProps & RefAttributes<HTMLDivElement>>;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования.
-     * Для FormControl используется модификатор -form-control
-     */
-    dataTestId?: string;
-
-    /**
-     * Запрещает ввод с клавиатуры
-     */
-    disableUserInput?: boolean;
 };
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -413,7 +230,9 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         );
 
         const renderRightAddons = () => {
-            const addonsVisible = clearButtonVisible || rightAddons || error || success;
+            const shouldShowLockIcon = disabled || readOnlyProp;
+            const addonsVisible =
+                clearButtonVisible || rightAddons || error || success || shouldShowLockIcon;
             const shouldShowSuccessIcon = success && !error;
             const statusBadgeSize = size === 40 ? 16 : 20;
 
@@ -424,6 +243,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                  * [3] - Status (error, success)
                  * [2] - Common (info, e.g.)
                  * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+                 * [0] - Lock
                  */
                 addonsVisible && (
                     <Fragment>
@@ -455,6 +275,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             </div>
                         )}
                         {rightAddons}
+                        {shouldShowLockIcon && <LockIcon colors={colors} size={size} />}
                     </Fragment>
                 )
             );
