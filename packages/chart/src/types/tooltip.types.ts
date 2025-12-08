@@ -86,6 +86,11 @@ export interface TooltipProps {
     label?: string | number;
 
     /**
+     * Контент для тултипа
+     */
+    content?: any;
+
+    /**
      * Функция форматирования контента во всплывающей подсказке.
      */
     contentFormatter?: (value: TooltipContentProps) => ReactNode;

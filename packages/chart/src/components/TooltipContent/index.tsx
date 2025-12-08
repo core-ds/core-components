@@ -36,10 +36,9 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
                 <div className={cn(styles.tooltip)} ref={ref}>
                     {arrow && (
                         <span
-                            className={cn(
-                                styles.tooltipArrow,
-                                tooltipArrowSide ? '' : styles.tooltipArrowRight,
-                            )}
+                            className={cn(styles.tooltipArrow, {
+                                [styles.tooltipArrowRight]: !tooltipArrowSide,
+                            })}
                         />
                     )}
                     {contentFormatter?.({ label, payload })}
@@ -51,10 +50,9 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
             <div className={cn(styles.tooltip)} ref={ref}>
                 {arrow && (
                     <span
-                        className={cn(
-                            styles.tooltipArrow,
-                            tooltipArrowSide ? '' : styles.tooltipArrowRight,
-                        )}
+                        className={cn(styles.tooltipArrow, {
+                            [styles.tooltipArrowRight]: !tooltipArrowSide,
+                        })}
                     />
                 )}
                 <ul className={cn(styles.tooltipList)}>
