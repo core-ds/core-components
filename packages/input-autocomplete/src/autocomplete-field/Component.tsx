@@ -37,6 +37,7 @@ export const AutocompleteField = ({
     const { onClick, onFocus } = innerProps;
 
     const inputDisabled = disabled || readOnly;
+    const shouldShowArrow = Arrow && !inputDisabled;
 
     const handleClick = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {
@@ -88,7 +89,7 @@ export const AutocompleteField = ({
                      */
                     <Fragment>
                         {inputProps.rightAddons}
-                        {Arrow && (
+                        {shouldShowArrow && (
                             <span
                                 className={cn(styles.arrow, {
                                     [styles.error]: error,

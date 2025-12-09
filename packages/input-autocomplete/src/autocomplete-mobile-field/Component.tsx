@@ -5,7 +5,7 @@ import {
     FormControlMobile,
     type FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
-import { ClearButton } from '@alfalab/core-components-input/shared';
+import { ClearButton, LockIcon } from '@alfalab/core-components-input/shared';
 import { type FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
@@ -28,6 +28,7 @@ export type AutocompleteMobileFieldProps = FormControlMobileProps &
         value?: string;
     };
 
+// eslint-disable-next-line complexity
 export const AutocompleteMobileField = ({
     size = 56,
     open,
@@ -64,11 +65,19 @@ export const AutocompleteMobileField = ({
     const showPlaceholder = placeholder && !filled && labelView === 'outer';
     const clearButtonVisible = clear && filled && !disabled && !readOnly;
     const shouldShowSuccessIcon = success && !error;
+    const shouldShowArrow = Arrow && !disabled && !readOnly;
+    const shouldShowLockIcon = disabled || readOnly;
+
     const statusBadgeSize = size === 40 ? 16 : 20;
 
     const { tabIndex, ...restInnerProps } = innerProps;
 
-    const formRightAddons = (Arrow || rightAddons || clearButtonVisible || error || success) && (
+    const formRightAddons = (Arrow ||
+        rightAddons ||
+        clearButtonVisible ||
+        error ||
+        success ||
+        shouldShowLockIcon) && (
         /**
          * Right addon priority [4] <= [3] <= [2] <= [1]
          * [4] - Clear
@@ -99,7 +108,8 @@ export const AutocompleteMobileField = ({
                 </div>
             )}
             {rightAddons}
-            {Arrow}
+            {shouldShowArrow && Arrow}
+            {shouldShowLockIcon && <LockIcon colors={colors} size={size} />}
         </Fragment>
     );
 
