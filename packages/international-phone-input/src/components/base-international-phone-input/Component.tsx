@@ -62,6 +62,7 @@ export const BaseInternationalPhoneInput = forwardRef<
         },
         ref,
     ) => {
+        const { readOnly } = restProps;
         const countriesData = useMemo(
             () => initCountries(countries, customCountriesList),
             [countries, customCountriesList],
@@ -190,22 +191,28 @@ export const BaseInternationalPhoneInput = forwardRef<
         const showPhoneSelect = Boolean(open || openProps);
         const showCountrySelect = Boolean(openCountry || countrySelectProps?.open);
 
-        const renderCountrySelect = (compact = false) => (
-            <CountrySelect
-                dataTestId={restProps?.dataTestId}
-                size={size}
-                {...countrySelectProps}
-                view={view}
-                SelectComponent={SelectComponent}
-                disabled={disabled || countrySelectProps?.disabled}
-                onChange={handleSelectCountry}
-                country={country}
-                countries={compact ? [] : countriesData}
-                fieldWidth={inputWrapperRef.current?.getBoundingClientRect().width}
-                onOpen={handleCountrySelectOpen}
-                open={showCountrySelect}
-            />
-        );
+        const renderCountrySelect = (compact = false) => {
+            if (disabled || readOnly) {
+                return undefined;
+            }
+
+            return (
+                <CountrySelect
+                    dataTestId={restProps?.dataTestId}
+                    size={size}
+                    {...countrySelectProps}
+                    view={view}
+                    SelectComponent={SelectComponent}
+                    disabled={disabled || countrySelectProps?.disabled}
+                    onChange={handleSelectCountry}
+                    country={country}
+                    countries={compact ? [] : countriesData}
+                    fieldWidth={inputWrapperRef.current?.getBoundingClientRect().width}
+                    onOpen={handleCountrySelectOpen}
+                    open={showCountrySelect}
+                />
+            );
+        };
 
         const inputProps: InputProps & RefAttributes<HTMLInputElement> = {
             className: styles.component,
