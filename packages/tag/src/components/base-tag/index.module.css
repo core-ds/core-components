@@ -20,6 +20,8 @@
     cursor: pointer;
     outline: none;
     white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 
     &:disabled {
         cursor: var(--disabled-cursor);
@@ -36,11 +38,11 @@
     align-items: center;
 
     &:first-child {
-        margin-right: 6px;
+        margin-right: var(--gap-6);
     }
 
     &:last-child {
-        margin-left: 6px;
+        margin-left: var(--gap-6);
     }
 
     &:only-child {

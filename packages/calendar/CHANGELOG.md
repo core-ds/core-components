@@ -1,5 +1,32 @@
 # @alfalab/core-components-calendar
 
+## 8.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@7.0.3
+    - @alfalab/core-components-modal@10.0.5
+
+## 8.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-button@12.0.2
+    - @alfalab/core-components-modal@10.0.4
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-typography@5.0.3
+    - @alfalab/core-components-icon-button@7.0.2
+
+## 8.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-modal@10.0.3
+
 ## 8.0.2
 
 ### Patch Changes
