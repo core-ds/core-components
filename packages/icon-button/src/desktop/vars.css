@@ -1,0 +1,10 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+:root {
+    /* border */
+    --icon-button-size-24-border-radius-desktop: var(--border-radius-6);
+    --icon-button-size-32-border-radius-desktop: var(--border-radius-8);
+    --icon-button-size-40-border-radius-desktop: var(--border-radius-10);
+    --icon-button-size-48-border-radius-desktop: var(--border-radius-10);
+    --icon-button-size-56-border-radius-desktop: var(--border-radius-12);
+}

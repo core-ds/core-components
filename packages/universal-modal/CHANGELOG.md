@@ -1,5 +1,20 @@
 # @alfalab/core-components-universal-modal
 
+## 2.0.7
+
+### Patch Changes
+
+<sup><time>08.12.2025</time></sup>
+
+#### [#1963](https://github.com/core-ds/core-components/pull/1963)
+
+##### UniversalModal
+
+Удалены ограничения минимальных размеров
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.2
+
 ## 2.0.6
 
 ### Patch Changes

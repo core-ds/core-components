@@ -1,25 +1,5 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
-@import './vars.css';
-
-.border-24 {
-    border-radius: var(--icon-button-24-size-border-radius);
-}
-
-.border-32 {
-    border-radius: var(--icon-button-32-size-border-radius);
-}
-
-.border-40 {
-    border-radius: var(--icon-button-40-size-border-radius);
-}
-
-.border-48 {
-    border-radius: var(--icon-button-48-size-border-radius);
-}
-
-.border-56 {
-    border-radius: var(--icon-button-56-size-border-radius);
-}
+@import '../../vars.css';
 
 .size-24 {
     width: var(--icon-button-xxs-size);
