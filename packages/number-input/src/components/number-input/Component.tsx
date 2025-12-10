@@ -3,7 +3,6 @@ import React, {
     type FC,
     type FocusEvent,
     forwardRef,
-    Fragment,
     type Ref,
     useEffect,
     useMemo,
@@ -14,6 +13,7 @@ import { type MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
 import { type InputProps } from '@alfalab/core-components-input';
+import { getAddonsByPriority } from '@alfalab/core-components-input/shared';
 import { fnUtils, os } from '@alfalab/core-components-shared';
 
 import {
@@ -227,34 +227,31 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             setFocused(false);
         };
 
-        const renderStepper = () => (
-            <Steppers
-                colors={colors}
-                dataTestId={dataTestId}
-                disabled={disabled}
-                focused={focused}
-                value={parseNumber(value)}
-                min={min}
-                max={max}
-                onIncrement={handleIncrement}
-                onDecrement={handleDecrement}
-                size={size}
-            />
-        );
-
-        const renderRightAddons = () => {
-            const shouldRenderStepper = withStepper && !disabled && !readOnly;
-            const shouldRenderRightAddons = rightAddons || shouldRenderStepper;
-
-            return (
-                shouldRenderRightAddons && (
-                    <Fragment>
-                        {rightAddons}
-                        {shouldRenderStepper && renderStepper()}
-                    </Fragment>
-                )
-            );
-        };
+        const rightAddonsMap = getAddonsByPriority([
+            {
+                priority: 2,
+                predicate: Boolean(rightAddons),
+                render: () => rightAddons,
+            },
+            {
+                priority: 1,
+                predicate: withStepper && !disabled && !readOnly,
+                render: () => (
+                    <Steppers
+                        colors={colors}
+                        dataTestId={dataTestId}
+                        disabled={disabled}
+                        focused={focused}
+                        value={parseNumber(value)}
+                        min={min}
+                        max={max}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
+                        size={size}
+                    />
+                ),
+            },
+        ]);
 
         return (
             <Input
@@ -273,7 +270,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                 size={size}
                 disableUserInput={disableUserInput}
                 clear={clearProp && /\d/.test(value)}
-                rightAddons={renderRightAddons()}
+                rightAddons={rightAddonsMap}
             />
         );
     },
