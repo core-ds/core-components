@@ -1,6 +1,5 @@
 import React, {
     type AnimationEvent,
-    Fragment,
     type KeyboardEvent,
     type MouseEvent,
     useCallback,
@@ -11,12 +10,11 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import { buildRightAddons } from '../../helpers/build-right-addons';
+import { getAddonsByPriority } from '../../helpers/get-addons-by-priority';
 import { hasStepperInRightAddon } from '../../helpers/has-stepper-in-right-addon';
-import { ClearButton } from '../clear-button';
-import { LockIcon } from '../lock-icon';
 
 import { type BaseInputProps } from './types/base-input-props';
 
@@ -229,57 +227,20 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             [onAnimationStart],
         );
 
-        const renderRightAddons = () => {
-            const shouldShowLockIcon = disabled || readOnlyProp;
-            const addonsVisible =
-                clearButtonVisible || rightAddons || error || success || shouldShowLockIcon;
-            const shouldShowSuccessIcon = success && !error;
-            const statusBadgeSize = size === 40 ? 16 : 20;
-
-            return (
-                /**
-                 * Right addon priority [4] <= [3] <= [2] <= [1]
-                 * [4] - Clear
-                 * [3] - Status (error, success)
-                 * [2] - Common (info, e.g.)
-                 * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
-                 * [0] - Lock
-                 */
-                addonsVisible && (
-                    <Fragment>
-                        {clearButtonVisible && (
-                            <ClearButton
-                                onClick={handleClear}
-                                disabled={disabled}
-                                colors={colors}
-                                dataTestId={getDataTestId(dataTestId, 'clear-icon')}
-                                size={size}
-                            />
-                        )}
-                        {error && (
-                            <div className={cn(styles.errorIcon)} data-addon='error-icon'>
-                                <StatusBadge
-                                    view='negative-alert'
-                                    size={statusBadgeSize}
-                                    dataTestId={getDataTestId(dataTestId, 'error-icon')}
-                                />
-                            </div>
-                        )}
-                        {shouldShowSuccessIcon && (
-                            <div className={cn(styles.successIcon)}>
-                                <StatusBadge
-                                    view='positive-checkmark'
-                                    size={statusBadgeSize}
-                                    dataTestId={getDataTestId(dataTestId, 'success-icon')}
-                                />
-                            </div>
-                        )}
-                        {rightAddons}
-                        {shouldShowLockIcon && <LockIcon colors={colors} size={size} />}
-                    </Fragment>
-                )
-            );
-        };
+        const rightAddonsMap = getAddonsByPriority(
+            buildRightAddons({
+                size,
+                rightAddons,
+                clearButtonVisible,
+                readOnly: readOnlyProp,
+                success,
+                dataTestId,
+                disabled,
+                error,
+                colors,
+                handleClear,
+            }),
+        );
 
         return FormControlComponent ? (
             <FormControlComponent
@@ -302,7 +263,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                 labelView={labelView}
                 hint={hint}
                 leftAddons={leftAddons}
-                rightAddons={renderRightAddons()}
+                rightAddons={rightAddonsMap}
                 bottomAddons={bottomAddons}
                 onClick={onClick}
                 onMouseDown={onMouseDown}
