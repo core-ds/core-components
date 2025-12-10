@@ -1,19 +1,5 @@
 # @alfalab/core-components-icon-button
 
-## 7.0.3
-
-### Patch Changes
-
-<sup><time>08.12.2025</time></sup>
-
-#### [#1965](https://github.com/core-ds/core-components/pull/1965)
-
-##### IconButton
-
-- Компонент разделен на desktop/mobile/responsive
-- Изменён border-radius для всех тем
-- Удалён border-radius из темы corp
-
 ## 7.0.2
 
 ### Patch Changes

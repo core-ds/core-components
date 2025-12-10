@@ -1,22 +1,5 @@
 # @alfalab/core-components-bottom-sheet
 
-## 7.3.0
-
-### Minor Changes
-
-<sup><time>08.12.2025</time></sup>
-
-#### [#1968](https://github.com/core-ds/core-components/pull/1968)
-
-##### BottomSheet
-
-- Добавлен пропс `preventScrollOnSwipe`, который передается в библиотеку `react-swipeable`. Позволяет предотвращать прокрутку во время свайпа.
-
-### Patch Changes
-
-- Обновлены зависимости
-    - @alfalab/core-components-navigation-bar-private@1.1.2
-
 ## 7.2.1
 
 ### Patch Changes

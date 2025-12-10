@@ -10,13 +10,8 @@
             "@alfalab/core-components-button": ["../button/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-icon-button": ["./src"],
-            "@alfalab/core-components-icon-button/*": ["./src/*"],
-            "@alfalab/core-components-mq": ["../mq/src"],
-            "@alfalab/core-components-mq/*": ["../mq/src/*"]
+            "@alfalab/core-components-icon-button/*": ["./src/*"]
         }
     },
-    "references": [
-        { "path": "../button/tsconfig.build.json" },
-        { "path": "../mq/tsconfig.build.json" }
-    ]
+    "references": [{ "path": "../button/tsconfig.build.json" }]
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import { DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR, DATE_TIME_FORMAT } from './consts';
+import { DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR } from './consts';
 import { UniversalDateInputDesktop } from './desktop';
 import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { formatDate, getUniversalDateInputTestIds } from './utils';
+import { getUniversalDateInputTestIds } from './utils';
 import { Calendar } from '../../calendar/src';
 
 Object.defineProperty(window, 'matchMedia', {
@@ -257,56 +257,6 @@ describe('UniversalDateInput', () => {
 
                 expect(onChange).toHaveBeenCalledTimes(1);
                 expect(onChange).toHaveBeenCalledWith(null, '');
-            });
-
-            it('should restore last valid value on blur when time incomplete', async () => {
-                const minDate = new Date('2025-10-01T06:00:00.000Z').getTime();
-                const maxDate = new Date('2025-10-30T06:00:00.000Z').getTime();
-                const defaultValue = `21.10.2025${DATE_TIME_SEPARATOR}17:00`;
-
-                const { queryByRole } = render(
-                    <UniversalDateInputDesktop
-                        view='date-time'
-                        defaultValue={defaultValue}
-                        minDate={minDate}
-                        maxDate={maxDate}
-                    />,
-                );
-
-                const input = queryByRole('textbox') as HTMLInputElement;
-
-                input.setSelectionRange(10, 11);
-                await userEvent.type(input, '{Backspace}');
-
-                fireEvent.blur(input);
-
-                expect(input.value).toBe(defaultValue);
-            });
-
-            it('should keep defaultValue when it equals minDate', async () => {
-                const minDate = new Date('2025-10-01T06:00:00.000Z').getTime();
-                const maxDate = new Date('2025-10-30T06:00:00.000Z').getTime();
-                const minDateString = formatDate(minDate, DATE_TIME_FORMAT);
-
-                const { queryByRole } = render(
-                    <UniversalDateInputDesktop
-                        view='date-time'
-                        defaultValue={new Date(minDate)}
-                        minDate={minDate}
-                        maxDate={maxDate}
-                    />,
-                );
-
-                const input = queryByRole('textbox') as HTMLInputElement;
-
-                expect(input.value).toBe(minDateString);
-
-                input.setSelectionRange(9, 10);
-                await userEvent.type(input, '{Backspace}');
-
-                fireEvent.blur(input);
-
-                expect(input.value).toBe(minDateString);
             });
         });
     });

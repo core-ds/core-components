@@ -35,7 +35,7 @@ describe(
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
                     horizontalAlign: ['start', 'end'],
-                    width: ['500', '600', 'fullWidth', '300'],
+                    width: ['500', '600', 'fullWidth'],
                 },
             }),
             ...generateTestCases({
@@ -47,7 +47,7 @@ describe(
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
                     horizontalAlign: ['start', 'end'],
-                    height: ['500', '600', 'fullHeight', '200'],
+                    height: ['500', '600', 'fullHeight'],
                 },
             }),
             ...generateTestCases({

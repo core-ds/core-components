@@ -1,13 +1,5 @@
 # @alfalab/core-components-tabs
 
-## 9.2.4
-
-### Patch Changes
-
-- Обновлены зависимости
-    - @alfalab/core-components-icon-button@7.0.3
-    - @alfalab/core-components-picker-button@12.0.7
-
 ## 9.2.3
 
 ### Patch Changes

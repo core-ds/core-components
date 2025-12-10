@@ -8,8 +8,6 @@ import {
     getQueryParam,
     stylesStringToObj,
 } from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
-import { IconButtonDesktop } from '../desktop';
-import { IconButtonMobile } from '../mobile';
 
 const meta: Meta<typeof IconButton> = {
     title: 'Components/IconButton',
@@ -53,84 +51,6 @@ export const icon_button: Story = {
                         'primary',
                     )}
                     icon={Icon}
-                    colors={colors}
-                    transparentBg={boolean('transparentBg', false)}
-                    disabled={boolean('disabled', false)}
-                    loading={boolean('loading', false)}
-                />
-            </div>
-        );
-    },
-};
-
-export const icon_button_desktop: Story = {
-    name: 'IconButtonDesktop',
-    render: () => {
-        const colors = select('colors', ['default', 'inverted'], 'default');
-
-        return (
-            <div
-                style={{
-                    backgroundColor:
-                        colors === 'inverted'
-                            ? 'var(--color-light-base-bg-primary-inverted)'
-                            : 'transparent',
-                    padding: '8px',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    ...stylesStringToObj(getQueryParam('wrapperStyles')),
-                }}
-            >
-                <IconButtonDesktop
-                    size={select('size', [24, 32, 40, 48, 56], 48)}
-                    view={select(
-                        'view',
-                        ['primary', 'secondary', 'tertiary', 'negative', 'transparent'],
-                        'primary',
-                    )}
-                    icon={DiamondsMIcon}
-                    colors={colors}
-                    transparentBg={boolean('transparentBg', false)}
-                    disabled={boolean('disabled', false)}
-                    loading={boolean('loading', false)}
-                />
-            </div>
-        );
-    },
-};
-
-export const icon_button_mobile: Story = {
-    name: 'IconButtonMobile',
-    render: () => {
-        const colors = select('colors', ['default', 'inverted'], 'default');
-
-        return (
-            <div
-                style={{
-                    backgroundColor:
-                        colors === 'inverted'
-                            ? 'var(--color-light-base-bg-primary-inverted)'
-                            : 'transparent',
-                    padding: '8px',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    ...stylesStringToObj(getQueryParam('wrapperStyles')),
-                }}
-            >
-                <IconButtonMobile
-                    size={select('size', [24, 32, 40, 48, 56], 48)}
-                    view={select(
-                        'view',
-                        ['primary', 'secondary', 'tertiary', 'negative', 'transparent'],
-                        'primary',
-                    )}
-                    icon={DiamondsMIcon}
                     colors={colors}
                     transparentBg={boolean('transparentBg', false)}
                     disabled={boolean('disabled', false)}
