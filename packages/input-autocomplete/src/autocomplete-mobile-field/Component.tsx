@@ -1,11 +1,11 @@
-import React, { type ElementType, Fragment, useRef, useState } from 'react';
+import React, { type ElementType, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import {
     FormControlMobile,
     type FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
-import { ClearButton, LockIcon } from '@alfalab/core-components-input/shared';
+import { ClearButton, getAddonsByPriority, LockIcon } from '@alfalab/core-components-input/shared';
 import { type FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
@@ -63,33 +63,29 @@ export const AutocompleteMobileField = ({
 
     const filled = Boolean(value);
     const showPlaceholder = placeholder && !filled && labelView === 'outer';
-    const clearButtonVisible = clear && filled && !disabled && !readOnly;
-    const shouldShowSuccessIcon = success && !error;
-    const shouldShowArrow = Arrow && !disabled && !readOnly;
-    const shouldShowLockIcon = disabled || readOnly;
 
     const statusBadgeSize = size === 40 ? 16 : 20;
 
     const { tabIndex, ...restInnerProps } = innerProps;
 
-    const formRightAddons = (Arrow ||
-        rightAddons ||
-        clearButtonVisible ||
-        error ||
-        success ||
-        shouldShowLockIcon) && (
-        /**
-         * Right addon priority [4] <= [3] <= [2] <= [1]
-         * [4] - Clear
-         * [3] - Status (error, success)
-         * [2] - Common (info, e.g.)
-         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
-         */
-        <Fragment>
-            {clearButtonVisible && (
-                <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
-            )}
-            {error && (
+    /**
+     * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+     * [4] - Clear
+     * [3] - Status (error, success)
+     * [2] - Common (info, e.g.)
+     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+     * [0] - Lock
+     */
+    const rightAddonsMap = getAddonsByPriority([
+        {
+            priority: 4,
+            predicate: clear && filled && !disabled && !readOnly,
+            render: () => <ClearButton onClick={onClear} disabled={disabled} colors={colors} />,
+        },
+        {
+            priority: 3,
+            predicate: Boolean(error),
+            render: () => (
                 <div className={styles.errorIcon} data-addon='error-icon'>
                     <StatusBadge
                         view='negative-alert'
@@ -97,8 +93,12 @@ export const AutocompleteMobileField = ({
                         dataTestId={getDataTestId(dataTestId, 'error-icon')}
                     />
                 </div>
-            )}
-            {shouldShowSuccessIcon && (
+            ),
+        },
+        {
+            priority: 3,
+            predicate: Boolean(success && !error),
+            render: () => (
                 <div className={styles.successIcon}>
                     <StatusBadge
                         view='positive-checkmark'
@@ -106,12 +106,24 @@ export const AutocompleteMobileField = ({
                         dataTestId={getDataTestId(dataTestId, 'success-icon')}
                     />
                 </div>
-            )}
-            {rightAddons}
-            {shouldShowArrow && Arrow}
-            {shouldShowLockIcon && <LockIcon colors={colors} size={size} />}
-        </Fragment>
-    );
+            ),
+        },
+        {
+            priority: 2,
+            predicate: Boolean(rightAddons),
+            render: () => rightAddons,
+        },
+        {
+            priority: 1,
+            predicate: Boolean(Arrow) && !disabled && !readOnly,
+            render: () => Arrow,
+        },
+        {
+            priority: 0,
+            predicate: Boolean(disabled || readOnly),
+            render: () => <LockIcon colors={colors} size={size} />,
+        },
+    ]);
 
     return (
         <div
@@ -139,7 +151,7 @@ export const AutocompleteMobileField = ({
                 readOnly={readOnly}
                 colors={colors}
                 error={error}
-                rightAddons={formRightAddons}
+                rightAddons={rightAddonsMap}
             >
                 <div className={styles.contentWrapper}>
                     {showPlaceholder && <span className={styles.placeholder}>{placeholder}</span>}
