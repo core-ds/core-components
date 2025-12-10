@@ -23,7 +23,7 @@ export const validateExpiry = (value: string) => {
     );
 };
 
-export const validateCvv = (value: string | number | undefined) => {
+export const validateCVC = (value: string | number | undefined) => {
     if (typeof value === 'number') return value.toString().length === 3;
 
     return value?.length === 3 && isNumericString(value);

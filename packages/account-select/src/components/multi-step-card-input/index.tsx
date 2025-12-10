@@ -9,13 +9,19 @@ import { useAccountSelectContext } from '../../context';
 import { type CardAddingProps, type CardData } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
 import { parseDate } from '../../utils/parse-date';
-import { validateCardNumber, validateCvv, validateExpiry } from '../../utils/validate';
+import { validateCardNumber, validateCVC, validateExpiry } from '../../utils/validate';
 
 import styles from './index.module.css';
 
 type MultiStepCardInputProps = Pick<
     CardAddingProps,
-    'onSubmit' | 'onInput' | 'cardImage' | 'needCvv' | 'needExpiryDate' | 'expiryAsDate'
+    | 'onSubmit'
+    | 'onInput'
+    | 'cardImage'
+    | 'needCVC'
+    | 'needExpiryDate'
+    | 'expiryAsDate'
+    | 'placeholder'
 > & { size: 40 | 48 | 56 | 64 | 72 };
 
 export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
@@ -23,19 +29,20 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         onSubmit,
         onInput,
         cardImage,
-        needCvv = true,
+        needCVC = true,
         needExpiryDate = true,
         expiryAsDate = true,
         size,
+        placeholder,
     }) => {
         const [step, setStep] = useState<number>(1);
         const [cardNumber, setCardNumber] = useState<CardData['number']>('');
         const [cardExpiry, setCardExpiry] = useState<CardData['expiryDate']>('');
-        const [cardCvv, setCardCvv] = useState<string>('');
+        const [cardCvc, setCardCvc] = useState<string>('');
         const [isCardNumberFocused, setIsCardNumberFocused] = useState<boolean>(false);
 
         const isShowExpiry = needExpiryDate && step >= 2 && validateCardNumber(cardNumber);
-        const isShowCvv = needCvv && step >= 2 && validateCardNumber(cardNumber);
+        const isShowCvv = needCVC && step >= 2 && validateCardNumber(cardNumber);
 
         const { setError } = useAccountSelectContext();
 
@@ -55,7 +62,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                         } = state;
 
                         if (to >= 5 && !validateExpiry(value)) {
-                            setError('Введена неверная дата');
+                            setError('Срок действия введен неверно');
                         } else {
                             setError(null);
                         }
@@ -95,11 +102,11 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             onInput?.({
                 number: cardNumber,
                 ...(needExpiryDate && { expiryDate: cardExpiry }),
-                ...(needCvv && cardCvv && { cvv: cardCvv }),
+                ...(needCVC && cardCvc && { cvc: cardCvc }),
             });
 
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [cardNumber, cardExpiry, cardCvv, needExpiryDate, needCvv]);
+        }, [cardNumber, cardExpiry, cardCvc, needExpiryDate, needCVC]);
 
         useEffect(() => {
             if (step === 1) {
@@ -126,11 +133,11 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         };
 
         const handleExpiryBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-            setError(validateExpiry(e.target.value) ? null : 'Срок действия карты введён неверно');
+            setError(validateExpiry(e.target.value) ? null : 'Нужно заполнить срок действия');
         };
 
-        const handleCvvBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-            setError(validateCvv(e.target.value) ? null : 'Нужно заполнить CVV');
+        const handleCvcBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+            setError(validateCVC(e.target.value) ? null : 'Нужно заполнить CVC');
         };
 
         const handleCardNumberChange = ({
@@ -157,7 +164,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             setCardExpiry(value);
 
             if (validateExpiry(value)) {
-                if (needCvv) {
+                if (needCVC) {
                     setStep(3);
                     setTimeout(() => cvvRef.current?.focus(), 100);
                 } else {
@@ -170,15 +177,15 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             }
         };
 
-        const handleCvvChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
-            setCardCvv(value);
+        const handleCvcChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
+            setCardCvc(value);
 
-            if (validateCvv(value)) {
+            if (validateCVC(value)) {
                 cvvRef.current?.blur();
                 onSubmit?.({
                     number: cardNumber,
                     expiryDate: expiryAsDate ? parseDate(cardExpiry as string) : cardExpiry,
-                    cvv: value,
+                    CVC: value,
                 });
             }
         };
@@ -207,6 +214,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                     <input
                         ref={numberRefCallback}
                         type='text'
+                        placeholder={placeholder ?? 'Карта'}
                         value={getDisplayCardNumber()}
                         onInput={handleCardNumberChange}
                         onFocus={handleCardNumberFocus}
@@ -234,9 +242,9 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                         <input
                             ref={cvvRefCallback}
                             type='text'
-                            value={cardCvv || ''}
-                            onInput={handleCvvChange}
-                            onBlur={handleCvvBlur}
+                            value={cardCvc || ''}
+                            onInput={handleCvcChange}
+                            onBlur={handleCvcBlur}
                             className={cn(styles.multistepInput, styles.cvvInput)}
                             inputMode='numeric'
                             pattern='[0-9]*'

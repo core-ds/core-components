@@ -15,7 +15,7 @@ render(() => {
                 <PureCell verticalPadding='default'>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <Typography.Text color='secondary' view='primary-small'>
+                            <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
                                 {el.text}
                             </Typography.Text>
                             <Amount
@@ -33,6 +33,7 @@ render(() => {
 
     return (
         <AccountSelect
+            size={56}
             valueRenderer={({ selected }) => {
                 return (
                     <PureCell verticalPadding='none'>
@@ -51,7 +52,7 @@ render(() => {
                     </PureCell>
                 );
             }}
-            label='Куда'
+            placeholder='Куда'
             options={getOptions()}
         />
     );
@@ -79,7 +80,7 @@ render(() => {
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <Typography.Text color='secondary' view='primary-small'>
+                            <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
                                 {el.text}
                             </Typography.Text>
                             <Amount
@@ -96,16 +97,17 @@ render(() => {
         }));
     return (
         <AccountSelect
-            label='Карта получателя'
+            size={56}
+            placeholder='Карта получателя'
             valueRenderer={({ selected }) => {
                 return (
                     <PureCell verticalPadding='none'>
                         <PureCell.Graphics verticalAlign='center'>
-                            <ProductCover.Single size={isDesktop ? 48 : 40} />
+                            <ProductCover.Single size={40} />
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <Typography.Text color='secondary' view='primary-small'>
+                                <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
                                     {selected.value.text}
                                 </Typography.Text>
                                 <Amount
@@ -120,7 +122,7 @@ render(() => {
                     </PureCell>
                 );
             }}
-            fieldProps={{ leftAddons: <ProductCover.Single size={isDesktop ? 48 : 40} /> }}
+            fieldProps={{ leftAddons: <ProductCover.Single size={40} /> }}
             options={getOptions()}
         />
     );
@@ -129,7 +131,7 @@ render(() => {
 
 ## Добавление новой карты отправителя
 
-Для карты отправителя можно использовать механику с запросом CVV или без него.
+Для карты отправителя можно использовать механику с запросом CVC или без него.
 После ввода 6-го символа определяется банк и платёжная система. При необходимости, можно настроить отображение различных рубашек карт для банков РФ. В примере для карты начинающейся с номера 1234 56 будет определён банк и изменится рубашка.
 
 ```jsx live
@@ -155,7 +157,7 @@ render(() => {
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <Typography.Text color='secondary' view='primary-small'>
+                            <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
                                 {el.text}
                             </Typography.Text>
                             <Amount
@@ -190,15 +192,16 @@ render(() => {
     return (
         <div>
             <AccountSelect
-                label='Карта отправителя'
-                fieldProps={{ leftAddons: <ProductCover.Single size={isDesktop ? 48 : 40} /> }}
+                size={56}
+                placeholder='Карта отправителя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={40} /> }}
                 options={getOptions()}
                 valueRenderer={({ selected }) => {
                     return (
                         <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
-                                    size={isDesktop ? 48 : 40}
+                                    size={40}
                                     baseUrl='https://online.alfabank.ru/cards-images/cards/'
                                     layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                                     cardId='RM'
@@ -206,7 +209,7 @@ render(() => {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <Typography.Text color='secondary' view='primary-small'>
+                                    <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
                                         {selected.value.text}
                                     </Typography.Text>
                                     <Amount
@@ -241,7 +244,7 @@ render(() => {
                             </PureCell.Content>
                         </PureCell>
                     ),
-                    needCvv: valueRadio === '1',
+                    needCVC: valueRadio === '1',
                     needExpiryDate: true,
                     onInput: handleInput,
                     cardImage,
@@ -255,8 +258,8 @@ render(() => {
                 hint='Выберите один из вариантов'
                 value={valueRadio}
             >
-                <Radio label='Дата + CVV' value='1' size={24} />
-                <Radio label='Только дата' value='2' size={24} />
+                <Radio placeholder='Дата + CVC' value='1' size={24} />
+                <Radio placeholder='Только дата' value='2' size={24} />
             </RadioGroup>
         </div>
     );
@@ -288,7 +291,7 @@ render(() => {
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text titleColor='secondary' view='primary-small'>
+                            <PureCell.Text rowLimit={1}  titleColor='secondary' view='primary-small'>
                                 {el.text}
                             </PureCell.Text>
                             <PureCell.Amount
@@ -319,15 +322,16 @@ render(() => {
     return (
         <div>
             <AccountSelect
-                label='Карта получателя'
-                fieldProps={{ leftAddons: <ProductCover.Single size={isDesktop ? 48 : 40} /> }}
+                size={56}
+                placeholder='Карта получателя'
+                fieldProps={{ leftAddons: <ProductCover.Single size={40} /> }}
                 options={getOptions()}
                 valueRenderer={({ selected }) => {
                     return (
                         <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
-                                    size={isDesktop ? 48 : 40}
+                                    size={40}
                                     baseUrl='https://online.alfabank.ru/cards-images/cards/'
                                     layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                                     cardId='RM'
@@ -335,7 +339,7 @@ render(() => {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <Typography.Text color='secondary' view='primary-small'>
+                                    <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
                                         {selected.value.text}
                                     </Typography.Text>
                                     <Amount
@@ -370,7 +374,7 @@ render(() => {
                             </PureCell.Content>
                         </PureCell>
                     ),
-                    needCvv: false,
+                    needCVC: false,
                     needExpiryDate: false,
                     onInput: handleInput,
                     cardImage,

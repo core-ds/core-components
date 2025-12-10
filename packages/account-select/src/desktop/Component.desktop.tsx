@@ -9,7 +9,6 @@ import {
     BaseSelect,
     type BaseSelectChangePayload,
     Optgroup as DefaultOptgroup,
-    type OptionProps,
     OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select/shared';
 
@@ -19,12 +18,6 @@ import { AccountSelectContext } from '../context';
 import { type AccountSelectProps } from '../types';
 
 import styles from './index.module.css';
-
-/* const DefaultOption = (props: OptionProps) => (
-    <BaseOption {...props}>
-        <div className={styles.optionContent}>{props.option.content}</div>
-    </BaseOption>
-); */
 
 export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectProps>(
     (

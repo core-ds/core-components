@@ -14,16 +14,16 @@ export interface CustomFieldProps extends FieldProps {
 export const CustomField = ({
     innerProps,
     selected,
-    label,
     onSubmit,
     onInput,
-    needCvv,
+    needCVC,
     needExpiryDate,
     expiryAsDate,
     view = 'desktop',
     cardImage,
     leftAddons,
     valueRenderer,
+    placeholder,
     size,
     ...restProps
 }: CustomFieldProps) => {
@@ -40,10 +40,11 @@ export const CustomField = ({
                     onSubmit={onSubmit}
                     onInput={onInput}
                     cardImage={cardImage}
-                    needCvv={needCvv}
+                    needCVC={needCVC}
                     needExpiryDate={needExpiryDate}
                     expiryAsDate={expiryAsDate}
                     size={size}
+                    placeholder={placeholder}
                 />
             );
         }
@@ -59,7 +60,7 @@ export const CustomField = ({
         <Field
             FormControlComponent={FormControlComponent}
             size={size}
-            label={selected ? null : label}
+            placeholder={placeholder}
             selected={selected}
             innerProps={innerProps}
             leftAddons={selected ? undefined : leftAddons}

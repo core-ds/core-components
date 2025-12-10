@@ -4,10 +4,14 @@ import { type BaseSelectProps } from '@alfalab/core-components-select/shared';
 export interface CardData {
     number: string;
     expiryDate?: string | Date;
-    cvv?: string;
+    CVC?: string;
 }
 
 export interface CardAddingProps {
+    /**
+     * Плейсхолдер
+     */
+    placeholder?: string;
     /**
      * Идентификатор для тестирования
      */
@@ -34,9 +38,9 @@ export interface CardAddingProps {
     cardImage?: SingleProps;
 
     /**
-     * Нужно ли отображать поле для ввода CVV
+     * Нужно ли отображать поле для ввода CVC
      */
-    needCvv?: boolean;
+    needCVC?: boolean;
 
     /**
      * Нужно ли отображать поле для ввода срока действия карты

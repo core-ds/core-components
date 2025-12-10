@@ -15,6 +15,10 @@
     &:focus {
         outline: none;
     }
+
+    &::placeholder, &::-webkit-input-placeholder {
+        color: var(--color-light-text-tertiary);
+    }
 }
 
 .cardNumberInput {
@@ -30,7 +34,7 @@
 }
 
 .expiryInput {
-    width: 7ch;
+    width: 6ch;
 }
 
 .cvvInput {

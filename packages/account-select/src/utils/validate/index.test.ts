@@ -1,4 +1,4 @@
-import { validateCardNumber, validateExpiry, validateCvv } from './index';
+import { validateCardNumber, validateExpiry, validateCVC } from './index';
 
 describe('validateCardNumber', () => {
     it('should return true for valid 16-digit card number', () => {
@@ -69,35 +69,35 @@ describe('validateExpiry', () => {
     });
 });
 
-describe('validateCvv', () => {
+describe('validateCVC', () => {
     it('should return true for valid 3-digit string CVV', () => {
-        expect(validateCvv('123')).toBe(true);
-        expect(validateCvv('000')).toBe(true);
-        expect(validateCvv('999')).toBe(true);
+        expect(validateCVC('123')).toBe(true);
+        expect(validateCVC('000')).toBe(true);
+        expect(validateCVC('999')).toBe(true);
     });
 
     it('should return true for valid 3-digit number CVV', () => {
-        expect(validateCvv(123)).toBe(true);
-        expect(validateCvv(0)).toBe(false);
-        expect(validateCvv(999)).toBe(true);
-        expect(validateCvv(42)).toBe(false);
+        expect(validateCVC(123)).toBe(true);
+        expect(validateCVC(0)).toBe(false);
+        expect(validateCVC(999)).toBe(true);
+        expect(validateCVC(42)).toBe(false);
     });
 
     it('should return false for invalid string CVV', () => {
-        expect(validateCvv('12')).toBe(false);
-        expect(validateCvv('1234')).toBe(false);
-        expect(validateCvv('')).toBe(false);
-        expect(validateCvv('abc')).toBe(false);
+        expect(validateCVC('12')).toBe(false);
+        expect(validateCVC('1234')).toBe(false);
+        expect(validateCVC('')).toBe(false);
+        expect(validateCVC('abc')).toBe(false);
     });
 
     it('should return false for invalid number CVV', () => {
-        expect(validateCvv(12)).toBe(false);
-        expect(validateCvv(1234)).toBe(false);
-        expect(validateCvv(1)).toBe(false);
+        expect(validateCVC(12)).toBe(false);
+        expect(validateCVC(1234)).toBe(false);
+        expect(validateCVC(1)).toBe(false);
     });
 
     it('should return false for undefined', () => {
-        expect(validateCvv(undefined)).toBe(false);
+        expect(validateCVC(undefined)).toBe(false);
     });
 
     const validTestCases: Array<[string | number, boolean]> = [
@@ -109,7 +109,7 @@ describe('validateCvv', () => {
     ];
 
     it.each(validTestCases)('should validate CVV %s as %s', (cvv, expected) => {
-        expect(validateCvv(cvv)).toBe(expected);
+        expect(validateCVC(cvv)).toBe(expected);
     });
 
     const invalidTestCases: Array<[string | number | undefined, boolean]> = [
@@ -123,7 +123,7 @@ describe('validateCvv', () => {
         [undefined, false],
     ];
 
-    it.each(invalidTestCases)('should validate CVV %s as %s', (cvv, expected) => {
-        expect(validateCvv(cvv)).toBe(expected);
+    it.each(invalidTestCases)('should validate CVC %s as %s', (cvv, expected) => {
+        expect(validateCVC(cvv)).toBe(expected);
     });
 });

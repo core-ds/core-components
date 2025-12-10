@@ -42,7 +42,7 @@ const getOptions = (platform: 'desktop' | 'mobile' = 'desktop') =>
                 </PureCell.Graphics>
                 <PureCell.Content>
                     <PureCell.Main>
-                        <Typography.Text color='secondary' view='primary-small'>
+                        <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
                             {el.text}
                         </Typography.Text>
                         <Amount
@@ -61,7 +61,7 @@ const getOptions = (platform: 'desktop' | 'mobile' = 'desktop') =>
 export const account_select_desktop: Story = {
     name: 'AccountSelectDesktop',
     render: () => {
-        const size = select('size', [40, 48, 56, 64, 72], 72);
+        const size = select('size', [40, 48, 56, 64, 72], 56);
         const [cardImage, setCardImage] = useState<typeof baseCard | undefined>(undefined);
         const handleInput = (data: CardData) => {
             if (data.number.startsWith('111111')) {
@@ -86,7 +86,7 @@ export const account_select_desktop: Story = {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <Typography.Text color='secondary' view='primary-small'>
+                                    <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
                                         {selected?.value.text}
                                     </Typography.Text>
                                     <Amount
@@ -101,7 +101,7 @@ export const account_select_desktop: Story = {
                         </PureCell>
                     );
                 }}
-                label={text('label', 'Элемент')}
+                placeholder={text('placeholder', 'Элемент')}
                 fieldProps={{
                     leftAddons: <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />,
                 }}
@@ -127,7 +127,7 @@ export const account_select_desktop: Story = {
                     ),
                     onInput: handleInput,
                     onSubmit: handleSubmit,
-                    needCvv: boolean('needCvv', true),
+                    needCVC: boolean('needCVC', true),
                     needExpiryDate: boolean('needExpiryDate', true),
                     expiryAsDate: boolean('expiryAsDate', true),
                     cardImage,
@@ -141,11 +141,11 @@ export const account_select_desktop: Story = {
 export const account_select_mobile: Story = {
     name: 'AccountSelectMobile',
     render: () => {
-        const size = select('size', [40, 48, 56, 64, 72], 72);
+        const size = select('size', [40, 48, 56, 64, 72], 56);
         return (
             <AccountSelectMobile
                 size={size}
-                label={text('label', 'Элемент')}
+                placeholder={text('placeholder', 'Элемент')}
                 options={getOptions('mobile')}
                 fieldProps={{
                     leftAddons: <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />,
@@ -158,7 +158,7 @@ export const account_select_mobile: Story = {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <Typography.Text color='secondary' view='primary-small'>
+                                    <Typography.Text rowLimit={1}  color='secondary'  view='primary-small'>
                                         {selected?.value.text}
                                     </Typography.Text>
                                     <Amount
@@ -193,7 +193,7 @@ export const account_select_mobile: Story = {
                             </PureCell.Content>
                         </PureCell>
                     ),
-                    needCvv: boolean('needCvv', true),
+                    needCVC: boolean('needCVC', true),
                     needExpiryDate: boolean('needExpiryDate', true),
                     expiryAsDate: boolean('expiryAsDate', true),
                 }}
