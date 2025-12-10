@@ -97,7 +97,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
 
         useEffect(() => {
             if (autoCorrection) {
-                const hasValidValue = isValidValue && isCompleteTime(inputTime, withTime);
+                const hasValidValue = isValidValue && isCompleteTime(inputValue, withTime);
 
                 if (!lastValidDate.current || !inputValue) {
                     lastValidDate.current = hasValidValue
@@ -105,7 +105,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                         : formatDate(minDate, withTime ? DATE_TIME_FORMAT : DATE_FORMAT);
                 }
             }
-        }, [autoCorrection, minDate, withTime, isValidValue, inputValue, inputTime]);
+        }, [autoCorrection, minDate, withTime, isValidValue, inputValue]);
 
         useEffect(() => {
             if (valueProp !== undefined) {

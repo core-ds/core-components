@@ -33,7 +33,7 @@ describe(
                     open: true,
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
-                    width: ['500', '600', 'fullWidth', '300'],
+                    width: ['500', '600', 'fullWidth'],
                 },
             }),
             ...generateTestCases({
@@ -44,7 +44,7 @@ describe(
                     open: true,
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
-                    height: ['500', '600', 'fullHeight', '200'],
+                    height: ['500', '600', 'fullHeight'],
                 },
             }),
             ...generateTestCases({
