@@ -1,8 +1,8 @@
-import React, { type ElementType, Fragment, useCallback, useRef, useState } from 'react';
+import React, { type ElementType, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
-import { LockIcon } from '@alfalab/core-components-input/shared';
+import { getAddonsByPriority, LockIcon } from '@alfalab/core-components-input/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
@@ -62,8 +62,43 @@ export const Field = ({
     const showLabel = !!label || labelView === 'outer';
     const showPlaceholder = !!placeholder && !filled && (open || !label || labelView === 'outer');
 
-    const shouldShowClearButton = clear && filled && !disabled;
-    const shouldShowArrow = Arrow && !disabled;
+    /**
+     * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+     * [4] - Clear
+     * [3] - Status (error, success)
+     * [2] - Common (info, e.g.)
+     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+     * [0] - Lock
+     */
+    const rightAddonsMap = getAddonsByPriority([
+        {
+            priority: 4,
+            predicate: clear && filled && !disabled,
+            render: () => (
+                <ClearButton
+                    onClick={onClear}
+                    disabled={disabled}
+                    dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                    size={size}
+                />
+            ),
+        },
+        {
+            priority: 2,
+            predicate: Boolean(rightAddons),
+            render: () => rightAddons,
+        },
+        {
+            priority: 1,
+            predicate: Boolean(Arrow) && !disabled,
+            render: () => Arrow && React.cloneElement(Arrow, { className: styles.arrow }),
+        },
+        {
+            priority: 0,
+            predicate: disabled,
+            render: () => <LockIcon colors={colors} size={size} />,
+        },
+    ]);
 
     return (
         <div
@@ -88,32 +123,7 @@ export const Field = ({
                     labelView={labelView}
                     error={error}
                     hint={hint}
-                    rightAddons={
-                        /**
-                         * Right addon priority [4] <= [3] <= [2] <= [1]
-                         * [4] - Clear
-                         * [3] - Status (error, success)
-                         * [2] - Common (info, e.g.)
-                         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
-                         */
-                        (Arrow || rightAddons || disabled) && (
-                            <Fragment>
-                                {shouldShowClearButton && (
-                                    <ClearButton
-                                        onClick={onClear}
-                                        disabled={disabled}
-                                        dataTestId={getDataTestId(dataTestId, 'clear-icon')}
-                                        size={size}
-                                    />
-                                )}
-                                {rightAddons}
-                                {/* TODO: стоит переделать, но это будет мажорка */}
-                                {shouldShowArrow &&
-                                    React.cloneElement(Arrow, { className: styles.arrow })}
-                                {disabled && <LockIcon colors={colors} size={size} />}
-                            </Fragment>
-                        )
-                    }
+                    rightAddons={rightAddonsMap}
                     data-test-id={dataTestId}
                     {...restProps}
                     {...innerProps}
