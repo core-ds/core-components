@@ -30,6 +30,7 @@
         "test": "jest --watchAll=false",
         "test:codemod": "yarn workspace @alfalab/core-components-codemod test",
         "test:screenshots": "bin/run-screenshots.sh",
+        "test:screenshots-local": "bin/run-screenshots-local.sh",
         "tsconfig": "node bin/tsconfig/bin.mjs",
         "update-colors": "node tools/update-colors.js && stylelint packages/{themes,vars}/**/*.css --fix && prettier --write \"packages/{themes,vars}/**/*.css\" && yarn generate-dark-colors",
         "update-typography": "node tools/update-typography.mjs",

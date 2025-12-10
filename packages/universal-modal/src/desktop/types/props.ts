@@ -2,7 +2,7 @@ import { type RefObject } from 'react';
 
 import { type BaseModalProps } from '@alfalab/core-components-base-modal';
 
-import { type TMargin } from '../../typings/margin-type';
+import { type Margin } from '../../typings/margin-type';
 
 export interface BaseUniversalModalProps {
     /**
@@ -42,7 +42,7 @@ export interface BaseUniversalModalProps {
     /**
      * Устанавливает отступы модального окна
      */
-    margin?: TMargin;
+    margin?: Margin;
 }
 
 export interface UniversalModalDesktopProps
