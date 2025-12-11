@@ -1,15 +1,14 @@
 import { type TextSkeletonProps } from './types/text-skeleton-props';
 
-export type TextSkeletonParams = {
-    height: number;
-    padding: string;
-    rows: number;
+type PaddingParams = {
+    lineHeight: number;
+    fontSize: number;
 };
 
-const DEFAULT_FONT_SIZE = 16;
-const DEFAULT_LINE_HEIGHT = 24;
-
-export const getPadding = (lineHeight: number, fontSize: number) => {
+/**
+ * Возвращает вертикальный padding для выравнивания текста внутри скелетона.
+ */
+export const getPadding = ({ lineHeight, fontSize }: PaddingParams) => {
     if (lineHeight <= fontSize) {
         return 0;
     }
@@ -19,18 +18,34 @@ export const getPadding = (lineHeight: number, fontSize: number) => {
     return diff % 2 === 0 ? diff / 2 : (diff - 1) / 2;
 };
 
+export type TextSkeletonParams = {
+    height: number;
+    padding: string;
+    rows: number;
+};
+
+/**
+ * Возвращает параметры скелетона по умолчанию, когда нет реальных размеров текста.
+ */
 export const getFallbackSkeletonParams = (
     skeletonProps?: TextSkeletonProps,
 ): TextSkeletonParams => {
-    const padding = getPadding(DEFAULT_LINE_HEIGHT, DEFAULT_FONT_SIZE);
+    const padding = getPadding({ lineHeight: 24, fontSize: 16 });
 
     return {
-        height: DEFAULT_LINE_HEIGHT - padding * 2,
+        height: 24 - padding * 2,
         padding: `${padding}px 0`,
         rows: skeletonProps?.rows ?? 1,
     };
 };
 
+/**
+ * Вычисляет параметры скелетона по реальному DOM-узлу.
+ *
+ * @param node элемент, по которому считаются размеры текста
+ * @param skeletonProps пропсы скелетона (для переопределения rows)
+ * @returns высота, паддинги и количество строк скелетона
+ */
 export const measureSkeletonParams = (
     node: HTMLElement,
     skeletonProps?: TextSkeletonProps,
@@ -40,7 +55,8 @@ export const measureSkeletonParams = (
     const fontSize = parseInt(style.fontSize, 10);
     const lineHeight = parseInt(style.lineHeight, 10);
 
-    let padding = getPadding(lineHeight, fontSize);
+    let padding = getPadding({ lineHeight, fontSize });
+
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
 
