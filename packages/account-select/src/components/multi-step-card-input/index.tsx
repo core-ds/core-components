@@ -15,25 +15,20 @@ import styles from './index.module.css';
 
 type MultiStepCardInputProps = Pick<
     CardAddingProps,
-    | 'onSubmit'
-    | 'onInput'
-    | 'cardImage'
-    | 'needCVC'
-    | 'needExpiryDate'
-    | 'expiryAsDate'
-    | 'placeholder'
-> & { size: 40 | 48 | 56 | 64 | 72 };
+    'onSubmit' | 'onInput' | 'needCVC' | 'needExpiryDate' | 'expiryAsDate' | 'placeholder'
+> & {
+    setCardNumberForAddon: React.Dispatch<React.SetStateAction<string>>;
+};
 
 export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
     ({
         onSubmit,
         onInput,
-        cardImage,
         needCVC = true,
         needExpiryDate = true,
         expiryAsDate = true,
-        size,
         placeholder,
+        setCardNumberForAddon,
     }) => {
         const [step, setStep] = useState<number>(1);
         const [cardNumber, setCardNumber] = useState<CardData['number']>('');
@@ -113,6 +108,10 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 numberRef.current?.focus();
             }
         }, [step]);
+
+        useEffect(() => {
+            setCardNumberForAddon(cardNumber);
+        }, [cardNumber]);
 
         const handleCardNumberFocus = () => {
             setIsCardNumberFocused(true);
@@ -204,12 +203,6 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 onClick={(e) => e.stopPropagation()}
                 aria-hidden='true'
             >
-                <ProductCover.Single
-                    cardNumber={cardNumber.length >= 16 ? Number(cardNumber) : undefined}
-                    {...cardImage}
-                    size={cardImage?.size ?? PRODUCT_COVER_SIZE_MAPPER[size]}
-                    className={cn(styles.productCover, cardImage?.className)}
-                />
                 <div className={styles.inputs}>
                     <input
                         ref={numberRefCallback}

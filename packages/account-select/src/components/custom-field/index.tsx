@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
 import { Field, type FieldProps, type OptionShape } from '@alfalab/core-components-select/shared';
 
-import { ADD_CARD_KEY } from '../../constants';
+import { ADD_CARD_KEY, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
 import { MultiStepCardInput } from '../multi-step-card-input';
+
+import styles from './index.module.css';
+import cn from 'classnames';
+import { ProductCover } from '@alfalab/core-components-product-cover';
 
 export interface CustomFieldProps extends FieldProps {
     view?: 'desktop' | 'mobile';
@@ -27,6 +31,7 @@ export const CustomField = ({
     size,
     ...restProps
 }: CustomFieldProps) => {
+    const [cardNumber, setCardNumber] = useState('');
     const fieldRenderer = ({
         selected: selectedOption,
         selectedMultiple: selectedOptions,
@@ -37,14 +42,13 @@ export const CustomField = ({
         if (selectedOption?.key === ADD_CARD_KEY) {
             return (
                 <MultiStepCardInput
+                    placeholder={placeholder}
                     onSubmit={onSubmit}
                     onInput={onInput}
-                    cardImage={cardImage}
+                    setCardNumberForAddon={setCardNumber}
                     needCVC={needCVC}
                     needExpiryDate={needExpiryDate}
                     expiryAsDate={expiryAsDate}
-                    size={size}
-                    placeholder={placeholder}
                 />
             );
         }
@@ -56,6 +60,23 @@ export const CustomField = ({
 
     const FormControlComponent = view === 'mobile' ? FormControlMobile : FormControlDesktop;
 
+    const getLeftAddon = () => {
+        if (selected && selected.key === ADD_CARD_KEY) {
+            return (
+                <ProductCover.Single
+                    cardNumber={cardNumber.length >= 16 ? Number(cardNumber) : undefined}
+                    {...cardImage}
+                    size={cardImage?.size ?? PRODUCT_COVER_SIZE_MAPPER[size]}
+                    className={cardImage?.className}
+                />
+            );
+        }
+        if (selected) {
+            return undefined;
+        }
+        return leftAddons;
+    };
+
     return (
         <Field
             FormControlComponent={FormControlComponent}
@@ -63,7 +84,8 @@ export const CustomField = ({
             placeholder={placeholder}
             selected={selected}
             innerProps={innerProps}
-            leftAddons={selected ? undefined : leftAddons}
+            leftAddons={getLeftAddon()}
+            leftAddonsProps={{ className: styles.leftAddon }}
             {...restProps}
             valueRenderer={fieldRenderer}
         />
