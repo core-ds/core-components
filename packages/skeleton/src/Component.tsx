@@ -59,7 +59,7 @@ export interface SkeletonProps {
      * @default 8
      */
     borderRadius?: BorderRadiusSize;
-};
+}
 
 export const Skeleton: React.FC<SkeletonProps> = ({
     visible,
