@@ -1,5 +1,36 @@
 # @alfalab/core-components-side-panel
 
+## 6.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.2
+
+## 6.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-base-modal@6.0.2
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-navigation-bar-private@1.1.1
+    - @alfalab/core-components-drawer@6.0.2
+
+## 6.0.3
+
+### Patch Changes
+
+<sup><time>05.11.2025</time></sup>
+
+#### [#1923](https://github.com/core-ds/core-components/pull/1923)
+
+- Добавлена инверсия BottomSheet через props `colors`
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.0
+
 ## 6.0.2
 
 ### Patch Changes

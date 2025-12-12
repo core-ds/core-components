@@ -1,5 +1,39 @@
 # @alfalab/core-components-universal-date-input
 
+## 3.0.6
+
+### Patch Changes
+
+<sup><time>08.12.2025</time></sup>
+
+#### [#1959](https://github.com/core-ds/core-components/pull/1959)
+
+##### DateInput
+
+- Исправлено сохранение `lastValidDate` при неполном времени для `view="date-time"`,
+  теперь автокоррекция возвращает именно последнюю валидную дату/время вместо `minDate`;
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.5
+
+## 3.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-calendar@8.0.4
+    - @alfalab/core-components-input@16.0.3
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-popover@7.1.1
+
+## 3.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.3
+
 ## 3.0.3
 
 ### Patch Changes

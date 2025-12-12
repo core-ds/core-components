@@ -1,5 +1,56 @@
 # @alfalab/core-components-bottom-sheet
 
+## 7.3.0
+
+### Minor Changes
+
+<sup><time>08.12.2025</time></sup>
+
+#### [#1968](https://github.com/core-ds/core-components/pull/1968)
+
+##### BottomSheet
+
+- Добавлен пропс `preventScrollOnSwipe`, который передается в библиотеку `react-swipeable`. Позволяет предотвращать прокрутку во время свайпа.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.2
+
+## 7.2.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-base-modal@6.0.2
+    - @alfalab/core-components-navigation-bar-private@1.1.1
+
+## 7.2.0
+
+### Minor Changes
+
+<sup><time>07.11.2025</time></sup>
+
+#### [#1915](https://github.com/core-ds/core-components/pull/1915)
+
+- Добавлен опциональный проп headerContentClassName в BottomSheet для кастомизации хэдера
+
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>05.11.2025</time></sup>
+
+#### [#1923](https://github.com/core-ds/core-components/pull/1923)
+
+- Добавлена инверсия BottomSheet через props `colors`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.0
+
 ## 7.0.2
 
 ### Patch Changes

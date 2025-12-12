@@ -17,6 +17,7 @@ export const StatusControl = () => {
         progressBar = 0,
         progressBarAvailable = true,
         imageUrl,
+        backgroundColor,
         actionsPresent,
         isClickable,
     } = useContext(FileUploadItemContext);
@@ -33,7 +34,11 @@ export const StatusControl = () => {
                 [styles.clickable]: !actionsPresent && isClickable,
             })}
         >
-            <SuperEllipse size={48} {...(imageUrl && { imageUrl })}>
+            <SuperEllipse
+                backgroundColor={backgroundColor}
+                size={48}
+                {...(imageUrl && { imageUrl })}
+            >
                 <ExtensionIcon />
             </SuperEllipse>
 

@@ -1,5 +1,44 @@
 # @alfalab/core-components-select
 
+## 18.2.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.3.0
+    - @alfalab/core-components-modal@10.0.5
+
+## 18.2.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-base-modal@6.0.2
+    - @alfalab/core-components-bottom-sheet@7.2.1
+    - @alfalab/core-components-button@12.0.2
+    - @alfalab/core-components-checkbox@5.0.2
+    - @alfalab/core-components-form-control@13.0.2
+    - @alfalab/core-components-input@16.0.3
+    - @alfalab/core-components-modal@10.0.4
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-popover@7.1.1
+
+## 18.2.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.2.0
+
+## 18.2.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.1.0
+    - @alfalab/core-components-modal@10.0.3
+
 ## 18.2.0
 
 ### Minor Changes
