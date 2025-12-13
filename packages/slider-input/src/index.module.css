@@ -99,10 +99,6 @@
     & input + div {
         font-variant-numeric: tabular-nums;
     }
-
-    & input::placeholder {
-        font-weight: 400;
-    }
 }
 
 .bold .input {

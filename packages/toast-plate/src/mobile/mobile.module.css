@@ -6,7 +6,7 @@
 }
 
 .title {
-    @mixin accent_primary_small;
+    @mixin paragraph_primary_small;
 }
 
 .closeButtonWrapper {

@@ -41,7 +41,7 @@ export const AmountTitle: React.FC<Props> = ({
     className,
     color = 'primary',
     dataTestId,
-    titleProps: titlePropsFromProps = {},
+    titleProps: titlePropsFromProps,
     ...restProps
 }) => {
     const pureCellContext = useContext(PureCellContext);
@@ -69,7 +69,7 @@ export const AmountTitle: React.FC<Props> = ({
         >
             <CoreAmount
                 minority={minority || minorUnits}
-                className={cn(styles.weight, className)}
+                className={className}
                 dataTestId={getDataTestId(
                     dataTestId || pureCellContext.dataTestId,
                     'core-amount-title',
