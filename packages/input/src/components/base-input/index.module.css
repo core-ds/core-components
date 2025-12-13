@@ -14,9 +14,21 @@
     box-sizing: border-box;
     -webkit-appearance: none;
 
+    &::placeholder {
+        transition:
+            opacity 0.2s ease,
+            color 0.2s ease;
+
+        @mixin paragraph_component;
+    }
+
     &.size-40 {
         @mixin paragraph_component_secondary;
         padding: var(--gap-0) var(--gap-8);
+
+        &::placeholder {
+            @mixin paragraph_component_secondary;
+        }
     }
 
     /* Убирает синюю заливку при автокомплите */
@@ -53,12 +65,6 @@
     &[type='number'] {
         -moz-appearance: textfield;
     }
-}
-
-.input::placeholder {
-    transition:
-        opacity 0.2s ease,
-        color 0.2s ease;
 }
 
 .hasInnerLabel {
