@@ -1,8 +1,8 @@
 import { ArgTypes } from '@storybook/addon-docs';
 import { CssVars } from 'storybook/blocks';
 import { IconButton } from '../index';
-import defaultStyles from '!!raw-loader!../default.module.css';
-import styles from '!!raw-loader!../index.module.css';
+import defaultStyles from '!!raw-loader!../components/base-icon-button/default.module.css';
+import invertedStyles from '!!raw-loader!../components/base-icon-button/inverted.module.css';
 
 ## Подключение
 
@@ -16,4 +16,5 @@ import { IconButton } from '@alfalab/core-components/icon-button';
 
 ## Переменные
 
-<CssVars css={`${styles}${defaultStyles}`}/>
+<CssVars css={`${defaultStyles}${invertedStyles}`}/>
+
