@@ -77,7 +77,7 @@
 @define-mixin action_caps {
     font-size: 12px;
     line-height: 16px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.25px;
     text-transform: uppercase;
     font-family: var(--font-family-system);
@@ -142,7 +142,7 @@
 @define-mixin action_tagline {
     font-size: 12px;
     line-height: 16px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.25px;
     text-transform: uppercase;
     font-family: var(--font-family-system);
@@ -298,50 +298,10 @@
     font-family: var(--font-family-system);
 }
 
-@define-mixin key_large {
-    font-size: 120px;
-    line-height: 132px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin key_medium {
-    font-size: 96px;
-    line-height: 120px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin key_small {
-    font-size: 80px;
-    line-height: 96px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin key_xlarge {
-    font-size: 144px;
-    line-height: 180px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
-@define-mixin key_xsmall {
-    font-size: 64px;
-    line-height: 80px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
 @define-mixin paragraph_caps {
     font-size: 12px;
     line-height: 16px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 1.25px;
     text-transform: uppercase;
     font-family: var(--font-family-system);
@@ -406,7 +366,7 @@
 @define-mixin paragraph_tagline {
     font-size: 12px;
     line-height: 16px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 1.25px;
     text-transform: uppercase;
     font-family: var(--font-family-system);
@@ -574,6 +534,46 @@
     line-height: 20px;
     font-weight: 500;
     font-family: var(--font-family-system);
+} /* deprecated */
+
+@define-mixin key_large {
+    font-size: 120px;
+    line-height: 132px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+} /* deprecated */
+
+@define-mixin key_medium {
+    font-size: 96px;
+    line-height: 120px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+} /* deprecated */
+
+@define-mixin key_small {
+    font-size: 80px;
+    line-height: 96px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+} /* deprecated */
+
+@define-mixin key_xlarge {
+    font-size: 144px;
+    line-height: 180px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+} /* deprecated */
+
+@define-mixin key_xsmall {
+    font-size: 64px;
+    line-height: 80px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
 } /* deprecated */
 
 @define-mixin paragraph_component {
