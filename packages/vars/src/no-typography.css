@@ -160,26 +160,6 @@
     /* @mixin headline-system-mobile_xsmall */
 }
 
-@define-mixin key_large {
-    /* @mixin key_large */
-}
-
-@define-mixin key_medium {
-    /* @mixin key_medium */
-}
-
-@define-mixin key_small {
-    /* @mixin key_small */
-}
-
-@define-mixin key_xlarge {
-    /* @mixin key_xlarge */
-}
-
-@define-mixin key_xsmall {
-    /* @mixin key_xsmall */
-}
-
 @define-mixin paragraph_caps {
     /* @mixin paragraph_caps */
 }
@@ -306,6 +286,26 @@
 
 @define-mixin action_component {
     /* @mixin action_component */
+} /* deprecated */
+
+@define-mixin key_large {
+    /* @mixin key_large */
+} /* deprecated */
+
+@define-mixin key_medium {
+    /* @mixin key_medium */
+} /* deprecated */
+
+@define-mixin key_small {
+    /* @mixin key_small */
+} /* deprecated */
+
+@define-mixin key_xlarge {
+    /* @mixin key_xlarge */
+} /* deprecated */
+
+@define-mixin key_xsmall {
+    /* @mixin key_xsmall */
 } /* deprecated */
 
 @define-mixin paragraph_component {

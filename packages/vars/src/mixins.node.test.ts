@@ -67,7 +67,7 @@ describe('mixins', () => {
         });
     });
 
-    test.each(['typography.css'])(
+    test.each(['alfasans-typography.css', 'typography.css'])(
         "`no-typography-index.css` shouldn't contain `%s` mixins",
         async (file) => {
             const mixins = await getMixinNames(path.resolve(__dirname, file));
