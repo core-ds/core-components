@@ -19,7 +19,7 @@
         "@alfalab/core-components-tooltip": "^8.0.7",
         "@alfalab/core-components-typography": "^5.0.3",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.247.0",
+        "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "element-closest": "^3.0.2",
         "hls.js": "^1.5.13",
@@ -28,8 +28,8 @@
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
     },
     "publishConfig": {
         "access": "public",

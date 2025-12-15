@@ -48,25 +48,25 @@
     "@alfalab/utils" "^1.17.1"
     uuid "^8.3.2"
 
-"@alfalab/icons-glyph@^2.247.0":
-  version "2.247.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.247.0.tgz#3adac7b808c807e518fdf6348617b4421838ae45"
-  integrity sha512-zwz6/RDJcc4Zy7DQi1UnK1qt6l8p1g5UMv53uDJC8mz/2jeqyza3aIbYnYG/GAfInIVDwpkrc7ukgsm8xMRSnw==
+"@alfalab/icons-glyph@^2.260.0":
+  version "2.260.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.260.0.tgz#fa2b139e50c6dde463d4c0e8fa3b7ff2d1deb7ac"
+  integrity sha512-AMvS7oglNe6RVuA0kH2s97Bgsc2NAF7smubr1R9sQuZMEdNuixcIfUesJaU6ohjvz6BMmDpEzrwGl+UIfruc8g==
 
 "@alfalab/icons-glyph@^2.66.0":
   version "2.140.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.140.0.tgz#31cb75bf2495b082a0b8d0e3f4a8c2c47e3e2eb6"
   integrity sha512-Mee0c9tyFVKIH0yN9IuKyLa0qoYf1ybwGFkng9Iy+1OGIvgl9ecb74erg/+n/NzR7bI2AAx1yVFDS/LEHivixw==
 
-"@alfalab/icons-logo@^1.48.0":
-  version "1.48.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-logo/-/icons-logo-1.48.0.tgz#e0d230a95593ef74221400ff593d2b148dc7f465"
-  integrity sha512-ImgGw+BpVgwfZ4VGVs5qSZ/rPPIDhS8TKpjii6Z9OyTHUbGivr2YLq92kOlmPztC6ZHThyylsiBzuldffIn35A==
+"@alfalab/icons-logo@^1.53.0":
+  version "1.53.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logo/-/icons-logo-1.53.0.tgz#8110d2c9e4ec6fd71bc4deaac2fe2e6e4fa45174"
+  integrity sha512-Iq6KdyLxOD2a8iK7rgmaVs+ilVIxiQ0b2HDx2uLzneCxPnuannYzak55jne5212h0abBqiFV5XZgnI6PBWGMow==
 
-"@alfalab/icons-logotype@^2.34.0":
-  version "2.34.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.34.0.tgz#67f49fc81df014b0dca3f9fa99dda170fc279f26"
-  integrity sha512-pXXt55rwTZ3T0mHzQgpAq23PGnTCIu7Xt+anlFYod47bLslqYK1yi3QVFsLu9WMXgWhLU2H8QajHp9KmT7F4cA==
+"@alfalab/icons-logotype@^2.37.0":
+  version "2.37.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-2.37.0.tgz#cce4b8b54ac6cd4386256e1a2fcdff23293b421c"
+  integrity sha512-clx5P0dbifjHh78cXzm999i27Pn+qgh7yTHxKbG4pGTTlpRkFUdg6SIpPSPueR/J8fYOpvdsr/rG03n7oGqNPQ==
 
 "@alfalab/lint-preset@^1.0.0":
   version "1.0.0"
