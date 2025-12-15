@@ -1,9 +1,9 @@
 import React, {
     type ChangeEvent,
-    type FC,
     type FocusEvent,
     forwardRef,
-    type Ref,
+    type ForwardRefExoticComponent,
+    type RefAttributes,
     useEffect,
     useMemo,
     useState,
@@ -73,7 +73,7 @@ export interface NumberInputProps
     /**
      *  Компонент инпута
      */
-    Input: FC<InputProps & { ref?: Ref<HTMLInputElement> }>;
+    Input: ForwardRefExoticComponent<InputProps & RefAttributes<HTMLInputElement>>;
 
     /**
      * Обработчик события изменения значения

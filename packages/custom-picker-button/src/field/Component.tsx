@@ -1,9 +1,4 @@
-import React, {
-    type ButtonHTMLAttributes,
-    type ComponentType,
-    Fragment,
-    type SVGProps,
-} from 'react';
+import React, { type ComponentType, Fragment, type SVGProps } from 'react';
 import cn from 'classnames';
 
 import { CustomButton, type CustomButtonProps } from '@alfalab/core-components-custom-button';
@@ -16,7 +11,23 @@ import { type FieldProps as BaseFieldProps } from '@alfalab/core-components-sele
 
 import styles from './index.module.css';
 
+// Пропсы которые не должны передаваться глубже в Button
+type UselessProps = Partial<
+    Pick<
+        BaseFieldProps,
+        | 'selectedMultiple'
+        | 'onClear'
+        | 'FormControlComponent'
+        | 'valueRenderer'
+        | 'Arrow'
+        | 'labelView'
+        | 'toggleMenu'
+        | 'setSelectedItems'
+    >
+>;
+
 type FieldProps = Pick<BaseFieldProps, 'open' | 'label' | 'innerProps'> &
+    UselessProps &
     CustomButtonProps & {
         buttonSize?: PickerButtonSize;
         buttonVariant?: PickerButtonVariant;
@@ -37,6 +48,14 @@ export const Field = ({
     className,
     showArrow = true,
     icon,
+    selectedMultiple,
+    onClear,
+    FormControlComponent,
+    valueRenderer,
+    Arrow,
+    labelView,
+    toggleMenu,
+    setSelectedItems,
     ...restProps
 }: FieldProps) => {
     const Icon: ComponentType<SVGProps<SVGSVGElement>> = getIcon(
@@ -48,7 +67,7 @@ export const Field = ({
     const buttonProps = {
         ...restProps,
         ...innerProps,
-    } as ButtonHTMLAttributes<HTMLButtonElement>;
+    } as CustomButtonProps;
 
     return (
         <CustomButton

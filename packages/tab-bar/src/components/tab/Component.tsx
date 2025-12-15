@@ -1,15 +1,22 @@
-import React, { cloneElement, forwardRef, isValidElement, type MouseEvent } from 'react';
+import React, {
+    cloneElement,
+    forwardRef,
+    type ForwardRefExoticComponent,
+    isValidElement,
+    type MouseEventHandler,
+    type RefAttributes,
+} from 'react';
 import cn from 'classnames';
 
 import { Indicator } from '@alfalab/core-components-indicator';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { INDICATOR_BG_COLOR, INDICATOR_BORDER_COLOR } from '../../consts';
-import { type PrivateTabProps, type TabProps } from '../../types';
+import { type AllTabProps, type PublicTabProps } from '../../types';
 
 import styles from './index.module.css';
 
-const TabComponent = forwardRef(
+const TabComponent = forwardRef<HTMLElement, AllTabProps>(
     (
         {
             showIndicator,
@@ -31,10 +38,10 @@ const TabComponent = forwardRef(
             accentColor = 'primary',
             bgColor = 'modal-bg-primary',
             ...restProps
-        }: PrivateTabProps & TabProps,
+        },
         ref,
     ) => {
-        const handleClick = (event: MouseEvent) => {
+        const handleClick: MouseEventHandler<HTMLElement> = (event) => {
             onChange?.(id);
             onClick?.(event);
         };
@@ -99,6 +106,6 @@ const TabComponent = forwardRef(
     },
 );
 
-export const Tab = TabComponent as React.ForwardRefExoticComponent<
-    TabProps & React.RefAttributes<HTMLElement>
+export const Tab = TabComponent as ForwardRefExoticComponent<
+    PublicTabProps & RefAttributes<HTMLElement>
 >;
