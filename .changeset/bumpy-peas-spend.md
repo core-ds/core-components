@@ -1,4 +1,5 @@
 ---
+'@alfalab/core-components': patch
 '@alfalab/core-components-international-phone-input': patch
 '@alfalab/core-components-navigation-bar-private': patch
 '@alfalab/core-components-universal-date-input': patch
@@ -37,4 +38,4 @@
 '@alfalab/core-components-tabs': patch
 ---
 
-Обновление @alfalab/icons-* библиотек
+Обновление @alfalab/icons-\* библиотек
