@@ -20,6 +20,7 @@
         "classnames": "^2.5.1",
         "react-focus-lock": "^2.12.1",
         "react-merge-refs": "^1.1.0",
+        "react-remove-scroll": "^2.5.5",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },

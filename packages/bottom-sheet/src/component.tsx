@@ -89,6 +89,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             hideHeader,
             disableOverlayClick,
             disableBlockingScroll,
+            scrollLock = true,
             disableFocusLock,
             children,
             zIndex,
@@ -655,6 +656,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 disableRestoreFocus={disableRestoreFocus}
                 keepMounted={keepMounted}
                 iOSLock={iOSLock}
+                scrollLock={scrollLock}
             >
                 <div
                     className={cn(styles.wrapper, {

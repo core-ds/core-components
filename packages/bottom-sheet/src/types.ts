@@ -243,8 +243,19 @@ export type BottomSheetProps = {
 
     /**
      * Отключает блокировку скролла при открытии модального окна
+     * @deprecated Используйте `scrollLock={false}`.
      */
     disableBlockingScroll?: boolean;
+
+    /**
+     * Управляет блокировкой скролла/overscroll фона при открытой шторке.
+     *
+     * - `true` (default): используется `react-remove-scroll` + блокировка скролла контейнера.
+     * - `false`: полностью отключает блокировки скролла.
+     *
+     * @default true
+     */
+    scrollLock?: BaseModalProps['scrollLock'];
 
     /**
      * Отключает ловушку фокуса
@@ -362,6 +373,7 @@ export type BottomSheetProps = {
 
     /**
      * Блокирует скролл когда модальное окно открыто. Работает только на iOS
+     * @deprecated Будет удалён в следующих версиях.
      */
     iOSLock?: boolean;
 

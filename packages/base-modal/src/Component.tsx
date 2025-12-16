@@ -16,6 +16,7 @@ import React, {
 } from 'react';
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
+import { RemoveScroll } from 'react-remove-scroll';
 import { CSSTransition } from 'react-transition-group';
 import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
@@ -97,8 +98,19 @@ export type BaseModalProps = {
     /**
      * Отключает блокировку скролла при открытии модального окна
      * @default false
+     * @deprecated Используйте `scrollLock={false}`.
      */
     disableBlockingScroll?: boolean;
+
+    /**
+     * Управляет блокировкой скролла/overscroll фона при открытой модалке.
+     *
+     * - `true`: используется `react-remove-scroll` + блокировка скролла контейнера.
+     * - `false`: полностью отключает блокировку скролла.
+     *
+     * @default true
+     */
+    scrollLock?: boolean;
 
     /**
      * Содержимое модалки всегда в DOM
@@ -212,6 +224,7 @@ export type BaseModalProps = {
 
     /**
      * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
+     * @deprecated Используйте `scrollLock={false}`.
      */
     iOSLock?: boolean;
 
@@ -270,6 +283,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
             disableBlockingScroll = false,
+            scrollLock = true,
             keepMounted = false,
             className,
             contentClassName,
@@ -574,83 +588,90 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                             disabled={disableFocusLock || !open}
                             returnFocus={!disableRestoreFocus}
                         >
-                            {Backdrop && (
-                                <Backdrop
-                                    {...backdropProps}
-                                    className={cn(backdropProps.className, styles.backdrop)}
-                                    open={open}
-                                    style={{
-                                        zIndex: computedZIndex,
-                                    }}
-                                />
-                            )}
-                            <div
-                                {...wrapperProps}
-                                role='dialog'
-                                className={cn(
-                                    styles.wrapper,
-                                    wrapperClassName,
-                                    wrapperProps?.className,
-                                    {
-                                        [styles.hidden]: !open && isExited,
-                                    },
-                                )}
-                                ref={mergeRefs([
-                                    ref,
-                                    wrapperRef,
-                                    wrapperProps?.ref as Ref<HTMLDivElement>,
-                                ])}
-                                onKeyDown={handleKeyDown}
-                                onMouseDown={handleBackdropMouseDown}
-                                onMouseUp={handleBackdropMouseUp}
-                                onWheel={onWheel}
-                                tabIndex={-1}
-                                data-test-id={dataTestId}
-                                style={{
-                                    zIndex: computedZIndex,
-                                }}
+                            <RemoveScroll
+                                enabled={open && Boolean(scrollLock)}
+                                removeScrollBar={false}
                             >
-                                <CSSTransition
-                                    appear={true}
-                                    timeout={200}
-                                    classNames={styles}
-                                    nodeRef={componentNodeRef}
-                                    {...transitionProps}
-                                    in={open}
-                                    onEntered={handleEntered}
-                                    onExited={handleExited}
-                                >
+                                <React.Fragment>
+                                    {Backdrop && (
+                                        <Backdrop
+                                            {...backdropProps}
+                                            className={cn(backdropProps.className, styles.backdrop)}
+                                            open={open}
+                                            style={{
+                                                zIndex: computedZIndex,
+                                            }}
+                                        />
+                                    )}
                                     <div
-                                        {...componentDivProps}
+                                        {...wrapperProps}
+                                        role='dialog'
                                         className={cn(
-                                            styles.component,
-                                            className,
-                                            componentDivProps?.className,
+                                            styles.wrapper,
+                                            wrapperClassName,
+                                            wrapperProps?.className,
+                                            {
+                                                [styles.hidden]: !open && isExited,
+                                            },
                                         )}
                                         ref={mergeRefs([
-                                            componentRef,
-                                            componentNodeRef,
-                                            componentDivProps?.ref || null,
+                                            ref,
+                                            wrapperRef,
+                                            wrapperProps?.ref as Ref<HTMLDivElement>,
                                         ])}
+                                        onKeyDown={handleKeyDown}
+                                        onMouseDown={handleBackdropMouseDown}
+                                        onMouseUp={handleBackdropMouseUp}
+                                        onWheel={onWheel}
+                                        tabIndex={-1}
+                                        data-test-id={dataTestId}
+                                        style={{
+                                            zIndex: computedZIndex,
+                                        }}
                                     >
-                                        <div
-                                            {...contentProps}
-                                            className={cn(
-                                                styles.content,
-                                                contentClassName,
-                                                contentProps?.className,
-                                                {
-                                                    [styles.hasFooter]: hasFooter,
-                                                    [styles.hasHeader]: hasHeader,
-                                                },
-                                            )}
-                                            ref={contentElementRef}
+                                        <CSSTransition
+                                            appear={true}
+                                            timeout={200}
+                                            classNames={styles}
+                                            nodeRef={componentNodeRef}
+                                            {...transitionProps}
+                                            in={open}
+                                            onEntered={handleEntered}
+                                            onExited={handleExited}
                                         >
-                                            {children}
-                                        </div>
+                                            <div
+                                                {...componentDivProps}
+                                                className={cn(
+                                                    styles.component,
+                                                    className,
+                                                    componentDivProps?.className,
+                                                )}
+                                                ref={mergeRefs([
+                                                    componentRef,
+                                                    componentNodeRef,
+                                                    componentDivProps?.ref || null,
+                                                ])}
+                                            >
+                                                <div
+                                                    {...contentProps}
+                                                    className={cn(
+                                                        styles.content,
+                                                        contentClassName,
+                                                        contentProps?.className,
+                                                        {
+                                                            [styles.hasFooter]: hasFooter,
+                                                            [styles.hasHeader]: hasHeader,
+                                                        },
+                                                    )}
+                                                    ref={contentElementRef}
+                                                >
+                                                    {children}
+                                                </div>
+                                            </div>
+                                        </CSSTransition>
                                     </div>
-                                </CSSTransition>
-                            </div>
+                                </React.Fragment>
+                            </RemoveScroll>
                         </FocusLock>
                     </BaseModalContext.Provider>
                 )}
