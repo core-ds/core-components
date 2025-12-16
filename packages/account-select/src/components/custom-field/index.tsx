@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
+import { ProductCover } from '@alfalab/core-components-product-cover';
 import { Field, type FieldProps, type OptionShape } from '@alfalab/core-components-select/shared';
 
 import { ADD_CARD_KEY, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
 import { MultiStepCardInput } from '../multi-step-card-input';
 
 import styles from './index.module.css';
-import cn from 'classnames';
-import { ProductCover } from '@alfalab/core-components-product-cover';
 
 export interface CustomFieldProps extends FieldProps {
     view?: 'desktop' | 'mobile';
@@ -74,6 +73,7 @@ export const CustomField = ({
         if (selected) {
             return undefined;
         }
+        
         return leftAddons;
     };
 

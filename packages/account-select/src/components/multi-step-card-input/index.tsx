@@ -2,9 +2,7 @@ import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
 
-import { ProductCover } from '@alfalab/core-components-product-cover';
-
-import { CARD_MASK, CVV_MASK, EXPIRY_MASK, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
+import { CARD_MASK, CVV_MASK, EXPIRY_MASK } from '../../constants';
 import { useAccountSelectContext } from '../../context';
 import { type CardAddingProps, type CardData } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
@@ -111,6 +109,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
         useEffect(() => {
             setCardNumberForAddon(cardNumber);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [cardNumber]);
 
         const handleCardNumberFocus = () => {
