@@ -85,7 +85,7 @@ const processRootTheme = async (cssFile) => {
          * Это необходимо, так как некоторые проекты используют arui-scripts, который под капотом использует postcss-custom-properties
          * 'postcss-custom-properties' - заменяет переменные значениями, что без дублирования импортов переменных будет приводить к потере значений
          */
-        return ['@alfalab/core-components-vars/src/index.css'];
+        return ['@alfalab/core-components-vars/src/alfasans-index.css'];
     };
 
     const content = await fs.readFile(cssFile, { encoding: 'utf8' });

@@ -6,7 +6,7 @@ import { renderLabel } from './render-label';
 
 import { setManagerMetricsConnection } from './addons/utils';
 
-import '@alfalab/core-components-vars/src/index.css';
+import '@alfalab/core-components-vars/src/alfasans-index.css';
 
 if (process.env.NODE_ENV !== 'development') {
     setManagerMetricsConnection();
