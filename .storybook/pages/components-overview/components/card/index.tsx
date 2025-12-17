@@ -8,6 +8,8 @@ import { createComponentUrl } from 'storybook/utils/createComponentUrl';
 
 import styles from './index.module.css';
 
+const CORE_COMPONENTS_VARIANT = process.env.CORE_COMPONENTS_VARIANT || 'default';
+
 type CardProps = {
     componentName: string;
     mode: string;
@@ -76,7 +78,11 @@ export const Card: React.FC<CardProps> = ({ componentName, mode }) => {
 };
 
 function createImageUrl(componentName: string, mode: string) {
-    return `./images/${[kebab(componentName), mode === 'light' ? '' : 'dark', 'preview-snap.png']
+    return `./images/${[
+        kebab(componentName),
+        mode === 'light' ? '' : 'dark',
+        `preview${CORE_COMPONENTS_VARIANT === 'default' ? '' : `-${CORE_COMPONENTS_VARIANT}`}-snap.png`,
+    ]
         .filter(Boolean)
         .join('-')}`;
 }

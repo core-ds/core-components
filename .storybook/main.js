@@ -283,6 +283,9 @@ module.exports = {
                     mode /* 'DEVELOPMENT' | 'PRODUCTION' */
                         .toLowerCase(),
                 ),
+                'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(
+                    process.env.CORE_COMPONENTS_VARIANT,
+                ),
             }),
         );
         return config;

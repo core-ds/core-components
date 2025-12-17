@@ -1,20 +1,38 @@
 name: update-screenshots
 
-on: workflow_dispatch
+on:
+    workflow_dispatch:
+        inputs:
+            variant:
+                description: Variant of core components
+                required: false
+                type: choice
+                default: default
+                options:
+                    - default
 
 concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
+    group: ${{ github.workflow }}-${{ github.ref }}-${{ inputs.variant }}
     cancel-in-progress: true
+
+defaults:
+    run:
+        shell: bash
 
 jobs:
     build-demo:
         uses: ./.github/workflows/build-demo.yml
         secrets: inherit
+        with:
+            variant: ${{ inputs.variant }}
+            artifact-name: ${{ inputs.variant }}
 
     update:
-        name: update screenshots
+        name: update screenshots (${{ inputs.variant }})
         runs-on: ubuntu-latest
-        needs: build-demo
+        needs: [build-demo]
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
         if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
             - uses: actions/checkout@v5
@@ -30,13 +48,12 @@ jobs:
             - name: download build
               uses: actions/download-artifact@v5
               with:
-                  name: build
+                  name: ${{ inputs.variant }}
                   path: build
                   run-id: ${{ needs.build-demo.outputs.run-id }}
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: update screenshots
-              shell: bash
               run: |
                   yarn test:screenshots -u
 

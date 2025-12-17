@@ -11,12 +11,33 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
 
+defaults:
+    run:
+        shell: bash
+
 jobs:
+    variant:
+        uses: ./.github/workflows/variant.yml
+
     build:
         name: build
+        needs: [variant, patch]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v5
+
+            - name: apply patch
+              run: |
+                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+
+                  if [ -f "$PATCH_SOURCE" ]; then
+                      git apply "$PATCH_SOURCE"
+                  fi
 
             - uses: ./.github/actions/ci-setup
 
@@ -27,9 +48,23 @@ jobs:
 
     lint:
         name: lint
+        needs: [variant, patch]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v5
+
+            - name: apply patch
+              run: |
+                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+
+                  if [ -f "$PATCH_SOURCE" ]; then
+                      git apply "$PATCH_SOURCE"
+                  fi
 
             - uses: ./.github/actions/ci-setup
 
@@ -51,9 +86,23 @@ jobs:
 
     test:
         name: test
+        needs: [variant, patch]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v5
+
+            - name: apply patch
+              run: |
+                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+
+                  if [ -f "$PATCH_SOURCE" ]; then
+                      git apply "$PATCH_SOURCE"
+                  fi
 
             - uses: ./.github/actions/ci-setup
 
@@ -82,22 +131,40 @@ jobs:
             dir: ${{ github.event.pull_request.number }}
 
     build-demo:
+        needs: [variant]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
         uses: ./.github/workflows/build-demo.yml
         secrets: inherit
+        with:
+            variant: ${{ matrix.variant }}
+            artifact-name: ${{ matrix.variant }}
 
     deploy:
         if: ${{ github.repository == 'core-ds/core-components' }}
-        needs: [demo-params, build-demo]
+        needs: [variant, demo-params, build-demo]
+        strategy:
+            max-parallel: 1
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
         uses: ./.github/workflows/deploy-demo.yml
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: ${{ needs.demo-params.outputs.dir }}
+            dir: '${{ needs.demo-params.outputs.dir }}-${{ matrix.variant }}'
+            variant: ${{ matrix.variant }}
+            artifact-name: ${{ matrix.variant }}
 
     screenshot-test:
         name: screenshot test
+        needs: [variant, build-demo]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
-        needs: build-demo
         steps:
             - uses: actions/checkout@v5
               with:
@@ -108,28 +175,51 @@ jobs:
             - name: download build
               uses: actions/download-artifact@v5
               with:
-                  name: build
+                  name: ${{ matrix.variant }}
                   path: build
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   run-id: ${{ needs.build-demo.outputs.run-id }}
 
+              # https://github.com/americanexpress/jest-image-snapshot/issues/281
             - name: run screenshot test
-              shell: bash
-              run: |
-                  yarn test:screenshots
+              uses: actions/github-script@v8
+              with:
+                  script: |
+                      const { stderr } = await exec.getExecOutput('yarn', ['test:screenshots']);
+
+                      if (/[0-9]+ snapshots? written from [0-9]+ test suites?/.test(stderr)) {
+                          core.setFailed(`Please add missing ${{ matrix.variant }} screenshots`);
+                      }
 
             - uses: actions/upload-artifact@v4
               if: failure()
               with:
-                  name: diff
+                  name: 'diff-${{ matrix.variant }}'
                   path: packages/**/__diff_output__/*
                   if-no-files-found: ignore
+
+    patch:
+        needs: [variant]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+
+            - name: apply patch
+              run: |
+                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+
+                  if [ -f "$PATCH_SOURCE" ]; then
+                      git apply "$PATCH_SOURCE"
+                  fi
 
     ci-ok:
         name: ci ok
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, build-demo, test, screenshot-test]
+        needs: [lint, build, build-demo, test, screenshot-test, patch]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:
