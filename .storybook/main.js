@@ -225,7 +225,6 @@ module.exports = {
             ) {
                 if (
                     resource.request === '@alfalab/core-components/package.json' ||
-                    resource.request === '@alfalab/core-components-vars/src/alfasans-index.css' ||
                     resource.request === '@alfalab/core-components-vars/src/index.css'
                 ) {
                     return;
