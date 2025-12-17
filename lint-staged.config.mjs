@@ -7,6 +7,7 @@ import { convertPathToPattern } from 'tinyglobby';
 
 import { ESLINT_IGNORED_PACKAGES } from './tools/eslint.cjs';
 import { getPackages } from './tools/monorepo.cjs';
+import { resolveInternal } from './tools/resolve-internal.cjs';
 
 const { packages } = getPackages();
 
@@ -22,6 +23,12 @@ const config = {
     './{bin,tools}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}': 'eslint --fix --max-warnings 0',
     '*.css': 'stylelint --fix',
     '**/package.json': 'sort-package-json',
+    [convertPathToPattern(
+        path.relative(
+            dirname,
+            resolveInternal('@alfalab/core-components-vars/src/typography.css', false),
+        ),
+    )]: 'yarn update-typography',
     ...packages
         .filter(({ packageJson: { name } }) => !ESLINT_IGNORED_PACKAGES.includes(name))
         .reduce(
