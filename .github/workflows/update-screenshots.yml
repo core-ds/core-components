@@ -6,15 +6,34 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
 
+defaults:
+    run:
+        shell: bash
+
 jobs:
+    variant:
+        uses: ./.github/workflows/variant.yml
+
     build-demo:
+        needs: [variant]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
         uses: ./.github/workflows/build-demo.yml
         secrets: inherit
+        with:
+            variant: ${{ matrix.variant }}
+            artifact-name: ${{ matrix.variant }}
 
     update:
         name: update screenshots
         runs-on: ubuntu-latest
-        needs: build-demo
+        needs: [variant, build-demo]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
             - uses: actions/checkout@v5
@@ -30,13 +49,12 @@ jobs:
             - name: download build
               uses: actions/download-artifact@v5
               with:
-                  name: build
+                  name: ${{ matrix.variant }}
                   path: build
                   run-id: ${{ needs.build-demo.outputs.run-id }}
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: update screenshots
-              shell: bash
               run: |
                   yarn test:screenshots -u
 

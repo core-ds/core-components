@@ -24,6 +24,7 @@
         "non-existent-css-vars": "node bin/non-existent-css-vars/bin.mjs",
         "release": "yarn build && yarn changeset publish",
         "release:snapshot": "yarn build && yarn changeset publish --tag snapshot --no-git-tag",
+        "release:variant": "yarn build && yarn changeset publish --tag \"$CORE_COMPONENTS_VARIANT\" --no-git-tag",
         "serve-storybook": "http-server build -p 9009",
         "start": "storybook dev -p 9009",
         "test": "jest --watchAll=false",
@@ -35,7 +36,8 @@
         "update-typography": "node tools/update-typography.mjs",
         "update-usages": "node tools/update-usages.js",
         "version-packages": "yarn changeset version && yarn write-vars-and-themes-version",
-        "version-packages:snapshot": "yarn changeset version --snapshot && yarn write-vars-and-themes-version",
+        "version-packages:snapshot": "yarn changeset version --snapshot && node bin/suffix-version/bin.mjs && yarn write-vars-and-themes-version",
+        "version-packages:variant": "yarn changeset version && node bin/suffix-version/bin.mjs && yarn write-vars-and-themes-version",
         "write-vars-and-themes-version": "node bin/write-vars-and-themes-version/bin.mjs"
     },
     "husky": {

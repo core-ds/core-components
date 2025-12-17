@@ -1,0 +1,45 @@
+name: variant
+
+on:
+    workflow_call:
+        inputs:
+            filter:
+                description: Filter variants
+                required: false
+                type: boolean
+                default: false
+        outputs:
+            result:
+                description: Variants as JSON string
+                value: ${{ jobs.variant.outputs.result }}
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    variant:
+        runs-on: ubuntu-latest
+        outputs:
+            result: ${{ steps.filter.outputs.result }}
+        steps:
+            - uses: actions/checkout@v5
+
+            - name: read config
+              id: read
+              run: |
+                  {
+                      echo 'config<<EOF'
+                      echo "$(cat variants/config.json)"
+                      echo EOF
+                  } >> "$GITHUB_OUTPUT"
+
+            - id: filter
+              uses: actions/github-script@v8
+              with:
+                  script: |
+                      const variants = JSON.parse(`${{ steps.read.outputs.config }}`);
+
+                      return `${{ inputs.filter }}` === 'true'
+                          ? variants.filter(({ variant }) => !(variant === 'default'))
+                          : variants;

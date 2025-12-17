@@ -117,7 +117,7 @@ async function main() {
         ({ packageJson: { name } }) => name === '@alfalab/core-components-vars',
     );
     const source = resolve.sync(
-        process.env.CORE_COMPONENTS_TYPOGRAPHY === 'alfasans'
+        process.env.CORE_COMPONENTS_VARIANT === 'alfasans'
             ? 'ui-primitives/styles/typography_web_alfasans.json'
             : 'ui-primitives/styles/typography_web.json',
         // TODO remove after ui-primitives update

@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 
 import path from 'node:path';
-import { argv } from 'node:process';
+import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
-import { hideBin } from 'yargs/helpers';
 
 import { $ } from '../../tools/execa.mjs';
 import { readPackagesFile } from '../../tools/read-packages-file.cjs';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-/**
- * @param {string[]} args
- */
-async function main([suffix]) {
+async function main() {
+    const CORE_COMPONENTS_VARIANT = process.env.CORE_COMPONENTS_VARIANT || 'default';
+
+    if (CORE_COMPONENTS_VARIANT === 'default') {
+        return;
+    }
+
     const IGNORED_PACKAGES = await readPackagesFile(path.join(dirname, '.ignored-packages'));
 
     await $('lerna', [
@@ -23,8 +25,8 @@ async function main([suffix]) {
         '--',
         'node',
         path.join(dirname, 'suffix-version.mjs'),
-        suffix,
+        CORE_COMPONENTS_VARIANT,
     ]);
 }
 
-await main(hideBin(argv));
+await main();
