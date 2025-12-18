@@ -174,3 +174,38 @@ describe('Modal | trim title', () => {
 
     ['default'].forEach((theme) => testCase(theme));
 });
+
+describe('Modal | sticky header', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                        'header.title': 'Заголовок',
+                        'header.sticky': [false, true],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            evaluate: async (page) => {
+                await page.waitForTimeout(500);
+                await page.$eval('button[class*=showMoreButton]', (el) => {
+                    el.scrollIntoView();
+                });
+                await page.waitForTimeout(500);
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
