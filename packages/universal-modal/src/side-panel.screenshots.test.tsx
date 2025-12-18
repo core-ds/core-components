@@ -168,12 +168,11 @@ describe('SidePanel | trim title', () => {
         screenshotTesting({
             cases: [
                 ...generateTestCases({
+                    testStory: false,
                     componentName: 'UniversalModal',
                     subComponentName: 'SidePanel',
-                    testStory: false,
                     knobs: {
                         open: true,
-                        'footer.sticky': true,
                         bigTitle: false,
                         trim: [false, true],
                         'header.title': [
@@ -182,12 +181,11 @@ describe('SidePanel | trim title', () => {
                     },
                 }),
                 ...generateTestCases({
+                    testStory: false,
                     componentName: 'UniversalModal',
                     subComponentName: 'SidePanel',
-                    testStory: false,
                     knobs: {
                         open: true,
-                        'footer.sticky': true,
                         bigTitle: true,
                         trim: [false, true],
                         'header.title': [
@@ -251,26 +249,24 @@ describe('SidePanel | header bottom addons', () => {
         screenshotTesting({
             cases: [
                 ...generateTestCases({
+                    testStory: false,
                     componentName: 'UniversalModal',
                     subComponentName: 'SidePanel',
-                    testStory: false,
                     knobs: {
                         open: true,
-                        'footer.sticky': true,
                         bigTitle: false,
-                        'header.title': ['Title'],
+                        'header.title': 'Title',
                         'header.bottomAddons': ['bottomAddons'],
                     },
                 }),
                 ...generateTestCases({
+                    testStory: false,
                     componentName: 'UniversalModal',
                     subComponentName: 'SidePanel',
-                    testStory: false,
                     knobs: {
                         open: true,
-                        'footer.sticky': true,
                         bigTitle: true,
-                        'header.title': ['Title'],
+                        'header.title': 'Title',
                         'header.bottomAddons': ['bottomAddons'],
                     },
                 }),
