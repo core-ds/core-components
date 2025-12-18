@@ -74,6 +74,7 @@ export const modal: Story = {
         const bigTitle = boolean('bigTitle', false);
         const margin = object('margin', {});
         const open = boolean('open', false);
+        const trim = boolean('trim', true);
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -96,6 +97,7 @@ export const modal: Story = {
                             title={headerTitle}
                             align={headerAlign}
                             bigTitle={bigTitle}
+                            trim={trim}
                         />
                     )}
                     <UniversalModalDesktop.Content>
@@ -141,6 +143,7 @@ export const side_panel: Story = {
         const bigTitle = boolean('bigTitle', false);
         const margin = object('margin', {});
         const open = boolean('open', false);
+        const trim = boolean('trim', true);
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -163,6 +166,7 @@ export const side_panel: Story = {
                             title={headerTitle}
                             align={headerAlign}
                             bigTitle={bigTitle}
+                            trim={trim}
                         />
                     )}
                     <UniversalModalDesktop.Content>
@@ -204,6 +208,7 @@ export const mobile: Story = {
         const appearance = select('appearance', ['bottom', 'right'], 'bottom');
         const hasCloser = boolean('header.hasCloser', false);
         const hasBackButton = boolean('header.hasBackButton', false);
+        const trim = boolean('trim', true);
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -222,6 +227,7 @@ export const mobile: Story = {
                             align={headerAlign}
                             hasCloser={hasCloser}
                             hasBackButton={hasBackButton}
+                            trim={trim}
                         />
                     )}
                     <UniversalModalMobile.Content>

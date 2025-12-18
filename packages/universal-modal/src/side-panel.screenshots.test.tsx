@@ -1,6 +1,7 @@
 import {
     setupScreenshotTesting,
     generateTestCases,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -161,3 +162,49 @@ describe(
         },
     }),
 );
+
+describe('SidePanel | trim title', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        'footer.sticky': true,
+                        bigTitle: false,
+                        trim: [false, true],
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                    },
+                }),
+                ...generateTestCases({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        'footer.sticky': true,
+                        bigTitle: true,
+                        trim: [false, true],
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
