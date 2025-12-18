@@ -6,10 +6,6 @@
     font-family: var(--universal-modal-header-desktop-font-family);
 }
 
-.sticky {
-    top: var(--gap-0);
-}
-
 .bottomAddons,
 .headerTitle {
     @mixin headline-system_small;
