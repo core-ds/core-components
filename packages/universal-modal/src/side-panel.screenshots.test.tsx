@@ -237,6 +237,7 @@ describe('SidePanel | sticky header', () => {
                 await page.waitForTimeout(500);
             },
             matchImageSnapshotOptions: {
+                failureThreshold: 0,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },

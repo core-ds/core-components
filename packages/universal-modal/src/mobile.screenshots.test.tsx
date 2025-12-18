@@ -124,39 +124,6 @@ describe(
     }),
 );
 
-describe(
-    'Mobile | sticky header',
-    screenshotTesting({
-        cases: [
-            ...generateTestCases({
-                componentName: 'UniversalModal',
-                subComponentName: 'Mobile',
-                testStory: false,
-                knobs: {
-                    open: true,
-                    showMore: true,
-                    'header.title': 'Заголовок',
-                    'header.sticky': [false, true],
-                },
-            }),
-        ],
-        viewport: {
-            width: 320,
-            height: 600,
-        },
-        screenshotOpts: {
-            fullPage: true,
-        },
-        evaluate: async (page) => {
-            await page.waitForTimeout(500);
-            await page.$eval('button[class*=showMoreButton]', (el) => {
-                el.scrollIntoView();
-            });
-            await page.waitForTimeout(500);
-        },
-    }),
-);
-
 describe('Mobile | trim title', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -180,6 +147,47 @@ describe('Mobile | trim title', () => {
             },
             theme,
             matchImageSnapshotOptions: {
+                failureThreshold: 0,
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Mobile | sticky header', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                        'header.title': 'Заголовок',
+                        'header.sticky': [false, true],
+                    },
+                }),
+            ],
+            viewport: {
+                width: 320,
+                height: 600,
+            },
+            screenshotOpts: {
+                fullPage: true,
+            },
+            evaluate: async (page) => {
+                await page.waitForTimeout(500);
+                await page.$eval('button[class*=showMoreButton]', (el) => {
+                    el.scrollIntoView();
+                });
+                await page.waitForTimeout(500);
+            },
+            matchImageSnapshotOptions: {
+                failureThreshold: 0,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
