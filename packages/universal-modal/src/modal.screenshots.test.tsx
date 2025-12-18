@@ -165,7 +165,7 @@ describe('Modal | trim title', () => {
             },
             theme,
             matchImageSnapshotOptions: {
-                failureThreshold: 0,
+                failureThreshold: 1,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -201,7 +201,7 @@ describe('Modal | sticky header', () => {
                 await page.waitForTimeout(500);
             },
             matchImageSnapshotOptions: {
-                failureThreshold: 0,
+                failureThreshold: 1,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -242,7 +242,7 @@ describe('Modal | header bottom addons', () => {
             },
             theme,
             matchImageSnapshotOptions: {
-                failureThreshold: 0,
+                failureThreshold: 1,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },

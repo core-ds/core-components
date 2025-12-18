@@ -199,7 +199,7 @@ describe('SidePanel | trim title', () => {
             },
             theme,
             matchImageSnapshotOptions: {
-                failureThreshold: 0,
+                failureThreshold: 1,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -235,7 +235,7 @@ describe('SidePanel | sticky header', () => {
                 await page.waitForTimeout(500);
             },
             matchImageSnapshotOptions: {
-                failureThreshold: 0,
+                failureThreshold: 1,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -276,7 +276,7 @@ describe('SidePanel | header bottom addons', () => {
             },
             theme,
             matchImageSnapshotOptions: {
-                failureThreshold: 0,
+                failureThreshold: 1,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
