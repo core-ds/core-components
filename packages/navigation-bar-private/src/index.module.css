@@ -65,7 +65,9 @@
 }
 
 .title {
-    word-break: break-word;
+    & .titleTextContent {
+        word-break: break-word;
+    }
 }
 
 .subtitle {
@@ -113,7 +115,7 @@
 .trim {
     overflow: hidden;
 
-    & .title,
+    & .title .titleTextContent,
     & .children {
         @mixin row_limit 2;
     }

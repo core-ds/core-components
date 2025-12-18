@@ -93,7 +93,8 @@ export type NavigationBarPrivateProps = {
     align?: 'left' | 'center';
 
     /**
-     * Обрезать ли заголовок
+     * Обрезать заголовок
+     * @deafult true
      */
     trim?: boolean;
 

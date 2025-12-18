@@ -176,7 +176,7 @@ export const NavigationBarPrivate = forwardRef<HTMLDivElement, NavigationBarPriv
                             data-test-id={hidden ? undefined : getDataTestId(dataTestId, 'title')}
                             ref={titleRef}
                         >
-                            {title}
+                            <div className={styles.titleTextContent}>{title}</div>
                         </div>
                     )}
                     {compactTitle && subtitle && (

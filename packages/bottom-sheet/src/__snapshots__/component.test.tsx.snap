@@ -62,7 +62,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                         <div
                           class="title title"
                         >
-                          Bottom sheet title
+                          <div
+                            class="titleTextContent"
+                          >
+                            Bottom sheet title
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -151,7 +155,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                         <div
                           class="title title"
                         >
-                          Bottom sheet title
+                          <div
+                            class="titleTextContent"
+                          >
+                            Bottom sheet title
+                          </div>
                         </div>
                       </div>
                     </div>
