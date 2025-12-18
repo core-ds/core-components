@@ -64,10 +64,11 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
             dataName='modalHeaderDesktop'
             sticky={sticky}
             title={title}
-            className={cn(styles.header, className, {
+            className={cn(styles.header, desktopStyles.header, className, {
                 [styles.highlighted]: sticky && modalHeaderHighlighted && hasContent,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
+                [desktopStyles.medium]: bigTitle,
             })}
             contentClassName={cn(desktopStyles.content, contentClassName)}
             bottomAddonsClassName={cn(desktopStyles.bottomAddons, bottomAddonsClassName, {

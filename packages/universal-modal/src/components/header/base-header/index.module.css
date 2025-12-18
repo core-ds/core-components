@@ -7,20 +7,19 @@
     transition:
         box-shadow 0.2s ease,
         background 0.2s ease;
-    padding: var(--gap-20) var(--gap-20) 0;
-}
 
-.highlighted {
-    background: var(--universal-modal-header-highlight-background);
-    box-shadow: var(--universal-modal-header-highlight-box-shadow);
-}
+    &.highlighted {
+        background: var(--universal-modal-header-highlight-background);
+        box-shadow: var(--universal-modal-header-highlight-box-shadow);
+    }
 
-.sticky {
-    position: sticky;
-    top: var(--gap-0);
-    z-index: 1;
+    &.sticky {
+        position: sticky;
+        top: var(--gap-0);
+        z-index: 1;
 
-    &.hasContent {
-        background: var(--universal-modal-header-background);
+        &.hasContent {
+            background: var(--universal-modal-header-background);
+        }
     }
 }
