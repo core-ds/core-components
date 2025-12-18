@@ -245,3 +245,46 @@ describe('SidePanel | sticky header', () => {
 
     ['default'].forEach((theme) => testCase(theme));
 });
+
+describe('SidePanel | header bottom addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        'footer.sticky': true,
+                        bigTitle: false,
+                        'header.title': ['Title'],
+                        'header.bottomAddons': ['bottomAddons'],
+                    },
+                }),
+                ...generateTestCases({
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        'footer.sticky': true,
+                        bigTitle: true,
+                        'header.title': ['Title'],
+                        'header.bottomAddons': ['bottomAddons'],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                failureThreshold: 0,
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});

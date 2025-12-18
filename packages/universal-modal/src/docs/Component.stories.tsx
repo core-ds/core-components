@@ -75,6 +75,7 @@ export const modal: Story = {
         const margin = object('margin', {});
         const open = boolean('open', false);
         const trim = boolean('trim', true);
+        const bottomAddons = text('header.bottomAddons', '');
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -98,6 +99,7 @@ export const modal: Story = {
                             align={headerAlign}
                             bigTitle={bigTitle}
                             trim={trim}
+                            bottomAddons={bottomAddons}
                         />
                     )}
                     <UniversalModalDesktop.Content>
@@ -144,6 +146,7 @@ export const side_panel: Story = {
         const margin = object('margin', {});
         const open = boolean('open', false);
         const trim = boolean('trim', true);
+        const bottomAddons = text('header.bottomAddons', '');
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -167,6 +170,7 @@ export const side_panel: Story = {
                             align={headerAlign}
                             bigTitle={bigTitle}
                             trim={trim}
+                            bottomAddons={bottomAddons}
                         />
                     )}
                     <UniversalModalDesktop.Content>
