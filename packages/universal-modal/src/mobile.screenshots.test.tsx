@@ -129,12 +129,11 @@ describe('Mobile | trim title', () => {
         screenshotTesting({
             cases: [
                 ...generateTestCases({
+                    testStory: false,
                     componentName: 'UniversalModal',
                     subComponentName: 'Mobile',
-                    testStory: false,
                     knobs: {
                         open: true,
-                        'footer.sticky': true,
                         trim: [false, true],
                         'header.title': [
                             'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
@@ -142,6 +141,10 @@ describe('Mobile | trim title', () => {
                     },
                 }),
             ],
+            viewport: {
+                width: 320,
+                height: 600,
+            },
             screenshotOpts: {
                 fullPage: true,
             },
@@ -161,9 +164,9 @@ describe('Mobile | sticky header', () => {
         screenshotTesting({
             cases: [
                 ...generateTestCases({
+                    testStory: false,
                     componentName: 'UniversalModal',
                     subComponentName: 'Mobile',
-                    testStory: false,
                     knobs: {
                         open: true,
                         showMore: true,
@@ -186,6 +189,39 @@ describe('Mobile | sticky header', () => {
                 });
                 await page.waitForTimeout(500);
             },
+            matchImageSnapshotOptions: {
+                failureThreshold: 0,
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Mobile | header bottom addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        'header.title': 'Title',
+                        'header.bottomAddons': ['BottomAddons'],
+                    },
+                }),
+            ],
+            viewport: {
+                width: 320,
+                height: 600,
+            },
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
             matchImageSnapshotOptions: {
                 failureThreshold: 0,
                 customSnapshotIdentifier: (...args) =>

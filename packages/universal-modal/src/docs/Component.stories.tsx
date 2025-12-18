@@ -213,6 +213,7 @@ export const mobile: Story = {
         const hasCloser = boolean('header.hasCloser', false);
         const hasBackButton = boolean('header.hasBackButton', false);
         const trim = boolean('trim', true);
+        const bottomAddons = text('header.bottomAddons', '');
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
@@ -232,6 +233,7 @@ export const mobile: Story = {
                             hasCloser={hasCloser}
                             hasBackButton={hasBackButton}
                             trim={trim}
+                            bottomAddons={bottomAddons}
                         />
                     )}
                     <UniversalModalMobile.Content>
