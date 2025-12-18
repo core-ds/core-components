@@ -71,13 +71,9 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
                 [desktopStyles.medium]: bigTitle,
             })}
             contentClassName={cn(desktopStyles.content, contentClassName)}
-            bottomAddonsClassName={cn(desktopStyles.bottomAddons, bottomAddonsClassName, {
-                [desktopStyles.medium]: bigTitle,
-            })}
+            bottomAddonsClassName={cn(desktopStyles.bottomAddons, bottomAddonsClassName)}
             scrollableParentRef={componentRef}
-            titleClassName={cn(desktopStyles.headerTitle, titleClassName, {
-                [desktopStyles.medium]: bigTitle,
-            })}
+            titleClassName={cn(desktopStyles.headerTitle, titleClassName)}
             titleRef={titleRef}
             onClose={handleClose}
         >
