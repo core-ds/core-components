@@ -31,7 +31,7 @@ jobs:
             dir: ${{ github.event.pull_request.number }}
 
     variant:
-        uses: core-ds/core-components/.github/workflows/variant.yml@master
+        uses: core-ds/core-components/.github/workflows/variant.yml@feat/simple-alfasans
         secrets: inherit
 
     remove-demo:
