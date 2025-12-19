@@ -22,4 +22,4 @@
 ##### Modal
 
 - Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `500, 600, 800, 1140` соответственно)
-- Удален пропс `fullscreen`, который был отмечен как `deprecated` в core-components@25.x.x. Вместо него передавайте `fullscreen` в пропс `size`
+- Удален пропс `fullscreen`, который был отмечен как `deprecated` в `core-components@25.x.x`. Вместо него передавайте `fullscreen` в пропс `size`

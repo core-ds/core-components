@@ -6,4 +6,4 @@
 
 ##### Tooltip
 
-Удалён пропс `hasCloser`, который был отмечен как deprecated в `core-components@27.x.x`. Используйте вместо него `bottomSheetProps.hasCloser`
+- Удалён пропс `hasCloser`, который был отмечен как `deprecated` в `core-components@27.x.x`. Используйте вместо него `bottomSheetProps.hasCloser`
