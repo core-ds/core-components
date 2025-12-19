@@ -38,4 +38,4 @@
 '@alfalab/core-components-tabs': patch
 ---
 
-Обновление @alfalab/icons-* библиотек
+- Обновление `@alfalab/icons-*` библиотек

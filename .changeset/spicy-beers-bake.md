@@ -9,4 +9,4 @@
 '@alfalab/core-components': major
 ---
 
-Обновлен `date-fns` до `4` версии
+- Обновлен `date-fns` до `4` версии

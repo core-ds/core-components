@@ -41,6 +41,8 @@
 '@alfalab/core-components-universal-modal': major
 ---
 
+##### Typography
+
 - Исправление атомарного экспорта Text => TypographyText
 - Исправление атомарного экспорта Title => TypographyTitle
 - Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive

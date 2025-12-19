@@ -41,4 +41,6 @@
 '@alfalab/core-components-universal-modal': major
 ---
 
-Удален тип пропса `view` - `component`. Используйте `component-primary`
+##### Typography
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`

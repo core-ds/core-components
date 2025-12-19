@@ -14,4 +14,6 @@
 '@alfalab/core-components-tooltip': major
 ---
 
-Удален пропс `ignoreScreenChange`, который был объявлен как `deprecated` в core-components@29.x.x
+##### BottomSheet
+
+- Удален пропс `ignoreScreenChange`, который был объявлен как `deprecated` в `core-components@29.x.x`
