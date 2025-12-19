@@ -35,4 +35,6 @@
 '@alfalab/core-components': major
 ---
 
+##### PortalContext
+
 Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))

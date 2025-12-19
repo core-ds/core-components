@@ -29,4 +29,6 @@
 '@alfalab/core-components-with-suffix': major
 ---
 
-Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в core-components@44.x.x
+##### FromControl
+
+Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `48, 56, 64, 72` соответственно)

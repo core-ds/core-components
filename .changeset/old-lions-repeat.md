@@ -7,4 +7,6 @@
 '@alfalab/core-components-tab-bar': major
 ---
 
-Удалены буквенные размеры компонента, которые были отмечены как deprecated в core-components@44.x.x
+##### Indicator
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в` core-components@44.x.x` (замените `xs, s, m, l` на `8, 16, 20, 24, 32, 40` соответственно)

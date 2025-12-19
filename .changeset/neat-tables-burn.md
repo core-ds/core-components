@@ -92,4 +92,6 @@
 '@alfalab/core-components-with-suffix': major
 ---
 
+##### Shared
+
 Импорты browser и os утилит заменены с компаунд на атомарные

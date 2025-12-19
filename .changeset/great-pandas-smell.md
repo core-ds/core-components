@@ -121,4 +121,4 @@
 '@alfalab/core-components-mq': patch
 ---
 
-Добавлена поддержка `React@19.0.0`
+- Добавлена поддержка `React@19.0.0`

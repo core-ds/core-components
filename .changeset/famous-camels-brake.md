@@ -27,4 +27,6 @@
 '@alfalab/core-components-universal-modal': major
 ---
 
-Удалён matches полифил для поддержки работы focusLock в ie 11
+##### BaseModal
+
+- Удалён matches полифил для поддержки работы focusLock в ie 11
