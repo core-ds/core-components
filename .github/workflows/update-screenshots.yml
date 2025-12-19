@@ -10,6 +10,7 @@ on:
                 default: default
                 options:
                     - default
+                    - alfasans
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}-${{ inputs.variant }}
