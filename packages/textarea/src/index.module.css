@@ -264,3 +264,24 @@
 .resizable-40.resizable-40 {
     padding-right: 0;
 }
+
+.rightAddonsClassName {
+    align-self: flex-start;
+
+    &.size-40,
+    &.size-48 {
+        padding-top: var(--gap-12);
+    }
+
+    &.size-56 {
+        padding-top: var(--gap-16);
+    }
+
+    &.size-64 {
+        padding-top: var(--gap-20);
+    }
+
+    &.size-72 {
+        padding-top: var(--gap-24);
+    }
+}
