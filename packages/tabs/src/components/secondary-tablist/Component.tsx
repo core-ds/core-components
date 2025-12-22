@@ -5,7 +5,6 @@ import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import { useTabs } from '../../hooks/use-tabs';
 import { type PlatformProps, type SecondaryTabListProps, type Styles } from '../../typings';
-import { ScrollableContainer } from '../scrollable-container';
 
 function getBorderRadius(
     shape?: SecondaryTabListProps['tagShape'],
@@ -41,11 +40,13 @@ export const SecondaryTabList = ({
     inlineStyle,
     showSkeleton,
     skeletonProps,
+    ScrollableContainer,
 }: SecondaryTabListProps & Styles & PlatformProps) => {
     const { focusedTab, selectedTab, getTabListItemProps } = useTabs({
         titles,
         selectedId,
         onChange,
+        ScrollableContainer,
     });
 
     const renderContent = () => {
@@ -109,7 +110,6 @@ export const SecondaryTabList = ({
             fullWidthScroll={fullWidthScroll}
             view='secondary'
             size={size}
-            platform={platform}
             inlineStyle={inlineStyle}
             showSkeleton={showSkeleton}
         >

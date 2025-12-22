@@ -1,9 +1,11 @@
-import React, { type ReactNode, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { compute } from 'compute-scroll-into-view';
 
-import { type PlatformProps, type TabsProps } from '../../typings';
+import { type TabsProps } from '../../typings';
 import { ScrollControls } from '../scroll-controls';
+
+import { type ScrollableContainerProps } from './Component.responsive';
 
 import styles from './index.module.css';
 
@@ -11,53 +13,6 @@ import styles from './index.module.css';
  * Дополнительная прокрутка при клике на не поместившийся таб
  */
 const ADDITIONAL_SCROLL_LEFT_VALUE = 50;
-
-export type ScrollableContainerProps = {
-    /**
-     * Дополнительный класс враппера контейнера
-     */
-    containerWrapperClassName?: string;
-
-    /**
-     * Дополнительный класс контейнера
-     */
-    containerClassName?: string;
-
-    /**
-     * Дополнительный класс кнопок прокрутки
-     */
-    scrollControlsClassName?: string;
-
-    /**
-     * Дочерние компоненты
-     */
-    children: ReactNode;
-
-    /**
-     * Активный элемент (всегда будет в видимой области)
-     */
-    activeChild: HTMLElement | null;
-
-    /**
-     * Внешний вид заголовков табов
-     */
-    view: Exclude<TabsProps['view'], undefined>;
-
-    /**
-     *  Размер
-     */
-    size: TabsProps['size'];
-
-    /**
-     * Дополнительные инлайн стили для заголовка
-     */
-    inlineStyle?: React.CSSProperties;
-
-    /**
-     * Показать скелетон
-     */
-    showSkeleton?: boolean;
-};
 
 const isOverflown = (
     { clientWidth, scrollWidth }: HTMLDivElement,
@@ -68,7 +23,7 @@ const isOverflown = (
     return scrollWidth > clientWidth + controlsWidth;
 };
 
-export const ScrollableContainer = ({
+export const ScrollableContainerDesktop = ({
     containerWrapperClassName,
     containerClassName,
     scrollControlsClassName,
@@ -77,10 +32,9 @@ export const ScrollableContainer = ({
     fullWidthScroll,
     view,
     size,
-    platform,
     inlineStyle,
     showSkeleton,
-}: ScrollableContainerProps & Pick<TabsProps, 'fullWidthScroll'> & PlatformProps) => {
+}: ScrollableContainerProps & Pick<TabsProps, 'fullWidthScroll'>) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const controlsRef = useRef<HTMLDivElement>(null);
     const [overflown, setOverflown] = useState(false);
@@ -109,7 +63,7 @@ export const ScrollableContainer = ({
         const scrollableNode = containerRef.current;
         const tabsContainer = scrollableNode?.firstElementChild;
 
-        if (platform === 'desktop' && scrollableNode && tabsContainer && window.ResizeObserver) {
+        if (scrollableNode && tabsContainer && window.ResizeObserver) {
             const observerCb = () => {
                 if (isOverflown(scrollableNode, controlsRef.current)) {
                     setOverflown(true);
@@ -127,7 +81,7 @@ export const ScrollableContainer = ({
         }
 
         return () => {};
-    }, [platform]);
+    }, []);
 
     return (
         <div
@@ -142,7 +96,7 @@ export const ScrollableContainer = ({
             >
                 {children}
             </div>
-            {overflown && platform === 'desktop' ? (
+            {overflown ? (
                 <ScrollControls
                     className={scrollControlsClassName}
                     ref={controlsRef}
