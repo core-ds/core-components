@@ -104,7 +104,11 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
           class="title"
           data-test-id="navigation-bar-dti-title"
         >
-          some title
+          <div
+            class="titleTextContent"
+          >
+            some title
+          </div>
         </div>
       </div>
     </div>

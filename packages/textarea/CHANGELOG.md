@@ -1,5 +1,17 @@
 # @alfalab/core-components-textarea
 
+## 9.0.3
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1980](https://github.com/core-ds/core-components/pull/1980)
+
+##### Textarea
+
+- Исправлено позиционирование контейнера для элементов передаваемых в `rightAddons`
+
 ## 9.0.2
 
 ### Patch Changes

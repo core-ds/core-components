@@ -110,7 +110,11 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
           <div
             class="title"
           >
-            Title
+            <div
+              class="titleTextContent"
+            >
+              Title
+            </div>
           </div>
         </div>
       </div>
@@ -244,7 +248,11 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
           <div
             class="title"
           >
-            Title
+            <div
+              class="titleTextContent"
+            >
+              Title
+            </div>
           </div>
         </div>
       </div>
