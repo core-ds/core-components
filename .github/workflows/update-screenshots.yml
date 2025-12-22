@@ -65,7 +65,7 @@ jobs:
                   script: |
                       const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);
 
-                      return stdout.split('\n').some(line => /^\s+M\s+.*\.png$/.test(line));
+                      return stdout.trim().length > 0;
 
             - name: update branch
               if: ${{ steps.git-status.outputs.result == 'true' }}
