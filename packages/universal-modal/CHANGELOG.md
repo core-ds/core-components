@@ -1,5 +1,29 @@
 # @alfalab/core-components-universal-modal
 
+## 2.0.8
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### UniversalModal
+
+- Удален неиспользуемый код стилей хэдера
+- Небольшие исправления и улучшения кодовой базы хэдера
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### NavigationBarPrivate
+
+- Исправлен trim хэдера, когда часть текста продолжала отображаться под обрезаемой строкой
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.3
+
 ## 2.0.7
 
 ### Patch Changes

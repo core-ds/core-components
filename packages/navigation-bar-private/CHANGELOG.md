@@ -1,5 +1,17 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 1.1.3
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### NavigationBarPrivate
+
+- Исправлен trim хэдера, когда часть текста продолжала отображаться под обрезаемой строкой
+
 ## 1.1.2
 
 ### Patch Changes
