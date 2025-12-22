@@ -1,5 +1,79 @@
 # @alfalab/core-components
 
+## 49.11.1
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1980](https://github.com/core-ds/core-components/pull/1980)
+
+##### Textarea
+
+- Исправлено позиционирование контейнера для элементов передаваемых в `rightAddons`
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### UniversalModal
+
+- Удален неиспользуемый код стилей хэдера
+- Небольшие исправления и улучшения кодовой базы хэдера
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1967](https://github.com/core-ds/core-components/pull/1967)
+
+##### Tooltip
+
+- Исправлена специфичность Tooltip
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### NavigationBarPrivate
+
+- Исправлен trim хэдера, когда часть текста продолжала отображаться под обрезаемой строкой
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1970](https://github.com/core-ds/core-components/pull/1970)
+
+##### SteppedProgressBar
+
+- Вернули публичный экспорт `SteppedProgressBarView`, чтобы не приходилось вычислять типы через массивы.
+- Исправили тип `view`: теперь он поддерживает одиночное значение и массив цветов без `Array<Array<...>>`.
+
+- Обновлены зависимости
+    - @alfalab/core-components-textarea@9.0.3
+    - @alfalab/core-components-universal-modal@2.0.8
+    - @alfalab/core-components-tooltip@8.0.8
+    - @alfalab/core-components-navigation-bar-private@1.1.3
+    - @alfalab/core-components-bottom-sheet@7.3.1
+    - @alfalab/core-components-side-panel@6.0.6
+    - @alfalab/core-components-modal@10.0.6
+    - @alfalab/core-components-stepped-progress-bar@3.1.1
+    - @alfalab/core-components-gallery@6.0.9
+    - @alfalab/core-components-popup-sheet@2.0.8
+    - @alfalab/core-components-select@18.2.5
+    - @alfalab/core-components-select-with-tags@9.0.8
+    - @alfalab/core-components-calendar@8.0.6
+    - @alfalab/core-components-custom-picker-button@3.0.8
+    - @alfalab/core-components-input-autocomplete@13.0.8
+    - @alfalab/core-components-international-phone-input@3.2.5
+    - @alfalab/core-components-intl-phone-input@10.0.8
+    - @alfalab/core-components-picker-button@12.0.8
+    - @alfalab/core-components-table@3.0.8
+    - @alfalab/core-components-calendar-input@11.0.7
+    - @alfalab/core-components-calendar-range@8.0.7
+    - @alfalab/core-components-calendar-with-skeleton@6.0.6
+    - @alfalab/core-components-date-range-input@4.0.7
+    - @alfalab/core-components-date-time-input@5.0.7
+    - @alfalab/core-components-universal-date-input@3.0.7
+    - @alfalab/core-components-tabs@9.2.5
+
 ## 49.11.0
 
 ### Minor Changes

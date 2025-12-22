@@ -1,5 +1,12 @@
 # @alfalab/core-components-calendar-with-skeleton
 
+## 6.0.6
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.6
+
 ## 6.0.5
 
 ### Patch Changes
