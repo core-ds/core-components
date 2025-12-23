@@ -590,6 +590,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         size && styles[SIZE_TO_CLASSNAME_MAP[size]],
                     )}
                     ref={mergeRefs([searchRef, searchProps?.componentProps?.ref || null])}
+                    client={view}
                 />
             );
         };
