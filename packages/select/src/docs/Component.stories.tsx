@@ -7,6 +7,7 @@ import { Select as SelectResponsive } from '@alfalab/core-components-select';
 import { SelectMobile, SelectModalMobile } from '@alfalab/core-components-select/mobile';
 import { Arrow as ArrowComponent } from '@alfalab/core-components-select/components/arrow';
 import { BaseOption } from '../components';
+import { useSelectWithApply } from '../presets';
 
 const options = [
     { key: '1', content: 'Neptunium' },
@@ -265,6 +266,58 @@ export const select_modal_mobile: Story = {
                     clear={clear}
                 />
             </div>
+        );
+    },
+};
+
+export const option_list_desktop: Story = {
+    name: 'OptionListDesktop',
+    render: () => {
+        const [selected, setSelected] = React.useState([]);
+
+        return (
+            <SelectDesktop
+                allowUnselect={true}
+                size={56}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
+                Option={BaseOption}
+                defaultOpen={true}
+                {...useSelectWithApply({
+                    showSearch: true,
+                    options: options,
+                    selected: selected,
+                    onChange: ({ selectedMultiple }) => {
+                        setSelected(selectedMultiple.map((option) => option.key));
+                    },
+                })}
+            />
+        );
+    },
+};
+
+export const option_list_mobile: Story = {
+    name: 'OptionListMobile',
+    render: () => {
+        const [selected, setSelected] = React.useState([]);
+
+        return (
+            <SelectMobile
+                allowUnselect={true}
+                size={56}
+                placeholder='Выберите элементы'
+                label='Множественный выбор'
+                Option={BaseOption}
+                defaultOpen={true}
+                {...useSelectWithApply({
+                    showSearch: true,
+                    options: options,
+                    selected: selected,
+                    onChange: ({ selectedMultiple }) => {
+                        setSelected(selectedMultiple.map((option) => option.key));
+                    },
+                })}
+            />
         );
     },
 };
