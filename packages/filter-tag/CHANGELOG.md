@@ -1,5 +1,43 @@
 # @alfalab/core-components-filter-tag
 
+## 7.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1854](https://github.com/core-ds/core-components/pull/1854)
+
+##### FilterTag
+
+- Удален пропс `variant`, который был объявлен как `deprecated` в `core-components@38.x.x`
+- Удалены буквенные варианты пропса `size`, которые были объявлены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s` на `32, 40, 48` соответственно)
+
+### Patch Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Обновление `@alfalab/icons-*` библиотек
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-mq@6.0.0-next.0
+
 ## 6.0.2
 
 ### Patch Changes

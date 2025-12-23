@@ -1,5 +1,34 @@
 # @alfalab/core-components-page-indicator
 
+## 3.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+### Patch Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+- Обновление типов `types/react-transition-group`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 2.0.2
 
 ### Patch Changes

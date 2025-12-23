@@ -1,5 +1,66 @@
 # @alfalab/core-components-slider-input
 
+## 11.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1685](https://github.com/core-ds/core-components/pull/1685)
+
+##### FromControl
+
+Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `48, 56, 64, 72` соответственно)
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1855](https://github.com/core-ds/core-components/pull/1855)
+
+##### SliderInput
+
+- Удален пропс `lockLimit`, который был добавлен в `core-components@48.0`<br/>
+  Данный пропс использовался для установки значений в пределах указанных min/max границ при `blur` событии.
+  Было обнаружено, что значения в компоненте могут вести себя непредсказуемо если одновременно использовать onBlur, lockLimit, а также при мутации передаваемого value.<br/>
+  Чтобы реализовать установку значения по границам - используйте обработчик `onBlur`.
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1694](https://github.com/core-ds/core-components/pull/1694)
+
+##### Slider
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `2, 4` соответственно)
+
+### Patch Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@17.0.0-next.0
+    - @alfalab/core-components-slider@6.0.0-next.0
+
 ## 10.1.1
 
 ### Patch Changes

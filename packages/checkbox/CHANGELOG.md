@@ -1,5 +1,37 @@
 # @alfalab/core-components-checkbox
 
+## 6.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1645](https://github.com/core-ds/core-components/pull/1645)
+
+##### Checkbox
+
+- Удален пропс `inactive`, который был помечен как `deprecated` в `core-components@43.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `20 и 24` соответственно)
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+### Patch Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 5.0.2
 
 ### Patch Changes
