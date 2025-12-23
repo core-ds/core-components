@@ -6,16 +6,37 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+defaults:
+    run:
+        shell: bash
+
 jobs:
+    variant:
+        uses: ./.github/workflows/variant.yml
+
     snapshot-release:
         name: snapshot release
         if: ${{ github.repository == 'core-ds/core-components' }}
+        needs: [variant]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
         runs-on: ubuntu-latest
         outputs:
             published: ${{ steps.snapshot-release.outputs.published }}
             published-packages: ${{ steps.snapshot-release.outputs.published-packages }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         steps:
             - uses: actions/checkout@v5
+
+            - name: apply patch
+              run: |
+                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+
+                  if [ -f "$PATCH_SOURCE" ]; then
+                      git apply "$PATCH_SOURCE"
+                  fi
 
             - uses: ./.github/actions/ci-setup
 
@@ -64,5 +85,10 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   issue-number: ${{ needs.pull-request.outputs.number }}
-                  body: ${{ steps.prepare-comment.outputs.result }}
+                  body: |
+                      ## Snapshot release (${{ matrix.variant }})
+
+                      Successfully released the following packages:
+
+                      ${{ steps.prepare-comment.outputs.result }}
                   reactions: rocket

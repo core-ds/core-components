@@ -1,63 +1,42 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../margins.module.css';
-@import '../common.module.css';
 
-.styrene-xlarge {
-    @mixin headline_xlarge;
+@each $view in xlarge, large, medium, small, xsmall {
+    .$(view) {
+        @mixin headline-system_$(view);
+
+        &.font {
+            @subtract-mixin headline_$(view), headline-system_$(view);
+        }
+    }
+
+    .regular-$(view) {
+        @mixin promo-system_$(view);
+
+        &.font {
+            @subtract-mixin promo_$(view), promo-system_$(view);
+        }
+    }
 }
 
-.styrene-large {
-    @mixin headline_large;
-}
+.component {
+    &.margins-xlarge {
+        @mixin margin-large;
+    }
 
-.styrene-medium {
-    @mixin headline_medium;
-}
+    &.margins-large {
+        @mixin margin-medium;
+    }
 
-.styrene-small {
-    @mixin headline_small;
-}
+    &.margins-medium {
+        @mixin margin-medium;
+    }
 
-.styrene-xsmall {
-    @mixin headline_xsmall;
-}
+    &.margins-small {
+        @mixin margin-small;
+    }
 
-.system-xlarge {
-    @mixin headline-system_xlarge;
-}
-
-.system-large {
-    @mixin headline-system_large;
-}
-
-.system-medium {
-    @mixin headline-system_medium;
-}
-
-.system-small {
-    @mixin headline-system_small;
-}
-
-.system-xsmall {
-    @mixin headline-system_xsmall;
-}
-
-.margins-xlarge {
-    @mixin margin-large;
-}
-
-.margins-large {
-    @mixin margin-medium;
-}
-
-.margins-medium {
-    @mixin margin-medium;
-}
-
-.margins-small {
-    @mixin margin-small;
-}
-
-.margins-xsmall {
-    @mixin margin-small;
+    &.margins-xsmall {
+        @mixin margin-small;
+    }
 }

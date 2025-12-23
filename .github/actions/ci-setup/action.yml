@@ -15,8 +15,8 @@ runs:
               NODE_VERSION='${{ inputs.node-version }}'
 
               if [ "$NODE_VERSION" = "" ]; then
-                  if [ -f $NODE_VERSION_FILE ]; then
-                      NODE_VERSION="$(cat $NODE_VERSION_FILE)"
+                  if [ -f "$NODE_VERSION_FILE" ]; then
+                      NODE_VERSION="$(cat "$NODE_VERSION_FILE")"
                   else
                       NODE_VERSION=22
                   fi

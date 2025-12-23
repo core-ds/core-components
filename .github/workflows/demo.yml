@@ -7,6 +7,14 @@ on:
                 description: Version of @alfalab/core-components package, tag or SHA
                 required: false
                 type: string
+            variant:
+                description: Variant of core components
+                required: false
+                type: choice
+                default: default
+                options:
+                    - default
+                    - alfasans
 
 concurrency:
     group: ${{ github.workflow }}-${{ inputs.version || github.ref }}
@@ -25,6 +33,8 @@ jobs:
         secrets: inherit
         with:
             ref: ${{ needs.params.outputs.ref }}
+            variant: ${{ inputs.variant }}
+            artifact-name: ${{ inputs.variant }}
 
     deploy:
         needs: [build-demo, params]
@@ -32,4 +42,6 @@ jobs:
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: ${{ needs.params.outputs.dir }}
+            dir: '${{ needs.params.outputs.dir }}-${{ inputs.variant }}'
+            variant: ${{ inputs.variant }}
+            artifact-name: ${{ inputs.variant }}

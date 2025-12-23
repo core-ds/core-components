@@ -10,6 +10,7 @@ import { type Color } from '../colors';
 import { getDefaultWeight } from './utils';
 
 import colors from '../colors.module.css';
+import commonStyles from './common.module.css';
 
 type NativeProps = HTMLAttributes<HTMLHeadingElement>;
 
@@ -36,6 +37,8 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
 
     /**
      * Шрифт текста
+     *
+     * @deprecated
      */
     font?: 'styrene' | 'system' | 'alfasans' | { font: 'alfasans'; systemCompat: boolean };
 
@@ -94,9 +97,9 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
         {
             tag: Component = 'div',
             view = 'medium',
-            font: fontProp = 'styrene',
+            font = 'styrene',
             platform,
-            weight = getDefaultWeight(isObject(fontProp) ? fontProp.font : fontProp, platform),
+            weight = getDefaultWeight(isObject(font) ? font.font : font, platform),
             defaultMargins = false,
             color,
             className,
@@ -121,29 +124,20 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
             return skeleton;
         }
 
-        let font: string;
-        let systemCompat: boolean | undefined;
-
-        if (isObject(fontProp)) {
-            font = fontProp.font;
-            systemCompat = fontProp.systemCompat;
-        } else {
-            font = fontProp;
-        }
-
         return (
             <Component
                 className={cn(
+                    commonStyles.component,
                     styles.component,
                     className,
-                    styles[`${font}-${view}`],
+                    styles[`${weight === 'regular' ? 'regular-' : ''}${view}`],
                     defaultMargins && styles[`margins-${view}`],
-                    styles[weight],
                     color && colors[color],
                     {
-                        [styles[`rowLimit${rowLimit}`]]: rowLimit,
-                        [styles.transparent]: showSkeleton,
-                        [styles.systemCompat]: systemCompat,
+                        [commonStyles[`rowLimit${rowLimit}`]]: rowLimit,
+                        [commonStyles.transparent]: showSkeleton,
+                        [styles.font]:
+                            (isObject(font) && !font.systemCompat) || !(font === 'system'),
                     },
                 )}
                 data-test-id={dataTestId}

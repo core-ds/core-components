@@ -11,6 +11,20 @@ on:
                 description: Deploy directory
                 required: true
                 type: string
+            variant:
+                description: Variant of core components
+                required: false
+                type: string
+                default: default
+            artifact-name:
+                description: Artifact name
+                required: false
+                type: string
+                default: build
+
+defaults:
+    run:
+        shell: bash
 
 jobs:
     deploy:
@@ -26,23 +40,21 @@ jobs:
                   token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: clean up
-              shell: bash
               run: |
-                  rm -rf ${{ inputs.dir }}
+                  rm -rf '${{ inputs.dir }}'
 
             - name: download build
               uses: actions/download-artifact@v5
               with:
-                  name: build
+                  name: ${{ inputs.artifact-name }}
                   path: ${{ inputs.dir }}
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   run-id: ${{ inputs.run-id }}
 
             - name: copy legacy archive-versions.json
-              if: ${{ inputs.dir == 'master' }}
-              shell: bash
+              if: ${{ startsWith(inputs.dir, 'master') }}
               run: |
-                  cp archive-versions.json ${{ inputs.dir }}
+                  cp archive-versions.json '${{ inputs.dir }}'
 
             - name: deploy
               uses: core-ds/core-components/.github/actions/commit-and-push@master
@@ -84,7 +96,7 @@ jobs:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   issue-number: ${{ needs.pull-request.outputs.number }}
                   comment-author: 'github-actions[bot]'
-                  body-includes: Demo build
+                  body-includes: Demo build (${{ inputs.variant }})
 
             - name: create or update comment
               uses: peter-evans/create-or-update-comment@v3
@@ -93,7 +105,7 @@ jobs:
                   comment-id: ${{ steps.comment.outputs.comment-id }}
                   issue-number: ${{ needs.pull-request.outputs.number }}
                   body: |
-                      ## Demo build
+                      ## Demo build (${{ inputs.variant }})
 
                       [${{ needs.deploy.outputs.url }}](${{ needs.deploy.outputs.url }})
                   reactions: rocket

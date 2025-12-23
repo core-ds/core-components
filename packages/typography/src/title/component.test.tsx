@@ -14,40 +14,16 @@ describe('Title', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set class `styrene-medium` as default view', () => {
+        it('should set class `medium` as default view', () => {
             const { container } = render(<Title tag='h1' />);
 
-            expect(container.firstElementChild).toHaveClass('styrene-medium');
+            expect(container.firstElementChild).toHaveClass('medium');
         });
 
         it('should set class `medium` as default weight', () => {
             const { container } = render(<Title tag='h1' />);
 
             expect(container.firstElementChild).toHaveClass('medium');
-        });
-
-        it('should set `view` class according to the font', () => {
-            const fonts: Array<TitleProps['font']> = ['styrene', 'system'];
-
-            const views: Array<TitleProps['view']> = [
-                'xlarge',
-                'large',
-                'medium',
-                'small',
-                'xsmall',
-            ];
-
-            fonts.forEach((font) => {
-                if (!font) return;
-
-                views.forEach((view) => {
-                    if (!view) return;
-
-                    const { container } = render(<Title tag='h1' view={view} font={font} />);
-
-                    expect(container.firstElementChild).toHaveClass(`${font}-${view}`);
-                });
-            });
         });
 
         it('should set `color` class', () => {
@@ -58,17 +34,14 @@ describe('Title', () => {
             });
         });
 
-        it('should set `weight` class', () => {
-            const weights: Array<TitleProps['weight']> = ['regular', 'medium', 'bold'];
-
-            weights.forEach((weight) => {
-                if (!weight) return;
-
+        it.each(['regular'] as Array<NonNullable<TitleProps['weight']>>)(
+            'should set %s class',
+            (weight) => {
                 const { container } = render(<Title tag='h1' weight={weight} />);
 
-                expect(container.firstElementChild).toHaveClass(weight);
-            });
-        });
+                expect(container.firstElementChild).toHaveClass('regular-medium');
+            },
+        );
     });
 
     describe('Attributes tests', () => {

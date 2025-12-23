@@ -1,62 +1,42 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../margins.module.css';
 
-.styrene-xlarge {
-    @mixin headline-mobile_xlarge;
+@each $view in xlarge, large, medium, small, xsmall {
+    .$(view) {
+        @mixin headline-system-mobile_$(view);
+
+        &.font {
+            @subtract-mixin headline-mobile_$(view), headline-system-mobile_$(view);
+        }
+    }
+
+    .regular-$(view) {
+        @mixin promo-system-mobile_$(view);
+
+        &.system {
+            @subtract-mixin promo-mobile_$(view), promo-system-mobile_$(view);
+        }
+    }
 }
 
-.styrene-large {
-    @mixin headline-mobile_large;
-}
+.component {
+    &.margins-xlarge {
+        @mixin margin-large;
+    }
 
-.styrene-medium {
-    @mixin headline-mobile_medium;
-}
+    &.margins-large {
+        @mixin margin-small;
+    }
 
-.styrene-small {
-    @mixin headline-mobile_small;
-}
+    &.margins-medium {
+        @mixin margin-small;
+    }
 
-.styrene-xsmall {
-    @mixin headline-mobile_xsmall;
-}
+    &.margins-small {
+        @mixin margin-small;
+    }
 
-.system-xlarge {
-    @mixin headline-system-mobile_xlarge;
-}
-
-.system-large {
-    @mixin headline-system-mobile_large;
-}
-
-.system-medium {
-    @mixin headline-system-mobile_medium;
-}
-
-.system-small {
-    @mixin headline-system-mobile_small;
-}
-
-.system-xsmall {
-    @mixin headline-system-mobile_xsmall;
-}
-
-.margins-xlarge {
-    @mixin margin-large;
-}
-
-.margins-large {
-    @mixin margin-small;
-}
-
-.margins-medium {
-    @mixin margin-small;
-}
-
-.margins-small {
-    @mixin margin-small;
-}
-
-.margins-xsmall {
-    @mixin margin-small;
+    & .margins-xsmall {
+        @mixin margin-small;
+    }
 }
