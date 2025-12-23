@@ -273,6 +273,9 @@ export const select_modal_mobile: Story = {
 export const option_list_desktop: Story = {
     name: 'OptionListDesktop',
     render: () => {
+        const nativeScrollbar = boolean('nativeScrollbar', false);
+        const scrollbar = nativeScrollbar ? true : undefined;
+
         const [selected, setSelected] = React.useState([]);
 
         return (
@@ -287,6 +290,9 @@ export const option_list_desktop: Story = {
                     showSearch: true,
                     options: options,
                     selected: selected,
+                    optionsListProps: {
+                        nativeScrollbar: scrollbar,
+                    },
                     onChange: ({ selectedMultiple }) => {
                         setSelected(selectedMultiple.map((option) => option.key));
                     },

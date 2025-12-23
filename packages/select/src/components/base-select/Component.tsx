@@ -673,6 +673,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         search={search}
                         multiple={multiple}
                         limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
+                        client={view}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>
