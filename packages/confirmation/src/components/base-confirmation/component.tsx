@@ -134,7 +134,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
                 className={cn(styles.component, className, {
                     [styles.center]: alignContent === 'center',
                 })}
-                style={maxWidth === undefined ? undefined : { maxWidth }}
+                style={{ maxWidth }}
                 data-test-id={dataTestId}
             >
                 {CurrentScreen && <CurrentScreen mobile={mobile} />}
