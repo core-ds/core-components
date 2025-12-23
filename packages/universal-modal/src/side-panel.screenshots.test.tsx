@@ -200,6 +200,7 @@ describe('SidePanel | trim title', () => {
             theme,
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -236,6 +237,7 @@ describe('SidePanel | sticky header', () => {
             },
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -277,6 +279,7 @@ describe('SidePanel | header bottom addons', () => {
             theme,
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
