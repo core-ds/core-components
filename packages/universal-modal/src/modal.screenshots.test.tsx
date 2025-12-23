@@ -166,6 +166,7 @@ describe('Modal | trim title', () => {
             theme,
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -202,6 +203,7 @@ describe('Modal | sticky header', () => {
             },
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -243,6 +245,7 @@ describe('Modal | header bottom addons', () => {
             theme,
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },

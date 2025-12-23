@@ -151,6 +151,7 @@ describe('Mobile | trim title', () => {
             theme,
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -191,6 +192,7 @@ describe('Mobile | sticky header', () => {
             },
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
@@ -224,6 +226,7 @@ describe('Mobile | header bottom addons', () => {
             theme,
             matchImageSnapshotOptions: {
                 failureThreshold: 1,
+                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },
