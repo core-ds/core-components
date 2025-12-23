@@ -22,17 +22,12 @@ describe('OptionListDesktop | option list', () => {
                     knobs: {},
                 }),
             ],
-            screenshotOpts: {
-                fullPage: true,
-            },
             viewport: {
                 width: 1024,
                 height: 500,
             },
             theme,
             matchImageSnapshotOptions: {
-                failureThreshold: 1,
-                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-viewport-desktop-${customSnapshotIdentifier(...args)}`,
             },
@@ -66,17 +61,12 @@ describe('OptionListDesktop | option list', () => {
                     knobs: {},
                 }),
             ],
-            screenshotOpts: {
-                fullPage: true,
-            },
             viewport: {
                 width: 720,
                 height: 500,
             },
             theme,
             matchImageSnapshotOptions: {
-                failureThreshold: 1,
-                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-viewport-mobile-${customSnapshotIdentifier(...args)}`,
             },
@@ -110,17 +100,12 @@ describe('OptionListMobile | option list', () => {
                     knobs: {},
                 }),
             ],
-            screenshotOpts: {
-                fullPage: true,
-            },
             viewport: {
                 width: 1024,
                 height: 500,
             },
             theme,
             matchImageSnapshotOptions: {
-                failureThreshold: 1,
-                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-viewport-desktop-${customSnapshotIdentifier(...args)}`,
             },
@@ -154,17 +139,12 @@ describe('OptionListMobile | option list', () => {
                     knobs: {},
                 }),
             ],
-            screenshotOpts: {
-                fullPage: true,
-            },
             viewport: {
                 width: 720,
                 height: 500,
             },
             theme,
             matchImageSnapshotOptions: {
-                failureThreshold: 1,
-                failureThresholdType: 'pixel',
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-viewport-mobile-${customSnapshotIdentifier(...args)}`,
             },
