@@ -29,6 +29,14 @@ describe('OptionListDesktop | viewport desktop', () => {
                         nativeScrollbar: [false, true],
                     },
                 }),
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListDesktop',
+                    testStory: false,
+                    knobs: {
+                        virtualOptions: [true],
+                    },
+                }),
             ],
             viewport: {
                 width: 1024,
@@ -76,6 +84,14 @@ describe('OptionListDesktop | viewport mobile', () => {
                         nativeScrollbar: [false, true],
                     },
                 }),
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListDesktop',
+                    testStory: false,
+                    knobs: {
+                        virtualOptions: [true],
+                    },
+                }),
             ],
             viewport: {
                 width: 720,
@@ -115,6 +131,14 @@ describe('OptionListMobile | viewport desktop', () => {
                     testStory: false,
                     knobs: {},
                 }),
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListMobile',
+                    testStory: false,
+                    knobs: {
+                        virtualOptions: [true],
+                    },
+                }),
             ],
             viewport: {
                 width: 1024,
@@ -153,6 +177,14 @@ describe('OptionListMobile | viewport mobile', () => {
                     subComponentName: 'OptionListMobile',
                     testStory: false,
                     knobs: {},
+                }),
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListMobile',
+                    testStory: false,
+                    knobs: {
+                        virtualOptions: [true],
+                    },
                 }),
             ],
             viewport: {

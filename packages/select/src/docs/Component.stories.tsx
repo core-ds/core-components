@@ -6,7 +6,7 @@ import { SelectDesktop } from '@alfalab/core-components-select/desktop';
 import { Select as SelectResponsive } from '@alfalab/core-components-select';
 import { SelectMobile, SelectModalMobile } from '@alfalab/core-components-select/mobile';
 import { Arrow as ArrowComponent } from '@alfalab/core-components-select/components/arrow';
-import { BaseOption } from '../components';
+import { BaseOption, VirtualOptionsList } from '../components';
 import { useSelectWithApply } from '../presets';
 
 const options = [
@@ -275,6 +275,7 @@ export const option_list_desktop: Story = {
     render: () => {
         const nativeScrollbar = boolean('nativeScrollbar', false);
         const scrollbar = nativeScrollbar ? true : undefined;
+        const virtualOptions = boolean('virtualOptions', false);
 
         const [selected, setSelected] = React.useState([]);
 
@@ -290,6 +291,7 @@ export const option_list_desktop: Story = {
                     showSearch: true,
                     options: options,
                     selected: selected,
+                    ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     optionsListProps: {
                         nativeScrollbar: scrollbar,
                     },
@@ -305,6 +307,8 @@ export const option_list_desktop: Story = {
 export const option_list_mobile: Story = {
     name: 'OptionListMobile',
     render: () => {
+        const virtualOptions = boolean('virtualOptions', false);
+
         const [selected, setSelected] = React.useState([]);
 
         return (
@@ -319,6 +323,7 @@ export const option_list_mobile: Story = {
                     showSearch: true,
                     options: options,
                     selected: selected,
+                    ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     onChange: ({ selectedMultiple }) => {
                         setSelected(selectedMultiple.map((option) => option.key));
                     },
