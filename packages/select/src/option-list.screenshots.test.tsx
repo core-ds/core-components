@@ -21,6 +21,14 @@ describe('OptionListDesktop | option list', () => {
                     testStory: false,
                     knobs: {},
                 }),
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListDesktop',
+                    testStory: false,
+                    knobs: {
+                        nativeScrollbar: [false, true],
+                    },
+                }),
             ],
             viewport: {
                 width: 1024,
@@ -59,6 +67,14 @@ describe('OptionListDesktop | option list', () => {
                     subComponentName: 'OptionListDesktop',
                     testStory: false,
                     knobs: {},
+                }),
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListDesktop',
+                    testStory: false,
+                    knobs: {
+                        nativeScrollbar: [false, true],
+                    },
                 }),
             ],
             viewport: {
