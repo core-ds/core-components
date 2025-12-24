@@ -8,10 +8,24 @@ on:
                 required: false
                 type: string
                 default: ${{ github.sha }}
+            variant:
+                description: Variant of core components
+                required: false
+                type: string
+                default: default
+            artifact-name:
+                description: Artifact name
+                required: false
+                type: string
+                default: build
         outputs:
             run-id:
                 description: Artifact workflow run id
                 value: ${{ jobs.artifact.outputs.workflow_run_id }}
+
+defaults:
+    run:
+        shell: bash
 
 jobs:
     artifact:
@@ -42,7 +56,7 @@ jobs:
                               repo,
                               page,
                               per_page,
-                              name: 'build',
+                              name: '${{ inputs.artifact-name }}',
                           });
 
                           const artifact = data.artifacts
@@ -67,16 +81,25 @@ jobs:
         if: ${{ needs.artifact.outputs.workflow_run_id == github.run_id }}
         name: build demo
         runs-on: ubuntu-latest
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
         steps:
             - uses: actions/checkout@v5
               with:
                   ref: ${{ inputs.ref }}
                   lfs: true
 
+            - name: apply patch
+              run: |
+                  PATCH_SOURCE='variants/${{ inputs.variant }}.patch'
+
+                  if [ -f "$PATCH_SOURCE" ]; then
+                      git apply "$PATCH_SOURCE"
+                  fi
+
             - uses: core-ds/core-components/.github/actions/ci-setup@master
 
             - name: build demo
-              shell: bash
               env:
                   BUILD_CONCURRENCY: 4
               run: |
@@ -85,6 +108,6 @@ jobs:
             - name: upload demo build
               uses: actions/upload-artifact@v4
               with:
-                  name: build
+                  name: ${{ inputs.artifact-name }}
                   path: build
                   if-no-files-found: error

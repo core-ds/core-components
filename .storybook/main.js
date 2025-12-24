@@ -225,7 +225,6 @@ module.exports = {
             ) {
                 if (
                     resource.request === '@alfalab/core-components/package.json' ||
-                    resource.request === '@alfalab/core-components-vars/src/alfasans-index.css' ||
                     resource.request === '@alfalab/core-components-vars/src/index.css'
                 ) {
                     return;
@@ -283,6 +282,9 @@ module.exports = {
                 'process.env.CORE_COMPONENTS_ENV': JSON.stringify(
                     mode /* 'DEVELOPMENT' | 'PRODUCTION' */
                         .toLowerCase(),
+                ),
+                'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(
+                    process.env.CORE_COMPONENTS_VARIANT,
                 ),
             }),
         );

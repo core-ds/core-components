@@ -1,0 +1,3153 @@
+From 2b2c2bfa6a2bfba6ea21793b58279cde19658e4d Mon Sep 17 00:00:00 2001
+From: hextion <100ishundred@gmail.com>
+Date: Mon, 22 Dec 2025 22:27:35 +0300
+Subject: [PATCH] feat: added alfasans variant
+
+---
+ packages/amount-input/src/Component.tsx       |   7 +-
+ .../src/__snapshots__/Component.test.tsx.snap |  30 +-
+ packages/amount-input/src/index.module.css    |   5 -
+ packages/bank-card/src/Component.tsx          |  26 +-
+ .../src/__snapshots__/Component.test.tsx.snap |  24 +-
+ packages/bank-card/src/index.module.css       |  52 ++--
+ .../src/components/header/index.module.css    |  12 +-
+ packages/bottom-sheet/src/vars.css            |  12 -
+ .../components/base-button/index.module.css   |   5 -
+ packages/button/src/vars.css                  |   4 -
+ .../components/days-table/index.module.css    |   2 +-
+ .../components/period-slider/index.module.css |   6 +-
+ .../components/select-button/index.module.css |   2 +-
+ packages/calendar/src/vars.css                |   5 -
+ packages/chart/src/index.module.css           |   4 +-
+ .../circular-progress-bar/src/Component.tsx   |   2 +-
+ .../src/index.module.css                      |  10 -
+ .../src/components/input/index.module.css     |   5 +-
+ packages/code-input/src/vars.css              |   3 -
+ .../collapse/src/docs/Component.stories.tsx   |  10 +-
+ packages/collapse/src/docs/description.mdx    |  12 +-
+ packages/collapse/src/index.module.css        |   4 -
+ .../components/code-input/index.module.css    |   5 +-
+ packages/confirmation-v1/src/index.module.css |   1 -
+ packages/confirmation-v1/src/vars.css         |  23 +-
+ .../src/__snapshots__/Component.test.tsx.snap |  18 +-
+ .../src/components/header/component.tsx       |  28 +-
+ .../src/components/header/index.module.css    |  16 -
+ packages/confirmation/src/vars.css            |  24 +-
+ .../base-filter-tag/index.module.css          |   1 -
+ .../base-form-control/index.module.css        |   2 -
+ packages/form-control/src/vars.css            |   4 -
+ .../src/components/base-input/Component.tsx   |   7 +
+ .../components/base-input/index.module.css    |  34 ++-
+ packages/input/src/vars.css                   |   1 +
+ packages/link/src/index.module.css            |   2 +-
+ .../src/components/header/desktop.module.css  |  11 +-
+ .../src/components/header/mobile.module.css   |   6 +-
+ packages/modal/src/vars.css                   |  10 -
+ .../src/components/amount-title/component.tsx |   4 +-
+ .../components/amount-title/index.module.css  |   4 -
+ .../src/components/segment/index.module.css   |   1 -
+ .../src/components/header/desktop.module.css  |   8 +-
+ .../src/components/header/mobile.module.css   |   6 +-
+ packages/side-panel/src/vars.css              |   8 -
+ packages/slider-input/src/index.module.css    |   7 +-
+ .../src/components/title/desktop.module.css   |  10 +-
+ .../src/components/title/index.module.css     |   6 -
+ .../src/components/title/mobile.module.css    |  10 +-
+ .../primary-tablist/Component.collapsible.tsx |   2 +
+ .../components/primary-tablist/Component.tsx  |   1 +
+ .../primary-tablist/index.module.css          |  21 +-
+ .../primary-tablist/mobile.module.css         |   8 +-
+ .../__snapshots__/Component.test.tsx.snap     |  34 +--
+ .../tabs/src/components/title/Component.tsx   |   2 +
+ packages/tabs/src/vars.css                    |  19 +-
+ .../src/components/base-tag/index.module.css  |  25 +-
+ .../themes/src/mixins/bottom-sheet/click.css  |   6 -
+ packages/themes/src/mixins/calendar/click.css |   3 -
+ .../mixins/circular-progress-bar/click.css    |   5 -
+ packages/themes/src/mixins/click.css          |  10 -
+ .../themes/src/mixins/confirmation/click.css  |  12 -
+ .../src/mixins/confirmation/intranet.css      |   5 -
+ .../themes/src/mixins/confirmation/mobile.css |   5 -
+ packages/themes/src/mixins/modal/click.css    |  31 --
+ .../src/mixins/system-message/click.css       |  13 -
+ packages/themes/src/mixins/tabs/click.css     |  22 +-
+ packages/themes/src/mixins/tabs/corp.css      |   3 -
+ packages/themes/src/mixins/tabs/site.css      |   2 -
+ .../themes/src/mixins/toast-plate/click.css   |   1 -
+ .../src/desktop/desktop.module.css            |   3 +-
+ .../toast-plate/src/mobile/mobile.module.css  |   1 -
+ packages/toast-plate/src/vars.css             |   1 -
+ .../components/base-toast/index.module.css    |   4 -
+ .../header/desktop/Component.desktop.tsx      |   2 -
+ .../header/desktop/desktop.module.css         |  14 +-
+ .../header/mobile/mobile.module.css           |   6 +-
+ packages/universal-modal/src/desktop/vars.css |   6 -
+ packages/universal-modal/src/mobile/vars.css  |   8 -
+ packages/vars/src/typography.css              | 282 ++++++++++--------
+ packages/with-suffix/src/Component.tsx        |   1 +
+ packages/with-suffix/src/index.module.css     |  13 +-
+ 82 files changed, 397 insertions(+), 673 deletions(-)
+ delete mode 100644 packages/themes/src/mixins/bottom-sheet/click.css
+ delete mode 100644 packages/themes/src/mixins/circular-progress-bar/click.css
+ delete mode 100644 packages/themes/src/mixins/confirmation/click.css
+ delete mode 100644 packages/themes/src/mixins/modal/click.css
+ delete mode 100644 packages/themes/src/mixins/system-message/click.css
+ delete mode 100644 packages/universal-modal/src/desktop/vars.css
+ delete mode 100644 packages/universal-modal/src/mobile/vars.css
+
+diff --git a/packages/amount-input/src/Component.tsx b/packages/amount-input/src/Component.tsx
+index 1b27dddef..991d3b48a 100644
+--- a/packages/amount-input/src/Component.tsx
++++ b/packages/amount-input/src/Component.tsx
+@@ -83,11 +83,6 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
+      */
+     positiveOnly?: boolean;
+ 
+-    /**
+-     * Жир
+-     */
+-    bold?: boolean;
+-
+     /**
+      * Обработчик события изменения значения
+      */
+@@ -427,7 +422,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
+         return (
+             <div
+                 className={cn(styles.container, {
+-                    [styles.bold]: bold,
+                     [styles.filled]: Boolean(inputValue),
+                     [styles.focused]: isFocused,
+                 })}
+@@ -477,6 +471,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
+                     ref={ref}
+                     breakpoint={breakpoint}
+                     client={client}
++                    bold={bold}
+                 />
+             </div>
+         );
+diff --git a/packages/amount-input/src/__snapshots__/Component.test.tsx.snap b/packages/amount-input/src/__snapshots__/Component.test.tsx.snap
+index c9622c749..edbb9cdef 100644
+--- a/packages/amount-input/src/__snapshots__/Component.test.tsx.snap
++++ b/packages/amount-input/src/__snapshots__/Component.test.tsx.snap
+@@ -6,7 +6,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
+   "baseElement": <body>
+     <div>
+       <div
+-        class="container bold"
++        class="container"
+       >
+         <div
+           class="component component component hasSuffix size-48 size-48"
+@@ -21,7 +21,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
+                 class="input size-48"
+               >
+                 <input
+-                  class="input size-48 input input"
++                  class="input size-48 input bold input"
+                   inputmode="decimal"
+                   pattern="[0-9\\s\\.,]*"
+                   placeholder="0 ₽"
+@@ -29,7 +29,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
+                   value=""
+                 />
+                 <div
+-                  class="suffixContainer suffixContainer"
++                  class="suffixContainer suffixContainer bold"
+                   translate="no"
+                 >
+                   <span
+@@ -62,7 +62,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
+   </body>,
+   "container": <div>
+     <div
+-      class="container bold"
++      class="container"
+     >
+       <div
+         class="component component component hasSuffix size-48 size-48"
+@@ -77,7 +77,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
+               class="input size-48"
+             >
+               <input
+-                class="input size-48 input input"
++                class="input size-48 input bold input"
+                 inputmode="decimal"
+                 pattern="[0-9\\s\\.,]*"
+                 placeholder="0 ₽"
+@@ -85,7 +85,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
+                 value=""
+               />
+               <div
+-                class="suffixContainer suffixContainer"
++                class="suffixContainer suffixContainer bold"
+                 translate="no"
+               >
+                 <span
+@@ -175,7 +175,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+   "baseElement": <body>
+     <div>
+       <div
+-        class="container bold"
++        class="container"
+       >
+         <div
+           class="component component component hasSuffix size-48 size-48"
+@@ -190,7 +190,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+                 class="input size-48"
+               >
+                 <input
+-                  class="input size-48 input input"
++                  class="input size-48 input bold input"
+                   inputmode="decimal"
+                   pattern="[0-9\\s\\.,]*"
+                   placeholder="0 ₽"
+@@ -198,7 +198,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+                   value=""
+                 />
+                 <div
+-                  class="suffixContainer suffixContainer"
++                  class="suffixContainer suffixContainer bold"
+                   translate="no"
+                 >
+                   <span
+@@ -230,7 +230,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+     </div>
+     <div>
+       <div
+-        class="container bold filled"
++        class="container filled"
+       >
+         <div
+           class="component component component suffixVisible hasSuffix size-48 size-48"
+@@ -245,7 +245,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+                 class="input size-48"
+               >
+                 <input
+-                  class="input size-48 input input"
++                  class="input size-48 input bold input"
+                   inputmode="decimal"
+                   pattern="[0-9\\s\\.,]*"
+                   placeholder="0 $"
+@@ -253,7 +253,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+                   value="12 345,67"
+                 />
+                 <div
+-                  class="suffixContainer suffixContainer"
++                  class="suffixContainer suffixContainer bold"
+                   translate="no"
+                 >
+                   <span
+@@ -295,7 +295,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+   </body>,
+   "container": <div>
+     <div
+-      class="container bold filled"
++      class="container filled"
+     >
+       <div
+         class="component component component suffixVisible hasSuffix size-48 size-48"
+@@ -310,7 +310,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+               class="input size-48"
+             >
+               <input
+-                class="input size-48 input input"
++                class="input size-48 input bold input"
+                 inputmode="decimal"
+                 pattern="[0-9\\s\\.,]*"
+                 placeholder="0 $"
+@@ -318,7 +318,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
+                 value="12 345,67"
+               />
+               <div
+-                class="suffixContainer suffixContainer"
++                class="suffixContainer suffixContainer bold"
+                 translate="no"
+               >
+                 <span
+diff --git a/packages/amount-input/src/index.module.css b/packages/amount-input/src/index.module.css
+index c1b4a88db..8de21438f 100644
+--- a/packages/amount-input/src/index.module.css
++++ b/packages/amount-input/src/index.module.css
+@@ -17,11 +17,6 @@
+     position: relative;
+ }
+ 
+-.bold .input,
+-.bold .suffixContainer {
+-    font-weight: bold;
+-}
+-
+ /* суффикс = текст в поле. Скрываем спейсер, чтобы суффикс выглядел как введенное в поле значение */
+ .suffixContainer > *:first-child {
+     display: none;
+diff --git a/packages/bank-card/src/Component.tsx b/packages/bank-card/src/Component.tsx
+index 4439726a4..7bc944f78 100644
+--- a/packages/bank-card/src/Component.tsx
++++ b/packages/bank-card/src/Component.tsx
+@@ -4,7 +4,6 @@ import React, {
+     type MouseEvent,
+     type ReactNode,
+     useCallback,
+-    useEffect,
+     useState,
+ } from 'react';
+ import cn from 'classnames';
+@@ -93,19 +92,22 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
+         {
+             bankLogo = <AlfaBankSignMIcon width={30} height={40} />,
+             backgroundColor = '#EF3124',
+-            value,
++            value: valueFromProps,
+             className,
+             onUsePhoto,
+-            onChange,
+             dataTestId,
+             maskType = MaskTypeEnum.Default,
+             inputLabel = getDefaultInputLabel(maskType),
++            onChange,
+         },
+         ref,
+     ) => {
+-        const uncontrolled = value === undefined;
++        const uncontrolled = valueFromProps === undefined;
++        const [value, setValue] = useState(valueFromProps);
+ 
+-        const [brandIcon, setBrandIcon] = useState<ReactNode>(getBrandIcon(value));
++        if (!uncontrolled && valueFromProps !== value) {
++            setValue(valueFromProps);
++        }
+ 
+         const getMask = useCallback(
+             (newValue: string) => {
+@@ -124,12 +126,10 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
+ 
+         const handleInputChange = useCallback(
+             (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => {
+-                if (uncontrolled) {
+-                    setBrandIcon(getBrandIcon(event.target.value));
+-                }
++                onChange?.(event, payload);
+ 
+-                if (onChange) {
+-                    onChange(event, payload);
++                if (uncontrolled) {
++                    setValue(payload.value);
+                 }
+             },
+             [onChange, uncontrolled],
+@@ -144,9 +144,7 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
+             [onUsePhoto],
+         );
+ 
+-        useEffect(() => {
+-            setBrandIcon(getBrandIcon(value));
+-        }, [value]);
++        const brandIcon = getBrandIcon(value);
+ 
+         return (
+             <div className={cn(styles.component, className)}>
+@@ -171,6 +169,8 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
+                             inputMode='numeric'
+                             pattern='[0-9]*'
+                             breakpoint={1}
++                            className={styles.formControl}
++                            fieldClassName={styles.field}
+                         />
+ 
+                         {brandIcon && <div className={styles.brandLogo}>{brandIcon}</div>}
+diff --git a/packages/bank-card/src/__snapshots__/Component.test.tsx.snap b/packages/bank-card/src/__snapshots__/Component.test.tsx.snap
+index a3f0e9a06..e5f69007d 100644
+--- a/packages/bank-card/src/__snapshots__/Component.test.tsx.snap
++++ b/packages/bank-card/src/__snapshots__/Component.test.tsx.snap
+@@ -31,10 +31,10 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
+           </svg>
+         </div>
+         <div
+-          class="component component filled size-56 size-56 block hasRightAddons"
++          class="component component formControl filled size-56 size-56 block hasRightAddons"
+         >
+           <div
+-            class="inner inner inner inner filled hasInnerLabel"
++            class="field inner inner inner inner filled hasInnerLabel"
+           >
+             <div
+               class="inputWrapper"
+@@ -148,10 +148,10 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
+           </svg>
+         </div>
+         <div
+-          class="component component filled size-56 size-56 block hasRightAddons"
++          class="component component formControl filled size-56 size-56 block hasRightAddons"
+         >
+           <div
+-            class="inner inner inner inner filled hasInnerLabel"
++            class="field inner inner inner inner filled hasInnerLabel"
+           >
+             <div
+               class="inputWrapper"
+@@ -263,10 +263,10 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
+           </svg>
+         </div>
+         <div
+-          class="component component filled size-56 size-56 block hasRightAddons"
++          class="component component formControl filled size-56 size-56 block hasRightAddons"
+         >
+           <div
+-            class="inner inner inner inner filled hasInnerLabel"
++            class="field inner inner inner inner filled hasInnerLabel"
+           >
+             <div
+               class="inputWrapper"
+@@ -378,10 +378,10 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
+           </svg>
+         </div>
+         <div
+-          class="component component filled size-56 size-56 block hasRightAddons"
++          class="component component formControl filled size-56 size-56 block hasRightAddons"
+         >
+           <div
+-            class="inner inner inner inner filled hasInnerLabel"
++            class="field inner inner inner inner filled hasInnerLabel"
+           >
+             <div
+               class="inputWrapper"
+@@ -477,10 +477,10 @@ exports[`BankCard Snapshots tests should match snapshots 5`] = `
+           </svg>
+         </div>
+         <div
+-          class="component component filled size-56 size-56 block hasRightAddons"
++          class="component component formControl filled size-56 size-56 block hasRightAddons"
+         >
+           <div
+-            class="inner inner inner inner filled hasInnerLabel"
++            class="field inner inner inner inner filled hasInnerLabel"
+           >
+             <div
+               class="inputWrapper"
+@@ -592,10 +592,10 @@ exports[`BankCard Snapshots tests should match snapshots 6`] = `
+           </svg>
+         </div>
+         <div
+-          class="component component filled size-56 size-56 block hasRightAddons"
++          class="component component formControl filled size-56 size-56 block hasRightAddons"
+         >
+           <div
+-            class="inner inner inner inner filled hasInnerLabel"
++            class="field inner inner inner inner filled hasInnerLabel"
+           >
+             <div
+               class="inputWrapper"
+diff --git a/packages/bank-card/src/index.module.css b/packages/bank-card/src/index.module.css
+index e56947bea..f21e120eb 100644
+--- a/packages/bank-card/src/index.module.css
++++ b/packages/bank-card/src/index.module.css
+@@ -1,25 +1,35 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
+ 
+-/* purgecss ignore */
+ .component {
+-    /* TODO: как это будет собираться и работать в webView */
+-    --form-control-border-radius: 0;
+-    --form-control-border-bottom: 1px solid var(--color-light-neutral-translucent-700);
+-    --form-control-bg-color: transparent;
++    position: relative;
++    max-width: 343px;
+ 
+-    /* focus */
+-    --form-control-focus-border-bottom: 1px solid var(--color-light-neutral-translucent-1300);
+-    --form-control-focus-shadow: transparent;
++    .formControl {
++        .field {
++            background-color: transparent;
+ 
+-    /* hover */
+-    --form-control-hover-bg-color: transparent;
+-    --form-control-focus-bg-color: transparent;
+-    --form-control-font-family: var(--font-family-styrene);
++            @mixin hover {
++                background-color: transparent;
++            }
+ 
+-    position: relative;
+-    max-width: 343px;
++            &:before {
++                border-bottom: 1px solid var(--color-light-neutral-translucent-700);
++            }
++        }
++
++        &.focused {
++            .field {
++                box-shadow: none;
+ 
+-    font-family: var(--font-family-styrene);
++                @mixin hover {
++                    box-shadow: none;
++                }
++                &:before {
++                    border-bottom: 1px solid var(--color-light-neutral-translucent-1300);
++                }
++            }
++        }
++    }
+ }
+ 
+ .aspectRatioContainer {
+@@ -46,11 +56,7 @@
+     transform: translateY(-1px);
+     color: var(--color-light-text-secondary);
+ 
+-    @mixin promo_xsmall;
+-
+-    @media (max-width: 360px) {
+-        font-size: 16px;
+-    }
++    @mixin promo-system_xsmall;
+ }
+ 
+ .focused .label,
+@@ -68,7 +74,7 @@
+ }
+ 
+ .input {
+-    @mixin promo_xsmall;
++    @mixin promo-system_xsmall;
+ 
+     color: var(--color-light-neutral-translucent-1300);
+     caret-color: var(--color-light-neutral-translucent-1300);
+@@ -76,10 +82,6 @@
+     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
+     padding-left: var(--gap-0) !important;
+     padding-bottom: var(--gap-4) !important;
+-
+-    @media (max-width: 360px) {
+-        font-size: 16px;
+-    }
+ }
+ 
+ .bankLogo {
+diff --git a/packages/bottom-sheet/src/components/header/index.module.css b/packages/bottom-sheet/src/components/header/index.module.css
+index aff878e83..ee665f47d 100644
+--- a/packages/bottom-sheet/src/components/header/index.module.css
++++ b/packages/bottom-sheet/src/components/header/index.module.css
+@@ -45,10 +45,8 @@
+ .title {
+     padding: var(--gap-10) var(--gap-8);
+     width: 100%;
+-    font-size: var(--bottom-sheet-title-font-size);
+-    font-weight: var(--bottom-sheet-title-font-weight);
+-    line-height: var(--bottom-sheet-title-line-height);
+-    font-family: var(--bottom-sheet-title-font-family);
++
++    @mixin headline-system-mobile_small;
+ }
+ 
+ .titleCenter {
+@@ -67,8 +65,6 @@
+ 
+ .subtitle {
+     width: 100%;
+-    font-size: var(--bottom-sheet-subtitle-font-size);
+-    font-weight: var(--bottom-sheet-subtitle-font-weight);
+-    line-height: var(--bottom-sheet-subtitle-line-height);
+-    font-family: var(--bottom-sheet-subtitle-font-family);
++
++    @mixin paragraph_primary_small;
+ }
+diff --git a/packages/bottom-sheet/src/vars.css b/packages/bottom-sheet/src/vars.css
+index df227b5e1..0b028497a 100644
+--- a/packages/bottom-sheet/src/vars.css
++++ b/packages/bottom-sheet/src/vars.css
+@@ -7,18 +7,6 @@
+     --bottom-sheet-top-radius: var(--border-radius-16);
+     --bottom-sheet-shadow: none;
+ 
+-    /* title */
+-    --bottom-sheet-title-font-size: 20px;
+-    --bottom-sheet-title-font-weight: 600;
+-    --bottom-sheet-title-line-height: 28px;
+-    --bottom-sheet-title-font-family: var(--font-family-system);
+-
+-    /* subtitle */
+-    --bottom-sheet-subtitle-font-size: 14px;
+-    --bottom-sheet-subtitle-font-weight: 400;
+-    --bottom-sheet-subtitle-line-height: 20px;
+-    --bottom-sheet-subtitle-font-family: var(--font-family-system);
+-
+     /* default colors */
+     --bottom-sheet-background-color: var(--color-light-modal-bg-primary);
+     --bottom-sheet-marker-color: var(--color-light-neutral-translucent-300);
+diff --git a/packages/button/src/components/base-button/index.module.css b/packages/button/src/components/base-button/index.module.css
+index cd5cbccfb..e978ccbec 100644
+--- a/packages/button/src/components/base-button/index.module.css
++++ b/packages/button/src/components/base-button/index.module.css
+@@ -2,11 +2,6 @@
+ @import '../../vars.css';
+ 
+ .component {
+-    && {
+-        font-weight: var(--button-font-weight);
+-        font-family: var(--font-family);
+-    }
+-
+     @mixin reset-tap-highlight-color;
+ 
+     position: relative;
+diff --git a/packages/button/src/vars.css b/packages/button/src/vars.css
+index 12883958a..acbcc0109 100644
+--- a/packages/button/src/vars.css
++++ b/packages/button/src/vars.css
+@@ -1,10 +1,6 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
+ 
+ :root {
+-    /* misc */
+-    --button-font-family: var(--font-family);
+-    --button-font-weight: 500;
+-
+     /* border-radius desktop */
+     --button-xxs-size-border-radius: var(--border-radius-6);
+     --button-xs-size-border-radius: var(--border-radius-8);
+diff --git a/packages/calendar/src/components/days-table/index.module.css b/packages/calendar/src/components/days-table/index.module.css
+index 80e937bbd..fac11ea78 100644
+--- a/packages/calendar/src/components/days-table/index.module.css
++++ b/packages/calendar/src/components/days-table/index.module.css
+@@ -324,7 +324,7 @@
+     @mixin paragraph_primary_medium;
+ 
+     &.today {
+-        font-weight: bold;
++        @mixin accent_primary_medium;
+     }
+ }
+ 
+diff --git a/packages/calendar/src/components/period-slider/index.module.css b/packages/calendar/src/components/period-slider/index.module.css
+index bb1f34024..e144e2745 100644
+--- a/packages/calendar/src/components/period-slider/index.module.css
++++ b/packages/calendar/src/components/period-slider/index.module.css
+@@ -10,10 +10,8 @@
+ }
+ 
+ .period {
+-    font-family: var(--calendar-month-only-header-font-family);
+-    font-size: var(--calendar-month-only-header-font-size);
+-    font-weight: var(--calendar-month-only-header-font-weight);
+-    line-height: 24px;
++    @mixin action_primary_large;
++
+     text-align: center;
+ 
+     @media (max-width: 374px) {
+diff --git a/packages/calendar/src/components/select-button/index.module.css b/packages/calendar/src/components/select-button/index.module.css
+index 1e4bc1e4a..313c72d3d 100644
+--- a/packages/calendar/src/components/select-button/index.module.css
++++ b/packages/calendar/src/components/select-button/index.module.css
+@@ -27,7 +27,7 @@
+ 
+         &.current {
+             color: var(--calendar-today-color);
+-            font-weight: bold;
++            @mixin accent_primary_medium;
+         }
+ 
+         &.selected,
+diff --git a/packages/calendar/src/vars.css b/packages/calendar/src/vars.css
+index 5e91e3e73..026befc4d 100644
+--- a/packages/calendar/src/vars.css
++++ b/packages/calendar/src/vars.css
+@@ -22,11 +22,6 @@
+     --calendar-mobile-select-button-box-shadow: none;
+     --calendar-select-button-background-color: var(--color-light-neutral-translucent-300);
+ 
+-    /* Шапка */
+-    --calendar-month-only-header-font-family: var(--font-family-system);
+-    --calendar-month-only-header-font-size: 18px;
+-    --calendar-month-only-header-font-weight: 500;
+-
+     /* День */
+     --calendar-day-size: 40px;
+     --calendar-day-border-radius: var(--border-radius-pill);
+diff --git a/packages/chart/src/index.module.css b/packages/chart/src/index.module.css
+index 1be18681a..edd4d6a88 100644
+--- a/packages/chart/src/index.module.css
++++ b/packages/chart/src/index.module.css
+@@ -7,8 +7,8 @@
+ 
+     & :global(.recharts-text tspan) {
+         fill: var(--color-light-text-primary);
+-        font-size: 16px;
+-        line-height: 22px;
++
++        @mixin paragraph_component_primary;
+     }
+ }
+ 
+diff --git a/packages/circular-progress-bar/src/Component.tsx b/packages/circular-progress-bar/src/Component.tsx
+index 1e7d70bb6..6a2dc5435 100644
+--- a/packages/circular-progress-bar/src/Component.tsx
++++ b/packages/circular-progress-bar/src/Component.tsx
+@@ -293,7 +293,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
+     const renderTitleString = () =>
+         SIZES[size] > 64 ? (
+             <TypographyTitleMobile
+-                className={cn(styles.typography, styles.title)}
++                className={styles.title}
+                 color={getTextColor(titleColor)}
+                 tag='div'
+                 font='system'
+diff --git a/packages/circular-progress-bar/src/index.module.css b/packages/circular-progress-bar/src/index.module.css
+index 314f2e6bb..d8c02e86d 100644
+--- a/packages/circular-progress-bar/src/index.module.css
++++ b/packages/circular-progress-bar/src/index.module.css
+@@ -9,10 +9,6 @@
+ 
+     /* negative */
+     --circular-progress-bar-negative-color: var(--color-light-status-negative);
+-
+-    /* theme */
+-    --circular-progress-bar-font-family: var(--font-family-system);
+-    --circular-progress-bar-font-weight: 600;
+ }
+ 
+ .component {
+@@ -64,12 +60,6 @@
+     }
+ }
+ 
+-.typography {
+-    font-feature-settings: 'ss01';
+-    font-weight: var(--circular-progress-bar-font-weight);
+-    font-family: var(--circular-progress-bar-font-family);
+-}
+-
+ .size-144 {
+     width: 144px;
+     height: 144px;
+diff --git a/packages/code-input/src/components/input/index.module.css b/packages/code-input/src/components/input/index.module.css
+index 422ab801b..532258a7d 100644
+--- a/packages/code-input/src/components/input/index.module.css
++++ b/packages/code-input/src/components/input/index.module.css
+@@ -6,6 +6,8 @@
+ }
+ 
+ .input {
++    @mixin headline-system_medium;
++
+     flex-shrink: 0;
+     width: 36px;
+     height: 48px;
+@@ -17,9 +19,6 @@
+     outline: none;
+     color: var(--code-input-text-color);
+     text-align: center;
+-    font-size: var(--code-input-font-size);
+-    font-weight: var(--code-input-font-weight);
+-    font-family: var(--code-input-font-family);
+ 
+     &:last-child {
+         margin-right: var(--gap-0);
+diff --git a/packages/code-input/src/vars.css b/packages/code-input/src/vars.css
+index b785e7f3c..0f311864b 100644
+--- a/packages/code-input/src/vars.css
++++ b/packages/code-input/src/vars.css
+@@ -2,9 +2,6 @@
+ @import '../../form-control/src/vars.css';
+ 
+ :root {
+-    --code-input-font-size: 30px;
+-    --code-input-font-weight: 700;
+-    --code-input-font-family: var(--font-family-system);
+     --code-input-text-color: var(--color-light-text-primary);
+     --code-input-bg-color: var(--form-control-bg-color);
+     --code-input-mobile-bg-color: var(--color-light-neutral-translucent-100);
+diff --git a/packages/collapse/src/docs/Component.stories.tsx b/packages/collapse/src/docs/Component.stories.tsx
+index b4c216ff8..eb8639963 100644
+--- a/packages/collapse/src/docs/Component.stories.tsx
++++ b/packages/collapse/src/docs/Component.stories.tsx
+@@ -35,10 +35,12 @@ export const collapse: Story = {
+             </div>
+         ) : (
+             <Collapse collapsedLabel={'Подробнее'} expandedLabel={'Скрыть'} isExpanded={true}>
+-                {'Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные ' +
+-                    'виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание ' +
+-                    'частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование ' +
+-                    'и т.д.'}
++                <Typography.Text font='system' view='primary-medium'>
++                    Банк, основанный в 1990 году, является универсальным банком, осуществляющим все
++                    основные виды банковских операций, представленных на рынке финансовых услуг,
++                    включая обслуживание частных и корпоративных клиентов, инвестиционный банковский
++                    бизнес, торговое финансирование и т.д.
++                </Typography.Text>
+             </Collapse>
+         );
+     },
+diff --git a/packages/collapse/src/docs/description.mdx b/packages/collapse/src/docs/description.mdx
+index eb954229e..6df604d80 100644
+--- a/packages/collapse/src/docs/description.mdx
++++ b/packages/collapse/src/docs/description.mdx
+@@ -16,11 +16,13 @@
+     </Typography.Text>
+     <Gap size={16} />
+     <Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>
+-        Требования 115-ФЗ и связанных с ним документов Банка России часто меняются, предприниматели
+-        не всегда успевают за ними следить. Последствия нарушений «антиотмывочного» законодательства
+-        всегда неприятны: приходится остановить бизнес-процессы и доказать банку законность
+-        операций. Специалисты «Альфа-банка» собрали понятные рекомендации, как сэкономить время на
+-        объяснения и предотвратить блокировки.
++        <Typography.Text font='system' view='primary-medium'>
++            Требования 115-ФЗ и связанных с ним документов Банка России часто меняются,
++            предприниматели не всегда успевают за ними следить. Последствия нарушений
++            «антиотмывочного» законодательства всегда неприятны: приходится остановить
++            бизнес-процессы и доказать банку законность операций. Специалисты «Альфа-банка» собрали
++            понятные рекомендации, как сэкономить время на объяснения и предотвратить блокировки.
++        </Typography.Text>
+     </Collapse>
+ </div>
+ ```
+diff --git a/packages/collapse/src/index.module.css b/packages/collapse/src/index.module.css
+index 94bd0b223..aa3c6a869 100644
+--- a/packages/collapse/src/index.module.css
++++ b/packages/collapse/src/index.module.css
+@@ -1,9 +1,5 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
+ 
+-.collapse {
+-    font-family: var(--font-family);
+-}
+-
+ .collapse *,
+ .collapse:before,
+ .collapse:after {
+diff --git a/packages/confirmation-v1/src/components/code-input/index.module.css b/packages/confirmation-v1/src/components/code-input/index.module.css
+index b0aa3f34a..207d09121 100644
+--- a/packages/confirmation-v1/src/components/code-input/index.module.css
++++ b/packages/confirmation-v1/src/components/code-input/index.module.css
+@@ -6,6 +6,8 @@
+ }
+ 
+ .input {
++    @mixin headline-system_medium;
++
+     flex-shrink: 0;
+     width: 36px;
+     height: 48px;
+@@ -18,9 +20,6 @@
+     outline: none;
+     color: var(--confirmation-input-text-color);
+     text-align: center;
+-    font-size: var(--confirmation-input-font-size);
+-    font-weight: var(--confirmation-input-font-weight);
+-    font-family: var(--confirmation-input-font-family);
+ 
+     &.hasError {
+         color: var(--confirmation-error-color);
+diff --git a/packages/confirmation-v1/src/index.module.css b/packages/confirmation-v1/src/index.module.css
+index ad71c5070..3f450ea09 100644
+--- a/packages/confirmation-v1/src/index.module.css
++++ b/packages/confirmation-v1/src/index.module.css
+@@ -5,7 +5,6 @@
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+-    font-family: var(--confirmation-text-font-family);
+ }
+ 
+ .error {
+diff --git a/packages/confirmation-v1/src/vars.css b/packages/confirmation-v1/src/vars.css
+index cd5089620..d8a16ea8f 100644
+--- a/packages/confirmation-v1/src/vars.css
++++ b/packages/confirmation-v1/src/vars.css
+@@ -2,45 +2,26 @@
+ 
+ :root {
+     /* title */
+-    --confirmation-title-font-size: 22px;
+-    --confirmation-title-line-height: 26px;
+-    --confirmation-title-font-weight: 700;
+-    --confirmation-title-font-family: var(--font-family-system);
+     --confirmation-title-color: var(--color-light-text-primary);
+-    --confirmation-title-font-feature-settings: normal;
+ 
+     /* text */
+-    --confirmation-text-font-size: 16px;
+-    --confirmation-text-line-height: 24px;
+-    --confirmation-text-font-weight: 400;
+-    --confirmation-text-font-family: var(--font-family-system);
+     --confirmation-text-color: var(--color-light-text-secondary);
+ 
+     /* error */
+     --confirmation-error-color: var(--color-light-text-negative);
+ 
+     /* input */
+-    --confirmation-input-font-size: 30px;
+-    --confirmation-input-font-weight: 700;
+-    --confirmation-input-font-family: var(--font-family-system);
+     --confirmation-input-text-color: var(--color-light-text-primary);
+     --confirmation-input-bg-color: var(--color-light-neutral-translucent-300);
+     --confirmation-input-error-bg-color: var(--color-light-status-muted-negative);
+ }
+ 
+ @define-mixin _confirmation-title {
+-    font-size: var(--confirmation-title-font-size);
+-    line-height: var(--confirmation-title-line-height);
+-    font-weight: var(--confirmation-title-font-weight);
+-    font-family: var(--confirmation-title-font-family);
++    @mixin headline-system_small;
+     color: var(--confirmation-title-color);
+-    font-feature-settings: var(--confirmation-title-font-feature-settings);
+ }
+ 
+ @define-mixin _confirmation-text {
+-    font-size: var(--confirmation-text-font-size);
+-    line-height: var(--confirmation-text-line-height);
+-    font-weight: var(--confirmation-text-font-weight);
+-    font-family: var(--confirmation-text-font-family);
++    @mixin paragraph_primary_medium;
+     color: var(--confirmation-text-color);
+ }
+diff --git a/packages/confirmation/src/__snapshots__/Component.test.tsx.snap b/packages/confirmation/src/__snapshots__/Component.test.tsx.snap
+index 930ba8bea..c42d6a3d2 100644
+--- a/packages/confirmation/src/__snapshots__/Component.test.tsx.snap
++++ b/packages/confirmation/src/__snapshots__/Component.test.tsx.snap
+@@ -9,7 +9,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Введите код из уведомления
+       </h3>
+@@ -91,7 +91,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Введите код из уведомления
+       </h3>
+@@ -210,7 +210,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Введите код из уведомления
+       </h3>
+@@ -298,7 +298,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Введите код из уведомления
+       </h3>
+@@ -386,7 +386,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Введите код из уведомления
+       </h3>
+@@ -505,7 +505,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Ввести код больше нельзя
+       </h3>
+@@ -538,7 +538,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`]
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Не приходит код?
+       </h3>
+@@ -618,7 +618,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK scree
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Ввести код пока нельзя
+       </h3>
+@@ -666,7 +666,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER
+       class="component left"
+     >
+       <h3
+-        class="component component header typography medium primary font"
++        class="component component header small primary"
+       >
+         Ввод разблокирован
+       </h3>
+diff --git a/packages/confirmation/src/components/header/component.tsx b/packages/confirmation/src/components/header/component.tsx
+index 06c8677c5..48f2887c1 100644
+--- a/packages/confirmation/src/components/header/component.tsx
++++ b/packages/confirmation/src/components/header/component.tsx
+@@ -1,7 +1,6 @@
+ import React, { type FC, type ReactNode } from 'react';
+-import cn from 'classnames';
+ 
+-import { TitleDesktop } from '@alfalab/core-components-typography';
++import { TitleDesktop, TitleMobile } from '@alfalab/core-components-typography';
+ 
+ import styles from './index.module.css';
+ 
+@@ -23,12 +22,19 @@ export type HeaderProps = {
+     titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+ };
+ 
+-export const Header: FC<HeaderProps> = ({ mobile, children, titleTag = 'h3' }) => (
+-    <TitleDesktop
+-        className={cn(styles.header, styles.typography, { [styles.typographyMobile]: mobile })}
+-        tag={titleTag}
+-        color='primary'
+-    >
+-        {children}
+-    </TitleDesktop>
+-);
++export const Header: FC<HeaderProps> = ({ mobile, children, titleTag = 'h3' }) => {
++    const Tag = mobile ? TitleMobile : TitleDesktop;
++
++    return (
++        <Tag
++            font='system'
++            view='small'
++            className={styles.header}
++            tag={titleTag}
++            color='primary'
++            defaultMargins={false}
++        >
++            {children}
++        </Tag>
++    );
++};
+diff --git a/packages/confirmation/src/components/header/index.module.css b/packages/confirmation/src/components/header/index.module.css
+index 65bd609f6..ee2e815fe 100644
+--- a/packages/confirmation/src/components/header/index.module.css
++++ b/packages/confirmation/src/components/header/index.module.css
+@@ -3,19 +3,3 @@
+ .header.header {
+     margin-bottom: var(--gap-24);
+ }
+-
+-.typography.typography.typography {
+-    font-feature-settings: var(--confirmation-header-font-feature-settings);
+-    font-size: var(--confirmation-header-desktop-font-size);
+-    line-height: var(--confirmation-header-desktop-line-height);
+-    font-weight: var(--confirmation-header-desktop-font-weight);
+-    font-family: var(--confirmation-header-desktop-font-family);
+-}
+-
+-.typographyMobile.typographyMobile.typographyMobile {
+-    font-feature-settings: var(--confirmation-header-font-feature-settings);
+-    font-size: var(--confirmation-header-mobile-font-size);
+-    line-height: var(--confirmation-header-mobile-line-height);
+-    font-weight: var(--confirmation-header-mobile-font-weight);
+-    font-family: var(--confirmation-header-mobile-font-family);
+-}
+diff --git a/packages/confirmation/src/vars.css b/packages/confirmation/src/vars.css
+index 9cb28f3d1..bed3e7fbd 100644
+--- a/packages/confirmation/src/vars.css
++++ b/packages/confirmation/src/vars.css
+@@ -1,33 +1,11 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
+ 
+ :root {
+-    /* desktop */
+-    --confirmation-header-desktop-font-size: 22px;
+-    --confirmation-header-desktop-line-height: 26px;
+-    --confirmation-header-desktop-font-weight: bold;
+-    --confirmation-header-desktop-font-family: var(--font-family-system);
+-
+-    /* mobile */
+-    --confirmation-header-mobile-font-size: 20px;
+-    --confirmation-header-mobile-line-height: 28px;
+-    --confirmation-header-mobile-font-weight: 600;
+-    --confirmation-header-mobile-font-family: var(--font-family-system);
+-
+     /* text */
+-    --confirmation-text-font-size: 16px;
+-    --confirmation-text-line-height: 24px;
+-    --confirmation-text-font-weight: 400;
+-    --confirmation-text-font-family: var(--font-family-system);
+     --confirmation-text-color: var(--color-light-text-primary);
+ 
+-    /* header */
+-    --confirmation-header-font-feature-settings: normal;
+-
+     @define-mixin _confirmation-text {
+-        font-size: var(--confirmation-text-font-size);
+-        line-height: var(--confirmation-text-line-height);
+-        font-weight: var(--confirmation-text-font-weight);
+-        font-family: var(--confirmation-text-font-family);
++        @mixin paragraph_primary_medium;
+         color: var(--confirmation-text-color);
+     }
+ }
+diff --git a/packages/filter-tag/src/components/base-filter-tag/index.module.css b/packages/filter-tag/src/components/base-filter-tag/index.module.css
+index ba4b514ee..b5486e4b2 100644
+--- a/packages/filter-tag/src/components/base-filter-tag/index.module.css
++++ b/packages/filter-tag/src/components/base-filter-tag/index.module.css
+@@ -67,7 +67,6 @@
+     cursor: pointer;
+     outline: none;
+     white-space: nowrap;
+-    font-family: var(--font-family);
+     transition:
+         border-color 0.2s ease,
+         background-color 0.2s ease,
+diff --git a/packages/form-control/src/components/base-form-control/index.module.css b/packages/form-control/src/components/base-form-control/index.module.css
+index 227b76b5c..491a879de 100644
+--- a/packages/form-control/src/components/base-form-control/index.module.css
++++ b/packages/form-control/src/components/base-form-control/index.module.css
+@@ -1,7 +1,6 @@
+ @import '../../vars.css';
+ 
+ .component {
+-    font-family: var(--form-control-font-family);
+     width: max-content;
+     max-width: 100%;
+ }
+@@ -48,7 +47,6 @@
+ 
+ .input > * {
+     padding: var(--form-control-paddings);
+-    font-family: var(--form-control-font-family);
+ }
+ 
+ .input.size-40 > * {
+diff --git a/packages/form-control/src/vars.css b/packages/form-control/src/vars.css
+index 21240b8e1..fa9bb6650 100644
+--- a/packages/form-control/src/vars.css
++++ b/packages/form-control/src/vars.css
+@@ -63,7 +63,6 @@
+     --form-control-m-min-height: var(--size-m-height);
+     --form-control-l-min-height: var(--size-l-height);
+     --form-control-xl-min-height: var(--size-xl-height);
+-    --form-control-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
+     --form-control-bg-backdrop-filter: unset;
+ 
+     /* paddings */
+@@ -79,9 +78,6 @@
+     /* disabled */
+     --form-control-disabled-opacity: 1;
+ 
+-    /* font */
+-    --form-control-font-family: var(--font-family);
+-
+     /* border-radius */
+     --form-control-40-border-radius: var(--border-radius-8);
+     --form-control-s-border-radius: var(--border-radius-8);
+diff --git a/packages/input/src/components/base-input/Component.tsx b/packages/input/src/components/base-input/Component.tsx
+index 3a1d5bcf8..74cfece12 100644
+--- a/packages/input/src/components/base-input/Component.tsx
++++ b/packages/input/src/components/base-input/Component.tsx
+@@ -210,6 +210,11 @@ export type BaseInputProps = Omit<
+      * Запрещает ввод с клавиатуры
+      */
+     disableUserInput?: boolean;
++
++    /**
++     * Жирный текст
++     */
++    bold?: boolean;
+ };
+ 
+ const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
+@@ -255,6 +260,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
+             readOnly: readOnlyProp,
+             FormControlComponent,
+             disableUserInput,
++            bold = false,
+             ...restProps
+         },
+         ref,
+@@ -491,6 +497,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
+                             [styles[`size-${size}`]]: hasInnerLabel,
+                             [styles.hasInnerLabel]: hasInnerLabel,
+                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
++                            [styles.bold]: bold,
+                         },
+                         inputClassName,
+                     )}
+diff --git a/packages/input/src/components/base-input/index.module.css b/packages/input/src/components/base-input/index.module.css
+index ad81bfa16..7dcc6e89c 100644
+--- a/packages/input/src/components/base-input/index.module.css
++++ b/packages/input/src/components/base-input/index.module.css
+@@ -1,8 +1,6 @@
+-@import '../../../../form-control/src/vars.css';
+ @import '../../vars.css';
+ 
+ .input {
+-    @mixin paragraph_component;
+     position: relative;
+     display: block;
+     width: 100%;
+@@ -15,9 +13,32 @@
+     box-sizing: border-box;
+     -webkit-appearance: none;
+ 
++    &,
++    &::placeholder {
++        @mixin paragraph_component_primary;
++    }
++
++    &.bold {
++        @mixin accent_component_primary;
++    }
++
++    &::placeholder {
++        transition:
++            opacity 0.2s ease,
++            color 0.2s ease;
++    }
++
+     &.size-40 {
+-        @mixin paragraph_component_secondary;
+         padding: var(--gap-0) var(--gap-8);
++
++        &,
++        &::placeholder {
++            @mixin paragraph_component_secondary;
++        }
++
++        &.bold {
++            @mixin accent_component_secondary;
++        }
+     }
+ 
+     /* Убирает синюю заливку при автокомплите */
+@@ -28,7 +49,6 @@
+     &:-webkit-autofill:active {
+         &:first-line {
+             @mixin paragraph_component;
+-            font-family: var(--form-control-font-family);
+         }
+ 
+         /* Hack from http://stackoverflow.com/a/29350537 */
+@@ -57,12 +77,6 @@
+     }
+ }
+ 
+-.input::placeholder {
+-    transition:
+-        opacity 0.2s ease,
+-        color 0.2s ease;
+-}
+-
+ .hasInnerLabel {
+     &::placeholder {
+         opacity: 0;
+diff --git a/packages/input/src/vars.css b/packages/input/src/vars.css
+index 1e245c42e..bf4bf6f8e 100644
+--- a/packages/input/src/vars.css
++++ b/packages/input/src/vars.css
+@@ -1,4 +1,5 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
++@import '../../form-control/src/vars.css';
+ 
+ :root {
+     --input-color: var(--color-light-text-primary);
+diff --git a/packages/link/src/index.module.css b/packages/link/src/index.module.css
+index 077a6e13d..4d09ff209 100644
+--- a/packages/link/src/index.module.css
++++ b/packages/link/src/index.module.css
+@@ -3,7 +3,7 @@
+ .component {
+     box-sizing: border-box;
+     text-decoration: none;
+-    font-family: var(--font-family);
++    font-family: inherit;
+     cursor: pointer;
+     outline: none;
+ 
+diff --git a/packages/modal/src/components/header/desktop.module.css b/packages/modal/src/components/header/desktop.module.css
+index b33651772..de2fb0fbb 100644
+--- a/packages/modal/src/components/header/desktop.module.css
++++ b/packages/modal/src/components/header/desktop.module.css
+@@ -5,24 +5,17 @@
+     border-top-right-radius: var(--modal-border-radius);
+ }
+ 
+-.content {
+-    font-weight: var(--modal-header-desktop-font-weight);
+-    font-family: var(--modal-header-desktop-font-family);
+-}
+-
+ .size-500 .content,
+ .size-600 .content {
+     padding: var(--modal-s-header-desktop-content-paddings);
+-    font-size: var(--modal-s-header-desktop-font-size);
+-    line-height: var(--modal-s-header-desktop-line-height);
++    @mixin headline-system_small;
+ }
+ 
+ .size-800 .content,
+ .size-1140 .content,
+ .fullscreen .content {
+     padding: var(--modal-l-header-desktop-content-paddings);
+-    font-size: var(--modal-l-header-desktop-font-size);
+-    line-height: var(--modal-l-header-desktop-line-height);
++    @mixin headline-system_medium;
+ }
+ 
+ .size-500,
+diff --git a/packages/modal/src/components/header/mobile.module.css b/packages/modal/src/components/header/mobile.module.css
+index ec07eb9cb..3971af7e5 100644
+--- a/packages/modal/src/components/header/mobile.module.css
++++ b/packages/modal/src/components/header/mobile.module.css
+@@ -14,10 +14,6 @@
+ }
+ 
+ .content {
+-    font-size: var(--modal-header-mobile-font-size);
+-    line-height: var(--modal-header-mobile-line-height);
+-    font-family: var(--modal-header-mobile-font-family);
+-    font-weight: var(--modal-header-mobile-font-weight);
+-
+     padding: var(--modal-header-mobile-content-paddings);
++    @mixin headline-system-mobile_small;
+ }
+diff --git a/packages/modal/src/vars.css b/packages/modal/src/vars.css
+index 9ad8d145b..592622afe 100644
+--- a/packages/modal/src/vars.css
++++ b/packages/modal/src/vars.css
+@@ -27,20 +27,10 @@
+ 
+     /* desktop */
+     --modal-s-header-desktop-content-paddings: var(--gap-12);
+-    --modal-s-header-desktop-font-size: 22px;
+-    --modal-s-header-desktop-line-height: 26px;
+     --modal-l-header-desktop-content-paddings: var(--gap-6) var(--gap-12) var(--gap-16);
+-    --modal-l-header-desktop-font-size: 30px;
+-    --modal-l-header-desktop-line-height: 36px;
+-    --modal-header-desktop-font-weight: bold;
+-    --modal-header-desktop-font-family: var(--font-family-system);
+ 
+     /* mobile */
+     --modal-header-mobile-content-paddings: var(--gap-10) var(--gap-8);
+-    --modal-header-mobile-font-size: 20px;
+-    --modal-header-mobile-line-height: 28px;
+-    --modal-header-mobile-font-family: var(--font-family-system);
+-    --modal-header-mobile-font-weight: 600;
+ 
+     /* paddings */
+     --modal-header-mobile-top-padding: var(--gap-4);
+diff --git a/packages/pure-cell/src/components/amount-title/component.tsx b/packages/pure-cell/src/components/amount-title/component.tsx
+index 06f67fa8f..05e17edf6 100644
+--- a/packages/pure-cell/src/components/amount-title/component.tsx
++++ b/packages/pure-cell/src/components/amount-title/component.tsx
+@@ -34,7 +34,7 @@ export const AmountTitle: React.FC<Props> = ({
+     hidden,
+     className,
+     dataTestId,
+-    titleProps: titlePropsFromProps = {},
++    titleProps: titlePropsFromProps,
+     ...restProps
+ }) => {
+     const pureCellContext = useContext(PureCellContext);
+@@ -61,7 +61,7 @@ export const AmountTitle: React.FC<Props> = ({
+         >
+             <CoreAmount
+                 minority={minority || minorUnits}
+-                className={cn(styles.weight, className)}
++                className={className}
+                 dataTestId={getDataTestId(
+                     dataTestId || pureCellContext.dataTestId,
+                     'core-amount-title',
+diff --git a/packages/pure-cell/src/components/amount-title/index.module.css b/packages/pure-cell/src/components/amount-title/index.module.css
+index 14d52f2cd..95e0771bc 100644
+--- a/packages/pure-cell/src/components/amount-title/index.module.css
++++ b/packages/pure-cell/src/components/amount-title/index.module.css
+@@ -4,10 +4,6 @@
+     display: flex;
+ }
+ 
+-.weight {
+-    font-weight: inherit;
+-}
+-
+ .hidden {
+     background: var(--color-light-neutral-translucent-400);
+     border-radius: var(--border-radius-8);
+diff --git a/packages/segmented-control/src/components/segment/index.module.css b/packages/segmented-control/src/components/segment/index.module.css
+index 51f90573e..62e2921f4 100644
+--- a/packages/segmented-control/src/components/segment/index.module.css
++++ b/packages/segmented-control/src/components/segment/index.module.css
+@@ -11,7 +11,6 @@
+     border: none;
+     background-color: transparent;
+     position: relative;
+-    font-family: var(--font-family-system);
+     transition:
+         font-weight 0.2s ease,
+         color 0.2s ease;
+diff --git a/packages/side-panel/src/components/header/desktop.module.css b/packages/side-panel/src/components/header/desktop.module.css
+index 250ce953a..84da0632e 100644
+--- a/packages/side-panel/src/components/header/desktop.module.css
++++ b/packages/side-panel/src/components/header/desktop.module.css
+@@ -1,14 +1,8 @@
+ @import '../../vars.css';
+ 
+-.content {
+-    font-weight: var(--side-panel-header-desktop-font-weight);
+-    font-family: var(--side-panel-header-desktop-font-family);
+-}
+-
+ .size-500 .content {
+     padding: var(--side-panel-s-header-desktop-content-paddings);
+-    font-size: var(--side-panel-s-header-desktop-font-size);
+-    line-height: var(--side-panel-s-header-desktop-line-height);
++    @mixin headline-system_medium;
+ }
+ 
+ .size-500 {
+diff --git a/packages/side-panel/src/components/header/mobile.module.css b/packages/side-panel/src/components/header/mobile.module.css
+index 3fd79d371..3e7279265 100644
+--- a/packages/side-panel/src/components/header/mobile.module.css
++++ b/packages/side-panel/src/components/header/mobile.module.css
+@@ -14,9 +14,7 @@
+ }
+ 
+ .content {
+-    font-size: var(--side-panel-header-mobile-font-size);
+-    line-height: var(--side-panel-header-mobile-line-height);
+-    font-family: var(--side-panel-header-mobile-font-family);
+-    font-weight: var(--side-panel-header-mobile-font-weight);
+     padding: var(--side-panel-header-mobile-content-paddings);
++
++    @mixin headline-system-mobile_small;
+ }
+diff --git a/packages/side-panel/src/vars.css b/packages/side-panel/src/vars.css
+index 5858058d7..887777f3b 100644
+--- a/packages/side-panel/src/vars.css
++++ b/packages/side-panel/src/vars.css
+@@ -23,17 +23,9 @@
+ 
+     /* desktop */
+     --side-panel-s-header-desktop-content-paddings: var(--gap-6) var(--gap-12) var(--gap-16);
+-    --side-panel-s-header-desktop-font-size: 30px;
+-    --side-panel-s-header-desktop-line-height: 36px;
+-    --side-panel-header-desktop-font-weight: bold;
+-    --side-panel-header-desktop-font-family: var(--font-family-system);
+ 
+     /* mobile */
+     --side-panel-header-mobile-content-paddings: var(--gap-10) var(--gap-8);
+-    --side-panel-header-mobile-font-size: 20px;
+-    --side-panel-header-mobile-line-height: 28px;
+-    --side-panel-header-mobile-font-family: var(--font-family-system);
+-    --side-panel-header-mobile-font-weight: 600;
+ 
+     /* paddings */
+     --side-panel-header-mobile-top-padding: var(--gap-4);
+diff --git a/packages/slider-input/src/index.module.css b/packages/slider-input/src/index.module.css
+index fbf727bfa..cfbe273b6 100644
+--- a/packages/slider-input/src/index.module.css
++++ b/packages/slider-input/src/index.module.css
+@@ -5,7 +5,6 @@
+ :root {
+     --slider-input-steps-color: var(--color-light-text-secondary);
+     --slider-input-info-color: var(--color-light-text-secondary);
+-    --slider-input-font-weight: 700;
+     --slider-input-s-border-bottom-radius: var(--border-radius-8);
+     --slider-input-m-border-bottom-radius: var(--border-radius-8);
+     --slider-input-l-border-bottom-radius: var(--border-radius-8);
+@@ -100,16 +99,12 @@
+     & input + div {
+         font-variant-numeric: tabular-nums;
+     }
+-
+-    & input::placeholder {
+-        font-weight: 400;
+-    }
+ }
+ 
+ .bold .input {
+     & input,
+     & input + div {
+-        font-weight: var(--slider-input-font-weight);
++        @mixin accent_component_primary;
+     }
+ }
+ 
+diff --git a/packages/system-message/src/components/title/desktop.module.css b/packages/system-message/src/components/title/desktop.module.css
+index d3a827eeb..0155fd097 100644
+--- a/packages/system-message/src/components/title/desktop.module.css
++++ b/packages/system-message/src/components/title/desktop.module.css
+@@ -1,13 +1,5 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
+ 
+-:root {
+-    --sys-message-desktop-title-font-size: 22px;
+-    --sys-message-desktop-title-line-height: 26px;
+-    --sys-message-desktop-title-font-weight: 700;
+-}
+-
+ .component {
+-    font-size: var(--sys-message-desktop-title-font-size);
+-    line-height: var(--sys-message-desktop-title-line-height);
+-    font-weight: var(--sys-message-desktop-title-font-weight);
++    @mixin headline-system_small;
+ }
+diff --git a/packages/system-message/src/components/title/index.module.css b/packages/system-message/src/components/title/index.module.css
+index b2bd3fcae..2708db4bf 100644
+--- a/packages/system-message/src/components/title/index.module.css
++++ b/packages/system-message/src/components/title/index.module.css
+@@ -1,13 +1,7 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
+ 
+-:root {
+-    --sys-message-title-font-family: var(--font-family-system);
+-}
+-
+ .component {
+     margin: var(--gap-0);
+     text-align: center;
+     color: var(--color-light-text-primary);
+-    font-family: var(--sys-message-title-font-family);
+-    font-feature-settings: 'ss01';
+ }
+diff --git a/packages/system-message/src/components/title/mobile.module.css b/packages/system-message/src/components/title/mobile.module.css
+index 4b1db8821..93d1b3a3f 100644
+--- a/packages/system-message/src/components/title/mobile.module.css
++++ b/packages/system-message/src/components/title/mobile.module.css
+@@ -1,13 +1,5 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
+ 
+-:root {
+-    --sys-message-mobile-title-font-size: 20px;
+-    --sys-message-mobile-title-line-height: 28px;
+-    --sys-message-mobile-title-font-weight: 600;
+-}
+-
+ .component {
+-    font-size: var(--sys-message-mobile-title-font-size);
+-    line-height: var(--sys-message-mobile-title-line-height);
+-    font-weight: var(--sys-message-mobile-title-font-weight);
++    @mixin headline-system-mobile_small;
+ }
+diff --git a/packages/tabs/src/components/primary-tablist/Component.collapsible.tsx b/packages/tabs/src/components/primary-tablist/Component.collapsible.tsx
+index 168455a41..cf4d7ce95 100644
+--- a/packages/tabs/src/components/primary-tablist/Component.collapsible.tsx
++++ b/packages/tabs/src/components/primary-tablist/Component.collapsible.tsx
+@@ -66,6 +66,7 @@ export const CollapsiblePrimaryTabList = ({
+                                     ref={toggleRef as Ref<HTMLButtonElement>}
+                                     styles={styles}
+                                     isOption={true}
++                                    className={styles.noTextStyle}
+                                 />
+                             ),
+                         });
+@@ -111,6 +112,7 @@ export const CollapsiblePrimaryTabList = ({
+                             styles={styles}
+                             showSkeleton={showSkeleton}
+                             skeletonProps={skeletonProps}
++                            className={cn({ [styles.noTextStyle]: !textStyle })}
+                         />
+                     )}
+                 </KeyboardFocusable>
+diff --git a/packages/tabs/src/components/primary-tablist/Component.tsx b/packages/tabs/src/components/primary-tablist/Component.tsx
+index ac32b5413..343c124ca 100644
+--- a/packages/tabs/src/components/primary-tablist/Component.tsx
++++ b/packages/tabs/src/components/primary-tablist/Component.tsx
+@@ -82,6 +82,7 @@ export const PrimaryTabList = ({
+                             showSkeleton={showSkeleton}
+                             skeletonProps={skeletonProps}
+                             onResize={handleTitleResize}
++                            className={cn({ [styles.noTextStyle]: !textStyle })}
+                         />
+                     )}
+                 </KeyboardFocusable>
+diff --git a/packages/tabs/src/components/primary-tablist/index.module.css b/packages/tabs/src/components/primary-tablist/index.module.css
+index 660dbded6..05dc5a693 100644
+--- a/packages/tabs/src/components/primary-tablist/index.module.css
++++ b/packages/tabs/src/components/primary-tablist/index.module.css
+@@ -44,7 +44,6 @@
+     padding: var(--gap-0);
+     cursor: pointer;
+     color: var(--primary-tablist-color);
+-    font-feature-settings: var(--primary-tablist-font-feature-settings);
+     transition: color 0.2s ease;
+     border: 0;
+     background: none;
+@@ -101,10 +100,6 @@
+ .xxs {
+     & .title {
+         padding: var(--primary-tablist-s-padding);
+-        font-size: var(--primary-tablist-s-font-size);
+-        font-weight: var(--primary-tablist-s-font-weight);
+-        font-family: var(--primary-tablist-s-font-family);
+-        line-height: 24px;
+     }
+ 
+     & .title + .title {
+@@ -123,10 +118,6 @@
+ .m {
+     & .title {
+         padding: var(--primary-tablist-m-padding);
+-        font-size: var(--primary-tablist-m-font-size);
+-        font-weight: var(--primary-tablist-m-font-weight);
+-        font-family: var(--primary-tablist-m-font-family);
+-        line-height: 24px;
+     }
+ 
+     & .title + .title {
+@@ -145,10 +136,6 @@
+ .l {
+     & .title {
+         padding: var(--primary-tablist-l-padding);
+-        font-size: var(--primary-tablist-l-font-size);
+-        font-weight: var(--primary-tablist-l-font-weight);
+-        font-family: var(--primary-tablist-l-font-family);
+-        line-height: 24px;
+     }
+ 
+     & .title + .title {
+@@ -167,10 +154,6 @@
+ .xl {
+     & .title {
+         padding: var(--primary-tablist-xl-padding);
+-        font-size: var(--primary-tablist-xl-font-size);
+-        font-weight: var(--primary-tablist-xl-font-weight);
+-        font-family: var(--primary-tablist-xl-font-family);
+-        line-height: 32px;
+     }
+ 
+     & .title + .title {
+@@ -195,3 +178,7 @@
+ .rightAddonsMarginZero {
+     margin-left: var(--gap-0);
+ }
++
++.title.noTextStyle {
++    @mixin paragraph_primary_large;
++}
+diff --git a/packages/tabs/src/components/primary-tablist/mobile.module.css b/packages/tabs/src/components/primary-tablist/mobile.module.css
+index 6cc891270..9bf389f2b 100644
+--- a/packages/tabs/src/components/primary-tablist/mobile.module.css
++++ b/packages/tabs/src/components/primary-tablist/mobile.module.css
+@@ -9,10 +9,6 @@
+ .mobile {
+     & .title {
+         padding: var(--primary-tablist-mobile-padding);
+-        font-size: var(--primary-tablist-mobile-font-size);
+-        font-weight: var(--primary-tablist-mobile-font-weight);
+-        font-family: var(--primary-tablist-mobile-font-family);
+-        line-height: var(--primary-tablist-mobile-line-height);
+ 
+         & + .title {
+             margin-left: var(--primary-tablist-mobile-gaps);
+@@ -22,3 +18,7 @@
+     @mixin text-style;
+     @mixin text-style-mobile;
+ }
++
++.title.noTextStyle {
++    @mixin paragraph_primary_medium;
++}
+diff --git a/packages/tabs/src/components/tabs/__snapshots__/Component.test.tsx.snap b/packages/tabs/src/components/tabs/__snapshots__/Component.test.tsx.snap
+index 9376e368c..5f328680b 100644
+--- a/packages/tabs/src/components/tabs/__snapshots__/Component.test.tsx.snap
++++ b/packages/tabs/src/components/tabs/__snapshots__/Component.test.tsx.snap
+@@ -12,7 +12,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
+       >
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-1"
+           role="tab"
+           tabindex="-1"
+@@ -31,7 +31,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
+         </button>
+         <button
+           aria-selected="true"
+-          class="title selected"
++          class="title selected noTextStyle"
+           id="tab-2"
+           role="tab"
+           tabindex="0"
+@@ -45,7 +45,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
+         </button>
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-3"
+           role="tab"
+           tabindex="-1"
+@@ -59,7 +59,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
+         </button>
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-4"
+           role="tab"
+           tabindex="-1"
+@@ -73,7 +73,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
+         </button>
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-5"
+           role="tab"
+           tabindex="-1"
+@@ -199,7 +199,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
+         >
+           <button
+             aria-selected="false"
+-            class=""
++            class="undefined"
+             id="tab-1"
+             role="tab"
+             tabindex="-1"
+@@ -218,7 +218,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
+           </button>
+           <button
+             aria-selected="true"
+-            class=""
++            class="undefined"
+             id="tab-2"
+             role="tab"
+             tabindex="0"
+@@ -232,7 +232,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
+           </button>
+           <button
+             aria-selected="false"
+-            class=""
++            class="undefined"
+             id="tab-3"
+             role="tab"
+             tabindex="-1"
+@@ -246,7 +246,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
+           </button>
+           <button
+             aria-selected="false"
+-            class=""
++            class="undefined"
+             id="tab-4"
+             role="tab"
+             tabindex="-1"
+@@ -260,7 +260,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
+           </button>
+           <button
+             aria-selected="false"
+-            class=""
++            class="undefined"
+             id="tab-5"
+             role="tab"
+             tabindex="-1"
+@@ -386,7 +386,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
+       >
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-1"
+           role="tab"
+           tabindex="-1"
+@@ -405,7 +405,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
+         </button>
+         <button
+           aria-selected="true"
+-          class="title selected"
++          class="title selected noTextStyle"
+           id="tab-2"
+           role="tab"
+           tabindex="0"
+@@ -419,7 +419,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
+         </button>
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-3"
+           role="tab"
+           tabindex="-1"
+@@ -433,7 +433,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
+         </button>
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-4"
+           role="tab"
+           tabindex="-1"
+@@ -447,7 +447,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
+         </button>
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-5"
+           role="tab"
+           tabindex="-1"
+@@ -570,7 +570,7 @@ exports[`Tabs should match snapshot with icon as title 1`] = `
+       >
+         <button
+           aria-selected="false"
+-          class="title"
++          class="title noTextStyle"
+           id="tab-1"
+           role="tab"
+           tabindex="-1"
+@@ -595,7 +595,7 @@ exports[`Tabs should match snapshot with icon as title 1`] = `
+         </button>
+         <button
+           aria-selected="true"
+-          class="title selected"
++          class="title selected noTextStyle"
+           id="tab-2"
+           role="tab"
+           tabindex="0"
+diff --git a/packages/tabs/src/components/title/Component.tsx b/packages/tabs/src/components/title/Component.tsx
+index 94ef02949..ccca4d0a2 100644
+--- a/packages/tabs/src/components/title/Component.tsx
++++ b/packages/tabs/src/components/title/Component.tsx
+@@ -34,6 +34,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
+             skeletonProps,
+             onResize,
+             dataTestId,
++            className,
+             ...restProps
+         },
+         ref,
+@@ -81,6 +82,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
+                         [styles.option]: isOption,
+                     },
+                     toggleClassName,
++                    className,
+                 )}
+             >
+                 {showSkeleton ? (
+diff --git a/packages/tabs/src/vars.css b/packages/tabs/src/vars.css
+index 9fba98bb4..cab9595c4 100644
+--- a/packages/tabs/src/vars.css
++++ b/packages/tabs/src/vars.css
+@@ -7,43 +7,26 @@
+     --primary-tablist-disabled-color: var(--color-light-text-tertiary);
+     --primary-tablist-bottom-border-color: var(--color-light-neutral-translucent-500);
+     --primary-tablist-line-color: var(--color-light-accent-primary);
+-    --primary-tablist-font-feature-settings: normal;
+ 
+     /* mobile */
+     --primary-tablist-mobile-gaps: var(--gap-24);
+-    --primary-tablist-mobile-font-size: 16px;
+-    --primary-tablist-mobile-line-height: 24px;
+-    --primary-tablist-mobile-font-weight: 400;
+-    --primary-tablist-mobile-font-family: var(--font-family-system);
+     --primary-tablist-mobile-padding: var(--gap-0) var(--gap-0) var(--gap-12);
+ 
+     /* size s */
+     --primary-tablist-s-gaps: var(--gap-32);
+-    --primary-tablist-s-font-size: 18px;
+-    --primary-tablist-s-font-weight: 400;
+-    --primary-tablist-s-font-family: var(--font-family-system);
+     --primary-tablist-s-padding: var(--gap-0) var(--gap-0) var(--gap-12);
+ 
+     /* size m */
+     --primary-tablist-m-gaps: var(--gap-32);
+-    --primary-tablist-m-font-size: 18px;
+-    --primary-tablist-m-font-weight: 400;
+-    --primary-tablist-m-font-family: var(--font-family-system);
+     --primary-tablist-m-padding: var(--gap-0) var(--gap-0) var(--gap-16);
+ 
+     /* size l */
+     --primary-tablist-l-gaps: var(--gap-32);
+-    --primary-tablist-l-font-size: 18px;
+-    --primary-tablist-l-font-weight: 400;
+-    --primary-tablist-l-font-family: var(--font-family-system);
+     --primary-tablist-l-padding: var(--gap-0) var(--gap-0) var(--gap-20);
+ 
+     /* size xl */
+     --primary-tablist-xl-gaps: var(--gap-32);
+-    --primary-tablist-xl-font-size: 18px;
+-    --primary-tablist-xl-font-weight: 400;
+-    --primary-tablist-xl-font-family: var(--font-family-system);
+-    --primary-tablist-xl-padding: var(--gap-0) var(--gap-0) var(--gap-20);
++    --primary-tablist-xl-padding: var(--gap-4) var(--gap-0) var(--gap-24);
+ 
+     /* mobile */
+     --secondary-tablist-mobile-gaps: var(--gap-8);
+diff --git a/packages/tag/src/components/base-tag/index.module.css b/packages/tag/src/components/base-tag/index.module.css
+index cb895aaa5..b5da03fc5 100644
+--- a/packages/tag/src/components/base-tag/index.module.css
++++ b/packages/tag/src/components/base-tag/index.module.css
+@@ -6,7 +6,6 @@
+     align-content: center;
+     align-items: center;
+     margin: var(--gap-0);
+-    font-family: var(--font-family);
+     text-decoration: none;
+     border-width: var(--tag-border-width);
+     border-style: solid;
+@@ -95,48 +94,48 @@ button.noContent {
+     min-width: 52px;
+     min-height: var(--size-xxs-height);
+     padding: var(--gap-0) var(--gap-12);
+-    font-size: 14px;
+-    line-height: 20px;
+-    font-weight: normal;
++
++    @mixin paragraph_primary_small;
+ }
+ 
+ .size-40 {
+     min-width: 64px;
+     min-height: var(--size-xs-height);
+     padding: var(--gap-0) var(--gap-16);
+-    font-size: 14px;
+-    line-height: 20px;
+-    font-weight: normal;
++
++    @mixin paragraph_primary_small;
+ }
+ 
+ .size-48 {
+     min-width: 72px;
+     min-height: var(--size-s-height);
+     padding: var(--gap-0) var(--gap-20);
+-    font-size: 16px;
+-    line-height: 20px;
+-    font-weight: normal;
++
++    @mixin paragraph_component_primary;
+ }
+ 
+ .size-56 {
+-    @mixin action_component;
+     min-width: 88px;
+     min-height: var(--size-m-height);
+     padding: var(--gap-0) var(--gap-24);
++
++    @mixin paragraph_component_primary;
+ }
+ 
+ .size-64 {
+-    @mixin action_primary_large;
+     min-width: 112px;
+     min-height: var(--size-l-height);
+     padding: var(--gap-0) 28px;
++
++    @mixin paragraph_primary_large;
+ }
+ 
+ .size-72 {
+-    @mixin action_primary_large;
+     min-width: 112px;
+     min-height: var(--size-xl-height);
+     padding: var(--gap-0) var(--gap-32);
++
++    @mixin paragraph_primary_large;
+ }
+ 
+ .withRightAddons {
+diff --git a/packages/themes/src/mixins/bottom-sheet/click.css b/packages/themes/src/mixins/bottom-sheet/click.css
+deleted file mode 100644
+index 5ea90b3c5..000000000
+--- a/packages/themes/src/mixins/bottom-sheet/click.css
++++ /dev/null
+@@ -1,6 +0,0 @@
+-@define-mixin bottom-sheet-click {
+-    --bottom-sheet-title-font-size: 20px;
+-    --bottom-sheet-title-font-weight: 500;
+-    --bottom-sheet-title-line-height: 28px;
+-    --bottom-sheet-title-font-family: var(--font-family-styrene);
+-}
+diff --git a/packages/themes/src/mixins/calendar/click.css b/packages/themes/src/mixins/calendar/click.css
+index bbe2a231a..167445fb9 100644
+--- a/packages/themes/src/mixins/calendar/click.css
++++ b/packages/themes/src/mixins/calendar/click.css
+@@ -2,7 +2,4 @@
+     /* theme */
+     --calendar-range-background: var(--color-light-base-bg-secondary);
+     --calendar-select-button-today-border-color: transparent;
+-    --calendar-month-only-header-font-family: var(--font-family-styrene);
+-    --calendar-month-only-header-font-size: 20px;
+-    --calendar-month-only-header-font-weight: 500;
+ }
+diff --git a/packages/themes/src/mixins/circular-progress-bar/click.css b/packages/themes/src/mixins/circular-progress-bar/click.css
+deleted file mode 100644
+index 39e1b0459..000000000
+--- a/packages/themes/src/mixins/circular-progress-bar/click.css
++++ /dev/null
+@@ -1,5 +0,0 @@
+-@define-mixin circular-progress-bar-click {
+-    /* theme */
+-    --circular-progress-bar-font-weight: 500;
+-    --circular-progress-bar-font-family: var(--font-family-styrene);
+-}
+diff --git a/packages/themes/src/mixins/click.css b/packages/themes/src/mixins/click.css
+index ff2bb9bf7..2a30a50df 100644
+--- a/packages/themes/src/mixins/click.css
++++ b/packages/themes/src/mixins/click.css
+@@ -2,19 +2,14 @@
+ @import './amount/click.css';
+ @import './checkbox-group/click.css';
+ @import './tabs/click.css';
+-@import './confirmation/click.css';
+ @import './calendar/click.css';
+-@import './modal/click.css';
+ @import './toast-plate/click.css';
+ @import './list/click.css';
+ @import './dropzone/click.css';
+-@import './bottom-sheet/click.css';
+-@import './circular-progress-bar/click.css';
+ @import './select/click.css';
+ @import './progress-bar/click.css';
+ @import './pure-cell/click.css';
+ @import './icon-view/click.css';
+-@import './system-message/click.css';
+ @import './side-panel/click.css';
+ @import './radio-group/click.css';
+ @import './form-control/click.css';
+@@ -30,16 +25,11 @@
+     @mixin amount-click;
+     @mixin checkbox-group-click;
+     @mixin tabs-click;
+-    @mixin confirmation-click;
+     @mixin calendar-click;
+-    @mixin modal-click;
+     @mixin toast-plate-click;
+     @mixin list-click;
+     @mixin dropzone-click;
+-    @mixin bottom-sheet-click;
+-    @mixin circular-progress-bar-click;
+     @mixin icon-view-click;
+-    @mixin system-message-click;
+     @mixin side-panel-click;
+     @mixin radio-group-click;
+     @mixin form-control-click;
+diff --git a/packages/themes/src/mixins/confirmation/click.css b/packages/themes/src/mixins/confirmation/click.css
+deleted file mode 100644
+index 6bdbf6e8b..000000000
+--- a/packages/themes/src/mixins/confirmation/click.css
++++ /dev/null
+@@ -1,12 +0,0 @@
+-@define-mixin confirmation-click {
+-    /* desktop */
+-    --confirmation-header-desktop-font-size: 24px;
+-    --confirmation-header-desktop-line-height: 32px;
+-    --confirmation-header-desktop-font-weight: 500;
+-    --confirmation-header-desktop-font-family: var(--font-family-styrene);
+-    --confirmation-header-font-feature-settings: 'ss01';
+-
+-    /* mobile */
+-    --confirmation-header-mobile-font-weight: 500;
+-    --confirmation-header-mobile-font-family: var(--font-family-styrene);
+-}
+diff --git a/packages/themes/src/mixins/confirmation/intranet.css b/packages/themes/src/mixins/confirmation/intranet.css
+index f9fdcb0d6..f672a8016 100644
+--- a/packages/themes/src/mixins/confirmation/intranet.css
++++ b/packages/themes/src/mixins/confirmation/intranet.css
+@@ -1,8 +1,3 @@
+ @define-mixin confirmation-intranet {
+-    /* theme */
+-    --confirmation-header-desktop-font-size: 18px;
+-    --confirmation-header-desktop-line-height: 22px;
+-    --confirmation-text-font-size: 14px;
+-    --confirmation-text-line-height: 20px;
+     --confirmation-text-color: var(--color-light-text-secondary);
+ }
+diff --git a/packages/themes/src/mixins/confirmation/mobile.css b/packages/themes/src/mixins/confirmation/mobile.css
+index d941aff5d..829f7bbfd 100644
+--- a/packages/themes/src/mixins/confirmation/mobile.css
++++ b/packages/themes/src/mixins/confirmation/mobile.css
+@@ -1,8 +1,3 @@
+ @define-mixin confirmation-mobile {
+-    /* theme */
+-    --confirmation-header-desktop-font-size: 18px;
+-    --confirmation-header-desktop-line-height: 22px;
+-    --confirmation-text-font-size: 14px;
+-    --confirmation-text-line-height: 20px;
+     --confirmation-text-color: var(--color-light-text-secondary);
+ }
+diff --git a/packages/themes/src/mixins/modal/click.css b/packages/themes/src/mixins/modal/click.css
+deleted file mode 100644
+index f84ede00b..000000000
+--- a/packages/themes/src/mixins/modal/click.css
++++ /dev/null
+@@ -1,31 +0,0 @@
+-@define-mixin modal-click {
+-    /* sizes */
+-    --modal-vertical-padding: var(--gap-48);
+-    --modal-footer-default-gap: var(--gap-24);
+-
+-    /* paddings */
+-    --modal-s-header-paddings: 28px 28px var(--gap-16);
+-    --modal-s-content-paddings: var(--gap-16) var(--gap-40) var(--gap-8);
+-    --modal-s-content-only-bottom-padding: var(--gap-48);
+-    --modal-s-footer-paddings: var(--gap-24) var(--gap-40) var(--gap-40);
+-
+-    /* scroll */
+-    --modal-header-highlight-background: var(--color-light-base-bg-primary);
+-    --modal-footer-highlight-background: var(--color-light-base-bg-secondary);
+-    --modal-footer-highlight-box-shadow: none;
+-
+-    /* desktop */
+-    --modal-s-header-desktop-content-paddings: var(--gap-8) var(--gap-12) 0;
+-    --modal-s-header-desktop-font-size: 24px;
+-    --modal-s-header-desktop-line-height: 32px;
+-    --modal-header-desktop-font-weight: 500;
+-    --modal-header-desktop-font-family: var(--font-family-styrene);
+-
+-    /* mobile */
+-    --modal-header-mobile-paddings: 0 var(--gap-8);
+-    --modal-header-mobile-content-paddings: var(--gap-10) var(--gap-8) var(--gap-10) var(--gap-8);
+-    --modal-header-mobile-font-size: 20px;
+-    --modal-header-mobile-line-height: 28px;
+-    --modal-header-mobile-font-family: var(--font-family-styrene);
+-    --modal-header-mobile-font-weight: 500;
+-}
+diff --git a/packages/themes/src/mixins/system-message/click.css b/packages/themes/src/mixins/system-message/click.css
+deleted file mode 100644
+index 74b379ab3..000000000
+--- a/packages/themes/src/mixins/system-message/click.css
++++ /dev/null
+@@ -1,13 +0,0 @@
+-@define-mixin system-message-click {
+-    --sys-message-title-font-family: var(--font-family-styrene);
+-
+-    /* desktop */
+-    --sys-message-desktop-title-font-size: 24px;
+-    --sys-message-desktop-title-line-height: 32px;
+-    --sys-message-desktop-title-font-weight: 500;
+-
+-    /* mobile */
+-    --sys-message-mobile-title-font-size: 20px;
+-    --sys-message-mobile-title-line-height: 24px;
+-    --sys-message-mobile-title-font-weight: 500;
+-}
+diff --git a/packages/themes/src/mixins/tabs/click.css b/packages/themes/src/mixins/tabs/click.css
+index 3e9b32f96..3730349fb 100644
+--- a/packages/themes/src/mixins/tabs/click.css
++++ b/packages/themes/src/mixins/tabs/click.css
+@@ -1,26 +1,8 @@
+ @define-mixin tabs-click {
+     /* theme */
+-    --primary-tablist-s-font-size: 18px;
+-    --primary-tablist-s-font-weight: 500;
+-    --primary-tablist-s-font-family: var(--font-family-system);
+     --primary-tablist-s-padding: var(--gap-12) var(--gap-0);
+-    --primary-tablist-m-font-size: 20px;
+-    --primary-tablist-m-font-weight: 500;
+-    --primary-tablist-m-font-family: var(--font-family-styrene);
+     --primary-tablist-m-padding: var(--gap-12) var(--gap-0);
+-    --primary-tablist-l-font-size: 24px;
+-    --primary-tablist-l-font-weight: 500;
+-    --primary-tablist-l-font-family: var(--font-family-styrene);
+     --primary-tablist-l-padding: var(--gap-20) var(--gap-0);
+-    --primary-tablist-xl-font-size: 24px;
+-    --primary-tablist-xl-font-weight: 500;
+-    --primary-tablist-xl-font-family: var(--font-family-styrene);
+-    --primary-tablist-xl-padding: var(--gap-20) var(--gap-0);
+-    --primary-tablist-font-feature-settings: 'ss01';
+-
+-    /* mobile */
+-    --primary-tablist-mobile-font-weight: 500;
+-    --primary-tablist-mobile-font-family: var(--font-family-styrene);
+-    --primary-tablist-mobile-font-size: 20px;
+-    --primary-tablist-mobile-line-height: 28px;
++    --primary-tablist-xl-padding: var(--gap-24) var(--gap-4);
++    --primary-tablist-mobile-padding: var(--gap-2) var(--gap-0) 14px;
+ }
+diff --git a/packages/themes/src/mixins/tabs/corp.css b/packages/themes/src/mixins/tabs/corp.css
+index 5fa41bb7a..7243f3253 100644
+--- a/packages/themes/src/mixins/tabs/corp.css
++++ b/packages/themes/src/mixins/tabs/corp.css
+@@ -1,11 +1,8 @@
+ @define-mixin tabs-corp {
+     /* theme */
+     --primary-tablist-bottom-border-color: var(--color-light-neutral-translucent-300);
+-    --primary-tablist-m-font-weight: 500;
+ 
+     /* mobile */
+-    --primary-tablist-mobile-font-weight: 500;
+     --primary-tablist-mobile-padding: 0 0 var(--gap-16);
+-    --primary-tablist-mobile-font-size: 18px;
+     --primary-tablist-mobile-gaps: var(--gap-32);
+ }
+diff --git a/packages/themes/src/mixins/tabs/site.css b/packages/themes/src/mixins/tabs/site.css
+index 1367bef39..f53a52388 100644
+--- a/packages/themes/src/mixins/tabs/site.css
++++ b/packages/themes/src/mixins/tabs/site.css
+@@ -1,8 +1,6 @@
+ @define-mixin tabs-site {
+     /* theme */
+     --primary-tablist-m-gaps: var(--gap-48);
+-    --primary-tablist-m-font-weight: 500;
+     --primary-tablist-l-gaps: var(--gap-48);
+-    --primary-tablist-l-font-weight: 500;
+     --primary-tablist-bottom-border-color: var(--color-light-neutral-500);
+ }
+diff --git a/packages/themes/src/mixins/toast-plate/click.css b/packages/themes/src/mixins/toast-plate/click.css
+index 826810fe7..357fa7d97 100644
+--- a/packages/themes/src/mixins/toast-plate/click.css
++++ b/packages/themes/src/mixins/toast-plate/click.css
+@@ -1,6 +1,5 @@
+ @define-mixin toast-plate-click {
+     /* theme */
+-    --toast-plate-title-font-weight: 400;
+     --toast-plate-action-align: flex-start;
+     --toast-plate-action-padding: var(--gap-0) var(--gap-0) var(--gap-0) var(--gap-24);
+     --toast-plate-action-divider-display: none;
+diff --git a/packages/toast-plate/src/desktop/desktop.module.css b/packages/toast-plate/src/desktop/desktop.module.css
+index b750981e5..f755a7dca 100644
+--- a/packages/toast-plate/src/desktop/desktop.module.css
++++ b/packages/toast-plate/src/desktop/desktop.module.css
+@@ -6,8 +6,7 @@
+ }
+ 
+ .title {
+-    @mixin paragraph_component;
+-    font-weight: var(--toast-plate-title-font-weight);
++    @mixin paragraph_component_primary;
+     @mixin row_limit 1;
+     word-break: break-all;
+ }
+diff --git a/packages/toast-plate/src/mobile/mobile.module.css b/packages/toast-plate/src/mobile/mobile.module.css
+index 4c1fc75b9..ccff6bf00 100644
+--- a/packages/toast-plate/src/mobile/mobile.module.css
++++ b/packages/toast-plate/src/mobile/mobile.module.css
+@@ -7,7 +7,6 @@
+ 
+ .title {
+     @mixin paragraph_primary_small;
+-    font-weight: var(--toast-plate-title-font-weight);
+ }
+ 
+ .closeButtonWrapper {
+diff --git a/packages/toast-plate/src/vars.css b/packages/toast-plate/src/vars.css
+index a4e05f4a8..bb8100fcb 100644
+--- a/packages/toast-plate/src/vars.css
++++ b/packages/toast-plate/src/vars.css
+@@ -5,7 +5,6 @@
+     --toast-plate-bg-color: var(--color-light-modal-bg-primary-inverted);
+     --toast-plate-color: var(--color-light-text-primary-inverted);
+     --toast-plate-border-radius: var(--border-radius-12);
+-    --toast-plate-title-font-weight: 700;
+     --toast-plate-action-align: center;
+     --toast-plate-action-margin: var(--gap-2);
+     --toast-plate-action-padding: var(--gap-0) var(--gap-32);
+diff --git a/packages/toast/src/components/base-toast/index.module.css b/packages/toast/src/components/base-toast/index.module.css
+index fba363101..32c3e628e 100644
+--- a/packages/toast/src/components/base-toast/index.module.css
++++ b/packages/toast/src/components/base-toast/index.module.css
+@@ -10,10 +10,6 @@
+     word-break: break-word;
+ }
+ 
+-.title {
+-    font-weight: 400;
+-}
+-
+ .popoverInner {
+     border: none;
+     border-radius: var(--toast-plate-border-radius);
+diff --git a/packages/universal-modal/src/components/header/desktop/Component.desktop.tsx b/packages/universal-modal/src/components/header/desktop/Component.desktop.tsx
+index 8988dd15e..a8c90220b 100644
+--- a/packages/universal-modal/src/components/header/desktop/Component.desktop.tsx
++++ b/packages/universal-modal/src/components/header/desktop/Component.desktop.tsx
+@@ -29,7 +29,6 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
+     const {
+         className,
+         children,
+-        contentClassName,
+         title,
+         sticky,
+         bigTitle = false,
+@@ -70,7 +69,6 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
+                 [styles.hasContent]: hasContent,
+                 [desktopStyles.medium]: bigTitle,
+             })}
+-            contentClassName={cn(desktopStyles.content, contentClassName)}
+             bottomAddonsClassName={cn(desktopStyles.bottomAddons, bottomAddonsClassName)}
+             scrollableParentRef={componentRef}
+             titleClassName={cn(desktopStyles.headerTitle, titleClassName)}
+diff --git a/packages/universal-modal/src/components/header/desktop/desktop.module.css b/packages/universal-modal/src/components/header/desktop/desktop.module.css
+index 37ac9735b..666ec6814 100644
+--- a/packages/universal-modal/src/components/header/desktop/desktop.module.css
++++ b/packages/universal-modal/src/components/header/desktop/desktop.module.css
+@@ -1,17 +1,11 @@
+ @import '../../../vars.css';
+-@import '../../../desktop/vars.css';
+ 
+ .header {
+     padding: var(--gap-20) var(--gap-20) 0;
+ 
+-    & .content {
+-        font-weight: var(--universal-modal-header-desktop-font-weight);
+-        font-family: var(--universal-modal-header-desktop-font-family);
+-
+-        & .headerTitle {
+-            @mixin headline-system_small;
+-            padding: 11px var(--gap-12);
+-        }
++    & .headerTitle {
++        @mixin headline-system_small;
++        padding: 11px var(--gap-12);
+     }
+ 
+     & .bottomAddons {
+@@ -20,7 +14,7 @@
+     }
+ 
+     &.medium {
+-        & .content .headerTitle {
++        & .headerTitle {
+             @mixin headline-system_medium;
+             padding: var(--gap-6) var(--gap-12) var(--gap-16);
+         }
+diff --git a/packages/universal-modal/src/components/header/mobile/mobile.module.css b/packages/universal-modal/src/components/header/mobile/mobile.module.css
+index ff50d855d..78bbf15e8 100644
+--- a/packages/universal-modal/src/components/header/mobile/mobile.module.css
++++ b/packages/universal-modal/src/components/header/mobile/mobile.module.css
+@@ -1,15 +1,11 @@
+ @import '@alfalab/core-components-vars/src/no-typography-index.css';
+-@import '../../../mobile/vars.css';
+ 
+ .header {
+     padding: var(--gap-8) var(--gap-4);
+ }
+ 
+ .content {
+-    font-size: var(--universal-modal-header-mobile-font-size);
+-    line-height: var(--universal-modal-header-mobile-line-height);
+-    font-family: var(--universal-modal-header-mobile-font-family);
+-    font-weight: var(--universal-modal-header-mobile-font-weight);
++    @mixin headline-system-mobile_small;
+     padding: 0 var(--gap-12);
+     min-height: 40px;
+     justify-content: center;
+diff --git a/packages/universal-modal/src/desktop/vars.css b/packages/universal-modal/src/desktop/vars.css
+deleted file mode 100644
+index 6c3eb7b32..000000000
+--- a/packages/universal-modal/src/desktop/vars.css
++++ /dev/null
+@@ -1,6 +0,0 @@
+-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+-
+-:root {
+-    --universal-modal-header-desktop-font-weight: bold;
+-    --universal-modal-header-desktop-font-family: var(--font-family-system);
+-}
+diff --git a/packages/universal-modal/src/mobile/vars.css b/packages/universal-modal/src/mobile/vars.css
+deleted file mode 100644
+index 8c81949ce..000000000
+--- a/packages/universal-modal/src/mobile/vars.css
++++ /dev/null
+@@ -1,8 +0,0 @@
+-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+-
+-:root {
+-    --universal-modal-header-mobile-font-size: 20px;
+-    --universal-modal-header-mobile-line-height: 28px;
+-    --universal-modal-header-mobile-font-family: var(--font-family-system);
+-    --universal-modal-header-mobile-font-weight: 600;
+-}
+diff --git a/packages/vars/src/typography.css b/packages/vars/src/typography.css
+index f1eaec5c5..1aa4a7ba4 100644
+--- a/packages/vars/src/typography.css
++++ b/packages/vars/src/typography.css
+@@ -6,63 +6,71 @@
+     font-weight: 700;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_component_primary {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.43px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_component_secondary {
+     font-size: 14px;
+     line-height: 18px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.47px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_primary_large {
+     font-size: 18px;
+     line-height: 24px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.38px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_primary_medium {
+     font-size: 16px;
+     line-height: 24px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.43px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_primary_small {
+     font-size: 14px;
+     line-height: 20px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.47px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_secondary_large {
+     font-size: 13px;
+     line-height: 16px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.54px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_secondary_medium {
+     font-size: 12px;
+     line-height: 16px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.57px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_secondary_small {
+     font-size: 11px;
+     line-height: 16px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.54px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_tagline {
+@@ -71,7 +79,7 @@
+     font-weight: 700;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_caps {
+@@ -80,63 +88,71 @@
+     font-weight: 500;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_component_primary {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.05px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_component_secondary {
+     font-size: 14px;
+     line-height: 18px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.07px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_primary_large {
+     font-size: 18px;
+     line-height: 24px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.17px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_primary_medium {
+     font-size: 16px;
+     line-height: 24px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.05px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_primary_small {
+     font-size: 14px;
+     line-height: 20px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.07px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_secondary_large {
+     font-size: 13px;
+     line-height: 16px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.13px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_secondary_medium {
+     font-size: 12px;
+     line-height: 16px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.19px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_secondary_small {
+     font-size: 11px;
+     line-height: 16px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin action_tagline {
+@@ -145,157 +161,167 @@
+     font-weight: 500;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline_large {
+     font-size: 40px;
+     line-height: 48px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline_medium {
+     font-size: 32px;
+     line-height: 40px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.3px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline_small {
+     font-size: 24px;
+     line-height: 32px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.39px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline_xlarge {
+     font-size: 48px;
+     line-height: 64px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline_xsmall {
+     font-size: 20px;
+     line-height: 24px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.33px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-mobile_large {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.25px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-mobile_medium {
+     font-size: 26px;
+     line-height: 32px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.25px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-mobile_small {
+     font-size: 20px;
+     line-height: 28px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.15px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-mobile_xlarge {
+     font-size: 34px;
+     line-height: 40px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.32px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-mobile_xsmall {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: 0.17px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system_large {
+     font-size: 40px;
+     line-height: 48px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system_medium {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system_small {
+     font-size: 22px;
+     line-height: 26px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.2px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system_xlarge {
+     font-size: 48px;
+     line-height: 52px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system_xsmall {
+     font-size: 18px;
+     line-height: 22px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.38px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system-mobile_large {
+     font-size: 30px;
+     line-height: 36px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: -0.25px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system-mobile_medium {
+     font-size: 26px;
+     line-height: 32px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: -0.25px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system-mobile_small {
+     font-size: 20px;
+     line-height: 28px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: -0.15px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system-mobile_xlarge {
+     font-size: 34px;
+     line-height: 40px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: -0.32px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin headline-system-mobile_xsmall {
+     font-size: 16px;
+     line-height: 20px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: 0.17px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_caps {
+@@ -304,63 +330,70 @@
+     font-weight: 400;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_component_primary {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_component_secondary {
+     font-size: 14px;
+     line-height: 18px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.08px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_primary_large {
+     font-size: 18px;
+     line-height: 24px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.36px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_primary_medium {
+     font-size: 16px;
+     line-height: 24px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_primary_small {
+     font-size: 14px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.08px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_secondary_large {
+     font-size: 13px;
+     line-height: 16px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_secondary_medium {
+     font-size: 12px;
+     line-height: 16px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.06px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_secondary_small {
+     font-size: 11px;
+     line-height: 16px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.15px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin paragraph_tagline {
+@@ -369,216 +402,229 @@
+     font-weight: 400;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo_large {
+     font-size: 40px;
+     line-height: 48px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1.7px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo_medium {
+     font-size: 32px;
+     line-height: 40px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1.36px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo_small {
+     font-size: 24px;
+     line-height: 32px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.9px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo_xlarge {
+     font-size: 48px;
+     line-height: 64px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -2.1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo_xsmall {
+     font-size: 20px;
+     line-height: 24px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.68px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-mobile_large {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1.25px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-mobile_medium {
+     font-size: 26px;
+     line-height: 32px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-mobile_small {
+     font-size: 20px;
+     line-height: 28px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.68px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-mobile_xlarge {
+     font-size: 34px;
+     line-height: 40px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1.36px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-mobile_xsmall {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system_large {
+     font-size: 40px;
+     line-height: 48px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1.7px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system_medium {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1.25px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system_small {
+     font-size: 22px;
+     line-height: 26px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.8px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system_xlarge {
+     font-size: 48px;
+     line-height: 52px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -2.1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system_xsmall {
+     font-size: 18px;
+     line-height: 22px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.36px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system-mobile_large {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1.25px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system-mobile_medium {
+     font-size: 26px;
+     line-height: 32px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system-mobile_small {
+     font-size: 20px;
+     line-height: 28px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.68px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system-mobile_xlarge {
+     font-size: 34px;
+     line-height: 40px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1.36px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin promo-system-mobile_xsmall {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+ 
+ @define-mixin accent_component {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.43px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+ 
+ @define-mixin action_component {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.05px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+ 
+ @define-mixin key_large {
+     font-size: 120px;
+     line-height: 132px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -0.8px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+ 
+ @define-mixin key_medium {
+     font-size: 96px;
+     line-height: 120px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -0.7px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+ 
+ @define-mixin key_small {
+     font-size: 80px;
+     line-height: 96px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -0.6px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+ 
+ @define-mixin key_xlarge {
+     font-size: 144px;
+     line-height: 180px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -1.1px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+ 
+ @define-mixin key_xsmall {
+     font-size: 64px;
+     line-height: 80px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -0.2px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+ 
+ @define-mixin paragraph_component {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+diff --git a/packages/with-suffix/src/Component.tsx b/packages/with-suffix/src/Component.tsx
+index 0c904e366..8e30d685e 100644
+--- a/packages/with-suffix/src/Component.tsx
++++ b/packages/with-suffix/src/Component.tsx
+@@ -110,6 +110,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
+                             translate='no'
+                             className={cn(styles.suffixContainer, suffixContainerClassName, {
+                                 [styles[`size-${restProps.size}`]]: restProps.size,
++                                [styles.bold]: restProps.bold,
+                             })}
+                         >
+                             <span className={styles.spacer}>{visibleValue}</span>
+diff --git a/packages/with-suffix/src/index.module.css b/packages/with-suffix/src/index.module.css
+index 979f5a0c1..30fcb7579 100644
+--- a/packages/with-suffix/src/index.module.css
++++ b/packages/with-suffix/src/index.module.css
+@@ -2,7 +2,7 @@
+ @import '../../input/src/vars.css';
+ 
+ .suffixContainer {
+-    @mixin paragraph_component;
++    @mixin paragraph_component_primary;
+ 
+     position: absolute;
+     left: var(--gap-0);
+@@ -12,9 +12,20 @@
+     display: none;
+     pointer-events: none;
+ 
++    &.bold {
++        @mixin accent_component_primary;
++    }
++
+     &.size-40 {
+         @mixin paragraph_component_secondary;
+         padding: var(--gap-0) var(--gap-8);
++
++        /* TODO shift on focus. find out why. probably border appers */
++        top: 1px;
++
++        &.bold {
++            @mixin accent_component_secondary;
++        }
+     }
+ }
+ 
+-- 
+2.50.1 (Apple Git-155)
+
