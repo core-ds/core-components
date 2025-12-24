@@ -1,5 +1,17 @@
 # @alfalab/core-components-select
 
+## 18.2.6
+
+### Patch Changes
+
+<sup><time>24.12.2025</time></sup>
+
+#### [#1997](https://github.com/core-ds/core-components/pull/1997)
+
+##### Select
+
+- Исправлено responsive поведение списка опций при использовании desktop/mobile компонента
+
 ## 18.2.5
 
 ### Patch Changes

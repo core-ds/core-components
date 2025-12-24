@@ -1,5 +1,49 @@
 # @alfalab/core-components
 
+## 49.12.0
+
+### Minor Changes
+
+<sup><time>24.12.2025</time></sup>
+
+#### [#1995](https://github.com/core-ds/core-components/pull/1995)
+
+##### BaseConfirmation
+
+- Добавлен проп `maxWidth` для управления максимальной шириной контейнера.
+- В `ConfirmationMobile` дефолтный `maxWidth` — `288px` (если проп не передан); для desktop дефолтного значения нет.
+
+### Patch Changes
+
+<sup><time>24.12.2025</time></sup>
+
+#### [#1998](https://github.com/core-ds/core-components/pull/1998)
+
+##### UniversalModal
+
+- Увеличена специфичность CSS селектора для `scrollableNode`
+
+<sup><time>24.12.2025</time></sup>
+
+#### [#1997](https://github.com/core-ds/core-components/pull/1997)
+
+##### Select
+
+- Исправлено responsive поведение списка опций при использовании desktop/mobile компонента
+
+- Обновлены зависимости
+    - @alfalab/core-components-confirmation@14.3.0
+    - @alfalab/core-components-universal-modal@2.0.9
+    - @alfalab/core-components-select@18.2.6
+    - @alfalab/core-components-custom-picker-button@3.0.9
+    - @alfalab/core-components-input-autocomplete@13.0.9
+    - @alfalab/core-components-international-phone-input@3.2.6
+    - @alfalab/core-components-intl-phone-input@10.0.9
+    - @alfalab/core-components-picker-button@12.0.9
+    - @alfalab/core-components-select-with-tags@9.0.9
+    - @alfalab/core-components-table@3.0.9
+    - @alfalab/core-components-tabs@9.2.6
+
 ## 49.11.1
 
 ### Patch Changes
