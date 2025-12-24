@@ -52,9 +52,9 @@ describe('SelectWithTags', () => {
         try {
             await page.click('[role="combobox"]');
 
-            await page.click('[role="option"]:nth-child(2)', { delay: 200 });
-            await page.click('[role="option"]:nth-child(3)', { delay: 200 });
-            await page.click('[role="option"]:nth-child(4)', { delay: 200 });
+            await page.click('[role="option"]:nth-child(4)', { delay: 100 });
+            await page.click('[role="option"]:nth-child(5)', { delay: 100 });
+            await page.click('[role="option"]:nth-child(6)', { delay: 100 });
 
             await matchHtml({
                 page,
