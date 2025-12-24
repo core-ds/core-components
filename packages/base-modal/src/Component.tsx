@@ -108,7 +108,7 @@ export type BaseModalProps = {
      * - `true`: используется `react-remove-scroll` + блокировка скролла контейнера.
      * - `false`: полностью отключает блокировку скролла.
      *
-     * @default true
+     * @default false
      */
     scrollLock?: boolean;
 
@@ -283,7 +283,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
             disableBlockingScroll = false,
-            scrollLock = true,
+            scrollLock = false,
             keepMounted = false,
             className,
             contentClassName,
