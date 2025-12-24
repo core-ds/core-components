@@ -1,5 +1,17 @@
 # @alfalab/core-components-universal-modal
 
+## 2.0.9
+
+### Patch Changes
+
+<sup><time>24.12.2025</time></sup>
+
+#### [#1998](https://github.com/core-ds/core-components/pull/1998)
+
+##### UniversalModal
+
+- Увеличена специфичность CSS селектора для `scrollableNode`
+
 ## 2.0.8
 
 ### Patch Changes
