@@ -103,7 +103,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
-            if (autosize && maxHeight && textareaNode && textareaNode.style) {
+            if (autosize && maxHeight && textareaNode?.style) {
                 textareaNode.style.maxHeight = `${maxHeight}px`;
             }
         }, [autosize, maxHeight, textareaNode]);

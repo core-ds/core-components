@@ -18,7 +18,7 @@ runs:
                   if [ -f $NODE_VERSION_FILE ]; then
                       NODE_VERSION="$(cat $NODE_VERSION_FILE)"
                   else
-                      NODE_VERSION=22
+                      NODE_VERSION=18
                   fi
               fi
 
