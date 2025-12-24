@@ -5,10 +5,6 @@
     padding: var(--gap-8) var(--gap-4);
 }
 
-.sticky {
-    top: var(--gap-0);
-}
-
 .content {
     font-size: var(--universal-modal-header-mobile-font-size);
     line-height: var(--universal-modal-header-mobile-line-height);

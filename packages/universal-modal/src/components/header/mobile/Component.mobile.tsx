@@ -63,7 +63,6 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
                 [styles.highlighted]: sticky && headerHighlighted && hasContent,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
-                [mobileStyles.sticky]: sticky,
             })}
             contentClassName={cn(mobileStyles.content, contentClassName)}
             bottomAddonsClassName={cn(mobileStyles.bottomAddons, bottomAddonsClassName)}
