@@ -11,7 +11,7 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe('OptionListDesktop | option list', () => {
+describe('OptionListDesktop | viewport desktop', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -37,7 +37,7 @@ describe('OptionListDesktop | option list', () => {
             theme,
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
-                    `${theme}-viewport-desktop-${customSnapshotIdentifier(...args)}`,
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
             },
             evaluate: async (page) => {
                 await page.waitForTimeout(500);
@@ -58,7 +58,7 @@ describe('OptionListDesktop | option list', () => {
     ['default'].map(testCase);
 });
 
-describe('OptionListDesktop | option list', () => {
+describe('OptionListDesktop | viewport mobile', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -84,7 +84,7 @@ describe('OptionListDesktop | option list', () => {
             theme,
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
-                    `${theme}-viewport-mobile-${customSnapshotIdentifier(...args)}`,
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
             },
             evaluate: async (page) => {
                 await page.waitForTimeout(500);
@@ -105,7 +105,7 @@ describe('OptionListDesktop | option list', () => {
     ['default'].map(testCase);
 });
 
-describe('OptionListMobile | option list', () => {
+describe('OptionListMobile | viewport desktop', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -123,7 +123,7 @@ describe('OptionListMobile | option list', () => {
             theme,
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
-                    `${theme}-viewport-desktop-${customSnapshotIdentifier(...args)}`,
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
             },
             evaluate: async (page) => {
                 await page.waitForTimeout(500);
@@ -144,7 +144,7 @@ describe('OptionListMobile | option list', () => {
     ['default'].map(testCase);
 });
 
-describe('OptionListMobile | option list', () => {
+describe('OptionListMobile | viewport mobile', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -162,7 +162,7 @@ describe('OptionListMobile | option list', () => {
             theme,
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
-                    `${theme}-viewport-mobile-${customSnapshotIdentifier(...args)}`,
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
             },
             evaluate: async (page) => {
                 await page.waitForTimeout(500);
