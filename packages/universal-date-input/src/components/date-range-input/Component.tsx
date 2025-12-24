@@ -78,6 +78,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
         },
         ref,
     ) => {
+        const { disabled, readOnly } = restProps;
         const [inputValue, setInputValue] = useState(() => getDefaultValue(defaultValue));
         const [calendarMonth, setCalendarMonth] = useState(calendarProps.defaultMonth);
 
@@ -88,6 +89,8 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
         const [from = '', to = ''] = inputValue.split(DATE_RANGE_SEPARATOR);
         const dateFromProp = valueProp?.dateFrom;
         const dateToProp = valueProp?.dateTo;
+
+        const shouldShowPicker = picker && !disabled && !readOnly;
 
         const { validFrom, validTo } = useMemo(
             () => getValidRange({ from, to, offDays, minDate, maxDate }),
@@ -251,7 +254,7 @@ export const DateRangeInput = forwardRef<HTMLInputElement, InnerDateRangeInputPr
                     rightAddons={
                         <React.Fragment>
                             {rightAddons}
-                            {picker && (
+                            {shouldShowPicker && (
                                 <CalendarIcon
                                     onClick={onPickerClick}
                                     className={cn(
