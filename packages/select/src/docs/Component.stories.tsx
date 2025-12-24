@@ -277,23 +277,32 @@ export const option_list_desktop: Story = {
         const scrollbar = nativeScrollbar ? true : undefined;
         const virtualOptions = boolean('virtualOptions', false);
 
+        const showSearch = boolean('showSearch', true);
+        const showFooter = boolean('showFooter', true);
+
+        const placeholder = boolean('placeholder', true);
+        const showPlaceHolder = placeholder ? 'Выберите элементы' : undefined;
+
+        const fiveOptions = boolean('fiveOptions', false);
+
         const [selected, setSelected] = React.useState([]);
 
         return (
             <SelectDesktop
                 allowUnselect={true}
                 size={56}
-                placeholder='Выберите элементы'
+                {...(showPlaceHolder && { placeholder: 'Выберите элементы' })}
                 label='Множественный выбор'
                 Option={BaseOption}
                 defaultOpen={true}
                 {...useSelectWithApply({
-                    showSearch: true,
-                    options: options,
+                    showSearch,
+                    options: fiveOptions ? options.slice(0, 5) : options,
                     selected: selected,
                     ...(virtualOptions && { OptionsList: VirtualOptionsList }),
                     optionsListProps: {
                         nativeScrollbar: scrollbar,
+                        showFooter,
                     },
                     onChange: ({ selectedMultiple }) => {
                         setSelected(selectedMultiple.map((option) => option.key));
@@ -309,57 +318,36 @@ export const option_list_mobile: Story = {
     render: () => {
         const virtualOptions = boolean('virtualOptions', false);
 
+        const showSearch = boolean('showSearch', true);
+        const showFooter = boolean('showFooter', true);
+
+        const placeholder = boolean('placeholder', true);
+        const showPlaceHolder = placeholder ? 'Выберите элементы' : undefined;
+
+        const fiveOptions = boolean('fiveOptions', false);
+
         const [selected, setSelected] = React.useState([]);
 
         return (
             <SelectMobile
                 allowUnselect={true}
                 size={56}
-                placeholder='Выберите элементы'
+                {...(showPlaceHolder && { placeholder: 'Выберите элементы' })}
                 label='Множественный выбор'
                 Option={BaseOption}
                 defaultOpen={true}
                 {...useSelectWithApply({
-                    showSearch: true,
-                    options: options,
+                    showSearch,
+                    options: fiveOptions ? options.slice(0, 5) : options,
                     selected: selected,
                     ...(virtualOptions && { OptionsList: VirtualOptionsList }),
+                    optionsListProps: {
+                        showFooter,
+                    },
                     onChange: ({ selectedMultiple }) => {
                         setSelected(selectedMultiple.map((option) => option.key));
                     },
                 })}
-            />
-        );
-    },
-};
-
-export const select_desktop_option_list: Story = {
-    name: 'SelectDesktopOptionList',
-    render: () => {
-        const multiple = boolean('multiple', false);
-
-        return (
-            <SelectDesktop
-                defaultOpen={true}
-                label='Option List Test'
-                options={options.slice(0, 5)}
-                multiple={multiple}
-            />
-        );
-    },
-};
-
-export const select_mobile_option_list: Story = {
-    name: 'SelectMobileOptionList',
-    render: () => {
-        const multiple = boolean('multiple', false);
-
-        return (
-            <SelectMobile
-                defaultOpen={true}
-                label='Option List Test'
-                options={options.slice(0, 5)}
-                multiple={multiple}
             />
         );
     },
