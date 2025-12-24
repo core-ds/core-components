@@ -3,6 +3,6 @@
 '@alfalab/core-components': patch
 ---
 
-##### ModalContent
+##### UniversalModal
 
 - Увеличена специфичность CSS селектора для `scrollableNode`
