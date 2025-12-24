@@ -43,9 +43,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
 `;
 
 exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open state 1`] = `
-<body
-  style="padding-right: 0px; overflow: hidden;"
->
+<body>
   <div>
     <div
       aria-expanded="true"

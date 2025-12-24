@@ -98,7 +98,7 @@ export type BaseModalProps = {
     /**
      * Отключает блокировку скролла при открытии модального окна
      * @default false
-     * @deprecated Используйте `scrollLock={false}`.
+     * @deprecated Используйте `scrollLock={true}`.
      */
     disableBlockingScroll?: boolean;
 
@@ -224,7 +224,7 @@ export type BaseModalProps = {
 
     /**
      * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
-     * @deprecated Используйте `scrollLock={false}`.
+     * @deprecated Используйте `scrollLock={true}`.
      */
     iOSLock?: boolean;
 
@@ -383,7 +383,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
-                if (iOSLock && os.isIOS()) {
+                if (!scrollLock && iOSLock && os.isIOS()) {
                     unlockScroll();
                 }
 
@@ -401,7 +401,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 return null;
             },
-            [onBackdropClick, onClose, onEscapeKeyDown, iOSLock],
+            [onBackdropClick, onClose, onEscapeKeyDown, iOSLock, scrollLock],
         );
 
         const handleBackdropMouseDown = (event: MouseEvent<HTMLElement>) => {
@@ -504,7 +504,13 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         useEffect(() => {
             if (open && isExited) {
-                if (!disableBlockingScroll) {
+                /*
+                 * При scrollLock={true} блокировка обрабатывается через react-remove-scroll,
+                 * старая логика нужна только для обратной совместимости (deprecated пропсы)
+                 */
+                const shouldUseLegacyScrollLock = !scrollLock && !disableBlockingScroll;
+
+                if (shouldUseLegacyScrollLock) {
                     const el = getContainer();
 
                     const shouldIOSLock = iOSLock && os.isIOS();
@@ -527,7 +533,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             if (!open) {
                 unlockScroll();
             }
-        }, [getContainer, open, disableBlockingScroll, isExited, iOSLock]);
+        }, [getContainer, open, disableBlockingScroll, scrollLock, isExited, iOSLock]);
 
         useEffect(() => {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
