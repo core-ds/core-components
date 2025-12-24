@@ -1,5 +1,51 @@
 # @alfalab/core-components-tooltip
 
+## 8.0.8
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1967](https://github.com/core-ds/core-components/pull/1967)
+
+##### Tooltip
+
+- Исправлена специфичность Tooltip
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.3.1
+
+## 8.0.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.3.0
+
+## 8.0.6
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.2.1
+    - @alfalab/core-components-button@12.0.2
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-popover@7.1.1
+
+## 8.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.2.0
+
+## 8.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.1.0
+
 ## 8.0.3
 
 ### Patch Changes

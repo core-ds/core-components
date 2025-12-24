@@ -1,6 +1,6 @@
 /* eslint-disable multiline-comment-style */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import { TabsDesktop } from './Component.desktop';
 import { TabsMobile } from './Component.mobile';
@@ -247,6 +247,60 @@ describe('Tabs', () => {
                 (button) => button.getAttribute('data-test-id') === 'prop-test-id-toggle',
             );
             expect(tabButton).toBeInTheDocument();
+        });
+
+        it('<Tab> should render aria attributes', () => {
+            render(
+                <Tab
+                    dataTestId='tab'
+                    title='Таб 1'
+                    id='tab-1'
+                    rightAddons='addon'
+                    aria-label='test-aria-label'
+                    aria-selected={true}
+                >
+                    Таб 1
+                </Tab>,
+            );
+
+            const tabElement = screen.getByTestId('tab');
+
+            expect(tabElement).toHaveAttribute('aria-label', 'test-aria-label');
+            expect(tabElement).toHaveAttribute('aria-selected', 'true');
+        });
+
+        describe('should not render useless attributes', () => {
+            const renderTab = () => {
+                render(
+                    <Tab
+                        dataTestId='tab'
+                        title='Таб 1'
+                        id='tab-1'
+                        rightAddons='addon'
+                        aria-label='test-aria-label'
+                        aria-selected={true}
+                    >
+                        Таб 1
+                    </Tab>,
+                );
+
+                return screen.getByTestId('tab');
+            };
+
+            it('<Tab> should not render "title" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('title')).toBe(false);
+            });
+
+            it('<Tab> should not render "rightAddons" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('rightAddons')).toBe(false);
+            });
+
+            it('<Tab> should not render "id" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('id')).toBe(false);
+            });
         });
     });
 });

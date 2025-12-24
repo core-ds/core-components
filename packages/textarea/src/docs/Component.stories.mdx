@@ -16,10 +16,11 @@ import Changelog from '../../CHANGELOG.md?raw';
 <Story name='Textarea'>
     {React.createElement(() => {
         const size = select('size', [40, 48, 56, 64, 72], 48);
-        const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
+        const IconComponent = Number(size) === 40 ? DiamondsSIcon : StarMIcon;
 
         return (
             <Textarea
+                value={text('value', '')}
                 showCounter={boolean('showCounter', false)}
                 maxLength={number('maxLength', 500)}
                 autosize={boolean('autosize', true)}

@@ -5,10 +5,6 @@
     padding: var(--gap-8) var(--gap-4);
 }
 
-.sticky {
-    top: var(--gap-0);
-}
-
 .content {
     font-size: var(--universal-modal-header-mobile-font-size);
     line-height: var(--universal-modal-header-mobile-line-height);
@@ -21,5 +17,5 @@
 
 .bottomAddons {
     @mixin headline-system-mobile_small;
-    padding: 6px var(--gap-16);
+    padding: var(--gap-6) var(--gap-16);
 }

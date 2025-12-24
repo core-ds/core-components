@@ -12,7 +12,7 @@
     "baseBranch": "master",
     "updateInternalDependencies": "patch",
     "snapshot": {
-        "prereleaseTemplate": "{tag}-{commit}",
+        "prereleaseTemplate": "{commit}",
         "useCalculatedVersion": true
     },
     "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {

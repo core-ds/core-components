@@ -1,13 +1,22 @@
 # @alfalab/core-components-pattern-lock
 
+## 3.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-button@12.0.2
+    - @alfalab/core-components-mq@5.0.2
+
 ## 3.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-shared@1.1.0
-    -   @alfalab/core-components-button@12.0.1
-    -   @alfalab/core-components-mq@5.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-button@12.0.1
+    - @alfalab/core-components-mq@5.0.1
 
 ## 3.0.0
 
@@ -25,64 +34,64 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-button@12.0.0
-    -   @alfalab/core-components-mq@5.0.0
-    -   @alfalab/core-components-shared@1.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.0.0
+    - @alfalab/core-components-mq@5.0.0
+    - @alfalab/core-components-shared@1.0.0
 
 ## 2.5.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.18.0
-    -   button@11.11.10
+- Обновлены зависимости
+    - shared@0.18.0
+    - button@11.11.10
 
 ## 2.5.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
-    -   button@11.11.9
+- Обновлены зависимости
+    - shared@0.17.1
+    - button@11.11.9
 
 ## 2.5.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
-    -   button@11.11.8
+- Обновлены зависимости
+    - shared@0.17.0
+    - button@11.11.8
 
 ## 2.5.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.11.7
+- Обновлены зависимости
+    - button@11.11.7
 
 ## 2.5.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.11.6
+- Обновлены зависимости
+    - button@11.11.6
 
 ## 2.5.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.16.0
-    -   button@11.11.5
+- Обновлены зависимости
+    - shared@0.16.0
+    - button@11.11.5
 
 ## 2.5.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.15.0
-    -   button@11.11.4
+- Обновлены зависимости
+    - shared@0.15.0
+    - button@11.11.4
 
 ## 2.5.7
 
@@ -92,10 +101,10 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   button@11.11.3
+- Обновлены зависимости
+    - button@11.11.3
 
 ## 2.5.6
 
@@ -105,12 +114,12 @@
 
 ### [#1509](https://github.com/core-ds/core-components/pull/1509)
 
--   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+- Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
 
--   Обновлены зависимости
-    -   mq@4.4.1
-    -   shared@0.14.1
-    -   button@11.11.2
+- Обновлены зависимости
+    - mq@4.4.1
+    - shared@0.14.1
+    - button@11.11.2
 
 ## 2.5.5
 
@@ -120,40 +129,40 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   button@11.11.1
+- Обновлены зависимости
+    - button@11.11.1
 
 ## 2.5.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.11.0
+- Обновлены зависимости
+    - button@11.11.0
 
 ## 2.5.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.4.0
-    -   button@11.10.2
+- Обновлены зависимости
+    - mq@4.4.0
+    - button@11.10.2
 
 ## 2.5.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
-    -   button@11.10.1
+- Обновлены зависимости
+    - shared@0.14.0
+    - button@11.10.1
 
 ## 2.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.10.0
+- Обновлены зависимости
+    - button@11.10.0
 
 ## 2.5.0
 
@@ -163,27 +172,27 @@
 
 ### [#1213](https://github.com/core-ds/core-components/pull/1213)
 
--   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+- Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.9.0
-    -   shared@0.13.0
+- Обновлены зависимости
+    - button@11.9.0
+    - shared@0.13.0
 
 ## 2.4.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.8.0
+- Обновлены зависимости
+    - button@11.8.0
 
 ## 2.4.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.7.1
+- Обновлены зависимости
+    - button@11.7.1
 
 ## 2.4.1
 
@@ -193,11 +202,11 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
--   Обновлены зависимости
-    -   button@11.7.0
-    -   shared@0.12.1
+- Обновлены зависимости
+    - button@11.7.0
+    - shared@0.12.1
 
 ## 2.4.0
 
@@ -207,12 +216,12 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.6.0
+- Обновлены зависимости
+    - button@11.6.0
 
 ## 2.3.1
 
@@ -222,10 +231,10 @@
 
 ### [#1355](https://github.com/core-ds/core-components/pull/1355)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
--   Обновлены зависимости
-    -   button@11.5.5
+- Обновлены зависимости
+    - button@11.5.5
 
 ## 2.3.0
 
@@ -237,28 +246,28 @@
 
 #### pattern-lock
 
--   Добавлен пропс `disabled`, который позволяет отключать взаимодействие с компонентом
+- Добавлен пропс `disabled`, который позволяет отключать взаимодействие с компонентом
 
 #### pass-code
 
--   Добавлен атрибут `title` с описанием кнопки удаления введенных символов
--   Добавлен пропс `rightAddonsTitle`, который позволяет добавлять атрибут `title` для передаваемого аддона
+- Добавлен атрибут `title` с описанием кнопки удаления введенных символов
+- Добавлен пропс `rightAddonsTitle`, который позволяет добавлять атрибут `title` для передаваемого аддона
 
 #### toast-plate
 
--   Добавлены атрибуты для улучшения доступности компонента
+- Добавлены атрибуты для улучшения доступности компонента
 
 #### password-input
 
--   Добавлен атрибут `title` с описанием кнопки скрытия / показа введенного пароля
+- Добавлен атрибут `title` с описанием кнопки скрытия / показа введенного пароля
 
 ## 2.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.0
-    -   button@11.5.4
+- Обновлены зависимости
+    - shared@0.12.0
+    - button@11.5.4
 
 ## 2.2.0
 
@@ -268,8 +277,8 @@
 
 ### [#1294](https://github.com/core-ds/core-components/pull/1294)
 
--   Исправлены отступы компонента
--   Исправлен фоновый цвет компонента на прозрачный
+- Исправлены отступы компонента
+- Исправлен фоновый цвет компонента на прозрачный
 
 ## 2.1.0
 
@@ -279,20 +288,20 @@
 
 ### [#1291](https://github.com/core-ds/core-components/pull/1291)
 
--   Добавлен пропс defaultMatchMediaValue. С помощью него можно задавать fallback значение для хука useMatchMedia внутри компонента.
+- Добавлен пропс defaultMatchMediaValue. С помощью него можно задавать fallback значение для хука useMatchMedia внутри компонента.
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.3.0
-    -   button@11.5.3
+- Обновлены зависимости
+    - mq@4.3.0
+    - button@11.5.3
 
 ## 2.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.5.2
+- Обновлены зависимости
+    - button@11.5.2
 
 ## 2.0.0
 
@@ -304,9 +313,9 @@
 
 Редизайн компонентов PassCode и PatternLock
 
--   Внесены изменения в адаптивность
--   Удалены пропсы для вывода кастомных сообщений и ошибок
-    Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
+- Внесены изменения в адаптивность
+- Удалены пропсы для вывода кастомных сообщений и ошибок
+  Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
 
 ## Обновление
 
@@ -333,9 +342,9 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.11.0
-    -   button@11.5.1
+- Обновлены зависимости
+    - shared@0.11.0
+    - button@11.5.1
 
 ## 1.8.0
 
@@ -345,12 +354,12 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#1258](https://github.com/core-ds/core-components/pull/1258)
 
--   Заменили устаревшие цветовые токены на актуальные
+- Заменили устаревшие цветовые токены на актуальные
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.5.0
+- Обновлены зависимости
+    - button@11.5.0
 
 ## 1.7.4
 
@@ -360,10 +369,10 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
--   Обновлены зависимости
-    -   button@11.4.5
+- Обновлены зависимости
+    - button@11.4.5
 
 ## 1.7.3
 
@@ -373,25 +382,25 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#1229](https://github.com/core-ds/core-components/pull/1229)
 
--   Изменили цветовой токен: color-light-graphic-primary -> color-light-neutral-0-inverted
+- Изменили цветовой токен: color-light-graphic-primary -> color-light-neutral-0-inverted
 
--   Обновлены зависимости
-    -   button@11.4.4
+- Обновлены зависимости
+    - button@11.4.4
 
 ## 1.7.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.10.0
-    -   button@11.4.3
+- Обновлены зависимости
+    - shared@0.10.0
+    - button@11.4.3
 
 ## 1.7.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.4.2
+- Обновлены зависимости
+    - button@11.4.2
 
 ## 1.7.0
 
@@ -401,19 +410,19 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#1163](https://github.com/core-ds/core-components/pull/1163)
 
--   Обновили версию react-canvas-pattern-lock. Исправили ховер, теперь, если линию не довести до узла, она исчезает
+- Обновили версию react-canvas-pattern-lock. Исправили ховер, теперь, если линию не довести до узла, она исчезает
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.4.1
+- Обновлены зависимости
+    - button@11.4.1
 
 ## 1.6.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.4.0
+- Обновлены зависимости
+    - button@11.4.0
 
 ## 1.6.0
 
@@ -423,15 +432,15 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#1122](https://github.com/core-ds/core-components/pull/1122)
 
--   Добавлены десктопная и адаптивная версии компонента
+- Добавлены десктопная и адаптивная версии компонента
 
 ## 1.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   gap@1.3.0
-    -   button@11.3.0
+- Обновлены зависимости
+    - gap@1.3.0
+    - button@11.3.0
 
 ## 1.5.0
 
@@ -439,89 +448,89 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#1049](https://github.com/core-ds/core-components/pull/1049)
 
--   Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
+- Добавлена функция get{ComponentName}TestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.2.0
+- Обновлены зависимости
+    - button@11.2.0
 
 ## 1.4.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.1
-    -   button@11.1.1
+- Обновлены зависимости
+    - shared@0.9.1
+    - button@11.1.1
 
 ## 1.4.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.1.0
-    -   shared@0.9.0
+- Обновлены зависимости
+    - button@11.1.0
+    - shared@0.9.0
 
 ## 1.4.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.0.0
+- Обновлены зависимости
+    - button@11.0.0
 
 ## 1.4.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@10.0.2
+- Обновлены зависимости
+    - button@10.0.2
 
 ## 1.4.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@10.0.1
+- Обновлены зависимости
+    - button@10.0.1
 
 ## 1.4.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@10.0.0
-    -   shared@0.8.0
+- Обновлены зависимости
+    - button@10.0.0
+    - shared@0.8.0
 
 ## 1.4.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@9.1.0
-    -   shared@0.7.0
+- Обновлены зависимости
+    - button@9.1.0
+    - shared@0.7.0
 
 ## 1.4.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@9.0.6
-    -   shared@0.6.0
+- Обновлены зависимости
+    - button@9.0.6
+    - shared@0.6.0
 
 ## 1.4.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.5.0
-    -   button@9.0.5
+- Обновлены зависимости
+    - shared@0.5.0
+    - button@9.0.5
 
 ## 1.4.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.4.0
-    -   button@9.0.4
+- Обновлены зависимости
+    - shared@0.4.0
+    - button@9.0.4
 
 ## 1.4.0
 
@@ -529,30 +538,30 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#830](https://github.com/core-ds/core-components/pull/830)
 
--   Добавлен message prop
+- Добавлен message prop
 
 ## 1.3.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.3.0
-    -   button@9.0.3
+- Обновлены зависимости
+    - shared@0.3.0
+    - button@9.0.3
 
 ## 1.3.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@9.0.2
+- Обновлены зависимости
+    - button@9.0.2
 
 ## 1.3.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.2.0
-    -   button@9.0.1
+- Обновлены зависимости
+    - shared@0.2.0
+    - button@9.0.1
 
 ## 1.3.0
 
@@ -560,47 +569,47 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#687](https://github.com/core-ds/core-components/pull/687)
 
--   Компонент Button заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
+- Компонент Button заменен на mobile/desktop версии для мобильных и десктопных версий компонентов
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.1.0
-    -   button@9.0.0
-    -   gap@1.2.0
+- Обновлены зависимости
+    - shared@0.1.0
+    - button@9.0.0
+    - gap@1.2.0
 
 ## 1.2.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@8.5.1
-    -   gap@1.1.3
+- Обновлены зависимости
+    - button@8.5.1
+    - gap@1.1.3
 
 ## 1.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@8.5.0
+- Обновлены зависимости
+    - button@8.5.0
 
 ## 1.2.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@8.4.0
+- Обновлены зависимости
+    - button@8.4.0
 
 ## 1.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@8.3.0
+- Обновлены зависимости
+    - button@8.3.0
 
 ## 1.2.0
 
@@ -608,23 +617,23 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#643](https://github.com/core-ds/core-components/pull/643)
 
--   Добавлен новый проп extraBounds, за счет которого можно увеличить площадь прослушивания события touchMove
+- Добавлен новый проп extraBounds, за счет которого можно увеличить площадь прослушивания события touchMove
 
 ### Patch Changes
 
 ### [#654](https://github.com/core-ds/core-components/pull/654)
 
--   Удалены лишние dependencies, добавлены отсутствующие
+- Удалены лишние dependencies, добавлены отсутствующие
 
--   Обновлены зависимости
-    -   button@8.2.0
+- Обновлены зависимости
+    - button@8.2.0
 
 ## 1.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@8.1.0
+- Обновлены зависимости
+    - button@8.1.0
 
 ## 1.1.2
 
@@ -632,18 +641,18 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   button@8.0.0
-    -   gap@1.1.2
+- Обновлены зависимости
+    - button@8.0.0
+    - gap@1.1.2
 
 ## 1.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@7.1.1
+- Обновлены зависимости
+    - button@7.1.1
 
 ## 1.1.0
 
@@ -651,17 +660,17 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#516](https://github.com/core-ds/core-components/pull/516)
 
--   Добавлена кнопка "Забыли код?"
+- Добавлена кнопка "Забыли код?"
 
 ### Patch Changes
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   button@7.1.0
-    -   gap@1.1.1
+- Обновлены зависимости
+    - button@7.1.0
+    - gap@1.1.1
 
 ## 1.0.3
 
@@ -669,14 +678,14 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#466](https://github.com/core-ds/core-components/pull/466)
 
--   Обновлена версия библиотеки react-canvas-pattern-lock до 1.0.2
+- Обновлена версия библиотеки react-canvas-pattern-lock до 1.0.2
 
 ## 1.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   gap@1.1.0
+- Обновлены зависимости
+    - gap@1.1.0
 
 ## 1.0.1
 
@@ -684,10 +693,10 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   gap@1.0.1
+- Обновлены зависимости
+    - gap@1.0.1
 
 ## 1.0.0
 
@@ -695,4 +704,4 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#377](https://github.com/core-ds/core-components/pull/377)
 
--   Добавлен новый компонент PatternLock
+- Добавлен новый компонент PatternLock

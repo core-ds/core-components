@@ -1,6 +1,7 @@
 import {
     setupScreenshotTesting,
     generateTestCases,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -33,7 +34,7 @@ describe(
                     open: true,
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
-                    width: ['500', '600', 'fullWidth'],
+                    width: ['500', '600', 'fullWidth', '300'],
                 },
             }),
             ...generateTestCases({
@@ -44,7 +45,7 @@ describe(
                     open: true,
                     'header.title': 'Заголовок',
                     'footer.sticky': true,
-                    height: ['500', '600', 'fullHeight'],
+                    height: ['500', '600', 'fullHeight', '200'],
                 },
             }),
             ...generateTestCases({
@@ -127,3 +128,128 @@ describe(
         },
     }),
 );
+
+describe('Modal | trim title', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        bigTitle: false,
+                        trim: [false, true],
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                    },
+                }),
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        bigTitle: true,
+                        trim: [false, true],
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Modal | sticky header', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                        'header.title': 'Заголовок',
+                        'header.sticky': [false, true],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            evaluate: async (page) => {
+                await page.waitForTimeout(500);
+                await page.$eval('button[class*=showMoreButton]', (el) => {
+                    el.scrollIntoView();
+                });
+                await page.waitForTimeout(500);
+            },
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Modal | header bottom addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        bigTitle: false,
+                        'header.title': 'Title',
+                        'header.bottomAddons': ['bottomAddons'],
+                    },
+                }),
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        bigTitle: true,
+                        'header.title': 'Title',
+                        'header.bottomAddons': ['bottomAddons'],
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});

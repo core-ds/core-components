@@ -9,6 +9,7 @@ interface CrossButtonProps {
     onClick?: () => void;
 }
 
+/** @deprecated Компонент будет удален в будущей мажорной версии */
 export const CrossButtonDesktop: FC<CrossButtonProps> = (props) => {
     const { onClick } = props;
 

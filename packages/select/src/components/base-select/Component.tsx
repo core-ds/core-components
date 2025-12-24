@@ -590,6 +590,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         size && styles[SIZE_TO_CLASSNAME_MAP[size]],
                     )}
                     ref={mergeRefs([searchRef, searchProps?.componentProps?.ref || null])}
+                    client={view}
                 />
             );
         };
@@ -672,6 +673,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         search={search}
                         multiple={multiple}
                         limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
+                        client={view}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>

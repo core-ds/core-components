@@ -77,7 +77,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component border-40"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component component border_40"
                     type="button"
                   >
                     <span
@@ -113,7 +113,11 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
             <div
               class="title"
             >
-              Title
+              <div
+                class="titleTextContent"
+              >
+                Title
+              </div>
             </div>
           </div>
         </div>
@@ -215,7 +219,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component border-32"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component component border_32"
                     type="button"
                   >
                     <span
@@ -251,7 +255,11 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
             <div
               class="title"
             >
-              Title
+              <div
+                class="titleTextContent"
+              >
+                Title
+              </div>
             </div>
           </div>
         </div>
