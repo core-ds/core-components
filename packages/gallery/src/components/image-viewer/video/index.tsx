@@ -5,9 +5,10 @@ import React, {
     useContext,
     useEffect,
     useRef,
+    useState,
 } from 'react';
 import cn from 'classnames';
-import Hls from 'hls.js';
+import type Hls from 'hls.js';
 
 import { Circle } from '@alfalab/core-components-icon-view/circle';
 import PlayCompactMIcon from '@alfalab/icons-glyph/PlayCompactMIcon';
@@ -28,6 +29,7 @@ type Props = {
 export const Video = ({ url, index, className, isActive }: Props) => {
     const playerRef = useRef<HTMLVideoElement>(null);
     const timer = useRef<ReturnType<typeof setTimeout>>();
+    const [hlsSupported, setHlsSupported] = useState<boolean>(true);
 
     const {
         setImageMeta,
@@ -49,32 +51,86 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [index]);
 
-    useEffect(() => {
-        const hls = new Hls();
+    const loadHlsLibrary = useCallback(
+        async (attempt = 1, maxAttempts = 3): Promise<typeof Hls | null> => {
+            try {
+                const { default: HlsLib } = await import(
+                    /* webpackChunkName: "hls-js-gallery" */ 'hls.js/dist/hls.light.mjs'
+                );
 
-        if (Hls.isSupported()) {
-            hls.on(Hls.Events.ERROR, (_, data) => {
-                if (data.fatal) {
-                    switch (data.type) {
-                        case Hls.ErrorTypes.MEDIA_ERROR:
-                            hls.recoverMediaError();
-                            break;
-                        case Hls.ErrorTypes.NETWORK_ERROR:
-                            setImageMeta({ player: { current: null }, broken: true }, index);
-                            break;
-                        default:
-                            hls.destroy();
-                            break;
-                    }
+                return HlsLib;
+            } catch {
+                if (attempt < maxAttempts) {
+                    /* Экспоненциальная задержка ретрая: 300ms, 600ms, 1200ms */
+                    await new Promise<void>((resolve) => {
+                        setTimeout(
+                            () => {
+                                resolve();
+                            },
+                            300 * 2 ** (attempt - 1),
+                        );
+                    });
+
+                    return loadHlsLibrary(attempt + 1, maxAttempts);
                 }
-            });
 
-            hls.loadSource(url);
-            if (playerRef.current) {
-                hls.attachMedia(playerRef.current);
-                hls.subtitleDisplay = false;
+                setHlsSupported(false);
+                setImageMeta({ player: { current: null }, broken: true }, index);
+
+                return null;
             }
-        }
+        },
+        [setImageMeta, index],
+    );
+
+    useEffect(() => {
+        let hls: Hls | null = null;
+
+        const initHls = async () => {
+            try {
+                const HlsLib = await loadHlsLibrary();
+
+                if (!HlsLib || !playerRef.current) {
+                    return;
+                }
+
+                if (!HlsLib.isSupported()) {
+                    setHlsSupported(false);
+
+                    return;
+                }
+
+                hls = new HlsLib();
+
+                hls.on(HlsLib.Events.ERROR, (_, data) => {
+                    if (data.fatal && hls) {
+                        switch (data.type) {
+                            case HlsLib.ErrorTypes.MEDIA_ERROR:
+                                hls.recoverMediaError();
+                                break;
+                            case HlsLib.ErrorTypes.NETWORK_ERROR:
+                                setImageMeta({ player: { current: null }, broken: true }, index);
+                                break;
+                            default:
+                                hls.destroy();
+                                break;
+                        }
+                    }
+                });
+
+                hls.loadSource(url);
+
+                if (playerRef.current) {
+                    hls.attachMedia(playerRef.current);
+                    hls.subtitleDisplay = false;
+                }
+            } catch {
+                setHlsSupported(false);
+                setImageMeta({ player: { current: null }, broken: true }, index);
+            }
+        };
+
+        initHls();
 
         return () => {
             if (hls) {
@@ -183,7 +239,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                 playsInline={true}
                 muted={mutedVideo}
                 loop={true}
-                src={Hls.isSupported() ? undefined : url}
+                src={hlsSupported ? undefined : url}
                 className={cn(styles.video, { [styles.mobile]: view === 'mobile' }, className)}
             >
                 <track kind='captions' />
