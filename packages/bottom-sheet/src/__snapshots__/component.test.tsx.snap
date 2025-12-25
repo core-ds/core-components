@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
-<body
-  style="padding-right: 0px; overflow: hidden;"
->
+<body>
   <div />
   <div
     alfa-portal-container=""
@@ -16,66 +14,68 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
     <div
       data-focus-lock-disabled="false"
     >
-      <div
-        style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
-      >
+      <div>
         <div
-          aria-hidden="true"
-          class="backdrop disabledPointerEvents appear appearActive"
-        />
-      </div>
-      <div
-        class="wrapper"
-        role="dialog"
-        style="z-index: 100;"
-        tabindex="-1"
-      >
-        <div
-          class="component modal appear appearActive"
+          style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
         >
           <div
-            class="content hasHeader"
+            aria-hidden="true"
+            class="backdrop disabledPointerEvents appear appearActive"
+          />
+        </div>
+        <div
+          class="wrapper"
+          role="dialog"
+          style="z-index: 100;"
+          tabindex="-1"
+        >
+          <div
+            class="component modal appear appearActive"
           >
             <div
-              class="wrapper"
+              class="content hasHeader"
             >
               <div
-                class="component component"
-                style="height: unset; max-height: 744px;"
+                class="wrapper"
               >
                 <div
-                  class="marker defaultMarker defaultMarker"
-                />
-                <div
-                  class="scrollableContainer"
+                  class="component component"
+                  style="height: unset; max-height: 744px;"
                 >
                   <div
-                    class="header hasContent headerWrapper hasContent"
+                    class="marker defaultMarker defaultMarker"
+                  />
+                  <div
+                    class="scrollableContainer"
                   >
                     <div
-                      class="mainLine"
+                      class="header hasContent headerWrapper hasContent"
                     >
                       <div
-                        class="content title left trim"
-                        style="visibility: visible;"
+                        class="mainLine"
                       >
                         <div
-                          class="title title"
+                          class="content title left trim"
+                          style="visibility: visible;"
                         >
                           <div
-                            class="titleTextContent"
+                            class="title title"
                           >
-                            Bottom sheet title
+                            <div
+                              class="titleTextContent"
+                            >
+                              Bottom sheet title
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="content content noFooter"
-                  >
-                    <div>
-                      Bottom sheet content
+                    <div
+                      class="content content noFooter"
+                    >
+                      <div>
+                        Bottom sheet content
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -95,9 +95,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
 `;
 
 exports[`Bottom sheet Snapshots tests should match snapshot with action button 1`] = `
-<body
-  style="padding-right: 0px; overflow: hidden;"
->
+<body>
   <div
     alfa-portal-container=""
   >
@@ -109,72 +107,74 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
     <div
       data-focus-lock-disabled="false"
     >
-      <div
-        style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
-      >
+      <div>
         <div
-          aria-hidden="true"
-          class="backdrop disabledPointerEvents appear appearActive"
-        />
-      </div>
-      <div
-        class="wrapper"
-        role="dialog"
-        style="z-index: 100;"
-        tabindex="-1"
-      >
-        <div
-          class="component modal appear appearActive"
+          style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
         >
           <div
-            class="content hasFooter hasHeader"
+            aria-hidden="true"
+            class="backdrop disabledPointerEvents appear appearActive"
+          />
+        </div>
+        <div
+          class="wrapper"
+          role="dialog"
+          style="z-index: 100;"
+          tabindex="-1"
+        >
+          <div
+            class="component modal appear appearActive"
           >
             <div
-              class="wrapper"
+              class="content hasFooter hasHeader"
             >
               <div
-                class="component component"
-                style="height: unset; max-height: 744px;"
+                class="wrapper"
               >
                 <div
-                  class="marker defaultMarker defaultMarker"
-                />
-                <div
-                  class="scrollableContainer"
+                  class="component component"
+                  style="height: unset; max-height: 744px;"
                 >
                   <div
-                    class="header hasContent headerWrapper hasContent"
+                    class="marker defaultMarker defaultMarker"
+                  />
+                  <div
+                    class="scrollableContainer"
                   >
                     <div
-                      class="mainLine"
+                      class="header hasContent headerWrapper hasContent"
                     >
                       <div
-                        class="content title left trim"
-                        style="visibility: visible;"
+                        class="mainLine"
                       >
                         <div
-                          class="title title"
+                          class="content title left trim"
+                          style="visibility: visible;"
                         >
                           <div
-                            class="titleTextContent"
+                            class="title title"
                           >
-                            Bottom sheet title
+                            <div
+                              class="titleTextContent"
+                            >
+                              Bottom sheet title
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="content content"
-                  >
-                    <div>
-                      Bottom sheet content
+                    <div
+                      class="content content"
+                    >
+                      <div>
+                        Bottom sheet content
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    class="footer hasContent sticky"
-                  >
-                    <div />
+                    <div
+                      class="footer hasContent sticky"
+                    >
+                      <div />
+                    </div>
                   </div>
                 </div>
               </div>

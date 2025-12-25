@@ -43,9 +43,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
 `;
 
 exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open state 1`] = `
-<body
-  style="padding-right: 0px; overflow: hidden;"
->
+<body>
   <div>
     <div
       aria-expanded="true"
@@ -93,255 +91,257 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
     <div
       data-focus-lock-disabled="false"
     >
-      <div
-        style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
-      >
+      <div>
         <div
-          aria-hidden="true"
-          class="backdrop disabledPointerEvents appear appearActive"
-        />
-      </div>
-      <div
-        class="wrapper"
-        role="dialog"
-        style="z-index: 100;"
-        tabindex="-1"
-      >
-        <div
-          class="component modal appear appearActive"
+          style="opacity: 1; transition: opacity 500ms ease-in-out; position: relative; z-index: 100;"
         >
           <div
-            class="content hasFooter hasHeader"
+            aria-hidden="true"
+            class="backdrop disabledPointerEvents appear appearActive"
+          />
+        </div>
+        <div
+          class="wrapper"
+          role="dialog"
+          style="z-index: 100;"
+          tabindex="-1"
+        >
+          <div
+            class="component modal appear appearActive"
           >
             <div
-              class="wrapper"
+              class="content hasFooter hasHeader"
             >
               <div
-                class="component component sheet"
-                style="height: 744px; max-height: 744px;"
+                class="wrapper"
               >
                 <div
-                  class="scrollableContainer sheetContainer"
+                  class="component component sheet"
+                  style="height: 744px; max-height: 744px;"
                 >
                   <div
-                    class="header hasContent headerWrapperWithoutSwipeMarker sticky"
+                    class="scrollableContainer sheetContainer"
                   >
                     <div
-                      class="mainLine"
+                      class="header hasContent headerWrapperWithoutSwipeMarker sticky"
                     >
                       <div
-                        class="addonsWrapper rightAddons"
+                        class="mainLine"
                       >
                         <div
-                          class="addon closer"
+                          class="addonsWrapper rightAddons"
                         >
                           <div
-                            class="closer"
+                            class="addon closer"
                           >
-                            <button
-                              aria-label="закрыть"
-                              class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component component border_32"
-                              type="button"
+                            <div
+                              class="closer"
                             >
-                              <span
-                                class="label stretchText"
+                              <button
+                                aria-label="закрыть"
+                                class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component component border_32"
+                                type="button"
                               >
                                 <span
-                                  class="iconWrapper size-32 center"
+                                  class="label stretchText"
                                 >
-                                  <svg
-                                    class="icon"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="24"
-                                    role="img"
-                                    viewBox="0 0 24 24"
-                                    width="24"
+                                  <span
+                                    class="iconWrapper size-32 center"
                                   >
-                                    <path
-                                      d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                                    />
-                                  </svg>
+                                    <svg
+                                      class="icon"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="24"
+                                      role="img"
+                                      viewBox="0 0 24 24"
+                                      width="24"
+                                    >
+                                      <path
+                                        d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                                      />
+                                    </svg>
+                                  </span>
                                 </span>
-                              </span>
-                            </button>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="bottomAddons"
+                      >
+                        <div
+                          class="component component component input search size-48 size-48 size-48"
+                        >
+                          <div
+                            class="inner inner inner inner"
+                          >
+                            <div
+                              class="inputWrapper"
+                            >
+                              <div
+                                class="input size-48"
+                              >
+                                <input
+                                  class="input size-48 input"
+                                  client="mobile"
+                                  placeholder=""
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="bottomAddons"
+                      class="content content sheetContent noFooter"
                     >
                       <div
-                        class="component component component input search size-48 size-48 size-48"
+                        aria-labelledby="downshift-:r1:-label"
+                        class="optionsListWrapper"
+                        id="downshift-:r1:-menu"
+                        role="listbox"
                       >
                         <div
-                          class="inner inner inner inner"
+                          class="optionsList size-48 optionsList"
                         >
                           <div
-                            class="inputWrapper"
+                            class="scrollable scrollbar"
                           >
                             <div
-                              class="input size-48"
+                              aria-disabled="false"
+                              aria-selected="false"
+                              class="option size-56 option"
+                              id="downshift-:r1:-item-0"
+                              role="option"
                             >
-                              <input
-                                class="input size-48 input"
-                                client="mobile"
-                                placeholder=""
-                                type="text"
-                                value=""
-                              />
+                              <div
+                                class="checkmark"
+                              >
+                                <svg
+                                  class="displayIcon"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="content textContent"
+                              >
+                                Neptunium
+                              </div>
+                              <div
+                                class="checkmark"
+                              >
+                                <svg
+                                  class="displayIcon"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div
+                              aria-disabled="false"
+                              aria-selected="false"
+                              class="option size-56 option"
+                              id="downshift-:r1:-item-1"
+                              role="option"
+                            >
+                              <div
+                                class="checkmark"
+                              >
+                                <svg
+                                  class="displayIcon"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="content textContent"
+                              >
+                                Plutonium
+                              </div>
+                              <div
+                                class="checkmark"
+                              >
+                                <svg
+                                  class="displayIcon"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="24"
+                                  role="img"
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                >
+                                  <path
+                                    clip-rule="evenodd"
+                                    d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                    fill-rule="evenodd"
+                                  />
+                                </svg>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="content content sheetContent noFooter"
-                  >
-                    <div
-                      aria-labelledby="downshift-:r1:-label"
-                      class="optionsListWrapper"
-                      id="downshift-:r1:-menu"
-                      role="listbox"
-                    >
-                      <div
-                        class="optionsList size-48 optionsList"
-                      >
-                        <div
-                          class="scrollable scrollbar"
-                        >
                           <div
-                            aria-disabled="false"
-                            aria-selected="false"
-                            class="option size-56 option"
-                            id="downshift-:r1:-item-0"
-                            role="option"
+                            class="optionsListFooter"
                           >
                             <div
-                              class="checkmark"
+                              class="footer"
+                              tabindex="0"
                             >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
+                              <button
+                                class="component secondary size-56 hug size-56 component secondary component secondary button"
+                                type="button"
                               >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
-                            <div
-                              class="content textContent"
-                            >
-                              Neptunium
-                            </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
+                                <span
+                                  class="label stretchText"
+                                >
+                                  Отмена
+                                </span>
+                              </button>
+                              <button
+                                class="component primary size-56 hug size-56 component primary component primary button"
+                                type="button"
                               >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
+                                <span
+                                  class="label stretchText"
+                                >
+                                  Продолжить
+                                </span>
+                              </button>
                             </div>
-                          </div>
-                          <div
-                            aria-disabled="false"
-                            aria-selected="false"
-                            class="option size-56 option"
-                            id="downshift-:r1:-item-1"
-                            role="option"
-                          >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
-                            <div
-                              class="content textContent"
-                            >
-                              Plutonium
-                            </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="optionsListFooter"
-                        >
-                          <div
-                            class="footer"
-                            tabindex="0"
-                          >
-                            <button
-                              class="component secondary size-56 hug size-56 component secondary component secondary button"
-                              type="button"
-                            >
-                              <span
-                                class="label stretchText"
-                              >
-                                Отмена
-                              </span>
-                            </button>
-                            <button
-                              class="component primary size-56 hug size-56 component primary component primary button"
-                              type="button"
-                            >
-                              <span
-                                class="label stretchText"
-                              >
-                                Продолжить
-                              </span>
-                            </button>
                           </div>
                         </div>
                       </div>

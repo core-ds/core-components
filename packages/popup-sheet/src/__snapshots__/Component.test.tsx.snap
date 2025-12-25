@@ -18,31 +18,33 @@ exports[`PopupSheet Snapshot tests should match snapshot 1`] = `
       <div
         data-focus-lock-disabled="false"
       >
-        <div
-          style="opacity: 1; transition: opacity undefinedms ease-in-out; position: relative; z-index: 100;"
-        >
+        <div>
           <div
-            aria-hidden="true"
-            class="backdrop appear appearActive"
-          />
-        </div>
-        <div
-          class="wrapper"
-          role="dialog"
-          style="z-index: 100;"
-          tabindex="-1"
-        >
-          <div
-            class="component appear appearActive"
+            style="opacity: 1; transition: opacity undefinedms ease-in-out; position: relative; z-index: 100;"
           >
             <div
-              class="content content"
-              style="padding: 32px;"
+              aria-hidden="true"
+              class="backdrop appear appearActive"
+            />
+          </div>
+          <div
+            class="wrapper"
+            role="dialog"
+            style="z-index: 100;"
+            tabindex="-1"
+          >
+            <div
+              class="component appear appearActive"
             >
               <div
-                style="height: 50px;"
+                class="content content"
+                style="padding: 32px;"
               >
-                PopupSheet
+                <div
+                  style="height: 50px;"
+                >
+                  PopupSheet
+                </div>
               </div>
             </div>
           </div>
