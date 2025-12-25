@@ -311,7 +311,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onKeyDown?.(event);
         };
 
-        const handleFocus: withSuffixProps['onFocus'] = (e) => {
+        const handleFocus: withSuffixProps<InputProps>['onFocus'] = (e) => {
             setIsFocused(true);
 
             onFocus?.(e);

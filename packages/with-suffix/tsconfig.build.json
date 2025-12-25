@@ -9,6 +9,8 @@
         "paths": {
             "@alfalab/core-components-input": ["../input/src"],
             "@alfalab/core-components-input/*": ["../input/src/*"],
+            "@alfalab/core-components-number-input": ["../number-input/src"],
+            "@alfalab/core-components-number-input/*": ["../number-input/src/*"],
             "@alfalab/core-components-portal": ["../portal/src"],
             "@alfalab/core-components-portal/*": ["../portal/src/*"],
             "@alfalab/core-components-with-suffix": ["./src"],
@@ -17,6 +19,7 @@
     },
     "references": [
         { "path": "../input/tsconfig.build.json" },
+        { "path": "../number-input/tsconfig.build.json" },
         { "path": "../portal/tsconfig.build.json" }
     ]
 }

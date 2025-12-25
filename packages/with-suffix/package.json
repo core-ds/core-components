@@ -11,6 +11,7 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-input": "^16.0.3",
+        "@alfalab/core-components-number-input": "^3.0.4",
         "@alfalab/core-components-portal": "^4.0.2",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
