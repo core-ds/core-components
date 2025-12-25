@@ -104,10 +104,6 @@ export type BaseModalProps = {
 
     /**
      * Управляет блокировкой скролла/overscroll фона при открытой модалке.
-     *
-     * - `true`: используется `react-remove-scroll` + блокировка скролла контейнера.
-     * - `false`: полностью отключает блокировку скролла.
-     *
      * @default false
      */
     scrollLock?: boolean;
