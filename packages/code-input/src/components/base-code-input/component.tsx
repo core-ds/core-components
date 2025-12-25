@@ -11,13 +11,13 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { useFocusRestriction } from '../../hooks';
 import {
     type BaseCodeInputProps,
     type CredentialOtp,
     type CredentialRequestOtpOptions,
     type CustomInputRef,
 } from '../../typings';
+import { getFocusRestrictionMeta, resolveRestrictedIndex } from '../../utils';
 import { Input, type InputProps } from '..';
 
 import styles from './index.module.css';
@@ -61,13 +61,33 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             inputRef?.current?.focus();
         };
 
-        const { focusRestrictedInput } = useFocusRestriction({
-            restrictFocus,
-            values,
-            fields,
-            inputRefs,
-            focusOnInput,
-        });
+        const focusRestrictedInput = (
+            requestedIndex: number,
+            options?: {
+                skipEqual?: boolean;
+            },
+        ) => {
+            if (!restrictFocus) {
+                return false;
+            }
+
+            const restrictionMeta = getFocusRestrictionMeta({ values, fields });
+            const targetIndex = resolveRestrictedIndex({ requestedIndex, meta: restrictionMeta });
+
+            if (options?.skipEqual && targetIndex === requestedIndex) {
+                return false;
+            }
+
+            const targetRef = inputRefs[targetIndex];
+
+            if (!targetRef) {
+                return false;
+            }
+
+            focusOnInput(targetRef);
+
+            return true;
+        };
 
         const focus = (index = 0) => {
             focusOnInput(inputRefs[index]);
@@ -231,20 +251,34 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
         const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
             event.persist();
-            const target = event.target as HTMLInputElement;
+            const target = event.currentTarget;
+
+            /**
+             * В сафари выделение корректно работает только с асинхронным вызовом
+             */
+            const scheduleSelect = () => {
+                requestAnimationFrame(() => {
+                    target?.select();
+                });
+            };
 
             if (programmaticFocusRef.current) {
                 programmaticFocusRef.current = false;
 
-                requestAnimationFrame(() => {
-                    target?.select();
-                });
+                scheduleSelect();
 
                 return;
             }
 
-            const targetIndex = inputRefs.findIndex((inputRef) => inputRef.current === target);
-            const allEmpty = values.every((value) => !value) || values.length === 0;
+            const targetIndex = Number.parseInt(target?.dataset?.codeInputIndex ?? '', 10);
+
+            if (Number.isNaN(targetIndex)) {
+                return;
+            }
+
+            const allEmpty = Array.from({ length: fields }, (_, idx) => values[idx] ?? '').every(
+                (value) => !value,
+            );
 
             if (allEmpty && targetIndex > 0) {
                 focusOnInput(inputRefs[0]);
@@ -254,11 +288,11 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
             const isRestrictedHandled = focusRestrictedInput(targetIndex, { skipEqual: true });
 
-            if (!isRestrictedHandled) {
-                requestAnimationFrame(() => {
-                    target?.select();
-                });
+            if (isRestrictedHandled) {
+                return;
             }
+
+            scheduleSelect();
         };
 
         const handleErrorAnimationEnd = () => {

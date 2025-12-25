@@ -8,14 +8,12 @@ type NextEmptyIdxPayload = {
  * @returns индекс первой пустой ячейки, индекс следующей пустой (если ячейки заполнены частично), или -1 если все ячейки заполнены
  */
 const getNextEmptyIdx = ({ values, fields }: NextEmptyIdxPayload): number => {
-    const firstEmptyIdx = values.indexOf('');
+    for (let idx = 0; idx < fields; idx += 1) {
+        const value = values[idx];
 
-    if (firstEmptyIdx !== -1) {
-        return firstEmptyIdx;
-    }
-
-    if (values.length < fields) {
-        return values.length;
+        if (!value) {
+            return idx;
+        }
     }
 
     return -1;
@@ -41,7 +39,7 @@ export const getFocusRestrictionMeta = ({
     const nextEmptyIdx = getNextEmptyIdx({ values, fields });
 
     if (nextEmptyIdx === -1) {
-        const lastIndex = fields - 1;
+        const lastIndex = Math.max(fields - 1, 0);
 
         return {
             focusIdx: lastIndex,
