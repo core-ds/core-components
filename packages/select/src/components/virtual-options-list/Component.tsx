@@ -3,11 +3,10 @@ import mergeRefs from 'react-merge-refs';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
-import { isClient } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
+import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
 import { type GroupShape, type OptionShape, type OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVirtualVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
@@ -43,6 +42,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             search,
             multiple,
             scrollbarClassName,
+            client,
         },
         ref,
     ) => {
@@ -52,19 +52,16 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState('');
         const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
-        const query = '(max-width: 1023px)';
-        let [nativeScrollbar] = useMatchMedia(query, () =>
-            isClient() ? window.matchMedia(query).matches : true,
-        );
-
         const rowVirtualizer = useVirtual({
             size: flatOptions.length,
             parentRef: (ref || parentRef) as React.RefObject<HTMLDivElement>,
             overscan: 15,
         });
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
+        const nativeScrollbar = useNativeScrollbar({
+            nativeScrollbar: nativeScrollbarProp,
+            client,
+        });
 
         // Сколл к выбранному пункту при открытии меню
         useEffect(() => {
