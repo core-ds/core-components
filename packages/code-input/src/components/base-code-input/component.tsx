@@ -17,6 +17,7 @@ import {
     type CredentialRequestOtpOptions,
     type CustomInputRef,
 } from '../../typings';
+import { getFocusRestrictionMeta, resolveRestrictedIndex } from '../../utils';
 import { Input, type InputProps } from '..';
 
 import styles from './index.module.css';
@@ -39,6 +40,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             onChange,
             onComplete,
             stylesInput = {},
+            restrictFocus = false,
         },
         ref,
     ) => {
@@ -53,9 +55,38 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         const [values, setValues] = useState(initialValues.split(''));
 
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
+        const programmaticFocusRef = useRef(false);
 
         const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
             inputRef?.current?.focus();
+        };
+
+        const focusRestrictedInput = (
+            requestedIndex: number,
+            options?: {
+                skipEqual?: boolean;
+            },
+        ) => {
+            if (!restrictFocus) {
+                return false;
+            }
+
+            const restrictionMeta = getFocusRestrictionMeta({ values, fields });
+            const targetIndex = resolveRestrictedIndex({ requestedIndex, meta: restrictionMeta });
+
+            if (options?.skipEqual && targetIndex === requestedIndex) {
+                return false;
+            }
+
+            const targetRef = inputRefs[targetIndex];
+
+            if (!targetRef) {
+                return false;
+            }
+
+            focusOnInput(targetRef);
+
+            return true;
         };
 
         const focus = (index = 0) => {
@@ -132,7 +163,8 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             setValues(newValues);
 
             if (nextRef?.current) {
-                nextRef.current.focus();
+                programmaticFocusRef.current = true;
+                focusOnInput(nextRef);
 
                 nextRef.current.select();
             }
@@ -167,6 +199,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
                     if (values[index]) {
                         newValues[index] = '';
+                        focusOnInput(curtRef);
                     } else if (prevRef) {
                         newValues[prevIndex] = '';
 
@@ -182,14 +215,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     event.preventDefault();
 
                     newValues[index] = '';
-
-                    if (!values[nextIndex]) {
-                        focusOnInput(curtRef);
-                    }
-
-                    if (nextRef) {
-                        focusOnInput(nextRef);
-                    }
+                    focusOnInput(curtRef);
 
                     setValues(newValues);
 
@@ -204,14 +230,16 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     }
 
                     break;
-                case 'ArrowRight':
+                case 'ArrowRight': {
                     event.preventDefault();
+                    const isRestrictedHandled = focusRestrictedInput(nextIndex);
 
-                    if (nextRef) {
+                    if (!isRestrictedHandled && nextRef) {
                         focusOnInput(nextRef);
                     }
 
                     break;
+                }
                 case 'ArrowUp':
                 case 'ArrowDown':
                     event.preventDefault();
@@ -223,14 +251,48 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
         const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
             event.persist();
-            const target = event.target as HTMLInputElement;
+            const target = event.currentTarget;
 
             /**
              * В сафари выделение корректно работает только с асинхронным вызовом
              */
-            requestAnimationFrame(() => {
-                target?.select();
-            });
+            const scheduleSelect = () => {
+                requestAnimationFrame(() => {
+                    target?.select();
+                });
+            };
+
+            if (programmaticFocusRef.current) {
+                programmaticFocusRef.current = false;
+
+                scheduleSelect();
+
+                return;
+            }
+
+            const targetIndex = Number.parseInt(target?.dataset?.codeInputIndex ?? '', 10);
+
+            if (Number.isNaN(targetIndex)) {
+                return;
+            }
+
+            const allEmpty = Array.from({ length: fields }, (_, idx) => values[idx] ?? '').every(
+                (value) => !value,
+            );
+
+            if (allEmpty && targetIndex > 0) {
+                focusOnInput(inputRefs[0]);
+
+                return;
+            }
+
+            const isRestrictedHandled = focusRestrictedInput(targetIndex, { skipEqual: true });
+
+            if (isRestrictedHandled) {
+                return;
+            }
+
+            scheduleSelect();
         };
 
         const handleErrorAnimationEnd = () => {

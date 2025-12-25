@@ -22,6 +22,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           <input
             autocomplete="one-time-code"
             class="input component"
+            data-code-input-index="0"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -29,6 +30,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           <input
             autocomplete=""
             class="input component"
+            data-code-input-index="1"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -36,6 +38,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           <input
             autocomplete=""
             class="input component"
+            data-code-input-index="2"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -43,6 +46,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           <input
             autocomplete=""
             class="input component"
+            data-code-input-index="3"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -50,6 +54,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           <input
             autocomplete=""
             class="input component"
+            data-code-input-index="4"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -104,6 +109,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
           <input
             autocomplete="one-time-code"
             class="input component disabled"
+            data-code-input-index="0"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -112,6 +118,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
           <input
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="1"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -120,6 +127,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
           <input
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="2"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -128,6 +136,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
           <input
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="3"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -136,6 +145,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
           <input
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="4"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -223,6 +233,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
           <input
             autocomplete="one-time-code"
             class="input component hasError"
+            data-code-input-index="0"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -230,6 +241,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
           <input
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="1"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -237,6 +249,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
           <input
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="2"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -244,6 +257,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
           <input
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="3"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -251,6 +265,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
           <input
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="4"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -311,6 +326,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
           <input
             autocomplete="one-time-code"
             class="input component hasError"
+            data-code-input-index="0"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -318,6 +334,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
           <input
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="1"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -325,6 +342,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
           <input
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="2"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -332,6 +350,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
           <input
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="3"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -339,6 +358,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
           <input
             autocomplete=""
             class="input component hasError"
+            data-code-input-index="4"
             inputmode="numeric"
             pattern="[0-9]*"
             value=""
@@ -399,6 +419,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
           <input
             autocomplete="one-time-code"
             class="input component disabled"
+            data-code-input-index="0"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -407,6 +428,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
           <input
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="1"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -415,6 +437,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
           <input
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="2"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -423,6 +446,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
           <input
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="3"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"
@@ -431,6 +455,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
           <input
             autocomplete=""
             class="input component disabled"
+            data-code-input-index="4"
             disabled=""
             inputmode="numeric"
             pattern="[0-9]*"

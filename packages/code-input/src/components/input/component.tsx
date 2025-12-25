@@ -62,6 +62,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         return (
             <input
                 ref={ref}
+                data-code-input-index={index}
                 className={cn(styles.input, stylesInput.component, {
                     [styles.hasError]: error,
                     [stylesInput.hasError]: error,
