@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-text",
-    "version": "2.0.0",
+    "version": "2.0.1-next.0",
     "description": "Text",
     "keywords": [],
     "license": "MIT",
@@ -22,6 +22,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.3",
-    "varsVersion": "10.2.0"
+    "themesVersion": "15.0.0-next.0",
+    "varsVersion": "11.0.0-next.0"
 }

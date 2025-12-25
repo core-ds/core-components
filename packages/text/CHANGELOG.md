@@ -1,5 +1,15 @@
 # @alfalab/core-components-text
 
+## 2.0.1-next.0
+
+### Patch Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
 ## 2.0.0
 
 ### Major Changes
@@ -16,8 +26,8 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-types@1.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-types@1.0.0
 
 ## 1.2.3
 
@@ -27,7 +37,7 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
 ## 1.2.2
 
@@ -37,13 +47,13 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 <sup><time>13.12.2024</time></sup>
 
 ### [#1486](https://github.com/core-ds/core-components/pull/1486)
 
--   Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
+- Добавлены sideEffects: false. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 2.
 
 ## 1.2.1
 
@@ -53,7 +63,7 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
 ## 1.2.0
 
@@ -63,7 +73,7 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ## 1.1.0
 
@@ -73,7 +83,7 @@
 
 ### [#1299](https://github.com/core-ds/core-components/pull/1299)
 
--   Добавлено новое свойство monospaceNumbers, которое делает цифры моноширинными
+- Добавлено новое свойство monospaceNumbers, которое делает цифры моноширинными
 
 ## 1.0.0
 
@@ -83,4 +93,4 @@
 
 ### [#1067](https://github.com/core-ds/core-components/pull/1067)
 
--   Добавлен новый компонент Text
+- Добавлен новый компонент Text

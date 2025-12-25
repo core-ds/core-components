@@ -1,5 +1,56 @@
 # @alfalab/core-components-circular-progress-bar
 
+## 5.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+##### Typography
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+##### Typography
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1648](https://github.com/core-ds/core-components/pull/1648)
+
+##### CircularProgressBar
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x`
+
+### Patch Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 4.0.3
 
 ### Patch Changes

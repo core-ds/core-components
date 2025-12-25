@@ -1,5 +1,37 @@
 # @alfalab/core-components-action-button
 
+## 3.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### ActionButton
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s` на `48` соответственно)
+
+### Patch Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-spinner@6.0.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+
 ## 2.0.2
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @alfalab/core-components-themes
 
+## 15.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1737](https://github.com/core-ds/core-components/pull/1737)
+
+##### Themes
+
+- Удалены неиспользуемые значения тем для BottomSheet
+
 ## 14.1.3
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @alfalab/core-components-skeleton
 
+## 6.0.2-next.0
+
+### Patch Changes
+
+<sup><time>23.12.2025</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
 ## 6.0.1
 
 ### Patch Changes
