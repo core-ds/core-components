@@ -12,6 +12,7 @@
     "eslint.workingDirectories": [
         "packages/accordion",
         "packages/action-button",
+        "packages/account-select",
         "packages/alert",
         "packages/amount",
         "packages/amount-input",
