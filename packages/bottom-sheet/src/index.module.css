@@ -24,6 +24,10 @@
     transition: border-radius 0.3s ease;
 }
 
+.outerClassName {
+    pointer-events: all;
+}
+
 .fullscreen {
     border-radius: var(--border-radius-0);
 }
@@ -35,6 +39,9 @@
     border-radius: inherit;
     pointer-events: all;
     box-shadow: var(--bottom-sheet-shadow);
+
+    /* фикс: при включённом padding маркер может визуально "улетать" наверх */
+    transform: translate(0, 0);
 }
 
 .withTransition {
