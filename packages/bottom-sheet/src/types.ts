@@ -66,7 +66,7 @@ export type BottomSheetProps = {
     /**
      * Дополнительный класс для обертки контейнера
      */
-    bottomSheetWrapperClassName?: string
+    bottomSheetWrapperClassName?: string;
 
     /**
      * Дополнительный класс

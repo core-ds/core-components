@@ -666,7 +666,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     onTransitionEnd={setSheetHeight}
                 >
                     {outerAddons && (
-                        <div className={cn(styles.outerClassName, outerClassName)} style={getSwipeStyles()}>
+                        <div
+                            className={cn(styles.outerClassName, outerClassName)}
+                            style={getSwipeStyles()}
+                        >
                             {outerAddons}
                         </div>
                     )}
