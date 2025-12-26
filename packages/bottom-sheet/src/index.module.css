@@ -24,7 +24,7 @@
     transition: border-radius 0.3s ease;
 }
 
-.outerWrapperClassName {
+.outerClassName {
     pointer-events: all;
 }
 
@@ -39,6 +39,8 @@
     border-radius: inherit;
     pointer-events: all;
     box-shadow: var(--bottom-sheet-shadow);
+
+    /* фикс: при включённом padding маркер может визуально "улетать" наверх */
     transform: translate(0, 0);
 }
 
