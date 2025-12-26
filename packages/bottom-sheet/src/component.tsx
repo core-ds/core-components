@@ -62,6 +62,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             titleSize = 'default',
             subtitle,
             actionButton,
+            bottomSheetWrapperClassName,
             contentClassName,
             containerClassName,
             containerProps,
@@ -613,13 +614,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             return null;
         };
 
-        const renderOuterAddons = () =>
-            outerAddons && (
-                <div className={outerClassName} style={{ ...getSwipeStyles() }}>
-                    {outerAddons}
-                </div>
-            );
-
         const bgClassName =
             backgroundColor &&
             styles[`background-${backgroundColor}${colors === 'inverted' ? '-inverted' : ''}`];
@@ -666,12 +660,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 iOSLock={iOSLock}
             >
                 <div
-                    className={cn(styles.wrapper, {
+                    className={cn(styles.wrapper, bottomSheetWrapperClassName, {
                         [styles.fullscreen]: headerOffset === 0 && sheetOffset === 0,
                     })}
                     onTransitionEnd={setSheetHeight}
                 >
-                    {renderOuterAddons()}
+                    {outerAddons && (
+                        <div className={cn(styles.outerWrapperClassName, outerClassName)} style={getSwipeStyles()}>
+                            {outerAddons}
+                        </div>
+                    )}
                     <div
                         className={cn(
                             styles.component,

@@ -5,4 +5,4 @@
 
 ##### BottomSheet
 
-- Добавлен слот `outerAddons` (контент над шторкой) и проп `outerClassName` для его стилизации.
+- Добавлен слот `outerAddons` (контент над шторкой), пропы `bottomSheetWrapperClassName` и `outerClassName` для стилизации.
