@@ -69,11 +69,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             headerContentClassName,
             footerClassName,
             addonClassName,
+            outerClassName,
             closerClassName,
             backerClassName,
             modalClassName,
             modalWrapperClassName,
             className,
+            outerAddons,
             leftAddons,
             rightAddons,
             bottomAddons,
@@ -611,6 +613,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             return null;
         };
 
+        const renderOuterAddons = () =>
+            outerAddons && (
+                <div className={outerClassName} style={{ ...getSwipeStyles() }}>
+                    {outerAddons}
+                </div>
+            );
+
         const bgClassName =
             backgroundColor &&
             styles[`background-${backgroundColor}${colors === 'inverted' ? '-inverted' : ''}`];
@@ -662,6 +671,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     })}
                     onTransitionEnd={setSheetHeight}
                 >
+                    {renderOuterAddons()}
                     <div
                         className={cn(
                             styles.component,

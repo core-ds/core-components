@@ -172,6 +172,16 @@ export type BottomSheetProps = {
     swipeThreshold?: number;
 
     /**
+     * Дополнительный класс для слота над шторкой
+     */
+    outerClassName?: string;
+
+    /**
+     * Слот над шторкой
+     */
+    outerAddons?: ReactNode;
+
+    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
