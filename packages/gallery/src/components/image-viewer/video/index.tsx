@@ -55,7 +55,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         async (attempt = 1, maxAttempts = 3): Promise<typeof Hls | null> => {
             try {
                 const { default: HlsLib } = await import(
-                    /* webpackChunkName: "hls-js-gallery" */ 'hls.js/dist/hls.light.mjs'
+                    /* webpackChunkName: "hls-js-gallery" */ 'hls.js'
                 );
 
                 return HlsLib;
