@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.21.0
+
+### Minor Changes
+
+<sup><time>29.12.2025</time></sup>
+
+### [#2004](https://github.com/core-ds/core-components/pull/2004)
+
+##### BottomSheet
+
+-   Добавлен слот `outerAddons` (контент над шторкой), пропы `bottomSheetWrapperClassName` и `outerClassName` для стилизации.
+
 ## 6.20.0
 
 ### Minor Changes
