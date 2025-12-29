@@ -1,3 +1,19 @@
+## 48.36.0
+
+<sup><time>29.12.2025</time></sup>
+
+### [#2004](https://github.com/core-ds/core-components/pull/2004)
+
+#### Что изменилось
+##### BottomSheet
+
+- Добавлен слот `outerAddons` (контент над шторкой), пропы `bottomSheetWrapperClassName` и `outerClassName` для стилизации.
+
+#### Влияние на компоненты
+- Минорное<br />`bottom-sheet`
+
+
+
 ## 48.35.0
 
 <sup><time>05.12.2025</time></sup>
