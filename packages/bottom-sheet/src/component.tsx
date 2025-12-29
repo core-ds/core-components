@@ -62,6 +62,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             titleSize = 'default',
             subtitle,
             actionButton,
+            bottomSheetWrapperClassName,
             contentClassName,
             containerClassName,
             containerProps,
@@ -69,11 +70,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             headerContentClassName,
             footerClassName,
             addonClassName,
+            outerClassName,
             closerClassName,
             backerClassName,
             modalClassName,
             modalWrapperClassName,
             className,
+            outerAddons,
             leftAddons,
             rightAddons,
             bottomAddons,
@@ -659,11 +662,19 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 scrollLock={scrollLock}
             >
                 <div
-                    className={cn(styles.wrapper, {
+                    className={cn(styles.wrapper, bottomSheetWrapperClassName, {
                         [styles.fullscreen]: headerOffset === 0 && sheetOffset === 0,
                     })}
                     onTransitionEnd={setSheetHeight}
                 >
+                    {outerAddons && (
+                        <div
+                            className={cn(styles.outerClassName, outerClassName)}
+                            style={getSwipeStyles()}
+                        >
+                            {outerAddons}
+                        </div>
+                    )}
                     <div
                         className={cn(
                             styles.component,
