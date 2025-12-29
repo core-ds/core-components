@@ -3,7 +3,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -62,7 +62,7 @@ describe(
 );
 
 describe(
-    'Confirmation | CODE_CHECKING, CODE_SENDING, CODE_ERROR states',
+    'Confirmation | CODE_CHECKING, CODE_SENDING, CODE_ERROR, CODE_EXPIRED states',
     screenshotTesting({
         cases: [
             [
@@ -73,7 +73,13 @@ describe(
                     size: { width: 450, height: 450 },
                     knobs: {
                         screen: ['INITIAL'],
-                        state: ['INITIAL', 'CODE_CHECKING', 'CODE_SENDING', 'CODE_ERROR'],
+                        state: [
+                            'INITIAL',
+                            'CODE_CHECKING',
+                            'CODE_SENDING',
+                            'CODE_ERROR',
+                            'CODE_EXPIRED',
+                        ],
                         ConfirmationComponent: 'Confirmation',
                         countdownDuration: 0,
                     },
@@ -92,7 +98,7 @@ describe(
 );
 
 describe(
-    'Confirmation | HINT, FATAL_ERROR, TEMP_BLOCK screens',
+    'Confirmation | HINT, FATAL_ERROR, TEMP_BLOCK, TEMP_BLOCK_OVER screens',
     screenshotTesting({
         cases: [
             [
@@ -102,7 +108,7 @@ describe(
                     packageName: 'confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
-                        screen: ['HINT', 'FATAL_ERROR', 'TEMP_BLOCK'],
+                        screen: ['HINT', 'FATAL_ERROR', 'TEMP_BLOCK', 'TEMP_BLOCK_OVER'],
                         state: ['INITIAL'],
                         ConfirmationComponent: 'Confirmation',
                     },

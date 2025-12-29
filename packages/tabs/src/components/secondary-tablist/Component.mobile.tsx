@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { TagMobile } from '@alfalab/core-components-tag/mobile';
 
-import { SecondaryTabListProps } from '../../typings';
+import { type SecondaryTabListProps } from '../../typings';
 
 import { SecondaryTabList } from './Component';
 
@@ -20,14 +20,18 @@ export type SecondaryTabListMobileProps = Omit<SecondaryTabListProps, 'tagSize'>
 export const SecondaryTabListMobile = ({
     className,
     size,
+    tagView,
     ...restProps
 }: SecondaryTabListMobileProps) => (
     <SecondaryTabList
         {...restProps}
         TagComponent={TagMobile}
         styles={styles}
-        className={cn(className, styles.mobile)}
+        className={cn(className, styles.mobile, {
+            [styles.transparentView]: tagView === 'transparent',
+        })}
         tagSize={size}
+        tagView={tagView}
         platform='mobile'
     />
 );

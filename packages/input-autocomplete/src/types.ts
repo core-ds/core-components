@@ -1,9 +1,9 @@
-import type { ComponentType, RefAttributes } from 'react';
+import { type ComponentType, type RefAttributes } from 'react';
 
-import type { InputProps } from '@alfalab/core-components-input';
-import type {
-    BaseSelectProps,
-    BottomSheetSelectMobileProps,
+import { type InputProps } from '@alfalab/core-components-input';
+import {
+    type BaseSelectProps,
+    type BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 
 type OnInputTypeReason = 'close' | 'change';
@@ -78,6 +78,12 @@ type MobileProps = {
      * Если не передан, то заголовок будет совпадать с label. Если не передан и label, то заголовок будет равен placeholder
      */
     title?: string;
+
+    /**
+     * Учитывать высоту виртуальной клавиатуры в BottomSheet
+     * @default false
+     */
+    virtualKeyboard?: boolean;
 };
 
 export type InputAutocompleteMobileProps = InputAutocompleteCommonProps & MobileProps;

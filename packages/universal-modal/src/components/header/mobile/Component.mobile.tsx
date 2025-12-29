@@ -1,9 +1,9 @@
-import React, { FC, useContext, useEffect, useRef } from 'react';
+import React, { type FC, useContext, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
 import {
     NavigationBarPrivate,
-    NavigationBarPrivateProps,
+    type NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
@@ -22,16 +22,34 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
     sticky,
     dataTestId,
     bottomAddonsClassName,
+    onClose,
     ...restProps
 }) => {
-    const { setHasHeader, headerHighlighted, componentRef } = useContext(ModalContext);
+    const {
+        setHasHeader,
+        headerHighlighted,
+        componentRef,
+        onClose: handleCloseByContext,
+    } = useContext(ModalContext);
 
     const titleRef = useRef<HTMLDivElement>(null);
 
     const hasContent = Boolean(title || children || restProps.bottomAddons);
 
+    const handleClose: NavigationBarPrivateProps['onClose'] = (...args) => {
+        if (onClose) {
+            return onClose(...args);
+        }
+
+        return handleCloseByContext(...args);
+    };
+
     useEffect(() => {
         setHasHeader(true);
+
+        return () => {
+            setHasHeader(false);
+        };
     }, [setHasHeader]);
 
     return (
@@ -51,7 +69,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({
             bottomAddonsClassName={cn(mobileStyles.bottomAddons, bottomAddonsClassName)}
             scrollableParentRef={componentRef}
             titleRef={titleRef}
-            addonClassName={mobileStyles.addon}
+            onClose={handleClose}
         >
             {children}
         </NavigationBarPrivate>

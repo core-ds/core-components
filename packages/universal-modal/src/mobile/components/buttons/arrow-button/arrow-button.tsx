@@ -1,14 +1,15 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { type FC, type MouseEvent } from 'react';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { ChevronLeftMIcon } from '@alfalab/icons-glyph/ChevronLeftMIcon';
 
 import styles from './arrow-button.module.css';
 
-type ArrowButtonDesktopProps = {
+interface ArrowButtonDesktopProps {
     onClick?: (e: MouseEvent) => void;
-};
+}
 
+/** @deprecated Компонент будет удален в будущей мажорной версии */
 export const ArrowButtonMobile: FC<ArrowButtonDesktopProps> = (props) => {
     const { onClick } = props;
 

@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 import cn from 'classnames';
 
-import { COLORS, SIZES } from './consts';
+import { type COLORS, type SIZES } from './consts';
 
 import styles from './index.module.css';
 
@@ -12,13 +12,15 @@ export type StatusProps = {
     className?: string;
 
     /**
-     *  Вид компонента
+     * Вид компонента
+     * @default muted-alt
      * @description soft deprecated, используйте вместо него muted-alt
      */
     view?: 'contrast' | 'soft' | 'muted' | 'muted-alt';
 
     /**
-     * Цветовое оформление иконки
+     * Цветовое оформление компонента
+     * @default green
      */
     color?: (typeof COLORS)[number];
 
@@ -49,6 +51,11 @@ export type StatusProps = {
      * @default true
      */
     uppercase?: boolean;
+
+    /**
+     * Слот слева
+     */
+    leftAddons?: ReactNode;
 };
 
 const logWarning = () => {
@@ -74,6 +81,7 @@ export const Status: FC<StatusProps> = ({
     size = 20,
     shape = 'rectangular',
     uppercase = true,
+    leftAddons,
 }) => {
     if (view === 'soft') {
         logWarning();
@@ -90,10 +98,12 @@ export const Status: FC<StatusProps> = ({
                 className,
                 {
                     [styles.uppercase]: uppercase,
+                    [styles.withLeftAddons]: leftAddons,
                 },
             )}
             data-test-id={dataTestId}
         >
+            {leftAddons && <span className={styles.leftAddons}>{leftAddons}</span>}
             <span className={styles.ellipsis}>{children}</span>
         </span>
     );

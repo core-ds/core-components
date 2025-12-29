@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { type FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
-import noUiSlider, { API, Options } from 'nouislider';
+import noUiSlider, { type API, type Options } from 'nouislider';
 
 import styles from './index.module.css';
 
@@ -51,6 +51,12 @@ export type SliderProps = {
      * https://refreshless.com/nouislider/pips/#section-range
      */
     range?: RangeOptions;
+
+    /**
+     * Флаг точной привязки к range
+     * https://refreshless.com/nouislider/examples/#section-skipping
+     */
+    snap?: boolean;
 
     /**
      * Значение слайдера
@@ -130,6 +136,7 @@ export const Slider: FC<SliderProps> = ({
     onStart,
     onEnd,
     dataTestId,
+    snap = false,
 }) => {
     const sliderRef = useRef<(HTMLDivElement & { noUiSlider: API }) | null>(null);
     const busyRef = useRef<boolean>(false);
@@ -147,6 +154,7 @@ export const Slider: FC<SliderProps> = ({
             step,
             pips: pips as Options['pips'],
             range,
+            snap,
         });
 
         // eslint-disable-next-line consistent-return
@@ -187,10 +195,11 @@ export const Slider: FC<SliderProps> = ({
                 step,
                 range,
                 pips: pips as Options['pips'],
+                snap,
             },
             true,
         );
-    }, [pips, range, step]);
+    }, [pips, range, snap, step]);
 
     useEffect(() => {
         const slider = getSlider();

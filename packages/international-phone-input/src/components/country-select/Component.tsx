@@ -1,15 +1,17 @@
-import React, { ElementType, useCallback, useMemo } from 'react';
+import React, { type ElementType, useCallback, useMemo } from 'react';
+import cn from 'classnames';
 
 import {
     BaseOption,
-    BaseSelectProps,
-    OptionsListProps,
+    type BaseSelectProps,
+    type OptionsListProps,
     VirtualOptionsList,
 } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { WorldMagnifierMIcon } from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 
-import { Country } from '../../types';
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
+import { type Country } from '../../types';
 import { FlagIcon } from '../flag-icon';
 import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
 
@@ -47,8 +49,11 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
     onChange,
     view = 'desktop',
     SelectComponent,
+    size,
     ...restProps
 }) => {
+    const isMobile = useMemo(() => view === 'mobile', [view]);
+
     const options = useMemo(
         () =>
             countries?.map((areas) => {
@@ -58,7 +63,13 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     key: iso2,
                     value: areas[0],
                     content: (
-                        <span className={styles.option}>
+                        <span
+                            className={cn([
+                                styles.option,
+                                size && styles[SIZE_TO_CLASSNAME_MAP[size]],
+                                isMobile && styles.mobile,
+                            ])}
+                        >
                             <FlagIcon country={iso2} className={styles.flag} />
 
                             <span className={styles.optionTextWrap}>
@@ -69,7 +80,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                     ),
                 };
             }) || [],
-        [countries],
+        [countries, size, isMobile],
     );
 
     const renderOptionsList = useCallback(
@@ -92,23 +103,28 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
     );
 
     const renderCountrySelect = () => {
-        const selected = options.find((c) => c.key === country?.iso2)?.key;
+        const selected = options.find((c) => c.key === country?.iso2);
 
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
             <div className={styles.component} onClick={(event) => event.stopPropagation()}>
                 <SelectComponent
                     Option={BaseOption}
+                    size={size}
                     {...restProps}
                     dataTestId={getDataTestId(dataTestId, 'country-select')}
                     options={options}
-                    selected={selected || EMPTY_COUNTRY_SELECT_FIELD}
+                    selected={selected?.key || EMPTY_COUNTRY_SELECT_FIELD}
                     onChange={onChange}
                     Field={SelectField}
-                    OptionsList={view === 'mobile' ? VirtualOptionsList : renderOptionsList}
-                    {...(view === 'mobile' && {
+                    optionProps={{
+                        'aria-label': selected?.value?.name || 'Сменить код страны',
+                    }}
+                    OptionsList={isMobile ? VirtualOptionsList : renderOptionsList}
+                    {...(isMobile && {
                         bottomSheetProps: {
                             title: 'Выберите страну',
+                            showSwipeMarker: false,
                         },
                     })}
                 />

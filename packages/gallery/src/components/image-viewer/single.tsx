@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef } from 'react';
+import React, { type FC, useContext, useRef } from 'react';
 import cn from 'classnames';
 
 import { GalleryContext } from '../../context';
@@ -54,7 +54,7 @@ export const Single: FC = () => {
                         image={currentImage}
                         containerHeight={wrapperRect?.height || 0}
                         meta={currentImageMeta}
-                        index={0}
+                        index={currentSlideIndex}
                         imageAspectRatio={imageAspectRatio}
                         slideVisible={true}
                     />

@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import '../../vars.css';
 @import './text-styles.module.css';
 
@@ -80,10 +80,14 @@
 .line {
     position: absolute;
     height: 3px;
-    bottom: var(--gap-0);
+
+    /* В макете полоска выбранного Таба находится над линией */
+    bottom: calc(var(--gap-2) / 2);
     left: var(--gap-0);
     background-color: var(--primary-tablist-line-color);
-    transition: transform 0.2s ease, width 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        width 0.2s ease;
 }
 
 .option {

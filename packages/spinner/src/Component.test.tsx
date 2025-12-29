@@ -47,7 +47,7 @@ describe('Render tests', () => {
     it('should unmount without errors', async () => {
         const { unmount } = render(<Spinner size={20} lineWidth={2} style={{ padding: 2 }} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     it('should have visible class if prop visible is true', async () => {
@@ -70,6 +70,7 @@ describe('Spinner props', () => {
         const { container } = render(<Spinner visible size={48} lineWidth={2} />);
         expect(container).toMatchSnapshot();
     });
+
     it('should set correct size', () => {
         const { container } = render(
             <Spinner visible size={40} lineWidth={2} style={{ padding: 4 }} />,
@@ -80,6 +81,7 @@ describe('Spinner props', () => {
             padding: '4px',
         });
     });
+
     it('should support `style`', () => {
         const color = '#EC2D20';
         const padding = 2;
@@ -92,14 +94,14 @@ describe('Spinner props', () => {
 
     it('should warn color via styles', () => {
         render(<Spinner visible size={48} lineWidth={6} style={{ color: '#EC2D20' }} />);
-        expect(devWarning).toBeCalledWith(
+        expect(devWarning).toHaveBeenCalledWith(
             expect.stringContaining(
                 "[Spinner]: Палитра, в контексте которой используется спиннер (проп 'colors') игнорируется.",
             ),
         );
     });
 
-    test.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
+    it.each([16, 24, 48] as const)('should render preset %p correctly', (preset) => {
         const { container } = render(<Spinner visible preset={preset} />);
         expect(container).toMatchSnapshot();
     });

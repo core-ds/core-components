@@ -1,11 +1,13 @@
-import type { HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
-import type { HandledEvents } from 'react-swipeable/es/types';
-import type { TransitionProps } from 'react-transition-group/Transition';
+import { type HTMLAttributes, type ReactElement, type ReactNode, type RefObject } from 'react';
+import { type SwipeableProps } from 'react-swipeable';
+import { type HandledEvents } from 'react-swipeable/es/types';
+import { type TransitionProps } from 'react-transition-group/Transition';
 
-import type { BaseModalProps } from '@alfalab/core-components-base-modal';
-import type { NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
+import { type BaseModalProps } from '@alfalab/core-components-base-modal';
+import { type NavigationBarPrivateProps as NavigationBarProps } from '@alfalab/core-components-navigation-bar-private';
+import { type BackgroundColorType } from '@alfalab/core-components-types';
 
-import type { BackgroundColorType } from '../../types';
+export type ColorType = 'default' | 'inverted';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
@@ -13,7 +15,7 @@ export type BottomSheetProps = {
     /**
      * Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area
      */
-    adjustContainerHeight?: (height: number) => number
+    adjustContainerHeight?: (height: number) => number;
     /**
      * Контент
      */
@@ -87,6 +89,11 @@ export type BottomSheetProps = {
     headerClassName?: string;
 
     /**
+     * Дополнительный класс для контента шапки
+     */
+    headerContentClassName?: string;
+
+    /**
      * Дополнительный класс футера
      */
     footerClassName?: string;
@@ -117,6 +124,12 @@ export type BottomSheetProps = {
     modalWrapperClassName?: string;
 
     /**
+     * Дефолтный маркер
+     * @default true
+     */
+    showSwipeMarker?: boolean;
+
+    /*
      * Дополнительный класс для маркера
      */
     swipeableMarkerClassName?: string;
@@ -356,4 +369,16 @@ export type BottomSheetProps = {
      * Учитывать высоту виртуальной клавиатуры
      */
     virtualKeyboard?: boolean;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
+
+    /**
+     * Предотвращать скролл во время свайпа
+     * @default false
+     */
+    preventScrollOnSwipe?: SwipeableProps['preventScrollOnSwipe'];
 };

@@ -2,7 +2,7 @@ import {
     createImport,
     modifyIdentifiers,
     modifyImportPath,
-    removeEmptyCoreImport
+    removeEmptyCoreImport,
 } from '../42-utils';
 
 const sidePanelEntryTransformer = (source, j) => {

@@ -37,3 +37,7 @@
 .size-72 .inner {
     border-radius: var(--form-control-mobile-xl-border-radius);
 }
+
+.rightAddons {
+    gap: var(--gap-12);
+}

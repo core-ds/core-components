@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 
-import type { CustomButtonProps } from '@alfalab/core-components-custom-button';
+import { type CustomButtonProps } from '@alfalab/core-components-custom-button';
 import {
     PickerButtonMobile,
-    PickerButtonMobileProps,
+    type PickerButtonMobileProps,
 } from '@alfalab/core-components-picker-button/mobile';
 
 import { Field as DefaultField } from '../field';

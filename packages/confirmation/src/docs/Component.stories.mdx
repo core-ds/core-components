@@ -14,7 +14,7 @@ import Development from './development.mdx';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 <Meta title='Components/Confirmation' id='Confirmation' />
 
@@ -27,6 +27,7 @@ import {
             ['ConfirmationResponsive', 'ConfirmationDesktop', 'ConfirmationMobile'],
             'ConfirmationResponsive',
         );
+
         const variants = [
             { key: 'success', content: 'Успешный сценарий' },
             { key: 'error', content: 'Сценарий с ошибкой' },
@@ -39,11 +40,17 @@ import {
                 key: 'temp-block',
                 content: 'Сценарий, когда форма временно заблокирована',
             },
+            {
+                key: 'temp-block-over',
+                content: 'Сценарий, когда форма разблокирована',
+            },
         ];
+
         const [variant, setVariant] = React.useState({
             key: 'success',
             content: 'Успешный сценарий',
         });
+
         const {
             confirmationState,
             confirmationScreen,
@@ -52,6 +59,7 @@ import {
             setConfirmationScreen,
             setConfirmationBlockSmsRetry,
         } = useConfirmation();
+
         const handleInputFinished = () => {
             setTimeout(() => {
                 switch (variant.key) {
@@ -61,13 +69,19 @@ import {
                     case 'error':
                         setConfirmationState('CODE_ERROR');
                         break;
+                    case 'expired':
+                        setConfirmationState('CODE_EXPIRED');
+                        break;
                     case 'fatal':
                         setConfirmationScreen('FATAL_ERROR');
                         break;
                     case 'attempts-left':
-                        setConfirmationState('CODE_ERROR');
+                        setConfirmationState('CODE_EXPIRED_ENDED');
                         break;
                     case 'temp-block':
+                        setConfirmationScreen('TEMP_BLOCK');
+                        break;
+                    case 'temp-block-over':
                         setConfirmationScreen('TEMP_BLOCK');
                         break;
                     default:
@@ -75,6 +89,14 @@ import {
                 }
             }, 1000);
         };
+
+    const durations = {
+        'temp-block': 24 * 60 * 60 * 1000,
+        'temp-block-over': 10000,
+    };
+
+    const currentTempBlockDuration = durations[variant.key] || 10000;
+
         const handleSmsRetryClick = () => {
             setTimeout(() => {
                 if (variant.key === 'attempts-left') {
@@ -83,10 +105,16 @@ import {
                 setConfirmationState('INITIAL');
             }, 1000);
         };
+
         const handleTempBlockFinished = () => {
-            setConfirmationScreen('INITIAL');
-            setConfirmationState('CODE_SENDING');
+            if (variant.key === 'temp-block-over') {
+                setConfirmationScreen('TEMP_BLOCK_OVER');
+            } else {
+                setConfirmationScreen('INITIAL');
+                setConfirmationState('CODE_SENDING');
+            }
         };
+
         const ConfirmationComponent = React.useMemo(() => {
             return {
                 ConfirmationResponsive: Confirmation,
@@ -94,8 +122,10 @@ import {
                 ConfirmationMobile,
             }[component];
         }, [component]);
+
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
+
         return (
             <div style={previewStyles}>
                 {!isPreview && (
@@ -130,6 +160,7 @@ import {
                         alignContent={select('alignContent', ['left', 'center'], 'center')}
                         blockSmsRetry={confirmationBlockSmsRetry}
                         countdownDuration={10000}
+                        tempBlockDuration={currentTempBlockDuration}
                         requiredCharAmount={number('requiredCharAmount', 5)}
                         onChangeState={setConfirmationState}
                         onChangeScreen={setConfirmationScreen}
@@ -147,6 +178,7 @@ import {
             </div>
         );
     })}
+
 </Story>
 
 {/* Docs */}

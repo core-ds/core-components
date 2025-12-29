@@ -1,4 +1,4 @@
-import React, { forwardRef, KeyboardEvent, MouseEvent, useRef } from 'react';
+import React, { forwardRef, type KeyboardEvent, type MouseEvent, useRef } from 'react';
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
@@ -8,8 +8,8 @@ import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
 import { isKeyBoardEvent } from '../../helpers/is-keyboard-event';
-import { PrivateProps } from '../../types/base-filter-tag-private-props';
-import { BaseFilterTagProps } from '../../types/base-filter-tag-props';
+import { type PrivateProps } from '../../types/base-filter-tag-private-props';
+import { type BaseFilterTagProps } from '../../types/base-filter-tag-props';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -93,7 +93,6 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                         [styles.checked]: checked,
                         [commonStyles.disabled]: disabled,
                         [colorStyles[colors].disabled]: disabled,
-                        [styles.disabled]: disabled,
                         [commonStyles.focused]: focused,
                         [commonStyles.open]: open,
                         [commonStyles.block]: block,

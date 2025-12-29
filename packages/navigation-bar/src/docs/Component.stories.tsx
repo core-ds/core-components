@@ -2,10 +2,11 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { select, text, boolean } from '@storybook/addon-knobs';
 import { NavigationBar } from '@alfalab/core-components-navigation-bar';
+import { ActionIconAddon } from '@alfalab/core-components-navigation-bar/shared';
 import {
     stylesStringToObj,
     getQueryParam,
-} from '../../../screenshot-utils/screenshots-story/utils';
+} from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
 
 const meta: Meta<typeof NavigationBar> = {
     title: 'Components/NavigationBar',
@@ -18,12 +19,29 @@ type Story = StoryObj<typeof NavigationBar>;
 export const navigation_bar: Story = {
     name: 'NavigationBar',
     render: () => {
-        const align = select('align', ['left', 'center'], 'center');
-        const backgroundColor = text('backgroundColor', '#3778FB1A');
-
+        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
+        const isPreview = Object.keys(previewStyles).length > 0;
         const wrapperStyles = {
             width: 360,
         };
+
+        if (isPreview) {
+            return (
+                <div style={previewStyles}>
+                    <div style={wrapperStyles}>
+                        <NavigationBar
+                            leftAddons={<ActionIconAddon action='floatingBack' />}
+                            rightAddons={<ActionIconAddon action='close' />}
+                            align='center'
+                            title='PageName'
+                        />
+                    </div>
+                </div>
+            );
+        }
+
+        const align = select('align', ['left', 'center'], 'center');
+        const backgroundColor = text('backgroundColor', '#3778FB1A');
 
         const commonStyles: React.CSSProperties = {
             backgroundColor: 'var(--color-light-status-muted-alt-info)',
@@ -42,7 +60,6 @@ export const navigation_bar: Story = {
             ...commonStyles,
             width: '100%',
         };
-        const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         return (
             <div style={previewStyles}>
                 <div style={wrapperStyles}>

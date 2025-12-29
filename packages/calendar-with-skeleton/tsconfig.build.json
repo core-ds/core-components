@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-calendar": ["../calendar/src"],
+            "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
+            "@alfalab/core-components-calendar-with-skeleton": ["./src"],
+            "@alfalab/core-components-calendar-with-skeleton/*": ["./src/*"],
+            "@alfalab/core-components-skeleton": ["../skeleton/src"],
+            "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../calendar/tsconfig.build.json" },
+        { "path": "../skeleton/tsconfig.build.json" }
+    ]
+}

@@ -1,5 +1,76 @@
 # @alfalab/core-components-steps
 
+## 2.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>26.08.2025</time></sup>
+
+#### [#1820](https://github.com/core-ds/core-components/pull/1820)
+
+- Обновлены `@alfalab/icons-*` пакеты
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.0
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-badge@6.0.0
+    - @alfalab/core-components-shared@1.0.0
+
+## 1.8.4
+
+### Patch Changes
+
+<sup><time>04.07.2025</time></sup>
+
+### [#1755](https://github.com/core-ds/core-components/pull/1755)
+
+- Удален отступ у последнего дочернего элемента списка Steps
+
+## 1.8.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - shared@0.18.0
+
+## 1.8.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - shared@0.17.1
+
+## 1.8.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - shared@0.17.0
+
 ## 1.8.0
 
 ### Minor Changes
@@ -8,9 +79,9 @@
 
 ### [#1580](https://github.com/core-ds/core-components/pull/1580)
 
--   Изменена работа пропса `minSpaceBetweenSteps`. Теперь отступы между шагами определяются как расстояние от контента до нижней границы шага с учётом нижнего дополнительного отступа. Размер `8` в расчетах не учитывается. Добавлен отступ `32`. Также `minSpaceBetweenSteps` теперь никак не влияет на работу компонента в горизонтальном расположении.
--   Добавлен пропс `completedDashColor` с помощью которого можно переопределить цвет "тире" выполенного шага.
--   Добавлен новый статус `CriticalError`
+- Изменена работа пропса `minSpaceBetweenSteps`. Теперь отступы между шагами определяются как расстояние от контента до нижней границы шага с учётом нижнего дополнительного отступа. Размер `8` в расчетах не учитывается. Добавлен отступ `32`. Также `minSpaceBetweenSteps` теперь никак не влияет на работу компонента в горизонтальном расположении.
+- Добавлен пропс `completedDashColor` с помощью которого можно переопределить цвет "тире" выполенного шага.
+- Добавлен новый статус `CriticalError`
 
 ## 1.7.5
 
@@ -20,10 +91,10 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   badge@5.6.4
+- Обновлены зависимости
+    - badge@5.6.4
 
 ## 1.7.4
 
@@ -33,7 +104,7 @@
 
 ### [#1502](https://github.com/core-ds/core-components/pull/1502)
 
--   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+- Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
 
 ## 1.7.3
 
@@ -43,23 +114,23 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 <sup><time>13.12.2024</time></sup>
 
 ### [#1491](https://github.com/core-ds/core-components/pull/1491)
 
--   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+- Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
 
--   Обновлены зависимости
-    -   badge@5.6.3
+- Обновлены зависимости
+    - badge@5.6.3
 
 ## 1.7.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   badge@5.6.2
+- Обновлены зависимости
+    - badge@5.6.2
 
 ## 1.7.1
 
@@ -69,10 +140,10 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
--   Обновлены зависимости
-    -   badge@5.6.1
+- Обновлены зависимости
+    - badge@5.6.1
 
 ## 1.7.0
 
@@ -82,12 +153,12 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   badge@5.6.0
+- Обновлены зависимости
+    - badge@5.6.0
 
 ## 1.6.3
 
@@ -97,16 +168,16 @@
 
 ### [#1350](https://github.com/core-ds/core-components/pull/1350)
 
--   Повысили специфичность для отступов компонента
+- Повысили специфичность для отступов компонента
 
 <sup><time>04.09.2024</time></sup>
 
 ### [#1356](https://github.com/core-ds/core-components/pull/1356)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
--   Обновлены зависимости
-    -   badge@5.5.3
+- Обновлены зависимости
+    - badge@5.5.3
 
 ## 1.6.2
 
@@ -116,7 +187,7 @@
 
 ### [#1236](https://github.com/core-ds/core-components/pull/1236)
 
--   Исправлена ​​логика смены активного шага
+- Исправлена ​​логика смены активного шага
 
 ## 1.6.1
 
@@ -126,10 +197,10 @@
 
 ### [#1229](https://github.com/core-ds/core-components/pull/1229)
 
--   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+- Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
 
--   Обновлены зависимости
-    -   badge@5.5.2
+- Обновлены зависимости
+    - badge@5.5.2
 
 ## 1.6.0
 
@@ -141,16 +212,16 @@
 
 Добавлены свойства fullWidth и minSpaceBetweenSteps:
 
--   fullWidth - возможность растягивания шагов на всю ширину блока для вертикальной ориентации,
+- fullWidth - возможность растягивания шагов на всю ширину блока для вертикальной ориентации,
 
--   minSpaceBetweenSteps - возможность задать разное минимальное расстояние между шагами.
+- minSpaceBetweenSteps - возможность задать разное минимальное расстояние между шагами.
 
 ## 1.5.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   badge@5.5.1
+- Обновлены зависимости
+    - badge@5.5.1
 
 ## 1.5.0
 
@@ -158,12 +229,12 @@
 
 ### [#1007](https://github.com/core-ds/core-components/pull/1007)
 
--   Обновлена зависимость @alfalab/icons-glyph
+- Обновлена зависимость @alfalab/icons-glyph
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   badge@5.5.0
+- Обновлены зависимости
+    - badge@5.5.0
 
 ## 1.4.0
 
@@ -171,19 +242,19 @@
 
 ### [#992](https://github.com/core-ds/core-components/pull/992)
 
--   В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+- В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   badge@5.4.0
+- Обновлены зависимости
+    - badge@5.4.0
 
 ## 1.3.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   badge@5.3.0
+- Обновлены зависимости
+    - badge@5.3.0
 
 ## 1.3.0
 
@@ -191,12 +262,12 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   badge@5.2.0
+- Обновлены зависимости
+    - badge@5.2.0
 
 ## 1.2.1
 
@@ -204,10 +275,10 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   badge@5.1.1
+- Обновлены зависимости
+    - badge@5.1.1
 
 ## 1.2.0
 
@@ -215,7 +286,7 @@
 
 ### [#738](https://github.com/core-ds/core-components/pull/738)
 
--   fix(steps): make checkIsStepCustom's return value nullable
+- fix(steps): make checkIsStepCustom's return value nullable
 
 ## 1.1.9
 
@@ -223,14 +294,14 @@
 
 ### [#635](https://github.com/core-ds/core-components/pull/635)
 
--   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+- Обновлена версия пакета @alfalab/icons-glyph в зависимостях
 
 ## 1.1.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   badge@5.1.0
+- Обновлены зависимости
+    - badge@5.1.0
 
 ## 1.1.7
 
@@ -238,10 +309,10 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   badge@5.0.2
+- Обновлены зависимости
+    - badge@5.0.2
 
 ## 1.1.6
 
@@ -249,10 +320,10 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   badge@5.0.1
+- Обновлены зависимости
+    - badge@5.0.1
 
 ## 1.1.5
 
@@ -260,7 +331,7 @@
 
 ### [#448](https://github.com/core-ds/core-components/pull/448)
 
--   Исправлен interactive режим
+- Исправлен interactive режим
 
 ## 1.1.4
 
@@ -268,10 +339,10 @@
 
 ### [#396](https://github.com/core-ds/core-components/pull/396)
 
--   Обновлена версия пакета @alfalab/icons-glyph в зависимостях
+- Обновлена версия пакета @alfalab/icons-glyph в зависимостях
 
--   Обновлены зависимости
-    -   badge@5.0.0
+- Обновлены зависимости
+    - badge@5.0.0
 
 ## 1.1.3
 
@@ -279,10 +350,10 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   badge@4.0.4
+- Обновлены зависимости
+    - badge@4.0.4
 
 ## 1.1.2
 
@@ -290,22 +361,22 @@
 
 ### [#333](https://github.com/core-ds/core-components/pull/333)
 
--   Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
+- Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
 
--   Обновлены зависимости
-    -   badge@4.0.3
+- Обновлены зависимости
+    - badge@4.0.3
 
 ## 1.1.1
 
 ### Patch Changes
 
--   [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
-    Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
--   Updated dependencies [[#284](https://github.com/core-ds/core-components/pull/284)]
-    -   @alfalab/core-components-badge@4.0.2
+- [#208](https://github.com/core-ds/core-components/pull/208): Обновлён лого в BankCard. Thanks [@reabiliti](https://github.com/reabiliti)
+  Обновлены версии зависимостей с иконками (icons-logotype/icons-classic/icons-glyph/icons-flag)
+- Updated dependencies [[#284](https://github.com/core-ds/core-components/pull/284)]
+    - @alfalab/core-components-badge@4.0.2
 
 ## 1.1.0
 
 ### Minor Changes
 
--   [#189](https://github.com/core-ds/core-components/pull/189): Новый компонент Steps. Thanks [@blackraydev](https://github.com/blackraydev)
+- [#189](https://github.com/core-ds/core-components/pull/189): Новый компонент Steps. Thanks [@blackraydev](https://github.com/blackraydev)

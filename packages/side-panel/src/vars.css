@@ -1,4 +1,4 @@
-@import '../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     --side-panel-border-radius: var(--border-radius-12);
@@ -22,14 +22,14 @@
     --side-panel-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-neutral-300);
 
     /* desktop */
-    --side-panel-s-header-desktop-content-paddings: 6px var(--gap-12) var(--gap-16);
+    --side-panel-s-header-desktop-content-paddings: var(--gap-6) var(--gap-12) var(--gap-16);
     --side-panel-s-header-desktop-font-size: 30px;
     --side-panel-s-header-desktop-line-height: 36px;
     --side-panel-header-desktop-font-weight: bold;
     --side-panel-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --side-panel-header-mobile-content-paddings: 10px var(--gap-8);
+    --side-panel-header-mobile-content-paddings: var(--gap-10) var(--gap-8);
     --side-panel-header-mobile-font-size: 20px;
     --side-panel-header-mobile-line-height: 28px;
     --side-panel-header-mobile-font-family: var(--font-family-system);

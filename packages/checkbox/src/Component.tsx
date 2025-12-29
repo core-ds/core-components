@@ -1,18 +1,18 @@
 import React, {
-    ChangeEvent,
-    DetailedHTMLProps,
+    type ChangeEvent,
+    type DetailedHTMLProps,
     forwardRef,
-    InputHTMLAttributes,
-    LabelHTMLAttributes,
-    ReactNode,
-    Ref,
-    RefObject,
+    type InputHTMLAttributes,
+    type LabelHTMLAttributes,
+    type ReactNode,
+    type Ref,
+    type RefObject,
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { dom } from '@alfalab/core-components-shared';
+import { dom, getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { CheckIcon } from './icon';
@@ -235,15 +235,29 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 {(label || hint || errorMessage) && (
                     <span className={cn(styles.content, contentClassName)}>
                         {label && (
-                            <span className={cn(styles.label, colorStyle.label)}>{label}</span>
+                            <span
+                                className={cn(styles.label, colorStyle.label)}
+                                data-test-id={getDataTestId(dataTestId, 'label')}
+                            >
+                                {label}
+                            </span>
                         )}
 
                         {hint && !errorMessage && (
-                            <span className={cn(styles.hint, colorStyle.hint)}>{hint}</span>
+                            <span
+                                className={cn(styles.hint, colorStyle.hint)}
+                                data-test-id={getDataTestId(dataTestId, 'hint')}
+                            >
+                                {hint}
+                            </span>
                         )}
 
                         {errorMessage && (
-                            <span className={styles.errorMessage} role='alert'>
+                            <span
+                                className={styles.errorMessage}
+                                role='alert'
+                                data-test-id={getDataTestId(dataTestId, 'error')}
+                            >
                                 {errorMessage}
                             </span>
                         )}

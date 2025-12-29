@@ -1,9 +1,9 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { type ReactNode, useContext } from 'react';
 import cn from 'classnames';
 
 import { Text } from '@alfalab/core-components-typography';
 
-import { ListContext } from '../../Component';
+import { ListContext } from '../../context';
 
 import styles from './index.module.css';
 
@@ -27,9 +27,20 @@ export type ItemProps = {
      * Дополнительный класс для маркера
      */
     markerClassName?: string;
+
+    /**
+     * Дополнительный класс для маркера
+     */
+    dataTestId?: string;
 };
 
-export const Item: React.FC<ItemProps> = ({ caption, children, className, markerClassName }) => {
+export const Item: React.FC<ItemProps> = ({
+    caption,
+    children,
+    className,
+    markerClassName,
+    dataTestId,
+}) => {
     const {
         orderedList,
         markerType,
@@ -52,7 +63,7 @@ export const Item: React.FC<ItemProps> = ({ caption, children, className, marker
     const marker = orderedList || markerType === 'decimal' ? `${count}.` : markerType;
 
     return (
-        <li className={cn(itemClassNames)}>
+        <li className={cn(itemClassNames)} data-test-id={dataTestId}>
             {!markerLowerAlpha && (
                 <Text
                     tag='div'

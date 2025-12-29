@@ -3,7 +3,7 @@ import clamp from 'date-fns/clamp';
 import getDaysInMonth from 'date-fns/getDaysInMonth';
 
 import { DATE_MAX_VALUES, DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR } from '../consts';
-import { DateSegments, DateTemplate } from '../types';
+import { type DateSegments, type DateTemplate } from '../types';
 
 function fillMask(len: number) {
     return Array(len).fill(/\d/);
@@ -192,18 +192,21 @@ export function findCursorPlace(
  * segments: ['00', '12'], separators: ['.', '.'] -> [/\d/, /\d/, '.', /\d/, /\d/]
  */
 export function segmentsToPattern(segments: string[], separators: string[]) {
-    return segments.reduce((mask, segment, idx) => {
-        const hasNextSegment = segments[idx + 1] !== undefined;
-        const segmentsLen = segment.length;
+    return segments.reduce(
+        (mask, segment, idx) => {
+            const hasNextSegment = segments[idx + 1] !== undefined;
+            const segmentsLen = segment.length;
 
-        if (idx > 0 && (segment.length || hasNextSegment)) {
-            mask.push(...separators[idx - 1].split(''));
-        }
+            if (idx > 0 && (segment.length || hasNextSegment)) {
+                mask.push(...separators[idx - 1].split(''));
+            }
 
-        mask.push(...fillMask(segmentsLen));
+            mask.push(...fillMask(segmentsLen));
 
-        return mask;
-    }, [] as Array<RegExp | string>);
+            return mask;
+        },
+        [] as Array<RegExp | string>,
+    );
 }
 
 /**
@@ -325,10 +328,13 @@ export function minMaxValidation(segments: Partial<DateSegments>, min: Date, max
     }
 
     if (dayFilled && monthFilled && yearFilled) {
-        const date = clamp(new Date(`${segments.year}-${segments.month}-${segments.day}`), {
-            start: min,
-            end: max,
-        });
+        const date = clamp(
+            new Date(`${segments.year}-${segments.month}-${segments.day}T00:00:00`),
+            {
+                start: min,
+                end: max,
+            },
+        );
 
         segments.day = date.getDate().toString().padStart(2, '0');
         segments.month = (date.getMonth() + 1).toString().padStart(2, '0');

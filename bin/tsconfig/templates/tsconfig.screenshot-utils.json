@@ -1,0 +1,10 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "no-dist",
+        "types": ["@alfalab/core-components-env", "@testing-library/jest-dom", "@types/webpack-env"]
+    }
+}

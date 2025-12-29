@@ -1,10 +1,13 @@
-import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { CodeInputDesktop } from '@alfalab/core-components-code-input/desktop';
 import { CodeInputMobile } from '@alfalab/core-components-code-input/mobile';
-import { BaseCodeInputProps, CustomInputRef } from '@alfalab/core-components-code-input/shared';
+import {
+    type BaseCodeInputProps,
+    type CustomInputRef,
+} from '@alfalab/core-components-code-input/shared';
 import { Link } from '@alfalab/core-components-link';
 import { Text } from '@alfalab/core-components-typography';
 import { useLayoutEffect_SAFE_FOR_SSR, usePrevious } from '@alfalab/hooks';
@@ -29,6 +32,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
     const {
         state,
         alignContent,
+        titleTag,
         texts,
         requiredCharAmount,
         timeLeft,
@@ -98,10 +102,6 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
             return;
         }
 
-        if (state === 'CODE_ERROR' && prevState !== 'CODE_ERROR') {
-            inputRef.current.focus(requiredCharAmount - 1);
-        }
-
         if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
             inputRef.current.focus();
         }
@@ -120,6 +120,14 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
     }, [prevState, state, clearTimer]);
 
     const getCodeInputError = (): string | boolean => {
+        if (state === 'CODE_EXPIRED') {
+            return texts.codeErrorExpired || true;
+        }
+
+        if (state === 'CODE_EXPIRED_ENDED') {
+            return texts.codeErrorExpiredEnded || true;
+        }
+
         if (state === 'CODE_ERROR') {
             return texts.codeError || true;
         }
@@ -165,7 +173,9 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.title}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.title}
+            </Header>
 
             {phone ? (
                 <Text
@@ -176,7 +186,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                         [styles.typographyThemeMobile]: mobile,
                     })}
                 >
-                    Код отправлен на {phone}
+                    Отправили на {phone}
                 </Text>
             ) : null}
             <ComponentCodeInput

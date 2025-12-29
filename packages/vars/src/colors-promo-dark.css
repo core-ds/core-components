@@ -1,4 +1,6 @@
 :root {
+    --color-light-promo-classic: var(--color-dark-promo-classic);
+    --color-light-promo-muted-gravel: var(--color-dark-promo-muted-gravel);
     --color-light-promo-muted-menthol: var(--color-dark-promo-muted-menthol);
     --color-light-promo-muted-sonata: var(--color-dark-promo-muted-sonata);
     --color-light-promo-muted-tomato: var(--color-dark-promo-muted-tomato);

@@ -3,7 +3,7 @@ import {
     createSpriteStorybookUrl,
     generateTestCases,
     setupScreenshotTesting,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 import { COLORS, SIZES } from './consts';
 
@@ -79,6 +79,34 @@ describe(
                         uppercase: [true, false],
                         view: ['muted-alt', 'contrast', 'muted'],
                         color: 'blue',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: {
+                x: 0,
+                y: 0,
+                width: 1024,
+                height: 200,
+            },
+        },
+    }),
+);
+
+describe(
+    'Status | leftAddons prop',
+    screenshotTesting({
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Status',
+                    knobs: {
+                        children: 'Label',
+                        uppercase: false,
+                        leftAddons: 'left',
+                        size: [...SIZES],
                     },
                 }),
             ],

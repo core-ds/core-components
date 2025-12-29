@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-amount": ["../amount/src"],
+            "@alfalab/core-components-amount/*": ["../amount/src/*"],
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-comment": ["../comment/src"],
+            "@alfalab/core-components-comment/*": ["../comment/src/*"],
+            "@alfalab/core-components-pure-cell": ["./src"],
+            "@alfalab/core-components-pure-cell/*": ["./src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-typography": ["../typography/src"],
+            "@alfalab/core-components-typography/*": ["../typography/src/*"]
+        }
+    },
+    "references": [
+        { "path": "../amount/tsconfig.build.json" },
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../comment/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../typography/tsconfig.build.json" }
+    ]
+}

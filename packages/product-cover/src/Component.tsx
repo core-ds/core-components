@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { Single as BaseSingle } from './single';
 import { Stack } from './stack';
-import { SingleProps, StackProps } from './typings';
+import { type SingleProps, type StackProps } from './typings';
 
 export const Single: FC<SingleProps> = (props) => <BaseSingle {...props} />;
 

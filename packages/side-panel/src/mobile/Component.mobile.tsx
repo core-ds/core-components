@@ -1,14 +1,14 @@
 import React, { forwardRef, useContext, useMemo } from 'react';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
+import { BaseModal, type BaseModalProps } from '@alfalab/core-components-base-modal';
 
 import { ContentMobile } from '../components/content/Component.mobile';
-import { Controls, ControlsProps } from '../components/controls';
+import { Controls, type ControlsProps } from '../components/controls';
 import { FooterMobile } from '../components/footer/Component.mobile';
 import { Header } from '../components/header/Component';
 import { ResponsiveContext } from '../ResponsiveContext';
-import { TResponsiveModalContext } from '../typings';
+import { type TResponsiveModalContext } from '../typings';
 
 import styles from './mobile.module.css';
 import transitions from './transitions.mobile.module.css';

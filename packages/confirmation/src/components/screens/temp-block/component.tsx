@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { type FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { Text } from '@alfalab/core-components-typography';
@@ -18,8 +18,14 @@ export type TempBlockProps = {
 };
 
 export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
-    const { alignContent, texts, tempBlockDuration, onChangeScreen, onTempBlockFinished } =
-        useContext(ConfirmationContext);
+    const {
+        alignContent,
+        titleTag,
+        texts,
+        tempBlockDuration,
+        onChangeScreen,
+        onTempBlockFinished,
+    } = useContext(ConfirmationContext);
 
     const [timeLeft, startTimer] = useCountdown(tempBlockDuration);
 
@@ -35,7 +41,9 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.tempBlockTitle}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.tempBlockTitle}
+            </Header>
 
             <Text
                 view='primary-medium'
@@ -53,8 +61,7 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
                     progress={1 - timeLeft / tempBlockDuration}
                     className={styles.loader}
                 />
-
-                {formatMsAsMinutes(timeLeft)}
+                <time className={styles.timeCounter}>{formatMsAsMinutes(timeLeft)}</time>
             </div>
         </div>
     );

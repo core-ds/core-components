@@ -1,9 +1,10 @@
 import React from 'react';
-import { DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR } from './consts';
+import { DATE_RANGE_SEPARATOR, DATE_TIME_SEPARATOR, DATE_TIME_FORMAT } from './consts';
 import { UniversalDateInputDesktop } from './desktop';
 import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { getUniversalDateInputTestIds } from './utils';
+import { formatDate, getUniversalDateInputTestIds } from './utils';
+import { Calendar } from '../../calendar/src';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -82,7 +83,7 @@ describe('UniversalDateInput', () => {
                     const input = queryByRole('textbox') as HTMLInputElement;
                     await userEvent.type(input, value);
 
-                    expect(onInputChange).toBeCalledWith(...result);
+                    expect(onInputChange).toHaveBeenCalledWith(...result);
                 });
             }
         });
@@ -97,8 +98,8 @@ describe('UniversalDateInput', () => {
                 const input = queryByRole('textbox') as HTMLInputElement;
                 await userEvent.type(input, '12122022');
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(new Date('2022-12-12'), '12.12.2022');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(new Date('2022-12-12'), '12.12.2022');
             });
 
             it(`should call onChange when clear input`, async () => {
@@ -117,8 +118,8 @@ describe('UniversalDateInput', () => {
                     initialSelectionEnd: 10,
                 });
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(null, '');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(null, '');
             });
         });
 
@@ -136,7 +137,7 @@ describe('UniversalDateInput', () => {
 
                 fireEvent.click(getByRole('button', { name: 'Очистить' }));
 
-                expect(onClear).toBeCalledTimes(1);
+                expect(onClear).toHaveBeenCalledTimes(1);
             });
 
             it(`should clear input when uncontrolled`, async () => {
@@ -216,7 +217,7 @@ describe('UniversalDateInput', () => {
                     const input = queryByRole('textbox') as HTMLInputElement;
                     await userEvent.type(input, value);
 
-                    expect(onInputChange).toBeCalledWith(...result);
+                    expect(onInputChange).toHaveBeenCalledWith(...result);
                 });
             }
         });
@@ -231,8 +232,8 @@ describe('UniversalDateInput', () => {
                 const input = queryByRole('textbox') as HTMLInputElement;
                 await userEvent.type(input, '121220221212');
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(
                     new Date('2022-12-12T12:12:00'),
                     `12.12.2022${DATE_TIME_SEPARATOR}12:12`,
                 );
@@ -254,8 +255,58 @@ describe('UniversalDateInput', () => {
                     initialSelectionEnd: 17,
                 });
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(null, '');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(null, '');
+            });
+
+            it('should restore last valid value on blur when time incomplete', async () => {
+                const minDate = new Date('2025-10-01T06:00:00.000Z').getTime();
+                const maxDate = new Date('2025-10-30T06:00:00.000Z').getTime();
+                const defaultValue = `21.10.2025${DATE_TIME_SEPARATOR}17:00`;
+
+                const { queryByRole } = render(
+                    <UniversalDateInputDesktop
+                        view='date-time'
+                        defaultValue={defaultValue}
+                        minDate={minDate}
+                        maxDate={maxDate}
+                    />,
+                );
+
+                const input = queryByRole('textbox') as HTMLInputElement;
+
+                input.setSelectionRange(10, 11);
+                await userEvent.type(input, '{Backspace}');
+
+                fireEvent.blur(input);
+
+                expect(input.value).toBe(defaultValue);
+            });
+
+            it('should keep defaultValue when it equals minDate', async () => {
+                const minDate = new Date('2025-10-01T06:00:00.000Z').getTime();
+                const maxDate = new Date('2025-10-30T06:00:00.000Z').getTime();
+                const minDateString = formatDate(minDate, DATE_TIME_FORMAT);
+
+                const { queryByRole } = render(
+                    <UniversalDateInputDesktop
+                        view='date-time'
+                        defaultValue={new Date(minDate)}
+                        minDate={minDate}
+                        maxDate={maxDate}
+                    />,
+                );
+
+                const input = queryByRole('textbox') as HTMLInputElement;
+
+                expect(input.value).toBe(minDateString);
+
+                input.setSelectionRange(9, 10);
+                await userEvent.type(input, '{Backspace}');
+
+                fireEvent.blur(input);
+
+                expect(input.value).toBe(minDateString);
             });
         });
     });
@@ -302,6 +353,26 @@ describe('UniversalDateInput', () => {
             expect(input.value).toBe(`12.12.2021${DATE_RANGE_SEPARATOR}13.12.2024`);
         });
 
+        it('should call onBlur callback', async () => {
+            const onBlur = jest.fn();
+
+            const { queryByRole } = render(
+                <UniversalDateInputDesktop
+                    view='date-range'
+                    onBlur={onBlur}
+                    picker={true}
+                    Calendar={Calendar}
+                />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            await userEvent.click(input);
+            fireEvent.blur(input);
+
+            expect(onBlur).toHaveBeenCalledTimes(1);
+        });
+
         describe('onInputChange tests', () => {
             const tests: Array<[{ value: string }, [Object, { value: string }]]> = [
                 [
@@ -339,7 +410,7 @@ describe('UniversalDateInput', () => {
                     const input = queryByRole('textbox') as HTMLInputElement;
                     await userEvent.type(input, value);
 
-                    expect(onInputChange).toBeCalledWith(...result);
+                    expect(onInputChange).toHaveBeenCalledWith(...result);
                 });
             }
         });
@@ -354,8 +425,8 @@ describe('UniversalDateInput', () => {
                 const input = queryByRole('textbox') as HTMLInputElement;
                 await userEvent.type(input, '1212202212122023');
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(
                     {
                         dateFrom: new Date('2022-12-12'),
                         dateTo: new Date('2023-12-12'),
@@ -383,8 +454,8 @@ describe('UniversalDateInput', () => {
                     initialSelectionEnd: 23,
                 });
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith({ dateFrom: null, dateTo: null }, '');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith({ dateFrom: null, dateTo: null }, '');
             });
         });
     });
@@ -418,8 +489,8 @@ describe('UniversalDateInput', () => {
                 const input = queryByRole('textbox') as HTMLInputElement;
                 await userEvent.type(input, '1212');
 
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith('12:12');
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith('12:12');
             });
         });
 
@@ -432,7 +503,7 @@ describe('UniversalDateInput', () => {
 
                 fireEvent.click(getByRole('button', { name: 'Очистить' }));
 
-                expect(onClear).toBeCalledTimes(1);
+                expect(onClear).toHaveBeenCalledTimes(1);
             });
 
             it(`should clear input when uncontrolled`, async () => {

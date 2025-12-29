@@ -5,7 +5,6 @@ import debounce from 'lodash/debounce';
 
 import { Link } from '@alfalab/core-components-link';
 import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
-import { ChevronUpSIcon } from '@alfalab/icons-glyph/ChevronUpSIcon';
 
 import styles from './index.module.css';
 
@@ -68,6 +67,12 @@ export type CollapseProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Набор цветов для компонента
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
 };
 
 export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
@@ -84,6 +89,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             onExpandedChange,
             defaultExpanded = false,
             dataTestId,
+            colors = 'default',
         },
         ref,
     ) => {
@@ -151,8 +157,6 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
         useEffect(() => recalculate(), [isExpanded, recalculate]);
 
-        const ToggledIcon = isExpanded ? ChevronUpSIcon : ChevronDownSIcon;
-
         return (
             <div
                 ref={ref}
@@ -174,7 +178,14 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                         className={cn({ [styles.expandedLabel]: isExpanded })}
                         pseudo={true}
                         onClick={handleExpandedChange}
-                        rightAddons={<ToggledIcon className={styles.toggleIcon} />}
+                        colors={colors}
+                        rightAddons={
+                            <ChevronDownSIcon
+                                className={cn(styles.toggleIcon, {
+                                    [styles.rotated]: isExpanded,
+                                })}
+                            />
+                        }
                     >
                         {isExpanded ? expandedLabel : collapsedLabel}
                     </Link>

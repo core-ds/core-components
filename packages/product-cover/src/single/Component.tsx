@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ImageCard, Overlay, Text } from '../components';
 import { WIDTH_TO_SIZE } from '../consts';
-import { SingleCommonProps } from '../typings';
+import { type SingleCommonProps } from '../typings';
 
 import styles from './index.module.css';
 
@@ -24,6 +24,7 @@ export const Single: FC<SingleCommonProps> = ({
     cardholderNameUppercase,
     cardholderName,
     numberOfСards,
+    numberOfCards = numberOfСards,
     align,
     cardNumber,
     className,
@@ -32,7 +33,7 @@ export const Single: FC<SingleCommonProps> = ({
     onEyeIconClick,
     dataTestId,
 }) => {
-    const hasContent = Boolean(cardNumber || cardholderName || numberOfСards);
+    const hasContent = Boolean(cardNumber || cardholderName || numberOfCards);
     const showContent = hasContent && size !== 16 && !contentAddons;
 
     return (
@@ -62,7 +63,7 @@ export const Single: FC<SingleCommonProps> = ({
                 cardId={cardId}
                 layers={layers}
                 baseUrl={baseUrl}
-                numberOfСards={numberOfСards}
+                numberOfCards={numberOfCards}
             />
 
             {showContent && (
@@ -71,7 +72,7 @@ export const Single: FC<SingleCommonProps> = ({
                     eyeButton={eyeButton}
                     cardholderNameUppercase={cardholderNameUppercase}
                     cardholderName={cardholderName}
-                    numberOfСards={numberOfСards}
+                    numberOfCards={numberOfCards}
                     align={align}
                     size={size}
                     onEyeIconClick={onEyeIconClick}

@@ -5,7 +5,7 @@ import { Accordion, AccordionProps } from '.';
 
 const renderComponent = (props: Partial<AccordionProps> = {}) =>
     render(
-        <Accordion header='Зачем нужен аккордион?' {...props}>
+        <Accordion header='Зачем нужен аккордeон?' {...props}>
             Используется для создания интерактивных списков, которые можно разворачивать и
             сворачивать для отображения дополнительной информации
         </Accordion>,
@@ -40,7 +40,7 @@ describe('Accordion', () => {
             const headerClassName = 'class-name';
             const { getByText } = renderComponent({ headerClassName });
 
-            const header = getByText('Зачем нужен аккордион?').parentElement;
+            const header = getByText('Зачем нужен аккордeон?').parentElement;
 
             expect(header).toHaveClass(headerClassName);
         });
@@ -83,7 +83,7 @@ describe('Accordion', () => {
 
             control.click();
 
-            expect(onExpandedChange).toBeCalledTimes(1);
+            expect(onExpandedChange).toHaveBeenCalledTimes(1);
         });
     });
 

@@ -11,3 +11,7 @@ export const SIZE_TO_CLASSNAME_MAP = {
     64: 'size-64',
     72: 'size-72',
 };
+
+export const DEFAULT_SEPARATOR = ', ';
+
+export const SELECT_ALL_KEY = 'select_all';

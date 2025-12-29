@@ -2,7 +2,7 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -71,6 +71,24 @@ describe(
                         maxStep: 10,
                         description: 'Шаг 2 из 10: Выбор карты',
                         colors: 'inverted',
+                    },
+                    size: { width: 500, height: 100 },
+                }),
+            ],
+            [
+                'custom color tokens',
+                createSpriteStorybookUrl({
+                    componentName: 'SteppedProgressBar',
+                    knobs: {
+                        step: 2,
+                        maxStep: 4,
+                        view: [
+                            { background: 'var(--color-light-accent-primary)' },
+                            'positive',
+                            { background: 'var(--color-light-accent-secondary)' },
+                            'negative',
+                        ],
+                        description: 'Выбор карты',
                     },
                     size: { width: 500, height: 100 },
                 }),

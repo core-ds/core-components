@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
@@ -19,7 +19,7 @@ export type HintProps = {
 };
 
 export const Hint: FC<HintProps> = ({ mobile }) => {
-    const { alignContent, texts, onChangeScreen, onChangeState, breakpoint, client } =
+    const { alignContent, titleTag, texts, onChangeScreen, onChangeState, breakpoint, client } =
         useContext(ConfirmationContext);
 
     const { domesticPhone = '', internationalPhone = '', hintButton } = texts;
@@ -31,7 +31,9 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>Не&nbsp;приходит сообщение?</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.hintTitle}
+            </Header>
 
             <Text
                 view='primary-medium'
@@ -41,8 +43,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     [styles.typographyThemeMobile]: mobile,
                 })}
             >
-                Если у&nbsp;вас изменился номер телефона, позвоните нам или обратитесь в&nbsp;любое
-                отделение банка.
+                {texts.hintDescription}
             </Text>
 
             <div
@@ -50,28 +51,6 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     [styles.phonesWrapMobile]: mobile,
                 })}
             >
-                <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
-                    <Link
-                        href={getPhoneHref(domesticPhone)}
-                        underline={false}
-                        className={cn(styles.phoneLink, { [styles.typographyThemeMobile]: mobile })}
-                    >
-                        {domesticPhone}
-                    </Link>
-                    <Text
-                        view='primary-medium'
-                        color='primary'
-                        className={cn(styles.text, {
-                            [styles.typographyTheme]: !mobile,
-                            [styles.typographyThemeMobile]: mobile,
-                        })}
-                    >
-                        {mobile
-                            ? 'Для\u00A0звонков по\u00A0России'
-                            : ' \u2014\u00A0для звонков по\u00A0России'}
-                    </Text>
-                </div>
-
                 <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
                     <Link
                         href={getPhoneHref(internationalPhone)}
@@ -93,6 +72,28 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                             : ' \u2014\u00A0в\u00A0Москве и\u00A0за\u00A0границей'}
                     </Text>
                 </div>
+
+                <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
+                    <Link
+                        href={getPhoneHref(domesticPhone)}
+                        underline={false}
+                        className={cn(styles.phoneLink, { [styles.typographyThemeMobile]: mobile })}
+                    >
+                        {domesticPhone}
+                    </Link>
+                    <Text
+                        view='primary-medium'
+                        color='primary'
+                        className={cn(styles.text, {
+                            [styles.typographyTheme]: !mobile,
+                            [styles.typographyThemeMobile]: mobile,
+                        })}
+                    >
+                        {mobile
+                            ? 'Для\u00A0звонков по\u00A0России'
+                            : ' \u2014\u00A0для звонков по\u00A0России'}
+                    </Text>
+                </div>
             </div>
 
             <Text
@@ -103,10 +104,8 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     [styles.typographyThemeMobile]: mobile,
                 })}
             >
-                Если номер не&nbsp;менялся, возможно, перегружен сервис отправки сообщений.
-                Попробуйте повторить действие через несколько минут.
+                {texts.hintNotification}
             </Text>
-
             <Button
                 size={mobile ? 'xs' : 's'}
                 view='secondary'

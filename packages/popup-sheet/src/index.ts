@@ -1,1 +1,2 @@
-export { PopupSheet, PopupSheetProps } from './Component';
+export { PopupSheet } from './Component';
+export type { PopupSheetProps } from './Component';

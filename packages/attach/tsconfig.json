@@ -1,19 +1,30 @@
 {
-    "include": ["src", "../../typings"],
-    "extends": "../../tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
     "compilerOptions": {
-        "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
+        "rootDir": "src",
+        "outDir": "no-dist",
         "paths": {
+            "@alfalab/core-components-attach": ["./src"],
+            "@alfalab/core-components-attach/*": ["./src/*"],
+            "@alfalab/core-components-button": ["../button/src"],
             "@alfalab/core-components-button/*": ["../button/src/*"],
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-keyboard-focusable": ["../keyboard-focusable/src"],
+            "@alfalab/core-components-keyboard-focusable/*": ["../keyboard-focusable/src/*"],
+            "@alfalab/core-components-progress-bar": ["../progress-bar/src"],
+            "@alfalab/core-components-progress-bar/*": ["../progress-bar/src/*"],
+            "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
+            "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-test-utils": ["../test-utils/src"],
+            "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"]
         }
     },
     "references": [
-        { "path": "../button" },
-        { "path": "../loader" },
-        { "path": "../progress-bar" },
-        { "path": "../keyboard-focusable" }
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../keyboard-focusable/tsconfig.build.json" },
+        { "path": "../progress-bar/tsconfig.build.json" },
+        { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

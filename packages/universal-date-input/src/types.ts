@@ -1,17 +1,17 @@
-import type {
-    ChangeEvent,
-    FocusEvent,
-    ForwardRefExoticComponent,
-    KeyboardEvent,
-    MouseEvent,
-    PropsWithoutRef,
-    RefAttributes,
-    RefObject,
+import {
+    type ChangeEvent,
+    type FocusEvent,
+    type ForwardRefExoticComponent,
+    type KeyboardEvent,
+    type MouseEvent,
+    type PropsWithoutRef,
+    type RefAttributes,
+    type RefObject,
 } from 'react';
 
-import type { CalendarProps } from '@alfalab/core-components-calendar';
-import type { InputProps } from '@alfalab/core-components-input';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import { type CalendarProps } from '@alfalab/core-components-calendar';
+import { type InputProps } from '@alfalab/core-components-input';
+import { type PopoverProps } from '@alfalab/core-components-popover';
 
 export type View = 'date' | 'date-time' | 'date-range' | 'time' | 'month';
 
@@ -84,12 +84,24 @@ export interface BaseUniversalDateInputProps
     inputWrapperRef?: React.Ref<HTMLDivElement> | null;
 
     /**
-     *  Обработчик открытия календаря
+     * Флаг, открыт ли календарь
+     */
+    calendarOpen?: boolean;
+
+    /**
+     * Обработчик изменения открытия календаря
+     */
+    onCalendarOpenChange?: (open: boolean) => void;
+
+    /**
+     * Обработчик открытия календаря
+     * @deprecated Используйте {@link BaseUniversalDateInputProps.onCalendarOpenChange}
      */
     onCalendarOpen?: () => void;
 
     /**
-     *  Обработчик закрытия календаря
+     * Обработчик закрытия календаря
+     * @deprecated Используйте {@link BaseUniversalDateInputProps.onCalendarOpenChange}
      */
     onCalendarClose?: () => void;
 
@@ -257,7 +269,12 @@ type WithPickerRequiredProps = Required<Pick<BaseUniversalDateInputProps, 'Calen
 
 type WithPickerNotRequiredProps = Pick<
     BaseUniversalDateInputProps,
-    'calendarProps' | 'popoverProps' | 'onCalendarOpen' | 'onCalendarClose'
+    | 'calendarProps'
+    | 'popoverProps'
+    | 'onCalendarOpen'
+    | 'onCalendarClose'
+    | 'calendarOpen'
+    | 'onCalendarOpenChange'
 >;
 
 type WithPickerProps = WithPickerRequiredProps & WithPickerNotRequiredProps;

@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-env/tsconfig.base.json",
+    "include": ["src", "src/**/*.json"],
+    "exclude": ["**/*.stories.*", "**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "ts-dist",
+        "paths": {
+            "@alfalab/core-components-gap": ["../gap/src"],
+            "@alfalab/core-components-gap/*": ["../gap/src/*"],
+            "@alfalab/core-components-generic-wrapper": ["./src"],
+            "@alfalab/core-components-generic-wrapper/*": ["./src/*"]
+        }
+    },
+    "references": [{ "path": "../gap/tsconfig.build.json" }]
+}

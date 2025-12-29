@@ -1,12 +1,12 @@
-import React, { ComponentType, FC, useEffect, useMemo } from 'react';
+import React, { type ComponentType, type FC, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 
 import { usePrevious } from '@alfalab/hooks';
 
 import { ConfirmationContext } from '../../context';
-import { ConfirmationProps, defaultTexts, TConfirmationContext } from '../../types';
+import { type ConfirmationProps, defaultTexts, type TConfirmationContext } from '../../types';
 import { ONE_DAY, ONE_MINUTE, useCountdown } from '../../utils';
-import { FatalError, Hint, Initial, TempBlock } from '../screens';
+import { FatalError, Hint, Initial, TempBlock, TempBlockOver } from '../screens';
 
 import styles from './index.module.css';
 
@@ -15,11 +15,13 @@ const confirmationScreens: { [key: string]: ComponentType<{ mobile?: boolean }> 
     HINT: Hint,
     FATAL_ERROR: FatalError,
     TEMP_BLOCK: TempBlock,
+    TEMP_BLOCK_OVER: TempBlockOver,
 };
 
 export const BaseConfirmation: FC<ConfirmationProps> = ({
     state,
     screen,
+    titleTag = 'h3',
     alignContent = 'left',
     children,
     requiredCharAmount = 5,
@@ -66,7 +68,10 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         /**
          * Останавливаем таймер, если новый экран/состояние не содержит таймер
          */
-        if (!['INITIAL', 'HINT', 'TEMP_BLOCK'].includes(screen) || blockSmsRetry) {
+        if (
+            !['INITIAL', 'HINT', 'TEMP_BLOCK', 'TEMP_BLOCK_OVER'].includes(screen) ||
+            blockSmsRetry
+        ) {
             stopTimer();
         }
     }, [state, screen, blockSmsRetry, stopTimer]);
@@ -93,6 +98,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     const contextValue: TConfirmationContext = {
         hideCountdownSection,
         alignContent,
+        titleTag,
         texts: { ...defaultTexts, ...restProps.texts },
         state,
         screen,
@@ -115,10 +121,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         onFatalErrorOkButtonClick: handleFatalErrorOkButtonClick,
     };
 
-    const customScreen = useMemo(
-        () => getScreensMap && getScreensMap(confirmationScreens),
-        [getScreensMap],
-    );
+    const customScreen = useMemo(() => getScreensMap?.(confirmationScreens), [getScreensMap]);
 
     const screensMap = customScreen || confirmationScreens;
 
@@ -126,7 +129,12 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
 
     return (
         <ConfirmationContext.Provider value={contextValue}>
-            <div className={cn(styles.component, className)} data-test-id={dataTestId}>
+            <div
+                className={cn(styles.component, className, {
+                    [styles.center]: alignContent === 'center',
+                })}
+                data-test-id={dataTestId}
+            >
                 {CurrentScreen && <CurrentScreen mobile={mobile} />}
             </div>
         </ConfirmationContext.Provider>

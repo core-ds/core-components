@@ -1,7 +1,7 @@
-import React, { FC, MutableRefObject } from 'react';
+import React, { type FC, type MutableRefObject } from 'react';
 import cn from 'classnames';
 
-import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
+import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-button';
 import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
@@ -10,6 +10,7 @@ import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { PauseCompactMIcon } from '@alfalab/icons-glyph/PauseCompactMIcon';
 import { PlayCompactMIcon } from '@alfalab/icons-glyph/PlayCompactMIcon';
 import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
+import { ShareMIcon } from '@alfalab/icons-glyph/ShareMIcon';
 import { SoundCrossMIcon } from '@alfalab/icons-glyph/SoundCrossMIcon';
 import { SoundMIcon } from '@alfalab/icons-glyph/SoundMIcon';
 
@@ -130,6 +131,22 @@ export const Download: FC<Props> = (props) => (
         <IconButton
             {...props}
             icon={PointerDownMIcon}
+            aria-label='Скачать'
+            className={styles.iconButton}
+        />
+    </TooltipDesktop>
+);
+
+export const Share: FC<Props> = (props) => (
+    <TooltipDesktop
+        trigger='hover'
+        position='bottom'
+        content='Поделиться'
+        fallbackPlacements={['bottom-end']}
+    >
+        <IconButton
+            {...props}
+            icon={ShareMIcon}
             aria-label='Скачать'
             className={styles.iconButton}
         />

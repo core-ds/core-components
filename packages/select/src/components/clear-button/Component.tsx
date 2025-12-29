@@ -5,7 +5,7 @@ import { Button } from '@alfalab/core-components-button';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
-import { ClearButtonProps } from '../../typings';
+import { type ClearButtonProps } from '../../typings';
 
 import styles from './index.module.css';
 
@@ -18,7 +18,7 @@ export const ClearButton = ({ disabled, onClick, dataTestId, size }: ClearButton
             view='text'
             disabled={disabled}
             aria-label='Очистить'
-            className={cn(styles.clearButton, styles[`size-${size}`])}
+            className={cn(styles.clearButton)}
             onClick={onClick}
             tabIndex={-1}
             dataTestId={dataTestId}

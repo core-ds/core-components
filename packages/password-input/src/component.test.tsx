@@ -82,4 +82,71 @@ describe('PasswordInput', () => {
             expect(isPasswordHidden(input)).toBe(true);
         });
     });
+
+    describe('check ToolTipHint', () => {
+        let getByRole: ReturnType<typeof render>['getByRole'];
+        let rerender: ReturnType<typeof render>['rerender'];
+        let onPasswordVisibleChange: jest.Mock;
+
+        describe('SUCCESS_CASES', () => {
+            beforeEach(() => {
+                ({ getByRole } = render(<PasswordInput />));
+            });
+
+            it('should initially display tooltip "Показать"', () => {
+                expect(getByRole('button')).toHaveAttribute('title', 'Показать');
+            });
+
+            it('should display tooltip "Скрыть" after one click', () => {
+                const eyeButton = getByRole('button');
+                fireEvent.click(eyeButton);
+
+                expect(eyeButton).toHaveAttribute('title', 'Скрыть');
+            });
+
+            it('should revert to tooltip "Показать" after two clicks', () => {
+                const eyeButton = getByRole('button');
+                fireEvent.click(eyeButton);
+                fireEvent.click(eyeButton);
+
+                expect(eyeButton).toHaveAttribute('title', 'Показать');
+            });
+        });
+
+        describe('EDGE_CASES', () => {
+            beforeEach(() => {
+                onPasswordVisibleChange = jest.fn();
+                ({ getByRole, rerender } = render(
+                    <PasswordInput
+                        passwordVisible={false}
+                        onPasswordVisibleChange={onPasswordVisibleChange}
+                    />,
+                ));
+            });
+
+            it('should call onPasswordVisibleChange with true when clicked in controlled mode', () => {
+                const eyeButton = getByRole('button');
+                fireEvent.click(eyeButton);
+
+                expect(onPasswordVisibleChange).toHaveBeenCalledWith(true);
+            });
+
+            it('should display tooltip "Скрыть" after re-rendering with passwordVisible true', () => {
+                rerender(
+                    <PasswordInput passwordVisible={true} onPasswordVisibleChange={jest.fn()} />,
+                );
+
+                expect(getByRole('button')).toHaveAttribute('title', 'Скрыть');
+            });
+        });
+
+        describe('ERROR_CASES', () => {
+            it('should be disabled', () => {
+                let getByRole: ReturnType<typeof render>['getByRole'];
+                ({ getByRole } = render(<PasswordInput disabled />));
+
+                expect(getByRole('button')).toBeDisabled();
+            });
+        });
+    });
 });

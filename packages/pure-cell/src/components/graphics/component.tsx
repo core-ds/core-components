@@ -3,8 +3,8 @@ import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { PureCellContext } from '../../component';
-import { GraphicsElement } from '../types';
+import { PureCellContext } from '../../context';
+import { type GraphicsElement } from '../types';
 
 import styles from './index.module.css';
 
@@ -28,7 +28,7 @@ export type Props = {
     /**
      * Отступ от графики
      */
-    graphicPadding?: 'airy' | 'default' | 'compact' | 'tiny' | 'none';
+    graphicPadding?: 'max' | 'airy' | 'default' | 'compact' | 'tiny' | 'none';
 
     /**
      * Клик по контенту графики.

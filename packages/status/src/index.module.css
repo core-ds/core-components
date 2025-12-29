@@ -1,5 +1,5 @@
-@import '../../vars/src/index.css';
-@import '../../vars/src/colors-decorative.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/colors-decorative.css';
 
 .component {
     display: inline-flex;
@@ -7,10 +7,15 @@
     justify-content: center;
     height: initial;
     padding: 0;
-    border-radius: 0;
+    border-radius: var(--border-radius-0);
     text-align: center;
     text-transform: initial;
-    letter-spacing: 0.5px;
+
+    & .leftAddons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     & .ellipsis {
         @mixin row_limit 1;
@@ -24,28 +29,28 @@
     &.size-20 {
         @mixin action_secondary_medium;
         height: 20px;
-        padding: 0 var(--gap-8);
+        padding: var(--gap-0) var(--gap-8);
         border-radius: var(--border-radius-6);
     }
 
     &.size-24 {
         @mixin action_secondary_medium;
         height: 24px;
-        padding: 0 var(--gap-12);
+        padding: var(--gap-0) var(--gap-12);
         border-radius: var(--border-radius-6);
     }
 
     &.size-32 {
         @mixin action_primary_small;
         height: 32px;
-        padding: 0 var(--gap-16);
+        padding: var(--gap-0) var(--gap-16);
         border-radius: var(--border-radius-10);
     }
 
     &.size-40 {
         @mixin action_primary_small;
         height: 40px;
-        padding: 0 var(--gap-20);
+        padding: var(--gap-0) var(--gap-20);
         border-radius: var(--border-radius-12);
     }
 
@@ -65,6 +70,28 @@
             @mixin accent_caps;
         }
     }
+
+    &.withLeftAddons {
+        &.size-20 {
+            gap: 3px;
+            padding-left: var(--gap-6);
+        }
+
+        &.size-24 {
+            gap: var(--gap-4);
+            padding-left: var(--gap-8);
+        }
+
+        &.size-32 {
+            gap: var(--gap-6);
+            padding-left: var(--gap-12);
+        }
+
+        &.size-40 {
+            gap: var(--gap-6);
+            padding-left: var(--gap-16);
+        }
+    }
 }
 
 .soft,
@@ -75,10 +102,7 @@
             color: var(--color-light-decorative-text-$(color));
         }
     }
-}
 
-.soft,
-.muted-alt {
     &.grey {
         background: var(--color-light-neutral-translucent-300);
         color: var(--color-light-text-secondary);
@@ -98,9 +122,7 @@
             background: var(--color-light-decorative-$(color));
         }
     }
-}
 
-.contrast {
     &.grey {
         background: var(--color-light-neutral-700);
     }
@@ -117,9 +139,7 @@
             color: var(--color-light-decorative-text-$(color));
         }
     }
-}
 
-.muted {
     &.grey {
         background: var(--color-light-neutral-translucent-200);
         color: var(--color-light-text-secondary);

@@ -1,24 +1,26 @@
 import React, {
     forwardRef,
-    MouseEventHandler,
-    TouchEventHandler,
+    type MouseEventHandler,
+    type TouchEventHandler,
     useCallback,
-    useEffect,
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { Popover, type PopoverProps } from '@alfalab/core-components-popover';
 import { Portal } from '@alfalab/core-components-portal';
+import { noop } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
+import { stackingOrder } from '@alfalab/core-components-stack-context';
 import {
-    ToastPlate as ToastPlateComponent,
-    ToastPlateProps,
+    type ToastPlate as ToastPlateComponent,
+    type ToastPlateProps,
 } from '@alfalab/core-components-toast-plate';
-import { useClickOutside, usePrevious } from '@alfalab/hooks';
-import { stackingOrder } from '@alfalab/stack-context';
+import { useClickOutside } from '@alfalab/hooks';
+
+import { useTimer } from './use-timer';
 
 import styles from './index.module.css';
 
@@ -87,8 +89,6 @@ export type BaseToastProps = ToastPlateProps &
         offset?: [number, number];
     };
 
-const noop = () => {};
-
 export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
     (
         {
@@ -112,23 +112,18 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
             useAnchorWidth,
             closeWithClickOutside = true,
             fallbackPlacements,
+            client = 'desktop',
             ...restProps
         },
         ref,
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
-        const timerId = useRef(0);
-        const prevOpen = usePrevious(open);
 
-        const startTimer = useCallback(() => {
-            clearTimeout(timerId.current);
-
-            timerId.current = window.setTimeout(onClose, autoCloseDelay);
-        }, [autoCloseDelay, onClose]);
-
-        const stopTimer = useCallback(() => {
-            clearTimeout(timerId.current);
-        }, []);
+        const { start: startTimer, stop: stopTimer } = useTimer({
+            open,
+            delay: autoCloseDelay,
+            onTimeout: onClose,
+        });
 
         const handleMouseEnter = useCallback<MouseEventHandler<HTMLDivElement>>(
             (event) => {
@@ -170,22 +165,22 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
 
         useClickOutside(plateRef, closeWithClickOutside ? handleClickOutside : noop);
 
-        useEffect(() => () => clearTimeout(timerId.current), []);
-
-        useEffect(() => {
-            if (open !== prevOpen && open) {
-                startTimer();
-            }
-        }, [open, prevOpen, startTimer, stopTimer]);
+        const eventHandlers: Record<typeof client, object> = {
+            desktop: {
+                onMouseEnter: handleMouseEnter,
+                onMouseLeave: handleMouseLeave,
+            },
+            mobile: {
+                onTouchStart: handleTouchStart,
+            },
+        };
 
         const props = {
             block,
             titleClassName: cn(titleClassName, styles.title),
             onClose,
-            onMouseEnter: handleMouseEnter,
-            onMouseLeave: handleMouseLeave,
-            onTouchStart: handleTouchStart,
             ref: mergeRefs([ref, plateRef]),
+            ...eventHandlers[client],
         };
 
         if (anchorElement) {

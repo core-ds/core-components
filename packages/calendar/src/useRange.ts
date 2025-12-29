@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import type { CalendarDesktopProps } from './desktop';
+import { type CalendarDesktopProps } from './desktop';
 import { usePeriod, usePeriodWithReset } from './usePeriod';
 import { isRangeValue } from './utils';
 

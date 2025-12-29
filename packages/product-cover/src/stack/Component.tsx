@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { Single } from '../single';
-import { Size, StackProps } from '../typings';
+import { type Size, type StackProps } from '../typings';
 import { getSizeSecondCard } from '../utils';
 
 import styles from './index.module.css';
@@ -14,6 +14,7 @@ export const Stack: FC<StackProps> = ({
     secondCard,
     size = 128,
     numberOfСards,
+    numberOfCards = numberOfСards,
     className,
     align = 'default',
     dataTestId,
@@ -42,7 +43,7 @@ export const Stack: FC<StackProps> = ({
                     {...secondCard}
                     size={secondCardSize}
                     align={align}
-                    numberOfСards={numberOfСards}
+                    numberOfCards={numberOfCards}
                     dataTestId={getDataTestId(dataTestId, 'second-card')}
                 />
             </div>

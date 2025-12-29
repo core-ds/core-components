@@ -7,5 +7,6 @@ export function getUniversalModalTestIds(dataTestId: string) {
         header: getDataTestId(dataTestId, 'header'),
         content: getDataTestId(dataTestId, 'content'),
         footer: getDataTestId(dataTestId, 'footer'),
+        closer: getDataTestId(dataTestId, 'header-closer'),
     };
 }

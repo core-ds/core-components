@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Tabs Snapshots tests should match snapshot 1`] = `
 <div>
@@ -108,7 +108,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
       class="container"
     >
       <div
-        class="component s"
+        class="component desktop s"
         role="tablist"
       >
         <button
@@ -482,7 +482,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
       class="container"
     >
       <div
-        class="component s"
+        class="component desktop s"
         role="tablist"
       >
         <button

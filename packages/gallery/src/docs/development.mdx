@@ -1,5 +1,5 @@
 import { ArgsTable } from '@storybook/addon-docs';
-import { Plate } from '@alfalab/core-components/plate';
+import { Plate } from '@alfalab/core-components-plate';
 import { Gallery } from '../index';
 
 ## Подключение
@@ -16,16 +16,6 @@ import { Gallery } from '@alfalab/core-components/gallery';
     title='Чтобы скачивание изображений работало корректно, убедитесь, что в ответе от сервера выставлен заголовок content-disposition: attachment'
     titleView='light'
 />
-
-Чтобы использовать эвенты видео, необходимо сделать импорт кастомных эвентов
-```jsx
-import { GALLERY_EVENTS } from '@alfalab/core-components/gallery';
-```
-
-И подписаться на них
-```jsx
-window.addEventListener(GALLERY_EVENTS.ON_PLAY, handler)
-```
 
 ## Свойства
 

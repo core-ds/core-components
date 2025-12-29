@@ -1,4 +1,4 @@
-@import '../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     /* stroke */
@@ -42,7 +42,7 @@
     word-break: break-word;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin: var(--gap-0) 6px;
+    margin: var(--gap-0) var(--gap-6);
 }
 
 .subtitle {

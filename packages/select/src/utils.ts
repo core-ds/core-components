@@ -1,8 +1,8 @@
 import {
     cloneElement,
     isValidElement,
-    ReactNode,
-    RefObject,
+    type ReactNode,
+    type RefObject,
     useEffect,
     useRef,
     useState,
@@ -10,7 +10,13 @@ import {
 
 import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
 
-import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
+import { DEFAULT_SEPARATOR } from './consts';
+import {
+    type BaseSelectProps,
+    type GroupShape,
+    type OptionShape,
+    type OptionsListProps,
+} from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
@@ -21,9 +27,11 @@ export const isOptionShape = (item: OptionShape | string | null): item is Option
 export const joinOptions = ({
     selected,
     selectedMultiple,
+    valueSeparator = DEFAULT_SEPARATOR,
 }: {
     selected?: OptionShape;
     selectedMultiple?: OptionShape[];
+    valueSeparator?: string;
 }) => {
     const options = selectedMultiple || (selected ? [selected] : []);
 
@@ -36,7 +44,7 @@ export const joinOptions = ({
             acc.push(option.content);
         }
 
-        if (index < options.length - 1) acc.push(', ');
+        if (index < options.length - 1) acc.push(valueSeparator);
 
         return acc;
     }, []);
@@ -231,24 +239,22 @@ export function useVirtualVisibleOptions({
 export function useVisibleOptions({
     visibleOptions,
     listRef,
-    styleTargetRef = listRef,
     open,
-    invalidate,
     options,
     size,
     actualOptionsCount,
 }: useVisibleOptionsArgs) {
     const [, runIfMounted] = useIsMounted();
     const [measured, setMeasured] = useState(false);
+    const [height, setHeight] = useState<number | undefined>();
 
     useEffect(() => {
         const measureOptionHeight = (element: HTMLElement) =>
             typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
 
         const list = listRef.current;
-        const styleTarget = styleTargetRef.current;
 
-        if (open && list && styleTarget && visibleOptions > 0) {
+        if (open && list && visibleOptions > 0) {
             const childCount = list.children.length;
             const optionsNodes = ([] as HTMLElement[]).slice.call(
                 list.children,
@@ -256,7 +262,7 @@ export function useVisibleOptions({
                 visibleOptions + 1,
             );
 
-            let height = optionsNodes
+            let measuredHeight = optionsNodes
                 .slice(0, visibleOptions)
                 .reduce((acc, child) => acc + measureOptionHeight(child), 0);
 
@@ -266,7 +272,7 @@ export function useVisibleOptions({
                 );
 
                 // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
-                height += Math.round(
+                measuredHeight += Math.round(
                     childCount - visibleOptions === 1
                         ? lastVisibleOptionHeight
                         : lastVisibleOptionHeight / 2,
@@ -281,43 +287,30 @@ export function useVisibleOptions({
                     0,
                 );
 
-                height =
+                measuredHeight =
                     Math.min(
                         actualCount === 0 ? /** empty placeholder */ 1 : actualCount,
                         visibleOptions,
                     ) * size;
 
                 if (visibleOptions < actualCount) {
-                    height += size / 2;
+                    measuredHeight += size / 2;
                 }
             }
 
-            const prevHeight = styleTarget.style.height;
-
-            styleTarget.style.height = `${height}px`;
+            setHeight(measuredHeight);
 
             setMeasured(true);
 
             return () => {
-                styleTarget.style.height = prevHeight;
                 runIfMounted(() => setMeasured(false));
             };
         }
 
         return fnUtils.noop;
-    }, [
-        actualOptionsCount,
-        listRef,
-        open,
-        options,
-        size,
-        styleTargetRef,
-        visibleOptions,
-        invalidate,
-        runIfMounted,
-    ]);
+    }, [actualOptionsCount, listRef, open, options, size, visibleOptions, runIfMounted]);
 
-    return measured;
+    return [measured, height] as const;
 }
 
 export function defaultFilterFn(optionText: string, search: string) {

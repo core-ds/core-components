@@ -206,6 +206,14 @@ describe('Bottom sheet', () => {
             expect(document.body.querySelector(`.${className}`)).toBeInTheDocument();
         });
 
+        it('should set headerContentClassName', () => {
+            const className = 'class-name-4';
+
+            render(<BottomSheetWrapper headerContentClassName={className} />);
+
+            expect(document.body.querySelector(`.${className}`)).toBeInTheDocument();
+        });
+
         it('should set z-index', () => {
             const zIndex = 9999;
 
@@ -316,7 +324,7 @@ describe('Bottom sheet', () => {
                 />,
             );
 
-            await waitFor(() => expect(onEntered).toBeCalledTimes(1));
+            await waitFor(() => expect(onEntered).toHaveBeenCalledTimes(1));
 
             const swipeableBottomSheet = document.querySelector(`.${className}`) as HTMLElement;
 
@@ -366,7 +374,7 @@ describe('Bottom sheet', () => {
                 />,
             );
 
-            await waitFor(() => expect(onEntered).toBeCalledTimes(1));
+            await waitFor(() => expect(onEntered).toHaveBeenCalledTimes(1));
 
             const swipeableBottomSheet = document.querySelector(`.${className}`) as HTMLElement;
 
@@ -386,7 +394,7 @@ describe('Bottom sheet', () => {
 
             fireEvent.touchEnd(swipeableBottomSheet);
 
-            expect(onExited).not.toBeCalled();
+            expect(onExited).not.toHaveBeenCalled();
             expect(getComputedStyle(swipeableBottomSheet).transform).toBe('');
         });
 
@@ -408,7 +416,7 @@ describe('Bottom sheet', () => {
                 />,
             );
 
-            await waitFor(() => expect(onEntered).toBeCalledTimes(1));
+            await waitFor(() => expect(onEntered).toHaveBeenCalledTimes(1));
 
             const swipeableBottomSheet = document.querySelector(`.${className}`) as HTMLElement;
 
@@ -428,7 +436,7 @@ describe('Bottom sheet', () => {
 
             fireEvent.touchEnd(swipeableBottomSheet);
 
-            await waitFor(() => expect(onExited).toBeCalledTimes(1));
+            await waitFor(() => expect(onExited).toHaveBeenCalledTimes(1));
 
             const component = await queryByTestId(dataTestId);
 
@@ -449,8 +457,8 @@ describe('Bottom sheet', () => {
                 />,
             );
 
-            await waitFor(() => expect(onMagnetize).toBeCalledWith(1));
-            await waitFor(() => expect(onMagnetizeEnd).toBeCalledWith(1));
+            await waitFor(() => expect(onMagnetize).toHaveBeenCalledWith(1));
+            await waitFor(() => expect(onMagnetizeEnd).toHaveBeenCalledWith(1));
         });
 
         it('should call onMagnetize and onMagnetizeEnd prop with initialAreaIdx after opening', async () => {
@@ -469,8 +477,8 @@ describe('Bottom sheet', () => {
                 />,
             );
 
-            await waitFor(() => expect(onMagnetize).toBeCalledWith(1));
-            await waitFor(() => expect(onMagnetizeEnd).toBeCalledWith(1));
+            await waitFor(() => expect(onMagnetize).toHaveBeenCalledWith(1));
+            await waitFor(() => expect(onMagnetizeEnd).toHaveBeenCalledWith(1));
         });
 
         it('should call onMagnetize and onMagnetizeEnd prop after closing', async () => {
@@ -491,8 +499,8 @@ describe('Bottom sheet', () => {
             fireEvent.mouseDown(getByTestId(dataTestId));
             fireEvent.mouseUp(getByTestId(dataTestId));
 
-            await waitFor(() => expect(onMagnetize).toBeCalledWith(0));
-            await waitFor(() => expect(onMagnetizeEnd).toBeCalledWith(0));
+            await waitFor(() => expect(onMagnetize).toHaveBeenCalledWith(0));
+            await waitFor(() => expect(onMagnetizeEnd).toHaveBeenCalledWith(0));
         });
     });
 });

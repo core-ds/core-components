@@ -1,13 +1,13 @@
-import { ReactElement, ReactNode } from 'react';
+import { type ReactElement, type ReactNode } from 'react';
 
-import { Comment } from '@alfalab/core-components-comment';
+import { type Comment } from '@alfalab/core-components-comment';
 
-import { Amount } from './amount';
-import { AmountTitle } from './amount-title';
-import { FooterButton } from './footer-button';
-import { FooterText } from './footer-text';
-import { Graphics } from './graphics';
-import { Text } from './text';
+import { type Amount } from './amount';
+import { type AmountTitle } from './amount-title';
+import { type FooterButton } from './footer-button';
+import { type FooterText } from './footer-text';
+import { type Graphics } from './graphics';
+import { type Text } from './text';
 
 type TextElement = ReactElement<typeof Text>;
 export type GraphicsElement = ReactElement<typeof Graphics> | boolean | null;

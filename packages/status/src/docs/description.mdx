@@ -58,6 +58,30 @@
 </Container>
 ```
 
+## Аддон
+
+В левый аддон можно передать иконку или другой контент.
+
+```jsx live
+render(() => {
+    return (
+        <Space direction='horizontal' size={12}>
+            <Status view='muted' size={40} uppercase={false}>
+                Без аддона
+            </Status>
+            <Status
+                view='muted'
+                size={40}
+                uppercase={false}
+                leftAddons={<DiamondsMIcon width={16} height={16} />}
+            >
+                С аддоном
+            </Status>
+        </Space>
+    );
+});
+```
+
 ## Цвета
 
 ```jsx live
@@ -97,4 +121,25 @@
         </div>
     </div>
 </Container>
+```
+
+## Кастомизация
+
+Статусу можно задать кастомный цвет текста и фона.
+
+```jsx live
+render(() => {
+    return (
+        <Container>
+            <style>
+                {
+                    '.className.className {color: var(--color-light-decorative-text-purple); background-color: var(--color-light-decorative-muted-purple);}'
+                }
+            </style>
+            <Status size={40} uppercase={false} className='className'>
+                Кастом
+            </Status>
+        </Container>
+    );
+});
 ```

@@ -1,16 +1,12 @@
-import {
-    hasImportSpecifier,
-    isIndexEntry,
-    modifyIdentifiers,
-    modifyImportPath,
-} from '../42-utils';
+import { hasImportSpecifier, isIndexEntry, modifyIdentifiers, modifyImportPath } from '../42-utils';
 
 const toastPlateTransformer = (source, j) => {
     modifyImportPath(
         source,
         j,
         (path) => (isIndexEntry(path, 'toast-plate') ? `${path}/desktop` : path),
-        (path) => hasImportSpecifier(path, 'ToastPlate') || hasImportSpecifier(path, 'ToastPlateProps'),
+        (path) =>
+            hasImportSpecifier(path, 'ToastPlate') || hasImportSpecifier(path, 'ToastPlateProps'),
     );
     modifyIdentifiers(source, j, 'ToastPlate', 'ToastPlateDesktop');
     modifyIdentifiers(source, j, 'ToastPlateProps', 'ToastPlateDesktopProps');

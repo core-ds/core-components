@@ -47,6 +47,34 @@ render(() => {
 });
 ```
 
+Можно настроить слайдер с неравномерными шагами.
+
+```jsx live
+render(() => {
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = ({ value }) => setValue(value);
+
+    return (
+        <>
+            <div>Value:{value}</div>
+            <br />
+            <Slider
+                size={4}
+                value={0}
+                onChange={handleChange}
+                range={{min: 0, '10%': 1, '40%': 4, '50%': 5, max: 10}}
+                snap={true}
+                pips={{
+                    mode: 'values',
+                    values: [0, 1, 4, 5, 10],
+                }}
+            />
+        </>
+    );
+});
+```
+
 ## Диапазон
 
 С помощью слайдера можно указывать диапазон значений. Чтобы позволить ползункам пересекать друг друга установите `behaviour=unconstrained-tap`.

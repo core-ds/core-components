@@ -1,4 +1,28 @@
-# Change Log
+# @alfalab/core-components-slider
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>05.08.2025</time></sup>
+
+#### [#1611](https://github.com/core-ds/core-components/pull/1611)
+
+Обновлена сборка.
+
+Добавлены пропущенные зависимости.
+
+Синхронизированы версии зависимостей.
+
+## 4.8.0
+
+### Minor Changes
+
+<sup><time>16.05.2025</time></sup>
+
+### [#1684](https://github.com/core-ds/core-components/pull/1684)
+
+-   Добавлен props snap для точного шага слайдера по range
 
 ## 4.7.3
 

@@ -1,0 +1,55 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '../../vars.css';
+
+.size-24 {
+    width: var(--icon-button-xxs-size);
+    height: var(--icon-button-xxs-size);
+}
+
+.size-32 {
+    width: var(--icon-button-xs-size);
+    height: var(--icon-button-xs-size);
+}
+
+.size-40 {
+    width: var(--icon-button-40-size);
+    height: var(--icon-button-40-size);
+}
+
+.size-48 {
+    width: var(--icon-button-s-size);
+    height: var(--icon-button-s-size);
+}
+
+.size-56 {
+    width: var(--icon-button-56-size);
+    height: var(--icon-button-56-size);
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+
+    &.center {
+        justify-content: center;
+        margin: var(--gap-0) auto;
+    }
+
+    &.left {
+        justify-content: left;
+    }
+
+    &.right {
+        justify-content: right;
+    }
+}
+
+.icon {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Для иконок с заливкой (icons-classic) */
+.icon *[fill-rule] {
+    fill: currentColor;
+}

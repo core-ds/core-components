@@ -1,14 +1,16 @@
 import React, { forwardRef, ForwardRefRenderFunction } from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, renderHook, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import * as popoverModule from '@alfalab/core-components-popover';
+import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { act } from 'react-dom/test-utils';
 import { ToastDesktop as Toast, ToastDesktopProps as ToastProps } from './desktop';
 
-import { asyncRender } from '../../utils/test-utils';
+import { asyncRender } from '@alfalab/core-components-test-utils';
+import { useTimer } from './components/base-toast/use-timer';
+import { ToastMobile } from './mobile';
 
 type PopoverComponent = {
-    render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
+    render?: ForwardRefRenderFunction<HTMLDivElement, PopoverProps>;
 };
 
 describe('Toast', () => {
@@ -87,14 +89,14 @@ describe('Toast', () => {
     });
 
     it('should pass props to Popover', async () => {
-        const PopoverComponent = popoverModule.Popover as PopoverComponent;
+        const PopoverComponent = Popover as PopoverComponent;
 
         const popoverComponentSpy = jest.spyOn(PopoverComponent, 'render');
 
         const anchorElement = document.createElement('div');
         document.body.appendChild(anchorElement);
 
-        const popoverProps: Partial<popoverModule.PopoverProps> = {
+        const popoverProps: Partial<PopoverProps> = {
             position: 'top',
             offset: [5, 5],
             open: true,
@@ -111,10 +113,10 @@ describe('Toast', () => {
             await render(<Toast {...baseProps} anchorElement={anchorElement} {...popoverProps} />);
         });
 
-        const popoverLastCall =
-            popoverComponentSpy.mock.calls[popoverComponentSpy.mock.calls.length - 1];
-
-        expect(popoverLastCall[0]).toMatchObject(popoverProps);
+        expect(popoverComponentSpy).toHaveBeenCalledWith(
+            expect.objectContaining(popoverProps),
+            null,
+        );
     });
 
     it('should set bottomOffset', () => {
@@ -139,10 +141,10 @@ describe('Toast', () => {
             render(<Toast onClose={onClose} open={true} getPortalContainer={getPortalContainer} />);
 
             fireEvent.click(getPortalContainer().firstElementChild as HTMLElement);
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
 
             await userEvent.setup({ delay: null }).click(document.body);
-            expect(onClose).toBeCalled();
+            expect(onClose).toHaveBeenCalled();
         });
 
         it('should not call onClose when click outside', async () => {
@@ -157,10 +159,10 @@ describe('Toast', () => {
             );
 
             fireEvent.click(getPortalContainer().firstElementChild as HTMLElement);
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
 
             await userEvent.setup({ delay: null }).click(document.body);
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
         });
 
         it('should call onClose after delay', () => {
@@ -168,10 +170,10 @@ describe('Toast', () => {
             render(<Toast onClose={onClose} open={true} autoCloseDelay={3000} />);
 
             jest.advanceTimersByTime(2500);
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
 
             jest.advanceTimersByTime(3500);
-            expect(onClose).toBeCalled();
+            expect(onClose).toHaveBeenCalled();
         });
 
         it('should not call onClose if mouse is over ToastPlate', async () => {
@@ -191,7 +193,7 @@ describe('Toast', () => {
             await userEvent.setup({ delay: null }).hover(toastPlate);
             jest.advanceTimersByTime(5000);
 
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
         });
 
         it('should call onClose after mouse left ToastPlate', () => {
@@ -212,13 +214,13 @@ describe('Toast', () => {
             userEvent.unhover(toastPlate);
             jest.advanceTimersByTime(5000);
 
-            expect(onClose).toBeCalled();
+            expect(onClose).toHaveBeenCalled();
         });
 
         it('should not call onClose if touch ToastPlate', () => {
             const onClose = jest.fn();
             render(
-                <Toast
+                <ToastMobile
                     onClose={onClose}
                     open={true}
                     autoCloseDelay={3000}
@@ -232,7 +234,7 @@ describe('Toast', () => {
             fireEvent.touchStart(toastPlate);
             jest.advanceTimersByTime(5000);
 
-            expect(onClose).not.toBeCalled();
+            expect(onClose).not.toHaveBeenCalled();
         });
 
         it('should render custom toast plate', async () => {
@@ -257,9 +259,97 @@ describe('Toast', () => {
         });
     });
 
+    /**
+     * Кейсы
+     * 1. Таймер срабатывает после истечения delay;
+     * 2. stop() предотвращает срабатывание;
+     * 3. start() перезапускает таймер;
+     * 4. Таймер очищается при размонтировании.
+     */
+    describe('useTimer', () => {
+        const onTimeout = jest.fn();
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+            jest.clearAllTimers();
+        });
+
+        it('should start timer when open', () => {
+            const { rerender } = renderHook(
+                ({ open }) =>
+                    useTimer({
+                        open,
+                        delay: 3000,
+                        onTimeout,
+                    }),
+                { initialProps: { open: false } },
+            );
+
+            expect(onTimeout).not.toHaveBeenCalled();
+
+            rerender({ open: true });
+
+            act(() => {
+                jest.advanceTimersByTime(3000);
+            });
+
+            expect(onTimeout).toHaveBeenCalledTimes(1);
+        });
+
+        it('should clear timer when call stop', () => {
+            const { result } = renderHook(() =>
+                useTimer({
+                    open: true,
+                    delay: 5000,
+                    onTimeout,
+                }),
+            );
+
+            act(() => {
+                result.current.stop();
+                jest.advanceTimersByTime(5000);
+            });
+
+            expect(onTimeout).not.toHaveBeenCalled();
+        });
+
+        it('should restart timer when call start', () => {
+            const { result } = renderHook(() =>
+                useTimer({
+                    open: true,
+                    delay: 2000,
+                    onTimeout,
+                }),
+            );
+
+            act(() => {
+                result.current.start();
+                jest.advanceTimersByTime(2000);
+            });
+
+            expect(onTimeout).toHaveBeenCalledTimes(1);
+        });
+
+        it('should clear timer when unmount', () => {
+            const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
+
+            const { unmount } = renderHook(() =>
+                useTimer({
+                    open: true,
+                    delay: 3000,
+                    onTimeout,
+                }),
+            );
+
+            unmount();
+
+            expect(clearTimeoutSpy).toHaveBeenCalled();
+        });
+    });
+
     it('should unmount without errors', () => {
         const { unmount } = render(<Toast {...baseProps} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

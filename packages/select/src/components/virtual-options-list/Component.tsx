@@ -8,7 +8,7 @@ import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { isClient } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import { GroupShape, OptionShape, OptionsListProps } from '../../typings';
+import { type GroupShape, type OptionShape, type OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVirtualVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
@@ -42,6 +42,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             setSelectedItems,
             search,
             multiple,
+            scrollbarClassName,
         },
         ref,
     ) => {
@@ -205,7 +206,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         const renderWithCustomScrollbar = () => (
             <Scrollbar
-                className={styles.scrollable}
+                className={cn(styles.scrollable, scrollbarClassName)}
                 ref={scrollbarRef}
                 horizontalAutoStretch={optionsListWidth === 'content'}
                 scrollableNodeProps={{ onScroll, ref: parentRef }}
@@ -219,7 +220,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             if (visibleOptions) {
                 return (
                     <div
-                        className={styles.scrollable}
+                        className={cn(styles.scrollable, scrollbarClassName)}
                         ref={mergeRefs([parentRef, ref])}
                         onScroll={onScroll}
                     >

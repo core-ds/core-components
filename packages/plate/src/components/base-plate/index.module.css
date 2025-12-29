@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 @import './vars.css';
 
 .component {
@@ -143,7 +143,7 @@
 
 .light {
     @mixin paragraph_primary_small;
-    padding: 6px var(--gap-12) 6px var(--gap-4);
+    padding: var(--gap-6) var(--gap-12) var(--gap-6) var(--gap-4);
 }
 
 .foldable .content {
@@ -200,7 +200,9 @@
 }
 
 .folder {
-    transition: transform 0.15s ease-in-out, opacity 0.2s ease;
+    transition:
+        transform 0.15s ease-in-out,
+        opacity 0.2s ease;
     transform: var(--arrow-transform);
 
     &.isFolded {

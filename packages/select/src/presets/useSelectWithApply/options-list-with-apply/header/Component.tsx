@@ -1,7 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Checkbox, CheckboxProps } from '@alfalab/core-components-checkbox';
+import { Checkbox, type CheckboxProps } from '@alfalab/core-components-checkbox';
+
+import { SIZE_TO_CLASSNAME_MAP } from '../../../../consts';
+import { type OptionsListProps } from '../../../../typings';
 
 import styles from './index.module.css';
 
@@ -11,6 +14,7 @@ export type HeaderProps = {
     onChange?: CheckboxProps['onChange'];
     mobile?: boolean;
     dataTestId?: string;
+    size?: OptionsListProps['size'];
 };
 
 export const Header: React.FC<HeaderProps> = ({
@@ -19,8 +23,14 @@ export const Header: React.FC<HeaderProps> = ({
     indeterminate,
     mobile,
     dataTestId,
+    size,
 }) => (
-    <div className={cn({ [styles.desktop]: !mobile, [styles.mobile]: mobile })}>
+    <div
+        className={cn(size && styles[SIZE_TO_CLASSNAME_MAP[size]], {
+            [styles.desktop]: !mobile,
+            [styles.mobile]: mobile,
+        })}
+    >
         <Checkbox
             block={true}
             indeterminate={indeterminate}

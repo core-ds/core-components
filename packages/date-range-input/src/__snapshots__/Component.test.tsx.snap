@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`DateRangeInput Display tests should match snapshot 1`] = `
 <div>
@@ -25,7 +25,7 @@ exports[`DateRangeInput Display tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="addons rightAddons"
+          class="addons rightAddons rightAddons size-48"
         />
       </div>
     </div>

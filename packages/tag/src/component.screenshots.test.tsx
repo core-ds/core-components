@@ -5,7 +5,7 @@ import {
     generateTestCases,
     customSnapshotIdentifier,
     createPreview,
-} from '../../screenshot-utils';
+} from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -187,3 +187,59 @@ describe(
         },
     }),
 );
+
+describe('Tag | view variants', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Тег',
+                            size: 48,
+                            view: ['outlined', 'filled', 'transparent'],
+                            checked: [false, true],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Тег',
+                            size: 48,
+                            view: ['outlined', 'filled', 'transparent'],
+                            disabled: true,
+                            checked: [false, true],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Тег',
+                            size: 48,
+                            view: ['outlined', 'filled', 'transparent'],
+                            colors: 'inverted',
+                            checked: [false, true],
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: { width: 1024, height: 100 },
+            theme,
+        })();
+
+    availableThemes.map(testCase);
+});

@@ -1,16 +1,24 @@
-import React, { ChangeEvent, MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
+import React, {
+    type ChangeEvent,
+    forwardRef,
+    type MouseEvent,
+    type ReactNode,
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { CameraMIcon } from '@alfalab/icons-glyph/CameraMIcon';
-import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
+import { AlfaBankSignMIcon } from '@alfalab/icons-logo/AlfaBankSignMIcon';
 import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
 import { MirXxlIcon } from '@alfalab/icons-logotype/MirXxlIcon';
 import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
 
 import { getDefaultInputLabel } from './helpers/getDefaultInputLabel';
 import { MaskTypeEnum } from './enums';
-import { MaskType } from './types';
+import { type MaskType } from './types';
 import { validateCardNumber } from './utils';
 
 import styles from './index.module.css';
@@ -80,10 +88,10 @@ const getBrandIcon = (value = '') => {
     return null;
 };
 
-export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
+export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
     (
         {
-            bankLogo = <AlfaBankLIcon />,
+            bankLogo = <AlfaBankSignMIcon width={30} height={40} />,
             backgroundColor = '#EF3124',
             value,
             className,

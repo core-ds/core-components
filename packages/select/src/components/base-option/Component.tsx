@@ -1,7 +1,8 @@
-import React, { FC, isValidElement } from 'react';
+import React, { type FC, isValidElement } from 'react';
 import cn from 'classnames';
 
-import { OptionProps } from '../../typings';
+import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
+import { type OptionProps } from '../../typings';
 import { BaseCheckmark } from '../base-checkmark';
 
 import styles from './index.module.css';
@@ -20,6 +21,7 @@ export const BaseOption: FC<OptionProps> = ({
     innerProps,
     dataTestId,
     mobile = false,
+    size,
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
@@ -48,7 +50,7 @@ export const BaseOption: FC<OptionProps> = ({
     return (
         <div
             {...innerProps}
-            className={cn(styles.option, className, {
+            className={cn(styles.option, size && styles[SIZE_TO_CLASSNAME_MAP[size]], className, {
                 [styles.highlighted]: !mobile && highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,
@@ -58,6 +60,7 @@ export const BaseOption: FC<OptionProps> = ({
                 [styles.checkmarkBefore]: !isTextContent && checkmarkPosition === 'before',
             })}
             data-test-id={dataTestId}
+            aria-label={option?.value?.name}
         >
             {checkmarkPosition === 'before' && renderCheckmark()}
 

@@ -7,7 +7,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     gap: '20px',
-    width: 260,
+    width: 342,
     padding: 20,
     backgroundColor: 'var(--color-light-base-bg-secondary)',
     borderRadius: '12px',
@@ -20,8 +20,10 @@ render(
         <div style={styles}>
             <Indicator height={48} value={1} view='red' />
             <Indicator height={40} value={1} view='red' />
+            <Indicator height={32} value={1} view='red' />
             <Indicator height={24} value={1} view='red' />
             <Indicator height={20} value={1} view='red' />
+            <Indicator height={16} value={1} view='red' />
             <Indicator view='red' />
         </div>
     </Container>
@@ -30,8 +32,8 @@ render(
 const styles = {
     display: 'flex',
     justifyContent: 'center',
-    gap: '20px',
-    width: 320,
+    gap: '12px',
+    width: '100%',
     padding: 20,
     backgroundColor: 'var(--color-light-base-bg-secondary)',
     borderRadius: '12px',
@@ -44,8 +46,10 @@ render(
         <div style={styles}>
             <Indicator height={48} value={1} view='red' />
             <Indicator height={40} value={1} view='red' />
+            <Indicator height={32} value={1} view='red' />
             <Indicator height={24} value={1} view='red' />
             <Indicator height={20} value={1} view='red' />
+            <Indicator height={16} value={1} view='red' />
             <Indicator view='red' />
         </div>
     </Container>
@@ -108,7 +112,7 @@ const [border, setBorder] = React.useState(false);
 const styles = {
     display: 'flex',
     justifyContent: 'center',
-    gap: '20px',
+    gap: '12px',
     width: 320,
     padding: 20,
     backgroundColor: 'var(--color-light-base-bg-secondary)',
@@ -182,7 +186,7 @@ render(
             <Indicator
                 value={1}
                 height={24}
-                backgroundColor='var(--color-light-neutral-translucent-1300-inverted)'
+                backgroundColor='var(--color-light-base-bg-primary)'
                 color='var(--color-light-status-info)'
                 border={{
                     width: 2,
@@ -196,7 +200,7 @@ render(
 const styles = {
     display: 'flex',
     justifyContent: 'center',
-    gap: '20px',
+    gap: '12px',
     width: 320,
     padding: 20,
     backgroundColor: 'var(--color-light-base-bg-secondary)',
@@ -221,7 +225,7 @@ render(
             <Indicator
                 value={1}
                 height={24}
-                backgroundColor='var(--color-light-neutral-translucent-1300-inverted)'
+                backgroundColor='var(--color-light-base-bg-primary)'
                 color='var(--color-light-status-info)'
                 border={{
                     width: 2,

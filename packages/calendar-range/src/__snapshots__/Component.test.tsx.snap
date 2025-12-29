@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`CalendarRange Display tests should match snapshot 1`] = `
 <div>
@@ -21,7 +21,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               <input
                 class="input size-48 input"
                 inputmode="decimal"
-                pattern="[0-9\\\\.]*"
+                pattern="[0-9\\.]*"
                 placeholder="ДД.ММ.ГГГГ"
                 type="text"
                 value=""
@@ -29,7 +29,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           />
         </div>
       </div>
@@ -51,7 +51,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             >
               <button
                 aria-label="Предыдущий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-previous-day"
                 type="button"
               >
@@ -84,7 +84,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               </span>
               <button
                 aria-label="Следующий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-next-day"
                 type="button"
               >
@@ -941,7 +941,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               <input
                 class="input size-48 input"
                 inputmode="decimal"
-                pattern="[0-9\\\\.]*"
+                pattern="[0-9\\.]*"
                 placeholder="ДД.ММ.ГГГГ"
                 type="text"
                 value=""
@@ -949,7 +949,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="addons rightAddons"
+            class="addons rightAddons rightAddons size-48"
           />
         </div>
       </div>
@@ -969,7 +969,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             >
               <button
                 aria-label="Предыдущий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-previous-day"
                 type="button"
               >
@@ -1002,7 +1002,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               </span>
               <button
                 aria-label="Следующий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-next-day"
                 type="button"
               >

@@ -13,3 +13,6 @@ export * from './context/PortalContext';
 export * from './warning';
 export * from './object';
 export * from './type-checks';
+export * from './get-color-var';
+export * from './mask';
+export * from './human-file-size';

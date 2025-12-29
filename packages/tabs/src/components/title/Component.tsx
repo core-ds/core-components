@@ -1,10 +1,10 @@
-import React, { ButtonHTMLAttributes, forwardRef, useEffect, useRef } from 'react';
+import React, { type ButtonHTMLAttributes, forwardRef, useEffect, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Skeleton, SkeletonProps } from '@alfalab/core-components-skeleton';
+import { Skeleton, type SkeletonProps } from '@alfalab/core-components-skeleton';
 
-import { Styles, TabListTitle } from '../../typings';
+import { type Styles, type TabListTitle } from '../../typings';
 
 type Props = TabListTitle &
     Styles &
@@ -40,10 +40,9 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
     ) => {
         const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-        const titleClassName = {
-            [styles.content]: true,
+        const titleClassName = cn(styles.content, {
             [styles.focused]: focused,
-        };
+        });
 
         useEffect(() => {
             const resizeObserver = new ResizeObserver(() => {
@@ -93,7 +92,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
                         {title}
                     </Skeleton>
                 ) : (
-                    <span className={cn(titleClassName)}>{title}</span>
+                    <span className={titleClassName}>{title}</span>
                 )}
 
                 {rightAddons && (

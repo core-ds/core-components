@@ -1,13 +1,14 @@
-import { RefObject } from 'react';
-import type { MaskitoOptions } from '@maskito/core';
+/* eslint-disable no-bitwise */
+import { type MutableRefObject } from 'react';
+import { type MaskitoOptions, type MaskitoPlugin } from '@maskito/core';
 
-import type { InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
-import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-select/shared';
+import { type InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
+import { type GroupShape, isGroup, type OptionShape } from '@alfalab/core-components-select/shared';
 import { getDataTestId, maskUtils } from '@alfalab/core-components-shared';
 
 import { DEFAULT_PHONE_FORMAT } from '../consts';
-import { CountriesData, countriesData } from '../data/country-data';
-import type { AreaItem, Country } from '../types';
+import { type CountriesData, countriesData } from '../data/country-data';
+import { type AreaItem, type Country } from '../types';
 
 export function initCountries(iso2s?: string[], customCountriesList?: CountriesData[]) {
     const data = customCountriesList ?? countriesData;
@@ -30,13 +31,14 @@ export function initCountries(iso2s?: string[], customCountriesList?: CountriesD
 
         if (country[6]) {
             country[6]?.forEach((areaCode) => {
-                const areaItem: Partial<AreaItem> = { ...countryItem };
+                const areaItem: AreaItem = {
+                    ...countryItem,
+                    dialCode: country[3] + areaCode,
+                    isAreaCode: true,
+                    areaCodeLength: areaCode.length,
+                };
 
-                areaItem.dialCode = country[3] + areaCode;
-                areaItem.isAreaCode = true;
-                areaItem.areaCodeLength = areaCode.length;
-
-                areaItems.push(areaItem as AreaItem);
+                areaItems.push(areaItem);
             });
         }
 
@@ -72,32 +74,40 @@ export function findCountry(
 
 export function guessCountry(inputNumber: string, data: Country[][]) {
     const inputNumberDialCode = inputNumber.slice(0, 6);
-    const result = data.reduce((selectedCountry, countryData) => {
-        let guess;
+    const result = data.reduce(
+        (selectedCountry, countryData) => {
+            let guess;
 
-        countryData.forEach((country) => {
-            if (inputNumberDialCode.startsWith(country.dialCode)) {
-                const selectedCountryDialCode = selectedCountry?.dialCode || '';
-                const selectedCountryPriority = selectedCountry?.priority || 100;
+            countryData.forEach((country) => {
+                if (inputNumberDialCode.startsWith(country.dialCode)) {
+                    const selectedCountryDialCode = selectedCountry?.dialCode || '';
+                    const selectedCountryPriority = selectedCountry?.priority || 100;
 
-                if (country.dialCode.length > selectedCountryDialCode.length) {
-                    guess = country;
+                    if (country.dialCode.length > selectedCountryDialCode.length) {
+                        guess = country;
+                    }
+
+                    if (
+                        country.dialCode.length === selectedCountryDialCode.length &&
+                        country.priority < selectedCountryPriority
+                    ) {
+                        guess = country;
+                    }
                 }
+            });
 
-                if (
-                    country.dialCode.length === selectedCountryDialCode.length &&
-                    country.priority < selectedCountryPriority
-                ) {
-                    guess = country;
-                }
-            }
-        });
+            return guess || selectedCountry;
+        },
+        undefined as Country | undefined,
+    );
 
-        return guess || selectedCountry;
-    }, undefined as Country | undefined);
+    if (!result && inputNumber.startsWith('8')) {
+        const matchContry = data.some(([{ dialCode }]) => dialCode.startsWith(inputNumberDialCode));
 
-    if (!result && inputNumber.length > 5 && inputNumber.startsWith('8'))
-        return data.find((countryData) => countryData[0].iso2 === 'ru')?.[0];
+        if (!matchContry) {
+            return data.find(([{ iso2 }]) => iso2 === 'ru')?.[0];
+        }
+    }
 
     return result;
 }
@@ -164,34 +174,68 @@ export function createMaskOptions(
     country: Country | undefined,
     clearableCountryCode: boolean,
     preserveCountryCode: boolean,
-    lastCountryRef: RefObject<Country | null>,
+    beforeAutofillValueRef: MutableRefObject<string>,
 ): MaskitoOptions {
     const countryCode = country?.countryCode;
     const prefix = countryCode ? getInitialValueFromCountry(countryCode) : '';
     const prefixLen = !clearableCountryCode && prefix ? prefix.length : 0;
     const mask = createPhoneMaskExpression(country, clearableCountryCode);
 
-    const preprocessors = [
-        maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
+    const plugins = [
+        maskUtils.caretGuard((value, [from, to]) => [from === to ? prefixLen : 0, value.length]),
     ];
 
     if (preserveCountryCode) {
-        const createMask = (lastCountry: Country) =>
-            createPhoneMaskExpression(lastCountry, clearableCountryCode);
-
-        preprocessors.push(maskUtils.preserveCountryCodePreprocessor(lastCountryRef, createMask));
+        plugins.push(createMaskitoAutofillPlugin(beforeAutofillValueRef));
     }
 
     return {
         mask,
-        preprocessors,
-        postprocessors: [maskUtils.prefixPostprocessor(prefixLen > 0 ? prefix : '')],
-        plugins: [
-            maskUtils.caretGuard((value, [from, to]) => [
-                from === to ? prefixLen : 0,
-                value.length,
-            ]),
+        preprocessors: [
+            maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
         ],
+        postprocessors: [maskUtils.prefixPostprocessor(prefixLen > 0 ? prefix : '')],
+        plugins,
+    };
+}
+
+function createMaskitoAutofillPlugin(
+    beforeAutofillValueRef: MutableRefObject<string>,
+): MaskitoPlugin {
+    return (element) => {
+        let { value } = element;
+
+        const handleInput = () => {
+            if (element.value.indexOf('+') === -1 && /^\+\d+/.test(value)) {
+                // eslint-disable-next-line no-param-reassign
+                beforeAutofillValueRef.current = value;
+            }
+
+            value = element.value;
+        };
+
+        const handleBlur = () => {
+            if (element.matches(':autofill') || element.matches(':-webkit-autofill')) {
+                // '+7 999 999 99 99' -> ['+7']
+                const match = beforeAutofillValueRef.current.match(/^\+\d+/);
+
+                if (match) {
+                    const [p] = match;
+
+                    if (!value.startsWith(p)) {
+                        maskitoUpdateElement(element, p + value);
+                    }
+                }
+            }
+        };
+
+        element.addEventListener('input', handleInput);
+        element.addEventListener('blur', handleBlur);
+
+        return () => {
+            element.removeEventListener('input', handleInput);
+            element.removeEventListener('blur', handleBlur);
+        };
     };
 }
 
@@ -233,7 +277,7 @@ export function getPhoneData(phone: string, countries: Country[][], defaultIso2?
     const inputNumber = clearMask(nextPhone);
     const nextCountry = findCountry(countries, phone, defaultIso2);
 
-    if (nextCountry?.iso2 === 'ru' && inputNumber.length > 5 && inputNumber.startsWith('8')) {
+    if (nextCountry?.iso2 === 'ru' && inputNumber.startsWith('8')) {
         nextPhone = phone.replace(/\+?8/, '+7');
     }
 
@@ -321,4 +365,21 @@ export function getInternationalPhoneInputMobileTestIds(dataTestId: string) {
 
 export function getInitialValueFromCountry(countryCode: string) {
     return `+${countryCode}`;
+}
+
+/**
+ * @see https://github.com/taiga-family/maskito/issues/804#issuecomment-1862750990
+ */
+function maskitoUpdateElement(
+    element: HTMLInputElement | HTMLTextAreaElement,
+    value: string,
+): void {
+    const initialValue = element.value;
+
+    // eslint-disable-next-line no-param-reassign
+    element.value = value;
+
+    if (element.value !== initialValue) {
+        element.dispatchEvent(new Event('input', { bubbles: true }));
+    }
 }

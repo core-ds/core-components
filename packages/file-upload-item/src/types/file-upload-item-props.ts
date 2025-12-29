@@ -1,4 +1,9 @@
-import React, { ElementType, HTMLAttributeAnchorTarget, MouseEvent } from 'react';
+import {
+    type ElementType,
+    type HTMLAttributeAnchorTarget,
+    type MouseEvent,
+    type ReactNode,
+} from 'react';
 
 import { type FileUploadItemStatus } from './status';
 
@@ -67,7 +72,7 @@ export type FileUploadItemProps = {
     /**
      * Дочерние элементы
      */
-    children?: React.ReactNode;
+    children?: ReactNode;
 
     /**
      * Обработчик загрузки файла
@@ -88,6 +93,11 @@ export type FileUploadItemProps = {
      * Управление активностью кнопок
      */
     disableButtons?: boolean;
+
+    /**
+     * Управление отображением кликабельности элемента Content
+     */
+    isClickable?: boolean;
 
     /**
      * Указывает, где открыть скачиваемый документ
@@ -118,6 +128,12 @@ export type FileUploadItemProps = {
     progressBar?: number;
 
     /**
+     * Шкала прогресса
+     * @default true
+     */
+    progressBarAvailable?: boolean;
+
+    /**
      * Кастомный контент
      */
     customContent?: ElementType;
@@ -132,4 +148,9 @@ export type FileUploadItemProps = {
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
      */
     imageUrl?: string;
+
+    /**
+     * Цвет заливки `StatusControl`
+     */
+    backgroundColor?: string;
 };

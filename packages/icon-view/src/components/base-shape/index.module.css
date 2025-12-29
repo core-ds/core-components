@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
     --icon-view-color: var(--color-light-neutral-translucent-700);
@@ -32,6 +32,14 @@
     stroke: var(--color-light-neutral-translucent-200);
     stroke-width: 1px;
     fill: transparent;
+}
+
+.imageFit {
+    object-fit: contain;
+}
+
+.imageFill {
+    object-fit: cover;
 }
 
 .text {
@@ -122,7 +130,7 @@
     }
 
     & .indicator {
-        top: -6px;
+        top: var(--gap-6-neg);
         right: -14px;
     }
 }
@@ -183,7 +191,7 @@
 
     & .indicator {
         top: var(--gap-8-neg);
-        right: var(--gap-8-neg);
+        right: var(--gap-16-neg);
     }
 }
 
@@ -203,16 +211,16 @@
 
     & .topAddons {
         top: var(--gap-8-neg);
-        right: -6px;
+        right: var(--gap-6-neg);
     }
 
     & .bottomAddons {
         bottom: var(--gap-8-neg);
-        right: -6px;
+        right: var(--gap-6-neg);
     }
 
     & .indicator {
-        top: -6px;
+        top: var(--gap-6-neg);
         right: var(--gap-12-neg);
     }
 }

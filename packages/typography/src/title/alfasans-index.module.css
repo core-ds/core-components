@@ -1,0 +1,11 @@
+@import '@alfalab/core-components-vars/src/alfasans-index.css';
+
+@each $view in xlarge, large, medium, small, xsmall {
+    .alfasans-$(view) {
+        @mixin headline_$(view);
+
+        &.systemCompat {
+            @subtract-mixin headline-system_$(view), headline_$(view);
+        }
+    }
+}

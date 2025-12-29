@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef, type ReactNode } from 'react';
 import cn from 'classnames';
 
 import { Gap } from '@alfalab/core-components-gap';

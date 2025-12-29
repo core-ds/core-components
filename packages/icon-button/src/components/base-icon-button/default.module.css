@@ -1,0 +1,183 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+:root {
+    /* primary */
+    --icon-button-primary-base-color: var(--color-light-neutral-translucent-1300);
+    --icon-button-primary-hover-color: var(--color-light-neutral-translucent-1300-hover);
+    --icon-button-primary-active-color: var(--color-light-neutral-translucent-1300-press);
+    --icon-button-primary-disabled-color: var(--color-light-neutral-translucent-300);
+
+    /* secondary */
+    --icon-button-secondary-base-color: var(--color-light-neutral-translucent-700);
+    --icon-button-secondary-hover-color: var(--color-light-neutral-translucent-700-hover);
+    --icon-button-secondary-active-color: var(--color-light-neutral-translucent-700-press);
+    --icon-button-secondary-disabled-color: var(--color-light-neutral-translucent-300);
+
+    /* transparent */
+    --icon-button-transparent-base-color: var(--color-light-neutral-translucent-500);
+    --icon-button-transparent-hover-color: var(--color-light-neutral-translucent-500-hover);
+    --icon-button-transparent-active-color: var(--color-light-neutral-translucent-500-press);
+    --icon-button-transparent-disabled-color: var(--color-light-neutral-translucent-300);
+
+    /* tertiary */
+    --icon-button-tertiary-base-color: var(--color-light-neutral-translucent-500);
+    --icon-button-tertiary-hover-color: var(--color-light-neutral-translucent-500-hover);
+    --icon-button-tertiary-active-color: var(--color-light-neutral-translucent-500-press);
+    --icon-button-tertiary-disabled-color: var(--color-light-neutral-translucent-300);
+
+    /* negative */
+    --icon-button-negative-base-color: var(--color-light-status-negative);
+    --icon-button-negative-hover-color: var(--color-light-status-negative-hover);
+    --icon-button-negative-active-color: var(--color-light-status-negative-press);
+    --icon-button-negative-disabled-color: var(--color-light-neutral-translucent-300);
+}
+
+:global(.cc-icon-button) {
+    &.primary {
+        color: var(--icon-button-primary-base-color);
+
+        @mixin hover {
+            color: var(--icon-button-primary-hover-color);
+        }
+
+        &:active {
+            color: var(--icon-button-primary-active-color);
+        }
+    }
+
+    &.secondary {
+        color: var(--icon-button-secondary-base-color);
+
+        @mixin hover {
+            color: var(--icon-button-secondary-hover-color);
+        }
+
+        &:active {
+            color: var(--icon-button-secondary-active-color);
+        }
+    }
+
+    &.transparent {
+        color: var(--icon-button-transparent-base-color);
+
+        @mixin hover {
+            color: var(--icon-button-transparent-hover-color);
+        }
+
+        &:active {
+            color: var(--icon-button-transparent-active-color);
+        }
+    }
+
+    &.negative {
+        color: var(--icon-button-negative-base-color);
+
+        @mixin hover {
+            color: var(--icon-button-negative-hover-color);
+        }
+
+        &:active {
+            color: var(--icon-button-negative-active-color);
+        }
+    }
+
+    &.tertiary {
+        color: var(--icon-button-tertiary-base-color);
+
+        @mixin hover {
+            color: var(--icon-button-tertiary-hover-color);
+        }
+
+        &:active {
+            color: var(--icon-button-tertiary-active-color);
+        }
+    }
+
+    &.transparentBg {
+        &.primary {
+            color: var(--color-light-text-primary);
+
+            @mixin hover {
+                background: var(--color-light-transparent-default-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-press);
+            }
+        }
+
+        &.secondary {
+            color: var(--color-light-text-secondary);
+
+            @mixin hover {
+                background: var(--color-light-transparent-default-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-press);
+            }
+        }
+
+        &.negative {
+            color: var(--color-light-text-negative);
+
+            @mixin hover {
+                background: var(--color-light-transparent-default-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-press);
+            }
+        }
+
+        &.tertiary {
+            color: var(--color-light-text-tertiary);
+
+            @mixin hover {
+                background: var(--color-light-transparent-default-hover);
+            }
+
+            &:active {
+                background: var(--color-light-transparent-default-press);
+            }
+        }
+    }
+
+    &.component:disabled {
+        &.primary {
+            color: var(--icon-button-primary-disabled-color);
+
+            &.loader {
+                color: var(--icon-button-primary-base-color);
+            }
+        }
+
+        &.secondary {
+            color: var(--icon-button-secondary-disabled-color);
+
+            &.loader {
+                color: var(--icon-button-secondary-base-color);
+            }
+        }
+
+        &.negative {
+            color: var(--icon-button-negative-disabled-color);
+
+            &.loader {
+                color: var(--icon-button-negative-base-color);
+            }
+        }
+
+        &.tertiary {
+            color: var(--icon-button-tertiary-disabled-color);
+
+            &.loader {
+                color: var(--icon-button-tertiary-base-color);
+            }
+        }
+
+        &.transparentBg {
+            background: transparent;
+        }
+    }
+}
