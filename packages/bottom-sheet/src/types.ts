@@ -63,6 +63,11 @@ export type BottomSheetProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для обертки контейнера
+     */
+    bottomSheetWrapperClassName?: string;
+
+    /**
      * Дополнительный класс
      */
     contentClassName?: string;
@@ -164,6 +169,16 @@ export type BottomSheetProps = {
      * Порог свайпа
      */
     swipeThreshold?: number;
+
+    /**
+     * Дополнительный класс для слота над шторкой
+     */
+    outerClassName?: string;
+
+    /**
+     * Слот над шторкой
+     */
+    outerAddons?: ReactNode;
 
     /**
      * Слот слева
