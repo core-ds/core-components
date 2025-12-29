@@ -5,4 +5,4 @@
 
 ##### Popover
 
-- Позиционирование Popper теперь использует `strategy: 'fixed'`, чтобы поповер с большим контентом не увеличивал `documentElement.scrollHeight` и не ломал скролл страницы.
+- Позиционирование Popover теперь использует `strategy: 'fixed'`, чтобы поповер с большим контентом не увеличивал `documentElement.scrollHeight` и не ломал скролл страницы.
