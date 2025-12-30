@@ -297,6 +297,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         } = usePopper(referenceElement, popperElement, {
             placement: position,
             modifiers: popperModifiers,
+            strategy: 'fixed',
         });
 
         if (updatePopper) {
