@@ -1,11 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Input } from '@alfalab/core-components-input';
+import { NumberInput } from '@alfalab/core-components-number-input';
 
 import userEvent from '@testing-library/user-event';
 import { withSuffix } from './index';
 
 const SuffixInput = withSuffix(Input);
+const NumberSuffixInput = withSuffix(NumberInput);
 
 describe('withSuffix', () => {
     Object.defineProperty(window, 'matchMedia', {
@@ -70,5 +72,24 @@ describe('withSuffix', () => {
         const { unmount } = render(<SuffixInput value='10' suffix=' лет' />);
 
         expect(unmount).not.toThrow();
+    });
+
+    describe('NumberInput', () => {
+        it('should render suffix with NumberInput', async () => {
+            const suffix = ' мес';
+            const { container } = render(<NumberSuffixInput value={12} suffix={suffix} />);
+
+            await new Promise((resolve) => requestAnimationFrame(resolve));
+
+            expect(container.querySelector('.suffixVisible')).toBeInTheDocument();
+        });
+
+        it('should forward ref to html input with NumberInput', () => {
+            const inputRef = jest.fn();
+            const dataTestId = 'number-test-id';
+            render(<NumberSuffixInput ref={inputRef} dataTestId={dataTestId} />);
+
+            expect(inputRef.mock.calls[0][0].tagName).toBe('INPUT');
+        });
     });
 });

@@ -1,4 +1,5 @@
 import React, {
+    type ChangeEvent,
     type FC,
     forwardRef,
     Fragment,
@@ -11,12 +12,16 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { type InputProps } from '@alfalab/core-components-input';
+import { type NumberInputProps } from '@alfalab/core-components-number-input';
 import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export type withSuffixProps = InputProps & {
+type InputRef = RefAttributes<HTMLInputElement>;
+
+type BaseInputProps = InputProps | NumberInputProps;
+
+type SuffixExtraProps = {
     /**
      * Дополнительный закрепленный текст справа от основного значения.
      * Например: value='85' suffix=' мес' -> 85 мес
@@ -29,8 +34,11 @@ export type withSuffixProps = InputProps & {
     suffixContainerClassName?: string;
 };
 
-export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement>>) =>
-    forwardRef<HTMLInputElement, withSuffixProps>(
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export type withSuffixProps<P extends BaseInputProps> = P & SuffixExtraProps;
+
+export const withSuffix = <P extends BaseInputProps>(Input: FC<P & InputRef>) =>
+    forwardRef<HTMLInputElement, withSuffixProps<P>>(
         (
             {
                 value,
@@ -53,11 +61,12 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
 
             const [stateValue, setStateValue] = useState(defaultValue || '');
 
-            const handleInputChange = useCallback<Required<InputProps>['onChange']>(
-                (event, payload) => {
-                    if (onChange) {
-                        onChange(event, payload);
-                    }
+            const handleInputChange = useCallback(
+                (
+                    event: ChangeEvent<HTMLInputElement>,
+                    payload: { value: string } & { value: number | null },
+                ) => {
+                    onChange?.(event, payload);
 
                     if (uncontrolled) {
                         setStateValue(payload.value);
@@ -66,15 +75,13 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                 [onChange, uncontrolled],
             );
 
-            const handleClear = useCallback<Required<InputProps>['onClear']>(
+            const handleClear = useCallback<Required<BaseInputProps>['onClear']>(
                 (event) => {
                     if (uncontrolled) {
                         setStateValue('');
                     }
 
-                    if (onClear) {
-                        onClear(event);
-                    }
+                    onClear?.(event);
                 },
                 [onClear, uncontrolled],
             );
@@ -89,22 +96,24 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
 
             const isInverted = restProps.colors === 'inverted';
 
+            const inputProps = {
+                ref: mergeRefs([ref, setInputNode]),
+                value: visibleValue,
+                disabled,
+                readOnly,
+                onChange: handleInputChange,
+                onClear: handleClear,
+                placeholder,
+                className: cn(className, {
+                    [styles.suffixVisible]: Boolean(visibleValue),
+                    [styles.hasSuffix]: suffix,
+                }),
+                ...restProps,
+            } as unknown as P & InputRef;
+
             return (
                 <Fragment>
-                    <Input
-                        ref={mergeRefs([ref, setInputNode])}
-                        value={visibleValue}
-                        disabled={disabled}
-                        readOnly={readOnly}
-                        onChange={handleInputChange}
-                        onClear={handleClear}
-                        placeholder={placeholder}
-                        className={cn(className, {
-                            [styles.suffixVisible]: Boolean(visibleValue),
-                            [styles.hasSuffix]: suffix,
-                        })}
-                        {...restProps}
-                    />
+                    <Input {...inputProps} />
                     <Portal getPortalContainer={getPortalContainer}>
                         <div
                             translate='no'
