@@ -1,27 +1,36 @@
 import React, {
-    type FocusEvent,
+    type ChangeEventHandler,
+    type FocusEventHandler,
     forwardRef,
     Fragment,
-    useCallback,
+    type MouseEventHandler,
     useEffect,
+    useMemo,
+    useRef,
     useState,
 } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Input, type InputProps } from '@alfalab/core-components-input';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
-import { getMinMaxOrDefault, parseNumber } from '@alfalab/core-components-number-input/utils';
-import { fnUtils } from '@alfalab/core-components-shared';
-import { withSuffix, type withSuffixProps } from '@alfalab/core-components-with-suffix';
+import { getMinMaxOrDefault } from '@alfalab/core-components-number-input/utils';
+import { isNonNullable } from '@alfalab/core-components-shared';
+import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { type CurrencyCodes } from '@alfalab/data';
-import { formatAmount, MMSP, THINSP } from '@alfalab/utils';
+import { MMSP, THINSP } from '@alfalab/utils';
 
 import {
-    getAmountValueFromStr,
-    getCurrencyCodeWithFormat,
-    getFormattedValue,
-    getVisiblePlaceholder,
-} from './utils';
+    appendDecimalPart,
+    DEFAULT_DECIMAL_SEPARATORS,
+    DEFAULT_MINUS_SIGNS,
+    maskitoOptionsGenerator,
+    type NumberParams,
+    parseNumber,
+    stringifyNumber,
+} from './maskito-utils';
+import { useMaskito } from './use-maskito';
+import { getCurrencyCodeWithFormat, getVisiblePlaceholder } from './utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -30,14 +39,18 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
+} as const;
 
-export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
+export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
-     * Значение null - значит не установлено
      */
     value?: string | number | null;
+
+    /**
+     * Значение по-умолчанию в минорных единицах
+     */
+    defaultValue?: string | number | null;
 
     /**
      * Формат отображения кода валюты
@@ -144,14 +157,15 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
     (
         {
             view = 'default',
-            value = null,
-            integerLength: integerLengthProp = 9,
+            defaultValue = null,
+            value: valueFromProps,
+            integerLength = 9,
             minority = 100,
             currency = 'RUR',
             suffix = currency,
             codeFormat = 'symbolic',
-            placeholder = `0\u2009${
-                suffix === currency ? getCurrencyCodeWithFormat(currency, codeFormat) || '' : suffix
+            placeholder = `0${THINSP}${
+                suffix === currency ? getCurrencyCodeWithFormat(currency, codeFormat) : suffix
             }`,
             integersOnly = false,
             positiveOnly = true,
@@ -172,231 +186,182 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             inputClassName,
             label,
             labelView,
-            stepper = {},
+            stepper,
             rightAddons,
+            // don't needed, used maskito
+            pattern,
             ...restProps
         },
         ref,
     ) => {
-        const integerLength = Math.min(integerLengthProp, 15);
+        const wrapperRef = useRef<HTMLDivElement>(null);
+        const inputRef = useRef<HTMLInputElement>(null);
+        const uncontrolled = valueFromProps === undefined;
+        const numberParams = useMemo<NumberParams>(() => {
+            const decimalLength = Math.trunc(Math.log10(minority));
+            const maximumFractionDigits = integersOnly ? 0 : decimalLength;
+            const minusSign = '\u2212';
+            const decimalSeparator = ',';
+            const thousandSeparator = MMSP;
+            const decimalPseudoSeparators = DEFAULT_DECIMAL_SEPARATORS.filter(
+                (x) => x !== decimalSeparator,
+            );
+            const minusPseudoSigns = DEFAULT_MINUS_SIGNS.filter((x) => x !== minusSign);
 
-        const { min: minStepperValue, max: maxStepperValue } = getMinMaxOrDefault({
-            minProp: stepper.min,
-            maxProp: stepper.max,
-        });
-        const withStepper = !fnUtils.isNil(stepper?.step);
+            return {
+                minusSign,
+                decimalSeparator,
+                thousandSeparator,
+                maximumFractionDigits,
+                decimalPseudoSeparators,
+                minusPseudoSigns,
+            };
+        }, [integersOnly, minority]);
+        const maskitoOptions = useMemo(
+            () =>
+                maskitoOptionsGenerator(numberParams, positiveOnly, view, integerLength, () => {
+                    const classList = wrapperRef.current?.classList;
 
-        const getFormattedAmount = useCallback(
-            (val: string | number | null) => {
-                if (val === '' || val === null || val === '-') return '';
-
-                return formatAmount({
-                    value: +val,
-                    currency,
-                    minority,
-                    view,
-                    negativeSymbol: 'hyphen-minus',
-                }).formatted;
-            },
-            [currency, minority, view],
+                    if (classList) {
+                        if (classList.contains(styles.inputReject0)) {
+                            classList.remove(styles.inputReject0);
+                            classList.add(styles.inputReject1);
+                        } else {
+                            classList.remove(styles.inputReject1);
+                            classList.add(styles.inputReject0);
+                        }
+                    }
+                }),
+            [integerLength, numberParams, positiveOnly, view],
+        );
+        const maskitoRef = useMaskito({ options: maskitoOptions });
+        const [numberValue, setNumberValue] = useState(valueFromProps ?? defaultValue);
+        const [inputValue, setInputValue] = useState(() =>
+            stringifyNumber(numberValue, numberParams),
         );
 
-        const [inputValue, setInputValue] = useState<string>(() => getFormattedAmount(value));
-        const [isFocused, setIsFocused] = useState<boolean>(false);
+        if (!uncontrolled) {
+            const valueFromPropsOrNull = valueFromProps ?? null;
 
-        const [majorPart, minorPart] = inputValue.split(',');
-        const currencyCode = getCurrencyCodeWithFormat(currency, codeFormat);
+            if (!(numberValue === valueFromPropsOrNull)) {
+                setNumberValue(valueFromPropsOrNull);
+            }
+        }
 
         useEffect(() => {
-            const currentAmountValue = getAmountValueFromStr(inputValue, minority);
+            let valueString = stringifyNumber(numberValue, numberParams);
+            const input = inputRef.current;
 
-            if (currentAmountValue !== value) {
-                setInputValue(getFormattedAmount(value));
-            }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [value, getFormattedAmount]);
-
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            const input = e.target;
-            let enteredValue = input.value
-                .replace(/\s/g, '')
-                .replace('.', ',')
-                .replace(/[^0-9,-]/g, '');
-
-            if (integersOnly) {
-                [enteredValue] = enteredValue.split(',');
+            if (!input?.matches(':focus')) {
+                valueString = appendDecimalPart(valueString, numberParams, view);
             }
 
-            // Эта проверка нужна для того, чтобы обрабатывать значение, переданное в input, длина которого превышает integerLength
-            const integer = integersOnly ? enteredValue : enteredValue.split(',')[0];
+            setInputValue((prevInputValue) => {
+                if (
+                    valueString.length > 0 &&
+                    prevInputValue.startsWith(valueString) &&
+                    prevInputValue.length > valueString.length
+                ) {
+                    const diff = prevInputValue.slice(valueString.length - prevInputValue.length);
 
-            if (integer.length > integerLength) {
-                enteredValue = enteredValue.slice(0, integerLength);
-            }
-
-            // Сокращение минимальной длины мажорной части числа до 0 позволяет ввести "," => "0,"
-            const isCorrectEnteredValue = RegExp(
-                `(^${positiveOnly ? '' : '-?'}[0-9]{0,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
-            ).test(enteredValue);
-
-            let caret = input.selectionStart as number;
-
-            if (isCorrectEnteredValue) {
-                if (inputValue[caret] === MMSP) {
-                    enteredValue = enteredValue.slice(0, caret - 1) + enteredValue.slice(caret);
-                    caret -= 1;
-                }
-
-                const newFormattedValue = getFormattedValue(enteredValue, currency, minority);
-
-                if (newFormattedValue === inputValue) {
-                    window.requestAnimationFrame(() => {
-                        input.selectionStart = caret;
-                        input.selectionEnd = caret;
-                    });
-                } else {
-                    /**
-                     * Поддержка положения каретки
-                     * Поскольку при форматировании введенного значения могут появляться символы типа пробела
-                     * или запятая - каретка прыгает в конец и ее необходимо ставить в правильное место
-                     */
-
-                    // Узнаем длину оригинального инпута с условием обрезания лишних символов
-
-                    const [head, tail] = input.value.split(/\.|,/);
-                    let notFormattedEnteredValueLength = head.length;
-
-                    if (tail) {
-                        notFormattedEnteredValueLength += 1; // запятая или точка
-                        notFormattedEnteredValueLength += tail.slice(
-                            0,
-                            minority.toString().length - 1,
-                        ).length; // символы в минорной части
+                    if (new RegExp(`^${numberParams.decimalSeparator}?0+$`).test(diff)) {
+                        return prevInputValue;
                     }
-
-                    const diff = newFormattedValue.length - notFormattedEnteredValueLength;
-
-                    caret += diff;
-
-                    window.requestAnimationFrame(() => {
-                        input.selectionStart = caret;
-                        input.selectionEnd = caret;
-                    });
                 }
 
-                setInputValue(newFormattedValue);
-                onChange?.(e, {
-                    value: getAmountValueFromStr(newFormattedValue, minority),
-                    valueString: newFormattedValue,
-                });
-            } else {
-                // Не двигаем каретку когда вставляется невалидный символ
-                caret -= 1;
+                return valueString;
+            });
+        }, [numberParams, numberValue, view]);
 
-                window.requestAnimationFrame(() => {
-                    input.selectionStart = caret;
-                    input.selectionEnd = caret;
-                });
+        const numberValueOrZero = useMemo(() => Number(`${numberValue || '0'}`), [numberValue]);
+
+        const { min: minStepperValue, max: maxStepperValue } = getMinMaxOrDefault({
+            minProp: stepper?.min,
+            maxProp: stepper?.max,
+        });
+        const withStepper = isNonNullable(stepper?.step);
+        const [isFocused, setIsFocused] = useState(false);
+        const [majorPart, minorPart] = inputValue.split(numberParams.decimalSeparator);
+        const currencyCode = getCurrencyCodeWithFormat(currency, codeFormat);
+
+        const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+            const { value } = event.target;
+
+            setInputValue(value);
+
+            if (
+                value.startsWith(numberParams.decimalSeparator) ||
+                value.endsWith(numberParams.decimalSeparator) ||
+                (value !== '0' &&
+                    new RegExp(
+                        `^${numberParams.minusSign}?0?(${numberParams.decimalSeparator}0*)?$`,
+                    ).test(value)) ||
+                new RegExp(`^${numberParams.minusSign}?0[^${numberParams.decimalSeparator}]`).test(
+                    value,
+                )
+            ) {
+                return;
+            }
+
+            const numOrNull = parseNumber(value, numberParams);
+
+            onChange?.(event, {
+                value: numOrNull,
+                valueString: value,
+            });
+
+            if (uncontrolled) {
+                setNumberValue(numOrNull);
             }
         };
 
-        const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-            const isModifierKeys = event.ctrlKey || event.altKey || event.metaKey || event.shiftKey;
-
-            // Не двигаем каретку когда вводится невалидный символ
-            if (!isModifierKeys && event.key.length === 1 && /[^0-9,.-]/.test(event.key)) {
-                event.preventDefault();
-            }
-
-            onKeyDown?.(event);
-        };
-
-        const handleFocus: withSuffixProps['onFocus'] = (e) => {
+        const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
             setIsFocused(true);
-
-            onFocus?.(e);
+            onFocus?.(event);
         };
 
-        const handleClear = useCallback(
-            (event: React.MouseEvent<HTMLButtonElement>) => {
-                setInputValue('');
-
-                if (onClear) {
-                    onClear(event);
-                }
-            },
-            [onClear],
-        );
-
-        /**
-         * Отбросить десятичный разделитель если находится в конце числа
-         * 123, => 123
-         */
-        const dropDecimalSeparator = (event: FocusEvent<HTMLInputElement>) => {
-            if (inputValue.endsWith(',')) {
-                const pattern = /[,\s]/g; // пробелы и запятые
-                const newValue = Number(inputValue.replace(pattern, '')) * minority;
-                const formatted = getFormattedAmount(newValue);
-
-                setInputValue(formatted);
-                onChange?.(event, {
-                    value: newValue,
-                    valueString: formatted,
-                });
-            }
-        };
-
-        const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-            if (view === 'withZeroMinorPart') {
-                const newValue = getAmountValueFromStr(inputValue, minority);
-
-                if (newValue !== null) {
-                    const formatted = getFormattedAmount(newValue);
-
-                    if (formatted !== inputValue) {
-                        setInputValue(formatted);
-                        onChange?.(event, {
-                            value: newValue,
-                            valueString: formatted,
-                        });
-                    }
-                }
-            }
-
-            if (view === 'default') {
-                dropDecimalSeparator(event);
-            }
-
+        const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
             setIsFocused(false);
-
             onBlur?.(event);
         };
 
-        const handleDecrement = () => {
-            if (stepper.step) {
-                const newValue = parseNumber(value) - stepper.step;
-                const newFormattedValue = getFormattedAmount(newValue);
+        const handleClear: MouseEventHandler<HTMLButtonElement> = (event) => {
+            onClear?.(event);
 
-                setInputValue(newFormattedValue);
+            if (uncontrolled) {
+                setNumberValue(null);
+            }
+        };
+
+        const handleDecrement = () => {
+            if (stepper?.step) {
+                const value = numberValueOrZero - stepper.step;
+                const valueString = stringifyNumber(value, numberParams);
 
                 onChange?.(null, {
-                    value: newValue,
-                    valueString: newFormattedValue,
+                    value,
+                    valueString,
                 });
+
+                if (uncontrolled) {
+                    setNumberValue(value);
+                }
             }
         };
 
         const handleIncrement = () => {
-            if (stepper.step) {
-                const newValue = parseNumber(value) + stepper.step;
-                const newFormattedValue = getFormattedAmount(newValue);
-
-                setInputValue(newFormattedValue);
+            if (stepper?.step) {
+                const value = numberValueOrZero + stepper.step;
+                const valueString = stringifyNumber(value, numberParams);
 
                 onChange?.(null, {
-                    value: newValue,
-                    valueString: newFormattedValue,
+                    value,
+                    valueString,
                 });
+
+                if (uncontrolled) {
+                    setNumberValue(value);
+                }
             }
         };
 
@@ -410,7 +375,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             dataTestId={dataTestId}
                             disabled={restProps.disabled}
                             focused={isFocused && !restProps.disableUserInput}
-                            value={parseNumber(value)}
+                            value={numberValueOrZero}
                             min={minStepperValue}
                             max={maxStepperValue}
                             onIncrement={handleIncrement}
@@ -447,7 +412,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                                 })}
                             >
                                 {minorPart !== undefined && (
-                                    <span className={styles.suffixMinor}>{`,${minorPart}`}</span>
+                                    <span
+                                        className={styles.suffixMinor}
+                                    >{`${numberParams.decimalSeparator}${minorPart}`}</span>
                                 )}
                                 {THINSP}
                                 <span className={styles.suffixCurrency}>
@@ -466,17 +433,16 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     className={cn(styles.component, className)}
                     focusedClassName={focusedClassName}
                     inputClassName={cn(styles.input, inputClassName)}
-                    onChange={handleChange}
+                    onInput={handleChange}
                     onClear={handleClear}
-                    onBlur={handleBlur}
-                    onKeyDown={handleKeyDown}
                     onFocus={handleFocus}
-                    inputMode='decimal'
-                    pattern={`[${positiveOnly ? '' : '\\-'}0-9\\s\\.,]*`}
+                    onBlur={handleBlur}
+                    inputMode={numberParams.maximumFractionDigits === 0 ? 'numeric' : 'decimal'}
                     dataTestId={dataTestId}
-                    ref={ref}
+                    ref={mergeRefs([ref, inputRef, maskitoRef])}
                     breakpoint={breakpoint}
                     client={client}
+                    wrapperRef={mergeRefs([wrapperRef, restProps.wrapperRef ?? null])}
                 />
             </div>
         );
