@@ -2,6 +2,7 @@ import React, {
     createRef,
     type FocusEventHandler,
     forwardRef,
+    type MouseEventHandler,
     type RefObject,
     useEffect,
     useImperativeHandle,
@@ -18,6 +19,8 @@ import {
     type CustomInputRef,
 } from '../../typings';
 import { Input, type InputProps } from '..';
+
+import { clampFocusIndex, syncSelection } from './utils';
 
 import styles from './index.module.css';
 
@@ -39,6 +42,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             onChange,
             onComplete,
             stylesInput = {},
+            restrictFocus = false,
         },
         ref,
     ) => {
@@ -53,9 +57,42 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         const [values, setValues] = useState(initialValues.split(''));
 
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
+        const programmaticFocusRef = useRef(false);
 
         const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
             inputRef?.current?.focus();
+        };
+
+        const handleClick: MouseEventHandler<HTMLInputElement> = (event) => {
+            const target = event.currentTarget;
+
+            if (document.activeElement !== target) {
+                return;
+            }
+
+            syncSelection(target);
+        };
+
+        const handleMouseDown: MouseEventHandler<HTMLDivElement> = (event) => {
+            const requestedIndex = Number(
+                (event.target as Element | null)?.closest<HTMLElement>(
+                    'input[data-code-input-index]',
+                )?.dataset.codeInputIndex,
+            );
+
+            if (Number.isNaN(requestedIndex)) return;
+
+            const shouldRedirectToFirst = requestedIndex > 0 && values.every((value) => !value);
+            let targetIndex = requestedIndex;
+
+            if (restrictFocus) targetIndex = clampFocusIndex({ values, fields, requestedIndex });
+
+            if (shouldRedirectToFirst) targetIndex = 0;
+
+            if (targetIndex === requestedIndex) return;
+
+            event.preventDefault();
+            focusOnInput(inputRefs[targetIndex]);
         };
 
         const focus = (index = 0) => {
@@ -132,7 +169,8 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             setValues(newValues);
 
             if (nextRef?.current) {
-                nextRef.current.focus();
+                programmaticFocusRef.current = true;
+                focusOnInput(nextRef);
 
                 nextRef.current.select();
             }
@@ -156,7 +194,6 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             const nextIndex = index + 1;
 
             const prevRef = inputRefs[prevIndex];
-            const nextRef = inputRefs[nextIndex];
             const curtRef = inputRefs[index];
 
             const newValues = [...values];
@@ -167,6 +204,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
                     if (values[index]) {
                         newValues[index] = '';
+                        focusOnInput(curtRef);
                     } else if (prevRef) {
                         newValues[prevIndex] = '';
 
@@ -182,14 +220,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     event.preventDefault();
 
                     newValues[index] = '';
-
-                    if (!values[nextIndex]) {
-                        focusOnInput(curtRef);
-                    }
-
-                    if (nextRef) {
-                        focusOnInput(nextRef);
-                    }
+                    focusOnInput(curtRef);
 
                     setValues(newValues);
 
@@ -204,14 +235,25 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     }
 
                     break;
-                case 'ArrowRight':
+                case 'ArrowRight': {
                     event.preventDefault();
 
-                    if (nextRef) {
-                        focusOnInput(nextRef);
+                    if (!restrictFocus && index === 0 && !values[0]) {
+                        break;
                     }
 
+                    const targetIndex = restrictFocus
+                        ? clampFocusIndex({
+                              values,
+                              fields,
+                              requestedIndex: nextIndex,
+                          })
+                        : nextIndex;
+
+                    focusOnInput(inputRefs[targetIndex]);
+
                     break;
+                }
                 case 'ArrowUp':
                 case 'ArrowDown':
                     event.preventDefault();
@@ -223,14 +265,17 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
         const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
             event.persist();
-            const target = event.target as HTMLInputElement;
+            const target = event.currentTarget;
 
-            /**
-             * В сафари выделение корректно работает только с асинхронным вызовом
-             */
-            requestAnimationFrame(() => {
-                target?.select();
-            });
+            if (programmaticFocusRef.current) {
+                programmaticFocusRef.current = false;
+
+                syncSelection(target);
+
+                return;
+            }
+
+            syncSelection(target);
         };
 
         const handleErrorAnimationEnd = () => {
@@ -291,7 +336,10 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 data-test-id={dataTestId}
                 onAnimationEnd={handleErrorAnimationEnd}
             >
-                <div className={cn({ [styles.shake]: Boolean(error) })}>
+                <div
+                    className={cn({ [styles.shake]: Boolean(error) })}
+                    onMouseDownCapture={disabled ? undefined : handleMouseDown}
+                >
                     {/* eslint-disable react/no-array-index-key */}
                     {new Array(fields).fill('').map((_, index) => (
                         <Input
@@ -302,6 +350,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                             disabled={disabled}
                             error={!!error}
                             onChange={handleChangeFromEvent}
+                            onClick={handleClick}
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
                             stylesInput={stylesInput}
