@@ -1,5 +1,87 @@
 # @alfalab/core-components
 
+## 49.12.0
+
+### Minor Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#2002](https://github.com/core-ds/core-components/pull/2002)
+
+##### BottomSheet
+
+- Добавлен слот `outerAddons` (контент над шторкой), пропы `bottomSheetWrapperClassName` и `outerClassName` для стилизации.
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1983](https://github.com/core-ds/core-components/pull/1983)
+
+##### BaseModal
+
+- Добавили блокировку фонового скролла через `react-remove-scroll` для `BaseModal` (и компонентов на его базе).
+- Добавили проп `scrollLock?: boolean` для управления блокировкой скролла (по умолчанию выключен).
+- Пропсы `disableBlockingScroll` и `iOSLock` помечены как deprecated (оставлены для обратной совместимости).
+
+##### BottomSheet
+
+- Подключили блокировку фонового скролла (через `BaseModal` / `react-remove-scroll`).
+- Добавили проп `scrollLock?: boolean` (по умолчанию включён), `disableBlockingScroll` и `iOSLock` помечены как deprecated.
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1995](https://github.com/core-ds/core-components/pull/1995)
+
+##### BaseConfirmation
+
+- Добавлен проп `maxWidth` для управления максимальной шириной контейнера.
+- В `ConfirmationMobile` дефолтный `maxWidth` — `288px` (если проп не передан); для desktop дефолтного значения нет.
+
+### Patch Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1998](https://github.com/core-ds/core-components/pull/1998)
+
+##### UniversalModal
+
+- Увеличена специфичность CSS селектора для `scrollableNode`
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1997](https://github.com/core-ds/core-components/pull/1997)
+
+##### Select
+
+- Исправлено responsive поведение списка опций при использовании desktop/mobile компонента
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.0
+    - @alfalab/core-components-base-modal@6.1.0
+    - @alfalab/core-components-confirmation@14.3.0
+    - @alfalab/core-components-universal-modal@2.0.9
+    - @alfalab/core-components-select@18.2.6
+    - @alfalab/core-components-select-with-tags@9.0.9
+    - @alfalab/core-components-tooltip@8.0.9
+    - @alfalab/core-components-drawer@6.0.3
+    - @alfalab/core-components-gallery@6.0.10
+    - @alfalab/core-components-modal@10.0.7
+    - @alfalab/core-components-popup-sheet@2.0.9
+    - @alfalab/core-components-side-panel@6.0.7
+    - @alfalab/core-components-custom-picker-button@3.0.9
+    - @alfalab/core-components-input-autocomplete@13.0.9
+    - @alfalab/core-components-international-phone-input@3.2.6
+    - @alfalab/core-components-intl-phone-input@10.0.9
+    - @alfalab/core-components-picker-button@12.0.9
+    - @alfalab/core-components-table@3.0.9
+    - @alfalab/core-components-calendar@8.0.7
+    - @alfalab/core-components-tabs@9.2.6
+    - @alfalab/core-components-calendar-input@11.0.8
+    - @alfalab/core-components-calendar-range@8.0.8
+    - @alfalab/core-components-calendar-with-skeleton@6.0.7
+    - @alfalab/core-components-date-range-input@4.0.8
+    - @alfalab/core-components-date-time-input@5.0.8
+    - @alfalab/core-components-universal-date-input@3.0.8
+
 ## 49.11.1
 
 ### Patch Changes
