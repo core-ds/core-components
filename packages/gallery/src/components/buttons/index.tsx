@@ -147,7 +147,7 @@ export const Share: FC<Props> = (props) => (
         <IconButton
             {...props}
             icon={ShareMIcon}
-            aria-label='Скачать'
+            aria-label='Поделиться'
             className={styles.iconButton}
         />
     </TooltipDesktop>
