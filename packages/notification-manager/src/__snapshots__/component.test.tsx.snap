@@ -8,7 +8,7 @@ exports[`NotificationManager Snapshots tests should match empty snapshot 1`] = `
   >
     <div
       class="component"
-      style="z-index: 1000;"
+      style="z-index: 1000; top: 0px;"
     />
   </div>
 </body>
@@ -21,7 +21,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
   >
     <div
       class="component"
-      style="z-index: 1000;"
+      style="z-index: 1000; top: 0px;"
     >
       <div>
         <div
