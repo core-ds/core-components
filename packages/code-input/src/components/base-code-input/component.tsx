@@ -2,6 +2,7 @@ import React, {
     createRef,
     type FocusEventHandler,
     forwardRef,
+    type MouseEventHandler,
     type RefObject,
     useEffect,
     useImperativeHandle,
@@ -17,8 +18,9 @@ import {
     type CredentialRequestOtpOptions,
     type CustomInputRef,
 } from '../../typings';
-import { getFocusRestrictionMeta, resolveRestrictedIndex } from '../../utils';
 import { Input, type InputProps } from '..';
+
+import { clampFocusIndex, syncSelection } from './utils';
 
 import styles from './index.module.css';
 
@@ -61,32 +63,36 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             inputRef?.current?.focus();
         };
 
-        const focusRestrictedInput = (
-            requestedIndex: number,
-            options?: {
-                skipEqual?: boolean;
-            },
-        ) => {
-            if (!restrictFocus) {
-                return false;
+        const handleClick: MouseEventHandler<HTMLInputElement> = (event) => {
+            const target = event.currentTarget;
+
+            if (document.activeElement !== target) {
+                return;
             }
 
-            const restrictionMeta = getFocusRestrictionMeta({ values, fields });
-            const targetIndex = resolveRestrictedIndex({ requestedIndex, meta: restrictionMeta });
+            syncSelection(target);
+        };
 
-            if (options?.skipEqual && targetIndex === requestedIndex) {
-                return false;
-            }
+        const handleMouseDown: MouseEventHandler<HTMLDivElement> = (event) => {
+            const requestedIndex = Number(
+                (event.target as Element | null)?.closest<HTMLElement>(
+                    'input[data-code-input-index]',
+                )?.dataset.codeInputIndex,
+            );
 
-            const targetRef = inputRefs[targetIndex];
+            if (Number.isNaN(requestedIndex)) return;
 
-            if (!targetRef) {
-                return false;
-            }
+            const shouldRedirectToFirst = requestedIndex > 0 && values.every((value) => !value);
+            let targetIndex = requestedIndex;
 
-            focusOnInput(targetRef);
+            if (restrictFocus) targetIndex = clampFocusIndex({ values, fields, requestedIndex });
 
-            return true;
+            if (shouldRedirectToFirst) targetIndex = 0;
+
+            if (targetIndex === requestedIndex) return;
+
+            event.preventDefault();
+            focusOnInput(inputRefs[targetIndex]);
         };
 
         const focus = (index = 0) => {
@@ -188,7 +194,6 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             const nextIndex = index + 1;
 
             const prevRef = inputRefs[prevIndex];
-            const nextRef = inputRefs[nextIndex];
             const curtRef = inputRefs[index];
 
             const newValues = [...values];
@@ -232,11 +237,20 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                     break;
                 case 'ArrowRight': {
                     event.preventDefault();
-                    const isRestrictedHandled = focusRestrictedInput(nextIndex);
 
-                    if (!isRestrictedHandled && nextRef) {
-                        focusOnInput(nextRef);
+                    if (!restrictFocus && index === 0 && !values[0]) {
+                        break;
                     }
+
+                    const targetIndex = restrictFocus
+                        ? clampFocusIndex({
+                              values,
+                              fields,
+                              requestedIndex: nextIndex,
+                          })
+                        : nextIndex;
+
+                    focusOnInput(inputRefs[targetIndex]);
 
                     break;
                 }
@@ -253,46 +267,15 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             event.persist();
             const target = event.currentTarget;
 
-            /**
-             * В сафари выделение корректно работает только с асинхронным вызовом
-             */
-            const scheduleSelect = () => {
-                requestAnimationFrame(() => {
-                    target?.select();
-                });
-            };
-
             if (programmaticFocusRef.current) {
                 programmaticFocusRef.current = false;
 
-                scheduleSelect();
+                syncSelection(target);
 
                 return;
             }
 
-            const targetIndex = Number.parseInt(target?.dataset?.codeInputIndex ?? '', 10);
-
-            if (Number.isNaN(targetIndex)) {
-                return;
-            }
-
-            const allEmpty = Array.from({ length: fields }, (_, idx) => values[idx] ?? '').every(
-                (value) => !value,
-            );
-
-            if (allEmpty && targetIndex > 0) {
-                focusOnInput(inputRefs[0]);
-
-                return;
-            }
-
-            const isRestrictedHandled = focusRestrictedInput(targetIndex, { skipEqual: true });
-
-            if (isRestrictedHandled) {
-                return;
-            }
-
-            scheduleSelect();
+            syncSelection(target);
         };
 
         const handleErrorAnimationEnd = () => {
@@ -353,7 +336,10 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 data-test-id={dataTestId}
                 onAnimationEnd={handleErrorAnimationEnd}
             >
-                <div className={cn({ [styles.shake]: Boolean(error) })}>
+                <div
+                    className={cn({ [styles.shake]: Boolean(error) })}
+                    onMouseDownCapture={disabled ? undefined : handleMouseDown}
+                >
                     {/* eslint-disable react/no-array-index-key */}
                     {new Array(fields).fill('').map((_, index) => (
                         <Input
@@ -364,6 +350,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                             disabled={disabled}
                             error={!!error}
                             onChange={handleChangeFromEvent}
+                            onClick={handleClick}
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
                             stylesInput={stylesInput}

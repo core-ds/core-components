@@ -366,6 +366,17 @@ describe('CodeInput', () => {
                 },
             );
 
+            it('ArrowRight does not move focus when restrictFocus is false and first value is empty', async () => {
+                ({ container } = render(<CodeInput />));
+                inputs = getInputs(container);
+
+                inputs[0].focus();
+                await userEvent.type(inputs[0], '{arrowright}');
+
+                expect(inputs[0]).toHaveFocus();
+                expect(inputs[1]).not.toHaveFocus();
+            });
+
             describe('click navigation cases', () => {
                 it.each([
                     {
