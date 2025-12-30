@@ -14,9 +14,7 @@ export function setCaretPosition({
     inputRef: React.RefObject<HTMLInputElement>;
 }) {
     window.requestAnimationFrame(() => {
-        if (inputRef === null || !inputRef.current) return;
-
-        inputRef.current.setSelectionRange(position, position);
+        inputRef.current?.setSelectionRange(position, position);
     });
 }
 
