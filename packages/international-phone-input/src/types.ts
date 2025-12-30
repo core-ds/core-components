@@ -48,6 +48,12 @@ export type CommonPhoneInputProps = {
     clearableCountryCode?: boolean | 'preserve';
 
     /**
+     * Скрывает компонент селекта
+     * @default false
+     */
+    hideCountryFlag?: boolean;
+
+    /**
      *  Свойства селекта выбора стран
      */
     countrySelectProps?: SharedCountrySelectProps;
