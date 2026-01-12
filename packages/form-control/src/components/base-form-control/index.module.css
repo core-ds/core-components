@@ -1,7 +1,6 @@
 @import '../../vars.css';
 
 .component {
-    font-family: var(--form-control-font-family);
     width: max-content;
     max-width: 100%;
 }
@@ -48,7 +47,6 @@
 
 .input > * {
     padding: var(--form-control-paddings);
-    font-family: var(--form-control-font-family);
 }
 
 .input.size-40 > * {

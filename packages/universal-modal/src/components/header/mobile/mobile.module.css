@@ -1,15 +1,11 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
-@import '../../../mobile/vars.css';
 
 .header {
     padding: var(--gap-8) var(--gap-4);
 }
 
 .content {
-    font-size: var(--universal-modal-header-mobile-font-size);
-    line-height: var(--universal-modal-header-mobile-line-height);
-    font-family: var(--universal-modal-header-mobile-font-family);
-    font-weight: var(--universal-modal-header-mobile-font-weight);
+    @mixin headline-system-mobile_small;
     padding: 0 var(--gap-12);
     min-height: 40px;
     justify-content: center;

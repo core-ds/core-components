@@ -1,17 +1,11 @@
 @import '../../../vars.css';
-@import '../../../desktop/vars.css';
 
 .header {
     padding: var(--gap-20) var(--gap-20) 0;
 
-    & .content {
-        font-weight: var(--universal-modal-header-desktop-font-weight);
-        font-family: var(--universal-modal-header-desktop-font-family);
-
-        & .headerTitle {
-            @mixin headline-system_small;
-            padding: 11px var(--gap-12);
-        }
+    & .headerTitle {
+        @mixin headline-system_small;
+        padding: 11px var(--gap-12);
     }
 
     & .bottomAddons {
@@ -20,7 +14,7 @@
     }
 
     &.medium {
-        & .content .headerTitle {
+        & .headerTitle {
             @mixin headline-system_medium;
             padding: var(--gap-6) var(--gap-12) var(--gap-16);
         }
