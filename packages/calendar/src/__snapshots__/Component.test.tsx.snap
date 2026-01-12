@@ -2461,19 +2461,6 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
               1926
             </span>
           </button>
-          <button
-            aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
-            data-date="-1420070400000"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="label stretchText"
-            >
-              1925
-            </span>
-          </button>
         </div>
       </div>
     </div>
