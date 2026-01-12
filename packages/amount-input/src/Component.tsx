@@ -84,11 +84,6 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
     positiveOnly?: boolean;
 
     /**
-     * Жир
-     */
-    bold?: boolean;
-
-    /**
      * Обработчик события изменения значения
      */
     onChange?: (
@@ -427,7 +422,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         return (
             <div
                 className={cn(styles.container, {
-                    [styles.bold]: bold,
                     [styles.filled]: Boolean(inputValue),
                     [styles.focused]: isFocused,
                 })}
@@ -477,6 +471,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     ref={ref}
                     breakpoint={breakpoint}
                     client={client}
+                    bold={bold}
                 />
             </div>
         );

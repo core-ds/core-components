@@ -17,11 +17,6 @@
     position: relative;
 }
 
-.bold .input,
-.bold .suffixContainer {
-    font-weight: bold;
-}
-
 /* суффикс = текст в поле. Скрываем спейсер, чтобы суффикс выглядел как введенное в поле значение */
 .suffixContainer > *:first-child {
     display: none;
