@@ -1,8 +1,6 @@
-@import '../../../../form-control/src/vars.css';
 @import '../../vars.css';
 
 .input {
-    @mixin paragraph_component;
     position: relative;
     display: block;
     width: 100%;
@@ -15,9 +13,32 @@
     box-sizing: border-box;
     -webkit-appearance: none;
 
+    &,
+    &::placeholder {
+        @mixin paragraph_component_primary;
+    }
+
+    &.bold {
+        @mixin accent_component_primary;
+    }
+
+    &::placeholder {
+        transition:
+            opacity 0.2s ease,
+            color 0.2s ease;
+    }
+
     &.size-40 {
-        @mixin paragraph_component_secondary;
         padding: var(--gap-0) var(--gap-8);
+
+        &,
+        &::placeholder {
+            @mixin paragraph_component_secondary;
+        }
+
+        &.bold {
+            @mixin accent_component_secondary;
+        }
     }
 
     /* Убирает синюю заливку при автокомплите */
@@ -28,7 +49,6 @@
     &:-webkit-autofill:active {
         &:first-line {
             @mixin paragraph_component;
-            font-family: var(--form-control-font-family);
         }
 
         /* Hack from http://stackoverflow.com/a/29350537 */
@@ -55,12 +75,6 @@
     &[type='number'] {
         -moz-appearance: textfield;
     }
-}
-
-.input::placeholder {
-    transition:
-        opacity 0.2s ease,
-        color 0.2s ease;
 }
 
 .hasInnerLabel {

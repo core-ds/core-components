@@ -1,10 +1,6 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
-    /* misc */
-    --button-font-family: var(--font-family);
-    --button-font-weight: 500;
-
     /* border-radius desktop */
     --button-xxs-size-border-radius: var(--border-radius-6);
     --button-xs-size-border-radius: var(--border-radius-8);

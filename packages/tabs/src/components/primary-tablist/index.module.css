@@ -44,7 +44,6 @@
     padding: var(--gap-0);
     cursor: pointer;
     color: var(--primary-tablist-color);
-    font-feature-settings: var(--primary-tablist-font-feature-settings);
     transition: color 0.2s ease;
     border: 0;
     background: none;
@@ -101,10 +100,6 @@
 .xxs {
     & .title {
         padding: var(--primary-tablist-s-padding);
-        font-size: var(--primary-tablist-s-font-size);
-        font-weight: var(--primary-tablist-s-font-weight);
-        font-family: var(--primary-tablist-s-font-family);
-        line-height: 24px;
     }
 
     & .title + .title {
@@ -123,10 +118,6 @@
 .m {
     & .title {
         padding: var(--primary-tablist-m-padding);
-        font-size: var(--primary-tablist-m-font-size);
-        font-weight: var(--primary-tablist-m-font-weight);
-        font-family: var(--primary-tablist-m-font-family);
-        line-height: 24px;
     }
 
     & .title + .title {
@@ -145,10 +136,6 @@
 .l {
     & .title {
         padding: var(--primary-tablist-l-padding);
-        font-size: var(--primary-tablist-l-font-size);
-        font-weight: var(--primary-tablist-l-font-weight);
-        font-family: var(--primary-tablist-l-font-family);
-        line-height: 24px;
     }
 
     & .title + .title {
@@ -167,10 +154,6 @@
 .xl {
     & .title {
         padding: var(--primary-tablist-xl-padding);
-        font-size: var(--primary-tablist-xl-font-size);
-        font-weight: var(--primary-tablist-xl-font-weight);
-        font-family: var(--primary-tablist-xl-font-family);
-        line-height: 32px;
     }
 
     & .title + .title {
@@ -194,4 +177,8 @@
 }
 .rightAddonsMarginZero {
     margin-left: var(--gap-0);
+}
+
+.title.noTextStyle {
+    @mixin paragraph_primary_large;
 }

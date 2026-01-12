@@ -34,6 +34,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
             skeletonProps,
             onResize,
             dataTestId,
+            className,
             ...restProps
         },
         ref,
@@ -81,6 +82,7 @@ export const Title = forwardRef<HTMLButtonElement, Props>(
                         [styles.option]: isOption,
                     },
                     toggleClassName,
+                    className,
                 )}
             >
                 {showSkeleton ? (
