@@ -10,10 +10,8 @@
 }
 
 .period {
-    font-family: var(--calendar-month-only-header-font-family);
-    font-size: var(--calendar-month-only-header-font-size);
-    font-weight: var(--calendar-month-only-header-font-weight);
-    line-height: 24px;
+    @mixin action_primary_large;
+
     text-align: center;
 
     @media (max-width: 374px) {

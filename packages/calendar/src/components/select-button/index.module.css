@@ -27,7 +27,7 @@
 
         &.current {
             color: var(--calendar-today-color);
-            font-weight: bold;
+            @mixin accent_primary_medium;
         }
 
         &.selected,

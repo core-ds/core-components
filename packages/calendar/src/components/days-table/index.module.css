@@ -324,7 +324,7 @@
     @mixin paragraph_primary_medium;
 
     &.today {
-        font-weight: bold;
+        @mixin accent_primary_medium;
     }
 }
 

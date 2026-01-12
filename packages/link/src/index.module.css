@@ -3,7 +3,7 @@
 .component {
     box-sizing: border-box;
     text-decoration: none;
-    font-family: var(--font-family);
+    font-family: inherit;
     cursor: pointer;
     outline: none;
 

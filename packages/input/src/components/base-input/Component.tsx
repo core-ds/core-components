@@ -210,6 +210,11 @@ export type BaseInputProps = Omit<
      * Запрещает ввод с клавиатуры
      */
     disableUserInput?: boolean;
+
+    /**
+     * Жирный текст
+     */
+    bold?: boolean;
 };
 
 const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
@@ -255,6 +260,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             readOnly: readOnlyProp,
             FormControlComponent,
             disableUserInput,
+            bold = false,
             ...restProps
         },
         ref,
@@ -491,6 +497,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             [styles[`size-${size}`]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
+                            [styles.bold]: bold,
                         },
                         inputClassName,
                     )}

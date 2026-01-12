@@ -6,7 +6,6 @@
     align-content: center;
     align-items: center;
     margin: var(--gap-0);
-    font-family: var(--font-family);
     text-decoration: none;
     border-width: var(--tag-border-width);
     border-style: solid;
@@ -95,48 +94,48 @@ button.noContent {
     min-width: 52px;
     min-height: var(--size-xxs-height);
     padding: var(--gap-0) var(--gap-12);
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: normal;
+
+    @mixin paragraph_primary_small;
 }
 
 .size-40 {
     min-width: 64px;
     min-height: var(--size-xs-height);
     padding: var(--gap-0) var(--gap-16);
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: normal;
+
+    @mixin paragraph_primary_small;
 }
 
 .size-48 {
     min-width: 72px;
     min-height: var(--size-s-height);
     padding: var(--gap-0) var(--gap-20);
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: normal;
+
+    @mixin paragraph_component_primary;
 }
 
 .size-56 {
-    @mixin action_component;
     min-width: 88px;
     min-height: var(--size-m-height);
     padding: var(--gap-0) var(--gap-24);
+
+    @mixin paragraph_component_primary;
 }
 
 .size-64 {
-    @mixin action_primary_large;
     min-width: 112px;
     min-height: var(--size-l-height);
     padding: var(--gap-0) 28px;
+
+    @mixin paragraph_primary_large;
 }
 
 .size-72 {
-    @mixin action_primary_large;
     min-width: 112px;
     min-height: var(--size-xl-height);
     padding: var(--gap-0) var(--gap-32);
+
+    @mixin paragraph_primary_large;
 }
 
 .withRightAddons {

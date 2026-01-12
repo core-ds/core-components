@@ -66,6 +66,7 @@ export const CollapsiblePrimaryTabList = ({
                                     ref={toggleRef as Ref<HTMLButtonElement>}
                                     styles={styles}
                                     isOption={true}
+                                    className={styles.noTextStyle}
                                 />
                             ),
                         });
@@ -111,6 +112,7 @@ export const CollapsiblePrimaryTabList = ({
                             styles={styles}
                             showSkeleton={showSkeleton}
                             skeletonProps={skeletonProps}
+                            className={cn({ [styles.noTextStyle]: !textStyle })}
                         />
                     )}
                 </KeyboardFocusable>

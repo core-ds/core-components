@@ -4,10 +4,6 @@
     display: flex;
 }
 
-.weight {
-    font-weight: inherit;
-}
-
 .hidden {
     background: var(--color-light-neutral-translucent-400);
     border-radius: var(--border-radius-8);
