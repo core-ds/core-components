@@ -166,6 +166,11 @@ export type BasePlateProps = {
      * Основные стили компонента.
      */
     styles?: { [key: string]: string };
+
+    /**
+     * Кастомный радиус скругления (px, rem, em и т.д.)
+     */
+    borderRadius?: string;
 };
 
 /* eslint-disable complexity */
@@ -200,6 +205,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
             styles = {},
             background,
             borderColor,
+            borderRadius,
         },
         ref,
     ) => {
@@ -320,6 +326,7 @@ export const BasePlate = forwardRef<HTMLDivElement, BasePlateProps>(
                 style={{
                     ...setCustomViewColors(),
                     ...setCustomViewRectangleBorderColor(),
+                    ...(borderRadius && { borderRadius }),
                 }}
                 onClick={handleClick}
                 onKeyDown={handleClick}
