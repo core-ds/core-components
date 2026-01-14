@@ -92,7 +92,7 @@ exports[`Display tests should display correctly if tooltip open 1`] = `
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"
-        style="z-index: 50; position: absolute; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(-16px, 0px);"
+        style="z-index: 50; position: fixed; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(-16px, 0px);"
       >
         <div
           class="inner popper tooltip tooltip popper"
@@ -200,7 +200,7 @@ exports[`Display tests should display correctly if tooltip open with view \`hint
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"
-        style="z-index: 50; position: absolute; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(-16px, 0px);"
+        style="z-index: 50; position: fixed; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(-16px, 0px);"
       >
         <div
           class="inner popper hint hint hint"
