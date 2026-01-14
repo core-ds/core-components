@@ -172,4 +172,74 @@ describe('NotificationManager', () => {
 
         expect(container).toContainElement(getByTestId('NotificationManager'));
     });
+
+    describe('Positioning', () => {
+        it('should set default top offset to 0 when position is top', () => {
+            const dataTestId = 'NotificationManager';
+            const { getByTestId } = render(
+                <NotificationManager
+                    dataTestId={dataTestId}
+                    notifications={[]}
+                    onRemoveNotification={jest.fn()}
+                />,
+            );
+
+            expect(getByTestId(dataTestId).style.top).toBe('0px');
+            expect(getByTestId(dataTestId)).not.toHaveClass('bottom');
+        });
+
+        it('should remove margin for the first notification when offset equals 0', () => {
+            const { baseElement } = render(
+                <NotificationManager
+                    offset={0}
+                    notifications={[
+                        <Notification title='title' key={1} id='notification-1' />,
+                        <Notification title='title' key={2} id='notification-2' />,
+                    ]}
+                    onRemoveNotification={jest.fn()}
+                />,
+            );
+
+            const notifications = baseElement.querySelectorAll('.notification');
+
+            expect(notifications.length).toBeGreaterThan(0);
+            expect(notifications[0]).toHaveClass('withoutMargin');
+        });
+
+        it('should apply styles for explicit top position', () => {
+            const { getByTestId } = render(
+                <NotificationManager
+                    position='top'
+                    offset={32}
+                    dataTestId='NotificationManager'
+                    notifications={[]}
+                    onRemoveNotification={jest.fn()}
+                />,
+            );
+
+            const manager = getByTestId('NotificationManager');
+
+            expect(manager).not.toHaveClass('bottom');
+            expect(manager.style.top).toBe('32px');
+            expect(manager.style.bottom).toBe('');
+        });
+
+        it('should apply styles for explicit bottom position', () => {
+            const { getByTestId } = render(
+                <NotificationManager
+                    position='bottom'
+                    offset={24}
+                    dataTestId='NotificationManager'
+                    notifications={[]}
+                    onRemoveNotification={jest.fn()}
+                />,
+            );
+
+            const manager = getByTestId('NotificationManager');
+
+            expect(manager).toHaveClass('bottom');
+            expect(manager.style.bottom).toBe('24px');
+            expect(manager.style.top).toBe('');
+        });
+    });
 });
