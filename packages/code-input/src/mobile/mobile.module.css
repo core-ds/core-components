@@ -3,6 +3,7 @@
 
 .component {
     background-color: var(--code-input-mobile-bg-color);
+    border-radius: var(--code-input-mobile-border-radius);
 }
 
 .compact {

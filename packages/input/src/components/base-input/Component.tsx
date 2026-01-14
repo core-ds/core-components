@@ -2,6 +2,7 @@ import React, {
     type AnimationEvent,
     type ChangeEvent,
     type ElementType,
+    forwardRef,
     Fragment,
     type HTMLAttributes,
     type InputHTMLAttributes,
@@ -226,7 +227,12 @@ const SIZE_TO_CLASSNAME_MAP = {
 
 const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
 
-export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
+export const BaseInput = forwardRef<
+    HTMLInputElement,
+    BaseInputProps & {
+        platformStyles?: Record<string, string>;
+    }
+>(
     (
         {
             size = 48,
@@ -267,6 +273,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             readOnly: readOnlyProp,
             FormControlComponent,
             disableUserInput,
+            platformStyles = {},
             ...restProps
         },
         ref,
@@ -463,8 +470,14 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
         return FormControlComponent ? (
             <FormControlComponent
                 ref={wrapperRef}
-                className={cn(className, focused && focusedClassName, filled && filledClassName)}
-                fieldClassName={cn(fieldClassName, {
+                className={cn(
+                    className,
+                    focused && focusedClassName,
+                    filled && filledClassName,
+                    [platformStyles.formControlDesktop],
+                    [platformStyles[SIZE_TO_CLASSNAME_MAP[size]]],
+                )}
+                fieldClassName={cn(fieldClassName, [platformStyles.field], {
                     [styles.focusVisible]: focusVisible,
                 })}
                 labelClassName={labelClassName}
