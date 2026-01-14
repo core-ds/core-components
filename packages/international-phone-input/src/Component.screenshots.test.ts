@@ -171,3 +171,53 @@ describe('InternationalPhoneInputMobile | interactions', () => {
         }
     });
 });
+
+describe(
+    'InternationalPhoneInputDesktop',
+    screenshotTesting({
+        cases: [
+            [
+                'disabled',
+                createSpriteStorybookUrl({
+                    packageName: 'international-phone-input',
+                    componentName: 'InternationalPhoneInputDesktop',
+                    size: { width: 300, height: 70 },
+                    knobs: {
+                        block: true,
+                        value: ['', '79999999999', '77777777777'],
+                        disabled: [false, true],
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: { width: 700, height: 300 },
+    }),
+);
+
+describe(
+    'InternationalPhoneInputMobile',
+    screenshotTesting({
+        cases: [
+            [
+                'disabled',
+                createSpriteStorybookUrl({
+                    packageName: 'international-phone-input',
+                    componentName: 'InternationalPhoneInputMobile',
+                    size: { width: 300, height: 70 },
+                    knobs: {
+                        block: true,
+                        value: ['', '79999999999', '77777777777'],
+                        disabled: [false, true],
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: { width: 700, height: 300 },
+    }),
+);
