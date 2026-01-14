@@ -1,0 +1,38 @@
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.contain {
+    object-fit: contain;
+}
+
+.fill {
+    object-fit: fill;
+}
+
+.cover {
+    object-fit: cover;
+}
+
+.center {
+    object-position: center;
+}
+
+.left {
+    object-position: left center;
+}
+
+.right {
+    object-position: right center;
+}
+
+.top {
+    object-position: center top;
+}
+
+.bottom {
+    object-position: center bottom;
+}
