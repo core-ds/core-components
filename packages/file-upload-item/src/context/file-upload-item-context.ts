@@ -37,6 +37,7 @@ type TFileUploadItemContext = {
     backgroundColor?: SuperEllipseProps['backgroundColor'];
     actionsPresent?: boolean;
     setActionsPresent?: (present: boolean) => void;
+    dataTestId?: string;
 };
 
 export const FileUploadItemContext = createContext<TFileUploadItemContext>({
@@ -67,4 +68,5 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     backgroundColor: undefined,
     actionsPresent: false,
     setActionsPresent: undefined,
+    dataTestId: '',
 });
