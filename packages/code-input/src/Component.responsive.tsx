@@ -23,7 +23,7 @@ export interface CodeInputProps extends Omit<BaseCodeInputProps, 'stylesInput>'>
      * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
-};
+}
 
 export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
     (
