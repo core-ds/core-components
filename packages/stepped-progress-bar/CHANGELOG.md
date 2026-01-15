@@ -1,5 +1,18 @@
 # @alfalab/core-components-stepped-progress-bar
 
+## 3.1.1
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1970](https://github.com/core-ds/core-components/pull/1970)
+
+##### SteppedProgressBar
+
+- Вернули публичный экспорт `SteppedProgressBarView`, чтобы не приходилось вычислять типы через массивы.
+- Исправили тип `view`: теперь он поддерживает одиночное значение и массив цветов без `Array<Array<...>>`.
+
 ## 3.1.0
 
 ### Minor Changes

@@ -2,11 +2,10 @@ import React, { forwardRef, useCallback, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { useMatchMedia } from '@alfalab/core-components-mq';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
-import { isClient } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
+import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
 import { type GroupShape, type OptionShape, type OptionsListProps } from '../../typings';
 import { isGroup, useVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
@@ -50,18 +49,17 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             setSelectedItems,
             multiple,
             limitDynamicOptionGroupSize = false,
+            client,
         },
         ref,
     ) => {
         const [scrollTop, setScrollTop] = useState(true);
         const [scrollBottom, setScrollBottom] = useState(false);
 
-        const query = '(max-width: 1023px)';
-        let [nativeScrollbar] = useMatchMedia(query, () =>
-            isClient() ? window.matchMedia(query).matches : true,
-        );
-
-        nativeScrollbar = Boolean(nativeScrollbarProp ?? nativeScrollbar);
+        const nativeScrollbar = useNativeScrollbar({
+            nativeScrollbar: nativeScrollbarProp,
+            client,
+        });
 
         const handleScroll = useCallback(
             (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {

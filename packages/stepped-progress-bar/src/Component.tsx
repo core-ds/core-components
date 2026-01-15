@@ -14,7 +14,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-type SteppedProgressBarView =
+export type SteppedProgressBarView =
     | 'positive'
     | 'negative'
     | 'attention'
@@ -24,7 +24,8 @@ type SteppedProgressBarView =
     | 'primary'
     | 'accent';
 
-type CustomProgressBarView = { background: string };
+export type CustomProgressBarView = { background: string };
+export type SteppedProgressBarViewValue = SteppedProgressBarView | CustomProgressBarView;
 
 export interface SteppedProgressBarProps {
     /**
@@ -45,10 +46,7 @@ export interface SteppedProgressBarProps {
     /**
      * Цвет заполнения
      */
-    view?:
-        | SteppedProgressBarView
-        | Array<SteppedProgressBarView | CustomProgressBarView>
-        | CustomProgressBarView;
+    view?: SteppedProgressBarViewValue | SteppedProgressBarViewValue[];
 
     /**
      * Идентификатор для систем автоматизированного тестирования

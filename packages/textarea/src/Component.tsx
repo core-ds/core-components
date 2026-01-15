@@ -232,6 +232,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 bottomAddons={getBottomAddons()}
                 breakpoint={breakpoint}
                 dataTestId={getDataTestId(dataTestId, 'form-control')}
+                addonsClassName={cn(styles[SIZE_TO_CLASSNAME_MAP[size]], {
+                    [styles.rightAddonsClassName]: rightAddons,
+                })}
             >
                 <React.Fragment>
                     {hasOverflow && (

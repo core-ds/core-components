@@ -531,7 +531,7 @@ export type ArrowProps = {
     size?: BaseSelectProps['size'];
 };
 
-export type OptionsListProps = {
+export type OptionsListProps = Pick<SelectProps, 'client'> & {
     /**
      * Дополнительный класс
      */
