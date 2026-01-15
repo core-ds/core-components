@@ -7,9 +7,16 @@ export const ADD_CARD_KEY = '#ADD_NEW_CARD';
 export const PRODUCT_COVER_SIZE_MAPPER: Record<number, Size> = {
     40: 32,
     48: 32,
-    56: 40,
+    56: 32,
     64: 40,
     72: 48,
+};
+
+export const ERRORS = {
+    CARD_NUMBER_ERROR: 'Номер карты введён неверно',
+    CVV_EMPTY: 'Нужно заполнить CVC',
+    EXPIRY_EMPTY: 'Нужно заполнить срок действия',
+    EXPIRY_ERROR: 'Срок действия введен неверно',
 };
 
 export const CARD_MASK: MaskitoOptions = {

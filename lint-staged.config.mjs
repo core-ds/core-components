@@ -29,12 +29,11 @@ const config = {
                 ...packagesConfig,
                 [`./${convertPathToPattern(relativeDir)}/src/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]:
                     () => {
-                        const eslintConfig = path.relative(
-                            dir,
-                            path.join(dirname, '.eslintrc.cjs'),
-                        );
+                        const eslintConfig = path
+                            .relative(dir, path.join(dirname, '.eslintrc.cjs'))
+                            .replace(/\\/g, '/');
 
-                        return `lerna exec --scope ${name} -- "eslint src --max-warnings 0 --config '${eslintConfig}'"`;
+                        return `lerna exec --scope ${name} -- "eslint src --max-warnings 0 --config ${eslintConfig}"`;
                     },
             }),
             {},

@@ -15,7 +15,7 @@ render(() => {
                 <PureCell verticalPadding='default'>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
+                            <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
                                 {el.text}
                             </Typography.Text>
                             <Amount
@@ -80,7 +80,7 @@ render(() => {
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
+                            <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
                                 {el.text}
                             </Typography.Text>
                             <Amount
@@ -107,7 +107,11 @@ render(() => {
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
-                                <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
+                                <Typography.Text
+                                    rowLimit={1}
+                                    color='secondary'
+                                    view='primary-small'
+                                >
                                     {selected.value.text}
                                 </Typography.Text>
                                 <Amount
@@ -157,7 +161,7 @@ render(() => {
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
+                            <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
                                 {el.text}
                             </Typography.Text>
                             <Amount
@@ -186,6 +190,8 @@ render(() => {
                 layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
                 cardId: 'RM',
             });
+        } else {
+            setCardImage(undefined);
         }
     };
 
@@ -209,7 +215,11 @@ render(() => {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
+                                    <Typography.Text
+                                        rowLimit={1}
+                                        color='secondary'
+                                        view='primary-small'
+                                    >
                                         {selected.value.text}
                                     </Typography.Text>
                                     <Amount
@@ -258,8 +268,8 @@ render(() => {
                 hint='Выберите один из вариантов'
                 value={valueRadio}
             >
-                <Radio placeholder='Дата + CVC' value='1' size={24} />
-                <Radio placeholder='Только дата' value='2' size={24} />
+                <Radio label='Дата + CVC' value='1' size={24} />
+                <Radio label='Только дата' value='2' size={24} />
             </RadioGroup>
         </div>
     );
@@ -291,7 +301,7 @@ render(() => {
                     </PureCell.Graphics>
                     <PureCell.Content>
                         <PureCell.Main>
-                            <PureCell.Text rowLimit={1}  titleColor='secondary' view='primary-small'>
+                            <PureCell.Text rowLimit={1} titleColor='secondary' view='primary-small'>
                                 {el.text}
                             </PureCell.Text>
                             <PureCell.Amount
@@ -339,7 +349,11 @@ render(() => {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
+                                    <Typography.Text
+                                        rowLimit={1}
+                                        color='secondary'
+                                        view='primary-small'
+                                    >
                                         {selected.value.text}
                                     </Typography.Text>
                                     <Amount

@@ -1,3 +1,17 @@
 .leftAddon.leftAddon {
-    padding-left: var(--gap-8);
+    &.size40 {
+        padding-left: var(--gap-8);
+    }
+    &.size48 {
+        padding-left: var(--gap-8);
+    }
+    &.size56 {
+        padding-left: var(--gap-12);
+    }
+    &.size64 {
+        padding-left: var(--gap-12);
+    }
+    &.size72 {
+        padding-left: var(--gap-12);
+    }
 }

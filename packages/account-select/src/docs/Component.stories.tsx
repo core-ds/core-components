@@ -66,6 +66,8 @@ export const account_select_desktop: Story = {
         const handleInput = (data: CardData) => {
             if (data.number.startsWith('111111')) {
                 setCardImage(baseCard);
+            } else {
+                setCardImage(undefined);
             }
         };
         const handleSubmit = (data: CardData) => {
@@ -86,7 +88,11 @@ export const account_select_desktop: Story = {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <Typography.Text rowLimit={1}  color='secondary' view='primary-small'>
+                                    <Typography.Text
+                                        rowLimit={1}
+                                        color='secondary'
+                                        view='primary-small'
+                                    >
                                         {selected?.value.text}
                                     </Typography.Text>
                                     <Amount
@@ -158,7 +164,11 @@ export const account_select_mobile: Story = {
                             </PureCell.Graphics>
                             <PureCell.Content>
                                 <PureCell.Main>
-                                    <Typography.Text rowLimit={1}  color='secondary'  view='primary-small'>
+                                    <Typography.Text
+                                        rowLimit={1}
+                                        color='secondary'
+                                        view='primary-small'
+                                    >
                                         {selected?.value.text}
                                     </Typography.Text>
                                     <Amount

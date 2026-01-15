@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import cn from 'classnames';
 
+import { useAccountSelect } from '@alfalab/core-components-account-select/context';
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
 import { ProductCover } from '@alfalab/core-components-product-cover';
@@ -28,9 +30,11 @@ export const CustomField = ({
     valueRenderer,
     placeholder,
     size,
+    toggleMenu,
     ...restProps
 }: CustomFieldProps) => {
-    const [cardNumber, setCardNumber] = useState('');
+    const { cardNumber } = useAccountSelect();
+
     const fieldRenderer = ({
         selected: selectedOption,
         selectedMultiple: selectedOptions,
@@ -44,7 +48,6 @@ export const CustomField = ({
                     placeholder={placeholder}
                     onSubmit={onSubmit}
                     onInput={onInput}
-                    setCardNumberForAddon={setCardNumber}
                     needCVC={needCVC}
                     needExpiryDate={needExpiryDate}
                     expiryAsDate={expiryAsDate}
@@ -64,16 +67,16 @@ export const CustomField = ({
             return (
                 <ProductCover.Single
                     cardNumber={cardNumber.length >= 16 ? Number(cardNumber) : undefined}
-                    {...cardImage}
                     size={cardImage?.size ?? PRODUCT_COVER_SIZE_MAPPER[size]}
                     className={cardImage?.className}
+                    {...cardImage}
                 />
             );
         }
         if (selected) {
             return undefined;
         }
-        
+
         return leftAddons;
     };
 
@@ -85,7 +88,8 @@ export const CustomField = ({
             selected={selected}
             innerProps={innerProps}
             leftAddons={getLeftAddon()}
-            leftAddonsProps={{ className: styles.leftAddon }}
+            leftAddonsProps={{ className: cn(styles.leftAddon, styles[`size${size}`]) }}
+            toggleMenu={toggleMenu}
             {...restProps}
             valueRenderer={fieldRenderer}
         />
