@@ -1,21 +1,10 @@
-type ClampFocusIndexPayload = {
-    values: string[];
-    fields: number;
-    requestedIndex: number;
-};
-
 /**
- * Возвращает индекс, на который разрешено поставить фокус при включенном `restrictFocus`
+ * Парсит индекс из data-атрибута
  */
-export const clampFocusIndex = ({
-    values,
-    fields,
-    requestedIndex,
-}: ClampFocusIndexPayload): number => {
-    const emptyIdx = values.indexOf('');
-    const focusIdx = emptyIdx >= 0 ? emptyIdx : Math.min(values.length, fields - 1);
+export const parseInputIdx = (el: HTMLElement | null): number | null => {
+    const idx = Number(el?.dataset?.codeInputIndex);
 
-    return Math.min(requestedIndex, focusIdx);
+    return Number.isNaN(idx) ? null : idx;
 };
 
 /**

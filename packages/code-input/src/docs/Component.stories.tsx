@@ -22,7 +22,7 @@ export const code_input: Story = {
                 disabled={boolean('disabled', false)}
                 error={text('error', '')}
                 initialValues='1234'
-                restrictFocus={boolean('restrictFocus', false)}
+                strictFocus={boolean('strictFocus', false)}
             />
         );
     },
@@ -37,7 +37,7 @@ export const code_input_mobile: Story = {
                 disabled={boolean('disabled', false)}
                 error={text('error', '')}
                 initialValues='1234'
-                restrictFocus={boolean('restrictFocus', false)}
+                strictFocus={boolean('strictFocus', false)}
             />
         );
     },
@@ -52,7 +52,7 @@ export const code_input_desktop: Story = {
                 disabled={boolean('disabled', false)}
                 error={text('error', '')}
                 initialValues='1234'
-                restrictFocus={boolean('restrictFocus', false)}
+                strictFocus={boolean('strictFocus', false)}
             />
         );
     },

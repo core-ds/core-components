@@ -14,12 +14,15 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class=""
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component"
             data-code-input-index="0"
@@ -28,6 +31,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component"
             data-code-input-index="1"
@@ -36,6 +40,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component"
             data-code-input-index="2"
@@ -44,6 +49,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component"
             data-code-input-index="3"
@@ -52,6 +58,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component"
             data-code-input-index="4"
@@ -101,12 +108,15 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class=""
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component disabled"
             data-code-input-index="0"
@@ -116,6 +126,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component disabled"
             data-code-input-index="1"
@@ -125,6 +136,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component disabled"
             data-code-input-index="2"
@@ -134,6 +146,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component disabled"
             data-code-input-index="3"
@@ -143,6 +156,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component disabled"
             data-code-input-index="4"
@@ -225,12 +239,15 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class="shake"
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component hasError"
             data-code-input-index="0"
@@ -239,6 +256,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component hasError"
             data-code-input-index="1"
@@ -247,6 +265,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component hasError"
             data-code-input-index="2"
@@ -255,6 +274,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component hasError"
             data-code-input-index="3"
@@ -263,6 +283,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component hasError"
             data-code-input-index="4"
@@ -318,12 +339,15 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class="shake"
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component hasError"
             data-code-input-index="0"
@@ -332,6 +356,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component hasError"
             data-code-input-index="1"
@@ -340,6 +365,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component hasError"
             data-code-input-index="2"
@@ -348,6 +374,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component hasError"
             data-code-input-index="3"
@@ -356,6 +383,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component hasError"
             data-code-input-index="4"
@@ -411,12 +439,15 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         Введите код из уведомления
       </h3>
       <div
+        aria-label="Код подтверждения"
         class="component containerInput codeInput"
+        role="group"
       >
         <div
           class=""
         >
           <input
+            aria-label="Код 1 из 5"
             autocomplete="one-time-code"
             class="input component disabled"
             data-code-input-index="0"
@@ -426,6 +457,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
             value=""
           />
           <input
+            aria-label="Код 2 из 5"
             autocomplete=""
             class="input component disabled"
             data-code-input-index="1"
@@ -435,6 +467,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
             value=""
           />
           <input
+            aria-label="Код 3 из 5"
             autocomplete=""
             class="input component disabled"
             data-code-input-index="2"
@@ -444,6 +477,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
             value=""
           />
           <input
+            aria-label="Код 4 из 5"
             autocomplete=""
             class="input component disabled"
             data-code-input-index="3"
@@ -453,6 +487,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
             value=""
           />
           <input
+            aria-label="Код 5 из 5"
             autocomplete=""
             class="input component disabled"
             data-code-input-index="4"

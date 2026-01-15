@@ -144,7 +144,7 @@ export interface ConfirmationProps {
      * Ограничение навигации фокусом между ячейками
      * @default false
      */
-    restrictFocus?: boolean;
+    strictFocus?: boolean;
 }
 
 export type TConfirmationContext = Required<
@@ -164,7 +164,7 @@ export type TConfirmationContext = Required<
         | 'onFatalErrorOkButtonClick'
         | 'tempBlockDuration'
         | 'hideCountdownSection'
-        | 'restrictFocus'
+        | 'strictFocus'
     >
 > &
     Pick<

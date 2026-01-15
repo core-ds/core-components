@@ -1,12 +1,8 @@
 import React, {
-    createRef,
     type FocusEventHandler,
     forwardRef,
-    type MouseEventHandler,
-    type RefObject,
     useEffect,
     useImperativeHandle,
-    useMemo,
     useRef,
     useState,
 } from 'react';
@@ -20,7 +16,7 @@ import {
 } from '../../typings';
 import { Input, type InputProps } from '..';
 
-import { clampFocusIndex, syncSelection } from './utils';
+import { parseInputIdx, syncSelection } from './utils';
 
 import styles from './index.module.css';
 
@@ -42,76 +38,38 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             onChange,
             onComplete,
             stylesInput = {},
-            restrictFocus = false,
+            strictFocus = false,
         },
         ref,
     ) => {
-        const inputRefs = useMemo(
-            () =>
-                Array(fields)
-                    .fill({})
-                    .map(() => createRef<HTMLInputElement>()),
-            [fields],
-        );
+        const inputRef = useRef<HTMLDivElement>(null);
 
         const [values, setValues] = useState(initialValues.split(''));
 
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
-        const programmaticFocusRef = useRef(false);
 
-        const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
-            inputRef?.current?.focus();
-        };
+        const getInputs = () =>
+            inputRef.current?.querySelectorAll<HTMLInputElement>('input[data-code-input-index]');
 
-        const handleClick: MouseEventHandler<HTMLInputElement> = (event) => {
-            const target = event.currentTarget;
-
-            if (document.activeElement !== target) {
-                return;
-            }
-
-            syncSelection(target);
-        };
-
-        const handleMouseDown: MouseEventHandler<HTMLDivElement> = (event) => {
-            const requestedIndex = Number(
-                (event.target as Element | null)?.closest<HTMLElement>(
-                    'input[data-code-input-index]',
-                )?.dataset.codeInputIndex,
-            );
-
-            if (Number.isNaN(requestedIndex)) return;
-
-            const shouldRedirectToFirst = requestedIndex > 0 && values.every((value) => !value);
-            let targetIndex = requestedIndex;
-
-            if (restrictFocus) targetIndex = clampFocusIndex({ values, fields, requestedIndex });
-
-            if (shouldRedirectToFirst) targetIndex = 0;
-
-            if (targetIndex === requestedIndex) return;
-
-            event.preventDefault();
-            focusOnInput(inputRefs[targetIndex]);
-        };
+        const inputAt = (index: number) => getInputs()?.[index];
 
         const focus = (index = 0) => {
-            focusOnInput(inputRefs[index]);
+            inputAt(index)?.focus();
         };
 
         const blur = () => {
-            const input = document.activeElement;
+            const input = document.activeElement as HTMLInputElement;
 
-            if (input?.tagName === 'INPUT') {
-                (input as HTMLInputElement).blur();
+            if (inputRef.current?.contains(input)) {
+                input.blur();
             }
         };
 
         const unselect = () => {
-            const input = document.activeElement;
+            const input = document.activeElement as HTMLInputElement;
 
-            if (input?.tagName === 'INPUT') {
-                (input as HTMLInputElement).setSelectionRange(0, 0);
+            if (inputRef.current?.contains(input)) {
+                input.setSelectionRange(0, 0);
             }
         };
 
@@ -122,11 +80,9 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         useImperativeHandle(ref, () => ({ focus, blur, reset, unselect }));
 
         const triggerChange = (argumentValues: string[]) => {
-            const newValue = (argumentValues || values).join('');
+            const newValue = argumentValues.join('');
 
-            if (onChange) {
-                onChange(newValue);
-            }
+            onChange?.(newValue);
 
             if (onComplete && newValue.length >= fields) {
                 onComplete(newValue);
@@ -140,45 +96,28 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 return;
             }
 
-            let nextRef;
-
             const newValues = [...values];
 
-            if (newValue.length > 1) {
-                let nextIndex = newValue.length + index - 1;
+            newValue.split('').forEach((item, i) => {
+                const cursor = index + i;
 
-                if (nextIndex >= fields) {
-                    nextIndex = fields - 1;
+                if (cursor < fields) {
+                    newValues[cursor] = item;
                 }
-
-                nextRef = inputRefs[nextIndex];
-
-                newValue.split('').forEach((item, i) => {
-                    const cursor = index + i;
-
-                    if (cursor < fields) {
-                        newValues[cursor] = item;
-                    }
-                });
-            } else {
-                nextRef = inputRefs[index + 1];
-
-                newValues[index] = newValue;
-            }
+            });
 
             setValues(newValues);
 
-            if (nextRef?.current) {
-                programmaticFocusRef.current = true;
-                focusOnInput(nextRef);
+            const nextIndex = Math.min(index + newValue.length, fields - 1);
 
-                nextRef.current.select();
+            if (nextIndex !== index) {
+                focus(nextIndex);
             }
 
             triggerChange(newValues);
         };
 
-        const handleChangeFromEvent: InputProps['onChange'] = (event, { index }) => {
+        const handleChangeFromEvent: InputProps['onChange'] = (event) => {
             const {
                 target: {
                     value,
@@ -186,74 +125,64 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 },
             } = event;
 
-            handleChange(value, index, valid);
+            const index = parseInputIdx(event.currentTarget);
+
+            if (index !== null) {
+                handleChange(value, index, valid);
+            }
         };
 
-        const handleKeyDown: InputProps['onKeyDown'] = (event, { index }) => {
+        const handleKeyDown: InputProps['onKeyDown'] = (event) => {
+            const index = parseInputIdx(event.currentTarget);
+
+            if (index === null) return;
+
             const prevIndex = index - 1;
             const nextIndex = index + 1;
-
-            const prevRef = inputRefs[prevIndex];
-            const curtRef = inputRefs[index];
 
             const newValues = [...values];
 
             switch (event.key) {
-                case 'Backspace':
+                case 'Backspace': {
                     event.preventDefault();
 
-                    if (values[index]) {
-                        newValues[index] = '';
-                        focusOnInput(curtRef);
-                    } else if (prevRef) {
-                        newValues[prevIndex] = '';
+                    const targetIndex = newValues[index] ? index : Math.max(prevIndex, 0);
 
-                        focusOnInput(prevRef);
-                    }
-
+                    newValues[targetIndex] = '';
                     setValues(newValues);
 
                     triggerChange(newValues);
 
+                    focus(targetIndex);
+                    unselect();
+
                     break;
+                }
                 case 'Delete':
                     event.preventDefault();
 
                     newValues[index] = '';
-                    focusOnInput(curtRef);
 
                     setValues(newValues);
 
                     triggerChange(newValues);
 
+                    unselect();
                     break;
                 case 'ArrowLeft':
                     event.preventDefault();
 
-                    if (prevRef) {
-                        focusOnInput(prevRef);
+                    if (prevIndex) {
+                        focus(prevIndex);
                     }
 
                     break;
-                case 'ArrowRight': {
+                case 'ArrowRight':
                     event.preventDefault();
 
-                    if (!restrictFocus && index === 0 && !values[0]) {
-                        break;
-                    }
-
-                    const targetIndex = restrictFocus
-                        ? clampFocusIndex({
-                              values,
-                              fields,
-                              requestedIndex: nextIndex,
-                          })
-                        : nextIndex;
-
-                    focusOnInput(inputRefs[targetIndex]);
+                    focus(nextIndex);
 
                     break;
-                }
                 case 'ArrowUp':
                 case 'ArrowDown':
                     event.preventDefault();
@@ -263,19 +192,22 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             }
         };
 
-        const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
-            event.persist();
-            const target = event.currentTarget;
+        const handleFocus: FocusEventHandler<HTMLInputElement> = (e) => {
+            const index = parseInputIdx(e.currentTarget);
 
-            if (programmaticFocusRef.current) {
-                programmaticFocusRef.current = false;
+            if (index === null || index >= fields) return;
 
-                syncSelection(target);
+            const inputs = getInputs();
 
-                return;
+            const target =
+                inputs &&
+                [...inputs].slice(0, index).find((input, i) => !input.value && (strictFocus || !i));
+
+            target?.focus();
+
+            if (e.currentTarget.value) {
+                syncSelection(e.currentTarget);
             }
-
-            syncSelection(target);
         };
 
         const handleErrorAnimationEnd = () => {
@@ -332,29 +264,27 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
         return (
             <div
+                ref={inputRef}
                 className={cn(styles.component, className)}
                 data-test-id={dataTestId}
                 onAnimationEnd={handleErrorAnimationEnd}
+                role='group'
+                aria-label='Код подтверждения'
             >
-                <div
-                    className={cn({ [styles.shake]: Boolean(error) })}
-                    onMouseDownCapture={disabled ? undefined : handleMouseDown}
-                >
-                    {/* eslint-disable react/no-array-index-key */}
-                    {new Array(fields).fill('').map((_, index) => (
+                <div className={cn({ [styles.shake]: Boolean(error) })}>
+                    {Array.from({ length: fields }, (_, index) => (
                         <Input
-                            ref={inputRefs[index]}
                             key={index.toString()}
                             index={index}
                             value={values[index]}
                             disabled={disabled}
                             error={!!error}
                             onChange={handleChangeFromEvent}
-                            onClick={handleClick}
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
                             stylesInput={stylesInput}
                             compact={fields > 6}
+                            aria-label={`Код ${index + 1} из ${fields}`}
                         />
                     ))}
                 </div>

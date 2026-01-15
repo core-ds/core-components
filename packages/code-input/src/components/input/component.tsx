@@ -1,27 +1,26 @@
 import React, {
-    type ChangeEvent,
     type ChangeEventHandler,
     forwardRef,
     type InputHTMLAttributes,
-    type KeyboardEvent,
     type KeyboardEventHandler,
 } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
 
-export type InputProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'onKeyDown' | 'enterKeyHint'
-> & {
+export interface InputProps
+    extends Omit<
+        InputHTMLAttributes<HTMLInputElement>,
+        'value' | 'onChange' | 'onKeyDown' | 'enterKeyHint'
+    > {
     index: number;
     value: string;
     error: boolean;
     compact?: boolean;
-    onChange: (event: ChangeEvent<HTMLInputElement>, payload: { index: number }) => void;
-    onKeyDown: (event: KeyboardEvent<HTMLInputElement>, payload: { index: number }) => void;
+    onChange: ChangeEventHandler<HTMLInputElement>;
+    onKeyDown: KeyboardEventHandler<HTMLInputElement>;
     stylesInput?: { [key: string]: string };
-};
+}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
     (
@@ -33,44 +32,36 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             compact = false,
             onChange,
             onKeyDown,
-            onClick,
             onFocus,
+            onMouseDown,
             stylesInput = {},
+            'aria-label': ariaLabel,
         },
         ref,
-    ) => {
-        const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-            onChange(event, { index });
-        };
+    ) => (
+        <input
+            ref={ref}
+            data-code-input-index={index}
+            className={cn(styles.input, stylesInput.component, {
+                [styles.hasError]: error,
+                [stylesInput.hasError]: error,
 
-        const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
-            onKeyDown(event, { index });
-        };
+                [styles.disabled]: disabled,
+                [stylesInput.disabled]: disabled,
 
-        return (
-            <input
-                ref={ref}
-                data-code-input-index={index}
-                className={cn(styles.input, stylesInput.component, {
-                    [styles.hasError]: error,
-                    [stylesInput.hasError]: error,
-
-                    [styles.disabled]: disabled,
-                    [stylesInput.disabled]: disabled,
-
-                    [styles.compact]: compact,
-                    [stylesInput.compact]: Boolean(stylesInput.compact) && compact,
-                })}
-                disabled={disabled}
-                value={value}
-                autoComplete={index === 0 ? 'one-time-code' : ''}
-                inputMode='numeric'
-                pattern='[0-9]*'
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                onFocus={onFocus}
-                onClick={onClick}
-            />
-        );
-    },
+                [styles.compact]: compact,
+                [stylesInput.compact]: Boolean(stylesInput.compact) && compact,
+            })}
+            disabled={disabled}
+            value={value}
+            autoComplete={index === 0 ? 'one-time-code' : ''}
+            inputMode='numeric'
+            pattern='[0-9]*'
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            onFocus={onFocus}
+            onMouseDown={onMouseDown}
+            aria-label={ariaLabel}
+        />
+    ),
 );

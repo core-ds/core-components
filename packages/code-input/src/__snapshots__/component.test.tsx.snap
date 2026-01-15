@@ -3,12 +3,15 @@
 exports[`CodeInput Display tests should display correctly 1`] = `
 <div>
   <div
+    aria-label="Код подтверждения"
     class="component"
+    role="group"
   >
     <div
       class=""
     >
       <input
+        aria-label="Код 1 из 4"
         autocomplete="one-time-code"
         class="input component"
         data-code-input-index="0"
@@ -17,6 +20,7 @@ exports[`CodeInput Display tests should display correctly 1`] = `
         value=""
       />
       <input
+        aria-label="Код 2 из 4"
         autocomplete=""
         class="input component"
         data-code-input-index="1"
@@ -25,6 +29,7 @@ exports[`CodeInput Display tests should display correctly 1`] = `
         value=""
       />
       <input
+        aria-label="Код 3 из 4"
         autocomplete=""
         class="input component"
         data-code-input-index="2"
@@ -33,6 +38,7 @@ exports[`CodeInput Display tests should display correctly 1`] = `
         value=""
       />
       <input
+        aria-label="Код 4 из 4"
         autocomplete=""
         class="input component"
         data-code-input-index="3"
@@ -48,12 +54,15 @@ exports[`CodeInput Display tests should display correctly 1`] = `
 exports[`CodeInput Display tests should display correctly with error 1`] = `
 <div>
   <div
+    aria-label="Код подтверждения"
     class="component"
+    role="group"
   >
     <div
       class="shake"
     >
       <input
+        aria-label="Код 1 из 4"
         autocomplete="one-time-code"
         class="input component hasError"
         data-code-input-index="0"
@@ -62,6 +71,7 @@ exports[`CodeInput Display tests should display correctly with error 1`] = `
         value=""
       />
       <input
+        aria-label="Код 2 из 4"
         autocomplete=""
         class="input component hasError"
         data-code-input-index="1"
@@ -70,6 +80,7 @@ exports[`CodeInput Display tests should display correctly with error 1`] = `
         value=""
       />
       <input
+        aria-label="Код 3 из 4"
         autocomplete=""
         class="input component hasError"
         data-code-input-index="2"
@@ -78,6 +89,7 @@ exports[`CodeInput Display tests should display correctly with error 1`] = `
         value=""
       />
       <input
+        aria-label="Код 4 из 4"
         autocomplete=""
         class="input component hasError"
         data-code-input-index="3"

@@ -15,7 +15,7 @@ export interface BaseCodeInputProps {
      * Ограничение навигации фокусом между ячейками
      * @default false
      */
-    restrictFocus?: boolean;
+    strictFocus?: boolean;
 
     /**
      * Заблокированное состояние

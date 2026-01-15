@@ -229,14 +229,14 @@ describe('CodeInput', () => {
             let container: HTMLElement;
             let inputs: NodeListOf<HTMLInputElement>;
 
-            type TFocusCase = {
+            type FocusCase = {
                 name: string;
                 setup: () => Promise<void>;
                 clickIndex: number;
                 expectedFocusIndex: number;
             };
 
-            const focusCases: Array<TFocusCase> = [
+            const focusCases: Array<FocusCase> = [
                 {
                     name: 'should focus first input when clicking on any empty input',
                     setup: async () => {},
@@ -310,18 +310,18 @@ describe('CodeInput', () => {
             });
         });
 
-        describe('restrictFocus', () => {
+        describe('strictFocus', () => {
             let container: HTMLElement;
             let inputs: NodeListOf<HTMLInputElement>;
 
-            type TRestrictClickCase = {
+            type StrictClickCase = {
                 name: string;
                 setup: () => Promise<void>;
                 clickIndex: number;
                 expectedFocusIndex: number;
             };
 
-            const restrictClickCases: Array<TRestrictClickCase> = [
+            const strictClickCases: Array<StrictClickCase> = [
                 {
                     name: 'redirects focus to next empty when clicking on a later input (state: [1] [] [] [])',
                     setup: async () => {
@@ -352,11 +352,11 @@ describe('CodeInput', () => {
             ];
 
             beforeEach(() => {
-                ({ container } = render(<CodeInput restrictFocus={true} />));
+                ({ container } = render(<CodeInput strictFocus />));
                 inputs = getInputs(container);
             });
 
-            it.each(restrictClickCases)(
+            it.each(strictClickCases)(
                 '$name',
                 async ({ setup, clickIndex, expectedFocusIndex }) => {
                     await setup();
@@ -366,7 +366,7 @@ describe('CodeInput', () => {
                 },
             );
 
-            it('ArrowRight does not move focus when restrictFocus is false and first value is empty', async () => {
+            it('ArrowRight does not move focus when strictFocus is false and first value is empty', async () => {
                 ({ container } = render(<CodeInput />));
                 inputs = getInputs(container);
 
@@ -415,7 +415,7 @@ describe('CodeInput', () => {
                         expectedFocus: 0,
                     },
                 ])('$name', async ({ fields, preset, clickIndex, expectedFocus }) => {
-                    ({ container } = render(<CodeInput fields={fields} restrictFocus={true} />));
+                    ({ container } = render(<CodeInput fields={fields} strictFocus />));
                     inputs = getInputs(container);
 
                     await fillByArray(container, preset);
@@ -426,8 +426,8 @@ describe('CodeInput', () => {
                 });
             });
 
-            it('ArrowRight focuses first empty when restricted', async () => {
-                ({ container } = render(<CodeInput fields={4} restrictFocus={true} />));
+            it('ArrowRight focuses first empty when stricted', async () => {
+                ({ container } = render(<CodeInput fields={4} strictFocus />));
                 inputs = getInputs(container);
 
                 await fillByArray(container, ['1', undefined, undefined, undefined]);
@@ -438,9 +438,9 @@ describe('CodeInput', () => {
                 expect(inputs[1]).toHaveFocus();
             });
 
-            describe('deletion restrictions', () => {
+            describe('deletion strictions', () => {
                 it('click on any filled cell when fully filled keeps that cell focused', async () => {
-                    ({ container } = render(<CodeInput fields={4} restrictFocus={true} />));
+                    ({ container } = render(<CodeInput fields={4} strictFocus />));
                     inputs = getInputs(container);
 
                     await fillByArray(container, ['1', '2', '3', '4']);
@@ -452,7 +452,7 @@ describe('CodeInput', () => {
                 });
 
                 it('after deleting last, clicks on filled cells keep their focus and empty fields redirect', async () => {
-                    ({ container } = render(<CodeInput fields={5} restrictFocus={true} />));
+                    ({ container } = render(<CodeInput fields={5} strictFocus />));
                     inputs = getInputs(container);
 
                     await fillByArray(container, ['1', '2', '3', '4', '5']);
