@@ -128,6 +128,12 @@ export type FileUploadItemProps = {
     progressBar?: number;
 
     /**
+     * Шкала прогресса
+     * @default true
+     */
+    progressBarAvailable?: boolean;
+
+    /**
      * Кастомный контент
      */
     customContent?: ElementType;
@@ -142,4 +148,9 @@ export type FileUploadItemProps = {
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
      */
     imageUrl?: string;
+
+    /**
+     * Цвет заливки `StatusControl`
+     */
+    backgroundColor?: string;
 };

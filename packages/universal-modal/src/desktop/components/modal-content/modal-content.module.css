@@ -3,7 +3,7 @@
 .scrollable {
     height: 100%;
 
-    & .scrollableNode {
+    & .scrollableNode.scrollableNode {
         display: flex;
         flex-direction: column;
 

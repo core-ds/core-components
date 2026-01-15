@@ -1,5 +1,40 @@
 # @alfalab/core-components-slider-input
 
+## 10.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.3
+
+## 10.1.0
+
+### Minor Changes
+
+<sup><time>05.11.2025</time></sup>
+
+#### [#1929](https://github.com/core-ds/core-components/pull/1929)
+
+- Добавлен проп `bold` для управления жирностью текста
+
+### Patch Changes
+
+<sup><time>05.11.2025</time></sup>
+
+#### [#1933](https://github.com/core-ds/core-components/pull/1933)
+
+- Исправлено переопределние пропсов Input с помощью customInputProps
+
+## 10.0.4
+
+### Patch Changes
+
+<sup><time>03.10.2025</time></sup>
+
+#### [#1907](https://github.com/core-ds/core-components/pull/1907)
+
+- Исправлена типизация компонента `Input` для `SliderInput`
+
 ## 10.0.3
 
 ### Patch Changes

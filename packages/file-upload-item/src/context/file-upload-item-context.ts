@@ -5,6 +5,8 @@ import {
     type MouseEvent,
 } from 'react';
 
+import { type SuperEllipseProps } from '@alfalab/core-components-icon-view/super-ellipse';
+
 import { type FileUploadItemStatus } from '../types/status';
 
 type TFileUploadItemContext = {
@@ -28,9 +30,11 @@ type TFileUploadItemContext = {
     customIcon?: ElementType<{ className?: string }>;
     iconStyle?: 'gray' | 'colored';
     progressBar?: number;
+    progressBarAvailable?: boolean;
     customContent?: ElementType;
     truncate?: boolean;
     imageUrl?: string;
+    backgroundColor?: SuperEllipseProps['backgroundColor'];
     actionsPresent?: boolean;
     setActionsPresent?: (present: boolean) => void;
 };
@@ -56,9 +60,11 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     iconStyle: 'gray',
     customIcon: undefined,
     progressBar: 0,
+    progressBarAvailable: true,
     customContent: undefined,
     truncate: false,
     imageUrl: undefined,
+    backgroundColor: undefined,
     actionsPresent: false,
     setActionsPresent: undefined,
 });

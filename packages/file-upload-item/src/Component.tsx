@@ -33,9 +33,11 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     customIcon,
     iconStyle = 'gray',
     progressBar = 0,
+    progressBarAvailable = true,
     customContent,
     truncate,
     imageUrl,
+    backgroundColor,
 }) => {
     const [actionsPresent, setActionsPresent] = useState(false);
 
@@ -71,9 +73,11 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                     customIcon,
                     iconStyle,
                     progressBar,
+                    progressBarAvailable,
                     customContent,
                     truncate,
                     imageUrl,
+                    backgroundColor,
                     actionsPresent,
                     setActionsPresent,
                 }}

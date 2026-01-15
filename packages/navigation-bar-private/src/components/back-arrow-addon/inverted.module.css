@@ -1,0 +1,35 @@
+@import '../../../../vars/src/colors-monochrome.css';
+@import '../../vars.css';
+
+.component {
+    background: var(--color-light-monochrome-white-4-inverted);
+
+    & svg > path {
+        fill: var(--color-light-neutral-translucent-1300-inverted);
+    }
+
+    &:hover {
+        & svg > path {
+            fill: var(--color-light-neutral-translucent-1300-inverted-hover);
+        }
+    }
+
+    &:active {
+        & svg > path {
+            fill: var(--color-light-neutral-translucent-1300-inverted-press);
+        }
+    }
+}
+
+.text {
+    color: var(--button-inverted-text-base-color);
+}
+
+.mobileWrapper {
+    background: var(--color-light-neutral-translucent-100-inverted);
+    color: var(--color-light-neutral-translucent-700-inverted);
+
+    & svg > path {
+        fill: var(--navigation-bar-back-arrow-mobile-fill-inverted);
+    }
+}

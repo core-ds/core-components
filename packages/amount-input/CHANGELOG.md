@@ -1,5 +1,57 @@
 # @alfalab/core-components-amount-input
 
+## 8.1.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-number-input@3.0.4
+
+## 8.1.3
+
+### Patch Changes
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1950](https://github.com/core-ds/core-components/pull/1950)
+
+##### AmountInput
+
+- Откат измнений #1907, #1896 и #1889
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-input@16.0.3
+    - @alfalab/core-components-number-input@3.0.3
+    - @alfalab/core-components-with-suffix@5.0.3
+
+## 8.1.2
+
+### Patch Changes
+
+<sup><time>03.10.2025</time></sup>
+
+#### [#1811](https://github.com/core-ds/core-components/pull/1811)
+
+- Добавлена span обертка над значениями `amount-input`
+- Исправлен баг с некорректным отображением при выделении текста на os Windows
+
+<sup><time>03.10.2025</time></sup>
+
+#### [#1905](https://github.com/core-ds/core-components/pull/1905)
+
+- Корректный `inputMode` для `AmountInput`
+
+## 8.1.1
+
+### Patch Changes
+
+<sup><time>29.09.2025</time></sup>
+
+#### [#1896](https://github.com/core-ds/core-components/pull/1896)
+
+- Исправлен ввод цифр в начало инпута при уже введенном значении. Например, '2 000' -> '12 000'
+
 ## 8.1.0
 
 ### Minor Changes

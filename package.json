@@ -29,12 +29,13 @@
         "test": "jest --watchAll=false",
         "test:codemod": "yarn workspace @alfalab/core-components-codemod test",
         "test:screenshots": "bin/run-screenshots.sh",
+        "test:screenshots-local": "bin/run-screenshots-local.sh",
         "tsconfig": "node bin/tsconfig/bin.mjs",
         "update-colors": "node tools/update-colors.js && stylelint packages/{themes,vars}/**/*.css --fix && prettier --write \"packages/{themes,vars}/**/*.css\" && yarn generate-dark-colors",
         "update-typography": "node tools/update-typography.mjs",
         "update-usages": "node tools/update-usages.js",
         "version-packages": "yarn changeset version && yarn write-vars-and-themes-version",
-        "version-packages:snapshot": "yarn changeset version --snapshot snapshot && yarn write-vars-and-themes-version",
+        "version-packages:snapshot": "yarn changeset version --snapshot && yarn write-vars-and-themes-version",
         "write-vars-and-themes-version": "node bin/write-vars-and-themes-version/bin.mjs"
     },
     "husky": {

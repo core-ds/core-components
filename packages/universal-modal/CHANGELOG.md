@@ -1,5 +1,88 @@
 # @alfalab/core-components-universal-modal
 
+## 2.0.9
+
+### Patch Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1998](https://github.com/core-ds/core-components/pull/1998)
+
+##### UniversalModal
+
+- Увеличена специфичность CSS селектора для `scrollableNode`
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@6.1.0
+
+## 2.0.8
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### UniversalModal
+
+- Удален неиспользуемый код стилей хэдера
+- Небольшие исправления и улучшения кодовой базы хэдера
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### NavigationBarPrivate
+
+- Исправлен trim хэдера, когда часть текста продолжала отображаться под обрезаемой строкой
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.3
+
+## 2.0.7
+
+### Patch Changes
+
+<sup><time>08.12.2025</time></sup>
+
+#### [#1963](https://github.com/core-ds/core-components/pull/1963)
+
+##### UniversalModal
+
+Удалены ограничения минимальных размеров
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.2
+
+## 2.0.6
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-base-modal@6.0.2
+    - @alfalab/core-components-button@12.0.2
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-navigation-bar-private@1.1.1
+    - @alfalab/core-components-typography@5.0.3
+
+## 2.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.0
+
+## 2.0.4
+
+### Patch Changes
+
+<sup><time>29.09.2025</time></sup>
+
+#### [#1894](https://github.com/core-ds/core-components/pull/1894)
+
+- Исправлена типизация для `disableFocusLock` пропса
+
 ## 2.0.3
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-import { type ComponentType, type ReactNode } from 'react';
+import { type ComponentType, type CSSProperties, type ReactNode } from 'react';
 
 export interface ConfirmationProps {
     /**
@@ -66,6 +66,12 @@ export interface ConfirmationProps {
      * Сss класс для стилизации общей обёртки
      */
     className?: string;
+
+    /**
+     * Максимальная ширина контейнера компонента.
+     * Для mobile по умолчанию используется 288px, если не передано значение.
+     */
+    maxWidth?: CSSProperties['maxWidth'];
 
     /**
      * Флаг - нужно ли очищать код при возникновении ошибки

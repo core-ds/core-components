@@ -30,7 +30,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="назад"
-                  class="component text size-48 hug size-48 component text component text component"
+                  class="component text size-48 hug size-48 component text component text component component"
                   type="button"
                 >
                   <span
@@ -56,7 +56,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="text primary-large medium"
+                        class="text text primary-large medium"
                         style="opacity: 1;"
                       >
                         Назад
@@ -77,7 +77,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component border-40"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component component border_40"
                     type="button"
                   >
                     <span
@@ -113,7 +113,11 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
             <div
               class="title"
             >
-              Title
+              <div
+                class="titleTextContent"
+              >
+                Title
+              </div>
             </div>
           </div>
         </div>
@@ -168,7 +172,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="назад"
-                  class="component text size-32 hug size-32 component text component text component mobileComponent"
+                  class="component text size-32 hug size-32 component text component text component component mobileComponent"
                   type="button"
                 >
                   <span
@@ -194,7 +198,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="text component medium"
+                        class="text text component medium"
                         style="opacity: 1;"
                       >
                         Назад
@@ -215,7 +219,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
                 >
                   <button
                     aria-label="закрыть"
-                    class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component border-32"
+                    class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component component border_32"
                     type="button"
                   >
                     <span
@@ -251,7 +255,11 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
             <div
               class="title"
             >
-              Title
+              <div
+                class="titleTextContent"
+              >
+                Title
+              </div>
             </div>
           </div>
         </div>
