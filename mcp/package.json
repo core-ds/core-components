@@ -1,0 +1,26 @@
+{
+    "name": "mcp",
+    "version": "1.0.0",
+    "description": "MCP server for core-components",
+    "keywords": [],
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "main.js",
+    "scripts": {
+        "build": "tsc",
+        "dev": "node --loader ts-node/esm src/index.ts",
+        "start": "node dist/index.js",
+        "test": "node test-mcp.js",
+        "test:run": "vitest run"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.25.2",
+        "zod": "^4.3.5"
+    },
+    "devDependencies": {
+        "@types/node": "^25.0.9",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.9.3"
+    }
+}

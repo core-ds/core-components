@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "lib": ["ES2020"],
+        "types": ["node"],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+}
