@@ -1,6 +1,7 @@
 import React, { type MouseEvent, useContext } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import CrossMIcon from '@alfalab/icons-glyph/CrossMIcon';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
@@ -8,7 +9,7 @@ import { FileUploadItemContext } from '../../../../context/file-upload-item-cont
 import styles from '../../actions-control.module.css';
 
 export const DeleteButton = () => {
-    const { id = '0', disableButtons, onDelete } = useContext(FileUploadItemContext);
+    const { id = '0', dataTestId, disableButtons, onDelete } = useContext(FileUploadItemContext);
 
     const handleDelete = (e: MouseEvent<HTMLElement>) => {
         if (onDelete) {
@@ -24,6 +25,7 @@ export const DeleteButton = () => {
             icon={<CrossMIcon className={styles.deleteIconColor} />}
             disabled={disableButtons}
             onClick={handleDelete}
+            dataTestId={getDataTestId(dataTestId, 'delete-button')}
         />
     );
 };
