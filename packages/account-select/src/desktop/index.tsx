@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { AccountSelectContextProvider } from '../context';
 import { type AccountSelectProps } from '../types';
 
 import { AccountSelectDesktop as Component } from './Component.desktop';
 
-const AccountSelectDesktop = (props: AccountSelectProps) => (
+const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectProps>((props, ref) => (
     <AccountSelectContextProvider>
-        <Component {...props} />
+        <Component ref={ref} {...props} />
     </AccountSelectContextProvider>
-);
+));
 
 export { AccountSelectDesktop };
