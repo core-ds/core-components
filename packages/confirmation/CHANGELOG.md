@@ -1,5 +1,18 @@
 # @alfalab/core-components-confirmation
 
+## 14.3.0
+
+### Minor Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1995](https://github.com/core-ds/core-components/pull/1995)
+
+##### BaseConfirmation
+
+- Добавлен проп `maxWidth` для управления максимальной шириной контейнера.
+- В `ConfirmationMobile` дефолтный `maxWidth` — `288px` (если проп не передан); для desktop дефолтного значения нет.
+
 ## 14.2.0
 
 ### Minor Changes

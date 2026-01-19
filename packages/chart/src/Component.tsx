@@ -193,9 +193,12 @@ export const Chart = (props: OptionsProps) => {
 
         return (
             <Tooltip
-                ref={tooltipRef}
                 {...state.tooltip}
-                content={CustomizedHOC(TooltipContent, { series: state.series, tooltipArrowSide })}
+                content={CustomizedHOC(TooltipContent, {
+                    series: state.series,
+                    tooltipArrowSide,
+                    ref: tooltipRef,
+                })}
             />
         );
     }, [state, tooltipArrowSide]);
@@ -324,7 +327,7 @@ export const Chart = (props: OptionsProps) => {
                 (svgRef?.current?.clientWidth || 0) -
                     (state?.composeChart?.margin?.right || 0) -
                     activeCoordinate.x -
-                    (tooltipRef.current?.state?.boxWidth || 0) >
+                    (tooltipRef.current?.clientWidth || 0) >
                 20;
 
             setTooltipArrowSide(side);

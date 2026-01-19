@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import { TypographyText } from '@alfalab/core-components-typography';
@@ -14,70 +14,90 @@ export interface TooltipContentProps extends TooltipProps {
     series: SeriaProps[];
 }
 
-export const TooltipContent = ({
-    payload,
-    separator,
-    label,
-    tooltipArrowSide,
-    arrow,
-    series,
-    labelFormatter,
-    labelStyle,
-}: TooltipContentProps) => {
-    if (!label || payload.length === 0) return null;
+export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
+    (
+        {
+            payload,
+            separator,
+            label,
+            tooltipArrowSide,
+            arrow,
+            series,
+            labelFormatter,
+            labelStyle,
+            contentFormatter,
+        },
+        ref,
+    ) => {
+        if (!label || payload.length === 0) return null;
 
-    return (
-        <div className={cn(styles.tooltip)}>
-            {arrow && (
-                <span
-                    className={cn(
-                        styles.tooltipArrow,
-                        tooltipArrowSide ? '' : styles.tooltipArrowRight,
+        if (typeof contentFormatter === 'function') {
+            return (
+                <div className={cn(styles.tooltip)} ref={ref}>
+                    {arrow && (
+                        <span
+                            className={cn(styles.tooltipArrow, {
+                                [styles.tooltipArrowRight]: !tooltipArrowSide,
+                            })}
+                        />
                     )}
-                />
-            )}
-            <ul className={cn(styles.tooltipList)}>
-                <li className={cn(styles.tooltipItem)} style={labelStyle}>
-                    <TypographyText
-                        view='primary-medium'
-                        tag='span'
-                        weight='medium'
-                        className={cn(styles.tooltipLabel)}
-                    >
-                        {labelFormatter ? labelFormatter(label) : label}
-                    </TypographyText>
-                </li>
-                {payload.map((entry: PayloadProps) => {
-                    const data: SeriaProps | undefined = series.find(
-                        (d: SeriaProps) => d.properties.dataKey === entry.dataKey,
-                    );
+                    {contentFormatter?.({ label, payload })}
+                </div>
+            );
+        }
 
-                    if (data?.hideTooltip || data?.hide) return null;
-
-                    return (
-                        <li
-                            className={cn(styles.tooltipItem)}
-                            key={entry.dataKey}
-                            style={{ color: entry.color }}
+        return (
+            <div className={cn(styles.tooltip)} ref={ref}>
+                {arrow && (
+                    <span
+                        className={cn(styles.tooltipArrow, {
+                            [styles.tooltipArrowRight]: !tooltipArrowSide,
+                        })}
+                    />
+                )}
+                <ul className={cn(styles.tooltipList)}>
+                    <li className={cn(styles.tooltipItem)} style={labelStyle}>
+                        <TypographyText
+                            view='primary-medium'
+                            tag='span'
+                            weight='medium'
+                            className={cn(styles.tooltipLabel)}
                         >
-                            <TypographyText
-                                view='primary-medium'
-                                tag='span'
-                                weight='medium'
-                                className={cn(styles.tooltipValue)}
+                            {labelFormatter ? labelFormatter(label) : label}
+                        </TypographyText>
+                    </li>
+                    {payload.map((entry: PayloadProps) => {
+                        const data: SeriaProps | undefined = series.find(
+                            (d: SeriaProps) => d.properties.dataKey === entry.dataKey,
+                        );
+
+                        if (data?.hideTooltip || data?.hide) return null;
+
+                        return (
+                            <li
+                                className={cn(styles.tooltipItem)}
+                                key={entry.dataKey}
+                                style={{ color: entry.color }}
                             >
-                                {entry?.formatter ? entry.formatter(entry.value) : entry.value}
-                                {separator || ' '}
-                            </TypographyText>
-                            <TypographyText
-                                view='secondary-large'
-                                tag='span'
-                                className={cn(styles.tooltipName)}
-                            >{`${entry.name}`}</TypographyText>
-                        </li>
-                    );
-                })}
-            </ul>
-        </div>
-    );
-};
+                                <TypographyText
+                                    view='primary-medium'
+                                    tag='span'
+                                    weight='medium'
+                                    className={cn(styles.tooltipValue)}
+                                >
+                                    {entry?.formatter ? entry.formatter(entry.value) : entry.value}
+                                    {separator || ' '}
+                                </TypographyText>
+                                <TypographyText
+                                    view='secondary-large'
+                                    tag='span'
+                                    className={cn(styles.tooltipName)}
+                                >{`${entry.name}`}</TypographyText>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+        );
+    },
+);
