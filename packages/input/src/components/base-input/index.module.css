@@ -19,7 +19,10 @@
     }
 
     &.bold {
-        @mixin accent_component_primary;
+        &,
+        &::placeholder {
+            @mixin accent_component_primary;
+        }
     }
 
     &::placeholder {
@@ -37,7 +40,10 @@
         }
 
         &.bold {
-            @mixin accent_component_secondary;
+            &,
+            &::placeholder {
+                @mixin accent_component_secondary;
+            }
         }
     }
 

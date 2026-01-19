@@ -267,7 +267,7 @@ export const BaseInput = forwardRef<
             FormControlComponent,
             disableUserInput,
             platformStyles = {},
-            bold = false,
+            bold,
             ...restProps
         },
         ref,
