@@ -9,9 +9,14 @@
         "paths": {
             "@alfalab/core-components-base-modal": ["../base-modal/src"],
             "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-drawer": ["./src"],
             "@alfalab/core-components-drawer/*": ["./src/*"]
         }
     },
-    "references": [{ "path": "../base-modal/tsconfig.build.json" }]
+    "references": [
+        { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../button/tsconfig.build.json" }
+    ]
 }
