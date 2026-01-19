@@ -1,5 +1,63 @@
 # @alfalab/core-components
 
+## 49.13.0
+
+### Minor Changes
+
+<sup><time>19.01.2026</time></sup>
+
+#### [#1940](https://github.com/core-ds/core-components/pull/1940)
+
+##### Charts
+
+- Добавлена возможность вывода кастомного контента во всплывающей подсказке
+- Исправлено позиционирование стрелки у всплывающей подсказки
+
+### Patch Changes
+
+<sup><time>19.01.2026</time></sup>
+
+#### [#2008](https://github.com/core-ds/core-components/pull/2008)
+
+##### NavigationBarPrivate
+
+- Для компонента `Closer` поднята специфичность кнопки
+
+<sup><time>19.01.2026</time></sup>
+
+#### [#2011](https://github.com/core-ds/core-components/pull/2011)
+
+##### BottomSheet
+
+- Исправлена специфичность подзаголовка. Теперь он принимает корректный цвет из default/inverted мода
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.4
+    - @alfalab/core-components-bottom-sheet@7.4.1
+    - @alfalab/core-components-chart@4.1.0
+    - @alfalab/core-components-modal@10.0.8
+    - @alfalab/core-components-popup-sheet@2.0.10
+    - @alfalab/core-components-side-panel@6.0.8
+    - @alfalab/core-components-universal-modal@2.0.10
+    - @alfalab/core-components-select@18.2.7
+    - @alfalab/core-components-select-with-tags@9.0.10
+    - @alfalab/core-components-tooltip@8.0.10
+    - @alfalab/core-components-calendar@8.0.8
+    - @alfalab/core-components-custom-picker-button@3.0.10
+    - @alfalab/core-components-input-autocomplete@13.0.10
+    - @alfalab/core-components-international-phone-input@3.2.7
+    - @alfalab/core-components-intl-phone-input@10.0.10
+    - @alfalab/core-components-picker-button@12.0.10
+    - @alfalab/core-components-table@3.0.10
+    - @alfalab/core-components-gallery@6.0.11
+    - @alfalab/core-components-calendar-input@11.0.9
+    - @alfalab/core-components-calendar-range@8.0.9
+    - @alfalab/core-components-calendar-with-skeleton@6.0.8
+    - @alfalab/core-components-date-range-input@4.0.9
+    - @alfalab/core-components-date-time-input@5.0.9
+    - @alfalab/core-components-universal-date-input@3.0.9
+    - @alfalab/core-components-tabs@9.2.7
+
 ## 49.12.0
 
 ### Minor Changes
