@@ -10,7 +10,7 @@
 }
 
 .period {
-    @mixin action_primary_large;
+    @mixin accent_primary_large;
 
     text-align: center;
 
