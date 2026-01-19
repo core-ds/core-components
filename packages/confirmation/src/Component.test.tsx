@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { ConfirmationDesktop, DesktopConfirmationProps } from './desktop';
+import { ConfirmationMobile } from './mobile';
 
 /**
  * TODO: сделать тесты на все callbacks
@@ -214,6 +215,16 @@ describe('Confirmation', () => {
             );
 
             expect(container.firstElementChild).toHaveClass(className);
+        });
+
+        it('should set maxWidth for mobile via props', () => {
+            const testId = 'mobile-root';
+
+            const { getByTestId } = render(
+                <ConfirmationMobile {...baseProps} dataTestId={testId} maxWidth={320} />,
+            );
+
+            expect(getByTestId(testId).style.maxWidth).toBe('320px');
         });
 
         it('should render passed inputs amount', () => {
