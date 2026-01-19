@@ -9,6 +9,10 @@
     @mixin paragraph_component_primary;
     @mixin row_limit 1;
     word-break: break-all;
+
+    &.boldTitle {
+        @mixin accent_component_primary;
+    }
 }
 
 .closeButtonWrapper {

@@ -7,6 +7,10 @@
 
 .title {
     @mixin paragraph_primary_small;
+
+    &.boldTitle {
+        @mixin accent_primary_small;
+    }
 }
 
 .closeButtonWrapper {
