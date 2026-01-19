@@ -1,5 +1,12 @@
 # @alfalab/core-components-gallery
 
+## 6.0.11
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-tooltip@8.0.10
+
 ## 6.0.10
 
 ### Patch Changes
