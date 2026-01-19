@@ -18,7 +18,7 @@ export const calendar_with_skeleton: Story = {
         return (
             <>
                 <CalendarWithSkeleton calendarVisible={visible} />
-                <Button size='xs' onClick={() => setVisible(!visible)}>
+                <Button size={40} onClick={() => setVisible(!visible)}>
                     toggle
                 </Button>
             </>

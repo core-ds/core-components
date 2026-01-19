@@ -59,7 +59,7 @@ const NumberInput = () => {
         <Input
             value={value}
             onChange={handleChange}
-            size='m'
+            size={56}
             block={true}
             placeholder='Мгновенная валидация'
             error={error}
@@ -74,7 +74,7 @@ const MaskedNumberInput = () => {
         <MaskedInput
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            size='m'
+            size={56}
             block={true}
             placeholder='Маска'
             mask={(rawValue) => new Array(rawValue.length).fill(/\d/)}
@@ -126,7 +126,7 @@ const InputWrapper = ({ patronymic, placeholder, errMsg }) => {
             value={value}
             onChange={handleChange}
             onBlur={handleBlur}
-            size='m'
+            size={56}
             block={true}
             placeholder={placeholder}
             error={error}
@@ -233,7 +233,7 @@ render(() => {
                         error={form.errors[key]}
                         name={key}
                         onChange={handleChange}
-                        size='m'
+                        size={56}
                         block={true}
                         placeholder={data[key].desc}
                     />
@@ -242,7 +242,7 @@ render(() => {
             ))}
 
             <Gap size={16} />
-            <Button view='primary' size='m' type='submit'>
+            <Button view='primary' size={48} type='submit'>
                 Отправить форму
             </Button>
         </form>
