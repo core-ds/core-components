@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 import cn from 'classnames';
 
 import { Popover } from '@alfalab/core-components-popover';
@@ -14,7 +14,7 @@ import {
 
 import { CustomField } from '../components/custom-field';
 import { ADD_CARD_KEY } from '../constants';
-import { useAccountSelect } from '../context';
+import { AccountSelectContextProvider, ErrorContext } from '../context';
 import { type AccountSelectProps } from '../types';
 
 import styles from './index.module.css';
@@ -35,7 +35,9 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
         },
         ref,
     ) => {
-        const { error, setError } = useAccountSelect();
+        const [error, setError] = useState<string | null>(null);
+
+        const errorCtx = useMemo(() => ({ error, setError }), [error]);
 
         const { content, ...restCardAddingProps } = cardAddingProps || {};
         const enhancedOptions = useMemo(() => {
@@ -57,30 +59,34 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
         };
 
         return (
-            <BaseSelect
-                dataTestId={dataTestId}
-                className={styles.accountSelect}
-                error={error}
-                view='desktop'
-                Popover={Popover}
-                ref={ref}
-                onChange={handleChange}
-                options={enhancedOptions}
-                closeOnSelect={closeOnSelect}
-                Option={Option}
-                Field={CustomField}
-                Optgroup={Optgroup}
-                OptionsList={OptionsList}
-                Arrow={Arrow}
-                optionClassName={cn(styles.option, styles[`size${size}`])}
-                size={size}
-                {...restProps}
-                fieldProps={{
-                    ...(restProps.fieldProps as AnyObject),
-                    ...restCardAddingProps,
-                    size,
-                }}
-            />
+            <AccountSelectContextProvider>
+                <ErrorContext.Provider value={errorCtx}>
+                    <BaseSelect
+                        dataTestId={dataTestId}
+                        className={styles.accountSelect}
+                        error={error}
+                        view='desktop'
+                        Popover={Popover}
+                        ref={ref}
+                        onChange={handleChange}
+                        options={enhancedOptions}
+                        closeOnSelect={closeOnSelect}
+                        Option={Option}
+                        Field={CustomField}
+                        Optgroup={Optgroup}
+                        OptionsList={OptionsList}
+                        Arrow={Arrow}
+                        optionClassName={cn(styles.option, styles[`size${size}`])}
+                        size={size}
+                        {...restProps}
+                        fieldProps={{
+                            ...(restProps.fieldProps as AnyObject),
+                            ...restCardAddingProps,
+                            size,
+                        }}
+                    />
+                </ErrorContext.Provider>
+            </AccountSelectContextProvider>
         );
     },
 );

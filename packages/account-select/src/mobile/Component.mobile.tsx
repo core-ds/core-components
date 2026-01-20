@@ -1,11 +1,11 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 
-import { useAccountSelect } from '@alfalab/core-components-account-select/context';
 import { SelectMobile } from '@alfalab/core-components-select/mobile';
 import { type BaseSelectChangePayload } from '@alfalab/core-components-select/shared';
 
 import { CustomField, type CustomFieldProps } from '../components/custom-field';
 import { ADD_CARD_KEY } from '../constants';
+import { AccountSelectContextProvider, ErrorContext } from '../context';
 import { type AccountSelectProps } from '../types';
 
 const MobileCustomField = (props: CustomFieldProps) => <CustomField {...props} view='mobile' />;
@@ -24,7 +24,9 @@ export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectPro
         },
         ref,
     ) => {
-        const { error, setError } = useAccountSelect();
+        const [error, setError] = useState<string | null>(null);
+
+        const errorCtx = useMemo(() => ({ error, setError }), [error]);
 
         const { content, ...restCardAddingProps } = cardAddingProps ?? {};
 
@@ -47,24 +49,28 @@ export const AccountSelectMobile = forwardRef<HTMLInputElement, AccountSelectPro
         };
 
         return (
-            <SelectMobile
-                block={block}
-                dataTestId={dataTestId}
-                error={error}
-                ref={ref}
-                onChange={handleChange}
-                size={size}
-                {...restProps}
-                options={enhancedOptions}
-                closeOnSelect={closeOnSelect}
-                Field={MobileCustomField}
-                isBottomSheet={true}
-                fieldProps={{
-                    ...(restProps.fieldProps as object),
-                    ...restCardAddingProps,
-                    size,
-                }}
-            />
+            <AccountSelectContextProvider>
+                <ErrorContext.Provider value={errorCtx}>
+                    <SelectMobile
+                        block={block}
+                        dataTestId={dataTestId}
+                        error={error}
+                        ref={ref}
+                        onChange={handleChange}
+                        size={size}
+                        {...restProps}
+                        options={enhancedOptions}
+                        closeOnSelect={closeOnSelect}
+                        Field={MobileCustomField}
+                        isBottomSheet={true}
+                        fieldProps={{
+                            ...(restProps.fieldProps as object),
+                            ...restCardAddingProps,
+                            size,
+                        }}
+                    />
+                </ErrorContext.Provider>
+            </AccountSelectContextProvider>
         );
     },
 );

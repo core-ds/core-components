@@ -10,8 +10,6 @@ import React, {
 import { type CardData } from './types';
 
 interface AccountSelectContextValue {
-    error: string | null;
-    setError: Dispatch<React.SetStateAction<string | null>>;
     step: number;
     setStep: Dispatch<React.SetStateAction<number>>;
     cardNumber: CardData['number'];
@@ -22,10 +20,16 @@ interface AccountSelectContextValue {
     setCardCvc: Dispatch<React.SetStateAction<string>>;
 }
 
+interface ErrorContextValue {
+    error: string | null;
+    setError: Dispatch<React.SetStateAction<string | null>>;
+}
+
 export const AccountSelectContext = createContext<AccountSelectContextValue | null>(null);
 
+export const ErrorContext = createContext<ErrorContextValue | null>(null);
+
 export const AccountSelectContextProvider = ({ children }: { children: ReactNode }) => {
-    const [error, setError] = useState<string | null>(null);
     const [step, setStep] = useState<number>(1);
     const [cardNumber, setCardNumber] = useState<CardData['number']>('');
     const [cardExpiry, setCardExpiry] = useState<CardData['expiryDate']>('');
@@ -33,8 +37,6 @@ export const AccountSelectContextProvider = ({ children }: { children: ReactNode
 
     const ctx = useMemo(
         () => ({
-            error,
-            setError,
             step,
             setStep,
             cardNumber,
@@ -44,7 +46,7 @@ export const AccountSelectContextProvider = ({ children }: { children: ReactNode
             cardCvc,
             setCardCvc,
         }),
-        [cardCvc, cardExpiry, cardNumber, error, step],
+        [cardCvc, cardExpiry, cardNumber, step],
     );
 
     return <AccountSelectContext.Provider value={ctx}>{children}</AccountSelectContext.Provider>;
@@ -55,6 +57,16 @@ export const useAccountSelect = () => {
 
     if (!ctx) {
         throw new Error('useAccountSelect must be used within a AccountSelectContextProvider');
+    }
+
+    return ctx;
+};
+
+export const useError = () => {
+    const ctx = useContext(ErrorContext);
+
+    if (!ctx) {
+        throw new Error('useError must be used within a ErrorContext.Provider');
     }
 
     return ctx;

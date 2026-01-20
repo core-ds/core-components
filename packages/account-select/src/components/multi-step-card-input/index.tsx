@@ -3,7 +3,7 @@ import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
 
 import { CARD_MASK, CVV_MASK, ERRORS, EXPIRY_MASK } from '../../constants';
-import { useAccountSelect } from '../../context';
+import { useAccountSelect, useError } from '../../context';
 import { type CardAddingProps } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
 import { parseDate } from '../../utils/parse-date';
@@ -26,7 +26,6 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         placeholder,
     }) => {
         const {
-            setError,
             step,
             cardNumber,
             setCardNumber,
@@ -36,6 +35,8 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             setCardCvc,
             setCardExpiry,
         } = useAccountSelect();
+
+        const { setError } = useError();
 
         const [isCardNumberFocused, setIsCardNumberFocused] = useState<boolean>(false);
         const [fieldErrors, setFieldErrors] = useState<Record<string, string | null>>({});
