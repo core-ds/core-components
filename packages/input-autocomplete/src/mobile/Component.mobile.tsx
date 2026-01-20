@@ -141,16 +141,16 @@ export const InputAutocompleteMobile = React.forwardRef(
                 {...restProps}
                 {...(isBottomSheet
                     ? {
-                        bottomSheetProps: {
-                            ...componentProps,
-                            virtualKeyboard,
-                            showSwipeMarker: false,
-                        },
-                    }
+                          bottomSheetProps: {
+                              ...componentProps,
+                              virtualKeyboard,
+                              showSwipeMarker: false,
+                          },
+                      }
                     : {
-                        modalProps: componentProps,
-                        modalHeaderProps: { title },
-                    })}
+                          modalProps: componentProps,
+                          modalHeaderProps: { title },
+                      })}
                 dataTestId={dataTestId}
                 useWithApplyHook={false}
                 showSearch={true}
