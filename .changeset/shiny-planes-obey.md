@@ -3,7 +3,7 @@
 '@alfalab/core-components': major
 ---
 
-##### Типы
+##### Types
 
 - Тип `GapType` переведен на числовые значения:
     - `'3xs'` -> `2`

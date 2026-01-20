@@ -3,6 +3,7 @@
 '@alfalab/core-components-toast-plate': minor
 ---
 
-##### ToastPlate{Desktop,Mobile}
+##### ToastPlate, ToastPlate{Desktop,Mobile}
 
 - Добавлен проп `boldTitle` для управления жирностью заголовка
+- Убрана жирность с заголовка по-умолчанию
