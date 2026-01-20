@@ -5,7 +5,7 @@ import cn from 'classnames';
 
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
-import { DEFAULT_VISIBLE_OPTIONS, SIZE_TO_CLASSNAME_MAP } from '../../consts';
+import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
 import { type GroupShape, type OptionShape, type OptionsListProps } from '../../typings';
 import { isGroup, lastIndexOf, usePrevious, useVirtualVisibleOptions } from '../../utils';
@@ -237,11 +237,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         return (
             <div
-                className={cn(
-                    styles.virtualOptionsList,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
-                    className,
-                )}
+                className={cn(styles.virtualOptionsList, styles[`size-${size}`], className)}
                 data-test-id={dataTestId}
             >
                 {header && (

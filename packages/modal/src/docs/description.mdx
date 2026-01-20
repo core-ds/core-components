@@ -370,7 +370,12 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <ModalDesktop open={open} onClose={handleClose} size={size === 'fullscreen' ? 'fullscreen' : Number(size)} key={getKey()}>
+            <ModalDesktop
+                open={open}
+                onClose={handleClose}
+                size={size === 'fullscreen' ? 'fullscreen' : Number(size)}
+                key={getKey()}
+            >
                 {showHeader && (
                     <ModalDesktop.Header
                         hasCloser={headerSettings.hasCloser}
@@ -790,7 +795,7 @@ render(() => {
                 </Modal.Content>
                 <Modal.Footer sticky={true}>
                     <Button
-                        size={document.body.clientWidth < 450 ? 'm' : 's'}
+                        size={document.body.clientWidth < 450 ? 56 : 48}
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose

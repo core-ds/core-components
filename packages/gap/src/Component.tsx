@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -53,13 +53,13 @@ export type GapProps = {
     dataTestId?: string;
 };
 
-export const Gap = ({
+export const Gap: FC<GapProps> = ({
     size,
     direction = 'vertical',
     tag: Component = 'div',
     className,
     dataTestId,
-}: GapProps) => (
+}) => (
     <Component
         data-test-id={dataTestId}
         data-gap-size={`size-${size}`}

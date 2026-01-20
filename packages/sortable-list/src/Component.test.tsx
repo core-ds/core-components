@@ -59,31 +59,29 @@ describe('ScrollableList', () => {
 
         it('should set paddings as obj prop', async () => {
             const { getByTestId } = render(
-                <SortableListWrapper
-                    padding={{ top: '3xs', right: 'm', bottom: '2xs', left: 's' }}
-                />,
+                <SortableListWrapper padding={{ top: 2, right: 16, bottom: 4, left: 12 }} />,
             );
 
             const container = getByTestId(containerTestId);
 
             expect(container).toHaveClass(
-                'padding-top-3xs',
-                'padding-right-m',
-                'padding-bottom-2xs',
-                'padding-left-s',
+                'padding-top-2',
+                'padding-right-16',
+                'padding-bottom-4',
+                'padding-left-12',
             );
         });
 
         it('should set paddings as string prop', async () => {
-            const { getByTestId } = render(<SortableListWrapper padding='m' />);
+            const { getByTestId } = render(<SortableListWrapper padding={16} />);
 
             const container = getByTestId(containerTestId);
 
             expect(container).toHaveClass(
-                'padding-top-m',
-                'padding-right-m',
-                'padding-bottom-m',
-                'padding-left-m',
+                'padding-top-16',
+                'padding-right-16',
+                'padding-bottom-16',
+                'padding-left-16',
             );
         });
 
@@ -131,13 +129,13 @@ describe('ScrollableList', () => {
         });
 
         it('should set border-radius', async () => {
-            const { getByTestId } = render(<SortableListWrapper borderRadius='m' />);
+            const { getByTestId } = render(<SortableListWrapper borderRadius={8} />);
 
             const container = getByTestId(containerTestId);
             const item = getByTestId(itemTestId + '_1');
 
-            expect(container).toHaveClass('border-radius-m');
-            expect(item).toHaveClass('border-radius-m');
+            expect(container).toHaveClass('border-radius-8');
+            expect(item).toHaveClass('border-radius-8');
         });
 
         it('should set activator class', async () => {
@@ -149,23 +147,23 @@ describe('ScrollableList', () => {
         });
 
         it('should set control-padding-right class', () => {
-            const { getByTestId } = render(<SortableListWrapper controlPadding='s' />);
+            const { getByTestId } = render(<SortableListWrapper controlPadding={12} />);
 
             const item = getByTestId(itemTestId + '_1');
             const icon = item.childNodes[1];
 
-            expect(icon).toHaveClass('control-right-padding-s');
+            expect(icon).toHaveClass('control-right-padding-12');
         });
 
         it('should set control-padding-left class', () => {
             const { getByTestId } = render(
-                <SortableListWrapper controlPadding='s' controlPosition='left' />,
+                <SortableListWrapper controlPadding={12} controlPosition='left' />,
             );
 
             const item = getByTestId(itemTestId + '_1');
             const icon = item.childNodes[0];
 
-            expect(icon).toHaveClass('control-left-padding-s');
+            expect(icon).toHaveClass('control-left-padding-12');
         });
 
         it('should have data-test-id', () => {
