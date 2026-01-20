@@ -7,6 +7,82 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.4.2.tgz#c836b1bd81e6d62cd6cdf3ee4948bcdce8ea79c8"
   integrity sha512-baYZExFpsdkBNuvGKTKWCwKH57HRZLVtycZS05WTQNVOiXVSeAki3nU35zlRbToeMW8aHlJfyS+1C4BOv27q0A==
 
+"@alfalab/core-components-bottom-sheet@^7.4.1":
+  version "7.4.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-bottom-sheet/-/core-components-bottom-sheet-7.4.1.tgz#9a93e4981ac85e37f892ba324b11d328753c2c9a"
+  integrity sha512-Fuded72eFq/Crd4GQOlLSc6hdqqblhdKe3lW0Mypo35r40VYU8TzdpZkty1DcmkhboH7W/iRwLx2haelWcpElQ==
+  dependencies:
+    "@alfalab/core-components-backdrop" "^4.0.0"
+    "@alfalab/core-components-base-modal" "^6.1.0"
+    "@alfalab/core-components-navigation-bar-private" "^1.1.4"
+    "@alfalab/core-components-shared" "^1.1.1"
+    "@alfalab/core-components-types" "^1.0.0"
+    classnames "^2.5.1"
+    react-div-100vh "^0.7.0"
+    react-merge-refs "^1.1.0"
+    react-swipeable "^7.0.0"
+    react-transition-group "^4.4.5"
+    tslib "^2.4.0"
+    use-sync-external-store "^1.4.0"
+
+"@alfalab/core-components-modal@^10.0.8":
+  version "10.0.8"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-modal/-/core-components-modal-10.0.8.tgz#df4f72349998687d4a5454a814e5cd0bafb1996f"
+  integrity sha512-vYbX1tRgEBd/PMsz0VKNSn1WgI2bxoymvKSfFnYagl0z9VGRziKiDfXEzgRhcBo5W24pZM12o0LqUGP8Oo41Gw==
+  dependencies:
+    "@alfalab/core-components-base-modal" "^6.1.0"
+    "@alfalab/core-components-mq" "^5.0.2"
+    "@alfalab/core-components-navigation-bar-private" "^1.1.4"
+    "@alfalab/core-components-shared" "^1.1.1"
+    classnames "^2.5.1"
+    react-merge-refs "^1.1.0"
+    tslib "^2.4.0"
+
+"@alfalab/core-components-navigation-bar-private@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-navigation-bar-private/-/core-components-navigation-bar-private-1.1.4.tgz#3650c85ccdbdbb78a4016f22ec1fd42306e762bd"
+  integrity sha512-tOt8C3P/NpmgRJFmyeLq9WpFILLC2nhjSjNlBJdX8T8IciRvaTYs9F0kMPPpz9HesQQ+sc3B10g+zxOsJMRQ6A==
+  dependencies:
+    "@alfalab/core-components-button" "^12.0.2"
+    "@alfalab/core-components-icon-button" "^7.0.3"
+    "@alfalab/core-components-shared" "^1.1.1"
+    "@alfalab/core-components-typography" "^5.0.3"
+    "@alfalab/hooks" "^1.13.1"
+    "@alfalab/icons-glyph" "^2.247.0"
+    classnames "^2.5.1"
+    react-merge-refs "^1.1.0"
+    tslib "^2.4.0"
+
+"@alfalab/core-components-select@^18.2.7":
+  version "18.2.7"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-select/-/core-components-select-18.2.7.tgz#e385c499eaef264c886a9c59dab229c1c7fb4a11"
+  integrity sha512-XwlE6CH0Lh0fMWiD5u0nXu8AlfA/B1muLWW6s2hv/GHitFx64+7n36FVLR5ZHdHgza0uHYGW7mCODf1/VrrYWg==
+  dependencies:
+    "@alfalab/core-components-badge" "^6.0.0"
+    "@alfalab/core-components-base-modal" "^6.1.0"
+    "@alfalab/core-components-bottom-sheet" "^7.4.1"
+    "@alfalab/core-components-button" "^12.0.2"
+    "@alfalab/core-components-checkbox" "^5.0.2"
+    "@alfalab/core-components-form-control" "^13.0.2"
+    "@alfalab/core-components-input" "^16.0.3"
+    "@alfalab/core-components-modal" "^10.0.8"
+    "@alfalab/core-components-mq" "^5.0.2"
+    "@alfalab/core-components-popover" "^7.1.1"
+    "@alfalab/core-components-scrollbar" "^4.0.0"
+    "@alfalab/core-components-shared" "^1.1.1"
+    "@alfalab/core-components-skeleton" "^6.0.1"
+    "@alfalab/hooks" "^1.13.1"
+    "@alfalab/icons-glyph" "^2.247.0"
+    "@juggle/resize-observer" "^3.3.1"
+    classnames "^2.5.1"
+    compute-scroll-into-view "^3.1.0"
+    downshift "8.4.0"
+    intersection-observer "^0.12.0"
+    react-fast-compare "^3.2.2"
+    react-merge-refs "^1.1.0"
+    react-virtual "^2.3.2"
+    tslib "^2.4.0"
+
 "@alfalab/data@^1.9.1", "@alfalab/data@^1.9.2":
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.9.2.tgz#666e9b2b593256473329ebb026b7b59f4d6542f7"

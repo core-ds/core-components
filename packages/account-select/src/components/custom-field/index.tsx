@@ -1,13 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { useAccountSelect } from '@alfalab/core-components-account-select/context';
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
 import { FormControlMobile } from '@alfalab/core-components-form-control/mobile';
 import { ProductCover } from '@alfalab/core-components-product-cover';
 import { Field, type FieldProps, type OptionShape } from '@alfalab/core-components-select/shared';
 
 import { ADD_CARD_KEY, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
+import { useAccountSelect } from '../../context';
 import { MultiStepCardInput } from '../multi-step-card-input';
 
 import styles from './index.module.css';
