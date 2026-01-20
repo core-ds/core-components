@@ -37,7 +37,7 @@ render(() => {
 
     const renderItem = (item) => {
         return (
-            <GenericWrapper alignItems='center' padding={{ top: 's', bottom: 's', left: 'm' }}>
+            <GenericWrapper alignItems='center' padding={{ top: 12, bottom: 12, left: 16 }}>
                 <GenericWrapper>
                     <SuperEllipse size={48}>
                         <DiamondsMIcon />
@@ -62,9 +62,9 @@ render(() => {
             <SortableList
                 items={items}
                 onDragEnd={(_, newIds) => setItems(newIds)}
-                padding='xs'
-                borderRadius='m'
-                controlPadding='s'
+                padding={8}
+                borderRadius={8}
+                controlPadding={12}
                 renderItem={renderItem}
             />
         </div>

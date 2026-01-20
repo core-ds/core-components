@@ -3,7 +3,6 @@ import cn from 'classnames';
 
 import { Checkbox, type CheckboxProps } from '@alfalab/core-components-checkbox';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../../../consts';
 import { type OptionsListProps } from '../../../../typings';
 
 import styles from './index.module.css';
@@ -26,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
     size,
 }) => (
     <div
-        className={cn(size && styles[SIZE_TO_CLASSNAME_MAP[size]], {
+        className={cn(size && styles[`size-${size}`], {
             [styles.desktop]: !mobile,
             [styles.mobile]: mobile,
         })}

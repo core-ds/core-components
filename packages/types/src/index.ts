@@ -84,21 +84,7 @@ export type ShadowType =
     | 'shadow-l-hard-up'
     | 'shadow-xl-hard-up';
 
-export type GapType =
-    | '3xs'
-    | '2xs'
-    | 'xs'
-    | 's'
-    | 'm'
-    | 'l'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl'
-    | '7xl'
-    | '8xl';
+export type GapType = 2 | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 64 | 72 | 96 | 128;
 
 export type PaddingType =
     | number

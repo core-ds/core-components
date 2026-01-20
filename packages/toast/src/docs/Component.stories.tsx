@@ -117,7 +117,7 @@ export const toast: Story = {
                         autoCloseDelay={number('autoCloseDelay', 3000)}
                         actionButton={
                             <Button
-                                size={isMobile ? 'xs' : 's'}
+                                size={isMobile ? 40 : 48}
                                 view='text'
                                 colors='inverted'
                                 onClick={() => {

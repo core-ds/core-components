@@ -454,7 +454,7 @@ const DATA = [
 
 const OPTIONS = DATA.map(({ amount, text }, idx) => ({
     key: idx,
-    content: renderOption({ text, amount, padding: { top: 'xs', bottom: 'xs', left: 's' } }),
+    content: renderOption({ text, amount, padding: { top: 8, bottom: 8, left: 12 } }),
 }));
 
 const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
@@ -462,7 +462,7 @@ const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
     content: renderOptionWithAmountOnTop({
         text,
         amount,
-        padding: { top: 'xs', bottom: 'xs', left: 's' },
+        padding: { top: 8, bottom: 8, left: 12 },
     }),
 }));
 
@@ -515,7 +515,7 @@ render(() => {
                     return renderOption({
                         text,
                         amount,
-                        padding: { top: 'xs', bottom: 'xs' },
+                        padding: { top: 8, bottom: 8 },
                     });
                 }}
                 onChange={({ selected }) => {
@@ -579,7 +579,7 @@ const DATA = [
 
 const OPTIONS = DATA.map(({ amount, text }, idx) => ({
     key: idx,
-    content: renderOption({ text, amount, padding: { top: 's', bottom: 's', left: 'm' } }),
+    content: renderOption({ text, amount, padding: { top: 12, bottom: 12, left: 16 } }),
 }));
 
 const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
@@ -587,7 +587,7 @@ const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
     content: renderOptionWithAmountOnTop({
         text,
         amount,
-        padding: { top: 's', bottom: 's', left: 'm' },
+        padding: { top: 12, bottom: 12, left: 16 },
     }),
 }));
 
@@ -639,7 +639,7 @@ render(() => {
                     return renderOption({
                         text,
                         amount,
-                        padding: { top: 'xs', bottom: 'xs' },
+                        padding: { top: 8, bottom: 8 },
                     });
                 }}
             />
@@ -737,7 +737,7 @@ render(() => {
                 text: 'Зарплатный счёт',
                 amount: 3405161,
                 icon: <StarMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
+                padding: { top: 12, bottom: 12, left: 16 },
             },
         },
         {
@@ -746,7 +746,7 @@ render(() => {
                 text: 'Накопительный счёт',
                 amount: 6000024,
                 icon: <SafeBoxMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
+                padding: { top: 12, bottom: 12, left: 16 },
             },
         },
     ];
@@ -841,7 +841,7 @@ render(() => {
                 text: 'Зарплатный счёт',
                 amount: 3405161,
                 icon: <StarMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
+                padding: { top: 12, bottom: 12, left: 16 },
             },
         },
         {
@@ -850,7 +850,7 @@ render(() => {
                 text: 'Накопительный счёт',
                 amount: 6000024,
                 icon: <SafeBoxMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
+                padding: { top: 12, bottom: 12, left: 16 },
             },
         },
     ];

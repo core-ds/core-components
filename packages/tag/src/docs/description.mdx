@@ -1,10 +1,10 @@
 ## Размеры
 
-Рекомендуется использовать S, XS и XXS размеры. Размеры XL, L, M — не рекомендованы к использованию.
+Рекомендуется использовать 48, 40 и 32 размеры. Размеры 72, 64, 56 — не рекомендованы к использованию.
 
 ```jsx live
 render(() => {
-    const SIZES = ['s', 'xs', 'xxs'];
+    const SIZES = [48, 40, 32];
 
     const [checked, setChecked] = React.useState(
         Object.fromEntries(SIZES.map((key) => [key, false])),

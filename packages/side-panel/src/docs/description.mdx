@@ -788,7 +788,7 @@ render(() => {
 
     return (
         <Container>
-            <Button size={document.body.clientWidth < 450 ? 'm' : 's'} onClick={handleOpen}>
+            <Button size={document.body.clientWidth < 450 ? 56 : 48} onClick={handleOpen}>
                 Открыть сайд панель
             </Button>
 
@@ -812,7 +812,7 @@ render(() => {
                 </SidePanel.Content>
                 <SidePanel.Footer sticky={true}>
                     <Button
-                        size={document.body.clientWidth < 450 ? 'm' : 's'}
+                        size={document.body.clientWidth < 450 ? 56 : 48}
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose
