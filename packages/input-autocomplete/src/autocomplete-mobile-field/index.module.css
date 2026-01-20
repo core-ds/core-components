@@ -37,6 +37,11 @@
     text-overflow: ellipsis;
     overflow: hidden;
     width: 100%;
+
+    &.multiline {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
 }
 
 .value {
