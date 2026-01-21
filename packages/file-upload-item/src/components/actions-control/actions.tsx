@@ -9,20 +9,20 @@ import { RestoreButton } from './components/restore-button';
 import styles from './actions-control.module.css';
 
 export const Actions = () => {
-    const { showRestore, downloadLink, showDelete, setActionsPresent } =
+    const { showRestore, downloadLink, showDelete, setActionsPresent, onDownload } =
         useContext(FileUploadItemContext);
 
     useEffect(() => {
         if (setActionsPresent) {
-            setActionsPresent(!!(showRestore || downloadLink || showDelete));
+            setActionsPresent(!!(showRestore || downloadLink || showDelete || onDownload));
         }
-    }, [showRestore, downloadLink, showDelete, setActionsPresent]);
+    }, [showRestore, downloadLink, showDelete, setActionsPresent, onDownload]);
 
     return (
         <div className={styles.container}>
             {showRestore && <RestoreButton />}
 
-            {Boolean(downloadLink) && !showRestore && <DownloadButton />}
+            {(Boolean(downloadLink) || onDownload) && !showRestore && <DownloadButton />}
 
             {showDelete && !showRestore && <DeleteButton />}
         </div>
