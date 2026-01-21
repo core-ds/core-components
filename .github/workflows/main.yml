@@ -160,6 +160,7 @@ jobs:
         name: screenshot test
         needs: [variant, build-demo]
         strategy:
+            fail-fast: false
             matrix:
                 include: ${{ fromJson(needs.variant.outputs.result) }}
         env:
