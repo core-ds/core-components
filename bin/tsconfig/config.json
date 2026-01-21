@@ -5,7 +5,12 @@
                 "exclude": ["@alfalab/core-components"]
             },
             "storybook": {
-                "skip": true
+                "include": ["**"],
+                "exclude": ["@alfalab/core-components", "@alfalab/core-components-env"],
+                "storybook": true,
+                "out": "tsconfig.json",
+                "template": "templates/tsconfig.storybook.json",
+                "references": false
             },
             "test": {
                 "include": ["**"],
