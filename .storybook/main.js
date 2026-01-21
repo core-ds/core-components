@@ -11,6 +11,7 @@ const { isSamePath } = require('../tools/path.cjs');
 const { resolveInternal } = require('../tools/resolve-internal.cjs');
 const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
 const { globSync } = require('tinyglobby');
+const { existsSync } = require('node:fs');
 
 const INTERNAL_PACKAGES = readPackagesFileSync(
     path.resolve(__dirname, '../tools/.internal-packages'),
@@ -24,6 +25,8 @@ const varsEntryPoints = globSync('src/*index.css', {
     cwd: resolveInternal('@alfalab/core-components-vars'),
     absolute: true,
 });
+
+const storybookAddonLiveExamples = resolveInternal('storybook-addon-live-examples');
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -223,6 +226,25 @@ module.exports = {
             new NormalModuleReplacementPlugin(/^@alfalab\/core-components[-\/]/, function (
                 resource,
             ) {
+                // monkey patching `storybook-addon-live-examples`
+                if (resource.contextInfo.issuer.startsWith(storybookAddonLiveExamples)) {
+                    const entryPoint = resource.request.replace(
+                        /^@alfalab\/core-components[-/]/,
+                        '',
+                    );
+                    const adapterPath = path.resolve(__dirname, 'components/adapters', entryPoint);
+
+                    if (existsSync(adapterPath)) {
+                        resource.request = adapterPath;
+
+                        if (resource.createData) {
+                            resource.createData.request = resource.request;
+                        }
+
+                        return;
+                    }
+                }
+
                 if (
                     resource.request === '@alfalab/core-components/package.json' ||
                     resource.request === '@alfalab/core-components-vars/src/index.css'
