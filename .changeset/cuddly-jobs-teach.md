@@ -6,3 +6,5 @@
 ##### Themes
 
 - Исправлены `inverted` цвета для темы `site` компонента `switch`
+- Исправлены `inverted` цвета для темы `site` компонента `radio`
+- Исправлены `inverted` цвета для темы `site` компонента `checkbox`
