@@ -263,19 +263,8 @@ describe(
                     size: { width: 200, height: 50 },
                 }),
             ],
-        ],
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 1024, height: 200 },
-        },
-    }),
-);
-
-describe(
-    'Checkbox | inverted colors 2',
-    screenshotTesting({
-        cases: [
             [
-                'sprite',
+                'sprite indeterminate',
                 createSpriteStorybookUrl({
                     componentName: 'Checkbox',
                     knobs: {
