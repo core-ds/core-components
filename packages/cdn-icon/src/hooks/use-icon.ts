@@ -3,12 +3,15 @@ import { useSyncExternalStore } from 'use-sync-external-store/shim';
 
 import { hasOwnProperty, noop } from '@alfalab/core-components-shared';
 
+import { buildIconUrl } from '../utils';
+
 type Listener = () => void;
 
 export enum LoadingStatus {
     INITIAL,
     SUCCESS,
     FAILURE,
+    INVALID,
 }
 
 // Кэшируем загруженные иконки, чтобы предотвратить их повторную загрузку при каждом монтировании
@@ -38,15 +41,27 @@ const iconsStore = {
     },
 };
 
-export function useIcon(url: string): [icon: string | undefined, status: LoadingStatus] {
+export function useIcon(
+    name: string,
+    baseUrl: string,
+): [icon: string | undefined, status: LoadingStatus] {
     const icons = useSyncExternalStore(
         iconsStore.subscribe,
         iconsStore.getSnapshot,
         iconsStore.getSnapshot,
     );
     const [loadingStatus, setLoadingStatus] = useState(LoadingStatus.INITIAL);
+    const trimName = name.trim();
 
     useEffect(() => {
+        const url = buildIconUrl(trimName, baseUrl);
+
+        if (!url) {
+            setLoadingStatus(trimName ? LoadingStatus.INVALID : LoadingStatus.INITIAL);
+
+            return noop;
+        }
+
         if (iconsStore.has(url)) {
             setLoadingStatus(LoadingStatus.SUCCESS);
 
@@ -73,7 +88,9 @@ export function useIcon(url: string): [icon: string | undefined, status: Loading
         };
 
         return () => xhr.abort();
-    }, [url]);
+    }, [trimName, baseUrl]);
 
-    return [icons[url], loadingStatus];
+    const url = buildIconUrl(name, baseUrl);
+
+    return [url ? icons[url] : undefined, loadingStatus];
 }
