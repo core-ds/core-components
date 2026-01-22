@@ -8,7 +8,7 @@ import styles from './desktop.module.css';
 export type ToastPlateDesktopProps = Omit<BaseToastPlateProps, 'styles' | 'bottomButtonPosition'>;
 
 export const ToastPlateDesktop = forwardRef<HTMLDivElement, ToastPlateDesktopProps>(
-    ({ boldTitle, titleClassName, ...restProps }, ref) => (
+    ({ boldTitle = true, titleClassName, ...restProps }, ref) => (
         <BaseToastPlate
             {...restProps}
             styles={styles}
