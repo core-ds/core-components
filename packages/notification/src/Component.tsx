@@ -238,7 +238,6 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                 role={visible ? 'alert' : undefined}
                                 hasCloser={hasCloser}
                                 onClose={onClose}
-                                boldTitle={true}
                                 {...restProps}
                             >
                                 {children}

@@ -8,7 +8,7 @@ import styles from './mobile.module.css';
 export type ToastPlateMobileProps = Omit<BaseToastPlateProps, 'styles'>;
 
 export const ToastPlateMobile = forwardRef<HTMLDivElement, ToastPlateMobileProps>(
-    ({ titleClassName, boldTitle, ...restProps }, ref) => (
+    ({ titleClassName, boldTitle = true, ...restProps }, ref) => (
         <BaseToastPlate
             {...restProps}
             styles={styles}
