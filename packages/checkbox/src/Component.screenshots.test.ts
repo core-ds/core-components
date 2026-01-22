@@ -161,21 +161,30 @@ describe(
     }),
 );
 
-describe(
-    'Checkbox | inverted hover state',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Checkbox',
-            knobs: {
-                colors: 'inverted',
+describe('Checkbox | inverted hover state', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'Checkbox',
+                knobs: {
+                    colors: 'inverted',
+                    checked: [false, true],
+                },
+            }),
+            evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
+            screenshotOpts: {
+                clip: { x: 0, y: 0, width: 50, height: 50 },
             },
-        }),
-        evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 50, height: 50 },
-        },
-    }),
-);
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+    };
+
+    ['default', 'site'].map(testCase);
+});
 
 describe(
     'Checkbox | pressed state',
@@ -198,25 +207,34 @@ describe(
     }),
 );
 
-describe(
-    'Checkbox | inverted pressed state',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Checkbox',
-            knobs: {
-                colors: 'inverted',
+describe('Checkbox | inverted pressed state', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'Checkbox',
+                knobs: {
+                    colors: 'inverted',
+                    checked: [false, true],
+                },
+            }),
+            evaluate: (page: Page) => {
+                return page.mouse
+                    .move(26, 26)
+                    .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
             },
-        }),
-        evaluate: (page: Page) => {
-            return page.mouse
-                .move(26, 26)
-                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
-        },
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 50, height: 50 },
-        },
-    }),
-);
+            screenshotOpts: {
+                clip: { x: 0, y: 0, width: 50, height: 50 },
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+    };
+
+    ['default', 'site'].map(testCase);
+});
 
 describe('Checkbox | checked | error state', () => {
     const testCase = (theme: string) =>
