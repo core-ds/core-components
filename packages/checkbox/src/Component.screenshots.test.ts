@@ -4,6 +4,7 @@ import {
     createSpriteStorybookUrl,
     generateTestCases,
     createPreview,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -14,7 +15,7 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 const clip = { x: 0, y: 0, width: 400, height: 100 };
-const availableThemes = ['default', 'click', 'corp'];
+const availableThemes = ['default', 'click', 'corp', 'site'];
 
 describe('Checkbox', () => {
     createPreview(
@@ -160,21 +161,30 @@ describe(
     }),
 );
 
-describe(
-    'Checkbox | inverted hover state',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Checkbox',
-            knobs: {
-                colors: 'inverted',
+describe('Checkbox | inverted hover state', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'Checkbox',
+                knobs: {
+                    colors: 'inverted',
+                    checked: [false, true],
+                },
+            }),
+            evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
+            screenshotOpts: {
+                clip: { x: 0, y: 0, width: 50, height: 50 },
             },
-        }),
-        evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 50, height: 50 },
-        },
-    }),
-);
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+    };
+
+    ['default', 'site'].map(testCase);
+});
 
 describe(
     'Checkbox | pressed state',
@@ -197,25 +207,34 @@ describe(
     }),
 );
 
-describe(
-    'Checkbox | inverted pressed state',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Checkbox',
-            knobs: {
-                colors: 'inverted',
+describe('Checkbox | inverted pressed state', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'Checkbox',
+                knobs: {
+                    colors: 'inverted',
+                    checked: [false, true],
+                },
+            }),
+            evaluate: (page: Page) => {
+                return page.mouse
+                    .move(26, 26)
+                    .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
             },
-        }),
-        evaluate: (page: Page) => {
-            return page.mouse
-                .move(26, 26)
-                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
-        },
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 50, height: 50 },
-        },
-    }),
-);
+            screenshotOpts: {
+                clip: { x: 0, y: 0, width: 50, height: 50 },
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+    };
+
+    ['default', 'site'].map(testCase);
+});
 
 describe('Checkbox | checked | error state', () => {
     const testCase = (theme: string) =>
@@ -245,52 +264,49 @@ describe('Checkbox | checked | error state', () => {
     availableThemes.map(testCase);
 });
 
-describe(
-    'Checkbox | inverted colors',
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'Checkbox',
-                    knobs: {
-                        label: 'Label',
-                        hint: ['', 'Hint Message'],
-                        colors: 'inverted',
-                        checked: [true, false],
-                        disabled: [true, false],
-                    },
-                    size: { width: 200, height: 50 },
-                }),
+describe('Checkbox | inverted colors', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: [
+                [
+                    'sprite',
+                    createSpriteStorybookUrl({
+                        componentName: 'Checkbox',
+                        knobs: {
+                            label: 'Label',
+                            hint: ['', 'Hint Message'],
+                            colors: 'inverted',
+                            checked: [true, false],
+                            disabled: [true, false],
+                        },
+                        size: { width: 200, height: 50 },
+                    }),
+                ],
+                [
+                    'sprite indeterminate',
+                    createSpriteStorybookUrl({
+                        componentName: 'Checkbox',
+                        knobs: {
+                            label: 'Label',
+                            hint: ['', 'Hint Message'],
+                            colors: 'inverted',
+                            indeterminate: [true, false],
+                            disabled: [true, false],
+                        },
+                        size: { width: 200, height: 50 },
+                    }),
+                ],
             ],
-        ],
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 1024, height: 200 },
-        },
-    }),
-);
+            screenshotOpts: {
+                clip: { x: 0, y: 0, width: 1024, height: 200 },
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+    };
 
-describe(
-    'Checkbox | inverted colors 2',
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'Checkbox',
-                    knobs: {
-                        label: 'Label',
-                        hint: ['', 'Hint Message'],
-                        colors: 'inverted',
-                        indeterminate: [true, false],
-                        disabled: [true, false],
-                    },
-                    size: { width: 200, height: 50 },
-                }),
-            ],
-        ],
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 1024, height: 200 },
-        },
-    }),
-);
+    ['default', 'site'].map(testCase);
+});
