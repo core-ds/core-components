@@ -22,7 +22,7 @@ export const Actions = () => {
         <div className={styles.container}>
             {showRestore && <RestoreButton />}
 
-            {(Boolean(downloadLink) || onDownload) && !showRestore && <DownloadButton />}
+            {(downloadLink || onDownload) && !showRestore && <DownloadButton />}
 
             {showDelete && !showRestore && <DeleteButton />}
         </div>
