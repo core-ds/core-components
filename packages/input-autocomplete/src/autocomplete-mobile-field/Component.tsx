@@ -26,11 +26,6 @@ export type AutocompleteMobileFieldProps = FormControlMobileProps &
          * Значение поля ввода
          */
         value?: string;
-
-        /**
-         * Разрешить многострочное отображение значения в поле ввода
-         */
-        multiline?: boolean;
     };
 
 export const AutocompleteMobileField = ({
@@ -57,7 +52,6 @@ export const AutocompleteMobileField = ({
     onClear,
     onInput,
     colors = 'default',
-    multiline = false,
     ...restProps
 }: AutocompleteMobileFieldProps & FieldProps) => {
     const [focused, setFocused] = useState(false);
@@ -137,11 +131,7 @@ export const AutocompleteMobileField = ({
                 error={error}
                 rightAddons={formRightAddons}
             >
-                <div
-                    className={cn(styles.contentWrapper, {
-                        [styles.multiline]: multiline,
-                    })}
-                >
+                <div className={styles.contentWrapper}>
                     {showPlaceholder && <span className={styles.placeholder}>{placeholder}</span>}
                     {filled && <div className={styles.value}>{value}</div>}
                 </div>

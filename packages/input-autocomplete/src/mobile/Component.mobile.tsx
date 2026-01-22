@@ -154,7 +154,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 dataTestId={dataTestId}
                 useWithApplyHook={false}
                 showSearch={true}
-                Search={Search || Input}
+                Search={Search ?? Input}
                 searchProps={{
                     value,
                     filterFn: searchFilterStub,
