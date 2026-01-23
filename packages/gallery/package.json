@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-gallery",
-    "version": "6.0.9",
+    "version": "6.0.11",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,13 +10,13 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^6.0.2",
+        "@alfalab/core-components-base-modal": "^6.1.0",
         "@alfalab/core-components-button": "^12.0.2",
         "@alfalab/core-components-icon-button": "^7.0.3",
         "@alfalab/core-components-icon-view": "^4.0.1",
         "@alfalab/core-components-mq": "^5.0.2",
         "@alfalab/core-components-spinner": "^5.0.2",
-        "@alfalab/core-components-tooltip": "^8.0.8",
+        "@alfalab/core-components-tooltip": "^8.0.10",
         "@alfalab/core-components-typography": "^5.0.3",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.247.0",

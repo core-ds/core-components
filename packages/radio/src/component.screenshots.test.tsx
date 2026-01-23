@@ -4,6 +4,7 @@ import {
     createSpriteStorybookUrl,
     generateTestCases,
     createPreview,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -15,7 +16,7 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clip = { x: 0, y: 0, width: 240, height: 60 };
 
-const availableThemes = ['default', 'click', 'mobile'];
+const availableThemes = ['default', 'click', 'mobile', 'site'];
 
 describe('Radio', () => {
     createPreview(
@@ -107,21 +108,30 @@ describe(
     }),
 );
 
-describe(
-    'Radio | inverted hover state',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Radio',
-            knobs: {
-                colors: 'inverted',
+describe('Radio | inverted hover state', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'Radio',
+                knobs: {
+                    colors: 'inverted',
+                    checked: [false, true],
+                },
+            }),
+            evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
+            screenshotOpts: {
+                clip: { x: 0, y: 0, width: 50, height: 50 },
             },
-        }),
-        evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 50, height: 50 },
-        },
-    }),
-);
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+    };
+
+    ['default', 'site'].map(testCase);
+});
 
 describe(
     'Radio | pressed state',
@@ -144,47 +154,60 @@ describe(
     }),
 );
 
-describe(
-    'Radio | inverted pressed state',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Radio',
-            knobs: {
-                colors: 'inverted',
+describe('Radio | inverted pressed state', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'Radio',
+                knobs: {
+                    colors: 'inverted',
+                    checked: [false, true],
+                },
+            }),
+            evaluate: (page: Page) => {
+                return page.mouse
+                    .move(26, 26)
+                    .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
             },
-        }),
-        evaluate: (page: Page) => {
-            return page.mouse
-                .move(26, 26)
-                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
-        },
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 50, height: 50 },
-        },
-    }),
-);
+            screenshotOpts: {
+                clip: { x: 0, y: 0, width: 50, height: 50 },
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+    };
 
-describe(
-    'Radio | inverted colors',
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'Radio',
-                    knobs: {
-                        label: 'Label',
-                        hint: ['', 'Hint Message'],
-                        colors: 'inverted',
-                        checked: [true, false],
-                        disabled: [true, false],
-                    },
-                    size: { width: 200, height: 50 },
-                }),
+    ['default', 'site'].map(testCase);
+});
+
+describe('Radio | inverted colors', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: [
+                [
+                    `${theme} sprite`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Radio',
+                        knobs: {
+                            label: 'Label',
+                            hint: ['', 'Hint Message'],
+                            colors: 'inverted',
+                            checked: [true, false],
+                            disabled: [true, false],
+                        },
+                        size: { width: 200, height: 50 },
+                    }),
+                ],
             ],
-        ],
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 1024, height: 200 },
-        },
-    }),
-);
+            screenshotOpts: {
+                clip: { x: 0, y: 0, width: 1024, height: 200 },
+            },
+            theme,
+        })();
+    };
+
+    ['default', 'site'].map(testCase);
+});
