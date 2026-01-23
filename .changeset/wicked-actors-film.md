@@ -3,4 +3,6 @@
 '@alfalab/core-components': patch
 ---
 
-Изменено скругление степпера
+##### NumberInput
+
+- Изменено скругление степпера

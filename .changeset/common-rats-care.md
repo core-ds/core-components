@@ -3,4 +3,6 @@
 '@alfalab/core-components': patch
 ---
 
-Изменено скругление OptionsList для desktop (не затрагивает тему site)
+##### Select
+
+- Изменено скругление OptionsList для desktop (не затрагивает тему site)

@@ -3,4 +3,6 @@
 '@alfalab/core-components': patch
 ---
 
-Изменено скругление для desktop (не затрагивает тему site)
+##### Input
+
+- Изменено скругление для desktop (не затрагивает тему site)
