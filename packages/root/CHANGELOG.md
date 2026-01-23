@@ -1,5 +1,584 @@
 # @alfalab/core-components
 
+## 50.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1690](https://github.com/core-ds/core-components/pull/1690)
+
+##### ProgressBar
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `4, 8` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1689](https://github.com/core-ds/core-components/pull/1689)
+
+##### Modal
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `500, 600, 800, 1140` соответственно)
+- Удален пропс `fullscreen`, который был отмечен как `deprecated` в `core-components@25.x.x`. Вместо него передавайте `fullscreen` в пропс `size`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1693](https://github.com/core-ds/core-components/pull/1693)
+
+##### SegmentedControl
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xs, xxs` на `40, 32` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1645](https://github.com/core-ds/core-components/pull/1645)
+
+##### Radio
+
+- Удален пропс `inactive`, который был помечен как `deprecated` в `core-components@43.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `20, 24` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1685](https://github.com/core-ds/core-components/pull/1685)
+
+##### FromControl
+
+Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `48, 56, 64, 72` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1855](https://github.com/core-ds/core-components/pull/1855)
+
+##### SliderInput
+
+- Удален пропс `lockLimit`, который был добавлен в `core-components@48.0`<br/>
+  Данный пропс использовался для установки значений в пределах указанных min/max границ при `blur` событии.
+  Было обнаружено, что значения в компоненте могут вести себя непредсказуемо если одновременно использовать onBlur, lockLimit, а также при мутации передаваемого value.<br/>
+  Чтобы реализовать установку значения по границам - используйте обработчик `onBlur`.
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1635](https://github.com/core-ds/core-components/pull/1635)
+
+##### BaseModal
+
+- Удалён matches полифил для поддержки работы focusLock в ie 11
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1737](https://github.com/core-ds/core-components/pull/1737)
+
+##### Themes
+
+- Удалены неиспользуемые значения тем для BottomSheet
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+###### Alfa Interface Sans
+
+Добавлен вариант `@alfalab/core-components` со шрифтом `Alfa Interface Sans`
+
+Для перехода на него необходимо установить:
+
+```sh
+yarn add @alfalab/core-components@alfasans
+```
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1645](https://github.com/core-ds/core-components/pull/1645)
+
+##### Checkbox
+
+- Удален пропс `inactive`, который был помечен как `deprecated` в `core-components@43.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `20 и 24` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+##### Typography.{Text,Title,TitleMobile}
+
+- Проп `font` помечен как `deprecated`
+- Проп `font`, значения которого включает в себя `"alfasans"`, не имеет эффекта для шрифта `Alfa Interface Sans`, но для него сохраняется обратная совместимость по следующему принципу:
+    - для компонента `Text`:
+        1. для значения `font="alfasans"` соотвествует системный шрифт
+    - для компонентов `Title` и `TitleMobile`:
+        1. для значения `font="alfasans"` соотвествует шрифт `Styrene`
+        2. для значения `font={ font: 'alfasans', systemCompat: boolean }` в зависимости от значения параметра `systemCompat`: `true` - системный шрифт, `false` - шрифт `Styrene`
+- Для использования компонентов `Typography.{Text,Title,TitleMobile}` со шрифтом `Alfa Interface Sans` необходимо установить соответствующий пакет (пакеты)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1646](https://github.com/core-ds/core-components/pull/1646)
+
+##### DropZone
+
+Удален пропс `overlayVisible`, который был помечен как `deprecated` в `core-components@15.x.x`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+##### Typography
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+##### PortalContext
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1636](https://github.com/core-ds/core-components/pull/1636)
+
+##### BottomSheet
+
+- Удален пропс `ignoreScreenChange`, который был объявлен как `deprecated` в `core-components@29.x.x`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1643](https://github.com/core-ds/core-components/pull/1643)
+
+##### ToastPlate
+
+- Удалены параметры `negative | positive | attention` для пропса badge, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Исправление экспорта модификатора dataTestId
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1623](https://github.com/core-ds/core-components/pull/1623)
+
+##### SidePanel
+
+- Удалены десктоп, мобайл импорты из корневого пути импорта. Они доступы по стандартным /desktop и /mobile путям импорта
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### TabBar
+
+- Исправление типизации компонента
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1688](https://github.com/core-ds/core-components/pull/1688)
+
+##### Indicator
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в` core-components@44.x.x` (замените `xs, s, m, l` на `8, 16, 20, 24, 32, 40` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1529](https://github.com/core-ds/core-components/pull/1529)
+
+##### Vars
+
+- Удалён `deprecated` набор цветов `colors-transparent.css`
+- Если в вашем проекте используется данная палитра, воспользуйтесь кодмодом `50-replace-transparent-color-vars`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1694](https://github.com/core-ds/core-components/pull/1694)
+
+##### Slider
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `2, 4` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1639](https://github.com/core-ds/core-components/pull/1639)
+
+##### Vars
+
+- Удалён `deprecated` набор цветов `colors.css`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+##### Typography
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### ActionButton
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s` на `48` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1672](https://github.com/core-ds/core-components/pull/1672)
+
+##### UniversalModal
+
+- Удалены компоненты для внешнего использования `Arrow` и `Cross`. Данные компоненты остались от промежуточной реализации `UniversalModal`
+- Изменена высота по умолчанию для центральной модалки на `hugContent`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1624](https://github.com/core-ds/core-components/pull/1624)
+
+##### Tooltip
+
+- Добавлены `data-test-id` для составляющих компонента `Tooltip`. Для контента тултипа теперь используется модификатор `${dataTestId}-content`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1691](https://github.com/core-ds/core-components/pull/1691)
+
+##### PureCell
+
+- Удален пропс `color` для `amount-title` который был отмечен как `deprecated` в `core-components@42.x.x`. Вместо него используйте `titleProps.color`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### Markdown
+
+- Обновлена библиотека `react-markdown@9.1.0`
+- Исправлена ошибка связанная с неправильной структурой `DOM` элементов
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1841](https://github.com/core-ds/core-components/pull/1841)
+
+- Обновлен `date-fns` до `4` версии
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1854](https://github.com/core-ds/core-components/pull/1854)
+
+##### FilterTag
+
+- Удален пропс `variant`, который был объявлен как `deprecated` в `core-components@38.x.x`
+- Удалены буквенные варианты пропса `size`, которые были объявлены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s` на `32, 40, 48` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+##### CSS переменные:
+
+- Удалены следующие файлы стилей:
+    - `alfasans-index.css`
+    - `alfasans-typography.css`
+    - `bundle/alfasans-click.css`
+    - `bundle/alfasans-corp.css`
+    - `bundle/alfasans-intranet.css`
+    - `no-typography.css`
+- Для использования стилей со шрифтом `Alfa Interface Sans` необходимо установить соответствующий пакет (пакеты)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1687](https://github.com/core-ds/core-components/pull/1687)
+
+##### Gap
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl` на `2, 4, 8, 12, 16, 20, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256` соответственно)
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1686](https://github.com/core-ds/core-components/pull/1686)
+
+##### Tooltip
+
+- Удалён пропс `hasCloser`, который был отмечен как `deprecated` в `core-components@27.x.x`. Используйте вместо него `bottomSheetProps.hasCloser`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1648](https://github.com/core-ds/core-components/pull/1648)
+
+##### CircularProgressBar
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1314](https://github.com/core-ds/core-components/pull/1314)
+
+##### Plate
+
+- Добавлено новое свойство `buttonsContainerClassName`, отвечающее за дополнительный класс для контейнера кнопок. Ранее класс контейнера кнопок и самим кнопкам передавался через свойство `buttonsClassName`. Теперь `buttonsClassName` отвечает только за дополнительный класс кнопок
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1695](https://github.com/core-ds/core-components/pull/1695)
+
+##### Switch
+
+- Удалён пропс `inactive`, который был отмечен как `deprecated` в `core-components@43.x.x`. Вместо него используйте пропс `disabled`
+
+### Minor Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### Notification
+
+- Добавлен пропс `containerRef`, для получения ссылки на контейнер компонента
+
+### Patch Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Обновление `@alfalab/icons-*` библиотек
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### NumberInput
+
+- Исправление типизации пропса `Input`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### PassCode
+
+- Исправлена ошибка `findDOMNode`
+- Исправлена ошибка `React key`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### CustomPickerButton
+
+- Исправление типизации внутреннего компонента `Field`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### InternationalPhoneInput
+
+- Исправлена `autoComplete` ошибка
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### Drawer
+
+- Исправлена ошибка `findDOMNode`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### PassCodeV1
+
+- Исправлена ошибка `findDOMNode`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### CalendarWithSkeleton
+
+- Исправлена ошибка `findDOMNode`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### NotificationManager
+
+- Исправлена ошибка `findDOMNode`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### Calendar
+
+- Исправлена ошибка `findDOMNode`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+- Обновление типов `types/react-transition-group`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### Chart
+
+- Обновлена библиотека `recharts@2.15.4`
+- Исправлены ошибки связанные с передачей `key`
+
+- Обновлены зависимости
+    - @alfalab/core-components-attach@8.0.0-next.0
+    - @alfalab/core-components-progress-bar@5.0.0-next.0
+    - @alfalab/core-components-international-phone-input@4.0.0-next.0
+    - @alfalab/core-components-navigation-bar-private@2.0.0-next.0
+    - @alfalab/core-components-universal-date-input@4.0.0-next.0
+    - @alfalab/core-components-file-upload-item-v1@3.0.0-next.0
+    - @alfalab/core-components-date-range-input@5.0.0-next.0
+    - @alfalab/core-components-file-upload-item@8.0.0-next.0
+    - @alfalab/core-components-intl-phone-input@11.0.0-next.0
+    - @alfalab/core-components-select-with-tags@10.0.0-next.0
+    - @alfalab/core-components-confirmation-v1@3.0.0-next.0
+    - @alfalab/core-components-date-time-input@6.0.0-next.0
+    - @alfalab/core-components-universal-modal@3.0.0-next.0
+    - @alfalab/core-components-calendar-input@12.0.0-next.0
+    - @alfalab/core-components-navigation-bar@3.0.0-next.0
+    - @alfalab/core-components-password-input@7.0.0-next.0
+    - @alfalab/core-components-picker-button@13.0.0-next.0
+    - @alfalab/core-components-product-cover@3.0.0-next.0
+    - @alfalab/core-components-sortable-list@3.0.0-next.0
+    - @alfalab/core-components-number-input@4.0.0-next.0
+    - @alfalab/core-components-pass-code-v1@3.0.0-next.0
+    - @alfalab/core-components-status-badge@3.0.0-next.0
+    - @alfalab/core-components-toast-plate@9.0.0-next.0
+    - @alfalab/core-components-filter-tag@7.0.0-next.0
+    - @alfalab/core-components-pagination@4.0.0-next.0
+    - @alfalab/core-components-accordion@3.0.0-next.0
+    - @alfalab/core-components-bank-card@7.0.0-next.0
+    - @alfalab/core-components-pass-code@4.0.0-next.0
+    - @alfalab/core-components-calendar@9.0.0-next.0
+    - @alfalab/core-components-collapse@6.0.0-next.0
+    - @alfalab/core-components-dropzone@6.0.0-next.0
+    - @alfalab/core-components-gallery@7.0.0-next.0
+    - @alfalab/core-components-select@19.0.0-next.0
+    - @alfalab/core-components-input@17.0.0-next.0
+    - @alfalab/core-components-plate@9.0.0-next.0
+    - @alfalab/core-components-steps@3.0.0-next.0
+    - @alfalab/core-components-tabs@10.0.0-next.0
+    - @alfalab/core-components-alert@6.0.0-next.0
+    - @alfalab/core-components-amount-input@9.0.0-next.0
+    - @alfalab/core-components-base-modal@7.0.0-next.0
+    - @alfalab/core-components-bottom-sheet@8.0.0-next.0
+    - @alfalab/core-components-button@13.0.0-next.0
+    - @alfalab/core-components-calendar-range@9.0.0-next.0
+    - @alfalab/core-components-calendar-with-skeleton@7.0.0-next.0
+    - @alfalab/core-components-confirmation@15.0.0-next.0
+    - @alfalab/core-components-custom-button@5.0.0-next.0
+    - @alfalab/core-components-custom-picker-button@4.0.0-next.0
+    - @alfalab/core-components-date-input@6.0.0-next.0
+    - @alfalab/core-components-drawer@7.0.0-next.0
+    - @alfalab/core-components-icon-button@8.0.0-next.0
+    - @alfalab/core-components-input-autocomplete@14.0.0-next.0
+    - @alfalab/core-components-masked-input@8.0.0-next.0
+    - @alfalab/core-components-modal@11.0.0-next.0
+    - @alfalab/core-components-notification@9.0.0-next.0
+    - @alfalab/core-components-notification-manager@7.0.0-next.0
+    - @alfalab/core-components-pattern-lock@4.0.0-next.0
+    - @alfalab/core-components-pattern-lock-v1@3.0.0-next.0
+    - @alfalab/core-components-phone-input@9.0.0-next.0
+    - @alfalab/core-components-popover@8.0.0-next.0
+    - @alfalab/core-components-popup-sheet@3.0.0-next.0
+    - @alfalab/core-components-portal@5.0.0-next.0
+    - @alfalab/core-components-pure-cell@6.0.0-next.0
+    - @alfalab/core-components-side-panel@7.0.0-next.0
+    - @alfalab/core-components-slider-input@11.0.0-next.0
+    - @alfalab/core-components-table@4.0.0-next.0
+    - @alfalab/core-components-time-input@4.0.0-next.0
+    - @alfalab/core-components-toast@8.0.0-next.0
+    - @alfalab/core-components-tooltip@9.0.0-next.0
+    - @alfalab/core-components-with-suffix@6.0.0-next.0
+    - @alfalab/core-components-segmented-control@3.0.0-next.0
+    - @alfalab/core-components-radio@6.0.0-next.0
+    - @alfalab/core-components-form-control@14.0.0-next.0
+    - @alfalab/core-components-textarea@10.0.0-next.0
+    - @alfalab/core-components-themes@15.0.0-next.0
+    - @alfalab/core-components-config@1.1.0-next.0
+    - @alfalab/core-components-checkbox@6.0.0-next.0
+    - @alfalab/core-components-circular-progress-bar@5.0.0-next.0
+    - @alfalab/core-components-hatching-progress-bar@4.0.0-next.0
+    - @alfalab/core-components-stepped-progress-bar@4.0.0-next.0
+    - @alfalab/core-components-keyboard-focusable@6.0.0-next.0
+    - @alfalab/core-components-generic-wrapper@3.0.0-next.0
+    - @alfalab/core-components-checkbox-group@6.0.0-next.0
+    - @alfalab/core-components-page-indicator@3.0.0-next.0
+    - @alfalab/core-components-system-message@4.0.0-next.0
+    - @alfalab/core-components-action-button@3.0.0-next.0
+    - @alfalab/core-components-stack-context@1.0.1-next.0
+    - @alfalab/core-components-list-header@5.0.0-next.0
+    - @alfalab/core-components-radio-group@6.0.0-next.0
+    - @alfalab/core-components-card-image@5.0.0-next.0
+    - @alfalab/core-components-code-input@5.0.0-next.0
+    - @alfalab/core-components-typography@6.0.0-next.0
+    - @alfalab/core-components-icon-view@5.0.0-next.0
+    - @alfalab/core-components-indicator@4.0.0-next.0
+    - @alfalab/core-components-scrollbar@5.0.0-next.0
+    - @alfalab/core-components-backdrop@5.0.0-next.0
+    - @alfalab/core-components-cdn-icon@7.0.0-next.0
+    - @alfalab/core-components-markdown@3.0.0-next.0
+    - @alfalab/core-components-skeleton@7.0.0-next.0
+    - @alfalab/core-components-underlay@3.0.0-next.0
+    - @alfalab/core-components-comment@4.0.0-next.0
+    - @alfalab/core-components-divider@5.0.0-next.0
+    - @alfalab/core-components-spinner@6.0.0-next.0
+    - @alfalab/core-components-tab-bar@4.0.0-next.0
+    - @alfalab/core-components-amount@5.0.0-next.0
+    - @alfalab/core-components-loader@5.0.0-next.0
+    - @alfalab/core-components-shared@2.0.0-next.0
+    - @alfalab/core-components-slider@6.0.0-next.0
+    - @alfalab/core-components-status@5.0.0-next.0
+    - @alfalab/core-components-switch@6.0.0-next.0
+    - @alfalab/core-components-badge@7.0.0-next.0
+    - @alfalab/core-components-chart@5.0.0-next.0
+    - @alfalab/core-components-space@5.0.0-next.0
+    - @alfalab/core-components-stack@7.0.0-next.0
+    - @alfalab/core-components-grid@5.0.0-next.0
+    - @alfalab/core-components-link@7.0.0-next.0
+    - @alfalab/core-components-list@5.0.0-next.0
+    - @alfalab/core-components-text@3.0.0-next.0
+    - @alfalab/core-components-gap@3.0.0-next.0
+    - @alfalab/core-components-tag@10.0.0-next.0
+    - @alfalab/core-components-mq@6.0.0-next.0
+    - @alfalab/core-components-vars@11.0.0-next.0
+    - @alfalab/core-components-global-store@4.0.0-next.0
+    - @alfalab/core-components-types@2.0.0-next.0
+
 ## 49.13.0
 
 ### Minor Changes
