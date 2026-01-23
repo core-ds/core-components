@@ -5,6 +5,7 @@
 @import './bottom-sheet/site.css';
 @import './slider-input/site.css';
 @import './calendar-input/site.css';
+@import './universal-date-input/site.css';
 @import './checkbox-group/site.css';
 @import './radio-group/site.css';
 @import './checkbox/site.css';
@@ -19,6 +20,7 @@
     @mixin bottom-sheet-site;
     @mixin slider-input-site;
     @mixin calendar-input-site;
+    @mixin universal-date-input-site;
     @mixin checkbox-group-site;
     @mixin radio-group-site;
     @mixin radio-site;
