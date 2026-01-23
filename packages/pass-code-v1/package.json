@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pass-code-v1",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "Pass code v1 (deprecated)",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-button": "^12.0.2",
+        "@alfalab/core-components-button": "^12.1.0",
         "@alfalab/core-components-gap": "^2.0.0",
         "@alfalab/core-components-shared": "^1.1.1",
         "@alfalab/icons-glyph": "^2.247.0",
@@ -26,6 +26,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.3",
+    "themesVersion": "14.2.0",
     "varsVersion": "10.2.0"
 }
