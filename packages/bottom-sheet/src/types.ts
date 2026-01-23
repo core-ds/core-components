@@ -1,4 +1,5 @@
 import { type HTMLAttributes, type ReactElement, type ReactNode, type RefObject } from 'react';
+import { type SwipeableProps } from 'react-swipeable';
 import { type HandledEvents } from 'react-swipeable/es/types';
 import { type TransitionProps } from 'react-transition-group/Transition';
 
@@ -63,6 +64,11 @@ export type BottomSheetProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для обертки контейнера
+     */
+    bottomSheetWrapperClassName?: string;
+
+    /**
      * Дополнительный класс
      */
     contentClassName?: string;
@@ -86,6 +92,11 @@ export type BottomSheetProps = {
      * Дополнительный класс шапки
      */
     headerClassName?: string;
+
+    /**
+     * Дополнительный класс для контента шапки
+     */
+    headerContentClassName?: string;
 
     /**
      * Дополнительный класс футера
@@ -166,6 +177,16 @@ export type BottomSheetProps = {
     swipeThreshold?: number;
 
     /**
+     * Дополнительный класс для слота над шторкой
+     */
+    outerClassName?: string;
+
+    /**
+     * Слот над шторкой
+     */
+    outerAddons?: ReactNode;
+
+    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
@@ -237,8 +258,15 @@ export type BottomSheetProps = {
 
     /**
      * Отключает блокировку скролла при открытии модального окна
+     * @deprecated Используйте `scrollLock={true}`.
      */
     disableBlockingScroll?: boolean;
+
+    /**
+     * Управляет блокировкой скролла/overscroll фона при открытой шторке.
+     * @default true
+     */
+    scrollLock?: BaseModalProps['scrollLock'];
 
     /**
      * Отключает ловушку фокуса
@@ -356,6 +384,7 @@ export type BottomSheetProps = {
 
     /**
      * Блокирует скролл когда модальное окно открыто. Работает только на iOS
+     * @deprecated Используйте `scrollLock={true}`.
      */
     iOSLock?: boolean;
 
@@ -369,4 +398,10 @@ export type BottomSheetProps = {
      * @default default
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Предотвращать скролл во время свайпа
+     * @default false
+     */
+    preventScrollOnSwipe?: SwipeableProps['preventScrollOnSwipe'];
 };

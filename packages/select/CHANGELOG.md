@@ -1,5 +1,69 @@
 # @alfalab/core-components-select
 
+## 18.2.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.1
+    - @alfalab/core-components-modal@10.0.8
+
+## 18.2.6
+
+### Patch Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1997](https://github.com/core-ds/core-components/pull/1997)
+
+##### Select
+
+- Исправлено responsive поведение списка опций при использовании desktop/mobile компонента
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.0
+    - @alfalab/core-components-base-modal@6.1.0
+    - @alfalab/core-components-modal@10.0.7
+
+## 18.2.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.3.1
+    - @alfalab/core-components-modal@10.0.6
+
+## 18.2.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.3.0
+    - @alfalab/core-components-modal@10.0.5
+
+## 18.2.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-base-modal@6.0.2
+    - @alfalab/core-components-bottom-sheet@7.2.1
+    - @alfalab/core-components-button@12.0.2
+    - @alfalab/core-components-checkbox@5.0.2
+    - @alfalab/core-components-form-control@13.0.2
+    - @alfalab/core-components-input@16.0.3
+    - @alfalab/core-components-modal@10.0.4
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-popover@7.1.1
+
+## 18.2.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.2.0
+
 ## 18.2.1
 
 ### Patch Changes

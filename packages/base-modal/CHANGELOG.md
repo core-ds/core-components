@@ -1,12 +1,39 @@
 # @alfalab/core-components-base-modal
 
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1983](https://github.com/core-ds/core-components/pull/1983)
+
+##### BaseModal
+
+- Добавили блокировку фонового скролла через `react-remove-scroll` для `BaseModal` (и компонентов на его базе).
+- Добавили проп `scrollLock?: boolean` для управления блокировкой скролла (по умолчанию выключен).
+- Пропсы `disableBlockingScroll` и `iOSLock` помечены как deprecated (оставлены для обратной совместимости).
+
+##### BottomSheet
+
+- Подключили блокировку фонового скролла (через `BaseModal` / `react-remove-scroll`).
+- Добавили проп `scrollLock?: boolean` (по умолчанию включён), `disableBlockingScroll` и `iOSLock` помечены как deprecated.
+
+## 6.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-portal@4.0.2
+
 ## 6.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-shared@1.1.0
-    -   @alfalab/core-components-portal@4.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-portal@4.0.1
 
 ## 6.0.0
 
@@ -26,25 +53,25 @@
 
 #### [#1611](https://github.com/core-ds/core-components/pull/1611)
 
--   Пакет `@alfalab/stack-context` перенесен в `@alfalab/core-components-stack-context`. При обновлении необходимо заменить `as-is`.
+- Пакет `@alfalab/stack-context` перенесен в `@alfalab/core-components-stack-context`. При обновлении необходимо заменить `as-is`.
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-backdrop@4.0.0
-    -   @alfalab/core-components-global-store@3.0.0
-    -   @alfalab/core-components-portal@4.0.0
-    -   @alfalab/core-components-shared@1.0.0
-    -   @alfalab/core-components-stack@6.0.0
-    -   @alfalab/core-components-stack-context@1.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-backdrop@4.0.0
+    - @alfalab/core-components-global-store@3.0.0
+    - @alfalab/core-components-portal@4.0.0
+    - @alfalab/core-components-shared@1.0.0
+    - @alfalab/core-components-stack@6.0.0
+    - @alfalab/core-components-stack-context@1.0.0
 
 ## 5.9.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.18.0
-    -   portal@3.3.10
+- Обновлены зависимости
+    - shared@0.18.0
+    - portal@3.3.10
 
 ## 5.9.3
 
@@ -54,23 +81,23 @@
 
 ### [#1614](https://github.com/core-ds/core-components/pull/1614)
 
--   Исправлен тип `TransitionProps` на `CSSTransitionProps` в `base-modal`
+- Исправлен тип `TransitionProps` на `CSSTransitionProps` в `base-modal`
 
 ## 5.9.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
-    -   portal@3.3.9
+- Обновлены зависимости
+    - shared@0.17.1
+    - portal@3.3.9
 
 ## 5.9.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
-    -   portal@3.3.8
+- Обновлены зависимости
+    - shared@0.17.0
+    - portal@3.3.8
 
 ## 5.9.0
 
@@ -80,14 +107,14 @@
 
 ### [#1428](https://github.com/core-ds/core-components/pull/1428)
 
--   Добавлен пропс `contentElementRef` для контентной области
--   Добавлен обработчик события `onWheel`
+- Добавлен пропс `contentElementRef` для контентной области
+- Добавлен обработчик события `onWheel`
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.16.0
-    -   portal@3.3.7
+- Обновлены зависимости
+    - shared@0.16.0
+    - portal@3.3.7
 
 ## 5.8.10
 
@@ -97,15 +124,15 @@
 
 ### [#1570](https://github.com/core-ds/core-components/pull/1570)
 
--   Исправление работы safe-area
+- Исправление работы safe-area
 
 ## 5.8.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.15.0
-    -   portal@3.3.6
+- Обновлены зависимости
+    - shared@0.15.0
+    - portal@3.3.6
 
 ## 5.8.8
 
@@ -115,19 +142,19 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   backdrop@3.4.5
+- Обновлены зависимости
+    - backdrop@3.4.5
 
 ## 5.8.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   backdrop@3.4.4
-    -   portal@3.3.5
-    -   shared@0.14.1
+- Обновлены зависимости
+    - backdrop@3.4.4
+    - portal@3.3.5
+    - shared@0.14.1
 
 ## 5.8.6
 
@@ -137,11 +164,11 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   backdrop@3.4.3
-    -   stack@5.0.1
+- Обновлены зависимости
+    - backdrop@3.4.3
+    - stack@5.0.1
 
 ## 5.8.5
 
@@ -151,18 +178,18 @@
 
 ### [#1480](https://github.com/core-ds/core-components/pull/1480)
 
--   Добавлено sideEffects: false
+- Добавлено sideEffects: false
 
--   Обновлены зависимости
-    -   backdrop@3.4.2
+- Обновлены зависимости
+    - backdrop@3.4.2
 
 ## 5.8.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
-    -   portal@3.3.4
+- Обновлены зависимости
+    - shared@0.14.0
+    - portal@3.3.4
 
 ## 5.8.3
 
@@ -172,15 +199,15 @@
 
 ### [#1434](https://github.com/core-ds/core-components/pull/1434)
 
--   Решает проблему, когда скролл не разблокируется при закрытии модального окна при помощи свойства open={false}
+- Решает проблему, когда скролл не разблокируется при закрытии модального окна при помощи свойства open={false}
 
 ## 5.8.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.13.0
-    -   portal@3.3.3
+- Обновлены зависимости
+    - shared@0.13.0
+    - portal@3.3.3
 
 ## 5.8.1
 
@@ -190,12 +217,12 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
--   Обновлены зависимости
-    -   backdrop@3.4.1
-    -   shared@0.12.1
-    -   portal@3.3.2
+- Обновлены зависимости
+    - backdrop@3.4.1
+    - shared@0.12.1
+    - portal@3.3.2
 
 ## 5.8.0
 
@@ -205,27 +232,27 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   backdrop@3.4.0
+- Обновлены зависимости
+    - backdrop@3.4.0
 
 ## 5.7.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   backdrop@3.3.0
+- Обновлены зависимости
+    - backdrop@3.3.0
 
 ## 5.7.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.0
-    -   portal@3.3.1
+- Обновлены зависимости
+    - shared@0.12.0
+    - portal@3.3.1
 
 ## 5.7.9
 
@@ -235,18 +262,18 @@
 
 ### [#1207](https://github.com/core-ds/core-components/pull/1207)
 
--   При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
+- При взаимодействии нескольких компонентов-модулей, которые включают в себя core-components, React Context создает несколько экземпляров, что приводит к потере z-index. Для решения этой проблемы контекст компонента `Stack` вынесен в глобальную библиотеку.
 
--   Обновлены зависимости
-    -   stack@5.0.0
+- Обновлены зависимости
+    - stack@5.0.0
 
 ## 5.7.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   portal@3.3.0
-    -   shared@0.11.0
+- Обновлены зависимости
+    - portal@3.3.0
+    - shared@0.11.0
 
 ## 5.7.7
 
@@ -256,7 +283,7 @@
 
 ### [#1262](https://github.com/core-ds/core-components/pull/1262)
 
--   В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+- В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
 
 ## 5.7.6
 
@@ -266,17 +293,17 @@
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
--   Обновлены зависимости
-    -   portal@3.2.1
+- Обновлены зависимости
+    - portal@3.2.1
 
 ## 5.7.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.10.0
+- Обновлены зависимости
+    - shared@0.10.0
 
 ## 5.7.4
 
@@ -286,19 +313,19 @@
 
 ### [#1216](https://github.com/core-ds/core-components/pull/1216)
 
--   Исправлено поведение фокуса внутри модального окна
+- Исправлено поведение фокуса внутри модального окна
 
 <sup><time>24.05.2024</time></sup>
 
 ### [#1178](https://github.com/core-ds/core-components/pull/1178)
 
--   При открытии модальных окон в iOS, если браузерный navbar был сжат, то в модалке сохранится возможность взаимодействия со скролом. Текущее поведение исправлено, чтобы воспользоваться, нужно передать пропс iOSLock.
+- При открытии модальных окон в iOS, если браузерный navbar был сжат, то в модалке сохранится возможность взаимодействия со скролом. Текущее поведение исправлено, чтобы воспользоваться, нужно передать пропс iOSLock.
 
 <sup><time>24.05.2024</time></sup>
 
 ### [#1210](https://github.com/core-ds/core-components/pull/1210)
 
--   Изменены типы принимаемых компонентов
+- Изменены типы принимаемых компонентов
 
 ## 5.7.3
 
@@ -308,21 +335,21 @@
 
 ### [#1195](https://github.com/core-ds/core-components/pull/1195)
 
--   Обновлена зависимость react-focus-lock
+- Обновлена зависимость react-focus-lock
 
 ## 5.7.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.1
+- Обновлены зависимости
+    - shared@0.9.1
 
 ## 5.7.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.0
+- Обновлены зависимости
+    - shared@0.9.0
 
 ## 5.7.0
 
@@ -330,16 +357,16 @@
 
 ### [#977](https://github.com/core-ds/core-components/pull/977)
 
--   В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+- В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
 
 ### Patch Changes
 
 ### [#991](https://github.com/core-ds/core-components/pull/991)
 
--   Исправлена проблема, из-за которой появлялся warning: "findDOMNode is deprecated"
+- Исправлена проблема, из-за которой появлялся warning: "findDOMNode is deprecated"
 
--   Обновлены зависимости
-    -   backdrop@3.2.0
+- Обновлены зависимости
+    - backdrop@3.2.0
 
 ## 5.6.0
 
@@ -347,12 +374,12 @@
 
 ### [#933](https://github.com/core-ds/core-components/pull/933)
 
--   Добавлен проп wrapperProps
+- Добавлен проп wrapperProps
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.8.0
+- Обновлены зависимости
+    - shared@0.8.0
 
 ## 5.5.0
 
@@ -360,12 +387,12 @@
 
 ### [#940](https://github.com/core-ds/core-components/pull/940)
 
--   getScrollbarSize перенесена в shared
+- getScrollbarSize перенесена в shared
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.7.0
+- Обновлены зависимости
+    - shared@0.7.0
 
 ## 5.4.1
 
@@ -373,7 +400,7 @@
 
 ### [#880](https://github.com/core-ds/core-components/pull/880)
 
--   Убран "bounce effect" в safari при скролле контента
+- Убран "bounce effect" в safari при скролле контента
 
 ## 5.4.0
 
@@ -381,7 +408,7 @@
 
 ### [#791](https://github.com/core-ds/core-components/pull/791)
 
--   Добавлен проп contentProps, componentDivProps
+- Добавлен проп contentProps, componentDivProps
 
 ## 5.3.0
 
@@ -389,15 +416,15 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   backdrop@3.1.0
-    -   global-store@2.1.0
-    -   portal@3.2.0
-    -   stack@4.1.0
+- Обновлены зависимости
+    - backdrop@3.1.0
+    - global-store@2.1.0
+    - portal@3.2.0
+    - stack@4.1.0
 
 ## 5.2.1
 
@@ -405,11 +432,11 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   backdrop@3.0.7
-    -   portal@3.1.5
+- Обновлены зависимости
+    - backdrop@3.0.7
+    - portal@3.1.5
 
 ## 5.2.0
 
@@ -417,14 +444,14 @@
 
 ### [#745](https://github.com/core-ds/core-components/pull/745)
 
--   Добавлен usePortal проп
+- Добавлен usePortal проп
 
 ## 5.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   backdrop@3.0.6
+- Обновлены зависимости
+    - backdrop@3.0.6
 
 ## 5.1.2
 
@@ -432,13 +459,13 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   backdrop@3.0.5
-    -   global-store@2.0.4
-    -   portal@3.1.4
-    -   stack@4.0.4
+- Обновлены зависимости
+    - backdrop@3.0.5
+    - global-store@2.0.4
+    - portal@3.1.4
+    - stack@4.0.4
 
 ## 5.1.1
 
@@ -446,7 +473,7 @@
 
 ### [#540](https://github.com/core-ds/core-components/pull/540)
 
--   Изменена нода с overflow: auto в SidePanelMobile
+- Изменена нода с overflow: auto в SidePanelMobile
 
 ## 5.1.0
 
@@ -454,8 +481,8 @@
 
 ### [#494](https://github.com/core-ds/core-components/pull/494)
 
--   В ModalContext у base-modal добавлен ref на div-обертку модальных окон
--   У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
+- В ModalContext у base-modal добавлен ref на div-обертку модальных окон
+- У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
 
 ## 5.0.10
 
@@ -463,12 +490,12 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   backdrop@3.0.4
-    -   portal@3.1.3
-    -   stack@4.0.3
+- Обновлены зависимости
+    - backdrop@3.0.4
+    - portal@3.1.3
+    - stack@4.0.3
 
 ## 5.0.9
 
@@ -476,7 +503,7 @@
 
 ### [#523](https://github.com/core-ds/core-components/pull/523)
 
--   Обновлена зависимость react-focus-lock
+- Обновлена зависимость react-focus-lock
 
 ## 5.0.8
 
@@ -484,10 +511,10 @@
 
 ### [#470](https://github.com/core-ds/core-components/pull/470)
 
--   Обновлена версия react-transition-group
+- Обновлена версия react-transition-group
 
--   Обновлены зависимости
-    -   backdrop@3.0.3
+- Обновлены зависимости
+    - backdrop@3.0.3
 
 ## 5.0.7
 
@@ -495,27 +522,27 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   backdrop@3.0.2
-    -   global-store@2.0.3
-    -   portal@3.1.2
-    -   stack@4.0.2
+- Обновлены зависимости
+    - backdrop@3.0.2
+    - global-store@2.0.3
+    - portal@3.1.2
+    - stack@4.0.2
 
 ## 5.0.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   portal@3.1.1
+- Обновлены зависимости
+    - portal@3.1.1
 
 ## 5.0.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   global-store@2.0.2
+- Обновлены зависимости
+    - global-store@2.0.2
 
 ## 5.0.4
 
@@ -523,11 +550,11 @@
 
 ### [#306](https://github.com/core-ds/core-components/pull/306)
 
--   В portal добавлен проп immediateMount, с помощью которого можно мгновенно отрендерить дочерние элементы через портал.
--   В base-modal исправлена проблема с доступом к ref-ам контента, который рендерился через portal.<br />
+- В portal добавлен проп immediateMount, с помощью которого можно мгновенно отрендерить дочерние элементы через портал.
+- В base-modal исправлена проблема с доступом к ref-ам контента, который рендерился через portal.<br />
 
-*   Обновлены зависимости
-    -   portal@3.1.0
+* Обновлены зависимости
+    - portal@3.1.0
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -536,14 +563,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
--   **base-modal:** fixed ssr error in element matches polyfill ([#257](https://github.com/core-ds/core-components/issues/257)) ([a6e05b1](https://github.com/core-ds/core-components/commit/a6e05b15ed4aabea7ffea0566d7fb121d72b8729))
+- **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
+- **base-modal:** fixed ssr error in element matches polyfill ([#257](https://github.com/core-ds/core-components/issues/257)) ([a6e05b1](https://github.com/core-ds/core-components/commit/a6e05b15ed4aabea7ffea0566d7fb121d72b8729))
 
 ## [5.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@5.0.1...@alfalab/core-components-base-modal@5.0.2) (2022-09-12)
 
 ### Bug Fixes
 
--   **base-modal:** Added element matches polyfill for IE11 ([#245](https://github.com/core-ds/core-components/issues/245)) ([cb95740](https://github.com/core-ds/core-components/commit/cb95740b931ec48d2f92a2cb64a148400b6cb135))
+- **base-modal:** Added element matches polyfill for IE11 ([#245](https://github.com/core-ds/core-components/issues/245)) ([cb95740](https://github.com/core-ds/core-components/commit/cb95740b931ec48d2f92a2cb64a148400b6cb135))
 
 ## [5.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@5.0.0...@alfalab/core-components-base-modal@5.0.1) (2022-08-19)
 
@@ -553,12 +580,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -566,19 +593,19 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 # [4.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.2.2...@alfalab/core-components-base-modal@4.3.0) (2022-08-04)
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [4.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.2.1...@alfalab/core-components-base-modal@4.2.2) (2022-07-25)
 
 ### Bug Fixes
 
--   **base-modal:** fixed click on scrollbar bug ([#165](https://github.com/core-ds/core-components/issues/165)) ([c9df897](https://github.com/core-ds/core-components/commit/c9df8977a6f2e30d753a1f825bb6bad061179a6e))
+- **base-modal:** fixed click on scrollbar bug ([#165](https://github.com/core-ds/core-components/issues/165)) ([c9df897](https://github.com/core-ds/core-components/commit/c9df8977a6f2e30d753a1f825bb6bad061179a6e))
 
 ## [4.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.2.0...@alfalab/core-components-base-modal@4.2.1) (2022-07-18)
 
@@ -588,73 +615,73 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
+- **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
 
 ## [4.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.4...@alfalab/core-components-base-modal@4.1.5) (2022-07-15)
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [4.1.4](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.3...@alfalab/core-components-base-modal@4.1.4) (2022-07-14)
 
 ### Bug Fixes
 
--   **base-modal:** fix overflow hidden bug ([#128](https://github.com/core-ds/core-components/issues/128)) ([eb953b9](https://github.com/core-ds/core-components/commit/eb953b9866dae8c28bf8265d6884cdf1544ae63c))
+- **base-modal:** fix overflow hidden bug ([#128](https://github.com/core-ds/core-components/issues/128)) ([eb953b9](https://github.com/core-ds/core-components/commit/eb953b9866dae8c28bf8265d6884cdf1544ae63c))
 
 ## [4.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.2...@alfalab/core-components-base-modal@4.1.3) (2022-07-11)
 
 ### Bug Fixes
 
--   **base-modal:** fix using resize observer ([#136](https://github.com/core-ds/core-components/issues/136)) ([cb8f03c](https://github.com/core-ds/core-components/commit/cb8f03ca55394316189d1d4529ee3fdb691538d9))
--   fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
+- **base-modal:** fix using resize observer ([#136](https://github.com/core-ds/core-components/issues/136)) ([cb8f03c](https://github.com/core-ds/core-components/commit/cb8f03ca55394316189d1d4529ee3fdb691538d9))
+- fixed 'window is not defined' error ([#126](https://github.com/core-ds/core-components/issues/126)) ([f4e9ca5](https://github.com/core-ds/core-components/commit/f4e9ca54ed52fb328d21c85b7efa8176a90dcb6e))
 
 ## [4.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.1...@alfalab/core-components-base-modal@4.1.2) (2022-07-01)
 
 ### Performance Improvements
 
--   refuse to use a resize-observer polyfill if it is not needed ([#120](https://github.com/core-ds/core-components/issues/120)) ([f2abcb2](https://github.com/core-ds/core-components/commit/f2abcb2888dd5906b345f5fc64b1624eef56ac13))
+- refuse to use a resize-observer polyfill if it is not needed ([#120](https://github.com/core-ds/core-components/issues/120)) ([f2abcb2](https://github.com/core-ds/core-components/commit/f2abcb2888dd5906b345f5fc64b1624eef56ac13))
 
 ## [4.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.1.0...@alfalab/core-components-base-modal@4.1.1) (2022-06-30)
 
 ### Bug Fixes
 
--   **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
+- **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
 
 # [4.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@4.0.2...@alfalab/core-components-base-modal@4.1.0) (2022-06-28)
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 # [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@3.2.0...@alfalab/core-components-base-modal@4.0.0) (2022-03-24)
 
 ### Features
 
--   **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/core-ds/core-components/issues/1025)) ([26fa9aa](https://github.com/core-ds/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/core-ds/core-components/issues/1032)
+- **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/core-ds/core-components/issues/1025)) ([26fa9aa](https://github.com/core-ds/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/core-ds/core-components/issues/1032)
 
 ### BREAKING CHANGES
 
--   **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+- **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
 
 # [3.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@3.1.0...@alfalab/core-components-base-modal@3.2.0) (2022-03-01)
 
 ### Features
 
--   **base-modal:** add component ref for base modal ([#1008](https://github.com/core-ds/core-components/issues/1008)) ([fb13dbd](https://github.com/core-ds/core-components/commit/fb13dbdf6352b10b80a74fa87edfcb1f54b76d5a))
--   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+- **base-modal:** add component ref for base modal ([#1008](https://github.com/core-ds/core-components/issues/1008)) ([fb13dbd](https://github.com/core-ds/core-components/commit/fb13dbdf6352b10b80a74fa87edfcb1f54b76d5a))
+- Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 # [3.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@3.0.2...@alfalab/core-components-base-modal@3.1.0) (2022-01-17)
 
 ### Features
 
--   **base-modal:** extract modal store to global ([#943](https://github.com/core-ds/core-components/issues/943)) ([9587f17](https://github.com/core-ds/core-components/commit/9587f1773bb690ac6696077509d4a519aa109198))
+- **base-modal:** extract modal store to global ([#943](https://github.com/core-ds/core-components/issues/943)) ([9587f17](https://github.com/core-ds/core-components/commit/9587f1773bb690ac6696077509d4a519aa109198))
 
 ## [3.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@3.0.1...@alfalab/core-components-base-modal@3.0.2) (2021-09-14)
 
 ### Bug Fixes
 
--   **base-modal:** modal scroll ([#820](https://github.com/core-ds/core-components/issues/820)) ([1b2d94a](https://github.com/core-ds/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
+- **base-modal:** modal scroll ([#820](https://github.com/core-ds/core-components/issues/820)) ([1b2d94a](https://github.com/core-ds/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
 
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@3.0.0...@alfalab/core-components-base-modal@3.0.1) (2021-07-09)
 
@@ -664,102 +691,102 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [2.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@2.1.0...@alfalab/core-components-base-modal@2.1.1) (2021-07-02)
 
 ### Bug Fixes
 
--   **base-modal:** resubscribe observer when content node changed ([2fef06e](https://github.com/core-ds/core-components/commit/2fef06eea01354f58663a5f4470606123d31f9d4))
+- **base-modal:** resubscribe observer when content node changed ([2fef06e](https://github.com/core-ds/core-components/commit/2fef06eea01354f58663a5f4470606123d31f9d4))
 
 # [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@2.0.2...@alfalab/core-components-base-modal@2.1.0) (2021-06-28)
 
 ### Bug Fixes
 
--   **base-modal:** fix has scroll bug ([#712](https://github.com/core-ds/core-components/issues/712)) ([a6749a1](https://github.com/core-ds/core-components/commit/a6749a149d511b28cc59aaec188d59c380c64243))
+- **base-modal:** fix has scroll bug ([#712](https://github.com/core-ds/core-components/issues/712)) ([a6749a1](https://github.com/core-ds/core-components/commit/a6749a149d511b28cc59aaec188d59c380c64243))
 
 ### Features
 
--   **bottom-sheet:** new component (PDS-228) ([#645](https://github.com/core-ds/core-components/issues/645)) ([1f7391d](https://github.com/core-ds/core-components/commit/1f7391df16a270d8a3a28b8ebaf98d0ed0928bc8)), closes [#642](https://github.com/core-ds/core-components/issues/642) [#642](https://github.com/core-ds/core-components/issues/642) [#646](https://github.com/core-ds/core-components/issues/646) [#646](https://github.com/core-ds/core-components/issues/646) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#648](https://github.com/core-ds/core-components/issues/648) [#647](https://github.com/core-ds/core-components/issues/647) [#630](https://github.com/core-ds/core-components/issues/630) [#648](https://github.com/core-ds/core-components/issues/648) [#630](https://github.com/core-ds/core-components/issues/630) [#669](https://github.com/core-ds/core-components/issues/669)
+- **bottom-sheet:** new component (PDS-228) ([#645](https://github.com/core-ds/core-components/issues/645)) ([1f7391d](https://github.com/core-ds/core-components/commit/1f7391df16a270d8a3a28b8ebaf98d0ed0928bc8)), closes [#642](https://github.com/core-ds/core-components/issues/642) [#642](https://github.com/core-ds/core-components/issues/642) [#646](https://github.com/core-ds/core-components/issues/646) [#646](https://github.com/core-ds/core-components/issues/646) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#648](https://github.com/core-ds/core-components/issues/648) [#647](https://github.com/core-ds/core-components/issues/647) [#630](https://github.com/core-ds/core-components/issues/630) [#648](https://github.com/core-ds/core-components/issues/648) [#630](https://github.com/core-ds/core-components/issues/630) [#669](https://github.com/core-ds/core-components/issues/669)
 
 ## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@2.0.1...@alfalab/core-components-base-modal@2.0.2) (2021-05-28)
 
 ### Bug Fixes
 
--   **base-modal:** restore body styles on unmount ([#671](https://github.com/core-ds/core-components/issues/671)) ([963a6b1](https://github.com/core-ds/core-components/commit/963a6b18b13924a09cda672a662d0b402d00e75b))
+- **base-modal:** restore body styles on unmount ([#671](https://github.com/core-ds/core-components/issues/671)) ([963a6b1](https://github.com/core-ds/core-components/commit/963a6b18b13924a09cda672a662d0b402d00e75b))
 
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@2.0.0...@alfalab/core-components-base-modal@2.0.1) (2021-05-25)
 
 ### Bug Fixes
 
--   **modal:** fix styles ([#665](https://github.com/core-ds/core-components/issues/665)) ([06f3615](https://github.com/core-ds/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
--   **modal:** restore styles after exited ([#663](https://github.com/core-ds/core-components/issues/663)) ([48a8d69](https://github.com/core-ds/core-components/commit/48a8d6986dcde6c191d8411d51f28e6f399e26e6))
+- **modal:** fix styles ([#665](https://github.com/core-ds/core-components/issues/665)) ([06f3615](https://github.com/core-ds/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
+- **modal:** restore styles after exited ([#663](https://github.com/core-ds/core-components/issues/663)) ([48a8d69](https://github.com/core-ds/core-components/commit/48a8d6986dcde6c191d8411d51f28e6f399e26e6))
 
 # [2.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@1.1.2...@alfalab/core-components-base-modal@2.0.0) (2021-04-26)
 
 ### Features
 
--   **stack:** add new component ([#612](https://github.com/core-ds/core-components/issues/612)) ([c520f91](https://github.com/core-ds/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
+- **stack:** add new component ([#612](https://github.com/core-ds/core-components/issues/612)) ([c520f91](https://github.com/core-ds/core-components/commit/c520f91cd22bb9e23fd2f428719865b4c7d5a2a6))
 
 ### BREAKING CHANGES
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(modal): remove z-index, add stack component
-
-remove z-index, add stack component
-
--   **stack:** remove z-index, add stack component
-
--   feat(notification-manager): remove z-index, add stack component
+- feat(modal): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(notification): remove z-index, add stack component
-
-remove z-index, add stack component
-
--   **stack:** remove z-index, add stack component
-
--   feat(popover): remove z-index, add stack component
+- feat(notification-manager): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(select): remove z-index, add stack component
-
-remove z-index, add stack component
-
--   **stack:** remove z-index, add stack component
-
--   feat(toast): remove z-index, add stack component
+- feat(notification): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(tooltip): remove z-index, add stack component
+- feat(popover): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   feat(stack): fix comment
+- feat(select): remove z-index, add stack component
 
--   Revert "feat(modal): remove z-index, add stack component"
+remove z-index, add stack component
+
+- **stack:** remove z-index, add stack component
+
+- feat(toast): remove z-index, add stack component
+
+remove z-index, add stack component
+
+- **stack:** remove z-index, add stack component
+
+- feat(tooltip): remove z-index, add stack component
+
+remove z-index, add stack component
+
+- **stack:** remove z-index, add stack component
+
+- feat(stack): fix comment
+
+- Revert "feat(modal): remove z-index, add stack component"
 
 This reverts commit fcae901c6ec58311701cd491296a7b04016a9a65.
 
--   feat(base-modal): remove z-index, add stack component
+- feat(base-modal): remove z-index, add stack component
 
 remove z-index, add stack component
 
--   **stack:** remove z-index, add stack component
+- **stack:** remove z-index, add stack component
 
--   test(file-upload-item): update snapshot
+- test(file-upload-item): update snapshot
 
 ## [1.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-base-modal@1.1.1...@alfalab/core-components-base-modal@1.1.2) (2021-04-26)
 
@@ -769,10 +796,10 @@ remove z-index, add stack component
 
 ### Bug Fixes
 
--   **base-modal:** correct cb ([256a142](https://github.com/core-ds/core-components/commit/256a142398a9ada34386e92d012185763cedef5a))
+- **base-modal:** correct cb ([256a142](https://github.com/core-ds/core-components/commit/256a142398a9ada34386e92d012185763cedef5a))
 
 # 1.1.0 (2021-04-09)
 
 ### Features
 
--   **backdrop:** add component ([948a6c2](https://github.com/core-ds/core-components/commit/948a6c2fb5ec58edb2d087691ce4713d75da6e35))
+- **backdrop:** add component ([948a6c2](https://github.com/core-ds/core-components/commit/948a6c2fb5ec58edb2d087691ce4713d75da6e35))

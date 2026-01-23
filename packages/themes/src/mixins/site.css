@@ -3,7 +3,6 @@
 @import './form-control/site.css';
 @import './input/site.css';
 @import './bottom-sheet/site.css';
-@import './select/site.css';
 @import './slider-input/site.css';
 @import './calendar-input/site.css';
 @import './universal-date-input/site.css';
@@ -19,7 +18,6 @@
     @mixin tabs-site;
     @mixin input-site;
     @mixin bottom-sheet-site;
-    @mixin select-site;
     @mixin slider-input-site;
     @mixin calendar-input-site;
     @mixin universal-date-input-site;

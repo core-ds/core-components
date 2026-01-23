@@ -9,6 +9,7 @@ interface ArrowButtonDesktopProps {
     onClick?: (e: MouseEvent) => void;
 }
 
+/** @deprecated Компонент будет удален в будущей мажорной версии */
 export const ArrowButtonMobile: FC<ArrowButtonDesktopProps> = (props) => {
     const { onClick } = props;
 

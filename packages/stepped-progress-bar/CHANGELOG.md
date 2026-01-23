@@ -1,5 +1,35 @@
 # @alfalab/core-components-stepped-progress-bar
 
+## 3.1.1
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1970](https://github.com/core-ds/core-components/pull/1970)
+
+##### SteppedProgressBar
+
+- Вернули публичный экспорт `SteppedProgressBarView`, чтобы не приходилось вычислять типы через массивы.
+- Исправили тип `view`: теперь он поддерживает одиночное значение и массив цветов без `Array<Array<...>>`.
+
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1926](https://github.com/core-ds/core-components/pull/1926)
+
+- Расширена поддержка кастомных цветов в пропсе `view`: теперь можно прокидывать любые CSS-строки (hex, rgba, токены `var(...)`)
+- Пресетные цвета (`positive`, `negative`, `attention` и т.д.) используют CSS классы как раньше
+- Кастомные цвета автоматически применяются через `style={{ background }}`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@5.0.3
+
 ## 3.0.2
 
 ### Patch Changes

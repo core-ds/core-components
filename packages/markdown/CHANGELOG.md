@@ -1,5 +1,14 @@
 # @alfalab/core-components-markdown
 
+## 2.1.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-typography@5.0.3
+    - @alfalab/core-components-list@4.0.3
+
 ## 2.1.2
 
 ### Patch Changes

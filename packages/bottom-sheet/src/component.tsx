@@ -62,17 +62,21 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             titleSize = 'default',
             subtitle,
             actionButton,
+            bottomSheetWrapperClassName,
             contentClassName,
             containerClassName,
             containerProps,
             headerClassName,
+            headerContentClassName,
             footerClassName,
             addonClassName,
+            outerClassName,
             closerClassName,
             backerClassName,
             modalClassName,
             modalWrapperClassName,
             className,
+            outerAddons,
             leftAddons,
             rightAddons,
             bottomAddons,
@@ -88,6 +92,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             hideHeader,
             disableOverlayClick,
             disableBlockingScroll,
+            scrollLock = true,
             disableFocusLock,
             children,
             zIndex,
@@ -123,6 +128,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             iOSLock = false,
             virtualKeyboard = false,
             colors = 'default',
+            preventScrollOnSwipe,
         },
         ref,
     ) => {
@@ -186,6 +192,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             headerOffset,
             colors,
             className: cn(headerClassName, colorStyle.hasContent),
+            contentClassName: headerContentClassName,
             addonClassName,
             closerClassName,
             backButtonClassName: backerClassName,
@@ -494,6 +501,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             trackMouse: swipeable,
             trackTouch: swipeable,
             delta: swipeThreshold,
+            preventScrollOnSwipe,
         });
 
         const handleExited = (node: HTMLElement) => {
@@ -651,13 +659,22 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 disableRestoreFocus={disableRestoreFocus}
                 keepMounted={keepMounted}
                 iOSLock={iOSLock}
+                scrollLock={scrollLock}
             >
                 <div
-                    className={cn(styles.wrapper, {
+                    className={cn(styles.wrapper, bottomSheetWrapperClassName, {
                         [styles.fullscreen]: headerOffset === 0 && sheetOffset === 0,
                     })}
                     onTransitionEnd={setSheetHeight}
                 >
+                    {outerAddons && (
+                        <div
+                            className={cn(styles.outerClassName, outerClassName)}
+                            style={getSwipeStyles()}
+                        >
+                            {outerAddons}
+                        </div>
+                    )}
                     <div
                         className={cn(
                             styles.component,

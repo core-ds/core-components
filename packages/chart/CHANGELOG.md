@@ -1,5 +1,25 @@
 # @alfalab/core-components-chart
 
+## 4.1.0
+
+### Minor Changes
+
+<sup><time>19.01.2026</time></sup>
+
+#### [#1940](https://github.com/core-ds/core-components/pull/1940)
+
+##### Charts
+
+- Добавлена возможность вывода кастомного контента во всплывающей подсказке
+- Исправлено позиционирование стрелки у всплывающей подсказки
+
+## 4.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@5.0.3
+
 ## 4.0.2
 
 ### Patch Changes

@@ -1,5 +1,51 @@
 # @alfalab/core-components-modal
 
+## 10.0.8
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.4
+
+## 10.0.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@6.1.0
+
+## 10.0.6
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### NavigationBarPrivate
+
+- Исправлен trim хэдера, когда часть текста продолжала отображаться под обрезаемой строкой
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.3
+
+## 10.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.2
+
+## 10.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-base-modal@6.0.2
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-navigation-bar-private@1.1.1
+
 ## 10.0.3
 
 ### Patch Changes

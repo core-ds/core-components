@@ -4,6 +4,7 @@ import {
     createSpriteStorybookUrl,
     generateTestCases,
     createPreview,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -83,6 +84,57 @@ describe(
     }),
 );
 
+describe('Switch | colors', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Лейбл',
+                        hint: 'Подсказка',
+                        checked: true,
+                        colors: ['default', 'inverted'],
+                    },
+                }),
+            ],
+            theme,
+            viewport: { width: 240, height: 60 },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    const testCaseWithHover = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Лейбл',
+                        hint: 'Подсказка',
+                        checked: true,
+                        colors: ['default', 'inverted'],
+                    },
+                }),
+            ],
+            theme,
+            viewport: { width: 240, height: 60 },
+            evaluate: (page: Page) =>
+                page.hover('span[class^=switch]').then(() => page.waitForTimeout(500)),
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `hover-${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default', 'site'].map(testCase);
+    ['default', 'site'].map(testCaseWithHover);
+});
+
 describe(
     'Switch | layout',
     screenshotTesting({
@@ -122,7 +174,8 @@ describe(
                 disabled: [true, false],
             },
         }),
-        evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
+        evaluate: (page: Page) =>
+            page.hover('span[class^=switch]').then(() => page.waitForTimeout(500)),
         screenshotOpts: {
             clip,
         },

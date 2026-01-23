@@ -1,5 +1,43 @@
 # @alfalab/core-components-calendar-input
 
+## 11.0.9
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.8
+
+## 11.0.8
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.7
+
+## 11.0.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.6
+
+## 11.0.6
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.5
+
+## 11.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.4
+    - @alfalab/core-components-mq@5.0.2
+    - @alfalab/core-components-popover@7.1.1
+    - @alfalab/core-components-date-input@5.0.3
+
 ## 11.0.4
 
 ### Patch Changes

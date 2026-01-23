@@ -1,5 +1,15 @@
 # @alfalab/core-components-vars
 
+## 10.2.0
+
+### Minor Changes
+
+<sup><time>13.11.2025</time></sup>
+
+#### [#1939](https://github.com/core-ds/core-components/pull/1939)
+
+- Добавлены новые значения gaps: `--gap-6` и `--gap-10`
+
 ## 10.1.1
 
 ### Patch Changes
