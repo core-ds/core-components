@@ -1,5 +1,23 @@
 # @alfalab/core-components-themes
 
+## 15.0.0-next.0
+
+### Major Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1737](https://github.com/core-ds/core-components/pull/1737)
+
+##### Themes
+
+- Удалены неиспользуемые значения тем для BottomSheet
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
 ## 14.1.3
 
 ### Patch Changes
