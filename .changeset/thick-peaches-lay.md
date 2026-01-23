@@ -5,4 +5,6 @@
 '@alfalab/core-components': patch
 ---
 
--  Обновлены скругления для Tag и FilterTag компонентов в десктопной версии
+##### Tag, FilterTag
+
+- Обновлены скругления для Tag и FilterTag компонентов в десктопной версии

@@ -607,7 +607,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 />
               </div>
               <div
-                class="track vertical"
+                class="track vertical verticalBar"
                 style="visibility: hidden;"
               >
                 <div
@@ -1067,7 +1067,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                 />
               </div>
               <div
-                class="track vertical"
+                class="track vertical verticalBar"
                 style="visibility: hidden;"
               >
                 <div
@@ -1527,7 +1527,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 />
               </div>
               <div
-                class="track vertical"
+                class="track vertical verticalBar"
                 style="visibility: hidden;"
               >
                 <div

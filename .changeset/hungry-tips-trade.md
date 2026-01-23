@@ -3,6 +3,6 @@
 '@alfalab/core-components': minor
 ---
 
-### FileUploadItem
+##### FileUploadItem
 
 - Показываем иконку загрузки, когда есть пропс `onDownload`

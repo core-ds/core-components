@@ -8,4 +8,6 @@
 '@alfalab/core-components': minor
 ---
 
+##### Attach, Button, CustomButton, PickerButton, CustomPickerButton, SidePanel
+
 - Изменены border-radius во всех темах в desktop версии

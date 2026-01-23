@@ -216,3 +216,63 @@ describe('OptionListMobile | viewport mobile', () => {
 
     ['default'].map(testCase);
 });
+
+describe('OptionListDesktop | border radius', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListDesktop',
+                    testStory: false,
+                    knobs: {
+                        showSearch: false,
+                        showFooter: false,
+                        placeholder: false,
+                        fiveOptions: true,
+                    },
+                }),
+            ],
+            viewport: {
+                width: 180,
+                height: 320,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+
+    ['default', 'site', 'corp'].forEach((theme) => testCase(theme));
+});
+
+describe('OptionListMobile | border radius', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'Select',
+                    subComponentName: 'OptionListMobile',
+                    testStory: false,
+                    knobs: {
+                        showSearch: false,
+                        showFooter: false,
+                        placeholder: false,
+                        fiveOptions: true,
+                    },
+                }),
+            ],
+            viewport: {
+                width: 500,
+                height: 500,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+
+    ['default', 'site', 'corp'].forEach((theme) => testCase(theme));
+});
