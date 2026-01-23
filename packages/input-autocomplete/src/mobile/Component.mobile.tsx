@@ -17,7 +17,7 @@ import {
 } from '@alfalab/core-components-select/shared';
 import { isMaskitoMask, isNonNullable } from '@alfalab/core-components-shared';
 
-import { AutocompleteMobileField } from '../autocomplete-mobile-field';
+import { AutocompleteMobileField as DefaultField } from '../autocomplete-mobile-field';
 import { OnInputReason } from '../enums';
 import { type InputAutocompleteMobileProps } from '../types';
 import { searchFilterStub } from '../utils';
@@ -47,6 +47,9 @@ export const InputAutocompleteMobile = React.forwardRef(
             title,
             success,
             virtualKeyboard = false,
+            Search,
+            searchProps,
+            Field = DefaultField,
             ...restProps
         }: InputAutocompleteMobileProps,
         ref,
@@ -134,7 +137,7 @@ export const InputAutocompleteMobile = React.forwardRef(
 
         return (
             <Component
-                Field={AutocompleteMobileField}
+                Field={Field}
                 {...restProps}
                 {...(isBottomSheet
                     ? {
@@ -151,6 +154,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                 dataTestId={dataTestId}
                 useWithApplyHook={false}
                 showSearch={true}
+                Search={Search ?? Input}
                 searchProps={{
                     value,
                     filterFn: searchFilterStub,
@@ -158,13 +162,13 @@ export const InputAutocompleteMobile = React.forwardRef(
                         leftAddons: null,
                         placeholder,
                         ...inputProps,
+                        ...searchProps?.componentProps,
                         className: cn(styles.input, inputProps?.className),
                         clear,
                         ref: mergeRefs([searchInputRef, inputProps?.ref as Ref<HTMLInputElement>]),
                         onChange: (_, payload) => onInput?.(payload.value, OnInputReason.Change),
                     },
                 }}
-                Search={Input}
                 ref={mergeRefs([targetRef, ref])}
                 open={isOpen}
                 onOpen={handleOpen}
