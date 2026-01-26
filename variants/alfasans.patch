@@ -1,6 +1,6 @@
-From 2b2c2bfa6a2bfba6ea21793b58279cde19658e4d Mon Sep 17 00:00:00 2001
+From b21217a1c4f1bbcd83869534b614b64618b9e3c2 Mon Sep 17 00:00:00 2001
 From: hextion <100ishundred@gmail.com>
-Date: Mon, 22 Dec 2025 22:27:35 +0300
+Date: Mon, 26 Jan 2026 11:46:57 +0300
 Subject: [PATCH] feat: added alfasans variant
 
 ---
@@ -102,7 +102,7 @@ index 1b27dddef..991d3b48a 100644
 @@ -83,11 +83,6 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
       */
      positiveOnly?: boolean;
- 
+
 -    /**
 -     * Жир
 -     */
@@ -128,7 +128,7 @@ index 1b27dddef..991d3b48a 100644
              </div>
          );
 diff --git a/packages/amount-input/src/__snapshots__/Component.test.tsx.snap b/packages/amount-input/src/__snapshots__/Component.test.tsx.snap
-index c9622c749..edbb9cdef 100644
+index a80f7b223..8c51cce6a 100644
 --- a/packages/amount-input/src/__snapshots__/Component.test.tsx.snap
 +++ b/packages/amount-input/src/__snapshots__/Component.test.tsx.snap
 @@ -6,7 +6,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
@@ -139,7 +139,7 @@ index c9622c749..edbb9cdef 100644
 +        class="container"
        >
          <div
-           class="component component component hasSuffix size-48 size-48"
+           class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
 @@ -21,7 +21,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                  class="input size-48"
                >
@@ -166,7 +166,7 @@ index c9622c749..edbb9cdef 100644
 +      class="container"
      >
        <div
-         class="component component component hasSuffix size-48 size-48"
+         class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
 @@ -77,7 +77,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                class="input size-48"
              >
@@ -193,7 +193,7 @@ index c9622c749..edbb9cdef 100644
 +        class="container"
        >
          <div
-           class="component component component hasSuffix size-48 size-48"
+           class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
 @@ -190,7 +190,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                  class="input size-48"
                >
@@ -220,7 +220,7 @@ index c9622c749..edbb9cdef 100644
 +        class="container filled"
        >
          <div
-           class="component component component suffixVisible hasSuffix size-48 size-48"
+           class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
 @@ -245,7 +245,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                  class="input size-48"
                >
@@ -247,7 +247,7 @@ index c9622c749..edbb9cdef 100644
 +      class="container filled"
      >
        <div
-         class="component component component suffixVisible hasSuffix size-48 size-48"
+         class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
 @@ -310,7 +310,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                class="input size-48"
              >
@@ -273,7 +273,7 @@ index c1b4a88db..8de21438f 100644
 @@ -17,11 +17,6 @@
      position: relative;
  }
- 
+
 -.bold .input,
 -.bold .suffixContainer {
 -    font-weight: bold;
@@ -313,23 +313,23 @@ index 4439726a4..7bc944f78 100644
 -        const uncontrolled = value === undefined;
 +        const uncontrolled = valueFromProps === undefined;
 +        const [value, setValue] = useState(valueFromProps);
- 
+
 -        const [brandIcon, setBrandIcon] = useState<ReactNode>(getBrandIcon(value));
 +        if (!uncontrolled && valueFromProps !== value) {
 +            setValue(valueFromProps);
 +        }
- 
+
          const getMask = useCallback(
              (newValue: string) => {
 @@ -124,12 +126,10 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
- 
+
          const handleInputChange = useCallback(
              (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => {
 -                if (uncontrolled) {
 -                    setBrandIcon(getBrandIcon(event.target.value));
 -                }
 +                onChange?.(event, payload);
- 
+
 -                if (onChange) {
 -                    onChange(event, payload);
 +                if (uncontrolled) {
@@ -340,12 +340,12 @@ index 4439726a4..7bc944f78 100644
 @@ -144,9 +144,7 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
              [onUsePhoto],
          );
- 
+
 -        useEffect(() => {
 -            setBrandIcon(getBrandIcon(value));
 -        }, [value]);
 +        const brandIcon = getBrandIcon(value);
- 
+
          return (
              <div className={cn(styles.component, className)}>
 @@ -171,6 +169,8 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
@@ -355,22 +355,22 @@ index 4439726a4..7bc944f78 100644
 +                            className={styles.formControl}
 +                            fieldClassName={styles.field}
                          />
- 
+
                          {brandIcon && <div className={styles.brandLogo}>{brandIcon}</div>}
 diff --git a/packages/bank-card/src/__snapshots__/Component.test.tsx.snap b/packages/bank-card/src/__snapshots__/Component.test.tsx.snap
-index a3f0e9a06..e5f69007d 100644
+index f4e4436f1..503ace251 100644
 --- a/packages/bank-card/src/__snapshots__/Component.test.tsx.snap
 +++ b/packages/bank-card/src/__snapshots__/Component.test.tsx.snap
 @@ -31,10 +31,10 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
            </svg>
          </div>
          <div
--          class="component component filled size-56 size-56 block hasRightAddons"
-+          class="component component formControl filled size-56 size-56 block hasRightAddons"
+-          class="component component filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
++          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
          >
            <div
--            class="inner inner inner inner filled hasInnerLabel"
-+            class="field inner inner inner inner filled hasInnerLabel"
+-            class="field inner inner inner inner filled hasInnerLabel"
++            class="field field inner inner inner inner filled hasInnerLabel"
            >
              <div
                class="inputWrapper"
@@ -378,12 +378,12 @@ index a3f0e9a06..e5f69007d 100644
            </svg>
          </div>
          <div
--          class="component component filled size-56 size-56 block hasRightAddons"
-+          class="component component formControl filled size-56 size-56 block hasRightAddons"
+-          class="component component filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
++          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
          >
            <div
--            class="inner inner inner inner filled hasInnerLabel"
-+            class="field inner inner inner inner filled hasInnerLabel"
+-            class="field inner inner inner inner filled hasInnerLabel"
++            class="field field inner inner inner inner filled hasInnerLabel"
            >
              <div
                class="inputWrapper"
@@ -391,12 +391,12 @@ index a3f0e9a06..e5f69007d 100644
            </svg>
          </div>
          <div
--          class="component component filled size-56 size-56 block hasRightAddons"
-+          class="component component formControl filled size-56 size-56 block hasRightAddons"
+-          class="component component filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
++          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
          >
            <div
--            class="inner inner inner inner filled hasInnerLabel"
-+            class="field inner inner inner inner filled hasInnerLabel"
+-            class="field inner inner inner inner filled hasInnerLabel"
++            class="field field inner inner inner inner filled hasInnerLabel"
            >
              <div
                class="inputWrapper"
@@ -404,12 +404,12 @@ index a3f0e9a06..e5f69007d 100644
            </svg>
          </div>
          <div
--          class="component component filled size-56 size-56 block hasRightAddons"
-+          class="component component formControl filled size-56 size-56 block hasRightAddons"
+-          class="component component filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
++          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
          >
            <div
--            class="inner inner inner inner filled hasInnerLabel"
-+            class="field inner inner inner inner filled hasInnerLabel"
+-            class="field inner inner inner inner filled hasInnerLabel"
++            class="field field inner inner inner inner filled hasInnerLabel"
            >
              <div
                class="inputWrapper"
@@ -417,12 +417,12 @@ index a3f0e9a06..e5f69007d 100644
            </svg>
          </div>
          <div
--          class="component component filled size-56 size-56 block hasRightAddons"
-+          class="component component formControl filled size-56 size-56 block hasRightAddons"
+-          class="component component filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
++          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
          >
            <div
--            class="inner inner inner inner filled hasInnerLabel"
-+            class="field inner inner inner inner filled hasInnerLabel"
+-            class="field inner inner inner inner filled hasInnerLabel"
++            class="field field inner inner inner inner filled hasInnerLabel"
            >
              <div
                class="inputWrapper"
@@ -430,12 +430,12 @@ index a3f0e9a06..e5f69007d 100644
            </svg>
          </div>
          <div
--          class="component component filled size-56 size-56 block hasRightAddons"
-+          class="component component formControl filled size-56 size-56 block hasRightAddons"
+-          class="component component filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
++          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
          >
            <div
--            class="inner inner inner inner filled hasInnerLabel"
-+            class="field inner inner inner inner filled hasInnerLabel"
+-            class="field inner inner inner inner filled hasInnerLabel"
++            class="field field inner inner inner inner filled hasInnerLabel"
            >
              <div
                class="inputWrapper"
@@ -445,7 +445,7 @@ index e56947bea..f21e120eb 100644
 +++ b/packages/bank-card/src/index.module.css
 @@ -1,25 +1,35 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
- 
+
 -/* purgecss ignore */
  .component {
 -    /* TODO: как это будет собираться и работать в webView */
@@ -454,14 +454,14 @@ index e56947bea..f21e120eb 100644
 -    --form-control-bg-color: transparent;
 +    position: relative;
 +    max-width: 343px;
- 
+
 -    /* focus */
 -    --form-control-focus-border-bottom: 1px solid var(--color-light-neutral-translucent-1300);
 -    --form-control-focus-shadow: transparent;
 +    .formControl {
 +        .field {
 +            background-color: transparent;
- 
+
 -    /* hover */
 -    --form-control-hover-bg-color: transparent;
 -    --form-control-focus-bg-color: transparent;
@@ -469,19 +469,19 @@ index e56947bea..f21e120eb 100644
 +            @mixin hover {
 +                background-color: transparent;
 +            }
- 
+
 -    position: relative;
 -    max-width: 343px;
 +            &:before {
 +                border-bottom: 1px solid var(--color-light-neutral-translucent-700);
 +            }
 +        }
-+
+
+-    font-family: var(--font-family-styrene);
 +        &.focused {
 +            .field {
 +                box-shadow: none;
- 
--    font-family: var(--font-family-styrene);
++
 +                @mixin hover {
 +                    box-shadow: none;
 +                }
@@ -492,12 +492,12 @@ index e56947bea..f21e120eb 100644
 +        }
 +    }
  }
- 
+
  .aspectRatioContainer {
 @@ -46,11 +56,7 @@
      transform: translateY(-1px);
      color: var(--color-light-text-secondary);
- 
+
 -    @mixin promo_xsmall;
 -
 -    @media (max-width: 360px) {
@@ -505,15 +505,15 @@ index e56947bea..f21e120eb 100644
 -    }
 +    @mixin promo-system_xsmall;
  }
- 
+
  .focused .label,
 @@ -68,7 +74,7 @@
  }
- 
+
  .input {
 -    @mixin promo_xsmall;
 +    @mixin promo-system_xsmall;
- 
+
      color: var(--color-light-neutral-translucent-1300);
      caret-color: var(--color-light-neutral-translucent-1300);
 @@ -76,10 +82,6 @@
@@ -525,7 +525,7 @@ index e56947bea..f21e120eb 100644
 -        font-size: 16px;
 -    }
  }
- 
+
  .bankLogo {
 diff --git a/packages/bottom-sheet/src/components/header/index.module.css b/packages/bottom-sheet/src/components/header/index.module.css
 index aff878e83..ee665f47d 100644
@@ -542,10 +542,10 @@ index aff878e83..ee665f47d 100644
 +
 +    @mixin headline-system-mobile_small;
  }
- 
+
  .titleCenter {
 @@ -67,8 +65,6 @@
- 
+
  .subtitle {
      width: 100%;
 -    font-size: var(--bottom-sheet-subtitle-font-size);
@@ -562,7 +562,7 @@ index df227b5e1..0b028497a 100644
 @@ -7,18 +7,6 @@
      --bottom-sheet-top-radius: var(--border-radius-16);
      --bottom-sheet-shadow: none;
- 
+
 -    /* title */
 -    --bottom-sheet-title-font-size: 20px;
 -    --bottom-sheet-title-font-weight: 600;
@@ -584,7 +584,7 @@ index cd5cbccfb..e978ccbec 100644
 +++ b/packages/button/src/components/base-button/index.module.css
 @@ -2,11 +2,6 @@
  @import '../../vars.css';
- 
+
  .component {
 -    && {
 -        font-weight: var(--button-font-weight);
@@ -592,43 +592,43 @@ index cd5cbccfb..e978ccbec 100644
 -    }
 -
      @mixin reset-tap-highlight-color;
- 
+
      position: relative;
 diff --git a/packages/button/src/vars.css b/packages/button/src/vars.css
-index 12883958a..acbcc0109 100644
+index 8dae080b3..f582f4871 100644
 --- a/packages/button/src/vars.css
 +++ b/packages/button/src/vars.css
 @@ -1,10 +1,6 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
- 
+
  :root {
 -    /* misc */
 -    --button-font-family: var(--font-family);
 -    --button-font-weight: 500;
 -
      /* border-radius desktop */
-     --button-xxs-size-border-radius: var(--border-radius-6);
-     --button-xs-size-border-radius: var(--border-radius-8);
+     --button-xxs-size-border-radius: var(--border-radius-8);
+     --button-xs-size-border-radius: var(--border-radius-10);
 diff --git a/packages/calendar/src/components/days-table/index.module.css b/packages/calendar/src/components/days-table/index.module.css
 index 80e937bbd..fac11ea78 100644
 --- a/packages/calendar/src/components/days-table/index.module.css
 +++ b/packages/calendar/src/components/days-table/index.module.css
 @@ -324,7 +324,7 @@
      @mixin paragraph_primary_medium;
- 
+
      &.today {
 -        font-weight: bold;
 +        @mixin accent_primary_medium;
      }
  }
- 
+
 diff --git a/packages/calendar/src/components/period-slider/index.module.css b/packages/calendar/src/components/period-slider/index.module.css
 index bb1f34024..e144e2745 100644
 --- a/packages/calendar/src/components/period-slider/index.module.css
 +++ b/packages/calendar/src/components/period-slider/index.module.css
 @@ -10,10 +10,8 @@
  }
- 
+
  .period {
 -    font-family: var(--calendar-month-only-header-font-family);
 -    font-size: var(--calendar-month-only-header-font-size);
@@ -637,20 +637,20 @@ index bb1f34024..e144e2745 100644
 +    @mixin action_primary_large;
 +
      text-align: center;
- 
+
      @media (max-width: 374px) {
 diff --git a/packages/calendar/src/components/select-button/index.module.css b/packages/calendar/src/components/select-button/index.module.css
 index 1e4bc1e4a..313c72d3d 100644
 --- a/packages/calendar/src/components/select-button/index.module.css
 +++ b/packages/calendar/src/components/select-button/index.module.css
 @@ -27,7 +27,7 @@
- 
+
          &.current {
              color: var(--calendar-today-color);
 -            font-weight: bold;
 +            @mixin accent_primary_medium;
          }
- 
+
          &.selected,
 diff --git a/packages/calendar/src/vars.css b/packages/calendar/src/vars.css
 index 5e91e3e73..026befc4d 100644
@@ -659,7 +659,7 @@ index 5e91e3e73..026befc4d 100644
 @@ -22,11 +22,6 @@
      --calendar-mobile-select-button-box-shadow: none;
      --calendar-select-button-background-color: var(--color-light-neutral-translucent-300);
- 
+
 -    /* Шапка */
 -    --calendar-month-only-header-font-family: var(--font-family-system);
 -    --calendar-month-only-header-font-size: 18px;
@@ -673,7 +673,7 @@ index 1be18681a..edd4d6a88 100644
 --- a/packages/chart/src/index.module.css
 +++ b/packages/chart/src/index.module.css
 @@ -7,8 +7,8 @@
- 
+
      & :global(.recharts-text tspan) {
          fill: var(--color-light-text-primary);
 -        font-size: 16px;
@@ -682,7 +682,7 @@ index 1be18681a..edd4d6a88 100644
 +        @mixin paragraph_component_primary;
      }
  }
- 
+
 diff --git a/packages/circular-progress-bar/src/Component.tsx b/packages/circular-progress-bar/src/Component.tsx
 index 1e7d70bb6..6a2dc5435 100644
 --- a/packages/circular-progress-bar/src/Component.tsx
@@ -701,7 +701,7 @@ index 314f2e6bb..d8c02e86d 100644
 --- a/packages/circular-progress-bar/src/index.module.css
 +++ b/packages/circular-progress-bar/src/index.module.css
 @@ -9,10 +9,6 @@
- 
+
      /* negative */
      --circular-progress-bar-negative-color: var(--color-light-status-negative);
 -
@@ -709,12 +709,12 @@ index 314f2e6bb..d8c02e86d 100644
 -    --circular-progress-bar-font-family: var(--font-family-system);
 -    --circular-progress-bar-font-weight: 600;
  }
- 
+
  .component {
 @@ -64,12 +60,6 @@
      }
  }
- 
+
 -.typography {
 -    font-feature-settings: 'ss01';
 -    font-weight: var(--circular-progress-bar-font-weight);
@@ -725,35 +725,35 @@ index 314f2e6bb..d8c02e86d 100644
      width: 144px;
      height: 144px;
 diff --git a/packages/code-input/src/components/input/index.module.css b/packages/code-input/src/components/input/index.module.css
-index 422ab801b..532258a7d 100644
+index 599974e2c..a38b5f3f3 100644
 --- a/packages/code-input/src/components/input/index.module.css
 +++ b/packages/code-input/src/components/input/index.module.css
 @@ -6,6 +6,8 @@
  }
- 
+
  .input {
 +    @mixin headline-system_medium;
 +
      flex-shrink: 0;
      width: 36px;
      height: 48px;
-@@ -17,9 +19,6 @@
+@@ -16,9 +18,6 @@
      outline: none;
      color: var(--code-input-text-color);
      text-align: center;
 -    font-size: var(--code-input-font-size);
 -    font-weight: var(--code-input-font-weight);
 -    font-family: var(--code-input-font-family);
- 
+
      &:last-child {
          margin-right: var(--gap-0);
 diff --git a/packages/code-input/src/vars.css b/packages/code-input/src/vars.css
-index b785e7f3c..0f311864b 100644
+index dada4c3e8..28668c4f3 100644
 --- a/packages/code-input/src/vars.css
 +++ b/packages/code-input/src/vars.css
 @@ -2,9 +2,6 @@
  @import '../../form-control/src/vars.css';
- 
+
  :root {
 -    --code-input-font-size: 30px;
 -    --code-input-font-weight: 700;
@@ -811,7 +811,7 @@ index 94bd0b223..aa3c6a869 100644
 +++ b/packages/collapse/src/index.module.css
 @@ -1,9 +1,5 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
- 
+
 -.collapse {
 -    font-family: var(--font-family);
 -}
@@ -825,7 +825,7 @@ index b0aa3f34a..207d09121 100644
 +++ b/packages/confirmation-v1/src/components/code-input/index.module.css
 @@ -6,6 +6,8 @@
  }
- 
+
  .input {
 +    @mixin headline-system_medium;
 +
@@ -839,7 +839,7 @@ index b0aa3f34a..207d09121 100644
 -    font-size: var(--confirmation-input-font-size);
 -    font-weight: var(--confirmation-input-font-weight);
 -    font-family: var(--confirmation-input-font-family);
- 
+
      &.hasError {
          color: var(--confirmation-error-color);
 diff --git a/packages/confirmation-v1/src/index.module.css b/packages/confirmation-v1/src/index.module.css
@@ -852,14 +852,14 @@ index ad71c5070..3f450ea09 100644
      width: 100%;
 -    font-family: var(--confirmation-text-font-family);
  }
- 
+
  .error {
 diff --git a/packages/confirmation-v1/src/vars.css b/packages/confirmation-v1/src/vars.css
 index cd5089620..d8a16ea8f 100644
 --- a/packages/confirmation-v1/src/vars.css
 +++ b/packages/confirmation-v1/src/vars.css
 @@ -2,45 +2,26 @@
- 
+
  :root {
      /* title */
 -    --confirmation-title-font-size: 22px;
@@ -868,17 +868,17 @@ index cd5089620..d8a16ea8f 100644
 -    --confirmation-title-font-family: var(--font-family-system);
      --confirmation-title-color: var(--color-light-text-primary);
 -    --confirmation-title-font-feature-settings: normal;
- 
+
      /* text */
 -    --confirmation-text-font-size: 16px;
 -    --confirmation-text-line-height: 24px;
 -    --confirmation-text-font-weight: 400;
 -    --confirmation-text-font-family: var(--font-family-system);
      --confirmation-text-color: var(--color-light-text-secondary);
- 
+
      /* error */
      --confirmation-error-color: var(--color-light-text-negative);
- 
+
      /* input */
 -    --confirmation-input-font-size: 30px;
 -    --confirmation-input-font-weight: 700;
@@ -887,7 +887,7 @@ index cd5089620..d8a16ea8f 100644
      --confirmation-input-bg-color: var(--color-light-neutral-translucent-300);
      --confirmation-input-error-bg-color: var(--color-light-status-muted-negative);
  }
- 
+
  @define-mixin _confirmation-title {
 -    font-size: var(--confirmation-title-font-size);
 -    line-height: var(--confirmation-title-line-height);
@@ -897,7 +897,7 @@ index cd5089620..d8a16ea8f 100644
      color: var(--confirmation-title-color);
 -    font-feature-settings: var(--confirmation-title-font-feature-settings);
  }
- 
+
  @define-mixin _confirmation-text {
 -    font-size: var(--confirmation-text-font-size);
 -    line-height: var(--confirmation-text-line-height);
@@ -998,16 +998,16 @@ index 06c8677c5..48f2887c1 100644
 @@ -1,7 +1,6 @@
  import React, { type FC, type ReactNode } from 'react';
 -import cn from 'classnames';
- 
+
 -import { TitleDesktop } from '@alfalab/core-components-typography';
 +import { TitleDesktop, TitleMobile } from '@alfalab/core-components-typography';
- 
+
  import styles from './index.module.css';
- 
+
 @@ -23,12 +22,19 @@ export type HeaderProps = {
      titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
  };
- 
+
 -export const Header: FC<HeaderProps> = ({ mobile, children, titleTag = 'h3' }) => (
 -    <TitleDesktop
 -        className={cn(styles.header, styles.typography, { [styles.typographyMobile]: mobile })}
@@ -1063,7 +1063,7 @@ index 9cb28f3d1..bed3e7fbd 100644
 +++ b/packages/confirmation/src/vars.css
 @@ -1,33 +1,11 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
- 
+
  :root {
 -    /* desktop */
 -    --confirmation-header-desktop-font-size: 22px;
@@ -1083,7 +1083,7 @@ index 9cb28f3d1..bed3e7fbd 100644
 -    --confirmation-text-font-weight: 400;
 -    --confirmation-text-font-family: var(--font-family-system);
      --confirmation-text-color: var(--color-light-text-primary);
- 
+
 -    /* header */
 -    --confirmation-header-font-feature-settings: normal;
 -
@@ -1114,19 +1114,19 @@ index 227b76b5c..491a879de 100644
 +++ b/packages/form-control/src/components/base-form-control/index.module.css
 @@ -1,7 +1,6 @@
  @import '../../vars.css';
- 
+
  .component {
 -    font-family: var(--form-control-font-family);
      width: max-content;
      max-width: 100%;
  }
 @@ -48,7 +47,6 @@
- 
+
  .input > * {
      padding: var(--form-control-paddings);
 -    font-family: var(--form-control-font-family);
  }
- 
+
  .input.size-40 > * {
 diff --git a/packages/form-control/src/vars.css b/packages/form-control/src/vars.css
 index 21240b8e1..fa9bb6650 100644
@@ -1138,12 +1138,12 @@ index 21240b8e1..fa9bb6650 100644
      --form-control-xl-min-height: var(--size-xl-height);
 -    --form-control-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
      --form-control-bg-backdrop-filter: unset;
- 
+
      /* paddings */
 @@ -79,9 +78,6 @@
      /* disabled */
      --form-control-disabled-opacity: 1;
- 
+
 -    /* font */
 -    --form-control-font-family: var(--font-family);
 -
@@ -1151,10 +1151,10 @@ index 21240b8e1..fa9bb6650 100644
      --form-control-40-border-radius: var(--border-radius-8);
      --form-control-s-border-radius: var(--border-radius-8);
 diff --git a/packages/input/src/components/base-input/Component.tsx b/packages/input/src/components/base-input/Component.tsx
-index 3a1d5bcf8..74cfece12 100644
+index cfa550734..b4651ddc3 100644
 --- a/packages/input/src/components/base-input/Component.tsx
 +++ b/packages/input/src/components/base-input/Component.tsx
-@@ -210,6 +210,11 @@ export type BaseInputProps = Omit<
+@@ -211,6 +211,11 @@ export type BaseInputProps = Omit<
       * Запрещает ввод с клавиатуры
       */
      disableUserInput?: boolean;
@@ -1164,17 +1164,17 @@ index 3a1d5bcf8..74cfece12 100644
 +     */
 +    bold?: boolean;
  };
- 
+
  const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
-@@ -255,6 +260,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
-             readOnly: readOnlyProp,
+@@ -262,6 +267,7 @@ export const BaseInput = forwardRef<
              FormControlComponent,
              disableUserInput,
+             platformStyles = {},
 +            bold = false,
              ...restProps
          },
          ref,
-@@ -491,6 +497,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
+@@ -504,6 +510,7 @@ export const BaseInput = forwardRef<
                              [styles[`size-${size}`]]: hasInnerLabel,
                              [styles.hasInnerLabel]: hasInnerLabel,
                              [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
@@ -1189,7 +1189,7 @@ index ad81bfa16..7dcc6e89c 100644
 @@ -1,8 +1,6 @@
 -@import '../../../../form-control/src/vars.css';
  @import '../../vars.css';
- 
+
  .input {
 -    @mixin paragraph_component;
      position: relative;
@@ -1198,7 +1198,7 @@ index ad81bfa16..7dcc6e89c 100644
 @@ -15,9 +13,32 @@
      box-sizing: border-box;
      -webkit-appearance: none;
- 
+
 +    &,
 +    &::placeholder {
 +        @mixin paragraph_component_primary;
@@ -1227,7 +1227,7 @@ index ad81bfa16..7dcc6e89c 100644
 +            @mixin accent_component_secondary;
 +        }
      }
- 
+
      /* Убирает синюю заливку при автокомплите */
 @@ -28,7 +49,6 @@
      &:-webkit-autofill:active {
@@ -1235,12 +1235,12 @@ index ad81bfa16..7dcc6e89c 100644
              @mixin paragraph_component;
 -            font-family: var(--form-control-font-family);
          }
- 
+
          /* Hack from http://stackoverflow.com/a/29350537 */
 @@ -57,12 +77,6 @@
      }
  }
- 
+
 -.input::placeholder {
 -    transition:
 -        opacity 0.2s ease,
@@ -1251,13 +1251,13 @@ index ad81bfa16..7dcc6e89c 100644
      &::placeholder {
          opacity: 0;
 diff --git a/packages/input/src/vars.css b/packages/input/src/vars.css
-index 1e245c42e..bf4bf6f8e 100644
+index ef136220b..b4a71a170 100644
 --- a/packages/input/src/vars.css
 +++ b/packages/input/src/vars.css
 @@ -1,4 +1,5 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
 +@import '../../form-control/src/vars.css';
- 
+
  :root {
      --input-color: var(--color-light-text-primary);
 diff --git a/packages/link/src/index.module.css b/packages/link/src/index.module.css
@@ -1272,7 +1272,7 @@ index 077a6e13d..4d09ff209 100644
 +    font-family: inherit;
      cursor: pointer;
      outline: none;
- 
+
 diff --git a/packages/modal/src/components/header/desktop.module.css b/packages/modal/src/components/header/desktop.module.css
 index b33651772..de2fb0fbb 100644
 --- a/packages/modal/src/components/header/desktop.module.css
@@ -1280,7 +1280,7 @@ index b33651772..de2fb0fbb 100644
 @@ -5,24 +5,17 @@
      border-top-right-radius: var(--modal-border-radius);
  }
- 
+
 -.content {
 -    font-weight: var(--modal-header-desktop-font-weight);
 -    font-family: var(--modal-header-desktop-font-family);
@@ -1293,7 +1293,7 @@ index b33651772..de2fb0fbb 100644
 -    line-height: var(--modal-s-header-desktop-line-height);
 +    @mixin headline-system_small;
  }
- 
+
  .size-800 .content,
  .size-1140 .content,
  .fullscreen .content {
@@ -1302,7 +1302,7 @@ index b33651772..de2fb0fbb 100644
 -    line-height: var(--modal-l-header-desktop-line-height);
 +    @mixin headline-system_medium;
  }
- 
+
  .size-500,
 diff --git a/packages/modal/src/components/header/mobile.module.css b/packages/modal/src/components/header/mobile.module.css
 index ec07eb9cb..3971af7e5 100644
@@ -1310,7 +1310,7 @@ index ec07eb9cb..3971af7e5 100644
 +++ b/packages/modal/src/components/header/mobile.module.css
 @@ -14,10 +14,6 @@
  }
- 
+
  .content {
 -    font-size: var(--modal-header-mobile-font-size);
 -    line-height: var(--modal-header-mobile-line-height);
@@ -1325,7 +1325,7 @@ index 9ad8d145b..592622afe 100644
 --- a/packages/modal/src/vars.css
 +++ b/packages/modal/src/vars.css
 @@ -27,20 +27,10 @@
- 
+
      /* desktop */
      --modal-s-header-desktop-content-paddings: var(--gap-12);
 -    --modal-s-header-desktop-font-size: 22px;
@@ -1335,14 +1335,14 @@ index 9ad8d145b..592622afe 100644
 -    --modal-l-header-desktop-line-height: 36px;
 -    --modal-header-desktop-font-weight: bold;
 -    --modal-header-desktop-font-family: var(--font-family-system);
- 
+
      /* mobile */
      --modal-header-mobile-content-paddings: var(--gap-10) var(--gap-8);
 -    --modal-header-mobile-font-size: 20px;
 -    --modal-header-mobile-line-height: 28px;
 -    --modal-header-mobile-font-family: var(--font-family-system);
 -    --modal-header-mobile-font-weight: 600;
- 
+
      /* paddings */
      --modal-header-mobile-top-padding: var(--gap-4);
 diff --git a/packages/pure-cell/src/components/amount-title/component.tsx b/packages/pure-cell/src/components/amount-title/component.tsx
@@ -1374,7 +1374,7 @@ index 14d52f2cd..95e0771bc 100644
 @@ -4,10 +4,6 @@
      display: flex;
  }
- 
+
 -.weight {
 -    font-weight: inherit;
 -}
@@ -1400,7 +1400,7 @@ index 250ce953a..84da0632e 100644
 +++ b/packages/side-panel/src/components/header/desktop.module.css
 @@ -1,14 +1,8 @@
  @import '../../vars.css';
- 
+
 -.content {
 -    font-weight: var(--side-panel-header-desktop-font-weight);
 -    font-family: var(--side-panel-header-desktop-font-family);
@@ -1412,7 +1412,7 @@ index 250ce953a..84da0632e 100644
 -    line-height: var(--side-panel-s-header-desktop-line-height);
 +    @mixin headline-system_medium;
  }
- 
+
  .size-500 {
 diff --git a/packages/side-panel/src/components/header/mobile.module.css b/packages/side-panel/src/components/header/mobile.module.css
 index 3fd79d371..3e7279265 100644
@@ -1420,7 +1420,7 @@ index 3fd79d371..3e7279265 100644
 +++ b/packages/side-panel/src/components/header/mobile.module.css
 @@ -14,9 +14,7 @@
  }
- 
+
  .content {
 -    font-size: var(--side-panel-header-mobile-font-size);
 -    line-height: var(--side-panel-header-mobile-line-height);
@@ -1435,21 +1435,21 @@ index 5858058d7..887777f3b 100644
 --- a/packages/side-panel/src/vars.css
 +++ b/packages/side-panel/src/vars.css
 @@ -23,17 +23,9 @@
- 
+
      /* desktop */
      --side-panel-s-header-desktop-content-paddings: var(--gap-6) var(--gap-12) var(--gap-16);
 -    --side-panel-s-header-desktop-font-size: 30px;
 -    --side-panel-s-header-desktop-line-height: 36px;
 -    --side-panel-header-desktop-font-weight: bold;
 -    --side-panel-header-desktop-font-family: var(--font-family-system);
- 
+
      /* mobile */
      --side-panel-header-mobile-content-paddings: var(--gap-10) var(--gap-8);
 -    --side-panel-header-mobile-font-size: 20px;
 -    --side-panel-header-mobile-line-height: 28px;
 -    --side-panel-header-mobile-font-family: var(--font-family-system);
 -    --side-panel-header-mobile-font-weight: 600;
- 
+
      /* paddings */
      --side-panel-header-mobile-top-padding: var(--gap-4);
 diff --git a/packages/slider-input/src/index.module.css b/packages/slider-input/src/index.module.css
@@ -1473,7 +1473,7 @@ index fbf727bfa..cfbe273b6 100644
 -        font-weight: 400;
 -    }
  }
- 
+
  .bold .input {
      & input,
      & input + div {
@@ -1481,14 +1481,14 @@ index fbf727bfa..cfbe273b6 100644
 +        @mixin accent_component_primary;
      }
  }
- 
+
 diff --git a/packages/system-message/src/components/title/desktop.module.css b/packages/system-message/src/components/title/desktop.module.css
 index d3a827eeb..0155fd097 100644
 --- a/packages/system-message/src/components/title/desktop.module.css
 +++ b/packages/system-message/src/components/title/desktop.module.css
 @@ -1,13 +1,5 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
- 
+
 -:root {
 -    --sys-message-desktop-title-font-size: 22px;
 -    --sys-message-desktop-title-line-height: 26px;
@@ -1507,7 +1507,7 @@ index b2bd3fcae..2708db4bf 100644
 +++ b/packages/system-message/src/components/title/index.module.css
 @@ -1,13 +1,7 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
- 
+
 -:root {
 -    --sys-message-title-font-family: var(--font-family-system);
 -}
@@ -1525,7 +1525,7 @@ index 4b1db8821..93d1b3a3f 100644
 +++ b/packages/system-message/src/components/title/mobile.module.css
 @@ -1,13 +1,5 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
- 
+
 -:root {
 -    --sys-message-mobile-title-font-size: 20px;
 -    --sys-message-mobile-title-line-height: 28px;
@@ -1591,7 +1591,7 @@ index 660dbded6..05dc5a693 100644
 -        font-family: var(--primary-tablist-s-font-family);
 -        line-height: 24px;
      }
- 
+
      & .title + .title {
 @@ -123,10 +118,6 @@
  .m {
@@ -1602,7 +1602,7 @@ index 660dbded6..05dc5a693 100644
 -        font-family: var(--primary-tablist-m-font-family);
 -        line-height: 24px;
      }
- 
+
      & .title + .title {
 @@ -145,10 +136,6 @@
  .l {
@@ -1613,7 +1613,7 @@ index 660dbded6..05dc5a693 100644
 -        font-family: var(--primary-tablist-l-font-family);
 -        line-height: 24px;
      }
- 
+
      & .title + .title {
 @@ -167,10 +154,6 @@
  .xl {
@@ -1624,7 +1624,7 @@ index 660dbded6..05dc5a693 100644
 -        font-family: var(--primary-tablist-xl-font-family);
 -        line-height: 32px;
      }
- 
+
      & .title + .title {
 @@ -195,3 +178,7 @@
  .rightAddonsMarginZero {
@@ -1646,7 +1646,7 @@ index 6cc891270..9bf389f2b 100644
 -        font-weight: var(--primary-tablist-mobile-font-weight);
 -        font-family: var(--primary-tablist-mobile-font-family);
 -        line-height: var(--primary-tablist-mobile-line-height);
- 
+
          & + .title {
              margin-left: var(--primary-tablist-mobile-gaps);
 @@ -22,3 +18,7 @@
@@ -1843,7 +1843,7 @@ index 9fba98bb4..cab9595c4 100644
      --primary-tablist-bottom-border-color: var(--color-light-neutral-translucent-500);
      --primary-tablist-line-color: var(--color-light-accent-primary);
 -    --primary-tablist-font-feature-settings: normal;
- 
+
      /* mobile */
      --primary-tablist-mobile-gaps: var(--gap-24);
 -    --primary-tablist-mobile-font-size: 16px;
@@ -1851,28 +1851,28 @@ index 9fba98bb4..cab9595c4 100644
 -    --primary-tablist-mobile-font-weight: 400;
 -    --primary-tablist-mobile-font-family: var(--font-family-system);
      --primary-tablist-mobile-padding: var(--gap-0) var(--gap-0) var(--gap-12);
- 
+
      /* size s */
      --primary-tablist-s-gaps: var(--gap-32);
 -    --primary-tablist-s-font-size: 18px;
 -    --primary-tablist-s-font-weight: 400;
 -    --primary-tablist-s-font-family: var(--font-family-system);
      --primary-tablist-s-padding: var(--gap-0) var(--gap-0) var(--gap-12);
- 
+
      /* size m */
      --primary-tablist-m-gaps: var(--gap-32);
 -    --primary-tablist-m-font-size: 18px;
 -    --primary-tablist-m-font-weight: 400;
 -    --primary-tablist-m-font-family: var(--font-family-system);
      --primary-tablist-m-padding: var(--gap-0) var(--gap-0) var(--gap-16);
- 
+
      /* size l */
      --primary-tablist-l-gaps: var(--gap-32);
 -    --primary-tablist-l-font-size: 18px;
 -    --primary-tablist-l-font-weight: 400;
 -    --primary-tablist-l-font-family: var(--font-family-system);
      --primary-tablist-l-padding: var(--gap-0) var(--gap-0) var(--gap-20);
- 
+
      /* size xl */
      --primary-tablist-xl-gaps: var(--gap-32);
 -    --primary-tablist-xl-font-size: 18px;
@@ -1880,7 +1880,7 @@ index 9fba98bb4..cab9595c4 100644
 -    --primary-tablist-xl-font-family: var(--font-family-system);
 -    --primary-tablist-xl-padding: var(--gap-0) var(--gap-0) var(--gap-20);
 +    --primary-tablist-xl-padding: var(--gap-4) var(--gap-0) var(--gap-24);
- 
+
      /* mobile */
      --secondary-tablist-mobile-gaps: var(--gap-8);
 diff --git a/packages/tag/src/components/base-tag/index.module.css b/packages/tag/src/components/base-tag/index.module.css
@@ -1905,7 +1905,7 @@ index cb895aaa5..b5da03fc5 100644
 +
 +    @mixin paragraph_primary_small;
  }
- 
+
  .size-40 {
      min-width: 64px;
      min-height: var(--size-xs-height);
@@ -1916,7 +1916,7 @@ index cb895aaa5..b5da03fc5 100644
 +
 +    @mixin paragraph_primary_small;
  }
- 
+
  .size-48 {
      min-width: 72px;
      min-height: var(--size-s-height);
@@ -1927,7 +1927,7 @@ index cb895aaa5..b5da03fc5 100644
 +
 +    @mixin paragraph_component_primary;
  }
- 
+
  .size-56 {
 -    @mixin action_component;
      min-width: 88px;
@@ -1936,7 +1936,7 @@ index cb895aaa5..b5da03fc5 100644
 +
 +    @mixin paragraph_component_primary;
  }
- 
+
  .size-64 {
 -    @mixin action_primary_large;
      min-width: 112px;
@@ -1945,7 +1945,7 @@ index cb895aaa5..b5da03fc5 100644
 +
 +    @mixin paragraph_primary_large;
  }
- 
+
  .size-72 {
 -    @mixin action_primary_large;
      min-width: 112px;
@@ -1954,7 +1954,7 @@ index cb895aaa5..b5da03fc5 100644
 +
 +    @mixin paragraph_primary_large;
  }
- 
+
  .withRightAddons {
 diff --git a/packages/themes/src/mixins/bottom-sheet/click.css b/packages/themes/src/mixins/bottom-sheet/click.css
 deleted file mode 100644
@@ -2174,7 +2174,7 @@ index 5fa41bb7a..7243f3253 100644
      /* theme */
      --primary-tablist-bottom-border-color: var(--color-light-neutral-translucent-300);
 -    --primary-tablist-m-font-weight: 500;
- 
+
      /* mobile */
 -    --primary-tablist-mobile-font-weight: 500;
      --primary-tablist-mobile-padding: 0 0 var(--gap-16);
@@ -2211,7 +2211,7 @@ index b750981e5..f755a7dca 100644
 +++ b/packages/toast-plate/src/desktop/desktop.module.css
 @@ -6,8 +6,7 @@
  }
- 
+
  .title {
 -    @mixin paragraph_component;
 -    font-weight: var(--toast-plate-title-font-weight);
@@ -2224,12 +2224,12 @@ index 4c1fc75b9..ccff6bf00 100644
 --- a/packages/toast-plate/src/mobile/mobile.module.css
 +++ b/packages/toast-plate/src/mobile/mobile.module.css
 @@ -7,7 +7,6 @@
- 
+
  .title {
      @mixin paragraph_primary_small;
 -    font-weight: var(--toast-plate-title-font-weight);
  }
- 
+
  .closeButtonWrapper {
 diff --git a/packages/toast-plate/src/vars.css b/packages/toast-plate/src/vars.css
 index a4e05f4a8..bb8100fcb 100644
@@ -2250,7 +2250,7 @@ index fba363101..32c3e628e 100644
 @@ -10,10 +10,6 @@
      word-break: break-word;
  }
- 
+
 -.title {
 -    font-weight: 400;
 -}
@@ -2285,10 +2285,10 @@ index 37ac9735b..666ec6814 100644
 @@ -1,17 +1,11 @@
  @import '../../../vars.css';
 -@import '../../../desktop/vars.css';
- 
+
  .header {
      padding: var(--gap-20) var(--gap-20) 0;
- 
+
 -    & .content {
 -        font-weight: var(--universal-modal-header-desktop-font-weight);
 -        font-family: var(--universal-modal-header-desktop-font-family);
@@ -2301,11 +2301,11 @@ index 37ac9735b..666ec6814 100644
 +        @mixin headline-system_small;
 +        padding: 11px var(--gap-12);
      }
- 
+
      & .bottomAddons {
 @@ -20,7 +14,7 @@
      }
- 
+
      &.medium {
 -        & .content .headerTitle {
 +        & .headerTitle {
@@ -2319,11 +2319,11 @@ index ff50d855d..78bbf15e8 100644
 @@ -1,15 +1,11 @@
  @import '@alfalab/core-components-vars/src/no-typography-index.css';
 -@import '../../../mobile/vars.css';
- 
+
  .header {
      padding: var(--gap-8) var(--gap-4);
  }
- 
+
  .content {
 -    font-size: var(--universal-modal-header-mobile-font-size);
 -    line-height: var(--universal-modal-header-mobile-line-height);
@@ -2370,7 +2370,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 -    font-family: var(--font-family-system);
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_component_primary {
      font-size: 16px;
      line-height: 20px;
@@ -2379,7 +2379,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.43px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_component_secondary {
      font-size: 14px;
      line-height: 18px;
@@ -2388,7 +2388,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.47px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_primary_large {
      font-size: 18px;
      line-height: 24px;
@@ -2397,7 +2397,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.38px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_primary_medium {
      font-size: 16px;
      line-height: 24px;
@@ -2406,7 +2406,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.43px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_primary_small {
      font-size: 14px;
      line-height: 20px;
@@ -2415,7 +2415,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.47px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_secondary_large {
      font-size: 13px;
      line-height: 16px;
@@ -2424,7 +2424,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.54px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_secondary_medium {
      font-size: 12px;
      line-height: 16px;
@@ -2433,7 +2433,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.57px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_secondary_small {
      font-size: 11px;
      line-height: 16px;
@@ -2442,7 +2442,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.54px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_tagline {
 @@ -71,7 +79,7 @@
      font-weight: 700;
@@ -2451,7 +2451,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 -    font-family: var(--font-family-system);
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_caps {
 @@ -80,63 +88,71 @@
      font-weight: 500;
@@ -2460,7 +2460,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 -    font-family: var(--font-family-system);
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_component_primary {
      font-size: 16px;
      line-height: 20px;
@@ -2469,7 +2469,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.05px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_component_secondary {
      font-size: 14px;
      line-height: 18px;
@@ -2478,7 +2478,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.07px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_primary_large {
      font-size: 18px;
      line-height: 24px;
@@ -2487,7 +2487,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.17px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_primary_medium {
      font-size: 16px;
      line-height: 24px;
@@ -2496,7 +2496,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.05px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_primary_small {
      font-size: 14px;
      line-height: 20px;
@@ -2505,7 +2505,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.07px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_secondary_large {
      font-size: 13px;
      line-height: 16px;
@@ -2514,7 +2514,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.13px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_secondary_medium {
      font-size: 12px;
      line-height: 16px;
@@ -2523,7 +2523,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.19px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_secondary_small {
      font-size: 11px;
      line-height: 16px;
@@ -2532,7 +2532,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.24px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin action_tagline {
 @@ -145,157 +161,167 @@
      font-weight: 500;
@@ -2541,7 +2541,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 -    font-family: var(--font-family-system);
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline_large {
      font-size: 40px;
      line-height: 48px;
@@ -2552,7 +2552,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline_medium {
      font-size: 32px;
      line-height: 40px;
@@ -2563,7 +2563,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.3px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline_small {
      font-size: 24px;
      line-height: 32px;
@@ -2574,7 +2574,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.39px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline_xlarge {
      font-size: 48px;
      line-height: 64px;
@@ -2585,7 +2585,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline_xsmall {
      font-size: 20px;
      line-height: 24px;
@@ -2596,7 +2596,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.33px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-mobile_large {
      font-size: 30px;
      line-height: 36px;
@@ -2606,7 +2606,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.25px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-mobile_medium {
      font-size: 26px;
      line-height: 32px;
@@ -2616,7 +2616,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.25px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-mobile_small {
      font-size: 20px;
      line-height: 28px;
@@ -2626,7 +2626,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.15px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-mobile_xlarge {
      font-size: 34px;
      line-height: 40px;
@@ -2636,7 +2636,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.32px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-mobile_xsmall {
      font-size: 16px;
      line-height: 20px;
@@ -2646,7 +2646,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.17px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system_large {
      font-size: 40px;
      line-height: 48px;
@@ -2655,7 +2655,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system_medium {
      font-size: 30px;
      line-height: 36px;
@@ -2664,7 +2664,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system_small {
      font-size: 22px;
      line-height: 26px;
@@ -2673,7 +2673,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.2px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system_xlarge {
      font-size: 48px;
      line-height: 52px;
@@ -2682,7 +2682,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system_xsmall {
      font-size: 18px;
      line-height: 22px;
@@ -2691,7 +2691,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.38px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system-mobile_large {
      font-size: 30px;
      line-height: 36px;
@@ -2701,7 +2701,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.25px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system-mobile_medium {
      font-size: 26px;
      line-height: 32px;
@@ -2711,7 +2711,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.25px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system-mobile_small {
      font-size: 20px;
      line-height: 28px;
@@ -2721,7 +2721,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.15px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system-mobile_xlarge {
      font-size: 34px;
      line-height: 40px;
@@ -2731,7 +2731,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.32px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin headline-system-mobile_xsmall {
      font-size: 16px;
      line-height: 20px;
@@ -2741,7 +2741,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.17px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_caps {
 @@ -304,63 +330,70 @@
      font-weight: 400;
@@ -2750,7 +2750,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 -    font-family: var(--font-family-system);
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_component_primary {
      font-size: 16px;
      line-height: 20px;
@@ -2759,7 +2759,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.24px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_component_secondary {
      font-size: 14px;
      line-height: 18px;
@@ -2768,7 +2768,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.08px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_primary_large {
      font-size: 18px;
      line-height: 24px;
@@ -2777,7 +2777,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.36px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_primary_medium {
      font-size: 16px;
      line-height: 24px;
@@ -2786,7 +2786,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.24px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_primary_small {
      font-size: 14px;
      line-height: 20px;
@@ -2795,7 +2795,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.08px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_secondary_large {
      font-size: 13px;
      line-height: 16px;
@@ -2803,7 +2803,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 -    font-family: var(--font-family-system);
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_secondary_medium {
      font-size: 12px;
      line-height: 16px;
@@ -2812,7 +2812,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.06px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_secondary_small {
      font-size: 11px;
      line-height: 16px;
@@ -2821,7 +2821,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.15px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin paragraph_tagline {
 @@ -369,216 +402,229 @@
      font-weight: 400;
@@ -2830,7 +2830,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 -    font-family: var(--font-family-system);
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo_large {
      font-size: 40px;
      line-height: 48px;
@@ -2840,7 +2840,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.7px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo_medium {
      font-size: 32px;
      line-height: 40px;
@@ -2850,7 +2850,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.36px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo_small {
      font-size: 24px;
      line-height: 32px;
@@ -2860,7 +2860,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.9px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo_xlarge {
      font-size: 48px;
      line-height: 64px;
@@ -2870,7 +2870,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -2.1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo_xsmall {
      font-size: 20px;
      line-height: 24px;
@@ -2880,7 +2880,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.68px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-mobile_large {
      font-size: 30px;
      line-height: 36px;
@@ -2890,7 +2890,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.25px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-mobile_medium {
      font-size: 26px;
      line-height: 32px;
@@ -2900,7 +2900,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-mobile_small {
      font-size: 20px;
      line-height: 28px;
@@ -2910,7 +2910,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.68px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-mobile_xlarge {
      font-size: 34px;
      line-height: 40px;
@@ -2920,7 +2920,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.36px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-mobile_xsmall {
      font-size: 16px;
      line-height: 20px;
@@ -2930,7 +2930,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.24px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system_large {
      font-size: 40px;
      line-height: 48px;
@@ -2939,7 +2939,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.7px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system_medium {
      font-size: 30px;
      line-height: 36px;
@@ -2948,7 +2948,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.25px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system_small {
      font-size: 22px;
      line-height: 26px;
@@ -2957,7 +2957,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.8px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system_xlarge {
      font-size: 48px;
      line-height: 52px;
@@ -2966,7 +2966,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -2.1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system_xsmall {
      font-size: 18px;
      line-height: 22px;
@@ -2975,7 +2975,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.36px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system-mobile_large {
      font-size: 30px;
      line-height: 36px;
@@ -2984,7 +2984,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.25px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system-mobile_medium {
      font-size: 26px;
      line-height: 32px;
@@ -2993,7 +2993,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system-mobile_small {
      font-size: 20px;
      line-height: 28px;
@@ -3002,7 +3002,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.68px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system-mobile_xlarge {
      font-size: 34px;
      line-height: 40px;
@@ -3011,7 +3011,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.36px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin promo-system-mobile_xsmall {
      font-size: 16px;
      line-height: 20px;
@@ -3020,7 +3020,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.24px;
 +    font-family: var(--font-family-alfasans);
  }
- 
+
  @define-mixin accent_component {
      font-size: 16px;
      line-height: 20px;
@@ -3029,7 +3029,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: 0.43px;
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
- 
+
  @define-mixin action_component {
      font-size: 16px;
      line-height: 20px;
@@ -3038,7 +3038,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.05px;
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
- 
+
  @define-mixin key_large {
      font-size: 120px;
      line-height: 132px;
@@ -3049,7 +3049,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.8px;
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
- 
+
  @define-mixin key_medium {
      font-size: 96px;
      line-height: 120px;
@@ -3060,7 +3060,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.7px;
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
- 
+
  @define-mixin key_small {
      font-size: 80px;
      line-height: 96px;
@@ -3071,7 +3071,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.6px;
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
- 
+
  @define-mixin key_xlarge {
      font-size: 144px;
      line-height: 180px;
@@ -3082,7 +3082,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -1.1px;
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
- 
+
  @define-mixin key_xsmall {
      font-size: 64px;
      line-height: 80px;
@@ -3093,7 +3093,7 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    letter-spacing: -0.2px;
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
- 
+
  @define-mixin paragraph_component {
      font-size: 16px;
      line-height: 20px;
@@ -3120,17 +3120,17 @@ index 979f5a0c1..30fcb7579 100644
 +++ b/packages/with-suffix/src/index.module.css
 @@ -2,7 +2,7 @@
  @import '../../input/src/vars.css';
- 
+
  .suffixContainer {
 -    @mixin paragraph_component;
 +    @mixin paragraph_component_primary;
- 
+
      position: absolute;
      left: var(--gap-0);
 @@ -12,9 +12,20 @@
      display: none;
      pointer-events: none;
- 
+
 +    &.bold {
 +        @mixin accent_component_primary;
 +    }
@@ -3147,7 +3147,7 @@ index 979f5a0c1..30fcb7579 100644
 +        }
      }
  }
- 
--- 
+
+--
 2.50.1 (Apple Git-155)
 

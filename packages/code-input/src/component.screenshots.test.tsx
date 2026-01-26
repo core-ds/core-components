@@ -51,3 +51,35 @@ describe(
         },
     }),
 );
+
+describe(
+    'CodeInput border radius',
+    screenshotTesting({
+        cases: [
+            [
+                'desktop component sprite',
+                createSpriteStorybookUrl({
+                    packageName: 'code-input',
+                    componentName: 'CodeInputDesktop',
+                    knobs: {
+                        initialValues: ['', '1234'],
+                    },
+                }),
+            ],
+            [
+                'mobile component sprite',
+                createSpriteStorybookUrl({
+                    packageName: 'code-input',
+                    componentName: 'CodeInputMobile',
+                    knobs: {
+                        initialValues: ['', '1234'],
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 200,
+            height: 200,
+        },
+    }),
+);

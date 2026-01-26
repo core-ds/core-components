@@ -7,10 +7,10 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component component size-48 size-48 block hasRightAddons"
+      class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
     >
       <div
-        class="inner inner inner inner"
+        class="field inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -70,10 +70,10 @@ exports[`CalendarInput Display tests should render left addons 1`] = `
         tabindex="-1"
       >
         <div
-          class="component component size-48 size-48 block hasLeftAddons hasRightAddons"
+          class="component component formControlDesktop size-48 size-48 size-48 block hasLeftAddons hasRightAddons"
         >
           <div
-            class="inner inner inner inner"
+            class="field inner inner inner inner"
           >
             <div
               class="addons leftAddons"
@@ -132,10 +132,10 @@ exports[`CalendarInput Display tests should render left addons 1`] = `
       tabindex="-1"
     >
       <div
-        class="component component size-48 size-48 block hasLeftAddons hasRightAddons"
+        class="component component formControlDesktop size-48 size-48 size-48 block hasLeftAddons hasRightAddons"
       >
         <div
-          class="inner inner inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="addons leftAddons"
@@ -254,10 +254,10 @@ exports[`CalendarInput Display tests should render right addons 1`] = `
         tabindex="-1"
       >
         <div
-          class="component component size-48 size-48 block hasRightAddons"
+          class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
         >
           <div
-            class="inner inner inner inner"
+            class="field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -312,10 +312,10 @@ exports[`CalendarInput Display tests should render right addons 1`] = `
       tabindex="-1"
     >
       <div
-        class="component component size-48 size-48 block hasRightAddons"
+        class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
       >
         <div
-          class="inner inner inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="inputWrapper"

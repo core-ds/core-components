@@ -1,5 +1,21 @@
 # @alfalab/core-components-number-input
 
+## 3.0.5
+
+### Patch Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1935](https://github.com/core-ds/core-components/pull/1935)
+
+##### NumberInput
+
+- Изменено скругление степпера
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.4
+    - @alfalab/core-components-icon-button@7.0.4
+
 ## 3.0.4
 
 ### Patch Changes

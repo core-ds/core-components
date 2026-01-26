@@ -164,6 +164,10 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             return (
                 <Scrollbar
                     className={cn(styles.scrollable, scrollbarClassName)}
+                    verticalBarClassName={cn(styles.verticalBar, {
+                        [styles.verticalBarWithHeader]: Boolean(header),
+                        [styles.verticalBarWithFooter]: Boolean(footer),
+                    })}
                     ref={scrollbarRef}
                     style={{ height }}
                     horizontalAutoStretch={optionsListWidth === 'content'}

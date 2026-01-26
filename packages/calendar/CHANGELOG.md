@@ -1,5 +1,14 @@
 # @alfalab/core-components-calendar
 
+## 8.0.9
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.0
+    - @alfalab/core-components-icon-button@7.0.4
+    - @alfalab/core-components-modal@10.0.9
+
 ## 8.0.8
 
 ### Patch Changes

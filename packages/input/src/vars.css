@@ -30,4 +30,11 @@
 
     /* управляет видимостью иконки ошибки, если она стоит рядом с другой иконкой */
     --input-error-icon-not-alone-display: none;
+
+    /* desktop */
+    --input-desktop-border-radius-size-72: var(--border-radius-14);
+    --input-desktop-border-radius-size-64: var(--border-radius-12);
+    --input-desktop-border-radius-size-56: var(--border-radius-10);
+    --input-desktop-border-radius-size-48: var(--border-radius-10);
+    --input-desktop-border-radius-size-40: var(--border-radius-10);
 }

@@ -1,5 +1,13 @@
 # @alfalab/core-components-confirmation
 
+## 14.3.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-code-input@4.1.1
+    - @alfalab/core-components-button@12.1.0
+
 ## 14.3.0
 
 ### Minor Changes
