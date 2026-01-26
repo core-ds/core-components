@@ -4,6 +4,7 @@ import {
     getExtension,
     isErrorStatus,
     isInitialStatus,
+    isLoadingStatus,
     isSuccessStatus,
     isUploadedStatus,
     isUploadingStatus,
@@ -53,5 +54,8 @@ describe('check statuses', () => {
     });
     it('should uploaded status', () => {
         expect(isUploadedStatus('UPLOADED')).toBe(true);
+    });
+    it('should loading status', () => {
+        expect(isLoadingStatus('LOADING')).toBe(true);
     });
 });

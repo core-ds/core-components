@@ -1,5 +1,17 @@
 # @alfalab/core-components-filter-tag
 
+## 6.0.3
+
+### Patch Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1946](https://github.com/core-ds/core-components/pull/1946)
+
+##### Tag, FilterTag
+
+- Обновлены скругления для Tag и FilterTag компонентов в десктопной версии
+
 ## 6.0.2
 
 ### Patch Changes
