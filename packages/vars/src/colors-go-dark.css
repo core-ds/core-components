@@ -1,0 +1,4 @@
+:root {
+    --color-light-go-lilac: var(--color-dark-go-lilac);
+    --color-light-go-violet: var(--color-dark-go-violet);
+}
