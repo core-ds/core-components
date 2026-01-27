@@ -170,3 +170,30 @@ describe('DateTimeInput | picker', () => {
         }
     });
 });
+
+describe(
+    'DateTimeInput',
+    screenshotTesting({
+        cases: [
+            [
+                'disabled',
+                createSpriteStorybookUrl({
+                    componentName: 'DateTimeInput',
+                    knobs: {
+                        block: true,
+                        value: ['12.12.2021, 14:22'],
+                        picker: [true],
+                        disabled: [false, true],
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 360,
+            height: 320,
+        },
+    }),
+);

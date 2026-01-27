@@ -12,6 +12,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Input } from '@alfalab/core-components-input';
+import { getAddonsByPriority } from '@alfalab/core-components-input/helpers/get-addons-by-priority';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
 import { getMinMaxOrDefault } from '@alfalab/core-components-number-input/utils';
 import { isNonNullable } from '@alfalab/core-components-shared';
@@ -105,6 +106,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         },
         ref,
     ) => {
+        const { disabled, readOnly } = restProps;
         const minorityRef = useRef(minority);
         const [fieldClassName, setFieldClassName] = useState<string>();
         const inputRef = useRef<HTMLInputElement>(null);
@@ -306,29 +308,31 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             }
         };
 
-        const renderRightAddons = () => {
-            if (withStepper) {
-                return (
-                    <Fragment>
-                        {rightAddons}
-                        <Steppers
-                            colors={colors}
-                            dataTestId={dataTestId}
-                            disabled={restProps.disabled}
-                            focused={isFocused && !restProps.disableUserInput}
-                            value={numberValueOrZero}
-                            min={minStepperValue}
-                            max={maxStepperValue}
-                            onIncrement={handleIncrement}
-                            onDecrement={handleDecrement}
-                            size={restProps.size}
-                        />
-                    </Fragment>
-                );
-            }
-
-            return rightAddons;
-        };
+        const rightAddonsMap = getAddonsByPriority([
+            {
+                priority: 2,
+                predicate: Boolean(rightAddons),
+                render: () => rightAddons,
+            },
+            {
+                priority: 1,
+                predicate: withStepper && !disabled && !readOnly,
+                render: () => (
+                    <Steppers
+                        colors={colors}
+                        dataTestId={dataTestId}
+                        disabled={restProps.disabled}
+                        focused={isFocused && !restProps.disableUserInput}
+                        value={numberValueOrZero}
+                        min={minStepperValue}
+                        max={maxStepperValue}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
+                        size={restProps.size}
+                    />
+                ),
+            },
+        ]);
 
         return (
             <div
@@ -339,7 +343,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             >
                 <SuffixInput
                     {...restProps}
-                    rightAddons={renderRightAddons()}
+                    rightAddons={rightAddonsMap}
                     suffix={
                         <Fragment>
                             <span className={styles.suffixMajor}>
