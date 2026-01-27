@@ -32,8 +32,6 @@ type CloseBrowserParams = {
 
 export const defaultViewport = { width: 1024, height: 768 };
 
-const CORE_COMPONENTS_VARIANT = process.env.CORE_COMPONENTS_VARIANT || 'default';
-
 /**
  * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
  */
@@ -41,9 +39,7 @@ export const customSnapshotIdentifier = ({
     currentTestName,
     counter,
 }: CustomSnapshotIdentifierParams) => {
-    return kebab(
-        `${currentTestName}${counter > 1 ? `-${counter}` : ''}${CORE_COMPONENTS_VARIANT === 'default' ? '' : `-${CORE_COMPONENTS_VARIANT}`}-snap`,
-    );
+    return kebab(`${currentTestName}${counter > 1 ? `-${counter}` : ''}-snap`);
 };
 
 export type MatchHtmlParams = {
