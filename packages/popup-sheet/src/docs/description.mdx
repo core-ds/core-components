@@ -22,7 +22,7 @@ render(() => {
 
     return (
         <div>
-            <ButtonMobile type='button' size='s' onClick={() => setOpen(true)} block={true}>
+            <ButtonMobile type='button' size={48} onClick={() => setOpen(true)} block={true}>
                 Показать шторку
             </ButtonMobile>
 
@@ -32,7 +32,6 @@ render(() => {
                 {SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={settings[item.name]}
@@ -64,7 +63,7 @@ render(() => {
                         </SystemMessageMobile.Subtitle>
 
                         <SystemMessageMobile.Controls>
-                            <ButtonMobile size='m' view='secondary' onClick={() => setOpen(false)}>
+                            <ButtonMobile size={56} view='secondary' onClick={() => setOpen(false)}>
                                 Получить код
                             </ButtonMobile>
                         </SystemMessageMobile.Controls>

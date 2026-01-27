@@ -1,10 +1,10 @@
 ## Размеры
 
-Рекомендуется использовать S, XS и XXS размеры. Размеры XL, L, M — не рекомендованы к использованию.
+Рекомендуется использовать 48, 40 и 32 размеры. Размеры 72, 64, 56 — не рекомендованы к использованию.
 
 ```jsx live
 render(() => {
-    const SIZES = ['s', 'xs', 'xxs'];
+    const SIZES = [48, 40, 32];
 
     const [checked, setChecked] = React.useState(
         Object.fromEntries(SIZES.map((key) => [key, false])),
@@ -60,20 +60,20 @@ render(() => {
         <Container>
             <Row>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size='s'>Label</Tag>
+                    <Tag size={48}>Label</Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size='s' rightAddons={addon} leftAddons={addon}>
+                    <Tag size={48} rightAddons={addon} leftAddons={addon}>
                         Label
                     </Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size='s' rightAddons={<Badge view='count' height={24} content={1} />}>
+                    <Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>
                         Label
                     </Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size='s' rightAddons={amountAddon}>
+                    <Tag size={48} rightAddons={amountAddon}>
                         Label
                     </Tag>
                 </div>
@@ -106,22 +106,22 @@ render(() => {
         <Container>
             <Row>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size='s'>Label</Tag>
+                    <Tag size={48}>Label</Tag>
                 </div>
                 <div>
-                    <Tag size='s' rightAddons={addon} leftAddons={addon}>
+                    <Tag size={48} rightAddons={addon} leftAddons={addon}>
                         Label
                     </Tag>
                 </div>
             </Row>
             <div style={{ display: 'flex', marginTop: 16 }}>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size='s' rightAddons={<Badge view='count' height={24} content={1} />}>
+                    <Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>
                         Label
                     </Tag>
                 </div>
                 <div>
-                    <Tag size='s' rightAddons={amountAddon}>
+                    <Tag size={48} rightAddons={amountAddon}>
                         Label
                     </Tag>
                 </div>
@@ -135,8 +135,8 @@ render(() => {
 
 У тега есть две опции, отвечающие за внешний вид:
 
--   shape (форма) — овальные или прямоугольные.
--   view (стиль) — залитые или бордерные.
+- shape (форма) — овальные или прямоугольные.
+- view (стиль) — залитые или бордерные.
 
 Тег может находиться в активном и неактивном состоянии.
 Взаимодействие с тегом может быть ограничено с помощью свойства `disabled`.
@@ -162,7 +162,7 @@ render(() => {
                 {VIEWS.map((item) => (
                     <div key={item.key} style={{ marginRight: 12 }}>
                         <Tag
-                            size='s'
+                            size={48}
                             view={item.view}
                             shape={item.shape}
                             disabled={disabled}
@@ -213,7 +213,7 @@ render(() => {
                 {ROUNDEDS.map((item) => (
                     <div key={item.key} style={{ marginRight: 12 }}>
                         <Tag
-                            size='s'
+                            size={48}
                             view={item.view}
                             shape={item.shape}
                             disabled={disabled}
@@ -234,7 +234,7 @@ render(() => {
                 {RECTANGLES.map((item) => (
                     <div key={item.key} style={{ marginRight: 12 }}>
                         <Tag
-                            size='s'
+                            size={48}
                             view={item.view}
                             shape={item.shape}
                             disabled={disabled}

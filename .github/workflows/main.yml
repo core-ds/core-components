@@ -158,11 +158,12 @@ jobs:
 
     screenshot-test:
         name: screenshot test
-        needs: [variant, build-demo]
+        needs: [build-demo]
         strategy:
             fail-fast: false
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                variant:
+                    - default
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest

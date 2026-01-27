@@ -175,7 +175,7 @@ render(() => {
 
     return (
         <Container>
-            <Button type='button' size='xs' onClick={handleOpen}>
+            <Button type='button' size={40} onClick={handleOpen}>
                 Показать анатомию
             </Button>
             <SidePanelMobile open={open} onClose={handleClose}>
@@ -316,7 +316,7 @@ render(() => {
 
     return (
         <React.Fragment>
-            <Button type='button' size='s' onClick={handleOpen}>
+            <Button type='button' size={48} onClick={handleOpen}>
                 Открыть сайд-панель
             </Button>
 
@@ -359,14 +359,14 @@ render(() => {
                         <SidePanelDesktop.Controls
                             primary={
                                 footerSettings.hasPrimaryButton ? (
-                                    <Button view='primary' size='s' onClick={handleClose}>
+                                    <Button view='primary' size={48} onClick={handleClose}>
                                         Primary
                                     </Button>
                                 ) : null
                             }
                             secondary={
                                 footerSettings.hasSecondaryButton ? (
-                                    <Button view='secondary' size='s' onClick={handleClose}>
+                                    <Button view='secondary' size={48} onClick={handleClose}>
                                         Secondary
                                     </Button>
                                 ) : null
@@ -406,7 +406,6 @@ render(() => {
                 {HEADER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={headerSettings[item.name]}
@@ -421,7 +420,6 @@ render(() => {
                 onChange={handleHeaderSettingsChange}
             >
                 <Switch
-                    size='m'
                     label='Заголовок в контентной области'
                     name='titleInContent'
                     checked={headerSettings.titleInContent}
@@ -434,7 +432,6 @@ render(() => {
                 {FOOTER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={footerSettings[item.name]}
@@ -598,7 +595,6 @@ render(() => {
                 {HEADER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={headerSettings[item.name]}
@@ -613,7 +609,6 @@ render(() => {
                 onChange={handleHeaderSettingsChange}
             >
                 <Switch
-                    size='m'
                     label='Заголовок в контентной области'
                     name='titleInContent'
                     checked={headerSettings.titleInContent}
@@ -639,7 +634,6 @@ render(() => {
                 {FOOTER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={footerSettings[item.name]}
@@ -712,7 +706,7 @@ render(() => {
                                 footerSettings.hasPrimaryButton ? (
                                     <ButtonMobile
                                         view='primary'
-                                        size='m'
+                                        size={56}
                                         onClick={handleClose}
                                         block={true}
                                     >
@@ -724,7 +718,7 @@ render(() => {
                                 footerSettings.hasSecondaryButton ? (
                                     <ButtonMobile
                                         view='secondary'
-                                        size='m'
+                                        size={56}
                                         onClick={handleClose}
                                         block={true}
                                     >
@@ -794,7 +788,7 @@ render(() => {
 
     return (
         <Container>
-            <Button size={document.body.clientWidth < 450 ? 'm' : 's'} onClick={handleOpen}>
+            <Button size={document.body.clientWidth < 450 ? 56 : 48} onClick={handleOpen}>
                 Открыть сайд панель
             </Button>
 
@@ -818,7 +812,7 @@ render(() => {
                 </SidePanel.Content>
                 <SidePanel.Footer sticky={true}>
                     <Button
-                        size={document.body.clientWidth < 450 ? 'm' : 's'}
+                        size={document.body.clientWidth < 450 ? 56 : 48}
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose
