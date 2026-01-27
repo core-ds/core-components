@@ -86,6 +86,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
         },
         ref,
     ) => {
+        const { disabled, readOnly } = restProps;
         const [inputValue, setInputValue] = useState(() => getDefaultValue(defaultValue, withTime));
 
         const lastValidDate = useRef<string>('');
@@ -94,6 +95,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
         const { offDays } = calendarProps;
         const [inputDate, inputTime] = inputValue.split(DATE_TIME_SEPARATOR);
         const isValidValue = isValidDate({ value: inputDate, minDate, maxDate, offDays });
+        const shouldShowPicker = picker && !disabled && !readOnly;
 
         useEffect(() => {
             if (autoCorrection) {
@@ -245,7 +247,7 @@ export const DateInput = forwardRef<HTMLInputElement, InnerDateInputProps>(
                     rightAddons={
                         <React.Fragment>
                             {rightAddons}
-                            {picker && (
+                            {shouldShowPicker && (
                                 <CalendarIcon
                                     onClick={onPickerClick}
                                     className={cn(

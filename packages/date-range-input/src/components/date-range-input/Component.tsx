@@ -209,6 +209,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
         const [open, setOpen] = useState(defaultOpen);
 
         const inputDisabled = disabled || readOnly;
+        const shouldShowPicker = picker && !disabled && !readOnly;
 
         const calendarResponsive = calendarProps?.responsive ?? true;
 
@@ -471,7 +472,7 @@ export const DateRangeInput = React.forwardRef<HTMLInputElement, DateRangeInputP
                         rightAddons={
                             <React.Fragment>
                                 {rightAddons}
-                                {picker && (
+                                {shouldShowPicker && (
                                     // eslint-disable-next-line jsx-a11y/control-has-associated-label
                                     <IconButton
                                         className={styles.calendarIcon}

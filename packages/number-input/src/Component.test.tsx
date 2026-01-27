@@ -70,16 +70,11 @@ describe('NumberInput', () => {
 
     it('should set `disabled` atribute', () => {
         const dataTestId = 'test-id';
-        const incrementButtonId = dataTestId + '-increment-button';
-        const decrementButtonId = dataTestId + '-decrement-button';
         const { getByTestId } = render(
             <NumberInput disabled={true} dataTestId={dataTestId} step={1} />,
         );
 
         expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
-        expect(getByTestId(incrementButtonId)).toHaveAttribute('disabled');
-        expect(getByTestId(decrementButtonId)).toHaveAttribute('disabled');
-
         expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
     });
 
@@ -292,6 +287,44 @@ describe('NumberInput', () => {
             const { unmount } = render(<NumberInput value='123' onChange={jest.fn()} />);
 
             expect(unmount).not.toThrow();
+        });
+
+        it('should not render stepper when disabled', () => {
+            const dataTestId = 'test-id';
+
+            const { queryByTestId } = render(
+                <NumberInput
+                    disabled={true}
+                    value={10}
+                    max={10}
+                    dataTestId={dataTestId}
+                    step={1}
+                />,
+            );
+
+            const testIds = getNumberInputTestIds(dataTestId);
+
+            expect(queryByTestId(testIds.decrementButton)).not.toBeInTheDocument();
+            expect(queryByTestId(testIds.incrementButton)).not.toBeInTheDocument();
+        });
+
+        it('should not render stepper when readOnly', () => {
+            const dataTestId = 'test-id';
+
+            const { queryByTestId } = render(
+                <NumberInput
+                    readOnly={true}
+                    value={10}
+                    max={10}
+                    dataTestId={dataTestId}
+                    step={1}
+                />,
+            );
+
+            const testIds = getNumberInputTestIds(dataTestId);
+
+            expect(queryByTestId(testIds.decrementButton)).not.toBeInTheDocument();
+            expect(queryByTestId(testIds.incrementButton)).not.toBeInTheDocument();
         });
     });
 });

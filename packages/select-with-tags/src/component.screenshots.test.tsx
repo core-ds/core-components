@@ -4,7 +4,16 @@ import {
     closeBrowser,
     matchHtml,
     openBrowserPage,
+    setupScreenshotTesting,
+    generateTestCases,
 } from '@alfalab/core-components-screenshot-utils';
+
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
+});
 
 const ENTRY_TO_COMPONENT_NAME = {
     desktop: 'SelectWithTagsDesktop',
@@ -181,3 +190,51 @@ describe('SelectWithTags', () => {
         });
     });
 });
+
+describe(
+    'SelectWithTagsDesktop | disabled with arrow',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'SelectWithTags',
+                subComponentName: 'SelectWithTagsDesktop',
+                testStory: false,
+                knobs: {
+                    size: [48],
+                    disabled: [false, true],
+                },
+            }),
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 320,
+            height: 80,
+        },
+    }),
+);
+
+describe(
+    'SelectWithTagsMobile | disabled with arrow',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'SelectWithTags',
+                subComponentName: 'SelectWithTagsMobile',
+                testStory: false,
+                knobs: {
+                    size: [48],
+                    disabled: [false, true],
+                },
+            }),
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 320,
+            height: 80,
+        },
+    }),
+);

@@ -120,8 +120,34 @@ describe('Input | screenshots disabled prop', () => {
                         componentName: 'Input',
                         knobs: {
                             label: 'Label',
-                            size: 56,
+                            size: [56, 40],
                             disabled: true,
+                            colors,
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+                [
+                    `${theme} theme | readOnly`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Input',
+                        knobs: {
+                            label: 'Label',
+                            size: [56, 40],
+                            readOnly: true,
+                            colors,
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+                [
+                    `${theme} theme | disableUserInput`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Input',
+                        knobs: {
+                            label: 'Label',
+                            size: [56, 40],
+                            disableUserInput: true,
                             colors,
                         },
                         size: { width: 350, height: 150 },
