@@ -310,13 +310,19 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
                 - Заменяет буквенные размеры на числовые
             </td>
         </tr>
+        <tr>
+            <td>50-custom-button</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
     </tbody>
 </table>
 
 Для запуска всех трансформеров можно воспользоваться командой
 
 ```
-npx @alfalab/core-components-codemod --transformers=50-progress-bar,50-button,50-modal,50-segmented-control,50-radio,50-form-control,50-checkbox,50-indicator,50-slider,50-action-button,50-filter-tag,50-gap,50-circular-progress-bar,50-attach,50-custom-picker-button,50-icon-button,50-picker-button --glob='src/**/*.tsx'
+npx @alfalab/core-components-codemod --transformers=50-progress-bar,50-button,50-modal,50-segmented-control,50-radio,50-form-control,50-checkbox,50-indicator,50-slider,50-action-button,50-filter-tag,50-gap,50-circular-progress-bar,50-attach,50-custom-picker-button,50-icon-button,50-picker-button,50-custom-button --glob='src/**/*.tsx'
 ```
 
 ## Разработка
