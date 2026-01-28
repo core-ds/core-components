@@ -1,5 +1,27 @@
 # @alfalab/core-components-bottom-sheet
 
+## 7.4.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.5
+
+## 7.4.1
+
+### Patch Changes
+
+<sup><time>19.01.2026</time></sup>
+
+#### [#2011](https://github.com/core-ds/core-components/pull/2011)
+
+##### BottomSheet
+
+- Исправлена специфичность подзаголовка. Теперь он принимает корректный цвет из default/inverted мода
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.4
+
 ## 7.4.0
 
 ### Minor Changes

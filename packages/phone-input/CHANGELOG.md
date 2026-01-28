@@ -1,5 +1,12 @@
 # @alfalab/core-components-phone-input
 
+## 8.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-masked-input@7.0.4
+
 ## 8.0.3
 
 ### Patch Changes

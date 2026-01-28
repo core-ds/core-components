@@ -1,5 +1,25 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 1.1.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.0
+    - @alfalab/core-components-icon-button@7.0.4
+
+## 1.1.4
+
+### Patch Changes
+
+<sup><time>19.01.2026</time></sup>
+
+#### [#2008](https://github.com/core-ds/core-components/pull/2008)
+
+##### NavigationBarPrivate
+
+- Для компонента `Closer` поднята специфичность кнопки
+
 ## 1.1.3
 
 ### Patch Changes

@@ -7,4 +7,13 @@
     /* icon */
     --checkbox-icon-color: var(--color-static-neutral-translucent-1300-inverted);
     --checkbox-icon-indeterminate-color: var(--color-static-neutral-translucent-1300-inverted);
+
+    /* checked inverted */
+    --checkbox-checked-bg-color-inverted: var(--color-light-accent-primary-inverted);
+    --checkbox-checked-hover-bg-color-inverted: var(--color-light-accent-primary-inverted-hover);
+    --checkbox-checked-active-bg-color-inverted: var(--color-light-accent-primary-inverted-press);
+
+    /* icon inverted */
+    --checkbox-icon-color-inverted: var(--color-static-neutral-translucent-1300);
+    --checkbox-icon-indeterminate-color-inverted: var(--color-static-neutral-translucent-1300);
 }

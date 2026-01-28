@@ -1,5 +1,30 @@
 # @alfalab/core-components-universal-date-input
 
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1947](https://github.com/core-ds/core-components/pull/1947)
+
+##### UniversalDateInput
+
+- Изменены значения border-radius во всех темах на 16px кроме site.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.4
+    - @alfalab/core-components-calendar@8.0.9
+
+## 3.0.9
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.8
+
 ## 3.0.8
 
 ### Patch Changes

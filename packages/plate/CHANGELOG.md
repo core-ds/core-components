@@ -1,5 +1,23 @@
 # @alfalab/core-components-plate
 
+## 8.2.0
+
+### Minor Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1946](https://github.com/core-ds/core-components/pull/1946)
+
+##### Plate
+
+- Обновлены скругления для Plate компонента и добавлен prop `borderRadius` для задания произвольного радиуса (desktop/mobile)
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.0
+    - @alfalab/core-components-icon-button@7.0.4
+
 ## 8.1.2
 
 ### Patch Changes

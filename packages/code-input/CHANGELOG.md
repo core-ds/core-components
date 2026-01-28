@@ -1,5 +1,17 @@
 # @alfalab/core-components-code-input
 
+## 4.1.1
+
+### Patch Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1935](https://github.com/core-ds/core-components/pull/1935)
+
+##### CodeInput
+
+- Изменено скругление компонента
+
 ## 4.1.0
 
 ### Minor Changes
