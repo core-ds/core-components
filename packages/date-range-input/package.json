@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-date-range-input",
-    "version": "4.0.10",
+    "version": "4.0.11",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,9 +10,9 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-calendar": "^8.0.9",
-        "@alfalab/core-components-icon-button": "^7.0.4",
-        "@alfalab/core-components-input": "^16.0.4",
+        "@alfalab/core-components-calendar": "^8.0.10",
+        "@alfalab/core-components-icon-button": "^7.0.5",
+        "@alfalab/core-components-input": "^16.0.5",
         "@alfalab/core-components-mq": "^5.0.2",
         "@alfalab/core-components-popover": "^7.1.1",
         "@alfalab/hooks": "^1.13.1",
