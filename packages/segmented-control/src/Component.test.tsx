@@ -74,4 +74,19 @@ describe('segmented-control', () => {
 
         expect(firstElement).toHaveStyle('padding: 20px');
     });
+
+    it('should render skeleton when showSkeleton is true', () => {
+        const dataTestId = 'skeleton-test-id';
+        render(
+            renderComponent({
+                onChange: () => null,
+                selectedId: 2,
+                showSkeleton: true,
+                dataTestId,
+            }),
+        );
+
+        expect(screen.getByTestId(dataTestId)).toBeInTheDocument();
+        expect(screen.queryByTestId(SEGMENT_TEST_ID)).not.toBeInTheDocument();
+    });
 });

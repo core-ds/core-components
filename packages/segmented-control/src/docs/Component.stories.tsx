@@ -17,6 +17,8 @@ export const segmented_control: Story = {
         const [selectedId, setSelectedId] = React.useState(1);
         const handleChange = (id) => setSelectedId(id);
         const colors = select('colors', ['default', 'inverted'], 'default');
+        const showSkeleton = boolean('showSkeleton', false);
+
         return (
             <div
                 style={{
@@ -39,6 +41,7 @@ export const segmented_control: Story = {
                     selectedId={selectedId}
                     colors={colors}
                     disabled={boolean('disabled', false)}
+                    showSkeleton={showSkeleton}
                 >
                     <Segment id={1} title={'Сегмент 1'}>
                         Сегмент 1

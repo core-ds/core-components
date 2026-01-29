@@ -2,6 +2,8 @@ import React, { type FC, type ReactElement, useCallback, useEffect, useRef } fro
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
+import { Skeleton, type SkeletonProps } from '@alfalab/core-components-skeleton';
+
 import { type SegmentProps } from './components';
 import { type ContextType, SegmentedControlContext } from './context';
 import { type IDType } from './typing';
@@ -15,7 +17,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SegmentedControlProps = {
+export interface SegmentedControlProps {
     /**
      * Дополнительный className
      */
@@ -67,7 +69,18 @@ export type SegmentedControlProps = {
      * @default false
      */
     disabled?: boolean;
-};
+
+    /**
+     * Показывает скелетон вместо контента
+     * @default false
+     */
+    showSkeleton?: boolean;
+
+    /**
+     * Настройки скелетона
+     */
+    skeletonProps?: Omit<SkeletonProps, 'visible'>;
+}
 
 const MAX_SEGMENTS = 5;
 
@@ -89,11 +102,23 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     dataTestId,
     style,
     disabled = false,
+    showSkeleton = false,
+    skeletonProps,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
     const selectedBoxRef = useRef<HTMLDivElement>(null);
     const children = defaultChildren.slice(0, MAX_SEGMENTS);
+    const sizeClassName = SIZE_TO_CLASSNAME_MAP[size];
+    const isSize40 = size === 40 || size === 'xs';
+
+    const skeletonBorderRadius = (() => {
+        if (shape === 'rounded') {
+            return isSize40 ? 20 : 16;
+        }
+
+        return isSize40 ? 12 : 10;
+    })();
 
     const selectedSegmentPosition = children.findIndex((item) => item.props.id === selectedId);
     const isPositionFounded = selectedSegmentPosition !== -1;
@@ -132,6 +157,24 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         return () => observer.disconnect();
     }, []);
 
+    if (showSkeleton) {
+        return (
+            <Skeleton
+                {...skeletonProps}
+                visible={true}
+                dataTestId={dataTestId}
+                borderRadius={skeletonBorderRadius}
+                className={cn(className, skeletonProps?.className)}
+                style={{
+                    ...style,
+                    ...skeletonProps?.style,
+                    height: isSize40 ? '40px' : '32px',
+                    width: '100%',
+                }}
+            />
+        );
+    }
+
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         <SegmentedControlContext.Provider value={{ onChange, colors }}>
@@ -141,7 +184,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                         styles.wrapper,
                         colorStyles[colors].wrapper,
                         styles[shape],
-                        styles[SIZE_TO_CLASSNAME_MAP[size]],
+                        styles[sizeClassName],
                         {
                             [styles.disabled]: disabled,
                         },
