@@ -8,12 +8,12 @@ import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
 import { pluralize } from '@alfalab/utils';
 
 import { TYPOGRAPHY_VIEW_FOR_SIZE } from '../../consts';
-import { type Size } from '../../typings';
+import { type SingleCommonProps, type Size } from '../../typings';
 import { showNumberOfCards } from '../../utils';
 
 import styles from './index.module.css';
 
-export type TextProps = {
+export type TextProps = Pick<SingleCommonProps, 'textColor'> & {
     /**
      * Кнопка показать номер карты
      */
@@ -82,6 +82,7 @@ export const Text: React.FC<TextProps> = ({
     dataTestId,
     size = 164,
     onEyeIconClick,
+    textColor,
 }) => {
     const maxSize = size === 164;
     const visibleNumberOfCards = showNumberOfCards(size, numberOfCards, align);
@@ -95,6 +96,9 @@ export const Text: React.FC<TextProps> = ({
                     weight='medium'
                     color='static-primary-light'
                     className={styles.cardholderName}
+                    style={{
+                        ...(textColor && { color: textColor }),
+                    }}
                 >
                     {cardholderNameUppercase ? cardholderName?.toUpperCase() : cardholderName}
                 </TypographyText>
@@ -106,6 +110,9 @@ export const Text: React.FC<TextProps> = ({
                         view={TYPOGRAPHY_VIEW_FOR_SIZE[size]}
                         weight='medium'
                         color='static-primary-light'
+                        style={{
+                            ...(textColor && { color: textColor }),
+                        }}
                     >
                         {[164, 128].includes(size) && '··\u2009'}
                         {String(cardNumber).slice(-4)}
@@ -130,6 +137,9 @@ export const Text: React.FC<TextProps> = ({
                         view={TYPOGRAPHY_VIEW_FOR_SIZE[size]}
                         weight='medium'
                         color='static-primary-dark'
+                        style={{
+                            ...(textColor && { color: textColor }),
+                        }}
                     >
                         {`+${numberOfCards}\u00A0`}
                         {pluralize(numberOfCards || 0, 'карта', 'карты', 'карт')}

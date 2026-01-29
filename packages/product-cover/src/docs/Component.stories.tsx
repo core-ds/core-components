@@ -28,6 +28,9 @@ export const product_cover_single: Story = {
         const _iconColor = text('iconColor', '');
         const iconColor = _iconColor !== '' ? _iconColor : undefined;
 
+        const _textColor = text('textColor', '');
+        const textColor = _textColor !== '' ? _textColor : undefined;
+
         return (
             <ProductCover.Single
                 baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
@@ -43,6 +46,7 @@ export const product_cover_single: Story = {
                 shadow={text('shadow', '2px 2px 2px 0px rgba(0, 0, 0, 0.20)')}
                 borderColor={text('borderColor', undefined)}
                 backgroundColor={text('backgroundColor', undefined)}
+                textColor={textColor}
             />
         );
     },
@@ -56,6 +60,9 @@ export const product_cover_stack: Story = {
         const size = select('size', [128, 40, 32, 16], 128);
         const shadow = text('shadow', '2px 2px 2px 0px rgba(0, 0, 0, 0.20)');
 
+        const _textColor = text('textColor', '');
+        const textColor = _textColor !== '' ? _textColor : undefined;
+
         const firstCard = {
             cardNumber: 1234000000001234,
             cardholderName: 'Cardholder Name',
@@ -63,11 +70,13 @@ export const product_cover_stack: Story = {
             baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
+            textColor,
         };
         const secondCard = {
             baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
+            textColor,
         };
 
         return (
@@ -76,6 +85,7 @@ export const product_cover_stack: Story = {
                     size={size}
                     firstCard={firstCard}
                     secondCard={boolean('secondCard', true) ? secondCard : undefined}
+                    numberOfCards={select('numberOfCards', [3, 5, undefined], undefined)}
                 />
             </div>
         );
