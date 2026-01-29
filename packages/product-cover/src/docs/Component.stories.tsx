@@ -22,12 +22,19 @@ export const product_cover_single: Story = {
     render: () => {
         const sizes = select('size', [164, 128, 96, 48, 40, 32, 16], 164);
 
+        const icon = boolean('icon', false);
+        const Icon = icon ? DiamondsXxlIcon : undefined;
+
+        const _iconColor = text('iconColor', '');
+        const iconColor = _iconColor !== '' ? _iconColor : undefined;
+
         return (
             <ProductCover.Single
                 baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
                 layers={text('layers', 'BACKGROUND,LOGO,PAYMENT_SYSTEM')}
                 cardId={text('cardId', 'RM')}
-                icon={boolean('icon', false) && DiamondsXxlIcon}
+                icon={Icon}
+                iconColor={iconColor}
                 eyeButton={boolean('eyeButton', false)}
                 cardNumber={number('cardNumber', 1234000000001234)}
                 cardholderName={text('cardholderName', 'Cardholder Name')}
