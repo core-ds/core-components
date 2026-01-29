@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { TagDesktop } from '@alfalab/core-components-tag/desktop';
 
 import { type SecondaryTabListProps } from '../../typings';
+import { ScrollableContainerDesktop } from '../scrollable-container/Component.desktop';
 
 import { SecondaryTabList } from './Component';
 
@@ -20,6 +21,7 @@ export const SecondaryTabListDesktop = ({
     <SecondaryTabList
         {...restProps}
         TagComponent={TagDesktop}
+        ScrollableContainer={ScrollableContainerDesktop}
         size={size}
         styles={styles}
         className={cn(className, styles.desktop, {
