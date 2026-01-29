@@ -19,7 +19,7 @@ type ComponentProps = {
      * Тип кнопки
      * @default secondary
      */
-    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text' | 'tertiary';
+    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text';
 
     /**
      * Форма кнопки

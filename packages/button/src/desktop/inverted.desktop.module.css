@@ -58,11 +58,6 @@
         border-color: var(--button-inverted-outlined-disabled-border-color);
     }
 
-    &.tertiary {
-        color: var(--button-inverted-tertiary-disabled-color);
-        border-color: var(--button-inverted-tertiary-disabled-border-color);
-    }
-
     &.transparent {
         color: var(--button-inverted-transparent-disabled-color);
     }
