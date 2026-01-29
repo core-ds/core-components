@@ -99,6 +99,42 @@ describe('ProductCover | text color', () => {
                         },
                     }),
                 ],
+                [
+                    'sprite | numberOfCards custom color',
+                    createSpriteStorybookUrl({
+                        packageName: 'product-cover',
+                        componentName: 'ProductCover',
+                        subComponentName: 'Stack',
+                        knobs: {
+                            size: [40],
+                            firstCard: {
+                                cardNumber: 1234000000001234,
+                                shadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
+                                textColor: ['rgb(255, 0, 255)'],
+                            },
+                            numberOfCards: 3,
+                        },
+                    }),
+                ],
+                [
+                    'sprite | numberOfCards custom color',
+                    createSpriteStorybookUrl({
+                        packageName: 'product-cover',
+                        componentName: 'ProductCover',
+                        subComponentName: 'Stack',
+                        knobs: {
+                            size: [40],
+                            firstCard: {
+                                cardNumber: 1234000000001234,
+                                shadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
+                            },
+                            secondCard: {
+                                textColor: ['rgb(255, 0, 255)'],
+                            },
+                            numberOfCards: 3,
+                        },
+                    }),
+                ],
             ],
             viewport: {
                 width: 280,

@@ -83,6 +83,7 @@ describe('ProductCover | text color', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
+                // default color
                 ...generateTestCases({
                     testStory: false,
                     componentName: 'ProductCover',
@@ -92,6 +93,19 @@ describe('ProductCover | text color', () => {
                         icon: false,
                         cardholderName: 'cardholderName',
                         cardNumber: 1000000000000000,
+                    },
+                }),
+                // custom color
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'ProductCover',
+                    subComponentName: 'ProductCover.Single',
+                    knobs: {
+                        baseUrl: false,
+                        icon: false,
+                        cardholderName: 'cardholderName',
+                        cardNumber: 1000000000000000,
+                        textColor: ['tomato', 'rgb(255, 0, 255)'],
                     },
                 }),
             ],
