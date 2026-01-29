@@ -78,3 +78,33 @@ describe('ProductCover | icon color', () => {
 
     ['default'].forEach((theme) => testCase(theme));
 });
+
+describe('ProductCover | text color', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'ProductCover',
+                    subComponentName: 'ProductCover.Single',
+                    knobs: {
+                        baseUrl: false,
+                        icon: false,
+                        cardholderName: 'cardholderName',
+                        cardNumber: 1000000000000000,
+                    },
+                }),
+            ],
+            viewport: {
+                width: 280,
+                height: 180,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
