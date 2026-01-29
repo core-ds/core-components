@@ -26,7 +26,7 @@ export type ComponentProps = {
         | 'outlined'
         | 'transparent'
         | 'text'
-        | 'tertiary'
+        | 'tertiary' // deprecated, используйте view='outlined'
         | 'filled' // deprecated
         | 'link' // deprecated
         | 'ghost'; // deprecated;
