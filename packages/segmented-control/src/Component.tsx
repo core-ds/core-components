@@ -110,13 +110,14 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     const selectedBoxRef = useRef<HTMLDivElement>(null);
     const children = defaultChildren.slice(0, MAX_SEGMENTS);
     const sizeClassName = SIZE_TO_CLASSNAME_MAP[size];
+    const isSize40 = size === 40 || size === 'xs';
 
     const skeletonBorderRadius = (() => {
         if (shape === 'rounded') {
-            return sizeClassName === 'size-40' ? 20 : 16;
+            return isSize40 ? 20 : 16;
         }
 
-        return sizeClassName === 'size-40' ? 12 : 10;
+        return isSize40 ? 12 : 10;
     })();
 
     const selectedSegmentPosition = children.findIndex((item) => item.props.id === selectedId);
@@ -167,10 +168,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                 style={{
                     ...style,
                     ...skeletonProps?.style,
-                    height:
-                        sizeClassName === 'size-40'
-                            ? '40px'
-                            : '32px',
+                    height: isSize40 ? '40px' : '32px',
                     width: '100%',
                 }}
             />
