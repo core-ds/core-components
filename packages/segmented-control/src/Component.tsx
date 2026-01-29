@@ -17,7 +17,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SegmentedControlProps = {
+export interface SegmentedControlProps {
     /**
      * Дополнительный className
      */

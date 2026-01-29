@@ -16,7 +16,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SegmentProps = {
+export interface SegmentProps {
     /**
      * Дополнительный className
      */
