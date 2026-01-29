@@ -13,7 +13,7 @@ import { showNumberOfCards } from '../../utils';
 
 import styles from './index.module.css';
 
-export type TextProps = Pick<SingleCommonProps, 'textColor'> & {
+export interface TextProps extends Pick<SingleCommonProps, 'textColor'> {
     /**
      * Кнопка показать номер карты
      */
@@ -69,7 +69,7 @@ export type TextProps = Pick<SingleCommonProps, 'textColor'> & {
      * Идентификатор для систем автоматизированного тестирования.
      */
     dataTestId?: string;
-};
+}
 
 export const Text: React.FC<TextProps> = ({
     cardholderNameUppercase,
