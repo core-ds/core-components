@@ -66,31 +66,6 @@
     }
 }
 
-.tertiary {
-    color: var(--button-tertiary-color);
-    background-color: var(--button-tertiary-base-bg-color);
-    border: 1px solid var(--button-tertiary-base-border-color);
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-tertiary-hover-bg-color);
-            border-color: var(--button-tertiary-hover-border-color);
-        }
-    }
-
-    &:active {
-        background-color: var(--button-tertiary-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-default-color);
-    }
-
-    & .hint {
-        color: var(--button-tertiary-hint-color);
-    }
-}
-
 .transparent {
     color: var(--button-transparent-base-color);
     background-color: transparent;
@@ -163,15 +138,6 @@
         &.loading {
             color: var(--button-outlined-color);
             border-color: var(--button-outlined-base-border-color);
-        }
-    }
-
-    &.tertiary {
-        background-color: var(--button-tertiary-disabled-bg-color);
-
-        &.loading {
-            color: var(--button-tertiary-color);
-            border-color: var(--button-tertiary-base-border-color);
         }
     }
 

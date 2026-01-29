@@ -54,11 +54,6 @@
         border-color: var(--button-outlined-mobile-disabled-border-color);
     }
 
-    &.tertiary {
-        color: var(--button-tertiary-mobile-disabled-color);
-        border-color: var(--button-tertiary-mobile-disabled-border-color);
-    }
-
     &.transparent {
         color: var(--button-transparent-mobile-disabled-color);
     }
