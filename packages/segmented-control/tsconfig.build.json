@@ -13,7 +13,5 @@
             "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"]
         }
     },
-    "references": [
-        { "path": "../skeleton/tsconfig.build.json" }
-    ]
+    "references": [{ "path": "../skeleton/tsconfig.build.json" }]
 }

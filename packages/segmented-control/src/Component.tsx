@@ -80,7 +80,7 @@ export interface SegmentedControlProps {
      * Настройки скелетона
      */
     skeletonProps?: Omit<SkeletonProps, 'visible'>;
-};
+}
 
 const MAX_SEGMENTS = 5;
 

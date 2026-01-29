@@ -46,7 +46,7 @@ export interface SegmentProps {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+}
 
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
     ({ id, className, title, dataTestId }, ref) => {
