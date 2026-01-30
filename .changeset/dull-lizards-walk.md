@@ -3,4 +3,4 @@
 '@alfalab/core-components': minor
 ---
 
-##### PureCell - PureCell.Text - Добавлен view 'component-secondary'.
+e1
