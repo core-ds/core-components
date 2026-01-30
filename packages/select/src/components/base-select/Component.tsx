@@ -22,7 +22,8 @@ import {
     type UseMultipleSelectionState,
 } from 'downshift';
 
-import { fnUtils, getDataTestId, isClient } from '@alfalab/core-components-shared';
+import { useCoreConfig } from '@alfalab/core-components-config';
+import { fnUtils, getDataTestId } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
@@ -123,7 +124,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             ModalMobile,
             BottomSheet,
             limitDynamicOptionGroupSize,
-            environment = isClient() ? window : undefined,
+            environment: environmentFromProps,
         } = props;
         const shouldSearchBlurRef = useRef(true);
         const rootRef = useRef<HTMLDivElement>(null);
@@ -133,7 +134,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         const searchRef = useRef<HTMLInputElement>(null);
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
         const onOpenRef = useRef(onOpen);
-
+        const { environment: environmentFromConfig } = useCoreConfig();
+        const environment = environmentFromProps ?? environmentFromConfig;
         const [searchState, setSearchState] = React.useState('');
 
         const [search, setSearch] =
