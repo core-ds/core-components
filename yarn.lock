@@ -20,6 +20,11 @@
     "@alfalab/utils" "^1.17.1"
     uuid "^8.3.2"
 
+"@alfalab/icons-glyph@^2.210.0":
+  version "2.251.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.251.0.tgz#243959737b00de554af1cd519feb2243f62bf04c"
+  integrity sha512-aMe1Qf6qfF81my9Jn00Tysa6HDQDjaYNmXpb6/iwp7QQOEv12ymqDM1KdMyyVHOw+0WwchK1HMD8kznwLUIviA==
+
 "@alfalab/icons-glyph@^2.247.0":
   version "2.247.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-2.247.0.tgz#3adac7b808c807e518fdf6348617b4421838ae45"
