@@ -13,12 +13,12 @@ export const BaseMarkdown: FC<BaseMarkdownProps> = (props) => {
     const {
         children,
         className,
-        platform,
         font = 'system',
         overrides,
         transformLinkUri = true,
+        Title,
     } = props;
-    const defaultOverrides = useOverrides(platform, font);
+    const defaultOverrides = useOverrides(Title, font);
 
     return (
         <ReactMarkdown
