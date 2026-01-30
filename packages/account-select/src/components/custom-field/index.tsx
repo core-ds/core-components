@@ -31,6 +31,7 @@ export const CustomField = ({
     placeholder,
     size,
     toggleMenu,
+    open,
     ...restProps
 }: CustomFieldProps) => {
     const { cardNumber } = useAccountSelect();
@@ -45,12 +46,14 @@ export const CustomField = ({
         if (selectedOption?.key === ADD_CARD_KEY) {
             return (
                 <MultiStepCardInput
+                    open={open}
                     placeholder={placeholder}
                     onSubmit={onSubmit}
                     onInput={onInput}
                     needCVC={needCVC}
                     needExpiryDate={needExpiryDate}
                     expiryAsDate={expiryAsDate}
+                    toggleMenu={toggleMenu}
                 />
             );
         }
@@ -90,6 +93,7 @@ export const CustomField = ({
             leftAddons={getLeftAddon()}
             leftAddonsProps={{ className: cn(styles.leftAddon, styles[`size${size}`]) }}
             toggleMenu={toggleMenu}
+            open={open}
             {...restProps}
             valueRenderer={fieldRenderer}
         />

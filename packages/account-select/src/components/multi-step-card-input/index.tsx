@@ -1,8 +1,8 @@
-import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
 
-import { CARD_MASK, CVV_MASK, ERRORS, EXPIRY_MASK } from '../../constants';
+import { CARD_MASK, CVV_MASK, ERRORS, EXPIRY_COMPLETE_REGEXP, EXPIRY_MASK } from '../../constants';
 import { useAccountSelect, useError } from '../../context';
 import { type CardAddingProps } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
@@ -14,7 +14,7 @@ import styles from './index.module.css';
 type MultiStepCardInputProps = Pick<
     CardAddingProps,
     'onSubmit' | 'onInput' | 'needCVC' | 'needExpiryDate' | 'expiryAsDate' | 'placeholder'
->;
+> & { open?: boolean | undefined; toggleMenu: () => void };
 
 export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
     ({
@@ -38,21 +38,22 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
         const { setError } = useError();
 
-        const [isCardNumberFocused, setIsCardNumberFocused] = useState<boolean>(false);
-        const [fieldErrors, setFieldErrors] = useState<Record<string, string | null>>({});
-        const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
-
-        const isShowExpiry = needExpiryDate && step >= 2 && validateCardNumber(cardNumber);
-        const isShowCvv = needCVC && step >= 2 && validateCardNumber(cardNumber);
+        const [touchedFields, setTouchedFields] = useState({
+            cardNumber: false,
+            expiry: false,
+            cvc: false,
+        });
+        const [activeField, setActiveField] = useState<'cardNumber' | 'expiry' | 'cvv' | ''>('');
         const onlyCard = !needCVC && !needExpiryDate;
+        const valuesEmpty = !cardNumber && !cardExpiry && !cardCvc;
 
         const numberRef = useRef<HTMLInputElement | null>(null);
         const expiryRef = useRef<HTMLInputElement | null>(null);
         const cvvRef = useRef<HTMLInputElement | null>(null);
 
-        const numberMaskRef = useMaskito({ options: CARD_MASK });
-        const expiryMaskRef = useMaskito({ options: EXPIRY_MASK });
-        const cvvMaskRef = useMaskito({ options: CVV_MASK });
+        const numberMaskRef = useMaskito({ options: { mask: CARD_MASK } });
+        const expiryMaskRef = useMaskito({ options: { mask: EXPIRY_MASK } });
+        const cvvMaskRef = useMaskito({ options: { mask: CVV_MASK } });
 
         const numberRefCallback = useCallback(
             (element: HTMLInputElement | null) => {
@@ -89,86 +90,116 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         }, [cardNumber, cardExpiry, cardCvc, needExpiryDate, needCVC]);
 
         useEffect(() => {
-            if (step === 1) {
-                numberRef.current?.focus();
-            }
+            if (step === 1) numberRef.current?.focus();
+            if (step === 2) expiryRef.current?.focus();
+            if (step === 3) cvvRef.current?.focus();
         }, [step]);
 
-        const validateField = useCallback(
-            (field: string, value: string, force = false) => {
-                if (!force && !touchedFields.has(field)) {
+        useEffect(() => {
+            if (valuesEmpty) {
+                setError(null);
+
+                return;
+            }
+
+            const errors = [];
+
+            if (
+                activeField !== 'cardNumber' &&
+                touchedFields.cardNumber &&
+                !validateCardNumber(cardNumber)
+            ) {
+                errors.push(ERRORS.CARD_NUMBER_ERROR);
+            }
+
+            if (needExpiryDate && activeField !== 'expiry' && touchedFields.expiry) {
+                if (!cardExpiry) {
+                    errors.push(ERRORS.EXPIRY_EMPTY);
+                } else if (!validateExpiry(cardExpiry as string)) {
+                    errors.push(ERRORS.EXPIRY_ERROR);
+                }
+            }
+
+            if (needCVC && activeField !== 'cvv' && touchedFields.cvc) {
+                if (!cardCvc || !validateCVC(cardCvc)) {
+                    errors.push(ERRORS.CVV_EMPTY);
+                }
+            }
+
+            if (errors.length > 0) {
+                setError(errors.join('. '));
+            } else if (Object.values(touchedFields).some((touched) => touched)) {
+                // Очищаем ошибку только если какие-то поля уже были тронуты
+                setError(null);
+            }
+        }, [
+            activeField,
+            cardNumber,
+            cardExpiry,
+            cardCvc,
+            touchedFields,
+            needExpiryDate,
+            needCVC,
+            setError,
+            valuesEmpty,
+        ]);
+
+        const proceedToNextStepOrSubmit = useCallback(
+            (
+                cardNumberValue = cardNumber,
+                cardExpiryValue = cardExpiry,
+                cardCvcValue = cardCvc,
+            ) => {
+                const isCardValid = validateCardNumber(cardNumberValue);
+                const isExpiryValid = !needExpiryDate || validateExpiry(cardExpiryValue as string);
+                const isCvcValid = !needCVC || validateCVC(cardCvcValue);
+
+                if (!isCardValid) {
+                    setStep(1);
+
                     return;
                 }
 
-                let error: string | null = null;
+                if (needExpiryDate && !isExpiryValid) {
+                    setStep(2);
 
-                if (field === 'cardNumber' && value && !validateCardNumber(value)) {
-                    error = ERRORS.CARD_NUMBER_ERROR;
-                } else if (field === 'expiry') {
-                    if (value) {
-                        error = validateExpiry(value) ? null : ERRORS.EXPIRY_ERROR;
-                    } else {
-                        error = ERRORS.EXPIRY_EMPTY;
-                    }
-                } else if (field === 'cvc') {
-                    if (value && validateCVC(value)) {
-                        error = null;
-                    } else {
-                        error = ERRORS.CVV_EMPTY;
-                    }
+                    return;
                 }
 
-                setFieldErrors((prev) => ({
-                    ...prev,
-                    [field]: error,
-                }));
+                if (needCVC && !isCvcValid) {
+                    setStep(3);
+
+                    return;
+                }
+
+                numberRef.current?.blur();
+                expiryRef.current?.blur();
+                cvvRef.current?.blur();
+
+                onSubmit?.({
+                    number: cardNumberValue,
+                    ...(needExpiryDate && {
+                        expiryDate: expiryAsDate
+                            ? parseDate(cardExpiryValue as string)
+                            : cardExpiryValue,
+                    }),
+                    ...(needCVC && { CVC: cardCvcValue }),
+                });
             },
-            [touchedFields],
-        );
-
-        // Валидация всех полей (принудительно)
-        const validateAllFields = useCallback(() => {
-            if (cardNumber) validateField('cardNumber', cardNumber, true);
-            if (needExpiryDate) validateField('expiry', String(cardExpiry || ''), true);
-            if (needCVC) validateField('cvc', cardCvc || '', true);
-        }, [cardNumber, cardExpiry, cardCvc, needExpiryDate, needCVC, validateField]);
-
-        const errorMessage = useMemo(() => {
-            const errors = Object.values(fieldErrors).filter(Boolean) as string[];
-
-            return errors.length > 0 ? errors.join('. ') : null;
-        }, [fieldErrors]);
-
-        useEffect(() => {
-            setError(errorMessage);
-        }, [errorMessage, setError]);
-
-        const areAllFieldsFilled =
-            cardNumber && (!needExpiryDate || cardExpiry) && (!needCVC || cardCvc);
-
-        const handleBlur = useCallback(
-            (field: string, value: string) => {
-                setTouchedFields((prev) => new Set(prev).add(field));
-
-                validateField(field, value, true);
-
-                setTimeout(() => {
-                    const { activeElement } = document;
-                    const isAnyFieldFocused =
-                        activeElement === numberRef.current ||
-                        activeElement === expiryRef.current ||
-                        activeElement === cvvRef.current;
-
-                    if (areAllFieldsFilled && !isAnyFieldFocused) {
-                        validateAllFields();
-                    }
-                }, 0);
-            },
-            [areAllFieldsFilled, validateField, validateAllFields],
+            [
+                cardNumber,
+                cardExpiry,
+                cardCvc,
+                needExpiryDate,
+                needCVC,
+                expiryAsDate,
+                onSubmit,
+                setStep,
+            ],
         );
 
         const handleCardNumberFocus = () => {
-            setIsCardNumberFocused(true);
+            setActiveField('cardNumber');
             setTimeout(() => {
                 const { current } = numberRef;
 
@@ -178,19 +209,16 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             }, 0);
         };
 
-        const handleCardNumberBlur = () => {
-            setIsCardNumberFocused(false);
-            handleBlur('cardNumber', cardNumber);
+        const handleExpiryFocus = () => {
+            setActiveField('expiry');
         };
 
-        const handleExpiryBlur = () => {
-            handleBlur('expiry', String(cardExpiry || ''));
+        const handleCVVFocus = () => {
+            setActiveField('cvv');
         };
 
-        const handleCvcBlur = () => {
-            const currentValue = cvvRef.current?.value || cardCvc || '';
-
-            handleBlur('cvc', currentValue);
+        const handleBlur = () => {
+            setActiveField('');
         };
 
         const handleCardNumberChange = ({
@@ -199,65 +227,68 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             const cleanValue = value.replace(/\s/g, '');
 
             setCardNumber(cleanValue);
-            if (isCardNumberFocused && touchedFields.has('cardNumber')) {
-                validateField('cardNumber', cleanValue);
-            }
 
-            if (validateCardNumber(cleanValue)) {
-                if (needExpiryDate) {
-                    setStep(2);
-                    setTimeout(() => expiryRef.current?.focus(), 100);
-                } else {
-                    numberRef.current?.blur();
-                    onSubmit?.({ number: cleanValue });
-                }
-            }
+            proceedToNextStepOrSubmit(cleanValue, cardExpiry, cardCvc);
         };
 
         const handleExpiryChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
             setCardExpiry(value);
 
-            if (document.activeElement === expiryRef.current && touchedFields.has('expiry')) {
-                validateField('expiry', value);
+            if (EXPIRY_COMPLETE_REGEXP.test(value) && !validateExpiry(value)) {
+                setError((prev) => {
+                    if (prev?.includes(ERRORS.EXPIRY_ERROR)) {
+                        return prev;
+                    }
+                    const result = prev?.split('. ') ?? [];
+
+                    result.push(ERRORS.EXPIRY_ERROR);
+
+                    return result.join('. ');
+                });
             }
 
-            if (validateExpiry(value)) {
-                if (needCVC) {
-                    setStep(3);
-                    setTimeout(() => cvvRef.current?.focus(), 100);
-                } else {
-                    expiryRef.current?.blur();
-                    onSubmit?.({
-                        number: cardNumber,
-                        expiryDate: expiryAsDate ? parseDate(value) : value,
-                    });
-                }
-            }
+            proceedToNextStepOrSubmit(cardNumber, value, cardCvc);
         };
 
         const handleCvcChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
             setCardCvc(value);
 
-            if (document.activeElement === cvvRef.current && touchedFields.has('cvc')) {
-                validateField('cvc', value);
-            }
+            proceedToNextStepOrSubmit(cardNumber, cardExpiry, value);
+        };
 
-            if (validateCVC(value)) {
-                validateField('cvc', value, true);
+        const handleCardNumberBlur = () => {
+            setActiveField('');
+            setTouchedFields((prev) => ({ ...prev, cardNumber: true }));
+        };
 
-                setTimeout(() => {
-                    cvvRef.current?.blur();
-                    onSubmit?.({
-                        number: cardNumber,
-                        expiryDate: expiryAsDate ? parseDate(cardExpiry as string) : cardExpiry,
-                        CVC: value,
-                    });
-                }, 10);
-            }
+        const handleExpiryBlur = () => {
+            setTouchedFields((prev) => ({ ...prev, expiry: true }));
+        };
+
+        const handleCvcBlur = () => {
+            setTouchedFields((prev) => ({ ...prev, cvc: true }));
+        };
+
+        const handleFocus: React.FocusEventHandler<HTMLDivElement> = () => {
+            setError(null);
+        };
+
+        const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+            setTimeout(() => {
+                if (e.target === numberRef.current) {
+                    numberRef.current.focus();
+                }
+                if (e.target === expiryRef.current) {
+                    expiryRef.current.focus();
+                }
+                if (e.target === cvvRef.current) {
+                    cvvRef.current.focus();
+                }
+            }, 0);
         };
 
         const getDisplayCardNumber = () => {
-            if (isCardNumberFocused || !validateCardNumber(cardNumber) || onlyCard) {
+            if (activeField === 'cardNumber' || !validateCardNumber(cardNumber) || onlyCard) {
                 return formatCardNumber(cardNumber);
             }
 
@@ -267,18 +298,20 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         return (
             <div
                 className={styles.multistepCardInputWrapper}
-                onClick={(e) => e.stopPropagation()}
                 aria-hidden='true'
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onClick={handleClick}
             >
                 <div className={styles.inputs}>
                     <input
                         ref={numberRefCallback}
+                        onBlur={handleCardNumberBlur}
                         type='text'
                         placeholder={placeholder ?? 'Карта'}
                         value={getDisplayCardNumber()}
                         onInput={handleCardNumberChange}
                         onFocus={handleCardNumberFocus}
-                        onBlur={handleCardNumberBlur}
                         className={cn(styles.multistepInput, styles.cardNumberInput, {
                             [styles.cardNumberInputValid]:
                                 validateCardNumber(cardNumber) && !onlyCard,
@@ -286,28 +319,34 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                         inputMode='numeric'
                         pattern='[0-9]*'
                     />
-                    {isShowExpiry && (
+                    {needExpiryDate && (
                         <input
                             ref={expiryRefCallback}
                             type='text'
                             value={String(cardExpiry)}
                             onInput={handleExpiryChange}
-                            onBlur={handleExpiryBlur}
-                            className={cn(styles.multistepInput, styles.expiryInput)}
+                            onFocus={handleExpiryFocus}
+                            className={cn(styles.multistepInput, styles.expiryInput, {
+                                [styles.hidden]: activeField === 'cardNumber' || valuesEmpty,
+                            })}
                             inputMode='numeric'
+                            onBlur={handleExpiryBlur}
                             pattern='[0-9]*'
                             placeholder='ММ/ГГ'
                         />
                     )}
-                    {isShowCvv && (
+                    {needCVC && (
                         <input
                             ref={cvvRefCallback}
                             type='text'
                             value={cardCvc || ''}
                             onInput={handleCvcChange}
-                            onBlur={handleCvcBlur}
-                            className={cn(styles.multistepInput, styles.cvvInput)}
+                            onFocus={handleCVVFocus}
+                            className={cn(styles.multistepInput, styles.cvvInput, {
+                                [styles.hidden]: activeField === 'cardNumber' || valuesEmpty,
+                            })}
                             inputMode='numeric'
+                            onBlur={handleCvcBlur}
                             pattern='[0-9]*'
                             placeholder='CVC'
                             maxLength={3}

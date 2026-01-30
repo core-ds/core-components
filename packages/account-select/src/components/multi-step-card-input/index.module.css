@@ -27,6 +27,10 @@
     gap: var(--gap-24);
 }
 
+.hidden {
+    opacity: 0;
+}
+
 .cardNumberInput {
     min-width: 5ch;
     max-width: 19ch;
@@ -51,7 +55,7 @@
     flex-shrink: 1;
 
     &:not(:placeholder-shown) {
-        font-family: 'text-security-disc';
+        font-family: 'text-security-disc', serif;
         -webkit-text-security: disc;
     }
 }

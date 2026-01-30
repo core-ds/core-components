@@ -336,6 +336,7 @@ render(() => {
                 placeholder='Карта получателя'
                 fieldProps={{ leftAddons: <ProductCover.Single size={40} /> }}
                 options={getOptions()}
+                popoverPosition='top'
                 valueRenderer={({ selected }) => {
                     return (
                         <PureCell verticalPadding='none'>
