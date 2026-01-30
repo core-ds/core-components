@@ -1,5 +1,17 @@
 # @alfalab/core-components-button
 
+## 12.1.1
+
+### Patch Changes
+
+<sup><time>30.01.2026</time></sup>
+
+#### [#2029](https://github.com/core-ds/core-components/pull/2029)
+
+##### Button
+
+- Помечен как deprecated `view='tertiary'`, использовать `view='outlined'`.
+
 ## 12.1.0
 
 ### Minor Changes
