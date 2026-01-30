@@ -4,4 +4,5 @@
 ---
 
 ##### PureCell.Text 
+
 - Добавлен view 'component-secondary'.
