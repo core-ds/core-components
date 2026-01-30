@@ -66,6 +66,11 @@ export type BaseInputProps = Omit<
     clear?: boolean;
 
     /**
+     * Показывать крестик очистки только при фокусе на поле
+     */
+    clearOnlyOnFocus?: boolean;
+
+    /**
      * Размер компонента
      * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
@@ -242,6 +247,7 @@ export const BaseInput = forwardRef<
             bottomAddons,
             dataTestId,
             clear = false,
+            clearOnlyOnFocus = false,
             disabled,
             error,
             success,
@@ -293,7 +299,8 @@ export const BaseInput = forwardRef<
         const [autofilled, setAutofilled] = useState(false);
 
         // отображаем крестик только для заполненного и активного инпута
-        const clearButtonVisible = clear && filled && !disabled && !readOnlyProp;
+        const clearButtonVisible =
+            clear && filled && !disabled && !readOnlyProp && (!clearOnlyOnFocus || focused);
         const hasInnerLabel = label && labelView === 'inner';
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
