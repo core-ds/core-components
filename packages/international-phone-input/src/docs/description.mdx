@@ -64,12 +64,13 @@ render(() => {
 
 ## Инпут без пикера страны
 
-При необходимости можно отключить возможность явно выбирать код страны через селект. Инпут сам определит страну после ввода её кода.
+При необходимости можно отключить возможность явно выбирать код страны через селект, или спрятать элемент флажка. Инпут сам определит страну после ввода её кода.
 
 ```jsx live mobileHeight={640}
 render(() => {
     const [value, setValue] = React.useState('');
     const [selectedCountry, setSelectedCountry] = React.useState();
+    const [hideCountryFlag, setHideCountryFlag] = React.useState(false);
 
     const handleChange = (phone) => setValue(phone);
 
@@ -84,11 +85,20 @@ render(() => {
                 onCountryChange={setSelectedCountry}
                 block={true}
                 countrySelectProps={{ hideCountrySelect: true }}
+                hideCountryFlag={hideCountryFlag}
             />
             <Gap size='m' />
             <Typography.Text color='secondary'>
                 Код выбранной страны: {selectedCountry && selectedCountry.iso2}
             </Typography.Text>
+            <Gap size='m' />
+            <Switch
+                checked={hideCountryFlag}
+                label='Спрятать флажок'
+                onChange={() => {
+                    setHideCountryFlag((prevState) => !prevState);
+                }}
+            />
         </div>
     );
 });

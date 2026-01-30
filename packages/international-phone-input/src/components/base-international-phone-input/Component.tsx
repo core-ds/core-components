@@ -38,6 +38,7 @@ export const BaseInternationalPhoneInput = forwardRef<
     (
         {
             clearableCountryCode: clearableCountryCodeFromProps = true,
+            hideCountryFlag = false,
             value,
             country: countryProp,
             filterFn,
@@ -235,13 +236,15 @@ export const BaseInternationalPhoneInput = forwardRef<
                     ...inputProps,
                     onClear: handleClear,
                     onInput: handleInput,
-                    leftAddons: renderCountrySelect(view === 'mobile'),
+                    leftAddons: hideCountryFlag ? null : renderCountrySelect(view === 'mobile'),
                 }}
                 fieldProps={{
                     ...(restProps.fieldProps as AnyObject),
                     className: inputProps.className,
                     addonsClassName: inputProps.addonsClassName,
-                    ...(view === 'mobile' ? { leftAddons: renderCountrySelect() } : null),
+                    ...(view === 'mobile'
+                        ? { leftAddons: hideCountryFlag ? null : renderCountrySelect() }
+                        : null),
                 }}
             />
         ) : (
@@ -249,7 +252,7 @@ export const BaseInternationalPhoneInput = forwardRef<
                 {...restProps}
                 {...inputProps}
                 onClear={inputProps.clear ? handleClear : undefined}
-                leftAddons={renderCountrySelect()}
+                leftAddons={hideCountryFlag ? null : renderCountrySelect()}
                 size={size}
                 onInput={handleInput}
                 value={value}
