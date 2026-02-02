@@ -27,6 +27,7 @@ type Props = {
         | 'primary-medium'
         | 'primary-small'
         | 'component-primary'
+        | 'component-secondary'
         | 'secondary-large';
 
     /**

@@ -1,5 +1,21 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 1.1.6
+
+### Patch Changes
+
+<sup><time>30.01.2026</time></sup>
+
+#### [#2027](https://github.com/core-ds/core-components/pull/2027)
+
+##### NavigationBarPrivate
+
+- Исправлен trim заголовка для размера compact
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.1
+    - @alfalab/core-components-icon-button@7.0.5
+
 ## 1.1.5
 
 ### Patch Changes

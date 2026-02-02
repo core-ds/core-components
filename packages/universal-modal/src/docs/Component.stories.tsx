@@ -200,6 +200,8 @@ export const mobile: Story = {
 
         const header = boolean('header', true);
         const headerTitle = text('header.title', '');
+        const headerSubtitle = text('header.subtitle', '');
+        const titleSize = select('titleSize', ['default', 'compact'], 'default');
         const headerAlign = select('header.align', ['left', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
         const stickyFooter = boolean('footer.sticky', false);
@@ -229,6 +231,8 @@ export const mobile: Story = {
                         <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}
+                            subtitle={headerSubtitle}
+                            titleSize={titleSize}
                             align={headerAlign}
                             hasCloser={hasCloser}
                             hasBackButton={hasBackButton}
