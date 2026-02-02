@@ -146,6 +146,8 @@
             "@alfalab/core-components-list-header/*": ["./packages/list-header/src/*"],
             "@alfalab/core-components-loader": ["./packages/loader/src"],
             "@alfalab/core-components-loader/*": ["./packages/loader/src/*"],
+            "@alfalab/core-components-lottie": ["./packages/lottie/src"],
+            "@alfalab/core-components-lottie/*": ["./packages/lottie/src/*"],
             "@alfalab/core-components-markdown": ["./packages/markdown/src"],
             "@alfalab/core-components-markdown/*": ["./packages/markdown/src/*"],
             "@alfalab/core-components-masked-input": ["./packages/masked-input/src"],
