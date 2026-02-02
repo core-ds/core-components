@@ -4,6 +4,12 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const resolve = require('resolve');
+const { getPackages } = require('./tools/monorepo.cjs');
+const { isSamePath } = require('./tools/path.cjs');
+
+const lottiePkg = getPackages().packages.find(
+    ({ packageJson: { name } }) => name === '@alfalab/core-components-lottie',
+);
 
 /**
  * @type {import('eslint').Linter.LegacyConfig}
@@ -51,6 +57,10 @@ const config = {
         '@typescript-eslint/default-param-last': 'off',
         'max-lines': 'off',
         'max-params': 'off',
+        'react-hooks/exhaustive-deps':
+            lottiePkg && isSamePath(process.cwd(), lottiePkg.dir)
+                ? ['warn', { additionalHooks: ['useLayoutEffect_SAFE_FOR_SSR'].join('|') }]
+                : 'warn',
     },
 };
 
