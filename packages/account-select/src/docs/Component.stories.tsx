@@ -75,71 +75,73 @@ export const account_select_desktop: Story = {
         };
 
         return (
-            <AccountSelectDesktop
-                size={size}
-                onChange={(e) => {
-                    console.log(e);
-                }}
-                valueRenderer={({ selected }) => {
-                    return (
-                        <PureCell verticalPadding='none'>
-                            <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />
-                            </PureCell.Graphics>
-                            <PureCell.Content>
-                                <PureCell.Main>
-                                    <Typography.Text
-                                        rowLimit={1}
-                                        color='secondary'
-                                        view='primary-small'
-                                    >
-                                        {selected?.value.text}
-                                    </Typography.Text>
-                                    <Amount
-                                        value={selected?.value.amount}
-                                        minority={100}
-                                        currency='RUR'
-                                        bold='major'
-                                        transparentMinor={true}
+            <div style={{ width: 456 }}>
+                <AccountSelectDesktop
+                    size={size}
+                    onChange={(e) => {
+                        console.log(e);
+                    }}
+                    valueRenderer={({ selected }) => {
+                        return (
+                            <PureCell verticalPadding='none'>
+                                <PureCell.Graphics verticalAlign='center'>
+                                    <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />
+                                </PureCell.Graphics>
+                                <PureCell.Content>
+                                    <PureCell.Main>
+                                        <Typography.Text
+                                            rowLimit={1}
+                                            color='secondary'
+                                            view='primary-small'
+                                        >
+                                            {selected?.value.text}
+                                        </Typography.Text>
+                                        <Amount
+                                            value={selected?.value.amount}
+                                            minority={100}
+                                            currency='RUR'
+                                            bold='major'
+                                            transparentMinor={true}
+                                        />
+                                    </PureCell.Main>
+                                </PureCell.Content>
+                            </PureCell>
+                        );
+                    }}
+                    placeholder={text('placeholder', 'Элемент')}
+                    fieldProps={{
+                        leftAddons: <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />,
+                    }}
+                    cardAddingProps={{
+                        content: (
+                            <PureCell verticalPadding='default'>
+                                <PureCell.Graphics verticalAlign='center'>
+                                    <ProductCover.Single
+                                        size={48}
+                                        iconColor='var(--color-light-neutral-700)'
+                                        backgroundColor='var(--color-light-neutral-200)'
+                                        icon={PlusMIcon}
                                     />
-                                </PureCell.Main>
-                            </PureCell.Content>
-                        </PureCell>
-                    );
-                }}
-                placeholder={text('placeholder', 'Элемент')}
-                fieldProps={{
-                    leftAddons: <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />,
-                }}
-                cardAddingProps={{
-                    content: (
-                        <PureCell verticalPadding='default'>
-                            <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single
-                                    size={48}
-                                    iconColor='var(--color-light-neutral-700)'
-                                    backgroundColor='var(--color-light-neutral-200)'
-                                    icon={PlusMIcon}
-                                />
-                            </PureCell.Graphics>
-                            <PureCell.Content>
-                                <PureCell.Main>
-                                    <Typography.Text view='component-primary'>
-                                        Новая карта
-                                    </Typography.Text>
-                                </PureCell.Main>
-                            </PureCell.Content>
-                        </PureCell>
-                    ),
-                    onInput: handleInput,
-                    onSubmit: handleSubmit,
-                    needCVC: boolean('needCVC', true),
-                    needExpiryDate: boolean('needExpiryDate', true),
-                    expiryAsDate: boolean('expiryAsDate', true),
-                    cardImage,
-                }}
-                options={getOptions()}
-            />
+                                </PureCell.Graphics>
+                                <PureCell.Content>
+                                    <PureCell.Main>
+                                        <Typography.Text view='component-primary'>
+                                            Новая карта
+                                        </Typography.Text>
+                                    </PureCell.Main>
+                                </PureCell.Content>
+                            </PureCell>
+                        ),
+                        onInput: handleInput,
+                        onSubmit: handleSubmit,
+                        needCVC: boolean('needCVC', true),
+                        needExpiryDate: boolean('needExpiryDate', true),
+                        expiryAsDate: boolean('expiryAsDate', true),
+                        cardImage,
+                    }}
+                    options={getOptions()}
+                />
+            </div>
         );
     },
 };
