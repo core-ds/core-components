@@ -26,7 +26,11 @@ const ignored = ['.eslintignore', '.gitignore']
 const config = {
     root: true,
     parserOptions: {
-        project: [path.join(process.cwd(), 'tsconfig.json')],
+        project: [
+            'tsconfig.json', // корневой
+            'packages/*/tsconfig.json', // все в подпакетах
+        ],
+        tsconfigRootDir: process.cwd(),
     },
     ignorePatterns: ['**/*.test.*', '**/*.stories.*', ...ignored],
     extends: resolve.sync('@alfalab/lint-preset/eslint', { basedir: __dirname }),

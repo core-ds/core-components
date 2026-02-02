@@ -1,0 +1,70 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.multistepInput {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder,
+    &::-webkit-input-placeholder {
+        color: var(--color-light-text-tertiary);
+    }
+}
+
+.inputs {
+    display: flex;
+    gap: var(--gap-24);
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.cardNumberInput {
+    min-width: 5ch;
+    max-width: 19ch;
+}
+
+.cardNumberInputValid {
+    max-width: 5ch;
+
+    &:focus {
+        max-width: 19ch;
+    }
+}
+
+.expiryInput {
+    min-width: 4ch;
+    max-width: 6ch;
+}
+
+.cvvInput {
+    min-width: 3ch;
+    max-width: 4ch;
+    flex-shrink: 1;
+
+    &:not(:placeholder-shown) {
+        font-family: 'text-security-disc', serif;
+        -webkit-text-security: disc;
+    }
+}
+
+.multistepCardInputWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
