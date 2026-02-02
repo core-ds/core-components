@@ -75,13 +75,13 @@ describe('segmented-control', () => {
         expect(firstElement).toHaveStyle('padding: 20px');
     });
 
-    it('should render skeleton when showSkeleton is true', () => {
+    it('should render skeleton when skeleton.visible is true', () => {
         const dataTestId = 'skeleton-test-id';
         render(
             renderComponent({
                 onChange: () => null,
                 selectedId: 2,
-                showSkeleton: true,
+                skeleton: { visible: true },
                 dataTestId,
             }),
         );

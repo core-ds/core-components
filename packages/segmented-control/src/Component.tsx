@@ -71,15 +71,9 @@ export interface SegmentedControlProps {
     disabled?: boolean;
 
     /**
-     * Показывает скелетон вместо контента
-     * @default false
-     */
-    showSkeleton?: boolean;
-
-    /**
      * Настройки скелетона
      */
-    skeletonProps?: Omit<SkeletonProps, 'visible'>;
+    skeleton?: SkeletonProps;
 }
 
 const MAX_SEGMENTS = 5;
@@ -102,8 +96,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     dataTestId,
     style,
     disabled = false,
-    showSkeleton = false,
-    skeletonProps,
+    skeleton,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
@@ -157,17 +150,15 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         return () => observer.disconnect();
     }, []);
 
-    if (showSkeleton) {
+    if (skeleton?.visible) {
         return (
             <Skeleton
-                {...skeletonProps}
-                visible={true}
+                {...skeleton}
                 dataTestId={dataTestId}
                 borderRadius={skeletonBorderRadius}
-                className={cn(className, skeletonProps?.className)}
+                className={cn(className, skeleton.className)}
                 style={{
-                    ...style,
-                    ...skeletonProps?.style,
+                    ...skeleton.style,
                     height: isSize40 ? '40px' : '32px',
                     width: '100%',
                 }}
