@@ -69,6 +69,7 @@
         "packages/list",
         "packages/list-header",
         "packages/loader",
+        "packages/lottie",
         "packages/markdown",
         "packages/masked-input",
         "packages/modal",

@@ -1056,6 +1056,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-lottie@workspace:packages/lottie":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-lottie@workspace:packages/lottie"
+  dependencies:
+    "@alfalab/core-components-shared": "npm:^2.1.0"
+    "@alfalab/hooks": "npm:^1.13.1"
+    classnames: "npm:^2.5.1"
+    lottie-web: "npm:^5.13.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-markdown@npm:^3.0.3, @alfalab/core-components-markdown@workspace:packages/markdown":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-markdown@workspace:packages/markdown"
@@ -23768,6 +23782,13 @@ __metadata:
   bin:
     loose-envify: cli.js
   checksum: 10c0/655d110220983c1a4b9c0c679a2e8016d4b67f6e9c7b5435ff5979ecdb20d0813f4dec0a08674fcbdd4846a3f07edbb50a36811fd37930b94aaa0d9daceb017e
+  languageName: node
+  linkType: hard
+
+"lottie-web@npm:^5.13.0":
+  version: 5.13.0
+  resolution: "lottie-web@npm:5.13.0"
+  checksum: 10c0/b463ad462169df3f7e04b7f3716274e269842554f1d72b8303ca7245628f2512982a59ae31698b3d57fbcda886228ae160fcb2aa518c6cecd8a95974db2458ee
   languageName: node
   linkType: hard
 
