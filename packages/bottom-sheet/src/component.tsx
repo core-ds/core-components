@@ -141,7 +141,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         fullHeight = adjustContainerHeight(fullHeight);
 
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
-        const prevMagneticAreasPropRef = useRef<Array<number | string> | undefined>(magneticAreasProp);
+        const prevMagneticAreasPropRef = useRef<Array<number | string> | undefined>(
+            magneticAreasProp,
+        );
 
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
@@ -699,7 +701,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             colorStyle.component,
                             className,
                             {
-                                [styles.withTransition]: swipingInProgress === false && !skipTransition,
+                                [styles.withTransition]:
+                                    swipingInProgress === false && !skipTransition,
                                 [styles.safeAreaBottom]: os.isIOS(),
                             },
                         )}
