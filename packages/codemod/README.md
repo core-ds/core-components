@@ -216,20 +216,254 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
                 <code>npx @alfalab/core-components-codemod --transformers=50-replace-transparent-color-vars --glob='src/**/*.tsx' </code>
             </td>
         </tr>
+        <tr>
+            <td>50-progress-bar</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-button</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-modal</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-segmented-control</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-radio</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-form-control</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-checkbox</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-indicator</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-slider</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-action-button</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-filter-tag</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-gap</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-circular-progress-bar</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-attach</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-custom-picker-button</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-icon-button</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-picker-button</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-custom-button</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-amount-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-calendar-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-date-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-date-range-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-date-time-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-international-phone-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-intl-phone-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-masked-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-number-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-password-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-phone-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-slider-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-time-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-universal-date-input</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-select</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-tag</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-underlay</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-sortable-list</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-input-autocomplete</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
+        <tr>
+            <td>50-select-with-tags</td>
+            <td>
+                - Заменяет буквенные размеры на числовые
+            </td>
+        </tr>
     </tbody>
 </table>
+
+Для запуска всех трансформеров можно воспользоваться командой
+
+```
+npx @alfalab/core-components-codemod --transformers=50-replace-transparent-color-vars,50-progress-bar,50-button,50-modal,50-segmented-control,50-radio,50-form-control,50-checkbox,50-indicator,50-slider,50-action-button,50-filter-tag,50-gap,50-circular-progress-bar,50-attach,50-custom-picker-button,50-icon-button,50-picker-button,50-custom-button,50-input,50-amount-input,50-calendar-input,50-date-input,50-date-range-input,50-date-time-input,50-international-phone-input,50-intl-phone-input,50-masked-input,50-number-input,50-password-input,50-phone-input,50-slider-input,50-time-input,50-universal-date-input,50-select,50-tag,50-underlay,50-sortable-list,50-input-autocomplete,50-select-with-tags --glob='src/**/*.tsx'
+```
 
 ## Разработка
 
 Под капотом - [jscodeshift](https://github.com/facebook/jscodeshift).
 
 ### Запуск тестов
-
-```bash
-yarn test
-```
-
-or
 
 ```bash
 yarn workspace @alfalab/core-components-codemod test
