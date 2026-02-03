@@ -25,7 +25,7 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
+} as const;
 
 export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
@@ -57,6 +57,11 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * Заголовок компонента
      */
     title?: ReactNode;
+
+    /**
+     * Жирный заголовок
+     */
+    boldTitle?: boolean;
 
     /**
      * Вид бэйджа
@@ -146,6 +151,8 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             closerClassName,
             bottomButtonPosition = false,
             styles = {},
+            // not used here
+            boldTitle,
             ...restProps
         },
         ref,

@@ -337,7 +337,6 @@ render(() => {
                 {HEADER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={headerSettings[item.name]}
@@ -352,7 +351,6 @@ render(() => {
                 onChange={handleHeaderSettingsChange}
             >
                 <Switch
-                    size='m'
                     label='Заголовок в контентной области'
                     name='titleInContent'
                     checked={headerSettings.titleInContent}
@@ -365,7 +363,6 @@ render(() => {
                 {FOOTER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={footerSettings[item.name]}
@@ -373,7 +370,12 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <ModalDesktop open={open} onClose={handleClose} size={size === 'fullscreen' ? 'fullscreen' : Number(size)} key={getKey()}>
+            <ModalDesktop
+                open={open}
+                onClose={handleClose}
+                size={size === 'fullscreen' ? 'fullscreen' : Number(size)}
+                key={getKey()}
+            >
                 {showHeader && (
                     <ModalDesktop.Header
                         hasCloser={headerSettings.hasCloser}
@@ -575,7 +577,6 @@ render(() => {
                 {HEADER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={headerSettings[item.name]}
@@ -590,7 +591,6 @@ render(() => {
                 onChange={handleHeaderSettingsChange}
             >
                 <Switch
-                    size='m'
                     label='Заголовок в контентной области'
                     name='titleInContent'
                     checked={headerSettings.titleInContent}
@@ -616,7 +616,6 @@ render(() => {
                 {FOOTER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={footerSettings[item.name]}
@@ -689,7 +688,7 @@ render(() => {
                                 footerSettings.hasPrimaryButton ? (
                                     <ButtonMobile
                                         view='primary'
-                                        size='m'
+                                        size={56}
                                         onClick={handleClose}
                                         block={true}
                                     >
@@ -701,7 +700,7 @@ render(() => {
                                 footerSettings.hasSecondaryButton ? (
                                     <ButtonMobile
                                         view='secondary'
-                                        size='m'
+                                        size={56}
                                         onClick={handleClose}
                                         block={true}
                                     >
@@ -796,7 +795,7 @@ render(() => {
                 </Modal.Content>
                 <Modal.Footer sticky={true}>
                     <Button
-                        size={document.body.clientWidth < 450 ? 'm' : 's'}
+                        size={document.body.clientWidth < 450 ? 56 : 48}
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose

@@ -211,6 +211,11 @@ export type BaseInputProps = Omit<
      * Запрещает ввод с клавиатуры
      */
     disableUserInput?: boolean;
+
+    /**
+     * Жирный текст
+     */
+    bold?: boolean;
 };
 
 const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
@@ -262,6 +267,7 @@ export const BaseInput = forwardRef<
             FormControlComponent,
             disableUserInput,
             platformStyles = {},
+            bold,
             ...restProps
         },
         ref,
@@ -504,6 +510,7 @@ export const BaseInput = forwardRef<
                             [styles[`size-${size}`]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
+                            [styles.bold]: bold,
                         },
                         inputClassName,
                     )}

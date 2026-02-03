@@ -1,7 +1,6 @@
 import React, { type FC, isValidElement } from 'react';
 import cn from 'classnames';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { type OptionCommonProps } from '../../typings';
 
 import type stylesDesktop from './desktop/index.module.css';
@@ -39,7 +38,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     return (
         <div
             {...innerProps}
-            className={cn(styles.option, styles[SIZE_TO_CLASSNAME_MAP[size]], className, {
+            className={cn(styles.option, styles[`size-${size}`], className, {
                 [styles.highlighted]: !mobile && highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,

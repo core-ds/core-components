@@ -12,10 +12,14 @@ const UNDERSCORE_RE = /_/g;
 const DASH = '-';
 
 const colorsDir = path.join(uiPrimitivesPath, 'styles');
-const deprecatedPalettes = ['colors.json', 'colors_indigo.json'];
+const deprecatedPalettes = ['colors.json', 'colors_indigo.json', 'colors_transparent.json'];
 
 (async () => {
-    const files = await glob(path.join(colorsDir, 'colors*.json'), { absolute: true });
+    const files = await glob('colors*.json', {
+        ignore: ['{colors,colors_transparent}.json'],
+        cwd: colorsDir,
+        absolute: true,
+    });
 
     files.forEach((pathname) => {
         const colors = requireColors(pathname);

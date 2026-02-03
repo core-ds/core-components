@@ -18,6 +18,7 @@
         "@alfalab/core-components-shared": "^1.1.1",
         "@alfalab/core-components-skeleton": "^6.0.1",
         "@alfalab/core-components-tag": "^9.0.4",
+        "@alfalab/core-components-types": "^1.0.0",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "@juggle/resize-observer": "^3.3.1",

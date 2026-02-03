@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { argv, env } from 'node:process';
+import { argv } from 'node:process';
 import { glob } from 'tinyglobby';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -9,8 +9,6 @@ import { hideBin } from 'yargs/helpers';
  * @param {string[]} args
  */
 async function main(args) {
-    const CORE_COMPONENTS_VARIANT = env.CORE_COMPONENTS_VARIANT || 'default';
-
     const { to } = await yargs(args)
         .option('to', {
             type: 'string',
@@ -19,10 +17,7 @@ async function main(args) {
         })
         .parse();
 
-    const previews = await glob(
-        `src/**/*-preview${CORE_COMPONENTS_VARIANT === 'default' ? '' : `-${CORE_COMPONENTS_VARIANT}`}-snap.png`,
-        { absolute: true },
-    );
+    const previews = await glob('src/**/*-preview-snap.png', { absolute: true });
 
     await Promise.all(
         previews.map((preview) => {

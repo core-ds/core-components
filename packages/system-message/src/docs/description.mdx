@@ -146,7 +146,6 @@ render(() => {
                     {Object.keys(SETTINGS_MAP).map((name) => (
                         <Switch
                             key={name}
-                            size='m'
                             label={SETTINGS_MAP[name]}
                             name={name}
                             checked={settings[name]}
@@ -308,7 +307,6 @@ render(() => {
                 {Object.keys(SETTINGS_MAP).map((name) => (
                     <Switch
                         key={name}
-                        size='m'
                         label={SETTINGS_MAP[name]}
                         name={name}
                         checked={settings[name]}

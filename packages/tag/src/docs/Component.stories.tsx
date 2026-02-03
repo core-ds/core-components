@@ -15,7 +15,7 @@ const meta: Meta<typeof Tag> = {
 
 type Story = StoryObj<typeof Tag>;
 
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'] as const;
+const SIZES = [32, 40, 48, 56, 64, 72] as const;
 
 export const tag: Story = {
     name: 'Tag',
@@ -39,7 +39,7 @@ export const tag: Story = {
                 }}
             >
                 <Tag
-                    size={select('size', SIZES, 'm')}
+                    size={select('size', SIZES, 56)}
                     variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                     view={select('view', ['outlined', 'filled', 'transparent'], 'outlined')}
@@ -78,7 +78,7 @@ export const tag_mobile: Story = {
                 }}
             >
                 <TagMobile
-                    size={select('size', SIZES, 'm')}
+                    size={select('size', SIZES, 56)}
                     variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                     view={select('view', ['outlined', 'filled', 'transparent'], 'outlined')}
@@ -117,7 +117,7 @@ export const tag_desktop: Story = {
                 }}
             >
                 <TagDesktop
-                    size={select('size', SIZES, 'm')}
+                    size={select('size', SIZES, 56)}
                     variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                     view={select('view', ['outlined', 'filled', 'transparent'], 'outlined')}

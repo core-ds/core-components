@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../../../consts';
 import { type OptionShape, type OptionsListProps } from '../../../../typings';
 
 import styles from './index.module.css';
@@ -29,7 +28,7 @@ export const Footer = ({
     <div
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
-        className={cn(styles.footer, size && styles[SIZE_TO_CLASSNAME_MAP[size]])}
+        className={cn(styles.footer, size && styles[`size-${size}`])}
     >
         <ButtonDesktop
             size={32}
