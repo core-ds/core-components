@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-password-input",
-    "version": "6.0.4",
+    "version": "6.0.6",
     "description": "Input password",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-icon-button": "^7.0.3",
-        "@alfalab/core-components-input": "^16.0.3",
+        "@alfalab/core-components-icon-button": "^7.0.5",
+        "@alfalab/core-components-input": "^16.0.5",
         "@alfalab/icons-glyph": "^2.247.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
@@ -24,6 +24,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.3",
+    "themesVersion": "14.2.0",
     "varsVersion": "10.2.0"
 }

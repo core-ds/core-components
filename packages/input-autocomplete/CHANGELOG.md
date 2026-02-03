@@ -1,5 +1,46 @@
 # @alfalab/core-components-input-autocomplete
 
+## 13.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.5
+    - @alfalab/core-components-select@18.2.9
+
+## 13.1.0
+
+### Minor Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#2017](https://github.com/core-ds/core-components/pull/2017)
+
+### InputAutocomplete
+
+- Разрешили передавать кастомный `Field` в `InputAutocomplete` для desktop и mobile.
+- Добавили проброс `Search` и `searchProps` для мобильной версии.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.8
+    - @alfalab/core-components-input@16.0.4
+
+## 13.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.7
+
+## 13.0.9
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.6
+
 ## 13.0.8
 
 ### Patch Changes

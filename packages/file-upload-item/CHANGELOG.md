@@ -1,5 +1,29 @@
 # @alfalab/core-components-file-upload-item
 
+## 7.3.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@7.0.5
+
+## 7.3.0
+
+### Minor Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#2021](https://github.com/core-ds/core-components/pull/2021)
+
+##### FileUploadItem
+
+- Показываем иконку загрузки, когда есть пропс `onDownload`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@7.0.4
+
 ## 7.2.1
 
 ### Patch Changes

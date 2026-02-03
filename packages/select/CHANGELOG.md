@@ -1,5 +1,58 @@
 # @alfalab/core-components-select
 
+## 18.2.9
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.1
+    - @alfalab/core-components-bottom-sheet@7.4.3
+    - @alfalab/core-components-modal@10.0.10
+    - @alfalab/core-components-input@16.0.5
+
+## 18.2.8
+
+### Patch Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1937](https://github.com/core-ds/core-components/pull/1937)
+
+##### Select
+
+- Изменено скругление OptionsList для desktop (не затрагивает тему site)
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.4
+    - @alfalab/core-components-button@12.1.0
+    - @alfalab/core-components-bottom-sheet@7.4.2
+    - @alfalab/core-components-modal@10.0.9
+
+## 18.2.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.1
+    - @alfalab/core-components-modal@10.0.8
+
+## 18.2.6
+
+### Patch Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1997](https://github.com/core-ds/core-components/pull/1997)
+
+##### Select
+
+- Исправлено responsive поведение списка опций при использовании desktop/mobile компонента
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.0
+    - @alfalab/core-components-base-modal@6.1.0
+    - @alfalab/core-components-modal@10.0.7
+
 ## 18.2.5
 
 ### Patch Changes

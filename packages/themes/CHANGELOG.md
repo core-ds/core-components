@@ -1,5 +1,37 @@
 # @alfalab/core-components-themes
 
+## 14.2.0
+
+### Minor Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1947](https://github.com/core-ds/core-components/pull/1947)
+
+##### UniversalDateInput
+
+- Изменены значения border-radius во всех темах на 16px кроме site.
+
+### Patch Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#2014](https://github.com/core-ds/core-components/pull/2014)
+
+##### Themes
+
+- Исправлены `inverted` цвета для темы `site` компонента `switch`
+- Исправлены `inverted` цвета для темы `site` компонента `radio`
+- Исправлены `inverted` цвета для темы `site` компонента `checkbox`
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#2016](https://github.com/core-ds/core-components/pull/2016)
+
+##### Themes
+
+- Исправлены скругления и отступ списка опций для темы `site`
+
 ## 14.1.3
 
 ### Patch Changes

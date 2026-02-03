@@ -1,5 +1,49 @@
 # @alfalab/core-components-custom-picker-button
 
+## 3.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-custom-button@4.1.1
+    - @alfalab/core-components-picker-button@12.1.1
+    - @alfalab/core-components-select@18.2.9
+
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1946](https://github.com/core-ds/core-components/pull/1946)
+
+##### Attach, Button, CustomButton, PickerButton, CustomPickerButton, SidePanel
+
+- Изменены border-radius во всех темах в desktop версии
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.8
+    - @alfalab/core-components-custom-button@4.1.0
+    - @alfalab/core-components-picker-button@12.1.0
+
+## 3.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.7
+    - @alfalab/core-components-picker-button@12.0.10
+
+## 3.0.9
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.6
+    - @alfalab/core-components-picker-button@12.0.9
+
 ## 3.0.8
 
 ### Patch Changes

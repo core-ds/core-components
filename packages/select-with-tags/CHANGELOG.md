@@ -1,5 +1,46 @@
 # @alfalab/core-components-select-with-tags
 
+## 9.0.12
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.3
+    - @alfalab/core-components-select@18.2.9
+
+## 9.0.11
+
+### Patch Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1946](https://github.com/core-ds/core-components/pull/1946)
+
+##### Tag, FilterTag
+
+- Обновлены скругления для Tag и FilterTag компонентов в десктопной версии
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.2.8
+    - @alfalab/core-components-tag@9.0.4
+    - @alfalab/core-components-bottom-sheet@7.4.2
+
+## 9.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.1
+    - @alfalab/core-components-select@18.2.7
+
+## 9.0.9
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.0
+    - @alfalab/core-components-select@18.2.6
+
 ## 9.0.8
 
 ### Patch Changes

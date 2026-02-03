@@ -1,5 +1,38 @@
 # @alfalab/core-components-gallery
 
+## 6.0.13
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.1
+    - @alfalab/core-components-icon-button@7.0.5
+    - @alfalab/core-components-tooltip@8.0.12
+
+## 6.0.12
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.0
+    - @alfalab/core-components-icon-button@7.0.4
+    - @alfalab/core-components-tooltip@8.0.11
+
+## 6.0.11
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-tooltip@8.0.10
+
+## 6.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@6.1.0
+    - @alfalab/core-components-tooltip@8.0.9
+
 ## 6.0.9
 
 ### Patch Changes

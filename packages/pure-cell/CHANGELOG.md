@@ -1,5 +1,29 @@
 # @alfalab/core-components-pure-cell
 
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>30.01.2026</time></sup>
+
+#### [#2033](https://github.com/core-ds/core-components/pull/2033)
+
+##### PureCell.Text
+
+- Добавлен view 'component-secondary'.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.1
+
+## 5.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.0
+
 ## 5.0.3
 
 ### Patch Changes

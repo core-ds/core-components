@@ -1,5 +1,44 @@
 # @alfalab/core-components-side-panel
 
+## 6.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.6
+
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1946](https://github.com/core-ds/core-components/pull/1946)
+
+##### Attach, Button, CustomButton, PickerButton, CustomPickerButton, SidePanel
+
+- Изменены border-radius во всех темах в desktop версии
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.5
+
+## 6.0.8
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.4
+
+## 6.0.7
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@6.1.0
+    - @alfalab/core-components-drawer@6.0.3
+
 ## 6.0.6
 
 ### Patch Changes

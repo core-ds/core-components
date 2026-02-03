@@ -28,6 +28,7 @@ type Props = {
         | 'primary-small'
         | 'component'
         | 'component-primary'
+        | 'component-secondary'
         | 'secondary-large';
 
     /**

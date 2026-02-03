@@ -1,5 +1,43 @@
 # @alfalab/core-components-universal-modal
 
+## 2.0.12
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.6
+    - @alfalab/core-components-button@12.1.1
+
+## 2.0.11
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.0
+    - @alfalab/core-components-navigation-bar-private@1.1.5
+
+## 2.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.4
+
+## 2.0.9
+
+### Patch Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1998](https://github.com/core-ds/core-components/pull/1998)
+
+##### UniversalModal
+
+- Увеличена специфичность CSS селектора для `scrollableNode`
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@6.1.0
+
 ## 2.0.8
 
 ### Patch Changes
