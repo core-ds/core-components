@@ -22,7 +22,7 @@
         "lint:deps": "node bin/lint-deps/bin.mjs",
         "lint:js": "node bin/lint-js.mjs",
         "non-existent-css-vars": "node bin/non-existent-css-vars/bin.mjs",
-        "release": "yarn build && yarn changeset publish",
+        "release": "yarn build && yarn changeset publish --tag tag-for-publishing-older-releases",
         "release:snapshot": "yarn build && yarn changeset publish --tag snapshot --no-git-tag",
         "serve-storybook": "http-server build -p 9009",
         "start": "storybook dev -p 9009",
