@@ -2,7 +2,7 @@
 '@alfalab/core-components-gallery': patch
 ---
 
-##### Video
+##### Gallery
 
 - Заменен статический импорт hls.js на динамический.
 - Добавлена retry логика для надежной загрузки.
