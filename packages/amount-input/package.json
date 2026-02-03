@@ -15,8 +15,13 @@
         "@alfalab/core-components-shared": "^1.1.1",
         "@alfalab/core-components-with-suffix": "^5.0.5",
         "@alfalab/data": "^1.9.2",
+        "@alfalab/hooks": "^1.13.1",
         "@alfalab/utils": "^1.18.0",
+        "@maskito/core": "^4.0.1",
+        "@maskito/kit": "^4.0.1",
         "classnames": "^2.5.1",
+        "lodash": "^4.17.21",
+        "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
