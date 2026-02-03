@@ -199,6 +199,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
         const calendarValue = value ? getDateWithoutTime(value).getTime() : undefined;
 
         const inputDisabled = disabled || readOnly;
+        const shouldShowPicker = picker && !disabled && !readOnly;
 
         const calendarResponsive = calendarProps?.responsive ?? true;
 
@@ -379,7 +380,7 @@ export const DateTimeInput = React.forwardRef<HTMLInputElement, DateTimeInputPro
                         rightAddons={
                             <React.Fragment>
                                 {rightAddons}
-                                {picker && (
+                                {shouldShowPicker && (
                                     // eslint-disable-next-line jsx-a11y/control-has-associated-label
                                     <IconButton
                                         className={styles.calendarIcon}

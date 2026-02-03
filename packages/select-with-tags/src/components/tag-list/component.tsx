@@ -17,6 +17,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { LockIcon } from '@alfalab/core-components-input/shared';
 import { type FieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
@@ -89,6 +90,7 @@ export const TagList: FC<
     FormControlComponent,
     ...restProps
 }) => {
+    const { colors = 'default' } = restProps;
     const [focused, setFocused] = useState(false);
     const [isShowMoreEnabled, setShowMoreEnabled] = useState<boolean | undefined>(false);
     const [visibleElements, setVisibleElements] = useState(1);
@@ -207,6 +209,14 @@ export const TagList: FC<
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
     const hasInnerLabel = Boolean(label) && labelView !== 'outer';
 
+    const renderRightAddons = () => {
+        if (disabled) {
+            return <LockIcon colors={colors} size={size} />;
+        }
+
+        return Arrow;
+    };
+
     return (
         <div
             ref={wrapperRef}
@@ -227,7 +237,7 @@ export const TagList: FC<
                 disabled={disabled}
                 filled={filled || !!placeholder}
                 onMouseDown={handleMouseDown}
-                rightAddons={Arrow}
+                rightAddons={renderRightAddons()}
                 onClick={handleClick}
                 addonsClassName={cn(styles.addons, styles[`addons-${SIZE_TO_CLASSNAME_MAP[size]}`])}
                 label={label}

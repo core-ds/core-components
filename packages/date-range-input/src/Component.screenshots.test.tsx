@@ -170,3 +170,30 @@ describe('DateRangeInput | picker', () => {
         }
     });
 });
+
+describe(
+    'DateRangeInput',
+    screenshotTesting({
+        cases: [
+            [
+                'disabled',
+                createSpriteStorybookUrl({
+                    componentName: 'DateRangeInput',
+                    knobs: {
+                        block: true,
+                        value: ['12.12.2021 - 10.04.2022'],
+                        picker: [true],
+                        disabled: [false, true],
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 360,
+            height: 320,
+        },
+    }),
+);
