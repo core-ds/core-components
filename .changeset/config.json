@@ -9,7 +9,7 @@
         "@alfalab/core-components-test-utils"
     ],
     "access": "public",
-    "baseBranch": "next",
+    "baseBranch": "master",
     "updateInternalDependencies": "patch",
     "snapshot": {
         "prereleaseTemplate": "{commit}",
