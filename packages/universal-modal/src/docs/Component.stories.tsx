@@ -59,7 +59,9 @@ export const modal: Story = {
 
         const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
         const width = text('width', '500');
-        const height = text('height', '500');
+        const _height = text('height', '500');
+        // Высота может быть Number и String
+        const height = isNaN(parseInt(_height)) ? _height : Number(_height);
         const overlay = boolean('overlay', true);
         const header = boolean('header', true);
         const headerTitle = text('header.title', '');
@@ -130,7 +132,9 @@ export const side_panel: Story = {
         const horizontalAlign = select('horizontalAlign', ['start', 'end'], 'start');
         const verticalAlign = select('verticalAlign', ['top', 'center', 'bottom'], 'center');
         const width = text('width', '500');
-        const height = text('height', '500');
+        const _height = text('height', '500');
+        // Высота может быть Number и String
+        const height = isNaN(parseInt(_height)) ? _height : Number(_height);
         const overlay = boolean('overlay', true);
         const header = boolean('header', true);
         const headerTitle = text('header.title', '');
