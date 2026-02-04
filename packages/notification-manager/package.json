@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-notification-manager",
-    "version": "6.0.5",
+    "version": "7.0.0",
     "description": "Notification manager",
     "keywords": [],
     "license": "MIT",
@@ -10,15 +10,15 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-notification": "^8.0.5",
-        "@alfalab/core-components-portal": "^4.0.2",
-        "@alfalab/core-components-stack": "^6.0.0",
+        "@alfalab/core-components-notification": "^9.0.0",
+        "@alfalab/core-components-portal": "^5.0.0",
+        "@alfalab/core-components-stack": "^7.0.0",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "@alfalab/core-components-stack-context": "^1.0.0",
+        "@alfalab/core-components-stack-context": "^1.0.1",
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
         "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
     },
@@ -26,6 +26,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.2.0",
-    "varsVersion": "10.2.0"
+    "themesVersion": "15.0.0",
+    "varsVersion": "11.0.0"
 }

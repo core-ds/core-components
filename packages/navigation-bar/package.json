@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-navigation-bar",
-    "version": "2.0.5",
+    "version": "3.0.0",
     "description": "NavigationBar",
     "keywords": [],
     "license": "MIT",
@@ -10,9 +10,9 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-button": "^12.1.1",
-        "@alfalab/core-components-shared": "^1.1.1",
-        "@alfalab/core-components-typography": "^5.0.3",
+        "@alfalab/core-components-button": "^13.0.0",
+        "@alfalab/core-components-shared": "^2.0.0",
+        "@alfalab/core-components-typography": "^6.0.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.2.0",
-    "varsVersion": "10.2.0"
+    "themesVersion": "15.0.0",
+    "varsVersion": "11.0.0"
 }
