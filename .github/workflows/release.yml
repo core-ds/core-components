@@ -1,11 +1,14 @@
 name: release
 
 on:
-    workflow_dispatch:
+    workflow_dispatch: # version/48
     push:
         branches:
             - master
             - next
+            - version/*
+        branches-ignore:
+            - version/48
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
