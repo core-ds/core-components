@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-base-modal",
-    "version": "6.1.0",
+    "version": "7.0.0",
     "description": "BaseModal component",
     "keywords": [],
     "license": "MIT",
@@ -10,11 +10,11 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-backdrop": "^4.0.0",
-        "@alfalab/core-components-global-store": "^3.0.0",
-        "@alfalab/core-components-portal": "^4.0.2",
-        "@alfalab/core-components-shared": "^1.1.1",
-        "@alfalab/core-components-stack": "^6.0.0",
+        "@alfalab/core-components-backdrop": "^5.0.0",
+        "@alfalab/core-components-global-store": "^4.0.0",
+        "@alfalab/core-components-portal": "^5.0.0",
+        "@alfalab/core-components-shared": "^2.0.0",
+        "@alfalab/core-components-stack": "^7.0.0",
         "@juggle/resize-observer": "^3.3.1",
         "@types/react-transition-group": "^4.4.12",
         "classnames": "^2.5.1",
@@ -33,6 +33,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.2.0",
-    "varsVersion": "10.2.0"
+    "themesVersion": "15.0.0",
+    "varsVersion": "11.0.0"
 }
