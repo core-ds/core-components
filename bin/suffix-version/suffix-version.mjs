@@ -12,7 +12,7 @@ import { readPackagesFile } from '../../tools/read-packages-file.cjs';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function suffixVersion(version, suffix) {
-    const { major, minor, patch, prerelease } = semver.parse(version.replace(/^\^/, ''));
+    const { major, minor, patch, prerelease } = semver.parse(version.replace(/^[~^]/, ''));
 
     /**
      * @see https://github.com/npm/node-semver/blob/281055e7716ef0415a8826972471331989ede58c/classes/semver.js#L81
@@ -41,7 +41,7 @@ async function main([suffix]) {
                     const nextVersion =
                         name.startsWith('@alfalab/core-components') &&
                         !IGNORED_PACKAGES.includes(name)
-                            ? suffixVersion(version, suffix)
+                            ? `${version.replace(/^([~^]?).*/, '$1')}${suffixVersion(version, suffix)}`
                             : version;
 
                     return [name, nextVersion];
