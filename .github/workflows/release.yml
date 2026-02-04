@@ -78,6 +78,7 @@ jobs:
               with:
                   version: 'yarn version-packages:variant'
                   publish: 'yarn release:variant'
+                  exit-if-no-changesets: false
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
