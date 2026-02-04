@@ -12,8 +12,10 @@ on:
             variant:
                 description: Variant of core components
                 required: false
-                type: string
-                default: default
+                type: choice
+                options:
+                    - default
+                    - alfasans
 
 concurrency:
     group: ${{ github.workflow }}-${{ inputs.version || github.ref }}

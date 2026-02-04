@@ -120,6 +120,7 @@ jobs:
                   yarn test --coverage
 
             - name: coveralls
+              if: ${{ matrix.variant == 'default' }}
               uses: coverallsapp/github-action@v2
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
