@@ -6,9 +6,8 @@ on:
         branches:
             - master
             - next
-            - version/*
-        branches-ignore:
-            - version/48
+            - 'version/**'
+            - '!version/48'
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
