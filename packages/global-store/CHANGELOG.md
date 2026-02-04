@@ -1,5 +1,15 @@
 # @alfalab/core-components-global-store
 
+## 4.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
 ## 3.0.0
 
 ### Major Changes
@@ -20,7 +30,7 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ## 2.0.4
 
@@ -28,7 +38,7 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
 ## 2.0.3
 
@@ -36,7 +46,7 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
 ## 2.0.2
 
@@ -44,7 +54,7 @@
 
 ### [#324](https://github.com/core-ds/core-components/pull/324)
 
--   "export" типов заменен на "export type"
+- "export" типов заменен на "export type"
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -57,12 +67,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -70,7 +80,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 ## [1.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-global-store@1.1.1...@alfalab/core-components-global-store@1.1.2) (2022-07-14)
 
@@ -80,4 +90,4 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **base-modal:** extract modal store to global ([#943](https://github.com/core-ds/core-components/issues/943)) ([9587f17](https://github.com/core-ds/core-components/commit/9587f1773bb690ac6696077509d4a519aa109198))
+- **base-modal:** extract modal store to global ([#943](https://github.com/core-ds/core-components/issues/943)) ([9587f17](https://github.com/core-ds/core-components/commit/9587f1773bb690ac6696077509d4a519aa109198))
