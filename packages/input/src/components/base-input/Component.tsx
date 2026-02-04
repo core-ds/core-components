@@ -1,15 +1,8 @@
 import React, {
     type AnimationEvent,
-    type ChangeEvent,
-    type ElementType,
     forwardRef,
-    Fragment,
-    type HTMLAttributes,
-    type InputHTMLAttributes,
     type KeyboardEvent,
     type MouseEvent,
-    type ReactNode,
-    type RefAttributes,
     useCallback,
     useRef,
     useState,
@@ -17,13 +10,14 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { type FormControlProps } from '@alfalab/core-components-form-control';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import { buildRightAddons } from '../../helpers/build-right-addons';
+import { getAddonsByPriority } from '../../helpers/get-addons-by-priority';
 import { hasStepperInRightAddon } from '../../helpers/has-stepper-in-right-addon';
-import { ClearButton } from '../clear-button';
+
+import { type BaseInputProps } from './types/base-input-props';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -32,197 +26,6 @@ import invertedColors from './inverted.module.css';
 const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
-
-export type BaseInputProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    | 'size'
-    | 'type'
-    | 'value'
-    | 'defaultValue'
-    | 'onChange'
-    | 'onClick'
-    | 'onMouseDown'
-    | 'enterKeyHint'
-> & {
-    /**
-     * Значение поля ввода
-     */
-    value?: string;
-
-    /**
-     * Начальное значение поля
-     */
-    defaultValue?: string;
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
-
-    /**
-     * Крестик для очистки поля
-     */
-    clear?: boolean;
-
-    /**
-     * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
-     */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
-
-    /**
-     * Набор цветов для компонента
-     */
-    colors?: 'default' | 'inverted';
-
-    /**
-     * Отображение ошибки
-     */
-    error?: ReactNode | boolean;
-
-    /**
-     * Отображение иконки успеха
-     */
-    success?: boolean;
-
-    /**
-     * Текст подсказки
-     */
-    hint?: ReactNode;
-
-    /**
-     * Лейбл компонента
-     */
-    label?: React.ReactNode;
-
-    /**
-     * Вид лейбла внутри / снаружи
-     */
-    labelView?: 'inner' | 'outer';
-
-    /**
-     * Атрибут type
-     */
-    type?: 'number' | 'email' | 'money' | 'password' | 'tel' | 'text';
-
-    /**
-     * Ref для обертки input
-     */
-    wrapperRef?: React.Ref<HTMLDivElement> | null;
-
-    /**
-     * Слот слева
-     */
-    leftAddons?: React.ReactNode;
-
-    /**
-     * Слот справа
-     */
-    rightAddons?: React.ReactNode;
-
-    /**
-     * Свойства для обертки левых аддонов
-     */
-    leftAddonsProps?: HTMLAttributes<HTMLDivElement>;
-
-    /**
-     * Свойства для обертки правых аддонов
-     */
-    rightAddonsProps?: HTMLAttributes<HTMLDivElement>;
-
-    /**
-     * Слот под инпутом
-     */
-    bottomAddons?: React.ReactNode;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для поля
-     */
-    fieldClassName?: string;
-
-    /**
-     * Дополнительный класс инпута
-     */
-    inputClassName?: string;
-
-    /**
-     * Дополнительный класс для лейбла
-     */
-    labelClassName?: string;
-
-    /**
-     * Дополнительный класс для аддонов
-     */
-    addonsClassName?: string;
-
-    /**
-     * Класс, который будет установлен при фокусе
-     */
-    focusedClassName?: string;
-
-    /**
-     * Класс, который будет установлен, если в поле есть значение
-     */
-    filledClassName?: string;
-
-    /**
-     * Обработчик поля ввода
-     */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
-
-    /**
-     * Обработчик нажатия на кнопку очистки
-     */
-    onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
-
-    /**
-     * Обработчик клика по полю
-     */
-    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Обработчик MouseDown по полю
-     */
-    onMouseDown?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Обработчик MouseUp по полю
-     */
-    onMouseUp?: (event: MouseEvent<HTMLDivElement>) => void;
-
-    /**
-     * Компонент FormControl
-     */
-    FormControlComponent?: ElementType<FormControlProps & RefAttributes<HTMLDivElement>>;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования.
-     * Для FormControl используется модификатор -form-control
-     */
-    dataTestId?: string;
-
-    /**
-     * Запрещает ввод с клавиатуры
-     */
-    disableUserInput?: boolean;
-};
-
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    40: 'size-40',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
 };
 
 const inputTypesForSelectionRange = ['password', 'search', 'tel', 'text', 'url'];
@@ -274,6 +77,7 @@ export const BaseInput = forwardRef<
             FormControlComponent,
             disableUserInput,
             platformStyles = {},
+            bold,
             ...restProps
         },
         ref,
@@ -419,53 +223,20 @@ export const BaseInput = forwardRef<
             [onAnimationStart],
         );
 
-        const renderRightAddons = () => {
-            const addonsVisible = clearButtonVisible || rightAddons || error || success;
-            const shouldShowSuccessIcon = success && !error;
-            const statusBadgeSize = size === 40 ? 16 : 20;
-
-            return (
-                /**
-                 * Right addon priority [4] <= [3] <= [2] <= [1]
-                 * [4] - Clear
-                 * [3] - Status (error, success)
-                 * [2] - Common (info, e.g.)
-                 * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
-                 */
-                addonsVisible && (
-                    <Fragment>
-                        {clearButtonVisible && (
-                            <ClearButton
-                                onClick={handleClear}
-                                disabled={disabled}
-                                colors={colors}
-                                dataTestId={getDataTestId(dataTestId, 'clear-icon')}
-                                size={size}
-                            />
-                        )}
-                        {error && (
-                            <div className={cn(styles.errorIcon)} data-addon='error-icon'>
-                                <StatusBadge
-                                    view='negative-alert'
-                                    size={statusBadgeSize}
-                                    dataTestId={getDataTestId(dataTestId, 'error-icon')}
-                                />
-                            </div>
-                        )}
-                        {shouldShowSuccessIcon && (
-                            <div className={cn(styles.successIcon)}>
-                                <StatusBadge
-                                    view='positive-checkmark'
-                                    size={statusBadgeSize}
-                                    dataTestId={getDataTestId(dataTestId, 'success-icon')}
-                                />
-                            </div>
-                        )}
-                        {rightAddons}
-                    </Fragment>
-                )
-            );
-        };
+        const rightAddonsMap = getAddonsByPriority(
+            buildRightAddons({
+                size,
+                rightAddons,
+                clearButtonVisible,
+                readOnly: readOnlyProp,
+                success,
+                dataTestId,
+                disabled,
+                error,
+                colors,
+                handleClear,
+            }),
+        );
 
         return FormControlComponent ? (
             <FormControlComponent
@@ -475,7 +246,7 @@ export const BaseInput = forwardRef<
                     focused && focusedClassName,
                     filled && filledClassName,
                     [platformStyles.formControlDesktop],
-                    [platformStyles[SIZE_TO_CLASSNAME_MAP[size]]],
+                    [platformStyles[`size-${size}`]],
                 )}
                 fieldClassName={cn(fieldClassName, [platformStyles.field], {
                     [styles.focusVisible]: focusVisible,
@@ -494,7 +265,7 @@ export const BaseInput = forwardRef<
                 labelView={labelView}
                 hint={hint}
                 leftAddons={leftAddons}
-                rightAddons={renderRightAddons()}
+                rightAddons={rightAddonsMap}
                 bottomAddons={bottomAddons}
                 onClick={onClick}
                 onMouseDown={onMouseDown}
@@ -513,9 +284,10 @@ export const BaseInput = forwardRef<
                             [styles.disableUserInput]: disableUserInput,
                             [colorCommonStyles[colors].disableUserInput]: disableUserInput,
                             [colorCommonStyles[colors].error]: error,
-                            [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
+                            [styles[`size-${size}`]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
+                            [styles.bold]: bold,
                         },
                         inputClassName,
                     )}

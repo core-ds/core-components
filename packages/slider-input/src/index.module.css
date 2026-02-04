@@ -5,7 +5,6 @@
 :root {
     --slider-input-steps-color: var(--color-light-text-secondary);
     --slider-input-info-color: var(--color-light-text-secondary);
-    --slider-input-font-weight: 700;
     --slider-input-s-border-bottom-radius: var(--border-radius-8);
     --slider-input-m-border-bottom-radius: var(--border-radius-8);
     --slider-input-l-border-bottom-radius: var(--border-radius-8);
@@ -100,16 +99,12 @@
     & input + div {
         font-variant-numeric: tabular-nums;
     }
-
-    & input::placeholder {
-        font-weight: 400;
-    }
 }
 
 .bold .input {
     & input,
     & input + div {
-        font-weight: var(--slider-input-font-weight);
+        @mixin accent_component_primary;
     }
 }
 

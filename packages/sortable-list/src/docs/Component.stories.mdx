@@ -29,7 +29,7 @@ import {
         const isPreview = Object.keys(previewStyles).length > 0;
         const renderItem = (item) => {
             return (
-                <GenericWrapper alignItems='center' padding={{ top: 's', bottom: 's', left: 'm' }}>
+                <GenericWrapper alignItems='center' padding={{ top: 12, bottom: 12, left: 16 }}>
                     {!isPreview &&
                         <>
                             <GenericWrapper>
@@ -37,7 +37,7 @@ import {
                                     <DiamondsMIcon aria-label='diamonds' />
                                 </SuperEllipse>
                             </GenericWrapper>
-                            <Gap size='m' direction='horizontal' />
+                            <Gap size={16} direction='horizontal' />
                         </>
                     }
 
@@ -46,7 +46,7 @@ import {
                             <Typography.Text view='component-primary'>{ isPreview ? 'Draggable item' :`Элемент списка ${item.id}`}</Typography.Text>
                             {!isPreview &&
                             <>
-                                <Gap size='2xs' />
+                                <Gap size={4} />
                                 <Typography.Text view='primary-small' color='secondary'>
                                     Перетащи меня
                                 </Typography.Text>
@@ -56,7 +56,7 @@ import {
                 </GenericWrapper>
             );
         };
-        const paddingSizes = [undefined, '3xs', '2xs', 'xs', 's', 'm', 'l'];
+        const paddingSizes = [undefined, 2, 4, 8, 12, 16, 20];
         const paddingTop = select('padding.top', paddingSizes, undefined);
         const paddingRight = select('padding.right', paddingSizes, undefined);
         const paddingBottom = select('padding.bottom', paddingSizes, undefined);
@@ -73,11 +73,11 @@ import {
                             bottom: paddingBottom,
                             left: paddingLeft,
                         }}
-                        borderRadius={select('border-radius', [undefined, 'm', 'l', 'xl'], 'xl')}
+                        borderRadius={select('border-radius', [undefined, 8, 12, 16], 16)}
                         renderItem={renderItem}
                         activatorNode={select('activatorNode', ['cell', 'control'], 'cell')}
                         view={select('view', ['primary', 'secondary'], 'primary')}
-                        controlPadding={select('controlPadding', paddingSizes, 'xs')}
+                        controlPadding={select('controlPadding', paddingSizes, 8)}
                         controlPosition={select('controlPosition', ['left', 'right'], 'right')}
                     />
                 </div>

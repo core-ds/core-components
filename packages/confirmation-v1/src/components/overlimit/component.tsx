@@ -98,7 +98,7 @@ export const Overlimit: FC<OverlimitProps> = ({
                 <div>{text}</div>
                 {isBlockingOver ? (
                     <Button
-                        size='xs'
+                        size={40}
                         view='secondary'
                         onClick={handleRepeatSmsButtonClick}
                         className={styles.getCodeButton}

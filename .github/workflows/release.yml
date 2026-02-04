@@ -1,19 +1,27 @@
 name: release
 
 on:
-    workflow_dispatch:
+    workflow_dispatch: # version/48
     push:
         branches:
             - master
             - next
+            - 'version/**'
+            - '!version/48'
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+defaults:
+    run:
+        shell: bash
 
 jobs:
     release:
         name: release
         if: ${{ github.repository == 'core-ds/core-components' }}
         runs-on: ubuntu-latest
+        outputs:
+            published: ${{ steps.changesets.outputs.published }}
         steps:
             - uses: actions/checkout@v5
               with:
@@ -26,6 +34,7 @@ jobs:
 
             - name: create release pull request or publish to npm
               uses: changesets/action@v1
+              id: changesets
               with:
                   publish: yarn release
                   version: yarn version-packages
@@ -35,4 +44,40 @@ jobs:
                   # GITHUB_TOKEN doesn't trigger any action
                   # https://github.com/orgs/community/discussions/55906
                   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    variant:
+        uses: ./.github/workflows/variant.yml
+        with:
+            filter: true
+
+    variant-release:
+        name: variant-release
+        needs: [release, variant]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
+        if: ${{ needs.release.outputs.published == 'true' }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+
+            - name: apply patch
+              run: |
+                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+
+                  if [ -f "$PATCH_SOURCE" ]; then
+                      git apply "$PATCH_SOURCE"
+                  fi
+
+            - uses: ./.github/actions/ci-setup
+
+            - uses: core-ds/changesets-snapshot-release@v1
+              with:
+                  version: 'yarn version-packages:variant'
+                  publish: 'yarn release:variant'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
