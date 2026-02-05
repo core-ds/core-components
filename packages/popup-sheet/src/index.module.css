@@ -1,9 +1,10 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/safe-area.css';
 
 .component.component {
     position: fixed;
     bottom: var(--gap-0);
-    margin: auto var(--gap-8) var(--gap-8);
+    margin: auto var(--gap-8) calc(var(--gap-8) + var(--sab));
     width: calc(100% - 2 * var(--gap-8));
     max-width: 600px;
     border-radius: var(--border-radius-36);
