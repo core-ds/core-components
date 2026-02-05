@@ -1,6 +1,7 @@
 name: snapshot-release
 
 on:
+    workflow_call:
     workflow_dispatch:
         inputs:
             variant:
