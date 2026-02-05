@@ -41,7 +41,7 @@ async function main([suffix]) {
                     const nextVersion =
                         name.startsWith('@alfalab/core-components') &&
                         !IGNORED_PACKAGES.includes(name)
-                            ? `${version.replace(/^([~^]?).*/, '$1')}${suffixVersion(version, suffix)}`
+                            ? suffixVersion(version, suffix)
                             : version;
 
                     return [name, nextVersion];

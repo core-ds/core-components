@@ -2,6 +2,7 @@ import dedent from 'dedent';
 import fse from 'fs-extra';
 import path from 'node:path';
 import { cwd, exit } from 'node:process';
+import semver from 'semver';
 
 import { getPackages } from '../../tools/monorepo.cjs';
 import { isNonNullable } from '../../tools/utils.cjs';
@@ -18,9 +19,12 @@ async function main() {
             const {
                 packageJson: { version },
             } = packages.find(({ packageJson: { name } }) => name === pkg);
-            const expectedVersion = `^${version}`;
+            const { major, minor, patch, prerelease } = semver.parse(version);
+            const expectedVersion = prerelease.length ? version : `^${version}`;
 
-            return actualVersion === expectedVersion ? null : [pkg, actualVersion, expectedVersion];
+            return actualVersion.replace(/^[~^]/, '').startsWith(`${major}.${minor}.${patch}`)
+                ? null
+                : [pkg, actualVersion, expectedVersion];
         })
         .filter(isNonNullable);
 
