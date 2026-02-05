@@ -3,6 +3,7 @@ import React, {
     type FocusEvent,
     forwardRef,
     type ForwardRefExoticComponent,
+    Fragment,
     type RefAttributes,
     useEffect,
     useMemo,
@@ -13,7 +14,6 @@ import { type MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
 import { type InputProps } from '@alfalab/core-components-input';
-import { getAddonsByPriority } from '@alfalab/core-components-input/shared';
 import { fnUtils, isIOS } from '@alfalab/core-components-shared';
 
 import {
@@ -227,31 +227,38 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             setFocused(false);
         };
 
-        const rightAddonsMap = getAddonsByPriority([
-            {
-                priority: 2,
-                predicate: Boolean(rightAddons),
-                render: () => rightAddons,
-            },
-            {
-                priority: 1,
-                predicate: withStepper && !disabled && !readOnly,
-                render: () => (
-                    <Steppers
-                        colors={colors}
-                        dataTestId={dataTestId}
-                        disabled={disabled}
-                        focused={focused}
-                        value={parseNumber(value)}
-                        min={min}
-                        max={max}
-                        onIncrement={handleIncrement}
-                        onDecrement={handleDecrement}
-                        size={size}
-                    />
-                ),
-            },
-        ]);
+        const renderRightAddons = () => {
+            const renderConfig: Record<string, boolean> = {
+                rightAddon: Boolean(rightAddons),
+                stepperAddon: withStepper && !disabled && !readOnly,
+            };
+
+            if (Object.values(renderConfig).every((addon) => !addon)) {
+                return undefined;
+            }
+
+            const { rightAddon, stepperAddon } = renderConfig;
+
+            return (
+                <Fragment>
+                    {rightAddon && rightAddons}
+                    {stepperAddon && (
+                        <Steppers
+                            colors={colors}
+                            dataTestId={dataTestId}
+                            disabled={disabled}
+                            focused={focused}
+                            value={parseNumber(value)}
+                            min={min}
+                            max={max}
+                            onIncrement={handleIncrement}
+                            onDecrement={handleDecrement}
+                            size={size}
+                        />
+                    )}
+                </Fragment>
+            );
+        };
 
         return (
             <Input
@@ -270,7 +277,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                 size={size}
                 disableUserInput={disableUserInput}
                 clear={clearProp && /\d/.test(value)}
-                rightAddons={rightAddonsMap}
+                rightAddons={renderRightAddons()}
             />
         );
     },
