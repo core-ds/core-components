@@ -1,5 +1,21 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@8.0.1
+    - @alfalab/core-components-icon-view@5.0.1
+    - @alfalab/core-components-shared@2.0.1
+    - @alfalab/core-components-typography@6.0.1
+
 ## 8.0.0
 
 ### Major Changes

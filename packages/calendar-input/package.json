@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-input",
-    "version": "12.0.0",
+    "version": "12.0.1",
     "description": "Calendar input component",
     "keywords": [],
     "license": "MIT",
@@ -10,10 +10,10 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-calendar": "^9.0.0",
-        "@alfalab/core-components-date-input": "^6.0.0",
-        "@alfalab/core-components-mq": "^6.0.0",
-        "@alfalab/core-components-popover": "^8.0.0",
+        "@alfalab/core-components-calendar": "^9.0.1",
+        "@alfalab/core-components-date-input": "^6.0.1",
+        "@alfalab/core-components-mq": "^6.0.1",
+        "@alfalab/core-components-popover": "^8.0.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "date-fns": "^4.1.0",
@@ -28,6 +28,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.0",
-    "varsVersion": "11.0.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

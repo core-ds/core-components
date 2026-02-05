@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-badge",
-    "version": "7.0.0",
+    "version": "7.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-types": "^2.0.0",
+        "@alfalab/core-components-types": "^2.0.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -22,6 +22,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.0",
-    "varsVersion": "11.0.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }
