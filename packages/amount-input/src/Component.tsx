@@ -12,7 +12,6 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Input } from '@alfalab/core-components-input';
-import { getAddonsByPriority } from '@alfalab/core-components-input/helpers/get-addons-by-priority';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
 import { getMinMaxOrDefault } from '@alfalab/core-components-number-input/utils';
 import { isNonNullable } from '@alfalab/core-components-shared';
@@ -308,31 +307,46 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             }
         };
 
-        const rightAddonsMap = getAddonsByPriority([
-            {
-                priority: 2,
-                predicate: Boolean(rightAddons),
-                render: () => rightAddons,
-            },
-            {
-                priority: 1,
-                predicate: withStepper && !disabled && !readOnly,
-                render: () => (
-                    <Steppers
-                        colors={colors}
-                        dataTestId={dataTestId}
-                        disabled={restProps.disabled}
-                        focused={isFocused && !restProps.disableUserInput}
-                        value={numberValueOrZero}
-                        min={minStepperValue}
-                        max={maxStepperValue}
-                        onIncrement={handleIncrement}
-                        onDecrement={handleDecrement}
-                        size={restProps.size}
-                    />
-                ),
-            },
-        ]);
+        /**
+         * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+         * [4] - Clear
+         * [3] - Status (error, success)
+         * [2] - Common (info, e.g.)
+         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+         * [0] - Lock
+         */
+        const renderRightAddons = () => {
+            const renderConfig: Record<string, boolean> = {
+                rightAddon: Boolean(rightAddons),
+                stepperAddon: withStepper && !disabled && !readOnly,
+            };
+
+            if (Object.values(renderConfig).every((addon) => !addon)) {
+                return undefined;
+            }
+
+            const { rightAddon, stepperAddon } = renderConfig;
+
+            return (
+                <Fragment>
+                    {rightAddon && rightAddons}
+                    {stepperAddon && (
+                        <Steppers
+                            colors={colors}
+                            dataTestId={dataTestId}
+                            disabled={restProps.disabled}
+                            focused={isFocused && !restProps.disableUserInput}
+                            value={numberValueOrZero}
+                            min={minStepperValue}
+                            max={maxStepperValue}
+                            onIncrement={handleIncrement}
+                            onDecrement={handleDecrement}
+                            size={restProps.size}
+                        />
+                    )}
+                </Fragment>
+            );
+        };
 
         return (
             <div
@@ -343,7 +357,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             >
                 <SuffixInput
                     {...restProps}
-                    rightAddons={rightAddonsMap}
+                    rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
                             <span className={styles.suffixMajor}>
