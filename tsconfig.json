@@ -13,7 +13,8 @@
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "noEmit": true,
-        "allowJs": true
+        "allowJs": true,
+        "types": ["@alfalab/core-components-env"]
     },
     "include": ["**/*", "**/.eslintrc.cjs"],
     "exclude": [".storybook", "docs", "node_modules", "packages"]

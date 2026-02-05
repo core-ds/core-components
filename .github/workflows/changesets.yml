@@ -6,6 +6,10 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
 
+defaults:
+    run:
+        shell: bash
+
 jobs:
     changesets:
         name: changesets check
@@ -17,7 +21,6 @@ jobs:
             - uses: ./.github/actions/ci-setup
 
             - name: apply changesets
-              shell: bash
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |

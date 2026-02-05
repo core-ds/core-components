@@ -1,4 +1,5 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '../../form-control/src/vars.css';
 
 :root {
     --input-color: var(--color-light-text-primary);

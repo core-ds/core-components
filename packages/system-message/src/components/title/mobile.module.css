@@ -1,13 +1,5 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
-:root {
-    --sys-message-mobile-title-font-size: 20px;
-    --sys-message-mobile-title-line-height: 28px;
-    --sys-message-mobile-title-font-weight: 600;
-}
-
 .component {
-    font-size: var(--sys-message-mobile-title-font-size);
-    line-height: var(--sys-message-mobile-title-line-height);
-    font-weight: var(--sys-message-mobile-title-font-weight);
+    @mixin headline-system-mobile_small;
 }
