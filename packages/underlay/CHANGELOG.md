@@ -1,5 +1,68 @@
 # @alfalab/core-components-underlay
 
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-types@2.0.1
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#2009](https://github.com/core-ds/core-components/pull/2009)
+
+###### Underlay
+
+- Проп `padding` переведен на числовой тип. Для перехода используйте следующие соответствия:
+    - `'3xs'` -> `2`
+    - `'2xs'` -> `4`
+    - `'xs'` -> `8`
+    - `'s'` -> `12`
+    - `'m'` -> `16`
+    - `'l'` -> `20`
+    - `'xl'` -> `24`
+    - `'2xl'` -> `32`
+    - `'3xl'` -> `40`
+    - `'4xl'` -> `48`
+    - `'5xl'` -> `64`
+    - `'6xl'` -> `72`
+
+- Проп `borderSize` на числовой тип. Для перехода используйте следующие соответствия:
+    - `'xs'` -> `2`
+    - `'s'` -> `4`
+    - `'m'` -> `8`
+    - `'l'` -> `12`
+    - `'xl'` -> `16`
+    - `'xxl'` -> `20`
+    - `'3xl'` -> `24`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-types@2.0.0
+
 ## 2.0.0
 
 ### Major Changes
@@ -16,8 +79,8 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-types@1.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-types@1.0.0
 
 ## 1.5.2
 
@@ -27,7 +90,7 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
 ## 1.5.1
 
@@ -37,13 +100,13 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 <sup><time>13.12.2024</time></sup>
 
 ### [#1491](https://github.com/core-ds/core-components/pull/1491)
 
--   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+- Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
 
 ## 1.5.0
 
@@ -53,7 +116,7 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ## 1.4.2
 
@@ -63,7 +126,7 @@
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
 ## 1.4.1
 
@@ -73,7 +136,7 @@
 
 ### [#1229](https://github.com/core-ds/core-components/pull/1229)
 
--   Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
+- Изменили цветовые токены: color-light-neutral-1500 -> color-light-neutral-translucent-1300, color-light-neutral-1500-inverted -> color-light-neutral-translucent-1300-inverted, color-static-neutral-1500 -> color-static-neutral-translucent-1300, color-static-neutral-1500-inverted -> color-static-neutral-translucent-1300-inverted
 
 ## 1.4.0
 
@@ -81,7 +144,7 @@
 
 ### [#992](https://github.com/core-ds/core-components/pull/992)
 
--   В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+- В компонентах BankCard, CodeInput, Comment, Divider, ListHeader, Pagination, Scrollbar, Skeleton, SortableList, Steps, Tabs, Underlay и UniversalDateInput цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
 
 ## 1.3.0
 
@@ -89,7 +152,7 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ## 1.2.1
 
@@ -97,7 +160,7 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
 ## 1.2.0
 
@@ -105,7 +168,7 @@
 
 ### [#732](https://github.com/core-ds/core-components/pull/732)
 
--   Добавлены пропсы размера и выбора закругления определенного угла рамки. Добавлен контент и contentProps с пропсами для настройки отображения контента
+- Добавлены пропсы размера и выбора закругления определенного угла рамки. Добавлен контент и contentProps с пропсами для настройки отображения контента
 
 ## 1.1.0
 
@@ -113,7 +176,7 @@
 
 ### [#693](https://github.com/core-ds/core-components/pull/693)
 
--   Фикс параметра borderRadius, добавлен параметр overflow
+- Фикс параметра borderRadius, добавлен параметр overflow
 
 ## 1.0.2
 
@@ -121,7 +184,7 @@
 
 ### [#654](https://github.com/core-ds/core-components/pull/654)
 
--   Удалены лишние dependencies, добавлены отсутствующие
+- Удалены лишние dependencies, добавлены отсутствующие
 
 ## 1.0.1
 
@@ -129,10 +192,10 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   gap@1.1.2
+- Обновлены зависимости
+    - gap@1.1.2
 
 ## 1.0.0
 
@@ -140,4 +203,4 @@
 
 ### [#511](https://github.com/core-ds/core-components/pull/511)
 
--   Добавлен новый компонент Underlay
+- Добавлен новый компонент Underlay

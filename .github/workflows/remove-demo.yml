@@ -9,10 +9,21 @@ on:
                 description: Version of @alfalab/core-components package, tag or SHA
                 required: false
                 type: string
+            variant:
+                description: Variant of core components
+                required: false
+                type: choice
+                options:
+                    - default
+                    - alfasans
 
 concurrency:
     group: ${{ github.workflow }}-${{ inputs.version || github.ref }}
     cancel-in-progress: true
+
+defaults:
+    run:
+        shell: bash
 
 jobs:
     params:
@@ -21,10 +32,18 @@ jobs:
         with:
             dir: ${{ github.event.pull_request.number }}
 
+    variant:
+        uses: core-ds/core-components/.github/workflows/variant.yml@master
+        secrets: inherit
+
     remove-demo:
         name: remove demo
+        needs: [params, variant]
+        strategy:
+            max-parallel: 1
+            matrix:
+                include: ${{ fromJson(needs.variant.outputs.result) }}
         runs-on: ubuntu-latest
-        needs: params
         if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
             - uses: actions/checkout@v5
@@ -34,9 +53,12 @@ jobs:
                   token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: remove demo
-              shell: bash
               run: |
-                  rm -rf ${{ needs.params.outputs.dir }}
+                  rm -rf '${{ needs.params.outputs.dir }}-${{ matrix.variant }}'
+
+                  if [ '${{ matrix.variant }}' = "default" ]; then
+                      rm -rf '${{ needs.params.outputs.dir }}'
+                  fi
 
             - name: check git status
               id: git-status

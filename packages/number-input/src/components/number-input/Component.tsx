@@ -1,9 +1,9 @@
 import React, {
     type ChangeEvent,
-    type FC,
     type FocusEvent,
     forwardRef,
-    type Ref,
+    type ForwardRefExoticComponent,
+    type RefAttributes,
     useEffect,
     useMemo,
     useState,
@@ -13,7 +13,8 @@ import { type MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
 import { type InputProps } from '@alfalab/core-components-input';
-import { fnUtils, os } from '@alfalab/core-components-shared';
+import { getAddonsByPriority } from '@alfalab/core-components-input/shared';
+import { fnUtils, isIOS } from '@alfalab/core-components-shared';
 
 import {
     createMaskOptions,
@@ -73,7 +74,7 @@ export interface NumberInputProps
     /**
      *  Компонент инпута
      */
-    Input: FC<InputProps & { ref?: Ref<HTMLInputElement> }>;
+    Input: ForwardRefExoticComponent<InputProps & RefAttributes<HTMLInputElement>>;
 
     /**
      * Обработчик события изменения значения
@@ -113,6 +114,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
         },
         ref,
     ) => {
+        const { readOnly } = restProps;
         const { min, max } = getMinMaxOrDefault({ minProp, maxProp });
         const withStepper = stepProp !== undefined;
 
@@ -225,12 +227,38 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             setFocused(false);
         };
 
+        const rightAddonsMap = getAddonsByPriority([
+            {
+                priority: 2,
+                predicate: Boolean(rightAddons),
+                render: () => rightAddons,
+            },
+            {
+                priority: 1,
+                predicate: withStepper && !disabled && !readOnly,
+                render: () => (
+                    <Steppers
+                        colors={colors}
+                        dataTestId={dataTestId}
+                        disabled={disabled}
+                        focused={focused}
+                        value={parseNumber(value)}
+                        min={min}
+                        max={max}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
+                        size={size}
+                    />
+                ),
+            },
+        ]);
+
         return (
             <Input
                 maxLength={getMaxLength(value)}
                 {...restProps}
                 // В iOS в цифровой клавиатуре невозможно ввести минус.
-                inputMode={min < 0 && os.isIOS() ? 'text' : 'decimal'}
+                inputMode={min < 0 && isIOS() ? 'text' : 'decimal'}
                 ref={mergeRefs([ref, maskRef])}
                 value={value}
                 onInput={handleChange}
@@ -242,27 +270,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                 size={size}
                 disableUserInput={disableUserInput}
                 clear={clearProp && /\d/.test(value)}
-                rightAddons={
-                    withStepper ? (
-                        <React.Fragment>
-                            {rightAddons}
-                            <Steppers
-                                colors={colors}
-                                dataTestId={dataTestId}
-                                disabled={disabled}
-                                focused={focused}
-                                value={parseNumber(value)}
-                                min={min}
-                                max={max}
-                                onIncrement={handleIncrement}
-                                onDecrement={handleDecrement}
-                                size={size}
-                            />
-                        </React.Fragment>
-                    ) : (
-                        rightAddons
-                    )
-                }
+                rightAddons={rightAddonsMap}
             />
         );
     },

@@ -82,6 +82,7 @@ export const PrimaryTabList = ({
                             showSkeleton={showSkeleton}
                             skeletonProps={skeletonProps}
                             onResize={handleTitleResize}
+                            className={cn({ [styles.noTextStyle]: !textStyle })}
                         />
                     )}
                 </KeyboardFocusable>

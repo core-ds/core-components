@@ -1,5 +1,47 @@
 # @alfalab/core-components-generic-wrapper
 
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-gap@3.0.1
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1687](https://github.com/core-ds/core-components/pull/1687)
+
+##### Gap
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl` на `2, 4, 8, 12, 16, 20, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256` соответственно)
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-gap@3.0.0
+
 ## 2.0.0
 
 ### Major Changes
@@ -16,8 +58,8 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-gap@2.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-gap@2.0.0
 
 ## 1.4.3
 
@@ -27,10 +69,10 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   gap@1.4.2
+- Обновлены зависимости
+    - gap@1.4.2
 
 ## 1.4.2
 
@@ -40,7 +82,7 @@
 
 ### [#1497](https://github.com/core-ds/core-components/pull/1497)
 
--   Добавлено sideEffects: false (package.json)
+- Добавлено sideEffects: false (package.json)
 
 ## 1.4.1
 
@@ -50,10 +92,10 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   gap@1.4.1
+- Обновлены зависимости
+    - gap@1.4.1
 
 ## 1.4.0
 
@@ -63,12 +105,12 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   gap@1.4.0
+- Обновлены зависимости
+    - gap@1.4.0
 
 ## 1.3.0
 
@@ -78,7 +120,7 @@
 
 ### [#1321](https://github.com/core-ds/core-components/pull/1321)
 
--   Добавлен новый способ указания внутреннего отступа: 0, 2, 4, 8, 12, 16, 20, 24. Буквенные значения внутренних отступов 3xs, 2xs, xs, s, m, l, xl теперь deprecated, используйте вместо них 2, 4, 8, 12, 16, 20, 24 соответственно
+- Добавлен новый способ указания внутреннего отступа: 0, 2, 4, 8, 12, 16, 20, 24. Буквенные значения внутренних отступов 3xs, 2xs, xs, s, m, l, xl теперь deprecated, используйте вместо них 2, 4, 8, 12, 16, 20, 24 соответственно
 
 ## 1.2.0
 
@@ -88,14 +130,14 @@
 
 ### [#1300](https://github.com/core-ds/core-components/pull/1300)
 
--   Добавлено новое свойство gap, отвечающее за отступы между элементами флекс-контейнера
+- Добавлено новое свойство gap, отвечающее за отступы между элементами флекс-контейнера
 
 ## 1.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   gap@1.3.1
+- Обновлены зависимости
+    - gap@1.3.1
 
 ## 1.1.2
 
@@ -105,14 +147,14 @@
 
 ### [#1208](https://github.com/core-ds/core-components/pull/1208)
 
--   Тип GenericWrapperProps был расширен нативными атрибутами, предоставляемыми библиотекой React для элемента HTMLDivElement
+- Тип GenericWrapperProps был расширен нативными атрибутами, предоставляемыми библиотекой React для элемента HTMLDivElement
 
 ## 1.1.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   gap@1.3.0
+- Обновлены зависимости
+    - gap@1.3.0
 
 ## 1.1.0
 
@@ -120,12 +162,12 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   gap@1.2.0
+- Обновлены зависимости
+    - gap@1.2.0
 
 ## 1.0.3
 
@@ -133,10 +175,10 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   gap@1.1.3
+- Обновлены зависимости
+    - gap@1.1.3
 
 ## 1.0.2
 
@@ -144,10 +186,10 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   gap@1.1.2
+- Обновлены зависимости
+    - gap@1.1.2
 
 ## 1.0.1
 
@@ -155,10 +197,10 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   gap@1.1.1
+- Обновлены зависимости
+    - gap@1.1.1
 
 ## 1.0.0
 
@@ -166,9 +208,9 @@
 
 ### [#419](https://github.com/core-ds/core-components/pull/419)
 
--   Добавлен новый компонент GenericWrapper. Исправлено поведение компонента Gap для flex лейаута
+- Добавлен новый компонент GenericWrapper. Исправлено поведение компонента Gap для flex лейаута
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   gap@1.1.0
+- Обновлены зависимости
+    - gap@1.1.0

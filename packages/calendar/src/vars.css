@@ -22,11 +22,6 @@
     --calendar-mobile-select-button-box-shadow: none;
     --calendar-select-button-background-color: var(--color-light-neutral-translucent-300);
 
-    /* Шапка */
-    --calendar-month-only-header-font-family: var(--font-family-system);
-    --calendar-month-only-header-font-size: 18px;
-    --calendar-month-only-header-font-weight: 500;
-
     /* День */
     --calendar-day-size: 40px;
     --calendar-day-border-radius: var(--border-radius-pill);

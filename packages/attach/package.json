@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-attach",
-    "version": "7.1.1",
+    "version": "8.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,23 +10,23 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-button": "^12.1.1",
-        "@alfalab/core-components-keyboard-focusable": "^5.0.0",
-        "@alfalab/core-components-progress-bar": "^4.0.0",
-        "@alfalab/icons-glyph": "^2.247.0",
+        "@alfalab/core-components-button": "^13.0.1",
+        "@alfalab/core-components-keyboard-focusable": "^6.0.1",
+        "@alfalab/core-components-progress-bar": "^5.0.1",
+        "@alfalab/icons-glyph": "^2.260.0",
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
     },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.2.0",
-    "varsVersion": "10.2.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

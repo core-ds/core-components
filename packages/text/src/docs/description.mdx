@@ -4,9 +4,9 @@
 
 ```jsx live
 <div>
-    <Text view='headline-system-small'>Headline-system-small</Text>
-    <Gap size='m' />
-    <Text view='paragraph-primary-medium'>Paragraph-primary-medium</Text>
+    <TextComponent view='headline-system-small'>Headline-system-small</TextComponent>
+    <Gap size={16} />
+    <TextComponent view='paragraph-primary-medium'>Paragraph-primary-medium</TextComponent>
 </div>
 ```
 
@@ -15,12 +15,12 @@
 Тексту и фону под ним можно здать необходимый цвет.
 
 ```jsx live
-<Text
+<TextComponent
     color='var(--color-light-text-positive)'
     textBackgroundColor='var(--color-light-status-muted-attention)'
 >
     Пример с покраской фона
-</Text>
+</TextComponent>
 ```
 
 ## Отсечение текста
@@ -29,10 +29,10 @@
 
 ```jsx live
 <div style={{ width: isMobile() ? 320 : 430 }}>
-    <Text rowLimit={1}>
+    <TextComponent rowLimit={1}>
         Я взял со стола, как теперь помню, червонного туза и бросил кверху: дыхание у всех
         остановилось;
-    </Text>
+    </TextComponent>
 </div>
 ```
 
@@ -40,16 +40,16 @@
 
 ```jsx live
 <div style={{ width: isMobile() ? 320 : 200 }}>
-    <Text tag='div' align='center'>
+    <TextComponent tag='div' align='center'>
         По центру
-    </Text>
-    <Gap size='s' />
-    <Text tag='div' align='left'>
+    </TextComponent>
+    <Gap size={12} />
+    <TextComponent tag='div' align='left'>
         По левому краю
-    </Text>
-    <Gap size='s' />
-    <Text tag='div' align='right'>
+    </TextComponent>
+    <Gap size={12} />
+    <TextComponent tag='div' align='right'>
         По правому краю
-    </Text>
+    </TextComponent>
 </div>
 ```
