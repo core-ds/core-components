@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-popup-sheet",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Popup sheet mobile component",
     "keywords": [],
     "license": "MIT",
@@ -10,11 +10,11 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-backdrop": "^5.0.0",
-        "@alfalab/core-components-base-modal": "^7.0.0",
-        "@alfalab/core-components-navigation-bar-private": "^2.0.0",
-        "@alfalab/core-components-shared": "^2.0.0",
-        "@alfalab/core-components-types": "^2.0.0",
+        "@alfalab/core-components-backdrop": "^5.0.1",
+        "@alfalab/core-components-base-modal": "^7.0.1",
+        "@alfalab/core-components-navigation-bar-private": "^2.0.1",
+        "@alfalab/core-components-shared": "^2.0.1",
+        "@alfalab/core-components-types": "^2.0.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^7.0.0",
@@ -28,6 +28,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.0",
-    "varsVersion": "11.0.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

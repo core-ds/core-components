@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-bank-card",
-    "version": "7.0.0",
+    "version": "7.0.1",
     "description": "Bank card component",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^8.0.0",
+        "@alfalab/core-components-masked-input": "^8.0.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "@alfalab/icons-logo": "^1.53.0",
         "@alfalab/icons-logotype": "^2.37.0",
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.0",
-    "varsVersion": "11.0.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

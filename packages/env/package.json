@@ -4,6 +4,6 @@
     "private": true,
     "types": "./src/react-app.d.ts",
     "dependencies": {
-        "@alfalab/core-components-global-store": "^4.0.0"
+        "@alfalab/core-components-global-store": "^4.0.1"
     }
 }

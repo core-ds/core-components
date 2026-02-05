@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-collapse",
-    "version": "6.0.0",
+    "version": "6.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-link": "^7.0.0",
+        "@alfalab/core-components-link": "^7.0.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.0",
-    "varsVersion": "11.0.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

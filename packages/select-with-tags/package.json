@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select-with-tags",
-    "version": "10.0.0",
+    "version": "10.0.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,13 +10,13 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-bottom-sheet": "^8.0.0",
-        "@alfalab/core-components-form-control": "^14.0.0",
-        "@alfalab/core-components-input": "^17.0.0",
-        "@alfalab/core-components-mq": "^6.0.0",
-        "@alfalab/core-components-popover": "^8.0.0",
-        "@alfalab/core-components-select": "^19.0.0",
-        "@alfalab/core-components-tag": "^10.0.0",
+        "@alfalab/core-components-bottom-sheet": "^8.0.1",
+        "@alfalab/core-components-form-control": "^14.0.1",
+        "@alfalab/core-components-input": "^17.0.1",
+        "@alfalab/core-components-mq": "^6.0.1",
+        "@alfalab/core-components-popover": "^8.0.1",
+        "@alfalab/core-components-select": "^19.0.1",
+        "@alfalab/core-components-tag": "^10.0.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
@@ -31,6 +31,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.0",
-    "varsVersion": "11.0.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

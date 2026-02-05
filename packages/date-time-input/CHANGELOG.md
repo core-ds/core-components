@@ -1,5 +1,22 @@
 # @alfalab/core-components-date-time-input
 
+## 6.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.0.1
+    - @alfalab/core-components-icon-button@8.0.1
+    - @alfalab/core-components-input@17.0.1
+    - @alfalab/core-components-mq@6.0.1
+    - @alfalab/core-components-popover@8.0.1
+
 ## 6.0.0
 
 ### Major Changes

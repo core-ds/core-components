@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tabs",
-    "version": "10.0.0",
+    "version": "10.0.1",
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
@@ -10,15 +10,15 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-badge": "^7.0.0",
-        "@alfalab/core-components-icon-button": "^8.0.0",
-        "@alfalab/core-components-keyboard-focusable": "^6.0.0",
-        "@alfalab/core-components-mq": "^6.0.0",
-        "@alfalab/core-components-picker-button": "^13.0.0",
-        "@alfalab/core-components-shared": "^2.0.0",
-        "@alfalab/core-components-skeleton": "^7.0.0",
-        "@alfalab/core-components-tag": "^10.0.0",
-        "@alfalab/core-components-types": "^2.0.0",
+        "@alfalab/core-components-badge": "^7.0.1",
+        "@alfalab/core-components-icon-button": "^8.0.1",
+        "@alfalab/core-components-keyboard-focusable": "^6.0.1",
+        "@alfalab/core-components-mq": "^6.0.1",
+        "@alfalab/core-components-picker-button": "^13.0.1",
+        "@alfalab/core-components-shared": "^2.0.1",
+        "@alfalab/core-components-skeleton": "^7.0.1",
+        "@alfalab/core-components-tag": "^10.0.1",
+        "@alfalab/core-components-types": "^2.0.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "@juggle/resize-observer": "^3.3.1",
@@ -36,6 +36,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.0",
-    "varsVersion": "11.0.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }
