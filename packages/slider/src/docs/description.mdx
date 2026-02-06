@@ -63,7 +63,7 @@ render(() => {
                 size={4}
                 value={0}
                 onChange={handleChange}
-                range={{min: 0, '10%': 1, '40%': 4, '50%': 5, max: 10}}
+                range={{ min: 0, '10%': 1, '40%': 4, '50%': 5, max: 10 }}
                 snap={true}
                 pips={{
                     mode: 'values',
@@ -105,7 +105,7 @@ render(() => {
                 <span>min: {sliderTap.value}</span>
                 <span>max: {sliderTap.valueTo}</span>
             </div>
-            <Gap size='s' />
+            <Gap size={12} />
             <Slider
                 size={4}
                 value={sliderTap.value}
@@ -117,12 +117,12 @@ render(() => {
                     mode: 'steps',
                 }}
             />
-            <Gap size='3xl' />
+            <Gap size={40} />
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>min: {slider.value}</span>
                 <span>max: {slider.valueTo}</span>
             </div>
-            <Gap size='s' />
+            <Gap size={12} />
             <Slider
                 size={4}
                 value={slider.value}
@@ -182,7 +182,7 @@ render(() => {
 
 ## Размеры
 
-Доступны M и S размеры компонента.
+Доступны 2 и 4 размеры компонента.
 
 ```jsx live
 render(() => {

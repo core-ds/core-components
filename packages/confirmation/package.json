@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-confirmation",
-    "version": "14.3.2",
+    "version": "15.0.1",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "MIT",
@@ -10,24 +10,24 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-button": "^12.1.1",
-        "@alfalab/core-components-code-input": "^4.1.1",
-        "@alfalab/core-components-link": "^6.1.0",
-        "@alfalab/core-components-mq": "^5.0.2",
-        "@alfalab/core-components-spinner": "^5.0.2",
-        "@alfalab/core-components-typography": "^5.0.3",
+        "@alfalab/core-components-button": "^13.0.1",
+        "@alfalab/core-components-code-input": "^5.0.1",
+        "@alfalab/core-components-link": "^7.0.1",
+        "@alfalab/core-components-mq": "^6.0.1",
+        "@alfalab/core-components-spinner": "^6.0.1",
+        "@alfalab/core-components-typography": "^6.0.1",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
     },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.2.0",
-    "varsVersion": "10.2.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

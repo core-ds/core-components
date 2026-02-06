@@ -110,6 +110,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                             translate='no'
                             className={cn(styles.suffixContainer, suffixContainerClassName, {
                                 [styles[`size-${restProps.size}`]]: restProps.size,
+                                [styles.bold]: restProps.bold,
                             })}
                         >
                             <span className={styles.spacer}>{visibleValue}</span>

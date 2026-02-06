@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-side-panel",
-    "version": "6.1.1",
+    "version": "7.0.1",
     "description": "SidePanel component",
     "keywords": [],
     "license": "MIT",
@@ -10,23 +10,23 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^6.1.0",
-        "@alfalab/core-components-drawer": "^6.0.3",
-        "@alfalab/core-components-mq": "^5.0.2",
-        "@alfalab/core-components-navigation-bar-private": "^1.1.6",
-        "@alfalab/core-components-shared": "^1.1.1",
+        "@alfalab/core-components-base-modal": "^7.0.1",
+        "@alfalab/core-components-drawer": "^7.0.1",
+        "@alfalab/core-components-mq": "^6.0.1",
+        "@alfalab/core-components-navigation-bar-private": "^2.0.1",
+        "@alfalab/core-components-shared": "^2.0.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
     },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.2.0",
-    "varsVersion": "10.2.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

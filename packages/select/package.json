@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "18.2.9",
+    "version": "19.0.1",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -10,21 +10,21 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-badge": "^6.0.0",
-        "@alfalab/core-components-base-modal": "^6.1.0",
-        "@alfalab/core-components-bottom-sheet": "^7.4.3",
-        "@alfalab/core-components-button": "^12.1.1",
-        "@alfalab/core-components-checkbox": "^5.0.2",
-        "@alfalab/core-components-form-control": "^13.0.2",
-        "@alfalab/core-components-input": "^16.0.5",
-        "@alfalab/core-components-modal": "^10.0.10",
-        "@alfalab/core-components-mq": "^5.0.2",
-        "@alfalab/core-components-popover": "^7.1.1",
-        "@alfalab/core-components-scrollbar": "^4.0.0",
-        "@alfalab/core-components-shared": "^1.1.1",
-        "@alfalab/core-components-skeleton": "^6.0.1",
+        "@alfalab/core-components-badge": "^7.0.1",
+        "@alfalab/core-components-base-modal": "^7.0.1",
+        "@alfalab/core-components-bottom-sheet": "^8.0.1",
+        "@alfalab/core-components-button": "^13.0.1",
+        "@alfalab/core-components-checkbox": "^6.0.1",
+        "@alfalab/core-components-form-control": "^14.0.1",
+        "@alfalab/core-components-input": "^17.0.1",
+        "@alfalab/core-components-modal": "^11.0.1",
+        "@alfalab/core-components-mq": "^6.0.1",
+        "@alfalab/core-components-popover": "^8.0.1",
+        "@alfalab/core-components-scrollbar": "^5.0.1",
+        "@alfalab/core-components-shared": "^2.0.1",
+        "@alfalab/core-components-skeleton": "^7.0.1",
         "@alfalab/hooks": "^1.13.1",
-        "@alfalab/icons-glyph": "^2.247.0",
+        "@alfalab/icons-glyph": "^2.260.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
@@ -36,13 +36,13 @@
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
     },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.2.0",
-    "varsVersion": "10.2.0"
+    "themesVersion": "15.0.1",
+    "varsVersion": "11.0.1"
 }

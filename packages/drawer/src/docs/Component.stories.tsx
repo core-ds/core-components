@@ -19,7 +19,7 @@ export const drawer: Story = {
         const handleModalOpen = () => setOpen(!open);
         return (
             <>
-                <Button size='xs' onClick={handleModalOpen}>
+                <Button size={40} onClick={handleModalOpen}>
                     Открыть Drawer
                 </Button>
                 <Drawer

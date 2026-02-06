@@ -29,7 +29,6 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
     const {
         className,
         children,
-        contentClassName,
         title,
         sticky,
         bigTitle = false,
@@ -70,7 +69,6 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
                 [styles.hasContent]: hasContent,
                 [desktopStyles.medium]: bigTitle,
             })}
-            contentClassName={cn(desktopStyles.content, contentClassName)}
             bottomAddonsClassName={cn(desktopStyles.bottomAddons, bottomAddonsClassName)}
             scrollableParentRef={componentRef}
             titleClassName={cn(desktopStyles.headerTitle, titleClassName)}

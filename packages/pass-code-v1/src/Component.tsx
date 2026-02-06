@@ -134,7 +134,7 @@ export const PassCodeV1 = forwardRef<HTMLDivElement, PassCodeProps>(
             >
                 {error ? renderError() : renderMessage()}
 
-                <Gap size='m' />
+                <Gap size={16} />
 
                 <InputProgress
                     dataTestId={dataTestId}
@@ -144,7 +144,7 @@ export const PassCodeV1 = forwardRef<HTMLDivElement, PassCodeProps>(
                     error={Boolean(error)}
                 />
 
-                <Gap size='4xl' />
+                <Gap size={48} />
 
                 <KeyPad
                     dataTestId={dataTestId}
