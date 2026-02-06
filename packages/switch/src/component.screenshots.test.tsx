@@ -40,7 +40,6 @@ describe('Switch', () => {
                             hint: ['', 'Подсказка'],
                             checked: [false, true],
                             disabled: [false, true],
-                            inactive: [false, true],
                         },
                         size: { width: 240, height: 60 },
                     }),

@@ -59,7 +59,7 @@ describe('Checkbox | size, disabled, checked', () => {
     availableThemes.map(testCase);
 });
 
-describe('Checkbox | inactive, checked', () => {
+describe('Checkbox | checked', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -73,7 +73,6 @@ describe('Checkbox | inactive, checked', () => {
                             hint: ['Дополнительная информация'],
                             size: 20,
                             disabled: [true, false],
-                            inactive: [true, false],
                         },
                         size: { width: 400, height: 100 },
                     }),
@@ -88,7 +87,7 @@ describe('Checkbox | inactive, checked', () => {
     availableThemes.map(testCase);
 });
 
-describe('Checkbox | inactive, checked, indeterminate', () => {
+describe('Checkbox | checked, indeterminate', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -102,7 +101,6 @@ describe('Checkbox | inactive, checked, indeterminate', () => {
                             hint: ['Дополнительная информация'],
                             size: 20,
                             disabled: [true, false],
-                            inactive: [true, false],
                             indeterminate: true,
                         },
                         size: { width: 400, height: 100 },

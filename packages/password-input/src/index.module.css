@@ -1,5 +1,12 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
-.eye:last-child {
-    height: 100%;
+.eye {
+    &:last-child {
+        height: 100%;
+    }
+
+    /* Иконка замка не должна отображаться в PasswordInput */
+    & ~ [data-name='input-lock-icon'] {
+        display: none;
+    }
 }

@@ -25,7 +25,7 @@ export const BaseCheckmark = ({
             checked={selected}
             disabled={disabled}
             className={checkmarkClassNames}
-            size='m'
+            size={24}
             hiddenInput={true}
         />
     ) : (

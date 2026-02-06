@@ -1,5 +1,33 @@
 # @alfalab/core-components-keyboard-focusable
 
+## 6.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
 ## 5.0.0
 
 ### Major Changes
@@ -22,13 +50,13 @@
 
 ### [#1497](https://github.com/core-ds/core-components/pull/1497)
 
--   Добавлено sideEffects: false (package.json)
+- Добавлено sideEffects: false (package.json)
 
 <sup><time>26.12.2024</time></sup>
 
 ### [#1502](https://github.com/core-ds/core-components/pull/1502)
 
--   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+- Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
 
 ## 4.1.0
 
@@ -36,7 +64,7 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ## 4.0.7
 
@@ -44,7 +72,7 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
 ## 4.0.6
 
@@ -52,7 +80,7 @@
 
 ### [#676](https://github.com/core-ds/core-components/pull/676)
 
--   Обновлена зависимость @alfalab/hooks
+- Обновлена зависимость @alfalab/hooks
 
 ## 4.0.5
 
@@ -60,7 +88,7 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
 ## 4.0.4
 
@@ -68,7 +96,7 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
 ## 4.0.3
 
@@ -76,7 +104,7 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
 ## 4.0.2
 
@@ -84,8 +112,8 @@
 
 ### [#286](https://github.com/core-ds/core-components/pull/286)
 
--   Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
--   Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
+- Новые стили инпутов в теме default (все компоненты на основе FormControl, включая Select)
+- Исправлен отступ до hint в SliderInput (уменьшился на 2px)<br />
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -98,12 +126,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -111,13 +139,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 # [3.2.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@3.1.3...@alfalab/core-components-keyboard-focusable@3.2.0) (2022-08-04)
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [3.1.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@3.1.2...@alfalab/core-components-keyboard-focusable@3.1.3) (2022-07-18)
 
@@ -127,7 +155,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [3.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@3.1.0...@alfalab/core-components-keyboard-focusable@3.1.1) (2022-07-14)
 
@@ -137,48 +165,48 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@3.0.0...@alfalab/core-components-keyboard-focusable@3.0.1) (2021-12-08)
 
 ### Bug Fixes
 
--   актуализируем @alfalab/utils ([#897](https://github.com/core-ds/core-components/issues/897)) ([30fb88e](https://github.com/core-ds/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+- актуализируем @alfalab/utils ([#897](https://github.com/core-ds/core-components/issues/897)) ([30fb88e](https://github.com/core-ds/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
 
 # [3.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@2.0.1...@alfalab/core-components-keyboard-focusable@3.0.0) (2021-11-26)
 
 ### Features
 
--   **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
+- **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
 
 ### BREAKING CHANGES
 
--   **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-    заменить размер на xxs. Можно воспользоваться codemod.
+- **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+  заменить размер на xxs. Можно воспользоваться codemod.
 
--   feat(codemod): add button xs to xxs transformer
+- feat(codemod): add button xs to xxs transformer
 
--   feat(tag): добавлен тэг размера 40px, изменены отступы
+- feat(tag): добавлен тэг размера 40px, изменены отступы
 
 Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
 на xxs.
 
--   **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-    заменить размер на xxs. Можно воспользоваться codemod.
+- **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+  заменить размер на xxs. Можно воспользоваться codemod.
 
--   test: update screenshots
+- test: update screenshots
 
--   test: update screenshots
+- test: update screenshots
 
--   feat(button): linter fix
+- feat(button): linter fix
 
--   feat(button): fix min-width
+- feat(button): fix min-width
 
--   feat(tag): remove vertical paddings
+- feat(tag): remove vertical paddings
 
--   feat(tag): remove vertical paddings
+- feat(tag): remove vertical paddings
 
--   feat(button): updates
+- feat(button): updates
 
 ## [2.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@2.0.0...@alfalab/core-components-keyboard-focusable@2.0.1) (2021-07-09)
 
@@ -188,13 +216,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 # [1.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@1.2.11...@alfalab/core-components-keyboard-focusable@1.3.0) (2021-06-22)
 
 ### Features
 
--   **slider-input:** design updates ([#673](https://github.com/core-ds/core-components/issues/673)) ([794e3cc](https://github.com/core-ds/core-components/commit/794e3cc99a3b61ec4faa630469dae7e49a56ee0a))
+- **slider-input:** design updates ([#673](https://github.com/core-ds/core-components/issues/673)) ([794e3cc](https://github.com/core-ds/core-components/commit/794e3cc99a3b61ec4faa630469dae7e49a56ee0a))
 
 ## [1.2.11](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@1.2.10...@alfalab/core-components-keyboard-focusable@1.2.11) (2021-04-26)
 
@@ -208,7 +236,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+- one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 ## [1.2.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-keyboard-focusable@1.2.6...@alfalab/core-components-keyboard-focusable@1.2.7) (2021-03-14)
 

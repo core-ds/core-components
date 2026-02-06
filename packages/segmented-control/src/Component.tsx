@@ -35,9 +35,9 @@ export interface SegmentedControlProps {
 
     /**
      * Размер компонента
-     * @description xs, xxs deprecated, используйте вместо них 40, 32 соответственно
+     * @default 32
      */
-    size?: 'xs' | 'xxs' | 32 | 40;
+    size?: 32 | 40;
 
     /**
      * Форма компонента
@@ -78,13 +78,6 @@ export interface SegmentedControlProps {
 
 const MAX_SEGMENTS = 5;
 
-export const SIZE_TO_CLASSNAME_MAP = {
-    xxs: 'size-32',
-    xs: 'size-40',
-    32: 'size-32',
-    40: 'size-40',
-};
-
 export const SegmentedControl: FC<SegmentedControlProps> = ({
     className,
     selectedId,
@@ -102,8 +95,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     const innerRef = useRef<HTMLDivElement>(null);
     const selectedBoxRef = useRef<HTMLDivElement>(null);
     const children = defaultChildren.slice(0, MAX_SEGMENTS);
-    const sizeClassName = SIZE_TO_CLASSNAME_MAP[size];
-    const isSize40 = size === 40 || size === 'xs';
+    const isSize40 = size === 40;
 
     const skeletonBorderRadius = (() => {
         if (shape === 'rounded') {
@@ -175,7 +167,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                         styles.wrapper,
                         colorStyles[colors].wrapper,
                         styles[shape],
-                        styles[sizeClassName],
+                        styles[`size-${size}`],
                         {
                             [styles.disabled]: disabled,
                         },

@@ -79,7 +79,7 @@ export const modal: Story = {
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
-                <Button type='button' size='xs' onClick={() => setOpen(true)}>
+                <Button type='button' size={40} onClick={() => setOpen(true)}>
                     Открыть
                 </Button>
                 <UniversalModalDesktop
@@ -150,7 +150,7 @@ export const side_panel: Story = {
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
-                <Button type='button' size='xs' onClick={() => setOpen(true)}>
+                <Button type='button' size={40} onClick={() => setOpen(true)}>
                     Открыть
                 </Button>
                 <UniversalModalDesktop
@@ -200,6 +200,8 @@ export const mobile: Story = {
 
         const header = boolean('header', true);
         const headerTitle = text('header.title', '');
+        const headerSubtitle = text('header.subtitle', '');
+        const titleSize = select('titleSize', ['default', 'compact'], 'default');
         const headerAlign = select('header.align', ['left', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
         const stickyFooter = boolean('footer.sticky', false);
@@ -217,7 +219,7 @@ export const mobile: Story = {
 
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
-                <Button type='button' size='xs' onClick={() => setOpen(true)}>
+                <Button type='button' size={40} onClick={() => setOpen(true)}>
                     Открыть
                 </Button>
                 <UniversalModalMobile
@@ -229,6 +231,8 @@ export const mobile: Story = {
                         <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}
+                            subtitle={headerSubtitle}
+                            titleSize={titleSize}
                             align={headerAlign}
                             hasCloser={hasCloser}
                             hasBackButton={hasBackButton}
