@@ -344,7 +344,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                   class="scrollableContainer sheetContainer"
                 >
                   <div
-                    class="header hasContent headerWrapperWithoutSwipeMarker sticky"
+                    class="header hasContent headerWrapperWithoutSwipeMarker hasContent sticky"
                   >
                     <div
                       class="mainLine"
@@ -1402,7 +1402,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                   class="scrollableContainer sheetContainer"
                 >
                   <div
-                    class="header hasContent headerWrapperWithoutSwipeMarker sticky"
+                    class="header hasContent headerWrapperWithoutSwipeMarker hasContent sticky"
                   >
                     <div
                       class="mainLine"
