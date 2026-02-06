@@ -2,7 +2,7 @@
 @import '../../input/src/vars.css';
 
 .suffixContainer {
-    @mixin paragraph_component;
+    @mixin paragraph_component_primary;
 
     position: absolute;
     left: var(--gap-0);
@@ -12,9 +12,20 @@
     display: none;
     pointer-events: none;
 
+    &.bold {
+        @mixin accent_component_primary;
+    }
+
     &.size-40 {
         @mixin paragraph_component_secondary;
         padding: var(--gap-0) var(--gap-8);
+
+        /* TODO shift on focus. find out why. probably border appers */
+        top: 1px;
+
+        &.bold {
+            @mixin accent_component_secondary;
+        }
     }
 }
 

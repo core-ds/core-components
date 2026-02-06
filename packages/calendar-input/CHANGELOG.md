@@ -1,5 +1,166 @@
 # @alfalab/core-components-calendar-input
 
+## 12.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.0.1
+    - @alfalab/core-components-date-input@6.0.1
+    - @alfalab/core-components-mq@6.0.1
+    - @alfalab/core-components-popover@8.0.1
+
+## 12.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1689](https://github.com/core-ds/core-components/pull/1689)
+
+##### Modal
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `500, 600, 800, 1140` соответственно)
+- Удален пропс `fullscreen`, который был отмечен как `deprecated` в `core-components@25.x.x`. Вместо него передавайте `fullscreen` в пропс `size`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1685](https://github.com/core-ds/core-components/pull/1685)
+
+##### FromControl
+
+Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1635](https://github.com/core-ds/core-components/pull/1635)
+
+##### BaseModal
+
+- Удалён matches полифил для поддержки работы focusLock в ie 11
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1975](https://github.com/core-ds/core-components/pull/1975)
+
+##### Input
+
+- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+##### Typography.{Text,Title,TitleMobile}
+
+- Проп `font` помечен как `deprecated`
+- Проп `font`, значения которого включает в себя `"alfasans"`, не имеет эффекта для шрифта `Alfa Interface Sans`, но для него сохраняется обратная совместимость по следующему принципу:
+    - для компонента `Text`:
+        1. для значения `font="alfasans"` соотвествует системный шрифт
+    - для компонентов `Title` и `TitleMobile`:
+        1. для значения `font="alfasans"` соотвествует шрифт `Styrene`
+        2. для значения `font={ font: 'alfasans', systemCompat: boolean }` в зависимости от значения параметра `systemCompat`: `true` - системный шрифт, `false` - шрифт `Styrene`
+- Для использования компонентов `Typography.{Text,Title,TitleMobile}` со шрифтом `Alfa Interface Sans` необходимо установить соответствующий пакет (пакеты)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+##### Typography
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+##### PortalContext
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+##### Typography
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1841](https://github.com/core-ds/core-components/pull/1841)
+
+- Обновлен `date-fns` до `4` версии
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Обновление `@alfalab/icons-*` библиотек
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.0.0
+    - @alfalab/core-components-date-input@6.0.0
+    - @alfalab/core-components-popover@8.0.0
+    - @alfalab/core-components-mq@6.0.0
+
+## 11.0.11
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@8.0.10
+    - @alfalab/core-components-date-input@5.0.5
+
+## 11.0.10
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-date-input@5.0.4
+    - @alfalab/core-components-calendar@8.0.9
+
 ## 11.0.9
 
 ### Patch Changes

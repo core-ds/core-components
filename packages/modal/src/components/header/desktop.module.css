@@ -5,24 +5,17 @@
     border-top-right-radius: var(--modal-border-radius);
 }
 
-.content {
-    font-weight: var(--modal-header-desktop-font-weight);
-    font-family: var(--modal-header-desktop-font-family);
-}
-
 .size-500 .content,
 .size-600 .content {
     padding: var(--modal-s-header-desktop-content-paddings);
-    font-size: var(--modal-s-header-desktop-font-size);
-    line-height: var(--modal-s-header-desktop-line-height);
+    @mixin headline-system_small;
 }
 
 .size-800 .content,
 .size-1140 .content,
 .fullscreen .content {
     padding: var(--modal-l-header-desktop-content-paddings);
-    font-size: var(--modal-l-header-desktop-font-size);
-    line-height: var(--modal-l-header-desktop-line-height);
+    @mixin headline-system_medium;
 }
 
 .size-500,

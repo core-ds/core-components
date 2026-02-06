@@ -13,7 +13,33 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { encoding: 'utf8' });
 
 const IGNORED_PACKAGES = ['@alfalab/core-components-codemod'];
-const IGNORED_MODULES = ['@alfalab/hooks', 'simplebar', 'uuid'];
+
+/**
+ * Список пакетов которые нужно трансформировать, так как react-markdown@7.0.0 ESM-only
+ * @see https://github.com/remarkjs/react-markdown/blob/main/changelog.md#700---2021-08-13
+ */
+const REACT_MARKDOWN_IGNORED_MODULES = [
+    'react-markdown',
+    'remark-.*',
+    'unist-util-.*',
+    'vfile.*',
+    'unified',
+    'bail',
+    'is-plain-obj',
+    'trough',
+    'mdast-.*',
+    'micromark.*',
+    'decode-named-character-reference',
+    'trim-lines',
+    'property-information',
+    'hast-util-.*',
+    '.*-separated-tokens',
+    'devlop',
+    'estree-util-is-identifier-name',
+    'html-url-attributes',
+];
+
+const IGNORED_MODULES = ['@alfalab/hooks', 'simplebar', 'uuid', ...REACT_MARKDOWN_IGNORED_MODULES];
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
 

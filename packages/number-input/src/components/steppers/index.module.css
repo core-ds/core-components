@@ -4,7 +4,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    border-radius: 5px;
+    border-radius: var(--border-radius-6);
     transition: background-color 0.2s ease;
     overflow: visible;
 }

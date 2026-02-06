@@ -1,5 +1,41 @@
 # @alfalab/core-components-gap
 
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1687](https://github.com/core-ds/core-components/pull/1687)
+
+##### Gap
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl` на `2, 4, 8, 12, 16, 20, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256` соответственно)
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
 ## 2.0.0
 
 ### Major Changes
@@ -22,7 +58,7 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
 ## 1.4.1
 
@@ -32,13 +68,13 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 <sup><time>13.12.2024</time></sup>
 
 ### [#1491](https://github.com/core-ds/core-components/pull/1491)
 
--   Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
+- Добавлено sideEffects: false в package.json. Помогает бандлерам убирать неиспользуемые части кода при сборке (treeshake). Часть 3.
 
 ## 1.4.0
 
@@ -48,7 +84,7 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ## 1.3.1
 
@@ -60,9 +96,9 @@
 
 Редизайн компонентов PassCode и PatternLock
 
--   Внесены изменения в адаптивность
--   Удалены пропсы для вывода кастомных сообщений и ошибок
-    Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
+- Внесены изменения в адаптивность
+- Удалены пропсы для вывода кастомных сообщений и ошибок
+  Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
 
 ## Обновление
 
@@ -93,7 +129,7 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#1037](https://github.com/core-ds/core-components/pull/1037)
 
--   Добавлены новые способы указать размеры - 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256. Буквенные значения размеров 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl теперь deprecated, используйте вместо них 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256 соответственно
+- Добавлены новые способы указать размеры - 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256. Буквенные значения размеров 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl теперь deprecated, используйте вместо них 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72, 96, 128, 256 соответственно
 
 ## 1.2.0
 
@@ -101,7 +137,7 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ## 1.1.3
 
@@ -109,7 +145,7 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
 ## 1.1.2
 
@@ -117,7 +153,7 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
 ## 1.1.1
 
@@ -125,7 +161,7 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
 ## 1.1.0
 
@@ -133,7 +169,7 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#419](https://github.com/core-ds/core-components/pull/419)
 
--   Добавлен новый компонент GenericWrapper. Исправлено поведение компонента Gap для flex лейаута
+- Добавлен новый компонент GenericWrapper. Исправлено поведение компонента Gap для flex лейаута
 
 ## 1.0.1
 
@@ -141,7 +177,7 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
 ## 1.0.0
 
@@ -149,4 +185,4 @@ import { PatternLockV1 } from '@alfalab/core-components/pattern-lock-v1';
 
 ### [#339](https://github.com/core-ds/core-components/pull/339)
 
--   Добавлен новый компонент Gap
+- Добавлен новый компонент Gap

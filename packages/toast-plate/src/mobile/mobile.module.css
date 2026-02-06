@@ -7,7 +7,10 @@
 
 .title {
     @mixin paragraph_primary_small;
-    font-weight: var(--toast-plate-title-font-weight);
+
+    &.boldTitle {
+        @mixin accent_primary_small;
+    }
 }
 
 .closeButtonWrapper {

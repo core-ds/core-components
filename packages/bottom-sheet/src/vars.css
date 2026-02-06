@@ -7,18 +7,6 @@
     --bottom-sheet-top-radius: var(--border-radius-16);
     --bottom-sheet-shadow: none;
 
-    /* title */
-    --bottom-sheet-title-font-size: 20px;
-    --bottom-sheet-title-font-weight: 600;
-    --bottom-sheet-title-line-height: 28px;
-    --bottom-sheet-title-font-family: var(--font-family-system);
-
-    /* subtitle */
-    --bottom-sheet-subtitle-font-size: 14px;
-    --bottom-sheet-subtitle-font-weight: 400;
-    --bottom-sheet-subtitle-line-height: 20px;
-    --bottom-sheet-subtitle-font-family: var(--font-family-system);
-
     /* default colors */
     --bottom-sheet-background-color: var(--color-light-modal-bg-primary);
     --bottom-sheet-marker-color: var(--color-light-neutral-translucent-300);

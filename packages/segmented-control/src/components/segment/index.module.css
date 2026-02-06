@@ -11,7 +11,6 @@
     border: none;
     background-color: transparent;
     position: relative;
-    font-family: var(--font-family-system);
     transition:
         font-weight 0.2s ease,
         color 0.2s ease;

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
@@ -30,6 +30,7 @@ export const InputProgress: React.FC<InputProgressProps> = ({
     success,
 }) => {
     const { rawSuccess, resetSuccessAnimation } = useInputProgress(success);
+    const nodeRef = useRef<HTMLDivElement>(null);
 
     return (
         <div
@@ -59,8 +60,10 @@ export const InputProgress: React.FC<InputProgressProps> = ({
                           timeout={TRANSITION_DURATION}
                           classNames={transitions}
                           unmountOnExit={true}
+                          nodeRef={nodeRef}
                       >
                           <div
+                              ref={nodeRef}
                               className={cn(styles.dot, styles.filled, {
                                   [styles.error]: error,
                                   [styles.success]: success && !rawSuccess,

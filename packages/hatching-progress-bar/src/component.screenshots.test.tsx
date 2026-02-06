@@ -19,7 +19,6 @@ describe('HatchingProgressBar', () =>
                 view: 'accent',
                 value: 50,
                 hatchValue: 70,
-                size: 's',
             },
         },
         'transform:scale(2.5);display:block;padding:300px 300px 0;',

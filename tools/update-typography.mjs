@@ -2,9 +2,9 @@ import fse from 'fs-extra';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import postcss from 'postcss';
-import resolve from 'resolve';
 
 import { getPackages } from './monorepo.cjs';
+import { resolveInternal } from './resolve-internal.cjs';
 
 function prepareData(data) {
     const sortedData = Object.entries(data).sort(([aName], [bName]) => aName.localeCompare(bName));
@@ -54,10 +54,7 @@ function generateTypography({ data, empty }) {
                                   : rawValue;
                           const result = [];
 
-                          if (
-                              (prop === 'deprecated' && value) ||
-                              (prop === 'font-family' && value === 'var(--font-family-system)')
-                          ) {
+                          if (prop === 'deprecated' && value) {
                               return result;
                           }
 
@@ -116,30 +113,21 @@ async function main() {
     const vars = packages.find(
         ({ packageJson: { name } }) => name === '@alfalab/core-components-vars',
     );
-    const typographyData = await fse.readJson(
-        resolve.sync('ui-primitives/styles/typography_web.json'),
-        { encoding: 'utf8' },
+    const source = resolveInternal(
+        process.env.CORE_COMPONENTS_TYPOGRAPHY === 'alfasans'
+            ? 'ui-primitives/styles/typography_web_alfasans.json'
+            : 'ui-primitives/styles/typography_web.json',
+        false,
     );
-    const result = await postcss(generateTypography({ data: typographyData })).process(
-        postcss.root(),
-        { from: undefined },
-    );
+    const data = await fse.readJson(source, { encoding: 'utf8' });
+    const result = await postcss(generateTypography({ data })).process(postcss.root(), {
+        from: undefined,
+    });
 
     await fs.writeFile(
         path.join(vars.dir, 'src/typography.css'),
         // FIXME stripping redundant line feeds - `raws.before` doesn't have effect for comments
         result.css.replace(/(\})\n+(\/)/g, '$1 $2'),
-        { encoding: 'utf8' },
-    );
-
-    const emptyResult = await postcss(
-        generateTypography({ data: typographyData, empty: true }),
-    ).process(postcss.root(), { from: undefined });
-
-    await fs.writeFile(
-        path.join(vars.dir, 'src/no-typography.css'),
-        // FIXME stripping redundant line feeds - `raws.before` doesn't have effect for comments
-        emptyResult.css.replace(/(\})\s+(\/)/g, '$1 $2'),
         { encoding: 'utf8' },
     );
 }

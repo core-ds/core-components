@@ -13,6 +13,7 @@ import {
     OptionProps,
     useSelectWithApply,
     Arrow,
+    SelectProps,
 } from './shared';
 import { SelectDesktop as Select } from './desktop';
 import { SelectMobile, SelectModalMobile } from './mobile';
@@ -677,14 +678,17 @@ describe('Select', () => {
         it('should transfer props to OptionsList', async () => {
             const spy = jest.spyOn(optionsListModule.OptionsList, 'render' as never);
 
-            const optionsListProps: Partial<OptionsListProps> = {
+            const optionsListProps: Pick<
+                OptionsListProps,
+                'emptyPlaceholder' | 'flatOptions' | 'highlightedIndex'
+            > = {
                 emptyPlaceholder: 'list-placeholder',
-            };
-
-            const expectedProps: Partial<OptionsListProps> = {
-                options,
                 flatOptions: options,
                 highlightedIndex: -1,
+            };
+
+            const expectedProps: Partial<SelectProps> = {
+                options,
                 open: true,
                 size: 64,
                 visibleOptions: 3,

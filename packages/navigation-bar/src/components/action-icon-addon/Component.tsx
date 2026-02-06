@@ -44,7 +44,7 @@ export const ActionIconAddon: React.FC<ActionIconAddonProps> = ({
 }) => (
     <ButtonMobile
         view='text'
-        size='s'
+        size={48}
         onClick={onClick}
         aria-label={action === 'close' ? 'закрыть' : 'назад'}
         className={cn(styles.component, className)}

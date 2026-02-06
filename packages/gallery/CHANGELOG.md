@@ -1,5 +1,177 @@
 # @alfalab/core-components-gallery
 
+## 7.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.0.1
+    - @alfalab/core-components-button@13.0.1
+    - @alfalab/core-components-icon-button@8.0.1
+    - @alfalab/core-components-icon-view@5.0.1
+    - @alfalab/core-components-mq@6.0.1
+    - @alfalab/core-components-spinner@6.0.1
+    - @alfalab/core-components-tooltip@9.0.1
+    - @alfalab/core-components-typography@6.0.1
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1635](https://github.com/core-ds/core-components/pull/1635)
+
+##### BaseModal
+
+- Удалён matches полифил для поддержки работы focusLock в ie 11
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+##### Typography.{Text,Title,TitleMobile}
+
+- Проп `font` помечен как `deprecated`
+- Проп `font`, значения которого включает в себя `"alfasans"`, не имеет эффекта для шрифта `Alfa Interface Sans`, но для него сохраняется обратная совместимость по следующему принципу:
+    - для компонента `Text`:
+        1. для значения `font="alfasans"` соотвествует системный шрифт
+    - для компонентов `Title` и `TitleMobile`:
+        1. для значения `font="alfasans"` соотвествует шрифт `Styrene`
+        2. для значения `font={ font: 'alfasans', systemCompat: boolean }` в зависимости от значения параметра `systemCompat`: `true` - системный шрифт, `false` - шрифт `Styrene`
+- Для использования компонентов `Typography.{Text,Title,TitleMobile}` со шрифтом `Alfa Interface Sans` необходимо установить соответствующий пакет (пакеты)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+##### Typography
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+##### PortalContext
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1636](https://github.com/core-ds/core-components/pull/1636)
+
+##### BottomSheet
+
+- Удален пропс `ignoreScreenChange`, который был объявлен как `deprecated` в `core-components@29.x.x`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1688](https://github.com/core-ds/core-components/pull/1688)
+
+##### Indicator
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в` core-components@44.x.x` (замените `xs, s, m, l` на `8, 16, 20, 24, 32, 40` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+##### Typography
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1624](https://github.com/core-ds/core-components/pull/1624)
+
+##### Tooltip
+
+- Добавлены `data-test-id` для составляющих компонента `Tooltip`. Для контента тултипа теперь используется модификатор `${dataTestId}-content`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1686](https://github.com/core-ds/core-components/pull/1686)
+
+##### Tooltip
+
+- Удалён пропс `hasCloser`, который был отмечен как `deprecated` в `core-components@27.x.x`. Используйте вместо него `bottomSheetProps.hasCloser`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Обновление `@alfalab/icons-*` библиотек
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.0.0
+    - @alfalab/core-components-button@13.0.0
+    - @alfalab/core-components-icon-button@8.0.0
+    - @alfalab/core-components-tooltip@9.0.0
+    - @alfalab/core-components-typography@6.0.0
+    - @alfalab/core-components-icon-view@5.0.0
+    - @alfalab/core-components-spinner@6.0.0
+    - @alfalab/core-components-mq@6.0.0
+
+## 6.0.13
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.1
+    - @alfalab/core-components-icon-button@7.0.5
+    - @alfalab/core-components-tooltip@8.0.12
+
+## 6.0.12
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.0
+    - @alfalab/core-components-icon-button@7.0.4
+    - @alfalab/core-components-tooltip@8.0.11
+
 ## 6.0.11
 
 ### Patch Changes

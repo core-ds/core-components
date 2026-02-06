@@ -148,9 +148,9 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
                                 />
                             </PureCell.Main>
                             <PureCell.Footer>
-                                <Typography.Text titleColor='secondary' view='primary-small'>
+                                <PureCell.Text titleColor='secondary' view='primary-small'>
                                     Caption Secondary
-                                </Typography.Text>
+                                </PureCell.Text>
                                 <PureCell.FooterButton>Action</PureCell.FooterButton>
                             </PureCell.Footer>
                         </PureCell.Content>
@@ -1093,7 +1093,7 @@ export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
         );
         const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
         const rowLimit = select('rowLimit', ['1', '2'], '1');
-        const view = select('view', ['primary-small', 'component'], 'component');
+        const view = select('view', ['primary-large', 'primary-medium', 'primary-small', 'component', 'component-primary', 'component-secondary', 'secondary-large'], 'component');
         const color = select(
             'titleColor',
             [

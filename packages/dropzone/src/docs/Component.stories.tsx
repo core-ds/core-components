@@ -43,7 +43,6 @@ export const dropzone: Story = {
                     <Dropzone
                         error={boolean('error', false)}
                         block={boolean('block', false)}
-                        overlayVisible={boolean('overlayVisible (deprecated)', undefined)}
                         disabled={boolean('disabled', false)}
                         onDrop={handleDrop}
                     >
