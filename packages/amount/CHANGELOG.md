@@ -1,5 +1,33 @@
 # @alfalab/core-components-amount
 
+## 5.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
 ## 4.0.0
 
 ### Major Changes
@@ -22,7 +50,7 @@
 
 ### [#1761](https://github.com/core-ds/core-components/pull/1761)
 
--   Версия пакета @alfalab/data обновлена до 1.9.2
+- Версия пакета @alfalab/data обновлена до 1.9.2
 
 ## 3.10.1
 
@@ -32,7 +60,7 @@
 
 ### [#1634](https://github.com/core-ds/core-components/pull/1634)
 
--   RUR удален из deprecated. Удалены dev утилиты для ворнинга.
+- RUR удален из deprecated. Удалены dev утилиты для ворнинга.
 
 ## 3.10.0
 
@@ -42,7 +70,7 @@
 
 ### [#1588](https://github.com/core-ds/core-components/pull/1588)
 
--   Обновлена версия @alfalab/utils до 1.18.0
+- Обновлена версия @alfalab/utils до 1.18.0
 
 ## 3.9.1
 
@@ -52,7 +80,7 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
 ## 3.9.0
 
@@ -62,7 +90,7 @@
 
 ### [#1515](https://github.com/core-ds/core-components/pull/1515)
 
--   Добавлены атомарные импорты
+- Добавлены атомарные импорты
 
 ### Patch Changes
 
@@ -70,7 +98,7 @@
 
 ### [#1502](https://github.com/core-ds/core-components/pull/1502)
 
--   Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
+- Апдейт версий пакетов (в них починена сборка esm-версии): @alfalab/data, @alfalab/hooks, @alfalab/utils
 
 ## 3.8.2
 
@@ -80,7 +108,7 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
 ## 3.8.1
 
@@ -90,7 +118,7 @@
 
 ### [#1480](https://github.com/core-ds/core-components/pull/1480)
 
--   Добавлено sideEffects: false
+- Добавлено sideEffects: false
 
 ## 3.8.0
 
@@ -100,7 +128,7 @@
 
 ### [#1213](https://github.com/core-ds/core-components/pull/1213)
 
--   Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
+- Добавлена возможность глобального переопределения breakpoint компонентов [Документация](https://core-ds.github.io/core-components/master/?path=/docs/instructions-breakpoints--docs)
 
 ## 3.7.0
 
@@ -110,7 +138,7 @@
 
 ### [#1375](https://github.com/core-ds/core-components/pull/1375)
 
--   Добавили новое свойство trimZero - обрезает ноль в минорной части. Например: 1.60 - 1.6
+- Добавили новое свойство trimZero - обрезает ноль в минорной части. Например: 1.60 - 1.6
 
 ## 3.6.0
 
@@ -120,7 +148,7 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ## 3.5.2
 
@@ -130,9 +158,9 @@
 
 ### [#1297](https://github.com/core-ds/core-components/pull/1297)
 
--   Обновлена документация
--   RUR для пропса currency - deprecated
--   Для разработчиков добавлен warning при использовании валюты RUR
+- Обновлена документация
+- RUR для пропса currency - deprecated
+- Для разработчиков добавлен warning при использовании валюты RUR
 
 ## 3.5.1
 
@@ -142,7 +170,7 @@
 
 ### [#1174](https://github.com/core-ds/core-components/pull/1174)
 
--   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+- Обновление библиотеки ui-primitives и зависящих от нее файлов.
 
 ## 3.5.0
 
@@ -152,7 +180,7 @@
 
 ### [#1147](https://github.com/core-ds/core-components/pull/1147)
 
--   Обновили версии пакетов @alfalab/utils и @alfalab/data
+- Обновили версии пакетов @alfalab/utils и @alfalab/data
 
 ## 3.4.0
 
@@ -162,7 +190,7 @@
 
 ### [#1108](https://github.com/core-ds/core-components/pull/1108)
 
--   обновлены минорные версии @alfalab/utils и @alfalab/data
+- обновлены минорные версии @alfalab/utils и @alfalab/data
 
 ## 3.3.1
 
@@ -170,7 +198,7 @@
 
 ### [#967](https://github.com/core-ds/core-components/pull/967)
 
--   Добавлено центрирование контента передаваемого в пропсе rightAddons.
+- Добавлено центрирование контента передаваемого в пропсе rightAddons.
 
 ## 3.3.0
 
@@ -178,7 +206,7 @@
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ## 3.2.2
 
@@ -186,7 +214,7 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
 ## 3.2.1
 
@@ -194,7 +222,7 @@
 
 ### [#717](https://github.com/core-ds/core-components/pull/717)
 
--   Добавлен проп codeFormat в Amount.Pure
+- Добавлен проп codeFormat в Amount.Pure
 
 ## 3.2.0
 
@@ -202,7 +230,7 @@
 
 ### [#712](https://github.com/core-ds/core-components/pull/712)
 
--   обновлены минорные версии @alfalab/utils и @alfalab/data
+- обновлены минорные версии @alfalab/utils и @alfalab/data
 
 ## 3.1.3
 
@@ -210,7 +238,7 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
 ## 3.1.2
 
@@ -218,7 +246,7 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
 ## 3.1.1
 
@@ -226,7 +254,7 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
 ## 3.1.0
 
@@ -234,26 +262,26 @@
 
 ### [#308](https://github.com/core-ds/core-components/pull/308)
 
--   Добавлен новый пропс в компонент Amount - codeFormat, который отображает код валюты в зависимости от указанного формата.
-    Обновлена библиотека @alfalab/utils, теперь метод formatAmount форматирует сумму, разделяя ее средним математическим пробелом.<br />
+- Добавлен новый пропс в компонент Amount - codeFormat, который отображает код валюты в зависимости от указанного формата.
+  Обновлена библиотека @alfalab/utils, теперь метод formatAmount форматирует сумму, разделяя ее средним математическим пробелом.<br />
 
 ### Patch Changes
 
 ### [#324](https://github.com/core-ds/core-components/pull/324)
 
--   "export" типов заменен на "export type"
+- "export" типов заменен на "export type"
 
 ## 3.0.4
 
 ### Patch Changes
 
--   [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
+- [#282](https://github.com/core-ds/core-components/pull/282): Обновление vars из последней версии ui-primitives, удалены deprecated цвета и миксины типографики. Thanks [@Valeri8888](https://github.com/Valeri8888)
 
 ## 3.0.3
 
 ### Patch Changes
 
--   [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
+- [#279](https://github.com/core-ds/core-components/pull/279): chore: обновились @alfalab-data и @alfalab/utils версии в зависимостях. Thanks [@EGNKupava](https://github.com/EGNKupava)
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -262,7 +290,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   **amount:** fix undefined symbol ([#231](https://github.com/core-ds/core-components/issues/231)) ([07a93ab](https://github.com/core-ds/core-components/commit/07a93abefd530532cdacb530baf27d239b7f7174))
+- **amount:** fix undefined symbol ([#231](https://github.com/core-ds/core-components/issues/231)) ([07a93ab](https://github.com/core-ds/core-components/commit/07a93abefd530532cdacb530baf27d239b7f7174))
 
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@3.0.0...@alfalab/core-components-amount@3.0.1) (2022-08-19)
 
@@ -272,12 +300,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -285,13 +313,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 # [2.5.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.4.3...@alfalab/core-components-amount@2.5.0) (2022-08-04)
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [2.4.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.4.2...@alfalab/core-components-amount@2.4.3) (2022-07-18)
 
@@ -301,7 +329,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [2.4.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.4.0...@alfalab/core-components-amount@2.4.1) (2022-07-14)
 
@@ -311,13 +339,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 # [2.3.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.2.1...@alfalab/core-components-amount@2.3.0) (2022-06-24)
 
 ### Features
 
--   **amount-input:** added functionality to enter negative values ([#106](https://github.com/core-ds/core-components/issues/106)) ([d6b6ca7](https://github.com/core-ds/core-components/commit/d6b6ca71d87b5c4c62d2e87cdbe9d1ff035852c4))
+- **amount-input:** added functionality to enter negative values ([#106](https://github.com/core-ds/core-components/issues/106)) ([d6b6ca7](https://github.com/core-ds/core-components/commit/d6b6ca71d87b5c4c62d2e87cdbe9d1ff035852c4))
 
 ## [2.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.2.0...@alfalab/core-components-amount@2.2.1) (2022-06-08)
 
@@ -327,13 +355,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **amount:** add rightAddons, add showPlus, make currency optional ([#955](https://github.com/core-ds/core-components/issues/955)) ([ac35b9a](https://github.com/core-ds/core-components/commit/ac35b9aaf842d88fd28caeb4f888cdf74facf644))
+- **amount:** add rightAddons, add showPlus, make currency optional ([#955](https://github.com/core-ds/core-components/issues/955)) ([ac35b9a](https://github.com/core-ds/core-components/commit/ac35b9aaf842d88fd28caeb4f888cdf74facf644))
 
 ## [2.0.3](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.0.2...@alfalab/core-components-amount@2.0.3) (2021-12-08)
 
 ### Bug Fixes
 
--   актуализируем @alfalab/utils ([#897](https://github.com/core-ds/core-components/issues/897)) ([30fb88e](https://github.com/core-ds/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+- актуализируем @alfalab/utils ([#897](https://github.com/core-ds/core-components/issues/897)) ([30fb88e](https://github.com/core-ds/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
 
 ## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@2.0.1...@alfalab/core-components-amount@2.0.2) (2021-07-23)
 
@@ -347,7 +375,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [1.0.18](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@1.0.17...@alfalab/core-components-amount@1.0.18) (2021-04-26)
 
@@ -365,7 +393,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+- one more sborka bug ([#579](https://github.com/core-ds/core-components/issues/579)) ([9fbe0be](https://github.com/core-ds/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
 
 ## [1.0.13](https://github.com/core-ds/core-components/compare/@alfalab/core-components-amount@1.0.12...@alfalab/core-components-amount@1.0.13) (2021-03-14)
 
@@ -387,20 +415,20 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   update versions ([d1b69a3](https://github.com/core-ds/core-components/commit/d1b69a3f0f488bdef5bea2b3aafc0e275058f321))
--   update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
+- update versions ([d1b69a3](https://github.com/core-ds/core-components/commit/d1b69a3f0f488bdef5bea2b3aafc0e275058f321))
+- update versions ([#525](https://github.com/core-ds/core-components/issues/525)) ([31b2e4c](https://github.com/core-ds/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
 
 # @alfalab/core-components-amount-v1.0.0 (2020-11-25)
 
 ### Features
 
--   fix eslint ([c4f5261](https://github.com/core-ds/core-components/commit/c4f5261ec4ed63f285e0cb7dc0bdbc17e94dc38d))
--   **core-components-amount:** add boilerplate for amount ([5614885](https://github.com/core-ds/core-components/commit/5614885237a9a4843fb312c22c6b5810a3509e63))
--   **core-components-amount:** add click theme ([b4b0699](https://github.com/core-ds/core-components/commit/b4b0699dcffd2f505935489d66fd0d48b633ecf7))
--   **core-components-amount:** allow withZeroMinorPart formatting ([e86529d](https://github.com/core-ds/core-components/commit/e86529d72e28e8cde8bffbfd4b4d263129ec4d78))
--   **core-components-amount:** export CurrencyCodes ([1a6155a](https://github.com/core-ds/core-components/commit/1a6155a63655084895831094127404cdbcb0ef54))
--   **core-components-amount:** feat, change api, add PureAmount ([f946776](https://github.com/core-ds/core-components/commit/f94677645a8244dedf6f003f901290d5a2c6c16d))
--   **core-components-amount:** implemented amount, add demo ([1e78129](https://github.com/core-ds/core-components/commit/1e781295de03ff4aac5f5a7ec761f22b529716bd))
--   **core-components-themes:** add tabs site theme, improve plugin ([da5d9ec](https://github.com/core-ds/core-components/commit/da5d9ec07f16b328c15ebebbb55498e25ff866b1))
--   **lint:** add lint ([3bd5492](https://github.com/core-ds/core-components/commit/3bd5492bba179083cb26aa99c295a43f8e3be037))
--   **storybook:** add theme switcher to storybook ([#199](https://github.com/core-ds/core-components/issues/199)) ([7794f80](https://github.com/core-ds/core-components/commit/7794f80dc83cba171ffe7282e54d5ce0f4bd8245))
+- fix eslint ([c4f5261](https://github.com/core-ds/core-components/commit/c4f5261ec4ed63f285e0cb7dc0bdbc17e94dc38d))
+- **core-components-amount:** add boilerplate for amount ([5614885](https://github.com/core-ds/core-components/commit/5614885237a9a4843fb312c22c6b5810a3509e63))
+- **core-components-amount:** add click theme ([b4b0699](https://github.com/core-ds/core-components/commit/b4b0699dcffd2f505935489d66fd0d48b633ecf7))
+- **core-components-amount:** allow withZeroMinorPart formatting ([e86529d](https://github.com/core-ds/core-components/commit/e86529d72e28e8cde8bffbfd4b4d263129ec4d78))
+- **core-components-amount:** export CurrencyCodes ([1a6155a](https://github.com/core-ds/core-components/commit/1a6155a63655084895831094127404cdbcb0ef54))
+- **core-components-amount:** feat, change api, add PureAmount ([f946776](https://github.com/core-ds/core-components/commit/f94677645a8244dedf6f003f901290d5a2c6c16d))
+- **core-components-amount:** implemented amount, add demo ([1e78129](https://github.com/core-ds/core-components/commit/1e781295de03ff4aac5f5a7ec761f22b529716bd))
+- **core-components-themes:** add tabs site theme, improve plugin ([da5d9ec](https://github.com/core-ds/core-components/commit/da5d9ec07f16b328c15ebebbb55498e25ff866b1))
+- **lint:** add lint ([3bd5492](https://github.com/core-ds/core-components/commit/3bd5492bba179083cb26aa99c295a43f8e3be037))
+- **storybook:** add theme switcher to storybook ([#199](https://github.com/core-ds/core-components/issues/199)) ([7794f80](https://github.com/core-ds/core-components/commit/7794f80dc83cba171ffe7282e54d5ce0f4bd8245))

@@ -53,7 +53,7 @@
     }
 }
 
-@each $size in 3xs, 2xs, xs, s, m, l {
+@each $size in 2, 4, 8, 12, 16, 20 {
     .control-left-padding-$(size) {
         padding-left: var(--gap-$(size));
     }

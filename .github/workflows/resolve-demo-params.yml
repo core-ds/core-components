@@ -20,6 +20,10 @@ on:
                 description: Demo directory
                 value: ${{ jobs.resolve.outputs.dir }}
 
+defaults:
+    run:
+        shell: bash
+
 jobs:
     resolve:
         runs-on: ubuntu-latest
@@ -36,7 +40,6 @@ jobs:
                   cache: yarn
 
             - name: install dependencies
-              shell: bash
               working-directory: tools/gh-actions/resolve-demo-params
               run: |
                   yarn install --frozen-lockfile

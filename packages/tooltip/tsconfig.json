@@ -16,6 +16,8 @@
             "@alfalab/core-components-popover/*": ["../popover/src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
+            "@alfalab/core-components-shared": ["../shared/src"],
+            "@alfalab/core-components-shared/*": ["../shared/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
             "@alfalab/core-components-test-utils/*": ["../test-utils/src/*"],
             "@alfalab/core-components-tooltip": ["./src"],
@@ -28,6 +30,7 @@
         { "path": "../mq/tsconfig.build.json" },
         { "path": "../popover/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" },
         { "path": "../test-utils/tsconfig.build.json" }
     ]
 }

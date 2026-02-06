@@ -16,9 +16,9 @@ export type Items = Array<{
     disabled?: boolean;
 }>;
 
-type BorderRadius = 'm' | 'l' | 'xl';
+type BorderRadius = 8 | 12 | 16;
 
-type PaddingSize = '3xs' | '2xs' | 'xs' | 's' | 'm' | 'l';
+type PaddingSize = 2 | 4 | 8 | 12 | 16 | 20;
 
 type PaddingObj = {
     top?: PaddingSize;

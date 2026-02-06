@@ -1,4 +1,11 @@
-import { cloneElement, type FC, type ReactElement, useCallback, useMemo } from 'react';
+import {
+    cloneElement,
+    type FC,
+    type ReactElement,
+    type RefObject,
+    useCallback,
+    useMemo,
+} from 'react';
 import cn from 'classnames';
 
 import { type NotificationProps as CoreNotificationProps } from '@alfalab/core-components-notification';
@@ -9,12 +16,14 @@ type NotificationProps = {
     element: NotificationElement;
     className: string;
     onRemoveNotification: (id: string) => void;
+    containerRef: RefObject<HTMLDivElement>;
 };
 
 export const Notification: FC<NotificationProps> = ({
     element,
     className,
     onRemoveNotification,
+    containerRef,
 }) => {
     const { onClose, onCloseTimeout } = element.props;
 
@@ -43,8 +52,10 @@ export const Notification: FC<NotificationProps> = ({
             offset: 0,
             onClose: handleClose,
             onCloseTimeout: handleCloseTimeout,
+            containerRef,
         }),
-        [element, handleClose, handleCloseTimeout, className],
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [element, handleClose, handleCloseTimeout, containerRef],
     );
 
     return cloneElement(element, notificationProps);

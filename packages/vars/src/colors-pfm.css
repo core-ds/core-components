@@ -1,17 +1,17 @@
 :root {
-    --color-static-pfm-custom-blue: #61a5fd;
-    --color-static-pfm-custom-cyan: #19afde;
-    --color-static-pfm-custom-indigo: #9b96f9;
-    --color-static-pfm-custom-jungle: #14b88c;
-    --color-static-pfm-custom-magenta: #fb739c;
-    --color-static-pfm-custom-orange: #f59322;
-    --color-static-pfm-custom-pistachio: #84b219;
-    --color-static-pfm-custom-purple: #ce83ea;
-    --color-static-pfm-custom-red: #f7553b;
-    --color-static-pfm-custom-yellow: #f6d411;
+    --color-static-pfm-custom-blue: #71a5f2;
+    --color-static-pfm-custom-cyan: #51b1d7;
+    --color-static-pfm-custom-indigo: #9b95f2;
+    --color-static-pfm-custom-jungle: #40ba93;
+    --color-static-pfm-custom-magenta: #f8789e;
+    --color-static-pfm-custom-orange: #f29b3e;
+    --color-static-pfm-custom-pistachio: #8eb43c;
+    --color-static-pfm-custom-purple: #d086ec;
+    --color-static-pfm-custom-red: #ec5742;
+    --color-static-pfm-custom-yellow: #f6d53d;
     --color-static-pfm-system-acrux: #09aaaf;
     --color-static-pfm-system-alcor: #d884fe;
-    --color-static-pfm-system-aldebaran: #ff8d73;
+    --color-static-pfm-system-aldebaran: #ff8d79;
     --color-static-pfm-system-andromeda: #ffa1bc;
     --color-static-pfm-system-apollo: #e12169;
     --color-static-pfm-system-atlas: #ce59fa;
@@ -19,7 +19,7 @@
     --color-static-pfm-system-capella: #cca504;
     --color-static-pfm-system-carmenta: #0da07f;
     --color-static-pfm-system-concordia: #0bb1e7;
-    --color-static-pfm-system-cupid: #fe50c8;
+    --color-static-pfm-system-cupid: #f859c5;
     --color-static-pfm-system-electra: #e2a9fb;
     --color-static-pfm-system-enif: #80c002;
     --color-static-pfm-system-fides: #3fcdfe;
@@ -30,7 +30,7 @@
     --color-static-pfm-system-kaus: #6a9e02;
     --color-static-pfm-system-kepler: #fa9313;
     --color-static-pfm-system-maia: #ff72a2;
-    --color-static-pfm-system-mars: #fd6544;
+    --color-static-pfm-system-mars: #fe5e48;
     --color-static-pfm-system-meissa: #0496c6;
     --color-static-pfm-system-mercury: #ea8313;
     --color-static-pfm-system-mira: #15d9ac;
@@ -41,11 +41,11 @@
     --color-static-pfm-system-orion: #e8c305;
     --color-static-pfm-system-pluto: #b3aaff;
     --color-static-pfm-system-proserpina: #0d9336;
-    --color-static-pfm-system-proxima: #fe88e3;
+    --color-static-pfm-system-proxima: #fd89e2;
     --color-static-pfm-system-regulus: #3193fc;
     --color-static-pfm-system-rigel: #63aafd;
     --color-static-pfm-system-saturn: #dcb30b;
-    --color-static-pfm-system-sirius: #ff9f93;
+    --color-static-pfm-system-sirius: #fea08f;
     --color-static-pfm-system-spica: #95c3fd;
     --color-static-pfm-system-sun: #fbd700;
     --color-static-pfm-system-tars: #a0a1a9;
@@ -53,10 +53,10 @@
     --color-static-pfm-system-triton: #058a8f;
     --color-static-pfm-system-uranus: #49dfe7;
     --color-static-pfm-system-vega: #09c8d0;
-    --color-static-pfm-system-venus: #ef25a9;
+    --color-static-pfm-system-venus: #e836a6;
     --color-static-pfm-system-voyager: #5f5f66;
-    --color-static-pfm-system-vulcan: #ec2e14;
+    --color-static-pfm-system-vulcan: #ec2d20;
     --color-static-pfm-system-webb: #babbc2;
-    --color-static-pfm-system-wezen: #fb3e8b;
+    --color-static-pfm-system-wezen: #fc3c8b;
     --color-static-pfm-system-zwicky: #99d827;
 }

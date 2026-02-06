@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { type PayloadProps } from '../../types/payload.types';
 import { type SeriaProps } from '../../types/seria.types';
@@ -57,14 +57,14 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
                 )}
                 <ul className={cn(styles.tooltipList)}>
                     <li className={cn(styles.tooltipItem)} style={labelStyle}>
-                        <Text
+                        <TypographyText
                             view='primary-medium'
                             tag='span'
                             weight='medium'
                             className={cn(styles.tooltipLabel)}
                         >
                             {labelFormatter ? labelFormatter(label) : label}
-                        </Text>
+                        </TypographyText>
                     </li>
                     {payload.map((entry: PayloadProps) => {
                         const data: SeriaProps | undefined = series.find(
@@ -79,7 +79,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
                                 key={entry.dataKey}
                                 style={{ color: entry.color }}
                             >
-                                <Text
+                                <TypographyText
                                     view='primary-medium'
                                     tag='span'
                                     weight='medium'
@@ -87,12 +87,12 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
                                 >
                                     {entry?.formatter ? entry.formatter(entry.value) : entry.value}
                                     {separator || ' '}
-                                </Text>
-                                <Text
+                                </TypographyText>
+                                <TypographyText
                                     view='secondary-large'
                                     tag='span'
                                     className={cn(styles.tooltipName)}
-                                >{`${entry.name}`}</Text>
+                                >{`${entry.name}`}</TypographyText>
                             </li>
                         );
                     })}
