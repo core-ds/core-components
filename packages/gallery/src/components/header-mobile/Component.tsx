@@ -26,6 +26,8 @@ export const HeaderMobile = () => {
 
     const canDownload = currentImage?.canDownload ?? true;
     const showDownloadButton = !meta?.broken && canDownload;
+    const canShare = currentImage?.canShare ?? true;
+    const showShareButton = !meta?.broken && canShare;
 
     const handleShareClick = async () => {
         if (!currentImage || !navigator.share) {
@@ -105,7 +107,7 @@ export const HeaderMobile = () => {
                         dataTestId={TestIds.DOWNLOAD_BUTTON}
                     />
                 )}
-                {!meta?.broken && <Buttons.Share onClick={handleShareClick} />}
+                {showShareButton && <Buttons.Share onClick={handleShareClick} />}
             </div>
         </div>
     );
