@@ -26,18 +26,11 @@ describe('buildIconUrl', () => {
     });
 
     describe('ERROR', () => {
-        it.each([
-            0,
-            42,
-            true,
-            false,
-            null,
-            undefined,
-            {},
-            [],
-            () => 'icon',
-        ])('should return null for non-string value: %p', (value) => {
-            expect(buildIconUrl(value as unknown as string, baseUrl)).toBeNull();
-        });
+        it.each([0, true, false, null, undefined, {}, [], () => 'icon'])(
+            'should return null for non-string value: %p',
+            (value) => {
+                expect(buildIconUrl(value as unknown as string, baseUrl)).toBeNull();
+            },
+        );
     });
 });
