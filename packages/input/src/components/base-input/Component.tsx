@@ -1,6 +1,7 @@
 import React, {
     type AnimationEvent,
     forwardRef,
+    Fragment,
     type KeyboardEvent,
     type MouseEvent,
     useCallback,
@@ -11,11 +12,12 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
+import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { useFocus, useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { buildRightAddons } from '../../helpers/build-right-addons';
-import { getAddonsByPriority } from '../../helpers/get-addons-by-priority';
 import { hasStepperInRightAddon } from '../../helpers/has-stepper-in-right-addon';
+import { ClearButton } from '../clear-button';
+import { LockIcon } from '../lock-icon';
 
 import { type BaseInputProps } from './types/base-input-props';
 
@@ -223,20 +225,65 @@ export const BaseInput = forwardRef<
             [onAnimationStart],
         );
 
-        const rightAddonsMap = getAddonsByPriority(
-            buildRightAddons({
-                size,
-                rightAddons,
-                clearButtonVisible,
-                readOnly: readOnlyProp,
-                success,
-                dataTestId,
-                disabled,
-                error,
-                colors,
-                handleClear,
-            }),
-        );
+        /**
+         * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+         * [4] - Clear
+         * [3] - Status (error, success)
+         * [2] - Common (info, e.g.)
+         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+         * [0] - Lock
+         */
+        const renderRightAddons = () => {
+            const statusBadgeSize = size === 40 ? 16 : 20;
+
+            const renderConfig: Record<string, boolean> = {
+                clearAddon: clearButtonVisible,
+                errorAddon: Boolean(error),
+                successAddon: Boolean(success && !error),
+                rightAddon: Boolean(rightAddons),
+                lockAddon: Boolean(disabled || readOnlyProp),
+            };
+
+            if (Object.values(renderConfig).every((addon) => !addon)) {
+                return undefined;
+            }
+
+            const { clearAddon, errorAddon, successAddon, rightAddon, lockAddon } = renderConfig;
+
+            return (
+                <Fragment>
+                    {clearAddon && (
+                        <ClearButton
+                            onClick={handleClear}
+                            disabled={disabled}
+                            colors={colors}
+                            dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                            size={size}
+                        />
+                    )}
+                    {errorAddon && (
+                        <div className={cn(styles.errorIcon)} data-addon='error-icon'>
+                            <StatusBadge
+                                view='negative-alert'
+                                size={statusBadgeSize}
+                                dataTestId={getDataTestId(dataTestId, 'error-icon')}
+                            />
+                        </div>
+                    )}
+                    {successAddon && (
+                        <div className={cn(styles.successIcon)}>
+                            <StatusBadge
+                                view='positive-checkmark'
+                                size={statusBadgeSize}
+                                dataTestId={getDataTestId(dataTestId, 'success-icon')}
+                            />
+                        </div>
+                    )}
+                    {rightAddon && rightAddons}
+                    {lockAddon && <LockIcon colors={colors} size={size} />}
+                </Fragment>
+            );
+        };
 
         return FormControlComponent ? (
             <FormControlComponent
@@ -265,7 +312,7 @@ export const BaseInput = forwardRef<
                 labelView={labelView}
                 hint={hint}
                 leftAddons={leftAddons}
-                rightAddons={rightAddonsMap}
+                rightAddons={renderRightAddons()}
                 bottomAddons={bottomAddons}
                 onClick={onClick}
                 onMouseDown={onMouseDown}
