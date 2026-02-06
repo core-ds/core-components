@@ -6,6 +6,10 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
 
+defaults:
+    run:
+        shell: bash
+
 jobs:
     target:
         name: analyze target package sizes
@@ -18,7 +22,6 @@ jobs:
             - uses: ./.github/actions/ci-setup
 
             - name: analyze
-              shell: bash
               run: |
                   yarn analyze-package-sizes
 
@@ -37,7 +40,6 @@ jobs:
             - uses: ./.github/actions/ci-setup
 
             - name: analyze
-              shell: bash
               run: |
                   yarn analyze-package-sizes
 

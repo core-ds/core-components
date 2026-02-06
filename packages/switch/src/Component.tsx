@@ -69,13 +69,6 @@ export type SwitchProps = Omit<
     disabled?: boolean;
 
     /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props disabled
-     * Управление состоянием активен / неактивен
-     */
-    inactive?: boolean;
-
-    /**
      * Отображение ошибки
      */
     error?: ReactNode | boolean;
@@ -112,7 +105,6 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             addons,
             block,
             disabled,
-            inactive,
             error,
             label,
             hint,
@@ -141,8 +133,8 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         return (
             <label
                 className={cn(styles.component, styles[align], className, {
-                    [styles.disabled]: disabled || inactive,
-                    [colorStyles[colors].disabled]: disabled || inactive,
+                    [styles.disabled]: disabled,
+                    [colorStyles[colors].disabled]: disabled,
 
                     [styles.checked]: checked,
                     [colorStyles[colors].checked]: checked,
@@ -156,7 +148,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 <input
                     type='checkbox'
                     onChange={handleChange}
-                    disabled={disabled || inactive}
+                    disabled={disabled}
                     checked={checked}
                     name={name}
                     value={value}

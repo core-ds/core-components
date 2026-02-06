@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import { ToastPlateDesktop as ToastPlate } from './desktop';
-import { getBaseToastPlateTestIds } from './components/base-toast-plate/utils/getBaseToastPlateTestIds';
+import { getBaseToastPlateTestIds } from './utils/getBaseToastPlateTestIds';
 
 jest.useFakeTimers();
 

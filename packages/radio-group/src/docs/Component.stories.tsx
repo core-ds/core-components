@@ -64,7 +64,7 @@ export const radio_group: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={select('Tag.size', ['s', 'm'], 's')}
+                                size={select('Tag.size', [48, 56], 48)}
                                 value={order[index][1]}
                             >
                                 {`${order[index][0]} вариант`}
@@ -119,7 +119,7 @@ export const radio_group_mobile: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={select('Tag.size', ['s', 'm'], 's')}
+                                size={select('Tag.size', [48, 56], 48)}
                                 value={order[index][1]}
                             >
                                 {`${order[index][0]} вариант`}
@@ -174,7 +174,7 @@ export const radio_group_desktop: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={select('Tag.size', ['s', 'm'], 's')}
+                                size={select('Tag.size', [48, 56], 48)}
                                 value={order[index][1]}
                             >
                                 {`${order[index][0]} вариант`}

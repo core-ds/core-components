@@ -58,9 +58,9 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
 
     /**
      * Размер компонента
-     * @description s и m deprecated, используйте вместо них 20 и 24 соответственно
+     * @default 20
      */
-    size?: 's' | 'm' | 20 | 24;
+    size?: 20 | 24;
 
     /**
      * Доп. класс чекбокса
@@ -80,7 +80,7 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     /**
      * Дополнительный слот
      */
-    addons?: React.ReactNode;
+    addons?: ReactNode;
 
     /**
      * Растягивать ли компонент на всю ширину
@@ -91,13 +91,6 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * Управление состоянием включен / выключен
      */
     disabled?: boolean;
-
-    /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props disabled
-     * Управление состоянием активен / неактивен
-     */
-    inactive?: boolean;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -137,13 +130,6 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     colors?: 'default' | 'inverted';
 };
 
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-20',
-    m: 'size-24',
-    20: 'size-20',
-    24: 'size-24',
-};
-
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
     (
         {
@@ -160,7 +146,6 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             className,
             name,
             disabled,
-            inactive,
             dataTestId,
             indeterminate = false,
             hiddenInput = false,
@@ -192,13 +177,13 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 className={cn(
                     styles.component,
                     colorStyle.component,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    styles[`size-${size}`],
                     styles[align],
                     className,
                     labelProps?.className,
                     {
-                        [styles.disabled]: disabled || inactive,
-                        [colorStyle.disabled]: disabled || inactive,
+                        [styles.disabled]: disabled,
+                        [colorStyle.disabled]: disabled,
                         [styles.checked]: checked,
                         [colorStyle.checked]: checked,
                         [styles.indeterminate]: indeterminate,
@@ -214,7 +199,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         type='checkbox'
                         onChange={handleChange}
                         name={name}
-                        disabled={disabled || inactive}
+                        disabled={disabled}
                         checked={checked}
                         data-test-id={dataTestId}
                         ref={inputRef}

@@ -192,7 +192,7 @@ render(() => {
                 label={label}
                 fieldProps={{ size: 32 }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectDesktop
                 allowUnselect={true}
                 popoverPosition='bottom-start'
@@ -204,7 +204,7 @@ render(() => {
                 label={label}
                 fieldProps={{ size: 32 }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <Popover
                 anchorElement={filterTag}
                 offset={[0, 4]}
@@ -234,7 +234,7 @@ render(() => {
             >
                 {selectedRange ? checkedContent : content}
             </FilterTag>
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch
                 block={true}
                 checked={label}
@@ -395,7 +395,7 @@ render(() => {
                 label={label}
                 fieldProps={{ size: 32 }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectMobile
                 placeholder='Множественный выбор'
                 allowUnselect={true}
@@ -408,7 +408,7 @@ render(() => {
                 label={label}
                 fieldProps={{ size: 32 }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <CalendarMobile
                 open={open}
                 onClose={() => setOpen(false)}
@@ -427,7 +427,7 @@ render(() => {
             >
                 {selectedRange ? checkedContent : content}
             </FilterTag>
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch
                 block={true}
                 checked={label}

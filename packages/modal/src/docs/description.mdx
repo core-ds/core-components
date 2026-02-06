@@ -83,7 +83,7 @@ render(() => {
 
     return (
         <Container>
-            <Button type='button' size='s' onClick={handleModalAnatomy}>
+            <Button type='button' size={48} onClick={handleModalAnatomy}>
                 Показать анатомию
             </Button>
             <ModalDesktop open={modalAnatomy} onClose={handleModalAnatomy} size={600}>
@@ -176,7 +176,7 @@ render(() => {
 
     return (
         <Container>
-            <Button type='button' size='xs' onClick={handleOpen}>
+            <Button type='button' size={40} onClick={handleOpen}>
                 Показать анатомию
             </Button>
             <ModalMobile open={open} onClose={handleClose} size={600}>
@@ -319,25 +319,24 @@ render(() => {
 
     return (
         <Container>
-            <Button size='s' onClick={handleOpen}>
+            <Button size={48} onClick={handleOpen}>
                 Показать модалку
             </Button>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <RadioGroup onChange={handleSizeChange} value={size} label='Размер модалки'>
                 {SIZES.map((item) => (
-                    <Radio size='m' value={item.value} label={item.label} key={item.value} />
+                    <Radio size={24} value={item.value} label={item.label} key={item.value} />
                 ))}
             </RadioGroup>
 
-            <Gap size='3xl' />
+            <Gap size={40} />
 
             <CheckboxGroup label='Настройки шапки' onChange={handleHeaderSettingsChange}>
                 {HEADER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={headerSettings[item.name]}
@@ -345,27 +344,25 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <CheckboxGroup
                 label='Примеры наполнения контентной части'
                 onChange={handleHeaderSettingsChange}
             >
                 <Switch
-                    size='m'
                     label='Заголовок в контентной области'
                     name='titleInContent'
                     checked={headerSettings.titleInContent}
                 />
             </CheckboxGroup>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>
                 {FOOTER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={footerSettings[item.name]}
@@ -373,7 +370,12 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <ModalDesktop open={open} onClose={handleClose} size={size === 'fullscreen' ? 'fullscreen' : Number(size)} key={getKey()}>
+            <ModalDesktop
+                open={open}
+                onClose={handleClose}
+                size={size === 'fullscreen' ? 'fullscreen' : Number(size)}
+                key={getKey()}
+            >
                 {showHeader && (
                     <ModalDesktop.Header
                         hasCloser={headerSettings.hasCloser}
@@ -392,7 +394,7 @@ render(() => {
                             <Typography.Title view='medium' tag='h3' font='system'>
                                 {`Почему банк проверяет мои операции?`}
                             </Typography.Title>
-                            <Gap size='m' />
+                            <Gap size={16} />
                         </>
                     ) : undefined}
                     <Text />
@@ -402,14 +404,14 @@ render(() => {
                         <ModalDesktop.Controls
                             primary={
                                 footerSettings.hasPrimaryButton ? (
-                                    <Button view='primary' size='s' onClick={handleClose}>
+                                    <Button view='primary' size={48} onClick={handleClose}>
                                         Primary
                                     </Button>
                                 ) : null
                             }
                             secondary={
                                 footerSettings.hasSecondaryButton ? (
-                                    <Button view='secondary' size='s' onClick={handleClose}>
+                                    <Button view='secondary' size={48} onClick={handleClose}>
                                         Secondary
                                     </Button>
                                 ) : null
@@ -552,11 +554,11 @@ render(() => {
 
     return (
         <Container>
-            <Button size='xs' onClick={handleOpen}>
+            <Button size={40} onClick={handleOpen}>
                 Показать модалку
             </Button>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки шапки</p>
 
@@ -569,13 +571,12 @@ render(() => {
                 Option={BaseOption}
             />
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <CheckboxGroup onChange={handleHeaderSettingsChange}>
                 {HEADER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={headerSettings[item.name]}
@@ -583,21 +584,20 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <CheckboxGroup
                 label='Примеры наполнения контентной части'
                 onChange={handleHeaderSettingsChange}
             >
                 <Switch
-                    size='m'
                     label='Заголовок в контентной области'
                     name='titleInContent'
                     checked={headerSettings.titleInContent}
                 />
             </CheckboxGroup>
 
-            <Gap size='2xl' />
+            <Gap size={32} />
 
             <p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки футера</p>
 
@@ -610,13 +610,12 @@ render(() => {
                 Option={BaseOption}
             />
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>
                 {FOOTER_SETTINGS.map((item) => (
                     <Switch
                         key={item.name}
-                        size='m'
                         label={item.label}
                         name={item.name}
                         checked={footerSettings[item.name]}
@@ -675,7 +674,7 @@ render(() => {
                             <Typography.Title view='xsmall' tag='div' font='system'>
                                 {`Почему банк проверяет мои операции?`}
                             </Typography.Title>
-                            <Gap size='m' />
+                            <Gap size={16} />
                         </>
                     ) : undefined}
 
@@ -689,7 +688,7 @@ render(() => {
                                 footerSettings.hasPrimaryButton ? (
                                     <ButtonMobile
                                         view='primary'
-                                        size='m'
+                                        size={56}
                                         onClick={handleClose}
                                         block={true}
                                     >
@@ -701,7 +700,7 @@ render(() => {
                                 footerSettings.hasSecondaryButton ? (
                                     <ButtonMobile
                                         view='secondary'
-                                        size='m'
+                                        size={56}
                                         onClick={handleClose}
                                         block={true}
                                     >
@@ -772,7 +771,7 @@ render(() => {
 
     return (
         <Container>
-            <Button size={document.body.clientWidth < 450 ? 'm' : 's'} onClick={handleOpen}>
+            <Button size={document.body.clientWidth < 450 ? 56 : 48} onClick={handleOpen}>
                 Показать модалку
             </Button>
 
@@ -796,7 +795,7 @@ render(() => {
                 </Modal.Content>
                 <Modal.Footer sticky={true}>
                     <Button
-                        size={document.body.clientWidth < 450 ? 'm' : 's'}
+                        size={document.body.clientWidth < 450 ? 56 : 48}
                         view='primary'
                         onClick={
                             item.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose

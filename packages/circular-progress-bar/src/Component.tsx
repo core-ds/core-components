@@ -3,7 +3,7 @@ import React, { type ElementType, type ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId, isObject, noop } from '@alfalab/core-components-shared';
-import { Text, TitleMobile } from '@alfalab/core-components-typography';
+import { TypographyText, TypographyTitleMobile } from '@alfalab/core-components-typography';
 
 import { type ComponentSize } from './types/component-size';
 import { type TypographyColor } from './types/typography-color';
@@ -27,7 +27,6 @@ export type CircularProgressBarProps = {
     /**
      * Уровень прогресса, %
      */
-
     value:
         | number
         | {
@@ -98,8 +97,7 @@ export type CircularProgressBarProps = {
     view?: 'positive' | 'negative';
 
     /**
-     * Размер (xxl — 144×144px, xl — 128×128px, l — 80×80px, m — 64×64px, s — 48×48px, xs — 24×24px)
-     * @description xs, s, m, l, xl, xxl deprecated, используйте вместо них 24, 48, 64, 80, 128, 144 соответственно
+     * Размер (144 — 144×144px, 128 — 128×128px, 80 — 80×80px, 64 — 64×64px, 48 — 48×48px, 24 — 24×24px)
      * @default 64
      */
     size?: ComponentSize;
@@ -142,12 +140,12 @@ export type CircularProgressBarProps = {
     /**
      * Высота компонента, min = 24; max = 144
      * использовать совместно с size :
-     * xxl от 144
-     * xl  от 128 до 143
-     * l   от 80 до 127
-     * m   от 64 до 79
-     * s   от 48 до 63
-     * xs  от 24 до 47
+     * 144 от 144
+     * 128 от 128 до 143
+     * 80 от 80 до 127
+     * 64 от 64 до 79
+     * 48 от 48 до 63
+     * 24 от 24 до 47
      */
     height?: number;
 
@@ -294,8 +292,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
 
     const renderTitleString = () =>
         SIZES[size] > 64 ? (
-            <TitleMobile
-                className={cn(styles.typography, styles.title)}
+            <TypographyTitleMobile
+                className={styles.title}
                 color={getTextColor(titleColor)}
                 tag='div'
                 font='system'
@@ -306,9 +304,9 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 dataTestId={getDataTestId(dataTestId, 'title')}
             >
                 {titleContent}
-            </TitleMobile>
+            </TypographyTitleMobile>
         ) : (
-            <Text
+            <TypographyText
                 className={styles.title}
                 color={getTextColor(titleColor)}
                 tag='div'
@@ -320,14 +318,14 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 dataTestId={getDataTestId(dataTestId, 'title')}
             >
                 {titleContent}
-            </Text>
+            </TypographyText>
         );
 
     const renderTitle = () => (typeof title === 'string' ? renderTitleString() : titleContent);
 
     const renderSubTitle = () =>
         typeof subtitle === 'string' ? (
-            <Text
+            <TypographyText
                 tag='div'
                 className={styles.subtitle}
                 color={getTextColor(subtitleColor)}
@@ -338,7 +336,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                 }}
             >
                 {subtitleContent}
-            </Text>
+            </TypographyText>
         ) : (
             subtitleContent
         );

@@ -8,6 +8,8 @@
         "paths": {
             "@alfalab/core-components-base-modal": ["../base-modal/src"],
             "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-drawer": ["./src"],
             "@alfalab/core-components-drawer/*": ["./src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
@@ -18,6 +20,7 @@
     },
     "references": [
         { "path": "../base-modal/tsconfig.build.json" },
+        { "path": "../button/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../test-utils/tsconfig.build.json" }
     ]

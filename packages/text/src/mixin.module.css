@@ -299,3 +299,15 @@
 .paragraph-component {
     @mixin paragraph_component;
 }
+
+.accent-tagline {
+    @mixin accent_tagline;
+}
+
+.action-tagline {
+    @mixin action_tagline;
+}
+
+.paragraph-tagline {
+    @mixin paragraph_tagline;
+}

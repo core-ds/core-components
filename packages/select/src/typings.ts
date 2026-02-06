@@ -149,15 +149,14 @@ export interface BaseSelectProps {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     * @default 48
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: FormControlProps['size'];
 
     /**
      * Размер пунктов меню
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    optionsSize?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    optionsSize?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -554,9 +553,8 @@ export type OptionsListProps = Pick<SelectProps, 'client'> & {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Компонент пункта меню
@@ -703,9 +701,8 @@ export type OptgroupProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Заголовок группы
@@ -752,9 +749,8 @@ export type OptionCommonProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Контент пункта меню

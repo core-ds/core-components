@@ -156,7 +156,7 @@ export const Countdown: FC<CountdownProps> = ({
 
     const retryButton = (
         <Button
-            size='xs'
+            size={40}
             view='secondary'
             onClick={handleRepeatSmsButtonClick}
             className={styles.getCodeButton}

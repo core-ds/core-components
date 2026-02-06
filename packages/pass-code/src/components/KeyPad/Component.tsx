@@ -85,7 +85,11 @@ export const KeyPad: React.FC<KeyPadProps> = ({
 
                 if (rightAddons) {
                     if (rightAddonsTitle) {
-                        return <div title={rightAddonsTitle}>{rightAddons}</div>;
+                        return (
+                            <div key='right-addons-title' title={rightAddonsTitle}>
+                                {rightAddons}
+                            </div>
+                        );
                     }
 
                     return rightAddons;

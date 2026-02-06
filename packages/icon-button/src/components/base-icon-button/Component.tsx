@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
-import { transformSize } from '../../helpers/transformSize';
 import { type IconButtonProps } from '../../types/icon-button-props';
 
 import defaultColors from './default.module.css';
@@ -14,17 +13,6 @@ import invertedColors from './inverted.module.css';
 const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
-
-const SIZE_TO_CLASSNAME_MAP = {
-    xxs: 'size-24',
-    xs: 'size-32',
-    s: 'size-48',
-    24: 'size-24',
-    32: 'size-32',
-    40: 'size-40',
-    48: 'size-48',
-    56: 'size-56',
 };
 
 type BaseIconButtonProps = {
@@ -61,7 +49,7 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
                     colorStyles[colors][view],
                     colorStyles[colors].component,
                     clientStyles.component,
-                    clientStyles[`border_${transformSize(size)}`],
+                    clientStyles[`border_${size}`],
                     {
                         [colorStyles[colors].loader]: restProps.loading,
                         [colorStyles[colors].transparentBg]: transparentBg,
@@ -69,13 +57,7 @@ export const BaseIconButton = forwardRef<HTMLButtonElement, IconButtonProps & Ba
                 )}
                 size={48}
             >
-                <span
-                    className={cn(
-                        styles.iconWrapper,
-                        styles[SIZE_TO_CLASSNAME_MAP[size]],
-                        styles[alignIcon],
-                    )}
-                >
+                <span className={cn(styles.iconWrapper, styles[`size-${size}`], styles[alignIcon])}>
                     {React.isValidElement(Icon) ? (
                         React.cloneElement(Icon as ReactElement<{ className?: string }>, {
                             className: cn(

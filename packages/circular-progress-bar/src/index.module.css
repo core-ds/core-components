@@ -9,10 +9,6 @@
 
     /* negative */
     --circular-progress-bar-negative-color: var(--color-light-status-negative);
-
-    /* theme */
-    --circular-progress-bar-font-family: var(--font-family-system);
-    --circular-progress-bar-font-weight: 600;
 }
 
 .component {
@@ -62,12 +58,6 @@
         align-items: center;
         justify-content: center;
     }
-}
-
-.typography {
-    font-feature-settings: 'ss01';
-    font-weight: var(--circular-progress-bar-font-weight);
-    font-family: var(--circular-progress-bar-font-family);
 }
 
 .size-144 {
