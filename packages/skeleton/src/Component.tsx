@@ -12,7 +12,7 @@ const colorStyles = {
 
 export type BorderRadiusSize = 0 | 2 | 4 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 36 | 64 | 'pill';
 
-export type SkeletonProps = {
+export interface SkeletonProps {
     /**
      * Флаг, явно задающий состояние, при котором контент закрывается прелоадером
      */
@@ -59,7 +59,7 @@ export type SkeletonProps = {
      * @default 8
      */
     borderRadius?: BorderRadiusSize;
-};
+}
 
 export const Skeleton: React.FC<SkeletonProps> = ({
     visible,
