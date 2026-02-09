@@ -1,8 +1,13 @@
-/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable no-param-reassign, no-underscore-dangle */
 import { type Ref, useCallback, useRef, useState } from 'react';
 import lottie, {
     type AnimationConfigWithData,
     type AnimationConfigWithPath,
+    type AnimationDirection,
+    type AnimationEventCallback,
+    type AnimationEventName,
+    type AnimationEvents,
     type AnimationItem,
 } from 'lottie-web/build/player/lottie_light';
 
@@ -25,9 +30,9 @@ interface InternalAnimationItem extends AnimationItem {
 
 export function useLottie<T extends Element>(
     props: UseLottieProps,
-): [ref: Ref<T>, animation: AnimationItem | null, reset: () => void] {
+): [ref: Ref<T>, animation: AnimationItemAdapter | null, reset: () => void] {
     const ref = useRef<T>(null);
-    const [animation, setAnimation] = useState<InternalAnimationItem | null>(null);
+    const [animation, setAnimation] = useState<AnimationItemAdapter | null>(null);
     const [options, setOptions] = useState<LottieParams>(props);
     const path = hasOwnProperty(props, 'path') ? props.path : undefined;
     const animationData: unknown = hasOwnProperty(props, 'animationData')
@@ -61,17 +66,14 @@ export function useLottie<T extends Element>(
             ((hasOwnProperty(options, 'animationData') && options.animationData) ||
                 (hasOwnProperty(options, 'path') && options.path))
         ) {
-            const animationItem: InternalAnimationItem = lottie.loadAnimation({
-                ...options,
-                container,
-            });
+            const animationItem = adaptAnimationItem(
+                lottie.loadAnimation({ ...options, container }),
+            );
 
             setAnimation(animationItem);
 
             return () => {
                 animationItem.destroy();
-                // monkey patch
-                animationItem._cbs = [];
                 setAnimation(null);
             };
         }
@@ -84,4 +86,83 @@ export function useLottie<T extends Element>(
     }, []);
 
     return [ref, animation, reset];
+}
+
+type AnimationAdapterEventName = AnimationEventName | 'reverseOnRepeat';
+
+interface AnimationAdapterEvents extends AnimationEvents {
+    reverseOnRepeat: undefined;
+}
+
+export interface AnimationItemAdapter
+    extends Pick<AnimationItem, 'destroy' | 'setDirection' | 'setSpeed'> {
+    stop(): void;
+    play(restart?: boolean): void;
+    pause(): void;
+    readonly playCount: number;
+    readonly isLoaded: boolean;
+    readonly isPaused: boolean;
+    readonly playDirection: AnimationDirection;
+    triggerEvent<T extends AnimationAdapterEventName>(
+        name: T,
+        args: AnimationAdapterEvents[T],
+    ): void;
+    addEventListener<T extends AnimationAdapterEventName>(
+        name: T,
+        callback: AnimationEventCallback<AnimationAdapterEvents[T]>,
+    ): () => void;
+    removeEventListener<T extends AnimationAdapterEventName>(
+        name: T,
+        callback?: AnimationEventCallback<AnimationAdapterEvents[T]>,
+    ): void;
+}
+
+function adaptAnimationItem(animation: InternalAnimationItem): AnimationItemAdapter {
+    return {
+        // @ts-expect-error
+        addEventListener: animation.addEventListener.bind(animation),
+        // @ts-expect-error
+        removeEventListener: animation.removeEventListener.bind(animation),
+        // @ts-expect-error
+        triggerEvent: animation.triggerEvent.bind(animation),
+        setDirection: animation.setDirection.bind(animation),
+        setSpeed: animation.setSpeed.bind(animation),
+        get playDirection() {
+            return animation.playDirection as AnimationDirection;
+        },
+        get playCount() {
+            return animation.playCount;
+        },
+        get isLoaded() {
+            return animation.isLoaded;
+        },
+        get isPaused() {
+            return animation.isPaused;
+        },
+        destroy() {
+            animation.destroy();
+            // monkey patch
+            animation._cbs = [];
+        },
+        pause() {
+            animation.pause();
+        },
+        play(restart = false) {
+            if (restart) {
+                animation.goToAndPlay(
+                    animation[animation.playDirection === 1 ? 'firstFrame' : 'totalFrames'],
+                    true,
+                );
+            } else {
+                animation.play();
+            }
+        },
+        stop() {
+            animation.goToAndPlay(
+                animation[animation.playDirection === 1 ? 'totalFrames' : 'firstFrame'],
+                true,
+            );
+            animation.pause();
+        },
+    };
 }
