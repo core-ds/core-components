@@ -6,24 +6,23 @@ render(() => {
     const [{ play, direction }, setData] = React.useState({ play: true, direction: 1 });
     const handleTooglePlay = () => {
         setData((data) => ({ ...data, play: !data.play }));
-        lottieRef.current.reset();
     };
 
     return (
         <React.StrictMode>
             <div>
                 <Button onClick={handleTooglePlay}>toogle</Button>
-                <div style={{ width: 400, height: 400 }}>
-                    <Lottie
-                        ref={lottieRef}
-                        play={play}
-                        direction={direction}
-                        speed={1}
-                        iterations={1}
-                        animation={{ path: 'http://localhost:9009/twitter-heart.json' }}
-                        loadingFallback="Loading..."
-                    />
-                </div>
+                <Lottie
+                    ref={lottieRef}
+                    play={play}
+                    direction={direction}
+                    speed={1}
+                    iterations={3}
+                    reverseOnRepeat={true}
+                    restartOnPlay={true}
+                    animation={{ path: '/twitter-heart.json' }}
+                    size={{ width: 400, height: 400 }}
+                />
             </div>
         </React.StrictMode>
     );
