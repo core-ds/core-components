@@ -8,6 +8,10 @@
     }
 }
 
+.skeletonWrapper, {
+    width: 100%;
+}
+
 .container {
     position: relative;
     display: flex;
