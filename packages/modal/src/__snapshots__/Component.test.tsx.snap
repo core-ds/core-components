@@ -74,7 +74,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component border-40"
+                  class="component text size-48 hug size-48 component text component text cc-icon-button button button primary component component border_48"
                   type="button"
                 >
                   <span
@@ -110,7 +110,11 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
           <div
             class="title"
           >
-            Title
+            <div
+              class="titleTextContent"
+            >
+              Title
+            </div>
           </div>
         </div>
       </div>
@@ -187,7 +191,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
                       </svg>
                     </div>
                     <span
-                      class="text text component medium"
+                      class="text text component-primary medium"
                       style="opacity: 1;"
                     >
                       Назад
@@ -208,7 +212,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
               >
                 <button
                   aria-label="закрыть"
-                  class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component border-32"
+                  class="component text size-48 hug size-48 component text component text cc-icon-button button button mobile primary component component border_32"
                   type="button"
                 >
                   <span
@@ -244,7 +248,11 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
           <div
             class="title"
           >
-            Title
+            <div
+              class="titleTextContent"
+            >
+              Title
+            </div>
           </div>
         </div>
       </div>

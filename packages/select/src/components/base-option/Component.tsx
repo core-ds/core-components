@@ -1,7 +1,6 @@
 import React, { type FC, isValidElement } from 'react';
 import cn from 'classnames';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { type OptionProps } from '../../typings';
 import { BaseCheckmark } from '../base-checkmark';
 
@@ -30,7 +29,7 @@ export const BaseOption: FC<OptionProps> = ({
     return (
         <div
             {...innerProps}
-            className={cn(styles.option, size && styles[SIZE_TO_CLASSNAME_MAP[size]], className, {
+            className={cn(styles.option, size && styles[`size-${size}`], className, {
                 [styles.highlighted]: !mobile && highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,

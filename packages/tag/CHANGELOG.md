@@ -1,5 +1,73 @@
 # @alfalab/core-components-tag
 
+## 10.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-mq@6.0.1
+
+## 10.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#2009](https://github.com/core-ds/core-components/pull/2009)
+
+###### Tag, Tag{Desktop,Mobile}
+
+- Удалены `deprecated` значения пропа `size`. Для перехода используйте следующие соответствия:
+    - `'xxs'` -> `32`
+    - `'xs'` -> `40`
+    - `'s'` -> `48`
+    - `'m'` -> `56`
+    - `'l'` -> `64`
+    - `'xl'` -> `72`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-mq@6.0.0
+
+## 9.0.4
+
+### Patch Changes
+
+<sup><time>23.01.2026</time></sup>
+
+#### [#1946](https://github.com/core-ds/core-components/pull/1946)
+
+##### Tag, FilterTag
+
+- Обновлены скругления для Tag и FilterTag компонентов в десктопной версии
+
 ## 9.0.3
 
 ### Patch Changes

@@ -6,20 +6,18 @@
 }
 
 .input {
+    @mixin headline-system_medium;
+
     flex-shrink: 0;
     width: 36px;
     height: 48px;
     margin-right: var(--gap-8);
     padding: var(--gap-0);
     border: none;
-    border-radius: var(--border-radius-4);
     box-sizing: border-box;
     outline: none;
     color: var(--code-input-text-color);
     text-align: center;
-    font-size: var(--code-input-font-size);
-    font-weight: var(--code-input-font-weight);
-    font-family: var(--code-input-font-family);
 
     &:last-child {
         margin-right: var(--gap-0);

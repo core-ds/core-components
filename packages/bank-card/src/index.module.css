@@ -1,25 +1,35 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
-/* purgecss ignore */
 .component {
-    /* TODO: как это будет собираться и работать в webView */
-    --form-control-border-radius: 0;
-    --form-control-border-bottom: 1px solid var(--color-light-neutral-translucent-700);
-    --form-control-bg-color: transparent;
-
-    /* focus */
-    --form-control-focus-border-bottom: 1px solid var(--color-light-neutral-translucent-1300);
-    --form-control-focus-shadow: transparent;
-
-    /* hover */
-    --form-control-hover-bg-color: transparent;
-    --form-control-focus-bg-color: transparent;
-    --form-control-font-family: var(--font-family-styrene);
-
     position: relative;
     max-width: 343px;
 
-    font-family: var(--font-family-styrene);
+    .formControl {
+        .field {
+            background-color: transparent;
+
+            @mixin hover {
+                background-color: transparent;
+            }
+
+            &:before {
+                border-bottom: 1px solid var(--color-light-neutral-translucent-700);
+            }
+        }
+
+        &.focused {
+            .field {
+                box-shadow: none;
+
+                @mixin hover {
+                    box-shadow: none;
+                }
+                &:before {
+                    border-bottom: 1px solid var(--color-light-neutral-translucent-1300);
+                }
+            }
+        }
+    }
 }
 
 .aspectRatioContainer {
@@ -43,24 +53,22 @@
 
 .label {
     left: var(--gap-0);
-    transform: translateY(-1px);
+    transform: translateY(-3px); /* 3px to match design */
     color: var(--color-light-text-secondary);
 
-    @mixin promo_xsmall;
-
-    @media (max-width: 360px) {
-        font-size: 16px;
-    }
+    transition:
+        font-size 0.2s ease,
+        line-height 0.2s ease,
+        transform 0.2s ease;
+    @mixin promo-system-mobile_small;
 }
 
 .focused .label,
 .filled .label {
     color: var(--color-light-neutral-translucent-1300);
-    transform: translateY(-19px) scale(0.6);
+    transform: translateY(calc(-100% - 5px)); /* 5px to match design */
 
-    @media (max-width: 360px) {
-        transform: translateY(-22px) scale(0.75);
-    }
+    @mixin paragraph_secondary_medium;
 }
 
 .focused:before {
@@ -68,18 +76,14 @@
 }
 
 .input {
-    @mixin promo_xsmall;
+    @mixin promo-system-mobile_small;
 
     color: var(--color-light-neutral-translucent-1300);
     caret-color: var(--color-light-neutral-translucent-1300);
 
     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
     padding-left: var(--gap-0) !important;
-    padding-bottom: var(--gap-4) !important;
-
-    @media (max-width: 360px) {
-        font-size: 16px;
-    }
+    padding-bottom: 5px !important; /* 5px to match design */
 }
 
 .bankLogo {

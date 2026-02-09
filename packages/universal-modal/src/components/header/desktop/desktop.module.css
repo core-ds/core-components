@@ -1,32 +1,26 @@
 @import '../../../vars.css';
-@import '../../../desktop/vars.css';
 
-.content {
-    font-weight: var(--universal-modal-header-desktop-font-weight);
-    font-family: var(--universal-modal-header-desktop-font-family);
-}
+.header {
+    padding: var(--gap-20) var(--gap-20) 0;
 
-.sticky {
-    top: var(--gap-0);
-}
-
-.bottomAddons,
-.headerTitle {
-    @mixin headline-system_small;
-
-    &.medium {
-        @mixin headline-system_medium;
+    & .headerTitle {
+        @mixin headline-system_small;
+        padding: 11px var(--gap-12);
     }
-}
 
-.headerTitle {
-    padding: 11px var(--gap-12);
-
-    &.medium {
+    & .bottomAddons {
+        @mixin headline-system_small;
         padding: var(--gap-6) var(--gap-12) var(--gap-16);
     }
-}
 
-.bottomAddons {
-    padding: var(--gap-6) var(--gap-12) var(--gap-16);
+    &.medium {
+        & .headerTitle {
+            @mixin headline-system_medium;
+            padding: var(--gap-6) var(--gap-12) var(--gap-16);
+        }
+
+        & .bottomAddons {
+            @mixin headline-system_medium;
+        }
+    }
 }

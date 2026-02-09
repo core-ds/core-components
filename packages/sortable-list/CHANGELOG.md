@@ -1,5 +1,91 @@
 # @alfalab/core-components-sortable-list
 
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-portal@5.0.1
+    - @alfalab/core-components-shared@2.0.1
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+##### PortalContext
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#2009](https://github.com/core-ds/core-components/pull/2009)
+
+###### SortableList
+
+- Проп `padding` переведен на числовые значения
+    - `'3xs'` -> `2`
+    - `'2xs'` -> `4`
+    - `'xs'` -> `8`
+    - `'s'` -> `12`
+    - `'m'` -> `16`
+    - `'l'` -> `20`
+- Проп `borderRadius` переведен на числовые значения
+    - `'m'` -> `8`
+    - `'l'` -> `12`
+    - `'xl'` -> `16`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Обновление `@alfalab/icons-*` библиотек
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-portal@5.0.0
+    - @alfalab/core-components-shared@2.0.0
+
 ## 2.0.2
 
 ### Patch Changes

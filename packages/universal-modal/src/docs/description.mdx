@@ -404,7 +404,7 @@ render(() => {
                             !headerButtonArrow && {
                                 align: 'left',
                                 title: 'Почему банк проверяет мои операции?',
-                                bigTitle: modalWidth >= 800,
+                                bigTitle: modalWidth >= 800 || modalWidth === 'fullWidth',
                             })}
                         {...(headerButtonArrow && {
                             hasBackButton: headerButtonArrow,
@@ -412,7 +412,7 @@ render(() => {
                             align: 'center',
                             ...(headerTitle && {
                                 bottomAddons: 'Почему банк проверяет мои операции?',
-                                bigTitle: modalWidth >= 800,
+                                bigTitle: modalWidth >= 800 || modalWidth === 'fullWidth',
                             }),
                         })}
                         hasCloser={headerButtonCross}
@@ -968,7 +968,7 @@ render(() => {
                         !headerButtonArrow && {
                             align: 'left',
                             title: 'Почему банк проверяет мои операции?',
-                            bigTitle: modalWidth >= 800,
+                            bigTitle: modalWidth >= 800 || modalWidth === 'fullWidth',
                         })}
                     {...(headerButtonArrow && {
                         hasBackButton: headerButtonArrow,
@@ -976,7 +976,7 @@ render(() => {
                         align: 'center',
                         ...(headerTitle && {
                             bottomAddons: 'Почему банк проверяет мои операции?',
-                            bigTitle: modalWidth >= 800,
+                            bigTitle: modalWidth >= 800 || modalWidth === 'fullWidth',
                         }),
                     })}
                     hasCloser={headerButtonCross}

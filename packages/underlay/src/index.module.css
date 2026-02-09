@@ -49,7 +49,8 @@
 
 @mixin bg-class-list;
 
-@each $size in 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl {
+/* prettier-ignore */
+@each $size in 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 72 {
     .padding-top-$(size) {
         padding-top: var(--gap-$(size));
     }
@@ -64,7 +65,8 @@
     }
 }
 
-@each $size in xs, s, m, l, xl, xxl, 3xl {
+/* prettier-ignore */
+@each $size in 2, 4, 8, 12, 16, 20, 24 {
     .border-bottom-left-$(size) {
         border-bottom-left-radius: var(--border-radius-$(size));
     }
@@ -98,7 +100,8 @@
     }
 }
 
-@each $radius in xs, s, m, l, xl, xxl, 3xl {
+/* prettier-ignore */
+@each $radius in 2, 4, 8, 12, 16, 20, 24 {
     .border-radius-$(radius) {
         border-radius: var(--border-radius-$(radius));
     }

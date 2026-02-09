@@ -10,10 +10,6 @@
     word-break: break-word;
 }
 
-.title {
-    font-weight: 400;
-}
-
 .popoverInner {
     border: none;
     border-radius: var(--toast-plate-border-radius);

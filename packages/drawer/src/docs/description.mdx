@@ -63,9 +63,7 @@ function Content() {
         margin: '0 40px',
     };
 
-    return (
-        <div style={styleContent} ref={contentRef}></div>
-    );
+    return <div style={styleContent} ref={contentRef}></div>;
 }
 
 function Footer() {
@@ -80,9 +78,7 @@ function Footer() {
         boxSizing: 'border-box',
         margin: 'var(--modal-s-footer-paddings)',
     };
-    return (
-        <div style={styleFooter}></div>
-    );
+    return <div style={styleFooter}></div>;
 }
 
 render(() => {
@@ -91,10 +87,10 @@ render(() => {
 
     return (
         <Container>
-            <Button type='button' size='s' onClick={handleModalAnatomy}>
+            <Button type='button' size={48} onClick={handleModalAnatomy}>
                 Показать анатомию
             </Button>
-            <Drawer open={modalAnatomy} onClose={handleModalAnatomy} size='m'>
+            <Drawer open={modalAnatomy} onClose={handleModalAnatomy}>
                 <Header />
                 <Content />
                 <Footer />

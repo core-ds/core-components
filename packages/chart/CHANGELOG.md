@@ -1,5 +1,103 @@
 # @alfalab/core-components-chart
 
+## 5.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.1
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+##### Typography.{Text,Title,TitleMobile}
+
+- Проп `font` помечен как `deprecated`
+- Проп `font`, значения которого включает в себя `"alfasans"`, не имеет эффекта для шрифта `Alfa Interface Sans`, но для него сохраняется обратная совместимость по следующему принципу:
+    - для компонента `Text`:
+        1. для значения `font="alfasans"` соотвествует системный шрифт
+    - для компонентов `Title` и `TitleMobile`:
+        1. для значения `font="alfasans"` соотвествует шрифт `Styrene`
+        2. для значения `font={ font: 'alfasans', systemCompat: boolean }` в зависимости от значения параметра `systemCompat`: `true` - системный шрифт, `false` - шрифт `Styrene`
+- Для использования компонентов `Typography.{Text,Title,TitleMobile}` со шрифтом `Alfa Interface Sans` необходимо установить соответствующий пакет (пакеты)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+##### Typography
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+##### Typography
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+##### Chart
+
+- Обновлена библиотека `recharts@2.15.4`
+- Исправлены ошибки связанные с передачей `key`
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.0
+
+## 4.1.0
+
+### Minor Changes
+
+<sup><time>19.01.2026</time></sup>
+
+#### [#1940](https://github.com/core-ds/core-components/pull/1940)
+
+##### Charts
+
+- Добавлена возможность вывода кастомного контента во всплывающей подсказке
+- Исправлено позиционирование стрелки у всплывающей подсказки
+
 ## 4.0.3
 
 ### Patch Changes

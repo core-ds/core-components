@@ -19,7 +19,7 @@ import { type HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, isClient, isIOS } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, type HeaderProps } from './components/header/Component';
@@ -62,6 +62,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             titleSize = 'default',
             subtitle,
             actionButton,
+            bottomSheetWrapperClassName,
             contentClassName,
             containerClassName,
             containerProps,
@@ -69,11 +70,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             headerContentClassName,
             footerClassName,
             addonClassName,
+            outerClassName,
             closerClassName,
             backerClassName,
             modalClassName,
             modalWrapperClassName,
             className,
+            outerAddons,
             leftAddons,
             rightAddons,
             bottomAddons,
@@ -89,6 +92,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             hideHeader,
             disableOverlayClick,
             disableBlockingScroll,
+            scrollLock = true,
             disableFocusLock,
             children,
             zIndex,
@@ -124,6 +128,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             iOSLock = false,
             virtualKeyboard = false,
             colors = 'default',
+            preventScrollOnSwipe,
         },
         ref,
     ) => {
@@ -153,7 +158,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 }
             }
 
-            const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
+            const viewHeight = isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
         }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
@@ -496,6 +501,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             trackMouse: swipeable,
             trackTouch: swipeable,
             delta: swipeThreshold,
+            preventScrollOnSwipe,
         });
 
         const handleExited = (node: HTMLElement) => {
@@ -653,13 +659,22 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 disableRestoreFocus={disableRestoreFocus}
                 keepMounted={keepMounted}
                 iOSLock={iOSLock}
+                scrollLock={scrollLock}
             >
                 <div
-                    className={cn(styles.wrapper, {
+                    className={cn(styles.wrapper, bottomSheetWrapperClassName, {
                         [styles.fullscreen]: headerOffset === 0 && sheetOffset === 0,
                     })}
                     onTransitionEnd={setSheetHeight}
                 >
+                    {outerAddons && (
+                        <div
+                            className={cn(styles.outerClassName, outerClassName)}
+                            style={getSwipeStyles()}
+                        >
+                            {outerAddons}
+                        </div>
+                    )}
                     <div
                         className={cn(
                             styles.component,
@@ -668,7 +683,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             className,
                             {
                                 [styles.withTransition]: swipingInProgress === false,
-                                [styles.safeAreaBottom]: os.isIOS(),
+                                [styles.safeAreaBottom]: isIOS(),
                             },
                         )}
                         style={{

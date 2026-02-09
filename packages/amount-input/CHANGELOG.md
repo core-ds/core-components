@@ -1,5 +1,136 @@
 # @alfalab/core-components-amount-input
 
+## 9.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@17.0.1
+    - @alfalab/core-components-number-input@4.0.1
+    - @alfalab/core-components-shared@2.0.1
+    - @alfalab/core-components-with-suffix@6.0.1
+
+## 9.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1685](https://github.com/core-ds/core-components/pull/1685)
+
+##### FromControl
+
+Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1975](https://github.com/core-ds/core-components/pull/1975)
+
+##### Input
+
+- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1961](https://github.com/core-ds/core-components/pull/1961)
+
+##### AmountInput
+
+- Осуществлен переход на [maskito](https://github.com/taiga-family/maskito)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+##### PortalContext
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1975](https://github.com/core-ds/core-components/pull/1975)
+
+##### NumberInput
+
+- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1975](https://github.com/core-ds/core-components/pull/1975)
+
+##### AmountInput
+
+- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-number-input@4.0.0
+    - @alfalab/core-components-input@17.0.0
+    - @alfalab/core-components-with-suffix@6.0.0
+    - @alfalab/core-components-shared@2.0.0
+
+## 8.1.6
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.5
+    - @alfalab/core-components-number-input@3.0.6
+    - @alfalab/core-components-with-suffix@5.0.5
+
+## 8.1.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.0.4
+    - @alfalab/core-components-number-input@3.0.5
+    - @alfalab/core-components-with-suffix@5.0.4
+
+## 8.1.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-number-input@3.0.4
+
 ## 8.1.3
 
 ### Patch Changes

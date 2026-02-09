@@ -1,4 +1,5 @@
 import React, {
+    type ComponentProps,
     forwardRef,
     type MouseEventHandler,
     type TouchEventHandler,
@@ -175,11 +176,12 @@ export const BaseToast = forwardRef<HTMLDivElement, BaseToastProps>(
             },
         };
 
-        const props = {
+        const props: ComponentProps<NonNullable<typeof ToastPlate>> = {
             block,
             titleClassName: cn(titleClassName, styles.title),
             onClose,
             ref: mergeRefs([ref, plateRef]),
+            boldTitle: false,
             ...eventHandlers[client],
         };
 

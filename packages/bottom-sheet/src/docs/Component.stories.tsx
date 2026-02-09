@@ -85,6 +85,8 @@ export const bottom_sheet: Story = {
                     key={textContent}
                     open={open || boolean('open', false)}
                     title={text('title', 'Тайтл')}
+                    titleSize={select('titleSize', ['default', 'compact'], 'default')}
+                    subtitle={text('subtitle', undefined)}
                     modalClassName={isPreview ? 'preview' : undefined}
                     actionButton={
                         boolean('renderActionButton', true) && (
@@ -93,7 +95,7 @@ export const bottom_sheet: Story = {
                                 view={isPreview ? 'primary' : 'secondary'}
                                 colors={colors}
                                 block={true}
-                                size='s'
+                                size={48}
                                 onClick={handleClose}
                             >
                                 {isPreview ? 'Кнопка' : 'Понятно'}

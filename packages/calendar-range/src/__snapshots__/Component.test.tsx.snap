@@ -7,10 +7,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
   >
     <div>
       <div
-        class="component component size-48 size-48 block hasRightAddons"
+        class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
       >
         <div
-          class="inner inner inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -51,7 +51,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             >
               <button
                 aria-label="Предыдущий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-previous-day"
                 type="button"
               >
@@ -84,7 +84,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               </span>
               <button
                 aria-label="Следующий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-next-day"
                 type="button"
               >
@@ -923,14 +923,14 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
       </div>
     </div>
     <span
-      class="component s"
+      class="component size48"
     />
     <div>
       <div
-        class="component component size-48 size-48 block hasRightAddons"
+        class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
       >
         <div
-          class="inner inner inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -969,7 +969,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             >
               <button
                 aria-label="Предыдущий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-previous-day"
                 type="button"
               >
@@ -1002,7 +1002,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               </span>
               <button
                 aria-label="Следующий период"
-                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+                class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
                 data-test-id="period-slider-btn-next-day"
                 type="button"
               >

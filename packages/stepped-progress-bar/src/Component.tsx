@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import cn from 'classnames';
 
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { StepBar } from './components/step-bar';
 
@@ -14,7 +14,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-type SteppedProgressBarView =
+export type SteppedProgressBarView =
     | 'positive'
     | 'negative'
     | 'attention'
@@ -24,7 +24,8 @@ type SteppedProgressBarView =
     | 'primary'
     | 'accent';
 
-type CustomProgressBarView = { background: string };
+export type CustomProgressBarView = { background: string };
+export type SteppedProgressBarViewValue = SteppedProgressBarView | CustomProgressBarView;
 
 export interface SteppedProgressBarProps {
     /**
@@ -45,10 +46,7 @@ export interface SteppedProgressBarProps {
     /**
      * Цвет заполнения
      */
-    view?:
-        | SteppedProgressBarView
-        | Array<SteppedProgressBarView | CustomProgressBarView>
-        | CustomProgressBarView;
+    view?: SteppedProgressBarViewValue | SteppedProgressBarViewValue[];
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -92,13 +90,13 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
                 ))}
             </div>
             {description && (
-                <Text
+                <TypographyText
                     tag='div'
                     className={cn(styles.description, currentColors.description)}
                     view='primary-small'
                 >
                     Шаг {step} из {maxStep}: {description}
-                </Text>
+                </TypographyText>
             )}
         </div>
     );

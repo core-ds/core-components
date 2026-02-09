@@ -1,5 +1,107 @@
 # @alfalab/core-components-base-modal
 
+## 7.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-backdrop@5.0.1
+    - @alfalab/core-components-global-store@4.0.1
+    - @alfalab/core-components-portal@5.0.1
+    - @alfalab/core-components-shared@2.0.1
+    - @alfalab/core-components-stack@7.0.1
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1635](https://github.com/core-ds/core-components/pull/1635)
+
+##### BaseModal
+
+- Удалён matches полифил для поддержки работы focusLock в ie 11
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+##### PortalContext
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1899](https://github.com/core-ds/core-components/pull/1899)
+
+- Обновление типов `types/react-transition-group`
+
+- Обновлены зависимости
+    - @alfalab/core-components-portal@5.0.0
+    - @alfalab/core-components-stack-context@1.0.1
+    - @alfalab/core-components-backdrop@5.0.0
+    - @alfalab/core-components-shared@2.0.0
+    - @alfalab/core-components-stack@7.0.0
+    - @alfalab/core-components-global-store@4.0.0
+
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1983](https://github.com/core-ds/core-components/pull/1983)
+
+##### BaseModal
+
+- Добавили блокировку фонового скролла через `react-remove-scroll` для `BaseModal` (и компонентов на его базе).
+- Добавили проп `scrollLock?: boolean` для управления блокировкой скролла (по умолчанию выключен).
+- Пропсы `disableBlockingScroll` и `iOSLock` помечены как deprecated (оставлены для обратной совместимости).
+
+##### BottomSheet
+
+- Подключили блокировку фонового скролла (через `BaseModal` / `react-remove-scroll`).
+- Добавили проп `scrollLock?: boolean` (по умолчанию включён), `disableBlockingScroll` и `iOSLock` помечены как deprecated.
+
 ## 6.0.2
 
 ### Patch Changes
