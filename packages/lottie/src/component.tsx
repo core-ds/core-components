@@ -1,6 +1,13 @@
-import React, { forwardRef, type ReactNode, useImperativeHandle, useRef, useState } from 'react';
+import React, {
+    type CSSProperties,
+    forwardRef,
+    type ReactNode,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
-import { type AnimationDirection, type AnimationItem } from 'lottie-web';
+import { type AnimationDirection } from 'lottie-web';
 
 import { noop } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
@@ -25,14 +32,22 @@ export interface LottieProps {
     pauseBehavior?: 'immediately' | 'onIterationFinish';
     onComplete?: () => void;
     animation: { path: string; data?: never } | { path?: never; data: unknown };
-    loadingFallback?: ReactNode;
+    placeholder?: (
+        dataState: Extract<LottieDataState, LottieDataState.LOADING | LottieDataState.ERROR>,
+    ) => ReactNode;
     scale: 'fit' | 'fill';
+    size?: Pick<
+        CSSProperties,
+        'width' | 'height' | 'minWidth' | 'minHeight' | 'maxWidth' | 'maxHeight'
+    >;
+    className?: string;
 }
 
 interface LottieData {
     playCount: number;
     playFromFrame?: number;
     cancelPauseOnLoopFinish?: () => void;
+    pauseOnLoopComplete?: boolean;
 }
 
 function initController(playCount = 0): LottieData {
@@ -41,19 +56,11 @@ function initController(playCount = 0): LottieData {
 
 const initialController = initController(0);
 
-function playFromStart(animation: AnimationItem) {
-    animation.goToAndPlay(
-        animation[animation.playDirection === 1 ? 'firstFrame' : 'totalFrames'],
-        true,
-    );
-}
-
-function pauseOnEnd(animation: AnimationItem) {
-    animation.goToAndPlay(
-        animation[animation.playDirection === 1 ? 'totalFrames' : 'firstFrame'],
-        true,
-    );
-    animation.pause();
+enum LottieDataState {
+    OK,
+    ERROR,
+    LOADING,
+    INITIAL,
 }
 
 export const Lottie = forwardRef<LottieRef, LottieProps>(
@@ -70,8 +77,10 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
             pauseBehavior = 'immediately',
             onComplete,
             animation: animationData,
-            loadingFallback,
+            placeholder,
             scale = 'fill',
+            size,
+            className,
         },
         forwardedRef,
     ) => {
@@ -84,7 +93,7 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
                 preserveAspectRatio: scale === 'fit' ? 'xMidYMid meet' : 'xMidYMid slice',
             },
         });
-        const [loading, setLoading] = useState(true);
+        const [dataState, setDataState] = useState(LottieDataState.INITIAL);
         const controllerRef = useRef(initialController);
         const handleCompleteRef = useRef(onComplete);
         const iterations = Math.max(1, iterationsFromProps);
@@ -97,12 +106,23 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
         // handle loading
         useLayoutEffect_SAFE_FOR_SSR(() => {
             if (animation) {
-                setLoading(true);
+                setDataState(animation.isLoaded ? LottieDataState.OK : LottieDataState.LOADING);
 
-                return animation.addEventListener('DOMLoaded', () => {
-                    setLoading(false);
-                });
+                const subscriptions = [
+                    animation.addEventListener('DOMLoaded', () => {
+                        setDataState(LottieDataState.OK);
+                    }),
+                    animation.addEventListener('data_failed', () => {
+                        setDataState(LottieDataState.ERROR);
+                    }),
+                ];
+
+                return () => {
+                    subscriptions.forEach((unsubscribe) => unsubscribe());
+                };
             }
+
+            setDataState(LottieDataState.INITIAL);
 
             return noop;
         }, [animation]);
@@ -117,24 +137,27 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
 
         // handle play
         useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (animation && controllerRef.current.playCount < iterations && play) {
-                controllerRef.current.cancelPauseOnLoopFinish?.();
-                if (animation.isPaused) {
-                    if (restartOnPlay) {
-                        playFromStart(animation);
-                    } else {
-                        const { playFromFrame } = controllerRef.current;
+            if (
+                animation &&
+                controllerRef.current.playCount < iterations &&
+                play &&
+                animation.isPaused
+            ) {
+                const { pauseOnLoopComplete } = controllerRef.current;
 
-                        if (typeof playFromFrame === 'number') {
-                            delete controllerRef.current.playFromFrame;
-                            animation.goToAndPlay(playFromFrame, true);
-                        } else {
-                            animation.play();
-                        }
+                if (pauseOnLoopComplete) {
+                    controllerRef.current.pauseOnLoopComplete = false;
+
+                    if (reverseOnRepeat) {
+                        animation.triggerEvent('reverseOnRepeat', undefined);
+
+                        return;
                     }
                 }
+
+                animation.play(restartOnPlay);
             }
-        }, [animation, iterations, play, restartOnPlay]);
+        }, [animation, iterations, play, restartOnPlay, reverseOnRepeat]);
 
         // handle pause
         useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -146,37 +169,25 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
             ) {
                 if (pauseBehavior === 'immediately') {
                     animation.pause();
-                } else if (
-                    pauseBehavior === 'onIterationFinish' &&
-                    !controllerRef.current.cancelPauseOnLoopFinish
-                ) {
-                    controllerRef.current.cancelPauseOnLoopFinish = animation.addEventListener(
-                        'loopComplete',
-                        () => {
-                            controllerRef.current.playFromFrame = animation.currentFrame;
-                            pauseOnEnd(animation);
-                            controllerRef.current.cancelPauseOnLoopFinish?.();
-                            delete controllerRef.current.cancelPauseOnLoopFinish;
-                        },
-                    );
+                } else if (pauseBehavior === 'onIterationFinish') {
+                    controllerRef.current.pauseOnLoopComplete = true;
                 }
             }
-        }, [animation, iterations, pause, pauseBehavior, reverseOnRepeat]);
+        }, [animation, iterations, pause, pauseBehavior]);
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
             if (animation) {
                 return animation.addEventListener('loopComplete', () => {
                     controllerRef.current.playCount += 1;
 
-                    if (controllerRef.current.playCount < iterations) {
+                    if (controllerRef.current.pauseOnLoopComplete) {
+                        animation.stop();
+                    } else if (controllerRef.current.playCount < iterations) {
                         if (reverseOnRepeat) {
-                            animation.setDirection(
-                                (animation.playDirection * -1) as AnimationDirection,
-                            );
-                            playFromStart(animation);
+                            animation.triggerEvent('reverseOnRepeat', undefined);
                         }
                     } else {
-                        pauseOnEnd(animation);
+                        animation.stop();
                         handleCompleteRef.current?.();
                     }
                 });
@@ -185,19 +196,30 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
             return noop;
         }, [animation, iterations, reverseOnRepeat]);
 
+        // reverseOnRepeat
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (animation) {
+                return animation.addEventListener('reverseOnRepeat', () => {
+                    animation.setDirection((animation.playDirection * -1) as AnimationDirection);
+                    animation.play(true);
+                });
+            }
+
+            return noop;
+        }, [animation]);
+
         return (
-            <div
-                className={styles.component}
-                style={{
-                    width: '100%',
-                    height: '100%',
-                }}
-            >
+            <div className={cn(styles.component, className)} style={size}>
                 <div
                     ref={containerRef}
-                    className={cn(styles.container, { [styles.hide]: loading })}
+                    className={cn(styles.container, {
+                        [styles.show]: dataState === LottieDataState.OK,
+                    })}
                 />
-                {loading && <div className={styles.loadingFallback}>{loadingFallback}</div>}
+                {dataState === LottieDataState.LOADING ||
+                    (dataState === LottieDataState.ERROR && (
+                        <div className={styles.placeholder}>{placeholder?.(dataState)}</div>
+                    ))}
             </div>
         );
     },

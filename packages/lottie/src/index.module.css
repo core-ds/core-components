@@ -9,14 +9,14 @@
     height: 100%;
     overflow: hidden;
 
-    &.hide {
+    &:not(.show) {
         display: none;
     }
 }
 
-.loadingFallback {
+.placeholder {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
