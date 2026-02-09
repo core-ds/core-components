@@ -1,5 +1,17 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.0.2
+
+### Patch Changes
+
+<sup><time>09.02.2026</time></sup>
+
+#### [#2050](https://github.com/core-ds/core-components/pull/2050)
+
+##### BottomSheet
+
+- Учитываем `bottomAddons` как контент хедера и прокидываем в `NavigationBarPrivate`.
+
 ## 8.0.1
 
 ### Patch Changes

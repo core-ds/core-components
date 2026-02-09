@@ -1,5 +1,20 @@
 # @alfalab/core-components-select
 
+## 19.0.2
+
+### Patch Changes
+
+<sup><time>09.02.2026</time></sup>
+
+#### [#2055](https://github.com/core-ds/core-components/pull/2055)
+
+##### Select
+
+- Фикс мерцания высоты меню опций при открытии select
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@8.0.2
+
 ## 19.0.1
 
 ### Patch Changes
