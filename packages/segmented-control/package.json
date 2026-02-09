@@ -10,6 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
+        "@alfalab/core-components-skeleton": "^7.0.1",
         "@alfalab/hooks": "^1.13.1",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
