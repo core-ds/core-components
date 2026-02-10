@@ -4,8 +4,7 @@ on:
     workflow_dispatch:
     push:
         branches:
-            - master
-            - next
+            - version/49
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
