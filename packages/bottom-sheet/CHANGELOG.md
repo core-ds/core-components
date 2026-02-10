@@ -1,5 +1,18 @@
 # @alfalab/core-components-bottom-sheet
 
+## 7.4.4
+
+### Patch Changes
+
+<sup><time>10.02.2026</time></sup>
+
+#### [#2036](https://github.com/core-ds/core-components/pull/2036)
+
+##### BottomSheet
+
+- Исправлен визуальный скачок шторки при динамической смене `magneticAreasProp` (например, skeleton → content).
+- При изменении пропа временно отключается CSS transition для мгновенного перехода на новую позицию.
+
 ## 7.4.3
 
 ### Patch Changes
