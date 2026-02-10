@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable no-param-reassign, no-underscore-dangle */
+/* eslint-disable @typescript-eslint/ban-ts-comment, no-param-reassign, no-underscore-dangle */
 import { type Ref, useCallback, useRef, useState } from 'react';
 import lottie, {
     type AnimationConfigWithData,
@@ -13,8 +12,6 @@ import lottie, {
 
 import { hasOwnProperty, noop } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-
-const { is } = Object;
 
 type LottieParams =
     | Partial<AnimationConfigWithPath<'svg'>>
@@ -30,9 +27,9 @@ interface InternalAnimationItem extends AnimationItem {
 
 export function useLottie<T extends Element>(
     props: UseLottieProps,
-): [ref: Ref<T>, animation: AnimationItemAdapter | null, reset: () => void] {
+): [ref: Ref<T>, animation: Animation | null, reset: () => void] {
     const ref = useRef<T>(null);
-    const [animation, setAnimation] = useState<AnimationItemAdapter | null>(null);
+    const [animation, setAnimation] = useState<Animation | null>(null);
     const [options, setOptions] = useState<LottieParams>(props);
     const path = hasOwnProperty(props, 'path') ? props.path : undefined;
     const animationData: unknown = hasOwnProperty(props, 'animationData')
@@ -43,16 +40,15 @@ export function useLottie<T extends Element>(
     useLayoutEffect_SAFE_FOR_SSR(() => {
         const container = ref.current ?? undefined;
 
-        if (!is(options.container, container)) {
+        if (options.container !== container) {
             setOptions((prevOptions) => ({ ...prevOptions, container }));
         }
     });
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         if (
-            (hasOwnProperty(options, 'animationData') &&
-                !is(options.animationData, animationData)) ||
-            (hasOwnProperty(options, 'path') && !is(options.path, path))
+            (hasOwnProperty(options, 'animationData') && options.animationData !== animationData) ||
+            (hasOwnProperty(options, 'path') && options.path !== path)
         ) {
             setOptions((prevOptions) => ({ ...prevOptions, animationData, path }));
         }
@@ -94,8 +90,7 @@ interface AnimationAdapterEvents extends AnimationEvents {
     reverseOnRepeat: undefined;
 }
 
-export interface AnimationItemAdapter
-    extends Pick<AnimationItem, 'destroy' | 'setDirection' | 'setSpeed'> {
+export interface Animation extends Pick<AnimationItem, 'destroy' | 'setDirection' | 'setSpeed'> {
     stop(): void;
     play(restart?: boolean): void;
     pause(): void;
@@ -117,52 +112,52 @@ export interface AnimationItemAdapter
     ): void;
 }
 
-function adaptAnimationItem(animation: InternalAnimationItem): AnimationItemAdapter {
+function adaptAnimationItem(animationItem: InternalAnimationItem): Animation {
     return {
         // @ts-expect-error
-        addEventListener: animation.addEventListener.bind(animation),
+        addEventListener: animationItem.addEventListener.bind(animationItem),
         // @ts-expect-error
-        removeEventListener: animation.removeEventListener.bind(animation),
+        removeEventListener: animationItem.removeEventListener.bind(animationItem),
         // @ts-expect-error
-        triggerEvent: animation.triggerEvent.bind(animation),
-        setDirection: animation.setDirection.bind(animation),
-        setSpeed: animation.setSpeed.bind(animation),
+        triggerEvent: animationItem.triggerEvent.bind(animationItem),
+        setDirection: animationItem.setDirection.bind(animationItem),
+        setSpeed: animationItem.setSpeed.bind(animationItem),
         get playDirection() {
-            return animation.playDirection as AnimationDirection;
+            return animationItem.playDirection as AnimationDirection;
         },
         get playCount() {
-            return animation.playCount;
+            return animationItem.playCount;
         },
         get isLoaded() {
-            return animation.isLoaded;
+            return animationItem.isLoaded;
         },
         get isPaused() {
-            return animation.isPaused;
+            return animationItem.isPaused;
         },
         destroy() {
-            animation.destroy();
+            animationItem.destroy();
             // monkey patch
-            animation._cbs = [];
+            animationItem._cbs = [];
         },
         pause() {
-            animation.pause();
+            animationItem.pause();
         },
         play(restart = false) {
             if (restart) {
-                animation.goToAndPlay(
-                    animation[animation.playDirection === 1 ? 'firstFrame' : 'totalFrames'],
+                animationItem.goToAndPlay(
+                    animationItem[animationItem.playDirection === 1 ? 'firstFrame' : 'totalFrames'],
                     true,
                 );
             } else {
-                animation.play();
+                animationItem.play();
             }
         },
         stop() {
-            animation.goToAndPlay(
-                animation[animation.playDirection === 1 ? 'totalFrames' : 'firstFrame'],
+            animationItem.goToAndPlay(
+                animationItem[animationItem.playDirection === 1 ? 'totalFrames' : 'firstFrame'],
                 true,
             );
-            animation.pause();
+            animationItem.pause();
         },
     };
 }
