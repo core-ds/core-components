@@ -55,7 +55,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
         if (hasError) {
             onError?.();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hasError]);
 
     return (
