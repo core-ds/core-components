@@ -56,8 +56,7 @@ export function useIcon(
      * чтобы не слать запрос и выставлять INVALID, а не FAILURE после 404.
      * Например, "---" -> null, "___" -> null, "abcd" -> "https://alfabank.servicecdn.ru/icons/abcd.svg"
      */
-    const url =
-        trimName && /[a-z0-9]/i.test(trimName) ? `${baseUrl}/${trimName}.svg` : null;
+    const url = trimName && /[a-z0-9]/i.test(trimName) ? `${baseUrl}/${trimName}.svg` : null;
 
     useEffect(() => {
         if (!url) {
