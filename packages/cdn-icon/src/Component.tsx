@@ -47,7 +47,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     onError,
 }) => {
     const [icon, status] = useIcon(name, baseUrl);
-    const isMonoIcon = !name.trim().includes('_color');
+    const isMonoIcon = !name.includes('_color');
 
     const hasError = status === LoadingStatus.FAILURE || status === LoadingStatus.INVALID;
 

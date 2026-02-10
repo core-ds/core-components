@@ -3,15 +3,13 @@ import { useSyncExternalStore } from 'use-sync-external-store/shim';
 
 import { hasOwnProperty, noop } from '@alfalab/core-components-shared';
 
-import { buildIconUrl } from '../utils';
-
 type Listener = () => void;
 
 export enum LoadingStatus {
     INITIAL,
+    INVALID,
     SUCCESS,
     FAILURE,
-    INVALID,
 }
 
 // Кэшируем загруженные иконки, чтобы предотвратить их повторную загрузку при каждом монтировании
@@ -53,9 +51,15 @@ export function useIcon(
     const [loadingStatus, setLoadingStatus] = useState(LoadingStatus.INITIAL);
     const trimName = name.trim();
 
-    useEffect(() => {
-        const url = buildIconUrl(trimName, baseUrl);
+    /**
+     * Отсекаем пустые имена и имена без букв/цифр (например '', '   ', '-', '.', '_', '--', '__', '...'),
+     * чтобы не слать запрос и выставлять INVALID, а не FAILURE после 404.
+     * Например, "---" -> null, "___" -> null, "abcd" -> "https://alfabank.servicecdn.ru/icons/abcd.svg"
+     */
+    const url =
+        trimName && /[a-z0-9]/i.test(trimName) ? `${baseUrl}/${trimName}.svg` : null;
 
+    useEffect(() => {
         if (!url) {
             setLoadingStatus(trimName ? LoadingStatus.INVALID : LoadingStatus.INITIAL);
 
@@ -88,9 +92,7 @@ export function useIcon(
         };
 
         return () => xhr.abort();
-    }, [trimName, baseUrl]);
-
-    const url = buildIconUrl(name, baseUrl);
+    }, [url, baseUrl, trimName]);
 
     return [url ? icons[url] : undefined, loadingStatus];
 }
