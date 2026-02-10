@@ -1,3 +1,20 @@
+## 48.36.1
+
+<sup><time>10.02.2026</time></sup>
+
+### [#2056](https://github.com/core-ds/core-components/pull/2056)
+
+#### Что изменилось
+##### BottomSheet
+
+- Исправлен визуальный скачок шторки при динамической смене `magneticAreasProp` (например, skeleton → content).
+- При изменении пропа временно отключается CSS transition для мгновенного перехода на новую позицию.
+
+#### Влияние на компоненты
+- Патчи<br />`bottom-sheet`
+
+
+
 ## 48.36.0
 
 <sup><time>29.12.2025</time></sup>
