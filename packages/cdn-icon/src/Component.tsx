@@ -49,13 +49,14 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     const [icon, status] = useIcon(name, baseUrl);
     const isMonoIcon = !name.includes('_color');
 
-    const hasError = status === LoadingStatus.FAILURE || status === LoadingStatus.INVALID;
+    const hasError = status === LoadingStatus.FAILURE;
 
     useEffect(() => {
         if (hasError) {
             onError?.();
         }
-    }, [onError, hasError]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [hasError]);
 
     return (
         <span
