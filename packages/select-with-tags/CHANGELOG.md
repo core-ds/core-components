@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.8.4
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   bottom-sheet@6.21.1
+    -   select@17.24.4
+
 ## 8.8.3
 
 ### Patch Changes

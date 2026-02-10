@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.21.1
+
+### Patch Changes
+
+<sup><time>10.02.2026</time></sup>
+
+### [#2056](https://github.com/core-ds/core-components/pull/2056)
+
+##### BottomSheet
+
+-   Исправлен визуальный скачок шторки при динамической смене `magneticAreasProp` (например, skeleton → content).
+-   При изменении пропа временно отключается CSS transition для мгновенного перехода на новую позицию.
+
 ## 6.21.0
 
 ### Minor Changes
