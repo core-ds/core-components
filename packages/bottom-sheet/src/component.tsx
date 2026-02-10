@@ -701,7 +701,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             colorStyle.component,
                             className,
                             {
-                                [styles.withTransition]: swipingInProgress === false && !skipTransition,
+                                [styles.withTransition]:
+                                    swipingInProgress === false && !skipTransition,
                                 [styles.safeAreaBottom]: isIOS(),
                             },
                         )}
