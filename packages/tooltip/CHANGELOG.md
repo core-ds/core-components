@@ -1,5 +1,12 @@
 # @alfalab/core-components-tooltip
 
+## 8.0.13
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.4
+
 ## 8.0.12
 
 ### Patch Changes

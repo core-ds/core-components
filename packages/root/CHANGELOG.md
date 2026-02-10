@@ -1,5 +1,32 @@
 # @alfalab/core-components
 
+## 49.15.1
+
+### Patch Changes
+
+<sup><time>10.02.2026</time></sup>
+
+#### [#2036](https://github.com/core-ds/core-components/pull/2036)
+
+##### BottomSheet
+
+- Исправлен визуальный скачок шторки при динамической смене `magneticAreasProp` (например, skeleton → content).
+- При изменении пропа временно отключается CSS transition для мгновенного перехода на новую позицию.
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@7.4.4
+    - @alfalab/core-components-select@18.2.10
+    - @alfalab/core-components-select-with-tags@9.0.13
+    - @alfalab/core-components-tooltip@8.0.13
+    - @alfalab/core-components-custom-picker-button@3.1.2
+    - @alfalab/core-components-input-autocomplete@13.1.2
+    - @alfalab/core-components-international-phone-input@3.2.10
+    - @alfalab/core-components-intl-phone-input@10.0.13
+    - @alfalab/core-components-picker-button@12.1.2
+    - @alfalab/core-components-table@3.0.13
+    - @alfalab/core-components-gallery@6.0.14
+    - @alfalab/core-components-tabs@9.2.10
+
 ## 49.15.0
 
 ### Minor Changes
