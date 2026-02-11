@@ -51,9 +51,8 @@ export function useIcon(
     const trimName = name.trim();
 
     /**
-     * Отсекаем пустые имена и имена без букв/цифр (например '', '   ', '-', '.', '_', '--', '__', '...'),
-     * чтобы не слать запрос и выставлять INVALID, а не FAILURE после 404.
-     * Например, "---" -> null, "___" -> null, "abcd" -> "https://alfabank.servicecdn.ru/icons/abcd.svg"
+     * Не строим URL для пустых имён и имён без букв/цифр (пробелы, только символы '-', '_', '.' и т.п.),
+     * чтобы не делать лишний запрос. Примеры: '---' → null, '___' → null, 'icon-name' → URL.
      */
     const url = trimName && /[a-z0-9]/i.test(trimName) ? `${baseUrl}/${trimName}.svg` : null;
 
