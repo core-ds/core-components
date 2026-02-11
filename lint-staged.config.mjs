@@ -17,7 +17,8 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
  */
 const config = {
     '{package,tsconfig*}.json': () => 'yarn tsconfig check',
-    '*.{ts,tsx,js,jsx,mjs,mts,cjs,cts,css,json,md,yaml,yml}': 'prettier --write --list-different',
+    '*.{ts,tsx,js,jsx,mdx,mjs,mts,cjs,cts,css,json,md,yaml,yml}':
+        'prettier --write --list-different',
     './*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}': 'eslint --fix --max-warnings 0',
     './{bin,tools}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}': 'eslint --fix --max-warnings 0',
     '*.css': 'stylelint --fix',
