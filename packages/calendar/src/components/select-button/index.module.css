@@ -12,10 +12,6 @@
         border-radius: var(--border-radius-12);
         box-shadow: var(--calendar-select-button-box-shadow);
 
-        &:disabled:not(.selected) {
-            color: var(--color-light-text-tertiary);
-        }
-
         &:not(:disabled):hover {
             background-color: var(--color-light-transparent-default-hover);
             color: var(--color-light-text-primary);
