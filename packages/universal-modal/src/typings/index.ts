@@ -5,8 +5,6 @@ export interface UniversalModalContextType {
     modalWidth: UniversalModalDesktopProps['width'];
     modalHeaderHighlighted?: boolean;
     modalFooterHighlighted?: boolean;
-    hasHeader: boolean;
-    hasFooter: boolean;
     setModalHeaderHighlighted?: (value: boolean) => void;
     setModalFooterHighlighted?: (value: boolean) => void;
 }

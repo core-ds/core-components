@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useRef } from 'react';
+import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
 import {
@@ -39,7 +39,7 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
         ...restProps
     } = props;
 
-    const { componentRef, onClose: handleCloseByContext } = useContext(ModalContext);
+    const { componentRef, onClose: handleCloseByContext, setHasHeader } = useContext(ModalContext);
     const { modalHeaderHighlighted } = useContext(UniversalModalContext);
 
     const titleRef = useRef<HTMLDivElement>(null);
@@ -53,6 +53,14 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
 
         return handleCloseByContext(...args);
     };
+
+    useEffect(() => {
+        setHasHeader(true);
+
+        return () => {
+            setHasHeader(false);
+        };
+    }, [setHasHeader]);
 
     return (
         <NavigationBarPrivate

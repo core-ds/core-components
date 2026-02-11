@@ -9,7 +9,6 @@ import { type UniversalModalContextType } from '../typings';
 import { CenterModal } from './components/center-modal';
 import { SideModal } from './components/side-modal';
 import { type UniversalModalDesktopProps } from './types/props';
-import { checkHeaderAndFooter } from './utils/check-header-and-footer';
 
 export const UniversalModalDesktopComponent = forwardRef<
     HTMLDivElement,
@@ -18,19 +17,15 @@ export const UniversalModalDesktopComponent = forwardRef<
     const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
     const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
 
-    const { hasHeader, hasFooter } = checkHeaderAndFooter(children);
-
     const contextValue = useMemo<UniversalModalContextType>(
         () => ({
             modalWidth: restProps.width,
             modalHeaderHighlighted,
             modalFooterHighlighted,
-            hasHeader,
-            hasFooter,
             setModalHeaderHighlighted,
             setModalFooterHighlighted,
         }),
-        [restProps.width, modalHeaderHighlighted, modalFooterHighlighted, hasHeader, hasFooter],
+        [restProps.width, modalHeaderHighlighted, modalFooterHighlighted],
     );
 
     const renderModal = () => {
