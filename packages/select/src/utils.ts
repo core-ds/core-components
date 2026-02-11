@@ -9,6 +9,7 @@ import {
 } from 'react';
 
 import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_SEPARATOR } from './consts';
 import {
@@ -248,7 +249,7 @@ export function useVisibleOptions({
     const [measured, setMeasured] = useState(false);
     const [height, setHeight] = useState<number | undefined>();
 
-    useEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const measureOptionHeight = (element: HTMLElement) =>
             typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
 

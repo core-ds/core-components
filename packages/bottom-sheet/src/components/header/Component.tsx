@@ -35,6 +35,7 @@ export const Header: FC<HeaderProps> = ({
     title,
     children,
     contentClassName,
+    bottomAddons,
     ...restProps
 }) => {
     const { setHeaderOffset, setHasHeader, headerHighlighted, onClose } =
@@ -49,13 +50,14 @@ export const Header: FC<HeaderProps> = ({
     }, [setHasHeader]);
 
     const colorStyle = colorStyles[colors];
-    const hasContent = Boolean(title || children);
+    const hasContent = Boolean(title || children || bottomAddons);
 
     return (
         <NavigationBarPrivate
             {...restProps}
             ref={headerRef}
             title={title}
+            bottomAddons={bottomAddons}
             onClose={onClose}
             sticky={sticky}
             view='mobile'
