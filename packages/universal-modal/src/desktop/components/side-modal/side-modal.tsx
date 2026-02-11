@@ -8,7 +8,6 @@ import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
 import { getMarginStyles } from '../../utils/get-margin-styles';
-import { getMaxHeightStyle } from '../../utils/get-max-height-style';
 import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
 
@@ -80,10 +79,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             componentDivProps={{
                 style: {
                     width: getWidthStyle(width, margin),
-                    height: getHeightStyle(height, margin),
-                    ...(height === 'hugContent' && {
-                        maxHeight: getMaxHeightStyle(margin),
-                    }),
+                    ...getHeightStyle(height, margin),
                 },
             }}
             onWheel={handleWheel}
