@@ -1,5 +1,8 @@
 ---
 '@alfalab/core-components-navigation-bar-private': patch
+'@alfalab/core-components': patch
 ---
 
-123
+##### Closer
+
+- Исправлена специфичность компонента
