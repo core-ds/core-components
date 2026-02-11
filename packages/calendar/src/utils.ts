@@ -108,7 +108,14 @@ export function generateWeeks(
 /**
  * Возвращает массив с месяцами для переданного года
  */
-export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?: Date }) {
+export function generateMonths(
+    year: Date,
+    options: {
+        minMonth?: Date;
+        maxMonth?: Date;
+        offDaysMap?: Record<number, boolean>;
+    },
+) {
     return eachMonthOfInterval({ start: startOfYear(year), end: endOfYear(year) }).map((month) =>
         buildMonth(month, options),
     );
@@ -162,14 +169,38 @@ export function buildDay(
 }
 
 /**
+ * Проверяет, все ли дни месяца находятся в offDaysMap
+ */
+export function isMonthFullyDisabled(month: Date, offDaysMap: Record<number, boolean>): boolean {
+    const start = startOfMonth(month);
+    const end = lastDayOfMonth(month);
+    const days = eachDayOfInterval({ start, end });
+
+    return days.every((day) => offDaysMap[startOfDay(day).getTime()]);
+}
+
+/**
  * Добавляет метаданные для переданного месяца
  */
-export function buildMonth(month: Date, options: { minMonth?: Date; maxMonth?: Date }): Month {
-    const { minMonth, maxMonth } = options;
+export function buildMonth(
+    month: Date,
+    options: {
+        minMonth?: Date;
+        maxMonth?: Date;
+        offDaysMap?: Record<number, boolean>;
+    },
+): Month {
+    const { minMonth, maxMonth, offDaysMap = {} } = options;
+
+    const disabledByRange =
+        (minMonth && isBefore(month, minMonth)) || (maxMonth && isAfter(month, maxMonth));
+
+    const disabledByOffDays =
+        Object.keys(offDaysMap).length > 0 && isMonthFullyDisabled(month, offDaysMap);
 
     return {
         date: month,
-        disabled: (minMonth && isBefore(month, minMonth)) || (maxMonth && isAfter(month, maxMonth)),
+        disabled: disabledByRange || disabledByOffDays,
     };
 }
 
