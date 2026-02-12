@@ -1,1 +1,1 @@
-export { Lottie, type LottieProps } from './component';
+export { Lottie, type LottieProps, LottieDataState } from './component';
