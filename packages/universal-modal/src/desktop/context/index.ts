@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
-import { type UniversalModalContextType } from '../typings';
+import { type UniversalModalContextType } from '../types/context';
 
 export const UniversalModalContext = createContext<UniversalModalContextType>({
-    modalWidth: 500,
+    width: 500,
 });

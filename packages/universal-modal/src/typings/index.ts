@@ -1,10 +1,6 @@
 import { type UniversalModalDesktopProps } from '../desktop';
 import { type UniversalModalMobileProps } from '../mobile';
 
-export interface UniversalModalContextType {
-    modalWidth: UniversalModalDesktopProps['width'];
-}
-
 export interface UniversalModalResponsiveProps
     extends UniversalModalDesktopProps,
         UniversalModalMobileProps {

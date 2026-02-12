@@ -469,4 +469,45 @@ describe('UniversalModal', () => {
             expect(footer).toHaveClass('highlighted');
         });
     });
+
+    describe('desktop footer column children gap', () => {
+        const dti = 'modal-dti';
+        const testIds = getUniversalModalTestIds(dti);
+
+        it('should not render middle gap footer', () => {
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true} width={500}>
+                    <UniversalModalDesktop.Footer dataTestId={dti} layout='column' />
+                </UniversalModalDesktop>,
+            );
+
+            const footer = screen.queryByTestId(testIds.footer);
+
+            expect(footer).not.toHaveClass('middle');
+        });
+
+        it('should render middle gap footer', () => {
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true} width={800}>
+                    <UniversalModalDesktop.Footer dataTestId={dti} layout='column' />
+                </UniversalModalDesktop>,
+            );
+
+            const footer = screen.queryByTestId(testIds.footer);
+
+            expect(footer).toHaveClass('middle');
+        });
+
+        it('should not render middle gap footer', () => {
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true} width='fullWidth'>
+                    <UniversalModalDesktop.Footer dataTestId={dti} layout='column' />
+                </UniversalModalDesktop>,
+            );
+
+            const footer = screen.queryByTestId(testIds.footer);
+
+            expect(footer).toHaveClass('middle');
+        });
+    });
 });
