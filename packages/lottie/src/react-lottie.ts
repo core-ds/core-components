@@ -3,9 +3,7 @@ import { type Ref, useCallback, useRef, useState } from 'react';
 import lottie, {
     type AnimationConfigWithData,
     type AnimationConfigWithPath,
-    type AnimationDirection,
     type AnimationEventCallback,
-    type AnimationEventName,
     type AnimationEvents,
     type AnimationItem,
 } from 'lottie-web/build/player/lottie_light';
@@ -21,15 +19,19 @@ type UseLottieProps =
     | Omit<AnimationConfigWithPath<'svg'>, 'container' | 'renderer'>
     | Omit<AnimationConfigWithData<'svg'>, 'container' | 'renderer'>;
 
-interface InternalAnimationItem extends AnimationItem {
-    _cbs?: unknown[];
+export interface InternalAnimationItem extends AnimationItem {
+    _cbs?: never[] & AnimationItemListenersMap<AnimationEvents>;
 }
+
+export type AnimationItemListenersMap<T> = {
+    [P in keyof T]?: Array<AnimationEventCallback<T[P]>>;
+};
 
 export function useLottie<T extends Element>(
     props: UseLottieProps,
-): [ref: Ref<T>, animation: Animation | null, reset: () => void] {
+): [ref: Ref<T>, animation: InternalAnimationItem | null, reset: () => void] {
     const ref = useRef<T>(null);
-    const [animation, setAnimation] = useState<Animation | null>(null);
+    const [animation, setAnimation] = useState<InternalAnimationItem | null>(null);
     const [options, setOptions] = useState<LottieParams>(props);
     const path = hasOwnProperty(props, 'path') ? props.path : undefined;
     const animationData: unknown = hasOwnProperty(props, 'animationData')
@@ -62,14 +64,16 @@ export function useLottie<T extends Element>(
             ((hasOwnProperty(options, 'animationData') && options.animationData) ||
                 (hasOwnProperty(options, 'path') && options.path))
         ) {
-            const animationItem = adaptAnimationItem(
-                lottie.loadAnimation({ ...options, container }),
-            );
+            const animationItem: InternalAnimationItem = lottie.loadAnimation({
+                ...options,
+                container,
+            });
 
             setAnimation(animationItem);
 
             return () => {
                 animationItem.destroy();
+                animationItem._cbs = [];
                 setAnimation(null);
             };
         }
@@ -82,82 +86,4 @@ export function useLottie<T extends Element>(
     }, []);
 
     return [ref, animation, reset];
-}
-
-type AnimationAdapterEventName = AnimationEventName | 'reverseOnRepeat';
-
-interface AnimationAdapterEvents extends AnimationEvents {
-    reverseOnRepeat: undefined;
-}
-
-export interface Animation extends Pick<AnimationItem, 'destroy' | 'setDirection' | 'setSpeed'> {
-    stop(): void;
-    play(restart?: boolean): void;
-    pause(): void;
-    readonly playCount: number;
-    readonly isLoaded: boolean;
-    readonly isPaused: boolean;
-    readonly playDirection: AnimationDirection;
-    triggerEvent<T extends AnimationAdapterEventName>(
-        name: T,
-        args: AnimationAdapterEvents[T],
-    ): void;
-    addEventListener<T extends AnimationAdapterEventName>(
-        name: T,
-        callback: AnimationEventCallback<AnimationAdapterEvents[T]>,
-    ): () => void;
-    removeEventListener<T extends AnimationAdapterEventName>(
-        name: T,
-        callback?: AnimationEventCallback<AnimationAdapterEvents[T]>,
-    ): void;
-}
-
-function adaptAnimationItem(animationItem: InternalAnimationItem): Animation {
-    return {
-        // @ts-expect-error
-        addEventListener: animationItem.addEventListener.bind(animationItem),
-        // @ts-expect-error
-        removeEventListener: animationItem.removeEventListener.bind(animationItem),
-        // @ts-expect-error
-        triggerEvent: animationItem.triggerEvent.bind(animationItem),
-        setDirection: animationItem.setDirection.bind(animationItem),
-        setSpeed: animationItem.setSpeed.bind(animationItem),
-        get playDirection() {
-            return animationItem.playDirection as AnimationDirection;
-        },
-        get playCount() {
-            return animationItem.playCount;
-        },
-        get isLoaded() {
-            return animationItem.isLoaded;
-        },
-        get isPaused() {
-            return animationItem.isPaused;
-        },
-        destroy() {
-            animationItem.destroy();
-            // monkey patch
-            animationItem._cbs = [];
-        },
-        pause() {
-            animationItem.pause();
-        },
-        play(restart = false) {
-            if (restart) {
-                animationItem.goToAndPlay(
-                    animationItem[animationItem.playDirection === 1 ? 'firstFrame' : 'totalFrames'],
-                    true,
-                );
-            } else {
-                animationItem.play();
-            }
-        },
-        stop() {
-            animationItem.goToAndPlay(
-                animationItem[animationItem.playDirection === 1 ? 'totalFrames' : 'firstFrame'],
-                true,
-            );
-            animationItem.pause();
-        },
-    };
 }
