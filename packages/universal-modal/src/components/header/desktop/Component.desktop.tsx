@@ -25,6 +25,7 @@ export interface HeaderDesktopProps
     bigTitle?: boolean;
 }
 
+// TODO base-header
 export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((props, ref) => {
     const {
         className,

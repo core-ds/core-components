@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext, ContextType } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { getUniversalModalTestIds } from './utils/getUniversalModalTestIds';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
+import { ModalContext } from './shared';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -208,6 +209,163 @@ describe('UniversalModal', () => {
                 expect(handleCloseContext).toHaveBeenCalledTimes(0);
                 expect(handleClose).toHaveBeenCalledTimes(1);
             });
+        });
+    });
+
+    describe('desktop context tests', () => {
+        const dti = 'modal-dti';
+
+        test.each([
+            { field: 'hasHeader', expected: false },
+            { field: 'hasFooter', expected: false },
+        ])('context.$field should be $expected', ({ field, expected }) => {
+            let contextValues: ContextType<typeof ModalContext>;
+            type Key = keyof typeof contextValues;
+
+            const Child = () => {
+                contextValues = useContext(ModalContext);
+                return <div>Child</div>;
+            };
+
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true}>
+                    <UniversalModalDesktop.Content dataTestId={dti}>
+                        <Child />
+                    </UniversalModalDesktop.Content>
+                </UniversalModalDesktop>,
+            );
+
+            expect(contextValues![field as Key]).toBe(expected);
+        });
+
+        test.each([
+            { field: 'hasHeader', expected: true },
+            { field: 'hasFooter', expected: false },
+        ])('context.$field should be $expected', ({ field, expected }) => {
+            let contextValues: ContextType<typeof ModalContext>;
+            type Key = keyof typeof contextValues;
+
+            const Child = () => {
+                contextValues = useContext(ModalContext);
+                return <div>Child</div>;
+            };
+
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true}>
+                    <UniversalModalDesktop.Header dataTestId={dti} />
+                    <UniversalModalDesktop.Content dataTestId={dti}>
+                        <Child />
+                    </UniversalModalDesktop.Content>
+                </UniversalModalDesktop>,
+            );
+
+            expect(contextValues![field as Key]).toBe(expected);
+        });
+
+        test.each([
+            { field: 'hasHeader', expected: false },
+            { field: 'hasFooter', expected: true },
+        ])('context.$field should be $expected', ({ field, expected }) => {
+            let contextValues: ContextType<typeof ModalContext>;
+            type Key = keyof typeof contextValues;
+
+            const Child = () => {
+                contextValues = useContext(ModalContext);
+                return <div>Child</div>;
+            };
+
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true}>
+                    <UniversalModalDesktop.Content dataTestId={dti}>
+                        <Child />
+                    </UniversalModalDesktop.Content>
+                    <UniversalModalDesktop.Footer dataTestId={dti} />
+                </UniversalModalDesktop>,
+            );
+
+            expect(contextValues![field as Key]).toBe(expected);
+        });
+
+        test.each([
+            { field: 'hasHeader', expected: true },
+            { field: 'hasFooter', expected: true },
+        ])('context.$field should be $expected', ({ field, expected }) => {
+            let contextValues: ContextType<typeof ModalContext>;
+            type Key = keyof typeof contextValues;
+
+            const Child = () => {
+                contextValues = useContext(ModalContext);
+                return <div>Child</div>;
+            };
+
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true}>
+                    <UniversalModalDesktop.Header dataTestId={dti} />
+                    <UniversalModalDesktop.Content dataTestId={dti}>
+                        <Child />
+                    </UniversalModalDesktop.Content>
+                    <UniversalModalDesktop.Footer dataTestId={dti} />
+                </UniversalModalDesktop>,
+            );
+
+            expect(contextValues![field as Key]).toBe(expected);
+        });
+    });
+
+    describe('desktop content gap tests', () => {
+        const dti = 'modal-dti';
+        const testIds = getUniversalModalTestIds(dti);
+
+        it.each(['withHeader', 'withFooter'])('should not have class %s', (className) => {
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true}>
+                    <UniversalModalDesktop.Content dataTestId={dti} />
+                </UniversalModalDesktop>,
+            );
+
+            const content = screen.queryByTestId(testIds.content);
+
+            expect(content).not.toHaveClass(className);
+        });
+
+        it.each(['withHeader', 'withFooter'])('should have class %s', (className) => {
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true}>
+                    <UniversalModalDesktop.Header dataTestId={dti} />
+                    <UniversalModalDesktop.Content dataTestId={dti} />
+                    <UniversalModalDesktop.Footer dataTestId={dti} />
+                </UniversalModalDesktop>,
+            );
+
+            const content = screen.queryByTestId(testIds.content);
+
+            expect(content).toHaveClass(className);
+        });
+
+        it('should render with header gap', () => {
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true}>
+                    <UniversalModalDesktop.Header dataTestId={dti} />
+                    <UniversalModalDesktop.Content dataTestId={dti} />
+                </UniversalModalDesktop>,
+            );
+
+            const content = screen.queryByTestId(testIds.content);
+
+            expect(content).toHaveClass('withHeader');
+        });
+
+        it('should render with footer gap', () => {
+            render(
+                <UniversalModalDesktop dataTestId={dti} open={true}>
+                    <UniversalModalDesktop.Content dataTestId={dti} />
+                    <UniversalModalDesktop.Footer dataTestId={dti} />
+                </UniversalModalDesktop>,
+            );
+
+            const content = screen.queryByTestId(testIds.content);
+
+            expect(content).toHaveClass('withFooter');
         });
     });
 });
