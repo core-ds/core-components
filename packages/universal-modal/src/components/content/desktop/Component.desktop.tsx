@@ -1,7 +1,7 @@
 import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { ModalContext } from '../../../shared';
+import { ModalContext } from '../../../Context';
 import { BaseContent, type ContentProps } from '../base-content/base-content';
 
 import styles from './desktop.module.css';

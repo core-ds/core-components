@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { getUniversalModalTestIds } from './utils/getUniversalModalTestIds';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
-import { ModalContext } from './shared';
+import { ModalContext } from './Context';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
