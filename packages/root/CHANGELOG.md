@@ -1,5 +1,50 @@
 # @alfalab/core-components
 
+## 50.1.0
+
+### Minor Changes
+
+<sup><time>09.02.2026</time></sup>
+
+#### [#2028](https://github.com/core-ds/core-components/pull/2028)
+
+##### SegmentedControl
+
+- Добавлен view `skeleton` для компонента `SegmentedControl`.
+
+### Patch Changes
+
+<sup><time>09.02.2026</time></sup>
+
+#### [#2055](https://github.com/core-ds/core-components/pull/2055)
+
+##### Select
+
+- Фикс мерцания высоты меню опций при открытии select
+
+<sup><time>09.02.2026</time></sup>
+
+#### [#2050](https://github.com/core-ds/core-components/pull/2050)
+
+##### BottomSheet
+
+- Учитываем `bottomAddons` как контент хедера и прокидываем в `NavigationBarPrivate`.
+
+- Обновлены зависимости
+    - @alfalab/core-components-segmented-control@3.1.0
+    - @alfalab/core-components-select@19.0.2
+    - @alfalab/core-components-bottom-sheet@8.0.2
+    - @alfalab/core-components-custom-picker-button@4.0.2
+    - @alfalab/core-components-input-autocomplete@14.0.2
+    - @alfalab/core-components-international-phone-input@4.0.2
+    - @alfalab/core-components-intl-phone-input@11.0.2
+    - @alfalab/core-components-picker-button@13.0.2
+    - @alfalab/core-components-select-with-tags@10.0.2
+    - @alfalab/core-components-table@4.0.2
+    - @alfalab/core-components-tooltip@9.0.2
+    - @alfalab/core-components-tabs@10.0.2
+    - @alfalab/core-components-gallery@7.0.2
+
 ## 50.0.1
 
 ### Patch Changes
