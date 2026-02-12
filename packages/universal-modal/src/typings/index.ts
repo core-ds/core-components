@@ -3,10 +3,6 @@ import { type UniversalModalMobileProps } from '../mobile';
 
 export interface UniversalModalContextType {
     modalWidth: UniversalModalDesktopProps['width'];
-    modalHeaderHighlighted?: boolean;
-    modalFooterHighlighted?: boolean;
-    setModalHeaderHighlighted?: (value: boolean) => void;
-    setModalFooterHighlighted?: (value: boolean) => void;
 }
 
 export interface UniversalModalResponsiveProps

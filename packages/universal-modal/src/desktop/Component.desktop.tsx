@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 
 import { ContentDesktop } from '../components/content';
 import { FooterDesktop } from '../components/footer';
@@ -14,18 +14,11 @@ export const UniversalModalDesktopComponent = forwardRef<
     HTMLDivElement,
     UniversalModalDesktopProps
 >(({ children, horizontalAlign = 'center', ...restProps }, ref) => {
-    const [modalHeaderHighlighted, setModalHeaderHighlighted] = useState<boolean>(false);
-    const [modalFooterHighlighted, setModalFooterHighlighted] = useState<boolean>(false);
-
     const contextValue = useMemo<UniversalModalContextType>(
         () => ({
             modalWidth: restProps.width,
-            modalHeaderHighlighted,
-            modalFooterHighlighted,
-            setModalHeaderHighlighted,
-            setModalFooterHighlighted,
         }),
-        [restProps.width, modalHeaderHighlighted, modalFooterHighlighted],
+        [restProps.width],
     );
 
     const renderModal = () => {

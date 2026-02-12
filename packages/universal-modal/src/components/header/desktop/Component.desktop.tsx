@@ -8,7 +8,6 @@ import {
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ModalContext } from '../../../Context';
-import { UniversalModalContext } from '../../../context/universal-modal-context';
 
 import styles from '../base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
@@ -40,8 +39,12 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
         ...restProps
     } = props;
 
-    const { componentRef, onClose: handleCloseByContext, setHasHeader } = useContext(ModalContext);
-    const { modalHeaderHighlighted } = useContext(UniversalModalContext);
+    const {
+        componentRef,
+        headerHighlighted: modalHeaderHighlighted,
+        onClose: handleCloseByContext,
+        setHasHeader,
+    } = useContext(ModalContext);
 
     const titleRef = useRef<HTMLDivElement>(null);
 
