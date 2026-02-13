@@ -1064,6 +1064,7 @@ __metadata:
     "@alfalab/hooks": "npm:^1.13.1"
     classnames: "npm:^2.5.1"
     lottie-web: "npm:^5.13.0"
+    nanoevents: "npm:^9.1.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0
@@ -24976,6 +24977,13 @@ __metadata:
   version: 1.0.2
   resolution: "nano-spawn@npm:1.0.2"
   checksum: 10c0/d8cec78f127a44aa5e38be01746b3d963a8dcf8b00b4a05bf259b5369af2225b8c7dc9d12517050b90234e5c3eeea4ece5d18a5f9c6c3462b56f9f595f07e632
+  languageName: node
+  linkType: hard
+
+"nanoevents@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "nanoevents@npm:9.1.0"
+  checksum: 10c0/5fb48e6fc1d3102daddaeffd6eada907c25b1c8554dcc648e9cb0a72979a1ab3ee56ffa2d2b3e566a8e561a9e2992a3783493c61cfaaa096b2986d56dbbc1ca5
   languageName: node
   linkType: hard
 

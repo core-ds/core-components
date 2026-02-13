@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment, no-param-reassign, no-underscore-dangle */
 import { type Ref, useCallback, useRef, useState } from 'react';
 import lottie, {
     type AnimationConfigWithData,
     type AnimationConfigWithPath,
     type AnimationEventCallback,
+    type AnimationEventName,
     type AnimationEvents,
     type AnimationItem,
 } from 'lottie-web/build/player/lottie_light';
@@ -20,12 +20,10 @@ type UseLottieProps =
     | Omit<AnimationConfigWithData<'svg'>, 'container' | 'renderer'>;
 
 export interface InternalAnimationItem extends AnimationItem {
-    _cbs?: never[] & AnimationItemListenersMap<AnimationEvents>;
+    _cbs?: never[] & {
+        [P in AnimationEventName]?: Array<AnimationEventCallback<AnimationEvents[P]>>;
+    };
 }
-
-export type AnimationItemListenersMap<T> = {
-    [P in keyof T]?: Array<AnimationEventCallback<T[P]>>;
-};
 
 export function useLottie<T extends Element>(
     props: UseLottieProps,
@@ -73,6 +71,7 @@ export function useLottie<T extends Element>(
 
             return () => {
                 animationItem.destroy();
+                // eslint-disable-next-line no-underscore-dangle
                 animationItem._cbs = [];
                 setAnimation(null);
             };
