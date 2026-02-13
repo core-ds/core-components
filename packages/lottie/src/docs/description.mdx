@@ -2,7 +2,6 @@
 
 ```jsx live
 render(() => {
-    const lottieRef = React.useRef(null);
     const [{ play, direction }, setData] = React.useState({ play: true, direction: 1 });
     const handleTooglePlay = () => {
         setData((data) => ({ ...data, play: !data.play }));
@@ -11,15 +10,13 @@ render(() => {
     return (
         <React.StrictMode>
             <div>
-                <Button onClick={handleTooglePlay}>toogle</Button>
+                <Button onClick={handleTooglePlay}>{play ? 'Pause' : 'Play'}</Button>
                 <Lottie
-                    ref={lottieRef}
                     play={play}
                     direction={direction}
                     speed={1}
                     iterations={0}
                     direction={direction}
-                    reverseOnRepeat={true}
                     animation={{ path: './twitter-heart.json' }}
                     size={{ width: 400, height: 400 }}
                 />
