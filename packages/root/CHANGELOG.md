@@ -1,5 +1,63 @@
 # @alfalab/core-components
 
+## 50.3.0
+
+### Minor Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2067](https://github.com/core-ds/core-components/pull/2067)
+
+##### BaseModal
+
+- Расширено публичное api для методов `setHeaderHighlighted` и `setFooterHighlighted`
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2067](https://github.com/core-ds/core-components/pull/2067)
+
+##### UniversalModal
+
+- Исправлена работа с контекстом
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2065](https://github.com/core-ds/core-components/pull/2065)
+
+##### Closer
+
+- Исправлена специфичность компонента
+
+- Обновлены зависимости
+    - @alfalab/core-components-universal-modal@3.0.3
+    - @alfalab/core-components-base-modal@7.1.0
+    - @alfalab/core-components-navigation-bar-private@2.0.2
+    - @alfalab/core-components-bottom-sheet@8.0.4
+    - @alfalab/core-components-drawer@7.0.2
+    - @alfalab/core-components-gallery@7.0.4
+    - @alfalab/core-components-modal@11.0.2
+    - @alfalab/core-components-popup-sheet@3.0.2
+    - @alfalab/core-components-select@19.0.4
+    - @alfalab/core-components-side-panel@7.0.2
+    - @alfalab/core-components-select-with-tags@10.0.4
+    - @alfalab/core-components-tooltip@9.0.4
+    - @alfalab/core-components-calendar@9.0.2
+    - @alfalab/core-components-custom-picker-button@4.0.4
+    - @alfalab/core-components-input-autocomplete@14.0.4
+    - @alfalab/core-components-international-phone-input@4.0.4
+    - @alfalab/core-components-intl-phone-input@11.0.4
+    - @alfalab/core-components-picker-button@13.0.4
+    - @alfalab/core-components-table@4.0.4
+    - @alfalab/core-components-calendar-input@12.0.2
+    - @alfalab/core-components-calendar-range@9.0.2
+    - @alfalab/core-components-calendar-with-skeleton@7.0.2
+    - @alfalab/core-components-date-range-input@5.0.2
+    - @alfalab/core-components-date-time-input@6.0.2
+    - @alfalab/core-components-universal-date-input@4.0.2
+    - @alfalab/core-components-tabs@10.0.4
+
 ## 50.2.0
 
 ### Minor Changes

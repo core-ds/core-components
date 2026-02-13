@@ -1,5 +1,13 @@
 # @alfalab/core-components-gallery
 
+## 7.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.0
+    - @alfalab/core-components-tooltip@9.0.4
+
 ## 7.0.3
 
 ### Patch Changes

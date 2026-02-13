@@ -1,5 +1,12 @@
 # @alfalab/core-components-calendar-input
 
+## 12.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.0.2
+
 ## 12.0.1
 
 ### Patch Changes
