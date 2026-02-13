@@ -1,5 +1,17 @@
 # @alfalab/core-components-markdown
 
+## 3.0.2
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2068](https://github.com/core-ds/core-components/pull/2068)
+
+##### Markdown
+
+- Исправлена трансформация относительных ссылок
+
 ## 3.0.1
 
 ### Patch Changes

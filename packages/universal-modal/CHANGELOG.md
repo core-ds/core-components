@@ -1,5 +1,17 @@
 # @alfalab/core-components-universal-modal
 
+## 3.0.2
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2043](https://github.com/core-ds/core-components/pull/2043)
+
+##### UniversalModal
+
+- Небольшие исправления в механизме установки высоты компонента
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tooltip",
-    "version": "9.0.2",
+    "version": "9.0.3",
     "description": "Tooltip component",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-bottom-sheet": "^8.0.2",
+        "@alfalab/core-components-bottom-sheet": "^8.0.3",
         "@alfalab/core-components-button": "^13.0.1",
         "@alfalab/core-components-mq": "^6.0.1",
         "@alfalab/core-components-popover": "^8.0.1",
