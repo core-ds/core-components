@@ -1,5 +1,17 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 1.1.7
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2066](https://github.com/core-ds/core-components/pull/2066)
+
+##### Closer
+
+- Исправлена специфичность компонента
+
 ## 1.1.6
 
 ### Patch Changes
