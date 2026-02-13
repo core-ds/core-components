@@ -6,6 +6,11 @@ import { OptionBase } from '../Component';
 
 import styles from './index.module.css';
 
-export const OptionDesktop = ({ Checkmark = DefaultCheckMark, ...props }: OptionCommonProps) => (
-    <OptionBase {...props} mobile={false} Checkmark={Checkmark} styles={styles} />
+export const OptionDesktop = ({ Checkmark, ...props }: OptionCommonProps) => (
+    <OptionBase
+        {...props}
+        mobile={false}
+        Checkmark={Checkmark ?? DefaultCheckMark}
+        styles={styles}
+    />
 );

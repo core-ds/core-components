@@ -33,6 +33,8 @@
             "@alfalab/core-components-select/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-status-badge": ["../status-badge/src"],
+            "@alfalab/core-components-status-badge/*": ["../status-badge/src/*"],
             "@alfalab/core-components-skeleton": ["../skeleton/src"],
             "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"]
         }
@@ -50,6 +52,7 @@
         { "path": "../popover/tsconfig.build.json" },
         { "path": "../scrollbar/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
+        { "path": "../status-badge/tsconfig.build.json" },
         { "path": "../skeleton/tsconfig.build.json" }
     ]
 }

@@ -7,6 +7,7 @@ import {
 } from '@alfalab/core-components-picker-button/desktop';
 
 import { Field as DefaultField } from '../field';
+import { disableCheckmarks } from '../utils/disableCheckMarks';
 
 const DEFAULT_BUTTON_COLOR = '#FF45C3';
 const DEFAULT_CONTENT_COLOR = 'white';
@@ -24,12 +25,14 @@ export const CustomPickerButtonDesktop = forwardRef<
             contentColor = DEFAULT_CONTENT_COLOR,
             stateType = 'darkening',
             icon,
+            options = [],
             ...restProps
         },
         ref,
     ) => (
         <PickerButtonDesktop
             {...restProps}
+            options={disableCheckmarks(options)}
             fieldProps={{
                 backgroundColor,
                 contentColor,

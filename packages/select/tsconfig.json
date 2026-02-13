@@ -1,7 +1,10 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "@alfalab/core-components-env/tsconfig.base.json",
-    "include": ["src", "src/**/*.json"],
+    "include": [
+        "src",
+        "src/**/*.json"
+    ],
     "compilerOptions": {
         "rootDir": "src",
         "outDir": "no-dist",
@@ -34,6 +37,8 @@
             "@alfalab/core-components-select/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-status-badge": ["../status-badge/src"],
+            "@alfalab/core-components-status-badge/*": ["../status-badge/src/*"],
             "@alfalab/core-components-skeleton": ["../skeleton/src"],
             "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
@@ -54,6 +59,7 @@
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../scrollbar/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
+        { "path": "../status-badge/tsconfig.build.json" },
         { "path": "../skeleton/tsconfig.build.json" },
         { "path": "../test-utils/tsconfig.build.json" }
     ]

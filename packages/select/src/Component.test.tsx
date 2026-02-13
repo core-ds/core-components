@@ -17,6 +17,7 @@ import {
 } from './shared';
 import { SelectDesktop as Select } from './desktop';
 import { SelectMobile, SelectModalMobile } from './mobile';
+import { BaseOption } from './components';
 import { getSelectTestIds } from './utils';
 import { Environment } from 'downshift';
 
@@ -830,7 +831,7 @@ describe('Select', () => {
                 (await screen.findByTestId('select-options-list')).getElementsByClassName(
                     'checkmark',
                 ).length,
-            ).toBe(16);
+            ).toBe(8);
         });
 
         it('should hide checkmark', async () => {
