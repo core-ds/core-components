@@ -41,6 +41,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
         hideCountdownSection,
         initialScreenHintSlot,
         errorVisibleDuration,
+        strictFocus,
         onChangeState,
         onInputFinished,
         onChangeScreen,
@@ -194,6 +195,7 @@ export const Initial: FC<InitialProps> = ({ mobile }) => {
                 error={getCodeInputError()}
                 ref={inputRef}
                 fields={requiredCharAmount}
+                strictFocus={strictFocus}
                 className={cn(styles.containerInput, styles.codeInput)}
                 onComplete={handleInputComplete}
                 onChange={handleInputChange}

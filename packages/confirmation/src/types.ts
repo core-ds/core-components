@@ -145,6 +145,12 @@ export interface ConfirmationProps {
      * @default 1300
      */
     errorVisibleDuration?: number;
+
+    /**
+     * Ограничение навигации фокусом между ячейками
+     * @default false
+     */
+    strictFocus?: boolean;
 }
 
 export type TConfirmationContext = Required<
@@ -164,6 +170,7 @@ export type TConfirmationContext = Required<
         | 'onFatalErrorOkButtonClick'
         | 'tempBlockDuration'
         | 'hideCountdownSection'
+        | 'strictFocus'
     >
 > &
     Pick<
