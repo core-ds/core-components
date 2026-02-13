@@ -78,4 +78,9 @@ export type BaseFilterTagProps = {
      * Слот слева
      */
     leftAddons?: ReactNode;
+
+    /**
+     * Значение тега
+     */
+    value?: string;
 };
