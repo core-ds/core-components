@@ -1,5 +1,17 @@
 # @alfalab/core-components-cdn-icon
 
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2022](https://github.com/core-ds/core-components/pull/2022)
+
+##### CDNIcon
+
+- Добавлена валидация имени иконки для предотвращения загрузки невалидных значений
+
 ## 7.0.1
 
 ### Patch Changes
