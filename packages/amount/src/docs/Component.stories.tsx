@@ -23,7 +23,17 @@ export const amount: Story = {
         const showPlus = boolean('showPlus', false);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
         const codeFormat = select('codeFormat', ['symbolic', 'letter'], 'symbolic');
-        const bold = select('bold', ['full', 'major', 'none'], 'bold');
+        const fontWeight = select(
+            'fontWeight',
+            [
+                'bold',
+                'medium',
+                { label: 'Только для мажорной части (bold)', major: 'bold' },
+                { label: 'Только для мажорной части (medium)', major: 'medium' },
+                undefined,
+            ] as const,
+            undefined,
+        );
         const transparentMinor = boolean('transparentMinor', true);
         return (
             <Container>
@@ -40,7 +50,7 @@ export const amount: Story = {
                             showPlus={showPlus}
                             view={view}
                             codeFormat={codeFormat}
-                            bold={bold}
+                            fontWeight={fontWeight}
                             transparentMinor={transparentMinor}
                         />
                     </Col>
