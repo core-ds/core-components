@@ -147,8 +147,8 @@ export function useCalendar({
     );
 
     const months = useMemo(
-        () => generateMonths(activeMonth, { minMonth, maxMonth }),
-        [minMonth, maxMonth, activeMonth],
+        () => generateMonths(activeMonth, { minMonth, maxMonth, offDaysMap }),
+        [minMonth, maxMonth, activeMonth, offDaysMap],
     );
 
     const years = useMemo(
