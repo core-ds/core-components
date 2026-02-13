@@ -10,7 +10,7 @@ import { Slide } from './slide';
 import styles from './index.module.css';
 
 export const Single: FC = () => {
-    const { fullScreen, currentSlideIndex, getCurrentImage, getCurrentImageMeta } =
+    const { fullScreen, currentSlideIndex, getCurrentImage, getCurrentImageMeta, hideNavigation } =
         useContext(GalleryContext);
 
     const { handleWrapperClick, isMobile } = useHandleImageViewer();
@@ -33,7 +33,10 @@ export const Single: FC = () => {
 
     return (
         /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-        <div className={styles.component} onClick={handleWrapperClick}>
+        <div
+            className={cn(styles.component, { [styles.hiddenNavigation]: hideNavigation })}
+            onClick={handleWrapperClick}
+        >
             {fullScreen && !isVideo(currentImage?.src) ? (
                 <img
                     src={currentImage?.src}
@@ -45,6 +48,7 @@ export const Single: FC = () => {
                     className={cn(styles.singleSlideContainer, {
                         [styles.mobile]: isMobile,
                         [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
+                        [styles.hiddenNavigation]: hideNavigation,
                     })}
                     ref={wrapperRef}
                 >
