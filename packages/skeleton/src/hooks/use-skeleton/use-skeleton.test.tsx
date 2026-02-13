@@ -6,7 +6,7 @@ import { render } from '@testing-library/react';
 const Skeleton = (props: TextSkeletonProps) => {
     const { renderSkeleton, textRef } = useSkeleton(true, props);
 
-    const skeleton = renderSkeleton({});
+    const skeleton = renderSkeleton({ dataTestId: 'test-skeleton' });
 
     if (skeleton) return skeleton;
 
