@@ -1,5 +1,18 @@
 # @alfalab/core-components-product-cover
 
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2032](https://github.com/core-ds/core-components/pull/2032)
+
+##### ProductCover
+
+- Добавлен пропс `textColor`, с помощью которого можно задать цвет для текстового контента номера и держателя карты (компонент `Single`)
+- Также с помощью `textColor` можно переопределить цвет текстового контента количества карт (компонент `Stack`)
+
 ## 3.0.1
 
 ### Patch Changes

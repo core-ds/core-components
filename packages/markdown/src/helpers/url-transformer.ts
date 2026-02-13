@@ -5,9 +5,7 @@ const allowedProtocols = ['http:', 'https:', 'mailto:', 'tel:', 'sms:'];
 export const urlTransformer =
     (transformLinkUri: boolean): UrlTransform =>
     (url) => {
-        const { protocol } = new URL(url);
-
-        if (allowedProtocols.includes(protocol) || !transformLinkUri) {
+        if (!transformLinkUri) {
             return url;
         }
 
@@ -16,5 +14,13 @@ export const urlTransformer =
          * До версии @9.0.0 некорректные ссылки трансформировались в такой формат
          */
         // eslint-disable-next-line no-script-url
-        return 'javascript:void(0)';
+        const voidPath = 'javascript:void(0)';
+
+        try {
+            const { protocol } = new URL(url);
+
+            return allowedProtocols.includes(protocol) ? url : voidPath;
+        } catch {
+            return voidPath;
+        }
     };

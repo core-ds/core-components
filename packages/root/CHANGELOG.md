@@ -1,5 +1,71 @@
 # @alfalab/core-components
 
+## 50.2.0
+
+### Minor Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2022](https://github.com/core-ds/core-components/pull/2022)
+
+##### CDNIcon
+
+- Добавлена валидация имени иконки для предотвращения загрузки невалидных значений
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2032](https://github.com/core-ds/core-components/pull/2032)
+
+##### ProductCover
+
+- Добавлен пропс `textColor`, с помощью которого можно задать цвет для текстового контента номера и держателя карты (компонент `Single`)
+- Также с помощью `textColor` можно переопределить цвет текстового контента количества карт (компонент `Stack`)
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2043](https://github.com/core-ds/core-components/pull/2043)
+
+##### UniversalModal
+
+- Небольшие исправления в механизме установки высоты компонента
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2068](https://github.com/core-ds/core-components/pull/2068)
+
+##### Markdown
+
+- Исправлена трансформация относительных ссылок
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2058](https://github.com/core-ds/core-components/pull/2058)
+
+##### BottomSheet
+
+- Исправлен визуальный скачок шторки при динамической смене `magneticAreasProp` (например, skeleton → content).
+- При изменении пропа временно отключается CSS transition для мгновенного перехода на новую позицию.
+
+- Обновлены зависимости
+    - @alfalab/core-components-cdn-icon@7.1.0
+    - @alfalab/core-components-universal-modal@3.0.2
+    - @alfalab/core-components-product-cover@3.1.0
+    - @alfalab/core-components-markdown@3.0.2
+    - @alfalab/core-components-bottom-sheet@8.0.3
+    - @alfalab/core-components-select@19.0.3
+    - @alfalab/core-components-select-with-tags@10.0.3
+    - @alfalab/core-components-tooltip@9.0.3
+    - @alfalab/core-components-custom-picker-button@4.0.3
+    - @alfalab/core-components-input-autocomplete@14.0.3
+    - @alfalab/core-components-international-phone-input@4.0.3
+    - @alfalab/core-components-intl-phone-input@11.0.3
+    - @alfalab/core-components-picker-button@13.0.3
+    - @alfalab/core-components-table@4.0.3
+    - @alfalab/core-components-gallery@7.0.3
+    - @alfalab/core-components-tabs@10.0.3
+
 ## 50.1.0
 
 ### Minor Changes
