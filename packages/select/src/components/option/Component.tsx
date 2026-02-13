@@ -28,12 +28,24 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     multiple,
     mobile,
     Checkmark,
+    checkmarkPosition = multiple ? 'before' : 'after',
     innerProps,
     dataTestId,
     styles,
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
+
+    const renderCheckmark = (position: 'before' | 'after') =>
+        Checkmark &&
+        showCheckMark && (
+            <Checkmark
+                disabled={disabled}
+                selected={selected}
+                multiple={multiple}
+                position={position}
+            />
+        );
 
     return (
         <div
@@ -45,14 +57,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
             })}
             data-test-id={dataTestId}
         >
-            {Checkmark && showCheckMark && (
-                <Checkmark
-                    disabled={disabled}
-                    selected={selected}
-                    multiple={multiple}
-                    position='before'
-                />
-            )}
+            {checkmarkPosition === 'before' && renderCheckmark('before')}
 
             <div
                 className={cn(styles.content, {
@@ -62,15 +67,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
                 {content}
             </div>
 
-            {/** Workaround чтобы для клика показывать отметку справа и всегда в виде иконки */}
-            {Checkmark && showCheckMark && (
-                <Checkmark
-                    disabled={disabled}
-                    selected={selected}
-                    multiple={multiple}
-                    position='after'
-                />
-            )}
+            {checkmarkPosition === 'after' && renderCheckmark('after')}
         </div>
     );
 };

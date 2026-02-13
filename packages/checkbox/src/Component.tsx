@@ -108,6 +108,12 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     error?: ReactNode | boolean;
 
     /**
+     * Позиция чекбокса относительно контента
+     * @default 'before'
+     */
+    position?: 'before' | 'after';
+
+    /**
      * Флаг для скрытия нативного инпута.
      * @default false
      */
@@ -139,6 +145,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             size = 20,
             boxClassName,
             contentClassName,
+            position = 'before',
             align = 'start',
             addons,
             block,
@@ -170,6 +177,17 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         const errorMessage = typeof error === 'boolean' ? '' : error;
 
         const colorStyle = colorStyles[colors];
+
+        const renderCheckmark = () => (
+            <span className={cn(styles.box, colorStyle.box, boxClassName)}>
+                {checked && (
+                    <CheckIcon className={cn(styles.checkedIcon, colorStyle.checkedIcon)} />
+                )}
+                {indeterminate && !checked && (
+                    <span className={cn(styles.indeterminateLine, colorStyle.indeterminateLine)} />
+                )}
+            </span>
+        );
 
         return (
             <label
@@ -206,16 +224,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         {...restProps}
                     />
                 )}
-                <span className={cn(styles.box, colorStyle.box, boxClassName)}>
-                    {checked && (
-                        <CheckIcon className={cn(styles.checkedIcon, colorStyle.checkedIcon)} />
-                    )}
-                    {indeterminate && !checked && (
-                        <span
-                            className={cn(styles.indeterminateLine, colorStyle.indeterminateLine)}
-                        />
-                    )}
-                </span>
+
+                {position === 'before' && renderCheckmark()}
 
                 {(label || hint || errorMessage) && (
                     <span className={cn(styles.content, contentClassName)}>
@@ -248,6 +258,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         )}
                     </span>
                 )}
+
+                {position === 'after' && renderCheckmark()}
 
                 {addons && (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions

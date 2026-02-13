@@ -13,6 +13,7 @@ export type HeaderProps = {
     onChange?: CheckboxProps['onChange'];
     mobile?: boolean;
     dataTestId?: string;
+    checkmarkPosition?: 'before' | 'after';
     size?: OptionsListProps['size'];
 };
 
@@ -23,6 +24,7 @@ export const Header: React.FC<HeaderProps> = ({
     mobile,
     dataTestId,
     size,
+    checkmarkPosition = 'before',
 }) => (
     <div
         className={cn(size && styles[`size-${size}`], {
@@ -38,6 +40,7 @@ export const Header: React.FC<HeaderProps> = ({
             checked={checked}
             label='Выбрать все'
             dataTestId={dataTestId}
+            position={checkmarkPosition}
         />
     </div>
 );
