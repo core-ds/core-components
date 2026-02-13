@@ -1,5 +1,43 @@
 # @alfalab/core-components
 
+## 49.15.2
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2066](https://github.com/core-ds/core-components/pull/2066)
+
+##### Closer
+
+- Исправлена специфичность компонента
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.7
+    - @alfalab/core-components-bottom-sheet@7.4.5
+    - @alfalab/core-components-modal@10.0.11
+    - @alfalab/core-components-popup-sheet@2.0.13
+    - @alfalab/core-components-side-panel@6.1.2
+    - @alfalab/core-components-universal-modal@2.0.13
+    - @alfalab/core-components-select@18.2.11
+    - @alfalab/core-components-select-with-tags@9.0.14
+    - @alfalab/core-components-tooltip@8.0.14
+    - @alfalab/core-components-calendar@8.0.11
+    - @alfalab/core-components-custom-picker-button@3.1.3
+    - @alfalab/core-components-input-autocomplete@13.1.3
+    - @alfalab/core-components-international-phone-input@3.2.11
+    - @alfalab/core-components-intl-phone-input@10.0.14
+    - @alfalab/core-components-picker-button@12.1.3
+    - @alfalab/core-components-table@3.0.14
+    - @alfalab/core-components-gallery@6.0.15
+    - @alfalab/core-components-calendar-input@11.0.12
+    - @alfalab/core-components-calendar-range@8.0.12
+    - @alfalab/core-components-calendar-with-skeleton@6.0.11
+    - @alfalab/core-components-date-range-input@4.0.12
+    - @alfalab/core-components-date-time-input@5.0.12
+    - @alfalab/core-components-universal-date-input@3.1.2
+    - @alfalab/core-components-tabs@9.2.11
+
 ## 49.15.1
 
 ### Patch Changes
