@@ -1,5 +1,21 @@
 # @alfalab/core-components-universal-modal
 
+## 3.0.3
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2067](https://github.com/core-ds/core-components/pull/2067)
+
+##### UniversalModal
+
+- Исправлена работа с контекстом
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.0
+    - @alfalab/core-components-navigation-bar-private@2.0.2
+
 ## 3.0.2
 
 ### Patch Changes
