@@ -7,7 +7,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
+      class="component component formControlDesktop size-48 size-48 size-48 block"
     >
       <div
         class="field inner inner inner inner filled"
@@ -43,7 +43,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 2`] = `
     tabindex="-1"
   >
     <div
-      class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
+      class="component component formControlDesktop size-48 size-48 size-48 block"
     >
       <div
         class="field inner inner inner inner filled"
@@ -79,7 +79,7 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 3`] = `
     tabindex="-1"
   >
     <div
-      class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
+      class="component component formControlDesktop size-48 size-48 size-48 block"
     >
       <div
         class="field inner inner inner inner filled"
@@ -131,6 +131,9 @@ exports[`UniversalDateInput Snapshot tests should match snapshot 4`] = `
           />
         </div>
       </div>
+      <div
+        class="addons rightAddons rightAddons size-48"
+      />
     </div>
   </div>
 </div>

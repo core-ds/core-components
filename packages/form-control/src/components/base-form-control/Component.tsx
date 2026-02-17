@@ -197,7 +197,6 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                     {
                         [commonStyles.block]: block,
                         [commonStyles.hasLeftAddons]: leftAddons,
-                        [commonStyles.hasRightAddons]: rightAddons || error,
                     },
                 )}
             >

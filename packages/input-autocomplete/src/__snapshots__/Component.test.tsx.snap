@@ -192,6 +192,9 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 />
                               </div>
                             </div>
+                            <div
+                              class="addons rightAddons rightAddons size-48"
+                            />
                           </div>
                         </div>
                       </div>

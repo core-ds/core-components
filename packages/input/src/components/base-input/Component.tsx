@@ -236,23 +236,9 @@ export const BaseInput = forwardRef<
         const renderRightAddons = () => {
             const statusBadgeSize = size === 40 ? 16 : 20;
 
-            const renderConfig: Record<string, boolean> = {
-                clearAddon: clearButtonVisible,
-                errorAddon: Boolean(error),
-                successAddon: Boolean(success && !error),
-                rightAddon: Boolean(rightAddons),
-                lockAddon: Boolean(disabled || readOnlyProp),
-            };
-
-            if (Object.values(renderConfig).every((addon) => !addon)) {
-                return undefined;
-            }
-
-            const { clearAddon, errorAddon, successAddon, rightAddon, lockAddon } = renderConfig;
-
             return (
                 <Fragment>
-                    {clearAddon && (
+                    {clearButtonVisible && (
                         <ClearButton
                             onClick={handleClear}
                             disabled={disabled}
@@ -261,7 +247,7 @@ export const BaseInput = forwardRef<
                             size={size}
                         />
                     )}
-                    {errorAddon && (
+                    {Boolean(error) && (
                         <div className={cn(styles.errorIcon)} data-addon='error-icon'>
                             <StatusBadge
                                 view='negative-alert'
@@ -270,7 +256,7 @@ export const BaseInput = forwardRef<
                             />
                         </div>
                     )}
-                    {successAddon && (
+                    {Boolean(success && !error) && (
                         <div className={cn(styles.successIcon)}>
                             <StatusBadge
                                 view='positive-checkmark'
@@ -279,8 +265,8 @@ export const BaseInput = forwardRef<
                             />
                         </div>
                     )}
-                    {rightAddon && rightAddons}
-                    {lockAddon && <LockIcon colors={colors} size={size} />}
+                    {Boolean(rightAddons) && rightAddons}
+                    {Boolean(disabled || readOnlyProp) && <LockIcon colors={colors} size={size} />}
                 </Fragment>
             );
         };
