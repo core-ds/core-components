@@ -70,36 +70,24 @@ export const Field = ({
      * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
      * [0] - Lock
      */
-    const renderRightAddons = () => {
-        const renderConfig: Record<string, boolean> = {
-            clearAddon: clear && filled && !disabled,
-            rightAddon: Boolean(rightAddons),
-            arrowAddon: Boolean(Arrow) && !disabled,
-            lockAddon: Boolean(disabled),
-        };
-
-        if (Object.values(renderConfig).every((addon) => !addon)) {
-            return undefined;
-        }
-
-        const { clearAddon, rightAddon, arrowAddon, lockAddon } = renderConfig;
-
-        return (
-            <Fragment>
-                {clearAddon && (
-                    <ClearButton
-                        onClick={onClear}
-                        disabled={disabled}
-                        dataTestId={getDataTestId(dataTestId, 'clear-icon')}
-                        size={size}
-                    />
-                )}
-                {rightAddon && rightAddons}
-                {arrowAddon && Arrow && React.cloneElement(Arrow, { className: styles.arrow })}
-                {lockAddon && <LockIcon colors={colors} size={size} />}
-            </Fragment>
-        );
-    };
+    const renderRightAddons = () => (
+        <Fragment>
+            {clear && filled && !disabled && (
+                <ClearButton
+                    onClick={onClear}
+                    disabled={disabled}
+                    dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                    size={size}
+                />
+            )}
+            {Boolean(rightAddons) && rightAddons}
+            {Boolean(Arrow) &&
+                !disabled &&
+                Arrow &&
+                React.cloneElement(Arrow, { className: styles.arrow })}
+            {Boolean(disabled) && <LockIcon colors={colors} size={size} />}
+        </Fragment>
+    );
 
     return (
         <div
