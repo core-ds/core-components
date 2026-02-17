@@ -124,6 +124,8 @@ describe('InternationalPhoneInputMobile | interactions', () => {
 
         try {
             await page.click('[role="combobox"]');
+            // wait for BottomSheet transitions complete
+            await page.waitForTimeout(1000);
 
             await matchHtml({
                 page,
