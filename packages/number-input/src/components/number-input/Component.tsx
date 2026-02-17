@@ -227,38 +227,25 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             setFocused(false);
         };
 
-        const renderRightAddons = () => {
-            const renderConfig: Record<string, boolean> = {
-                rightAddon: Boolean(rightAddons),
-                stepperAddon: withStepper && !disabled && !readOnly,
-            };
-
-            if (Object.values(renderConfig).every((addon) => !addon)) {
-                return undefined;
-            }
-
-            const { rightAddon, stepperAddon } = renderConfig;
-
-            return (
-                <Fragment>
-                    {rightAddon && rightAddons}
-                    {stepperAddon && (
-                        <Steppers
-                            colors={colors}
-                            dataTestId={dataTestId}
-                            disabled={disabled}
-                            focused={focused}
-                            value={parseNumber(value)}
-                            min={min}
-                            max={max}
-                            onIncrement={handleIncrement}
-                            onDecrement={handleDecrement}
-                            size={size}
-                        />
-                    )}
-                </Fragment>
-            );
-        };
+        const renderRightAddons = () => (
+            <Fragment>
+                {Boolean(rightAddons) && rightAddons}
+                {withStepper && !disabled && !readOnly && (
+                    <Steppers
+                        colors={colors}
+                        dataTestId={dataTestId}
+                        disabled={disabled}
+                        focused={focused}
+                        value={parseNumber(value)}
+                        min={min}
+                        max={max}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
+                        size={size}
+                    />
+                )}
+            </Fragment>
+        );
 
         return (
             <Input
