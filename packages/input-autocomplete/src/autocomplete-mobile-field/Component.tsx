@@ -76,52 +76,34 @@ export const AutocompleteMobileField = ({
      * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
      * [0] - Lock
      */
-    const renderRightAddons = () => {
-        const renderConfig: Record<string, boolean> = {
-            clearAddon: clear && filled && !disabled && !readOnly,
-            errorAddon: Boolean(error),
-            successAddon: Boolean(success && !error),
-            rightAddon: Boolean(rightAddons),
-            arrowAddon: Boolean(Arrow) && !disabled && !readOnly,
-            lockAddon: Boolean(disabled || readOnly),
-        };
-
-        if (Object.values(renderConfig).every((addon) => !addon)) {
-            return undefined;
-        }
-
-        const { clearAddon, errorAddon, successAddon, rightAddon, arrowAddon, lockAddon } =
-            renderConfig;
-
-        return (
-            <Fragment>
-                {clearAddon && (
-                    <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
-                )}
-                {errorAddon && (
-                    <div className={styles.errorIcon} data-addon='error-icon'>
-                        <StatusBadge
-                            view='negative-alert'
-                            size={statusBadgeSize}
-                            dataTestId={getDataTestId(dataTestId, 'error-icon')}
-                        />
-                    </div>
-                )}
-                {successAddon && (
-                    <div className={styles.successIcon}>
-                        <StatusBadge
-                            view='positive-checkmark'
-                            size={statusBadgeSize}
-                            dataTestId={getDataTestId(dataTestId, 'success-icon')}
-                        />
-                    </div>
-                )}
-                {rightAddon && rightAddons}
-                {arrowAddon && Arrow}
-                {lockAddon && <LockIcon colors={colors} size={size} />}
-            </Fragment>
-        );
-    };
+    const renderRightAddons = () => (
+        <Fragment>
+            {clear && filled && !disabled && !readOnly && (
+                <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
+            )}
+            {Boolean(error) && (
+                <div className={styles.errorIcon} data-addon='error-icon'>
+                    <StatusBadge
+                        view='negative-alert'
+                        size={statusBadgeSize}
+                        dataTestId={getDataTestId(dataTestId, 'error-icon')}
+                    />
+                </div>
+            )}
+            {Boolean(success && !error) && (
+                <div className={styles.successIcon}>
+                    <StatusBadge
+                        view='positive-checkmark'
+                        size={statusBadgeSize}
+                        dataTestId={getDataTestId(dataTestId, 'success-icon')}
+                    />
+                </div>
+            )}
+            {Boolean(rightAddons) && rightAddons}
+            {Boolean(Arrow) && !disabled && !readOnly && Arrow}
+            {Boolean(disabled || readOnly) && <LockIcon colors={colors} size={size} />}
+        </Fragment>
+    );
 
     return (
         <div

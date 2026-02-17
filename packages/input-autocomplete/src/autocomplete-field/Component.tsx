@@ -60,33 +60,20 @@ export const AutocompleteField = ({
      * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
      * [0] - Lock
      */
-    const renderRightAddons = () => {
-        const renderConfig: Record<string, boolean> = {
-            rightAddon: Boolean(inputProps.rightAddons),
-            arrowAddon: Boolean(Arrow) && !inputDisabled,
-        };
-
-        if (Object.values(renderConfig).every((addon) => !addon)) {
-            return undefined;
-        }
-
-        const { rightAddon, arrowAddon } = renderConfig;
-
-        return (
-            <Fragment>
-                {rightAddon && inputProps.rightAddons}
-                {arrowAddon && (
-                    <span
-                        className={cn(styles.arrow, {
-                            [styles.error]: error,
-                        })}
-                    >
-                        {Arrow}
-                    </span>
-                )}
-            </Fragment>
-        );
-    };
+    const renderRightAddons = () => (
+        <Fragment>
+            {Boolean(inputProps.rightAddons) && inputProps.rightAddons}
+            {Boolean(Arrow) && !inputDisabled && (
+                <span
+                    className={cn(styles.arrow, {
+                        [styles.error]: error,
+                    })}
+                >
+                    {Arrow}
+                </span>
+            )}
+        </Fragment>
+    );
 
     return (
         <Input
