@@ -227,14 +227,30 @@ render(() => {
 render(() => {
     const [textResizing, setTextResizing] = React.useState('hug');
 
+    const Icon20 = ({ className }) => (
+        <svg
+            className={className}
+            width='20'
+            height='20'
+            viewBox='0 0 20 20'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+        >
+            <path
+                d='M11 8.26465L15.5645 5.62988L16.5645 7.36133L12.0029 9.99316L16.5693 12.6299L15.5693 14.3613L11 11.7227V17H9V11.7285L4.44043 14.3613L3.44043 12.6299L8.00488 9.99414L3.44531 7.36133L4.44531 5.62988L9 8.25879V3H11V8.26465Z'
+                fill='#9032EE'
+            />
+        </svg>
+    );
+
     return (
         <div style={{ width: isMobile() ? '100%' : 240 }}>
             <Button
                 view='primary'
                 breakpoint={BREAKPOINT}
-                block={true}
-                rightAddons={<StarMIcon />}
-                leftAddons={<StarMIcon />}
+                size={40}
+                leftAddons={<Icon20Adapter icon={Icon20} />}
+                rightAddons={<StarSIcon />}
                 hint='Hint'
                 textResizing={textResizing}
             >
