@@ -317,7 +317,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
          */
         const renderRightAddons = () => (
             <Fragment>
-                {Boolean(rightAddons) && rightAddons}
+                {rightAddons}
                 {withStepper && !disabled && !readOnly && (
                     <Steppers
                         colors={colors}

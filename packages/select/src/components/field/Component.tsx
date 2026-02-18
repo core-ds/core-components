@@ -80,12 +80,9 @@ export const Field = ({
                     size={size}
                 />
             )}
-            {Boolean(rightAddons) && rightAddons}
-            {Boolean(Arrow) &&
-                !disabled &&
-                Arrow &&
-                React.cloneElement(Arrow, { className: styles.arrow })}
-            {Boolean(disabled) && <LockIcon colors={colors} size={size} />}
+            {rightAddons}
+            {!disabled && Arrow && React.cloneElement(Arrow, { className: styles.arrow })}
+            {disabled && <LockIcon colors={colors} size={size} />}
         </Fragment>
     );
 

@@ -247,7 +247,7 @@ export const BaseInput = forwardRef<
                             size={size}
                         />
                     )}
-                    {Boolean(error) && (
+                    {error && (
                         <div className={cn(styles.errorIcon)} data-addon='error-icon'>
                             <StatusBadge
                                 view='negative-alert'
@@ -256,7 +256,7 @@ export const BaseInput = forwardRef<
                             />
                         </div>
                     )}
-                    {Boolean(success && !error) && (
+                    {success && !error && (
                         <div className={cn(styles.successIcon)}>
                             <StatusBadge
                                 view='positive-checkmark'
@@ -265,8 +265,8 @@ export const BaseInput = forwardRef<
                             />
                         </div>
                     )}
-                    {Boolean(rightAddons) && rightAddons}
-                    {Boolean(disabled || readOnlyProp) && <LockIcon colors={colors} size={size} />}
+                    {rightAddons}
+                    {(disabled || readOnlyProp) && <LockIcon colors={colors} size={size} />}
                 </Fragment>
             );
         };

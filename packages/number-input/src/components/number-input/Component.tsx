@@ -229,7 +229,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
 
         const renderRightAddons = () => (
             <Fragment>
-                {Boolean(rightAddons) && rightAddons}
+                {rightAddons}
                 {withStepper && !disabled && !readOnly && (
                     <Steppers
                         colors={colors}

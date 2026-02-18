@@ -62,8 +62,8 @@ export const AutocompleteField = ({
      */
     const renderRightAddons = () => (
         <Fragment>
-            {Boolean(inputProps.rightAddons) && inputProps.rightAddons}
-            {Boolean(Arrow) && !inputDisabled && (
+            {inputProps.rightAddons}
+            {Arrow && !inputDisabled && (
                 <span
                     className={cn(styles.arrow, {
                         [styles.error]: error,

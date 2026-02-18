@@ -81,7 +81,7 @@ export const AutocompleteMobileField = ({
             {clear && filled && !disabled && !readOnly && (
                 <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
             )}
-            {Boolean(error) && (
+            {error && (
                 <div className={styles.errorIcon} data-addon='error-icon'>
                     <StatusBadge
                         view='negative-alert'
@@ -90,7 +90,7 @@ export const AutocompleteMobileField = ({
                     />
                 </div>
             )}
-            {Boolean(success && !error) && (
+            {success && !error && (
                 <div className={styles.successIcon}>
                     <StatusBadge
                         view='positive-checkmark'
@@ -99,9 +99,9 @@ export const AutocompleteMobileField = ({
                     />
                 </div>
             )}
-            {Boolean(rightAddons) && rightAddons}
-            {Boolean(Arrow) && !disabled && !readOnly && Arrow}
-            {Boolean(disabled || readOnly) && <LockIcon colors={colors} size={size} />}
+            {rightAddons}
+            {!disabled && !readOnly && Arrow}
+            {(disabled || readOnly) && <LockIcon colors={colors} size={size} />}
         </Fragment>
     );
 
