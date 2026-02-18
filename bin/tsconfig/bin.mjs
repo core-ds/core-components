@@ -6,7 +6,7 @@ import fse from 'fs-extra';
 import micromatch from 'micromatch';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { argv, cwd, exit } from 'node:process';
+import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import slash from 'slash';
 import yargs from 'yargs';
@@ -29,15 +29,15 @@ const INTERNAL_PACKAGES = getPackages().packages.filter(
 );
 const INTERNAL_PACKAGES_NAMES = INTERNAL_PACKAGES.map(({ packageJson: { name } }) => name);
 
-await yargs(hideBin(argv))
+await yargs(hideBin(process.argv))
     .command(
         'generate',
         'Generate tsconfig',
         (yargs) =>
             yargs
-                .option('scope', {
+                .option('include', {
                     type: 'array',
-                    description: 'Scope of packages to generate tsconfig for',
+                    description: 'Included packages to generate tsconfig for',
                     choices: INTERNAL_PACKAGES_NAMES,
                 })
                 .option('test', {
@@ -66,7 +66,7 @@ await yargs(hideBin(argv))
                     ...(yargs.storybook || yargs.all ? ['storybook'] : []),
                     ...(yargs.test || yargs.all ? ['test'] : []),
                     ...(yargs['type-gen'] || yargs.all ? ['type-gen'] : []),
-                    ...(yargs.all ? INTERNAL_PACKAGES_NAMES : (yargs.scope ?? [])),
+                    ...(yargs.all ? INTERNAL_PACKAGES_NAMES : (yargs.include ?? [])),
                 ].map(async (id) =>
                     Promise.all(
                         configs.map(async (config) => {
@@ -128,7 +128,7 @@ await yargs(hideBin(argv))
                 Please update tsconfig files, using the following commands:
                     ${errors.map(([id]) => {
                         const args = INTERNAL_PACKAGES_NAMES.includes(id)
-                            ? `--scope ${id}`
+                            ? `--include ${id}`
                             : `--${id}`;
 
                         return `yarn tsconfig generate ${args}`;
@@ -136,7 +136,7 @@ await yargs(hideBin(argv))
                     `)}
             `);
 
-            exit(1);
+            process.exit(1);
         },
     )
     .demandCommand()
@@ -272,7 +272,7 @@ function resolveOptions(config, id) {
 
         include = [...include, id, ...all];
     } else {
-        dir = id === 'storybook' ? STORYBOOK_PATH : cwd();
+        dir = id === 'storybook' ? STORYBOOK_PATH : process.cwd();
     }
     const out = path.resolve(dir, output);
     const packages = INTERNAL_PACKAGES.filter(({ packageJson: { name } }) =>

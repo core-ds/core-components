@@ -115,7 +115,7 @@ jobs:
 
             - name: build themes
               run: |
-                  yarn build --scope @alfalab/core-components-themes
+                  yarn build --include @alfalab/core-components-themes
 
             - name: run test
               run: |

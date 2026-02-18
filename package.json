@@ -1,4 +1,6 @@
 {
+    "name": "@alfalab/core-components-repository",
+    "version": "1.0.0",
     "private": true,
     "homepage": "https://core-ds.github.io/core-components",
     "repository": {
@@ -135,7 +137,6 @@
         "jest-environment-jsdom": "^30.0.5",
         "jest-environment-node": "^30.0.5",
         "jest-image-snapshot": "^6.5.1",
-        "lerna": "^8.2.3",
         "lint-staged": "^16.1.0",
         "micromatch": "^4.0.8",
         "mini-css-extract-plugin": "^2.9.2",
@@ -178,5 +179,5 @@
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },
-    "packageManager": "yarn@1.22.22"
+    "packageManager": "yarn@4.12.0"
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import path from 'node:path';
-import { exit } from 'node:process';
+import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { $ } from '../../tools/execa.mjs';
@@ -15,25 +15,25 @@ async function main() {
     const exitCodes = (
         await Promise.all([
             $(
-                'lerna',
+                'yarn',
                 [
+                    'workspaces',
+                    'foreach',
+                    '-Ap',
+                    ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
                     'exec',
-                    '--no-bail',
-                    '--stream',
-                    ...IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
-                    '--',
                     'node',
                     path.join(dirname, 'lint-package-deps.mjs'),
                 ],
                 { preferLocal: true, stdio: 'inherit', reject: false },
             ),
             $(
-                'lerna',
+                'yarn',
                 [
+                    'workspaces',
+                    'foreach',
+                    '-Ap',
                     'exec',
-                    '--no-bail',
-                    '--stream',
-                    '--',
                     'node',
                     path.join(dirname, 'lint-versions.mjs'),
                 ],
@@ -42,11 +42,9 @@ async function main() {
         ])
     ).map(({ exitCode }) => exitCode);
 
-    if (exitCodes.every((exitCode) => exitCode === 0)) {
-        return;
+    if (exitCodes.some((exitCode) => exitCode !== 0)) {
+        process.exit(1);
     }
-
-    exit(1);
 }
 
 await main();

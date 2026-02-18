@@ -1,6 +1,7 @@
 @alfalab/core-components-codemod
 @alfalab/core-components-config
 @alfalab/core-components-env
+@alfalab/core-components-repository
 @alfalab/core-components-screenshot-utils
 @alfalab/core-components-stack-context
 @alfalab/core-components-test-utils
