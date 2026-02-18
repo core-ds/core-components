@@ -5,7 +5,7 @@
     "keywords": [],
     "license": "MIT",
     "sideEffects": [
-        "*.css"
+        "**/*.css"
     ],
     "main": "index.js",
     "module": "./esm/index.js",
