@@ -466,3 +466,32 @@ describe('Input | screenshots rightAddons prop', () => {
 
     ['default'].forEach((theme) => testCase(theme));
 });
+
+describe('Input | screenshots leftAddons prop', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Input',
+                    subComponentName: 'InputDesktop',
+                    knobs: {
+                        value: 'value value value value value value value value value',
+                        size: [40, 48, 56, 64, 72],
+                        leftAddons: [false, true],
+                    },
+                }),
+            ],
+            viewport: { width: 350, height: 100 },
+            screenshotOpts: {
+                fullPage: false,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
