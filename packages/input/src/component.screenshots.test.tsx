@@ -481,6 +481,18 @@ describe('Input | screenshots leftAddons prop', () => {
                         leftAddons: [false, true],
                     },
                 }),
+                // with label
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Input',
+                    subComponentName: 'InputDesktop',
+                    knobs: {
+                        value: 'value value value value value value value value value',
+                        size: [40, 48, 56, 64, 72],
+                        label: 'Label',
+                        leftAddons: [true],
+                    },
+                }),
             ],
             viewport: { width: 350, height: 100 },
             screenshotOpts: {
