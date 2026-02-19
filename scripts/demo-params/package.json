@@ -1,0 +1,38 @@
+{
+    "name": "@alfalab/core-components-demo-params",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "exports": {
+        "./package.json": "./package.json",
+        "./resolve-dir": {
+            "types": {
+                "module": "./resolve-dir/index.d.js",
+                "import": "./resolve-dir/index.d.mts",
+                "require": "./resolve-dir/index.d.cts"
+            },
+            "module": "./resolve-dir/index.js",
+            "import": "./resolve-dir/index.mjs",
+            "require": "./resolve-dir/index.cjs"
+        },
+        "./resolve-ref": {
+            "types": {
+                "module": "./resolve-ref/index.d.js",
+                "import": "./resolve-ref/index.d.mts",
+                "require": "./resolve-ref/index.d.cts"
+            },
+            "module": "./resolve-ref/index.js",
+            "import": "./resolve-ref/index.mjs",
+            "require": "./resolve-ref/index.cjs"
+        }
+    },
+    "scripts": {
+        "build-types": "tsc --declaration --emitDeclarationOnly"
+    },
+    "dependencies": {
+        "semver": "^7.7.2"
+    },
+    "devDependencies": {
+        "@actions/github-script": "github:actions/github-script"
+    }
+}

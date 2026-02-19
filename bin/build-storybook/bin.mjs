@@ -14,6 +14,9 @@ async function main() {
     const BUILD_IGNORED_PACKAGES = await readPackagesFile(
         path.resolve(process.cwd(), 'tools/.build-ignored-packages'),
     );
+    const COPY_PREVIEW_IGNORED_PACKAGES = await readPackagesFile(
+        path.resolve(dirname, '.copy-preview-ignored-packages'),
+    );
 
     await $('yarn', ['build'], {
         env: { ...process.env, BUILD_MODERN_ONLY },
@@ -25,8 +28,7 @@ async function main() {
         'workspaces',
         'foreach',
         '-Ap',
-        '--exclude',
-        '@alfalab/core-components-repository',
+        ...COPY_PREVIEW_IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
         'exec',
         'node',
         path.join(dirname, 'copy-package-preview.mjs'),

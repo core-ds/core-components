@@ -1,0 +1,18 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-tsconfig-node24-backport",
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "types": ["@alfalab/core-components-github-actions-env", "@types/jest"]
+    },
+    "include": [
+        "resolve-dir/*.js",
+        "resolve-dir/*.cjs",
+        "resolve-dir/*.mjs",
+        "resolve-ref/*.js",
+        "resolve-ref/*.cjs",
+        "resolve-ref/*.mjs"
+    ],
+    "exclude": ["node_modules"]
+}

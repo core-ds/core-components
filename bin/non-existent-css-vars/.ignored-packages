@@ -4,3 +4,6 @@
 @alfalab/core-components-test-utils
 @alfalab/core-components-themes
 @alfalab/core-components-vars
+@alfalab/core-components-demo-params
+@alfalab/core-components-github-actions-env
+@alfalab/core-components-tsconfig-node24-backport

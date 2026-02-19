@@ -8,13 +8,14 @@
         "url": "https://github.com/core-ds/core-components"
     },
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "scripts/*"
     ],
     "scripts": {
         "analyze-package-sizes": "node bin/analyze-package-sizes/bin.mjs",
         "build": "node bin/build/bin.mjs",
         "build-storybook": "node bin/build-storybook/bin.mjs",
-        "check-package-json": "sort-package-json --check package.json \"packages/*/package.json\"",
+        "check-package-json": "sort-package-json --check package.json \"{packages,scripts}/*/package.json\"",
         "clean": "node bin/clean/bin.mjs",
         "cm": "git-cz",
         "format": "prettier --check \"{packages,bin,tools}/**/*.{ts,tsx,js,jsx,css,json}\"",
@@ -110,7 +111,7 @@
         "@types/lodash": "^4.17.13",
         "@types/lodash.throttle": "^4.1.7",
         "@types/micromatch": "^4.0.9",
-        "@types/node": "^22.15.18",
+        "@types/node": "^24.10.13",
         "@types/react": "^18.3.24",
         "@types/react-dom": "^18.3.7",
         "@types/react-transition-group": "^4.4.12",

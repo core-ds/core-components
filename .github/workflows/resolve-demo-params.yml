@@ -34,25 +34,33 @@ jobs:
             - uses: actions/checkout@v5
 
             - name: setup nodejs
-              uses: actions/setup-node@v5
+              uses: actions/setup-node@v6
               with:
-                  node-version: 22
+                  node-version: 24
                   cache: yarn
 
             - name: install dependencies
-              working-directory: tools/gh-actions/resolve-demo-params
               run: |
-                  yarn install --frozen-lockfile
+                  yarn install --immutable
 
             - id: resolve-ref
               uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |
-                      const run = require('./tools/gh-actions/resolve-demo-params/resolve-ref.js');
-                      const inputs = ${{ toJSON(inputs) }};
+                      const resolveRef = require('@alfalab/core-components-demo-params/resolve-ref');
 
-                      return await run({ github, context, core, glob, io, exec, inputs });
+                      return await resolveRef({
+                          require,
+                          __original_require__,
+                          github,
+                          octokit,
+                          context,
+                          core,
+                          exec,
+                          glob,
+                          io,
+                      });
 
             - uses: actions/checkout@v5
               if: ${{ steps.resolve-ref.outputs.result != github.ref }}
@@ -66,7 +74,16 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      const run = require('./tools/gh-actions/resolve-demo-params/resolve-dir.js');
-                      const inputs = ${{ toJSON(inputs) }};
+                      const resolveDir = require('@alfalab/core-components-demo-params/resolve-dir');
 
-                      return await run({ github, context, core, glob, io, exec, inputs });
+                      return await resolveDir({
+                          require,
+                          __original_require__,
+                          github,
+                          octokit,
+                          context,
+                          core,
+                          exec,
+                          glob,
+                          io,
+                      });
