@@ -1,8 +1,20 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
+@define-mixin negative-margin-left $var-name {
+    margin-left: calc(-1 * var($var-name));
+    padding-left: var($var-name);
+}
+
+:root {
+    --tag-list-size-74-gap: var(--gap-2s);
+    --tag-list-size-64-gap: var(--gap-10);
+    --tag-list-size-56-gap: var(--gap-10);
+    --tag-list-size-48-gap: var(--gap-6);
+}
+
 .component.size-72 {
     & .contentWrapper {
-        padding: 18px var(--gap-2s);
+        padding: 18px var(--tag-list-size-74-gap);
     }
 
     & .placeholder {
@@ -11,12 +23,16 @@
 
     & .input {
         margin-left: var(--gap-2);
+    }
+
+    & .rightAddons:not(:empty) {
+        @mixin negative-margin-left --tag-list-size-74-gap;
     }
 }
 
 .component.size-64 {
     & .contentWrapper {
-        padding: var(--gap-2s) var(--gap-10);
+        padding: var(--gap-2s) var(--tag-list-size-64-gap);
     }
 
     & .placeholder {
@@ -25,12 +41,16 @@
 
     & .input {
         margin-left: var(--gap-2);
+    }
+
+    & .rightAddons:not(:empty) {
+        @mixin negative-margin-left --tag-list-size-64-gap;
     }
 }
 
 .component.size-56 {
     & .contentWrapper {
-        padding: var(--gap-10);
+        padding: var(--tag-list-size-56-gap);
     }
 
     & .placeholder {
@@ -40,11 +60,15 @@
     & .input {
         margin-left: var(--gap-2);
     }
+
+    & .rightAddons:not(:empty) {
+        @mixin negative-margin-left --tag-list-size-56-gap;
+    }
 }
 
 .component.size-48 {
     & .contentWrapper {
-        padding: var(--gap-6);
+        padding: var(--tag-list-size-48-gap);
     }
 
     & .placeholder {
@@ -53,6 +77,10 @@
 
     & .input {
         margin-left: var(--gap-6);
+    }
+
+    & .rightAddons:not(:empty) {
+        @mixin negative-margin-left --tag-list-size-48-gap;
     }
 }
 
