@@ -642,7 +642,7 @@ exports[`FormControl Snapshots tests should render left addons 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasLeftAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -667,7 +667,7 @@ exports[`FormControl Snapshots tests should render left addons 1`] = `
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasLeftAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner"

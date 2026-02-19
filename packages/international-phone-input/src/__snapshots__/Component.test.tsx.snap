@@ -3,7 +3,7 @@
 exports[`InternationalPhoneInput should match snapshot 1`] = `
 <div>
   <div
-    class="component component component formControlDesktop size-56 size-56 size-56 hasLeftAddons"
+    class="component component component formControlDesktop size-56 size-56 size-56"
   >
     <div
       class="field inner inner inner inner filled"
