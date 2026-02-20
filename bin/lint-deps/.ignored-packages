@@ -1,5 +1,7 @@
 @alfalab/core-components
 @alfalab/core-components-codemod
+@alfalab/core-components-demo-params
+@alfalab/core-components-github-actions-env
 @alfalab/core-components-repository
 @alfalab/core-components-screenshot-utils
 # used simplebar sources, version of sources is in package.json
@@ -7,8 +9,6 @@
 @alfalab/core-components-test-utils
 # depcheck ignore doesn't work
 @alfalab/core-components-themes
+@alfalab/core-components-tsconfig-node24-backport
 # incorrect depcheck ignore patterns see bin/lint-deps/lint-package-deps.mjs
 @alfalab/core-components-vars
-@alfalab/core-components-demo-params
-@alfalab/core-components-github-actions-env
-@alfalab/core-components-tsconfig-node24-backport
