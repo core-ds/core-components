@@ -131,7 +131,7 @@ jobs:
         uses: ./.github/workflows/resolve-demo-params.yml
         secrets: inherit
         with:
-            dir: ${{ github.event.pull_request.number }}
+            dir: '${{ github.event.pull_request.number }}'
 
     build-demo:
         needs: [variant]
