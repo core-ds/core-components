@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-attach",
-    "version": "8.0.1",
+    "version": "8.0.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-button": "^13.0.1",
+        "@alfalab/core-components-button": "^13.0.2",
         "@alfalab/core-components-keyboard-focusable": "^6.0.1",
         "@alfalab/core-components-progress-bar": "^5.0.1",
         "@alfalab/icons-glyph": "^2.260.0",
