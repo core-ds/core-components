@@ -8,15 +8,14 @@ import semver from 'semver';
  */
 async function resolveRef({ core }) {
     const versionInput = process.env.CORE_COMPONENTS_DEMO_VERSION;
+    const versionAsSemver = semver.valid(versionInput);
 
-    if (semver.valid(versionInput)) {
+    if (versionAsSemver) {
         core.info('Resolving as @alfalab/core-components version');
 
-        const cleanVersion = semver.clean(versionInput);
-
-        return semver.satisfies(versionInput, '>=49', { includePrerelease: true })
-            ? `@alfalab/core-components@${cleanVersion}`
-            : `v${cleanVersion}`;
+        return semver.satisfies(versionAsSemver, '>=49', { includePrerelease: true })
+            ? `@alfalab/core-components@${versionAsSemver}`
+            : `v${versionAsSemver}`;
     }
 
     core.info('Using version input as ref');

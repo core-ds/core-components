@@ -37,15 +37,7 @@ jobs:
         steps:
             - uses: actions/checkout@v5
 
-            - name: setup nodejs
-              uses: actions/setup-node@v6
-              with:
-                  node-version: 24
-                  cache: yarn
-
-            - name: install dependencies
-              run: |
-                  yarn install --immutable
+            - uses: ./.github/actions/ci-setup
 
             - id: resolve-ref
               uses: actions/github-script@v8

@@ -18,7 +18,7 @@ on:
                     - alfasans
 
 concurrency:
-    group: ${{ github.workflow }}-${{ inputs.version || github.ref }}
+    group: ${{ github.workflow }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
     cancel-in-progress: true
 
 defaults:

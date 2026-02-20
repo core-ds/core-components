@@ -5,6 +5,8 @@
         "resolve-directory/*.cts",
         "resolve-directory/*.mts",
         "resolve-ref/*.cts",
-        "resolve-ref/*.mts"
+        "resolve-ref/*.mts",
+        "resolve-variant-directory/*.cts",
+        "resolve-variant-directory/*.mts"
     ]
 }

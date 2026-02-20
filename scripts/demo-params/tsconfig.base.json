@@ -12,7 +12,10 @@
         "resolve-directory/*.mjs",
         "resolve-ref/*.js",
         "resolve-ref/*.cjs",
-        "resolve-ref/*.mjs"
+        "resolve-ref/*.mjs",
+        "resolve-variant-directory/*.js",
+        "resolve-variant-directory/*.cjs",
+        "resolve-variant-directory/*.mjs"
     ],
     "exclude": ["node_modules"]
 }
