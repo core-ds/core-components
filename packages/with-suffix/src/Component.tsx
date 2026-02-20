@@ -111,8 +111,8 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                             className={cn(styles.suffixContainer, suffixContainerClassName, {
                                 [styles[`size-${restProps.size}`]]: restProps.size,
                                 [styles.bold]:
-                                    (restProps.fontWeight ?? (restProps.bold ? 'bold' : null)) ===
-                                    'bold',
+                                    (restProps.fontWeight ??
+                                        (restProps.bold ? 'bold' : 'regular')) === 'bold',
                                 [styles.medium]: restProps.fontWeight === 'medium',
                             })}
                         >
