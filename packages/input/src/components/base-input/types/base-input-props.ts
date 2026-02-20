@@ -192,6 +192,12 @@ export interface BaseInputProps
 
     /**
      * Жирный текст
+     * @deprecated Используйте {@link BaseInputProps.fontWeight}
      */
     bold?: boolean;
+
+    /**
+     * Вес шрифта инпута, в том числе плейсхолдера
+     */
+    fontWeight?: 'bold' | 'medium' | 'regular';
 }
