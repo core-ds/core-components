@@ -4,7 +4,7 @@ description: Setup node and install dependencies
 
 inputs:
     node-version:
-        description: Version spec of node.js
+        description: Version Spec of node to use
         required: false
     working-directory:
         description: Working directory

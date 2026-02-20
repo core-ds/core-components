@@ -1,9 +1,9 @@
-export default resolveDir;
+export default resolveDirectory;
 /**
  * @param {Pick<import('@actions/github-script').AsyncFunctionArguments, 'context' |'core' |  'exec'>} args
  * @returns {Promise<string | undefined>}
  */
-declare function resolveDir({
+declare function resolveDirectory({
     context,
     core,
     exec,

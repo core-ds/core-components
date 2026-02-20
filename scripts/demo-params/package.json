@@ -5,15 +5,15 @@
     "type": "module",
     "exports": {
         "./package.json": "./package.json",
-        "./resolve-dir": {
+        "./resolve-directory": {
             "types": {
-                "module": "./resolve-dir/index.d.js",
-                "import": "./resolve-dir/index.d.mts",
-                "require": "./resolve-dir/index.d.cts"
+                "module": "./resolve-directory/index.d.js",
+                "import": "./resolve-directory/index.d.mts",
+                "require": "./resolve-directory/index.d.cts"
             },
-            "module": "./resolve-dir/index.js",
-            "import": "./resolve-dir/index.mjs",
-            "require": "./resolve-dir/index.cjs"
+            "module": "./resolve-directory/index.js",
+            "import": "./resolve-directory/index.mjs",
+            "require": "./resolve-directory/index.cjs"
         },
         "./resolve-ref": {
             "types": {

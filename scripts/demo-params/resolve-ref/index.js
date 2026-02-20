@@ -7,7 +7,7 @@ import semver from 'semver';
  * @returns {Promise<string>}
  */
 async function resolveRef({ core }) {
-    const versionInput = core.getInput('version');
+    const versionInput = process.env.CORE_COMPONENTS_DEMO_VERSION;
 
     if (semver.valid(versionInput)) {
         core.info('Resolving as @alfalab/core-components version');

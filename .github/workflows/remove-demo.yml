@@ -30,7 +30,7 @@ jobs:
         uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
         secrets: inherit
         with:
-            dir: ${{ github.event.pull_request.number }}
+            directory: ${{ github.event.pull_request.number }}
 
     variant:
         uses: core-ds/core-components/.github/workflows/variant.yml@master
@@ -54,10 +54,10 @@ jobs:
 
             - name: remove demo
               run: |
-                  rm -rf '${{ needs.params.outputs.dir }}-${{ matrix.variant }}'
+                  rm -rf '${{ needs.params.outputs.directory }}-${{ matrix.variant }}'
 
                   if [ '${{ matrix.variant }}' = "default" ]; then
-                      rm -rf '${{ needs.params.outputs.dir }}'
+                      rm -rf '${{ needs.params.outputs.directory }}'
                   fi
 
             - name: check git status

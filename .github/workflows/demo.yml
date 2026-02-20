@@ -42,6 +42,6 @@ jobs:
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: '${{ needs.params.outputs.dir }}-${{ inputs.variant }}'
+            directory: '${{ needs.params.outputs.directory }}-${{ inputs.variant }}'
             variant: ${{ inputs.variant }}
             artifact-name: ${{ inputs.variant }}

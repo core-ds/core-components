@@ -131,7 +131,7 @@ jobs:
         uses: ./.github/workflows/resolve-demo-params.yml
         secrets: inherit
         with:
-            dir: ${{ github.event.pull_request.number }}
+            directory: ${{ github.event.pull_request.number }}
 
     build-demo:
         needs: [variant]
@@ -155,7 +155,7 @@ jobs:
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: '${{ needs.demo-params.outputs.dir }}-${{ matrix.variant }}'
+            directory: '${{ needs.demo-params.outputs.directory }}-${{ matrix.variant }}'
             variant: ${{ matrix.variant }}
             artifact-name: ${{ matrix.variant }}
 

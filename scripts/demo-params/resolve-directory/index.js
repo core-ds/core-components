@@ -12,7 +12,7 @@ const PACKAGE_TAG_REGEXP = /(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)/;
  * @param {Pick<import('@actions/github-script').AsyncFunctionArguments, 'context' |'core' |  'exec'>} args
  * @returns {Promise<string | undefined>}
  */
-async function resolveDir({ context, core, exec }) {
+async function resolveDirectory({ context, core, exec }) {
     /**
      * @param {string[]} args
      * @returns {Promise<string>}
@@ -33,10 +33,10 @@ async function resolveDir({ context, core, exec }) {
         return `v${semver.clean(coreComponentsVersion)}`;
     }
 
-    const dirInput = core.getInput('dir');
+    const dirInput = process.env.CORE_COMPONENTS_DEMO_DIRECTORY;
 
     if (dirInput === '') {
-        let versionInput = core.getInput('version');
+        let versionInput = process.env.CORE_COMPONENTS_DEMO_VERSION;
         let refIsNotSupported = false;
 
         if (versionInput === context.ref) {
@@ -137,4 +137,4 @@ async function resolveDir({ context, core, exec }) {
     return dirInput;
 }
 
-export default resolveDir;
+export default resolveDirectory;
