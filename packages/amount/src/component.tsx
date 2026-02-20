@@ -19,6 +19,8 @@ export const Amount: React.FC<AmountProps> = ({
     codeFormat = 'symbolic',
     view = 'default',
     bold,
+    // eslint-disable-next-line no-nested-ternary
+    fontWeight = bold === 'full' ? 'bold' : bold === 'major' ? { major: 'bold' } : undefined,
     transparentMinor,
     rightAddons,
     showPlus = false,
@@ -34,12 +36,14 @@ export const Amount: React.FC<AmountProps> = ({
         codeFormat,
     });
 
-    const defaultStyles = bold === undefined && transparentMinor === undefined;
+    const majorFontWeight = (typeof fontWeight === 'string' ? null : fontWeight)?.major;
+    const defaultStyles = fontWeight === undefined && transparentMinor === undefined;
 
     return (
         <span
             className={cn(styles.component, className, {
-                [styles.bold]: bold === 'full' || bold === 'major',
+                [styles.bold]: fontWeight === 'bold' || majorFontWeight === 'bold',
+                [styles.medium]: fontWeight === 'medium' || majorFontWeight === 'medium',
                 [styles.defaultStyles]: defaultStyles,
             })}
             data-test-id={dataTestId}
@@ -49,7 +53,8 @@ export const Amount: React.FC<AmountProps> = ({
             <span
                 className={cn(styles.minorPartAndCurrency, {
                     [styles.transparentMinor]: transparentMinor,
-                    [styles.normalMinor]: bold === 'major',
+                    [styles.normalMinor]:
+                        majorFontWeight === 'bold' || majorFontWeight === 'medium',
                     [styles.defaultMinor]: defaultStyles,
                 })}
             >

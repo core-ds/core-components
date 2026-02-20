@@ -19,7 +19,7 @@ render(() => {
         setRightAddonsWithIcon(!rightAddonsWithIcon)
         setRightAddons(false)
     };
-    
+
     const styleAddons = {
         borderRadius: '99px',
         background: 'linear-gradient(264deg, #FF42CA 0%, #FF8A00 100%)',
@@ -30,7 +30,7 @@ render(() => {
         marginLeft: '4px'
     }
 
-    const rightAddonsContent = rightAddons && ( 
+    const rightAddonsContent = rightAddons && (
         <span style={styleAddons}>
             <Typography.Text view='primary-medium' weight='medium' font='system' color='primary-inverted'>
                 Custom
@@ -38,24 +38,20 @@ render(() => {
         </span>
     )
 
-    const rightAddonsWithIconContent = rightAddonsWithIcon && ( 
-        <span style={{ marginLeft: '5px', display: "inline-flex" }}>
-            <CDNIcon 
-                color='var(--color-dark-accent-primary)' 
-                name='glyph_diamonds_s'
-            />
+    const rightAddonsWithIconContent = rightAddonsWithIcon && (
+        <span style={{ marginLeft: '5px', display: 'inline-flex' }}>
+            <CDNIcon color='var(--color-dark-accent-primary)' name='glyph_diamonds_s' />
         </span>
     )
 
     return (
         <Container>
             <Typography.Title font='system' view='medium' weight='regular'>
-                <Amount 
-                    value={123456700} 
-                    minority={100} 
-                    currency={currency && 'RUB'}  
-                    bold='none' 
-                    view={ minor ? 'withZeroMinorPart' : 'default'} 
+                <AmountComponent
+                    value={123456700}
+                    minority={100}
+                    currency={currency && 'RUB'}
+                    view={minor ? 'withZeroMinorPart' : 'default'}
                     rightAddons={rightAddonsContent || rightAddonsWithIconContent}
                 />
             </Typography.Title>
@@ -93,14 +89,13 @@ render(() => {
     const [plus, setPlus] = React.useState(false);
 
     const handlePlusChange = () => setPlus(!plus);
-    
+
     return (
         <Container>
             <Typography.Title font='system' view='medium' weight='regular'>
-                <Amount 
-                    value={123456700} 
-                    minority={100} 
-                    bold='none' 
+                <AmountComponent
+                    value={123456700}
+                    minority={100}
                     showPlus={plus}
                     view='withZeroMinorPart'
                 />
@@ -121,24 +116,18 @@ render(() => {
     const [minor, setMinor] = React.useState(false);
 
     const handleMinorChange = () => setMinor(!minor);
-    
+
     return (
         <Container>
             <Typography.Title font='system' view='medium' weight='regular'>
-                <Amount 
-                    value={123456789} 
-                    minority={100} 
-                    bold='none' 
-                    view='withZeroMinorPart'
-                />
+                <AmountComponent value={123456789} minority={100} view='withZeroMinorPart' />
             </Typography.Title>
             <Gap size='l'/>
             <Typography.Title font='system' view='medium' weight='regular'>
-                <Amount 
-                    value={123456700} 
-                    minority={100} 
-                    bold='none' 
-                    view={ minor ? 'default' : 'withZeroMinorPart'}
+                <AmountComponent
+                    value={123456700}
+                    minority={100}
+                    view={minor ? 'default' : 'withZeroMinorPart'}
                 />
             </Typography.Title>
             <Gap size='xl'/>
@@ -153,26 +142,15 @@ render(() => {
 Для валюты можно использовать символ или буквенный код.
 
 ```jsx live
-    <Container>
-        <Typography.Title font='system' view='medium' weight='regular'>
-            <Amount 
-                value={123400} 
-                minority={100} 
-                currency='RUB'
-                bold='none' 
-            />
-        </Typography.Title>
-        <Gap size='l'/>
-        <Typography.Title font='system' view='medium' weight='regular'>
-            <Amount 
-                value={123400} 
-                minority={100} 
-                currency='RUB'
-                codeFormat='letter'
-                bold='none' 
-            />
-        </Typography.Title>
-    </Container>
+<Container>
+    <Typography.Title font='system' view='medium' weight='regular'>
+        <AmountComponent value={123400} minority={100} currency='RUB' />
+    </Typography.Title>
+    <Gap size={20} />
+    <Typography.Title font='system' view='medium' weight='regular'>
+        <AmountComponent value={123400} minority={100} currency='RUB' codeFormat='letter' />
+    </Typography.Title>
+</Container>
 ```
 
 ## Стиль
@@ -182,15 +160,15 @@ render(() => {
 ```jsx live
 render(() => {
     const [textStyle, setTextStyle] = React.useState('headline');
-    const [bold, setBold] = React.useState('none');
+    const [fontWeight, setFontWeight] = React.useState('regular');
     const [transparent, setTransparent] = React.useState('none');
 
     const onTextStyleChange = React.useCallback((_, payload) => {
         setTextStyle(payload.value);
     }, []);
 
-    const onBoldChange = React.useCallback((_, payload) => {
-        setBold(payload.value);
+    const onFontWeightChange = React.useCallback((_, payload) => {
+        setFontWeight(payload.value);
     }, []);
 
     const onTransparentChange = React.useCallback((_, payload) => {
@@ -198,15 +176,26 @@ render(() => {
     }, []);
 
     const isHeadline = textStyle === 'headline';
-    const Component = isHeadline ? Typography.Title : Typography.Text
+    const Component = isHeadline ? Typography.Title : Typography.Text;
 
     return (
         <Container>
-            <Component font='system' color={textStyle} view={isHeadline ? 'medium' : 'primary-large'} weight={isHeadline ? 'bold' : 'regular'} >
-                <Amount 
-                    value={123456700} 
-                    minority={100} 
-                    bold={!isHeadline && bold} 
+            <Component
+                font='system'
+                color={textStyle}
+                view={isHeadline ? 'medium' : 'primary-large'}
+                weight={isHeadline ? 'bold' : 'regular'}
+            >
+                <AmountComponent
+                    value={123456700}
+                    minority={100}
+                    fontWeight={
+                        isHeadline || fontWeight === 'regular'
+                            ? undefined
+                            : fontWeight.startsWith('major-')
+                              ? { major: fontWeight.replace('major-', '') }
+                              : fontWeight
+                    }
                     currency='RUB'
                     view='withZeroMinorPart'
                     transparentMinor={transparent === 'minor'}
@@ -227,15 +216,17 @@ render(() => {
             </RadioGroup>
             <Gap size='xl'/>
             <RadioGroup
-                label='Модификатор «bold»'
+                label='Модификатор «fontWeight»'
                 direction='vertical'
                 name='radioGroupFirst'
-                onChange={onBoldChange}
-                value={bold}
+                onChange={onFontWeightChange}
+                value={fontWeight}
             >
-                <Radio size='m' label='Без модификатора' value='none' />
-                <Radio size='m' label='Только для мажорной части' value='major' />
-                <Radio size='m' label='Для всей суммы' value='full' />
+                <Radio size={24} label='Без модификатора' value='regular' />
+                <Radio size={24} label='Для всей суммы (bold)' value='bold' />
+                <Radio size={24} label='Только для мажорной части (bold)' value='major-bold' />
+                <Radio size={24} label='Для всей суммы (medium)' value='medium' />
+                <Radio size={24} label='Только для мажорной части (medium)' value='major-medium' />
             </RadioGroup>
             <Gap size='xl'/>
             <RadioGroup
