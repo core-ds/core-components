@@ -27,7 +27,7 @@
         }
     },
     "scripts": {
-        "build-types": "tsc --declaration --emitDeclarationOnly"
+        "build-types": "tsc -p tsconfig.base.json --declaration --emitDeclarationOnly"
     },
     "dependencies": {
         "semver": "^7.7.2"
