@@ -35,8 +35,6 @@ async function resolveDir({ context, core, exec }) {
 
     const dirInput = core.getInput('dir');
 
-    core.info(`dirInput ${dirInput.length} ${typeof dirInput} ${dirInput}`);
-
     if (dirInput === '') {
         let versionInput = core.getInput('version');
         let refIsNotSupported = false;

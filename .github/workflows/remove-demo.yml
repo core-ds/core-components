@@ -30,7 +30,7 @@ jobs:
         uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
         secrets: inherit
         with:
-            dir: '${{ github.event.pull_request.number }}'
+            dir: ${{ github.event.pull_request.number }}
 
     variant:
         uses: core-ds/core-components/.github/workflows/variant.yml@master
