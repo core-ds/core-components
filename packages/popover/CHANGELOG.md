@@ -1,5 +1,12 @@
 # @alfalab/core-components-popover
 
+## 8.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+
 ## 8.0.1
 
 ### Patch Changes
