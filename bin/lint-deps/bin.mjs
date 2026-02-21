@@ -12,35 +12,44 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 async function main() {
     const IGNORED_PACKAGES = await readPackagesFile(path.join(dirname, '.ignored-packages'));
 
-    const exitCodes = (
-        await Promise.all([
-            $(
-                'yarn',
-                [
-                    'workspaces',
-                    'foreach',
-                    '-Ap',
-                    ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
-                    'exec',
-                    'node',
-                    path.join(dirname, 'lint-package-deps.mjs'),
-                ],
-                { preferLocal: true, stdio: 'inherit', reject: false },
-            ),
-            $(
-                'yarn',
-                [
-                    'workspaces',
-                    'foreach',
-                    '-Ap',
-                    'exec',
-                    'node',
-                    path.join(dirname, 'lint-versions.mjs'),
-                ],
-                { preferLocal: true, stdio: 'inherit', reject: false },
-            ),
-        ])
-    ).map(({ exitCode }) => exitCode);
+    /**
+     * @type {(number | undefined)[]}
+     */
+    const exitCodes = [];
+
+    for (const [cmd, args] of [
+        [
+            'yarn',
+            [
+                'workspaces',
+                'foreach',
+                '-Ap',
+                ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
+                'exec',
+                'node',
+                path.join(dirname, 'lint-package-deps.mjs'),
+            ],
+        ],
+        [
+            'yarn',
+            [
+                'workspaces',
+                'foreach',
+                '-Ap',
+                'exec',
+                'node',
+                path.join(dirname, 'lint-versions.mjs'),
+            ],
+        ],
+    ]) {
+        const { exitCode } = await $(cmd, args, {
+            preferLocal: true,
+            stdio: 'inherit',
+            reject: false,
+        });
+
+        exitCodes.push(exitCode);
+    }
 
     if (exitCodes.some((exitCode) => exitCode !== 0)) {
         process.exit(1);
