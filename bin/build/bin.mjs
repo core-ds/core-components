@@ -29,34 +29,23 @@ async function main(args) {
         'dist',
     ]);
 
-    await Promise.all([
-        $('yarn', [
-            'workspaces',
-            'foreach',
-            '-A',
-            '--include',
-            '@alfalab/core-components-themes',
-            'exec',
-            'node',
-            path.resolve(cwd(), 'bin/build-themes.mjs'),
-        ]),
-        $('yarn', [
-            'workspaces',
-            'foreach',
-            '-A',
-            '--include',
-            '@alfalab/core-components-vars',
-            'exec',
-            'node',
-            path.resolve(cwd(), 'bin/build-vars.mjs'),
-        ]),
-    ]);
+    await Promise.all(
+        CSS_PACKAGES.map((pkg) =>
+            $('yarn', [
+                'workspace',
+                pkg,
+                'exec',
+                'node',
+                path.resolve(
+                    cwd(),
+                    `bin/build-${pkg.replace('@alfalab/core-components-', '')}.mjs`,
+                ),
+            ]),
+        ),
+    );
 
     await $('yarn', [
-        'workspaces',
-        'foreach',
-        '-A',
-        '--include',
+        'workspace',
         '@alfalab/core-components',
         'exec',
         'node',
@@ -94,10 +83,7 @@ async function main(args) {
     ]);
 
     await $('yarn', [
-        'workspaces',
-        'foreach',
-        '-A',
-        '--include',
+        'workspace',
         '@alfalab/core-components',
         'exec',
         'node',

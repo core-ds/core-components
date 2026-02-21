@@ -35,7 +35,7 @@ const config = {
                             path.join(dirname, '.eslintrc.cjs'),
                         );
 
-                        return `yarn workspaces foreach -A --include ${name} exec eslint src --max-warnings 0 --config '${eslintConfig}'`;
+                        return `yarn workspace ${name} exec eslint src --max-warnings 0 --config '${eslintConfig}'`;
                     },
             }),
             {},
