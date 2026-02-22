@@ -3,18 +3,18 @@
 ```jsx live desktopOnly
 render(() => {
     const [filesList, setFilesList] = React.useState([]);
-    const [ downloadStatus, setDownloadStatus] = React.useState('success');
+    const [downloadStatus, setDownloadStatus] = React.useState('success');
 
-    const handleDrop = files => {
+    const handleDrop = (files) => {
         setFilesList(
             Array.from(files)
-                .map(file => file.name)
+                .map((file) => file.name)
                 .filter(Boolean),
         );
     };
     const onDownloadStatusChange = (_, payload) => {
         setDownloadStatus(payload.value);
-        setFilesList([])
+        setFilesList([]);
     };
 
     const stylesStatus = {
@@ -24,35 +24,30 @@ render(() => {
         justifyContent: 'center',
         width: 724,
         height: 200,
-    }
+    };
 
     const stylesText = {
         lineHeight: '24px',
         marginTop: 8,
-    }
+    };
 
     const isError = filesList.length && downloadStatus === 'error';
 
-    const statusDropzone = (text, Icon)=> (
+    const statusDropzone = (text, Icon) => (
         <div style={stylesStatus}>
             <Icon />
             <span style={stylesText}>{text}</span>
         </div>
-    )
+    );
 
     return (
         <Space size={24}>
-            <Dropzone
-                error={isError}
-                onDrop={handleDrop}
-            >
-                    {filesList.length > 0 ? (
-                        downloadStatus === 'success' ?
-                        statusDropzone('Успех',CheckmarkMIcon ) :
-                        statusDropzone('Ошибка',CrossMIcon )
-                    ) : (
-                        statusDropzone('Перетащите файлы',ContainerMIcon )
-                    )}
+            <Dropzone error={isError} onDrop={handleDrop}>
+                {filesList.length > 0
+                    ? downloadStatus === 'success'
+                        ? statusDropzone('Успех', CheckmarkMIcon)
+                        : statusDropzone('Ошибка', CrossMIcon)
+                    : statusDropzone('Перетащите файлы', ContainerMIcon)}
             </Dropzone>
             <RadioGroup
                 label='Состояние после загрузки'

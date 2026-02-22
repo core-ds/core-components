@@ -19,9 +19,7 @@ render(() => {
                 rounded={rounded}
                 subAddons={!isMobile() && [<Button>Подробнее</Button>]}
                 buttons={isMobile() && [<Button>Подробнее</Button>]}
-                leftAddons={
-                    <StatusBadge view='positive-checkmark' />
-                }
+                leftAddons={<StatusBadge view='positive-checkmark' />}
                 breakpoint={BREAKPOINT}
             />
             <Gap size={24} />
@@ -125,9 +123,7 @@ render(() => {
                 foldable={value.mechanics === 'folded'}
                 folded={folded}
                 onToggle={() => setFolded(!folded)}
-                leftAddons={
-                    value.badge === 'yes' && (<StatusBadge view='positive-checkmark' />)
-                }
+                leftAddons={value.badge === 'yes' && <StatusBadge view='positive-checkmark' />}
                 subAddons={
                     value.button === 'right' && [<Button>Отлично</Button>, <Button>Хорошо</Button>]
                 }

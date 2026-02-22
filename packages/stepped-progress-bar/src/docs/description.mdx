@@ -1,11 +1,7 @@
 ## Пошаговый прогрессбар с описанием под шкалой
 
 ```jsx live
-<SteppedProgressBar
-    step={5}
-    maxStep={10}
-    description={"Название шага"}
-/>
+<SteppedProgressBar step={5} maxStep={10} description={'Название шага'} />
 ```
 
 ## Пошаговый прогрессбар с выбором цветов отдельных сегментов
@@ -14,6 +10,15 @@
 <SteppedProgressBar
     step={8}
     maxStep={10}
-    view={['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent']}
+    view={[
+        'positive',
+        'negative',
+        'attention',
+        'link',
+        'tertiary',
+        'secondary',
+        'primary',
+        'accent',
+    ]}
 />
 ```

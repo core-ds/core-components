@@ -4,27 +4,27 @@
 render(() => {
     const [direction, setDirection] = React.useState('horizontal');
 
-    const stylesAddon={
+    const stylesAddon = {
         width: '64px',
         height: '64px',
         borderRadius: '8px',
         backgroundColor: 'rgba(38, 55, 88, 0.06)',
         boxSizing: 'border-box',
-    }
-    
+    };
+
     const stylesWrapper = {
         display: 'flex',
         flexDirection: direction === 'vertical' ? 'column' : 'row',
-    }
+    };
 
     return (
         <div>
             <div style={stylesWrapper}>
-                <div style={stylesAddon}/>
+                <div style={stylesAddon} />
                 <Gap size={16} direction={direction} />
-                <div style={stylesAddon}/>
+                <div style={stylesAddon} />
                 <Gap size={16} direction={direction} />
-                <div style={stylesAddon}/>
+                <div style={stylesAddon} />
             </div>
             <Gap size={24} />
             <RadioGroup

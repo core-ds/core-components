@@ -4,21 +4,21 @@
 Слоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку.
 
 ```jsx live
-    <Accordion
-        className='accordion-wrapper'
-        header={<div className='accordion-header' />}
-        control={<div className='accordion-control' />}
-    >
-        <div className='accordion-body' />
-    </Accordion>
+<Accordion
+    className='accordion-wrapper'
+    header={<div className='accordion-header' />}
+    control={<div className='accordion-control' />}
+>
+    <div className='accordion-body' />
+</Accordion>
 ```
 
 ## Контрол
+
 Control может быть в виде кнопки, иконки или любым другим интерактивным элементом, который инициирует раскрытие или сворачивание секции.
 По умолчанию Control размещается сбоку справа от Header, но может располагаться и слева, что больше напоминает дерево.
 
 ```jsx live
-
 render(() => {
     const [controlPosition, setControlPosition] = React.useState('end');
 
@@ -26,71 +26,67 @@ render(() => {
         setControlPosition(payload.value);
     }, []);
 
-    return <Space>
-        <Accordion
-            className='accordion-wrapper'
-            header={<div className='accordion-header' />}
-            controlPosition={controlPosition}
-        >
-            <div className='accordion-body' />
-        </Accordion>
+    return (
+        <Space>
+            <Accordion
+                className='accordion-wrapper'
+                header={<div className='accordion-header' />}
+                controlPosition={controlPosition}
+            >
+                <div className='accordion-body' />
+            </Accordion>
 
-        <Accordion
-            className='accordion-wrapper'
-            header={<div className='accordion-header' />}
-            controlPosition={controlPosition}
-        >
-            <div className='accordion-body' />
-        </Accordion>
+            <Accordion
+                className='accordion-wrapper'
+                header={<div className='accordion-header' />}
+                controlPosition={controlPosition}
+            >
+                <div className='accordion-body' />
+            </Accordion>
 
-        <Accordion
-            className='accordion-wrapper'
-            header={<div className='accordion-header' />}
-            controlPosition={controlPosition}
-        >
-            <div className='accordion-body' />
-        </Accordion>
+            <Accordion
+                className='accordion-wrapper'
+                header={<div className='accordion-header' />}
+                controlPosition={controlPosition}
+            >
+                <div className='accordion-body' />
+            </Accordion>
 
-        <RadioGroup
-            label='Расположение контрола'
-            direction='vertical'
-            name='radioGroup'
-            onChange={handleControlPositionChange}
-            value={controlPosition}
-        >
-            <Radio size={24} label='Справа' value='end' />
-            <Radio size={24} label='Слева' value='start' />
-        </RadioGroup>
-    </Space>
-})
+            <RadioGroup
+                label='Расположение контрола'
+                direction='vertical'
+                name='radioGroup'
+                onChange={handleControlPositionChange}
+                value={controlPosition}
+            >
+                <Radio size={24} label='Справа' value='end' />
+                <Radio size={24} label='Слева' value='start' />
+            </RadioGroup>
+        </Space>
+    );
+});
 ```
 
 ## Примеры
+
 В качестве пресетов в компонент заложены текстовые контейнеры, как самый распространённый вариант использования.
 
 ```jsx live
-
 render(() => {
-    return <Space>
-        <Accordion
-            header='Зачем нужен аккордeон?'
-            className='accordion-container'
-        >
-            Используется для создания интерактивных списков,
-            которые можно разворачивать и сворачивать для
-            отображения дополнительной информации.
-        </Accordion>
+    return (
+        <Space>
+            <Accordion header='Зачем нужен аккордeон?' className='accordion-container'>
+                Используется для создания интерактивных списков, которые можно разворачивать и
+                сворачивать для отображения дополнительной информации.
+            </Accordion>
 
-        <Accordion
-            header='Когда лучше использовать аккордeон?'
-            className='accordion-container'
-        >
-            Подходит для организации сложной информации в ограниченном пространстве,
-            представления большого объема данных, иерархической структуры с
-            возможностью скрытия и открытия разделов,
-            удовлетворения потребностей пользователей в доступе к информации
-            по запросу и просмотра нескольких связанных разделов контента.
-        </Accordion>
-    </Space>
-})
+            <Accordion header='Когда лучше использовать аккордeон?' className='accordion-container'>
+                Подходит для организации сложной информации в ограниченном пространстве,
+                представления большого объема данных, иерархической структуры с возможностью скрытия
+                и открытия разделов, удовлетворения потребностей пользователей в доступе к
+                информации по запросу и просмотра нескольких связанных разделов контента.
+            </Accordion>
+        </Space>
+    );
+});
 ```

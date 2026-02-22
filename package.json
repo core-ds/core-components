@@ -18,7 +18,7 @@
         "check-package-json": "sort-package-json --check package.json \"{packages,scripts}/*/package.json\"",
         "clean": "node bin/clean/bin.mjs",
         "cm": "git-cz",
-        "format": "prettier --check \"{packages,bin,tools}/**/*.{ts,tsx,js,jsx,css,json}\"",
+        "format": "prettier --check \"{packages,scripts,bin,tools}/**/*.{ts,tsx,js,jsx,mdx,mjs,mts,cjs,cts,css,json,md,yaml,yml}\"",
         "generate-dark-colors": "node bin/dark-colors-generator.mjs",
         "generate-major-changeset": "node bin/generate-major-changeset.mjs",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",

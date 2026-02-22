@@ -44,7 +44,12 @@ export const Content = ({ isPreview }) => {
                     <Text />
                 </>
             )}
-            <Button className='showMoreButton' size={40} type='Button' onClick={() => setShowMore(!showMore)}>
+            <Button
+                className='showMoreButton'
+                size={40}
+                type='Button'
+                onClick={() => setShowMore(!showMore)}
+            >
                 {showMore ? 'Скрыть' : 'Показать еще'}
             </Button>
         </>
@@ -112,7 +117,9 @@ export let SidePanelComponent = SidePanelDesktop;
                             title={headerTitle}
                             trim={trim}
                             align={headerAlign}
-                            {...(isMobile && {titleSize: select('titleSize', ['default', 'compact'], 'default')})}
+                            {...(isMobile && {
+                                titleSize: select('titleSize', ['default', 'compact'], 'default'),
+                            })}
                         />
                     )}
                     <SidePanelComponent.Content>

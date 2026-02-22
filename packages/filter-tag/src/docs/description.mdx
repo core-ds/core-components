@@ -48,10 +48,7 @@ const CustomFieldMultiple = ({
     const checkedContent = (
         <span>
             {!label && 'Множественный выбор:'}
-            <b>
-                {' '}
-                {selectedMultiple.length !== 1 ? `Выбрано ${selectedMultiple.length}` : content}
-            </b>
+            <b> {selectedMultiple.length !== 1 ? `Выбрано ${selectedMultiple.length}` : content}</b>
         </span>
     );
 
@@ -290,10 +287,7 @@ const CustomFieldMultiple = ({
     const checkedContent = (
         <span>
             {!label && 'Множественный выбор:'}
-            <b>
-                {' '}
-                {selectedMultiple.length !== 1 ? `Выбрано ${selectedMultiple.length}` : content}
-            </b>
+            <b> {selectedMultiple.length !== 1 ? `Выбрано ${selectedMultiple.length}` : content}</b>
         </span>
     );
 
@@ -566,8 +560,8 @@ render(() => {
 
 Компонент наследует опции компонента [Tag](?path=/docs/tag--docs), отвечающие за внешний вид:
 
--   shape (форма) — овальные или прямоугольные.
--   view (стиль) — залитые или бордерные.
+- shape (форма) — овальные или прямоугольные.
+- view (стиль) — залитые или бордерные.
 
 ## Дополнительный слот
 
