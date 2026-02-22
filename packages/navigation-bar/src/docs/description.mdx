@@ -120,7 +120,7 @@ const RIGHT_SELECT_OPTIONS = [
 const BOTTOM_SELECT_OPTIONS = [
     { key: 'no', content: 'Пустой' },
     { key: 'input', content: '*Input' },
-    { key: 'segmentedControl', content: '*SegmentedControl' },
+    { key: 'segmentedControl', content: '*SegmentedControl' },  
 ];
 
 const ShowIcontAddons = ({ quantity }) => (
@@ -223,7 +223,7 @@ render(() => {
             padding: 0 var(--gap-4);
         }
     `;
-
+    
     return (
         <div style={wrapperStyles} onScroll={handleScroll}>
             <style>{css}</style>

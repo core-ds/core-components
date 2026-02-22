@@ -12,40 +12,40 @@ render(() => {
         textAlign: 'center',
     };
 
-    const styleRow = {
-        background: 'var(--color-light-base-bg-primary)',
+    const styleRow = { 
+        background: 'var(--color-light-base-bg-primary)', 
         padding: '8px 20px',
         marginTop: '1px',
     };
 
-    const styleWrapper = {
-        background: 'var(--color-light-neutral-400)',
+    const styleWrapper = { 
+        background: 'var(--color-light-neutral-400)', 
         margin: 'var(--gap-20-neg)',
     };
 
     return (
         <div style={styleWrapper}>
             <div style={styleRow}>
-                <Grid.Row>
-                    <Grid.Col width={{ desktop: { m: 12 } }}>
-                        <div style={{ ...styleCol, marginTop: 0 }}>12</div>
-                    </Grid.Col>
-                </Grid.Row>
+              <Grid.Row>
+                  <Grid.Col width={{ desktop: { m: 12 } }}>
+                      <div style={{ ...styleCol, marginTop: 0 }}>12</div>
+                  </Grid.Col>
+              </Grid.Row>
             </div>
 
             <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
-                    {[1, 2].map((key) => (
-                        <Grid.Col width='6' key={key}>
-                            <div style={styleCol}>6</div>
-                        </Grid.Col>
-                    ))}
-                </Grid.Row>
+              <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                  {[1, 2].map(key => (
+                      <Grid.Col width='6' key={key}>
+                          <div style={styleCol}>6</div>
+                      </Grid.Col>
+                  ))}
+              </Grid.Row>
             </div>
 
             <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
-                    {[1, 2, 3].map((key) => (
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3].map(key => (
                         <Grid.Col width='4' key={key}>
                             <div style={styleCol}>4</div>
                         </Grid.Col>
@@ -54,8 +54,8 @@ render(() => {
             </div>
 
             <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
-                    {[1, 2, 3, 4].map((key) => (
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3, 4].map(key => (
                         <Grid.Col width='3' key={key}>
                             <div style={styleCol}>3</div>
                         </Grid.Col>
@@ -63,9 +63,9 @@ render(() => {
                 </Grid.Row>
             </div>
 
-            <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
-                    {[1, 2, 3, 4, 5, 6].map((key) => (
+            <div style={styleRow} >
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3, 4, 5, 6].map(key => (
                         <Grid.Col width='2' key={key}>
                             <div style={styleCol}>2</div>
                         </Grid.Col>
@@ -74,8 +74,8 @@ render(() => {
             </div>
 
             <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((key) => (
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(key => (
                         <Grid.Col width='1' key={key}>
                             <div style={styleCol}>1</div>
                         </Grid.Col>
@@ -101,53 +101,47 @@ render(() => {
         textAlign: 'center',
     };
 
-    const styleRow = {
-        background: 'var(--color-light-base-bg-primary)',
+    const styleRow = { 
+        background: 'var(--color-light-base-bg-primary)', 
         padding: '8px 20px',
         marginTop: '1px',
     };
 
-    const styleWrapper = {
-        background: 'var(--color-light-neutral-400)',
+    const styleWrapper = { 
+        background: 'var(--color-light-neutral-400)', 
         margin: 'var(--gap-20-neg)',
     };
 
     return (
         <div style={styleWrapper}>
             <div style={styleRow}>
-                <Grid.Row align='top' gutter={{ mobile: 8, desktop: 16 }}>
-                    {Array(3)
-                        .fill('top')
-                        .map((item, key) => (
-                            <Grid.Col width='4' key={key}>
-                                <div style={styleCol}>{item}</div>
-                            </Grid.Col>
-                        ))}
-                    <div style={{ ...styleCol, height: 48 }} />
+                <Grid.Row align='top' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(3).fill('top').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                    <div style={{...styleCol, height: 48}} />
                 </Grid.Row>
             </div>
             <div style={styleRow}>
-                <Grid.Row align='middle' gutter={{ mobile: 8, desktop: 16 }}>
-                    {Array(3)
-                        .fill('middle')
-                        .map((item, key) => (
-                            <Grid.Col width='4' key={key}>
-                                <div style={styleCol}>{item}</div>
-                            </Grid.Col>
-                        ))}
-                    <div style={{ ...styleCol, height: 48 }} />
+                <Grid.Row align='middle' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(3).fill('middle').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                    <div style={{...styleCol, height: 48}} />
                 </Grid.Row>
             </div>
             <div style={styleRow}>
-                <Grid.Row align='bottom' gutter={{ mobile: 8, desktop: 16 }}>
-                    {Array(3)
-                        .fill('bottom')
-                        .map((item, key) => (
-                            <Grid.Col width='4' key={key}>
-                                <div style={styleCol}>{item}</div>
-                            </Grid.Col>
-                        ))}
-                    <div style={{ ...styleCol, height: 48 }} />
+                <Grid.Row align='bottom' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(3).fill('bottom').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
+                    <div style={{...styleCol, height: 48}} />
                 </Grid.Row>
             </div>
         </div>
@@ -167,72 +161,62 @@ render(() => {
         textAlign: 'center',
     };
 
-    const styleRow = {
-        background: 'var(--color-light-base-bg-primary)',
+    const styleRow = { 
+        background: 'var(--color-light-base-bg-primary)', 
         padding: '8px 20px',
         marginTop: '1px',
     };
 
-    const styleWrapper = {
-        background: 'var(--color-light-neutral-400)',
+    const styleWrapper = { 
+        background: 'var(--color-light-neutral-400)', 
         margin: 'var(--gap-20-neg)',
     };
 
     return (
         <div style={styleWrapper}>
             <div style={styleRow}>
-                <Grid.Row justify='left' gutter={{ mobile: 8, desktop: 16 }}>
-                    {Array(2)
-                        .fill('left')
-                        .map((item, key) => (
-                            <Grid.Col width='4' key={key}>
-                                <div style={styleCol}>{item}</div>
-                            </Grid.Col>
-                        ))}
+                <Grid.Row justify='left' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('left').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
                 </Grid.Row>
             </div>
             <div style={styleRow}>
-                <Grid.Row justify='center' gutter={{ mobile: 8, desktop: 16 }}>
-                    {Array(2)
-                        .fill('center')
-                        .map((item, key) => (
-                            <Grid.Col width='4' key={key}>
-                                <div style={styleCol}>{item}</div>
-                            </Grid.Col>
-                        ))}
+                <Grid.Row justify='center' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('center').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
                 </Grid.Row>
             </div>
             <div style={styleRow}>
-                <Grid.Row justify='right' gutter={{ mobile: 8, desktop: 16 }}>
-                    {Array(2)
-                        .fill('right')
-                        .map((item, key) => (
-                            <Grid.Col width='4' key={key}>
-                                <div style={styleCol}>{item}</div>
-                            </Grid.Col>
-                        ))}
+                <Grid.Row justify='right' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('right').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
                 </Grid.Row>
             </div>
             <div style={styleRow}>
-                <Grid.Row justify='around' gutter={{ mobile: 8, desktop: 16 }}>
-                    {Array(2)
-                        .fill('around')
-                        .map((item, key) => (
-                            <Grid.Col width='4' key={key}>
-                                <div style={styleCol}>{item}</div>
-                            </Grid.Col>
-                        ))}
+                <Grid.Row justify='around' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('around').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
                 </Grid.Row>
             </div>
             <div style={styleRow}>
-                <Grid.Row justify='between' gutter={{ mobile: 8, desktop: 16 }}>
-                    {Array(2)
-                        .fill('between')
-                        .map((item, key) => (
-                            <Grid.Col width='4' key={key}>
-                                <div style={styleCol}>{item}</div>
-                            </Grid.Col>
-                        ))}
+                <Grid.Row justify='between' gutter={{mobile: 8, desktop: 16 }}>
+                    {Array(2).fill('between').map((item, key) => (
+                        <Grid.Col width='4' key={key}>
+                            <div style={styleCol}>{item}</div>
+                        </Grid.Col>
+                    ))}
                 </Grid.Row>
             </div>
         </div>
@@ -254,33 +238,33 @@ render(() => {
         textAlign: 'center',
     };
 
-    const styleRow = {
-        background: 'var(--color-light-base-bg-primary)',
+    const styleRow = { 
+        background: 'var(--color-light-base-bg-primary)', 
         padding: '0px 8px',
         boxSizing: 'border-box',
         margin: 'var(--gap-20-neg)',
     };
-
+    
     const style = {
         width: 1,
-        background: 'var(--color-light-neutral-400)',
+        background: 'var(--color-light-neutral-400)'
     };
 
     return (
         <div style={styleRow}>
-            <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
+            <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
                 <Grid.Col align='top'>
-                    <div style={{ ...styleCol, margin: '8px 12px' }}>top</div>
+                    <div style={{...styleCol, margin: '8px 12px' }}>top</div>
                 </Grid.Col>
-                <div style={style} />
+                <div style={style}/>
                 <Grid.Col align='middle'>
-                    <div style={{ ...styleCol, margin: '8px 12px' }}> middle </div>
+                    <div style={{...styleCol, margin: '8px 12px' }}> middle </div>
                 </Grid.Col>
-                <div style={style} />
+                <div style={style}/>
                 <Grid.Col align='bottom'>
-                    <div style={{ ...styleCol, margin: '8px 12px' }}> bottom </div>
+                    <div style={{...styleCol, margin: '8px 12px' }}> bottom </div>
                 </Grid.Col>
-                <div style={{ ...styleCol, height: 79, margin: '8px 0px' }} />
+                <div style={{...styleCol, height: 79, margin: '8px 0px' }} />
             </Grid.Row>
         </div>
     );
@@ -299,20 +283,20 @@ render(() => {
         textAlign: 'center',
     };
 
-    const styleRow = {
-        background: 'var(--color-light-base-bg-primary)',
+    const styleRow = { 
+        background: 'var(--color-light-base-bg-primary)', 
         padding: '8px 20px',
     };
 
-    const styleWrapper = {
-        background: 'var(--color-light-neutral-400)',
+    const styleWrapper = { 
+        background: 'var(--color-light-neutral-400)', 
         margin: 'var(--gap-20-neg)',
     };
 
     return (
         <div style={styleWrapper}>
             <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
                     <Grid.Col width='4'>
                         <div style={styleCol}>width = 4</div>
                     </Grid.Col>
@@ -328,7 +312,7 @@ render(() => {
 
 ## Адаптивная ширина
 
-Для построения сложного адаптивного интерфейса можно задать сетку для каждого брейкпоинта.
+Для построения сложного адаптивного интерфейса можно задать сетку для каждого брейкпоинта. 
 В этом примере отступ между колонками равен 16рх на десктопном брейкпоинте и 8рх на мобильном.
 
 ```jsx live mobileHeight={40}
@@ -341,23 +325,23 @@ render(() => {
         textAlign: 'center',
     };
 
-    const styleRow = {
-        background: 'var(--color-light-base-bg-primary)',
+    const styleRow = { 
+        background: 'var(--color-light-base-bg-primary)', 
         padding: '8px 20px',
     };
 
-    const styleWrapper = {
-        background: 'var(--color-light-neutral-400)',
+    const styleWrapper = { 
+        background: 'var(--color-light-neutral-400)', 
         margin: 'var(--gap-20-neg)',
     };
 
     return (
         <div style={styleWrapper}>
             <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
-                    {[1, 2, 3].map((key) => (
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
+                    {[1, 2, 3].map(key => (
                         <Grid.Col width='4' key={key}>
-                            <div style={styleCol} />
+                            <div style={styleCol}/>
                         </Grid.Col>
                     ))}
                 </Grid.Row>
@@ -381,20 +365,20 @@ render(() => {
         textAlign: 'center',
     };
 
-    const styleRow = {
-        background: 'var(--color-light-base-bg-primary)',
+    const styleRow = { 
+        background: 'var(--color-light-base-bg-primary)', 
         padding: '8px 20px',
     };
 
-    const styleWrapper = {
-        background: 'var(--color-light-neutral-400)',
+    const styleWrapper = { 
+        background: 'var(--color-light-neutral-400)', 
         margin: 'var(--gap-20-neg)',
     };
 
     return (
         <div style={styleWrapper}>
             <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
                     <Grid.Col width='4' order='1'>
                         <div style={styleCol}>order = 1</div>
                     </Grid.Col>
@@ -423,20 +407,20 @@ render(() => {
         textAlign: 'center',
     };
 
-    const styleRow = {
-        background: 'var(--color-light-base-bg-primary)',
+    const styleRow = { 
+        background: 'var(--color-light-base-bg-primary)', 
         padding: '8px 20px',
     };
 
-    const styleWrapper = {
-        background: 'var(--color-light-neutral-400)',
+    const styleWrapper = { 
+        background: 'var(--color-light-neutral-400)', 
         margin: 'var(--gap-20-neg)',
     };
 
     return (
         <div style={styleWrapper}>
             <div style={styleRow}>
-                <Grid.Row gutter={{ mobile: 8, desktop: 16 }}>
+                <Grid.Row gutter={{mobile: 8, desktop: 16 }}>
                     <Grid.Col width='4' order='last'>
                         <div style={styleCol}>order = last</div>
                     </Grid.Col>

@@ -12,15 +12,9 @@ render(
             placeholder='Введите число'
             label='Количество месяцев'
             labelView={isMobile() ? 'outer' : 'inner'}
-            suffix={
-                <Typography.Text view='component-primary' color='secondary'>
-                    {' '}
-                    мес
-                </Typography.Text>
-            }
+            suffix={<Typography.Text view='component-primary' color='secondary'> мес</Typography.Text> }
             size={isMobile() ? 48 : 56}
-            breakpoint={BREAKPOINT}
-        />
-    </div>,
+            breakpoint={BREAKPOINT}/>
+    </div>
 );
 ```

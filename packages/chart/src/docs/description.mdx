@@ -35,11 +35,11 @@ render(() => {
     };
 
     const chartBar = (includeValue) => {
-        const labels = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь'];
+        const labels = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь']
         if (includeValue) {
             return labels.map((label, idx) => ({
-                label: label,
-                value: Math.floor(Math.random() * 250) + 10,
+            label: label,
+            value:  Math.floor(Math.random() * 250) + 10
             }));
         } else {
             return labels;
@@ -162,7 +162,7 @@ render(() => {
     ];
     const barChart = {
         chart: 'bar',
-        radius: { top: 10, bottom: 10 } || 0,
+        radius: { top: 10, bottom: 10, } || 0,
         labelList: {
             offset: 10,
         },
@@ -207,18 +207,18 @@ render(() => {
             },
         ],
     };
-
+        
     return (
         <div style={{ display: 'flex' }}>
-            <div style={{ width: '600px', height: '400px' }}>
-                <Chart
-                    id='bar-chart'
-                    composeChart={composeChart}
-                    xAxis={xAxis}
-                    yAxis={yAxis}
-                    labels={labelsBarChart}
-                    series={[barChart]}
-                />
+           <div style={{ width: '600px', height: '400px' }}>
+                    <Chart
+                        id='bar-chart'
+                        composeChart={composeChart}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        labels={labelsBarChart}
+                        series={[barChart]}
+                    />
             </div>
         </div>
     );
@@ -286,18 +286,16 @@ render(() => {
     };
 
     const chartData = (num, includeValue) => {
-        const labels = Array(20)
-            .fill(null)
-            .map((_, idx) => {
-                const date = new Date('2020-12-18');
-                date.setDate(date.getDate() + idx);
-                return date.getTime();
-            });
+        const labels = Array(20).fill(null).map((_, idx) => {
+            const date = new Date('2020-12-18');
+            date.setDate(date.getDate() + idx);
+            return date.getTime();
+        });
 
         if (includeValue) {
             return labels.map((label, idx) => ({
-                label: idx === 0 ? label : labels[idx - 1],
-                value: idx === 0 ? 15 : Math.floor(Math.random() * num) + 10,
+            label: idx === 0 ? label : labels[idx - 1],
+            value: idx === 0 ? 15 : Math.floor(Math.random() * num) + 10
             }));
         } else {
             return labels;
@@ -323,7 +321,7 @@ render(() => {
             strokeWidth: 2,
             strokeDasharray: '10 10',
         },
-        data: chartData(30, true),
+        data: chartData(30, true)
     };
     const areaChart = {
         chart: 'area',
@@ -358,24 +356,24 @@ render(() => {
             dot: true,
             strokeWidth: 2,
         },
-        data: chartData(50, true),
+        data: chartData(50, true)
     };
-
+    
     return (
         <div style={{ display: 'flex' }}>
             <div style={{ width: '600px', height: '400px' }}>
-                <Chart
-                    id={'line-chart'}
-                    composeChart={composeChart}
-                    cartesianGrid={cartesianGrid}
-                    xAxis={xAxis}
-                    yAxis={yAxis}
-                    tooltip={tooltip}
-                    legend={legend}
-                    brush={brush}
-                    labels={chartData(30, false)}
-                    series={[lineChart, areaChart]}
-                />
+                    <Chart
+                        id={'line-chart'}
+                        composeChart={composeChart}
+                        cartesianGrid={cartesianGrid}
+                        xAxis={xAxis}
+                        yAxis={yAxis}
+                        tooltip={tooltip}
+                        legend={legend}
+                        brush={brush}
+                        labels={chartData(30, false)}
+                        series={[lineChart, areaChart]}
+                    />
             </div>
         </div>
     );

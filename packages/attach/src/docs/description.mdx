@@ -17,31 +17,31 @@ render(() => {
                 return prevProgress + 1;
             });
         }, 100);
-    };
-
+  };
+  
     const handleChange = () => {
-        simulateProgress();
+        simulateProgress()
     };
-
+    
     return (
-        <Space size={24}>
-            <Attach
-                size={56}
-                onChange={handleChange}
-                multiple={multiple}
-                maxFilenameLength={isMobile() ? 10 : undefined}
-                progressBarPercent={progress === 100 ? null : progress}
-                buttonProps={{
-                    breakpoint: BREAKPOINT,
-                    nowrap: true,
-                }}
-            />
-            <Switch
-                block={true}
-                checked={multiple}
-                label='Несколько файлов'
-                onChange={() => setMultiple(!multiple)}
-            />
+        <Space size={24} >
+        <Attach 
+            size={56} 
+            onChange={handleChange}
+            multiple={multiple} 
+            maxFilenameLength={isMobile() ? 10 : undefined}
+            progressBarPercent={progress === 100 ? null : progress}
+            buttonProps={{
+                breakpoint: BREAKPOINT,
+                nowrap: true,
+            }}
+        />
+        <Switch
+            block={true}
+            checked={multiple}
+            label='Несколько файлов'
+            onChange={() => setMultiple(!multiple)}
+        />
         </Space>
     );
 });

@@ -26,7 +26,7 @@ render(
             <Indicator height={16} value={1} view='red' />
             <Indicator view='red' />
         </div>
-    </Container>,
+    </Container>
 );
 //MOBILE
 const styles = {
@@ -52,7 +52,7 @@ render(
             <Indicator height={16} value={1} view='red' />
             <Indicator view='red' />
         </div>
-    </Container>,
+    </Container>
 );
 ```
 
@@ -62,21 +62,22 @@ render(
 
 ```jsx live
 render(() => {
-    const [border, setBorder] = React.useState(false);
+const [border, setBorder] = React.useState(false);
 
-    const styles = {
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '20px',
-        width: 169,
-        padding: 20,
-        backgroundColor: 'var(--color-light-base-bg-secondary)',
-        borderRadius: '12px',
-        boxSizing: 'border-box',
-        alignItems: 'center',
-    };
+const styles = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '20px',
+    width: 169,
+    padding: 20,
+    backgroundColor: 'var(--color-light-base-bg-secondary)',
+    borderRadius: '12px',
+    boxSizing: 'border-box',
+    alignItems: 'center',
+};
     return (
         <Container>
+
             <div style={styles}>
                 <Indicator height={24} value={1} view='red' border={border} />
                 <Indicator height={24} value={99} view='red' border={border} />
@@ -106,22 +107,23 @@ render(() => {
 });
 //MOBILE
 render(() => {
-    const [border, setBorder] = React.useState(false);
+const [border, setBorder] = React.useState(false);
 
-    const styles = {
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '12px',
-        width: 320,
-        padding: 20,
-        backgroundColor: 'var(--color-light-base-bg-secondary)',
-        borderRadius: '12px',
-        boxSizing: 'border-box',
-        alignItems: 'center',
-    };
+const styles = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '12px',
+    width: 320,
+    padding: 20,
+    backgroundColor: 'var(--color-light-base-bg-secondary)',
+    borderRadius: '12px',
+    boxSizing: 'border-box',
+    alignItems: 'center',
+};
 
     return (
         <Container>
+
             <div style={styles}>
                 <Indicator height={24} value={1} view='red' border={border} />
                 <Indicator height={24} value={99} view='red' border={border} />
@@ -192,7 +194,7 @@ render(
                 }}
             />
         </div>
-    </Container>,
+    </Container>
 );
 //MOBILE
 const styles = {
@@ -231,6 +233,6 @@ render(
                 }}
             />
         </div>
-    </Container>,
+    </Container>
 );
 ```

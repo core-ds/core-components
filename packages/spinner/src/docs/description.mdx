@@ -23,30 +23,15 @@ render(
 Спиннеру можно задать кастомную высоту, цвет, толщину линии и отступы внутри контейнера.
 
 ```jsx live
+
 render(
     <Container>
         <Row align='middle'>
             <div style={{ marginRight: 20 }}>
-                <Spinner
-                    visible={true}
-                    size={28}
-                    lineWidth={4}
-                    style={{
-                        padding: 'var(--gap-2)',
-                        color: 'var(--color-light-decorative-text-red)',
-                    }}
-                />
+                <Spinner visible={true} size={28} lineWidth={4} style={{ padding: "var(--gap-2)", color: "var(--color-light-decorative-text-red)" }} />
             </div>
             <div style={{ marginRight: 20 }}>
-                <Spinner
-                    visible={true}
-                    size={24}
-                    lineWidth={2}
-                    style={{
-                        padding: 'var(--gap-4)',
-                        color: 'var(--color-light-decorative-text-blue)',
-                    }}
-                />
+                <Spinner visible={true} size={24} lineWidth={2} style={{ padding: "var(--gap-4)", color: "var(--color-light-decorative-text-blue)" }} />
             </div>
         </Row>
     </Container>,
