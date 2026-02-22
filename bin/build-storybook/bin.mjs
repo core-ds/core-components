@@ -11,9 +11,6 @@ async function main() {
     const BUILD_MODERN_ONLY = process.env.BUILD_MODERN_ONLY ?? 'true';
     const BUILD_STORYBOOK_FROM_DIST = process.env.BUILD_STORYBOOK_FROM_DIST ?? 'true';
 
-    const BUILD_IGNORED_PACKAGES = await readPackagesFile(
-        path.resolve(process.cwd(), 'tools/.build-ignored-packages'),
-    );
     const COPY_PREVIEW_IGNORED_PACKAGES = await readPackagesFile(
         path.resolve(dirname, '.copy-preview-ignored-packages'),
     );
@@ -34,20 +31,6 @@ async function main() {
         path.join(dirname, 'copy-package-preview.mjs'),
         '--to',
         path.resolve(process.cwd(), '.storybook/public/images'),
-    ]);
-
-    await $('yarn', [
-        'workspaces',
-        'foreach',
-        '-Ap',
-        ...BUILD_IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
-        '--exclude',
-        '@alfalab/core-components',
-        'exec',
-        'node',
-        path.join(dirname, 'copy-package-dist.mjs'),
-        '--to',
-        path.resolve(process.cwd(), 'dist'),
     ]);
 
     await $('storybook', ['build', '-o', 'build', '--quiet'], {
