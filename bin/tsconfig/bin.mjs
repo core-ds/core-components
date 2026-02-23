@@ -201,7 +201,7 @@ async function makeTsConfig(options) {
             ...tsconfig.compilerOptions.paths,
         };
 
-        if (options.references) {
+        if (options.references && relativeStorybookPath !== '.') {
             tsconfig.references = [{ path: relativeStorybookPath }, ...tsconfig.references];
         }
     }

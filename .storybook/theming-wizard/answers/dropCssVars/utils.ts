@@ -1,4 +1,4 @@
-import { Answers } from '.storybook/theming-wizard/types';
+import { Answers } from 'storybook/theming-wizard/types';
 
 export const withoutAruiScriptsExample = (answers: Answers) => {
     const settings: Record<string, any> = {

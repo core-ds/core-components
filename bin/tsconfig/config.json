@@ -10,7 +10,7 @@
                 "storybook": true,
                 "out": "tsconfig.json",
                 "template": "templates/tsconfig.storybook.json",
-                "references": false
+                "references": "tsconfig.build.json"
             },
             "test": {
                 "include": ["**"],
