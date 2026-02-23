@@ -16,17 +16,17 @@ const Addon = () => {
     useEffect(() => {
         const savedTheme = localStorage.getItem('selectedTheme');
         const themeChangeEvent = createThemeChangeEvent(savedTheme || 'default');
-        
+
         setTheme(savedTheme || 'default');
-        
+
         getAsyncStoryDoc()
-        .then((storyDoc) => {
-            storyDoc.body.dispatchEvent(themeChangeEvent);
-            document.body.dispatchEvent(themeChangeEvent);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
+            .then((storyDoc) => {
+                storyDoc.body.dispatchEvent(themeChangeEvent);
+                document.body.dispatchEvent(themeChangeEvent);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }, []);
 
     const handleChange = (event) => {
