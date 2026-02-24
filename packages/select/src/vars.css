@@ -28,7 +28,7 @@
     --select-option-active-background: var(--color-light-transparent-default-press);
     --select-option-disabled-background: var(--color-light-modal-bg-primary);
     --select-option-color: var(--color-light-text-primary);
-    --select-option-selected-color: var(--color-light- text-primary);
+    --select-option-selected-color: var(--color-light-text-primary);
     --select-option-hover-color: var(--color-light-text-primary);
     --select-option-active-color: var(--color-light-text-primary);
     --select-option-disabled-color: var(--color-light-text-secondary);

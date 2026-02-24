@@ -3,14 +3,12 @@
 
 .checkmark {
     flex-shrink: 0;
-    margin: var(--select-checkmark-margin);
 
     &.before {
         display: var(--select-checkmark-before-display);
     }
 
     &.after {
-        margin: var(--select-checkmark-margin-after);
         display: var(--select-checkmark-after-display);
     }
 }

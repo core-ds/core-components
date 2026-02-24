@@ -1,6 +1,5 @@
 ---
 '@alfalab/core-components-checkbox': minor
-'@alfalab/core-components': minor
 ---
 
 ##### Checkbox

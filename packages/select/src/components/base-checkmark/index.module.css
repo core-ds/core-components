@@ -37,6 +37,14 @@
     flex-shrink: 0;
     opacity: 0;
 
+    &.before {
+        margin-right: var(--gap-12);
+    }
+
+    &.after {
+        margin-left: var(--gap-12);
+    }
+
     &.selected {
         opacity: 1;
     }

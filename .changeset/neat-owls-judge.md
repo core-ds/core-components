@@ -2,7 +2,6 @@
 '@alfalab/core-components-select-with-tags': minor
 '@alfalab/core-components-select': minor
 '@alfalab/core-components-custom-picker-button': minor
-'@alfalab/core-components': minor
 ---
 
 ##### Select
@@ -16,7 +15,3 @@
 - Добавлена поддержка динамического позиционирования чекмарков в зависимости от `view` (desktop/mobile)
 - Для desktop по умолчанию используется `checkmarkPosition='before'`, для mobile - `checkmarkPosition='after'`
 - Возможность переопределить позицию через проп `optionProps.checkmarkPosition`
-
-##### CustomPickerButton
-
-- Добавлен хелпер `disableCheckmarks` для автоматического отключения чекмарков у всех опций
