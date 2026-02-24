@@ -25,27 +25,7 @@ export const BaseOption: FC<OptionProps> = ({
 }) => {
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
-
     const isTextContent = !isValidElement(content);
-
-    const renderCheckmark = () => {
-        if (Checkmark && showCheckMark) {
-            return (
-                <Checkmark
-                    className={cn({
-                        [styles.checkmarkBeforeContent]: checkmarkPosition === 'before',
-                        [styles.checkmarkAfterContent]: checkmarkPosition === 'after',
-                    })}
-                    disabled={disabled}
-                    selected={selected}
-                    multiple={multiple}
-                    align={align}
-                />
-            );
-        }
-
-        return null;
-    };
 
     return (
         <div
@@ -62,11 +42,18 @@ export const BaseOption: FC<OptionProps> = ({
             data-test-id={dataTestId}
             aria-label={option?.value?.name}
         >
-            {checkmarkPosition === 'before' && renderCheckmark()}
-
-            <div className={cn(styles.content)}>{content}</div>
-
-            {checkmarkPosition === 'after' && renderCheckmark()}
+            {Checkmark && showCheckMark ? (
+                <Checkmark
+                    disabled={disabled}
+                    selected={selected}
+                    multiple={multiple}
+                    align={align}
+                    position={checkmarkPosition}
+                    content={content}
+                />
+            ) : (
+                <div className={cn(styles.content)}>{content}</div>
+            )}
         </div>
     );
 };
