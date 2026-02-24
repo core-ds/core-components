@@ -1689,7 +1689,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-select@workspace:packages/select"
   dependencies:
-    "@alfalab/core-components-badge": "npm:^7.0.1"
     "@alfalab/core-components-base-modal": "npm:^7.1.1"
     "@alfalab/core-components-bottom-sheet": "npm:^8.1.0"
     "@alfalab/core-components-button": "npm:^13.0.2"
