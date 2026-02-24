@@ -9,16 +9,21 @@ on:
                 description: Version of @alfalab/core-components package, tag or SHA
                 required: false
                 type: string
+            directory:
+                description: Demo directory
+                required: false
+                type: string
             variant:
                 description: Variant of core components
                 required: false
                 type: choice
+                default: default
                 options:
                     - default
                     - alfasans
 
 concurrency:
-    group: ${{ github.workflow }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
+    group: ${{ github.workflow }}-${{ case(inputs.version != '', inputs.version, inputs.directory != '', inputs.directory, github.ref) }}-${{ inputs.variant }}
     cancel-in-progress: true
 
 defaults:
@@ -30,7 +35,8 @@ jobs:
         uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
         secrets: inherit
         with:
-            directory: ${{ github.event.pull_request.number }}
+            directory: ${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}
+            version: ${{ inputs.version }}
 
     variant:
         uses: core-ds/core-components/.github/workflows/variant.yml@master
