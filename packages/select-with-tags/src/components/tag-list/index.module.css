@@ -1,20 +1,13 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
-@define-mixin negative-margin-left $var-name {
+@define-mixin indent-correction $var-name {
     margin-left: calc(-1 * var($var-name));
     padding-left: var($var-name);
 }
 
-:root {
-    --tag-list-size-74-gap: var(--gap-2s);
-    --tag-list-size-64-gap: var(--gap-10);
-    --tag-list-size-56-gap: var(--gap-10);
-    --tag-list-size-48-gap: var(--gap-6);
-}
-
 .component.size-72 {
     & .contentWrapper {
-        padding: 18px var(--tag-list-size-74-gap);
+        padding: 18px var(--gap-2s);
     }
 
     & .placeholder {
@@ -26,13 +19,13 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin negative-margin-left --tag-list-size-74-gap;
+        @mixin indent-correction --gap-2s;
     }
 }
 
 .component.size-64 {
     & .contentWrapper {
-        padding: var(--gap-2s) var(--tag-list-size-64-gap);
+        padding: var(--gap-2s) var(--gap-10);
     }
 
     & .placeholder {
@@ -44,13 +37,13 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin negative-margin-left --tag-list-size-64-gap;
+        @mixin indent-correction --gap-10;
     }
 }
 
 .component.size-56 {
     & .contentWrapper {
-        padding: var(--tag-list-size-56-gap);
+        padding: var(--gap-10);
     }
 
     & .placeholder {
@@ -62,13 +55,13 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin negative-margin-left --tag-list-size-56-gap;
+        @mixin indent-correction --gap-10;
     }
 }
 
 .component.size-48 {
     & .contentWrapper {
-        padding: var(--tag-list-size-48-gap);
+        padding: var(--gap-6);
     }
 
     & .placeholder {
@@ -80,7 +73,7 @@
     }
 
     & .rightAddons:not(:empty) {
-        @mixin negative-margin-left --tag-list-size-48-gap;
+        @mixin indent-correction --gap-6;
     }
 }
 

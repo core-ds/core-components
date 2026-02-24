@@ -83,16 +83,16 @@
 
 .leftAddons:not(:empty),
 .rightAddons:not(:empty) {
-    padding-right: var(--form-control-addons-padding);
-    padding-left: var(--form-control-addons-padding);
+    padding-right: var(--gap-12);
+    padding-left: var(--gap-12);
 }
 
 .leftAddons:not(:empty) {
-    margin-right: var(--form-control-addons-padding-neg);
+    margin-right: var(--gap-12-neg);
 }
 
 .rightAddons:not(:empty) {
-    margin-left: var(--form-control-addons-padding-neg);
+    margin-left: var(--gap-12-neg);
 }
 
 .sub {
@@ -145,16 +145,16 @@
     & .addons {
         &.rightAddons:not(:empty),
         &.leftAddons:not(:empty) {
-            padding-right: var(--form-control-addons-size-40-padding);
-            padding-left: var(--form-control-addons-size-40-padding);
+            padding-right: var(--gap-8);
+            padding-left: var(--gap-8);
         }
 
         &.rightAddons:not(:empty) {
-            margin-left: var(--form-control-addons-size-40-padding-neg);
+            margin-left: var(--gap-8-neg);
         }
 
         &.leftAddons:not(:empty) {
-            margin-right: var(--form-control-addons-size-40-padding-neg);
+            margin-right: var(--gap-8-neg);
         }
     }
 }
@@ -213,13 +213,13 @@
 }
 
 .size-72 .leftAddons:not(:empty) {
-    padding-left: var(--form-control-addons-size-74-padding);
-    margin-right: var(--form-control-addons-size-74-padding-neg);
+    padding-left: var(--gap-16);
+    margin-right: var(--gap-16-neg);
 }
 
 .size-72 .rightAddons:not(:empty) {
-    padding-right: var(--form-control-addons-size-74-padding);
-    margin-left: var(--form-control-addons-size-74-padding-neg);
+    padding-right: var(--gap-16);
+    margin-left: var(--gap-16-neg);
 }
 
 /* DISABLED STATE */

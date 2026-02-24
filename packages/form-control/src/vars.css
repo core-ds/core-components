@@ -102,18 +102,6 @@
     /* error mobile */
     --form-control-error-mobile-disabled-shadow: var(--form-control-error-shadow);
     --form-control-inverted-error-mobile-disabled-shadow: var(--form-control-inverted-error-shadow);
-
-    /* addons */
-    --form-control-addons-padding: var(--gap-12);
-    --form-control-addons-padding-neg: calc(-1 * var(--form-control-addons-padding));
-    --form-control-addons-size-40-padding: var(--gap-8);
-    --form-control-addons-size-40-padding-neg: calc(
-        -1 * var(--form-control-addons-size-40-padding)
-    );
-    --form-control-addons-size-74-padding: var(--gap-16);
-    --form-control-addons-size-74-padding-neg: calc(
-        -1 * var(--form-control-addons-size-74-padding)
-    );
 }
 
 @define-mixin form-control-sub {
