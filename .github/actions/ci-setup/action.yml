@@ -51,4 +51,4 @@ runs:
         - name: install dependencies
           shell: bash
           run: |
-              yarn install ${{ case(startsWith(steps.detect-yarn-version.outputs.result, '1.'), '--frozen-lockfile', '--immutable --immutable-cache') }}
+              yarn install ${{ case(startsWith(steps.detect-yarn-version.outputs.result, '1.'), '--frozen-lockfile', '--immutable') }}
