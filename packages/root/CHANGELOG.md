@@ -1,5 +1,44 @@
 # @alfalab/core-components
 
+## 50.4.1
+
+### Patch Changes
+
+<sup><time>24.02.2026</time></sup>
+
+#### [#2075](https://github.com/core-ds/core-components/pull/2075)
+
+##### Input
+
+- Повышена специфичность класса `.focusVisible`, проставляемого при фокусе через клавиатуру
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@17.1.1
+    - @alfalab/core-components-amount-input@9.1.1
+    - @alfalab/core-components-date-input@6.0.3
+    - @alfalab/core-components-date-range-input@5.0.4
+    - @alfalab/core-components-date-time-input@6.0.4
+    - @alfalab/core-components-input-autocomplete@14.0.6
+    - @alfalab/core-components-international-phone-input@4.0.6
+    - @alfalab/core-components-masked-input@8.0.3
+    - @alfalab/core-components-number-input@4.0.3
+    - @alfalab/core-components-password-input@7.0.3
+    - @alfalab/core-components-select@19.0.6
+    - @alfalab/core-components-select-with-tags@10.0.6
+    - @alfalab/core-components-slider-input@11.0.3
+    - @alfalab/core-components-time-input@4.0.3
+    - @alfalab/core-components-universal-date-input@4.0.4
+    - @alfalab/core-components-with-suffix@6.0.3
+    - @alfalab/core-components-calendar-input@12.0.4
+    - @alfalab/core-components-calendar-range@9.0.4
+    - @alfalab/core-components-intl-phone-input@11.0.6
+    - @alfalab/core-components-bank-card@7.0.3
+    - @alfalab/core-components-phone-input@9.0.3
+    - @alfalab/core-components-custom-picker-button@4.0.6
+    - @alfalab/core-components-picker-button@13.0.6
+    - @alfalab/core-components-table@4.0.6
+    - @alfalab/core-components-tabs@10.0.6
+
 ## 50.4.0
 
 ### Minor Changes
