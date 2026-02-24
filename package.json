@@ -1,4 +1,6 @@
 {
+    "name": "@alfalab/core-components-repository",
+    "version": "1.0.0",
     "private": true,
     "homepage": "https://core-ds.github.io/core-components",
     "repository": {
@@ -6,16 +8,17 @@
         "url": "https://github.com/core-ds/core-components"
     },
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "scripts/*"
     ],
     "scripts": {
         "analyze-package-sizes": "node bin/analyze-package-sizes/bin.mjs",
         "build": "node bin/build/bin.mjs",
         "build-storybook": "node bin/build-storybook/bin.mjs",
-        "check-package-json": "sort-package-json --check package.json \"packages/*/package.json\"",
+        "check-package-json": "sort-package-json --check package.json \"{packages,scripts}/*/package.json\"",
         "clean": "node bin/clean/bin.mjs",
         "cm": "git-cz",
-        "format": "prettier --check \"{packages,bin,tools}/**/*.{ts,tsx,js,jsx,css,json}\"",
+        "format": "prettier --check \"{packages,scripts,bin,tools}/**/*.{ts,tsx,js,jsx,mjs,mts,cjs,cts,css,json,yaml,yml,md}\"",
         "generate-dark-colors": "node bin/dark-colors-generator.mjs",
         "generate-major-changeset": "node bin/generate-major-changeset.mjs",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
@@ -36,7 +39,7 @@
         "update-colors": "node tools/update-colors.js && stylelint packages/{themes,vars}/**/*.css --fix && prettier --write \"packages/{themes,vars}/**/*.css\" && yarn generate-dark-colors",
         "update-typography": "node tools/update-typography.mjs",
         "update-usages": "node tools/update-usages.js",
-        "version-packages": "yarn changeset version && yarn write-vars-and-themes-version",
+        "version-packages": "yarn changeset version && yarn write-vars-and-themes-version && yarn install",
         "version-packages:snapshot": "yarn changeset version --snapshot && node bin/suffix-version/bin.mjs && yarn write-vars-and-themes-version",
         "version-packages:variant": "yarn changeset version && node bin/suffix-version/bin.mjs && yarn write-vars-and-themes-version",
         "write-vars-and-themes-version": "node bin/write-vars-and-themes-version/bin.mjs"
@@ -108,7 +111,7 @@
         "@types/lodash": "^4.17.13",
         "@types/lodash.throttle": "^4.1.7",
         "@types/micromatch": "^4.0.9",
-        "@types/node": "^22.15.18",
+        "@types/node": "^24.10.13",
         "@types/react": "^18.3.24",
         "@types/react-dom": "^18.3.7",
         "@types/react-transition-group": "^4.4.12",
@@ -135,7 +138,6 @@
         "jest-environment-jsdom": "^30.0.5",
         "jest-environment-node": "^30.0.5",
         "jest-image-snapshot": "^6.5.1",
-        "lerna": "^8.2.3",
         "lint-staged": "^16.1.0",
         "micromatch": "^4.0.8",
         "mini-css-extract-plugin": "^2.9.2",
@@ -178,5 +180,5 @@
         "webpack": "^5.98.0",
         "yargs": "^17.7.2"
     },
-    "packageManager": "yarn@1.22.22"
+    "packageManager": "yarn@4.12.0"
 }
