@@ -43,10 +43,6 @@ export const BaseOption: FC<OptionProps> = ({
         >
             {Checkmark && showCheckMark ? (
                 <Checkmark
-                    className={cn({
-                        [styles.checkmarkAfter]: !isTextContent && checkmarkPosition === 'after',
-                        [styles.checkmarkBefore]: !isTextContent && checkmarkPosition === 'before',
-                    })}
                     disabled={disabled}
                     selected={selected}
                     multiple={multiple}

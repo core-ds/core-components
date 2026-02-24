@@ -41,6 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
             label='Выбрать все'
             dataTestId={dataTestId}
             position={checkmarkPosition}
+            contentClassName={checkmarkPosition === 'after' ? styles.positionAfter : undefined}
         />
     </div>
 );

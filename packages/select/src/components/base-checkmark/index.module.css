@@ -14,6 +14,10 @@
     }
 }
 
+.positionAfter {
+    margin-left: unset;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -35,14 +39,6 @@
 
     &.selected {
         opacity: 1;
-    }
-
-    &.before {
-        margin-right: var(--gap-12);
-    }
-
-    &.after {
-        margin-left: var(--gap-12);
     }
 }
 

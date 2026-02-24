@@ -1,12 +1,16 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .desktop {
-    padding: var(--gap-12);
+    padding: 12px;
     &.size-72 {
         padding-left: var(--gap-16);
     }
 }
 
 .mobile {
-    padding: var(--gap-12) var(--gap-8);
+    padding: var(--gap-12) var(--gap-12) var(--gap-12) var(--gap-8);
+}
+
+.positionAfter {
+    margin-left: unset;
 }

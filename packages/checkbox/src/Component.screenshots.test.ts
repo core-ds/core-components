@@ -142,6 +142,33 @@ describe(
     }),
 );
 
+describe('Checkbox | position', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    'sprite',
+                    createSpriteStorybookUrl({
+                        componentName: 'Checkbox',
+                        knobs: {
+                            label: ['Согласен с условиями'],
+                            hint: ['Дополнительная информация'],
+                            size: 20,
+                            position: ['before', 'after'],
+                        },
+                        size: { width: 400, height: 100 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    availableThemes.map(testCase);
+});
+
 describe(
     'Checkbox | hover state',
     screenshotTesting({
