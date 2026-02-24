@@ -6,7 +6,7 @@ import { Typography } from '@alfalab/core-components-typography';
 
 import { Example } from 'storybook-addon-live-examples';
 import { cssImportsExample, darkModeExample } from './utils';
-import { Answers } from '.storybook/theming-wizard/types';
+import { Answers } from 'storybook/theming-wizard/types';
 
 export const KeepCssVars = ({ answers }: { answers: Answers }) => {
     const steps = [];

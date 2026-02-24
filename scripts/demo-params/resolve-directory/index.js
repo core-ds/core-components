@@ -1,9 +1,18 @@
-/* eslint-disable complexity */
+// @ts-check
 
-const path = require('node:path');
-const semver = require('semver');
+import path from 'node:path';
+import semver from 'semver';
 
-module.exports = async ({ context, core, exec, inputs }) => {
+const HEADS_PREFIX = 'refs/heads/';
+const TAGS_PREFIX = 'refs/tags/';
+// regexp based on https://github.com/changesets/action/blob/06245a4e0a36c064a573d4150030f5ec548e4fcc/src/run.ts#L139
+const PACKAGE_TAG_REGEXP = /(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)/;
+
+/**
+ * @param {Pick<import('@actions/github-script').AsyncFunctionArguments, 'context' |'core' |  'exec'>} args
+ * @returns {Promise<string | undefined>}
+ */
+async function resolveDirectory({ context, core, exec }) {
     /**
      * @param {string[]} args
      * @returns {Promise<string>}
@@ -16,20 +25,19 @@ module.exports = async ({ context, core, exec, inputs }) => {
         return stdout;
     }
 
+    /**
+     * @param {string} coreComponentsVersion
+     * @returns {string}
+     */
     function demoDirName(coreComponentsVersion) {
         return `v${semver.clean(coreComponentsVersion)}`;
     }
 
-    const HEADS_PREFIX = 'refs/heads/';
-    const TAGS_PREFIX = 'refs/tags/';
-    // regexp based on https://github.com/changesets/action/blob/06245a4e0a36c064a573d4150030f5ec548e4fcc/src/run.ts#L139
-    const PACKAGE_TAG_REGEXP = /(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)/;
-
-    const dirInput = inputs['dir'];
+    const dirInput = process.env.CORE_COMPONENTS_DEMO_DIRECTORY;
 
     if (dirInput === '') {
-        let versionInput = inputs['version'];
-        let unsupportedRef = false;
+        let versionInput = process.env.CORE_COMPONENTS_DEMO_VERSION;
+        let refIsNotSupported = false;
 
         if (versionInput === context.ref) {
             if (context.ref.startsWith(HEADS_PREFIX)) {
@@ -41,7 +49,7 @@ module.exports = async ({ context, core, exec, inputs }) => {
                         return refName;
                 }
 
-                unsupportedRef = true;
+                refIsNotSupported = true;
             } else if (context.ref.startsWith(TAGS_PREFIX)) {
                 const tagName = context.ref.replace(TAGS_PREFIX, '');
                 const tagMatch = tagName.match(PACKAGE_TAG_REGEXP);
@@ -52,15 +60,15 @@ module.exports = async ({ context, core, exec, inputs }) => {
                     if (pkgName.startsWith('@alfalab/core-components')) {
                         versionInput = tagName;
                     } else {
-                        unsupportedRef = true;
+                        refIsNotSupported = true;
                     }
                 } else {
-                    unsupportedRef = true;
+                    refIsNotSupported = true;
                 }
             }
         }
 
-        if (unsupportedRef) {
+        if (refIsNotSupported) {
             core.setFailed(`Resolving dir for unsupported ref: ${context.ref}`);
 
             return undefined;
@@ -127,4 +135,6 @@ module.exports = async ({ context, core, exec, inputs }) => {
     }
 
     return dirInput;
-};
+}
+
+export default resolveDirectory;
