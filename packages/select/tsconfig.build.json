@@ -47,6 +47,6 @@
         { "path": "../popover/tsconfig.build.json" },
         { "path": "../scrollbar/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
-        { "path": "../skeleton/tsconfig.build.json" },
+        { "path": "../skeleton/tsconfig.build.json" }
     ]
 }
