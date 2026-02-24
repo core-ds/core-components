@@ -1,7 +1,7 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 .desktop {
-    padding: 12px;
+    padding: var(--gap-12);
     &.size-72 {
         padding-left: var(--gap-16);
     }

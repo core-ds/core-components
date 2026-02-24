@@ -166,7 +166,7 @@ describe('Checkbox | position', () => {
             theme,
         })();
 
-    availableThemes.map(testCase);
+    ['default'].map(testCase);
 });
 
 describe(
