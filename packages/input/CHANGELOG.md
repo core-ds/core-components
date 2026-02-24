@@ -1,5 +1,17 @@
 # @alfalab/core-components-input
 
+## 17.1.1
+
+### Patch Changes
+
+<sup><time>24.02.2026</time></sup>
+
+#### [#2075](https://github.com/core-ds/core-components/pull/2075)
+
+##### Input
+
+- Повышена специфичность класса `.focusVisible`, проставляемого при фокусе через клавиатуру
+
 ## 17.1.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-table",
-    "version": "4.0.5",
+    "version": "4.0.6",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -12,7 +12,7 @@
     "dependencies": {
         "@alfalab/core-components-button": "^13.0.2",
         "@alfalab/core-components-pagination": "^4.0.2",
-        "@alfalab/core-components-select": "^19.0.5",
+        "@alfalab/core-components-select": "^19.0.6",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
