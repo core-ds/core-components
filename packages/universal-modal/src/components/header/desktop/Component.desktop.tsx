@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useRef } from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import {
@@ -7,8 +7,7 @@ import {
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { ModalContext } from '../../../Context';
-import { UniversalModalContext } from '../../../context/universal-modal-context';
+import { useBaseHeader } from '../base-header/useBaseHeader';
 
 import styles from '../base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
@@ -39,20 +38,14 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
         ...restProps
     } = props;
 
-    const { componentRef, onClose: handleCloseByContext } = useContext(ModalContext);
-    const { modalHeaderHighlighted } = useContext(UniversalModalContext);
+    const { bottomAddons } = restProps;
 
-    const titleRef = useRef<HTMLDivElement>(null);
-
-    const hasContent = Boolean(title || children || restProps.bottomAddons);
-
-    const handleClose: NavigationBarPrivateProps['onClose'] = (...args) => {
-        if (onClose) {
-            return onClose(...args);
-        }
-
-        return handleCloseByContext(...args);
-    };
+    const { headerHighlighted, hasContent, componentRef, titleRef, handleClose } = useBaseHeader({
+        title,
+        children,
+        bottomAddons,
+        onClose,
+    });
 
     return (
         <NavigationBarPrivate
@@ -64,7 +57,7 @@ export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((pro
             sticky={sticky}
             title={title}
             className={cn(styles.header, desktopStyles.header, className, {
-                [styles.highlighted]: sticky && modalHeaderHighlighted && hasContent,
+                [styles.highlighted]: sticky && headerHighlighted && hasContent,
                 [styles.sticky]: sticky,
                 [styles.hasContent]: hasContent,
                 [desktopStyles.medium]: bigTitle,

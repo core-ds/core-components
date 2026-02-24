@@ -1,5 +1,12 @@
 # @alfalab/core-components-filter-tag
 
+## 7.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-mq@6.0.2
+
 ## 7.0.1
 
 ### Patch Changes

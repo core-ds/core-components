@@ -1,7 +1,7 @@
 import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
-import { UniversalModalContext } from '../../../context/universal-modal-context';
+import { ModalContext } from '../../../Context';
 import { BaseContent, type ContentProps } from '../base-content/base-content';
 
 import styles from './desktop.module.css';
@@ -14,7 +14,7 @@ export interface ContentDesktopProps extends ContentProps {
 }
 
 export const ContentDesktop: FC<ContentDesktopProps> = ({ className, ...restProps }) => {
-    const { hasHeader, hasFooter } = useContext(UniversalModalContext);
+    const { hasHeader, hasFooter } = useContext(ModalContext);
 
     return (
         <BaseContent

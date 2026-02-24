@@ -14,7 +14,7 @@
     backdrop-filter: blur(10px);
 }
 
-.button.button {
+.button.button.button {
     border-radius: var(--border-radius-circle);
 }
 
