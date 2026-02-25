@@ -25,6 +25,7 @@ export const BaseOption: FC<OptionProps> = ({
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
     const isTextContent = !isValidElement(content);
+    const showCheckmark = Checkmark && showCheckMark;
 
     return (
         <div
@@ -35,13 +36,15 @@ export const BaseOption: FC<OptionProps> = ({
                 [styles.disabled]: disabled,
                 [styles.textContent]: isTextContent,
                 [styles.mobile]: mobile,
-                [styles.checkmarkAfter]: !isTextContent && checkmarkPosition === 'after',
-                [styles.checkmarkBefore]: !isTextContent && checkmarkPosition === 'before',
+                [styles.checkmarkAfter]:
+                    showCheckmark && !isTextContent && checkmarkPosition === 'after',
+                [styles.checkmarkBefore]:
+                    showCheckmark && !isTextContent && checkmarkPosition === 'before',
             })}
             data-test-id={dataTestId}
             aria-label={option?.value?.name}
         >
-            {Checkmark && showCheckMark ? (
+            {showCheckmark ? (
                 <Checkmark
                     disabled={disabled}
                     selected={selected}

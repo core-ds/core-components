@@ -30,6 +30,7 @@ export const BaseCheckmark: FC<CheckmarkProps> = ({
             block={true}
             checked={selected}
             disabled={disabled}
+            contentClassName={cn({ [styles.positionAfter]: position === 'after' })}
             className={cn(styles.checkmark, styles[align], className, {
                 [styles.selected]: selected,
             })}

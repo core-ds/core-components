@@ -16,7 +16,3 @@
 - Добавлена поддержка динамического позиционирования чекмарков в зависимости от `view` (desktop/mobile)
 - Для desktop по умолчанию используется `checkmarkPosition='before'`, для mobile - `checkmarkPosition='after'`
 - Возможность переопределить позицию через проп `optionProps.checkmarkPosition`
-
-##### CustomPickerButton
-
-- Добавлен хелпер `disableCheckmarks` для автоматического отключения чекмарков у всех опций
