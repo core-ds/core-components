@@ -7,7 +7,7 @@ import {
 
 import { type FileUploadItemStatus } from './status';
 
-export type FileUploadItemProps = {
+export interface FileUploadItemProps {
     /**
      * Дополнительный класс
      */
@@ -153,4 +153,4 @@ export type FileUploadItemProps = {
      * Цвет заливки `StatusControl`
      */
     backgroundColor?: string;
-};
+}

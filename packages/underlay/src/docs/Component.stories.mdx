@@ -42,36 +42,36 @@ export const ChildElement = ({ children }) => {
 
 <Story name='Underlay'>
     {React.createElement(() => {
-        const paddingSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl', '4xl'];
-        const borderSizes = ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl'];
+        const paddingSizes = [2 , 4 , 8 , 12 , 16 , 20 , 24 , 32 , 40 , 48];
+        const borderSizes = [2 , 4 , 8 , 12 , 16 , 20 , 24];
         const borderRadius = {
-            bottomRight: select('borderRadius.bottomRight', borderSizes, 'm', 'underlayProps'),
-            bottomLeft: select('borderRadius.bottomLeft', borderSizes, 'm', 'underlayProps'),
-            topRight: select('borderRadius.topRight', borderSizes, 'm', 'underlayProps'),
-            topLeft: select('borderRadius.topLeft', borderSizes, 'm', 'underlayProps'),
+            bottomRight: select('borderRadius.bottomRight', borderSizes, 8, 'underlayProps'),
+            bottomLeft: select('borderRadius.bottomLeft', borderSizes, 8, 'underlayProps'),
+            topRight: select('borderRadius.topRight', borderSizes, 8, 'underlayProps'),
+            topLeft: select('borderRadius.topLeft', borderSizes, 8, 'underlayProps'),
         }
         const borderSize = select('borderSize', ['1', '2', '4'], '2', 'underlayProps');
-        const paddingTop = select('padding.top', paddingSizes, 'm', 'underlayProps');
-        const paddingRight = select('padding.right', paddingSizes, 'm', 'underlayProps');
-        const paddingBottom = select('padding.bottom', paddingSizes, 'm', 'underlayProps');
-        const paddingLeft = select('padding.left', paddingSizes, 'm', 'underlayProps');
+        const paddingTop = select('padding.top', paddingSizes, 16, 'underlayProps');
+        const paddingRight = select('padding.right', paddingSizes, 16, 'underlayProps');
+        const paddingBottom = select('padding.bottom', paddingSizes, 16, 'underlayProps');
+        const paddingLeft = select('padding.left', paddingSizes, 16, 'underlayProps');
         const overflow = boolean('overflow', true, 'underlayProps');
         const height = number('height', 250, undefined, 'underlayProps');
         const width = number('width', 700, undefined, 'underlayProps');
         const bottomRightCorner = select(
             'borderRadius.bottomRight',
             borderSizes,
-            'm',
+            8,
             'contentProps',
         );
         const bottomLeftCorner = select(
             'borderRadius.bottomLeft',
             borderSizes,
-            'm',
+            8,
             'contentProps',
         );
-        const topRightCorner = select('borderRadius.topRight', borderSizes, 'm', 'contentProps');
-        const topLeftCorner = select('borderRadius.topLeft', borderSizes, 'm', 'contentProps');
+        const topRightCorner = select('borderRadius.topRight', borderSizes, 8, 'contentProps');
+        const topLeftCorner = select('borderRadius.topLeft', borderSizes, 8, 'contentProps');
         const contentProps = {
             borderSize: select('borderSize', ['1', '2', '4'], '1', 'contentProps'),
             borderColor: select('borderColor', BORDER_COLOR, 'secondary', 'contentProps'),
@@ -109,7 +109,7 @@ export const ChildElement = ({ children }) => {
                     backgroundColor='var(--color-light-modal-bg-primary)'
                     overflow={false}
                     dimensions={{ height: 132, width: 320 }}
-                    padding={{ top: 'm', right: 'm', bottom: 'm', left: 'm', }}
+                    padding={{ top: 16, right: 16, bottom: 16, left: 16, }}
                     contentProps={{
                         axis: 'vertical',
                         alignment: 'center',

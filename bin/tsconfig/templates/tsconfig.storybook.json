@@ -15,6 +15,6 @@
     ],
     "compilerOptions": {
         "types": ["@alfalab/core-components-env", "@types/webpack-env"],
-        "outDir": "build"
+        "noEmit": true
     }
 }

@@ -47,9 +47,9 @@ export type RadioProps = Omit<
 
     /**
      * Размер компонента
-     * @description s и m deprecated, используйте вместо них 20 и 24 соответственно
+     * @default 20
      */
-    size?: 's' | 'm' | 20 | 24;
+    size?: 20 | 24;
 
     /**
      * Управление состоянием отмечен/не отмечен
@@ -60,13 +60,6 @@ export type RadioProps = Omit<
      * Управление состоянием включен / выключен
      */
     disabled?: boolean;
-
-    /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props disabled
-     * Управление состоянием активен / неактивен
-     */
-    inactive?: boolean;
 
     /**
      * Html аттрибут name инпута
@@ -126,13 +119,6 @@ export type RadioProps = Omit<
     colors?: 'default' | 'inverted';
 };
 
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-20',
-    m: 'size-24',
-    20: 'size-20',
-    24: 'size-24',
-};
-
 export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
     (
         {
@@ -142,7 +128,6 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             contentClassName,
             name,
             disabled,
-            inactive,
             dataTestId,
             label,
             checked,
@@ -175,13 +160,13 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                 className={cn(
                     styles.container,
                     colorStyle.container,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    styles[`size-${size}`],
                     styles[align],
                     className,
                     labelProps?.className,
                     {
-                        [styles.disabled]: disabled || inactive,
-                        [colorStyle.disabled]: disabled || inactive,
+                        [styles.disabled]: disabled,
+                        [colorStyle.disabled]: disabled,
                         [styles.checked]: checked,
                         [colorStyle.checked]: checked,
                         [styles.focused]: focused,
@@ -194,7 +179,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     type='radio'
                     onChange={handleChange}
                     data-test-id={dataTestId}
-                    disabled={disabled || inactive}
+                    disabled={disabled}
                     checked={checked}
                     name={name}
                     {...restProps}

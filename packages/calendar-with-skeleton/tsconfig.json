@@ -6,6 +6,8 @@
         "rootDir": "src",
         "outDir": "no-dist",
         "paths": {
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
             "@alfalab/core-components-calendar": ["../calendar/src"],
             "@alfalab/core-components-calendar/*": ["../calendar/src/*"],
             "@alfalab/core-components-calendar-with-skeleton": ["./src"],
@@ -19,6 +21,7 @@
         }
     },
     "references": [
+        { "path": "../button/tsconfig.build.json" },
         { "path": "../calendar/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../skeleton/tsconfig.build.json" },

@@ -1,1 +1,1 @@
-export { getBaseToastPlateTestIds } from '../components/base-toast-plate/utils/getBaseToastPlateTestIds';
+export { getBaseToastPlateTestIds } from '../utils/getBaseToastPlateTestIds';

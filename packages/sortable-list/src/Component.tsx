@@ -86,15 +86,15 @@ export const SortableList = forwardRef<HTMLDivElement, SortableListProps>(
 
         const getPaddingClassName = () => {
             if (typeof padding === 'object') {
-                return cn({
-                    [styles[`padding-top-${padding.top}`]]: padding.top,
-                    [styles[`padding-right-${padding.right}`]]: padding.right,
-                    [styles[`padding-bottom-${padding.bottom}`]]: padding.bottom,
-                    [styles[`padding-left-${padding.left}`]]: padding.left,
-                });
+                return cn(
+                    styles[`padding-top-${padding.top}`],
+                    styles[`padding-right-${padding.right}`],
+                    styles[`padding-bottom-${padding.bottom}`],
+                    styles[`padding-left-${padding.left}`],
+                );
             }
 
-            if (typeof padding === 'string') {
+            if (typeof padding === 'number') {
                 return cn(
                     styles[`padding-top-${padding}`],
                     styles[`padding-right-${padding}`],

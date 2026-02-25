@@ -89,7 +89,7 @@ export const Intro = () => {
                 <Button
                     className={styles.ghButton}
                     view='primary'
-                    size='xs'
+                    size={40}
                     href='https://github.com/core-ds/core-components'
                     target='_blank'
                     rel='noopener noreferrer'

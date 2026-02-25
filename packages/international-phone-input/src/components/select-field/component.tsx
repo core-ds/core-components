@@ -6,7 +6,6 @@ import { type FieldProps } from '@alfalab/core-components-select/shared';
 import { useFocus } from '@alfalab/hooks';
 import { WorldMagnifierMIcon } from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { FlagIcon } from '../flag-icon';
 
 import styles from './index.module.css';
@@ -17,7 +16,7 @@ export const EMPTY_COUNTRY_SELECT_FIELD = {
 };
 
 type SelectFieldProps = FieldProps & {
-    size?: 's' | 'm' | 'l' | 'xl' | 48 | 56 | 64 | 72;
+    size?: 48 | 56 | 64 | 72;
 };
 
 export const SelectField: FC<SelectFieldProps> = ({
@@ -36,7 +35,7 @@ export const SelectField: FC<SelectFieldProps> = ({
     return (
         <div
             ref={ref}
-            className={cn(styles.component, size && styles[SIZE_TO_CLASSNAME_MAP[size]], {
+            className={cn(styles.component, styles[`size-${size}`], {
                 [styles.focusVisible]: focusVisible,
                 [styles.disabled]: disabled,
             })}

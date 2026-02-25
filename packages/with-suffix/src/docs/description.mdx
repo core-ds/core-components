@@ -7,13 +7,13 @@ const SuffixInput = withSuffix(Input);
 
 render(
     <div style={{ width: 320 }}>
-        <SuffixInput 
+        <SuffixInput
             block={true}
             placeholder='Введите число'
             label='Количество месяцев'
             labelView={isMobile() ? 'outer' : 'inner'}
             suffix={<Typography.Text view='component-primary' color='secondary'> мес</Typography.Text> }
-            size={isMobile() ? 's' : 'm'}
+            size={isMobile() ? 48 : 56}
             breakpoint={BREAKPOINT}/>
     </div>
 );

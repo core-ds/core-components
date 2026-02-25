@@ -49,7 +49,7 @@
         padding-bottom: var(--gap-4);
 
         & > .children,
-        & > .title {
+        & > .title .titleTextContent {
             -webkit-line-clamp: 1;
             word-break: break-all;
         }

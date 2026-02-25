@@ -56,9 +56,6 @@ describe('IconButton', () => {
 
         (
             [
-                ['xxs', 'size-24'],
-                ['xs', 'size-32'],
-                ['s', 'size-48'],
                 [24, 'size-24'],
                 [32, 'size-32'],
                 [40, 'size-40'],

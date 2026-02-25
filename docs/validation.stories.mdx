@@ -59,7 +59,7 @@ const NumberInput = () => {
         <Input
             value={value}
             onChange={handleChange}
-            size='m'
+            size={56}
             block={true}
             placeholder='Мгновенная валидация'
             error={error}
@@ -74,7 +74,7 @@ const MaskedNumberInput = () => {
         <MaskedInput
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            size='m'
+            size={56}
             block={true}
             placeholder='Маска'
             mask={(rawValue) => new Array(rawValue.length).fill(/\d/)}
@@ -86,7 +86,7 @@ render(() => {
     return (
         <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
             <NumberInput />
-            <Gap size='m' />
+            <Gap size={16} />
             <MaskedNumberInput />
         </div>
     );
@@ -126,7 +126,7 @@ const InputWrapper = ({ patronymic, placeholder, errMsg }) => {
             value={value}
             onChange={handleChange}
             onBlur={handleBlur}
-            size='m'
+            size={56}
             block={true}
             placeholder={placeholder}
             error={error}
@@ -142,7 +142,7 @@ render(() => {
                 patronymic='сергеевич'
                 errMsg='Александр Сергеевич – наше всё'
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <InputWrapper
                 placeholder='Отчество Афанасия Фета'
                 patronymic='афанасьевич'
@@ -233,16 +233,16 @@ render(() => {
                         error={form.errors[key]}
                         name={key}
                         onChange={handleChange}
-                        size='m'
+                        size={56}
                         block={true}
                         placeholder={data[key].desc}
                     />
-                    {idx !== dataKeys.length - 1 && <Gap size='m' />}
+                    {idx !== dataKeys.length - 1 && <Gap size={16} />}
                 </span>
             ))}
 
-            <Gap size='m' />
-            <Button view='primary' size='m' type='submit'>
+            <Gap size={16} />
+            <Button view='primary' size={48} type='submit'>
                 Отправить форму
             </Button>
         </form>

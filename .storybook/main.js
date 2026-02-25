@@ -11,6 +11,7 @@ const { isSamePath } = require('../tools/path.cjs');
 const { resolveInternal } = require('../tools/resolve-internal.cjs');
 const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
 const { globSync } = require('tinyglobby');
+const { existsSync } = require('node:fs');
 
 const INTERNAL_PACKAGES = readPackagesFileSync(
     path.resolve(__dirname, '../tools/.internal-packages'),
@@ -18,12 +19,13 @@ const INTERNAL_PACKAGES = readPackagesFileSync(
 const CSS_MODULE_REGEXP = /\.module\.css$/;
 const CSS_REGEXP = /\.css$/;
 
-const distDir = path.resolve(__dirname, '../dist');
 const { packages } = getPackages();
 const varsEntryPoints = globSync('src/*index.css', {
     cwd: resolveInternal('@alfalab/core-components-vars'),
     absolute: true,
 });
+
+const storybookAddonLiveExamples = resolveInternal('storybook-addon-live-examples');
 
 const addDirsForTranspile = (config) => {
     config.module.rules.forEach((rule) => {
@@ -223,9 +225,27 @@ module.exports = {
             new NormalModuleReplacementPlugin(/^@alfalab\/core-components[-\/]/, function (
                 resource,
             ) {
+                // monkey patching `storybook-addon-live-examples`
+                if (resource.contextInfo.issuer.startsWith(storybookAddonLiveExamples)) {
+                    const entryPoint = resource.request.replace(
+                        /^@alfalab\/core-components[-/]/,
+                        '',
+                    );
+                    const adapterPath = path.resolve(__dirname, 'components/adapters', entryPoint);
+
+                    if (existsSync(adapterPath)) {
+                        resource.request = adapterPath;
+
+                        if (resource.createData) {
+                            resource.createData.request = resource.request;
+                        }
+
+                        return;
+                    }
+                }
+
                 if (
                     resource.request === '@alfalab/core-components/package.json' ||
-                    resource.request === '@alfalab/core-components-vars/src/alfasans-index.css' ||
                     resource.request === '@alfalab/core-components-vars/src/index.css'
                 ) {
                     return;
@@ -235,19 +255,19 @@ module.exports = {
                     /^@alfalab\/core-components[-/]([^/]+)\/?(.*)/,
                     (_, componentName, entrypoint) => {
                         const pkgName = `@alfalab/core-components-${componentName}`;
+                        const pkg = packages.find(({ packageJson: { name } }) => name === pkgName);
 
                         if (
                             process.env.BUILD_STORYBOOK_FROM_DIST === 'true' &&
                             !INTERNAL_PACKAGES.includes(pkgName)
                         ) {
                             return path.join(
-                                distDir,
-                                componentName,
+                                pkg.dir,
+                                'dist',
                                 entrypoint.startsWith('modern') ? '' : 'modern',
                                 entrypoint,
                             );
                         }
-                        const pkg = packages.find(({ packageJson: { name } }) => name === pkgName);
 
                         return path.join(pkg.dir, 'src', entrypoint);
                     },
@@ -283,6 +303,9 @@ module.exports = {
                 'process.env.CORE_COMPONENTS_ENV': JSON.stringify(
                     mode /* 'DEVELOPMENT' | 'PRODUCTION' */
                         .toLowerCase(),
+                ),
+                'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(
+                    process.env.CORE_COMPONENTS_VARIANT,
                 ),
             }),
         );

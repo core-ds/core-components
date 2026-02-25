@@ -19,11 +19,12 @@ async function main() {
             const {
                 packageJson: { version },
             } = packages.find(({ packageJson: { name } }) => name === pkg);
-            const expectedVersion = isNonNullable(semver.prerelease(version))
-                ? version
-                : `^${version}`;
+            const { major, minor, patch, prerelease } = semver.parse(version);
+            const expectedVersion = prerelease.length ? version : `^${version}`;
 
-            return actualVersion === expectedVersion ? null : [pkg, actualVersion, expectedVersion];
+            return actualVersion.replace(/^[~^]/, '').startsWith(`${major}.${minor}.${patch}`)
+                ? null
+                : [pkg, actualVersion, expectedVersion];
         })
         .filter(isNonNullable);
 

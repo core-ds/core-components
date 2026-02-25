@@ -80,7 +80,7 @@ export const Closer: FC<CloserProps> = ({
             })}
         >
             <IconButton
-                size={view === 'desktop' ? 's' : 'xs'}
+                size={view === 'desktop' ? 48 : 32}
                 className={cn(styles.button, colorStyles[colors].button, {
                     [colorStyles[colors].mobile]: view === 'mobile',
                 })}

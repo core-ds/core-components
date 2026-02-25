@@ -123,7 +123,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                     class="scrollableContainer sheetContainer"
                   >
                     <div
-                      class="header hasContent headerWrapperWithoutSwipeMarker sticky"
+                      class="header hasContent headerWrapperWithoutSwipeMarker hasContent sticky"
                     >
                       <div
                         class="mainLine"

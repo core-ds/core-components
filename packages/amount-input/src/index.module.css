@@ -17,11 +17,6 @@
     position: relative;
 }
 
-.bold .input,
-.bold .suffixContainer {
-    font-weight: bold;
-}
-
 /* суффикс = текст в поле. Скрываем спейсер, чтобы суффикс выглядел как введенное в поле значение */
 .suffixContainer > *:first-child {
     display: none;
@@ -43,4 +38,24 @@
 .focused .suffixMajor,
 .focused .suffixMinor {
     opacity: 0;
+}
+
+.inputReject0 {
+    animation: reject0 ease 0.3s 1;
+}
+
+.inputReject1 {
+    animation: reject1 ease 0.3s 1;
+}
+
+@keyframes reject0 {
+    from {
+        background-color: var(--color-light-status-muted-negative);
+    }
+}
+
+@keyframes reject1 {
+    from {
+        background-color: var(--color-light-status-muted-negative);
+    }
 }

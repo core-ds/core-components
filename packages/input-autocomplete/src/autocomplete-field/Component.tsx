@@ -1,9 +1,10 @@
-import React, { Fragment, useCallback, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { type InputProps } from '@alfalab/core-components-input';
 import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
+import { getAddonsByPriority } from '@alfalab/core-components-input/helpers/get-addons-by-priority';
 import { type FieldProps } from '@alfalab/core-components-select/shared';
 
 import { OnInputReason } from '../enums';
@@ -52,6 +53,35 @@ export const AutocompleteField = ({
     const handleInput: InputProps['onChange'] = (_, payload) =>
         onInput?.(payload.value, OnInputReason.Change);
 
+    /**
+     * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+     * [4] - Clear
+     * [3] - Status (error, success)
+     * [2] - Common (info, e.g.)
+     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+     * [0] - Lock
+     */
+    const rightAddonsMap = getAddonsByPriority([
+        {
+            priority: 2,
+            predicate: Boolean(inputProps.rightAddons),
+            render: () => inputProps.rightAddons,
+        },
+        {
+            priority: 1,
+            predicate: Boolean(Arrow) && !inputDisabled,
+            render: () => (
+                <span
+                    className={cn(styles.arrow, {
+                        [styles.error]: error,
+                    })}
+                >
+                    {Arrow}
+                </span>
+            ),
+        },
+    ]);
+
     return (
         <Input
             dataTestId={dataTestId}
@@ -77,29 +107,7 @@ export const AutocompleteField = ({
             onFocus={inputDisabled ? undefined : onFocus}
             autoComplete='off'
             value={value}
-            rightAddons={
-                (Arrow || inputProps.rightAddons) && (
-                    /**
-                     * Right addon priority [4] <= [3] <= [2] <= [1]
-                     * [4] - Clear
-                     * [3] - Status (error, success)
-                     * [2] - Common (info, e.g.)
-                     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
-                     */
-                    <Fragment>
-                        {inputProps.rightAddons}
-                        {Arrow && (
-                            <span
-                                className={cn(styles.arrow, {
-                                    [styles.error]: error,
-                                })}
-                            >
-                                {Arrow}
-                            </span>
-                        )}
-                    </Fragment>
-                )
-            }
+            rightAddons={rightAddonsMap}
         />
     );
 };

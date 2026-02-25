@@ -27,7 +27,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
         ref,
     ) => {
         const paddingSize =
-            typeof padding === 'string'
+            typeof padding === 'number'
                 ? { top: padding, left: padding, right: padding, bottom: padding }
                 : padding;
 

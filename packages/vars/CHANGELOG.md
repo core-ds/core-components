@@ -1,5 +1,68 @@
 # @alfalab/core-components-vars
 
+## 11.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+## 11.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1529](https://github.com/core-ds/core-components/pull/1529)
+
+##### Vars
+
+- Удалён `deprecated` набор цветов `colors-transparent.css`
+- Если в вашем проекте используется данная палитра, воспользуйтесь кодмодом `50-replace-transparent-color-vars`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1639](https://github.com/core-ds/core-components/pull/1639)
+
+##### Vars
+
+- Удалён `deprecated` набор цветов `colors.css`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+##### CSS переменные:
+
+- Удалены следующие файлы стилей:
+    - `alfasans-index.css`
+    - `alfasans-typography.css`
+    - `bundle/alfasans-click.css`
+    - `bundle/alfasans-corp.css`
+    - `bundle/alfasans-intranet.css`
+    - `no-typography.css`
+- Для использования стилей со шрифтом `Alfa Interface Sans` необходимо установить соответствующий пакет (пакеты)
+
+### Minor Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#2009](https://github.com/core-ds/core-components/pull/2009)
+
+##### Vars
+
+- Добавлены палитры `colors-go.css` и `colors-go-dark.css`
+- Обновление `ui-primitives@35.3.0`
+
 ## 10.2.0
 
 ### Minor Changes

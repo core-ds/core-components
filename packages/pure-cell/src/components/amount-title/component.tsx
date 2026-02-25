@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { type Color, type TitleProps, TitleResponsive } from '@alfalab/core-components-typography';
+import { type TitleProps, TypographyTitleResponsive } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../context';
 import { type AmountProps as AmountType } from '../typesProps';
@@ -11,12 +11,6 @@ import { type AmountProps as AmountType } from '../typesProps';
 import styles from './index.module.css';
 
 type Props = {
-    /**
-     * Цвет денежного значения
-     * @deprecated Используйте titleProps.color
-     */
-    color?: Color;
-
     /**
      * Пропсы, которые будут прокинуты в компонент типографики
      */
@@ -39,9 +33,8 @@ export const AmountTitle: React.FC<Props> = ({
     minorUnits = 100,
     hidden,
     className,
-    color = 'primary',
     dataTestId,
-    titleProps: titlePropsFromProps = {},
+    titleProps: titlePropsFromProps,
     ...restProps
 }) => {
     const pureCellContext = useContext(PureCellContext);
@@ -49,7 +42,6 @@ export const AmountTitle: React.FC<Props> = ({
     const titleProps = {
         tag: 'h4',
         view: 'small',
-        color,
         ...titlePropsFromProps,
     } as Omit<TitleProps, 'className' | 'dataTestId'>;
 
@@ -62,14 +54,14 @@ export const AmountTitle: React.FC<Props> = ({
     }
 
     return (
-        <TitleResponsive
+        <TypographyTitleResponsive
             {...titleProps}
             dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount-title')}
             className={cn(styles.component, titlePropsFromProps?.className)}
         >
             <CoreAmount
                 minority={minority || minorUnits}
-                className={cn(styles.weight, className)}
+                className={className}
                 dataTestId={getDataTestId(
                     dataTestId || pureCellContext.dataTestId,
                     'core-amount-title',
@@ -77,6 +69,6 @@ export const AmountTitle: React.FC<Props> = ({
                 {...restProps}
                 bold='none'
             />
-        </TitleResponsive>
+        </TypographyTitleResponsive>
     );
 };

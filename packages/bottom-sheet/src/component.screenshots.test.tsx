@@ -6,6 +6,7 @@ import {
     closeBrowser,
     Knobs,
     createPreview,
+    generateTestCases,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -160,6 +161,32 @@ describe('BottomSheet | inverted views', () => {
         })();
 
     ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
+});
+
+describe('BottomSheet | subtitle', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'BottomSheet',
+                    knobs: {
+                        open: true,
+                        initialHeight: 'full',
+                        title: 'Заголовок',
+                        titleSize: 'compact',
+                        subtitle: 'Subtitle',
+                        colors: ['default', 'inverted'],
+                    },
+                }),
+            ],
+            viewport: {
+                width: 320,
+                height: 320,
+            },
+            theme,
+        })();
+
+    ['default'].map(testCase);
 });
 
 describe('BottomSheet | interactions tests', () => {

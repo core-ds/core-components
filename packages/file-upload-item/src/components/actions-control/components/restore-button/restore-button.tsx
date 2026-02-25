@@ -19,7 +19,7 @@ export const RestoreButton = () => {
     return (
         <IconButton
             className={styles.icon}
-            size='xxs'
+            size={24}
             aria-label='восстановить'
             icon={<ArrowsCwCompactMIcon className={styles.restoreIconColor} />}
             disabled={disableButtons}

@@ -10,7 +10,6 @@ import {
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { WorldMagnifierMIcon } from '@alfalab/icons-glyph/WorldMagnifierMIcon';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { type Country } from '../../types';
 import { FlagIcon } from '../flag-icon';
 import { EMPTY_COUNTRY_SELECT_FIELD, SelectField } from '../select-field';
@@ -66,7 +65,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
                         <span
                             className={cn([
                                 styles.option,
-                                size && styles[SIZE_TO_CLASSNAME_MAP[size]],
+                                styles[`size-${size}`],
                                 isMobile && styles.mobile,
                             ])}
                         >

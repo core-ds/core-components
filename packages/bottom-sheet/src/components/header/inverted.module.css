@@ -9,7 +9,7 @@
     background-color: inherit;
 }
 
-.subtitle {
+.subtitle.subtitle {
     color: var(--bottom-sheet-text-color-inverted);
 }
 

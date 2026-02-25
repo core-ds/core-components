@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 export type CoreConfigContextValue = {
     breakpoint: number;
     client: 'desktop' | 'mobile';
+    getPortalContainer?: () => Element | null | undefined;
 };
 
 export const CoreConfigContext = createContext<CoreConfigContextValue>({

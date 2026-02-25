@@ -296,7 +296,7 @@ render(() => {
                     setSelectedFirst(selected);
                 }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectDesktop
                 allowUnselect={true}
                 size={56}
@@ -314,7 +314,7 @@ render(() => {
                     },
                 })}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectDesktop
                 allowUnselect={true}
                 size={56}
@@ -377,7 +377,7 @@ render(() => {
                     setSelected(selectedMultiple.map((option) => option.key));
                 }}
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectMobile
                 allowUnselect={true}
                 size={56}
@@ -454,7 +454,7 @@ const DATA = [
 
 const OPTIONS = DATA.map(({ amount, text }, idx) => ({
     key: idx,
-    content: renderOption({ text, amount, padding: { top: 'xs', bottom: 'xs', left: 's' } }),
+    content: renderOption({ text, amount, padding: { top: 8, bottom: 8, left: 12 } }),
 }));
 
 const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
@@ -462,7 +462,7 @@ const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
     content: renderOptionWithAmountOnTop({
         text,
         amount,
-        padding: { top: 'xs', bottom: 'xs', left: 's' },
+        padding: { top: 8, bottom: 8, left: 12 },
     }),
 }));
 
@@ -515,7 +515,7 @@ render(() => {
                     return renderOption({
                         text,
                         amount,
-                        padding: { top: 'xs', bottom: 'xs' },
+                        padding: { top: 8, bottom: 8 },
                     });
                 }}
                 onChange={({ selected }) => {
@@ -579,7 +579,7 @@ const DATA = [
 
 const OPTIONS = DATA.map(({ amount, text }, idx) => ({
     key: idx,
-    content: renderOption({ text, amount, padding: { top: 's', bottom: 's', left: 'm' } }),
+    content: renderOption({ text, amount, padding: { top: 12, bottom: 12, left: 16 } }),
 }));
 
 const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
@@ -587,7 +587,7 @@ const OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({
     content: renderOptionWithAmountOnTop({
         text,
         amount,
-        padding: { top: 's', bottom: 's', left: 'm' },
+        padding: { top: 12, bottom: 12, left: 16 },
     }),
 }));
 
@@ -639,7 +639,7 @@ render(() => {
                     return renderOption({
                         text,
                         amount,
-                        padding: { top: 'xs', bottom: 'xs' },
+                        padding: { top: 8, bottom: 8 },
                     });
                 }}
             />
@@ -698,13 +698,13 @@ render(() => {
                 <GenericWrapper>
                     <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
                 </GenericWrapper>
-                <Gap size='m' direction='horizontal' />
+                <Gap size={16} direction='horizontal' />
                 <GenericWrapper>
                     <GenericWrapper column>
                         <Typography.Text color='secondary' view='primary-small'>
                             {text}
                         </Typography.Text>
-                        <Gap size='3xs' />
+                        <Gap size={2} />
                         <Typography.Text>
                             <Amount
                                 value={amount}
@@ -737,7 +737,7 @@ render(() => {
                 text: 'Зарплатный счёт',
                 amount: 3405161,
                 icon: <StarMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
+                padding: { top: 12, bottom: 12, left: 16 },
             },
         },
         {
@@ -746,7 +746,7 @@ render(() => {
                 text: 'Накопительный счёт',
                 amount: 6000024,
                 icon: <SafeBoxMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
+                padding: { top: 12, bottom: 12, left: 16 },
             },
         },
     ];
@@ -802,13 +802,13 @@ render(() => {
                 <GenericWrapper>
                     <SuperEllipse size={iconSize}>{icon}</SuperEllipse>
                 </GenericWrapper>
-                <Gap size='m' direction='horizontal' />
+                <Gap size={16} direction='horizontal' />
                 <GenericWrapper>
                     <GenericWrapper column>
                         <Typography.Text color='secondary' view='primary-small'>
                             {text}
                         </Typography.Text>
-                        <Gap size='3xs' />
+                        <Gap size={2} />
                         <Typography.Text>
                             <Amount
                                 value={amount}
@@ -841,7 +841,7 @@ render(() => {
                 text: 'Зарплатный счёт',
                 amount: 3405161,
                 icon: <StarMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
+                padding: { top: 12, bottom: 12, left: 16 },
             },
         },
         {
@@ -850,7 +850,7 @@ render(() => {
                 text: 'Накопительный счёт',
                 amount: 6000024,
                 icon: <SafeBoxMIcon />,
-                padding: { top: 's', bottom: 's', left: 'm' },
+                padding: { top: 12, bottom: 12, left: 16 },
             },
         },
     ];
@@ -878,7 +878,7 @@ render(() => {
                     setSelectedFirst(selectedMultiple.map((option) => option.key))
                 }
             />
-            <Gap size='m' />
+            <Gap size={16} />
             <SelectMobile
                 allowUnselect={true}
                 placeholder='Выберите счёт'
@@ -1221,13 +1221,13 @@ render(() => {
                 />
             </div>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <Button size={40} type='submit'>
                 Отправить
             </Button>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <div>serialized: {serialized}</div>
         </form>

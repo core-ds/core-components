@@ -1,8 +1,9 @@
 import React, { forwardRef, useContext } from 'react';
 import cn from 'classnames';
 
-import { UniversalModalContext } from '../../../context/universal-modal-context';
+import { ModalContext } from '../../../Context';
 import { FOOTER_MEDIUM_BREAKPOINT } from '../../../desktop/constants';
+import { UniversalModalContext } from '../../../desktop/context';
 import { BaseFooter, type FooterProps } from '../base-footer/base-footer';
 
 import styles from './desktop.module.css';
@@ -17,7 +18,8 @@ export interface FooterDesktopProps extends FooterProps {
 
 export const FooterDesktop = forwardRef<HTMLDivElement, FooterDesktopProps>((props, ref) => {
     const { className, sticky, layout = 'start', ...restProps } = props;
-    const { modalWidth = 500, modalFooterHighlighted } = useContext(UniversalModalContext);
+    const { width: modalWidth } = useContext(UniversalModalContext);
+    const { footerHighlighted: modalFooterHighlighted } = useContext(ModalContext);
 
     const isMiddle = modalWidth === 'fullWidth' || modalWidth >= FOOTER_MEDIUM_BREAKPOINT;
 

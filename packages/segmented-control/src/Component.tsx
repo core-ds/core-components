@@ -2,6 +2,8 @@ import React, { type FC, type ReactElement, useCallback, useEffect, useRef } fro
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
+import { Skeleton, type SkeletonProps } from '@alfalab/core-components-skeleton';
+
 import { type SegmentProps } from './components';
 import { type ContextType, SegmentedControlContext } from './context';
 import { type IDType } from './typing';
@@ -15,7 +17,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SegmentedControlProps = {
+export interface SegmentedControlProps {
     /**
      * Дополнительный className
      */
@@ -33,9 +35,9 @@ export type SegmentedControlProps = {
 
     /**
      * Размер компонента
-     * @description xs, xxs deprecated, используйте вместо них 40, 32 соответственно
+     * @default 32
      */
-    size?: 'xs' | 'xxs' | 32 | 40;
+    size?: 32 | 40;
 
     /**
      * Форма компонента
@@ -67,16 +69,14 @@ export type SegmentedControlProps = {
      * @default false
      */
     disabled?: boolean;
-};
+
+    /**
+     * Настройки скелетона
+     */
+    skeleton?: SkeletonProps;
+}
 
 const MAX_SEGMENTS = 5;
-
-export const SIZE_TO_CLASSNAME_MAP = {
-    xxs: 'size-32',
-    xs: 'size-40',
-    32: 'size-32',
-    40: 'size-40',
-};
 
 export const SegmentedControl: FC<SegmentedControlProps> = ({
     className,
@@ -89,11 +89,21 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     dataTestId,
     style,
     disabled = false,
+    skeleton,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
     const selectedBoxRef = useRef<HTMLDivElement>(null);
     const children = defaultChildren.slice(0, MAX_SEGMENTS);
+    const isSize40 = size === 40;
+
+    const skeletonBorderRadius = (() => {
+        if (shape === 'rounded') {
+            return isSize40 ? 20 : 16;
+        }
+
+        return isSize40 ? 12 : 10;
+    })();
 
     const selectedSegmentPosition = children.findIndex((item) => item.props.id === selectedId);
     const isPositionFounded = selectedSegmentPosition !== -1;
@@ -132,6 +142,21 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         return () => observer.disconnect();
     }, []);
 
+    if (skeleton?.visible) {
+        return (
+            <Skeleton
+                {...skeleton}
+                dataTestId={dataTestId}
+                borderRadius={skeletonBorderRadius}
+                className={cn(className, styles.skeletonWrapper, skeleton.className)}
+                style={{
+                    ...skeleton.style,
+                    height: size,
+                }}
+            />
+        );
+    }
+
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         <SegmentedControlContext.Provider value={{ onChange, colors }}>
@@ -141,7 +166,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
                         styles.wrapper,
                         colorStyles[colors].wrapper,
                         styles[shape],
-                        styles[SIZE_TO_CLASSNAME_MAP[size]],
+                        styles[`size-${size}`],
                         {
                             [styles.disabled]: disabled,
                         },

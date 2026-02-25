@@ -157,7 +157,7 @@ render(() => {
                     </div>
                 </div>
             </div>
-            <Gap size='xl' />
+            <Gap size={24} />
             <Switch
                 checked={disabled}
                 onChange={() => setDisabled((prevState) => !prevState)}
@@ -233,14 +233,14 @@ render(() => {
                 {label && 'Label'}
             </CustomButton>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <Switch label='Label' checked={label} onChange={handleLabelChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='Hint' checked={hint} onChange={handleHintChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />
         </div>
     );

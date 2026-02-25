@@ -306,12 +306,29 @@ describe('FileUploadItem', () => {
 
             expect(element).toBeInTheDocument();
         });
+
+        it('should set `download` element with `onDownload` only', () => {
+            render(
+                <FileUploadItem showRestore={false} onDownload={jest.fn()}>
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const element = screen.getByLabelText('скачать');
+
+            expect(element).toBeInTheDocument();
+        });
     });
 
     describe('Callbacks tests', () => {
+        let cb: jest.Mock;
+        const fileId = 'id';
+
+        beforeEach(() => {
+            cb = jest.fn();
+        });
+
         it('should call `onDelete` prop', () => {
-            const cb = jest.fn();
-            const fileId = 'id';
             const { getByLabelText } = render(
                 <FileUploadItem showDelete={true} onDelete={cb} id={fileId}>
                     <FileUploadItem.Actions />
@@ -325,8 +342,6 @@ describe('FileUploadItem', () => {
         });
 
         it('should call `onRestore` prop', () => {
-            const cb = jest.fn();
-            const fileId = 'id';
             const { getByLabelText } = render(
                 <FileUploadItem showRestore={true} onRestore={cb} id={fileId}>
                     <FileUploadItem.Actions />
@@ -340,8 +355,6 @@ describe('FileUploadItem', () => {
         });
 
         it('should call `onDownload` prop', async () => {
-            const cb = jest.fn();
-            const fileId = 'id';
             const { baseElement } = render(
                 <FileUploadItem {...fileProps} downloadLink='/link' onDownload={cb} id={fileId}>
                     <FileUploadItem.Actions />

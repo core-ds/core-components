@@ -2,6 +2,7 @@ import React, { type FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 import cn from 'classnames';
 
+import { urlTransformer } from '../../helpers/url-transformer';
 import { strikethroughRemarkPlugin } from '../../remark-plugins';
 import { type BaseMarkdownProps } from '../../typings';
 
@@ -25,7 +26,7 @@ export const BaseMarkdown: FC<BaseMarkdownProps> = (props) => {
             remarkPlugins={[strikethroughRemarkPlugin]}
             components={{ ...defaultOverrides, ...overrides }}
             className={cn(styles.component, className)}
-            {...(!transformLinkUri && { transformLinkUri: false })}
+            urlTransform={urlTransformer(transformLinkUri)}
         >
             {children}
         </ReactMarkdown>

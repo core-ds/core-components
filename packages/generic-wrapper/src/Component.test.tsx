@@ -6,11 +6,7 @@ import { GenericWrapper, ReducedGapType } from './Component';
 describe('GenericWrapper', () => {
     it('should render child elements correctly', () => {
         render(
-            <GenericWrapper
-                padding={{ top: 'm' as unknown as ReducedGapType }}
-                alignItems='center'
-                justifyContent='center'
-            >
+            <GenericWrapper padding={{ top: 16 }} alignItems='center' justifyContent='center'>
                 <GenericWrapper>random string</GenericWrapper>
                 <GenericWrapper>
                     <div>random div</div>

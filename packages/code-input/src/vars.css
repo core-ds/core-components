@@ -2,9 +2,6 @@
 @import '../../form-control/src/vars.css';
 
 :root {
-    --code-input-font-size: 30px;
-    --code-input-font-weight: 700;
-    --code-input-font-family: var(--font-family-system);
     --code-input-text-color: var(--color-light-text-primary);
     --code-input-bg-color: var(--form-control-bg-color);
     --code-input-mobile-bg-color: var(--color-light-neutral-translucent-100);
@@ -13,7 +10,8 @@
     --code-input-disabled-box-shadow: none;
 
     /* border */
-    --code-input-border-radius: var(--border-radius-4);
+    --code-input-border-radius: var(--border-radius-6);
+    --code-input-mobile-border-radius: var(--border-radius-6);
 
     /* hover */
     --code-input-box-shadow-hover: none;

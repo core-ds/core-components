@@ -6,7 +6,7 @@ export const getBorderCorners = (
     borderRadius: UnderlayBorderRadius | CornersRadiusType | undefined,
 ) => {
     const bordersSize =
-        typeof borderRadius === 'string'
+        typeof borderRadius === 'number'
             ? {
                   bottomRight: borderRadius,
                   bottomLeft: borderRadius,

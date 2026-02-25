@@ -23,9 +23,9 @@ export interface IconButtonProps
 
     /**
      * Размер компонента
-     * @description xxs, xs, s deprecated, используйте вместо них 24, 32, 40 соответственно
+     * @default 48
      */
-    size?: 'xxs' | 'xs' | 's' | 24 | 32 | 40 | 48 | 56;
+    size?: 24 | 32 | 40 | 48 | 56;
 
     /**
      * Дополнительный класс

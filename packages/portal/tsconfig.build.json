@@ -7,11 +7,19 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-button/*": ["../button/src/*"],
+            "@alfalab/core-components-config": ["../config/src"],
+            "@alfalab/core-components-config/*": ["../config/src/*"],
             "@alfalab/core-components-portal": ["./src"],
             "@alfalab/core-components-portal/*": ["./src/*"],
-            "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+            "@alfalab/core-components-space": ["../space/src"],
+            "@alfalab/core-components-space/*": ["../space/src/*"]
         }
     },
-    "references": [{ "path": "../shared/tsconfig.build.json" }]
+    "references": [
+        { "path": "../button/tsconfig.build.json" },
+        { "path": "../config/tsconfig.build.json" },
+        { "path": "../space/tsconfig.build.json" }
+    ]
 }

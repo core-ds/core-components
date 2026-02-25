@@ -14,7 +14,6 @@ exports[`Snapshots tests should display correctly 1`] = `
       aria-labelledby="downshift-:r0:-label"
       class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
       id="downshift-:r0:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -69,7 +68,6 @@ exports[`Snapshots tests should display correctly 2`] = `
       aria-labelledby="downshift-:r4:-label"
       class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
       id="downshift-:r4:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -122,11 +120,8 @@ exports[`Snapshots tests should display correctly 3`] = `
     <button
       aria-controls="downshift-:r8:-menu"
       aria-labelledby="downshift-:r8:-label"
-      arrow="[object Object]"
       class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
-      formcontrolcomponent="[object Object]"
       id="downshift-:r8:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -181,7 +176,6 @@ exports[`Snapshots tests should display opened correctly 1`] = `
       aria-labelledby="downshift-:r3:-label"
       class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
       id="downshift-:r3:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -607,7 +601,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 />
               </div>
               <div
-                class="track vertical"
+                class="track vertical verticalBar"
                 style="visibility: hidden;"
               >
                 <div
@@ -641,7 +635,6 @@ exports[`Snapshots tests should display opened correctly 3`] = `
       aria-labelledby="downshift-:r7:-label"
       class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
       id="downshift-:r7:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -1067,7 +1060,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                 />
               </div>
               <div
-                class="track vertical"
+                class="track vertical verticalBar"
                 style="visibility: hidden;"
               >
                 <div
@@ -1101,7 +1094,6 @@ exports[`Snapshots tests should display opened correctly 5`] = `
       aria-labelledby="downshift-:rb:-label"
       class="component primary size-56 hug size-56 component primary component primary block iconOnly customButton border white darkening disableType-default"
       id="downshift-:rb:-input"
-      selectedmultiple=""
       style="background: rgb(255, 69, 195);"
       tabindex="0"
       type="button"
@@ -1527,7 +1519,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                 />
               </div>
               <div
-                class="track vertical"
+                class="track vertical verticalBar"
                 style="visibility: hidden;"
               >
                 <div
@@ -1567,7 +1559,6 @@ exports[`Snapshots tests should render black color content 1`] = `
           aria-labelledby="downshift-:r2:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
           id="downshift-:r2:-input"
-          selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
           type="button"
@@ -1620,7 +1611,6 @@ exports[`Snapshots tests should render black color content 1`] = `
         aria-labelledby="downshift-:r2:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
         id="downshift-:r2:-input"
-        selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
         type="button"
@@ -1733,7 +1723,6 @@ exports[`Snapshots tests should render black color content 2`] = `
           aria-labelledby="downshift-:r6:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
           id="downshift-:r6:-input"
-          selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
           type="button"
@@ -1786,7 +1775,6 @@ exports[`Snapshots tests should render black color content 2`] = `
         aria-labelledby="downshift-:r6:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
         id="downshift-:r6:-input"
-        selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
         type="button"
@@ -1897,11 +1885,8 @@ exports[`Snapshots tests should render black color content 3`] = `
         <button
           aria-controls="downshift-:ra:-menu"
           aria-labelledby="downshift-:ra:-label"
-          arrow="[object Object]"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
-          formcontrolcomponent="[object Object]"
           id="downshift-:ra:-input"
-          selectedmultiple=""
           style="background: rgb(255, 69, 195);"
           tabindex="0"
           type="button"
@@ -1952,11 +1937,8 @@ exports[`Snapshots tests should render black color content 3`] = `
       <button
         aria-controls="downshift-:ra:-menu"
         aria-labelledby="downshift-:ra:-label"
-        arrow="[object Object]"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border black darkening disableType-default"
-        formcontrolcomponent="[object Object]"
         id="downshift-:ra:-input"
-        selectedmultiple=""
         style="background: rgb(255, 69, 195);"
         tabindex="0"
         type="button"
@@ -2069,7 +2051,6 @@ exports[`Snapshots tests should render custom background color 1`] = `
           aria-labelledby="downshift-:r1:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
           id="downshift-:r1:-input"
-          selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
           type="button"
@@ -2122,7 +2103,6 @@ exports[`Snapshots tests should render custom background color 1`] = `
         aria-labelledby="downshift-:r1:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
         id="downshift-:r1:-input"
-        selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
         type="button"
@@ -2235,7 +2215,6 @@ exports[`Snapshots tests should render custom background color 2`] = `
           aria-labelledby="downshift-:r5:-label"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
           id="downshift-:r5:-input"
-          selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
           type="button"
@@ -2288,7 +2267,6 @@ exports[`Snapshots tests should render custom background color 2`] = `
         aria-labelledby="downshift-:r5:-label"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
         id="downshift-:r5:-input"
-        selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
         type="button"
@@ -2399,11 +2377,8 @@ exports[`Snapshots tests should render custom background color 3`] = `
         <button
           aria-controls="downshift-:r9:-menu"
           aria-labelledby="downshift-:r9:-label"
-          arrow="[object Object]"
           class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
-          formcontrolcomponent="[object Object]"
           id="downshift-:r9:-input"
-          selectedmultiple=""
           style="background: rgb(0, 255, 0);"
           tabindex="0"
           type="button"
@@ -2454,11 +2429,8 @@ exports[`Snapshots tests should render custom background color 3`] = `
       <button
         aria-controls="downshift-:r9:-menu"
         aria-labelledby="downshift-:r9:-label"
-        arrow="[object Object]"
         class="component primary size-56 hug size-56 component primary component primary block withRightAddons customButton border white darkening disableType-default"
-        formcontrolcomponent="[object Object]"
         id="downshift-:r9:-input"
-        selectedmultiple=""
         style="background: rgb(0, 255, 0);"
         tabindex="0"
         type="button"

@@ -67,7 +67,6 @@
     cursor: pointer;
     outline: none;
     white-space: nowrap;
-    font-family: var(--font-family);
     transition:
         border-color 0.2s ease,
         background-color 0.2s ease,

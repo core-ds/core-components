@@ -2,4 +2,8 @@
     /* checked */
     --switch-checked-bg-color: var(--color-light-accent-primary);
     --switch-checked-hover-bg-color: var(--color-light-accent-primary-hover);
+
+    /* inverted */
+    --switch-checked-bg-inverted-color: var(--color-light-accent-primary-inverted);
+    --switch-checked-hover-bg-inverted-color: var(--color-light-accent-primary-inverted-hover);
 }

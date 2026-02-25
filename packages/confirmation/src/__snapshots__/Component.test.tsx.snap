@@ -9,7 +9,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
@@ -91,7 +91,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
@@ -210,7 +210,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
@@ -298,7 +298,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_EXPIRED sta
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
@@ -386,7 +386,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Введите код из уведомления
       </h3>
@@ -505,7 +505,7 @@ exports[`Confirmation Snapshot tests should match snapshot with FATAL_ERROR scre
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Ввести код больше нельзя
       </h3>
@@ -538,7 +538,7 @@ exports[`Confirmation Snapshot tests should match snapshot with HINT screen 1`] 
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Не приходит код?
       </h3>
@@ -618,7 +618,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK scree
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Ввести код пока нельзя
       </h3>
@@ -666,7 +666,7 @@ exports[`Confirmation Snapshot tests should match snapshot with TEMP_BLOCK_OVER 
       class="component left"
     >
       <h3
-        class="component header typography styrene-medium medium primary"
+        class="component component header small primary"
       >
         Ввод разблокирован
       </h3>

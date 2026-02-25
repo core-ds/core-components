@@ -1,36 +1,54 @@
 name: setup ci
 
+description: Setup node and install dependencies
+
 inputs:
     node-version:
-        description: Version spec of node.js
+        description: Version Spec of node to use
         required: false
+    working-directory:
+        description: Working directory
+        required: false
+        default: ${{ github.workspace }}
 
 runs:
     using: composite
     steps:
-        - id: detect
+        - id: detect-node-version
           shell: bash
           run: |
-              NODE_VERSION_FILE=.node-version
+              NODE_VERSION_FILE='${{ inputs.working-directory }}/.node-version'
               NODE_VERSION='${{ inputs.node-version }}'
 
               if [ "$NODE_VERSION" = "" ]; then
-                  if [ -f $NODE_VERSION_FILE ]; then
-                      NODE_VERSION="$(cat $NODE_VERSION_FILE)"
+                  if [ -f "$NODE_VERSION_FILE" ]; then
+                      NODE_VERSION="$(cat "$NODE_VERSION_FILE")"
                   else
-                      NODE_VERSION=22
+                      NODE_VERSION=24
                   fi
               fi
 
-              echo "node-version=$NODE_VERSION" >> "$GITHUB_OUTPUT"
+              echo "result=$NODE_VERSION" >> "$GITHUB_OUTPUT"
 
         - name: setup nodejs
-          uses: actions/setup-node@v5
+          uses: actions/setup-node@v6
           with:
-              node-version: ${{ steps.detect.outputs.node-version }}
+              node-version: ${{ steps.detect-node-version.outputs.result }}
               cache: yarn
+
+        - id: detect-yarn-version
+          uses: actions/github-script@v8
+          with:
+              result-encoding: string
+              script: |
+                  const fs = require('node:fs/promises');
+
+                  const content = await fs.readFile('${{ inputs.working-directory }}/package.json');
+                  const { packageManager = 'yarn@1.22.22' } = JSON.parse(content);
+
+                  return packageManager.replace('yarn@', '');
 
         - name: install dependencies
           shell: bash
           run: |
-              yarn install --frozen-lockfile
+              yarn install ${{ case(startsWith(steps.detect-yarn-version.outputs.result, '1.'), '--frozen-lockfile', '--immutable') }}

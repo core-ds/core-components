@@ -1,6 +1,9 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import postcss, { Plugin } from 'postcss';
+import postcssImport from 'postcss-import';
+import postcssEach from 'postcss-each';
+import postcssFor from 'postcss-for';
 import { glob } from 'tinyglobby';
 
 interface Options {
@@ -34,6 +37,9 @@ async function getMixinNames(file: string) {
     const content = await fs.readFile(file, { encoding: 'utf8' });
 
     await postcss(
+        postcssImport(),
+        postcssFor(),
+        postcssEach(),
         postcssMixinNames({
             importTo: (names) => {
                 mixins = names;
@@ -47,16 +53,16 @@ async function getMixinNames(file: string) {
 describe('mixins', () => {
     test('all typographies must have the same mixins', async () => {
         const entryPoints = await glob('*typography.css', { absolute: true, cwd: __dirname });
-        const mixinsList = await Promise.all(entryPoints.map(getMixinNames));
+        const mixinsFiles = await Promise.all(entryPoints.map(getMixinNames));
 
-        expect(mixinsList).not.toHaveLength(0);
+        expect(mixinsFiles).not.toHaveLength(0);
 
-        mixinsList.forEach((mixins) => {
+        mixinsFiles.forEach((mixins) => {
             expect(mixins).toBeInstanceOf(Array);
             expect(mixins).not.toHaveLength(0);
         });
 
-        mixinsList.forEach((mixins, index, arr) => {
+        mixinsFiles.forEach((mixins, index, arr) => {
             if (index === arr.length - 1) {
                 return;
             }

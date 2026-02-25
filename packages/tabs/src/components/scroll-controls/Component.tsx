@@ -39,10 +39,10 @@ export const ScrollControls = forwardRef<HTMLDivElement, ScrollControlsProps>(
 
         const getSize = () => {
             if (view === 'primary') {
-                return sizeProp === 'xl' ? 'xs' : 'xxs';
+                return sizeProp === 'xl' ? 32 : 24;
             }
 
-            return sizeProp && ['s', 'm', 'l', 'xl'].includes(sizeProp) ? 's' : 'xs';
+            return sizeProp && ['s', 'm', 'l', 'xl'].includes(sizeProp) ? 48 : 32;
         };
 
         const handleScrollLeft = () => scrollIntoFirstTab(container);

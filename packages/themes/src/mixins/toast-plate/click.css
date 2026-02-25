@@ -1,6 +1,5 @@
 @define-mixin toast-plate-click {
     /* theme */
-    --toast-plate-title-font-weight: 400;
     --toast-plate-action-align: flex-start;
     --toast-plate-action-padding: var(--gap-0) var(--gap-0) var(--gap-0) var(--gap-24);
     --toast-plate-action-divider-display: none;

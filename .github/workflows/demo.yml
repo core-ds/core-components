@@ -7,10 +7,22 @@ on:
                 description: Version of @alfalab/core-components package, tag or SHA
                 required: false
                 type: string
+            variant:
+                description: Variant of core components
+                required: false
+                type: choice
+                default: default
+                options:
+                    - default
+                    - alfasans
 
 concurrency:
-    group: ${{ github.workflow }}-${{ inputs.version || github.ref }}
+    group: ${{ github.workflow }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
     cancel-in-progress: true
+
+defaults:
+    run:
+        shell: bash
 
 jobs:
     params:
@@ -19,17 +31,29 @@ jobs:
         with:
             version: ${{ inputs.version }}
 
+    variant-directory:
+        needs: params
+        uses: core-ds/core-components/.github/workflows/resolve-variant-demo-directory.yml@master
+        secrets: inherit
+        with:
+            variant: ${{ inputs.variant }}
+            directory: ${{ needs.params.outputs.directory }}
+
     build-demo:
         needs: params
         uses: core-ds/core-components/.github/workflows/build-demo.yml@master
         secrets: inherit
         with:
             ref: ${{ needs.params.outputs.ref }}
+            variant: ${{ inputs.variant }}
+            artifact-name: ${{ inputs.variant }}
 
     deploy:
-        needs: [build-demo, params]
+        needs: [build-demo, variant-directory]
         uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: ${{ needs.params.outputs.dir }}
+            directory: ${{ needs.variant-directory.outputs.directory }}
+            variant: ${{ inputs.variant }}
+            artifact-name: ${{ inputs.variant }}

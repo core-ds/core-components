@@ -6,6 +6,11 @@
 render(() => {
     const [suffix, setSuffix] = React.useState('currency');
     const [minor, setMinor] = React.useState(true);
+    const [value, setValue] = React.useState(1234567);
+
+    const handleChange = (_, payload) => {
+        setValue(payload.value);
+    };
 
     const suffixInput = {
         currency: 'RUR',
@@ -22,7 +27,8 @@ render(() => {
     return (
         <div style={{ width: isMobile() ? '100%' : 320 }}>
             <AmountInput
-                value={1234567}
+                value={value}
+                onChange={handleChange}
                 placeholder='Введите сумму'
                 labelView={isMobile() ? 'outer' : 'inner'}
                 label='Сумма'
@@ -44,9 +50,9 @@ render(() => {
                 onChange={onChangeSuffix}
                 value={suffix}
             >
-                <Radio size='m' label='Валюта' value='currency' />
-                <Radio size='m' label='Процент' value='percent' />
-                <Radio size='m' label='Нет' value='noSuffix' />
+                <Radio size={24} label='Валюта' value='currency' />
+                <Radio size={24} label='Процент' value='percent' />
+                <Radio size={24} label='Нет' value='noSuffix' />
             </RadioGroup>
         </div>
     );

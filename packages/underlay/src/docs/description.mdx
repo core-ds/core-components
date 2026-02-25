@@ -13,7 +13,7 @@ render(() => {
         <Container>
             <Underlay
                 onClick={handleClick}
-                borderRadius='m'
+                borderRadius={8}
                 borderSize='1'
                 shadow='shadow-s'
                 backgroundColor='secondary'
@@ -21,19 +21,19 @@ render(() => {
                 overflow={false}
                 dimensions={{ height: 160, width: 320 }}
                 padding={{
-                    top: 'm',
-                    right: 'm',
-                    bottom: 'm',
-                    left: 'm',
+                    top: 16,
+                    right: 16,
+                    bottom: 16,
+                    left: 16,
                 }}
                 contentProps={{
                     borderSize: '1',
                     borderColor: 'secondary',
                     borderRadius: {
-                        bottomRight: 'm',
-                        bottomLeft: 'm',
-                        topRight: 'm',
-                        topLeft: 'm',
+                        bottomRight: 16,
+                        bottomLeft: 16,
+                        topRight: 16,
+                        topLeft: 16,
                     },
                     backgroundColor: 'primary',
                     shadow: 'shadow-s',
@@ -82,7 +82,7 @@ render(() => {
             <div style={{ height: 24 }}></div>
             <Underlay
                 onClick={handleClick}
-                borderRadius='m'
+                borderRadius={8}
                 borderSize='1'
                 shadow='shadow-s'
                 backgroundColor='secondary'
@@ -90,10 +90,10 @@ render(() => {
                 overflow={false}
                 dimensions={{ height: 'auto', width: 320 }}
                 padding={{
-                    top: 'm',
-                    right: 'm',
-                    bottom: 'm',
-                    left: 'm',
+                    top: 16,
+                    right: 16,
+                    bottom: 16,
+                    left: 16,
                 }}
                 contentProps={{
                     backgroundColor: 'secondary',
