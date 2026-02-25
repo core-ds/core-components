@@ -98,7 +98,8 @@ export const Badge = ({
     const isCountView = view === 'count';
 
     const isHidden = isCountView && typeof content === 'number' && content <= 0;
-    const componentContent = isCountView && content && content >= 100 ? '99+' : content;
+    const componentContent =
+        isCountView && typeof content === 'number' && content >= 100 ? '99+' : content;
     const heightSize = getSize(height);
 
     return (

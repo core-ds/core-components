@@ -29,7 +29,7 @@ export const getHeightStyle = (
         );
     }
 
-    if (height > viewportHeight || height === 'fullHeight') {
+    if (height === 'fullHeight' || height > viewportHeight) {
         const marginTop = (margin && hasOwnProperty(margin, 'top') && margin.top) || 0;
         const marginBottom = (margin && hasOwnProperty(margin, 'bottom') && margin.bottom) || 0;
 

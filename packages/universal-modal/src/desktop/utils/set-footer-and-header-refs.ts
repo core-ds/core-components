@@ -2,9 +2,9 @@ import {
     Children,
     cloneElement,
     isValidElement,
-    type MutableRefObject,
     type ReactElement,
     type ReactNode,
+    type RefAttributes,
     type RefObject,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
@@ -33,15 +33,23 @@ export const setFooterAndHeaderRefs = (params: Params) => {
         const { displayName } = child.type as typeof HeaderDesktop | typeof FooterDesktop;
 
         if (displayName && isHeaderNode(displayName)) {
-            const existingRef = child as ReactElement & { ref: MutableRefObject<HTMLDivElement> };
+            const existingRef = child as ReactElement & RefAttributes<HTMLDivElement>;
 
-            return cloneElement(child, { ref: mergeRefs([existingRef.ref, headerElementRef]) });
+            return cloneElement(child, {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                ref: mergeRefs([existingRef.ref ?? null, headerElementRef]),
+            });
         }
 
         if (displayName && isFooterNode(displayName)) {
-            const existingRef = child as ReactElement & { ref: MutableRefObject<HTMLDivElement> };
+            const existingRef = child as ReactElement & RefAttributes<HTMLDivElement>;
 
-            return cloneElement(child, { ref: mergeRefs([existingRef.ref, footerElementRef]) });
+            return cloneElement(child, {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                ref: mergeRefs([existingRef.ref, footerElementRef]),
+            });
         }
 
         return child;
