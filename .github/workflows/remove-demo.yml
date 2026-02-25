@@ -6,7 +6,7 @@ on:
     workflow_dispatch:
         inputs:
             directory:
-                description: Demo directory or list of directories separated by comma
+                description: Directory or list of directories separated by comma
                 required: true
                 type: string
             include-variant:
@@ -16,7 +16,7 @@ on:
                 default: false
 
 concurrency:
-    group: ${{ github.workflow }}
+    group: ${{ github.workflow }}-${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}
     cancel-in-progress: false
 
 defaults:
@@ -40,7 +40,15 @@ jobs:
               uses: actions/github-script@v8
               with:
                   script: |
-                      const directories = '${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}'.split(/\s*,\s*/).map(directory => ({ directory }));
+                      const directories =
+                          '${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}'
+                              .split(/\s*,\s*/)
+                              .filter(Boolean)
+                              .map(directory => ({ directory }));
+
+                      if (directories.length === 0) {
+                          core.warning("Empty directories list");
+                      }
 
                       if ('${{ needs.variant.result }}' === 'skipped') {
                           return directories;
