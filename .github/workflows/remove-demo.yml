@@ -40,7 +40,7 @@ jobs:
               uses: actions/github-script@v8
               with:
                   script: |
-                      const directories = '${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}'.split(',').map(directory => ({ directory }));
+                      const directories = '${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}'.split(/\s*,\s*/).map(directory => ({ directory }));
 
                       if ('${{ needs.variant.result }}' === 'skipped') {
                           return directories;
