@@ -1,8 +1,18 @@
 @import '../vars.css';
 
+.accent {
+    & .hint {
+        color: var(--button-accent-hint-color);
+    }
+}
+
 .primary {
     color: var(--button-primary-color);
     background-color: var(--button-primary-base-bg-color);
+
+    & .hint {
+        color: var(--button-primary-hint-color);
+    }
 
     @media (hover: hover) {
         &:hover {

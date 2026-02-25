@@ -22,10 +22,6 @@
 
 .primary {
     border: 1px solid transparent;
-
-    & .hint {
-        color: var(--button-primary-hint-color);
-    }
 }
 
 .secondary {
