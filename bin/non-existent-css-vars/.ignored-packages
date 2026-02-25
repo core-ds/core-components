@@ -4,5 +4,4 @@
 @alfalab/core-components-screenshot-utils
 @alfalab/core-components-test-utils
 @alfalab/core-components-themes
-@alfalab/core-components-tsconfig-node24-backport
 @alfalab/core-components-vars

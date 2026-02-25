@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "@alfalab/core-components-tsconfig-node24-backport",
+    "extends": "@tsconfig/node24",
     "compilerOptions": {
         "allowJs": true,
         "checkJs": true,
