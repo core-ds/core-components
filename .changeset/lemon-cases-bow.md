@@ -5,7 +5,7 @@
 
 ##### Button
 
-- Добавлены `css` переменные для кастомизации подписи под лейблом (хинта):
+- Добавлены `css` переменные для темизации подписи под лейблом (хинта):
     - `--button-accent-hint-color`
     - `--button-inverted-accent-hint-color`
     - `--button-mobile-primary-hint-color`
