@@ -1,7 +1,7 @@
 @import '../vars.css';
 
 .accent {
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-accent-hint-color);
     }
 }
@@ -10,7 +10,7 @@
     color: var(--button-primary-color);
     background-color: var(--button-primary-base-bg-color);
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-primary-hint-color);
     }
 

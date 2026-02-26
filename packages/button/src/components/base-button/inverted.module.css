@@ -32,7 +32,7 @@
         color: var(--button-spinner-inverted-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-inverted-secondary-hint-color);
     }
 }
@@ -57,7 +57,7 @@
         color: var(--button-spinner-inverted-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-inverted-outlined-hint-color);
     }
 }
@@ -81,7 +81,7 @@
         color: var(--button-spinner-inverted-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-inverted-transparent-base-hint-color);
     }
 }
@@ -100,7 +100,7 @@
         color: var(--button-spinner-inverted-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-inverted-text-base-hint-color);
     }
 }
