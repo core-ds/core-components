@@ -543,5 +543,5 @@ npx @alfalab/core-components-codemod --transformers=50-progress-bar,50-button,50
 ### Запуск тестов
 
 ```bash
-yarn workspace @alfalab/core-components-codemod test
+yarn test:codemod
 ```
