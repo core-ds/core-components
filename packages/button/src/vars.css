@@ -224,4 +224,12 @@
     /* loader mobile */
     --button-spinner-primary-mobile-color: var(--color-light-neutral-translucent-1300-inverted);
     --button-spinner-inverted-primary-mobile-color: var(--color-light-neutral-translucent-1300);
+
+    /* hint */
+    --button-accent-hint-color: currentColor;
+    --button-inverted-accent-hint-color: currentColor;
+    --button-mobile-primary-hint-color: var(--button-primary-hint-color);
+    --button-mobile-inverted-primary-hint-color: var(--button-inverted-primary-hint-color);
+    --button-mobile-accent-hint-color: var(--button-accent-hint-color);
+    --button-mobile-inverted-accent-hint-color: var(--button-inverted-accent-hint-color);
 }
