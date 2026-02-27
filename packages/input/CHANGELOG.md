@@ -1,5 +1,29 @@
 # @alfalab/core-components-input
 
+## 17.1.2
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2084](https://github.com/core-ds/core-components/pull/2084)
+
+##### Input
+
+- Исправлен цвет `placeholder` в `readOnly` состоянии
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2053](https://github.com/core-ds/core-components/pull/2053)
+
+##### Input, AmountInput, InputAutocomplete, NumberInput, Select, FormControl, SelectWithTags
+
+- Небольшие улучшения кодовой базы компонентов
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@13.1.0
+    - @alfalab/core-components-form-control@14.0.3
+
 ## 17.1.1
 
 ### Patch Changes

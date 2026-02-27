@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-button",
-    "version": "13.0.2",
+    "version": "13.1.0",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -30,6 +30,6 @@
         "site"
     ],
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
-    "themesVersion": "15.0.1",
+    "themesVersion": "15.0.2",
     "varsVersion": "11.0.1"
 }

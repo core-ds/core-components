@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pattern-lock",
-    "version": "4.0.2",
+    "version": "4.0.3",
     "description": "Pattern lock",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-button": "^13.0.2",
+        "@alfalab/core-components-button": "^13.1.0",
         "@alfalab/core-components-mq": "^6.0.2",
         "@alfalab/core-components-shared": "^2.1.0",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.1",
+    "themesVersion": "15.0.2",
     "varsVersion": "11.0.1"
 }

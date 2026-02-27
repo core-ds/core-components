@@ -1,5 +1,24 @@
 # @alfalab/core-components-calendar
 
+## 9.1.0
+
+### Minor Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2041](https://github.com/core-ds/core-components/pull/2041)
+
+##### Calendar
+
+- В пикере месяцев (selectorView="full") месяцы автоматически дизейблятся, если все дни месяца в offDays.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@13.1.0
+    - @alfalab/core-components-icon-button@8.0.3
+    - @alfalab/core-components-modal@11.0.4
+
 ## 9.0.3
 
 ### Patch Changes

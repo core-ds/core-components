@@ -1,5 +1,43 @@
 # @alfalab/core-components-select
 
+## 19.1.0
+
+### Minor Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2071](https://github.com/core-ds/core-components/pull/2071)
+
+##### Select
+
+- Добавлен проп `checkmarkPosition` для управления позицией чекмарка относительно контента ('before' | 'after')
+- Компонент `BaseCheckmark` теперь поддерживает проп `content` для передачи контента опции
+- Оптимизирована логика рендеринга чекбоксов и иконок в компонентах `OptionBase` и `BaseOption`
+
+##### SelectWithTags
+
+- Добавлена поддержка динамического позиционирования чекмарков в зависимости от `view` (desktop/mobile)
+- Для desktop по умолчанию используется `checkmarkPosition='before'`, для mobile - `checkmarkPosition='after'`
+- Возможность переопределить позицию через проп `optionProps.checkmarkPosition`
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2053](https://github.com/core-ds/core-components/pull/2053)
+
+##### Input, AmountInput, InputAutocomplete, NumberInput, Select, FormControl, SelectWithTags
+
+- Небольшие улучшения кодовой базы компонентов
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@13.1.0
+    - @alfalab/core-components-checkbox@6.1.0
+    - @alfalab/core-components-input@17.1.2
+    - @alfalab/core-components-form-control@14.0.3
+    - @alfalab/core-components-bottom-sheet@8.1.1
+    - @alfalab/core-components-modal@11.0.4
+
 ## 19.0.6
 
 ### Patch Changes

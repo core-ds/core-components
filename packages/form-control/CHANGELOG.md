@@ -1,5 +1,17 @@
 # @alfalab/core-components-form-control
 
+## 14.0.3
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2053](https://github.com/core-ds/core-components/pull/2053)
+
+##### Input, AmountInput, InputAutocomplete, NumberInput, Select, FormControl, SelectWithTags
+
+- Небольшие улучшения кодовой базы компонентов
+
 ## 14.0.2
 
 ### Patch Changes

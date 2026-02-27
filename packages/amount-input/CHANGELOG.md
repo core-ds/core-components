@@ -1,5 +1,30 @@
 # @alfalab/core-components-amount-input
 
+## 9.1.2
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2084](https://github.com/core-ds/core-components/pull/2084)
+
+##### AmountInput
+
+- Исправлена специфичность стилей
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2053](https://github.com/core-ds/core-components/pull/2053)
+
+##### Input, AmountInput, InputAutocomplete, NumberInput, Select, FormControl, SelectWithTags
+
+- Небольшие улучшения кодовой базы компонентов
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@17.1.2
+    - @alfalab/core-components-number-input@4.0.4
+    - @alfalab/core-components-with-suffix@6.0.4
+
 ## 9.1.1
 
 ### Patch Changes

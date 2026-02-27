@@ -1,5 +1,17 @@
 # @alfalab/core-components-codemod
 
+## 2.9.2
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2088](https://github.com/core-ds/core-components/pull/2088)
+
+##### Codemod
+
+- Исправлен маппинг размеров для `50-icon-button`
+
 ## 2.9.1
 
 ### Patch Changes

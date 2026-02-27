@@ -1,5 +1,159 @@
 # @alfalab/core-components
 
+## 50.5.0
+
+### Minor Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2071](https://github.com/core-ds/core-components/pull/2071)
+
+##### Checkbox
+
+- Добавлен prop `position` для управления положением чекбокса относительно контента ('before' | 'after'), теперь компонент сам контролирует порядок DOM-узлов (label/checkbox).
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2086](https://github.com/core-ds/core-components/pull/2086)
+
+##### Button
+
+- Добавлены `css` переменные для темизации подписи под лейблом (хинта):
+    - `--button-accent-hint-color`
+    - `--button-inverted-accent-hint-color`
+    - `--button-mobile-primary-hint-color`
+    - `--button-mobile-inverted-primary-hint-color`
+    - `--button-mobile-accent-hint-color`
+    - `--button-mobile-inverted-accent-hint-color`
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2071](https://github.com/core-ds/core-components/pull/2071)
+
+##### Select
+
+- Добавлен проп `checkmarkPosition` для управления позицией чекмарка относительно контента ('before' | 'after')
+- Компонент `BaseCheckmark` теперь поддерживает проп `content` для передачи контента опции
+- Оптимизирована логика рендеринга чекбоксов и иконок в компонентах `OptionBase` и `BaseOption`
+
+##### SelectWithTags
+
+- Добавлена поддержка динамического позиционирования чекмарков в зависимости от `view` (desktop/mobile)
+- Для desktop по умолчанию используется `checkmarkPosition='before'`, для mobile - `checkmarkPosition='after'`
+- Возможность переопределить позицию через проп `optionProps.checkmarkPosition`
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2041](https://github.com/core-ds/core-components/pull/2041)
+
+##### Calendar
+
+- В пикере месяцев (selectorView="full") месяцы автоматически дизейблятся, если все дни месяца в offDays.
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2086](https://github.com/core-ds/core-components/pull/2086)
+
+##### Themes
+
+- Исправлена кастомизация подписи под лейблом (хинта) `Button` в темах `corp` и `site`
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2086](https://github.com/core-ds/core-components/pull/2086)
+
+##### Button
+
+- Исправлено отображение подписи под лейблом (хинта) в заблокированном состоянии
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2084](https://github.com/core-ds/core-components/pull/2084)
+
+##### Input
+
+- Исправлен цвет `placeholder` в `readOnly` состоянии
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2084](https://github.com/core-ds/core-components/pull/2084)
+
+##### AmountInput
+
+- Исправлена специфичность стилей
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2053](https://github.com/core-ds/core-components/pull/2053)
+
+##### Input, AmountInput, InputAutocomplete, NumberInput, Select, FormControl, SelectWithTags
+
+- Небольшие улучшения кодовой базы компонентов
+
+- Обновлены зависимости
+    - @alfalab/core-components-themes@15.0.2
+    - @alfalab/core-components-button@13.1.0
+    - @alfalab/core-components-checkbox@6.1.0
+    - @alfalab/core-components-input@17.1.2
+    - @alfalab/core-components-select-with-tags@10.1.0
+    - @alfalab/core-components-select@19.1.0
+    - @alfalab/core-components-custom-picker-button@4.1.0
+    - @alfalab/core-components-amount-input@9.1.2
+    - @alfalab/core-components-input-autocomplete@14.0.7
+    - @alfalab/core-components-number-input@4.0.4
+    - @alfalab/core-components-form-control@14.0.3
+    - @alfalab/core-components-calendar@9.1.0
+    - @alfalab/core-components-attach@8.0.3
+    - @alfalab/core-components-calendar-with-skeleton@7.0.4
+    - @alfalab/core-components-confirmation@15.0.3
+    - @alfalab/core-components-confirmation-v1@3.0.3
+    - @alfalab/core-components-custom-button@5.0.3
+    - @alfalab/core-components-gallery@7.0.6
+    - @alfalab/core-components-icon-button@8.0.3
+    - @alfalab/core-components-navigation-bar@3.0.3
+    - @alfalab/core-components-navigation-bar-private@2.0.4
+    - @alfalab/core-components-pass-code@4.0.3
+    - @alfalab/core-components-pass-code-v1@3.0.3
+    - @alfalab/core-components-pattern-lock@4.0.3
+    - @alfalab/core-components-pattern-lock-v1@3.0.3
+    - @alfalab/core-components-picker-button@13.0.7
+    - @alfalab/core-components-plate@9.0.3
+    - @alfalab/core-components-product-cover@3.1.2
+    - @alfalab/core-components-pure-cell@6.0.3
+    - @alfalab/core-components-table@4.0.7
+    - @alfalab/core-components-tooltip@9.0.6
+    - @alfalab/core-components-date-input@6.0.4
+    - @alfalab/core-components-date-range-input@5.0.5
+    - @alfalab/core-components-date-time-input@6.0.5
+    - @alfalab/core-components-international-phone-input@4.0.7
+    - @alfalab/core-components-masked-input@8.0.4
+    - @alfalab/core-components-password-input@7.0.4
+    - @alfalab/core-components-slider-input@11.0.4
+    - @alfalab/core-components-time-input@4.0.4
+    - @alfalab/core-components-universal-date-input@4.0.5
+    - @alfalab/core-components-with-suffix@6.0.4
+    - @alfalab/core-components-intl-phone-input@11.0.7
+    - @alfalab/core-components-textarea@10.0.3
+    - @alfalab/core-components-calendar-input@12.0.5
+    - @alfalab/core-components-calendar-range@9.0.5
+    - @alfalab/core-components-file-upload-item@8.0.3
+    - @alfalab/core-components-file-upload-item-v1@3.0.3
+    - @alfalab/core-components-tabs@10.0.7
+    - @alfalab/core-components-toast-plate@9.0.3
+    - @alfalab/core-components-bottom-sheet@8.1.1
+    - @alfalab/core-components-modal@11.0.4
+    - @alfalab/core-components-popup-sheet@3.0.4
+    - @alfalab/core-components-side-panel@7.0.4
+    - @alfalab/core-components-universal-modal@3.0.5
+    - @alfalab/core-components-alert@6.0.3
+    - @alfalab/core-components-bank-card@7.0.4
+    - @alfalab/core-components-phone-input@9.0.4
+    - @alfalab/core-components-notification@9.0.3
+    - @alfalab/core-components-toast@8.0.3
+    - @alfalab/core-components-notification-manager@7.0.3
+
 ## 50.4.1
 
 ### Patch Changes
