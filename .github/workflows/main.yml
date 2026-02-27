@@ -121,9 +121,22 @@ jobs:
               run: |
                   yarn test --coverage
 
-            - name: coveralls
-              if: ${{ matrix.variant == 'default' }}
-              uses: coverallsapp/github-action@v2
+            - if: ${{ matrix.variant == 'default' }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: coverage
+                  path: '${{ github.workspace }}/coverage'
+
+    upload-coverage:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/download-artifact@v5
+              with:
+                  name: coverage
+                  path: '${{ github.workspace }}/coverage'
+
+            - uses: coverallsapp/github-action@v2
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
