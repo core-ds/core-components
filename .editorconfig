@@ -5,16 +5,6 @@ charset = utf-8
 trim_trailing_whitespace = true
 max_line_length = 100
 
-# JavaScript
-[*.{jsx,js,ts,tsx}]
-indent_style = space
-indent_size = 4
-
-# CSS
-[*.css]
-indent_style = space
-indent_size = 4
-
-[package.json]
-indent_style = space
-indent_size = 2
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false

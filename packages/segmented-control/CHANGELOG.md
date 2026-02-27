@@ -1,5 +1,17 @@
 # @alfalab/core-components-segmented-control
 
+## 3.1.0
+
+### Minor Changes
+
+<sup><time>09.02.2026</time></sup>
+
+#### [#2028](https://github.com/core-ds/core-components/pull/2028)
+
+##### SegmentedControl
+
+- Добавлен view `skeleton` для компонента `SegmentedControl`.
+
 ## 3.0.1
 
 ### Patch Changes

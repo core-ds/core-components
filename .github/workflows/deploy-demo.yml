@@ -7,7 +7,7 @@ on:
                 description: Artifact workflow run id
                 required: true
                 type: string
-            dir:
+            directory:
                 description: Deploy directory
                 required: true
                 type: string
@@ -41,20 +41,20 @@ jobs:
 
             - name: clean up
               run: |
-                  rm -rf '${{ inputs.dir }}'
+                  rm -rf '${{ inputs.directory }}'
 
             - name: download build
               uses: actions/download-artifact@v5
               with:
                   name: ${{ inputs.artifact-name }}
-                  path: ${{ inputs.dir }}
+                  path: ${{ inputs.directory }}
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   run-id: ${{ inputs.run-id }}
 
             - name: copy legacy archive-versions.json
-              if: ${{ startsWith(inputs.dir, 'master') }}
+              if: ${{ startsWith(inputs.directory, 'master') }}
               run: |
-                  cp archive-versions.json '${{ inputs.dir }}'
+                  cp archive-versions.json '${{ inputs.directory }}'
 
             - name: deploy
               uses: core-ds/core-components/.github/actions/commit-and-push@master
@@ -69,7 +69,7 @@ jobs:
                   script: |
                       const { owner, repo } = context.repo;
 
-                      return `https://${owner}.github.io/${repo}/${{ inputs.dir }}`;
+                      return `https://${owner}.github.io/${repo}/${{ inputs.directory }}`;
 
     pull-request:
         name: find pull request

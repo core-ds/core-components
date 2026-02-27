@@ -1,5 +1,58 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.0
+
+### Minor Changes
+
+<sup><time>20.02.2026</time></sup>
+
+#### [#2073](https://github.com/core-ds/core-components/pull/2073)
+
+##### BottomSheet
+
+- Добавлен нижний отступ в `16px`, когда не задан футер (проп `actionButton` не указан или задан как `actionButton={undefined}`)
+- Чтобы убрать появившийся отступ необходимо задать `actionButton={null}`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+    - @alfalab/core-components-base-modal@7.1.1
+    - @alfalab/core-components-navigation-bar-private@2.0.3
+
+## 8.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.0
+    - @alfalab/core-components-navigation-bar-private@2.0.2
+
+## 8.0.3
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2058](https://github.com/core-ds/core-components/pull/2058)
+
+##### BottomSheet
+
+- Исправлен визуальный скачок шторки при динамической смене `magneticAreasProp` (например, skeleton → content).
+- При изменении пропа временно отключается CSS transition для мгновенного перехода на новую позицию.
+
+## 8.0.2
+
+### Patch Changes
+
+<sup><time>09.02.2026</time></sup>
+
+#### [#2050](https://github.com/core-ds/core-components/pull/2050)
+
+##### BottomSheet
+
+- Учитываем `bottomAddons` как контент хедера и прокидываем в `NavigationBarPrivate`.
+
 ## 8.0.1
 
 ### Patch Changes

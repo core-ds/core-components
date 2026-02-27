@@ -21,9 +21,11 @@ async function main() {
             'package-sizes.json',
             '.storybook/public/images/*-preview-snap.png',
         ]),
-        $('lerna', [
+        $('yarn', [
+            'workspaces',
+            'foreach',
+            '-Ap',
             'exec',
-            '--',
             'rimraf',
             '*.tsbuildinfo',
             'dist',
@@ -33,10 +35,12 @@ async function main() {
             '**/__diff_output__',
             'package-size.json',
         ]),
-        $('lerna', [
+        $('yarn', [
+            'workspaces',
+            'foreach',
+            '-Ap',
+            ...TS_GENERATE_PACKAGES.flatMap((pkg) => ['--include', pkg]),
             'exec',
-            ...TS_GENERATE_PACKAGES.flatMap((pkg) => ['--scope', pkg]),
-            '--',
             'node',
             path.join(dirname, 'clean-ts-generate-package.mjs'),
         ]),

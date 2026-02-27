@@ -1,0 +1,5 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+
+.adapter {
+    margin: var(--gap-2-neg);
+}

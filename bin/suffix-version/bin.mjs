@@ -18,11 +18,12 @@ async function main() {
 
     const IGNORED_PACKAGES = await readPackagesFile(path.join(dirname, '.ignored-packages'));
 
-    await $('lerna', [
+    await $('yarn', [
+        'workspaces',
+        'foreach',
+        '-Ap',
+        ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
         'exec',
-        '--stream',
-        ...IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
-        '--',
         'node',
         path.join(dirname, 'suffix-version.mjs'),
         CORE_COMPONENTS_VARIANT,

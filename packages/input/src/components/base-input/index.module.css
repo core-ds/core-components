@@ -25,6 +25,13 @@
         }
     }
 
+    &.medium {
+        &,
+        &::placeholder {
+            @mixin action_component_primary;
+        }
+    }
+
     &::placeholder {
         transition:
             opacity 0.2s ease,
@@ -43,6 +50,13 @@
             &,
             &::placeholder {
                 @mixin accent_component_secondary;
+            }
+        }
+
+        &.medium {
+            &,
+            &::placeholder {
+                @mixin action_component_secondary;
             }
         }
     }
@@ -139,7 +153,7 @@
     opacity: 1;
 }
 
-.focusVisible {
+.focusVisible.focusVisible {
     @mixin focus-outline;
 }
 

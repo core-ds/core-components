@@ -13,12 +13,12 @@ async function main() {
     const IGNORED_PACKAGES = await readPackagesFile(path.join(dirname, '.ignored-packages'));
 
     const result = await $(
-        'lerna',
+        'yarn',
         [
-            'exec',
-            '--no-bail',
-            '--stream',
-            ...IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
+            'workspaces',
+            'foreach',
+            '-Ap',
+            ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
             '--',
             'node',
             path.join(cwd(), 'bin/non-existent-css-vars.mjs'),

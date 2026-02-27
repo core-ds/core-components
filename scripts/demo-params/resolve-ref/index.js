@@ -1,0 +1,26 @@
+// @ts-check
+
+import semver from 'semver';
+
+/**
+ * @param {Pick<import('@actions/github-script').AsyncFunctionArguments, 'core'>} args
+ * @returns {Promise<string>}
+ */
+async function resolveRef({ core }) {
+    const versionInput = process.env.CORE_COMPONENTS_DEMO_VERSION;
+    const versionAsSemver = semver.valid(versionInput);
+
+    if (versionAsSemver) {
+        core.info('Resolving as @alfalab/core-components version');
+
+        return semver.satisfies(versionAsSemver, '>=49', { includePrerelease: true })
+            ? `@alfalab/core-components@${versionAsSemver}`
+            : `v${versionAsSemver}`;
+    }
+
+    core.info('Using version input as ref');
+
+    return versionInput;
+}
+
+export default resolveRef;
