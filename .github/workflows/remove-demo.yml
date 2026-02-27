@@ -5,46 +5,64 @@ on:
         types: [closed]
     workflow_dispatch:
         inputs:
-            version:
-                description: Version of @alfalab/core-components package, tag or SHA
-                required: false
+            directory:
+                description: Directory or list of directories separated by comma
+                required: true
                 type: string
-            variant:
-                description: Variant of core components
+            include-variant:
+                description: Include variant into demo directory name
                 required: false
-                type: choice
-                options:
-                    - default
-                    - alfasans
+                type: boolean
+                default: false
 
 concurrency:
-    group: ${{ github.workflow }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
-    cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}
+    cancel-in-progress: false
 
 defaults:
     run:
         shell: bash
 
 jobs:
-    params:
-        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
-        secrets: inherit
-        with:
-            directory: ${{ github.event.pull_request.number }}
-
     variant:
+        if: ${{ inputs.include-variant || github.event_name == 'pull_request' }}
         uses: core-ds/core-components/.github/workflows/variant.yml@master
         secrets: inherit
 
+    resolve-directory:
+        needs: variant
+        if: ${{ always() && (needs.variant.result == 'success' || needs.variant.result == 'skipped') }}
+        runs-on: ubuntu-latest
+        outputs:
+            result: ${{ steps.resolve.outputs.result }}
+        steps:
+            - id: resolve
+              uses: actions/github-script@v8
+              with:
+                  script: |
+                      const directories =
+                          '${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}'
+                              .split(/\s*,\s*/)
+                              .filter(Boolean)
+                              .map(directory => ({ directory }));
+
+                      if (directories.length === 0) {
+                          core.warning("Empty directories list");
+                      }
+
+                      if ('${{ needs.variant.result }}' === 'skipped') {
+                          return directories;
+                      }
+
+                      const variants = JSON.parse('${{ needs.variant.outputs.result }}');
+
+                      return directories.flatMap(({ directory }) => [{ directory }, ...variants.map(({ variant }) => ({ directory: `${directory}-${variant}` }))]);
+
     remove-demo:
         name: remove demo
-        needs: [params, variant]
-        strategy:
-            max-parallel: 1
-            matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+        needs: [resolve-directory]
         runs-on: ubuntu-latest
-        if: ${{ github.repository == 'core-ds/core-components' }}
+        if: ${{ github.repository == 'core-ds/core-components' && always() && needs.resolve-directory.result == 'success' }}
         steps:
             - uses: actions/checkout@v5
               with:
@@ -52,26 +70,21 @@ jobs:
                   lfs: true
                   token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: remove demo
-              run: |
-                  rm -rf '${{ needs.params.outputs.directory }}-${{ matrix.variant }}'
-
-                  if [ '${{ matrix.variant }}' = "default" ]; then
-                      rm -rf '${{ needs.params.outputs.directory }}'
-                  fi
-
-            - name: check git status
-              id: git-status
+            - id: remove
               uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |
+                      const directories = JSON.parse('${{ needs.resolve-directory.outputs.result }}');
+
+                      await Promise.all(directories.map(({ directory }) => exec.exec('rm', ['-rf', directory])));
+
                       const { stdout } = await exec.getExecOutput('git', ['status', '--porcelain']);
 
                       return stdout.split('\n').some((line) => /^\s+D\s+.*$/.test(line));
 
             - name: deploy
-              if: ${{ steps.git-status.outputs.result == 'true' }}
+              if: ${{ steps.remove.outputs.result == 'true' }}
               uses: core-ds/core-components/.github/actions/commit-and-push@master
               with:
                   message: 'Deploy to GitHub Pages'
