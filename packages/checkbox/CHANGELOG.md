@@ -1,5 +1,18 @@
 # @alfalab/core-components-checkbox
 
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2082](https://github.com/core-ds/core-components/pull/2082)
+
+##### Checkbox
+
+- Добавлен prop `position` для управления положением чекбокса относительно контента ('before' | 'after'), теперь компонент сам контролирует порядок DOM-узлов (label/checkbox).
+- Логика позиционирования и видимости чекбокса полностью инкапсулирована внутри компонента
+
 ## 5.0.2
 
 ### Patch Changes
