@@ -27,6 +27,8 @@ import Changelog from '../../CHANGELOG.md?raw';
         const block = boolean('block', false);
         const addons = text('addons');
         const align = select('align', ['start', 'center']);
+        const position = select('position', ['before', 'after'], 'before');
+
         return (
             <div
                 style={{
@@ -49,6 +51,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                     block={block}
                     addons={addons}
                     align={align}
+                    position={position}
                     onChange={handleChange}
                     checked={checked || checkedKnob}
                     label={label}
