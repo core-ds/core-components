@@ -1,5 +1,24 @@
 # @alfalab/core-components-base-modal
 
+## 7.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2067](https://github.com/core-ds/core-components/pull/2067)
+
+##### BaseModal
+
+- Расширено публичное api для методов `setHeaderHighlighted` и `setFooterHighlighted`
+
 ## 7.0.1
 
 ### Patch Changes

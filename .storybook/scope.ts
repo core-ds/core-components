@@ -6,9 +6,9 @@ import * as grid from './blocks/grid';
 const coreComponentsContext =
     process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
         ? require.context(
-              '../dist',
+              '../packages',
               true,
-              /^\.\/(.*)\/modern\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).js$/,
+              /^\.\/((?!(env|screenshot-utils|test-utils)).)*\/dist\/modern\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).js$/,
           )
         : require.context(
               '../packages',

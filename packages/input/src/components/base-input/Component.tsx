@@ -78,6 +78,7 @@ export const BaseInput = forwardRef<
             disableUserInput,
             platformStyles = {},
             bold,
+            fontWeight = bold ? 'bold' : 'normal',
             ...restProps
         },
         ref,
@@ -287,7 +288,8 @@ export const BaseInput = forwardRef<
                             [styles[`size-${size}`]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
-                            [styles.bold]: bold,
+                            [styles.bold]: fontWeight === 'bold',
+                            [styles.medium]: fontWeight === 'medium',
                         },
                         inputClassName,
                     )}

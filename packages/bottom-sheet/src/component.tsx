@@ -747,8 +747,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             >
                                 {children}
                             </div>
-
-                            {actionButton && (
+                            {actionButton === null ? null : (
                                 <Footer
                                     sticky={stickyFooter}
                                     className={cn(bgClassName, footerClassName)}

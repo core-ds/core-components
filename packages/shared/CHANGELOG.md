@@ -1,5 +1,17 @@
 # @alfalab/core-components-shared
 
+## 2.1.0
+
+### Minor Changes
+
+<sup><time>20.02.2026</time></sup>
+
+#### [#2074](https://github.com/core-ds/core-components/pull/2074)
+
+##### Shared
+
+- Добавлен компонент `Icon20Adapter` для использования иконок 20 размера в слотах для иконок 16 размера
+
 ## 2.0.1
 
 ### Patch Changes

@@ -115,15 +115,28 @@ jobs:
 
             - name: build themes
               run: |
-                  yarn build --scope @alfalab/core-components-themes
+                  yarn build --include @alfalab/core-components-themes
 
             - name: run test
               run: |
                   yarn test --coverage
 
-            - name: coveralls
-              if: ${{ matrix.variant == 'default' }}
-              uses: coverallsapp/github-action@v2
+            - if: ${{ matrix.variant == 'default' }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: coverage
+                  path: '${{ github.workspace }}/coverage'
+
+    upload-coverage:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/download-artifact@v5
+              with:
+                  name: coverage
+                  path: '${{ github.workspace }}/coverage'
+
+            - uses: coverallsapp/github-action@v2
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -131,7 +144,7 @@ jobs:
         uses: ./.github/workflows/resolve-demo-params.yml
         secrets: inherit
         with:
-            dir: ${{ github.event.pull_request.number }}
+            directory: ${{ github.event.pull_request.number }}
 
     build-demo:
         needs: [variant]
@@ -155,7 +168,7 @@ jobs:
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: '${{ needs.demo-params.outputs.dir }}-${{ matrix.variant }}'
+            directory: '${{ needs.demo-params.outputs.directory }}-${{ matrix.variant }}'
             variant: ${{ matrix.variant }}
             artifact-name: ${{ matrix.variant }}
 

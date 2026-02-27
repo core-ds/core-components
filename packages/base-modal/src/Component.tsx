@@ -241,6 +241,8 @@ export type BaseModalContext = {
     setHasHeader: (exists: boolean) => void;
     setHasFooter: (exists: boolean) => void;
     onClose: Required<BaseModalProps>['onClose'];
+    setHeaderHighlighted: (value: boolean) => void;
+    setFooterHighlighted: (value: boolean) => void;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
@@ -258,6 +260,8 @@ export const BaseModalContext = React.createContext<BaseModalContext>({
     setHasHeader: () => null,
     setHasFooter: () => null,
     onClose: () => null,
+    setHeaderHighlighted: () => {},
+    setFooterHighlighted: () => {},
 });
 
 export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
@@ -565,6 +569,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 setHasHeader,
                 setHasFooter,
                 onClose: handleClose,
+                setHeaderHighlighted,
+                setFooterHighlighted,
             }),
             [
                 contentRef,

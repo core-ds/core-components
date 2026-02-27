@@ -1,15 +1,7 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@alfalab/core-components-tsconfig-node24-backport",
     "compilerOptions": {
-        "lib": ["es2022"],
-        "module": "nodenext",
-        "target": "es2022",
-
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "moduleResolution": "node16",
-
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "noEmit": true,

@@ -16,6 +16,10 @@
         @mixin accent_component_primary;
     }
 
+    &.medium {
+        @mixin action_component_primary;
+    }
+
     &.size-40 {
         @mixin paragraph_component_secondary;
         padding: var(--gap-0) var(--gap-8);
@@ -25,6 +29,10 @@
 
         &.bold {
             @mixin accent_component_secondary;
+        }
+
+        &.medium {
+            @mixin action_component_secondary;
         }
     }
 }

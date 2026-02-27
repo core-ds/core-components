@@ -1,54 +1,80 @@
-import { toPlatformPath } from '@actions/core';
 import { getExecOutput } from '@actions/exec';
 import dedent from 'dedent';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { argv, cwd } from 'node:process';
+import * as process from 'node:process';
+import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
+import { getPackages } from '../tools/monorepo.cjs';
+
 /**
- * @param {string} pkg
+ * @param {Array<import('@manypkg/get-packages').Package>} packages
+ * @param {Array<string>} include
+ * @returns {Array<string>}
  */
-function bin(pkg) {
-    return path.join(cwd(), toPlatformPath(`node_modules/.bin/${pkg}`));
+function includeDependents(packages, include) {
+    /**
+     * @type {number}
+     */
+    let size;
+    const set = new Set(include);
+
+    do {
+        ({ size } = set);
+
+        packages.forEach(({ packageJson: { name, dependencies, peerDependencies } }) => {
+            if (
+                !set.has(name) &&
+                Object.keys({ ...dependencies, ...peerDependencies }).some((dependency) =>
+                    set.has(dependency),
+                )
+            ) {
+                set.add(name);
+            }
+        });
+    } while (set.size !== size);
+
+    return Array.from(set);
 }
 
-async function main(args) {
-    const changeset = await getExecOutput(bin('changeset'), ['--empty'], { silent: true });
+async function main() {
+    const { packages } = getPackages();
+    const argv = await yargs(hideBin(process.argv))
+        .option('include', {
+            type: 'array',
+            description: 'Included packages to generate changeset for',
+            choices: packages.map(({ packageJson: { name } }) => name),
+            demandOption: true,
+        })
+        .strict()
+        .parse();
+    const changeset = await getExecOutput('yarn', ['changeset', '--empty'], { silent: true });
     // matches '🦋  info file' string
-    const [, file] = changeset.stdout.match(/^\ud83e\udd8b\s+info\s+(.*)$/m);
-    const lerna = await getExecOutput(
-        bin('lerna'),
-        [
-            'ls',
-            ...args,
-            /**
-             * Include all transitive dependencies when running a command regardless of --scope, --ignore, or --since
-             *
-             * @see https://lerna.js.org/docs/api-reference/commands#--include-dependencies
-             */
-            '--include-dependents',
-        ],
-        {
-            silent: true,
-        },
-    );
-    const content = dedent`---
-                           ${lerna.stdout
-                               .trim()
-                               .split(/\s+/)
-                               .sort((a, b) => a.localeCompare(b))
-                               .map((name) => `'${name}': major`)
-                               .join('\n')}
-                           ---
+    const match = changeset.stdout.match(/^\ud83e\udd8b\s+info\s+(.*)$/m);
 
-                           TODO: Changeset description
-                           `.concat('\n');
+    if (match) {
+        const [, file] = match;
+        const names = includeDependents(packages, argv.include);
 
-    await fs.writeFile(file, content, { encoding: 'utf8' });
+        const content = dedent`
+        ---
+        ${names
+            .sort((a, b) => a.localeCompare(b))
+            .map((name) => `'${name}': major`)
+            .join('\n')}
+        ---
 
-    console.log('Changeset added!');
-    console.log(`info ${file}`);
+        TODO: Changeset description
+        `.concat('\n');
+
+        await fs.writeFile(file, content, { encoding: 'utf8' });
+
+        console.log(`Changeset added: ${path.relative(process.cwd(), file)}`);
+    } else {
+        console.error('Changeset is not found');
+        process.exit(1);
+    }
 }
 
-await main(hideBin(argv));
+await main();

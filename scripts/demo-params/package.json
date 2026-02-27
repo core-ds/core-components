@@ -1,0 +1,48 @@
+{
+    "name": "@alfalab/core-components-demo-params",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "exports": {
+        "./package.json": "./package.json",
+        "./resolve-directory": {
+            "types": {
+                "module": "./resolve-directory/index.d.js",
+                "import": "./resolve-directory/index.d.mts",
+                "require": "./resolve-directory/index.d.cts"
+            },
+            "module": "./resolve-directory/index.js",
+            "import": "./resolve-directory/index.mjs",
+            "require": "./resolve-directory/index.cjs"
+        },
+        "./resolve-ref": {
+            "types": {
+                "module": "./resolve-ref/index.d.js",
+                "import": "./resolve-ref/index.d.mts",
+                "require": "./resolve-ref/index.d.cts"
+            },
+            "module": "./resolve-ref/index.js",
+            "import": "./resolve-ref/index.mjs",
+            "require": "./resolve-ref/index.cjs"
+        },
+        "./resolve-variant-directory": {
+            "types": {
+                "module": "./resolve-variant-directory/index.d.js",
+                "import": "./resolve-variant-directory/index.d.mts",
+                "require": "./resolve-variant-directory/index.d.cts"
+            },
+            "module": "./resolve-variant-directory/index.js",
+            "import": "./resolve-variant-directory/index.mjs",
+            "require": "./resolve-variant-directory/index.cjs"
+        }
+    },
+    "scripts": {
+        "build-types": "tsc -p tsconfig.base.json --declaration --emitDeclarationOnly"
+    },
+    "dependencies": {
+        "semver": "^7.7.2"
+    },
+    "devDependencies": {
+        "@actions/github-script": "github:actions/github-script"
+    }
+}

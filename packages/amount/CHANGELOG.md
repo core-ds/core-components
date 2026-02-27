@@ -1,5 +1,18 @@
 # @alfalab/core-components-amount
 
+## 5.1.0
+
+### Minor Changes
+
+<sup><time>20.02.2026</time></sup>
+
+#### [#2076](https://github.com/core-ds/core-components/pull/2076)
+
+##### Amount
+
+- Добавлен проп `fontWeight` для управления жирностью шрифта
+- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`
+
 ## 5.0.1
 
 ### Patch Changes

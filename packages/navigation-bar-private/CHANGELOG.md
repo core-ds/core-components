@@ -1,5 +1,27 @@
 # @alfalab/core-components-navigation-bar-private
 
+## 2.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+    - @alfalab/core-components-button@13.0.2
+    - @alfalab/core-components-typography@6.0.2
+    - @alfalab/core-components-icon-button@8.0.2
+
+## 2.0.2
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2065](https://github.com/core-ds/core-components/pull/2065)
+
+##### Closer
+
+- Исправлена специфичность компонента
+
 ## 2.0.1
 
 ### Patch Changes
