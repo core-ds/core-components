@@ -26,6 +26,9 @@ exports[`SliderInput should match snapshot 1`] = `
             />
           </div>
         </div>
+        <div
+          class="addons rightAddons rightAddons size-48"
+        />
       </div>
       <div
         class="component slider size-48 size-2 noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"

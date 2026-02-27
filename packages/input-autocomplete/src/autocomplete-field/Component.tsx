@@ -1,10 +1,9 @@
-import React, { useCallback, useRef } from 'react';
+import React, { Fragment, useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { type InputProps } from '@alfalab/core-components-input';
 import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
-import { getAddonsByPriority } from '@alfalab/core-components-input/helpers/get-addons-by-priority';
 import { type FieldProps } from '@alfalab/core-components-select/shared';
 
 import { OnInputReason } from '../enums';
@@ -61,16 +60,10 @@ export const AutocompleteField = ({
      * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
      * [0] - Lock
      */
-    const rightAddonsMap = getAddonsByPriority([
-        {
-            priority: 2,
-            predicate: Boolean(inputProps.rightAddons),
-            render: () => inputProps.rightAddons,
-        },
-        {
-            priority: 1,
-            predicate: Boolean(Arrow) && !inputDisabled,
-            render: () => (
+    const renderRightAddons = () => (
+        <Fragment>
+            {inputProps.rightAddons}
+            {Arrow && !inputDisabled && (
                 <span
                     className={cn(styles.arrow, {
                         [styles.error]: error,
@@ -78,9 +71,9 @@ export const AutocompleteField = ({
                 >
                     {Arrow}
                 </span>
-            ),
-        },
-    ]);
+            )}
+        </Fragment>
+    );
 
     return (
         <Input
@@ -107,7 +100,7 @@ export const AutocompleteField = ({
             onFocus={inputDisabled ? undefined : onFocus}
             autoComplete='off'
             value={value}
-            rightAddons={rightAddonsMap}
+            rightAddons={renderRightAddons()}
         />
     );
 };

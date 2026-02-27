@@ -1,5 +1,10 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
+@define-mixin indent-correction $var-name {
+    margin-left: calc(-1 * var($var-name));
+    padding-left: var($var-name);
+}
+
 .component.size-72 {
     & .contentWrapper {
         padding: 18px var(--gap-2s);
@@ -11,6 +16,10 @@
 
     & .input {
         margin-left: var(--gap-2);
+    }
+
+    & .rightAddons:not(:empty) {
+        @mixin indent-correction --gap-2s;
     }
 }
 
@@ -26,6 +35,10 @@
     & .input {
         margin-left: var(--gap-2);
     }
+
+    & .rightAddons:not(:empty) {
+        @mixin indent-correction --gap-10;
+    }
 }
 
 .component.size-56 {
@@ -40,6 +53,10 @@
     & .input {
         margin-left: var(--gap-2);
     }
+
+    & .rightAddons:not(:empty) {
+        @mixin indent-correction --gap-10;
+    }
 }
 
 .component.size-48 {
@@ -53,6 +70,10 @@
 
     & .input {
         margin-left: var(--gap-6);
+    }
+
+    & .rightAddons:not(:empty) {
+        @mixin indent-correction --gap-6;
     }
 }
 

@@ -13,7 +13,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
       class="component size-72"
     >
       <div
-        class="component component size-72 size-72 block hasRightAddons"
+        class="component component size-72 size-72 block"
       >
         <div
           class="field inner inner inner inner"
@@ -41,7 +41,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="addons rightAddons rightAddons size-72 addons addons-size-72"
+            class="addons rightAddons rightAddons size-72 addons addons-size-72 rightAddons"
           >
             <svg
               class="arrow size-72"
@@ -77,7 +77,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
       class="component size-72"
     >
       <div
-        class="component component size-72 size-72 block hasRightAddons"
+        class="component component size-72 size-72 block"
       >
         <div
           class="field inner inner inner inner filled"
@@ -196,7 +196,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
             </div>
           </div>
           <div
-            class="addons rightAddons rightAddons size-72 addons addons-size-72"
+            class="addons rightAddons rightAddons size-72 addons addons-size-72 rightAddons"
           >
             <svg
               class="arrow size-72"

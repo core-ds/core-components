@@ -238,3 +238,47 @@ describe(
         },
     }),
 );
+
+describe('SelectWithTags', () => {
+    [48, 56, 64, 72].forEach((size) => {
+        test(`right addons desktop size=${size}`, async () => {
+            const pageUrl = createStorybookUrl({
+                componentName: 'SelectWithTags',
+                subComponentName: 'SelectWithTagsDesktop',
+                testStory: false,
+                knobs: {
+                    block: false,
+                    size,
+                },
+            });
+
+            const { browser, context, page } = await openBrowserPage(pageUrl);
+
+            const match = () =>
+                matchHtml({
+                    page,
+                    expect,
+                    viewport: { width: 500, height: 100 },
+                    screenshotOpts: {
+                        fullPage: false,
+                        omitBackground: false,
+                    },
+                });
+
+            try {
+                await page.click('[role="combobox"]');
+
+                await page.waitForTimeout(500);
+
+                await page.click('[role="option"]:nth-child(1)', { delay: 100 });
+                await page.click('body', { delay: 100 });
+                await match();
+            } catch (error) {
+                // eslint-disable-next-line no-console
+                console.error((error as Error).message);
+            } finally {
+                await closeBrowser({ browser, context, page });
+            }
+        });
+    });
+});
