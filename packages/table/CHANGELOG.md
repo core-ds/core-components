@@ -1,5 +1,12 @@
 # @alfalab/core-components-table
 
+## 3.0.15
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@18.3.0
+
 ## 3.0.14
 
 ### Patch Changes

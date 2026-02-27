@@ -1,5 +1,32 @@
 # @alfalab/core-components
 
+## 49.16.0
+
+### Minor Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2082](https://github.com/core-ds/core-components/pull/2082)
+
+##### Checkbox
+
+- Добавлен prop `position` для управления положением чекбокса относительно контента ('before' | 'after'), теперь компонент сам контролирует порядок DOM-узлов (label/checkbox).
+- Логика позиционирования и видимости чекбокса полностью инкапсулирована внутри компонента
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-checkbox@5.1.0
+    - @alfalab/core-components-select-with-tags@9.1.0
+    - @alfalab/core-components-select@18.3.0
+    - @alfalab/core-components-custom-picker-button@3.2.0
+    - @alfalab/core-components-input-autocomplete@13.1.4
+    - @alfalab/core-components-international-phone-input@3.2.12
+    - @alfalab/core-components-intl-phone-input@10.0.15
+    - @alfalab/core-components-picker-button@12.1.4
+    - @alfalab/core-components-table@3.0.15
+    - @alfalab/core-components-tabs@9.2.12
+
 ## 49.15.2
 
 ### Patch Changes
