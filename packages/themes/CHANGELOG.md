@@ -1,5 +1,17 @@
 # @alfalab/core-components-themes
 
+## 15.0.2
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2086](https://github.com/core-ds/core-components/pull/2086)
+
+##### Themes
+
+- Исправлена кастомизация подписи под лейблом (хинта) `Button` в темах `corp` и `site`
+
 ## 15.0.1
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @alfalab/core-components-input-autocomplete
 
+## 14.0.7
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2053](https://github.com/core-ds/core-components/pull/2053)
+
+##### Input, AmountInput, InputAutocomplete, NumberInput, Select, FormControl, SelectWithTags
+
+- Небольшие улучшения кодовой базы компонентов
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@17.1.2
+    - @alfalab/core-components-select@19.1.0
+    - @alfalab/core-components-form-control@14.0.3
+
 ## 14.0.6
 
 ### Patch Changes

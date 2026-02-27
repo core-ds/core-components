@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-form-control",
-    "version": "14.0.2",
+    "version": "14.0.3",
     "description": "FormControl component",
     "keywords": [],
     "license": "MIT",
@@ -23,6 +23,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.1",
+    "themesVersion": "15.0.2",
     "varsVersion": "11.0.1"
 }
