@@ -858,6 +858,11 @@ export type CheckmarkProps = {
     position?: 'before' | 'after';
 
     /**
+     * Дополнительный контент
+     */
+    content?: ReactNode;
+
+    /**
      * Иконка выбранного пункта
      */
     icon?: FC<SVGProps<SVGSVGElement>>;
@@ -892,6 +897,12 @@ export type AdditionalMobileProps = {
      * Использовать ли хук useSelectWithApply в мобильном компоненте
      */
     useWithApplyHook?: boolean;
+
+    /**
+     * Позиция чекбокса "Выбрать все" в Header
+     * @default 'before'
+     */
+    checkmarkPosition?: 'before' | 'after';
 };
 
 export type BottomSheetSelectMobileProps = {

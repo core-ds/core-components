@@ -416,25 +416,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             role="option"
                           >
                             <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
-                            <div
                               class="content"
                             >
                               <div
@@ -447,25 +428,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -474,25 +436,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-1"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -506,25 +449,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -533,25 +457,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-2"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -565,25 +470,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -592,25 +478,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-3"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -624,25 +491,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -651,25 +499,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-4"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -683,25 +512,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -710,25 +520,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-5"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -742,25 +533,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -769,25 +541,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-6"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -801,25 +554,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -828,25 +562,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-7"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -860,25 +575,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -887,25 +583,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-8"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -919,25 +596,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -946,25 +604,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-9"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -978,25 +617,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1005,25 +625,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-10"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1037,25 +638,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1064,25 +646,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-11"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1096,25 +659,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1123,25 +667,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-12"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1155,25 +680,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1182,25 +688,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-13"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1214,25 +701,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1241,25 +709,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                             id="downshift-:r3:-item-14"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1272,25 +721,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                                   Bohrium
                                 </div>
                               </div>
-                            </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
                             </div>
                           </div>
                         </div>
@@ -1474,25 +904,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             role="option"
                           >
                             <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
-                            <div
                               class="content"
                             >
                               <div
@@ -1505,25 +916,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1532,25 +924,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-1"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1564,25 +937,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1591,25 +945,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-2"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1623,25 +958,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1650,25 +966,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-3"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1682,25 +979,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1709,25 +987,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-4"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1741,25 +1000,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1768,25 +1008,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-5"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1800,25 +1021,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1827,25 +1029,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-6"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1859,25 +1042,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1886,25 +1050,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-7"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1918,25 +1063,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -1945,25 +1071,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-8"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -1977,25 +1084,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -2004,25 +1092,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-9"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -2036,25 +1105,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -2063,25 +1113,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-10"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -2095,25 +1126,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -2122,25 +1134,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-11"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -2154,25 +1147,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -2181,25 +1155,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-12"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -2213,25 +1168,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -2240,25 +1176,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-13"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -2272,25 +1189,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                 </div>
                               </div>
                             </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                           </div>
                           <div
                             aria-disabled="false"
@@ -2299,25 +1197,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                             id="downshift-:r5:-item-14"
                             role="option"
                           >
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </div>
                             <div
                               class="content"
                             >
@@ -2330,25 +1209,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                                   Bohrium
                                 </div>
                               </div>
-                            </div>
-                            <div
-                              class="checkmark"
-                            >
-                              <svg
-                                class="displayIcon"
-                                fill="currentColor"
-                                focusable="false"
-                                height="24"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="24"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
                             </div>
                           </div>
                         </div>
