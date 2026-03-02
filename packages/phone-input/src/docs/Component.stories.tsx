@@ -32,6 +32,7 @@ export const phone_input: Story = {
                 rightAddons={boolean('rightAddons', false) && <IconComponent />}
                 bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                 labelView={select('labelView', ['inner', 'outer'], 'inner')}
+                disabled={boolean('disabled', false)}
             />
         );
     },
