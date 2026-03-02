@@ -1,9 +1,9 @@
 {
     "$schema": "https://www.schemastore.org/tsconfig",
     "compilerOptions": {
-        "lib": ["es2022"],
+        "lib": ["es2023"],
         "module": "nodenext",
-        "target": "es2022",
+        "target": "es2023",
 
         "strict": true,
         "esModuleInterop": true,
