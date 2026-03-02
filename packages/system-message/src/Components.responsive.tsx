@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type FC } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
@@ -11,7 +11,7 @@ import { SystemMessage } from './Component';
 import { type SystemMessageResponsiveProps } from './types';
 import { createCompound } from './utils';
 
-const SystemMessageResponsiveComponent: React.FC<SystemMessageResponsiveProps> = ({
+const SystemMessageResponsiveComponent: FC<SystemMessageResponsiveProps> = ({
     breakpoint,
     client,
     defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
