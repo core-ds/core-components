@@ -238,6 +238,10 @@ export const TagList: FC<
                 filled={filled || !!placeholder}
                 onMouseDown={handleMouseDown}
                 rightAddons={renderRightAddons()}
+                rightAddonsProps={{
+                    ...restProps.rightAddonsProps,
+                    className: cn(restProps.rightAddonsProps?.className, styles.rightAddons),
+                }}
                 onClick={handleClick}
                 addonsClassName={cn(styles.addons, styles[`addons-${SIZE_TO_CLASSNAME_MAP[size]}`])}
                 label={label}

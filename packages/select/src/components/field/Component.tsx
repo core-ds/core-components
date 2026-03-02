@@ -1,8 +1,8 @@
-import React, { type ElementType, useCallback, useRef, useState } from 'react';
+import React, { type ElementType, Fragment, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { type FormControlProps } from '@alfalab/core-components-form-control';
-import { getAddonsByPriority, LockIcon } from '@alfalab/core-components-input/shared';
+import { LockIcon } from '@alfalab/core-components-input/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
@@ -70,35 +70,21 @@ export const Field = ({
      * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
      * [0] - Lock
      */
-    const rightAddonsMap = getAddonsByPriority([
-        {
-            priority: 4,
-            predicate: clear && filled && !disabled,
-            render: () => (
+    const renderRightAddons = () => (
+        <Fragment>
+            {clear && filled && !disabled && (
                 <ClearButton
                     onClick={onClear}
                     disabled={disabled}
                     dataTestId={getDataTestId(dataTestId, 'clear-icon')}
                     size={size}
                 />
-            ),
-        },
-        {
-            priority: 2,
-            predicate: Boolean(rightAddons),
-            render: () => rightAddons,
-        },
-        {
-            priority: 1,
-            predicate: Boolean(Arrow) && !disabled,
-            render: () => Arrow && React.cloneElement(Arrow, { className: styles.arrow }),
-        },
-        {
-            priority: 0,
-            predicate: disabled,
-            render: () => <LockIcon colors={colors} size={size} />,
-        },
-    ]);
+            )}
+            {rightAddons}
+            {!disabled && Arrow && React.cloneElement(Arrow, { className: styles.arrow })}
+            {disabled && <LockIcon colors={colors} size={size} />}
+        </Fragment>
+    );
 
     return (
         <div
@@ -123,7 +109,7 @@ export const Field = ({
                     labelView={labelView}
                     error={error}
                     hint={hint}
-                    rightAddons={rightAddonsMap}
+                    rightAddons={renderRightAddons()}
                     data-test-id={dataTestId}
                     {...restProps}
                     {...innerProps}

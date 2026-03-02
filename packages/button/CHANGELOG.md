@@ -1,5 +1,42 @@
 # @alfalab/core-components-button
 
+## 13.1.0
+
+### Minor Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2086](https://github.com/core-ds/core-components/pull/2086)
+
+##### Button
+
+- Добавлены `css` переменные для темизации подписи под лейблом (хинта):
+    - `--button-accent-hint-color`
+    - `--button-inverted-accent-hint-color`
+    - `--button-mobile-primary-hint-color`
+    - `--button-mobile-inverted-primary-hint-color`
+    - `--button-mobile-accent-hint-color`
+    - `--button-mobile-inverted-accent-hint-color`
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2086](https://github.com/core-ds/core-components/pull/2086)
+
+##### Button
+
+- Исправлено отображение подписи под лейблом (хинта) в заблокированном состоянии
+
+## 13.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+    - @alfalab/core-components-mq@6.0.2
+    - @alfalab/core-components-spinner@6.0.2
+
 ## 13.0.1
 
 ### Patch Changes

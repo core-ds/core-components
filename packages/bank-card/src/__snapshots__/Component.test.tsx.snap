@@ -31,7 +31,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
           </svg>
         </div>
         <div
-          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
+          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block"
         >
           <div
             class="field field inner inner inner inner filled hasInnerLabel"
@@ -148,7 +148,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
           </svg>
         </div>
         <div
-          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
+          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block"
         >
           <div
             class="field field inner inner inner inner filled hasInnerLabel"
@@ -263,7 +263,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
           </svg>
         </div>
         <div
-          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
+          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block"
         >
           <div
             class="field field inner inner inner inner filled hasInnerLabel"
@@ -378,7 +378,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
           </svg>
         </div>
         <div
-          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
+          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block"
         >
           <div
             class="field field inner inner inner inner filled hasInnerLabel"
@@ -477,7 +477,7 @@ exports[`BankCard Snapshots tests should match snapshots 5`] = `
           </svg>
         </div>
         <div
-          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
+          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block"
         >
           <div
             class="field field inner inner inner inner filled hasInnerLabel"
@@ -592,7 +592,7 @@ exports[`BankCard Snapshots tests should match snapshots 6`] = `
           </svg>
         </div>
         <div
-          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block hasRightAddons"
+          class="component component formControl filled formControlDesktop size-56 size-56 size-56 block"
         >
           <div
             class="field field inner inner inner inner filled hasInnerLabel"

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tab-bar",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -11,8 +11,8 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-indicator": "^4.0.1",
-        "@alfalab/core-components-shared": "^2.0.1",
-        "@alfalab/core-components-typography": "^6.0.1",
+        "@alfalab/core-components-shared": "^2.1.0",
+        "@alfalab/core-components-typography": "^6.0.2",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -24,6 +24,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.1",
+    "themesVersion": "15.0.2",
     "varsVersion": "11.0.1"
 }

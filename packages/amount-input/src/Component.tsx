@@ -12,7 +12,6 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Input } from '@alfalab/core-components-input';
-import { getAddonsByPriority } from '@alfalab/core-components-input/helpers/get-addons-by-priority';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
 import { getMinMaxOrDefault } from '@alfalab/core-components-number-input/utils';
 import { isNonNullable } from '@alfalab/core-components-shared';
@@ -308,16 +307,18 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             }
         };
 
-        const rightAddonsMap = getAddonsByPriority([
-            {
-                priority: 2,
-                predicate: Boolean(rightAddons),
-                render: () => rightAddons,
-            },
-            {
-                priority: 1,
-                predicate: withStepper && !disabled && !readOnly,
-                render: () => (
+        /**
+         * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+         * [4] - Clear
+         * [3] - Status (error, success)
+         * [2] - Common (info, e.g.)
+         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+         * [0] - Lock
+         */
+        const renderRightAddons = () => (
+            <Fragment>
+                {rightAddons}
+                {withStepper && !disabled && !readOnly && (
                     <Steppers
                         colors={colors}
                         dataTestId={dataTestId}
@@ -330,9 +331,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         onDecrement={handleDecrement}
                         size={restProps.size}
                     />
-                ),
-            },
-        ]);
+                )}
+            </Fragment>
+        );
 
         return (
             <div
@@ -343,7 +344,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             >
                 <SuffixInput
                     {...restProps}
-                    rightAddons={rightAddonsMap}
+                    rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
                             <span className={styles.suffixMajor}>

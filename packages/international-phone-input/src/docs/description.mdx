@@ -1,7 +1,6 @@
 ## Примеры
 
-Стандартный вид компонента — поле с пикером страны и предопределённым кодом страны.
-Для упрощения ввода номера можно включить режим автокомплита.
+Стандартный вид компонента — поле с пикером страны и предопределённым кодом страны. При автозаполнении поля на iOS-устройствах номер вставляется без кода страны. Вставляемый номер можно обогатить заранее введённым кодом страны.
 
 ```jsx live mobileHeight={640}
 const OPTIONS = [
@@ -15,56 +14,60 @@ const OPTIONS = [
 render(() => {
     const [value, setValue] = React.useState('');
     const [selectedCountry, setSelectedCountry] = React.useState();
-    const [clearableCountryCode, setClearableCountryCode] = React.useState(false);
+    const [clearableCountryCode, setClearableCountryCode] = React.useState(true);
     const [autocomplete, setAutocomplete] = React.useState(false);
 
     const handleChange = (phone) => setValue(phone);
 
     return (
-        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
-            <InternationalPhoneInput
-                breakpoint={BREAKPOINT}
-                label='Номер телефона'
-                placeholder='Введите номер телефона'
-                value={value}
-                onChange={handleChange}
-                onCountryChange={setSelectedCountry}
-                options={autocomplete ? OPTIONS : undefined}
-                block={true}
-                clearableCountryCode={clearableCountryCode}
-            />
+        <React.Fragment>
+            <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>
+                <InternationalPhoneInput
+                    breakpoint={BREAKPOINT}
+                    label='Номер телефона'
+                    placeholder='Введите номер телефона'
+                    value={value}
+                    onChange={handleChange}
+                    onCountryChange={setSelectedCountry}
+                    options={autocomplete ? OPTIONS : undefined}
+                    block={true}
+                    clearableCountryCode={clearableCountryCode}
+                />
+            </div>
             <Gap size={16} />
-            <Typography.Text color='secondary'>
-                Код выбранной страны: {selectedCountry && selectedCountry.iso2}
-            </Typography.Text>
-            <Gap size={24} />
-            <RadioGroup
-                label='Разрешить удаление кода страны'
-                direction='vertical'
-                name='radioGroup'
-                onChange={(_, { value }) => setClearableCountryCode(value === 'preserve' ? value : value === 'true')}
-                value={`${clearableCountryCode}`}
-            >
-                <Radio size={24} label='Нет' value='false' />
-                <Radio size={24} label='Да' value='true' />
-                <Radio size={24} label='Сохранить' value='preserve' />
-            </RadioGroup>
-            <Gap size={16} />
-            <Switch
-                checked={autocomplete}
-                label='Режим автокомплита'
-                onChange={() => {
-                    setAutocomplete((prevState) => !prevState);
-                }}
-            />
-        </div>
+            <div>
+                <Typography.Text color='secondary'>
+                    Код выбранной страны: {selectedCountry && selectedCountry.iso2}
+                </Typography.Text>
+                <Gap size={24} />
+                <RadioGroup
+                    label='Код страны'
+                    direction='vertical'
+                    name='radioGroup'
+                    onChange={(_, { value }) =>
+                        setClearableCountryCode(value === 'preserve' ? value : value === 'true')
+                    }
+                    value={`${clearableCountryCode}`}
+                >
+                    <Radio size={24} label='Разрешить удаление' value='true' />
+                    <Radio size={24} label='Запретить удаление' value='false' />
+                    <Radio size={24} label='Обогощать номер при автозаполнении' value='preserve' />
+                </RadioGroup>
+                <Gap size={16} />
+                <Switch
+                    checked={autocomplete}
+                    label='Режим автокомплита'
+                    onChange={() => {
+                        setAutocomplete((prevState) => !prevState);
+                    }}
+                />
+            </div>
+        </React.Fragment>
     );
 });
 ```
 
-## Инпут без пикера страны
-
-При необходимости можно отключить возможность явно выбирать код страны через селект. Инпут сам определит страну после ввода её кода.
+Если отключить возможность явно выбирать код страны через пикер, инпут сам определит страну после ввода её кода.
 
 ```jsx live mobileHeight={640}
 render(() => {

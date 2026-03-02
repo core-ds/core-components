@@ -22,10 +22,6 @@
 
 .primary {
     border: 1px solid transparent;
-
-    & .hint {
-        color: var(--button-primary-hint-color);
-    }
 }
 
 .secondary {
@@ -36,7 +32,7 @@
         color: var(--button-spinner-default-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-secondary-hint-color);
     }
 }
@@ -61,7 +57,7 @@
         color: var(--button-spinner-default-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-outlined-hint-color);
     }
 }
@@ -85,7 +81,7 @@
         color: var(--button-spinner-default-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-transparent-base-hint-color);
     }
 }
@@ -104,7 +100,7 @@
         color: var(--button-spinner-default-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-text-base-hint-color);
     }
 }

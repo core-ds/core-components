@@ -5,6 +5,7 @@ import {
     generateTestCases,
     createSpriteStorybookUrl,
     createPreview,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -435,4 +436,74 @@ describe('Input | screenshots border radius', () => {
         })();
 
     ['default', 'site'].forEach((theme) => testCase(theme));
+});
+
+describe('Input | screenshots rightAddons prop', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Input',
+                    subComponentName: 'InputDesktop',
+                    knobs: {
+                        value: 'value value value value value value value value value ',
+                        size: [40, 48, 56, 64, 72],
+                        rightAddons: [false, true],
+                    },
+                }),
+            ],
+            viewport: { width: 350, height: 100 },
+            screenshotOpts: {
+                fullPage: false,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Input | screenshots leftAddons prop', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Input',
+                    subComponentName: 'InputDesktop',
+                    knobs: {
+                        value: 'value value value value value value value value value',
+                        size: [40, 48, 56, 64, 72],
+                        leftAddons: [false, true],
+                    },
+                }),
+                // with label
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Input',
+                    subComponentName: 'InputDesktop',
+                    knobs: {
+                        value: 'value value value value value value value value value',
+                        size: [40, 48, 56, 64, 72],
+                        label: 'Label',
+                        leftAddons: [true],
+                    },
+                }),
+            ],
+            viewport: { width: 350, height: 100 },
+            screenshotOpts: {
+                fullPage: false,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
 });

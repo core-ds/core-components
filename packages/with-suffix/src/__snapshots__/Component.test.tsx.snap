@@ -36,6 +36,9 @@ exports[`withSuffix Snapshots tests should match snapshot 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="addons rightAddons rightAddons size-48"
+      />
     </div>
   </div>
 </div>

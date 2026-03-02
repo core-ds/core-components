@@ -2,6 +2,8 @@ import React, { type FC, type ReactElement, useCallback, useEffect, useRef } fro
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
+import { Skeleton, type SkeletonProps } from '@alfalab/core-components-skeleton';
+
 import { type SegmentProps } from './components';
 import { type ContextType, SegmentedControlContext } from './context';
 import { type IDType } from './typing';
@@ -15,7 +17,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SegmentedControlProps = {
+export interface SegmentedControlProps {
     /**
      * Дополнительный className
      */
@@ -67,7 +69,12 @@ export type SegmentedControlProps = {
      * @default false
      */
     disabled?: boolean;
-};
+
+    /**
+     * Настройки скелетона
+     */
+    skeleton?: SkeletonProps;
+}
 
 const MAX_SEGMENTS = 5;
 
@@ -82,11 +89,21 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     dataTestId,
     style,
     disabled = false,
+    skeleton,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
     const selectedBoxRef = useRef<HTMLDivElement>(null);
     const children = defaultChildren.slice(0, MAX_SEGMENTS);
+    const isSize40 = size === 40;
+
+    const skeletonBorderRadius = (() => {
+        if (shape === 'rounded') {
+            return isSize40 ? 20 : 16;
+        }
+
+        return isSize40 ? 12 : 10;
+    })();
 
     const selectedSegmentPosition = children.findIndex((item) => item.props.id === selectedId);
     const isPositionFounded = selectedSegmentPosition !== -1;
@@ -124,6 +141,21 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
         return () => observer.disconnect();
     }, []);
+
+    if (skeleton?.visible) {
+        return (
+            <Skeleton
+                {...skeleton}
+                dataTestId={dataTestId}
+                borderRadius={skeletonBorderRadius}
+                className={cn(className, styles.skeletonWrapper, skeleton.className)}
+                style={{
+                    ...skeleton.style,
+                    height: size,
+                }}
+            />
+        );
+    }
 
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values

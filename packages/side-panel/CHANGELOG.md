@@ -1,5 +1,32 @@
 # @alfalab/core-components-side-panel
 
+## 7.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@2.0.4
+
+## 7.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+    - @alfalab/core-components-base-modal@7.1.1
+    - @alfalab/core-components-mq@6.0.2
+    - @alfalab/core-components-navigation-bar-private@2.0.3
+    - @alfalab/core-components-drawer@7.0.3
+
+## 7.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.0
+    - @alfalab/core-components-navigation-bar-private@2.0.2
+    - @alfalab/core-components-drawer@7.0.2
+
 ## 7.0.1
 
 ### Patch Changes

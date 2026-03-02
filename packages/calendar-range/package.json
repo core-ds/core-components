@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-range",
-    "version": "9.0.1",
+    "version": "9.0.5",
     "description": "Calendar range component",
     "keywords": [],
     "license": "MIT",
@@ -10,10 +10,10 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-calendar": "^9.0.1",
-        "@alfalab/core-components-calendar-input": "^12.0.1",
-        "@alfalab/core-components-date-input": "^6.0.1",
-        "@alfalab/core-components-shared": "^2.0.1",
+        "@alfalab/core-components-calendar": "^9.1.0",
+        "@alfalab/core-components-calendar-input": "^12.0.5",
+        "@alfalab/core-components-date-input": "^6.0.4",
+        "@alfalab/core-components-shared": "^2.1.0",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "date-fns": "^4.1.0",
@@ -27,6 +27,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.1",
+    "themesVersion": "15.0.2",
     "varsVersion": "11.0.1"
 }

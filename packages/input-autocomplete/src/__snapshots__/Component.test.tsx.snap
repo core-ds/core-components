@@ -34,6 +34,9 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in closed
                 />
               </div>
             </div>
+            <div
+              class="addons rightAddons rightAddons size-48"
+            />
           </div>
         </div>
       </div>
@@ -75,6 +78,9 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                 />
               </div>
             </div>
+            <div
+              class="addons rightAddons rightAddons size-48"
+            />
           </div>
         </div>
       </div>
@@ -123,7 +129,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                     class="scrollableContainer sheetContainer"
                   >
                     <div
-                      class="header hasContent headerWrapperWithoutSwipeMarker sticky"
+                      class="header hasContent headerWrapperWithoutSwipeMarker hasContent sticky"
                     >
                       <div
                         class="mainLine"
@@ -192,6 +198,9 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 />
                               </div>
                             </div>
+                            <div
+                              class="addons rightAddons rightAddons size-48"
+                            />
                           </div>
                         </div>
                       </div>
@@ -219,31 +228,12 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               role="option"
                             >
                               <div
-                                class="checkmark"
-                              >
-                                <svg
-                                  class="displayIcon"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
-                                >
-                                  <path
-                                    clip-rule="evenodd"
-                                    d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                    fill-rule="evenodd"
-                                  />
-                                </svg>
-                              </div>
-                              <div
                                 class="content textContent"
                               >
                                 Neptunium
                               </div>
                               <div
-                                class="checkmark"
+                                class="checkmark after"
                               >
                                 <svg
                                   class="displayIcon"
@@ -270,31 +260,12 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               role="option"
                             >
                               <div
-                                class="checkmark"
-                              >
-                                <svg
-                                  class="displayIcon"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
-                                >
-                                  <path
-                                    clip-rule="evenodd"
-                                    d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                    fill-rule="evenodd"
-                                  />
-                                </svg>
-                              </div>
-                              <div
                                 class="content textContent"
                               >
                                 Plutonium
                               </div>
                               <div
-                                class="checkmark"
+                                class="checkmark after"
                               >
                                 <svg
                                   class="displayIcon"

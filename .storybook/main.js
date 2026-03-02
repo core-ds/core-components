@@ -19,7 +19,6 @@ const INTERNAL_PACKAGES = readPackagesFileSync(
 const CSS_MODULE_REGEXP = /\.module\.css$/;
 const CSS_REGEXP = /\.css$/;
 
-const distDir = path.resolve(__dirname, '../dist');
 const { packages } = getPackages();
 const varsEntryPoints = globSync('src/*index.css', {
     cwd: resolveInternal('@alfalab/core-components-vars'),
@@ -256,19 +255,19 @@ module.exports = {
                     /^@alfalab\/core-components[-/]([^/]+)\/?(.*)/,
                     (_, componentName, entrypoint) => {
                         const pkgName = `@alfalab/core-components-${componentName}`;
+                        const pkg = packages.find(({ packageJson: { name } }) => name === pkgName);
 
                         if (
                             process.env.BUILD_STORYBOOK_FROM_DIST === 'true' &&
                             !INTERNAL_PACKAGES.includes(pkgName)
                         ) {
                             return path.join(
-                                distDir,
-                                componentName,
+                                pkg.dir,
+                                'dist',
                                 entrypoint.startsWith('modern') ? '' : 'modern',
                                 entrypoint,
                             );
                         }
-                        const pkg = packages.find(({ packageJson: { name } }) => name === pkgName);
 
                         return path.join(pkg.dir, 'src', entrypoint);
                     },

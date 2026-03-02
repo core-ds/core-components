@@ -1,4 +1,4 @@
-import { type ElementType, type HTMLAttributes, type ReactNode } from 'react';
+import { type CSSProperties, type ElementType, type HTMLAttributes, type ReactNode } from 'react';
 
 export type Size = 16 | 32 | 40 | 48 | 96 | 128 | 164;
 
@@ -14,6 +14,7 @@ export type OverlayProps = {
     visible?: boolean;
 };
 
+// FIXME объединить пропсы iconColor, backgroundColor, borderColor, textColor в единый цветовой пропс
 export type SingleCommonProps = {
     /**
      * Размер
@@ -62,6 +63,11 @@ export type SingleCommonProps = {
      * Бордер для компонента
      */
     borderColor?: string;
+
+    /**
+     * Цвет текстового контента
+     */
+    textColor?: CSSProperties['color'];
 
     /**
      * Настройки оверлея
@@ -159,35 +165,36 @@ export type ConditionalProps =
       }
     | { size?: 40; align?: 'bottom' | 'default' };
 
-export type StackProps = ConditionalProps & {
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
+export type StackProps = ConditionalProps &
+    Pick<SingleCommonProps, 'textColor'> & {
+        /**
+         * Дополнительный класс
+         */
+        className?: string;
 
-    /**
-     * Свойства для первой карты
-     */
-    firstCard?: BankCardImageProps;
+        /**
+         * Свойства для первой карты
+         */
+        firstCard?: BankCardImageProps;
 
-    /**
-     * Свойства для второй карты
-     */
-    secondCard?: BankCardImageProps;
+        /**
+         * Свойства для второй карты
+         */
+        secondCard?: BankCardImageProps;
 
-    /**
-     * (Устаревший) Количество карт
-     * @deprecated Используйте 'numberOfCards'
-     */
-    numberOfСards?: number;
+        /**
+         * (Устаревший) Количество карт
+         * @deprecated Используйте 'numberOfCards'
+         */
+        numberOfСards?: number;
 
-    /**
-     * Количество карт
-     */
-    numberOfCards?: number;
+        /**
+         * Количество карт
+         */
+        numberOfCards?: number;
 
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-};
+        /**
+         * Идентификатор для систем автоматизированного тестирования
+         */
+        dataTestId?: string;
+    };
