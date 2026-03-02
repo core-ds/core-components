@@ -7,3 +7,4 @@
 @alfalab/core-components-screenshot-utils
 @alfalab/core-components-stack-context
 @alfalab/core-components-test-utils
+@alfalab/core-components-tsconfig-node24-backport

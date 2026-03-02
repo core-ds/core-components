@@ -1,10 +1,9 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "@tsconfig/node24",
+    "extends": "@alfalab/core-components-tsconfig-node24-backport",
     "compilerOptions": {
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
-        "checkJs": true,
         "noEmit": true,
         "allowJs": true,
         "types": ["@alfalab/core-components-env"]

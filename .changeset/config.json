@@ -8,7 +8,8 @@
         "@alfalab/core-components-env",
         "@alfalab/core-components-github-actions-env",
         "@alfalab/core-components-screenshot-utils",
-        "@alfalab/core-components-test-utils"
+        "@alfalab/core-components-test-utils",
+        "@alfalab/core-components-tsconfig-node24-backport"
     ],
     "access": "public",
     "baseBranch": "master",

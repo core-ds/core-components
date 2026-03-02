@@ -1543,7 +1543,6 @@ __metadata:
     "@testing-library/react": "npm:^16.3.0"
     "@testing-library/react-hooks": "npm:^8.0.1"
     "@testing-library/user-event": "npm:^14.6.1"
-    "@tsconfig/node24": "npm:^24.0.4"
     "@types/detect-browser": "npm:^4.0.3"
     "@types/element-closest": "npm:^3.0.0"
     "@types/eslint": "npm:^8.56.12"
@@ -2125,6 +2124,12 @@ __metadata:
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@alfalab/core-components-tsconfig-node24-backport@workspace:scripts/tsconfig-node24-backport":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-tsconfig-node24-backport@workspace:scripts/tsconfig-node24-backport"
   languageName: unknown
   linkType: soft
 
@@ -10720,13 +10725,6 @@ __metadata:
   version: 1.0.3
   resolution: "@tsconfig/node16@npm:1.0.3"
   checksum: 10c0/451a0d4b2bc35c2cdb30a49b6c699d797b8bbac99b883237659698678076d4193050d90e2ee36016ccbca57075cdb073cadab38cedc45119bac68ab331958cbc
-  languageName: node
-  linkType: hard
-
-"@tsconfig/node24@npm:^24.0.4":
-  version: 24.0.4
-  resolution: "@tsconfig/node24@npm:24.0.4"
-  checksum: 10c0/9c5d4173204c6935c45d3ff0584fd423bd7d8bc3f6b246e646320ae584e4226b34ea1c66ec67cd16769c73e7e80f4cc562287b0acaa4ec81aa482463972ff83f
   languageName: node
   linkType: hard
 

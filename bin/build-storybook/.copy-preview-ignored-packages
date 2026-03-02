@@ -1,3 +1,4 @@
 @alfalab/core-components-repository
 @alfalab/core-components-demo-params
 @alfalab/core-components-github-actions-env
+@alfalab/core-components-tsconfig-node24-backport
