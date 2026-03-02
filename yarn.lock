@@ -1056,7 +1056,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-lottie@workspace:packages/lottie":
+"@alfalab/core-components-lottie@npm:^0.0.1, @alfalab/core-components-lottie@workspace:packages/lottie":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-lottie@workspace:packages/lottie"
   dependencies:
@@ -2308,6 +2308,7 @@ __metadata:
     "@alfalab/core-components-list": "npm:^5.0.2"
     "@alfalab/core-components-list-header": "npm:^5.0.2"
     "@alfalab/core-components-loader": "npm:^5.0.1"
+    "@alfalab/core-components-lottie": "npm:^0.0.1"
     "@alfalab/core-components-markdown": "npm:^3.0.3"
     "@alfalab/core-components-masked-input": "npm:^8.0.4"
     "@alfalab/core-components-modal": "npm:^11.0.4"
