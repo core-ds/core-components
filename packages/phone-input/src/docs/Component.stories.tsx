@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { PhoneInput } from '@alfalab/core-components-phone-input';
+import { PhoneInput, PhoneInputProps } from '@alfalab/core-components-phone-input';
 import { DiamondsSIcon } from '@alfalab/icons-glyph/DiamondsSIcon';
 
 const meta: Meta<typeof PhoneInput> = {
@@ -16,7 +16,8 @@ type Story = StoryObj<typeof PhoneInput>;
 export const phone_input: Story = {
     name: 'PhoneInput',
     render: () => {
-        const size = select('size', [40, 48, 56, 64, 72], 48);
+        const _size = select('size', [40, 48, 56, 64, 72], 48);
+        const size = typeof _size === 'string' ? (Number(_size) as PhoneInputProps['size']) : _size;
         const IconComponent = size === 40 ? DiamondsSIcon : StarMIcon;
 
         return (
