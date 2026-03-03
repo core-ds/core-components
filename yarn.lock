@@ -68,9 +68,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-action-button@workspace:packages/action-button"
   dependencies:
+    "@alfalab/core-components-button": "npm:^13.1.4"
     "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-spinner": "npm:^6.0.5"
-    "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"

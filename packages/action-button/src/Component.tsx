@@ -1,19 +1,14 @@
-import React, {
-    type AnchorHTMLAttributes,
-    type ButtonHTMLAttributes,
-    forwardRef,
-    Fragment,
-    useRef,
-} from 'react';
+import React, { forwardRef, type ReactNode } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
-import { Spinner } from '@alfalab/core-components-spinner';
-import { useFocus } from '@alfalab/hooks';
-
-import { LOADER_MIN_DISPLAY_INTERVAL } from './constants/loader-min-display-interval';
-import { useLoader } from './hooks';
+import {
+    BaseButtonCandidate,
+    type BaseButtonOwnProps,
+    type ButtonPropsFactory,
+} from '@alfalab/core-components-button/components/base-button-candidate';
+import { ButtonContent } from '@alfalab/core-components-button/components/button-content';
+import { useLoading } from '@alfalab/core-components-button/shared';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -24,15 +19,14 @@ const colorStyles = {
     default: defaultColors,
     inverted: invertedColors,
     static: staticColors,
-};
+} as const;
 
-type Colors = 'default' | 'inverted' | 'static';
-
-type ComponentProps = {
+interface ComponentProps
+    extends Omit<BaseButtonOwnProps, 'disabledClassName' | 'Content' | 'block'> {
     /**
      * Иконка кнопки
      */
-    icon: React.ReactNode;
+    icon: ReactNode;
 
     /**
      *  Размер кнопки
@@ -45,141 +39,78 @@ type ComponentProps = {
     view?: 'primary' | 'secondary';
 
     /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
      * Дополнительный класс для обертки иконки
      */
     iconWrapperClassName?: string;
 
     /**
-     * Значение href для ссылки
-     */
-    href?: string;
-
-    /**
-     * Заблокировать кнопку
-     */
-    disabled?: boolean;
-
-    /**
-     * Показать лоадер
-     */
-    loading?: boolean;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования.
-     * Для спиннера используется модификатор -loader
-     */
-    dataTestId?: string;
-
-    /**
      * Палитра, в контексте которой используется кнопка
      */
-    colors?: Colors;
-};
+    colors?: 'default' | 'inverted' | 'static';
+}
 
-type AnchorProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type ButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
-export type ActionButtonProps = Partial<AnchorProps | ButtonProps>;
+export type ActionButtonProps = ButtonPropsFactory<ComponentProps>;
 
 export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, ActionButtonProps>(
     (
         {
-            className,
+            className: classNameFromProps,
             icon,
             children,
-            href,
             size = 48,
             view = 'primary',
-            type = 'button',
             iconWrapperClassName,
             disabled,
-            loading,
-            dataTestId,
+            loading: loadingFromProps,
             colors = 'default',
-            ...rest
+            dataTestId,
+            loaderClassName,
+            ...restProps
         },
         ref,
     ) => {
-        const componentRef = useRef<HTMLElement>(null);
+        const loading = useLoading(loadingFromProps);
+        const className = cn(
+            styles.component,
+            colorStyles[colors].component,
+            colorStyles[colors][view],
+            styles[`size${size}`],
+            loading && [colorStyles[colors].loading, styles.loading],
+            classNameFromProps,
+        );
 
-        const [focused] = useFocus(componentRef, 'keyboard');
-
-        const { showLoader } = useLoader(!!loading, LOADER_MIN_DISPLAY_INTERVAL);
-
-        const styleSize = `size-${size}`;
-
-        const componentProps = {
-            className: cn(
-                styles.component,
-                colorStyles[colors][view],
-                styles[styleSize],
-                {
-                    [styles.focused]: focused,
-                    [styles.disabled]: disabled,
-                    [colorStyles[colors].disabled]: disabled,
-                    [styles.loading]: showLoader,
-                },
-                className,
-            ),
-            'data-test-id': dataTestId,
-        };
-
-        const buttonChildren = (
-            <Fragment>
-                <span
+        return (
+            <BaseButtonCandidate
+                {...restProps}
+                dataTestId={dataTestId}
+                ref={mergeRefs([ref])}
+                className={className}
+                disabled={disabled}
+                disabledClassName={colorStyles[colors].disabled}
+                loading={loading}
+            >
+                <div
                     role='img'
                     className={cn(
                         styles.iconWrapper,
                         colorStyles[colors].iconWrapper,
-                        styles[styleSize],
                         iconWrapperClassName,
                     )}
                 >
-                    {showLoader ? (
-                        <Spinner
-                            preset={24}
-                            dataTestId={getDataTestId(dataTestId, 'loader')}
-                            visible={true}
-                            className={cn(styles.loader, colorStyles[colors].loader)}
-                        />
-                    ) : (
-                        icon
-                    )}
-                </span>
+                    <ButtonContent
+                        loading={loading}
+                        loaderClassName={cn(
+                            styles.loader,
+                            colorStyles[colors].loader,
+                            loaderClassName,
+                        )}
+                        dataTestId={dataTestId}
+                    >
+                        {icon}
+                    </ButtonContent>
+                </div>
                 <span className={styles.label}>{children}</span>
-            </Fragment>
-        );
-
-        if (href) {
-            return (
-                <a
-                    role='button'
-                    ref={mergeRefs([componentRef, ref])}
-                    href={href}
-                    aria-disabled={disabled || loading}
-                    {...componentProps}
-                    {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
-                >
-                    {buttonChildren}
-                </a>
-            );
-        }
-
-        return (
-            <button
-                ref={mergeRefs([componentRef, ref])}
-                // eslint-disable-next-line react/button-has-type
-                type={type as ButtonHTMLAttributes<HTMLButtonElement>['type']}
-                disabled={disabled || loading}
-                {...componentProps}
-                {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
-            >
-                {buttonChildren}
-            </button>
+            </BaseButtonCandidate>
         );
     },
 );
