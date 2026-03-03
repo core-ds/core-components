@@ -10,9 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
+        "@alfalab/core-components-button": "^13.1.0",
         "@alfalab/core-components-shared": "^2.1.0",
-        "@alfalab/core-components-spinner": "^6.0.2",
-        "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
