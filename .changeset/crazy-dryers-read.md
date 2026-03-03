@@ -3,4 +3,4 @@
 '@alfalab/core-components': minor
 ---
 
-GalleryImage получило новое поле canShare чтобя можно было прятать кнопку "поделиться".
+GalleryImage получило новое поле canShare чтобы можно было прятать кнопку "поделиться".
