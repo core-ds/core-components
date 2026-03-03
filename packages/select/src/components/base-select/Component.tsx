@@ -487,18 +487,33 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
+        const calcFieldInnerWidth = useCallback(() => {
+            if (!fieldRef.current) return 0;
+
+            const { width } = fieldRef.current.getBoundingClientRect();
+            const fieldStyles = window.getComputedStyle(fieldRef.current);
+            const horizontalPadding =
+                (Number.parseFloat(fieldStyles.paddingLeft) || 0) +
+                (Number.parseFloat(fieldStyles.paddingRight) || 0);
+
+            return Math.max(width - horizontalPadding, 0);
+        }, []);
+
         const calcOptionsListWidth = useCallback(() => {
             if (view === 'desktop' && listRef.current) {
                 const widthAttr = optionsListWidth === 'field' ? 'width' : 'minWidth';
 
-                const optionsListMinWidth = rootRef.current
-                    ? rootRef.current.getBoundingClientRect().width
-                    : 0;
+                const optionsListMinWidth =
+                    optionsListWidth === 'field'
+                        ? calcFieldInnerWidth()
+                        : rootRef.current
+                          ? rootRef.current.getBoundingClientRect().width
+                          : 0;
 
                 listRef.current.removeAttribute('style');
                 listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
             }
-        }, [view, optionsListWidth]);
+        }, [calcFieldInnerWidth, view, optionsListWidth]);
 
         useEffect(() => {
             if (view === 'desktop') {
@@ -824,7 +839,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 data-test-id={getDataTestId(dataTestId)}
             >
                 {nativeSelect && renderNativeSelect()}
-
+                буби
                 <Field
                     selectedMultiple={selectedItems}
                     selected={selectedItems[0]}
@@ -861,9 +876,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     dataTestId={getDataTestId(dataTestId, 'field')}
                     {...(fieldProps as AnyObject)}
                 />
-
                 {name && !nativeSelect && renderValue()}
-
                 {view === 'desktop' && renderInPopover()}
                 {view === 'mobile' &&
                     (isBottomSheet ? renderInBottomSheet() : renderInModalMobile())}
