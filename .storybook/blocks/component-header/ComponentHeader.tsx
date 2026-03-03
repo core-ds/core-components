@@ -67,7 +67,7 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, children
                     <Typography.Text view='primary-small' color='secondary'>
                         Используется в{' '}
                         <Link
-                            href={`http://design/design-system-usage/usage-chart?component=${usages[name]?.search}`}
+                            href={`https://ds.alfaintra.net/stats/usage-chart?component=${usages[name]?.search}`}
                             target='_blank'
                             view='secondary'
                             underline={false}
