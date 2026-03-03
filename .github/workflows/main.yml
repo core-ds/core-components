@@ -127,6 +127,18 @@ jobs:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
 
+    codemod-test:
+        name: codemod test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+
+            - uses: ./.github/actions/ci-setup
+
+            - name: run codemod test
+              run: |
+                  yarn test:codemod
+
     upload-coverage:
         needs: test
         runs-on: ubuntu-latest
@@ -237,7 +249,7 @@ jobs:
         name: ci ok
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, build-demo, test, screenshot-test, patch]
+        needs: [lint, build, build-demo, test, screenshot-test, patch, codemod-test]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:
