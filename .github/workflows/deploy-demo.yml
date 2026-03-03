@@ -33,7 +33,7 @@ jobs:
         outputs:
             url: ${{ steps.url.outputs.result }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   ref: gh-pages
                   lfs: true
@@ -44,7 +44,7 @@ jobs:
                   rm -rf '${{ inputs.directory }}'
 
             - name: download build
-              uses: actions/download-artifact@v5
+              uses: actions/download-artifact@v8
               with:
                   name: ${{ inputs.artifact-name }}
                   path: ${{ inputs.directory }}
@@ -90,7 +90,7 @@ jobs:
         if: ${{ needs.pull-request.outputs.number != '' }}
         steps:
             - name: find comment
-              uses: peter-evans/find-comment@v3
+              uses: peter-evans/find-comment@v4
               id: comment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
@@ -99,7 +99,7 @@ jobs:
                   body-includes: Demo build (${{ inputs.variant }})
 
             - name: create or update comment
-              uses: peter-evans/create-or-update-comment@v3
+              uses: peter-evans/create-or-update-comment@v5
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   comment-id: ${{ steps.comment.outputs.comment-id }}

@@ -24,7 +24,7 @@ jobs:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - name: apply patch
               run: |
