@@ -3,4 +3,4 @@
 '@alfalab/core-components': minor
 ---
 
-GalleryImage new field canShare to hide share button
+GalleryImage получило новое поле canShare чтобя можно было прятать кнопку "поделиться".
