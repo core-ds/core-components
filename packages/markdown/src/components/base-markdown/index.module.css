@@ -39,13 +39,16 @@
     font: inherit;
 }
 
-.list > li {
-    margin-top: var(--gap-0);
+.list {
     margin-bottom: var(--gap-12);
 }
 
-.list > li:only-child {
-    margin-bottom: var(--gap-0);
+.list > li {
+    margin-top: var(--gap-0);
+
+    &:not(:last-child) {
+        margin-bottom: var(--gap-12);
+    }
 }
 
 .list > li p {
