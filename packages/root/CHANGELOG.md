@@ -1,5 +1,38 @@
 # @alfalab/core-components
 
+## 50.6.0
+
+### Minor Changes
+
+<sup><time>04.03.2026</time></sup>
+
+#### [#1956](https://github.com/core-ds/core-components/pull/1956)
+
+- GalleryImage получило новое поле canShare чтобы можно было прятать кнопку "поделиться".
+
+### Patch Changes
+
+<sup><time>04.03.2026</time></sup>
+
+#### [#2005](https://github.com/core-ds/core-components/pull/2005)
+
+##### Gallery
+
+- Заменен статический импорт hls.js на динамический.
+- Добавлена retry логика для надежной загрузки.
+
+<sup><time>04.03.2026</time></sup>
+
+#### [#2100](https://github.com/core-ds/core-components/pull/2100)
+
+##### Markdown
+
+- Исправлены отступы списков
+
+- Обновлены зависимости
+    - @alfalab/core-components-gallery@7.1.0
+    - @alfalab/core-components-markdown@3.0.4
+
 ## 50.5.0
 
 ### Minor Changes
