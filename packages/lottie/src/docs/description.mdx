@@ -1,0 +1,27 @@
+## Lottie
+
+```jsx live
+render(() => {
+    const [{ play, direction }, setData] = React.useState({ play: true, direction: 1 });
+    const handleTooglePlay = () => {
+        setData((data) => ({ ...data, play: !data.play }));
+    };
+
+    return (
+        <React.StrictMode>
+            <div>
+                <Button onClick={handleTooglePlay}>{play ? 'Pause' : 'Play'}</Button>
+                <Lottie
+                    play={play}
+                    direction={direction}
+                    speed={1}
+                    iterations={0}
+                    direction={direction}
+                    animation={{ path: './twitter-heart.json' }}
+                    size={{ width: 400, height: 400 }}
+                />
+            </div>
+        </React.StrictMode>
+    );
+});
+```
