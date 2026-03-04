@@ -236,7 +236,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             <div
               class="component component scrollable"
               data-simplebar="init"
-              style="height: 0px; min-width: 0;"
+              style="max-height: 0; min-width: 0;"
             >
               <div
                 class="wrapper"
@@ -695,7 +695,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
             <div
               class="component component scrollable"
               data-simplebar="init"
-              style="height: 0px; min-width: 0;"
+              style="max-height: 0; min-width: 0;"
             >
               <div
                 class="wrapper"
@@ -1154,7 +1154,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
             <div
               class="component component scrollable"
               data-simplebar="init"
-              style="height: 0px; min-width: 0;"
+              style="max-height: 0; min-width: 0;"
             >
               <div
                 class="wrapper"

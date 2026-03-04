@@ -118,7 +118,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
 
         const actualOptionsCount = limitDynamicOptionGroupSize && options.length > 0;
 
-        const [measured, height] = useVisibleOptions({
+        const [measured, maxHeight] = useVisibleOptions({
             visibleOptions,
             listRef,
             open,
@@ -169,7 +169,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         [styles.verticalBarWithFooter]: Boolean(footer),
                     })}
                     ref={scrollbarRef}
-                    style={{ height }}
+                    style={{ maxHeight }}
                     horizontalAutoStretch={optionsListWidth === 'content'}
                     scrollableNodeProps={scrollableNodeProps}
                     contentNodeProps={{ ref: listRef }}
@@ -193,7 +193,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 className={cn(styles.scrollable, scrollbarClassName)}
                 ref={mergeRefs([listRef, ref])}
                 onScroll={handleScroll}
-                style={{ height }}
+                style={{ maxHeight }}
             >
                 {renderListItems()}
             </div>
