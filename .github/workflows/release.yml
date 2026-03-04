@@ -23,7 +23,7 @@ jobs:
         outputs:
             published: ${{ steps.changesets.outputs.published }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   # used GH_TOKEN to trigger github actions on branch update
                   # GITHUB_TOKEN doesn't trigger any action
@@ -62,7 +62,7 @@ jobs:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - name: apply patch
               run: |

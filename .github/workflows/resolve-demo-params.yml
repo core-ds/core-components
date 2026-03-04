@@ -35,7 +35,7 @@ jobs:
             CORE_COMPONENTS_DEMO_VERSION: ${{ inputs.version }}
             CORE_COMPONENTS_DEMO_DIRECTORY: ${{ inputs.directory }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - uses: ./.github/actions/ci-setup
 
@@ -58,7 +58,7 @@ jobs:
                           io,
                       });
 
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               if: ${{ steps.resolve-ref.outputs.result != github.ref }}
               with:
                   ref: ${{ steps.resolve-ref.outputs.result }}

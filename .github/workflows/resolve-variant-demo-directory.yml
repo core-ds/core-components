@@ -30,7 +30,7 @@ jobs:
             CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
             CORE_COMPONENTS_DEMO_DIRECTORY: ${{ inputs.directory }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - uses: ./.github/actions/ci-setup
 

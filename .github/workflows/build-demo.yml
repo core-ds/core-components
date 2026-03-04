@@ -34,7 +34,7 @@ jobs:
         outputs:
             workflow_run_id: ${{ steps.find.outputs.result }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   ref: ${{ inputs.ref }}
 
@@ -84,7 +84,7 @@ jobs:
         env:
             CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   ref: ${{ inputs.ref }}
                   lfs: true
@@ -106,7 +106,7 @@ jobs:
                   yarn build-storybook
 
             - name: upload demo build
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: ${{ inputs.artifact-name }}
                   path: build

@@ -23,7 +23,7 @@ jobs:
         outputs:
             result: ${{ steps.filter.outputs.result }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - name: read config
               id: read

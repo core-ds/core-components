@@ -64,7 +64,7 @@ jobs:
         runs-on: ubuntu-latest
         if: ${{ github.repository == 'core-ds/core-components' && always() && needs.resolve-directory.result == 'success' }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   ref: gh-pages
                   lfs: true

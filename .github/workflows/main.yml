@@ -31,7 +31,7 @@ jobs:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - name: apply patch
               run: |
@@ -58,7 +58,7 @@ jobs:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - name: apply patch
               run: |
@@ -96,7 +96,7 @@ jobs:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - name: apply patch
               run: |
@@ -122,16 +122,28 @@ jobs:
                   yarn test --coverage
 
             - if: ${{ matrix.variant == 'default' }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
+
+    codemod-test:
+        name: codemod test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+
+            - uses: ./.github/actions/ci-setup
+
+            - name: run codemod test
+              run: |
+                  yarn test:codemod
 
     upload-coverage:
         needs: test
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/download-artifact@v5
+            - uses: actions/download-artifact@v8
               with:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
@@ -184,14 +196,14 @@ jobs:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   lfs: true
 
             - uses: ./.github/actions/ci-setup
 
             - name: download build
-              uses: actions/download-artifact@v5
+              uses: actions/download-artifact@v8
               with:
                   name: ${{ matrix.variant }}
                   path: build
@@ -209,7 +221,7 @@ jobs:
                           core.setFailed(`Please add missing ${{ matrix.variant }} screenshots`);
                       }
 
-            - uses: actions/upload-artifact@v4
+            - uses: actions/upload-artifact@v7
               if: failure()
               with:
                   name: 'diff-${{ matrix.variant }}'
@@ -223,7 +235,7 @@ jobs:
                 include: ${{ fromJson(needs.variant.outputs.result) }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - name: apply patch
               run: |
@@ -237,7 +249,7 @@ jobs:
         name: ci ok
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, build-demo, test, screenshot-test, patch]
+        needs: [lint, build, build-demo, test, screenshot-test, patch, codemod-test]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:
