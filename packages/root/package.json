@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "50.5.0",
+    "version": "50.6.0",
     "homepage": "https://github.com/core-ds/core-components#readme",
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
@@ -49,7 +49,7 @@
         "@alfalab/core-components-file-upload-item-v1": "^3.0.3",
         "@alfalab/core-components-filter-tag": "^7.0.2",
         "@alfalab/core-components-form-control": "^14.0.3",
-        "@alfalab/core-components-gallery": "^7.0.6",
+        "@alfalab/core-components-gallery": "^7.1.0",
         "@alfalab/core-components-gap": "^3.0.1",
         "@alfalab/core-components-generic-wrapper": "^3.0.1",
         "@alfalab/core-components-global-store": "^4.0.1",
@@ -67,7 +67,7 @@
         "@alfalab/core-components-list": "^5.0.2",
         "@alfalab/core-components-list-header": "^5.0.2",
         "@alfalab/core-components-loader": "^5.0.1",
-        "@alfalab/core-components-markdown": "^3.0.3",
+        "@alfalab/core-components-markdown": "^3.0.4",
         "@alfalab/core-components-masked-input": "^8.0.4",
         "@alfalab/core-components-modal": "^11.0.4",
         "@alfalab/core-components-mq": "^6.0.2",

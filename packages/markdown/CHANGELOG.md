@@ -1,5 +1,17 @@
 # @alfalab/core-components-markdown
 
+## 3.0.4
+
+### Patch Changes
+
+<sup><time>04.03.2026</time></sup>
+
+#### [#2100](https://github.com/core-ds/core-components/pull/2100)
+
+##### Markdown
+
+- Исправлены отступы списков
+
 ## 3.0.3
 
 ### Patch Changes
