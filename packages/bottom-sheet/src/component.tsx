@@ -21,7 +21,7 @@ import { Header, HeaderProps } from './components/header/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 import { horizontalDirections } from './consts/swipeConsts';
 import { ShouldSkipSwipingParams } from './types/swipeTypes';
-import { useVisualViewportSize } from './hooks';
+import { useSafeAreaInsets, useVisualViewport } from './hooks';
 import type { BottomSheetProps } from './types';
 import {
     CLOSE_OFFSET,
@@ -117,14 +117,22 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         },
         ref,
     ) => {
+        const isPWA = isClient() && !!window.matchMedia?.('(display-mode: standalone)')?.matches;
+
+        // const isPWA = isPWA();
         const windowHeight = use100vh() ?? 0;
-        const visualViewportSize = useVisualViewportSize();
-        let fullHeight = virtualKeyboard ? visualViewportSize?.height ?? 0 : windowHeight;
+
+        const [innerHeight, viewport] = useVisualViewport({});
+        const [insets] = useSafeAreaInsets(isPWA);
+
+        let fullHeight = virtualKeyboard ? viewport?.height ?? 0 : windowHeight;
+
         // Хук use100vh рассчитывает высоту вьюпорта в useEffect, поэтому на первый рендер всегда возвращает null.
         const isFirstRender = fullHeight === 0;
 
         fullHeight = adjustContainerHeight(fullHeight);
 
+        const layoutFullHeight = isPWA ? Math.max(0, innerHeight - insets.top) : fullHeight;
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
         const prevMagneticAreasPropRef = useRef<Array<number | string> | undefined>(
             magneticAreasProp,
@@ -133,7 +141,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
                 return magneticAreasProp.map((area) =>
-                    convertPercentToNumber(area, fullHeight, headerOffset),
+                    convertPercentToNumber(area, layoutFullHeight, headerOffset),
                 );
             }
             let iOSViewHeight = 0;
@@ -146,10 +154,18 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 }
             }
 
-            const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
+            const viewHeight =
+                os.isIOS() && !virtualKeyboard && !isPWA ? iOSViewHeight : layoutFullHeight;
 
-            return [0, viewHeight - headerOffset];
-        }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
+            return [0, isPWA ? viewHeight : viewHeight - headerOffset];
+        }, [
+            layoutFullHeight,
+            headerOffset,
+            magneticAreasProp,
+            virtualKeyboard,
+            isPWA,
+            adjustContainerHeight,
+        ]);
 
         const lastMagneticArea = magneticAreas[magneticAreas.length - 1];
 
@@ -546,7 +562,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
                     setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
                     setActiveAreaIdx(isNil(idx) ? magneticAreas.length - 1 : idx);
+                    /*
+                     * } else if (magneticAreasPropChanged) {
+                     *     setSheetOffset(activeArea ? lastMagneticArea - activeArea : 0);
+                     */
                 } else {
+                    /*
+                     * При show/hide клавиатуры в PWA высота viewport меняется.
+                     * Держим sheetOffset синхронизированным с активной магнитной областью.
+                     */
                     setSheetOffset(activeArea ? lastMagneticArea - activeArea : 0);
                 }
 
@@ -562,14 +586,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         useEffect(() => {
             if (!sheetRef.current) return;
 
-            const maxOffset = fullHeight - headerOffset;
+            const maxOffset = lastMagneticArea;
 
             const offset = open ? sheetOffset : maxOffset;
 
-            const percent = (offset / maxOffset) * 100;
+            const percent = maxOffset > 0 ? (offset / maxOffset) * 100 : 0;
 
             onOffsetChange?.(offset, percent);
-        }, [fullHeight, headerOffset, onOffsetChange, open, sheetOffset]);
+        }, [lastMagneticArea, onOffsetChange, open, sheetOffset]);
 
         useImperativeHandle(bottomSheetInstanceRef, () => ({
             scrollToArea,
@@ -578,16 +602,25 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const getSwipeStyles = (): CSSProperties =>
             sheetOffset ? { transform: `translateY(${sheetOffset}px)` } : {};
 
+        const maxHeight = `${lastMagneticArea}px`;
+
+        const isKeyboardVisible = virtualKeyboard && viewport && windowHeight > viewport.height;
+
+        const pwaMarginBottom = isKeyboardVisible && isPWA ? viewport.height : undefined;
+        const defaultMarginBottom =
+            isKeyboardVisible && !isPWA
+                ? windowHeight - viewport.height - viewport.offsetTop
+                : undefined;
+
+        const keyboardMarginBottom = pwaMarginBottom ?? defaultMarginBottom;
+
         const getHeightStyles = (): CSSProperties => ({
             height:
                 !isFirstRender && (initialHeight === 'full' || magneticAreasProp)
                     ? `${lastMagneticArea}px`
                     : 'unset',
-            maxHeight: isFirstRender ? 0 : `${lastMagneticArea}px`,
-            marginBottom:
-                virtualKeyboard && visualViewportSize && windowHeight > visualViewportSize.height
-                    ? windowHeight - visualViewportSize.height - visualViewportSize.offsetTop
-                    : undefined,
+            maxHeight: isFirstRender ? 0 : maxHeight,
+            marginBottom: keyboardMarginBottom,
         });
 
         const renderMarker = () => {
