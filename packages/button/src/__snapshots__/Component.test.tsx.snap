@@ -6,14 +6,14 @@ exports[`Button Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+        class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+      class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
       type="button"
     />
   </div>,
@@ -78,7 +78,7 @@ exports[`Button Snapshots tests should render anchor if href pass 1`] = `
     <div>
       <a
         aria-disabled="false"
-        class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+        class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
         href="https://some-url"
       />
     </div>
@@ -86,7 +86,7 @@ exports[`Button Snapshots tests should render anchor if href pass 1`] = `
   "container": <div>
     <a
       aria-disabled="false"
-      class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+      class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
       href="https://some-url"
     />
   </div>,
@@ -150,14 +150,14 @@ exports[`Button Snapshots tests should render button by default 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+        class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+      class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
       type="button"
     />
   </div>,
@@ -221,7 +221,7 @@ exports[`Button Snapshots tests should render left addons 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+        class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
         type="button"
       >
         <span
@@ -236,7 +236,7 @@ exports[`Button Snapshots tests should render left addons 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+      class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
       type="button"
     >
       <span
@@ -309,10 +309,10 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
     <div>
       <a
         aria-disabled="true"
-        class="component disabled disabled disabled component component component component secondary secondary secondary size56 hug size56 minWidth minHeight loading loading loading component"
+        class="component disabled disabled disabled disabled disabled component loading component loading component loading component loading size56 hug minWidth minHeight secondary secondary secondary size56 component"
       >
         <svg
-          class="spinner component preset24 component loader loader loader visible"
+          class="spinner component preset24 component loader loader loader loader visible"
           style="height: 20px; width: 20px;"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -353,10 +353,10 @@ exports[`Button Snapshots tests should render loader if loading & href pass 1`] 
   "container": <div>
     <a
       aria-disabled="true"
-      class="component disabled disabled disabled component component component component secondary secondary secondary size56 hug size56 minWidth minHeight loading loading loading component"
+      class="component disabled disabled disabled disabled disabled component loading component loading component loading component loading size56 hug minWidth minHeight secondary secondary secondary size56 component"
     >
       <svg
-        class="spinner component preset24 component loader loader loader visible"
+        class="spinner component preset24 component loader loader loader loader visible"
         style="height: 20px; width: 20px;"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -453,12 +453,12 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight loading loading loading component"
+        class="component component loading component loading component loading component loading size56 hug minWidth minHeight secondary secondary secondary size56 component"
         disabled=""
         type="button"
       >
         <svg
-          class="spinner component preset24 component loader loader loader visible"
+          class="spinner component preset24 component loader loader loader loader visible"
           style="height: 20px; width: 20px;"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -498,12 +498,12 @@ exports[`Button Snapshots tests should render loader if loading pass 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight loading loading loading component"
+      class="component component loading component loading component loading component loading size56 hug minWidth minHeight secondary secondary secondary size56 component"
       disabled=""
       type="button"
     >
       <svg
-        class="spinner component preset24 component loader loader loader visible"
+        class="spinner component preset24 component loader loader loader loader visible"
         style="height: 20px; width: 20px;"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -600,7 +600,7 @@ exports[`Button Snapshots tests should render right addons 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+        class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
         type="button"
       >
         <span
@@ -615,7 +615,7 @@ exports[`Button Snapshots tests should render right addons 1`] = `
   </body>,
   "container": <div>
     <button
-      class="component component component component component secondary secondary secondary size56 hug size56 minWidth minHeight component"
+      class="component component component component component size56 hug minWidth minHeight secondary secondary secondary size56 component"
       type="button"
     >
       <span

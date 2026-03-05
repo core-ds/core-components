@@ -18,7 +18,7 @@ exports[`Navigation Bar Snapshots tests should match snapshot 1`] = `
           >
             <button
               aria-label="назад"
-              class="component component component component component text text text size48 hug size48 component component component"
+              class="component component component component component size48 hug text text text size48 component component component"
               data-test-id="navigation-bar-dti-back-button"
               type="button"
             >

@@ -289,7 +289,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                               tabindex="0"
                             >
                               <button
-                                class="component component component component component secondary secondary secondary size56 hug size56 defaultPaddings defaultWidth minHeight button component"
+                                class="component component component component component size56 hug defaultPaddings defaultWidth minHeight secondary secondary secondary size56 button component"
                                 type="button"
                               >
                                 <span
@@ -299,7 +299,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                 </span>
                               </button>
                               <button
-                                class="component component component component component primary primary primary size56 hug size56 defaultPaddings defaultWidth minHeight button component"
+                                class="component component component component component size56 hug defaultPaddings defaultWidth minHeight primary primary primary size56 button component"
                                 type="button"
                               >
                                 <span

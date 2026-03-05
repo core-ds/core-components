@@ -16,13 +16,13 @@ export interface StyleColors {
 
 type OmitStrict<T, K extends keyof T> = Omit<T, K>;
 
-export interface ComponentProps
+export interface ButtonLayoutOwnProps
     extends OmitStrict<BaseButtonOwnProps, 'disabledClassName' | 'Content'> {
     /**
-     * Тип кнопки
-     * @default secondary
+     * Лэйаут кнопки
+     * @default button
      */
-    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text';
+    layout?: 'button' | 'text';
 
     /**
      * Форма кнопки
@@ -58,16 +58,28 @@ export interface ComponentProps
     size?: 32 | 40 | 48 | 56 | 64 | 72;
 
     /**
-     * Дополнительный класс для спиннера
-     * @deprecated Используйте `loaderClassName`
-     */
-    spinnerClassName?: string;
-
-    /**
      * Не переносить текст кнопки на новую строку
      * @default false
      */
     nowrap?: boolean;
+}
+
+export type ButtonLayoutProps = ButtonPropsFactory<ButtonLayoutOwnProps> & {
+    styles?: StylesMap[];
+};
+
+export interface ComponentProps extends OmitStrict<ButtonLayoutOwnProps, 'layout'> {
+    /**
+     * Тип кнопки
+     * @default secondary
+     */
+    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text';
+
+    /**
+     * Дополнительный класс для спиннера
+     * @deprecated Используйте `loaderClassName`
+     */
+    spinnerClassName?: string;
 
     /**
      * Набор цветов для компонента

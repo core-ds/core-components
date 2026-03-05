@@ -145,9 +145,8 @@ describe('Render tests', () => {
             const icon = getByTestId('custom-picker-button-icon');
 
             expect(button).toHaveClass('size56');
-            expect(button).toHaveClass('primary');
-            expect(icon.getAttribute('width')).toBe(iconSize);
-            expect(icon.getAttribute('height')).toBe(iconSize);
+            expect(icon).toHaveAttribute('width', iconSize);
+            expect(icon).toHaveAttribute('height', iconSize);
         },
     );
 

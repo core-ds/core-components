@@ -1,56 +1,64 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
-import { type Button } from '@alfalab/core-components-button';
-import { type ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { type ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { ButtonLayout } from '@alfalab/core-components-button/components/button-layout';
+import {
+    BUTTON_DEFAULT_SHAPE,
+    BUTTON_DEFAULT_SIZE,
+} from '@alfalab/core-components-button/constants/const';
+import { useLoading } from '@alfalab/core-components-button/shared';
 
 import { DEFAULT_BUTTON_COLOR, DEFAULT_CONTENT_COLOR } from '../../constants/default-colors';
-import { type CustomButtonProps } from '../../types/props';
+import { type CommonCustomButtonProps } from '../../types/props';
 
 import styles from './index.module.css';
 
 export const BaseCustomButton = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
-    CustomButtonProps & {
-        componentButton: typeof Button | typeof ButtonDesktop | typeof ButtonMobile;
-    }
+    CommonCustomButtonProps & { styles?: Record<string, string> }
 >(
     (
         {
             children,
-            className,
-            loading,
+            className: classNameFromProps,
+            loading: loadingFromProps,
             backgroundColor = DEFAULT_BUTTON_COLOR,
             contentColor = DEFAULT_CONTENT_COLOR,
             stateType = 'darkening',
             disableType = 'default',
-            componentButton: ComponentButton,
+            style,
+            shape = BUTTON_DEFAULT_SHAPE,
+            styles: stylesFromProps = {},
             ...restProps
         },
         ref,
-    ) => (
-        <ComponentButton
-            style={{ ...(!restProps.disabled && { background: backgroundColor }) }}
-            {...restProps}
-            view='primary'
-            ref={ref}
-            className={cn(
-                styles.customButton,
-                styles.border,
-                className,
-                styles[contentColor],
-                styles[stateType],
-                styles[`disableType-${disableType}`],
-                {
-                    [styles.customLoading]: loading,
-                },
-            )}
-            loading={loading}
-        >
-            {children}
-        </ComponentButton>
-    ),
+    ) => {
+        const loading = useLoading(loadingFromProps);
+        const { disabled, size = BUTTON_DEFAULT_SIZE } = restProps;
+        const className = cn(
+            styles.component,
+            styles.border,
+            styles[contentColor],
+            styles[stateType],
+            styles[`disableType-${disableType}`],
+            { [stylesFromProps[`size${size}`]]: shape === 'rectangular' },
+            classNameFromProps,
+        );
+
+        return (
+            <ButtonLayout
+                {...restProps}
+                ref={ref}
+                layout='button'
+                style={{ ...style, background: disabled ? undefined : backgroundColor }}
+                className={className}
+                loading={loading}
+                styles={[styles, stylesFromProps]}
+            >
+                {children}
+            </ButtonLayout>
+        );
+    },
 );
 
 BaseCustomButton.displayName = 'BaseCustomButton';

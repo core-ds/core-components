@@ -27,7 +27,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component component component component component text text text size48 hug size48 component component component"
+                class="component component component component component size48 hug text text text size48 component component component"
                 type="button"
               >
                 <span
@@ -161,7 +161,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
             >
               <button
                 aria-label="назад"
-                class="component component component component component text text text size32 hug size32 component component mobileComponent component"
+                class="component component component component component size32 hug text text text size32 component component mobileComponent component"
                 type="button"
               >
                 <span

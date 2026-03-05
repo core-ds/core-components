@@ -1,128 +1,70 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-button/src/vars.css';
 
-@define-mixin hover-before {
-    @media (hover: hover) {
-        &:hover:before {
-            @mixin-content;
-        }
-    }
-}
-
-.customButton {
+.component {
     overflow: hidden;
-    position: relative;
 
     &.border {
-        border: 1px solid transparent;
-    }
-
-    &.white * {
-        color: var(--color-light-text-primary-inverted);
-    }
-
-    &.black * {
-        color: var(--color-light-text-primary);
-    }
-
-    &.static-white * {
-        color: var(--color-static-text-primary-inverted);
-    }
-
-    &.static-black * {
-        color: var(--color-static-text-primary);
-    }
-
-    & span {
-        position: relative;
-        z-index: 3;
+        border: var(--button-border-width) solid transparent;
     }
 
     &:before {
-        position: absolute;
-        left: var(--gap-0);
-        right: var(--gap-0);
-        top: var(--gap-0);
-        bottom: var(--gap-0);
-        background-color: rgba(0, 0, 0, 0);
         content: '';
-        transition: 0.2s;
-        opacity: 1;
-        pointer-events: none;
+        position: absolute;
+        inset: 0;
+        transition: background 0.2s;
     }
 
-    &.darkening {
-        @mixin hover-before {
-            background-color: var(--color-light-neutral-translucent-200);
-        }
-
-        &:active:before {
-            background-color: var(--color-light-neutral-translucent-400);
-        }
-    }
-
-    &.lightening {
-        @mixin hover-before {
-            background-color: var(--color-light-neutral-translucent-200-inverted);
-        }
-
-        &:active:before {
-            background-color: var(--color-light-neutral-translucent-400-inverted);
+    /* prettier-ignore */
+    @each $content-color, $color in
+        (white, --color-light-text-primary-inverted),
+        (black, --color-light-text-primary),
+        (static-white, --color-static-text-primary-inverted),
+        (static-black, --color-static-text-primary) {
+        &.$(content-color) {
+            &,
+            & .loader {
+                color: var($(color));
+            }
         }
     }
 
-    &.static-darkening {
-        @mixin hover-before {
-            background-color: rgba(0, 0, 0, 0.07);
-        }
+    @mixin not-disabled {
+        /* prettier-ignore */
+        @each $state, $hover, $active in
+            (darkening, var(--color-light-neutral-translucent-200), var(--color-light-neutral-translucent-400)),
+            (lightening, var(--color-light-neutral-translucent-200-inverted), var(--color-light-neutral-translucent-400-inverted)),
+            (static-darkening, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.15)),
+            (static-lightening, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.15)) {
+            &.$(state) {
+                @mixin hover {
+                    &:before {
+                        background: $hover;
+                    }
+                }
 
-        &:active:before {
-            background-color: rgba(0, 0, 0, 0.15);
-        }
-    }
-
-    &.static-lightening {
-        @mixin hover-before {
-            background-color: rgba(255, 255, 255, 0.07);
-        }
-
-        &:active:before {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-    }
-}
-
-/* Disabled */
-
-.customButton:disabled {
-    &.disableType-default {
-        background-color: var(--color-light-neutral-translucent-100);
-
-        & span {
-            color: var(--color-light-text-tertiary);
+                &:active:before {
+                    background: $active;
+                }
+            }
         }
     }
 
-    &.disableType-static {
-        background-color: var(--color-static-neutral-translucent-100);
+    /* Disabled */
 
-        & span {
-            color: var(--color-static-text-tertiary);
-        }
-    }
-
-    &.disableType-inverted {
-        background-color: var(--color-light-neutral-translucent-100-inverted);
-
-        & span {
-            color: var(--color-light-text-tertiary-inverted);
-        }
-    }
-
-    &.disableType-static-inverted {
-        background-color: var(--color-static-neutral-translucent-100-inverted);
-
-        & span {
-            color: var(--color-static-text-tertiary-inverted);
+    @mixin disabled {
+        &:not(.loading) {
+            /* prettier-ignore */
+            @each $disable-state, $color, $background in
+                (disableType-default, --color-light-text-tertiary, --color-light-neutral-translucent-100),
+                (disableType-static, --color-static-text-tertiary, --color-static-neutral-translucent-100),
+                (disableType-inverted, --color-light-text-tertiary-inverted, --color-light-neutral-translucent-100-inverted),
+                (disableType-static-inverted, --color-static-text-tertiary-inverted, --color-static-neutral-translucent-100-inverted) {
+                &.$(disable-state) {
+                    color: var($(color));
+                    background: var($(background));
+                }
+            }
         }
     }
 }

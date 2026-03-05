@@ -576,6 +576,7 @@ __metadata:
   resolution: "@alfalab/core-components-custom-button@workspace:packages/custom-button"
   dependencies:
     "@alfalab/core-components-button": "npm:^13.1.0"
+    "@alfalab/core-components-mq": "npm:^6.0.2"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
