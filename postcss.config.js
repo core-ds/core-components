@@ -8,7 +8,7 @@ module.exports = {
     plugins: [
         require('postcss-import')({}),
         require('postcss-for')({}),
-        require('postcss-each')({}),
+        require('./tools/postcss/postcss-each.cjs')({}),
         require('./tools/postcss/postcss-subtract-mixin.cjs')({}),
         require('postcss-mixins')({
             mixinsFiles: globSync('src/*.css', {
