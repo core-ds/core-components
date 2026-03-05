@@ -16,6 +16,11 @@ module.exports = {
                 absolute: true,
             }),
         }),
+        require('postcss-simple-vars')({
+            unknown: (node, name, result) => {
+                node.warn(result, `Unresolved variable ${name}`);
+            },
+        }),
         require('postcss-color-mod-function')({ unresolved: 'ignore' }),
         require('postcss-preset-env')({
             stage: 3,
