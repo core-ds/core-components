@@ -87,8 +87,10 @@ describe(
             },
         }),
         screenshotOpts: { clip },
-        evaluate: (page: Page) =>
-            page.hover('button[class^=component]').then(() => page.waitForTimeout(500)),
+        evaluate: async (page) => {
+            await page.hover('button[class*=component]');
+            await page.waitForTimeout(500);
+        },
         matchImageSnapshotOptions: {
             customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
         },
@@ -106,10 +108,10 @@ describe(
             },
         }),
         screenshotOpts: { clip },
-        evaluate: (page: Page) => {
-            return page.mouse
-                .move(30, 30)
-                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
+        evaluate: async (page) => {
+            await page.mouse.move(30, 30);
+            await page.mouse.down();
+            await page.waitForTimeout(500);
         },
         matchImageSnapshotOptions: {
             customSnapshotIdentifier: (...args) => `pressed-${customSnapshotIdentifier(...args)}`,

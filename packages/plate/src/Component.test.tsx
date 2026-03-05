@@ -69,9 +69,9 @@ describe('Plate', () => {
         expect(queryByTestId('button-2')).toBeInTheDocument();
         expect(queryByTestId('button-3')).toBeInTheDocument();
 
-        expect(queryByTestId('button-1')).toHaveClass(`size-${size}`);
-        expect(queryByTestId('button-2')).toHaveClass(`size-${size}`);
-        expect(queryByTestId('button-3')).toHaveClass(`size-${size}`);
+        expect(queryByTestId('button-1')).toHaveClass(`size${size}`);
+        expect(queryByTestId('button-2')).toHaveClass(`size${size}`);
+        expect(queryByTestId('button-3')).toHaveClass(`size${size}`);
 
         expect(queryByTestId('button-1')).toHaveClass('secondary');
         expect(queryByTestId('button-2')).toHaveClass('transparent');

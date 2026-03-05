@@ -1,25 +1,28 @@
+import { type ReactNode } from 'react';
+
 import {
-    type AnchorHTMLAttributes,
-    type ButtonHTMLAttributes,
-    type ElementType,
-    type ReactNode,
-} from 'react';
+    type BaseButtonOwnProps,
+    type ButtonPropsFactory,
+} from './components/base-button-candidate';
 
-export type StyleColors = {
-    default: {
-        [key: string]: string;
-    };
-    inverted: {
-        [key: string]: string;
-    };
-};
+interface StylesMap {
+    [key: string]: string;
+}
 
-type ComponentProps = {
+export interface StyleColors {
+    default: StylesMap;
+    inverted: StylesMap;
+}
+
+type OmitStrict<T, K extends keyof T> = Omit<T, K>;
+
+export interface ButtonLayoutOwnProps
+    extends OmitStrict<BaseButtonOwnProps, 'disabledClassName' | 'Content'> {
     /**
-     * Тип кнопки
-     * @default secondary
+     * Лэйаут кнопки
+     * @default button
      */
-    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text';
+    layout?: 'button' | 'text';
 
     /**
      * Форма кнопки
@@ -34,7 +37,7 @@ type ComponentProps = {
     textResizing?: 'fill' | 'hug';
 
     /**
-     *  Подпись под лейблом (видна только в размерах >= m)
+     *  Подпись под лейблом. Видна только при размерах `>=56`
      */
     hint?: ReactNode;
 
@@ -55,48 +58,28 @@ type ComponentProps = {
     size?: 32 | 40 | 48 | 56 | 64 | 72;
 
     /**
-     * Растягивает компонент на ширину контейнера
-     * @default false
-     */
-    block?: boolean;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для спиннера
-     */
-    spinnerClassName?: string;
-
-    /**
-     * Выводит ссылку в виде кнопки
-     */
-    href?: string;
-
-    /**
-     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
-     */
-    Component?: ElementType;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования.
-     * Для спиннера используется модификатор -loader
-     */
-    dataTestId?: string;
-
-    /**
-     * Показать лоадер
-     * @default false
-     */
-    loading?: boolean;
-
-    /**
      * Не переносить текст кнопки на новую строку
      * @default false
      */
     nowrap?: boolean;
+}
+
+export type ButtonLayoutProps = ButtonPropsFactory<ButtonLayoutOwnProps> & {
+    styles?: StylesMap[];
+};
+
+export interface ComponentProps extends OmitStrict<ButtonLayoutOwnProps, 'layout'> {
+    /**
+     * Тип кнопки
+     * @default secondary
+     */
+    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text';
+
+    /**
+     * Дополнительный класс для спиннера
+     * @deprecated Используйте `loaderClassName`
+     */
+    spinnerClassName?: string;
 
     /**
      * Набор цветов для компонента
@@ -108,29 +91,25 @@ type ComponentProps = {
      * @description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.
      */
     allowBackdropBlur?: boolean;
+}
 
-    /**
-     * Дочерние элементы.
-     */
-    children?: ReactNode;
-};
-
-export type PrivateButtonProps = {
+export interface PrivateButtonProps {
     /**
      * Основные стили компонента.
      */
-    styles: { [key: string]: string };
+    styles: StylesMap;
 
     /**
      * Стили компонента для default и inverted режима.
      */
     colorStylesMap: StyleColors;
-};
+}
 
-export type CommonButtonProps = ComponentProps &
-    Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
+export type ButtonRef = HTMLElement;
 
-export type ButtonProps = CommonButtonProps & {
+export type CommonButtonProps = ButtonPropsFactory<ComponentProps>;
+
+export interface ResponsiveProps {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -147,4 +126,6 @@ export type ButtonProps = CommonButtonProps & {
      * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
-};
+}
+
+export type ButtonProps = CommonButtonProps & ResponsiveProps;

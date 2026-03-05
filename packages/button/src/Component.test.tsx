@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState, FC, forwardRef } from 'react';
+import React, { MouseEvent, useState, FC, forwardRef, useRef } from 'react';
 import {
     render,
     fireEvent,
@@ -100,9 +100,9 @@ describe('Button', () => {
             expect(container.firstElementChild).toHaveAttribute('disabled');
         });
 
-        it('should set disabled attribute to <a>', () => {
+        it('should set `aria-disabled` attribute to <a>', () => {
             const { container } = render(<Button href='test' disabled={true} />);
-            expect(container.firstElementChild).toHaveAttribute('disabled');
+            expect(container.firstElementChild).toHaveAttribute('aria-disabled', 'true');
         });
     });
 
@@ -130,7 +130,7 @@ describe('Button', () => {
             const size = 56;
             const { container } = render(<Button size={size} />);
 
-            expect(container.firstElementChild).toHaveClass(`size-${size}`);
+            expect(container.firstElementChild).toHaveClass(`size${size}`);
         });
 
         it('should set `block` class', () => {
@@ -146,10 +146,10 @@ describe('Button', () => {
             expect(container.firstElementChild).toHaveClass(view);
         });
 
-        it('should set `iconOnly` class', () => {
+        it("shouldn't set `defaultWidth` class", () => {
             const { container } = render(<Button />);
 
-            expect(container.firstElementChild).toHaveClass('iconOnly');
+            expect(container.firstElementChild).not.toHaveClass('defaultWidth');
         });
 
         it('should set `nowrap` class', () => {
@@ -179,7 +179,7 @@ describe('Button', () => {
         it('should set `allowBackdropBlur` class', () => {
             const { container } = render(<Button allowBackdropBlur={true} />);
 
-            expect(container.firstElementChild).toHaveClass('allowBackdropBlur');
+            expect(container.firstElementChild).toHaveClass('blurred');
         });
     });
 
@@ -260,11 +260,12 @@ describe('Button', () => {
             );
 
             const button = getByTestId(dataTestId);
-            const getLoader = () => container.querySelector('svg');
+            const getLoader = () =>
+                container.querySelector(`[data-test-id=${getButtonTestIds(dataTestId).spinner}]`);
 
             const start = Date.now();
 
-            await fireEvent.click(button);
+            fireEvent.click(button);
 
             await waitFor(() => expect(getLoader()).toBeInTheDocument());
 
@@ -283,7 +284,8 @@ describe('Button', () => {
             );
 
             const button = getByTestId(dataTestId);
-            const getLoader = () => container.querySelector('svg');
+            const getLoader = () =>
+                container.querySelector(`[data-test-id=${getButtonTestIds(dataTestId).spinner}]`);
 
             const start = Date.now();
 
@@ -312,18 +314,21 @@ describe('Button', () => {
             expect(props['data-test-id']).toBe(dataTestId);
         });
 
-        it('should pass `to` instead `href` to custom component', () => {
-            const cb = jest.fn();
-            cb.mockReturnValue(null);
+        it('should pass `href` to custom component', () => {
+            expect.assertions(1);
 
-            render(<Button Component={forwardRef(cb)} href='test' />);
+            const CustomComponent = forwardRef<HTMLElement, { href?: string }>((props, _) => {
+                const firstRenderRef = useRef(true);
 
-            expect(cb).toHaveBeenCalled();
+                if (firstRenderRef.current) {
+                    firstRenderRef.current = false;
+                    expect(props).toEqual(expect.objectContaining({ href: 'test' }));
+                }
 
-            const props = cb.mock.calls[0][0];
+                return null;
+            });
 
-            expect(props.href).toBeFalsy();
-            expect(props.to).toBe('test');
+            render(<Button Component={CustomComponent} href='test' />);
         });
     });
 

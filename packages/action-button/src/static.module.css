@@ -25,37 +25,41 @@
     --action-button-static-disabled-bg-color: var(--color-static-neutral-100);
 }
 
-.primary {
-    color: var(--action-button-static-primary-base-color);
+.component {
+    &.primary {
+        color: var(--action-button-static-primary-base-color);
 
-    & .iconWrapper {
-        color: var(--action-button-static-primary-base-icon-color);
-        background-color: var(--action-button-static-primary-base-bg-color);
+        .iconWrapper {
+            color: var(--action-button-static-primary-base-icon-color);
+            background-color: var(--action-button-static-primary-base-bg-color);
+        }
+
+        .loader {
+            color: var(--action-button-spinner-static-primary-color);
+        }
     }
 
-    & .loader {
-        color: var(--action-button-spinner-static-primary-color);
+    &.secondary {
+        color: var(--action-button-static-secondary-base-color);
+
+        .iconWrapper {
+            color: var(--action-button-static-secondary-base-icon-color);
+            background-color: var(--action-button-static-secondary-base-bg-color);
+        }
+
+        .loader {
+            color: var(--action-button-spinner-static-secondary-color);
+        }
     }
-}
 
-.secondary {
-    color: var(--action-button-static-secondary-base-color);
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--action-button-static-disabled-color);
 
-    & .iconWrapper {
-        color: var(--action-button-static-secondary-base-icon-color);
-        background-color: var(--action-button-static-secondary-base-bg-color);
-    }
-
-    & .loader {
-        color: var(--action-button-spinner-static-secondary-color);
-    }
-}
-
-.disabled {
-    color: var(--action-button-static-disabled-color);
-
-    & .iconWrapper {
-        color: var(--action-button-static-disabled-icon-color);
-        background-color: var(--action-button-static-disabled-bg-color);
+            .iconWrapper {
+                color: var(--action-button-static-disabled-icon-color);
+                background-color: var(--action-button-static-disabled-bg-color);
+            }
+        }
     }
 }

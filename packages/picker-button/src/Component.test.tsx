@@ -118,7 +118,7 @@ describe('Render tests', () => {
             const button = document.querySelector('button');
             const icon = getByTestId('picker-button-icon');
 
-            expect(button).toHaveClass('size-56');
+            expect(button).toHaveClass('size56');
             expect(button).toHaveClass('secondary');
             expect(icon.getAttribute('width')).toBe(iconSize);
             expect(icon.getAttribute('height')).toBe(iconSize);
@@ -133,7 +133,7 @@ describe('Render tests', () => {
         const button = document.querySelector('button');
         const icon = getByTestId('picker-button-icon');
 
-        expect(button).toHaveClass(`size-${size}`);
+        expect(button).toHaveClass(`size${size}`);
         expect(icon.getAttribute('width')).toBe(iconSize);
         expect(icon.getAttribute('height')).toBe(iconSize);
     });

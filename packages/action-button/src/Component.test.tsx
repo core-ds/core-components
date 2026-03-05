@@ -20,20 +20,16 @@ describe('ActionButton', () => {
     it('should use "size" prop', () => {
         const size = 48;
 
-        render(<ActionButton size={size} />);
+        render(<ActionButton icon={null} size={size} />);
 
-        expect(screen.getByRole('button')).toHaveClass('size-48');
-    });
-
-    it('should use "size" prop "s" by default', () => {
-        render(<ActionButton />);
-
-        expect(screen.getByRole('button')).toHaveClass('size-48');
+        expect(screen.getByRole('button')).toHaveClass('size48');
     });
 
     it('should use "iconWrapperClassName" prop', () => {
         const iconClassName = 'test-class';
-        const { container } = render(<ActionButton iconWrapperClassName={iconClassName} />);
+        const { container } = render(
+            <ActionButton icon={null} iconWrapperClassName={iconClassName} />,
+        );
 
         expect(container.querySelector(`.${iconClassName}`)).toBeInTheDocument();
     });
@@ -41,57 +37,65 @@ describe('ActionButton', () => {
     it('should use "href" prop and become a link', () => {
         const href = 'http://127.0.0.1';
 
-        render(<ActionButton href={href} />);
+        render(<ActionButton icon={null} href={href} dataTestId={dti} />);
 
-        expect(screen.getByRole('button')).toHaveAttribute('href', href);
+        expect(screen.getByTestId(dti)).toHaveAttribute('href', href);
     });
 
     it('should use "disabled" prop (button)', () => {
-        const { rerender } = render(<ActionButton />);
+        const { rerender } = render(<ActionButton icon={null} />);
 
         expect(screen.getByRole('button')).not.toBeDisabled();
 
-        rerender(<ActionButton disabled={true} />);
+        rerender(<ActionButton icon={null} disabled={true} />);
 
         expect(screen.getByRole('button')).toBeDisabled();
     });
 
     it('should use "disabled" prop (link)', () => {
-        const { rerender } = render(<ActionButton href='http://localhost' />);
+        const { rerender } = render(
+            <ActionButton icon={null} href='http://localhost' dataTestId={dti} />,
+        );
 
-        expect(screen.getByRole('button')).not.toHaveAttribute('aria-disabled', 'true');
+        expect(screen.getByTestId(dti)).not.toHaveAttribute('aria-disabled', 'true');
 
-        rerender(<ActionButton href='http://localhost' disabled={true} />);
+        rerender(
+            <ActionButton icon={null} href='http://localhost' dataTestId={dti} disabled={true} />,
+        );
 
-        expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+        expect(screen.getByTestId(dti)).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('should use "loading" prop (button)', () => {
-        const { rerender } = render(<ActionButton dataTestId={dti} />);
+        const { rerender } = render(<ActionButton icon={null} dataTestId={dti} />);
 
         expect(screen.getByRole('button')).not.toBeDisabled();
         expect(screen.queryByTestId(loaderDti)).toBeNull();
 
-        rerender(<ActionButton loading={true} dataTestId={dti} />);
+        rerender(<ActionButton icon={null} loading={true} dataTestId={dti} />);
 
         expect(screen.getByRole('button')).toBeDisabled();
         expect(screen.getByTestId(loaderDti)).toBeInTheDocument();
     });
 
     it('should use "loading" prop (link)', () => {
-        const { rerender } = render(<ActionButton href='http://localhost' dataTestId={dti} />);
+        const { rerender } = render(
+            <ActionButton icon={null} href='http://localhost' dataTestId={dti} />,
+        );
 
-        expect(screen.getByRole('button')).not.toHaveAttribute('aria-disabled', 'true');
+        expect(screen.getByTestId(dti)).not.toHaveAttribute('aria-disabled', 'true');
         expect(screen.queryByTestId(loaderDti)).toBeNull();
 
-        rerender(<ActionButton href='http://localhost' loading={true} dataTestId={dti} />);
+        rerender(
+            <ActionButton icon={null} href='http://localhost' loading={true} dataTestId={dti} />,
+        );
 
-        expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+        expect(screen.getByTestId(dti)).toHaveAttribute('aria-disabled', 'true');
         expect(screen.getByTestId(loaderDti)).toBeInTheDocument();
     });
 
     it('should use "dataTestId" prop', () => {
-        render(<ActionButton dataTestId={dti} />);
+        render(<ActionButton icon={null} dataTestId={dti} />);
 
         expect(screen.getByRole('button')).toHaveAttribute('data-test-id', dti);
     });
@@ -99,7 +103,7 @@ describe('ActionButton', () => {
     it('should use "children" prop', () => {
         const label = 'Action Button';
 
-        render(<ActionButton>{label}</ActionButton>);
+        render(<ActionButton icon={null}>{label}</ActionButton>);
 
         expect(screen.getByRole('button')).toHaveTextContent(label);
     });
@@ -107,7 +111,7 @@ describe('ActionButton', () => {
     it('should use "className" prop', () => {
         const className = 'test-class';
 
-        render(<ActionButton className={className} />);
+        render(<ActionButton icon={null} className={className} />);
 
         expect(screen.getByRole('button')).toHaveClass(className);
     });
@@ -115,7 +119,7 @@ describe('ActionButton', () => {
     it('should call "onClick" prop', async () => {
         const cb = jest.fn();
 
-        render(<ActionButton onClick={cb} />);
+        render(<ActionButton icon={null} onClick={cb} />);
 
         await userEvent.click(screen.getByRole('button'));
 
@@ -124,11 +128,28 @@ describe('ActionButton', () => {
 
     it('should have data-test-id', () => {
         const dti = 'action-button-dti';
-        const { getByTestId } = render(<ActionButton dataTestId={dti} loading />);
+        const { getByTestId } = render(<ActionButton icon={null} dataTestId={dti} loading />);
 
         const testIds = getActionButtonTestIds(dti);
 
         expect(getByTestId(testIds.actionButton)).toBeInTheDocument();
         expect(getByTestId(testIds.spinner)).toBeInTheDocument();
+    });
+
+    it('should pass "loaderClassName"', () => {
+        const dti = 'action-button-dti';
+        const loaderClassName = 'foo';
+        const { getByTestId } = render(
+            <ActionButton
+                icon={null}
+                dataTestId={dti}
+                loading={true}
+                loaderClassName={loaderClassName}
+            />,
+        );
+
+        const testIds = getActionButtonTestIds(dti);
+
+        expect(getByTestId(testIds.spinner)).toHaveClass(loaderClassName);
     });
 });

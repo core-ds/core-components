@@ -56,6 +56,8 @@ const [initialProjectOptions] = [
         moduleNameMapper: {
             ...pathsToModuleNameMapper(tsconfig.compilerOptions.paths, { prefix: '<rootDir>/' }),
             '^.+\\.css$': 'identity-obj-proxy',
+            // TODO remove test
+            'postcss-each': path.join(import.meta.dirname, 'tools/postcss/postcss-each.cjs'),
         },
         testPathIgnorePatterns: IGNORED_PACKAGES.map((pkg) => {
             const relativeDir = path.relative(import.meta.dirname, resolveInternal(pkg));

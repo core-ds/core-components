@@ -1,0 +1,17 @@
+@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '../../vars.css';
+
+.component {
+    margin: unset;
+    padding: unset;
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+    user-select: none;
+    appearance: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box; /* same as button's default */
+}

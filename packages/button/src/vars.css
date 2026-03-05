@@ -1,6 +1,9 @@
 @import '@alfalab/core-components-vars/src/no-typography-index.css';
 
 :root {
+    /* misc */
+    --button-border-width: 1px;
+
     /* border-radius desktop */
     --button-xxs-size-border-radius: var(--border-radius-8);
     --button-xs-size-border-radius: var(--border-radius-10);
