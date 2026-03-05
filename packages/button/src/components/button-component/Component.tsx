@@ -9,7 +9,7 @@ import { type ButtonComponentProps } from '../base-button-candidate';
 import styles from './index.module.css';
 
 function isAnchorProps(props: ButtonComponentProps): props is AnchorHTMLAttributes<HTMLElement> {
-    return hasOwnProperty(props, 'href') && typeof props.href === 'string';
+    return hasOwnProperty(props, 'href') && Boolean(props.href);
 }
 
 export const ButtonComponent = forwardRef<HTMLElement, ButtonComponentProps>(

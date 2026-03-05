@@ -1,0 +1,16 @@
+@import '@alfalab/core-components-button/src/vars.css';
+
+.component {
+    /* prettier-ignore */
+    @each $size, $border-radius in
+        (32, --button-xxs-size-border-radius),
+        (40, --button-xs-size-border-radius),
+        (48, --button-s-size-border-radius),
+        (56, --button-m-size-border-radius),
+        (64, --button-l-size-border-radius),
+        (72, --button-xl-size-border-radius) {
+        &.size$(size) {
+            border-radius: var($border-radius);
+        }
+    }
+}

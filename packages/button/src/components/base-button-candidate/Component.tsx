@@ -35,7 +35,7 @@ export const BaseButtonCandidate = forwardRef<HTMLElement, BaseButtonCandidatePr
         const buttonRef = useRef<HTMLElement>(null);
         const [focused] = useFocus(buttonRef, 'keyboard');
         const disabled = disabledFromProps || loading;
-        const passDisabledClassName = disabled && typeof href === 'string';
+        const passDisabledClassName = disabled && Boolean(href);
 
         const handleClick: MouseEventHandler<HTMLElement> = (event) => {
             if (disabled) {

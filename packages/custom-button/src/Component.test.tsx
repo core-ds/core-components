@@ -87,14 +87,14 @@ describe('CustomButton', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should have `customButton` class as default', () => {
+        it('should have `component` class as default', () => {
             const { container } = render(<CustomButton />);
-            expect(container.firstElementChild).toHaveClass('customButton');
+            expect(container.firstElementChild).toHaveClass('component');
         });
 
         it('should have `white` class as default', () => {
             const { container } = render(<CustomButton />);
-            expect(container.firstElementChild).toHaveClass('customButton');
+            expect(container.firstElementChild).toHaveClass('white');
         });
 
         it('should have `black` class', () => {
