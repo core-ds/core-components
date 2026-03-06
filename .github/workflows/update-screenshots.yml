@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
     build-demo:
-        uses: ./.github/workflows/build-demo.yml
+        uses: core-ds/core-components/.github/workflows/build-demo.yml@master
         secrets: inherit
 
     update:
@@ -17,7 +17,7 @@ jobs:
         needs: build-demo
         if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   # used GH_TOKEN to trigger github actions on branch update
                   # GITHUB_TOKEN doesn't trigger any action
@@ -28,7 +28,7 @@ jobs:
             - uses: ./.github/actions/ci-setup
 
             - name: download build
-              uses: actions/download-artifact@v5
+              uses: actions/download-artifact@v8
               with:
                   name: build
                   path: build
