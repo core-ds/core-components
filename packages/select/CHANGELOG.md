@@ -1,5 +1,39 @@
 # @alfalab/core-components-select
 
+## 19.1.1
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2101](https://github.com/core-ds/core-components/pull/2101)
+
+##### Select
+
+- Исправлена расчитываемая высота `OptionsList`
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-bottom-sheet@8.1.2
+    - @alfalab/core-components-form-control@14.0.4
+    - @alfalab/core-components-base-modal@7.1.2
+    - @alfalab/core-components-scrollbar@5.0.2
+    - @alfalab/core-components-checkbox@6.1.1
+    - @alfalab/core-components-skeleton@7.0.2
+    - @alfalab/core-components-popover@8.0.3
+    - @alfalab/core-components-button@13.1.1
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-input@17.1.3
+    - @alfalab/core-components-modal@11.0.5
+    - @alfalab/core-components-mq@6.0.3
+
 ## 19.1.0
 
 ### Minor Changes

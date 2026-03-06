@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-notification",
-    "version": "9.0.3",
+    "version": "9.0.4",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -11,9 +11,9 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-portal": "^5.0.1",
-        "@alfalab/core-components-shared": "^2.1.0",
+        "@alfalab/core-components-shared": "^2.1.1",
         "@alfalab/core-components-stack": "^7.0.1",
-        "@alfalab/core-components-toast-plate": "^9.0.3",
+        "@alfalab/core-components-toast-plate": "^9.0.4",
         "classnames": "^2.5.1",
         "element-closest": "^3.0.2",
         "react-merge-refs": "^1.1.0",
@@ -30,5 +30,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.0.2",
-    "varsVersion": "11.0.1"
+    "varsVersion": "11.0.2"
 }

@@ -1,5 +1,23 @@
 # @alfalab/core-components-number-input
 
+## 4.0.5
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@8.0.4
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-input@17.1.3
+    - @alfalab/core-components-mq@6.0.3
+
 ## 4.0.4
 
 ### Patch Changes

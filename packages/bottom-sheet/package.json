@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-bottom-sheet",
-    "version": "8.1.1",
+    "version": "8.1.2",
     "description": "Bottom sheet mobile component",
     "keywords": [],
     "license": "MIT",
@@ -10,10 +10,10 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-backdrop": "^5.0.1",
-        "@alfalab/core-components-base-modal": "^7.1.1",
-        "@alfalab/core-components-navigation-bar-private": "^2.0.4",
-        "@alfalab/core-components-shared": "^2.1.0",
+        "@alfalab/core-components-backdrop": "^5.0.2",
+        "@alfalab/core-components-base-modal": "^7.1.2",
+        "@alfalab/core-components-navigation-bar-private": "^2.0.5",
+        "@alfalab/core-components-shared": "^2.1.1",
         "@alfalab/core-components-types": "^2.0.1",
         "classnames": "^2.5.1",
         "react-div-100vh": "^0.7.0",
@@ -32,5 +32,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.0.2",
-    "varsVersion": "11.0.1"
+    "varsVersion": "11.0.2"
 }

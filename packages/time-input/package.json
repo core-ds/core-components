@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-time-input",
-    "version": "4.0.4",
+    "version": "4.0.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-input": "^17.1.2",
+        "@alfalab/core-components-input": "^17.1.3",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
@@ -22,5 +22,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.0.2",
-    "varsVersion": "11.0.1"
+    "varsVersion": "11.0.2"
 }

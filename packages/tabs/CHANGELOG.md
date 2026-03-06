@@ -1,5 +1,26 @@
 # @alfalab/core-components-tabs
 
+## 10.0.8
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-picker-button@13.0.8
+    - @alfalab/core-components-icon-button@8.0.4
+    - @alfalab/core-components-skeleton@7.0.2
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-badge@7.0.2
+    - @alfalab/core-components-tag@10.0.3
+    - @alfalab/core-components-mq@6.0.3
+
 ## 10.0.7
 
 ### Patch Changes

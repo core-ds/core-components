@@ -1,5 +1,24 @@
 # @alfalab/core-components-pure-cell
 
+## 6.0.4
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.3
+    - @alfalab/core-components-comment@4.0.3
+    - @alfalab/core-components-amount@5.1.1
+    - @alfalab/core-components-button@13.1.1
+    - @alfalab/core-components-shared@2.1.1
+
 ## 6.0.3
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # @alfalab/core-components-password-input
 
+## 7.0.5
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@8.0.4
+    - @alfalab/core-components-input@17.1.3
+
 ## 7.0.4
 
 ### Patch Changes

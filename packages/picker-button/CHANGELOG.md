@@ -1,5 +1,23 @@
 # @alfalab/core-components-picker-button
 
+## 13.0.8
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@19.1.1
+    - @alfalab/core-components-popover@8.0.3
+    - @alfalab/core-components-button@13.1.1
+    - @alfalab/core-components-mq@6.0.3
+
 ## 13.0.7
 
 ### Patch Changes
