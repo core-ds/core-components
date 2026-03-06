@@ -106,8 +106,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         ref,
     ) => {
         const { disabled, readOnly } = restProps;
-        const minorityRef = useRef(minority);
-        const emitInputRejectRef = useRef(true);
+        const dispatchInputRejectRef = useRef(false);
         const [fieldClassName, setFieldClassName] = useState<string>();
         const inputRef = useRef<HTMLInputElement>(null);
         const uncontrolled = valueFromProps === undefined;
@@ -185,25 +184,16 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         numberParams,
                     );
 
-                    const emitInputReject = emitInputRejectRef.current;
-
-                    if (!emitInputReject) {
-                        emitInputRejectRef.current = true;
-                    }
+                    const dispatchInputReject = dispatchInputRejectRef.current;
 
                     setInputValue(nextInputValue);
 
-                    if (
-                        emitInputReject &&
-                        // reject if the same minority
-                        minorityRef.current === minority
-                    ) {
+                    if (dispatchInputReject) {
                         dispatchInputRejectEvent(inputRef.current);
                     }
                 }
             }
-
-            minorityRef.current = minority;
+            dispatchInputRejectRef.current = false;
         }, [inputValue, integerLength, integersOnly, minority, numberParams, numberValue]);
 
         // this effect watches `numberValue` change
@@ -251,6 +241,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
             const { value } = event.target;
 
+            dispatchInputRejectRef.current = true;
+
             setInputValue(value);
 
             if (isInputValueCorrect(value, numberParams)) {
@@ -278,8 +270,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         };
 
         const handleClear: MouseEventHandler<HTMLButtonElement> = (event) => {
-            emitInputRejectRef.current = false;
-
             onClear?.(event);
 
             if (uncontrolled) {
@@ -291,8 +281,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             if (stepper?.step) {
                 const value = numberValueOrZero - stepper.step;
                 const valueString = stringifyNumber(value, numberParams);
-
-                emitInputRejectRef.current = false;
 
                 onChange?.(null, {
                     value,
@@ -309,8 +297,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             if (stepper?.step) {
                 const value = numberValueOrZero + stepper.step;
                 const valueString = stringifyNumber(value, numberParams);
-
-                emitInputRejectRef.current = false;
 
                 onChange?.(null, {
                     value,
