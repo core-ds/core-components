@@ -36,6 +36,8 @@ jobs:
                   fi
 
             - uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: run build
               env:

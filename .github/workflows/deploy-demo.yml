@@ -21,23 +21,59 @@ on:
                 required: false
                 type: string
                 default: build
+            repository:
+                description: Repository
+                required: false
+                type: string
+                default: ${{ github.repository }}
 
 defaults:
     run:
         shell: bash
 
 jobs:
-    deploy:
-        name: deploy
+    repository:
         runs-on: ubuntu-latest
         outputs:
-            url: ${{ steps.url.outputs.result }}
+            owner: ${{ steps.repository.outputs.owner }}
+            repo: ${{ steps.repository.outputs.repo }}
+            full-name: ${{ steps.repository.outputs.result }}
         steps:
+            - id: repository
+              uses: actions/github-script@v8
+              with:
+                  result-encoding: string
+                  script: |
+                      const repository = '${{ inputs.repository }}';
+                      const [owner, repo] = repository.split('/');
+
+                      core.setOutput('owner', owner);
+                      core.setOutput('repo', repo);
+
+                      return repository;
+
+    deploy:
+        name: deploy
+        needs: repository
+        runs-on: ubuntu-latest
+        outputs:
+            url: 'https://${{ needs.repository.outputs.owner }}.github.io/${{ needs.repository.outputs.repo }}/${{ inputs.directory }}'
+        steps:
+            - name: generate app token
+              id: generate-token
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ vars.APP_ID }}
+                  private-key: ${{ secrets.APP_PRIVATE_KEY }}
+                  owner: ${{ needs.repository.outputs.owner }}
+                  repositories: ${{ needs.repository.outputs.repo }}
+
             - uses: actions/checkout@v6
               with:
+                  repository: ${{ needs.repository.outputs.full-name }}
+                  token: ${{ steps.generate-token.outputs.token }}
                   ref: gh-pages
                   lfs: true
-                  token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: clean up
               run: |
@@ -46,8 +82,8 @@ jobs:
             - name: download build
               uses: actions/download-artifact@v8
               with:
-                  name: ${{ inputs.artifact-name }}
-                  path: ${{ inputs.directory }}
+                  name: '${{ inputs.artifact-name }}'
+                  path: '${{ inputs.directory }}'
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   run-id: ${{ inputs.run-id }}
 
@@ -61,38 +97,40 @@ jobs:
               with:
                   message: 'Deploy to GitHub Pages'
 
-            - name: demo url
-              id: url
-              uses: actions/github-script@v8
-              with:
-                  result-encoding: string
-                  script: |
-                      const { owner, repo } = context.repo;
-
-                      return `https://${owner}.github.io/${repo}/${{ inputs.directory }}`;
-
     pull-request:
+        needs: repository
         name: find pull request
         runs-on: ubuntu-latest
         outputs:
-            number: ${{ steps.pull-request.outputs.number }}
+            number: ${{ steps.pull-request.outputs.result }}
         steps:
-            - name: find pull request
-              uses: jwalton/gh-find-current-pr@v1
+            - name: find open pull request
               id: pull-request
+              uses: actions/github-script@v8
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
+                  result-encoding: string
+                  script: |
+                      const { data } = await octokit.rest.repos.listPullRequestsAssociatedWithCommit({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          commit_sha: context.sha,
+                      });
+                      const pr = data.find((p) => `refs/heads/${p.head.ref}` === context.ref) ?? data[0];
+
+                      return pr?.number ?? '';
 
     comment:
         name: comment
         runs-on: ubuntu-latest
-        needs: [deploy, pull-request]
+        needs: [deploy, pull-request, repository]
         if: ${{ needs.pull-request.outputs.number != '' }}
         steps:
             - name: find comment
               uses: peter-evans/find-comment@v4
               id: comment
               with:
+                  repository: ${{ needs.repository.outputs.full-name }}
                   token: ${{ secrets.GITHUB_TOKEN }}
                   issue-number: ${{ needs.pull-request.outputs.number }}
                   comment-author: 'github-actions[bot]'
@@ -101,6 +139,7 @@ jobs:
             - name: create or update comment
               uses: peter-evans/create-or-update-comment@v5
               with:
+                  repository: ${{ needs.repository.outputs.full-name }}
                   token: ${{ secrets.GITHUB_TOKEN }}
                   comment-id: ${{ steps.comment.outputs.comment-id }}
                   issue-number: ${{ needs.pull-request.outputs.number }}

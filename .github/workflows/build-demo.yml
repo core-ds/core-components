@@ -77,9 +77,9 @@ jobs:
                       return await getRunId();
 
     build-demo:
+        name: build demo
         needs: artifact
         if: ${{ needs.artifact.outputs.workflow_run_id == github.run_id }}
-        name: build demo
         runs-on: ubuntu-latest
         env:
             CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
@@ -98,6 +98,8 @@ jobs:
                   fi
 
             - uses: core-ds/core-components/.github/actions/ci-setup@master
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: build demo
               env:

@@ -41,6 +41,8 @@ jobs:
                   fi
 
             - uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: run build
               run: yarn build
@@ -67,6 +69,8 @@ jobs:
                   fi
 
             - uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: check package.json
               run: |
@@ -104,11 +108,12 @@ jobs:
                   fi
 
             - uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: setup timezone
-              uses: zcong1993/setup-timezone@master
-              with:
-                  timezone: Europe/Moscow
+              run: |
+                  sudo timedatectl set-timezone 'Europe/Moscow'
 
             - name: build themes
               run: |
@@ -130,6 +135,8 @@ jobs:
             - uses: actions/checkout@v6
 
             - uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: run codemod test
               run: |
@@ -153,6 +160,7 @@ jobs:
         secrets: inherit
         with:
             directory: ${{ case(github.event_name == 'pull_request', github.event.pull_request.number, github.ref_name) }}
+            repository: ${{ case(github.event_name == 'pull_request', github.event.pull_request.head.repo.full_name, github.repository) }}
 
     screenshot-test:
         needs: demo

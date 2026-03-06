@@ -12,6 +12,11 @@ on:
                 description: Directory deploy to
                 required: false
                 type: string
+            repository:
+                description: Repository
+                required: false
+                type: string
+                default: ${{ github.repository }}
         outputs:
             run-id:
                 description: Artifact workflow run id
