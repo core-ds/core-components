@@ -28,7 +28,7 @@ on:
                 type: string
 
 concurrency:
-    group: ${{ case(github.event_name == 'workflow_dispatch', github.workflow, 'demo') }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
+    group: demo-${{ case(inputs.version == '', github.ref, inputs.version) }}
     cancel-in-progress: true
 
 defaults:

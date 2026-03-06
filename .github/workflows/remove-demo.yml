@@ -3,6 +3,12 @@ name: remove-demo
 on:
     pull_request:
         types: [closed]
+    workflow_call:
+        inputs:
+            directory:
+                description: Directory or list of directories separated by comma
+                required: true
+                type: string
     workflow_dispatch:
         inputs:
             directory:
@@ -16,7 +22,7 @@ on:
                 default: false
 
 concurrency:
-    group: ${{ github.workflow }}-${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}
+    group: remove-demo-${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}
     cancel-in-progress: false
 
 defaults:
@@ -51,7 +57,7 @@ jobs:
                           core.warning("Empty directories list");
                       }
 
-                      if ('${{ needs.variants.result }}' === 'skipped') {
+                      if ('${{ needs.variants.result }}' === 'skipped' || '${{ needs.variants.outputs.result }}' === '') {
                           return directories;
                       }
 
