@@ -4,32 +4,21 @@ on:
     workflow_dispatch:
         inputs:
             version:
-                description: Version of @alfalab/core-components package, tag or SHA
+                description: Version of @alfalab/core-components package, tag or sha
+                required: false
+                type: string
+            directory:
+                description: Directory deploy to
                 required: false
                 type: string
 
 concurrency:
-    group: ${{ github.workflow }}-${{ inputs.version || github.ref }}
+    group: demo-${{ case(inputs.version == '', github.ref, inputs.version) }}
     cancel-in-progress: true
 
 jobs:
-    params:
-        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
-        secrets: inherit
+    demo:
+        uses: core-ds/core-components/.github/workflows/demo.yml@master
         with:
             version: ${{ inputs.version }}
-
-    build-demo:
-        needs: params
-        uses: core-ds/core-components/.github/workflows/build-demo.yml@master
-        secrets: inherit
-        with:
-            ref: ${{ needs.params.outputs.ref }}
-
-    deploy:
-        needs: [build-demo, params]
-        uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
-        secrets: inherit
-        with:
-            run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: ${{ needs.params.outputs.dir }}
+            directory: ${{ inputs.directory }}

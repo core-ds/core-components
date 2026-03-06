@@ -11,7 +11,7 @@ jobs:
         name: analyze target package sizes
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   ref: ${{ github.base_ref }}
 
@@ -22,7 +22,7 @@ jobs:
               run: |
                   yarn analyze-package-sizes
 
-            - uses: actions/upload-artifact@v4
+            - uses: actions/upload-artifact@v7
               with:
                   name: target
                   path: package-sizes.json
@@ -32,7 +32,7 @@ jobs:
         name: analyze current package sizes
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - uses: ./.github/actions/ci-setup
 
@@ -41,7 +41,7 @@ jobs:
               run: |
                   yarn analyze-package-sizes
 
-            - uses: actions/upload-artifact@v4
+            - uses: actions/upload-artifact@v7
               with:
                   name: current
                   path: package-sizes.json
@@ -54,16 +54,16 @@ jobs:
         outputs:
             result: ${{ steps.compare.outputs.result }}
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
 
             - name: download target
-              uses: actions/download-artifact@v5
+              uses: actions/download-artifact@v8
               with:
                   name: target
                   path: target
 
             - name: download current
-              uses: actions/download-artifact@v5
+              uses: actions/download-artifact@v8
               with:
                   name: current
                   path: current
@@ -84,7 +84,7 @@ jobs:
         needs: compare
         steps:
             - name: find comment
-              uses: peter-evans/find-comment@v3
+              uses: peter-evans/find-comment@v4
               id: find-comment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
@@ -94,7 +94,7 @@ jobs:
 
             - name: create or update comment
               if: ${{ needs.compare.outputs.result != '' }}
-              uses: peter-evans/create-or-update-comment@v3
+              uses: peter-evans/create-or-update-comment@v5
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   comment-id: ${{ steps.find-comment.outputs.comment-id }}
