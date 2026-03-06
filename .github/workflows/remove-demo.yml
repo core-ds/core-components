@@ -9,8 +9,8 @@ on:
                 description: Directory or list of directories separated by comma
                 required: true
                 type: string
-            include-variant:
-                description: Include variant into demo directory name
+            include-variants:
+                description: Include variant name into demo directory name
                 required: false
                 type: boolean
                 default: false
@@ -24,14 +24,15 @@ defaults:
         shell: bash
 
 jobs:
-    variant:
-        if: ${{ inputs.include-variant || github.event_name == 'pull_request' }}
-        uses: core-ds/core-components/.github/workflows/variant.yml@master
+    variants:
+        if: ${{ inputs.include-variants || github.event_name == 'pull_request' }}
+        uses: ./.github/workflows/variants.yml
         secrets: inherit
 
     resolve-directory:
-        needs: variant
-        if: ${{ always() && (needs.variant.result == 'success' || needs.variant.result == 'skipped') }}
+        name: resolve directory
+        needs: variants
+        if: ${{ always() && (needs.variants.result == 'success' || needs.variants.result == 'skipped') }}
         runs-on: ubuntu-latest
         outputs:
             result: ${{ steps.resolve.outputs.result }}
@@ -50,11 +51,11 @@ jobs:
                           core.warning("Empty directories list");
                       }
 
-                      if ('${{ needs.variant.result }}' === 'skipped') {
+                      if ('${{ needs.variants.result }}' === 'skipped') {
                           return directories;
                       }
 
-                      const variants = JSON.parse('${{ needs.variant.outputs.result }}');
+                      const variants = JSON.parse('${{ needs.variants.outputs.result }}');
 
                       return directories.flatMap(({ directory }) => [{ directory }, ...variants.map(({ variant }) => ({ directory: `${directory}-${variant}` }))]);
 
@@ -85,6 +86,6 @@ jobs:
 
             - name: deploy
               if: ${{ steps.remove.outputs.result == 'true' }}
-              uses: core-ds/core-components/.github/actions/commit-and-push@master
+              uses: ./.github/actions/commit-and-push
               with:
                   message: 'Deploy to GitHub Pages'

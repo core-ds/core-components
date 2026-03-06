@@ -7,7 +7,7 @@ on:
                 description: Checkout ref
                 required: false
                 type: string
-                default: ${{ github.sha }}
+                default: ${{ github.ref }}
             variant:
                 description: Variant of core components
                 required: false

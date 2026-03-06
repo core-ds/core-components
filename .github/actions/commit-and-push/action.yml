@@ -1,5 +1,7 @@
 name: commit-and-push
 
+description: Commit and push
+
 inputs:
     message:
         description: The commit message

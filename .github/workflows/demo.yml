@@ -15,7 +15,7 @@ on:
         outputs:
             run-id:
                 description: Artifact workflow run id
-                value: ${{ jobs.build-variants-demo.outputs.run-id }}
+                value: ${{ case( jobs.variants.outputs.result == '', jobs.build-demo.outputs.run-id, jobs.build-variants-demo.outputs.run-id ) }}
     workflow_dispatch:
         inputs:
             version:
@@ -28,7 +28,7 @@ on:
                 type: string
 
 concurrency:
-    group: ${{ github.workflow }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
+    group: ${{ case(github.event_name == 'workflow_dispatch', github.workflow, 'demo') }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
     cancel-in-progress: true
 
 defaults:

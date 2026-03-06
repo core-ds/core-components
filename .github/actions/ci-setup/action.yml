@@ -1,4 +1,4 @@
-name: setup ci
+name: setup-ci
 
 description: Setup node and install dependencies
 
@@ -14,7 +14,8 @@ inputs:
 runs:
     using: composite
     steps:
-        - id: detect-node-version
+        - name: detect node version
+          id: detect-node-version
           shell: bash
           run: |
               NODE_VERSION_FILE='${{ inputs.working-directory }}/.node-version'
@@ -36,7 +37,8 @@ runs:
               node-version: ${{ steps.detect-node-version.outputs.result }}
               cache: yarn
 
-        - id: detect-yarn-version
+        - name: detect yarn version
+          id: detect-yarn-version
           uses: actions/github-script@v8
           with:
               result-encoding: string

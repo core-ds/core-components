@@ -24,7 +24,6 @@ defaults:
 
 jobs:
     variants:
-        name: Process variants config
         runs-on: ubuntu-latest
         outputs:
             result: ${{ steps.config.outputs.result }}

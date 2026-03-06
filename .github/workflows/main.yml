@@ -18,15 +18,14 @@ defaults:
         shell: bash
 
 jobs:
-    variant:
-        uses: ./.github/workflows/variant.yml
+    variants:
+        uses: ./.github/workflows/variants.yml
 
     build:
-        name: build
-        needs: [variant, patch]
+        needs: [variants, patch]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.result) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
@@ -49,11 +48,10 @@ jobs:
                   BUILD_CONCURRENCY: 4
 
     lint:
-        name: lint
-        needs: [variant, patch]
+        needs: [variants, patch]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.result) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
@@ -87,11 +85,10 @@ jobs:
                   yarn lint
 
     test:
-        name: test
-        needs: [variant, patch]
+        needs: [variants, patch]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.result) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
@@ -128,7 +125,6 @@ jobs:
                   path: '${{ github.workspace }}/coverage'
 
     codemod-test:
-        name: codemod test
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v6
@@ -152,41 +148,14 @@ jobs:
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    demo-params:
-        uses: ./.github/workflows/resolve-demo-params.yml
+    demo:
+        uses: ./.github/workflows/demo.yml
         secrets: inherit
         with:
-            directory: ${{ github.event.pull_request.number }}
-
-    build-demo:
-        needs: [variant]
-        strategy:
-            matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
-        uses: ./.github/workflows/build-demo.yml
-        secrets: inherit
-        with:
-            variant: ${{ matrix.variant }}
-            artifact-name: ${{ matrix.variant }}
-
-    deploy:
-        if: ${{ github.repository == 'core-ds/core-components' }}
-        needs: [variant, demo-params, build-demo]
-        strategy:
-            max-parallel: 1
-            matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
-        uses: ./.github/workflows/deploy-demo.yml
-        secrets: inherit
-        with:
-            run-id: ${{ needs.build-demo.outputs.run-id }}
-            directory: '${{ needs.demo-params.outputs.directory }}-${{ matrix.variant }}'
-            variant: ${{ matrix.variant }}
-            artifact-name: ${{ matrix.variant }}
+            directory: ${{ case(github.event_name == 'pull_request', github.event.pull_request.number, github.ref_name) }}
 
     screenshot-test:
-        name: screenshot test
-        needs: [build-demo]
+        needs: demo
         strategy:
             fail-fast: false
             matrix:
@@ -208,7 +177,7 @@ jobs:
                   name: ${{ matrix.variant }}
                   path: build
                   github-token: ${{ secrets.GITHUB_TOKEN }}
-                  run-id: ${{ needs.build-demo.outputs.run-id }}
+                  run-id: ${{ needs.demo.outputs.run-id }}
 
               # https://github.com/americanexpress/jest-image-snapshot/issues/281
             - name: run screenshot test
@@ -229,10 +198,10 @@ jobs:
                   if-no-files-found: ignore
 
     patch:
-        needs: [variant]
+        needs: [variants]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.result) }}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v6
@@ -249,7 +218,7 @@ jobs:
         name: ci ok
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, build-demo, test, screenshot-test, patch, codemod-test]
+        needs: [lint, build, demo, test, screenshot-test, patch, codemod-test]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:

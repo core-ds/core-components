@@ -11,15 +11,16 @@ defaults:
         shell: bash
 
 jobs:
-    variant:
-        uses: ./.github/workflows/variant.yml
+    variants:
+        name: variants
+        uses: ./.github/workflows/variants.yml
 
     search-vars:
         name: search non-existent css vars
-        needs: [variant]
+        needs: variants
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.result) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest

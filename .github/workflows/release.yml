@@ -17,7 +17,6 @@ defaults:
 
 jobs:
     release:
-        name: release
         if: ${{ github.repository == 'core-ds/core-components' }}
         runs-on: ubuntu-latest
         outputs:
@@ -47,12 +46,12 @@ jobs:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     variant:
-        uses: ./.github/workflows/variant.yml
+        uses: ./.github/workflows/variants.yml
         with:
             filter: true
 
     variant-release:
-        name: variant-release
+        name: variant release
         needs: [release, variant]
         strategy:
             matrix:
