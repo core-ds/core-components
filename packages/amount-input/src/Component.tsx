@@ -107,6 +107,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
     ) => {
         const { disabled, readOnly } = restProps;
         const minorityRef = useRef(minority);
+        const emitInputRejectRef = useRef(true);
         const [fieldClassName, setFieldClassName] = useState<string>();
         const inputRef = useRef<HTMLInputElement>(null);
         const uncontrolled = valueFromProps === undefined;
@@ -184,10 +185,19 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         numberParams,
                     );
 
+                    const emitInputReject = emitInputRejectRef.current;
+
+                    if (!emitInputReject) {
+                        emitInputRejectRef.current = true;
+                    }
+
                     setInputValue(nextInputValue);
 
-                    // reject if the same minority only
-                    if (minorityRef.current === minority) {
+                    if (
+                        emitInputReject &&
+                        // reject if the same minority
+                        minorityRef.current === minority
+                    ) {
                         dispatchInputRejectEvent(inputRef.current);
                     }
                 }
@@ -280,6 +290,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 const value = numberValueOrZero - stepper.step;
                 const valueString = stringifyNumber(value, numberParams);
 
+                emitInputRejectRef.current = false;
+
                 onChange?.(null, {
                     value,
                     valueString,
@@ -295,6 +307,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             if (stepper?.step) {
                 const value = numberValueOrZero + stepper.step;
                 const valueString = stringifyNumber(value, numberParams);
+
+                emitInputRejectRef.current = false;
 
                 onChange?.(null, {
                     value,
