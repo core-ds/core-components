@@ -20,10 +20,8 @@ const CSS_MODULE_REGEXP = /\.module\.css$/;
 const CSS_REGEXP = /\.css$/;
 
 const { packages } = getPackages();
-const varsEntryPoints = globSync('src/*index.css', {
-    cwd: resolveInternal('@alfalab/core-components-vars'),
-    absolute: true,
-});
+
+const indexCss = resolveInternal('@alfalab/core-components-vars/src/index.css', false);
 
 const storybookAddonLiveExamples = resolveInternal('storybook-addon-live-examples');
 
@@ -96,13 +94,8 @@ function modifyCssRules(config) {
                             plugin.postcssPlugin === 'postcss-import'
                                 ? postcssImport({
                                       warnOnEmpty: false,
-                                      load: (filename) => {
-                                          const isEntryPoint = varsEntryPoints.some((entryPoint) =>
-                                              isSamePath(entryPoint, filename),
-                                          );
-
-                                          return isEntryPoint ? '' : loadCss(filename);
-                                      },
+                                      load: (filename) =>
+                                          isSamePath(indexCss, filename) ? '' : loadCss(filename),
                                   })
                                 : plugin,
                         ),

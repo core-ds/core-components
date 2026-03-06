@@ -1586,7 +1586,6 @@ __metadata:
     postcss-color-mod-function: "npm:^4.1.1"
     postcss-custom-media: "npm:^8.0.2"
     postcss-custom-properties: "npm:^12.1.10"
-    postcss-each: "npm:^1.1.0"
     postcss-export-custom-variables: "npm:^1.0.0"
     postcss-for: "npm:^2.1.1"
     postcss-import: "npm:^16.1.1"
@@ -1594,6 +1593,7 @@ __metadata:
     postcss-mixins: "npm:^7.0.3"
     postcss-modules: "npm:^6.0.1"
     postcss-preset-env: "npm:^7.8.3"
+    postcss-simple-vars: "npm:^7.0.1"
     prettier: "npm:~3.6.2"
     querystring-es3: "npm:^0.2.1"
     raw-loader: "npm:^4.0.1"
@@ -14392,24 +14392,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001541, caniuse-lite@npm:^1.0.30001688":
-  version: 1.0.30001717
-  resolution: "caniuse-lite@npm:1.0.30001717"
-  checksum: 10c0/6c0bb1e5182fd578ebe97ee2203250849754a4e17d985839fab527ad27e125a4c4ffce3ece5505217fedf30ea0bbc17ac9f93e9ac525c0389ccba61c6e8345dc
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001702, caniuse-lite@npm:^1.0.30001716":
-  version: 1.0.30001718
-  resolution: "caniuse-lite@npm:1.0.30001718"
-  checksum: 10c0/67f9ad09bc16443e28d14f265d6e468480cd8dc1900d0d8b982222de80c699c4f2306599c3da8a3fa7139f110d4b30d49dbac78f215470f479abb6ffe141d5d3
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001737":
-  version: 1.0.30001741
-  resolution: "caniuse-lite@npm:1.0.30001741"
-  checksum: 10c0/45746f896205a61a8eeb85a32aeca243ebce640cd6eb80d04949d9389a13f4659c737860300d7b988057599f0958c55eeab74ec02ce9ef137feb7d006e75fec1
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001541, caniuse-lite@npm:^1.0.30001688, caniuse-lite@npm:^1.0.30001702, caniuse-lite@npm:^1.0.30001716, caniuse-lite@npm:^1.0.30001737":
+  version: 1.0.30001776
+  resolution: "caniuse-lite@npm:1.0.30001776"
+  checksum: 10c0/d5a7624ea50548c6c4381979a2900ac451caa7ecbeafec209309da25d547ba1406355cf66d6c6d537d8532ab5a56f2bbc0bf62300a4c3f66aa6fca5954264735
   languageName: node
   linkType: hard
 
@@ -26464,17 +26450,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-each@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "postcss-each@npm:1.1.0"
-  dependencies:
-    postcss-simple-vars: "npm:^6.0.0"
-  peerDependencies:
-    postcss: ^8.0.0
-  checksum: 10c0/92a1e4a31f7f933920215104f055e2d2d6c40334ba6fd4d7aee76cc21ba034528aa1ab16316bb1d84f1f14b1d6b923f1c3541099ef7cf103b160bcc33676e009
-  languageName: node
-  linkType: hard
-
 "postcss-env-function@npm:^4.0.6":
   version: 4.0.6
   resolution: "postcss-env-function@npm:4.0.6"
@@ -27450,12 +27425,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-simple-vars@npm:^6.0.0, postcss-simple-vars@npm:^6.0.3":
+"postcss-simple-vars@npm:^6.0.3":
   version: 6.0.3
   resolution: "postcss-simple-vars@npm:6.0.3"
   peerDependencies:
     postcss: ^8.2.1
   checksum: 10c0/585e5177c9744a5cbc71aaba448dc58376be4593ba1a43832e36627242b47d8d9b2e1cf640e0cfb56679f3f5fb92586fac65bc54f5f5cfb4328b8a076bdd87cb
+  languageName: node
+  linkType: hard
+
+"postcss-simple-vars@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "postcss-simple-vars@npm:7.0.1"
+  peerDependencies:
+    postcss: ^8.2.1
+  checksum: 10c0/b59c750b2f406a18b133184144b5ffefbd21a2179c5bf5d54651269c0b6bb0110c2bbed33a9161d8b93f8a11cf7725da0a65653e7c2786c8a59f937591115a33
   languageName: node
   linkType: hard
 
