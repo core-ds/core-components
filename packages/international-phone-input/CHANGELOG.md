@@ -1,5 +1,24 @@
 # @alfalab/core-components-international-phone-input
 
+## 4.0.8
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-select@19.1.1
+    - @alfalab/core-components-input-autocomplete@14.0.8
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-input@17.1.3
+    - @alfalab/core-components-mq@6.0.3
+
 ## 4.0.7
 
 ### Patch Changes

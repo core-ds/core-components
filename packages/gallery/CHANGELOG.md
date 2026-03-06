@@ -1,5 +1,27 @@
 # @alfalab/core-components-gallery
 
+## 7.1.1
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@8.0.4
+    - @alfalab/core-components-base-modal@7.1.2
+    - @alfalab/core-components-typography@6.0.3
+    - @alfalab/core-components-icon-view@5.0.2
+    - @alfalab/core-components-spinner@6.0.3
+    - @alfalab/core-components-tooltip@9.0.7
+    - @alfalab/core-components-button@13.1.1
+    - @alfalab/core-components-mq@6.0.3
+
 ## 7.1.0
 
 ### Minor Changes

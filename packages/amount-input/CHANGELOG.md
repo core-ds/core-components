@@ -1,5 +1,31 @@
 # @alfalab/core-components-amount-input
 
+## 9.1.3
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2104](https://github.com/core-ds/core-components/pull/2104)
+
+##### AmountInput
+
+- Исправлена некорректная анимация отмены ввода
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-number-input@4.0.5
+    - @alfalab/core-components-with-suffix@6.0.5
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-input@17.1.3
+
 ## 9.1.2
 
 ### Patch Changes
