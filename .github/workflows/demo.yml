@@ -1,20 +1,31 @@
 name: demo
 
 on:
+    workflow_call:
+        inputs:
+            version:
+                description: Version of @alfalab/core-components package, tag, ref or sha
+                required: false
+                type: string
+                default: ${{ github.ref }}
+            directory:
+                description: Directory deploy to
+                required: false
+                type: string
+        outputs:
+            run-id:
+                description: Artifact workflow run id
+                value: ${{ jobs.build-variants-demo.outputs.run-id }}
     workflow_dispatch:
         inputs:
             version:
-                description: Version of @alfalab/core-components package, tag or SHA
+                description: Version of @alfalab/core-components package, tag or sha
                 required: false
                 type: string
-            variant:
-                description: Variant of core components
+            directory:
+                description: Directory deploy to
                 required: false
-                type: choice
-                default: default
-                options:
-                    - default
-                    - alfasans
+                type: string
 
 concurrency:
     group: ${{ github.workflow }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
@@ -26,34 +37,54 @@ defaults:
 
 jobs:
     params:
-        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
+        uses: ./.github/workflows/resolve-demo-params.yml
         secrets: inherit
         with:
             version: ${{ inputs.version }}
+            directory: ${{ inputs.directory }}
 
-    variant-directory:
-        needs: params
-        uses: core-ds/core-components/.github/workflows/resolve-variant-demo-directory.yml@master
-        secrets: inherit
-        with:
-            variant: ${{ inputs.variant }}
-            directory: ${{ needs.params.outputs.directory }}
+    variants:
+        uses: ./.github/workflows/variants.yml
 
-    build-demo:
-        needs: params
-        uses: core-ds/core-components/.github/workflows/build-demo.yml@master
+    build-variants-demo:
+        if: ${{ needs.variants.outputs.result != '' }}
+        needs: [params, variants]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variants.outputs.result) }}
+        uses: ./.github/workflows/build-demo.yml
         secrets: inherit
         with:
             ref: ${{ needs.params.outputs.ref }}
-            variant: ${{ inputs.variant }}
-            artifact-name: ${{ inputs.variant }}
+            variant: ${{ matrix.variant }}
+            artifact-name: ${{ matrix.variant }}
+
+    deploy-variants:
+        needs: [build-variants-demo, params, variants]
+        strategy:
+            max-parallel: 1
+            matrix:
+                include: ${{ fromJson(needs.variants.outputs.result) }}
+        uses: ./.github/workflows/deploy-demo.yml
+        secrets: inherit
+        with:
+            run-id: ${{ needs.build-variants-demo.outputs.run-id }}
+            directory: '${{ needs.params.outputs.directory }}-${{ matrix.variant }}'
+            variant: ${{ matrix.variant }}
+            artifact-name: ${{ matrix.variant }}
+
+    build-demo:
+        if: ${{ needs.variants.outputs.result == '' }}
+        needs: [params, variants]
+        uses: ./.github/workflows/build-demo.yml
+        secrets: inherit
+        with:
+            ref: ${{ needs.params.outputs.ref }}
 
     deploy:
-        needs: [build-demo, variant-directory]
-        uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
+        needs: [build-demo, params]
+        uses: ./.github/workflows/deploy-demo.yml
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            directory: ${{ needs.variant-directory.outputs.directory }}
-            variant: ${{ inputs.variant }}
-            artifact-name: ${{ inputs.variant }}
+            directory: ${{ needs.params.outputs.directory }}
