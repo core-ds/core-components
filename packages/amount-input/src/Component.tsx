@@ -278,6 +278,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         };
 
         const handleClear: MouseEventHandler<HTMLButtonElement> = (event) => {
+            emitInputRejectRef.current = false;
+
             onClear?.(event);
 
             if (uncontrolled) {
