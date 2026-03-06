@@ -1,0 +1,57 @@
+name: variants
+
+on:
+    workflow_call:
+        inputs:
+            ref:
+                description: Checkout ref
+                required: false
+                type: string
+                default: ${{ github.ref }}
+            filter:
+                description: Filter variants
+                required: false
+                type: boolean
+                default: false
+        outputs:
+            result:
+                description: Variants of core-components as JSON string. Might be an empty string indicating variants are not found
+                value: ${{ jobs.variants.outputs.result }}
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    variants:
+        name: Process variants config
+        runs-on: ubuntu-latest
+        outputs:
+            result: ${{ steps.config.outputs.result }}
+        steps:
+            - uses: actions/checkout@v6
+              with:
+                  ref: ${{ inputs.ref }}
+
+            - id: config
+              uses: actions/github-script@v8
+              with:
+                  result-encoding: string
+                  script: |
+                      const fs = require('node:fs');
+                      const file = '${{ github.workspace }}/variants/config.json';
+
+                      if (fs.existsSync(file)) {
+                          const content = fs.readFileSync(file, { encoding: 'utf8' });
+                          const config = JSON.parse(content);
+
+                          return JSON.stringify(
+                              '${{ inputs.filter }}' === 'true'
+                                  ? config.filter(({ variant }) => variant !== 'default')
+                                  : config,
+                          );
+                      }
+
+                      core.warning('Variants config in not found.');
+
+                      return '';
