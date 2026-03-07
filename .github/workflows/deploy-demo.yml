@@ -21,11 +21,15 @@ on:
                 required: false
                 type: string
                 default: build
-            repository:
+            deploy-repository:
                 description: Repository
                 required: false
                 type: string
                 default: ${{ github.repository }}
+            sha:
+                description: The SHA of the commit
+                type: string
+                required: false
 
 defaults:
     run:
@@ -44,7 +48,7 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      const repository = '${{ inputs.repository }}';
+                      const repository = '${{ inputs.deploy-repository }}';
                       const [owner, repo] = repository.split('/');
 
                       core.setOutput('owner', owner);
@@ -97,55 +101,47 @@ jobs:
               with:
                   message: 'Deploy to GitHub Pages'
 
-    pull-request:
-        needs: repository
+    pull-requests:
         name: find pull request
         runs-on: ubuntu-latest
         outputs:
-            number: ${{ steps.pull-request.outputs.result }}
+            json: ${{ steps.pull-requests.outputs.json }}
+            empty: ${{ steps.pull-requests.outputs.empty }}
         steps:
-            - name: find open pull request
-              id: pull-request
-              uses: actions/github-script@v8
+            - name: find pull request
+              uses: core-ds/core-components/.github/actions/find-open-pull-requests@master
+              id: pull-requests
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
-                  result-encoding: string
-                  script: |
-                      const { data } = await octokit.rest.repos.listPullRequestsAssociatedWithCommit({
-                          owner: context.repo.owner,
-                          repo: context.repo.repo,
-                          commit_sha: context.sha,
-                      });
-                      const pr = data.find((p) => `refs/heads/${p.head.ref}` === context.ref) ?? data[0];
-
-                      return pr?.number ?? '';
+                  sha: ${{ inputs.sha }}
 
     comment:
-        name: comment
         runs-on: ubuntu-latest
-        needs: [deploy, pull-request, repository]
-        if: ${{ needs.pull-request.outputs.number != '' }}
+        needs: [deploy, pull-requests]
+        if: ${{ needs.pull-requests.outputs.empty == 'false' }}
+        strategy:
+            fail-fast: false
+            matrix:
+                pull-request-number: ${{ fromJson(needs.pull-requests.outputs.json) }}
         steps:
             - name: find comment
-              uses: peter-evans/find-comment@v4
+              uses: peter-evans/find-comment@b30e6a3c0ed37e7c023ccd3f1db5c6c0b0c23aad # v4
               id: comment
               with:
-                  repository: ${{ needs.repository.outputs.full-name }}
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  issue-number: ${{ needs.pull-request.outputs.number }}
+                  issue-number: ${{ matrix.pull-request-number }}
                   comment-author: 'github-actions[bot]'
                   body-includes: Demo build (${{ inputs.variant }})
 
             - name: create or update comment
-              uses: peter-evans/create-or-update-comment@v5
+              uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5
               with:
-                  repository: ${{ needs.repository.outputs.full-name }}
                   token: ${{ secrets.GITHUB_TOKEN }}
                   comment-id: ${{ steps.comment.outputs.comment-id }}
-                  issue-number: ${{ needs.pull-request.outputs.number }}
+                  issue-number: ${{ matrix.pull-request-number }}
                   body: |
                       ## Demo build (${{ inputs.variant }})
 
-                      [${{ needs.deploy.outputs.url }}](${{ needs.deploy.outputs.url }})
+                      ${{ format('[{0}]({0})', needs.deploy.outputs.url ) }}
                   reactions: rocket
                   edit-mode: replace

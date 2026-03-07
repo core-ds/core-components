@@ -25,7 +25,7 @@ jobs:
         needs: [variants, patch]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variants.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.json) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
         needs: [variants, patch]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variants.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.json) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
@@ -92,7 +92,7 @@ jobs:
         needs: [variants, patch]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variants.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.json) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
@@ -160,7 +160,7 @@ jobs:
         secrets: inherit
         with:
             directory: ${{ case(github.event_name == 'pull_request', github.event.pull_request.number, github.ref_name) }}
-            repository: ${{ case(github.event_name == 'pull_request', github.event.pull_request.head.repo.full_name, github.repository) }}
+            deploy-repository: ${{ github.event.pull_request.head.repo.full_name }}
 
     screenshot-test:
         needs: demo
@@ -209,7 +209,7 @@ jobs:
         needs: [variants]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variants.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.json) }}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v6

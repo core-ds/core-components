@@ -57,11 +57,11 @@ jobs:
                           core.warning("Empty directories list");
                       }
 
-                      if ('${{ needs.variants.result }}' === 'skipped' || '${{ needs.variants.outputs.result }}' === '') {
+                      if ('${{ needs.variants.result }}' === 'skipped' || '${{ needs.variants.outputs.empty }}' === 'true') {
                           return directories;
                       }
 
-                      const variants = JSON.parse('${{ needs.variants.outputs.result }}');
+                      const variants = JSON.parse('${{ needs.variants.outputs.json }}');
 
                       return directories.flatMap(({ directory }) => [{ directory }, ...variants.map(({ variant }) => ({ directory: `${directory}-${variant}` }))]);
 

@@ -21,7 +21,7 @@ on:
         outputs:
             run-id:
                 description: Artifact workflow run id
-                value: ${{ jobs.artifact.outputs.workflow_run_id }}
+                value: ${{ jobs.artifact.outputs.run_id }}
 
 defaults:
     run:
@@ -32,7 +32,7 @@ jobs:
         name: find artifact
         runs-on: ubuntu-latest
         outputs:
-            workflow_run_id: ${{ steps.find.outputs.result }}
+            run_id: ${{ steps.find.outputs.result }}
         steps:
             - uses: actions/checkout@v6
               with:
@@ -79,7 +79,7 @@ jobs:
     build-demo:
         name: build demo
         needs: artifact
-        if: ${{ needs.artifact.outputs.workflow_run_id == github.run_id }}
+        if: ${{ needs.artifact.outputs.run_id == github.run_id }}
         runs-on: ubuntu-latest
         env:
             CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}

@@ -50,3 +50,48 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    pull-requests:
+        name: find pull request
+        runs-on: ubuntu-latest
+        outputs:
+            json: ${{ steps.pull-requests.outputs.json }}
+            empty: ${{ steps.pull-requests.outputs.empty }}
+        steps:
+            - name: find pull request
+              uses: core-ds/core-components/.github/actions/find-open-pull-requests@master
+              id: pull-requests
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    comment:
+        needs: [snapshot-release, pull-requests]
+        if: ${{ needs.snapshot-release.outputs.published == 'true' && needs.pull-requests.outputs.empty == 'false' }}
+        strategy:
+            fail-fast: false
+            matrix:
+                pull-request-number: ${{ fromJson(needs.pull-requests.outputs.json) }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: prepare comment
+              id: prepare-comment
+              uses: actions/github-script@v8
+              with:
+                  result-encoding: string
+                  script: |
+                      return JSON.parse('${{ needs.snapshot-release.outputs.published-packages }}')
+                          .map(({ name, version }, index) => `${index + 1}. \`${name}@${version}\``)
+                          .join('\n\n');
+
+            - name: create comment
+              uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-number: ${{ matrix.pull-request-number }}
+                  body: |
+                      ## Snapshot release (${{ inputs.variant }})
+
+                      Successfully released the following packages:
+
+                      ${{ steps.prepare-comment.outputs.result }}
+                  reactions: rocket

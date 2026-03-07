@@ -55,14 +55,14 @@ jobs:
     variant:
         uses: ./.github/workflows/variants.yml
         with:
-            filter: true
+            include-default: false
 
     variant-release:
         name: variant release
         needs: [release, variant]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variant.outputs.json) }}
         if: ${{ needs.release.outputs.published == 'true' }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
