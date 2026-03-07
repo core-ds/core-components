@@ -9,10 +9,10 @@ on:
                 type: string
                 default: ${{ github.ref }}
             include-default:
-                description: Filter variants
+                description: Whether include default variant of core-components
                 required: false
                 type: boolean
-                default: false
+                default: true
         outputs:
             json:
                 description: An array of variants of core-components as JSON string

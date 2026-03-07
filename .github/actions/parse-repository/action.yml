@@ -1,0 +1,35 @@
+name: parse-repository
+
+description: Parse repository full name
+
+inputs:
+    repository:
+        description: Repository full name e.g. `core-ds/core-components`
+        required: true
+
+outputs:
+    owner:
+        description: Repository owner e.g. `core-ds/core-components` -> `core-ds`
+        value: ${{ steps.parse.outputs.owner }}
+    repo:
+        description: Repository name e.g. `core-ds/core-components` -> `core-components`
+        value: ${{ steps.parse.outputs.repo }}
+    full-name:
+        description: Repository full name. Same as inputs.repository
+        value: ${{ steps.parse.outputs.result }}
+
+runs:
+    using: composite
+    steps:
+        - id: parse
+          uses: actions/github-script@v8
+          with:
+              result-encoding: string
+              script: |
+                  const repository = '${{ inputs.repository }}';
+                  const [owner, repo] = repository.split('/');
+
+                  core.setOutput('owner', owner);
+                  core.setOutput('repo', repo);
+
+                  return repository;

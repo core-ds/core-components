@@ -67,15 +67,30 @@ jobs:
 
     remove-demo:
         name: remove demo
-        needs: [resolve-directory]
+        needs: resolve-directory
         runs-on: ubuntu-latest
-        if: ${{ github.repository == 'core-ds/core-components' && always() && needs.resolve-directory.result == 'success' }}
+        if: ${{ always() && needs.resolve-directory.result == 'success' }}
         steps:
+            - id: repository
+              uses: core-ds/core-components/.github/actions/parse-repository@master
+              with:
+                  repository: ${{ case(github.event_name == 'pull_request', github.event.pull_request.head.repo.full_name, github.repository) }}
+
+            - name: generate app token
+              id: generate-token
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ vars.APP_ID }}
+                  private-key: ${{ secrets.APP_PRIVATE_KEY }}
+                  owner: ${{ steps.repository.outputs.owner }}
+                  repositories: ${{ steps.repository.outputs.repo }}
+
             - uses: actions/checkout@v6
               with:
+                  repository: ${{ steps.repository.outputs.full-name }}
+                  token: ${{ steps.generate-token.outputs.token }}
                   ref: gh-pages
                   lfs: true
-                  token: ${{ secrets.GITHUB_TOKEN }}
 
             - id: remove
               uses: actions/github-script@v8

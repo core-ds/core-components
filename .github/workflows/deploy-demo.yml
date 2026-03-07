@@ -36,45 +36,29 @@ defaults:
         shell: bash
 
 jobs:
-    repository:
-        runs-on: ubuntu-latest
-        outputs:
-            owner: ${{ steps.repository.outputs.owner }}
-            repo: ${{ steps.repository.outputs.repo }}
-            full-name: ${{ steps.repository.outputs.result }}
-        steps:
-            - id: repository
-              uses: actions/github-script@v8
-              with:
-                  result-encoding: string
-                  script: |
-                      const repository = '${{ inputs.deploy-repository }}';
-                      const [owner, repo] = repository.split('/');
-
-                      core.setOutput('owner', owner);
-                      core.setOutput('repo', repo);
-
-                      return repository;
-
     deploy:
         name: deploy
-        needs: repository
         runs-on: ubuntu-latest
         outputs:
-            url: 'https://${{ needs.repository.outputs.owner }}.github.io/${{ needs.repository.outputs.repo }}/${{ inputs.directory }}'
+            url: 'https://${{ steps.repository.outputs.owner }}.github.io/${{ steps.repository.outputs.repo }}/${{ inputs.directory }}'
         steps:
+            - id: repository
+              uses: core-ds/core-components/.github/actions/parse-repository@master
+              with:
+                  repository: ${{ inputs.deploy-repository }}
+
             - name: generate app token
               id: generate-token
               uses: actions/create-github-app-token@v2
               with:
                   app-id: ${{ vars.APP_ID }}
                   private-key: ${{ secrets.APP_PRIVATE_KEY }}
-                  owner: ${{ needs.repository.outputs.owner }}
-                  repositories: ${{ needs.repository.outputs.repo }}
+                  owner: ${{ steps.repository.outputs.owner }}
+                  repositories: ${{ steps.repository.outputs.repo }}
 
             - uses: actions/checkout@v6
               with:
-                  repository: ${{ needs.repository.outputs.full-name }}
+                  repository: ${{ steps.repository.outputs.full-name }}
                   token: ${{ steps.generate-token.outputs.token }}
                   ref: gh-pages
                   lfs: true
