@@ -1,6 +1,7 @@
 import React, { type MouseEvent, useContext } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import ArrowDownLineDownCompactMIcon from '@alfalab/icons-glyph/ArrowDownLineDownCompactMIcon';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
@@ -10,6 +11,7 @@ import styles from '../../actions-control.module.css';
 export const DownloadButton = () => {
     const {
         id = '0',
+        dataTestId,
         downloadLink,
         download,
         disableButtons,
@@ -35,6 +37,7 @@ export const DownloadButton = () => {
             download={download}
             target={target}
             onClick={handleDownload}
+            dataTestId={getDataTestId(dataTestId, 'download-button')}
         />
     );
 };
