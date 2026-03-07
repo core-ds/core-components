@@ -6,7 +6,7 @@ import { CodeInputDesktop } from './desktop';
 import { CodeInputMobile } from './mobile';
 import { type BaseCodeInputProps, type CustomInputRef } from './typings';
 
-export type CodeInputProps = Omit<BaseCodeInputProps, 'stylesInput'> & {
+export interface CodeInputProps extends Omit<BaseCodeInputProps, 'stylesInput>'> {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -23,7 +23,7 @@ export type CodeInputProps = Omit<BaseCodeInputProps, 'stylesInput'> & {
      * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
-};
+}
 
 export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
     (
