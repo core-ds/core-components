@@ -1,0 +1,39 @@
+name: find-open-pull-requests
+
+description: Find open pull requests for commit
+
+inputs:
+    github-token:
+        description: The GitHub token used to authenticate with the GitHub API
+        required: true
+    sha:
+        description: The SHA of the commit
+        required: false
+
+outputs:
+    json:
+        description: An array of pull request numbers as JSON string
+        value: ${{ steps.pull-request.outputs.result }}
+    empty:
+        description: A boolean value to indicate whether an array is empty
+        value: ${{ steps.pull-request.outputs.empty }}
+
+runs:
+    using: composite
+    steps:
+        - id: pull-request
+          uses: actions/github-script@v8
+          with:
+              github-token: ${{ inputs.github-token }}
+              script: |
+                  const sha = '${{ inputs.sha }}' || '${{ github.event.pull_request.head.sha }}' || '${{ github.sha }}';
+                  const { data } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      commit_sha: sha,
+                  });
+                  const prs = data.filter((p) => p.state === 'open').map((p) => p.number);
+
+                  core.setOutput('empty', prs.length === 0);
+
+                  return prs;
