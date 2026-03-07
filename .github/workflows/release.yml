@@ -17,8 +17,12 @@ defaults:
 
 jobs:
     release:
-        name: release
         if: ${{ github.repository == 'core-ds/core-components' }}
+        permissions:
+            contents: write # to create release (changesets/action)
+            issues: write # to post issue comments (changesets/action)
+            pull-requests: write # to create pull request (changesets/action)
+            id-token: write # to use OpenID Connect token for trusted publishing (changesets/action)
         runs-on: ubuntu-latest
         outputs:
             published: ${{ steps.changesets.outputs.published }}
@@ -31,6 +35,8 @@ jobs:
                   token: ${{ secrets.GH_TOKEN }}
 
             - uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - name: create release pull request or publish to npm
               uses: changesets/action@v1
@@ -47,16 +53,16 @@ jobs:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     variant:
-        uses: ./.github/workflows/variant.yml
+        uses: ./.github/workflows/variants.yml
         with:
-            filter: true
+            include-default: false
 
     variant-release:
-        name: variant-release
+        name: variant release
         needs: [release, variant]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variant.outputs.json) }}
         if: ${{ needs.release.outputs.published == 'true' }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
@@ -73,6 +79,8 @@ jobs:
                   fi
 
             - uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
             - uses: core-ds/changesets-snapshot-release@v1
               with:

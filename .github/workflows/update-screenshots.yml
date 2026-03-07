@@ -31,9 +31,11 @@ jobs:
         name: update screenshots (${{ inputs.variant }})
         runs-on: ubuntu-latest
         needs: [build-demo]
+        if: ${{ github.repository == 'core-ds/core-components' }}
+        permissions:
+            contents: write
         env:
             CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
-        if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
             - uses: actions/checkout@v6
               with:

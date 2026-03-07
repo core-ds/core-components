@@ -1,5 +1,7 @@
 name: setup-git-user
 
+description: Setup git user
+
 inputs:
     name:
         description: The user name
@@ -13,7 +15,8 @@ inputs:
 runs:
     using: composite
     steps:
-        - shell: bash
+        - name: setup git user
+          shell: bash
           run: |
               git config user.name "${{ inputs.name }}"
               git config user.email "${{ inputs.email }}"

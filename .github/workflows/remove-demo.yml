@@ -3,20 +3,26 @@ name: remove-demo
 on:
     pull_request:
         types: [closed]
+    workflow_call:
+        inputs:
+            directory:
+                description: Directory or list of directories separated by comma
+                required: true
+                type: string
     workflow_dispatch:
         inputs:
             directory:
                 description: Directory or list of directories separated by comma
                 required: true
                 type: string
-            include-variant:
-                description: Include variant into demo directory name
+            include-variants:
+                description: Include variant name into demo directory name
                 required: false
                 type: boolean
                 default: false
 
 concurrency:
-    group: ${{ github.workflow }}-${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}
+    group: remove-demo-${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}
     cancel-in-progress: false
 
 defaults:
@@ -24,14 +30,15 @@ defaults:
         shell: bash
 
 jobs:
-    variant:
-        if: ${{ inputs.include-variant || github.event_name == 'pull_request' }}
-        uses: core-ds/core-components/.github/workflows/variant.yml@master
+    variants:
+        if: ${{ inputs.include-variants || github.event_name == 'pull_request' }}
+        uses: ./.github/workflows/variants.yml
         secrets: inherit
 
     resolve-directory:
-        needs: variant
-        if: ${{ always() && (needs.variant.result == 'success' || needs.variant.result == 'skipped') }}
+        name: resolve directory
+        needs: variants
+        if: ${{ always() && (needs.variants.result == 'success' || needs.variants.result == 'skipped') }}
         runs-on: ubuntu-latest
         outputs:
             result: ${{ steps.resolve.outputs.result }}
@@ -50,25 +57,40 @@ jobs:
                           core.warning("Empty directories list");
                       }
 
-                      if ('${{ needs.variant.result }}' === 'skipped') {
+                      if ('${{ needs.variants.result }}' === 'skipped' || '${{ needs.variants.outputs.empty }}' === 'true') {
                           return directories;
                       }
 
-                      const variants = JSON.parse('${{ needs.variant.outputs.result }}');
+                      const variants = JSON.parse('${{ needs.variants.outputs.json }}');
 
                       return directories.flatMap(({ directory }) => [{ directory }, ...variants.map(({ variant }) => ({ directory: `${directory}-${variant}` }))]);
 
     remove-demo:
         name: remove demo
-        needs: [resolve-directory]
+        needs: resolve-directory
         runs-on: ubuntu-latest
-        if: ${{ github.repository == 'core-ds/core-components' && always() && needs.resolve-directory.result == 'success' }}
+        if: ${{ always() && needs.resolve-directory.result == 'success' }}
         steps:
+            - id: repository
+              uses: core-ds/core-components/.github/actions/parse-repository@master
+              with:
+                  repository: ${{ case(github.event_name == 'pull_request', github.event.pull_request.head.repo.full_name, github.repository) }}
+
+            - name: generate app token
+              id: generate-token
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ vars.APP_ID }}
+                  private-key: ${{ secrets.APP_PRIVATE_KEY }}
+                  owner: ${{ steps.repository.outputs.owner }}
+                  repositories: ${{ steps.repository.outputs.repo }}
+
             - uses: actions/checkout@v6
               with:
+                  repository: ${{ steps.repository.outputs.full-name }}
+                  token: ${{ steps.generate-token.outputs.token }}
                   ref: gh-pages
                   lfs: true
-                  token: ${{ secrets.GITHUB_TOKEN }}
 
             - id: remove
               uses: actions/github-script@v8
@@ -85,6 +107,6 @@ jobs:
 
             - name: deploy
               if: ${{ steps.remove.outputs.result == 'true' }}
-              uses: core-ds/core-components/.github/actions/commit-and-push@master
+              uses: ./.github/actions/commit-and-push
               with:
                   message: 'Deploy to GitHub Pages'
