@@ -1,0 +1,15 @@
+name: deploy-demo-fork
+
+on:
+    workflow_run:
+        workflows: [package-sizes]
+        types: completed
+
+jobs:
+    check:
+        if: ${{github.event.workflow_run.conclusion == 'success' }}
+        runs-on: ubuntu-latest
+        steps:
+            - id: check
+              run: |
+                  echo '${{ secrets.GITHUB_TOKEN }}'
