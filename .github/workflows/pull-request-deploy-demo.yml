@@ -1,0 +1,44 @@
+name: pull-request-deploy-demo
+
+on:
+    workflow_run:
+        workflows: [main]
+        types: completed
+
+jobs:
+    pull-request:
+        if: ${{ github.event.workflow_run.event == 'pull_request' }}
+        outputs:
+            repository: ${{ steps.parse.outputs.repository }}
+            number: ${{ steps.parse.outputs.number }}
+            sha: ${{ steps.parse.outputs.sha }}
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/download-artifact@v8
+              with:
+                  name: pull-request
+                  path: pull-request
+                  run-id: ${{ github.event.workflow_run.id }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+
+            - id: parse
+              uses: actions/github-script@v8
+              with:
+                  script: |
+                      const fs = require('node:fs/promises');
+
+                      const content = await fs.readFile('pull-request/data.json', { encoding: 'utf8' });
+                      const data = JSON.parse(content);
+
+                      core.setOutput('number', data.number);
+                      core.setOutput('repository', data.head.repo.full_name);
+                      core.setOutput('sha', data.head.sha);
+
+    deploy:
+        needs: pull-request
+        if: ${{ needs.pull-request.outputs.repository != github.repository }}
+        uses: ./.github/workflows/demo.yml
+        with:
+            version: ${{ needs.pull-request.outputs.sha }}
+            directory: ${{ needs.pull-request.outputs.number }}
+            deploy-repository: ${{ needs.pull-request.outputs.repository }}
