@@ -1519,6 +1519,7 @@ __metadata:
     "@actions/core": "npm:^1.11.1"
     "@actions/exec": "npm:^1.1.1"
     "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@alfalab/icons-glyph-26": "npm:^1.1.0"
     "@alfalab/lint-preset": "npm:^1.0.0"
     "@changesets/cli": "npm:^2.29.7"
     "@changesets/get-github-info": "npm:^0.5.1"
@@ -2381,6 +2382,16 @@ __metadata:
   peerDependencies:
     react: ">=16.14.0 || >= 17.0.2 || >= 18.0.0"
   checksum: 10c0/ed6726071efcd5f635bd70cfd47f6888d12ea1ee01d4ae4a46c6460f145f7842933e3aba7e6e440d1d53609269ca1c8774f0e239908c59cc88c7df8bfdbcd14f
+  languageName: node
+  linkType: hard
+
+"@alfalab/icons-glyph-26@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@alfalab/icons-glyph-26@npm:1.1.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/9102ca27b5f92b2a72ec2a54ff11196f7c3fd3d793ac87cd886e4c1454d93d9d8bb10391077f390c8ac673daf5c030308f23cf5d8e24505050c51bca4d304dda
   languageName: node
   linkType: hard
 
