@@ -73,6 +73,26 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     contentClassName?: string;
 
     /**
+     * Доп. класс лейбла
+     */
+    labelClassName?: string;
+
+    /**
+     * Доп. класс подсказки
+     */
+    hintClassName?: string;
+
+    /**
+     * Доп. класс ошибки
+     */
+    errorClassName?: string;
+
+    /**
+     * Доп. класс дополнительного слота
+     */
+    addonsClassName?: string;
+
+    /**
      * Выравнивание
      */
     align?: Align;
@@ -145,6 +165,10 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             size = 20,
             boxClassName,
             contentClassName,
+            labelClassName,
+            hintClassName,
+            errorClassName,
+            addonsClassName,
             position = 'before',
             align = 'start',
             addons,
@@ -231,7 +255,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     <span className={cn(styles.content, contentClassName)}>
                         {label && (
                             <span
-                                className={cn(styles.label, colorStyle.label)}
+                                className={cn(styles.label, colorStyle.label, labelClassName)}
                                 data-test-id={getDataTestId(dataTestId, 'label')}
                             >
                                 {label}
@@ -240,7 +264,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 
                         {hint && !errorMessage && (
                             <span
-                                className={cn(styles.hint, colorStyle.hint)}
+                                className={cn(styles.hint, colorStyle.hint, hintClassName)}
                                 data-test-id={getDataTestId(dataTestId, 'hint')}
                             >
                                 {hint}
@@ -249,7 +273,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 
                         {errorMessage && (
                             <span
-                                className={styles.errorMessage}
+                                className={cn(styles.errorMessage, errorClassName)}
                                 role='alert'
                                 data-test-id={getDataTestId(dataTestId, 'error')}
                             >
@@ -263,7 +287,10 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 
                 {addons && (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-                    <span className={styles.addons} onClick={dom.preventDefault}>
+                    <span
+                        className={cn(styles.addons, addonsClassName)}
+                        onClick={dom.preventDefault}
+                    >
                         {addons}
                     </span>
                 )}
