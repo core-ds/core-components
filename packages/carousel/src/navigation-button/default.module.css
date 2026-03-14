@@ -1,0 +1,29 @@
+:root {
+    --carousel-button-color: var(--color-light-neutral-translucent-700);
+    --carousel-button-hover-color: var(--color-light-neutral-translucent-700-hover);
+    --carousel-button-active-color: var(--color-light-neutral-translucent-700-press);
+    --carousel-button-disabled-color: var(--color-light-neutral-translucent-300);
+    --carousel-button-border-color: var(--color-light-neutral-translucent-200);
+}
+
+.component {
+    color: var(--carousel-button-color);
+
+    .icon {
+        border: 1px solid var(--carousel-button-border-color);
+    }
+
+    &:not([disabled]) {
+        @mixin hover {
+            color: var(--carousel-button-hover-color);
+        }
+
+        &:active {
+            color: var(--carousel-button-active-color);
+        }
+    }
+
+    &[disabled] {
+        color: var(--carousel-button-disabled-color);
+    }
+}

@@ -345,6 +345,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-carousel@workspace:packages/carousel":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-carousel@workspace:packages/carousel"
+  dependencies:
+    "@alfalab/core-components-page-indicator": "npm:^3.0.3"
+    "@alfalab/core-components-shared": "npm:^2.1.1"
+    swiper: "npm:^12.1.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-cdn-icon@npm:^7.1.2, @alfalab/core-components-cdn-icon@workspace:packages/cdn-icon":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-cdn-icon@workspace:packages/cdn-icon"
@@ -31151,6 +31165,13 @@ __metadata:
     "@swc/core": ^1.2.147
     webpack: ">=2"
   checksum: 10c0/cb3f9b116fbd292b881e804a4fe66cd6d543a7de2572f5a68e067e4780ee2d59a8da87a90736ba6e8e286e4368c98214ae3486b1b872080292814e5d3062f09c
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^12.1.2":
+  version: 12.1.2
+  resolution: "swiper@npm:12.1.2"
+  checksum: 10c0/f2597a67c4d647e367a236735bb7779e2833346b332e6d7b8caf48c6b82da52787959e86f06762983ab82b142958690a0d1b9f6fc5a59170a648949b35cfedd0
   languageName: node
   linkType: hard
 

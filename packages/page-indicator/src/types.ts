@@ -1,3 +1,5 @@
+import { type ComponentPropsWithoutRef } from 'react';
+
 export interface PageIndicatorDynamicProps {
     /**
      * Индекс выбранного элемента по-умолчанию
@@ -54,7 +56,7 @@ export interface PageIndicatorDynamicProps {
     colors?: 'default' | 'inverted' | 'static' | 'static-inverted';
 }
 
-export interface PageIndicatorBulletProps {
+interface OwnPageIndicatorBulletProps {
     /**
      * Индекс выбранного элемента
      */
@@ -80,6 +82,10 @@ export interface PageIndicatorBulletProps {
      */
     colors?: 'default' | 'inverted' | 'static' | 'static-inverted';
 }
+
+export interface PageIndicatorBulletProps
+    extends OwnPageIndicatorBulletProps,
+        Omit<ComponentPropsWithoutRef<'div'>, keyof OwnPageIndicatorBulletProps> {}
 
 export interface PageIndicatorStepProps {
     /**

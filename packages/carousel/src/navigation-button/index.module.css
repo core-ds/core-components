@@ -1,0 +1,41 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+$icon-size: 40px;
+
+.component {
+    margin: unset;
+    padding: unset;
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+    user-select: none;
+    appearance: none;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+    border: unset;
+
+    &.focused {
+        @mixin focus-outline;
+    }
+
+    width: $icon-size;
+    display: flex;
+
+    .icon {
+        margin: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: calc($(icon-size) - 2px);
+        height: calc($(icon-size) - 2px);
+        border-radius: var(--border-radius-circle);
+        box-shadow: var(--shadow-s);
+    }
+
+    @mixin hover {
+        .icon {
+            box-shadow: var(--shadow-m);
+        }
+    }
+}

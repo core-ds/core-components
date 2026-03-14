@@ -27,6 +27,9 @@ export const PageIndicatorBullet: FC<PageIndicatorBulletProps> = ({
     size = 8,
     gap = 8,
     colors = 'default',
+    className,
+    style,
+    ...restProps
 }) => {
     const refs = useMemo(
         () => Array.from({ length: count }, () => createRef<HTMLLIElement>()),
@@ -39,7 +42,11 @@ export const PageIndicatorBullet: FC<PageIndicatorBulletProps> = ({
         );
 
     return (
-        <div className={cn(styles.pageIndicator, styles.bullet)} style={{ height, width }}>
+        <div
+            {...restProps}
+            className={cn(styles.pageIndicator, styles.bullet, className)}
+            style={{ ...style, height, width }}
+        >
             <ol
                 className={styles.elementsList}
                 style={{ gap, transform: `translate(${offset}px)` }}
