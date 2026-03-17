@@ -24,7 +24,7 @@
         "element-closest": "^3.0.2",
         "hls.js": "^1.5.13",
         "lodash": "^4.17.21",
-        "swiper": "^6.8.2",
+        "swiper": "^12.1.2",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
