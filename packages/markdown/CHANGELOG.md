@@ -1,5 +1,17 @@
 # @alfalab/core-components-markdown
 
+## 3.0.6
+
+### Patch Changes
+
+<sup><time>13.03.2026</time></sup>
+
+#### [#2118](https://github.com/core-ds/core-components/pull/2118)
+
+##### Markdown
+
+- Исправлено схлопывание margin для заголовков
+
 ## 3.0.5
 
 ### Patch Changes
