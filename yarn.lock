@@ -429,7 +429,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-checkbox@npm:^6.1.1, @alfalab/core-components-checkbox@workspace:packages/checkbox":
+"@alfalab/core-components-checkbox@npm:^6.2.0, @alfalab/core-components-checkbox@workspace:packages/checkbox":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-checkbox@workspace:packages/checkbox"
   dependencies:
@@ -585,14 +585,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-custom-picker-button@npm:^4.1.1, @alfalab/core-components-custom-picker-button@workspace:packages/custom-picker-button":
+"@alfalab/core-components-custom-picker-button@npm:^4.1.2, @alfalab/core-components-custom-picker-button@workspace:packages/custom-picker-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-custom-picker-button@workspace:packages/custom-picker-button"
   dependencies:
     "@alfalab/core-components-custom-button": "npm:^5.0.4"
     "@alfalab/core-components-mq": "npm:^6.0.3"
-    "@alfalab/core-components-picker-button": "npm:^13.0.8"
-    "@alfalab/core-components-select": "npm:^19.1.1"
+    "@alfalab/core-components-picker-button": "npm:^13.0.9"
+    "@alfalab/core-components-select": "npm:^19.1.2"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -907,7 +907,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-input-autocomplete@npm:^14.0.8, @alfalab/core-components-input-autocomplete@workspace:packages/input-autocomplete":
+"@alfalab/core-components-input-autocomplete@npm:^14.0.9, @alfalab/core-components-input-autocomplete@workspace:packages/input-autocomplete":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-input-autocomplete@workspace:packages/input-autocomplete"
   dependencies:
@@ -915,7 +915,7 @@ __metadata:
     "@alfalab/core-components-input": "npm:^17.1.3"
     "@alfalab/core-components-mq": "npm:^6.0.3"
     "@alfalab/core-components-popover": "npm:^8.0.3"
-    "@alfalab/core-components-select": "npm:^19.1.1"
+    "@alfalab/core-components-select": "npm:^19.1.2"
     "@alfalab/core-components-shared": "npm:^2.1.1"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.13.1"
@@ -950,14 +950,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-international-phone-input@npm:^4.0.8, @alfalab/core-components-international-phone-input@workspace:packages/international-phone-input":
+"@alfalab/core-components-international-phone-input@npm:^4.0.9, @alfalab/core-components-international-phone-input@workspace:packages/international-phone-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-international-phone-input@workspace:packages/international-phone-input"
   dependencies:
     "@alfalab/core-components-input": "npm:^17.1.3"
-    "@alfalab/core-components-input-autocomplete": "npm:^14.0.8"
+    "@alfalab/core-components-input-autocomplete": "npm:^14.0.9"
     "@alfalab/core-components-mq": "npm:^6.0.3"
-    "@alfalab/core-components-select": "npm:^19.1.1"
+    "@alfalab/core-components-select": "npm:^19.1.2"
     "@alfalab/core-components-shared": "npm:^2.1.1"
     "@alfalab/core-components-types": "npm:^2.0.1"
     "@alfalab/hooks": "npm:^1.13.1"
@@ -973,12 +973,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-intl-phone-input@npm:^11.0.8, @alfalab/core-components-intl-phone-input@workspace:packages/intl-phone-input":
+"@alfalab/core-components-intl-phone-input@npm:^11.0.9, @alfalab/core-components-intl-phone-input@workspace:packages/intl-phone-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-intl-phone-input@workspace:packages/intl-phone-input"
   dependencies:
-    "@alfalab/core-components-input-autocomplete": "npm:^14.0.8"
-    "@alfalab/core-components-select": "npm:^19.1.1"
+    "@alfalab/core-components-input-autocomplete": "npm:^14.0.9"
+    "@alfalab/core-components-select": "npm:^19.1.2"
     "@alfalab/hooks": "npm:^1.13.1"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@alfalab/utils": "npm:^1.18.0"
@@ -1338,14 +1338,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-picker-button@npm:^13.0.8, @alfalab/core-components-picker-button@workspace:packages/picker-button":
+"@alfalab/core-components-picker-button@npm:^13.0.9, @alfalab/core-components-picker-button@workspace:packages/picker-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-picker-button@workspace:packages/picker-button"
   dependencies:
     "@alfalab/core-components-button": "npm:^13.1.1"
     "@alfalab/core-components-mq": "npm:^6.0.3"
     "@alfalab/core-components-popover": "npm:^8.0.3"
-    "@alfalab/core-components-select": "npm:^19.1.1"
+    "@alfalab/core-components-select": "npm:^19.1.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1664,7 +1664,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-select-with-tags@npm:^10.1.1, @alfalab/core-components-select-with-tags@workspace:packages/select-with-tags":
+"@alfalab/core-components-select-with-tags@npm:^10.1.2, @alfalab/core-components-select-with-tags@workspace:packages/select-with-tags":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-select-with-tags@workspace:packages/select-with-tags"
   dependencies:
@@ -1673,7 +1673,7 @@ __metadata:
     "@alfalab/core-components-input": "npm:^17.1.3"
     "@alfalab/core-components-mq": "npm:^6.0.3"
     "@alfalab/core-components-popover": "npm:^8.0.3"
-    "@alfalab/core-components-select": "npm:^19.1.1"
+    "@alfalab/core-components-select": "npm:^19.1.2"
     "@alfalab/core-components-tag": "npm:^10.0.3"
     "@alfalab/hooks": "npm:^1.13.1"
     "@alfalab/icons-glyph": "npm:^2.260.0"
@@ -1686,14 +1686,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-select@npm:^19.1.1, @alfalab/core-components-select@workspace:packages/select":
+"@alfalab/core-components-select@npm:^19.1.2, @alfalab/core-components-select@workspace:packages/select":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-select@workspace:packages/select"
   dependencies:
     "@alfalab/core-components-base-modal": "npm:^7.1.2"
     "@alfalab/core-components-bottom-sheet": "npm:^8.1.2"
     "@alfalab/core-components-button": "npm:^13.1.1"
-    "@alfalab/core-components-checkbox": "npm:^6.1.1"
+    "@alfalab/core-components-checkbox": "npm:^6.2.0"
     "@alfalab/core-components-form-control": "npm:^14.0.4"
     "@alfalab/core-components-input": "npm:^17.1.3"
     "@alfalab/core-components-modal": "npm:^11.0.5"
@@ -1959,13 +1959,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-table@npm:^4.0.8, @alfalab/core-components-table@workspace:packages/table":
+"@alfalab/core-components-table@npm:^4.0.9, @alfalab/core-components-table@workspace:packages/table":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-table@workspace:packages/table"
   dependencies:
     "@alfalab/core-components-button": "npm:^13.1.1"
     "@alfalab/core-components-pagination": "npm:^4.0.3"
-    "@alfalab/core-components-select": "npm:^19.1.1"
+    "@alfalab/core-components-select": "npm:^19.1.2"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1974,7 +1974,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-tabs@npm:^10.0.8, @alfalab/core-components-tabs@workspace:packages/tabs":
+"@alfalab/core-components-tabs@npm:^10.0.9, @alfalab/core-components-tabs@workspace:packages/tabs":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-tabs@workspace:packages/tabs"
   dependencies:
@@ -1982,7 +1982,7 @@ __metadata:
     "@alfalab/core-components-icon-button": "npm:^8.0.4"
     "@alfalab/core-components-keyboard-focusable": "npm:^6.0.1"
     "@alfalab/core-components-mq": "npm:^6.0.3"
-    "@alfalab/core-components-picker-button": "npm:^13.0.8"
+    "@alfalab/core-components-picker-button": "npm:^13.0.9"
     "@alfalab/core-components-shared": "npm:^2.1.1"
     "@alfalab/core-components-skeleton": "npm:^7.0.2"
     "@alfalab/core-components-tag": "npm:^10.0.3"
@@ -2256,7 +2256,7 @@ __metadata:
     "@alfalab/core-components-card-image": "npm:^5.0.2"
     "@alfalab/core-components-cdn-icon": "npm:^7.1.2"
     "@alfalab/core-components-chart": "npm:^5.0.3"
-    "@alfalab/core-components-checkbox": "npm:^6.1.1"
+    "@alfalab/core-components-checkbox": "npm:^6.2.0"
     "@alfalab/core-components-checkbox-group": "npm:^6.0.3"
     "@alfalab/core-components-circular-progress-bar": "npm:^5.0.3"
     "@alfalab/core-components-code-input": "npm:^5.0.3"
@@ -2265,7 +2265,7 @@ __metadata:
     "@alfalab/core-components-confirmation": "npm:^15.0.4"
     "@alfalab/core-components-confirmation-v1": "npm:^3.0.4"
     "@alfalab/core-components-custom-button": "npm:^5.0.4"
-    "@alfalab/core-components-custom-picker-button": "npm:^4.1.1"
+    "@alfalab/core-components-custom-picker-button": "npm:^4.1.2"
     "@alfalab/core-components-date-input": "npm:^6.0.5"
     "@alfalab/core-components-date-range-input": "npm:^5.0.6"
     "@alfalab/core-components-date-time-input": "npm:^6.0.6"
@@ -2286,9 +2286,9 @@ __metadata:
     "@alfalab/core-components-icon-view": "npm:^5.0.2"
     "@alfalab/core-components-indicator": "npm:^4.0.2"
     "@alfalab/core-components-input": "npm:^17.1.3"
-    "@alfalab/core-components-input-autocomplete": "npm:^14.0.8"
-    "@alfalab/core-components-international-phone-input": "npm:^4.0.8"
-    "@alfalab/core-components-intl-phone-input": "npm:^11.0.8"
+    "@alfalab/core-components-input-autocomplete": "npm:^14.0.9"
+    "@alfalab/core-components-international-phone-input": "npm:^4.0.9"
+    "@alfalab/core-components-intl-phone-input": "npm:^11.0.9"
     "@alfalab/core-components-keyboard-focusable": "npm:^6.0.1"
     "@alfalab/core-components-link": "npm:^7.0.2"
     "@alfalab/core-components-list": "npm:^5.0.3"
@@ -2311,7 +2311,7 @@ __metadata:
     "@alfalab/core-components-pattern-lock": "npm:^4.0.4"
     "@alfalab/core-components-pattern-lock-v1": "npm:^3.0.4"
     "@alfalab/core-components-phone-input": "npm:^9.0.5"
-    "@alfalab/core-components-picker-button": "npm:^13.0.8"
+    "@alfalab/core-components-picker-button": "npm:^13.0.9"
     "@alfalab/core-components-plate": "npm:^9.0.4"
     "@alfalab/core-components-popover": "npm:^8.0.3"
     "@alfalab/core-components-popup-sheet": "npm:^3.0.5"
@@ -2323,8 +2323,8 @@ __metadata:
     "@alfalab/core-components-radio-group": "npm:^6.0.3"
     "@alfalab/core-components-scrollbar": "npm:^5.0.2"
     "@alfalab/core-components-segmented-control": "npm:^3.1.1"
-    "@alfalab/core-components-select": "npm:^19.1.1"
-    "@alfalab/core-components-select-with-tags": "npm:^10.1.1"
+    "@alfalab/core-components-select": "npm:^19.1.2"
+    "@alfalab/core-components-select-with-tags": "npm:^10.1.2"
     "@alfalab/core-components-shared": "npm:^2.1.1"
     "@alfalab/core-components-side-panel": "npm:^7.0.5"
     "@alfalab/core-components-skeleton": "npm:^7.0.2"
@@ -2341,8 +2341,8 @@ __metadata:
     "@alfalab/core-components-switch": "npm:^6.0.3"
     "@alfalab/core-components-system-message": "npm:^4.0.3"
     "@alfalab/core-components-tab-bar": "npm:^4.0.3"
-    "@alfalab/core-components-table": "npm:^4.0.8"
-    "@alfalab/core-components-tabs": "npm:^10.0.8"
+    "@alfalab/core-components-table": "npm:^4.0.9"
+    "@alfalab/core-components-tabs": "npm:^10.0.9"
     "@alfalab/core-components-tag": "npm:^10.0.3"
     "@alfalab/core-components-text": "npm:^3.0.2"
     "@alfalab/core-components-textarea": "npm:^10.0.4"

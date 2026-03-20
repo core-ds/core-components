@@ -1,5 +1,31 @@
 # @alfalab/core-components
 
+## 50.7.0
+
+### Minor Changes
+
+<sup><time>20.03.2026</time></sup>
+
+#### [#2119](https://github.com/core-ds/core-components/pull/2119)
+
+##### Checkbox
+
+- Добавлены пропсы `labelClassName`, `hintClassName`, `errorClassName`, `addonsClassName` для передачи дополнительных классов соответствующим элементам компонента
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-checkbox@6.2.0
+    - @alfalab/core-components-select@19.1.2
+    - @alfalab/core-components-custom-picker-button@4.1.2
+    - @alfalab/core-components-input-autocomplete@14.0.9
+    - @alfalab/core-components-international-phone-input@4.0.9
+    - @alfalab/core-components-intl-phone-input@11.0.9
+    - @alfalab/core-components-picker-button@13.0.9
+    - @alfalab/core-components-select-with-tags@10.1.2
+    - @alfalab/core-components-table@4.0.9
+    - @alfalab/core-components-tabs@10.0.9
+
 ## 50.6.2
 
 ### Patch Changes
