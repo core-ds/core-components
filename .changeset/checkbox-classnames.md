@@ -3,6 +3,6 @@
 '@alfalab/core-components-checkbox': minor
 ---
 
-### Checkbox
+##### Checkbox
 
 - Добавлены пропсы `labelClassName`, `hintClassName`, `errorClassName`, `addonsClassName` для передачи дополнительных классов соответствующим элементам компонента
