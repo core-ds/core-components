@@ -28,11 +28,9 @@ export const PageIndicatorBullet: FC<PageIndicatorBulletProps> = ({
     gap = 8,
     colors = 'default',
     className,
-    style,
-    ...restProps
 }) => {
     const refs = useMemo(
-        () => Array.from({ length: count }, () => createRef<HTMLLIElement>()),
+        () => Array.from({ length: count }, () => createRef<HTMLDivElement>()),
         [count],
     );
     const [height, width, offset, elementSize, firstVisibleElementIndex, lastVisibleElementIndex] =
@@ -43,11 +41,10 @@ export const PageIndicatorBullet: FC<PageIndicatorBulletProps> = ({
 
     return (
         <div
-            {...restProps}
             className={cn(styles.pageIndicator, styles.bullet, className)}
-            style={{ ...style, height, width }}
+            style={{ height, width }}
         >
-            <ol
+            <div
                 className={styles.elementsList}
                 style={{ gap, transform: `translate(${offset}px)` }}
             >
@@ -73,7 +70,7 @@ export const PageIndicatorBullet: FC<PageIndicatorBulletProps> = ({
                             classNames={transitionClassess}
                         >
                             {(status) => (
-                                <li
+                                <div
                                     ref={ref}
                                     data-index={index}
                                     className={cn(
@@ -88,7 +85,7 @@ export const PageIndicatorBullet: FC<PageIndicatorBulletProps> = ({
                         </CSSTransition>
                     );
                 })}
-            </ol>
+            </div>
         </div>
     );
 };

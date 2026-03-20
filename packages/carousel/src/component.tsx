@@ -1,4 +1,5 @@
 import React, {
+    type ComponentType,
     type CSSProperties,
     type FC,
     Fragment,
@@ -10,8 +11,7 @@ import cn from 'classnames';
 import { Mousewheel } from 'swiper/modules';
 import { Swiper, type SwiperClass, SwiperSlide, type SwiperSlideProps } from 'swiper/react';
 
-import { PageIndicatorBullet } from '@alfalab/core-components-page-indicator';
-import { isObject } from '@alfalab/core-components-shared';
+import { isObject, NoopComponent } from '@alfalab/core-components-shared';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 import { ArrowRightMIcon } from '@alfalab/icons-glyph/ArrowRightMIcon';
 
@@ -21,32 +21,47 @@ import styles from './index.module.css';
 
 type ItemProps = Pick<SwiperSlideProps, 'children'>;
 
-export interface CarouselProps extends Pick<CSSProperties, 'height'> {
+interface CarouselOwnProps extends Pick<CSSProperties, 'height'> {
     activeIndex?: number;
     defaultActiveIndex?: number;
     onChange?: (activeIndex: number) => void;
     gap?: number;
     visibleItems?: 'auto' | number;
     items: ItemProps[];
-    pagination?: boolean;
     navigation?: boolean | 'hover';
     colors?: 'default' | 'inverted';
 }
 
+interface BasePageIndicatorProps extends Pick<CarouselOwnProps, 'colors'> {
+    elements?: number;
+    activeElement: number;
+    className?: string;
+}
+
+export interface CarouselProps<
+    PageIndicatorProps extends BasePageIndicatorProps = BasePageIndicatorProps,
+> extends CarouselOwnProps {
+    PageIndicator?: ComponentType<PageIndicatorProps>;
+    pageIndicatorProps?: PageIndicatorProps;
+}
+
 type SwiperEventHandler = (swiper: SwiperClass) => void;
 
-export const Carousel: FC<CarouselProps> = ({
+export function Carousel<PageIndicatorProps extends BasePageIndicatorProps>({
     activeIndex,
     defaultActiveIndex = 0,
     onChange,
     visibleItems = 1,
     gap,
-    height = 'auto',
+    height,
     items,
     navigation = false,
-    pagination,
     colors = 'default',
-}) => {
+    PageIndicator = NoopComponent,
+    pageIndicatorProps = {} as PageIndicatorProps,
+}: Parameters<FC<CarouselProps<PageIndicatorProps>>>[0]): ReturnType<
+    FC<CarouselProps<PageIndicatorProps>>
+> {
     const hasNavigation = navigation !== false;
     const swiperRef = useRef<SwiperClass | null>(null);
     const [paginationState, setPaginationState] = useState(() => ({ current: 0, total: 0 }));
@@ -90,7 +105,7 @@ export const Carousel: FC<CarouselProps> = ({
         } else if (typeof swiper.snapIndex === 'number') {
             current = swiper.snapIndex;
         } else {
-            current = swiper.activeIndex || 0;
+            current = swiper.activeIndex;
         }
 
         setPaginationState({ total, current });
@@ -123,8 +138,12 @@ export const Carousel: FC<CarouselProps> = ({
                     style={{ height }}
                 >
                     {items.map((item, i) => (
-                        // eslint-disable-next-line react/no-array-index-key
-                        <SwiperSlide key={i}>{item.children}</SwiperSlide>
+                        <SwiperSlide
+                            // eslint-disable-next-line react/no-array-index-key
+                            key={i}
+                        >
+                            {item.children}
+                        </SwiperSlide>
                     ))}
                 </Swiper>
                 {hasNavigation && (
@@ -148,15 +167,13 @@ export const Carousel: FC<CarouselProps> = ({
                     </Fragment>
                 )}
             </div>
-            {pagination && (
-                <PageIndicatorBullet
-                    colors={colors}
-                    slot='container-end'
-                    className={styles.pagination}
-                    activeElement={paginationState.current}
-                    elements={paginationState.total}
-                />
-            )}
+            <PageIndicator
+                {...pageIndicatorProps}
+                colors={colors}
+                className={cn(styles.pagination, pageIndicatorProps.className)}
+                activeElement={paginationState.current}
+                elements={paginationState.total}
+            />
         </div>
     );
-};
+}

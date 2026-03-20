@@ -57,9 +57,8 @@
         backface-visibility: hidden;
     }
 
-    .wrapper {
-        position: relative;
-    }
+    display: flex;
+    flex-direction: column;
 
     &.navigation {
         .navButton {
@@ -72,11 +71,14 @@
             }
         }
     }
+
+    .pagination {
+        margin: var(--gap-8) auto;
+    }
 }
 
-.pagination {
-    margin: auto;
-    padding: var(--gap-8);
+.wrapper {
+    position: relative;
 }
 
 .navButton {

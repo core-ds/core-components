@@ -1,0 +1,31 @@
+## Анатомия
+
+TODO
+
+```jsx live
+render(() => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [slides, setSlides] = React.useState(() =>
+        Array.from({ length: 8 }, (_, i) => ({ children: <div>{`Slide ${i}`}</div> })),
+    );
+
+    return (
+        <Carousel
+            height={200}
+            gap={5}
+            visibleItems={2.4}
+            activeIndex={activeIndex}
+            onChange={setActiveIndex}
+            items={slides}
+            pagination={true}
+            navigation={true}
+            PageIndicator={PageIndicatorRunner}
+            pageIndicatorProps={{
+                onActiveElementChange: setActiveIndex,
+                cycle: true,
+                duration: 2000,
+            }}
+        />
+    );
+});
+```

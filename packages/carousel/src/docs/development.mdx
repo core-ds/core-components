@@ -1,0 +1,61 @@
+import { ArgsTabs, CssVars } from 'storybook/blocks';
+import { Plate } from '@alfalab/core-components-plate';
+import { Carousel } from '../index';
+import styles from '!!raw-loader!../index.module.css';
+
+<style>
+    {`
+    .transformer-info {
+        display: none;
+    }
+
+    html[theme='corp'] .transformer-info {
+        display: block;
+    }
+`}
+</style>
+
+<Plate view='attention' limitContentWidth={false} className='transformer-info'>
+    В приложениях Альфа-Бизнес (НИБ) компонент должен переключаться в мобильный вид при ширине
+    768px. Для этого необходимо установить свойство `breakpoint={768}`.
+
+    Воспользуйтесь трансформером `button-breakpoint-768`, чтобы добавить брейкпоинт всем кнопкам в
+    проекте. Трансформер доступен в `@alfalab/core-components-codemod`, начиная с версии `2.5.0`.
+
+    Если возникнут вопросы — свяжитесь с командой дизайн-системы Альфа-Бизнес в рокетчате
+    `#arui-private`.
+
+</Plate>
+
+## Подключение
+
+```jsx
+import { Button } from '@alfalab/core-components/button';
+import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
+import { ButtonMobile } from '@alfalab/core-components/button/mobile';
+```
+
+Из индекса импортируется responsive версия компонента.
+
+## Использование dataTestId
+
+В компоненте используется модификатор для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функцией `getButtonTestIds`.
+Импорт из `@alfalab/core-components/button/shared`.
+
+Функция возвращает объект:
+
+```jsx
+{
+    button: dataTestId,
+    spinner: `${dataTestId}-loader`,
+};
+```
+
+## Свойства
+
+<ArgsTabs components={{ Carousel }} />
+
+## Переменные
+
+<CssVars css={styles} />
