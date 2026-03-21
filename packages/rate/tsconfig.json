@@ -6,10 +6,10 @@
         "rootDir": "src",
         "outDir": "no-dist",
         "paths": {
-            "@alfalab/core-components-rate": ["./src"],
-            "@alfalab/core-components-rate/*": ["./src/*"],
             "@alfalab/core-components-mq": ["../mq/src"],
             "@alfalab/core-components-mq/*": ["../mq/src/*"],
+            "@alfalab/core-components-rate": ["./src"],
+            "@alfalab/core-components-rate/*": ["./src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
