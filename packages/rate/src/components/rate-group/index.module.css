@@ -7,19 +7,15 @@
 
 .sizeS {
     --rate-size: 16px;
-    --rate-gap: 8px;
+    gap: 8px;
 }
 
 .sizeM {
     --rate-size: 24px;
-    --rate-gap: 12px;
+    gap: 12px;
 }
 
 .sizeL {
     --rate-size: 32px;
-    --rate-gap: 16px;
-}
-
-.group {
-    gap: var(--rate-gap, 12px);
+    gap: 16px;
 }
