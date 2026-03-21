@@ -92,6 +92,7 @@ export function useRate(options: UseRateOptions): UseRateReturn {
             const newValue = calculateValue(index, isHalf, allowHalf);
 
             // Проверка на сброс при повторном клике
+            // Сбрасываем если кликнули на тот же элемент и значение не половинчатое
             if (allowClear && newValue === currentValue) {
                 const finalValue = 0;
                 if (!isControlled) {

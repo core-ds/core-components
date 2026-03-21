@@ -20,8 +20,8 @@ import Changelog from '../../CHANGELOG.md?raw';
         const readOnly = boolean('readOnly', false);
         const allowHalf = boolean('allowHalf', false);
         const allowClear = boolean('allowClear', true);
-        const character = text('character', '');
-        const tooltips = text('tooltips', '');
+        const character = text('character', '★');
+        const tooltips = text('tooltips', 'bad,ok,good,great,perfect');
 
         return (
             <Rate
@@ -33,7 +33,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                 readOnly={readOnly}
                 allowHalf={allowHalf}
                 allowClear={allowClear}
-                character={character || undefined}
+                character={character === '★' ? undefined : character}
                 tooltips={tooltips ? tooltips.split(',').map((t) => t.trim()) : undefined}
             />
         );

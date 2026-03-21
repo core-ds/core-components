@@ -28,7 +28,7 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
         ref,
     ) => {
         const { isActive, isHalfActive } = useMemo(
-            () => getItemState(index, hoverValue ?? currentValue),
+            () => getItemState(index, hoverValue !== null ? hoverValue : currentValue),
             [index, hoverValue, currentValue]
         );
 
@@ -71,6 +71,7 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
                 title={tooltip}
                 className={cn(
                     styles.container,
+                    disabled && styles.disabled,
                     isInteractive && styles.interactive,
                     (isActive || isHalfActive) && styles.active
                 )}

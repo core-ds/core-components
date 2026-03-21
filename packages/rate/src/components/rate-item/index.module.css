@@ -23,6 +23,11 @@
     color: var(--rate-color-active, #ffb400);
 }
 
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 .symbol {
     position: absolute;
     top: 0;
