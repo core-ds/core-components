@@ -1,4 +1,5 @@
 import { Rate } from '@alfalab/core-components-rate';
+import { StarCircleMIcon } from '@alfalab/icons-glyph/StarCircleMIcon';
 
 ## Базовое использование
 
@@ -33,7 +34,7 @@ render(() => <Rate allowHalf defaultValue={2.5} />);
 Использование кастомного символа вместо звезды.
 
 ```jsx live
-render(() => <Rate character='🔥' defaultValue={4} />);
+render(() => <Rate character={<StarCircleMIcon />} defaultValue={4} />);
 ```
 
 ## Подсказки

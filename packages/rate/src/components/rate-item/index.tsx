@@ -58,7 +58,22 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
             if (typeof character === 'function') {
                 return character(index);
             }
-            return character ?? '★';
+            if (character) {
+                return character;
+            }
+            return '★';
+        }, [character, index]);
+
+        const activeCharacterNode = useMemo(() => {
+            if (typeof character === 'function') {
+                return character(index);
+            }
+            if (character) {
+                return React.cloneElement(character as React.ReactElement, {
+                    className: 'icon',
+                });
+            }
+            return '★';
         }, [character, index]);
 
         return (
@@ -95,7 +110,7 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
                         isHalfActive && styles.symbolHalfActive
                     )}
                 >
-                    {characterNode}
+                    {activeCharacterNode}
                 </div>
             </div>
         );
