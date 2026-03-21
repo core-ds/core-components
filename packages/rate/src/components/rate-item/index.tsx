@@ -26,7 +26,7 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
         ref,
     ) => {
         const isActive = useMemo(
-            () => getItemState(index, hoverValue !== null ? hoverValue : currentValue),
+            () => getItemState(index, hoverValue === null ? currentValue : hoverValue),
             [index, hoverValue, currentValue],
         );
 
