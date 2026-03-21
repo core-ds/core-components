@@ -19,6 +19,8 @@
 
 .item {
     margin-right: var(--rate-gap, 12px);
+    display: flex;
+    align-items: center;
 }
 
 .item:last-child {
