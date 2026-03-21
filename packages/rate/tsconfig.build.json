@@ -7,11 +7,8 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
-            "@alfalab/core-components-mq": ["../mq/src"],
-            "@alfalab/core-components-mq/*": ["../mq/src/*"],
             "@alfalab/core-components-rate": ["./src"],
             "@alfalab/core-components-rate/*": ["./src/*"]
         }
-    },
-    "references": [{ "path": "../mq/tsconfig.build.json" }]
+    }
 }
