@@ -59,7 +59,9 @@ export const RateGroup = forwardRef<HTMLDivElement, RateGroupProps>(
                 autoFocus={autoFocus}
             >
                 {items.map((itemProps, index) => (
-                    <RateItem key={index} {...itemProps} />
+                    <div key={index} className={styles.item}>
+                        <RateItem {...itemProps} />
+                    </div>
                 ))}
             </div>
         );

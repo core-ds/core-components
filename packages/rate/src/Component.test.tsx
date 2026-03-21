@@ -129,9 +129,10 @@ describe('Rate', () => {
         const { container: m } = render(<Rate size="m" />);
         const { container: l } = render(<Rate size="l" />);
 
-        expect(s.firstChild).toHaveClass('sizeS');
-        expect(m.firstChild).toHaveClass('sizeM');
-        expect(l.firstChild).toHaveClass('sizeL');
+        // Классы размеров применяются к RateGroup внутри контейнера
+        expect(s.querySelector('[role="radiogroup"]')).toHaveClass('sizeS');
+        expect(m.querySelector('[role="radiogroup"]')).toHaveClass('sizeM');
+        expect(l.querySelector('[role="radiogroup"]')).toHaveClass('sizeL');
     });
 
     it('should support keyboard navigation', () => {

@@ -7,15 +7,32 @@
 
 .sizeS {
     --rate-size: 16px;
-    gap: 8px;
 }
 
 .sizeM {
     --rate-size: 24px;
-    gap: 12px;
 }
 
 .sizeL {
     --rate-size: 32px;
-    gap: 16px;
+}
+
+.item {
+    margin-right: var(--rate-gap, 12px);
+}
+
+.item:last-child {
+    margin-right: 0;
+}
+
+.sizeS .item {
+    margin-right: 8px;
+}
+
+.sizeM .item {
+    margin-right: 12px;
+}
+
+.sizeL .item {
+    margin-right: 16px;
 }
