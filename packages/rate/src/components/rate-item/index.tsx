@@ -69,6 +69,7 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
                 aria-disabled={disabled}
                 aria-readonly={readOnly}
                 title={tooltip}
+                data-tooltip={tooltip}
                 className={cn(
                     styles.container,
                     disabled && styles.disabled,
