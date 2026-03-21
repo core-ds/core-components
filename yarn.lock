@@ -1512,6 +1512,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-rate@workspace:packages/rate":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-rate@workspace:packages/rate"
+  dependencies:
+    "@alfalab/core-components-mq": "npm:^6.0.3"
+    "@alfalab/hooks": "npm:^1.13.1"
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-repository@workspace:.":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-repository@workspace:."
