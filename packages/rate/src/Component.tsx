@@ -2,9 +2,8 @@ import React, { forwardRef, useMemo } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { RateGroup } from '@alfalab/core-components-rate/components/rate-group';
-import { useRate } from '@alfalab/core-components-rate/hooks';
-
+import { RateGroup } from './components/rate-group';
+import { useRate } from './hooks';
 import { type RateProps, type RateRef } from './types';
 
 import styles from './index.module.css';
