@@ -35,7 +35,7 @@ render(() => <Rate character={<StarCircleMIcon />} defaultValue={4} />);
 
 ```jsx live
 render(() => (
-    <div style={{ height: 80 }}>
+    <div style={{ height: 80, display: 'flex', alignItems: 'center' }}>
         <Rate tooltips={['bad', 'ok', 'good', 'great', 'perfect']} defaultValue={3} />
     </div>
 ));
