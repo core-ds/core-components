@@ -1,0 +1,5 @@
+.group {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rate-gap, 4px);
+}

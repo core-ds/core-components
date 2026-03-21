@@ -1,0 +1,53 @@
+.container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    user-select: none;
+    color: var(--rate-color-default, #c4c4c4);
+    transition: color 0.2s ease;
+}
+
+.interactive {
+    cursor: pointer;
+}
+
+.interactive:hover {
+    color: var(--rate-color-hover, #ffb400);
+}
+
+.active {
+    color: var(--rate-color-active, #ffb400);
+}
+
+.symbol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: inherit;
+    line-height: 1;
+}
+
+.symbolFull {
+    z-index: 1;
+}
+
+.symbolActive {
+    z-index: 2;
+    overflow: hidden;
+    width: 0;
+}
+
+.symbolFullActive {
+    width: 100%;
+}
+
+.symbolHalfActive {
+    width: 50%;
+}

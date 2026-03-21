@@ -1,0 +1,16 @@
+:root {
+    /* Цвет неактивной звезды */
+    --rate-color-default: var(--color-light-neutral-300);
+
+    /* Цвет активной звезды */
+    --rate-color-active: var(--color-light-accent-primary);
+
+    /* Цвет звезды при hover */
+    --rate-color-hover: var(--color-light-accent-primary-hover);
+
+    /* Размер звезды (переопределяется в size-классах) */
+    --rate-size: 24px;
+
+    /* Отступ между звездами */
+    --rate-gap: 4px;
+}
