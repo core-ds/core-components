@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { RateGroup } from '@alfalab/core-components-rate/components/rate-group';
 import { useRate } from '@alfalab/core-components-rate/hooks';
+
 import { type RateProps, type RateRef } from './types';
 
 import styles from './index.module.css';
@@ -93,12 +94,8 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
                 style={style}
                 aria-disabled={disabled}
             >
-                <RateGroup
-                    items={items}
-                    size={size}
-                    onKeyDown={onKeyDown}
-                />
+                <RateGroup items={items} size={size} onKeyDown={onKeyDown} />
             </div>
         );
-    }
+    },
 );

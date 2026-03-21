@@ -1,5 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import cn from 'classnames';
+
 import { type RateItemProps } from '../../types';
 import { getItemState } from '../../utils/calculate-value';
 
@@ -58,12 +59,17 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
         return (
             <div
                 ref={ref}
-                role="radio"
+                role='radio'
                 aria-checked={isActive}
                 aria-disabled={disabled}
                 title={tooltip}
                 data-tooltip={tooltip}
-                className={cn(styles.container, disabled && styles.disabled, isInteractive && styles.interactive, isActive && styles.active)}
+                className={cn(
+                    styles.container,
+                    disabled && styles.disabled,
+                    isInteractive && styles.interactive,
+                    isActive && styles.active,
+                )}
                 onClick={handleClick}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={onHoverLeave}
@@ -75,13 +81,15 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
                 }}
             >
                 {/* Полный символ (фон) */}
-                <div className={cn(styles.symbol, styles.symbolFull)}>
-                    {characterNode}
-                </div>
+                <div className={cn(styles.symbol, styles.symbolFull)}>{characterNode}</div>
 
                 {/* Заполненная часть */}
                 <div
-                    className={cn(styles.symbol, styles.symbolActive, isActive && styles.symbolFullActive)}
+                    className={cn(
+                        styles.symbol,
+                        styles.symbolActive,
+                        isActive && styles.symbolFullActive,
+                    )}
                 >
                     {character}
                 </div>

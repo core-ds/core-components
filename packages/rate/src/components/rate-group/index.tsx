@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import cn from 'classnames';
+
 import { type RateItemProps, type RateSize } from '../../types';
 import { RateItem } from '../rate-item';
 
@@ -37,7 +38,7 @@ export const RateGroup = forwardRef<HTMLDivElement, RateGroupProps>(
     ({ items, size = 'm', className, onKeyDown }, ref) => (
         <div
             ref={ref}
-            role="radiogroup"
+            role='radiogroup'
             className={cn(styles.group, sizeMap[size], className)}
             onKeyDown={onKeyDown}
             tabIndex={0}

@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+
 import { normalizeValue } from '../utils/calculate-value';
 
 export interface UseRateOptions {

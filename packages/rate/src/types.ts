@@ -1,4 +1,4 @@
-import { type KeyboardEvent, type ReactNode, type CSSProperties } from 'react';
+import { type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
 
 /**
  * Ссылка на методы компонента Rate
