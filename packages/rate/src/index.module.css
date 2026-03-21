@@ -1,20 +1,3 @@
-@import '../../vars/src/index.css';
-
 .container {
     display: inline-block;
-}
-
-.sizeS {
-    --rate-size: 16px;
-    --rate-gap: 8px;
-}
-
-.sizeM {
-    --rate-size: 24px;
-    --rate-gap: 12px;
-}
-
-.sizeL {
-    --rate-size: 32px;
-    --rate-gap: 16px;
 }

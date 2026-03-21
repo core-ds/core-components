@@ -8,12 +8,6 @@ import { RateGroup } from '@alfalab/core-components-rate/components/rate-group';
 
 import styles from './index.module.css';
 
-const sizeMap = {
-    s: styles.sizeS,
-    m: styles.sizeM,
-    l: styles.sizeL,
-} as const;
-
 /**
  * Компонент рейтинга для оценки и ввода рейтинга с помощью иконок
  *
@@ -111,13 +105,14 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
         return (
             <div
                 ref={combinedRef}
-                className={cn(styles.container, sizeMap[size], className)}
+                className={cn(styles.container, className)}
                 style={style}
                 aria-disabled={disabled}
                 aria-readonly={readOnly}
             >
                 <RateGroup
                     items={items}
+                    size={size}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     onKeyDown={handleKeyDown}
