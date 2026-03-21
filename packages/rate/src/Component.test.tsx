@@ -86,7 +86,7 @@ describe('Rate', () => {
     });
 
     it('should support custom character as string', () => {
-        render(<Rate character="🔥" defaultValue={3} />);
+        render(<Rate character='🔥' defaultValue={3} />);
         const items = screen.getAllByRole('radio');
         expect(items[0]).toHaveTextContent('🔥');
     });
@@ -107,9 +107,9 @@ describe('Rate', () => {
     });
 
     it('should support different sizes', () => {
-        const { container: s } = render(<Rate size="s" />);
-        const { container: m } = render(<Rate size="m" />);
-        const { container: l } = render(<Rate size="l" />);
+        const { container: s } = render(<Rate size='s' />);
+        const { container: m } = render(<Rate size='m' />);
+        const { container: l } = render(<Rate size='l' />);
 
         expect(s.querySelector('[role="radiogroup"]')).toHaveClass('sizeS');
         expect(m.querySelector('[role="radiogroup"]')).toHaveClass('sizeM');

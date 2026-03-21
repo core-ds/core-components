@@ -83,7 +83,9 @@
     border-radius: var(--border-radius-4);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s, visibility 0.2s;
+    transition:
+        opacity 0.2s,
+        visibility 0.2s;
     pointer-events: none;
     z-index: 100;
     margin-bottom: var(--gap-4);
