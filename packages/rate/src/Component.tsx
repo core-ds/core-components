@@ -2,9 +2,9 @@ import React, { forwardRef, useMemo } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import type { RateProps, RateRef } from './types';
-import { useRate } from '@alfalab/core-components-rate/hooks';
 import { RateGroup } from '@alfalab/core-components-rate/components/rate-group';
+import { useRate } from '@alfalab/core-components-rate/hooks';
+import { type RateProps, type RateRef } from './types';
 
 import styles from './index.module.css';
 
@@ -25,7 +25,6 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
             allowClear = true,
             disabled = false,
             readOnly = false,
-            autoFocus = false,
             character,
             tooltips,
             size = 'm',
@@ -33,10 +32,7 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
             style,
             onChange,
             onHoverChange,
-            onFocus,
-            onBlur,
             onKeyDown,
-            ...restProps
         },
         ref,
     ) => {
@@ -44,15 +40,9 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
             currentValue,
             hoverValue,
             containerRef,
-            rateRef,
             handleItemClick,
             handleItemHover,
             handleHoverLeave,
-            handleFocus,
-            handleBlur,
-            handleKeyDown,
-            focus,
-            blur,
         } = useRate({
             value,
             defaultValue,
@@ -62,8 +52,7 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
             readOnly,
             onChange,
             onHoverChange,
-            onFocus,
-            onBlur,
+            onKeyDown,
         });
 
         // Создаём пропсы для каждого элемента
@@ -71,7 +60,6 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
             () =>
                 Array.from({ length: count }).map((_, index) => ({
                     index,
-                    value: index + 1,
                     currentValue,
                     hoverValue,
                     disabled,
@@ -93,10 +81,10 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
                 handleItemClick,
                 handleItemHover,
                 handleHoverLeave,
-            ]
+            ],
         );
 
-        const combinedRef = mergeRefs([ref, containerRef, rateRef]);
+        const combinedRef = mergeRefs([ref, containerRef]);
 
         return (
             <div
@@ -104,15 +92,11 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
                 className={cn(styles.container, className)}
                 style={style}
                 aria-disabled={disabled}
-                aria-readonly={readOnly}
             >
                 <RateGroup
                     items={items}
                     size={size}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                    onKeyDown={handleKeyDown}
-                    autoFocus={autoFocus && !disabled && !readOnly}
+                    onKeyDown={onKeyDown}
                 />
             </div>
         );

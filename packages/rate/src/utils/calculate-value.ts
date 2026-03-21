@@ -6,7 +6,7 @@
  * @returns нормализованное значение
  */
 export function normalizeValue(value: number, count: number): number {
-    if (isNaN(value) || value < 0) {
+    if (value < 0 || Number.isNaN(value)) {
         return 0;
     }
 
@@ -25,5 +25,6 @@ export function normalizeValue(value: number, count: number): number {
  */
 export function getItemState(itemIndex: number, value: number): boolean {
     const itemValue = itemIndex + 1;
+
     return value >= itemValue;
 }

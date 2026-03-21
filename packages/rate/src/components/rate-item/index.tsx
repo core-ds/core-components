@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import cn from 'classnames';
-import type { RateItemProps } from '../../types';
+import { type RateItemProps } from '../../types';
 import { getItemState } from '../../utils/calculate-value';
 
 import styles from './index.module.css';
@@ -12,7 +12,6 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
     (
         {
             index,
-            value,
             currentValue,
             hoverValue,
             disabled,
@@ -27,18 +26,24 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
     ) => {
         const isActive = useMemo(
             () => getItemState(index, hoverValue !== null ? hoverValue : currentValue),
-            [index, hoverValue, currentValue]
+            [index, hoverValue, currentValue],
         );
 
         const isInteractive = !disabled && !readOnly;
 
-        const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-            if (!isInteractive) return;
-            onClick(index, event);
+        const handleClick = () => {
+            if (!isInteractive) {
+                return;
+            }
+
+            onClick(index);
         };
 
-        const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-            if (!isInteractive) return;
+        const handleMouseMove = () => {
+            if (!isInteractive) {
+                return;
+            }
+
             onHover(index);
         };
 
@@ -46,6 +51,7 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
             if (character) {
                 return character;
             }
+
             return '★';
         }, [character]);
 
@@ -55,19 +61,18 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
                 role="radio"
                 aria-checked={isActive}
                 aria-disabled={disabled}
-                aria-readonly={readOnly}
                 title={tooltip}
                 data-tooltip={tooltip}
-                className={cn(
-                    styles.container,
-                    disabled && styles.disabled,
-                    isInteractive && styles.interactive,
-                    isActive && styles.active
-                )}
+                className={cn(styles.container, disabled && styles.disabled, isInteractive && styles.interactive, isActive && styles.active)}
                 onClick={handleClick}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={onHoverLeave}
                 tabIndex={isInteractive ? 0 : -1}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        handleClick();
+                    }
+                }}
             >
                 {/* Полный символ (фон) */}
                 <div className={cn(styles.symbol, styles.symbolFull)}>
@@ -76,15 +81,11 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
 
                 {/* Заполненная часть */}
                 <div
-                    className={cn(
-                        styles.symbol,
-                        styles.symbolActive,
-                        isActive && styles.symbolFullActive
-                    )}
+                    className={cn(styles.symbol, styles.symbolActive, isActive && styles.symbolFullActive)}
                 >
                     {character}
                 </div>
             </div>
         );
-    }
+    },
 );

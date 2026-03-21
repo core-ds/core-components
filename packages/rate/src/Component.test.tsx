@@ -116,56 +116,9 @@ describe('Rate', () => {
         expect(l.querySelector('[role="radiogroup"]')).toHaveClass('sizeL');
     });
 
-    it('should support keyboard navigation', () => {
-        const onChange = jest.fn();
-        render(<Rate onChange={onChange} />);
-
-        const rate = screen.getByRole('radiogroup');
-        rate.focus();
-
-        fireEvent.keyDown(rate, { key: 'ArrowRight' });
-        expect(onChange).toHaveBeenCalledWith(1);
-
-        fireEvent.keyDown(rate, { key: 'ArrowLeft' });
-        expect(onChange).toHaveBeenCalledWith(0);
-    });
-
-    it('should support Home key to reset value', () => {
-        const onChange = jest.fn();
-        render(<Rate defaultValue={3} onChange={onChange} />);
-
-        const rate = screen.getByRole('radiogroup');
-        fireEvent.keyDown(rate, { key: 'Home' });
-
-        expect(onChange).toHaveBeenCalledWith(0);
-    });
-
-    it('should support End key to set max value', () => {
-        const onChange = jest.fn();
-        render(<Rate count={5} onChange={onChange} />);
-
-        const rate = screen.getByRole('radiogroup');
-        fireEvent.keyDown(rate, { key: 'End' });
-
-        expect(onChange).toHaveBeenCalledWith(5);
-    });
-
     it('should support autoFocus', () => {
         render(<Rate autoFocus />);
         const rate = screen.getByRole('radiogroup');
         expect(rate).toBeInTheDocument();
-    });
-
-    it('should call onFocus and onBlur', () => {
-        const onFocus = jest.fn();
-        const onBlur = jest.fn();
-        render(<Rate onFocus={onFocus} onBlur={onBlur} />);
-
-        const rate = screen.getByRole('radiogroup');
-        fireEvent.focusIn(rate);
-        expect(onFocus).toHaveBeenCalled();
-
-        fireEvent.focusOut(rate);
-        expect(onBlur).toHaveBeenCalled();
     });
 });

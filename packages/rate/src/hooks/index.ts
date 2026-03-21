@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import type { RateRef } from '../types';
+import { useCallback, useRef, useState } from 'react';
 import { normalizeValue } from '../utils/calculate-value';
 
 export interface UseRateOptions {
@@ -11,8 +10,7 @@ export interface UseRateOptions {
     readOnly: boolean;
     onChange?: (value: number) => void;
     onHoverChange?: (value: number) => void;
-    onFocus?: () => void;
-    onBlur?: () => void;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 export interface UseRateReturn {
@@ -22,24 +20,14 @@ export interface UseRateReturn {
     hoverValue: number | null;
     /** Ссылка на контейнер */
     containerRef: React.RefObject<HTMLDivElement>;
-    /** Ссылка на методы компонента */
-    rateRef: React.RefObject<RateRef>;
     /** Обработчик клика по элементу */
     handleItemClick: (index: number) => void;
     /** Обработчик hover на элементе */
     handleItemHover: (index: number) => void;
     /** Обработчик ухода с hover */
     handleHoverLeave: () => void;
-    /** Обработчик фокуса */
-    handleFocus: () => void;
-    /** Обработчик потери фокуса */
-    handleBlur: () => void;
     /** Обработчик клавиатуры */
-    handleKeyDown: (event: React.KeyboardEvent<HTMLDivElement>) => void;
-    /** Установить фокус программно */
-    focus: () => void;
-    /** Убрать фокус программно */
-    blur: () => void;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 /**
@@ -55,66 +43,71 @@ export function useRate(options: UseRateOptions): UseRateReturn {
         readOnly,
         onChange,
         onHoverChange,
-        onFocus,
-        onBlur,
+        onKeyDown,
     } = options;
 
     const containerRef = useRef<HTMLDivElement>(null);
-    const rateRef = useRef<RateRef>(null);
     const [hoverValue, setHoverValue] = useState<number | null>(null);
-    const [isFocused, setIsFocused] = useState(false);
 
     // Определяем, контролируемый или неконтролируемый режим
     const isControlled = controlledValue !== undefined;
     const [uncontrolledValue, setUncontrolledValue] = useState(() =>
-        normalizeValue(defaultValue, count)
+        normalizeValue(defaultValue, count),
     );
 
     const currentValue = isControlled ? controlledValue : uncontrolledValue;
 
     // Синхронизация при изменении controlledValue
-    useEffect(() => {
-        if (isControlled) {
-            return;
+    useCallback(() => {
+        if (!isControlled) {
+            setUncontrolledValue(normalizeValue(defaultValue, count));
         }
-        setUncontrolledValue(normalizeValue(defaultValue, count));
     }, [defaultValue, count, isControlled]);
 
     // Обработчик клика
     const handleItemClick = useCallback(
         (index: number) => {
-            if (disabled || readOnly) return;
+            if (disabled || readOnly) {
+                return;
+            }
 
             const newValue = index + 1;
 
             // Проверка на сброс при повторном клике
             if (allowClear && newValue === currentValue) {
                 const finalValue = 0;
+
                 if (!isControlled) {
                     setUncontrolledValue(finalValue);
                 }
+
                 onChange?.(finalValue);
+
                 return;
             }
 
             if (!isControlled) {
                 setUncontrolledValue(newValue);
             }
+
             onChange?.(newValue);
         },
-        [allowClear, currentValue, disabled, isControlled, onChange, readOnly]
+        [allowClear, currentValue, disabled, isControlled, onChange, readOnly],
     );
 
     // Обработчик hover
     const handleItemHover = useCallback(
         (index: number) => {
-            if (disabled || readOnly) return;
+            if (disabled || readOnly) {
+                return;
+            }
 
             const newValue = index + 1;
+
             setHoverValue(newValue);
             onHoverChange?.(newValue);
         },
-        [disabled, readOnly, onHoverChange]
+        [disabled, readOnly, onHoverChange],
     );
 
     // Обработчик ухода с hover
@@ -123,98 +116,13 @@ export function useRate(options: UseRateOptions): UseRateReturn {
         onHoverChange?.(0);
     }, [onHoverChange]);
 
-    // Обработчик фокуса
-    const handleFocus = useCallback(() => {
-        setIsFocused(true);
-        onFocus?.();
-    }, [onFocus]);
-
-    // Обработчик потери фокуса
-    const handleBlur = useCallback(() => {
-        setIsFocused(false);
-        handleHoverLeave();
-        onBlur?.();
-    }, [handleHoverLeave, onBlur]);
-
-    // Обработчик клавиатуры
-    const handleKeyDown = useCallback(
-        (event: React.KeyboardEvent<HTMLDivElement>) => {
-            if (disabled || readOnly) return;
-
-            const currentValueNum = Number(currentValue) || 0;
-            let newValue = currentValueNum;
-
-            switch (event.key) {
-                case 'ArrowRight':
-                case 'ArrowUp':
-                    event.preventDefault();
-                    newValue = Math.min(currentValueNum + 1, count);
-                    break;
-                case 'ArrowLeft':
-                case 'ArrowDown':
-                    event.preventDefault();
-                    newValue = Math.max(currentValueNum - 1, 0);
-                    break;
-                case 'Home':
-                    event.preventDefault();
-                    newValue = 0;
-                    break;
-                case 'End':
-                    event.preventDefault();
-                    newValue = count;
-                    break;
-                case 'Enter':
-                case ' ':
-                    event.preventDefault();
-                    if (currentValueNum === 0) {
-                        newValue = 1;
-                    }
-                    break;
-                default:
-                    return;
-            }
-
-            if (!isControlled) {
-                setUncontrolledValue(newValue);
-            }
-            onChange?.(newValue);
-        },
-        [count, currentValue, disabled, isControlled, onChange, readOnly]
-    );
-
-    // Методы для ref
-    const focus = useCallback(() => {
-        if (containerRef.current && document.activeElement !== containerRef.current) {
-            containerRef.current.focus();
-        }
-    }, []);
-
-    const blur = useCallback(() => {
-        if (containerRef.current) {
-            containerRef.current.blur();
-        }
-    }, []);
-
-    // Экспортируем методы через ref
-    useEffect(() => {
-        if (rateRef.current) {
-            rateRef.current.focus = focus;
-            rateRef.current.blur = blur;
-        }
-    }, [focus, blur]);
-
     return {
         currentValue,
         hoverValue,
         containerRef,
-        rateRef,
         handleItemClick,
         handleItemHover,
         handleHoverLeave,
-        handleFocus,
-        handleBlur,
-        handleKeyDown,
-        focus,
-        blur,
+        onKeyDown,
     };
 }

@@ -1,4 +1,4 @@
-import type { FocusEvent, KeyboardEvent, MouseEvent, ReactNode, CSSProperties } from 'react';
+import { type KeyboardEvent, type ReactNode, type CSSProperties } from 'react';
 
 /**
  * Ссылка на методы компонента Rate
@@ -48,10 +48,6 @@ export interface RateProps {
      */
     readOnly?: boolean;
     /**
-     * Автоматический фокус при монтировании
-     */
-    autoFocus?: boolean;
-    /**
      * Кастомный символ для отображения
      * Может быть React-элементом или функцией, принимающей индекс
      */
@@ -81,21 +77,13 @@ export interface RateProps {
      */
     onHoverChange?: (value: number) => void;
     /**
-     * Обработчик фокуса
-     */
-    onFocus?: (event: FocusEvent<HTMLDivElement>) => void;
-    /**
-     * Обработчик потери фокуса
-     */
-    onBlur?: (event: FocusEvent<HTMLDivElement>) => void;
-    /**
      * Обработчик нажатия клавиш
      */
     onKeyDown?: (event: KeyboardEvent<HTMLDivElement>) => void;
     /**
      * Ссылка на DOM-элемент
      */
-    ref?: RateRef | React.Ref<HTMLDivElement>;
+    ref?: RateRef;
 }
 
 /**
@@ -106,10 +94,6 @@ export interface RateItemProps {
      * Индекс элемента (0-based)
      */
     index: number;
-    /**
-     * Значение, которое представляет этот элемент
-     */
-    value: number;
     /**
      * Текущее значение рейтинга
      */
@@ -137,7 +121,7 @@ export interface RateItemProps {
     /**
      * Обработчик клика
      */
-    onClick: (index: number, event: MouseEvent<HTMLDivElement>) => void;
+    onClick: (index: number) => void;
     /**
      * Обработчик hover
      */
