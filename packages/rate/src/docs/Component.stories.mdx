@@ -13,7 +13,6 @@ import Changelog from '../../CHANGELOG.md?raw';
 
 <Story name='Rate'>
     {React.createElement(() => {
-        const [value, setValue] = React.useState(3);
         const count = select('count', [3, 5, 10], 5);
         const size = select('size', ['s', 'm', 'l'], 'm');
         const disabled = boolean('disabled', false);
@@ -22,6 +21,7 @@ import Changelog from '../../CHANGELOG.md?raw';
         const allowClear = boolean('allowClear', true);
         const character = text('character', '');
         const tooltipsString = text('tooltips', '');
+        const defaultValue = select('defaultValue', [0, 1, 2, 3, 4, 5], 3);
 
         const characterValue = character.trim() === '' ? undefined : character;
         const tooltipsValue = tooltipsString.trim() === '' 
@@ -30,8 +30,7 @@ import Changelog from '../../CHANGELOG.md?raw';
 
         return (
             <Rate
-                value={value}
-                onChange={setValue}
+                defaultValue={defaultValue}
                 count={count}
                 size={size}
                 disabled={disabled}
