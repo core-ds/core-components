@@ -26,13 +26,13 @@
 }
 
 .sizeS .item {
-    margin-right: 8px;
+    margin-right: var(--gap-8);
 }
 
 .sizeM .item {
-    margin-right: 12px;
+    margin-right: var(--gap-12);
 }
 
 .sizeL .item {
-    margin-right: 16px;
+    margin-right: var(--gap-16);
 }

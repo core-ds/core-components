@@ -68,28 +68,28 @@
 }
 
 /* Tooltip */
-.container[data-tooltip]::after {
+.container[data-tooltip]:after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    padding: 4px 8px;
+    padding: var(--gap-4) var(--gap-8);
     background: var(--color-light-bg-primary-inverted, #000);
     color: var(--color-light-text-primary-inverted, #fff);
     font-size: 12px;
     line-height: 1.2;
     white-space: nowrap;
-    border-radius: 4px;
+    border-radius: var(--border-radius-4);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s, visibility 0.2s;
     pointer-events: none;
     z-index: 100;
-    margin-bottom: 4px;
+    margin-bottom: var(--gap-4);
 }
 
-.container[data-tooltip]:hover::after {
+.container[data-tooltip]:hover:after {
     opacity: 1;
     visibility: visible;
 }
