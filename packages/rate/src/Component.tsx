@@ -64,7 +64,7 @@ export const Rate = forwardRef<HTMLDivElement & RateRef, RateProps>(
                     hoverValue,
                     disabled,
                     readOnly,
-                    character,
+                    character: typeof character === 'function' ? character(index) : character,
                     tooltip: tooltips?.[index],
                     onClick: handleItemClick,
                     onHover: handleItemHover,
