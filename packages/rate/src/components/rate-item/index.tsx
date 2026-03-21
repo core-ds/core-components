@@ -1,6 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
 import cn from 'classnames';
-import mergeRefs from 'react-merge-refs';
 import type { RateItemProps } from '../../types';
 import { getItemState } from '../../utils/calculate-value';
 
@@ -16,7 +15,6 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
             value,
             currentValue,
             hoverValue,
-            allowHalf,
             disabled,
             readOnly,
             character,
@@ -27,7 +25,7 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
         },
         ref,
     ) => {
-        const { isActive, isHalfActive } = useMemo(
+        const isActive = useMemo(
             () => getItemState(index, hoverValue !== null ? hoverValue : currentValue),
             [index, hoverValue, currentValue]
         );
@@ -36,51 +34,26 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
 
         const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
             if (!isInteractive) return;
-
-            const rect = event.currentTarget.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const isHalfClick = allowHalf && x < rect.width / 2;
-
-            onClick(index, isHalfClick, event);
+            onClick(index, event);
         };
 
         const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
             if (!isInteractive) return;
-
-            const rect = event.currentTarget.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const isHalf = allowHalf && x < rect.width / 2;
-
-            onHover(index, isHalf);
+            onHover(index);
         };
 
         const characterNode = useMemo(() => {
-            if (typeof character === 'function') {
-                return character(index);
-            }
             if (character) {
                 return character;
             }
             return '★';
-        }, [character, index]);
-
-        const activeCharacterNode = useMemo(() => {
-            if (typeof character === 'function') {
-                return character(index);
-            }
-            if (character) {
-                return React.cloneElement(character as React.ReactElement, {
-                    className: 'icon',
-                });
-            }
-            return '★';
-        }, [character, index]);
+        }, [character]);
 
         return (
             <div
                 ref={ref}
                 role="radio"
-                aria-checked={isActive || isHalfActive}
+                aria-checked={isActive}
                 aria-disabled={disabled}
                 aria-readonly={readOnly}
                 title={tooltip}
@@ -89,7 +62,7 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
                     styles.container,
                     disabled && styles.disabled,
                     isInteractive && styles.interactive,
-                    (isActive || isHalfActive) && styles.active
+                    isActive && styles.active
                 )}
                 onClick={handleClick}
                 onMouseMove={handleMouseMove}
@@ -106,11 +79,10 @@ export const RateItem = forwardRef<HTMLDivElement, RateItemProps>(
                     className={cn(
                         styles.symbol,
                         styles.symbolActive,
-                        isActive && styles.symbolFullActive,
-                        isHalfActive && styles.symbolHalfActive
+                        isActive && styles.symbolFullActive
                     )}
                 >
-                    {activeCharacterNode}
+                    {character}
                 </div>
             </div>
         );

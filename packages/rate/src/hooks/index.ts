@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { RateRef } from '../types';
-import { normalizeValue, calculateValue, getItemState } from '../utils/calculate-value';
+import { normalizeValue } from '../utils/calculate-value';
 
 export interface UseRateOptions {
     value?: number;
     defaultValue?: number;
     count: number;
-    allowHalf: boolean;
     allowClear: boolean;
     disabled: boolean;
     readOnly: boolean;
@@ -26,9 +25,9 @@ export interface UseRateReturn {
     /** Ссылка на методы компонента */
     rateRef: React.RefObject<RateRef>;
     /** Обработчик клика по элементу */
-    handleItemClick: (index: number, isHalf: boolean) => void;
+    handleItemClick: (index: number) => void;
     /** Обработчик hover на элементе */
-    handleItemHover: (index: number, isHalf: boolean) => void;
+    handleItemHover: (index: number) => void;
     /** Обработчик ухода с hover */
     handleHoverLeave: () => void;
     /** Обработчик фокуса */
@@ -51,7 +50,6 @@ export function useRate(options: UseRateOptions): UseRateReturn {
         value: controlledValue,
         defaultValue = 0,
         count,
-        allowHalf,
         allowClear,
         disabled,
         readOnly,
@@ -69,7 +67,7 @@ export function useRate(options: UseRateOptions): UseRateReturn {
     // Определяем, контролируемый или неконтролируемый режим
     const isControlled = controlledValue !== undefined;
     const [uncontrolledValue, setUncontrolledValue] = useState(() =>
-        normalizeValue(defaultValue, count, allowHalf)
+        normalizeValue(defaultValue, count)
     );
 
     const currentValue = isControlled ? controlledValue : uncontrolledValue;
@@ -77,22 +75,19 @@ export function useRate(options: UseRateOptions): UseRateReturn {
     // Синхронизация при изменении controlledValue
     useEffect(() => {
         if (isControlled) {
-            // В контролируемом режиме просто принимаем значение
             return;
         }
-        // В неконтролируемом режиме обновляем только при изменении пропсов
-        setUncontrolledValue(normalizeValue(defaultValue, count, allowHalf));
-    }, [defaultValue, count, allowHalf, isControlled]);
+        setUncontrolledValue(normalizeValue(defaultValue, count));
+    }, [defaultValue, count, isControlled]);
 
     // Обработчик клика
     const handleItemClick = useCallback(
-        (index: number, isHalf: boolean) => {
+        (index: number) => {
             if (disabled || readOnly) return;
 
-            const newValue = calculateValue(index, isHalf, allowHalf);
+            const newValue = index + 1;
 
             // Проверка на сброс при повторном клике
-            // Сбрасываем если кликнули на тот же элемент и значение не половинчатое
             if (allowClear && newValue === currentValue) {
                 const finalValue = 0;
                 if (!isControlled) {
@@ -107,19 +102,19 @@ export function useRate(options: UseRateOptions): UseRateReturn {
             }
             onChange?.(newValue);
         },
-        [allowClear, allowHalf, currentValue, disabled, isControlled, onChange, readOnly]
+        [allowClear, currentValue, disabled, isControlled, onChange, readOnly]
     );
 
     // Обработчик hover
     const handleItemHover = useCallback(
-        (index: number, isHalf: boolean) => {
+        (index: number) => {
             if (disabled || readOnly) return;
 
-            const newValue = calculateValue(index, isHalf, allowHalf);
+            const newValue = index + 1;
             setHoverValue(newValue);
             onHoverChange?.(newValue);
         },
-        [disabled, readOnly, allowHalf, onHoverChange]
+        [disabled, readOnly, onHoverChange]
     );
 
     // Обработчик ухода с hover
@@ -153,16 +148,12 @@ export function useRate(options: UseRateOptions): UseRateReturn {
                 case 'ArrowRight':
                 case 'ArrowUp':
                     event.preventDefault();
-                    newValue = allowHalf
-                        ? Math.min(currentValueNum + 0.5, count)
-                        : Math.min(currentValueNum + 1, count);
+                    newValue = Math.min(currentValueNum + 1, count);
                     break;
                 case 'ArrowLeft':
                 case 'ArrowDown':
                     event.preventDefault();
-                    newValue = allowHalf
-                        ? Math.max(currentValueNum - 0.5, 0)
-                        : Math.max(currentValueNum - 1, 0);
+                    newValue = Math.max(currentValueNum - 1, 0);
                     break;
                 case 'Home':
                     event.preventDefault();
@@ -175,9 +166,8 @@ export function useRate(options: UseRateOptions): UseRateReturn {
                 case 'Enter':
                 case ' ':
                     event.preventDefault();
-                    // Устанавливаем текущее значение при нажатии Enter/Space
                     if (currentValueNum === 0) {
-                        newValue = allowHalf ? 0.5 : 1;
+                        newValue = 1;
                     }
                     break;
                 default:
@@ -189,7 +179,7 @@ export function useRate(options: UseRateOptions): UseRateReturn {
             }
             onChange?.(newValue);
         },
-        [allowHalf, count, currentValue, disabled, isControlled, onChange, readOnly]
+        [count, currentValue, disabled, isControlled, onChange, readOnly]
     );
 
     // Методы для ref

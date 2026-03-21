@@ -18,7 +18,6 @@ import Changelog from '../../CHANGELOG.md?raw';
         const size = select('size', ['s', 'm', 'l'], 'm');
         const disabled = boolean('disabled', false);
         const readOnly = boolean('readOnly', false);
-        const allowHalf = boolean('allowHalf', false);
         const allowClear = boolean('allowClear', true);
         const useCustomIcon = boolean('Use custom icon', false);
         const tooltipsString = text('tooltips', '');
@@ -36,7 +35,6 @@ import Changelog from '../../CHANGELOG.md?raw';
                 size={size}
                 disabled={disabled}
                 readOnly={readOnly}
-                allowHalf={allowHalf}
                 allowClear={allowClear}
                 character={characterValue}
                 tooltips={tooltipsValue}

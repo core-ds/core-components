@@ -25,17 +25,6 @@ describe('Rate', () => {
         expect(onChange).toHaveBeenCalledWith(3);
     });
 
-    it('should call onChange with half value when allowHalf', () => {
-        const onChange = jest.fn();
-        render(<Rate allowHalf onChange={onChange} />);
-
-        const items = screen.getAllByRole('radio');
-        // Клик по левой половине (первая половина элемента)
-        fireEvent.click(items[2], { clientX: 10 });
-
-        expect(onChange).toHaveBeenCalled();
-    });
-
     it('should clear value on second click when allowClear', () => {
         const onChange = jest.fn();
         render(<Rate allowClear defaultValue={3} onChange={onChange} />);
@@ -48,14 +37,11 @@ describe('Rate', () => {
 
     it('should not clear value on second click when allowClear is false', () => {
         const onChange = jest.fn();
-        // Устанавливаем начальное значение 3, кликаем по 2 - значение должно измениться
         render(<Rate allowClear={false} defaultValue={2} onChange={onChange} />);
 
         const items = screen.getAllByRole('radio');
-        // Клик по элементу с index 2 (значение 3) - должно вызвать onChange с 3
         fireEvent.click(items[1]);
 
-        // onChange вызывается с новым значением
         expect(onChange).toHaveBeenCalledWith(2);
     });
 
@@ -97,7 +83,6 @@ describe('Rate', () => {
         fireEvent.click(items[0]);
 
         expect(onChange).toHaveBeenCalledWith(1);
-        // Значение не должно измениться визуально, т.к. контролируемый режим
     });
 
     it('should support custom character as string', () => {
@@ -106,13 +91,10 @@ describe('Rate', () => {
         expect(items[0]).toHaveTextContent('🔥');
     });
 
-    it('should support custom character as function', () => {
-        const characterFn = jest.fn((index) => (index === 0 ? 'A' : 'B'));
-        render(<Rate character={characterFn} count={3} />);
-
+    it('should support custom character as React element', () => {
+        render(<Rate character={<span>★</span>} defaultValue={3} />);
         const items = screen.getAllByRole('radio');
-        expect(items[0]).toHaveTextContent('A');
-        expect(items[1]).toHaveTextContent('B');
+        expect(items[0]).toHaveTextContent('★');
     });
 
     it('should support tooltips', () => {
@@ -129,7 +111,6 @@ describe('Rate', () => {
         const { container: m } = render(<Rate size="m" />);
         const { container: l } = render(<Rate size="l" />);
 
-        // Классы размеров применяются к RateGroup внутри контейнера
         expect(s.querySelector('[role="radiogroup"]')).toHaveClass('sizeS');
         expect(m.querySelector('[role="radiogroup"]')).toHaveClass('sizeM');
         expect(l.querySelector('[role="radiogroup"]')).toHaveClass('sizeL');
@@ -142,11 +123,9 @@ describe('Rate', () => {
         const rate = screen.getByRole('radiogroup');
         rate.focus();
 
-        // ArrowRight should increase value
         fireEvent.keyDown(rate, { key: 'ArrowRight' });
         expect(onChange).toHaveBeenCalledWith(1);
 
-        // ArrowLeft should decrease value
         fireEvent.keyDown(rate, { key: 'ArrowLeft' });
         expect(onChange).toHaveBeenCalledWith(0);
     });
@@ -173,7 +152,6 @@ describe('Rate', () => {
 
     it('should support autoFocus', () => {
         render(<Rate autoFocus />);
-        // Просто проверяем, что компонент рендерится с autoFocus
         const rate = screen.getByRole('radiogroup');
         expect(rate).toBeInTheDocument();
     });
@@ -184,7 +162,6 @@ describe('Rate', () => {
         render(<Rate onFocus={onFocus} onBlur={onBlur} />);
 
         const rate = screen.getByRole('radiogroup');
-        // Симулируем фокус через событие - focus не всплывает, используем focusin
         fireEvent.focusIn(rate);
         expect(onFocus).toHaveBeenCalled();
 

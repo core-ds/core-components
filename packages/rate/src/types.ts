@@ -36,10 +36,6 @@ export interface RateProps {
      */
     count?: number;
     /**
-     * Разрешить половинчатые значения (0.5, 1.5, и т.д.)
-     */
-    allowHalf?: boolean;
-    /**
      * Сброс значения по повторному клику на активный элемент
      */
     allowClear?: boolean;
@@ -123,10 +119,6 @@ export interface RateItemProps {
      */
     hoverValue: number | null;
     /**
-     * Разрешены ли половинчатые значения
-     */
-    allowHalf: boolean;
-    /**
      * Отключен ли элемент
      */
     disabled: boolean;
@@ -137,7 +129,7 @@ export interface RateItemProps {
     /**
      * Кастомный символ
      */
-    character?: ReactNode | ((index: number) => ReactNode);
+    character?: ReactNode;
     /**
      * Подсказка
      */
@@ -145,11 +137,11 @@ export interface RateItemProps {
     /**
      * Обработчик клика
      */
-    onClick: (index: number, isHalf: boolean, event: MouseEvent<HTMLDivElement>) => void;
+    onClick: (index: number, event: MouseEvent<HTMLDivElement>) => void;
     /**
      * Обработчик hover
      */
-    onHover: (index: number, isHalf: boolean) => void;
+    onHover: (index: number) => void;
     /**
      * Обработчик ухода с hover
      */

@@ -53,6 +53,7 @@
 
 .symbolActive {
     z-index: 2;
+    overflow: hidden;
     width: 0;
 }
 
@@ -61,15 +62,7 @@
     color: var(--rate-color-active, #ffb400);
 }
 
-.symbolHalfActive {
-    width: 50%;
-    color: var(--rate-color-active, #ffb400);
-}
-
-.symbolHalfActive .icon,
-.symbolHalfActive svg {
-    position: absolute;
-    left: 0;
-    width: 200%;
-    height: 100%;
+.symbolFullActive svg,
+.symbolFullActive .icon {
+    color: inherit;
 }
