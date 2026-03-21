@@ -2,21 +2,19 @@
 
 .container {
     display: inline-block;
-    font-size: var(--rate-size, 24px);
-    line-height: 0;
 }
 
 .sizeS {
     --rate-size: 16px;
-    --rate-gap: 2px;
+    --rate-gap: 8px;
 }
 
 .sizeM {
     --rate-size: 24px;
-    --rate-gap: 4px;
+    --rate-gap: 12px;
 }
 
 .sizeL {
     --rate-size: 32px;
-    --rate-gap: 6px;
+    --rate-gap: 16px;
 }

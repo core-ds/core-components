@@ -1,5 +1,7 @@
 .group {
     display: inline-flex;
     align-items: center;
-    gap: var(--rate-gap, 4px);
+    gap: var(--rate-gap, 12px);
+    font-size: var(--rate-size, 24px);
+    line-height: 0;
 }
