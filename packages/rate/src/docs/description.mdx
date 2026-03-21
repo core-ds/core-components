@@ -23,7 +23,7 @@ render(() => {
 Поддержка половинчатых значений (0.5, 1.5, и т.д.).
 
 ```jsx live
-render(() => <Rate allowHalf defaultValue={2.5} />);
+render(() => <Rate allowHalf={true} defaultValue={2.5} />);
 ```
 
 ## Кастомный символ
@@ -31,7 +31,7 @@ render(() => <Rate allowHalf defaultValue={2.5} />);
 Использование кастомного символа вместо звезды.
 
 ```jsx live
-render(() => <Rate character='🔥' defaultValue={4} />);
+render(() => <Rate character='🔥' count={5} defaultValue={4} />);
 ```
 
 ## Подсказки
@@ -40,7 +40,11 @@ render(() => <Rate character='🔥' defaultValue={4} />);
 
 ```jsx live
 render(() => (
-    <Rate tooltips={['bad', 'ok', 'good', 'great', 'perfect']} defaultValue={3} />
+    <Rate 
+        tooltips={['bad', 'ok', 'good', 'great', 'perfect']} 
+        count={5}
+        defaultValue={3} 
+    />
 ));
 ```
 
@@ -49,7 +53,7 @@ render(() => (
 Рейтинг в отключенном состоянии.
 
 ```jsx live
-render(() => <Rate disabled defaultValue={4} />);
+render(() => <Rate disabled={true} count={5} defaultValue={4} />);
 ```
 
 ## Только для чтения
@@ -57,7 +61,7 @@ render(() => <Rate disabled defaultValue={4} />);
 Рейтинг в режиме только для чтения.
 
 ```jsx live
-render(() => <Rate readOnly defaultValue={4} />);
+render(() => <Rate readOnly={true} count={5} defaultValue={4} />);
 ```
 
 ## Размеры
@@ -67,9 +71,9 @@ render(() => <Rate readOnly defaultValue={4} />);
 ```jsx live
 render(() => (
     <Space direction='vertical' gap={16}>
-        <Rate size='s' defaultValue={3} />
-        <Rate size='m' defaultValue={3} />
-        <Rate size='l' defaultValue={3} />
+        <Rate size='s' count={5} defaultValue={3} />
+        <Rate size='m' count={5} defaultValue={3} />
+        <Rate size='l' count={5} defaultValue={3} />
     </Space>
 ));
 ```
@@ -79,7 +83,7 @@ render(() => (
 Отключение сброса значения по повторному клику.
 
 ```jsx live
-render(() => <Rate allowClear={false} defaultValue={3} />);
+render(() => <Rate allowClear={false} count={5} defaultValue={3} />);
 ```
 
 ## Кастомное количество элементов

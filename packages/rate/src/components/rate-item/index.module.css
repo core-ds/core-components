@@ -49,6 +49,7 @@
     z-index: 2;
     overflow: hidden;
     width: 0;
+    color: var(--rate-color-active, #ffb400);
 }
 
 .symbolFullActive {
@@ -57,4 +58,5 @@
 
 .symbolHalfActive {
     width: 50%;
+    border-right: 1px solid transparent;
 }
