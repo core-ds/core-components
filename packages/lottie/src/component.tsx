@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import cn from 'classnames';
 import { createNanoEvents } from 'nanoevents';
 
@@ -66,7 +66,10 @@ export const Lottie = forwardRef<LottieRef, LottieProps>(
             }),
             [events, reset],
         );
-        useImperativeHandle(playCountRef, () => animation?.playCount ?? 0, [animation]);
+
+        useEffect(() => {
+            playCountRef.current = animation?.playCount ?? 0;
+        }, [animation]);
 
         // set loading state
         useLayoutEffect_SAFE_FOR_SSR(() => {
