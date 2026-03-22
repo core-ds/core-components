@@ -51,6 +51,12 @@
     --tag-background-color-checked-active: var(--color-light-accent-secondary-press);
     --tag-background-color-checked-disabled: var(--color-light-neutral-translucent-100);
 
+    /* background-color indicator-tag (badge icon) */
+    --tag-badge-icon-background-color: var(--color-light-neutral-translucent-300);
+    --tag-badge-icon-background-color-hover: var(--color-light-neutral-translucent-300-hover);
+    --tag-badge-icon-background-color-active: var(--color-light-neutral-translucent-300-press);
+    --tag-badge-icon-mask-positive-color: var(--color-static-neutral-0);
+
     /* text color */
     --tag-text-color: var(--color-light-text-primary);
     --tag-text-color-checked: var(--color-light-text-primary-inverted);
@@ -112,6 +118,16 @@
     --tag-inverted-background-color-checked-disabled: var(
         --color-light-neutral-translucent-100-inverted
     );
+
+    /* background-color indicator-tag (badge icon) */
+    --tag-badge-icon-inverted-background-color: var(--color-light-neutral-translucent-300-inverted);
+    --tag-badge-icon-inverted-background-color-hover: var(
+        --color-light-neutral-translucent-300-inverted-hover
+    );
+    --tag-badge-icon-inverted-background-color-active: var(
+        --color-light-neutral-translucent-300-inverted-press
+    );
+    --tag-badge-icon-mask-positive-color-inverted: var(--color-static-neutral-0);
 
     /* text color */
     --tag-inverted-text-color: var(--color-light-text-primary-inverted);

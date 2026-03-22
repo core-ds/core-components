@@ -1,0 +1,36 @@
+@import '../../vars.css';
+
+.svg {
+    pointer-events: none;
+}
+
+.indicator {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.shapeInner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+}
+
+.badgeIcon {
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+.focused {
+    @mixin focus-outline;
+}
