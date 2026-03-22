@@ -4,9 +4,9 @@ description: Parse repository full name
 
 inputs:
     repository:
-        description: Repository full name e.g. `core-ds/core-components`
+        # `default: ${{ github.repository }}` is not working here https://github.com/actions/toolkit/issues/1124
+        description: Repository full name e.g. `core-ds/core-components`. Default to `github.repository`
         required: false
-        default: ${{ github.repository }}
 
 outputs:
     owner:
@@ -28,7 +28,7 @@ runs:
           with:
               result-encoding: string
               script: |
-                  const repository = '${{ inputs.repository }}';
+                  const repository = '${{ inputs.repository }}' || '${{ github.repository }}';
                   const [owner, repo] = repository.split('/');
 
                   core.setOutput('owner', owner);
