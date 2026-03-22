@@ -1,11 +1,12 @@
-name: parse-repository
+name: Parse repository name
 
 description: Parse repository full name
 
 inputs:
     repository:
         description: Repository full name e.g. `core-ds/core-components`
-        required: true
+        required: false
+        default: ${{ github.repository }}
 
 outputs:
     owner:
@@ -21,7 +22,8 @@ outputs:
 runs:
     using: composite
     steps:
-        - id: parse
+        - name: Parse
+          id: parse
           uses: actions/github-script@v8
           with:
               result-encoding: string
