@@ -19,6 +19,8 @@ render(() => {
                             size={size}
                             checked={checked[size]}
                             onClick={() => setChecked({ ...checked, [size]: !checked[size] })}
+                            view='filled'
+                            shape='rectangular'
                         >
                             Label
                         </Tag>
@@ -37,18 +39,26 @@ render(() => {
 
 ```jsx live
 render(() => {
+    const [checked, setChecked] = React.useState(false);
+
     const addon = (
         <div
             style={{
                 background: 'rgba(55, 120, 251, 0.1)',
                 border: '1px dashed #3778FB',
-                borderRadius: '8px',
-                height: '24px',
-                width: '24px',
+                borderRadius: '4px',
+                height: '16px',
+                width: '16px',
                 boxSizing: 'border-box',
             }}
         />
     );
+
+    const defaultProps = {
+        size: 40,
+        view: 'filled',
+        shape: 'rectangular'
+    }
 
     const amountAddon = (
         <div style={{ paddingRight: '4px' }}>
@@ -60,22 +70,33 @@ render(() => {
         <Container>
             <Row>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size={48}>Label</Tag>
-                </div>
-                <div style={{ marginRight: 12 }}>
-                    <Tag size={48} rightAddons={addon} leftAddons={addon}>
+                    <Tag rightAddons={addon} leftAddons={addon} {...defaultProps}>
                         Label
                     </Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>
+                    <Tag rightAddons={<Badge view='count' height={16} content={1} />} {...defaultProps}>
                         Label
                     </Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size={48} rightAddons={amountAddon}>
+                    <Tag rightAddons={<Badge view='count' height={16} />} {...defaultProps}>
                         Label
                     </Tag>
+                </div>
+                <div style={{ marginRight: 12 }}>
+                    <Tag size={40} rightAddons={amountAddon} view='filled' shape='rectangular'>
+                        Label
+                    </Tag>
+                </div>
+                <div style={{ marginRight: 12 }}>
+                    <Tag
+                        Component={IndicatorTag}
+                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
+                        checked={checked}
+                        onClick={(_, { checked: nextChecked }) => setChecked(nextChecked)}
+                        {...defaultProps}
+                    />
                 </div>
             </Row>
         </Container>
@@ -83,18 +104,26 @@ render(() => {
 });
 //MOBILE
 render(() => {
+    const [checked, setChecked] = React.useState(false);
+
     const addon = (
         <div
             style={{
                 background: 'rgba(55, 120, 251, 0.1)',
                 border: '1px dashed #3778FB',
-                borderRadius: '8px',
-                height: '24px',
-                width: '24px',
+                borderRadius: '4px',
+                height: '16px',
+                width: '16px',
                 boxSizing: 'border-box',
             }}
         />
     );
+
+    const defaultProps = {
+        size: 40,
+        view: 'filled',
+        shape: 'rectangular'
+    }
 
     const amountAddon = (
         <div style={{ paddingRight: '4px' }}>
@@ -105,25 +134,36 @@ render(() => {
     return (
         <Container>
             <Row>
-                <div style={{ marginRight: 12 }}>
-                    <Tag size={48}>Label</Tag>
-                </div>
                 <div>
-                    <Tag size={48} rightAddons={addon} leftAddons={addon}>
+                    <Tag rightAddons={addon} leftAddons={addon} {...defaultProps}>
                         Label
                     </Tag>
                 </div>
             </Row>
             <div style={{ display: 'flex', marginTop: 16 }}>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>
+                    <Tag rightAddons={<Badge view='count' height={16} content={1} />} {...defaultProps}>
+                        Label
+                    </Tag>
+                </div>
+                <div style={{ marginRight: 12 }}>
+                    <Tag rightAddons={<Badge view='count' height={16} />} {...defaultProps}>
                         Label
                     </Tag>
                 </div>
                 <div>
-                    <Tag size={48} rightAddons={amountAddon}>
+                    <Tag rightAddons={amountAddon} {...defaultProps}>
                         Label
                     </Tag>
+                </div>
+                <div style={{ marginLeft: 12 }}>
+                    <Tag
+                        Component={IndicatorTag}
+                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
+                        checked={checked}
+                        onClick={(_, { checked: nextChecked }) => setChecked(nextChecked)}
+                        {...defaultProps}
+                    />
                 </div>
             </div>
         </Container>
@@ -133,56 +173,80 @@ render(() => {
 
 ## Состояния и стили
 
-У тега есть две опции, отвечающие за внешний вид:
-
-- shape (форма) — овальные или прямоугольные.
-- view (стиль) — залитые или бордерные.
-
-Тег может находиться в активном и неактивном состоянии.
-Взаимодействие с тегом может быть ограничено с помощью свойства `disabled`.
+У тега есть две опции, отвечающие за внешний вид.
 
 ```jsx live
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
+    const [shape, setShape] = React.useState('rectangular');
+    const [view, setView] = React.useState('filled');
+    const [checkedWithAddon, setCheckedWithAddon] = React.useState(false);
+    const [checkedPlain, setCheckedPlain] = React.useState(false);
 
-    const VIEWS = [
-        { key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },
-        { key: 'filledRounded', view: 'filled', shape: 'rounded' },
-        { key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },
-        { key: 'filledRectangular', view: 'filled', shape: 'rectangular' },
-    ];
-
-    const [checked, setChecked] = React.useState(
-        Object.fromEntries(VIEWS.map((item) => [item.key, false])),
-    );
+    const tagProps = {
+        size: 40,
+        shape,
+        view,
+        disabled,
+    };
 
     return (
         <Container>
-            <Row align='middle'>
-                {VIEWS.map((item) => (
-                    <div key={item.key} style={{ marginRight: 12 }}>
-                        <Tag
-                            size={48}
-                            view={item.view}
-                            shape={item.shape}
-                            disabled={disabled}
-                            checked={checked[item.key]}
-                            onClick={() =>
-                                setChecked({ ...checked, [item.key]: !checked[item.key] })
-                            }
-                        >
-                            Label
-                        </Tag>
-                    </div>
-                ))}
+            <Row align='middle' style={{ marginBottom: 24 }}>
+                <div style={{ marginRight: 12 }}>
+                    <Tag
+                        {...tagProps}
+                        checked={checkedWithAddon}
+                        leftAddons={<DiamondsMIcon height={16} width={16} />}
+                        onClick={() => setCheckedWithAddon((v) => !v)}
+                    >
+                        Label
+                    </Tag>
+                </div>
+                <div>
+                    <Tag
+                        {...tagProps}
+                        checked={checkedPlain}
+                        onClick={() => setCheckedPlain((v) => !v)}
+                    >
+                        Label
+                    </Tag>
+                </div>
             </Row>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='horizontal'
+                label='Shape'
+                name='tag-states-shape'
+                onChange={(_, p) => setShape(p.value)}
+                value={shape}
+            >
+                <Radio label='Rectangular' value='rectangular' />
+                <Radio label='Rounded' value='rounded' />
+            </RadioGroup>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='horizontal'
+                label='View'
+                name='tag-states-view'
+                onChange={(_, p) => setView(p.value)}
+                value={view}
+            >
+                <Radio label='Filled' value='filled' />
+                <Radio label='Transparent' value='transparent' />
+                <Radio label='Outlined' value='outlined' />
+            </RadioGroup>
 
             <Gap size={20} />
 
             <Switch
                 checked={disabled}
-                onChange={() => setDisabled((prevState) => !prevState)}
-                label='Disabled'
+                label='Заблокированное состояние'
+                onChange={() => setDisabled((v) => !v)}
             />
         </Container>
     );
@@ -190,74 +254,75 @@ render(() => {
 //MOBILE
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
+    const [shape, setShape] = React.useState('rectangular');
+    const [view, setView] = React.useState('filled');
+    const [checkedWithAddon, setCheckedWithAddon] = React.useState(false);
+    const [checkedPlain, setCheckedPlain] = React.useState(false);
 
-    const ROUNDEDS = [
-        { key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },
-        { key: 'filledRounded', view: 'filled', shape: 'rounded' },
-    ];
-
-    const RECTANGLES = [
-        { key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },
-        { key: 'filledRectangular', view: 'filled', shape: 'rectangular' },
-    ];
-    const [checkedRounded, setCheckedRounded] = React.useState(
-        Object.fromEntries(ROUNDEDS.map((item) => [item.key, false])),
-    );
-    const [checkedRectangular, setCheckedRectangular] = React.useState(
-        Object.fromEntries(ROUNDEDS.map((item) => [item.key, false])),
-    );
+    const tagProps = {
+        size: 48,
+        shape,
+        view,
+        disabled,
+    };
 
     return (
         <Container>
-            <Row align='middle'>
-                {ROUNDEDS.map((item) => (
-                    <div key={item.key} style={{ marginRight: 12 }}>
-                        <Tag
-                            size={48}
-                            view={item.view}
-                            shape={item.shape}
-                            disabled={disabled}
-                            checked={checkedRounded[item.key]}
-                            onClick={() =>
-                                setCheckedRounded({
-                                    ...checkedRounded,
-                                    [item.key]: !checkedRounded[item.key],
-                                })
-                            }
-                        >
-                            Label
-                        </Tag>
-                    </div>
-                ))}
+            <Row align='middle' style={{ marginBottom: 20 }}>
+                <div style={{ marginRight: 12 }}>
+                    <Tag
+                        {...tagProps}
+                        checked={checkedWithAddon}
+                        leftAddons={<DiamondsMIcon height={16} width={16} />}
+                        onClick={() => setCheckedWithAddon((v) => !v)}
+                    >
+                        Label
+                    </Tag>
+                </div>
+                <div>
+                    <Tag
+                        {...tagProps}
+                        checked={checkedPlain}
+                        onClick={() => setCheckedPlain((v) => !v)}
+                    >
+                        Label
+                    </Tag>
+                </div>
             </Row>
-            <Row align='middle'>
-                {RECTANGLES.map((item) => (
-                    <div key={item.key} style={{ marginRight: 12 }}>
-                        <Tag
-                            size={48}
-                            view={item.view}
-                            shape={item.shape}
-                            disabled={disabled}
-                            checked={checkedRectangular[item.key]}
-                            onClick={() =>
-                                setCheckedRectangular({
-                                    ...checkedRectangular,
-                                    [item.key]: !checkedRectangular[item.key],
-                                })
-                            }
-                        >
-                            Label
-                        </Tag>
-                    </div>
-                ))}
-            </Row>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='vertical'
+                label='Shape'
+                name='tag-states-shape-mobile'
+                onChange={(_, p) => setShape(p.value)}
+                value={shape}
+            >
+                <Radio label='Rectangular' value='rectangular' />
+                <Radio label='Rounded' value='rounded' />
+            </RadioGroup>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='vertical'
+                label='View'
+                name='tag-states-view-mobile'
+                onChange={(_, p) => setView(p.value)}
+                value={view}
+            >
+                <Radio label='Filled' value='filled' />
+                <Radio label='Transparent' value='transparent' />
+                <Radio label='Outlined' value='outlined' />
+            </RadioGroup>
 
             <Gap size={20} />
 
             <Switch
                 checked={disabled}
-                onChange={() => setDisabled((prevState) => !prevState)}
-                label='Disabled'
+                label='Заблокированное состояние'
+                onChange={() => setDisabled((v) => !v)}
             />
         </Container>
     );
