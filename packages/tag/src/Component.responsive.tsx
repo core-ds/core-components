@@ -23,7 +23,7 @@ export interface TagProps extends Omit<BaseTagProps, 'styles' | 'colorStylesMap'
      * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
-};
+}
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
     (

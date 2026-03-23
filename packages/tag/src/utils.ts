@@ -22,7 +22,7 @@ type BadgeIconSize = NonNullable<BaseTagProps['size']>;
 type BadgeIconDimensions = {
     width: number;
     height: number;
-}
+};
 
 /** Преобразует пресет-size в значения width/height */
 export const resolveSizeToDimensions = (size: BadgeIconSize): BadgeIconDimensions => {
@@ -100,7 +100,9 @@ const intersectEllipseCircle = ({
         return null;
     }
 
-    const rightPoint = hits.reduce((currentRight, hit) => (hit.cx > currentRight.cx ? hit : currentRight));
+    const rightPoint = hits.reduce((currentRight, hit) =>
+        hit.cx > currentRight.cx ? hit : currentRight,
+    );
     const topPoint = hits.reduce((currentTop, hit) => (hit.cy < currentTop.cy ? hit : currentTop));
 
     if (!isSamePoint(rightPoint, topPoint)) {
@@ -142,7 +144,12 @@ type BadgeGeometry = {
 };
 
 /** Расчет геометрии маски бейдж-иконки: положение бейджа, радиус выреза и точки стыка (junction) */
-export const resolveGeometry = ({ width: w, height: h, shape, indicatorProps }: ComputeGeometryParams): BadgeGeometry => {
+export const resolveGeometry = ({
+    width: w,
+    height: h,
+    shape,
+    indicatorProps,
+}: ComputeGeometryParams): BadgeGeometry => {
     const badgeRadius = resolveBadgeRadiusFromIndicatorProps(indicatorProps);
 
     if (badgeRadius === 0) {
@@ -181,9 +188,9 @@ export const resolveGeometry = ({ width: w, height: h, shape, indicatorProps }: 
         const junctions: [JunctionPoint, JunctionPoint] | null =
             dySq >= 0 && dxSq >= 0
                 ? [
-                    { cx: edgeRight, cy: badgeY + Math.sqrt(dySq) },
-                    { cx: badgeX - Math.sqrt(dxSq), cy: edgeTop },
-                ]
+                      { cx: edgeRight, cy: badgeY + Math.sqrt(dySq) },
+                      { cx: badgeX - Math.sqrt(dxSq), cy: edgeTop },
+                  ]
                 : null;
 
         return { badgeX, badgeY, cutoutR, cr, junctions };

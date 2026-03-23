@@ -121,4 +121,4 @@ export interface BaseTagProps extends Omit<NativeProps, 'onClick'> {
      * Стили компонента для default и inverted режима.
      */
     colorStylesMap?: StyleColors;
-};
+}
