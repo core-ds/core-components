@@ -1,0 +1,22 @@
+name: Setup variant
+
+description: Setup variant of core components
+
+inputs:
+    variant:
+        description: Variant of core components
+        required: true
+        type: string
+
+runs:
+    using: composite
+    steps:
+        - name: Apply git patch
+          shell: bash
+          run: |
+              PATCH_SOURCE='variants/${{ inputs.variant }}.patch'
+
+              if [ -f "$PATCH_SOURCE" ]; then
+                  echo "Applying patch $PATCH_SOURCE"
+                  git apply "$PATCH_SOURCE"
+              fi

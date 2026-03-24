@@ -2,9 +2,13 @@ name: main
 
 on:
     pull_request:
+        branches-ignore:
+            - next
     push:
         branches:
-            - version/49
+            - master
+            - next
+            - 'version/**'
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
@@ -18,11 +22,13 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: run build
+            - name: Run build
               run: yarn build
               env:
                   BUILD_CONCURRENCY: 4
@@ -30,47 +36,52 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: check package.json
+            - name: Check package.json
               run: |
                   yarn check-package-json
 
-            - name: check tsconfig
+            - name: Check tsconfig
               run: |
                   yarn tsconfig check
 
-            - name: run format
+            - name: Run format
               run: |
                   yarn format
 
-            - name: run lint
+            - name: Run lint
               run: |
                   yarn lint
 
     test:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: setup timezone
+            - name: Setup timezone
               uses: zcong1993/setup-timezone@master
               with:
                   timezone: Europe/Moscow
 
-            - name: build themes
+            - name: Build themes
               run: |
                   yarn build --scope @alfalab/core-components-themes
 
-            - name: run test
+            - name: Run test
               run: |
                   yarn test --coverage
 
-            - uses: actions/upload-artifact@v7
+            - name: Upload coverage
+              uses: actions/upload-artifact@v7
               with:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
@@ -78,24 +89,29 @@ jobs:
     codemod-test:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: run codemod test
+            - name: Run codemod test
               run: |
                   yarn test:codemod
 
     upload-coverage:
         needs: test
         runs-on: ubuntu-latest
+        if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
-            - uses: actions/download-artifact@v8
+            - name: Download coverage
+              uses: actions/download-artifact@v8
               with:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
 
-            - uses: coverallsapp/github-action@v2
+            - name: Upload coverage to coveralls
+              uses: coverallsapp/github-action@v2
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -103,19 +119,22 @@ jobs:
         uses: core-ds/core-components/.github/workflows/demo.yml@master
         secrets: inherit
         with:
-            directory: ${{ case(github.event_name == 'pull_request', github.event.pull_request.number, github.ref_name) }}
+            version: ${{ case(github.event_name == 'pull_request', github.event.pull_request.head.sha, github.ref) }}
+            directory: ${{ github.event.pull_request.number }}
 
     screenshot-test:
         needs: demo
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
               with:
                   lfs: true
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: download build
+            - name: Download build
               uses: actions/download-artifact@v8
               with:
                   name: build
@@ -124,7 +143,7 @@ jobs:
                   run-id: ${{ needs.demo.outputs.run-id }}
 
               # https://github.com/americanexpress/jest-image-snapshot/issues/281
-            - name: run screenshot test
+            - name: Run screenshot test
               uses: actions/github-script@v8
               with:
                   script: |
@@ -134,22 +153,43 @@ jobs:
                           core.setFailed(`Please add missing ${{ matrix.variant }} screenshots`);
                       }
 
-            - uses: actions/upload-artifact@v7
+            - name: Upload diff
+              uses: actions/upload-artifact@v7
               if: failure()
               with:
                   name: 'diff-${{ matrix.variant }}'
                   path: packages/**/__diff_output__/*
                   if-no-files-found: ignore
 
-    ci-ok:
-        name: ci ok
+    search-vars:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
+
+            - name: Run build
+              shell: bash
+              env:
+                  BUILD_WITHOUT_CSS_VARS: 'true'
+                  BUILD_CONCURRENCY: 4
+                  BUILD_MODERN_ONLY: 'true'
+              run: |
+                  yarn build
+
+            - name: Search
+              run: yarn non-existent-css-vars
+
+    ok:
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, demo, test, screenshot-test, codemod-test]
+        needs: [lint, build, demo, test, screenshot-test, codemod-test, search-vars]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:
-            - name: check for failure
+            - name: Check for failure
               run: |
                   echo $FAILURE
                   if [ "$FAILURE" = "false" ]; then
