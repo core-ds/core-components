@@ -65,8 +65,11 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
         const isRect = shape === 'rectangular';
         const hasIndicator = indicatorProps !== undefined;
 
-        const value = indicatorProps?.value;
-        const isDot = hasIndicator && value === undefined;
+        const { mode: modeProp, value, ...restIndicatorProps } = indicatorProps ?? {};
+        const mode = modeProp ?? (typeof value === 'number' ? 'count' : 'dot');
+
+        const isDotMode = mode === 'dot';
+        const dotModeValue = isDotMode ? undefined : value;
 
         const colorStyle = colorCommonStyles?.[colors];
 
@@ -162,17 +165,21 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                                 childrenClassName,
                             )}
                         >
-                            {leftAddons ?? rightAddons ?? children}
+                            {leftAddons}
                         </div>
                     </foreignObject>
                 </svg>
 
                 {hasIndicator ? (
                     <Indicator
+                        {...restIndicatorProps}
                         className={commonStyles.indicator}
-                        style={{ left: badgeX + resolveValueToIndicatorShiftX(value), top: badgeY }}
-                        size={isDot ? 8 : 16}
-                        value={isDot ? undefined : value}
+                        style={{
+                            left: badgeX + resolveValueToIndicatorShiftX(dotModeValue),
+                            top: badgeY,
+                        }}
+                        size={isDotMode ? 8 : 16}
+                        value={dotModeValue}
                     />
                 ) : null}
             </BaseButton>

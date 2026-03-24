@@ -57,8 +57,8 @@ render(() => {
     const defaultProps = {
         size: 40,
         view: 'filled',
-        shape: 'rectangular'
-    }
+        shape: 'rectangular',
+    };
 
     const amountAddon = (
         <div style={{ paddingRight: '4px' }}>
@@ -75,7 +75,10 @@ render(() => {
                     </Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
-                    <Tag rightAddons={<Badge view='count' height={16} content={1} />} {...defaultProps}>
+                    <Tag
+                        rightAddons={<Badge view='count' height={16} content={1} />}
+                        {...defaultProps}
+                    >
                         Label
                     </Tag>
                 </div>
@@ -122,8 +125,8 @@ render(() => {
     const defaultProps = {
         size: 40,
         view: 'filled',
-        shape: 'rectangular'
-    }
+        shape: 'rectangular',
+    };
 
     const amountAddon = (
         <div style={{ paddingRight: '4px' }}>
@@ -133,20 +136,30 @@ render(() => {
 
     return (
         <Container>
-            <Row>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexWrap: 'nowrap',
+                    gap: 12,
+                    overflowX: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                }}
+            >
                 <div>
                     <Tag rightAddons={addon} leftAddons={addon} {...defaultProps}>
                         Label
                     </Tag>
                 </div>
-            </Row>
-            <div style={{ display: 'flex', marginTop: 16 }}>
-                <div style={{ marginRight: 12 }}>
-                    <Tag rightAddons={<Badge view='count' height={16} content={1} />} {...defaultProps}>
+                <div>
+                    <Tag
+                        rightAddons={<Badge view='count' height={16} content={1} />}
+                        {...defaultProps}
+                    >
                         Label
                     </Tag>
                 </div>
-                <div style={{ marginRight: 12 }}>
+                <div>
                     <Tag rightAddons={<Badge view='count' height={16} />} {...defaultProps}>
                         Label
                     </Tag>
@@ -156,7 +169,7 @@ render(() => {
                         Label
                     </Tag>
                 </div>
-                <div style={{ marginLeft: 12 }}>
+                <div style={{ marginRight: '12px' }}>
                     <Tag
                         Component={IndicatorTag}
                         leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
@@ -192,7 +205,7 @@ render(() => {
 
     return (
         <Container>
-            <Row align='middle' style={{ marginBottom: 24 }}>
+            <Row align='middle'>
                 <div style={{ marginRight: 12 }}>
                     <Tag
                         {...tagProps}
@@ -214,10 +227,10 @@ render(() => {
                 </div>
             </Row>
 
-            <Gap size={16} />
+            <Gap size={20} />
 
             <RadioGroup
-                direction='horizontal'
+                direction='vertical'
                 label='Shape'
                 name='tag-states-shape'
                 onChange={(_, p) => setShape(p.value)}
@@ -230,7 +243,7 @@ render(() => {
             <Gap size={16} />
 
             <RadioGroup
-                direction='horizontal'
+                direction='vertical'
                 label='View'
                 name='tag-states-view'
                 onChange={(_, p) => setView(p.value)}
@@ -240,6 +253,12 @@ render(() => {
                 <Radio label='Transparent' value='transparent' />
                 <Radio label='Outlined' value='outlined' />
             </RadioGroup>
+
+            <Gap size={32} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
 
             <Gap size={20} />
 
@@ -260,7 +279,7 @@ render(() => {
     const [checkedPlain, setCheckedPlain] = React.useState(false);
 
     const tagProps = {
-        size: 48,
+        size: 40,
         shape,
         view,
         disabled,
@@ -324,6 +343,999 @@ render(() => {
                 label='Заблокированное состояние'
                 onChange={() => setDisabled((v) => !v)}
             />
+        </Container>
+    );
+});
+```
+
+## Группа фильтров
+
+Тэг может использоваться в группы фильтров. При необходимости, у тэга с одной иконкой можно отрендерить индикатор, и использовать его как кнопку доступа к другим фильтрам. Такой вид доступен только для [Filled] тэгов 32 и 40 размеров.
+
+```jsx live mobileHeight={768}
+const PERIOD_OPTIONS = [
+    { key: 'week', content: 'Неделя' },
+    { key: 'month', content: 'Месяц' },
+    { key: 'year', content: 'Год' },
+];
+
+const ACCOUNT_OPTIONS = [
+    { key: 'acc1', content: 'Счёт 1' },
+    { key: 'acc2', content: 'Счёт 2' },
+];
+
+const DYNAMIC_META = {
+    added_expenses: 'Добавленные расходы',
+    to_client: 'Клиенту банка',
+    between_accounts: 'Между счетами',
+    templates: 'Шаблоны',
+    autopay: 'Автоплатежи',
+};
+
+const emptyFilters = () => ({
+    replenishment: false,
+    writeoff: false,
+    dynamicKeys: [],
+    period: null,
+    accounts: [],
+});
+
+const countActive = ({ accounts, dynamicKeys, period, replenishment, writeoff }) => {
+    let n = 0;
+    if (replenishment) n += 1;
+    if (writeoff) n += 1;
+    n += dynamicKeys.length;
+    if (period) n += 1;
+    n += accounts.length;
+
+    return n;
+};
+
+const DESKTOP_TAG_SIZE = 40;
+
+render(() => {
+    const TagFieldSelectArrow = ({ open, size }) => {
+        const ChevronIcon = size === 40 ? ChevronDownSIcon : ChevronDownMIcon;
+
+        return (
+            <ChevronIcon
+                style={{
+                    display: 'block',
+                    color: 'currentColor',
+                    transition: 'transform 0.15s ease-in-out, opacity 0.2s ease',
+                    transform: open ? 'rotate(180deg)' : undefined,
+                }}
+            />
+        );
+    };
+
+    const TagField = ({
+        open,
+        disabled,
+        innerProps,
+        valueRenderer,
+        selected,
+        selectedMultiple,
+        placeholder,
+        Arrow,
+        size = DESKTOP_TAG_SIZE,
+    }) => {
+        const value = valueRenderer({
+            selected,
+            selectedMultiple: selectedMultiple || [],
+        });
+        const filled = Boolean(value);
+        const display = filled ? value : placeholder;
+        const checked = open || filled;
+
+        return (
+            <div style={{ display: 'inline-block' }}>
+                <Tag
+                    size={size}
+                    view='filled'
+                    shape='rectangular'
+                    checked={checked}
+                    disabled={disabled}
+                    rightAddons={Arrow}
+                    {...innerProps}
+                >
+                    {display}
+                </Tag>
+            </div>
+        );
+    };
+
+    const [panelOpen, setPanelOpen] = React.useState(false);
+    const [countIndicator, setCountIndicator] = React.useState(false);
+    const [applied, setApplied] = React.useState(emptyFilters);
+    const [draft, setDraft] = React.useState(emptyFilters);
+
+    const openOrTogglePanel = () => {
+        if (panelOpen) {
+            setPanelOpen(false);
+        } else {
+            setDraft({ ...applied });
+            setPanelOpen(true);
+        }
+    };
+
+    const activeCount = countActive(applied);
+
+    const toggleDraftDynamic = (id) => {
+        setDraft((prev) => {
+            const has = prev.dynamicKeys.includes(id);
+
+            if (has) {
+                return { ...prev, dynamicKeys: prev.dynamicKeys.filter((k) => k !== id) };
+            }
+
+            return { ...prev, dynamicKeys: [...prev.dynamicKeys, id] };
+        });
+    };
+
+    const toggleAppliedDynamic = (id) => {
+        setApplied((prev) => ({
+            ...prev,
+            dynamicKeys: prev.dynamicKeys.filter((k) => k !== id),
+        }));
+    };
+
+    const periodValueRenderer = ({ selected }) => {
+        if (!selected) return null;
+
+        return `Период: ${selected.content}`;
+    };
+
+    const accountsValueRenderer = ({ selectedMultiple }) => {
+        if (!selectedMultiple.length) return null;
+        if (selectedMultiple.length === 1) return `Счета: ${selectedMultiple[0].content}`;
+
+        return `Счета: Выбрано ${selectedMultiple.length}`;
+    };
+
+    const selectRowProps = {
+        allowUnselect: true,
+        block: false,
+        size: 40,
+        Option: BaseOption,
+        Field: TagField,
+        Arrow: TagFieldSelectArrow,
+        optionsListWidth: 'field',
+        optionsListClassName: 'tag-filter-row-options',
+    };
+
+    const filterSectionTitleStyle = { fontSize: 22, lineHeight: '28px' };
+
+    return (
+        <Container>
+            <style>
+                {`
+                    .tag-filter-row-options {
+                        width: 280px;
+                        min-width: 280px;
+                        max-width: 280px;
+                        box-sizing: border-box;
+                    }
+                    .tag-filter-row-options [class*='contentWrapper'] {
+                        width: 280px !important;
+                        min-width: 280px !important;
+                        max-width: 280px !important;
+                    }
+                `}
+            </style>
+            <div
+                style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: 8,
+                    alignItems: 'center',
+                }}
+            >
+                <Tag
+                    Component={IndicatorTag}
+                    leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
+                    size={DESKTOP_TAG_SIZE}
+                    view='filled'
+                    shape='rectangular'
+                    checked={panelOpen}
+                    indicatorProps={
+                        activeCount > 0
+                            ? countIndicator
+                                ? { mode: 'count', value: activeCount }
+                                : { mode: 'dot' }
+                            : undefined
+                    }
+                    onClick={openOrTogglePanel}
+                />
+                {applied.dynamicKeys.map((id) => (
+                    <Tag
+                        key={id}
+                        size={DESKTOP_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        checked={true}
+                        onClick={() => toggleAppliedDynamic(id)}
+                    >
+                        {DYNAMIC_META[id]}
+                    </Tag>
+                ))}
+                <Tag
+                    size={DESKTOP_TAG_SIZE}
+                    view='filled'
+                    shape='rectangular'
+                    checked={applied.replenishment}
+                    onClick={() => setApplied((p) => ({ ...p, replenishment: !p.replenishment }))}
+                >
+                    Пополнения
+                </Tag>
+                <Tag
+                    size={DESKTOP_TAG_SIZE}
+                    view='filled'
+                    shape='rectangular'
+                    checked={applied.writeoff}
+                    onClick={() => setApplied((p) => ({ ...p, writeoff: !p.writeoff }))}
+                >
+                    Списания
+                </Tag>
+                <SelectDesktop
+                    {...selectRowProps}
+                    options={PERIOD_OPTIONS}
+                    placeholder='Период'
+                    selected={applied.period}
+                    valueRenderer={periodValueRenderer}
+                    onChange={({ selected: next }) => {
+                        setApplied((p) => ({ ...p, period: next ? next.key : null }));
+                    }}
+                />
+                <SelectDesktop
+                    {...selectRowProps}
+                    options={ACCOUNT_OPTIONS}
+                    placeholder='Счета'
+                    multiple={true}
+                    selected={applied.accounts}
+                    valueRenderer={accountsValueRenderer}
+                    onChange={({ selectedMultiple }) => {
+                        setApplied((p) => ({
+                            ...p,
+                            accounts: selectedMultiple.map((o) => o.key),
+                        }));
+                    }}
+                />
+            </div>
+
+            <Gap size={20} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
+
+            <Gap size={20} />
+
+            <Switch
+                checked={countIndicator}
+                label='Индикатор с цифрой'
+                onChange={() => setCountIndicator((v) => !v)}
+            />
+
+            <SidePanel
+                open={panelOpen}
+                onClose={() => setPanelOpen(false)}
+                size={500}
+                componentDivProps={{
+                    style: {
+                        top: 16,
+                        bottom: 16,
+                        maxHeight: 'calc(100vh - 32px)',
+                        boxSizing: 'border-box',
+                        borderRadius: 24,
+                    },
+                }}
+            >
+                <SidePanel.Header
+                    hasCloser={true}
+                    title={<span style={{ fontSize: 30, lineHeight: '36px' }}>Фильтры</span>}
+                />
+                <SidePanel.Content>
+                    {
+                        <div>
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Период
+                            </Typography.Title>
+                            <Gap size={16} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                {PERIOD_OPTIONS.map(({ key, content }) => (
+                                    <Tag
+                                        key={key}
+                                        size={32}
+                                        view='filled'
+                                        shape='rectangular'
+                                        checked={draft.period === key}
+                                        onClick={() =>
+                                            setDraft((p) => ({
+                                                ...p,
+                                                period: p.period === key ? null : key,
+                                            }))
+                                        }
+                                    >
+                                        {content}
+                                    </Tag>
+                                ))}
+                            </div>
+                            <Gap size={24} />
+
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Движение средств
+                            </Typography.Title>
+                            <Gap size={16} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                <Tag
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.replenishment}
+                                    onClick={() =>
+                                        setDraft((p) => ({ ...p, replenishment: !p.replenishment }))
+                                    }
+                                >
+                                    Пополнение
+                                </Tag>
+                                <Tag
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.writeoff}
+                                    onClick={() =>
+                                        setDraft((p) => ({ ...p, writeoff: !p.writeoff }))
+                                    }
+                                >
+                                    Списание
+                                </Tag>
+                                <Tag
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('added_expenses')}
+                                    onClick={() => toggleDraftDynamic('added_expenses')}
+                                >
+                                    Добавленные расходы
+                                </Tag>
+                            </div>
+                            <Gap size={24} />
+
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Переводы
+                            </Typography.Title>
+                            <Gap size={16} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                <Tag
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('to_client')}
+                                    onClick={() => toggleDraftDynamic('to_client')}
+                                >
+                                    Клиенту банка
+                                </Tag>
+                                <Tag
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('between_accounts')}
+                                    onClick={() => toggleDraftDynamic('between_accounts')}
+                                >
+                                    Между счетами
+                                </Tag>
+                            </div>
+                            <Gap size={24} />
+
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Шаблоны и автоплатежи
+                            </Typography.Title>
+                            <Gap size={16} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                <Tag
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('templates')}
+                                    onClick={() => toggleDraftDynamic('templates')}
+                                >
+                                    Шаблоны
+                                </Tag>
+                                <Tag
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('autopay')}
+                                    onClick={() => toggleDraftDynamic('autopay')}
+                                >
+                                    Автоплатежи
+                                </Tag>
+                            </div>
+                            <Gap size={24} />
+
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Счета
+                            </Typography.Title>
+                            <Gap size={16} />
+                            {ACCOUNT_OPTIONS.map(({ key, content }) => (
+                                <div key={key} style={{ marginBottom: 12 }}>
+                                    <Checkbox
+                                        checked={draft.accounts.includes(key)}
+                                        label={content}
+                                        onChange={() =>
+                                            setDraft((p) => {
+                                                const has = p.accounts.includes(key);
+
+                                                return {
+                                                    ...p,
+                                                    accounts: has
+                                                        ? p.accounts.filter((k) => k !== key)
+                                                        : [...p.accounts, key],
+                                                };
+                                            })
+                                        }
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    }
+                </SidePanel.Content>
+                <SidePanel.Footer>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                        <Button
+                            view='primary'
+                            size={56}
+                            type='button'
+                            onClick={() => {
+                                setApplied({ ...draft });
+                                setPanelOpen(false);
+                            }}
+                        >
+                            Применить
+                        </Button>
+                        <Button
+                            view='secondary'
+                            size={56}
+                            type='button'
+                            onClick={() => setDraft(emptyFilters())}
+                        >
+                            Сбросить
+                        </Button>
+                    </div>
+                </SidePanel.Footer>
+            </SidePanel>
+        </Container>
+    );
+});
+//MOBILE
+const PERIOD_OPTIONS = [
+    { key: 'week', content: 'Неделя' },
+    { key: 'month', content: 'Месяц' },
+    { key: 'year', content: 'Год' },
+];
+
+const ACCOUNT_OPTIONS = [
+    { key: 'acc1', content: 'Счёт 1' },
+    { key: 'acc2', content: 'Счёт 2' },
+];
+
+const DYNAMIC_META = {
+    added_expenses: 'Добавленные расходы',
+    to_client: 'Клиенту банка',
+    between_accounts: 'Между счетами',
+    templates: 'Шаблоны',
+    autopay: 'Автоплатежи',
+};
+
+const emptyFilters = () => ({
+    replenishment: false,
+    writeoff: false,
+    dynamicKeys: [],
+    period: null,
+    accounts: [],
+});
+
+const countActive = (f) => {
+    let n = 0;
+    if (f.replenishment) n += 1;
+    if (f.writeoff) n += 1;
+    n += f.dynamicKeys.length;
+    if (f.period) n += 1;
+    n += f.accounts.length;
+    return n;
+};
+
+const MOBILE_ROW_TAG_SIZE = 32;
+
+render(() => {
+    const TagFieldSelectArrow = ({ open, size }) => {
+        const ChevronIcon = size === 40 ? ChevronDownSIcon : ChevronDownMIcon;
+
+        return (
+            <ChevronIcon
+                style={{
+                    display: 'block',
+                    color: 'currentColor',
+                    transition: 'transform 0.15s ease-in-out, opacity 0.2s ease',
+                    transform: open ? 'rotate(180deg)' : undefined,
+                }}
+            />
+        );
+    };
+
+    const TagField = (props) => {
+        const {
+            open,
+            disabled,
+            innerProps,
+            valueRenderer,
+            selected,
+            selectedMultiple,
+            placeholder,
+            Arrow,
+            size = MOBILE_ROW_TAG_SIZE,
+        } = props;
+        const value = valueRenderer({
+            selected,
+            selectedMultiple: selectedMultiple || [],
+        });
+        const filled = Boolean(value);
+        const display = filled ? value : placeholder;
+        const checked = open || filled;
+
+        return (
+            <div style={{ display: 'inline-block' }}>
+                <TagMobile
+                    size={size}
+                    view='filled'
+                    shape='rectangular'
+                    checked={checked}
+                    disabled={disabled}
+                    rightAddons={Arrow}
+                    {...innerProps}
+                >
+                    {display}
+                </TagMobile>
+            </div>
+        );
+    };
+
+    const [panelOpen, setPanelOpen] = React.useState(false);
+    const [countIndicator, setCountIndicator] = React.useState(false);
+    const [applied, setApplied] = React.useState(emptyFilters);
+    const [draft, setDraft] = React.useState(emptyFilters);
+
+    const openOrTogglePanel = () => {
+        if (panelOpen) {
+            setPanelOpen(false);
+        } else {
+            setDraft({ ...applied });
+            setPanelOpen(true);
+        }
+    };
+
+    const activeCount = countActive(applied);
+
+    const toggleDraftDynamic = (id) => {
+        setDraft((prev) => {
+            const has = prev.dynamicKeys.includes(id);
+            if (has) {
+                return { ...prev, dynamicKeys: prev.dynamicKeys.filter((k) => k !== id) };
+            }
+            return { ...prev, dynamicKeys: [...prev.dynamicKeys, id] };
+        });
+    };
+
+    const toggleAppliedDynamic = (id) => {
+        setApplied((prev) => ({
+            ...prev,
+            dynamicKeys: prev.dynamicKeys.filter((k) => k !== id),
+        }));
+    };
+
+    const periodValueRenderer = ({ selected }) => {
+        if (!selected) return null;
+        return `Период: ${selected.content}`;
+    };
+
+    const accountsValueRenderer = ({ selectedMultiple }) => {
+        if (!selectedMultiple.length) return null;
+        if (selectedMultiple.length === 1) return `Счета: ${selectedMultiple[0].content}`;
+        return `Счета: Выбрано ${selectedMultiple.length}`;
+    };
+
+    const selectRowProps = {
+        allowUnselect: true,
+        block: false,
+        size: MOBILE_ROW_TAG_SIZE,
+        Option: BaseOption,
+        Field: TagField,
+        Arrow: TagFieldSelectArrow,
+        optionsListWidth: 'field',
+    };
+
+    const mobileFilterTagsScrollRowStyle = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        gap: 8,
+        alignItems: 'center',
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        WebkitOverflowScrolling: 'touch',
+        touchAction: 'pan-x',
+        paddingTop: 10,
+        paddingBottom: 4,
+        boxSizing: 'border-box',
+    };
+
+    const mobileFilterSheetTagsRowStyle = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 8,
+        alignItems: 'center',
+    };
+
+    return (
+        <Container>
+            <div style={mobileFilterTagsScrollRowStyle}>
+                <div style={{ display: 'flex' }}>
+                    <TagMobile
+                        Component={IndicatorTag}
+                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
+                        size={MOBILE_ROW_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        checked={panelOpen}
+                        indicatorProps={
+                            activeCount > 0
+                                ? countIndicator
+                                    ? { mode: 'count', value: activeCount }
+                                    : { mode: 'dot' }
+                                : undefined
+                        }
+                        onClick={openOrTogglePanel}
+                    />
+                </div>
+
+                {applied.dynamicKeys.map((id) => (
+                    <div key={id}>
+                        <TagMobile
+                            size={MOBILE_ROW_TAG_SIZE}
+                            view='filled'
+                            shape='rectangular'
+                            checked={true}
+                            onClick={() => toggleAppliedDynamic(id)}
+                        >
+                            {DYNAMIC_META[id]}
+                        </TagMobile>
+                    </div>
+                ))}
+
+                <div>
+                    <TagMobile
+                        size={MOBILE_ROW_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        checked={applied.replenishment}
+                        onClick={() =>
+                            setApplied((p) => ({ ...p, replenishment: !p.replenishment }))
+                        }
+                    >
+                        Пополнения
+                    </TagMobile>
+                </div>
+                <div>
+                    <TagMobile
+                        size={MOBILE_ROW_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        checked={applied.writeoff}
+                        onClick={() => setApplied((p) => ({ ...p, writeoff: !p.writeoff }))}
+                    >
+                        Списания
+                    </TagMobile>
+                </div>
+
+                <div>
+                    <SelectMobile
+                        {...selectRowProps}
+                        options={PERIOD_OPTIONS}
+                        placeholder='Период'
+                        selected={applied.period}
+                        valueRenderer={periodValueRenderer}
+                        onChange={({ selected: next }) => {
+                            setApplied((p) => ({ ...p, period: next ? next.key : null }));
+                        }}
+                    />
+                </div>
+                <div>
+                    <SelectMobile
+                        {...selectRowProps}
+                        options={ACCOUNT_OPTIONS}
+                        placeholder='Счета'
+                        multiple={true}
+                        selected={applied.accounts}
+                        valueRenderer={accountsValueRenderer}
+                        onChange={({ selectedMultiple }) => {
+                            setApplied((p) => ({
+                                ...p,
+                                accounts: selectedMultiple.map((o) => o.key),
+                            }));
+                        }}
+                    />
+                </div>
+            </div>
+
+            <Gap size={16} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
+
+            <Gap size={16} />
+
+            <Switch
+                checked={countIndicator}
+                label='Индикатор с цифрой'
+                onChange={() => setCountIndicator((v) => !v)}
+            />
+
+            <BottomSheet
+                open={panelOpen}
+                onClose={() => setPanelOpen(false)}
+                title='Фильтры'
+                hasCloser={true}
+                stickyFooter={true}
+                initialHeight='full'
+                actionButton={
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: 16,
+                            width: '100%',
+                            boxSizing: 'border-box',
+                        }}
+                    >
+                        <ButtonMobile
+                            view='secondary'
+                            size={48}
+                            type='button'
+                            block={true}
+                            style={{ flex: 1 }}
+                            onClick={() => setDraft(emptyFilters())}
+                        >
+                            Сбросить
+                        </ButtonMobile>
+                        <ButtonMobile
+                            view='primary'
+                            size={48}
+                            type='button'
+                            block={true}
+                            style={{ flex: 1 }}
+                            onClick={() => {
+                                setApplied({ ...draft });
+                                setPanelOpen(false);
+                            }}
+                        >
+                            Применить
+                        </ButtonMobile>
+                    </div>
+                }
+            >
+                <>
+                    <Typography.Text
+                        tag='p'
+                        view='component-secondary'
+                        color='secondary'
+                        defaultMargins={false}
+                    >
+                        Период
+                    </Typography.Text>
+                    <Gap size={8} />
+                    <div style={mobileFilterSheetTagsRowStyle}>
+                        {PERIOD_OPTIONS.map((opt) => (
+                            <div key={opt.key}>
+                                <TagMobile
+                                    size={MOBILE_ROW_TAG_SIZE}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.period === opt.key}
+                                    onClick={() =>
+                                        setDraft((p) => ({
+                                            ...p,
+                                            period: p.period === opt.key ? null : opt.key,
+                                        }))
+                                    }
+                                >
+                                    {opt.content}
+                                </TagMobile>
+                            </div>
+                        ))}
+                    </div>
+
+                    <Gap size={24} />
+
+                    <Typography.Text
+                        tag='p'
+                        view='component-secondary'
+                        color='secondary'
+                        defaultMargins={false}
+                    >
+                        Движение средств
+                    </Typography.Text>
+                    <Gap size={8} />
+                    <div style={mobileFilterSheetTagsRowStyle}>
+                        <div>
+                            <TagMobile
+                                size={MOBILE_ROW_TAG_SIZE}
+                                view='filled'
+                                shape='rectangular'
+                                checked={draft.replenishment}
+                                onClick={() =>
+                                    setDraft((p) => ({ ...p, replenishment: !p.replenishment }))
+                                }
+                            >
+                                Пополнение
+                            </TagMobile>
+                        </div>
+                        <div>
+                            <TagMobile
+                                size={MOBILE_ROW_TAG_SIZE}
+                                view='filled'
+                                shape='rectangular'
+                                checked={draft.writeoff}
+                                onClick={() => setDraft((p) => ({ ...p, writeoff: !p.writeoff }))}
+                            >
+                                Списание
+                            </TagMobile>
+                        </div>
+                        <div>
+                            <TagMobile
+                                size={MOBILE_ROW_TAG_SIZE}
+                                view='filled'
+                                shape='rectangular'
+                                checked={draft.dynamicKeys.includes('added_expenses')}
+                                onClick={() => toggleDraftDynamic('added_expenses')}
+                            >
+                                Добавленные расходы
+                            </TagMobile>
+                        </div>
+                    </div>
+
+                    <Gap size={24} />
+
+                    <Typography.Text
+                        tag='p'
+                        view='component-secondary'
+                        color='secondary'
+                        defaultMargins={false}
+                    >
+                        Переводы
+                    </Typography.Text>
+                    <Gap size={8} />
+                    <div style={mobileFilterSheetTagsRowStyle}>
+                        <div>
+                            <TagMobile
+                                size={MOBILE_ROW_TAG_SIZE}
+                                view='filled'
+                                shape='rectangular'
+                                checked={draft.dynamicKeys.includes('to_client')}
+                                onClick={() => toggleDraftDynamic('to_client')}
+                            >
+                                Клиенту банка
+                            </TagMobile>
+                        </div>
+                        <div>
+                            <TagMobile
+                                size={MOBILE_ROW_TAG_SIZE}
+                                view='filled'
+                                shape='rectangular'
+                                checked={draft.dynamicKeys.includes('between_accounts')}
+                                onClick={() => toggleDraftDynamic('between_accounts')}
+                            >
+                                Между счетами
+                            </TagMobile>
+                        </div>
+                    </div>
+
+                    <Gap size={24} />
+
+                    <Typography.Text
+                        tag='p'
+                        view='component-secondary'
+                        color='secondary'
+                        defaultMargins={false}
+                    >
+                        Шаблоны и автоплатежи
+                    </Typography.Text>
+                    <Gap size={8} />
+                    <div style={mobileFilterSheetTagsRowStyle}>
+                        <div>
+                            <TagMobile
+                                size={MOBILE_ROW_TAG_SIZE}
+                                view='filled'
+                                shape='rectangular'
+                                checked={draft.dynamicKeys.includes('templates')}
+                                onClick={() => toggleDraftDynamic('templates')}
+                            >
+                                Шаблоны
+                            </TagMobile>
+                        </div>
+                        <div>
+                            <TagMobile
+                                size={MOBILE_ROW_TAG_SIZE}
+                                view='filled'
+                                shape='rectangular'
+                                checked={draft.dynamicKeys.includes('autopay')}
+                                onClick={() => toggleDraftDynamic('autopay')}
+                            >
+                                Автоплатежи
+                            </TagMobile>
+                        </div>
+                    </div>
+
+                    <Gap size={24} />
+
+                    <Typography.Text
+                        tag='p'
+                        view='component-secondary'
+                        color='secondary'
+                        defaultMargins={false}
+                    >
+                        Счета
+                    </Typography.Text>
+                    <Gap size={12} />
+
+                    {ACCOUNT_OPTIONS.map((opt) => (
+                        <div key={opt.key} style={{ marginBottom: 12 }}>
+                            <Checkbox
+                                checked={draft.accounts.includes(opt.key)}
+                                label={opt.content}
+                                onChange={() =>
+                                    setDraft((p) => {
+                                        const has = p.accounts.includes(opt.key);
+                                        return {
+                                            ...p,
+                                            accounts: has
+                                                ? p.accounts.filter((k) => k !== opt.key)
+                                                : [...p.accounts, opt.key],
+                                        };
+                                    })
+                                }
+                            />
+                        </div>
+                    ))}
+                </>
+            </BottomSheet>
         </Container>
     );
 });

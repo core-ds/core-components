@@ -16,6 +16,20 @@ export type StyleColors = {
 
 export type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
+export interface IndicatorProps {
+    /**
+     * Точка (`dot`) или счётчик (`count`).
+     * Если не передан: при числовом `value` эффективно `count`, иначе `dot`.
+     */
+    mode?: 'dot' | 'count';
+
+    /**
+     * Число для бейджа: в UI показывается только при эффективном режиме `count` (в `dot` в `Indicator` не прокидывается).
+     * Влияет на геометрию выреза маски при `mode: 'count'` (см. `resolveGeometry`).
+     */
+    value?: number;
+}
+
 export interface BaseTagProps extends Omit<NativeProps, 'onClick'> {
     /**
      * Отображение кнопки в отмеченном (зажатом) состоянии
@@ -106,11 +120,9 @@ export interface BaseTagProps extends Omit<NativeProps, 'onClick'> {
 
     /**
      * Свойства индикатора (бейдж с числом или точкой).
-     * @description Режим с индикатором задаётся пропом `Component` (например, `IndicatorTag`), а не наличием `indicatorProps`.
+     * @description Режим с индикатором задаётся пропом `Component` (например, `IndicatorTag`).
      */
-    indicatorProps?: {
-        value?: number;
-    };
+    indicatorProps?: IndicatorProps;
 
     /**
      * Основные стили компонента.

@@ -118,10 +118,6 @@ type ComputeGeometryParams = {
     width: number;
     height: number;
     shape: BaseTagProps['shape'];
-    /**
-     * Без пропа — маска без выреза под бейдж.
-     * Объект (в т.ч. `{}`) — режим индикатора: `value === undefined` → точка, иначе число.
-     */
     indicatorProps?: BaseTagProps['indicatorProps'];
 };
 
@@ -132,7 +128,13 @@ const resolveBadgeRadiusFromIndicatorProps = (
         return 0;
     }
 
-    return indicatorProps.value === undefined ? DOT_RADIUS : BADGE_NUMBER_RADIUS;
+    const mode = indicatorProps.mode ?? (typeof indicatorProps.value === 'number' ? 'count' : 'dot');
+
+    if (mode === 'dot') {
+        return DOT_RADIUS;
+    }
+
+    return typeof indicatorProps.value === 'number' ? BADGE_NUMBER_RADIUS : DOT_RADIUS;
 };
 
 type BadgeGeometry = {
@@ -188,9 +190,9 @@ export const resolveGeometry = ({
         const junctions: [JunctionPoint, JunctionPoint] | null =
             dySq >= 0 && dxSq >= 0
                 ? [
-                      { cx: edgeRight, cy: badgeY + Math.sqrt(dySq) },
-                      { cx: badgeX - Math.sqrt(dxSq), cy: edgeTop },
-                  ]
+                    { cx: edgeRight, cy: badgeY + Math.sqrt(dySq) },
+                    { cx: badgeX - Math.sqrt(dxSq), cy: edgeTop },
+                ]
                 : null;
 
         return { badgeX, badgeY, cutoutR, cr, junctions };
