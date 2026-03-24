@@ -24,16 +24,6 @@
             "module": "./resolve-ref/index.js",
             "import": "./resolve-ref/index.mjs",
             "require": "./resolve-ref/index.cjs"
-        },
-        "./resolve-variant-directory": {
-            "types": {
-                "module": "./resolve-variant-directory/index.d.js",
-                "import": "./resolve-variant-directory/index.d.mts",
-                "require": "./resolve-variant-directory/index.d.cts"
-            },
-            "module": "./resolve-variant-directory/index.js",
-            "import": "./resolve-variant-directory/index.mjs",
-            "require": "./resolve-variant-directory/index.cjs"
         }
     },
     "scripts": {

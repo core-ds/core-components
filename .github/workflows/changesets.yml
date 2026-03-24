@@ -10,18 +10,22 @@ defaults:
     run:
         shell: bash
 
+env:
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
 jobs:
     changesets:
-        name: changesets check
         runs-on: ubuntu-latest
         timeout-minutes: 20
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
 
-            - name: apply changesets
+            - name: Apply changesets
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  yarn changeset version
+                  yarn version-packages

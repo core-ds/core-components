@@ -5,13 +5,16 @@ import semver from 'semver';
 
 const HEADS_PREFIX = 'refs/heads/';
 const TAGS_PREFIX = 'refs/tags/';
+// version/49
+const VERSION_BRANCH_PREFIX = 'version/';
 // regexp based on https://github.com/changesets/action/blob/06245a4e0a36c064a573d4150030f5ec548e4fcc/src/run.ts#L139
 const PACKAGE_TAG_REGEXP = /(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)/;
 
 /**
- * @param {Pick<import('@actions/github-script').AsyncFunctionArguments, 'context' |'core' |  'exec'>} args
+ * @param {Pick<import('@actions/github-script').AsyncFunctionArguments, 'context' | 'core' | 'exec'>} args
  * @returns {Promise<string | undefined>}
  */
+// eslint-disable-next-line complexity
 async function resolveDirectory({ context, core, exec }) {
     /**
      * @param {string[]} args
@@ -43,10 +46,12 @@ async function resolveDirectory({ context, core, exec }) {
             if (context.ref.startsWith(HEADS_PREFIX)) {
                 const refName = context.ref.replace(HEADS_PREFIX, '');
 
-                switch (refName) {
-                    case 'master':
-                    case 'next':
-                        return refName;
+                if (refName === 'master' || refName === 'next') {
+                    return refName;
+                }
+
+                if (refName.startsWith(VERSION_BRANCH_PREFIX)) {
+                    return refName.replace(VERSION_BRANCH_PREFIX, 'v');
                 }
 
                 refIsNotSupported = true;

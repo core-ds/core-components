@@ -1,8 +1,12 @@
-name: update-screenshots
+name: update-pull-request-screenshots
 
 on:
     workflow_dispatch:
         inputs:
+            pull-request:
+                description: Pull request number
+                type: number
+                required: true
             variant:
                 description: Variant of core components
                 required: false
@@ -12,7 +16,7 @@ on:
                     - default
 
 concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}-${{ inputs.variant }}
+    group: ${{ github.workflow }}-${{ inputs.pull-request }}-${{ inputs.variant }}
     cancel-in-progress: true
 
 defaults:
@@ -20,7 +24,19 @@ defaults:
         shell: bash
 
 jobs:
+    guard:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check if repo is correct
+              if: ${{ github.repository != 'core-ds/core-components' }}
+              run: |
+                  echo 'This workflow is designed to use inside `core-ds/core-components` repository only.'
+                  echo 'If you want to update your screenshots, use the `update-screenshots` workflow.'
+
+                  exit 1
+
     build-demo:
+        needs: guard
         uses: ./.github/workflows/build-demo.yml
         secrets: inherit
         with:
@@ -30,15 +46,29 @@ jobs:
     update:
         runs-on: ubuntu-latest
         needs: build-demo
-        permissions:
-            contents: write
         env:
             CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
         steps:
+            - name: Parse repository name
+              id: repository
+              uses: core-ds/core-components/.github/actions/parse-repository@master
+              with:
+                  repository: ${{ github.repository }}
+
+            - name: Generate app token
+              id: generate-token
+              uses: actions/create-github-app-token@v3
+              with:
+                  app-id: ${{ vars.APP_ID }}
+                  private-key: ${{ secrets.APP_PRIVATE_KEY }}
+                  owner: ${{ steps.repository.outputs.owner }}
+                  repositories: ${{ steps.repository.outputs.repo }}
+
             - name: Checkout
               uses: actions/checkout@v6
               with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  repository: ${{ steps.repository.outputs.full-name }}
+                  token: ${{ steps.generate-token.outputs.token }}
                   lfs: true
 
             - name: Setup CI

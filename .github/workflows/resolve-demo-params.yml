@@ -4,10 +4,9 @@ on:
     workflow_call:
         inputs:
             version:
-                description: Version of @alfalab/core-components package, tag or SHA
+                description: Version of @alfalab/core-components package, ref, tag or SHA
                 required: false
                 type: string
-                default: ${{ github.ref }}
             directory:
                 description: Demo directory
                 required: false
@@ -24,6 +23,9 @@ defaults:
     run:
         shell: bash
 
+env:
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
 jobs:
     resolve:
         runs-on: ubuntu-latest
@@ -35,11 +37,14 @@ jobs:
             CORE_COMPONENTS_DEMO_VERSION: ${{ inputs.version }}
             CORE_COMPONENTS_DEMO_DIRECTORY: ${{ inputs.directory }}
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
 
-            - id: resolve-ref
+            - name: Resolve ref
+              id: resolve-ref
               uses: actions/github-script@v8
               with:
                   result-encoding: string
@@ -58,14 +63,16 @@ jobs:
                           io,
                       });
 
-            - uses: actions/checkout@v6
+            - name: Checkout resolved ref
+              uses: actions/checkout@v6
               if: ${{ steps.resolve-ref.outputs.result != github.ref }}
               with:
                   ref: ${{ steps.resolve-ref.outputs.result }}
                   fetch-tags: true
                   path: checkout-ref
 
-            - id: resolve-directory
+            - name: Resolve directory
+              id: resolve-directory
               uses: actions/github-script@v8
               with:
                   result-encoding: string
