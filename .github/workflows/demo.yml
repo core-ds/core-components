@@ -40,7 +40,7 @@ defaults:
 
 jobs:
     params:
-        uses: ./.github/workflows/resolve-demo-params.yml
+        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
         secrets: inherit
         with:
             version: ${{ inputs.version }}
@@ -48,7 +48,7 @@ jobs:
 
     variants:
         needs: params
-        uses: ./.github/workflows/variants.yml
+        uses: core-ds/core-components/.github/workflows/variants.yml@master
         with:
             ref: ${{ needs.params.outputs.ref }}
 
@@ -57,7 +57,7 @@ jobs:
         strategy:
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
-        uses: ./.github/workflows/build-demo.yml
+        uses: core-ds/core-components/.github/workflows/build-demo.yml@master
         secrets: inherit
         with:
             ref: ${{ needs.params.outputs.ref }}
@@ -70,7 +70,7 @@ jobs:
             max-parallel: 1
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
-        uses: ./.github/workflows/deploy-demo.yml
+        uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
