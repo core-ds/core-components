@@ -38,8 +38,8 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         continue-on-error: true
-        permissions:
-            contents: write
+        # check if vars are available
+        if: ${{ vars.APP_ID != '' }}
         outputs:
             url: 'https://${{ steps.repository.outputs.owner }}.github.io/${{ steps.repository.outputs.repo }}/${{ inputs.directory }}'
         steps:
