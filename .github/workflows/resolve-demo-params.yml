@@ -5,7 +5,7 @@ on:
         inputs:
             version:
                 description: Version of @alfalab/core-components package, ref, tag or SHA
-                required: false
+                required: true
                 type: string
             directory:
                 description: Demo directory
@@ -102,38 +102,29 @@ jobs:
                       let versionInput = process.env.CORE_COMPONENTS_DEMO_VERSION;
                       let refIsNotSupported = false;
 
-                      if (versionInput === context.ref) {
-                          if (versionInput.startsWith(HEADS_PREFIX)) {
-                              const refName = versionInput.replace(HEADS_PREFIX, '');
-
-                              if (refName === 'master' || refName === 'next') {
-                                  return refName;
-                              }
-
-                              const match = VERSION_BRANCH_REGEXP.exec(refName);
-
-                              if (match) {
-                                  const [, major] = match;
-
-                                  return demoDirName(major);
-                              }
-
-                              refIsNotSupported = true;
-                          } else if (versionInput.startsWith(TAGS_PREFIX)) {
-                              const tagName = versionInput.replace(TAGS_PREFIX, '');
-                              const tagMatch = tagName.match(PACKAGE_TAG_REGEXP);
-
-                              if (tagMatch) {
-                                  const [, pkgName] = tagMatch;
-
-                                  if (pkgName.startsWith('@alfalab/core-components')) {
-                                      versionInput = tagName;
-                                  } else {
-                                      refIsNotSupported = true;
-                                  }
+                      if (versionInput.startsWith(HEADS_PREFIX)) {
+                          const refName = versionInput.replace(HEADS_PREFIX, '');
+                          if (refName === 'master' || refName === 'next') {
+                              return refName;
+                          }
+                          const match = VERSION_BRANCH_REGEXP.exec(refName);
+                          if (match) {
+                              const [, major] = match;
+                              return demoDirName(major);
+                          }
+                          refIsNotSupported = true;
+                      } else if (versionInput.startsWith(TAGS_PREFIX)) {
+                          const tagName = versionInput.replace(TAGS_PREFIX, '');
+                          const tagMatch = tagName.match(PACKAGE_TAG_REGEXP);
+                          if (tagMatch) {
+                              const [, pkgName] = tagMatch;
+                              if (pkgName.startsWith('@alfalab/core-components')) {
+                                  versionInput = tagName;
                               } else {
                                   refIsNotSupported = true;
                               }
+                          } else {
+                              refIsNotSupported = true;
                           }
                       }
 

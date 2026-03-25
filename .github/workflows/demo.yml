@@ -5,7 +5,7 @@ on:
         inputs:
             version:
                 description: Version of @alfalab/core-components package, tag, ref or sha
-                required: false
+                required: true
                 type: string
             directory:
                 description: Directory to deploy demo
@@ -43,7 +43,7 @@ jobs:
         uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@ci/pretty-fixes
         secrets: inherit
         with:
-            version: ${{ inputs.version }}
+            version: ${{ case(github.event_name == 'workflow_dispatch' && inputs.version == '', github.ref, inputs.version) }}
             directory: ${{ inputs.directory }}
 
     variants:
