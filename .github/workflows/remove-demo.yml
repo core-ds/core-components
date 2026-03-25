@@ -17,5 +17,6 @@ concurrency:
 jobs:
     remove-demo:
         uses: core-ds/core-components/.github/workflows/remove-demo.yml@master
+        secrets: inherit
         with:
             directory: ${{ case(github.event_name == 'pull_request', github.event.pull_request.number, inputs.directory) }}
