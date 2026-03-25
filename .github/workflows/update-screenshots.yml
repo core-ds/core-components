@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
     build-demo:
-        uses: core-ds/core-components/.github/workflows/build-demo.yml@master
+        uses: core-ds/core-components/.github/workflows/build-demo.yml@ci/pretty-fixes
         secrets: inherit
 
     update:
@@ -25,7 +25,7 @@ jobs:
                   lfs: true
 
             - name: Setup CI
-              uses: core-ds/core-components/.github/actions/ci-setup@master
+              uses: core-ds/core-components/.github/actions/ci-setup@ci/pretty-fixes
 
             - name: download build
               uses: actions/download-artifact@v8
@@ -51,6 +51,6 @@ jobs:
 
             - name: Update branch
               if: ${{ steps.git-status.outputs.result == 'true' }}
-              uses: core-ds/core-components/.github/actions/commit-and-push@master
+              uses: core-ds/core-components/.github/actions/commit-and-push@ci/pretty-fixes
               with:
                   message: 'test: updated screenshots'

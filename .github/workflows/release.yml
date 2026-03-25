@@ -38,7 +38,7 @@ jobs:
                   token: ${{ steps.generate-token.outputs.token }}
 
             - name: Setup CI
-              uses: core-ds/core-components/.github/actions/ci-setup@master
+              uses: core-ds/core-components/.github/actions/ci-setup@ci/pretty-fixes
 
             - name: Create release pull request or publish to npm
               uses: changesets/action@v1
@@ -85,7 +85,7 @@ jobs:
                   ref: ${{ steps.data.outputs.sha }}
 
             - name: Setup CI
-              uses: core-ds/core-components/.github/actions/ci-setup@master
+              uses: core-ds/core-components/.github/actions/ci-setup@ci/pretty-fixes
 
             - name: Publish to npm
               id: publish

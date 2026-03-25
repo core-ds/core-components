@@ -16,7 +16,7 @@ jobs:
                   ref: ${{ github.base_ref }}
 
             - name: Setup CI
-              uses: core-ds/core-components/.github/actions/ci-setup@master
+              uses: core-ds/core-components/.github/actions/ci-setup@ci/pretty-fixes
 
             - name: Analyze
               shell: bash
@@ -37,7 +37,7 @@ jobs:
               uses: actions/checkout@v6
 
             - name: Setup CI
-              uses: core-ds/core-components/.github/actions/ci-setup@master
+              uses: core-ds/core-components/.github/actions/ci-setup@ci/pretty-fixes
 
             - name: Analyze
               shell: bash
