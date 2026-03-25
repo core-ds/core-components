@@ -1,6 +1,12 @@
 name: update-screenshots
 
 on:
+    workflow_call:
+        inputs:
+            variant:
+                description: Variant of core components
+                required: false
+                type: string
     workflow_dispatch:
         inputs:
             variant:
