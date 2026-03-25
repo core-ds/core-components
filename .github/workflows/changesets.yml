@@ -19,7 +19,7 @@ jobs:
               uses: actions/checkout@v6
 
             - name: Checkout
-              uses: core-ds/core-components/.github/actions/ci-setup@ci/pretty-fixes
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
             - name: Apply changesets
               shell: bash

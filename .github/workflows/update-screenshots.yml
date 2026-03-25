@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
     update:
-        uses: core-ds/core-components/.github/workflows/update-screenshots.yml@ci/pretty-fixes
+        uses: core-ds/core-components/.github/workflows/update-screenshots.yml@master
         secrets: inherit
         with:
             variant: default
