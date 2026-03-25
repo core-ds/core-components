@@ -14,7 +14,7 @@ env:
     PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
 jobs:
-    changesets:
+    check:
         runs-on: ubuntu-latest
         timeout-minutes: 20
         steps:

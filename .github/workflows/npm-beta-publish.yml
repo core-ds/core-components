@@ -10,6 +10,6 @@ jobs:
               shell: bash
               run: |
                   echo "This workflow does nothing. Make sure ref is correct."
-                  echo 'Use this workflow for core-components version 49.'
+                  echo 'Use this workflow for core-components version 48.'
                   echo 'Use `release` workflow for core-components version 49 and higher.'
                   exit 1

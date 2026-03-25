@@ -5,7 +5,7 @@ on:
         inputs:
             version:
                 description: Version of @alfalab/core-components package, tag, ref or sha
-                required: false
+                required: true
                 type: string
             directory:
                 description: Directory to deploy demo
@@ -40,15 +40,15 @@ defaults:
 
 jobs:
     params:
-        uses: ./.github/workflows/resolve-demo-params.yml
+        uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
         secrets: inherit
         with:
-            version: ${{ inputs.version }}
+            version: ${{ case(github.event_name == 'workflow_dispatch' && inputs.version == '', github.ref, inputs.version) }}
             directory: ${{ inputs.directory }}
 
     variants:
         needs: params
-        uses: ./.github/workflows/variants.yml
+        uses: core-ds/core-components/.github/workflows/variants.yml@master
         with:
             ref: ${{ needs.params.outputs.ref }}
 
@@ -57,7 +57,7 @@ jobs:
         strategy:
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
-        uses: ./.github/workflows/build-demo.yml
+        uses: core-ds/core-components/.github/workflows/build-demo.yml@master
         secrets: inherit
         with:
             ref: ${{ needs.params.outputs.ref }}
@@ -70,7 +70,7 @@ jobs:
             max-parallel: 1
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
-        uses: ./.github/workflows/deploy-demo.yml
+        uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}

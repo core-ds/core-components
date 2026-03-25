@@ -23,7 +23,7 @@ jobs:
         uses: ./.github/workflows/variants.yml
 
     build:
-        needs: [variants, setup-variant]
+        needs: [setup-variant, variants]
         strategy:
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
@@ -50,7 +50,7 @@ jobs:
                   BUILD_CONCURRENCY: 4
 
     lint:
-        needs: [variants, setup-variant]
+        needs: [setup-variant, variants]
         strategy:
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
@@ -88,7 +88,7 @@ jobs:
                   yarn lint
 
     test:
-        needs: [variants, setup-variant]
+        needs: [setup-variant, variants]
         strategy:
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
@@ -246,7 +246,7 @@ jobs:
                   path: pull-request
 
     search-vars:
-        needs: variants
+        needs: [setup-variant, variants]
         strategy:
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}

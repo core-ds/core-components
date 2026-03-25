@@ -66,6 +66,8 @@ jobs:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     variants:
+        needs: release
+        if: ${{ fromJson(needs.release.outputs.published) }}
         uses: ./.github/workflows/variants.yml
         with:
             include-default: false
@@ -75,7 +77,6 @@ jobs:
         strategy:
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
-        if: ${{ fromJson(needs.release.outputs.published) }}
         permissions:
             id-token: write # to use OpenID Connect token for trusted publishing
         env:

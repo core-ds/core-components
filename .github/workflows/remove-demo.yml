@@ -32,7 +32,7 @@ defaults:
 jobs:
     variants:
         if: ${{ inputs.include-variants || github.event_name == 'pull_request' }}
-        uses: ./.github/workflows/variants.yml
+        uses: core-ds/core-components/.github/workflows/variants.yml@master
         secrets: inherit
 
     resolve-directory:

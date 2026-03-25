@@ -15,24 +15,24 @@ on:
         outputs:
             config:
                 description: Config of core-components variants as JSON string
-                value: ${{ jobs.variants.outputs.config }}
+                value: ${{ jobs.config.outputs.result }}
 
 defaults:
     run:
         shell: bash
 
 jobs:
-    variants:
+    config:
         runs-on: ubuntu-latest
         outputs:
-            config: ${{ steps.config.outputs.result }}
+            result: ${{ steps.config.outputs.result }}
         steps:
             - name: Checkout
               uses: actions/checkout@v6
               with:
                   ref: ${{ inputs.ref }}
 
-            - name: Read config
+            - name: Get config
               id: config
               uses: actions/github-script@v8
               with:

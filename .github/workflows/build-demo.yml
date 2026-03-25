@@ -9,14 +9,12 @@ on:
                 type: string
             variant:
                 description: Variant of core components
-                required: false
+                required: true
                 type: string
-                default: default
             artifact-name:
                 description: Artifact name
-                required: false
+                required: true
                 type: string
-                default: build
         outputs:
             run-id:
                 description: Artifact workflow run id
