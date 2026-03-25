@@ -91,12 +91,12 @@ jobs:
                   lfs: true
 
             - name: Setup variant
-              uses: core-ds/core-components/.github/actions/setup-variant@ci/pretty-fixes
+              uses: core-ds/core-components/.github/actions/setup-variant@master
               with:
                   variant: ${{ inputs.variant }}
 
             - name: Setup CI
-              uses: core-ds/core-components/.github/actions/ci-setup@ci/pretty-fixes
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
             - name: Build demo
               env:

@@ -51,7 +51,7 @@ jobs:
         steps:
             - name: Parse repository name
               id: repository
-              uses: core-ds/core-components/.github/actions/parse-repository@ci/pretty-fixes
+              uses: core-ds/core-components/.github/actions/parse-repository@master
               with:
                   repository: ${{ github.repository }}
 

@@ -32,7 +32,7 @@ defaults:
 jobs:
     variants:
         if: ${{ inputs.include-variants || github.event_name == 'pull_request' }}
-        uses: core-ds/core-components/.github/workflows/variants.yml@ci/pretty-fixes
+        uses: core-ds/core-components/.github/workflows/variants.yml@master
         secrets: inherit
 
     resolve-directory:
@@ -76,7 +76,7 @@ jobs:
         steps:
             - name: Parse repository name
               id: repository
-              uses: core-ds/core-components/.github/actions/parse-repository@ci/pretty-fixes
+              uses: core-ds/core-components/.github/actions/parse-repository@master
               with:
                   repository: ${{ case(github.event_name == 'pull_request', github.event.pull_request.head.repo.full_name, github.repository) }}
 
@@ -113,6 +113,6 @@ jobs:
 
             - name: Commit and push
               if: ${{ fromJson(steps.remove.outputs.result) }}
-              uses: core-ds/core-components/.github/actions/commit-and-push@ci/pretty-fixes
+              uses: core-ds/core-components/.github/actions/commit-and-push@master
               with:
                   message: 'Deploy to GitHub Pages'

@@ -11,7 +11,7 @@ runs:
     using: composite
     steps:
         - name: Setup git user
-          uses: core-ds/core-components/.github/actions/setup-git-user@ci/pretty-fixes
+          uses: core-ds/core-components/.github/actions/setup-git-user@master
           with:
               name: 'github-actions[bot]'
               email: '41898282+github-actions[bot]@users.noreply.github.com'
