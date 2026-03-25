@@ -45,7 +45,7 @@ jobs:
         steps:
             - name: Parse repository name
               id: repository
-              uses: core-ds/core-components/.github/actions/parse-repository@master
+              uses: core-ds/core-components/.github/actions/parse-repository@ci/pretty-fixes
               with:
                   repository: ${{ inputs.deploy-repository }}
 
@@ -85,7 +85,7 @@ jobs:
                   cp archive-versions.json '${{ inputs.directory }}'
 
             - name: Commit and push
-              uses: core-ds/core-components/.github/actions/commit-and-push@master
+              uses: core-ds/core-components/.github/actions/commit-and-push@ci/pretty-fixes
               with:
                   message: 'Deploy to GitHub Pages'
 
@@ -112,7 +112,7 @@ jobs:
                       return stdout.trim();
 
             - name: Find open pull requests
-              uses: core-ds/core-components/.github/actions/find-open-pull-requests@master
+              uses: core-ds/core-components/.github/actions/find-open-pull-requests@ci/pretty-fixes
               id: pull-requests
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
