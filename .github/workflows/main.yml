@@ -2,151 +2,194 @@ name: main
 
 on:
     pull_request:
+        branches-ignore:
+            - next
     push:
         branches:
             - master
             - next
+            - 'version/**'
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
 
+defaults:
+    run:
+        shell: bash
+
 jobs:
     build:
-        name: build
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: run build
+            - name: Run build
               run: yarn build
               env:
                   BUILD_CONCURRENCY: 4
 
     lint:
-        name: lint
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: check package.json
+            - name: Check package.json
               run: |
                   yarn check-package-json
 
-            - name: check tsconfig
+            - name: Check tsconfig
               run: |
                   yarn tsconfig check
 
-            - name: run format
+            - name: Run format
               run: |
                   yarn format
 
-            - name: run lint
+            - name: Run lint
               run: |
                   yarn lint
 
     test:
-        name: test
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: setup timezone
+            - name: Setup timezone
               uses: zcong1993/setup-timezone@master
               with:
                   timezone: Europe/Moscow
 
-            - name: build themes
+            - name: Build themes
               run: |
                   yarn build --scope @alfalab/core-components-themes
 
-            - name: run test
+            - name: Run test
               run: |
                   yarn test --coverage
 
-            - uses: actions/upload-artifact@v4
+            - name: Upload coverage
+              uses: actions/upload-artifact@v7
               with:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
+
+    codemod-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
+
+            - name: Run codemod test
+              run: |
+                  yarn test:codemod
 
     upload-coverage:
         needs: test
         runs-on: ubuntu-latest
+        if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
-            - uses: actions/download-artifact@v5
+            - name: Download coverage
+              uses: actions/download-artifact@v8
               with:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
 
-            - uses: coverallsapp/github-action@v2
+            - name: Upload coverage to coveralls
+              uses: coverallsapp/github-action@v2
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    demo-params:
-        uses: ./.github/workflows/resolve-demo-params.yml
+    demo:
+        uses: core-ds/core-components/.github/workflows/demo.yml@master
         secrets: inherit
         with:
-            dir: ${{ github.event.pull_request.number }}
-
-    build-demo:
-        uses: ./.github/workflows/build-demo.yml
-        secrets: inherit
-
-    deploy:
-        if: ${{ github.repository == 'core-ds/core-components' }}
-        needs: [demo-params, build-demo]
-        uses: ./.github/workflows/deploy-demo.yml
-        secrets: inherit
-        with:
-            run-id: ${{ needs.build-demo.outputs.run-id }}
-            dir: ${{ needs.demo-params.outputs.dir }}
+            version: ${{ case(github.event_name == 'pull_request', github.event.pull_request.head.sha, github.ref) }}
+            directory: ${{ github.event.pull_request.number }}
 
     screenshot-test:
-        name: screenshot test
+        needs: demo
         runs-on: ubuntu-latest
-        needs: build-demo
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
               with:
                   lfs: true
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
 
-            - name: download build
-              uses: actions/download-artifact@v5
+            - name: Download build
+              uses: actions/download-artifact@v8
               with:
-                  name: build
+                  name: default
                   path: build
                   github-token: ${{ secrets.GITHUB_TOKEN }}
-                  run-id: ${{ needs.build-demo.outputs.run-id }}
+                  run-id: ${{ needs.demo.outputs.run-id }}
 
-            - name: run screenshot test
-              shell: bash
-              run: |
-                  yarn test:screenshots
+              # https://github.com/americanexpress/jest-image-snapshot/issues/281
+            - name: Run screenshot test
+              uses: actions/github-script@v8
+              with:
+                  script: |
+                      const { stderr } = await exec.getExecOutput('yarn', ['test:screenshots']);
 
-            - uses: actions/upload-artifact@v4
+                      if (/[0-9]+ snapshots? written from [0-9]+ test suites?/.test(stderr)) {
+                          core.setFailed(`Please add missing ${{ matrix.variant }} screenshots`);
+                      }
+
+            - name: Upload diff
+              uses: actions/upload-artifact@v7
               if: failure()
               with:
-                  name: diff
+                  name: 'diff-${{ matrix.variant }}'
                   path: packages/**/__diff_output__/*
                   if-no-files-found: ignore
 
-    ci-ok:
-        name: ci ok
+    search-vars:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
+
+            - name: Run build
+              shell: bash
+              env:
+                  BUILD_WITHOUT_CSS_VARS: 'true'
+                  BUILD_CONCURRENCY: 4
+                  BUILD_MODERN_ONLY: 'true'
+              run: |
+                  yarn build
+
+            - name: Search
+              run: yarn non-existent-css-vars
+
+    ok:
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, build-demo, test, screenshot-test]
+        needs: [lint, build, demo, test, screenshot-test, codemod-test, search-vars]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:
-            - name: check for failure
+            - name: Check for failure
               run: |
                   echo $FAILURE
                   if [ "$FAILURE" = "false" ]; then
