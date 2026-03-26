@@ -228,22 +228,8 @@ jobs:
                   variant: ${{ matrix.variant }}
 
     upload-pull-request-data:
-        runs-on: ubuntu-latest
         if: ${{ github.event_name == 'pull_request' }}
-        steps:
-            - name: Write pull request data to json
-              run: |
-                  mkdir -p pull-request
-
-                  {
-                      echo '${{ toJson(github.event.pull_request) }}'
-                  } > pull-request/data.json
-
-            - name: Upload pull request data
-              uses: actions/upload-artifact@v7
-              with:
-                  name: pull-request
-                  path: pull-request
+        uses: ./.github/workflows/upload-pull-request-data.yml
 
     search-vars:
         needs: [setup-variant, variants]
