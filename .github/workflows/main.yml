@@ -230,14 +230,15 @@ jobs:
     upload-pull-request-data:
         runs-on: ubuntu-latest
         if: ${{ github.event_name == 'pull_request' }}
+        continue-on-error: true
+        env:
+            PULL_REQUEST_DATA: ${{ toJson(github.event.pull_request) }}
         steps:
             - name: Write pull request data to json
-              run: |
+              run: >
                   mkdir -p pull-request
 
-                  {
-                      echo '${{ toJson(github.event.pull_request) }}'
-                  } > pull-request/data.json
+                  echo $PULL_REQUEST_DATA > pull-request/data.json
 
             - name: Upload pull request data
               uses: actions/upload-artifact@v7
