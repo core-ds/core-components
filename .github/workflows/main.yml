@@ -182,6 +182,10 @@ jobs:
             - name: Search
               run: yarn non-existent-css-vars
 
+    upload-pull-request-data:
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: core-ds/core-components/.github/workflows/upload-pull-request-data.yml@master
+
     ok:
         runs-on: ubuntu-latest
         if: always()
