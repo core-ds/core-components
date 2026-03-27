@@ -6,17 +6,18 @@
     "ignore": [
         "@alfalab/core-components-env",
         "@alfalab/core-components-screenshot-utils",
-        "@alfalab/core-components-test-utils"
+        "@alfalab/core-components-test-utils",
+        "@alfalab/core-components-tsconfig-node24-backport"
     ],
     "access": "public",
     "baseBranch": "master",
     "updateInternalDependencies": "patch",
     "snapshot": {
-        "prereleaseTemplate": "{tag}-{commit}",
+        "prereleaseTemplate": "{commit}",
         "useCalculatedVersion": true
     },
     "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
-        "onlyUpdatePeerDependentsWhenOutOfRange": true,
+        "onlyUpdatePeerDependentsWhenOutOfRange": false,
         "updateInternalDependents": "always"
     }
 }

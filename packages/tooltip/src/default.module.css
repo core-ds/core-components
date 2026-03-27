@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     --tooltip-border-color: var(--color-light-neutral-300);
@@ -19,7 +19,7 @@
     border-color: var(--tooltip-hint-bg-color);
 }
 
-.tooltip {
+.tooltip.tooltip {
     border: 1px solid var(--tooltip-border-color);
     background-color: var(--tooltip-bg-color);
 

@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { type ReactElement, type ReactText, type SVGProps } from 'react';
+import { type ReactElement, type ReactNode, type ReactText, type SVGProps } from 'react';
 import { type AnimationTiming } from 'recharts/types/util/types';
+
+import { type PayloadProps } from './payload.types';
+
+type TooltipContentProps = {
+    label: string | number;
+    payload: PayloadProps[];
+};
 
 export interface TooltipProps {
     /**
@@ -82,4 +89,9 @@ export interface TooltipProps {
      * Контент для тултипа
      */
     content?: any;
+
+    /**
+     * Функция форматирования контента во всплывающей подсказке.
+     */
+    contentFormatter?: (value: TooltipContentProps) => ReactNode;
 }

@@ -230,7 +230,7 @@ describe('BaseModal', () => {
     });
 
     describe('two modal at the same time', () => {
-        it('should open and close', async () => {
+        it('should open and close with legacy scroll lock', async () => {
             const TestCase = (props?: Partial<BaseModalProps>) => {
                 const defaultProps = { open: false, ...props };
                 return (
@@ -253,6 +253,30 @@ describe('BaseModal', () => {
             await waitFor(() => {
                 expect(document.body.style.overflow).toBe('');
             });
+        });
+
+        it('should not set overflow hidden when scrollLock is true', async () => {
+            const TestCase = (props?: Partial<BaseModalProps>) => {
+                const defaultProps = { open: false, scrollLock: true, ...props };
+
+                return (
+                    <React.Fragment>
+                        <BaseModal {...defaultProps}>
+                            <div>Hello</div>
+                        </BaseModal>
+                        <BaseModal {...defaultProps}>
+                            <div>World</div>
+                        </BaseModal>
+                    </React.Fragment>
+                );
+            };
+
+            const { rerender } = render(<TestCase open={false} />);
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<TestCase open={true} />);
+            // При scrollLock={true} overflow не устанавливается напрямую — это делает react-remove-scroll
+            expect(document.body.style.overflow).toBe('');
         });
     });
 
@@ -281,7 +305,7 @@ describe('BaseModal', () => {
         expect(container2).toContainElement(getByTestId('BaseModal'));
     });
 
-    describe('Body styles restore', () => {
+    describe('Body styles restore (legacy scrollLock={false})', () => {
         it('should restore styles after close', async () => {
             const { rerender } = render(<BaseModal open={false} />);
             expect(document.body.style.overflow).toBe('');
@@ -304,6 +328,22 @@ describe('BaseModal', () => {
 
             unmount();
 
+            await waitFor(() => {
+                expect(document.body.style.overflow).toBe('');
+            });
+        });
+    });
+
+    describe('Body styles with scrollLock={true}', () => {
+        it('should not set overflow hidden directly - react-remove-scroll handles scroll lock', async () => {
+            const { rerender } = render(<BaseModal open={false} scrollLock={true} />);
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<BaseModal open={true} scrollLock={true} />);
+            // react-remove-scroll не устанавливает overflow: hidden напрямую на body
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<BaseModal open={false} scrollLock={true} />);
             await waitFor(() => {
                 expect(document.body.style.overflow).toBe('');
             });

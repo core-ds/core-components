@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../vars.css';
 
 .headerBase {
@@ -17,10 +17,6 @@
     padding: var(--gap-8) var(--gap-8) var(--gap-4);
 }
 
-.hasContent {
-    background-color: inherit;
-}
-
 .header {
     display: flex;
 }
@@ -28,10 +24,6 @@
 .sticky {
     position: sticky;
     top: var(--gap-0);
-}
-
-.highlighted {
-    border-bottom: var(--bottom-sheet-header-border-bottom);
 }
 
 .justifyEnd {
@@ -51,12 +43,10 @@
 }
 
 .title {
-    padding: 10px var(--gap-8);
+    padding: var(--gap-10) var(--gap-8);
     width: 100%;
-    font-size: var(--bottom-sheet-title-font-size);
-    font-weight: var(--bottom-sheet-title-font-weight);
-    line-height: var(--bottom-sheet-title-line-height);
-    font-family: var(--bottom-sheet-title-font-family);
+
+    @mixin headline-system-mobile_small;
 }
 
 .titleCenter {
@@ -71,4 +61,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.subtitle {
+    width: 100%;
+
+    @mixin paragraph_primary_small;
 }

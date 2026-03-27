@@ -86,9 +86,9 @@ export type SliderProps = {
 
     /**
      * Размер
-     * @description s, m deprecated, используйте вместо них 2, 4 соответственно
+     * @default 2
      */
-    size?: 's' | 'm' | 2 | 4;
+    size?: 2 | 4;
 
     /**
      * Обработчик поля ввода
@@ -111,13 +111,6 @@ export type SliderProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
-
-export const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-2',
-    m: 'size-4',
-    2: 'size-2',
-    4: 'size-4',
 };
 
 export const Slider: FC<SliderProps> = ({
@@ -243,7 +236,7 @@ export const Slider: FC<SliderProps> = ({
 
     return (
         <div
-            className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]])}
+            className={cn(styles.component, className, styles[`size-${size}`])}
             ref={sliderRef}
             data-test-id={dataTestId}
             {...{ disabled }}

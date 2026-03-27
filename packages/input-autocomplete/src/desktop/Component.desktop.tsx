@@ -9,7 +9,7 @@ import {
     OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select/shared';
 
-import { AutocompleteField } from '../autocomplete-field';
+import { AutocompleteField as DefaultField } from '../autocomplete-field';
 import { type InputAutocompleteCommonProps } from '../types';
 
 export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutocompleteCommonProps>(
@@ -18,6 +18,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
             OptionsList = DefaultOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
+            Field = DefaultField,
             Input,
             inputProps = {},
             onInput,
@@ -38,7 +39,7 @@ export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutoco
             options={options}
             closeOnSelect={closeOnSelect}
             Option={Option}
-            Field={AutocompleteField}
+            Field={Field}
             Optgroup={Optgroup}
             OptionsList={OptionsList}
             {...restProps}

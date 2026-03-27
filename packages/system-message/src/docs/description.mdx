@@ -39,7 +39,7 @@ const SELECT_OPTIONS = [
     },
 ];
 
-const sizeButton = IS_MOBILE ? 'm' : 's';
+const sizeButton = IS_MOBILE ? 56 : 48;
 
 render(() => {
     const [graphic, setGraphic] = React.useState(SELECT_OPTIONS[0].key);
@@ -123,11 +123,11 @@ render(() => {
             </div>
 
             <div>
-                <Gap size='m' />
+                <Gap size={16} />
 
                 <Divider />
 
-                <Gap size='m' />
+                <Gap size={16} />
 
                 <div style={{ maxWidth: 320 }}>
                     <Select
@@ -140,13 +140,12 @@ render(() => {
                     />
                 </div>
 
-                <Gap size='m' />
+                <Gap size={16} />
 
                 <CheckboxGroup onChange={handleSettingsChange}>
                     {Object.keys(SETTINGS_MAP).map((name) => (
                         <Switch
                             key={name}
-                            size='m'
                             label={SETTINGS_MAP[name]}
                             name={name}
                             checked={settings[name]}
@@ -199,7 +198,7 @@ const SELECT_OPTIONS = [
     },
 ];
 
-const sizeButton = IS_MOBILE ? 'm' : 's';
+const sizeButton = IS_MOBILE ? 56 : 48;
 
 render(() => {
     const [graphic, setGraphic] = React.useState(SELECT_OPTIONS[0].key);
@@ -289,7 +288,7 @@ render(() => {
 
             <Button onClick={() => setOpen(true)}>Открыть модалку</Button>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <div style={{ maxWidth: 320 }}>
                 <Select
@@ -302,13 +301,12 @@ render(() => {
                 />
             </div>
 
-            <Gap size='m' />
+            <Gap size={16} />
 
             <CheckboxGroup onChange={handleSettingsChange}>
                 {Object.keys(SETTINGS_MAP).map((name) => (
                     <Switch
                         key={name}
-                        size='m'
                         label={SETTINGS_MAP[name]}
                         name={name}
                         checked={settings[name]}

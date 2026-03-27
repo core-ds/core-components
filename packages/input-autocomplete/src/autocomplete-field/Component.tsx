@@ -52,6 +52,29 @@ export const AutocompleteField = ({
     const handleInput: InputProps['onChange'] = (_, payload) =>
         onInput?.(payload.value, OnInputReason.Change);
 
+    /**
+     * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+     * [4] - Clear
+     * [3] - Status (error, success)
+     * [2] - Common (info, e.g.)
+     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+     * [0] - Lock
+     */
+    const renderRightAddons = () => (
+        <Fragment>
+            {inputProps.rightAddons}
+            {Arrow && !inputDisabled && (
+                <span
+                    className={cn(styles.arrow, {
+                        [styles.error]: error,
+                    })}
+                >
+                    {Arrow}
+                </span>
+            )}
+        </Fragment>
+    );
+
     return (
         <Input
             dataTestId={dataTestId}
@@ -77,29 +100,7 @@ export const AutocompleteField = ({
             onFocus={inputDisabled ? undefined : onFocus}
             autoComplete='off'
             value={value}
-            rightAddons={
-                (Arrow || inputProps.rightAddons) && (
-                    /**
-                     * Right addon priority [4] <= [3] <= [2] <= [1]
-                     * [4] - Clear
-                     * [3] - Status (error, success)
-                     * [2] - Common (info, e.g.)
-                     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
-                     */
-                    <Fragment>
-                        {inputProps.rightAddons}
-                        {Arrow && (
-                            <span
-                                className={cn(styles.arrow, {
-                                    [styles.error]: error,
-                                })}
-                            >
-                                {Arrow}
-                            </span>
-                        )}
-                    </Fragment>
-                )
-            }
+            rightAddons={renderRightAddons()}
         />
     );
 };

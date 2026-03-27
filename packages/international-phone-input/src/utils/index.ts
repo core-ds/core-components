@@ -1,5 +1,6 @@
-import { type RefObject } from 'react';
-import { type MaskitoOptions } from '@maskito/core';
+/* eslint-disable no-bitwise */
+import { type MutableRefObject } from 'react';
+import { type MaskitoOptions, type MaskitoPlugin } from '@maskito/core';
 
 import { type InputAutocompleteDesktopProps } from '@alfalab/core-components-input-autocomplete/desktop';
 import { type GroupShape, isGroup, type OptionShape } from '@alfalab/core-components-select/shared';
@@ -173,34 +174,68 @@ export function createMaskOptions(
     country: Country | undefined,
     clearableCountryCode: boolean,
     preserveCountryCode: boolean,
-    lastCountryRef: RefObject<Country | null>,
+    beforeAutofillValueRef: MutableRefObject<string>,
 ): MaskitoOptions {
     const countryCode = country?.countryCode;
     const prefix = countryCode ? getInitialValueFromCountry(countryCode) : '';
     const prefixLen = !clearableCountryCode && prefix ? prefix.length : 0;
     const mask = createPhoneMaskExpression(country, clearableCountryCode);
 
-    const preprocessors = [
-        maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
+    const plugins = [
+        maskUtils.caretGuard((value, [from, to]) => [from === to ? prefixLen : 0, value.length]),
     ];
 
     if (preserveCountryCode) {
-        const createMask = (lastCountry: Country) =>
-            createPhoneMaskExpression(lastCountry, clearableCountryCode);
-
-        preprocessors.push(maskUtils.preserveCountryCodePreprocessor(lastCountryRef, createMask));
+        plugins.push(createMaskitoAutofillPlugin(beforeAutofillValueRef));
     }
 
     return {
         mask,
-        preprocessors,
-        postprocessors: [maskUtils.prefixPostprocessor(prefixLen > 0 ? prefix : '')],
-        plugins: [
-            maskUtils.caretGuard((value, [from, to]) => [
-                from === to ? prefixLen : 0,
-                value.length,
-            ]),
+        preprocessors: [
+            maskUtils.insertionPhonePreprocessor(mask, countryCode, clearableCountryCode),
         ],
+        postprocessors: [maskUtils.prefixPostprocessor(prefixLen > 0 ? prefix : '')],
+        plugins,
+    };
+}
+
+function createMaskitoAutofillPlugin(
+    beforeAutofillValueRef: MutableRefObject<string>,
+): MaskitoPlugin {
+    return (element) => {
+        let { value } = element;
+
+        const handleInput = () => {
+            if (element.value.indexOf('+') === -1 && /^\+\d+/.test(value)) {
+                // eslint-disable-next-line no-param-reassign
+                beforeAutofillValueRef.current = value;
+            }
+
+            value = element.value;
+        };
+
+        const handleBlur = () => {
+            if (element.matches(':autofill') || element.matches(':-webkit-autofill')) {
+                // '+7 999 999 99 99' -> ['+7']
+                const match = beforeAutofillValueRef.current.match(/^\+\d+/);
+
+                if (match) {
+                    const [p] = match;
+
+                    if (!value.startsWith(p)) {
+                        maskitoUpdateElement(element, p + value);
+                    }
+                }
+            }
+        };
+
+        element.addEventListener('input', handleInput);
+        element.addEventListener('blur', handleBlur);
+
+        return () => {
+            element.removeEventListener('input', handleInput);
+            element.removeEventListener('blur', handleBlur);
+        };
     };
 }
 
@@ -330,4 +365,21 @@ export function getInternationalPhoneInputMobileTestIds(dataTestId: string) {
 
 export function getInitialValueFromCountry(countryCode: string) {
     return `+${countryCode}`;
+}
+
+/**
+ * @see https://github.com/taiga-family/maskito/issues/804#issuecomment-1862750990
+ */
+function maskitoUpdateElement(
+    element: HTMLInputElement | HTMLTextAreaElement,
+    value: string,
+): void {
+    const initialValue = element.value;
+
+    // eslint-disable-next-line no-param-reassign
+    element.value = value;
+
+    if (element.value !== initialValue) {
+        element.dispatchEvent(new Event('input', { bubbles: true }));
+    }
 }

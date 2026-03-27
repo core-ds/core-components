@@ -87,7 +87,9 @@ const SidePanelDesktopComponent = forwardRef<HTMLDivElement, SidePanelDesktopPro
                 }}
             >
                 {React.Children.map(children, (child) =>
-                    isValidElement(child) ? cloneElement(child, { size }) : child,
+                    isValidElement<{ size: unknown }>(child)
+                        ? cloneElement(child, { size })
+                        : child,
                 )}
             </Drawer>
         );

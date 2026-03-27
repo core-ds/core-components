@@ -2,6 +2,8 @@ import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
     createPreview,
+    generateTestCases,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -137,4 +139,65 @@ describe('Textarea | sprite', () => {
         },
         viewport: { width: 1024, height: 100 },
     })();
+});
+
+describe('Textarea | rightAddons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'TextareaAutosize Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение.',
+                        block: true,
+                        minRows: 3,
+                        size: [40, 48, 56, 64, 72],
+                        allowOverflow: false,
+                        autosize: true,
+                        rightAddons: true,
+                    },
+                }),
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'PseudoTextArea Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение.',
+                        block: true,
+                        minRows: 3,
+                        size: [40, 48, 56, 64, 72],
+                        allowOverflow: true,
+                        autosize: true,
+                        rightAddons: true,
+                        maxLength: 10,
+                    },
+                }),
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Textarea',
+                    knobs: {
+                        value: 'textarea Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение. Длинное значение в несколько строк. И вдруг, как пошло переполнение.',
+                        block: true,
+                        minRows: 3,
+                        size: [40, 48, 56, 64, 72],
+                        allowOverflow: false,
+                        autosize: false,
+                        rightAddons: true,
+                        maxLength: 500,
+                    },
+                }),
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: { width: 320, height: 320 },
+            theme,
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) => {
+                    return `${theme}-${customSnapshotIdentifier(...args)}`;
+                },
+            },
+        })();
+
+    ['default'].map(testCase);
 });

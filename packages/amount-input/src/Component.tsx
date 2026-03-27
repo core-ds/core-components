@@ -1,144 +1,58 @@
 import React, {
+    type ChangeEventHandler,
+    type FocusEventHandler,
     forwardRef,
     Fragment,
-    useCallback,
-    useLayoutEffect,
+    type MouseEventHandler,
     useMemo,
     useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
 
-import { Input, type InputProps } from '@alfalab/core-components-input';
+import { Input } from '@alfalab/core-components-input';
 import { Steppers } from '@alfalab/core-components-number-input/shared';
 import { getMinMaxOrDefault } from '@alfalab/core-components-number-input/utils';
-import { fnUtils, isNonNullable } from '@alfalab/core-components-shared';
-import { withSuffix, type withSuffixProps } from '@alfalab/core-components-with-suffix';
-import { type CurrencyCodes } from '@alfalab/data';
+import { isNonNullable } from '@alfalab/core-components-shared';
+import { withSuffix } from '@alfalab/core-components-with-suffix';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 import { MMSP, THINSP } from '@alfalab/utils';
 
 import {
+    COMPONENT_DECIMAL_SEPARATOR,
+    COMPONENT_MINUS_SIGN,
+    DEFAULT_DECIMAL_SEPARATORS,
+    DEFAULT_MINUS_SIGNS,
+    dispatchInputRejectEvent,
+    fromDecimalView,
+    fromNumberParts,
+    isCorrectValue,
+    isEquivalentInput,
+    isInputValueCorrect,
     maskitoOptionsGenerator,
     type NumberParams,
     parseNumber,
+    processDecimalPart,
     stringifyNumber,
+    toDecimalView,
+    toFractionDigits,
+    toIntegerDigits,
+    toNumberParts,
+    toValueAsString,
 } from './maskito-utils';
-import { getCurrencyCodeWithFormat, getVisiblePlaceholder, SEP } from './utils';
+import { type AmountInputProps } from './types';
+import { useMaskito } from './use-maskito';
+import { getCurrencyCodeWithFormat, getVisiblePlaceholder } from './utils';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-const colorStyles = {
+const colorsStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
-
-export type AmountInputProps = Omit<InputProps, 'value' | 'defaultValue' | 'onChange' | 'type'> & {
-    /**
-     * Денежное значение в минорных единицах
-     */
-    value?: string | number | null;
-
-    /**
-     * Значение по-умолчанию в минорных единицах
-     */
-    defaultValue?: string | number | null;
-
-    /**
-     * Формат отображения кода валюты
-     */
-    codeFormat?: 'letter' | 'symbolic';
-
-    /**
-     * default - не отображаем копейки, если их значение 0
-     * withZeroMinorPart - отображаем копейки, даже если их значение равно 0
-     * @default default
-     */
-    view?: 'default' | 'withZeroMinorPart';
-
-    /**
-     * Валюта
-     */
-    currency?: CurrencyCodes;
-
-    /**
-     * Дополнительный закрепленный текст справа от основного значения. (по умолчанию — символ валюты)
-     */
-    suffix?: string;
-
-    /**
-     * Максимальное число знаков до запятой
-     * max 15
-     */
-    integerLength?: number;
-
-    /**
-     * Минорные единицы
-     */
-    minority?: number;
-
-    /**
-     * Позволяет вводить только целые значения
-     */
-    integersOnly?: boolean;
-
-    /**
-     * @default - true. Нельзя вводить отрицательные значения.
-     * Возможность вводить только положительные значения
-     */
-    positiveOnly?: boolean;
-
-    /**
-     * Жир
-     */
-    bold?: boolean;
-
-    /**
-     * Обработчик события изменения значения
-     */
-    onChange?: (
-        e: React.ChangeEvent<HTMLInputElement> | null,
-        payload: {
-            /**
-             * Денежное значение в минорных единицах
-             * Значение null - значит не установлено
-             */
-            value: number | null;
-            /**
-             * Значение инпута
-             */
-            valueString: string;
-        },
-    ) => void;
-
-    /**
-     * Делает минорную часть полупрозрачной
-     */
-    transparentMinor?: boolean;
-
-    /**
-     * Добавляет компонент "Stepper" в правый аддон
-     */
-    stepper?: {
-        /**
-         * Шаг инкремента / декремента
-         */
-        step: number;
-        /**
-         * Минимальное значение
-         * @default Number.MIN_SAFE_INTEGER
-         */
-        min?: number;
-        /**
-         * Максимальное значение
-         * @default Number.MAX_SAFE_INTEGER
-         */
-        max?: number;
-    };
-};
+} as const;
 
 /**
  * Инпут, позволяющий закрепить значок валюты
@@ -153,14 +67,16 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         {
             view = 'default',
             defaultValue = null,
-            value: valueFromProps = null,
-            integerLength: integerLengthFromProps = 9,
+            value: valueFromProps,
+            integerLength = 9,
             minority = 100,
             currency = 'RUR',
             suffix = currency,
             codeFormat = 'symbolic',
             placeholder = `0${THINSP}${
-                suffix === currency ? getCurrencyCodeWithFormat(currency, codeFormat) : suffix
+                suffix === currency
+                    ? getCurrencyCodeWithFormat(currency, codeFormat)
+                    : toValueAsString(suffix)
             }`,
             integersOnly = false,
             positiveOnly = true,
@@ -183,171 +99,247 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             labelView,
             stepper,
             rightAddons,
+            // don't needed, used maskito
+            pattern,
             ...restProps
         },
         ref,
     ) => {
-        const controlled = isNonNullable(valueFromProps);
+        const colorStyles = colorsStyles[colors];
+        const { disabled, readOnly } = restProps;
+        const dispatchInputRejectRef = useRef(false);
+        const [inputRejectPhase, setInputRejectPhase] = useState<number>();
+        const inputRef = useRef<HTMLInputElement>(null);
+        const uncontrolled = valueFromProps === undefined;
         const numberParams = useMemo<NumberParams>(() => {
-            const minorityLength = Math.trunc(Math.log10(minority));
-            const integerLength = Math.min(integerLengthFromProps, 15);
-            const maximumFractionDigits = integersOnly ? 0 : minorityLength;
-            const max = Number(
-                `${'9'.repeat(integerLength)}${integersOnly ? '' : '.'}${'9'.repeat(maximumFractionDigits)}`,
+            const minusSign = COMPONENT_MINUS_SIGN;
+            const decimalSeparator = COMPONENT_DECIMAL_SEPARATOR;
+            const thousandSeparator = MMSP;
+            const decimalPseudoSeparators = DEFAULT_DECIMAL_SEPARATORS.filter(
+                (char) =>
+                    char !== decimalSeparator && char !== thousandSeparator && char !== minusSign,
+            );
+            const minusPseudoSigns = DEFAULT_MINUS_SIGNS.filter(
+                (char) =>
+                    char !== decimalSeparator && char !== thousandSeparator && char !== minusSign,
             );
 
             return {
-                decimalSeparator: SEP,
-                thousandSeparator: MMSP,
-                maximumFractionDigits,
-                minusSign: '-',
-                min: positiveOnly ? 0 : max * -1,
-                max,
+                minusSign,
+                decimalSeparator,
+                thousandSeparator,
+                maximumFractionDigits: integersOnly ? 0 : toFractionDigits(minority),
+                decimalPseudoSeparators,
+                minusPseudoSigns,
             };
-        }, [integerLengthFromProps, integersOnly, minority, positiveOnly]);
-        const inputRef = useMaskito({ options: maskitoOptionsGenerator(numberParams, view) });
-        const getFormattedAmount = useCallback(
-            (val: number | string | null) => stringifyNumber(val, numberParams, view),
-            [numberParams, view],
-        );
-        const getFormattedAmountRef = useRef(getFormattedAmount);
-        const [numberValue, setNumberValue] = useState(valueFromProps ?? defaultValue);
-        const [inputValue, setInputValue] = useState(() => getFormattedAmount(numberValue));
+        }, [integersOnly, minority]);
+        const maskitoOptions = useMemo(() => {
+            const handleInputReject = () => {
+                // switching between 0 and 1
+                setInputRejectPhase((prevInputRejectPhase = 0) =>
+                    Math.abs(prevInputRejectPhase - 1),
+                );
+            };
 
-        if (controlled && !(numberValue === valueFromProps)) {
-            setNumberValue(valueFromProps);
-            setInputValue(getFormattedAmount(valueFromProps));
+            return maskitoOptionsGenerator(
+                numberParams,
+                positiveOnly,
+                view,
+                toIntegerDigits(integerLength, toFractionDigits(minority)),
+                handleInputReject,
+            );
+        }, [integerLength, minority, numberParams, positiveOnly, view]);
+        const maskitoRef = useMaskito({ options: maskitoOptions });
+        const [numberValue, setNumberValue] = useState(valueFromProps ?? defaultValue);
+        const [inputValue, setInputValue] = useState(() =>
+            isCorrectValue(numberValue, { integerLength, integersOnly, minority })
+                ? stringifyNumber(toDecimalView(numberValue, minority), numberParams)
+                : '',
+        );
+
+        // getDerivedStateFromProps
+        if (!uncontrolled) {
+            const valueFromPropsOrNull = valueFromProps ?? null;
+
+            if (numberValue !== valueFromPropsOrNull) {
+                setNumberValue(valueFromPropsOrNull);
+            }
         }
 
-        useLayoutEffect(() => {
-            if (!(getFormattedAmountRef.current === getFormattedAmount)) {
-                setInputValue(getFormattedAmount(numberValue));
-                getFormattedAmountRef.current = getFormattedAmount;
+        // this effect watches `inputValue` change
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (
+                isInputValueCorrect(inputValue, numberParams) &&
+                isCorrectValue(numberValue, { integerLength, integersOnly, minority })
+            ) {
+                const numberValueFromInput = fromDecimalView(
+                    parseNumber(inputValue, numberParams),
+                    minority,
+                );
+
+                // compare strings
+                if (toValueAsString(numberValueFromInput) !== toValueAsString(numberValue)) {
+                    const nextInputValue = stringifyNumber(
+                        toDecimalView(numberValue, minority),
+                        numberParams,
+                    );
+
+                    const dispatchInputReject = dispatchInputRejectRef.current;
+
+                    setInputValue(nextInputValue);
+
+                    if (dispatchInputReject) {
+                        dispatchInputRejectEvent(inputRef.current);
+                    }
+                }
             }
-        }, [getFormattedAmount, numberValue, valueFromProps]);
+            dispatchInputRejectRef.current = false;
+        }, [inputValue, integerLength, integersOnly, minority, numberParams, numberValue]);
 
-        const numberValueOrZero = useMemo(() => Number(`${numberValue || '0'}`), [numberValue]);
+        // this effect watches `numberValue` change
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            const focused = inputRef.current?.matches(':focus');
 
+            setInputValue((prevInputValue) => {
+                if (isCorrectValue(numberValue, { integerLength, integersOnly, minority })) {
+                    const nextInputValue = stringifyNumber(
+                        toDecimalView(numberValue, minority),
+                        numberParams,
+                    );
+
+                    if (focused) {
+                        if (
+                            isEquivalentInput(nextInputValue, prevInputValue, numberParams) ||
+                            isEquivalentInput(prevInputValue, nextInputValue, numberParams)
+                        ) {
+                            return prevInputValue;
+                        }
+
+                        return nextInputValue;
+                    }
+
+                    return processDecimalPart(nextInputValue, numberParams, view);
+                }
+
+                return '';
+            });
+        }, [integerLength, integersOnly, minority, numberParams, numberValue, view]);
+
+        const numberValueOrZero = useMemo(() => Number(`${numberValue ?? ''}`), [numberValue]);
         const { min: minStepperValue, max: maxStepperValue } = getMinMaxOrDefault({
             minProp: stepper?.min,
             maxProp: stepper?.max,
         });
-        const withStepper = !fnUtils.isNil(stepper?.step);
-
+        const withStepper = isNonNullable(stepper?.step);
         const [isFocused, setIsFocused] = useState(false);
-        const [majorPart, minorPart] = inputValue.split(numberParams.decimalSeparator);
+        const { minus, integerPart, decimalSeparator, decimalPart } = toNumberParts(
+            inputValue,
+            numberParams,
+        );
         const currencyCode = getCurrencyCodeWithFormat(currency, codeFormat);
 
-        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
             const { value } = event.target;
+
+            dispatchInputRejectRef.current = true;
 
             setInputValue(value);
 
-            const [, minor = ''] = value.split(numberParams.decimalSeparator);
+            if (isInputValueCorrect(value, numberParams)) {
+                const numOrNull = fromDecimalView(parseNumber(value, numberParams), minority);
 
-            if (
-                value === numberParams.minusSign ||
-                value.endsWith(numberParams.decimalSeparator) ||
-                (minor.length > 0 && minor.length < numberParams.maximumFractionDigits)
-            ) {
-                return;
-            }
+                onChange?.(event, {
+                    value: numOrNull,
+                    valueString: value,
+                });
 
-            const numOrNull = parseNumber(value, numberParams);
-
-            onChange?.(event, {
-                value: numOrNull,
-                valueString: value,
-            });
-
-            if (!controlled) {
-                setNumberValue(numOrNull);
-            }
-        };
-
-        const handleFocus: withSuffixProps['onFocus'] = (e) => {
-            setIsFocused(true);
-
-            onFocus?.(e);
-        };
-
-        const handleBlur: withSuffixProps['onBlur'] = (e) => {
-            setIsFocused(false);
-
-            onBlur?.(e);
-        };
-
-        const handleClear = useCallback(
-            (event: React.MouseEvent<HTMLButtonElement>) => {
-                onClear?.(event);
-
-                if (!controlled) {
-                    setNumberValue(null);
+                if (uncontrolled) {
+                    setNumberValue(numOrNull);
                 }
-            },
-            [controlled, onClear],
-        );
+            }
+        };
+
+        const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
+            setIsFocused(true);
+            onFocus?.(event);
+        };
+
+        const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+            setIsFocused(false);
+            onBlur?.(event);
+        };
+
+        const handleClear: MouseEventHandler<HTMLButtonElement> = (event) => {
+            onClear?.(event);
+
+            if (uncontrolled) {
+                setNumberValue(null);
+            }
+        };
 
         const handleDecrement = () => {
             if (stepper?.step) {
-                const newValue = numberValueOrZero - stepper.step;
-                const newFormattedValue = getFormattedAmount(newValue);
+                const value = numberValueOrZero - stepper.step;
+                const valueString = stringifyNumber(value, numberParams);
 
                 onChange?.(null, {
-                    value: newValue,
-                    valueString: newFormattedValue,
+                    value,
+                    valueString,
                 });
 
-                if (!controlled) {
-                    setNumberValue(newValue);
+                if (uncontrolled) {
+                    setNumberValue(value);
                 }
             }
         };
 
         const handleIncrement = () => {
             if (stepper?.step) {
-                const newValue = numberValueOrZero + stepper.step;
-                const newFormattedValue = getFormattedAmount(newValue);
+                const value = numberValueOrZero + stepper.step;
+                const valueString = stringifyNumber(value, numberParams);
 
                 onChange?.(null, {
-                    value: newValue,
-                    valueString: newFormattedValue,
+                    value,
+                    valueString,
                 });
 
-                if (!controlled) {
-                    setNumberValue(newValue);
+                if (uncontrolled) {
+                    setNumberValue(value);
                 }
             }
         };
 
-        const renderRightAddons = () => {
-            if (withStepper) {
-                return (
-                    <Fragment>
-                        {rightAddons}
-                        <Steppers
-                            colors={colors}
-                            dataTestId={dataTestId}
-                            disabled={restProps.disabled}
-                            focused={isFocused && !restProps.disableUserInput}
-                            value={numberValueOrZero}
-                            min={minStepperValue}
-                            max={maxStepperValue}
-                            onIncrement={handleIncrement}
-                            onDecrement={handleDecrement}
-                            size={restProps.size}
-                        />
-                    </Fragment>
-                );
-            }
-
-            return rightAddons;
-        };
+        /**
+         * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+         * [4] - Clear
+         * [3] - Status (error, success)
+         * [2] - Common (info, e.g.)
+         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+         * [0] - Lock
+         */
+        const renderRightAddons = () => (
+            <Fragment>
+                {rightAddons}
+                {withStepper && !disabled && !readOnly && (
+                    <Steppers
+                        colors={colors}
+                        dataTestId={dataTestId}
+                        disabled={restProps.disabled}
+                        focused={isFocused && !restProps.disableUserInput}
+                        value={numberValueOrZero}
+                        min={minStepperValue}
+                        max={maxStepperValue}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
+                        size={restProps.size}
+                    />
+                )}
+            </Fragment>
+        );
 
         return (
             <div
                 className={cn(styles.container, {
-                    [styles.bold]: bold,
                     [styles.filled]: Boolean(inputValue),
                     [styles.focused]: isFocused,
                 })}
@@ -357,23 +349,21 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     rightAddons={renderRightAddons()}
                     suffix={
                         <Fragment>
-                            <span className={styles.suffixMajor}>{majorPart}</span>
-
+                            <span className={styles.suffixMajor}>
+                                {fromNumberParts({ minus, integerPart })}
+                            </span>
                             <span
                                 className={cn({
-                                    [colorStyles[colors].minorPartAndCurrency]: transparentMinor,
-                                    [colorStyles[colors].disabled]: restProps.disabled,
-                                    [colorStyles[colors].readOnly]: restProps.readOnly,
+                                    [colorStyles.minorPartAndCurrency]: transparentMinor,
+                                    [colorStyles.disabled]: restProps.disabled,
+                                    [colorStyles.readOnly]: restProps.readOnly,
                                 })}
                             >
-                                {minorPart !== undefined && (
-                                    <span
-                                        className={styles.suffixMinor}
-                                    >{`${numberParams.decimalSeparator}${minorPart}`}</span>
-                                )}
-                                {THINSP}
-                                <span className={styles.suffixCurrency}>
-                                    {suffix === currency ? currencyCode : suffix}
+                                <span className={styles.suffixMinor}>
+                                    {fromNumberParts({ decimalSeparator, decimalPart })}
+                                </span>
+                                <span>
+                                    {`${THINSP}${suffix === currency ? currencyCode : toValueAsString(suffix)}`}
                                 </span>
                             </span>
                         </Fragment>
@@ -388,15 +378,20 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     className={cn(styles.component, className)}
                     focusedClassName={focusedClassName}
                     inputClassName={cn(styles.input, inputClassName)}
-                    onChange={handleChange}
+                    onInput={handleChange}
                     onClear={handleClear}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    inputMode={numberParams.maximumFractionDigits === 0 ? 'numeric' : 'decimal'}
+                    inputMode={numberParams.maximumFractionDigits ? 'decimal' : 'numeric'}
                     dataTestId={dataTestId}
-                    ref={mergeRefs([ref, inputRef])}
+                    ref={mergeRefs([ref, inputRef, maskitoRef])}
                     breakpoint={breakpoint}
                     client={client}
+                    fieldClassName={cn(
+                        colorStyles[`inputReject${inputRejectPhase}`],
+                        restProps.fieldClassName,
+                    )}
+                    bold={bold}
                 />
             </div>
         );

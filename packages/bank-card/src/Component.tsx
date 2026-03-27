@@ -4,7 +4,6 @@ import React, {
     type MouseEvent,
     type ReactNode,
     useCallback,
-    useEffect,
     useState,
 } from 'react';
 import cn from 'classnames';
@@ -93,19 +92,22 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
         {
             bankLogo = <AlfaBankSignMIcon width={30} height={40} />,
             backgroundColor = '#EF3124',
-            value,
+            value: valueFromProps,
             className,
             onUsePhoto,
-            onChange,
             dataTestId,
             maskType = MaskTypeEnum.Default,
             inputLabel = getDefaultInputLabel(maskType),
+            onChange,
         },
         ref,
     ) => {
-        const uncontrolled = value === undefined;
+        const uncontrolled = valueFromProps === undefined;
+        const [value, setValue] = useState(valueFromProps);
 
-        const [brandIcon, setBrandIcon] = useState<ReactNode>(getBrandIcon(value));
+        if (!uncontrolled && valueFromProps !== value) {
+            setValue(valueFromProps);
+        }
 
         const getMask = useCallback(
             (newValue: string) => {
@@ -124,12 +126,10 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => {
-                if (uncontrolled) {
-                    setBrandIcon(getBrandIcon(event.target.value));
-                }
+                onChange?.(event, payload);
 
-                if (onChange) {
-                    onChange(event, payload);
+                if (uncontrolled) {
+                    setValue(payload.value);
                 }
             },
             [onChange, uncontrolled],
@@ -144,9 +144,7 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
             [onUsePhoto],
         );
 
-        useEffect(() => {
-            setBrandIcon(getBrandIcon(value));
-        }, [value]);
+        const brandIcon = getBrandIcon(value);
 
         return (
             <div className={cn(styles.component, className)}>
@@ -160,7 +158,7 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
                             mask={getMask}
                             block={true}
                             label={inputLabel}
-                            size='m'
+                            size={56}
                             rightAddons={renderRightAddons()}
                             inputClassName={styles.input}
                             labelClassName={styles.label}
@@ -171,6 +169,8 @@ export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
                             inputMode='numeric'
                             pattern='[0-9]*'
                             breakpoint={1}
+                            className={styles.formControl}
+                            fieldClassName={styles.field}
                         />
 
                         {brandIcon && <div className={styles.brandLogo}>{brandIcon}</div>}

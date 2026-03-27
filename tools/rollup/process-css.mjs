@@ -8,7 +8,6 @@ import { cwd } from 'node:process';
 import postcss from 'postcss';
 import postcssCustomProperties from 'postcss-custom-properties';
 import postcssImport from 'postcss-import';
-import postcssMixins from 'postcss-mixins';
 import postcssModules from 'postcss-modules';
 import { createFilter } from 'rollup-pluginutils';
 import stringHash from 'string-hash';
@@ -115,29 +114,7 @@ async function processPostcss(filePath, config) {
 
     const originalCss = await fs.readFile(filePath, { encoding: 'utf8' });
 
-    let plugins = postcssConfig.plugins.map((plugin) => {
-        if (plugin.postcssPlugin === 'postcss-mixins') {
-            const parsed = path.parse(filePath);
-
-            let ignore;
-
-            if (/^alfasans-.*\.css$/.test(parsed.base)) {
-                ignore = ['src/{index,typography}.css', 'src/no-typography.css'];
-            } else {
-                ignore = ['src/alfasans-{index,typography}.css', 'src/no-typography.css'];
-            }
-
-            return postcssMixins({
-                mixinsFiles: globSync('src/*.css', {
-                    ignore,
-                    cwd: resolveInternal('@alfalab/core-components-vars'),
-                    absolute: true,
-                }),
-            });
-        }
-
-        return plugin;
-    });
+    let plugins = [...postcssConfig.plugins];
 
     if (config.noCommonVars) {
         plugins = plugins.map((plugin) =>

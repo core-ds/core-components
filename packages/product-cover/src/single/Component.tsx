@@ -19,6 +19,7 @@ export const Single: FC<SingleCommonProps> = ({
     iconColor,
     backgroundColor,
     borderColor,
+    textColor,
     overlayProps = { colors: 'default', visible: false },
     eyeButton,
     cardholderNameUppercase,
@@ -77,6 +78,7 @@ export const Single: FC<SingleCommonProps> = ({
                     size={size}
                     onEyeIconClick={onEyeIconClick}
                     dataTestId={getDataTestId(dataTestId, 'user-info')}
+                    textColor={textColor}
                 />
             )}
 

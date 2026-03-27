@@ -7,7 +7,7 @@ import {
 
 import { type FileUploadItemStatus } from './status';
 
-export type FileUploadItemProps = {
+export interface FileUploadItemProps {
     /**
      * Дополнительный класс
      */
@@ -148,4 +148,9 @@ export type FileUploadItemProps = {
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
      */
     imageUrl?: string;
-};
+
+    /**
+     * Цвет заливки `StatusControl`
+     */
+    backgroundColor?: string;
+}
