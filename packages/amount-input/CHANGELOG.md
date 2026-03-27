@@ -1,5 +1,20 @@
 # @alfalab/core-components-amount-input
 
+## 9.2.0
+
+### Minor Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2140](https://github.com/core-ds/core-components/pull/2140)
+
+##### AmountInput
+
+- Уточнен цвет фона при отклоненни ввода
+- Добавленны `css` переменные для настройки цвета фона при отклоненни ввода:
+    - `--amount-input-input-reject-background-color`
+    - `--amount-input-inverted-input-reject-background-color`
+
 ## 9.1.3
 
 ### Patch Changes
