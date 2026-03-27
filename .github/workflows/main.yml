@@ -228,6 +228,8 @@ jobs:
                   variant: ${{ matrix.variant }}
 
     upload-pull-request-data:
+        # upload pull request data when demo is completed
+        needs: demo
         if: ${{ github.event_name == 'pull_request' }}
         uses: ./.github/workflows/upload-pull-request-data.yml
 
