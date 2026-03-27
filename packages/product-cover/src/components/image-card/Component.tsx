@@ -100,7 +100,7 @@ export const ImageCard: FC<ImageCardProps> = ({
         if (!imageFailed) {
             return (
                 <img
-                    alt='card'
+                    alt=''
                     className={styles.cardImage}
                     width={width}
                     height={height}

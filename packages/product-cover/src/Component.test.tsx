@@ -153,7 +153,7 @@ describe('ProductCover', () => {
         });
 
         it('renders ProductCover component with image', () => {
-            render(
+            const { container } = render(
                 <ProductCover.Single
                     baseUrl='https://online.alfabank.ru/cards-images/cards/'
                     layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
@@ -161,7 +161,8 @@ describe('ProductCover', () => {
                 />,
             );
 
-            const imageElement = screen.getByAltText('card');
+            const imageElement = container.querySelector('img');
+
             expect(imageElement).toBeInTheDocument();
         });
 
