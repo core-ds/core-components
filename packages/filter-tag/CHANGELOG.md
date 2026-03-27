@@ -1,5 +1,17 @@
 # @alfalab/core-components-filter-tag
 
+## 7.0.4
+
+### Patch Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2137](https://github.com/core-ds/core-components/pull/2137)
+
+##### FilterTag
+
+- Для шеврона: размеры 32 и 40 — `ChevronDownSIcon`, 48 — `ChevronDownMIcon` (вместо `ChevronDownCompactSIcon`).
+
 ## 7.0.3
 
 ### Patch Changes
