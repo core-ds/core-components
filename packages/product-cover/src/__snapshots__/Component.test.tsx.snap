@@ -10,7 +10,6 @@ exports[`ProductCover Snapshots tests should match snapshots 1`] = `
       class="overlay default"
     />
     <img
-      alt=""
       class="cardImage"
       height="164"
       src="https://online.alfabank.ru/cards-images/cards/RM/images?layers=BACKGROUND,LOGO,PAYMENT_SYSTEM&width=264"

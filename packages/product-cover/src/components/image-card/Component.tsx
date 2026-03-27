@@ -99,8 +99,8 @@ export const ImageCard: FC<ImageCardProps> = ({
     const renderImageCard = () => {
         if (!imageFailed) {
             return (
+                // eslint-disable-next-line jsx-a11y/alt-text
                 <img
-                    alt=''
                     className={styles.cardImage}
                     width={width}
                     height={height}
