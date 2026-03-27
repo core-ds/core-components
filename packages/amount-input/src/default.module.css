@@ -3,7 +3,7 @@
 :root {
     --amount-input-minor-part-and-currency-color: var(--color-light-text-secondary);
     --amount-input-disabled: var(--color-light-text-tertiary);
-    --amount-input-input-reject-color: var(--color-light-status-muted-negative);
+    --amount-input-input-reject-background-color: var(--color-light-status-muted-negative);
 }
 
 .minorPartAndCurrency {
@@ -23,7 +23,7 @@
 
     @keyframes reject$(phase) {
         from {
-            background-color: var(--amount-input-input-reject-color);
+            background-color: var(--amount-input-input-reject-background-color);
         }
     }
 }

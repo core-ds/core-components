@@ -5,7 +5,9 @@
         --color-light-text-secondary-inverted
     );
     --amount-input-inverted-disabled: var(--color-light-text-tertiary-inverted);
-    --amount-input-inverted-input-reject-color: var(--color-light-status-muted-negative-inverted);
+    --amount-input-inverted-input-reject-background-color: var(
+        --color-light-status-muted-negative-inverted
+    );
 }
 
 .minorPartAndCurrency {
@@ -25,7 +27,7 @@
 
     @keyframes reject$(phase) {
         from {
-            background-color: var(--amount-input-inverted-input-reject-color);
+            background-color: var(--amount-input-inverted-input-reject-background-color);
         }
     }
 }
