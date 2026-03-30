@@ -1,5 +1,4 @@
 ---
-'@alfalab/core-components': minor
 '@alfalab/core-components-input': minor
 '@alfalab/core-components-amount-input': minor
 ---
