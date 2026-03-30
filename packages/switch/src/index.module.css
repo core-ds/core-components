@@ -36,6 +36,7 @@
 
 .switch {
     position: relative;
+    display: block;
     border-radius: var(--border-radius-16);
     width: 36px;
     height: 20px;

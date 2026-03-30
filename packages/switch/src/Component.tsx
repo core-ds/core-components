@@ -171,7 +171,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                         [styles.switchSkeleton]: loading,
                     })}
                 >
-                    <div className={cn(styles.switch, colorStyles[colors].switch)} />
+                    <span className={cn(styles.switch, colorStyles[colors].switch)} />
                 </Skeleton>
 
                 {(label || hint || errorMessage) && (

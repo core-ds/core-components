@@ -158,7 +158,7 @@ describe('Switch | colors', () => {
             theme,
             viewport: { width: 240, height: 60 },
             evaluate: (page: Page) =>
-                page.hover('[class^=switch]').then(() => page.waitForTimeout(500)),
+                page.hover('span[class^=switch]').then(() => page.waitForTimeout(500)),
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
                     `hover-${theme}-${customSnapshotIdentifier(...args)}`,
@@ -209,7 +209,7 @@ describe(
             },
         }),
         evaluate: (page: Page) =>
-            page.hover('[class^=switch]').then(() => page.waitForTimeout(500)),
+            page.hover('span[class^=switch]').then(() => page.waitForTimeout(500)),
         screenshotOpts: {
             clip,
         },

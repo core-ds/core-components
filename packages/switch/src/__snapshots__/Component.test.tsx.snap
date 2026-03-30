@@ -15,7 +15,7 @@ exports[`Switch Snapshots tests should match snapshot 1`] = `
         <div
           class=""
         >
-          <div
+          <span
             class="switch switch"
           />
         </div>
@@ -55,7 +55,7 @@ exports[`Switch Snapshots tests should match snapshot 1`] = `
       <div
         class=""
       >
-        <div
+        <span
           class="switch switch"
         />
       </div>
@@ -152,7 +152,7 @@ exports[`Switch Snapshots tests should render only switch if no content 1`] = `
         <div
           class=""
         >
-          <div
+          <span
             class="switch switch"
           />
         </div>
@@ -170,7 +170,7 @@ exports[`Switch Snapshots tests should render only switch if no content 1`] = `
       <div
         class=""
       >
-        <div
+        <span
           class="switch switch"
         />
       </div>
