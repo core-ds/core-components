@@ -15,9 +15,53 @@
     box-sizing: border-box;
     -webkit-appearance: none;
 
+    &,
+    &::placeholder {
+        @mixin paragraph_component_primary;
+    }
+
+    &.bold {
+        &,
+        &::placeholder {
+            @mixin accent_component_primary;
+        }
+    }
+
+    &.medium {
+        &,
+        &::placeholder {
+            @mixin action_component_primary;
+        }
+    }
+
+    &::placeholder {
+        transition:
+            opacity 0.2s ease,
+            color 0.2s ease;
+    }
+
     &.size-40 {
         @mixin paragraph_component_secondary;
         padding: var(--gap-0) var(--gap-8);
+
+        &,
+        &::placeholder {
+            @mixin paragraph_component_secondary;
+        }
+
+        &.bold {
+            &,
+            &::placeholder {
+                @mixin accent_component_secondary;
+            }
+        }
+
+        &.medium {
+            &,
+            &::placeholder {
+                @mixin action_component_secondary;
+            }
+        }
     }
 
     /* Убирает синюю заливку при автокомплите */
@@ -55,12 +99,6 @@
     &[type='number'] {
         -moz-appearance: textfield;
     }
-}
-
-.input::placeholder {
-    transition:
-        opacity 0.2s ease,
-        color 0.2s ease;
 }
 
 .hasInnerLabel {
