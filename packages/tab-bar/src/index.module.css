@@ -4,8 +4,6 @@
 .component {
     display: flex;
     justify-content: center;
-    height: 64px;
-    max-height: 64px;
     box-sizing: border-box;
     overflow: hidden;
     transition: box-shadow 0.2s ease;
