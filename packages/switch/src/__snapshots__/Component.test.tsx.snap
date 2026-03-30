@@ -12,22 +12,34 @@ exports[`Switch Snapshots tests should match snapshot 1`] = `
           type="checkbox"
           value=""
         />
-        <span
-          class="switch switch"
-        />
+        <div
+          class=""
+        >
+          <div
+            class="switch switch"
+          />
+        </div>
         <span
           class="content"
         >
-          <span
-            class="label label"
+          <div
+            class="labelWrap"
           >
-            label
-          </span>
-          <span
-            class="hint hint"
+            <span
+              class="label label"
+            >
+              label
+            </span>
+          </div>
+          <div
+            class="hintWrap"
           >
-            hint
-          </span>
+            <span
+              class="hint hint"
+            >
+              hint
+            </span>
+          </div>
         </span>
       </label>
     </div>
@@ -40,22 +52,34 @@ exports[`Switch Snapshots tests should match snapshot 1`] = `
         type="checkbox"
         value=""
       />
-      <span
-        class="switch switch"
-      />
+      <div
+        class=""
+      >
+        <div
+          class="switch switch"
+        />
+      </div>
       <span
         class="content"
       >
-        <span
-          class="label label"
+        <div
+          class="labelWrap"
         >
-          label
-        </span>
-        <span
-          class="hint hint"
+          <span
+            class="label label"
+          >
+            label
+          </span>
+        </div>
+        <div
+          class="hintWrap"
         >
-          hint
-        </span>
+          <span
+            class="hint hint"
+          >
+            hint
+          </span>
+        </div>
       </span>
     </label>
   </div>,
@@ -125,9 +149,13 @@ exports[`Switch Snapshots tests should render only switch if no content 1`] = `
           type="checkbox"
           value=""
         />
-        <span
-          class="switch switch"
-        />
+        <div
+          class=""
+        >
+          <div
+            class="switch switch"
+          />
+        </div>
       </label>
     </div>
   </body>,
@@ -139,9 +167,13 @@ exports[`Switch Snapshots tests should render only switch if no content 1`] = `
         type="checkbox"
         value=""
       />
-      <span
-        class="switch switch"
-      />
+      <div
+        class=""
+      >
+        <div
+          class="switch switch"
+        />
+      </div>
     </label>
   </div>,
   "debug": [Function],

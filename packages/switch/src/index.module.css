@@ -48,6 +48,12 @@
     box-sizing: border-box;
 }
 
+.switchSkeleton {
+    width: 36px;
+    height: 20px;
+    margin: var(--gap-2);
+}
+
 .switch:before {
     content: '';
     position: absolute;
@@ -72,8 +78,19 @@
     display: block;
 }
 
-.label:not(:only-child) {
-    margin-bottom: var(--gap-4);
+.labelWrap {
+    &:not(:only-child) {
+        margin-bottom: var(--gap-4);
+    }
+
+    &.loading {
+        height: var(--gap-12);
+        margin: var(--gap-6) 0;
+
+        &:not(:only-child) {
+            margin-bottom: var(--gap-2s);
+        }
+    }
 }
 
 .errorMessage {
@@ -84,6 +101,13 @@
 .hint {
     @mixin paragraph_component_secondary;
     display: block;
+}
+
+.hintWrap {
+    &.loading {
+        height: var(--gap-10);
+        margin-bottom: var(--gap-4);
+    }
 }
 
 /* Reversed state */

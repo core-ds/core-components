@@ -83,6 +83,41 @@ describe(
     }),
 );
 
+describe(
+    'Switch | skeleton',
+    screenshotTesting({
+        cases: [
+            [
+                `sprite`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: '',
+                        loading: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | hint`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: 'Описание пункта',
+                        loading: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 480, height: 120 },
+        },
+    }),
+);
+
 describe('Switch | colors', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -123,7 +158,7 @@ describe('Switch | colors', () => {
             theme,
             viewport: { width: 240, height: 60 },
             evaluate: (page: Page) =>
-                page.hover('span[class^=switch]').then(() => page.waitForTimeout(500)),
+                page.hover('[class^=switch]').then(() => page.waitForTimeout(500)),
             matchImageSnapshotOptions: {
                 customSnapshotIdentifier: (...args) =>
                     `hover-${theme}-${customSnapshotIdentifier(...args)}`,
@@ -174,7 +209,7 @@ describe(
             },
         }),
         evaluate: (page: Page) =>
-            page.hover('span[class^=switch]').then(() => page.waitForTimeout(500)),
+            page.hover('[class^=switch]').then(() => page.waitForTimeout(500)),
         screenshotOpts: {
             clip,
         },
