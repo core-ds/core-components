@@ -49,19 +49,19 @@ export const notification: Story = {
                         ],
                         'positive-checkmark',
                     )}
-                    title={text('title', 'Поздравляем, полный успех')}
+                    title={text('title', 'Title')}
                     hasCloser={boolean('hasCloser', true)}
                     actionButton={
                         boolean('renderActionButton', false) ? (
-                            <Button view='transparent' size={48} colors='inverted'>
-                                Action Button
+                            <Button block={true} view='transparent' size={48} colors='inverted'>
+                                Button
                             </Button>
                         ) : null
                     }
                     offset={number('offset', 48)}
                     onClose={() => {}}
                 >
-                    {text('children', 'Вам одобрено. Согласитесь на предложение')}
+                    {text('children', 'Caption')}
                 </Notification>
             </div>
         );
