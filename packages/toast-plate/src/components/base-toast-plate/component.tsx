@@ -101,13 +101,13 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Параметры кнопки закрытия
      * @type {Object}
-     * @property {boolean} [divider] - Показывать разделитель.
-     * @property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [closerView] - Вид кнопки закрытия.
-     * @default {{ divider: true, closerView: 'primary' }}
+     * @property {boolean} [divider] - Показывать разделитель
+     * @property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия
+     * @default {{ divider: true, view: 'primary' }}
      */
     closer?: {
         divider?: boolean;
-        closerView?: IconButtonProps['view'];
+        view?: IconButtonProps['view'];
     };
 
     /**
@@ -165,7 +165,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             styles = {},
             closer = {
                 divider: true,
-                closerView: 'primary',
+                view: 'primary',
             },
             // not used here
             boldTitle,
@@ -174,7 +174,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
         ref,
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
-        const { divider, closerView } = closer;
+        const { divider, view } = closer;
 
         const { getCustomIcons } = useCustomIcons();
 
@@ -272,7 +272,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                             )}
                         >
                             <IconButton
-                                view={closerView}
+                                view={view}
                                 icon={CrossMIcon}
                                 colors={colors === 'default' ? 'inverted' : 'default'}
                                 className={cn(
