@@ -219,6 +219,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                     {
                                         [styles.isVisible]: visible,
                                         [styles.isClosing]: isClosing,
+                                        [styles.hasCloser]: hasCloser,
                                     },
                                     className,
                                 )}
@@ -238,6 +239,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                 role={visible ? 'alert' : undefined}
                                 hasCloser={hasCloser}
                                 onClose={onClose}
+                                closer={{ divider: false, view: 'secondary' }}
                                 {...restProps}
                             >
                                 {children}
