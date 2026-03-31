@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { IconButton } from '@alfalab/core-components-icon-button';
+import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-button';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import {
     StatusBadge,
@@ -99,6 +99,18 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     closerClassName?: string;
 
     /**
+     * Параметры кнопки закрытия
+     * @type {Object}
+     * @property {boolean} [divider] - Показывать разделитель.
+     * @property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [closerView] - Вид кнопки закрытия.
+     * @default {{ divider: true, closerView: 'primary' }}
+     */
+    closer?: {
+        divider?: boolean;
+        closerView?: IconButtonProps['view'];
+    };
+
+    /**
      * Растягивает компонент на ширину контейнера
      */
     block?: boolean;
@@ -151,6 +163,10 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             closerClassName,
             bottomButtonPosition = false,
             styles = {},
+            closer = {
+                divider: true,
+                closerView: 'primary',
+            },
             // not used here
             boldTitle,
             ...restProps
@@ -158,6 +174,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
         ref,
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
+        const { divider, closerView } = closer;
 
         const { getCustomIcons } = useCustomIcons();
 
@@ -249,9 +266,13 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
                                 styles.closeButtonWrapper,
                                 colorStyles[colors].closeButtonWrapper,
                                 closerWrapperClassName,
+                                {
+                                    [styles.divider]: divider,
+                                },
                             )}
                         >
                             <IconButton
+                                view={closerView}
                                 icon={CrossMIcon}
                                 colors={colors === 'default' ? 'inverted' : 'default'}
                                 className={cn(
