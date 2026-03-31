@@ -85,27 +85,36 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Управляет отображением кнопки закрытия уведомления
+     * @deprecated Используйте пропс `closer`
      */
     hasCloser?: boolean;
 
     /**
      * Доп. класс враппера кнопки "закрыть".
+     * @deprecated Используйте пропс `closer`
      */
     closerWrapperClassName?: string;
 
     /**
      * Доп. класс кнопки "закрыть".
+     * @deprecated Используйте пропс `closer`
      */
     closerClassName?: string;
 
     /**
      * Параметры кнопки закрытия
      * @type {Object}
+     * @property {boolean} [hasCloser] - Управляет отображением кнопки закрытия уведомления
+     * @property {string} [closerWrapperClassName] - Дополнительный класс враппера кнопки "закрыть"
+     * @property {string} [closerClassName] - Дополнительный класс кнопки "закрыть"
      * @property {boolean} [divider] - Показывать разделитель
      * @property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия
-     * @default {{ divider: true, view: 'primary' }}
+     * @default {{ hasCloser: false, closerWrapperClassName: undefined, closerClassName: undefined, divider: true, view: 'primary' }}
      */
     closer?: {
+        hasCloser?: boolean;
+        closerWrapperClassName?: string;
+        closerClassName?: string;
         divider?: boolean;
         view?: IconButtonProps['view'];
     };
@@ -149,7 +158,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             titleClassName,
             contentClassName,
             actionSectionClassName,
-            hasCloser,
+            hasCloser: legacyHasCloser,
             leftAddons,
             badge,
             title,
@@ -159,11 +168,14 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             onClose,
             getBadgeIcons,
             colors = 'default',
-            closerWrapperClassName,
-            closerClassName,
+            closerWrapperClassName: legacyCloserWrapperClassName,
+            closerClassName: legacyCloserClassName,
             bottomButtonPosition = false,
             styles = {},
             closer = {
+                hasCloser: false,
+                closerWrapperClassName: undefined,
+                closerClassName: undefined,
                 divider: true,
                 view: 'primary',
             },
@@ -175,6 +187,10 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
         const { divider, view } = closer;
+        const hasCloser = legacyHasCloser ?? closer.hasCloser;
+        const closerWrapperClassName =
+            legacyCloserWrapperClassName ?? closer.closerWrapperClassName;
+        const closerClassName = legacyCloserClassName ?? closer.closerClassName;
 
         const { getCustomIcons } = useCustomIcons();
 

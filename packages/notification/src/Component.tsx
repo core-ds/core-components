@@ -105,6 +105,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             onMouseLeave,
             onClickOutside,
             containerRef,
+            closer,
             ...restProps
         },
         ref,
@@ -237,9 +238,8 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                 onMouseLeave={handleMouseLeave}
                                 ref={mergeRefs([ref, notificationRef])}
                                 role={visible ? 'alert' : undefined}
-                                hasCloser={hasCloser}
                                 onClose={onClose}
-                                closer={{ divider: false, view: 'secondary' }}
+                                closer={{ divider: false, view: 'secondary', hasCloser, ...closer }}
                                 {...restProps}
                             >
                                 {children}
