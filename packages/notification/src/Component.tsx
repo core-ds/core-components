@@ -93,7 +93,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             children,
             visible,
             offset = 108,
-            hasCloser = true,
+            hasCloser: legacyHasCloser,
             autoCloseDelay = 5000,
             usePortal = true,
             zIndex = stackingOrder.TOAST,
@@ -105,7 +105,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             onMouseLeave,
             onClickOutside,
             containerRef,
-            closer,
+            closer = { hasCloser: true },
             ...restProps
         },
         ref,
@@ -115,6 +115,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         const closeTimeoutRef = useRef(0);
 
         const [isClosing, setIsClosing] = useState(false);
+
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        const { hasCloser: _hasCloser, ...restCloserParams } = closer;
+        const hasCloser = legacyHasCloser ?? _hasCloser;
 
         const startAutoCloseTimer = useCallback(() => {
             if (autoCloseDelay !== null) {
@@ -239,7 +243,12 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                 ref={mergeRefs([ref, notificationRef])}
                                 role={visible ? 'alert' : undefined}
                                 onClose={onClose}
-                                closer={{ divider: false, view: 'secondary', hasCloser, ...closer }}
+                                closer={{
+                                    divider: false,
+                                    view: 'secondary',
+                                    hasCloser,
+                                    ...restCloserParams,
+                                }}
                                 {...restProps}
                             >
                                 {children}
