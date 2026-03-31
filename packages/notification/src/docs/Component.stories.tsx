@@ -54,7 +54,7 @@ export const notification: Story = {
                     actionButton={
                         boolean('renderActionButton', false) ? (
                             <Button block={true} view='transparent' size={48} colors='inverted'>
-                                Button
+                                Label
                             </Button>
                         ) : null
                     }

@@ -48,6 +48,7 @@
         width: var(--notification-desktop-content-width);
     }
 
+    box-sizing: border-box;
     gap: var(--gap-16);
 }
 
