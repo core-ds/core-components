@@ -76,7 +76,7 @@ export type StepsProps = {
     /**
      * Кастомный метод для установки кастомного индикатора шага
      * @param stepNumber - номер шага
-     * @return Объект StepIndicatorProps { className, content, iconColor } или null
+     * @return Объект StepIndicatorProps { className, view, colors } или null
      */
     checkIsStepCustom?: (stepNumber: number) => StepIndicatorProps | null;
 

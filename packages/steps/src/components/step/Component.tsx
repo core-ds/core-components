@@ -3,17 +3,13 @@ import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
-import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
-import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
-import { CrossCompactMIcon } from '@alfalab/icons-glyph/CrossCompactMIcon';
-import { ExclamationCircleMIcon } from '@alfalab/icons-glyph/ExclamationCircleMIcon';
 
 import { type CommonProps } from '../../types/common-props';
 import { StepIndicator, type StepIndicatorProps } from '../step-indicator';
 
 import styles from './index.module.css';
 
-type StepProps = {
+interface StepProps extends CommonProps {
     /**
      * Номер шага
      */
@@ -74,7 +70,7 @@ type StepProps = {
      * @param stepNumber - номер шага
      */
     onClick: (stepNumber: number) => void;
-} & CommonProps;
+}
 
 export const Step: FC<StepProps> = ({
     children,
@@ -125,27 +121,23 @@ export const Step: FC<StepProps> = ({
             return <StepIndicator {...customStepIndicator} />;
         }
         if (isCriticalError) {
-            return <StepIndicator iconColor='negative' content={<CrossCompactMIcon />} />;
+            return <StepIndicator view='negative-cross' />;
         }
         if (isError) {
-            return <StepIndicator iconColor='negative' content={<ExclamationCircleMIcon />} />;
+            return <StepIndicator view='negative-alert' />;
         }
         if (isWarning) {
-            return <StepIndicator iconColor='attention' content={<ExclamationCircleMIcon />} />;
+            return <StepIndicator view='attention-alert' />;
         }
         if (isWaiting) {
-            return <StepIndicator iconColor='secondary' content={<ClockMIcon />} />;
+            return <StepIndicator view='neutral-operation' />;
         }
         if (isPositive) {
-            return <StepIndicator iconColor='positive' content={<CheckmarkCircleMIcon />} />;
+            return <StepIndicator view='positive-checkmark' />;
         }
         if (isStepCompleted) {
             return (
-                <StepIndicator
-                    iconColor='positive'
-                    content={<CheckmarkCircleMIcon />}
-                    className={styles.completedIndicator}
-                />
+                <StepIndicator view='positive-checkmark' className={styles.completedIndicator} />
             );
         }
         if (!ordered) {
