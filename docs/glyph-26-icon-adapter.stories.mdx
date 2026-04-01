@@ -1,0 +1,120 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta
+    title='For users/Адаптер для иконок Glyph-26'
+    parameters={{ previewTabs: { canvas: { hidden: true } } }}
+    id='glyph-26-icon-adapter'
+/>
+
+# Адаптер для иконок Glyph-26
+
+Чтобы пробросить иконку размером 20×20 px из бандла Glyph-26 в слот кнопки, тега или инпута 40-го и 32-го размеров, необходимо использовать адаптер. Обёртка позволяет сохранить корректный размер иконки, не нарушив отступы внутри компонента, которые изначально были рассчитаны под иконки размером 16×16 px.
+
+```jsx live
+render(() => (
+    <Icon20Adapter icon={Diamonds20Icon} style={{ color: 'var(--color-static-status-info)' }} />
+));
+```
+
+## Отличия иконок
+
+Сетка иконки S-размера обычно не подразумевает охранных областей. У иконки 20-го размера обычно есть охранные области шириной в 2 px.
+
+```jsx live
+render(() => {
+    const styled = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'var(--color-light-status-muted-alt-info)',
+    };
+
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+            <div style={{ ...styled, width: 20, height: 20 }}>
+                <DiamondsSIcon />
+            </div>
+
+            <div style={styled}>
+                <Icon20Adapter icon={Diamonds20Icon} />
+            </div>
+        </div>
+    );
+});
+```
+
+## Примеры
+
+Физический размер иконки 20-го размера больше (20 px), чем иконки S-размера (16 px).
+
+```jsx live
+render(() => {
+    const rowsWrapStyle = { display: 'flex', flexDirection: 'column', gap: 12 };
+    const rowStyle = {
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 8,
+        alignItems: 'center',
+    };
+    const labelStyle = { display: 'flex', alignItems: 'center', gap: 6, marginLeft: '20px' };
+
+    return (
+        <div style={rowsWrapStyle}>
+            <div style={rowStyle}>
+                <Input defaultValue='Label' rightAddons={<DiamondsSIcon />} size={40} />
+                <Button view='primary' size={40} leftAddons={<DiamondsSIcon />}>
+                    Label
+                </Button>
+                <div style={{ ...labelStyle }}>
+                    <StatusBadge view='positive-checkmark' size={16} />
+                    <Typography.Text
+                        view='component-primary'
+                        style={{ color: 'var(--color-light-text-secondary)' }}
+                    >
+                        Иконка S размера
+                    </Typography.Text>
+                </div>
+            </div>
+
+            <div style={rowStyle}>
+                <Input defaultValue='Label' rightAddons={<Icon20Adapter icon={Diamonds20Icon} />} size={40} />
+                <Button view='primary' size={40} leftAddons={<Icon20Adapter icon={Diamonds20Icon} />}>
+                    Label
+                </Button>
+                <div style={{ ...labelStyle }}>
+                    <StatusBadge
+                        view='positive-checkmark'
+                        size={16}
+                        customIcons={<Icon20Adapter icon={Diamonds20Icon}/>}
+                    />
+                    <Typography.Text
+                        view='component-primary'
+                        style={{ color: 'var(--color-light-text-secondary)' }}
+                    >
+                        Иконка 20-го размера в обёртке
+                    </Typography.Text>
+                </div>
+            </div>
+
+            <div style={rowStyle}>
+                <Input defaultValue='Label' rightAddons={<Icon20Adapter icon={Diamonds20Icon} />} size={40} />
+                <Button view='primary' size={40} leftAddons={<Icon20Adapter icon={Diamonds20Icon} />}>
+                    Label
+                </Button>
+                <div style={{ ...labelStyle }}>
+                    <StatusBadge
+                        view='negative-cross'
+                        size={16}
+                    />
+                    <Typography.Text
+                        view='component-primary'
+                        style={{ color: 'var(--color-light-text-secondary)' }}
+                    >
+                        Иконка 20-го размера без обёртки
+                    </Typography.Text>
+                </div>
+            </div>
+        </div>
+    );
+});
+```
