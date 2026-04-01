@@ -100,6 +100,19 @@ describe(
                 }),
             ],
             [
+                `sprite | inverted`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        colors: 'inverted',
+                        label: 'Условие тоггла',
+                        hint: '',
+                        loading: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
                 `sprite | hint`,
                 createSpriteStorybookUrl({
                     componentName: 'Switch',
@@ -111,9 +124,22 @@ describe(
                     size: { width: 240, height: 60 },
                 }),
             ],
+            [
+                `sprite | hint inverted`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        colors: 'inverted',
+                        label: 'Условие тоггла',
+                        hint: 'Описание пункта',
+                        loading: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
         ],
         screenshotOpts: {
-            clip: { x: 0, y: 0, width: 480, height: 120 },
+            clip: { x: 0, y: 0, width: 520, height: 120 },
         },
     }),
 );

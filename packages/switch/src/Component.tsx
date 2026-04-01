@@ -167,6 +167,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 <Skeleton
                     visible={loading}
                     borderRadius='pill'
+                    colors={colors}
                     className={cn({
                         [styles.switchSkeleton]: loading,
                     })}
@@ -180,6 +181,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                             <Skeleton
                                 visible={loading}
                                 borderRadius='pill'
+                                colors={colors}
                                 className={cn(styles.labelWrap, {
                                     [styles.loading]: loading,
                                 })}
@@ -194,6 +196,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                             <Skeleton
                                 visible={loading}
                                 borderRadius='pill'
+                                colors={colors}
                                 className={cn(styles.hintWrap, {
                                     [styles.loading]: loading,
                                 })}
