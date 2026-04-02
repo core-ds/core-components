@@ -1,5 +1,23 @@
 # @alfalab/core-components-toast-plate
 
+## 9.0.4
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-status-badge@3.0.2
+    - @alfalab/core-components-icon-button@8.0.4
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-mq@6.0.3
+
 ## 9.0.3
 
 ### Patch Changes

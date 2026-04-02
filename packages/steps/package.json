@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-steps",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,8 +10,8 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-badge": "^7.0.1",
-        "@alfalab/core-components-shared": "^2.1.0",
+        "@alfalab/core-components-badge": "^7.0.2",
+        "@alfalab/core-components-shared": "^2.1.1",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
@@ -26,5 +26,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.0.2",
-    "varsVersion": "11.0.1"
+    "varsVersion": "11.0.2"
 }

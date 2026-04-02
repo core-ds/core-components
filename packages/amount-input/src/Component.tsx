@@ -49,7 +49,7 @@ import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-const colorStyles = {
+const colorsStyles = {
     default: defaultColors,
     inverted: invertedColors,
 } as const;
@@ -105,9 +105,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         },
         ref,
     ) => {
+        const colorStyles = colorsStyles[colors];
         const { disabled, readOnly } = restProps;
-        const minorityRef = useRef(minority);
-        const [fieldClassName, setFieldClassName] = useState<string>();
+        const dispatchInputRejectRef = useRef(false);
+        const [inputRejectPhase, setInputRejectPhase] = useState<number>();
         const inputRef = useRef<HTMLInputElement>(null);
         const uncontrolled = valueFromProps === undefined;
         const numberParams = useMemo<NumberParams>(() => {
@@ -134,10 +135,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         }, [integersOnly, minority]);
         const maskitoOptions = useMemo(() => {
             const handleInputReject = () => {
-                setFieldClassName((prevFieldClassName) =>
-                    prevFieldClassName === styles.inputReject0
-                        ? styles.inputReject1
-                        : styles.inputReject0,
+                // switching between 0 and 1
+                setInputRejectPhase((prevInputRejectPhase = 0) =>
+                    Math.abs(prevInputRejectPhase - 1),
                 );
             };
 
@@ -184,16 +184,16 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         numberParams,
                     );
 
+                    const dispatchInputReject = dispatchInputRejectRef.current;
+
                     setInputValue(nextInputValue);
 
-                    // reject if the same minority only
-                    if (minorityRef.current === minority) {
+                    if (dispatchInputReject) {
                         dispatchInputRejectEvent(inputRef.current);
                     }
                 }
             }
-
-            minorityRef.current = minority;
+            dispatchInputRejectRef.current = false;
         }, [inputValue, integerLength, integersOnly, minority, numberParams, numberValue]);
 
         // this effect watches `numberValue` change
@@ -240,6 +240,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
             const { value } = event.target;
+
+            dispatchInputRejectRef.current = true;
 
             setInputValue(value);
 
@@ -352,9 +354,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             </span>
                             <span
                                 className={cn({
-                                    [colorStyles[colors].minorPartAndCurrency]: transparentMinor,
-                                    [colorStyles[colors].disabled]: restProps.disabled,
-                                    [colorStyles[colors].readOnly]: restProps.readOnly,
+                                    [colorStyles.minorPartAndCurrency]: transparentMinor,
+                                    [colorStyles.disabled]: restProps.disabled,
+                                    [colorStyles.readOnly]: restProps.readOnly,
                                 })}
                             >
                                 <span className={styles.suffixMinor}>
@@ -385,7 +387,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     ref={mergeRefs([ref, inputRef, maskitoRef])}
                     breakpoint={breakpoint}
                     client={client}
-                    fieldClassName={cn(fieldClassName, restProps.fieldClassName)}
+                    fieldClassName={cn(
+                        colorStyles[`inputReject${inputRejectPhase}`],
+                        restProps.fieldClassName,
+                    )}
                     bold={bold}
                 />
             </div>

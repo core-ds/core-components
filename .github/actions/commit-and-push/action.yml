@@ -1,4 +1,6 @@
-name: commit-and-push
+name: Commit and push
+
+description: Commit and push
 
 inputs:
     message:
@@ -8,12 +10,14 @@ inputs:
 runs:
     using: composite
     steps:
-        - uses: core-ds/core-components/.github/actions/setup-git-user@master
+        - name: Setup git user
+          uses: core-ds/core-components/.github/actions/setup-git-user@master
           with:
               name: 'github-actions[bot]'
               email: '41898282+github-actions[bot]@users.noreply.github.com'
 
-        - shell: bash
+        - name: Commit and push
+          shell: bash
           run: |
               git add .
               git commit -n -m "${{ inputs.message }}"

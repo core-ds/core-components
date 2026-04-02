@@ -42,6 +42,36 @@ describe('Checkbox', () => {
             expect(container.querySelector('.box')).toHaveClass(className);
         });
 
+        it('should set labelClassName', () => {
+            const className = 'custom-label-class';
+            const { container } = render(<Checkbox label='label' labelClassName={className} />);
+
+            expect(container.querySelector('.label')).toHaveClass(className);
+        });
+
+        it('should set hintClassName', () => {
+            const className = 'custom-hint-class';
+            const { container } = render(<Checkbox hint='hint' hintClassName={className} />);
+
+            expect(container.querySelector('.hint')).toHaveClass(className);
+        });
+
+        it('should set errorClassName', () => {
+            const className = 'custom-error-class';
+            const { container } = render(<Checkbox error='error' errorClassName={className} />);
+
+            expect(container.querySelector('.errorMessage')).toHaveClass(className);
+        });
+
+        it('should set addonsClassName', () => {
+            const className = 'custom-addons-class';
+            const { container } = render(
+                <Checkbox addons={<span>addon</span>} addonsClassName={className} />,
+            );
+
+            expect(container.querySelector('.addons')).toHaveClass(className);
+        });
+
         it('should set `checked` class', () => {
             const { container } = render(<Checkbox checked={true} />);
 

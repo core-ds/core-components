@@ -1,5 +1,20 @@
 # @alfalab/core-components-bank-card
 
+## 7.0.5
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-masked-input@8.0.5
+
 ## 7.0.4
 
 ### Patch Changes

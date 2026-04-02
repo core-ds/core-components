@@ -4,10 +4,9 @@ on:
     workflow_call:
         inputs:
             version:
-                description: Version of @alfalab/core-components package, tag or SHA
-                required: false
+                description: Version of @alfalab/core-components package, ref, tag or SHA
+                required: true
                 type: string
-                default: ${{ github.ref }}
             directory:
                 description: Demo directory
                 required: false
@@ -24,6 +23,9 @@ defaults:
     run:
         shell: bash
 
+env:
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
 jobs:
     resolve:
         runs-on: ubuntu-latest
@@ -35,51 +37,149 @@ jobs:
             CORE_COMPONENTS_DEMO_VERSION: ${{ inputs.version }}
             CORE_COMPONENTS_DEMO_DIRECTORY: ${{ inputs.directory }}
         steps:
-            - uses: actions/checkout@v5
-
-            - uses: ./.github/actions/ci-setup
-
-            - id: resolve-ref
+            - name: Resolve ref
+              id: resolve-ref
               uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |
-                      const resolveRef = require('@alfalab/core-components-demo-params/resolve-ref');
+                      const versionInput = process.env.CORE_COMPONENTS_DEMO_VERSION;
+                      const VERSION_REGEXP = /^v?(([0-9]|[1-9][0-9]+)\.[0-9]+\.[0-9]+)$/;
+                      const match = VERSION_REGEXP.exec(versionInput);
 
-                      return await resolveRef({
-                          require,
-                          __original_require__,
-                          github,
-                          octokit,
-                          context,
-                          core,
-                          exec,
-                          glob,
-                          io,
-                      });
+                      if (match) {
+                          core.info('Resolving as @alfalab/core-components version');
+                          const [, version, major] = match;
 
-            - uses: actions/checkout@v5
+                          return Number(major) >= 49 ? `@alfalab/core-components@${version}` : `v${version}`;
+                      }
+
+                      core.info('Using version input as ref');
+
+                      return versionInput;
+
+            - name: Checkout resolved ref
+              uses: actions/checkout@v6
               if: ${{ steps.resolve-ref.outputs.result != github.ref }}
               with:
                   ref: ${{ steps.resolve-ref.outputs.result }}
                   fetch-tags: true
                   path: checkout-ref
 
-            - id: resolve-directory
+            - name: Resolve directory
+              id: resolve-directory
               uses: actions/github-script@v8
               with:
                   result-encoding: string
                   script: |
-                      const resolveDirectory = require('@alfalab/core-components-demo-params/resolve-directory');
+                      const path = require('node:path');
+                      // matches X.Y.Z and vX.Y.Z
+                      const VERSION_REGEXP = /^v?([0-9]|[1-9][0-9]+)\.[0-9]+\.[0-9]+$/;
+                      const HEADS_PREFIX = 'refs/heads/';
+                      const TAGS_PREFIX = 'refs/tags/';
+                      // version/49
+                      const VERSION_BRANCH_REGEXP = /^version\/([0-9]|[1-9][0-9]+)$/;
+                      // regexp based on https://github.com/changesets/action/blob/06245a4e0a36c064a573d4150030f5ec548e4fcc/src/run.ts#L139
+                      const PACKAGE_TAG_REGEXP = /(@[^/\s]+\/[^@]+|[^/\s]+)@([^\s]+)/;
 
-                      return await resolveDirectory({
-                          require,
-                          __original_require__,
-                          github,
-                          octokit,
-                          context,
-                          core,
-                          exec,
-                          glob,
-                          io,
-                      });
+                      async function git(args) {
+                          const { stdout } = await exec.getExecOutput('git', args, {
+                              cwd: path.join(process.env.GITHUB_WORKSPACE, 'checkout-ref'),
+                          });
+
+                          return stdout;
+                      }
+
+                      function demoDirName(version) {
+                          return version.startsWith('v') ? version : `v${version}`;
+                      }
+
+                      const dirInput = process.env.CORE_COMPONENTS_DEMO_DIRECTORY;
+
+                      if (dirInput) {
+                          return dirInput;
+                      }
+                      let versionInput = process.env.CORE_COMPONENTS_DEMO_VERSION;
+                      let refIsNotSupported = false;
+
+                      if (versionInput.startsWith(HEADS_PREFIX)) {
+                          const refName = versionInput.replace(HEADS_PREFIX, '');
+                          if (refName === 'master' || refName === 'next') {
+                              return refName;
+                          }
+                          const match = VERSION_BRANCH_REGEXP.exec(refName);
+                          if (match) {
+                              const [, major] = match;
+                              return demoDirName(major);
+                          }
+                          refIsNotSupported = true;
+                      } else if (versionInput.startsWith(TAGS_PREFIX)) {
+                          const tagName = versionInput.replace(TAGS_PREFIX, '');
+                          const tagMatch = tagName.match(PACKAGE_TAG_REGEXP);
+                          if (tagMatch) {
+                              const [, pkgName] = tagMatch;
+                              if (pkgName.startsWith('@alfalab/core-components')) {
+                                  versionInput = tagName;
+                              } else {
+                                  refIsNotSupported = true;
+                              }
+                          } else {
+                              refIsNotSupported = true;
+                          }
+                      }
+
+                      if (refIsNotSupported) {
+                          core.setFailed(`Resolving dir for unsupported ref: ${versionInput}`);
+                      }
+
+                      if (VERSION_REGEXP.test(versionInput)) {
+                          return demoDirName(versionInput);
+                      }
+
+                      const packageTagMatch = versionInput.match(PACKAGE_TAG_REGEXP);
+
+                      if (packageTagMatch) {
+                          core.info('Using version inpit as package tag');
+
+                          const [, pkgName, pkgVersion] = packageTagMatch;
+
+                          if (VERSION_REGEXP.test(pkgVersion)) {
+                              if (pkgName === '@alfalab/core-components') {
+                                  return demoDirName(pkgVersion);
+                              }
+                              if (pkgName.startsWith('@alfalab/core-components')) {
+                                  const sha = (await git(['rev-list', '-n', '1', versionInput])).trim();
+
+                                  if (sha) {
+                                      const tags = (await git(['tag', '--points-at', sha])).split('\n');
+
+                                      for (const tag of tags) {
+                                          if (VERSION_REGEXP.test(tag)) {
+                                              return demoDirName(tag);
+                                          }
+
+                                          const tagMatch = tag.match(PACKAGE_TAG_REGEXP);
+
+                                          if (tagMatch) {
+                                              const [, pkgName, pkgVersion] = tagMatch;
+
+                                              if (pkgName === '@alfalab/core-components') {
+                                                  return demoDirName(pkgVersion);
+                                              }
+                                          }
+                                      }
+
+                                      return sha;
+                                  }
+
+                                  core.setFailed(`Didn't find SHA for tag: ${versionInput}`);
+                              }
+                              core.setFailed(`Resolving dir for unsupported version input: ${versionInput}`);
+                          } else {
+                              core.setFailed(`Invalid ${pkgName} version: ${pkgVersion}`);
+                          }
+                      }
+
+                      core.info('Resolving version input as sha');
+
+                      return versionInput;

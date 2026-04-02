@@ -1,4 +1,4 @@
-import { type UrlTransform } from 'react-markdown/lib';
+import { type UrlTransform } from 'react-markdown';
 
 const allowedProtocols = ['http:', 'https:', 'mailto:', 'tel:', 'sms:'];
 
