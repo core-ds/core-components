@@ -1,9 +1,9 @@
 ---
-'@alfalab/core-components-steps': major
-'@alfalab/core-components': major
+'@alfalab/core-components-steps': patch
+'@alfalab/core-components': patch
 ---
 
 ##### Steps
 
-- Исправлен индикатор шага для `checkIsStepCriticalError`: теперь используется корректная инвертная визуализация через `StatusBadge`.
-- Удален `deprecated` компонент `Badge` и заменем на целевой.
+- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.
+- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`.
