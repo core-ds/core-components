@@ -12,7 +12,7 @@ import cn from 'classnames';
 
 import { type NotificationProps as CoreNotificationProps } from '@alfalab/core-components-notification';
 
-import styles from '../../index.module.css';
+import styles from './index.module.css';
 
 export type NotificationElement = ReactElement<CoreNotificationProps & { id: string }>;
 
@@ -26,13 +26,15 @@ const CSS_TRANSITION_CLASS_NAMES = {
     enterActive: styles.enterActive,
 };
 
-type NotificationProps = Partial<
+type NotificationTransitionProps = Partial<
     Pick<CSSTransitionProps<HTMLDivElement>, 'in' | 'onExited' | 'appear' | 'enter' | 'exit'>
-> & {
+>;
+
+interface NotificationProps extends NotificationTransitionProps {
     element: NotificationElement;
     className: string;
     onRemoveNotification: (id: string) => void;
-};
+}
 
 export const Notification: FC<NotificationProps> = ({
     in: inProp,
