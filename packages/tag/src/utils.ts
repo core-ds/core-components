@@ -16,6 +16,8 @@ export const JR_RECT = 4;
 const EPSILON = 1e-3;
 const DOUBLE_INDICATOR_SHIFT_X = 3;
 const TRIPLE_INDICATOR_SHIFT_X = 6;
+const INDICATOR_INSET_X = 2;
+const INDICATOR_INSET_Y = 2;
 
 type BadgeIconSize = NonNullable<BaseTagProps['size']>;
 
@@ -177,8 +179,8 @@ export const resolveGeometry = ({
      */
     if (shape === 'rectangular') {
         const cr = Math.round(Math.min(w, h) * 0.22);
-        const badgeX = w - cr + (cr + OFFSET) * SIN_45;
-        const badgeY = cr - (cr + OFFSET) * SIN_45;
+        const badgeX = w - cr + (cr + OFFSET) * SIN_45 - INDICATOR_INSET_X;
+        const badgeY = cr - (cr + OFFSET) * SIN_45 + INDICATOR_INSET_Y;
 
         const edgeRight = w - JR;
         const dx = edgeRight - badgeX;
@@ -201,8 +203,8 @@ export const resolveGeometry = ({
 
     const rx = w / 2;
     const ry = h / 2;
-    const badgeX = rx + (rx + OFFSET) * SIN_45;
-    const badgeY = ry - (ry + OFFSET) * SIN_45;
+    const badgeX = rx + (rx + OFFSET) * SIN_45 - INDICATOR_INSET_X;
+    const badgeY = ry - (ry + OFFSET) * SIN_45 + INDICATOR_INSET_Y;
 
     const junctions = intersectEllipseCircle({
         ecx: rx,

@@ -17,6 +17,14 @@
     }
 }
 
+.checkedInner {
+    background: var(--tag-background-color-checked);
+
+    & svg {
+        fill: var(--tag-text-color-checked);
+    }
+}
+
 .badgeIcon {
     color: var(--tag-text-color);
 

@@ -162,6 +162,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                             className={cn(
                                 commonStyles.shapeInner,
                                 colorStyle.shapeInner,
+                                { [colorStyle.checkedInner]: Boolean(checked) },
                                 childrenClassName,
                             )}
                         >

@@ -39,7 +39,13 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const [checked, setChecked] = React.useState(false);
+    const [checkedMap, setCheckedMap] = React.useState({
+        icon: false,
+        badge: false,
+        emptyBadge: false,
+        amount: false,
+        indicator: false,
+    });
 
     const addon = (
         <div
@@ -61,8 +67,20 @@ render(() => {
     };
 
     const amountAddon = (
-        <div style={{ paddingRight: '4px' }}>
-            <Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />
+        <div
+            style={{
+                paddingRight: '4px',
+                color: checkedMap.amount ? 'var(--tag-text-color-checked)' : 'var(--tag-text-color)',
+                fontWeight: 'normal',
+            }}
+        >
+            <Amount
+                view='withZeroMinorPart'
+                value={123400}
+                currency='RUR'
+                minority={100}
+                style={{ color: 'inherit', fontWeight: 'inherit' }}
+            />
         </div>
     );
 
@@ -70,34 +88,64 @@ render(() => {
         <Container>
             <Row>
                 <div style={{ marginRight: 12 }}>
-                    <Tag rightAddons={addon} leftAddons={addon} {...defaultProps}>
-                        Label
-                    </Tag>
-                </div>
-                <div style={{ marginRight: 12 }}>
                     <Tag
-                        rightAddons={<Badge view='count' height={16} content={1} />}
+                        rightAddons={addon}
+                        leftAddons={addon}
+                        checked={checkedMap.icon}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, icon: nextChecked }))
+                        }
                         {...defaultProps}
                     >
                         Label
                     </Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
-                    <Tag rightAddons={<Badge view='count' height={16} />} {...defaultProps}>
+                    <Tag
+                        rightAddons={<Badge view='count' height={16} content={1} />}
+                        checked={checkedMap.badge}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, badge: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
                         Label
                     </Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
-                    <Tag size={40} rightAddons={amountAddon} view='filled' shape='rectangular'>
+                    <Tag
+                        rightAddons={<Badge view='count' height={16} />}
+                        checked={checkedMap.emptyBadge}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
+                        Label
+                    </Tag>
+                </div>
+                <div style={{ marginRight: 12 }}>
+                    <Tag
+                        size={40}
+                        rightAddons={amountAddon}
+                        view='filled'
+                        shape='rectangular'
+                        checked={checkedMap.amount}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, amount: nextChecked }))
+                        }
+                    >
                         Label
                     </Tag>
                 </div>
                 <div style={{ marginRight: 12 }}>
                     <Tag
                         Component={IndicatorTag}
-                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
-                        checked={checked}
-                        onClick={(_, { checked: nextChecked }) => setChecked(nextChecked)}
+                        leftAddons={<SlidersMIcon height={16} width={16} />}
+                        checked={checkedMap.indicator}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
+                        }
                         {...defaultProps}
                     />
                 </div>
@@ -107,7 +155,13 @@ render(() => {
 });
 //MOBILE
 render(() => {
-    const [checked, setChecked] = React.useState(false);
+    const [checkedMap, setCheckedMap] = React.useState({
+        icon: false,
+        badge: false,
+        emptyBadge: false,
+        amount: false,
+        indicator: false,
+    });
 
     const addon = (
         <div
@@ -129,8 +183,20 @@ render(() => {
     };
 
     const amountAddon = (
-        <div style={{ paddingRight: '4px' }}>
-            <Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />
+        <div
+            style={{
+                paddingRight: '4px',
+                color: checkedMap.amount ? 'var(--tag-text-color-checked)' : 'var(--tag-text-color)',
+                fontWeight: 'normal',
+            }}
+        >
+            <Amount
+                view='withZeroMinorPart'
+                value={123400}
+                currency='RUR'
+                minority={100}
+                style={{ color: 'inherit', fontWeight: 'inherit' }}
+            />
         </div>
     );
 
@@ -147,34 +213,62 @@ render(() => {
                 }}
             >
                 <div>
-                    <Tag rightAddons={addon} leftAddons={addon} {...defaultProps}>
-                        Label
-                    </Tag>
-                </div>
-                <div>
                     <Tag
-                        rightAddons={<Badge view='count' height={16} content={1} />}
+                        rightAddons={addon}
+                        leftAddons={addon}
+                        checked={checkedMap.icon}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, icon: nextChecked }))
+                        }
                         {...defaultProps}
                     >
                         Label
                     </Tag>
                 </div>
                 <div>
-                    <Tag rightAddons={<Badge view='count' height={16} />} {...defaultProps}>
+                    <Tag
+                        rightAddons={<Badge view='count' height={16} content={1} />}
+                        checked={checkedMap.badge}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, badge: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
                         Label
                     </Tag>
                 </div>
                 <div>
-                    <Tag rightAddons={amountAddon} {...defaultProps}>
+                    <Tag
+                        rightAddons={<Badge view='count' height={16} />}
+                        checked={checkedMap.emptyBadge}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
+                        Label
+                    </Tag>
+                </div>
+                <div>
+                    <Tag
+                        rightAddons={amountAddon}
+                        checked={checkedMap.amount}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, amount: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
                         Label
                     </Tag>
                 </div>
                 <div style={{ marginRight: '12px' }}>
                     <Tag
                         Component={IndicatorTag}
-                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
-                        checked={checked}
-                        onClick={(_, { checked: nextChecked }) => setChecked(nextChecked)}
+                        leftAddons={<SlidersMIcon height={16} width={16} />}
+                        checked={checkedMap.indicator}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
+                        }
                         {...defaultProps}
                     />
                 </div>
@@ -521,6 +615,9 @@ render(() => {
                         min-width: 280px !important;
                         max-width: 280px !important;
                     }
+                    .tag-filter-panel-footer {
+                        padding: 24px 32px 32px !important;
+                    }
                 `}
             </style>
             <div
@@ -533,11 +630,11 @@ render(() => {
             >
                 <Tag
                     Component={IndicatorTag}
-                    leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
+                    leftAddons={<SlidersMIcon height={16} width={16} />}
                     size={DESKTOP_TAG_SIZE}
                     view='filled'
                     shape='rectangular'
-                    checked={panelOpen}
+                    checked={activeCount > 0}
                     indicatorProps={
                         activeCount > 0
                             ? countIndicator
@@ -624,6 +721,7 @@ render(() => {
                 componentDivProps={{
                     style: {
                         top: 16,
+                        right: 12,
                         bottom: 16,
                         maxHeight: 'calc(100vh - 32px)',
                         boxSizing: 'border-box',
@@ -806,8 +904,8 @@ render(() => {
                         </div>
                     }
                 </SidePanel.Content>
-                <SidePanel.Footer>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                <SidePanel.Footer className='tag-filter-panel-footer'>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
                         <Button
                             view='primary'
                             size={56}
@@ -1009,11 +1107,11 @@ render(() => {
                 <div style={{ display: 'flex' }}>
                     <TagMobile
                         Component={IndicatorTag}
-                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
+                        leftAddons={<SlidersMIcon height={16} width={16} />}
                         size={MOBILE_ROW_TAG_SIZE}
                         view='filled'
                         shape='rectangular'
-                        checked={panelOpen}
+                        checked={activeCount > 0}
                         indicatorProps={
                             activeCount > 0
                                 ? countIndicator
@@ -1096,9 +1194,7 @@ render(() => {
 
             <Gap size={16} />
 
-            <div style={{ width: '100%', alignSelf: 'stretch' }}>
-                <Divider />
-            </div>
+            <Divider />
 
             <Gap size={16} />
 
