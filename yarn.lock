@@ -1862,6 +1862,7 @@ __metadata:
   resolution: "@alfalab/core-components-switch@workspace:packages/switch"
   dependencies:
     "@alfalab/core-components-shared": "npm:^2.1.1"
+    "@alfalab/core-components-skeleton": "npm:^7.0.2"
     "@alfalab/hooks": "npm:^1.13.1"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
