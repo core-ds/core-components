@@ -97,10 +97,10 @@ export type SwitchProps = Omit<
     colors?: Colors;
 
     /**
-     * Отображать статус загрузки (в виде скелетона)
+     * Показать скелетон
      * @default false
      */
-    loading?: boolean;
+    showSkeleton?: boolean;
 };
 
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
@@ -121,7 +121,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             onChange,
             dataTestId,
             colors = 'default',
-            loading = false,
+            showSkeleton = false,
             ...restProps
         },
         ref,
@@ -165,11 +165,11 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 />
 
                 <Skeleton
-                    visible={loading}
+                    visible={showSkeleton}
                     borderRadius='pill'
                     colors={colors}
                     className={cn({
-                        [styles.switchSkeleton]: loading,
+                        [styles.switchSkeleton]: showSkeleton,
                     })}
                 >
                     <span className={cn(styles.switch, colorStyles[colors].switch)} />
@@ -179,11 +179,11 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     <span className={styles.content}>
                         {label && (
                             <Skeleton
-                                visible={loading}
+                                visible={showSkeleton}
                                 borderRadius='pill'
                                 colors={colors}
                                 className={cn(styles.labelWrap, {
-                                    [styles.loading]: loading,
+                                    [styles.loading]: showSkeleton,
                                 })}
                             >
                                 <span className={cn(styles.label, colorStyles[colors].label)}>
@@ -194,11 +194,11 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
 
                         {hint && !errorMessage && (
                             <Skeleton
-                                visible={loading}
+                                visible={showSkeleton}
                                 borderRadius='pill'
                                 colors={colors}
                                 className={cn(styles.hintWrap, {
-                                    [styles.loading]: loading,
+                                    [styles.loading]: showSkeleton,
                                 })}
                             >
                                 <span className={cn(styles.hint, colorStyles[colors].hint)}>

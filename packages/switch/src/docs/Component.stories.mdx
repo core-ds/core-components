@@ -27,7 +27,7 @@ import Changelog from '../../CHANGELOG.md?raw';
         const label = text('label', 'Условие тоггла');
         const hint = text('hint', 'Описание пункта');
         const error = text('error', '');
-        const loading = boolean('loading', false);
+        const showSkeleton = boolean('showSkeleton', false);
         return (
             <div
                 style={{
@@ -56,7 +56,7 @@ import Changelog from '../../CHANGELOG.md?raw';
                     hint={hint}
                     error={error}
                     colors={colors}
-                    loading={loading}
+                    showSkeleton={showSkeleton}
                     onChange={handleChange}
                 />
             </div>
