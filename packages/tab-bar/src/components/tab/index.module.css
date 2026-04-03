@@ -8,7 +8,7 @@
     flex-direction: column;
     flex: 1 0 0;
     align-items: center;
-    padding: var(--gap-8) var(--gap-0);
+    padding: var(--gap-10) var(--gap-0) var(--gap-6);
     color: var(--color-light-neutral-translucent-700);
 }
 
@@ -26,6 +26,7 @@
     justify-content: center;
     flex-grow: 1;
     width: 100%;
+    margin-bottom: var(--gap-2);
 }
 
 .label {

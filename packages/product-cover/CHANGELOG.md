@@ -1,5 +1,17 @@
 # @alfalab/core-components-product-cover
 
+## 3.1.4
+
+### Patch Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2149](https://github.com/core-ds/core-components/pull/2149)
+
+##### ProductCover
+
+- Удалён хардкод текст в `alt` для изображения
+
 ## 3.1.3
 
 ### Patch Changes

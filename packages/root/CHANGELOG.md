@@ -1,5 +1,52 @@
 # @alfalab/core-components
 
+## 50.8.0
+
+### Minor Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2140](https://github.com/core-ds/core-components/pull/2140)
+
+##### AmountInput
+
+- Уточнен цвет фона при отклоненни ввода
+- Добавленны `css` переменные для настройки цвета фона при отклоненни ввода:
+    - `--amount-input-input-reject-background-color`
+    - `--amount-input-inverted-input-reject-background-color`
+
+### Patch Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2145](https://github.com/core-ds/core-components/pull/2145)
+
+##### Gallery
+
+- Обновлен `swiper@^12.1.3`
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2149](https://github.com/core-ds/core-components/pull/2149)
+
+##### ProductCover
+
+- Удалён хардкод текст в `alt` для изображения
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2137](https://github.com/core-ds/core-components/pull/2137)
+
+##### FilterTag
+
+- Для шеврона: размеры 32 и 40 — `ChevronDownSIcon`, 48 — `ChevronDownMIcon` (вместо `ChevronDownCompactSIcon`).
+
+- Обновлены зависимости
+    - @alfalab/core-components-amount-input@9.2.0
+    - @alfalab/core-components-gallery@7.1.2
+    - @alfalab/core-components-product-cover@3.1.4
+    - @alfalab/core-components-filter-tag@7.0.4
+
 ## 50.7.0
 
 ### Minor Changes

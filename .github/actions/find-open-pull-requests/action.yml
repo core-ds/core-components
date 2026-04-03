@@ -1,4 +1,4 @@
-name: find-open-pull-requests
+name: Find open pull requests
 
 description: Find open pull requests for commit
 
@@ -21,7 +21,8 @@ outputs:
 runs:
     using: composite
     steps:
-        - id: pull-request
+        - name: Find
+          id: pull-request
           uses: actions/github-script@v8
           with:
               github-token: ${{ inputs.github-token }}

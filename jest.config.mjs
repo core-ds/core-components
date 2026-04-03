@@ -5,7 +5,7 @@
 import fse from 'fs-extra';
 import path from 'node:path';
 import slash from 'slash';
-import { createJsWithTsPreset, pathsToModuleNameMapper } from 'ts-jest';
+import { createJsWithTsEsmPreset, pathsToModuleNameMapper } from 'ts-jest';
 
 import { resolveInternal } from './tools/resolve-internal.cjs';
 
@@ -40,9 +40,15 @@ const REACT_MARKDOWN_IGNORED_MODULES = [
     'html-url-attributes',
 ];
 
-const IGNORED_MODULES = ['@alfalab/hooks', 'simplebar', 'uuid', ...REACT_MARKDOWN_IGNORED_MODULES];
+const IGNORED_MODULES = [
+    '@alfalab/hooks',
+    'simplebar',
+    'uuid',
+    'swiper',
+    ...REACT_MARKDOWN_IGNORED_MODULES,
+];
 
-const tsJestPreset = createJsWithTsPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
+const tsJestPreset = createJsWithTsEsmPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
 
 /**
  * @type {import('ts-jest').JestConfigWithTsJest['projects']}

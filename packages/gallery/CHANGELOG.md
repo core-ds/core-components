@@ -1,5 +1,17 @@
 # @alfalab/core-components-gallery
 
+## 7.1.2
+
+### Patch Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2145](https://github.com/core-ds/core-components/pull/2145)
+
+##### Gallery
+
+- Обновлен `swiper@^12.1.3`
+
 ## 7.1.1
 
 ### Patch Changes

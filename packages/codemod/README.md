@@ -194,7 +194,7 @@ $ npx @alfalab/core-components-codemod --transformers=button-xs,button-views --g
 
 Для запуска всех трансформеров можно воспользоваться командой
 
-```
+```bash
 npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42-calendar,42-calendar-input,42-checkbox-group,42-code-input,42-confirmation,42-date-range-input,42-date-time-input,42-filter-tag,42-form-control,42-input,42-modal,42-picker-button,42-plate,42-radio-group,42-select,42-side-panel,42-system-message,42-tabs,42-tag,42-toast,42-toast-plate,42-tooltip --glob='src/**/*.tsx'
 ```
 
@@ -213,7 +213,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 Заменяет цветовые токены из палитры <code>colors-transparent.css</code> <br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-replace-transparent-color-vars --glob='src/**/*.css'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-replace-transparent-color-vars --glob='src/**/*.css'`
             </td>
         </tr>
         <tr>
@@ -221,7 +221,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-progress-bar --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-progress-bar --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -229,7 +229,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-button --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-button --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -237,7 +237,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-modal --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-modal --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -245,7 +245,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-segmented-control --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-segmented-control --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -253,7 +253,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-radio --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-radio --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -261,7 +261,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-form-control --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-form-control --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -269,7 +269,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-checkbox --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-checkbox --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -277,7 +277,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-indicator --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-indicator --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -285,7 +285,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-slider --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-slider --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -293,7 +293,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-action-button --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-action-button --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -301,7 +301,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-filter-tag --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-filter-tag --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -309,21 +309,21 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-gap --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-gap --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
             <td>50-circular-progress-bar</td>
             <td>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-circular-progress-bar --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-circular-progress-bar --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
             <td>50-attach</td>
             <td>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-attach --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-attach --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -331,7 +331,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-custom-picker-button --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-custom-picker-button --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -339,7 +339,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-icon-button --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-icon-button --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -347,7 +347,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-picker-button --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-picker-button --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -355,7 +355,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-custom-button --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-custom-button --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -363,7 +363,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -371,7 +371,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-amount-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-amount-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -379,7 +379,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-calendar-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-calendar-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -387,7 +387,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-date-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-date-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -395,7 +395,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-date-range-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-date-range-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -403,7 +403,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-date-time-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-date-time-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -411,7 +411,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-international-phone-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-international-phone-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -419,7 +419,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-intl-phone-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-intl-phone-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -427,7 +427,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-masked-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-masked-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -435,7 +435,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-number-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-number-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -443,7 +443,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-password-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-password-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -451,7 +451,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-phone-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-phone-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -459,7 +459,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-slider-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-slider-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -467,7 +467,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-time-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-time-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -475,7 +475,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-universal-date-input --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-universal-date-input --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -483,7 +483,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-select --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-select --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -491,7 +491,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-tag --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-tag --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -499,7 +499,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-underlay --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-underlay --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -507,7 +507,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-sortable-list --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-sortable-list --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -515,7 +515,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-input-autocomplete --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-input-autocomplete --glob='src/**/*.tsx'`
             </td>
         </tr>
         <tr>
@@ -523,7 +523,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
             <td>
                 - Заменяет буквенные размеры на числовые<br/><br/>
                 <b>Запуск</b><br/>
-                <code>npx @alfalab/core-components-codemod --transformers=50-select-with-tags --glob='src/**/*.tsx'</code>
+                `npx @alfalab/core-components-codemod --transformers=50-select-with-tags --glob='src/**/*.tsx'`
             </td>
         </tr>
     </tbody>
@@ -532,7 +532,7 @@ npx @alfalab/core-components-codemod --transformers=42-autocomplete,42-button,42
 
 Для запуска всех (кроме 50-replace-transparent-color-vars) трансформеров можно воспользоваться командой
 
-```
+```bash
 npx @alfalab/core-components-codemod --transformers=50-progress-bar,50-button,50-modal,50-segmented-control,50-radio,50-form-control,50-checkbox,50-indicator,50-slider,50-action-button,50-filter-tag,50-gap,50-circular-progress-bar,50-attach,50-custom-picker-button,50-icon-button,50-picker-button,50-custom-button,50-input,50-amount-input,50-calendar-input,50-date-input,50-date-range-input,50-date-time-input,50-international-phone-input,50-intl-phone-input,50-masked-input,50-number-input,50-password-input,50-phone-input,50-slider-input,50-time-input,50-universal-date-input,50-select,50-tag,50-underlay,50-sortable-list,50-input-autocomplete,50-select-with-tags --glob='src/**/*.tsx'
 ```
 
