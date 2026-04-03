@@ -1847,8 +1847,8 @@ __metadata:
   dependencies:
     "@alfalab/core-components-badge": "npm:^7.0.2"
     "@alfalab/core-components-shared": "npm:^2.1.1"
+    "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.13.1"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
