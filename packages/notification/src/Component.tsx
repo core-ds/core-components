@@ -105,7 +105,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             onMouseLeave,
             onClickOutside,
             containerRef,
-            closer = { hasCloser: true },
+            closerProps = { hasCloser: true },
             ...restProps
         },
         ref,
@@ -117,7 +117,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         const [isClosing, setIsClosing] = useState(false);
 
         // eslint-disable-next-line @typescript-eslint/naming-convention
-        const { hasCloser: _hasCloser, ...restCloserParams } = closer;
+        const { hasCloser: _hasCloser, ...restCloserParams } = closerProps;
         const hasCloser = legacyHasCloser ?? _hasCloser;
 
         const startAutoCloseTimer = useCallback(() => {
@@ -243,7 +243,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                 ref={mergeRefs([ref, notificationRef])}
                                 role={visible ? 'alert' : undefined}
                                 onClose={onClose}
-                                closer={{
+                                closerProps={{
                                     divider: false,
                                     view: 'secondary',
                                     hasCloser,

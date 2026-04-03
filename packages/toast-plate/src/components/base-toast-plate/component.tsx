@@ -85,19 +85,19 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
 
     /**
      * Управляет отображением кнопки закрытия уведомления
-     * @deprecated Используйте пропс `closer`
+     * @deprecated Используйте пропс `closerProps`
      */
     hasCloser?: boolean;
 
     /**
      * Доп. класс враппера кнопки "закрыть".
-     * @deprecated Используйте пропс `closer`
+     * @deprecated Используйте пропс `closerProps`
      */
     closerWrapperClassName?: string;
 
     /**
      * Доп. класс кнопки "закрыть".
-     * @deprecated Используйте пропс `closer`
+     * @deprecated Используйте пропс `closerProps`
      */
     closerClassName?: string;
 
@@ -111,7 +111,7 @@ export type BaseToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * @property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия
      * @default {{ hasCloser: false, closerWrapperClassName: undefined, closerClassName: undefined, divider: true, view: 'primary' }}
      */
-    closer?: {
+    closerProps?: {
         hasCloser?: boolean;
         closerWrapperClassName?: string;
         closerClassName?: string;
@@ -172,7 +172,7 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
             closerClassName: legacyCloserClassName,
             bottomButtonPosition = false,
             styles = {},
-            closer = {
+            closerProps = {
                 hasCloser: false,
                 closerWrapperClassName: undefined,
                 closerClassName: undefined,
@@ -186,11 +186,11 @@ export const BaseToastPlate = forwardRef<HTMLDivElement, BaseToastPlateProps>(
         ref,
     ) => {
         const needRenderLeftAddons = Boolean(leftAddons || badge);
-        const { divider, view } = closer;
-        const hasCloser = legacyHasCloser ?? closer.hasCloser;
+        const { divider, view } = closerProps;
+        const hasCloser = legacyHasCloser ?? closerProps.hasCloser;
         const closerWrapperClassName =
-            legacyCloserWrapperClassName ?? closer.closerWrapperClassName;
-        const closerClassName = legacyCloserClassName ?? closer.closerClassName;
+            legacyCloserWrapperClassName ?? closerProps.closerWrapperClassName;
+        const closerClassName = legacyCloserClassName ?? closerProps.closerClassName;
 
         const { getCustomIcons } = useCustomIcons();
 

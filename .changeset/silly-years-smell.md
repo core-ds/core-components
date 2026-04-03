@@ -5,12 +5,12 @@
 
 ##### ToastPlate
 
-- Добавлен пропс `closer`, с помощью которого можно управлять параметрами кнопки "закрыть" (как новыми так и старыми)
+- Добавлен пропс `closerProps`, с помощью которого можно управлять параметрами кнопки "закрыть" (как новыми так и старыми)
 
 Значения по умолчанию
 
 ```
-closer = {
+closerProps = {
     hasCloser: false,
     closerWrapperClassName: undefined,
     closerClassName: undefined,
@@ -19,4 +19,4 @@ closer = {
 }
 ```
 
-Пропсы `hasCloser`, `closerWrapperClassName`, `closerClassName` - отмечены как `deprecated` и будут удалены в будущих версиях. Используйет из в составе `closer`
+Пропсы `hasCloser`, `closerWrapperClassName`, `closerClassName` - отмечены как `deprecated` и будут удалены в будущих версиях. Используйте их в составе `closerProps`
