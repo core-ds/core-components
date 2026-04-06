@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { useModalWheel } from '../../hooks/useModalWheel';
+import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
@@ -28,14 +28,16 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         className,
         children,
         margin,
-        scrollableContainerRef,
+        scrollableContainerRef: scrollableContainerRefProp,
         onClose,
         ...restProps
     } = props;
     const componentRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
-
-    const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
+    const { handleWheel, scrollableContainerRef } = useScrollableContainerRef({
+        overlay,
+        refObject: scrollableContainerRefProp,
+    });
 
     const {
         isFullSizeModal,
@@ -88,11 +90,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             onWheel={handleWheel}
             onClose={onClose}
         >
-            <ModalContent
-                height={height}
-                wheelDeltaY={wheelDeltaY}
-                scrollableContainerRef={scrollableContainerRef}
-            >
+            <ModalContent height={height} scrollableContainerRef={scrollableContainerRef}>
                 {children}
             </ModalContent>
         </BaseModal>
