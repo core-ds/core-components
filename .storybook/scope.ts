@@ -17,6 +17,7 @@ const coreComponentsContext =
           );
 
 const glyphContext = require.context('../node_modules/@alfalab/icons-glyph', true, /(.*).js$/);
+const glyph26Context = require.context('../node_modules/@alfalab/icons-glyph-26', true, /(.*).js$/);
 
 const requireComponents = (context: __WebpackModuleApi.RequireContext) =>
     context.keys().reduce((acc: Record<string, ComponentType<unknown>>, key) => {
@@ -36,6 +37,7 @@ export default {
     isMobile: () => document.body.clientWidth < BREAKPOINT,
     ...requireComponents(coreComponentsContext),
     ...requireComponents(glyphContext),
+    ...requireComponents(glyph26Context),
     ...grid,
     ...dateUtils,
     ...knobs,

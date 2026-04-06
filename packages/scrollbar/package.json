@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-scrollbar",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "description": "Scrollbar component",
     "keywords": [],
     "license": "MIT",
@@ -29,5 +29,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.0.2",
-    "varsVersion": "11.0.1"
+    "varsVersion": "11.0.2"
 }

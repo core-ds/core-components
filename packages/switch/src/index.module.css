@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import './vars.css';
 
 .component {
@@ -36,6 +36,7 @@
 
 .switch {
     position: relative;
+    display: block;
     border-radius: var(--border-radius-16);
     width: 36px;
     height: 20px;
@@ -46,6 +47,12 @@
         background-color 0.2s ease,
         border-color 0.2s ease;
     box-sizing: border-box;
+}
+
+.switchSkeleton {
+    width: 36px;
+    height: 20px;
+    margin: var(--gap-2);
 }
 
 .switch:before {
@@ -72,8 +79,19 @@
     display: block;
 }
 
-.label:not(:only-child) {
-    margin-bottom: var(--gap-4);
+.labelWrap {
+    &:not(:only-child) {
+        margin-bottom: var(--gap-4);
+    }
+
+    &.loading {
+        height: var(--gap-12);
+        margin: var(--gap-6) 0;
+
+        &:not(:only-child) {
+            margin-bottom: var(--gap-2s);
+        }
+    }
 }
 
 .errorMessage {
@@ -84,6 +102,13 @@
 .hint {
     @mixin paragraph_component_secondary;
     display: block;
+}
+
+.hintWrap {
+    &.loading {
+        height: var(--gap-10);
+        margin-bottom: var(--gap-4);
+    }
 }
 
 /* Reversed state */

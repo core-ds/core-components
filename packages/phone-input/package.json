@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-phone-input",
-    "version": "9.0.4",
+    "version": "9.0.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,7 +10,7 @@
     "main": "index.js",
     "module": "./esm/index.js",
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^8.0.4",
+        "@alfalab/core-components-masked-input": "^8.0.5",
         "react-merge-refs": "^1.1.0",
         "text-mask-core": "^5.1.2",
         "tslib": "^2.4.0"
@@ -24,5 +24,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.0.2",
-    "varsVersion": "11.0.1"
+    "varsVersion": "11.0.2"
 }

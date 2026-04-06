@@ -1,5 +1,23 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.0.4
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@8.0.4
+    - @alfalab/core-components-typography@6.0.3
+    - @alfalab/core-components-icon-view@5.0.2
+    - @alfalab/core-components-shared@2.1.1
+
 ## 8.0.3
 
 ### Patch Changes

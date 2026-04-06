@@ -2,8 +2,8 @@ import React, { forwardRef, type KeyboardEvent, type MouseEvent, useRef } from '
 import cn from 'classnames';
 
 import { useFocus } from '@alfalab/hooks';
-import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
+import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
@@ -121,11 +121,7 @@ export const BaseFilterTag = forwardRef<HTMLDivElement, BaseFilterTagProps & Pri
                     {leftAddons && <div className={commonStyles.addons}>{leftAddons}</div>}
                     <span className={commonStyles.content}>{children}</span>
                     <span className={cn(commonStyles.chevron, colorStyles[colors].chevron)}>
-                        {[40, 32].includes(size) ? (
-                            <ChevronDownCompactSIcon />
-                        ) : (
-                            <ChevronDownMIcon />
-                        )}
+                        {[40, 32].includes(size) ? <ChevronDownSIcon /> : <ChevronDownMIcon />}
                     </span>
                 </button>
 

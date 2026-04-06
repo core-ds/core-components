@@ -1,5 +1,32 @@
 # @alfalab/core-components-checkbox
 
+## 6.2.0
+
+### Minor Changes
+
+<sup><time>20.03.2026</time></sup>
+
+#### [#2119](https://github.com/core-ds/core-components/pull/2119)
+
+##### Checkbox
+
+- Добавлены пропсы `labelClassName`, `hintClassName`, `errorClassName`, `addonsClassName` для передачи дополнительных классов соответствующим элементам компонента
+
+## 6.1.1
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.1
+
 ## 6.1.0
 
 ### Minor Changes

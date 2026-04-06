@@ -1,7 +1,20 @@
 name: release
 
 on:
-    workflow_dispatch: # version/48
+    workflow_dispatch: # version/48 and pull request
+        inputs:
+            pull-request:
+                description: Pull request number
+                type: number
+                required: true
+            variant:
+                description: Variant of core components
+                required: false
+                type: choice
+                default: default
+                options:
+                    - default
+                    - alfasans
     push:
         branches:
             - master
@@ -9,30 +22,38 @@ on:
             - 'version/**'
             - '!version/48'
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+concurrency:
+    group: ${{ format('{0} ${1}', github.workflow, case(github.event_name == 'push', github.ref, format('pull_request {0} {1}', inputs.pull-request, inputs.variant))) }}
+    cancel-in-progress: true
 
 defaults:
     run:
         shell: bash
 
+env:
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
 jobs:
     release:
-        name: release
-        if: ${{ github.repository == 'core-ds/core-components' }}
+        if: ${{ github.event_name == 'push' && github.repository == 'core-ds/core-components' }}
         runs-on: ubuntu-latest
         outputs:
             published: ${{ steps.changesets.outputs.published }}
         steps:
-            - uses: actions/checkout@v6
+            - name: Generate app token
+              id: generate-token
+              uses: actions/create-github-app-token@v3
               with:
-                  # used GH_TOKEN to trigger github actions on branch update
-                  # GITHUB_TOKEN doesn't trigger any action
-                  # https://github.com/orgs/community/discussions/55906
-                  token: ${{ secrets.GH_TOKEN }}
+                  app-id: ${{ vars.APP_ID }}
+                  private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
-            - uses: ./.github/actions/ci-setup
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - name: create release pull request or publish to npm
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+
+            - name: Create release pull request or publish to npm
               uses: changesets/action@v1
               id: changesets
               with:
@@ -40,45 +61,128 @@ jobs:
                   version: yarn version-packages
                   commit: 'chore: version packages'
               env:
-                  # used GH_TOKEN to trigger github actions on branch update
-                  # GITHUB_TOKEN doesn't trigger any action
-                  # https://github.com/orgs/community/discussions/55906
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  # `secrets.GITHUB_TOKEN` doesn't trigger any action https://github.com/orgs/community/discussions/55906
+                  GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-    variant:
-        uses: ./.github/workflows/variant.yml
+    variants:
+        needs: release
+        if: ${{ fromJson(needs.release.outputs.published) }}
+        uses: ./.github/workflows/variants.yml
         with:
-            filter: true
+            include-default: false
 
     variant-release:
-        name: variant-release
-        needs: [release, variant]
+        needs: [release, variants]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
-        if: ${{ needs.release.outputs.published == 'true' }}
+                include: ${{ fromJson(needs.variants.outputs.config) }}
+        permissions:
+            id-token: write # to use OpenID Connect token for trusted publishing
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - name: apply patch
-              run: |
-                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
-
-                  if [ -f "$PATCH_SOURCE" ]; then
-                      git apply "$PATCH_SOURCE"
-                  fi
-
-            - uses: ./.github/actions/ci-setup
-
-            - uses: core-ds/changesets-snapshot-release@v1
+            - name: Setup variant
+              uses: ./.github/actions/setup-variant
               with:
-                  version: 'yarn version-packages:variant'
+                  variant: ${{ matrix.variant }}
+
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+
+            - name: Publish to npm
+              uses: changesets/action@v1
+              with:
                   publish: 'yarn release:variant'
-                  exit-if-no-changesets: false
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    snapshot-release:
+        if: ${{ github.event_name == 'workflow_dispatch' && github.repository == 'core-ds/core-components' }}
+        permissions:
+            id-token: write # to use OpenID Connect token for trusted publishing
+        runs-on: ubuntu-latest
+        outputs:
+            published: ${{ steps.publish.outputs.published }}
+            published-packages: ${{ steps.publish.outputs.published-packages }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
+        steps:
+            - name: Get pull request data
+              id: data
+              uses: actions/github-script@v8
+              with:
+                  script: |
+                      const { data } = await octokit.rest.pulls.get({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          pull_number: ${{ inputs.pull-request }},
+                      });
+
+                      if (data.head.repo.fork) {
+                          core.setOutput('repository', data.head.repo.full_name);
+                      }
+
+                      core.setOutput('sha', data.head.sha);
+
+            - name: Checkout
+              uses: actions/checkout@v6
+              with:
+                  repository: ${{ steps.data.outputs.repository }}
+                  ref: ${{ steps.data.outputs.sha }}
+
+            - name: Setup variant
+              uses: ./.github/actions/setup-variant
+              with:
+                  variant: ${{ inputs.variant }}
+
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+
+            - name: Publish to npm
+              id: publish
+              uses: core-ds/changesets-snapshot-release@v1
+              with:
+                  version: 'yarn version-packages:snapshot'
+                  publish: 'yarn release:snapshot'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    comment:
+        needs: snapshot-release
+        if: ${{ fromJson(needs.snapshot-release.outputs.published) }}
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write # to post issue comments
+            pull-requests: write # to post pull-requests comments
+        steps:
+            - name: Prepare comment
+              id: prepare-comment
+              uses: actions/github-script@v8
+              env:
+                  PUBLISHED_PACKAGES: ${{ needs.snapshot-release.outputs.published-packages }}
+              with:
+                  result-encoding: string
+                  script: |
+                      return JSON.parse(process.env.PUBLISHED_PACKAGES)
+                          .map(({ name, version }, index) => `${index + 1}. \`${name}@${version}\``)
+                          .join('\n\n');
+
+            - name: Create comment
+              uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-number: ${{ inputs.pull-request }}
+                  body: |
+                      ## Snapshot release
+
+                      Successfully released the following packages:
+
+                      ${{ steps.prepare-comment.outputs.result }}
+                  reactions: rocket

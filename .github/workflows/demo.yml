@@ -1,23 +1,37 @@
 name: demo
 
 on:
+    workflow_call:
+        inputs:
+            version:
+                description: Version of @alfalab/core-components package, tag, ref or sha
+                required: true
+                type: string
+            directory:
+                description: Directory to deploy demo
+                required: false
+                type: string
+            deploy-repository:
+                description: Repository
+                required: false
+                type: string
+        outputs:
+            run-id:
+                description: Artifact workflow run id
+                value: ${{ jobs.build-demo.outputs.run-id }}
     workflow_dispatch:
         inputs:
             version:
-                description: Version of @alfalab/core-components package, tag or SHA
+                description: Version of @alfalab/core-components package, tag or sha
                 required: false
                 type: string
-            variant:
-                description: Variant of core components
+            directory:
+                description: Directory to deploy demo
                 required: false
-                type: choice
-                default: default
-                options:
-                    - default
-                    - alfasans
+                type: string
 
 concurrency:
-    group: ${{ github.workflow }}-${{ case(inputs.version == '', github.ref, inputs.version) }}
+    group: ${{ format('Demo {0}', case(inputs.version == '', github.ref, inputs.version)) }}
     cancel-in-progress: true
 
 defaults:
@@ -29,31 +43,39 @@ jobs:
         uses: core-ds/core-components/.github/workflows/resolve-demo-params.yml@master
         secrets: inherit
         with:
-            version: ${{ inputs.version }}
+            version: ${{ case(github.event_name == 'workflow_dispatch' && inputs.version == '', github.ref, inputs.version) }}
+            directory: ${{ inputs.directory }}
 
-    variant-directory:
+    variants:
         needs: params
-        uses: core-ds/core-components/.github/workflows/resolve-variant-demo-directory.yml@master
-        secrets: inherit
+        uses: core-ds/core-components/.github/workflows/variants.yml@master
         with:
-            variant: ${{ inputs.variant }}
-            directory: ${{ needs.params.outputs.directory }}
+            ref: ${{ needs.params.outputs.ref }}
 
     build-demo:
-        needs: params
+        needs: [params, variants]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variants.outputs.config) }}
         uses: core-ds/core-components/.github/workflows/build-demo.yml@master
         secrets: inherit
         with:
             ref: ${{ needs.params.outputs.ref }}
-            variant: ${{ inputs.variant }}
-            artifact-name: ${{ inputs.variant }}
+            variant: ${{ matrix.variant }}
+            artifact-name: ${{ matrix.variant }}
 
     deploy:
-        needs: [build-demo, variant-directory]
+        needs: [build-demo, params, variants]
+        strategy:
+            max-parallel: 1
+            matrix:
+                include: ${{ fromJson(needs.variants.outputs.config) }}
         uses: core-ds/core-components/.github/workflows/deploy-demo.yml@master
         secrets: inherit
         with:
             run-id: ${{ needs.build-demo.outputs.run-id }}
-            directory: ${{ needs.variant-directory.outputs.directory }}
-            variant: ${{ inputs.variant }}
-            artifact-name: ${{ inputs.variant }}
+            directory: ${{ case(matrix.variant == 'default', needs.params.outputs.directory, format('{0}-{1}', needs.params.outputs.directory, matrix.variant)) }}
+            variant: ${{ matrix.variant }}
+            artifact-name: ${{ matrix.variant }}
+            deploy-repository: ${{ inputs.deploy-repository }}
+            demo-ref: ${{ needs.params.outputs.ref }}

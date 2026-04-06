@@ -1,5 +1,20 @@
 # @alfalab/core-components-collapse
 
+## 6.0.2
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-link@7.0.2
+
 ## 6.0.1
 
 ### Patch Changes

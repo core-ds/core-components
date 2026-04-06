@@ -1,5 +1,21 @@
 # @alfalab/core-components-action-button
 
+## 3.0.3
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-spinner@6.0.3
+    - @alfalab/core-components-shared@2.1.1
+
 ## 3.0.2
 
 ### Patch Changes

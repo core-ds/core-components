@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 /*
 * Задача:
@@ -41,24 +41,4 @@
 .focused .suffixMajor,
 .focused .suffixMinor {
     opacity: 0;
-}
-
-.inputReject0 {
-    animation: reject0 ease 0.3s 1;
-}
-
-.inputReject1 {
-    animation: reject1 ease 0.3s 1;
-}
-
-@keyframes reject0 {
-    from {
-        background-color: var(--color-light-status-muted-negative);
-    }
-}
-
-@keyframes reject1 {
-    from {
-        background-color: var(--color-light-status-muted-negative);
-    }
 }
