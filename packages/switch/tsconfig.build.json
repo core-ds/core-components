@@ -9,9 +9,14 @@
         "paths": {
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"],
+            "@alfalab/core-components-skeleton": ["../skeleton/src"],
+            "@alfalab/core-components-skeleton/*": ["../skeleton/src/*"],
             "@alfalab/core-components-switch": ["./src"],
             "@alfalab/core-components-switch/*": ["./src/*"]
         }
     },
-    "references": [{ "path": "../shared/tsconfig.build.json" }]
+    "references": [
+        { "path": "../shared/tsconfig.build.json" },
+        { "path": "../skeleton/tsconfig.build.json" }
+    ]
 }
