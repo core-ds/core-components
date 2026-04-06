@@ -12,7 +12,6 @@ import { getMarginStyles } from '../../utils/get-margin-styles';
 import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
 
-import commonStyles from '../common.module.css';
 import styles from './index.module.css';
 import safariTransitions from './transitions/safari-transitions.module.css';
 import transitions from './transitions/transitions.module.css';
@@ -59,13 +58,13 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             componentRef={componentRef}
             scrollHandler='content'
             disableBlockingScroll={withoutOverlay}
-            wrapperClassName={cn(commonStyles.baseModalContainer, {
+            wrapperClassName={cn(styles.baseModalContainer, {
                 [styles.wrapperJustifyStart]: verticalAlign === 'top',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
-                [commonStyles.withoutOverlay]: withoutOverlay,
+                [styles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(styles.component, className, commonStyles.baseModalComponent, {
+            className={cn(styles.component, className, styles.baseModalComponent, {
                 ...getMarginStyles({ styles, margin }),
             })}
             transitionProps={{

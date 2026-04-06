@@ -13,7 +13,6 @@ import { ModalContent } from '../modal-content/modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
-import commonStyles from '../common.module.css';
 import styles from './index.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
@@ -57,14 +56,14 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             contentElementRef={contentRef}
             scrollHandler='content'
             disableBlockingScroll={withoutOverlay}
-            wrapperClassName={cn(styles.wrapper, commonStyles.baseModalContainer, {
+            wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, {
                 [styles.wrapperAlignStart]: horizontalAlign === 'start',
                 [styles.wrapperAlignEnd]: horizontalAlign === 'end',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
-                [commonStyles.withoutOverlay]: withoutOverlay,
+                [styles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(styles.component, className, commonStyles.baseModalComponent, {
+            className={cn(styles.component, className, styles.baseModalComponent, {
                 ...getMarginStyles({ styles, margin }),
             })}
             contentClassName={styles.content}
