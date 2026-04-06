@@ -1,5 +1,17 @@
 # @alfalab/core-components-switch
 
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2154](https://github.com/core-ds/core-components/pull/2154)
+
+##### Switch
+
+- Добавлен пропс `showSkeleton` с помощью которого можно отобразить скелетон компонента
+
 ## 6.0.3
 
 ### Patch Changes
