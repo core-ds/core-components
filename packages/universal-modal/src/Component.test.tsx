@@ -510,4 +510,100 @@ describe('UniversalModal', () => {
             expect(footer).toHaveClass('middle');
         });
     });
+
+    describe('desktop backdrop tests', () => {
+        const testId = 'backdrop-test-id';
+
+        describe('center modal', () => {
+            it('should render backdrop by default', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=true', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        overlay={true}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=false', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        overlay={false}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+
+        describe('side modal', () => {
+            it('should render backdrop by default', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=true', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        overlay={true}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=false', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        overlay={false}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+    });
 });
