@@ -3,4 +3,6 @@
 '@alfalab/core-components-skeleton': patch
 ---
 
-Изменена анимация с _background_ на _opacity_, теперь производительность анимации выше
+##### Skeleton
+
+- Изменена анимация с `background` на `opacity`, теперь производительность анимации выше
