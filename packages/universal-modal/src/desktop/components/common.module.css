@@ -1,0 +1,10 @@
+.baseModalContainer {
+    &.withoutOverlay {
+        pointer-events: none;
+
+        & .baseModalComponent {
+            pointer-events: auto;
+            box-shadow: var(--shadow-m);
+        }
+    }
+}

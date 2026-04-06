@@ -13,6 +13,7 @@ import { ModalContent } from '../modal-content/modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
+import commonStyles from '../common.module.css';
 import styles from './index.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
@@ -42,6 +43,8 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         backdropTransitions: fullSizeModalBackdropTransitions,
     } = getFullSizeModalTransitions({ verticalAlign, width, height });
 
+    const withoutOverlay = !overlay;
+
     return (
         <BaseModal
             {...restProps}
@@ -51,15 +54,15 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             componentRef={componentRef}
             contentElementRef={contentRef}
             scrollHandler='content'
-            disableBlockingScroll={!overlay}
-            wrapperClassName={cn(styles.wrapper, {
+            disableBlockingScroll={withoutOverlay}
+            wrapperClassName={cn(styles.wrapper, commonStyles.baseModalContainer, {
                 [styles.wrapperAlignStart]: horizontalAlign === 'start',
                 [styles.wrapperAlignEnd]: horizontalAlign === 'end',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
+                [commonStyles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(styles.component, className, {
-                [styles.overlayHidden]: !overlay,
+            className={cn(styles.component, className, commonStyles.baseModalComponent, {
                 ...getMarginStyles({ styles, margin }),
             })}
             contentClassName={styles.content}
@@ -72,7 +75,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 ...restProps.transitionProps,
             }}
             backdropProps={{
-                transparent: !overlay,
+                shouldRender: overlay,
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
             }}

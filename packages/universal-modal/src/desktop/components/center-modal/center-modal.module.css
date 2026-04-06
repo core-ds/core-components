@@ -11,10 +11,6 @@
     */
     will-change: transform, opacity;
     backface-visibility: hidden;
-
-    &.overlayHidden {
-        box-shadow: var(--shadow-m);
-    }
 }
 
 .wrapperJustifyStart {
