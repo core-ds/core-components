@@ -77,15 +77,23 @@ render(() => {
             </div>
 
             <div style={rowStyle}>
-                <Input defaultValue='Label' rightAddons={<Icon20Adapter icon={Diamonds20Icon} />} size={40} />
-                <Button view='primary' size={40} leftAddons={<Icon20Adapter icon={Diamonds20Icon} />}>
+                <Input
+                    defaultValue='Label'
+                    rightAddons={<Icon20Adapter icon={Diamonds20Icon} />}
+                    size={40}
+                />
+                <Button
+                    view='primary'
+                    size={40}
+                    leftAddons={<Icon20Adapter icon={Diamonds20Icon} />}
+                >
                     Label
                 </Button>
                 <div style={{ ...labelStyle }}>
                     <StatusBadge
                         view='positive-checkmark'
                         size={16}
-                        customIcons={<Icon20Adapter icon={Diamonds20Icon}/>}
+                        customIcons={<Icon20Adapter icon={Diamonds20Icon} />}
                     />
                     <Typography.Text
                         view='component-primary'
@@ -97,15 +105,12 @@ render(() => {
             </div>
 
             <div style={rowStyle}>
-                <Input defaultValue='Label' rightAddons={<Icon20Adapter icon={Diamonds20Icon} />} size={40} />
-                <Button view='primary' size={40} leftAddons={<Icon20Adapter icon={Diamonds20Icon} />}>
+                <Input defaultValue='Label' rightAddons={<Diamonds20Icon />} size={40} />
+                <Button view='primary' size={40} leftAddons={<Diamonds20Icon />}>
                     Label
                 </Button>
                 <div style={{ ...labelStyle }}>
-                    <StatusBadge
-                        view='negative-cross'
-                        size={16}
-                    />
+                    <StatusBadge view='negative-cross' size={16} />
                     <Typography.Text
                         view='component-primary'
                         style={{ color: 'var(--color-light-text-secondary)' }}
