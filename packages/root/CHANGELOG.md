@@ -1,5 +1,42 @@
 # @alfalab/core-components
 
+## 50.9.0
+
+### Minor Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2154](https://github.com/core-ds/core-components/pull/2154)
+
+##### Switch
+
+- Добавлен пропс `showSkeleton` с помощью которого можно отобразить скелетон компонента
+
+### Patch Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2151](https://github.com/core-ds/core-components/pull/2151)
+
+##### TabBar
+
+- Изменена высота компонента
+- Верхний и нижний отступы изменены в соответствии с дизайном
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2158](https://github.com/core-ds/core-components/pull/2158)
+
+##### Steps
+
+- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.
+- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`.
+
+- Обновлены зависимости
+    - @alfalab/core-components-tab-bar@4.0.4
+    - @alfalab/core-components-steps@3.0.4
+    - @alfalab/core-components-switch@6.1.0
+
 ## 50.8.0
 
 ### Minor Changes
