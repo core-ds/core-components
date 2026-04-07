@@ -15,14 +15,89 @@
     box-sizing: border-box;
     -webkit-appearance: none;
 
+    &,
+    &::placeholder {
+        @mixin paragraph_component_primary;
+    }
+
+    &.bold {
+        &,
+        &::placeholder {
+            @mixin accent_component_primary;
+        }
+    }
+
+    &.medium {
+        &,
+        &::placeholder {
+            @mixin action_component_primary;
+        }
+    }
+
+    &::placeholder {
+        transition:
+            opacity 0.2s ease,
+            color 0.2s ease;
+    }
+
     &.size-40 {
         @mixin paragraph_component_secondary;
         padding: var(--gap-0) var(--gap-8);
-    }
-}
 
-.input::placeholder {
-    transition: opacity 0.2s ease, color 0.2s ease;
+        &,
+        &::placeholder {
+            @mixin paragraph_component_secondary;
+        }
+
+        &.bold {
+            &,
+            &::placeholder {
+                @mixin accent_component_secondary;
+            }
+        }
+
+        &.medium {
+            &,
+            &::placeholder {
+                @mixin action_component_secondary;
+            }
+        }
+    }
+
+    /* Убирает синюю заливку при автокомплите */
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        &:first-line {
+            @mixin paragraph_component;
+        }
+
+        /* Hack from http://stackoverflow.com/a/29350537 */
+        transition: background-color 999999s ease-in-out 0s;
+    }
+
+    &:-webkit-autofill {
+        animation: onautofillstart 999999s forwards;
+    }
+
+    &:not(:-webkit-autofill) {
+        /* Позволяет отслеживать autofill через js */
+        animation: onautofillcancel 999999s;
+    }
+
+    /* Убирает нативные стрелочки при type=number */
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    /* Firefox */
+    &[type='number'] {
+        -moz-appearance: textfield;
+    }
 }
 
 .hasInnerLabel {

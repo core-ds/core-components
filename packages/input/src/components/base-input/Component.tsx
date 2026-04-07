@@ -210,6 +210,17 @@ export type BaseInputProps = Omit<
      * Запрещает ввод с клавиатуры
      */
     disableUserInput?: boolean;
+
+    /**
+     * Жирный текст
+     * @deprecated Используйте {@link BaseInputProps.fontWeight}
+     */
+    bold?: boolean;
+
+    /**
+     * Вес шрифта инпута, в том числе плейсхолдера
+     */
+    fontWeight?: 'bold' | 'medium' | 'regular';
 };
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -267,6 +278,8 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             readOnly: readOnlyProp,
             FormControlComponent,
             disableUserInput,
+            bold,
+            fontWeight = bold ? 'bold' : 'normal',
             ...restProps
         },
         ref,
@@ -494,6 +507,8 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
+                            [styles.bold]: fontWeight === 'bold',
+                            [styles.medium]: fontWeight === 'medium',
                         },
                         inputClassName,
                     )}
