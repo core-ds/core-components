@@ -1841,14 +1841,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-steps@npm:^3.0.3, @alfalab/core-components-steps@workspace:packages/steps":
+"@alfalab/core-components-steps@npm:^3.0.4, @alfalab/core-components-steps@workspace:packages/steps":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-steps@workspace:packages/steps"
   dependencies:
     "@alfalab/core-components-badge": "npm:^7.0.2"
     "@alfalab/core-components-shared": "npm:^2.1.1"
+    "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.13.1"
-    "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1857,11 +1857,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-switch@npm:^6.0.3, @alfalab/core-components-switch@workspace:packages/switch":
+"@alfalab/core-components-switch@npm:^6.1.0, @alfalab/core-components-switch@workspace:packages/switch":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-switch@workspace:packages/switch"
   dependencies:
     "@alfalab/core-components-shared": "npm:^2.1.1"
+    "@alfalab/core-components-skeleton": "npm:^7.0.2"
     "@alfalab/hooks": "npm:^1.13.1"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -1887,7 +1888,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-tab-bar@npm:^4.0.3, @alfalab/core-components-tab-bar@workspace:packages/tab-bar":
+"@alfalab/core-components-tab-bar@npm:^4.0.4, @alfalab/core-components-tab-bar@workspace:packages/tab-bar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-tab-bar@workspace:packages/tab-bar"
   dependencies:
@@ -2280,10 +2281,10 @@ __metadata:
     "@alfalab/core-components-status": "npm:^5.0.2"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/core-components-stepped-progress-bar": "npm:^4.0.3"
-    "@alfalab/core-components-steps": "npm:^3.0.3"
-    "@alfalab/core-components-switch": "npm:^6.0.3"
+    "@alfalab/core-components-steps": "npm:^3.0.4"
+    "@alfalab/core-components-switch": "npm:^6.1.0"
     "@alfalab/core-components-system-message": "npm:^4.0.3"
-    "@alfalab/core-components-tab-bar": "npm:^4.0.3"
+    "@alfalab/core-components-tab-bar": "npm:^4.0.4"
     "@alfalab/core-components-table": "npm:^4.0.9"
     "@alfalab/core-components-tabs": "npm:^10.0.9"
     "@alfalab/core-components-tag": "npm:^10.0.3"
