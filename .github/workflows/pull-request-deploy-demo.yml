@@ -28,13 +28,18 @@ jobs:
               with:
                   script: |
                       const fs = require('node:fs/promises');
+                      const path = require('node:path');
 
-                      const content = await fs.readFile('pull-request/data.json', { encoding: 'utf8' });
+                      const [content, sha] = await Promise.all(
+                          ['data.json', 'sha.txt'].map((file) =>
+                              fs.readFile(path.join('pull-request', file), { encoding: 'utf8' }),
+                          ),
+                      );
                       const data = JSON.parse(content);
 
                       core.setOutput('number', data.number);
                       core.setOutput('repository', data.head.repo.full_name);
-                      core.setOutput('sha', data.head.sha);
+                      core.setOutput('sha', sha.trim());
 
     deploy:
         needs: pull-request
