@@ -1,5 +1,25 @@
 # @alfalab/core-components-amount-input
 
+## 8.2.0
+
+### Minor Changes
+
+<sup><time>08.04.2026</time></sup>
+
+#### [#2150](https://github.com/core-ds/core-components/pull/2150)
+
+##### Input
+
+- Добавлен проп `fontWeight` для управления жирностью шрифта
+- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.1.0
+    - @alfalab/core-components-number-input@3.0.7
+    - @alfalab/core-components-with-suffix@5.0.6
+
 ## 8.1.6
 
 ### Patch Changes

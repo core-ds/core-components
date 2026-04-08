@@ -1,5 +1,12 @@
 # @alfalab/core-components-pure-cell
 
+## 5.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-amount@4.1.0
+
 ## 5.1.0
 
 ### Minor Changes
