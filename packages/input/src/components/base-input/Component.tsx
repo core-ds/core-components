@@ -211,6 +211,11 @@ export type BaseInputProps = Omit<
      * Запрещает ввод с клавиатуры
      */
     disableUserInput?: boolean;
+
+    /**
+     * Вес шрифта инпута, в том числе плейсхолдера
+     */
+    fontWeight?: 'bold' | 'medium' | 'regular';
 };
 
 const SIZE_TO_CLASSNAME_MAP = {
@@ -274,6 +279,7 @@ export const BaseInput = forwardRef<
             FormControlComponent,
             disableUserInput,
             platformStyles = {},
+            fontWeight,
             ...restProps
         },
         ref,
@@ -516,6 +522,8 @@ export const BaseInput = forwardRef<
                             [styles[SIZE_TO_CLASSNAME_MAP[size]]]: hasInnerLabel,
                             [styles.hasInnerLabel]: hasInnerLabel,
                             [colorCommonStyles[colors].hasInnerLabel]: hasInnerLabel,
+                            [styles.bold]: fontWeight === 'bold',
+                            [styles.medium]: fontWeight === 'medium',
                         },
                         inputClassName,
                     )}
