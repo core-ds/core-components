@@ -1,0 +1,5 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+:root {
+    --carousel-animation-duration: 0.25s;
+}

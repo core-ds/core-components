@@ -1,0 +1,34 @@
+{
+    "name": "@alfalab/core-components-carousel",
+    "version": "0.0.1",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
+    "main": "index.js",
+    "module": "./esm/index.js",
+    "dependencies": {
+        "@alfalab/core-components-shared": "^2.1.1",
+        "@alfalab/hooks": "^1.13.1",
+        "classnames": "^2.5.1",
+        "react-draggable": "^4.5.0",
+        "react-merge-refs": "^1.1.0",
+        "tslib": "^2.4.0"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    },
+    "buildThemes": [
+        "site"
+    ],
+    "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
+    "themesVersion": "15.0.2",
+    "varsVersion": "11.0.2"
+}

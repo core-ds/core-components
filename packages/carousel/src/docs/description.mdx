@@ -1,0 +1,44 @@
+## Виды кнопок
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [slides, setSlides] = React.useState(() =>
+        Array.from({ length: 5 }, (_, i) => ({
+            key: i,
+            // width: i % 2 ? 280 : 140,
+            children: (
+                <div
+                    style={{
+                        // background: 'skyblue',
+                        height: i % 2 ? 100 : 400,
+                    }}
+                >{`Slide ${i}`}</div>
+            ),
+        })),
+    );
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setSlides((prevSlides) => prevSlides.filter((slide) => slide.key !== 2));
+        }, 5000);
+    }, []);
+
+    return (
+        <Carousel
+            activeIndex={activeIndex}
+            onActiveIndexChange={setActiveIndex}
+            items={slides}
+            visibleItems={2.4}
+            gap={8}
+            height={200}
+            PageIndicator={PageIndicatorStep}
+            pageIndicatorProps={{
+                onActiveElementChange: setActiveIndex,
+                cycle: true,
+                duration: 2000,
+            }}
+        />
+    );
+});
+```
