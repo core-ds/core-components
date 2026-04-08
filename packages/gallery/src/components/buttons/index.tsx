@@ -6,6 +6,7 @@ import { TooltipDesktop } from '@alfalab/core-components-tooltip/desktop';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 import { ArrowsInwardMIcon } from '@alfalab/icons-glyph/ArrowsInwardMIcon';
 import { ArrowsOutwardMIcon } from '@alfalab/icons-glyph/ArrowsOutwardMIcon';
+import { BubbleArrowRightMIcon } from '@alfalab/icons-glyph/BubbleArrowRightMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { PauseCompactMIcon } from '@alfalab/icons-glyph/PauseCompactMIcon';
 import { PlayCompactMIcon } from '@alfalab/icons-glyph/PlayCompactMIcon';
@@ -148,6 +149,22 @@ export const Share: FC<Props> = (props) => (
             {...props}
             icon={ShareMIcon}
             aria-label='Поделиться'
+            className={styles.iconButton}
+        />
+    </TooltipDesktop>
+);
+
+export const PostLink: FC<Props> = (props) => (
+    <TooltipDesktop
+        trigger='hover'
+        position='bottom'
+        content='Перейти к посту в чате'
+        fallbackPlacements={['bottom-end']}
+    >
+        <IconButton
+            {...props}
+            icon={BubbleArrowRightMIcon}
+            aria-label='Перейти к посту в чате'
             className={styles.iconButton}
         />
     </TooltipDesktop>

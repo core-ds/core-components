@@ -16,6 +16,11 @@ export type GalleryImage = {
     alt?: string;
     canDownload?: boolean;
     canShare?: boolean;
+    messageId?: string;
+    /**
+     * дата создания
+     */
+    createdAt?: string;
     /**
      * Нижняя кнопка, есть только у видео
      */

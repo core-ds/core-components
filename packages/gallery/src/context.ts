@@ -12,6 +12,7 @@ export type GalleryContext = {
     fullScreen: boolean;
     mutedVideo: boolean;
     playingVideo: boolean;
+    loadingSlide: boolean;
     hideNavigation: boolean;
     setHideNavigation: (hideNavigation: boolean) => void;
     initialSlide: number;
@@ -28,6 +29,7 @@ export type GalleryContext = {
     setCurrentSlideIndex?: (index: number) => void;
     getCurrentImage: () => GalleryImage | undefined;
     getCurrentImageMeta: () => ImageMeta | undefined;
+    navigateToPostHandler?: () => void;
 };
 
 const mockFn = () => undefined;
@@ -42,6 +44,7 @@ export const GalleryContext = createContext<GalleryContext>({
     fullScreen: false,
     mutedVideo: false,
     playingVideo: false,
+    loadingSlide: false,
     hideNavigation: false,
     setHideNavigation: mockFn,
     setMutedVideo: mockFn,
@@ -58,4 +61,5 @@ export const GalleryContext = createContext<GalleryContext>({
     setCurrentSlideIndex: mockFn,
     getCurrentImage: mockFn,
     getCurrentImageMeta: mockFn,
+    navigateToPostHandler: mockFn,
 });

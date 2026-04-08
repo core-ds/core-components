@@ -57,12 +57,27 @@ export type GalleryProps = {
      * Дополнительный класс для попапа
      */
     popupClassName?: string;
+
+    /**
+     * обработчик нажатия на кнопку перехода к посту
+     */
+    navigateToPostHandler?: () => void;
+
+    /**
+     * обработчик который вызывается при достижении краев слайда,
+     */
+    onEdgeReached?: (
+        direction: 'next' | 'prev',
+        handleSwipe: () => void,
+        setLoadingSlide: (value: boolean) => void,
+    ) => void;
 };
 
 const DEFAULT_FULL_SCREEN = false;
 const DEFAULT_MUTED_VIDEO = true;
 const DEFAULT_PLAYING_VIDEO = true;
 const DEFAULT_HIDE_NAVIGATION = false;
+const DEFAULT_LOADING_SLIDE = false;
 
 const Backdrop = () => null;
 
@@ -75,6 +90,8 @@ export const Gallery: FC<GalleryProps> = ({
     onClose,
     onSlideIndexChange,
     popupClassName,
+    navigateToPostHandler,
+    onEdgeReached,
 }) => {
     const currentSlideIndexState = useState(initialSlide);
     const uncontrolled = slideIndex === undefined;
@@ -87,6 +104,7 @@ export const Gallery: FC<GalleryProps> = ({
     const [fullScreen, setFullScreen] = useState<boolean>(DEFAULT_FULL_SCREEN);
     const [mutedVideo, setMutedVideo] = useState<boolean>(DEFAULT_MUTED_VIDEO);
     const [playingVideo, setPlayingVideo] = useState<boolean>(DEFAULT_PLAYING_VIDEO);
+    const [loadingSlide, setLoadingSlide] = useState<boolean>(DEFAULT_LOADING_SLIDE);
     const [hideNavigation, setHideNavigation] = useState<boolean>(DEFAULT_HIDE_NAVIGATION);
 
     const isDesktop = useIsDesktop();
@@ -96,13 +114,13 @@ export const Gallery: FC<GalleryProps> = ({
     const bottomButton = images[currentSlideIndex]?.bottomButton;
 
     const slideTo = useCallback(
-        (index: number) => {
+        (index: number, speed?: number) => {
             if (images[index]) {
                 setCurrentSlideIndex?.(index);
 
                 if (swiper) {
                     setPlayingVideo(true);
-                    swiper.slideTo(index);
+                    swiper.slideTo(index, speed);
                 }
             }
         },
@@ -116,10 +134,22 @@ export const Gallery: FC<GalleryProps> = ({
 
         if (nextIndex >= images.length) {
             nextIndex = loop ? 0 : lastIndex;
+
+            if (onEdgeReached) {
+                onEdgeReached(
+                    'next',
+                    () => {
+                        slideTo(0, 0);
+                    },
+                    setLoadingSlide,
+                );
+
+                return;
+            }
         }
 
         slideTo(nextIndex);
-    }, [images.length, loop, currentSlideIndex, slideTo]);
+    }, [images.length, currentSlideIndex, slideTo, loop, onEdgeReached]);
 
     const slidePrev = useCallback(() => {
         const lastIndex = images.length - 1;
@@ -128,10 +158,26 @@ export const Gallery: FC<GalleryProps> = ({
 
         if (nextIndex < 0) {
             nextIndex = loop ? lastIndex : 0;
+
+            if (onEdgeReached) {
+                onEdgeReached(
+                    'prev',
+                    () => {
+                        setTimeout(() => {
+                            if (swiper) {
+                                swiper.slideTo(swiper.slides.length - 1, 0);
+                            }
+                        }, 0);
+                    },
+                    setLoadingSlide,
+                );
+
+                return;
+            }
         }
 
         slideTo(nextIndex);
-    }, [images.length, loop, currentSlideIndex, slideTo]);
+    }, [images.length, currentSlideIndex, slideTo, loop, onEdgeReached, swiper]);
 
     const setImageMeta = useCallback(
         (meta: ImageMeta, index: number) => {
@@ -241,7 +287,7 @@ export const Gallery: FC<GalleryProps> = ({
 
     const singleSlide = images.length === 1;
 
-    const showNavigationBar = !singleSlide && !fullScreen;
+    const showNavigationBar = (!singleSlide && !fullScreen) || navigateToPostHandler;
 
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     const galleryContext: GalleryContext = {
@@ -269,6 +315,8 @@ export const Gallery: FC<GalleryProps> = ({
         setCurrentSlideIndex,
         getCurrentImage: () => images[currentSlideIndex],
         getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
+        navigateToPostHandler,
+        loadingSlide,
     };
 
     return (
@@ -286,7 +334,7 @@ export const Gallery: FC<GalleryProps> = ({
                     })}
                 >
                     {isDesktop ? <Header /> : <HeaderMobile />}
-                    {images.length === 1 ? <Single /> : <ImageViewer />}
+                    {singleSlide && !navigateToPostHandler ? <Single /> : <ImageViewer />}
                     <nav
                         className={cn({
                             [styles.navigationVideo]: isCurrentVideo && !isDesktop,

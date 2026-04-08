@@ -6,6 +6,7 @@ export const TestIds = {
     FULLSCREEN_BUTTON: 'fullscreen-button',
     EXIT_FULLSCREEN_BUTTON: 'exit-fullscreen-button',
     DOWNLOAD_BUTTON: 'download-button',
+    NAVIGATE_TO_POST_BUTTON: 'navigate-to-post',
     NAVIGATION_BAR: 'navigation-bar',
     MUTE_BUTTON: 'mute-button',
     UNMUTE_BUTTON: 'unmute-button',

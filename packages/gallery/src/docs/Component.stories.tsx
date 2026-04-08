@@ -7,6 +7,7 @@ import {
     stylesStringToObj,
     getQueryParam,
 } from '@alfalab/core-components-screenshot-utils/screenshots-story/utils';
+import { GalleryImage } from '../types';
 
 const meta: Meta<typeof Gallery> = {
     title: 'Components/Gallery',
@@ -16,11 +17,108 @@ const meta: Meta<typeof Gallery> = {
 
 type Story = StoryObj<typeof Gallery>;
 
+const images = [
+    {
+        messageId: '3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+        url: 'https://alfachannels.servicecdn.ru/ChannelsSB1/Alfa-Vygodno/CarOil.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-22T11:47:30.189083270+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+    },
+    {
+        messageId: '3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+        url: 'https://alfachannels.servicecdn.ru/AlfaChannels_Test/BLOCKS_TEST/pepe4ada7930667a7fc47d.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-22T11:47:30.189083270+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+    },
+    {
+        messageId: '3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+        url: 'https://alfachannels.servicecdn.ru/ChannelsSB1/Whats_new/alfa_case_camp_2808.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-22T11:47:30.189083270+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+    },
+    {
+        messageId: '3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+        url: 'https://alfachannels.servicecdn.ru/AlfaChannels/TEST_A_CHANNELS/20251113only4.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-22T11:47:30.189083270+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+    },
+    {
+        messageId: 'sdkhb28yb9',
+        url: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',
+        bottomButton: {
+            text: 'Кнопка с задержкой 2 секунды',
+            onClick: () => {},
+            timeout: 2,
+        },
+    },
+    {
+        messageId: 'cea9291c-30dd-4f14-b815-2eb805483207',
+        url: 'https://alfachannels.servicecdn.ru/AlfaChannels_Test/BLOCKS_TEST/2025-04-02_11.15.35.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-21T10:06:26.625883392+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=cea9291c-30dd-4f14-b815-2eb805483207',
+    },
+    {
+        messageId: '3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+        url: 'https://alfachannels.servicecdn.ru/AlfaChannels/TEST_A_CHANNELS/20251113only1.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-22T11:47:30.189083270+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=3fb5b748-a74b-4a2f-bc64-ae12df98d300',
+    },
+    {
+        messageId: 'cea9291c-30dd-4f14-b815-2eb805483207',
+        url: 'https://alfachannels.servicecdn.ru/ChannelsSB1/Whats_new/mortgage_18_2208.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-21T10:06:26.625883392+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=cea9291c-30dd-4f14-b815-2eb805483207',
+    },
+    {
+        messageId: 'mjiic8y3-0dd-4f14-b815-973748',
+        url: 'https://alfachannels.servicecdn.ru/AlfaChannels/WHATS_NEW/IMG_4124.JPG',
+        previewUrl: null,
+        createdAt: '2026-01-21T10:06:26.625883392+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=cea9291c-30dd-4f14-b815-2eb805483207',
+    },
+    {
+        messageId: 'cbdh38774-30dd-4f14-b815-34763',
+        url: 'https://alfachannels.servicecdn.ru/ChannelsSB1/Whats_new/alfa_invest_2108.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-21T10:06:26.625883392+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=cea9291c-30dd-4f14-b815-2eb805483207',
+    },
+    {
+        messageId: 'cbdh38774-30dd-4f14-b815-34763',
+        url: 'https://alfachannels.servicecdn.ru/AlfaChannels/ALFA_ONLY/20251117onlyspartak.jpg',
+        previewUrl: null,
+        createdAt: '2026-01-21T10:06:26.625883392+0000',
+        deeplink: '/communication_source?id=COUNTER&messageId=cea9291c-30dd-4f14-b815-2eb805483207',
+    },
+];
+
+const galleryImages = images.map((item) => ({
+    src: item.url,
+    previewSrc: item.previewUrl ?? undefined,
+    canDownload: false,
+    messageId: item.messageId,
+    name: 'Куда нажать',
+    createdAt: item.createdAt,
+}));
+
+const MOCK_NETWORK_DELAY_MS = 1000;
+
 export const gallery: Story = {
     name: 'Gallery',
     render: () => {
         const [openMultiple, setOpenMultiple] = React.useState(false);
         const [open, setOpen] = React.useState(false);
+        const [openWithPagination, setOpenWithPagination] = React.useState(false);
+
+        const [withPaginationImages, setWithPaginationImages] = React.useState<GalleryImage[]>([]);
+        const [currentImageMessageId, setCurrentImageMessageId] = React.useState<string>('');
 
         const images = [
             {
@@ -35,6 +133,46 @@ export const gallery: Story = {
         ];
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
+
+        const openPaginatedGallery = () => {
+            setOpenWithPagination(true);
+
+            const initialMessage = galleryImages[0];
+
+            const imagesBatch = galleryImages.filter(
+                (item) => item.messageId === initialMessage.messageId,
+            );
+            const indexImage = imagesBatch.indexOf(initialMessage);
+            const currentImageMessageId = imagesBatch[indexImage].messageId;
+
+            setWithPaginationImages(imagesBatch);
+            setCurrentImageMessageId(currentImageMessageId);
+        };
+
+        const onEdgeReached = (
+            direction: 'prev' | 'next',
+            handleSwipe: () => void,
+            setLoading: (value: boolean) => void,
+        ) => {
+            const uniqueIds = [...new Set(galleryImages.map((item) => item.messageId))];
+            const currentIndex = uniqueIds.indexOf(currentImageMessageId);
+            const targetKey = uniqueIds[currentIndex + (direction === 'next' ? 1 : -1)];
+
+            if (!targetKey) return;
+
+            const targetBatch = galleryImages.filter((item) => item.messageId === targetKey);
+
+            setLoading(true);
+
+            setTimeout(() => {
+                setWithPaginationImages(targetBatch);
+                handleSwipe();
+                setLoading(false);
+            }, MOCK_NETWORK_DELAY_MS);
+
+            setCurrentImageMessageId(targetBatch[0].messageId);
+        };
+
         return isPreview ? (
             <div style={previewStyles}>
                 {images.map((image, index) => (
@@ -73,6 +211,12 @@ export const gallery: Story = {
                         id='open-single-gallery-button'
                     >
                         Открыть галерею с одним изображением
+                    </Button>
+                </div>
+
+                <div style={{ margin: '24px' }}>
+                    <Button view='primary' onClick={openPaginatedGallery}>
+                        Открыть пагинированную галерею
                     </Button>
                 </div>
                 <Gallery
@@ -125,6 +269,17 @@ export const gallery: Story = {
                         },
                     ]}
                     loop={boolean('loop', true)}
+                />
+
+                <Gallery
+                    open={openWithPagination}
+                    loop={boolean('loop', true)}
+                    images={withPaginationImages}
+                    onClose={() => {
+                        setOpenWithPagination(false);
+                    }}
+                    navigateToPostHandler={() => {}}
+                    onEdgeReached={onEdgeReached}
                 />
             </div>
         );
