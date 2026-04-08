@@ -1,3 +1,31 @@
+## 48.37.0
+
+<sup><time>08.04.2026</time></sup>
+
+### [#2139](https://github.com/core-ds/core-components/pull/2139)
+
+#### Что изменилось
+##### Input
+
+- Добавлен проп `fontWeight` для управления жирностью шрифта
+- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`
+
+#### Влияние на компоненты
+- Минорное<br />`input` `amount-input`
+
+<br />
+
+#### Что изменилось
+##### Amount
+
+- Добавлен проп `fontWeight` для жирностью шрифта
+- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`
+
+#### Влияние на компоненты
+- Минорное<br />`amount`
+
+
+
 ## 48.36.1
 
 <sup><time>10.02.2026</time></sup>
