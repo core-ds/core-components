@@ -56,12 +56,15 @@ render(() => {
         gap: 8,
         alignItems: 'center',
     };
-    const labelStyle = { display: 'flex', alignItems: 'center', gap: 6, marginLeft: '20px' };
+    const inputWrapStyle = { width: 200 };
+    const labelStyle = { display: 'flex', alignItems: 'center', gap: 6, marginLeft: '14px' };
 
     return (
         <div style={rowsWrapStyle}>
             <div style={rowStyle}>
-                <Input defaultValue='Label' rightAddons={<DiamondsSIcon />} size={40} />
+                <div style={inputWrapStyle}>
+                    <Input defaultValue='Label' rightAddons={<DiamondsSIcon />} size={40} block />
+                </div>
                 <Button view='primary' size={40} leftAddons={<DiamondsSIcon />}>
                     Label
                 </Button>
@@ -77,11 +80,14 @@ render(() => {
             </div>
 
             <div style={rowStyle}>
-                <Input
-                    defaultValue='Label'
-                    rightAddons={<Icon20Adapter icon={Diamonds20Icon} />}
-                    size={40}
-                />
+                <div style={inputWrapStyle}>
+                    <Input
+                        defaultValue='Label'
+                        rightAddons={<Icon20Adapter icon={Diamonds20Icon} />}
+                        size={40}
+                        block
+                    />
+                </div>
                 <Button
                     view='primary'
                     size={40}
@@ -90,11 +96,13 @@ render(() => {
                     Label
                 </Button>
                 <div style={{ ...labelStyle }}>
-                    <StatusBadge
-                        view='positive-checkmark'
-                        size={16}
-                        customIcons={<Icon20Adapter icon={Diamonds20Icon} />}
-                    />
+                    <div>
+                        <StatusBadge
+                            view='positive-checkmark'
+                            size={16}
+                            customIcons={<Icon20Adapter icon={Diamonds20Icon} />}
+                        />
+                    </div>
                     <Typography.Text
                         view='component-primary'
                         style={{ color: 'var(--color-light-text-secondary)' }}
@@ -105,11 +113,13 @@ render(() => {
             </div>
 
             <div style={rowStyle}>
-                <Input defaultValue='Label' rightAddons={<Diamonds20Icon />} size={40} />
+                <div style={inputWrapStyle}>
+                    <Input defaultValue='Label' rightAddons={<Diamonds20Icon />} size={40} block />
+                </div>
                 <Button view='primary' size={40} leftAddons={<Diamonds20Icon />}>
                     Label
                 </Button>
-                <div style={{ ...labelStyle }}>
+                <div style={{ ...labelStyle, marginLeft: '12px' }}>
                     <StatusBadge view='negative-cross' size={16} />
                     <Typography.Text
                         view='component-primary'
