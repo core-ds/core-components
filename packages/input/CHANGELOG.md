@@ -1,5 +1,18 @@
 # Change Log
 
+## 15.7.0
+
+### Minor Changes
+
+<sup><time>08.04.2026</time></sup>
+
+### [#2139](https://github.com/core-ds/core-components/pull/2139)
+
+##### Input
+
+-   Добавлен проп `fontWeight` для управления жирностью шрифта
+-   Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`
+
 ## 15.6.2
 
 ### Patch Changes

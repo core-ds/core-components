@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.15.1
+
+### Patch Changes
+
+-   Обновлены зависимости
+    -   amount@3.11.0
+
 ## 4.15.0
 
 ### Minor Changes
