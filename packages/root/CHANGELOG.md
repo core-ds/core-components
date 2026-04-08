@@ -1,5 +1,115 @@
 # @alfalab/core-components
 
+## 50.9.0
+
+### Minor Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2154](https://github.com/core-ds/core-components/pull/2154)
+
+##### Switch
+
+- Добавлен пропс `showSkeleton` с помощью которого можно отобразить скелетон компонента
+
+### Patch Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2151](https://github.com/core-ds/core-components/pull/2151)
+
+##### TabBar
+
+- Изменена высота компонента
+- Верхний и нижний отступы изменены в соответствии с дизайном
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2158](https://github.com/core-ds/core-components/pull/2158)
+
+##### Steps
+
+- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.
+- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`.
+
+- Обновлены зависимости
+    - @alfalab/core-components-tab-bar@4.0.4
+    - @alfalab/core-components-steps@3.0.4
+    - @alfalab/core-components-switch@6.1.0
+
+## 50.8.0
+
+### Minor Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2140](https://github.com/core-ds/core-components/pull/2140)
+
+##### AmountInput
+
+- Уточнен цвет фона при отклоненни ввода
+- Добавленны `css` переменные для настройки цвета фона при отклоненни ввода:
+    - `--amount-input-input-reject-background-color`
+    - `--amount-input-inverted-input-reject-background-color`
+
+### Patch Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2145](https://github.com/core-ds/core-components/pull/2145)
+
+##### Gallery
+
+- Обновлен `swiper@^12.1.3`
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2149](https://github.com/core-ds/core-components/pull/2149)
+
+##### ProductCover
+
+- Удалён хардкод текст в `alt` для изображения
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2137](https://github.com/core-ds/core-components/pull/2137)
+
+##### FilterTag
+
+- Для шеврона: размеры 32 и 40 — `ChevronDownSIcon`, 48 — `ChevronDownMIcon` (вместо `ChevronDownCompactSIcon`).
+
+- Обновлены зависимости
+    - @alfalab/core-components-amount-input@9.2.0
+    - @alfalab/core-components-gallery@7.1.2
+    - @alfalab/core-components-product-cover@3.1.4
+    - @alfalab/core-components-filter-tag@7.0.4
+
+## 50.7.0
+
+### Minor Changes
+
+<sup><time>20.03.2026</time></sup>
+
+#### [#2119](https://github.com/core-ds/core-components/pull/2119)
+
+##### Checkbox
+
+- Добавлены пропсы `labelClassName`, `hintClassName`, `errorClassName`, `addonsClassName` для передачи дополнительных классов соответствующим элементам компонента
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-checkbox@6.2.0
+    - @alfalab/core-components-select@19.1.2
+    - @alfalab/core-components-custom-picker-button@4.1.2
+    - @alfalab/core-components-input-autocomplete@14.0.9
+    - @alfalab/core-components-international-phone-input@4.0.9
+    - @alfalab/core-components-intl-phone-input@11.0.9
+    - @alfalab/core-components-picker-button@13.0.9
+    - @alfalab/core-components-select-with-tags@10.1.2
+    - @alfalab/core-components-table@4.0.9
+    - @alfalab/core-components-tabs@10.0.9
+
 ## 50.6.2
 
 ### Patch Changes

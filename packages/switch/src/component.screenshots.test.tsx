@@ -83,6 +83,67 @@ describe(
     }),
 );
 
+describe(
+    'Switch | skeleton',
+    screenshotTesting({
+        cases: [
+            [
+                `sprite`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: '',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | inverted`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        colors: 'inverted',
+                        label: 'Условие тоггла',
+                        hint: '',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | hint`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: 'Описание пункта',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | hint inverted`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        colors: 'inverted',
+                        label: 'Условие тоггла',
+                        hint: 'Описание пункта',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 520, height: 120 },
+        },
+    }),
+);
+
 describe('Switch | colors', () => {
     const testCase = (theme: string) =>
         screenshotTesting({

@@ -1,4 +1,4 @@
-name: pull-request-deploy-demo
+name: deploy-pull-request-demo
 
 on:
     workflow_run:
@@ -14,14 +14,16 @@ jobs:
             sha: ${{ steps.parse.outputs.sha }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/download-artifact@v8
+            - name: Download
+              uses: actions/download-artifact@v8
               with:
                   name: pull-request
                   path: pull-request
                   run-id: ${{ github.event.workflow_run.id }}
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
-            - id: parse
+            - name: Parse
+              id: parse
               uses: actions/github-script@v8
               with:
                   script: |

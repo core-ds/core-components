@@ -84,16 +84,6 @@
     top: var(--gap-4);
     bottom: var(--gap-4);
     right: var(--gap-4);
-
-    &:before {
-        display: var(--toast-plate-action-divider-display);
-        position: absolute;
-        right: 51px;
-        top: var(--gap-12);
-        bottom: var(--gap-12);
-        width: 1px;
-        content: '';
-    }
 }
 
 .closeButton {

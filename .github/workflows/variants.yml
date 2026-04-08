@@ -7,51 +7,42 @@ on:
                 description: Checkout ref
                 required: false
                 type: string
-                default: ${{ github.ref }}
-            filter:
-                description: Filter variants
+            include-default:
+                description: Whether include default variant of core-components
                 required: false
                 type: boolean
-                default: false
+                default: true
         outputs:
-            result:
-                description: Variants of core-components as JSON string. Might be an empty string indicating variants are not found
-                value: ${{ jobs.variants.outputs.result }}
+            config:
+                description: Config of core-components variants as JSON string
+                value: ${{ jobs.config.outputs.result }}
 
 defaults:
     run:
         shell: bash
 
 jobs:
-    variants:
-        name: Process variants config
+    config:
         runs-on: ubuntu-latest
         outputs:
             result: ${{ steps.config.outputs.result }}
         steps:
-            - uses: actions/checkout@v6
+            - name: Checkout
+              uses: actions/checkout@v6
               with:
                   ref: ${{ inputs.ref }}
 
-            - id: config
+            - name: Get config
+              id: config
               uses: actions/github-script@v8
               with:
-                  result-encoding: string
                   script: |
                       const fs = require('node:fs');
                       const file = '${{ github.workspace }}/variants/config.json';
+                      let config = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, { encoding: 'utf8' })) : [{ variant: 'default' }];
 
-                      if (fs.existsSync(file)) {
-                          const content = fs.readFileSync(file, { encoding: 'utf8' });
-                          const config = JSON.parse(content);
+                      config = ${{ inputs.include-default }}
+                          ? config
+                          : config.filter(({ variant }) => variant !== 'default');
 
-                          return JSON.stringify(
-                              '${{ inputs.filter }}' === 'true'
-                                  ? config.filter(({ variant }) => variant !== 'default')
-                                  : config,
-                          );
-                      }
-
-                      core.warning('Variants config in not found.');
-
-                      return '';
+                      return config;

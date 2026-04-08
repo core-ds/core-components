@@ -3,6 +3,7 @@
 :root {
     --amount-input-minor-part-and-currency-color: var(--color-light-text-secondary);
     --amount-input-disabled: var(--color-light-text-tertiary);
+    --amount-input-input-reject-background-color: var(--color-light-status-muted-negative);
 }
 
 .minorPartAndCurrency {
@@ -11,5 +12,18 @@
     &.disabled,
     &.readOnly {
         color: var(--amount-input-disabled);
+    }
+}
+
+/* prettier-ignore */
+@each $phase in 0, 1 {
+    .inputReject$(phase) {
+        animation: reject$(phase) ease 0.3s 1;
+    }
+
+    @keyframes reject$(phase) {
+        from {
+            background-color: var(--amount-input-input-reject-background-color);
+        }
     }
 }

@@ -1,5 +1,12 @@
 # @alfalab/core-components-select
 
+## 19.1.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-checkbox@6.2.0
+
 ## 19.1.1
 
 ### Patch Changes
