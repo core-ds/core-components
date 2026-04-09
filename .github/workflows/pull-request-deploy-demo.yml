@@ -49,3 +49,4 @@ jobs:
             version: ${{ needs.pull-request.outputs.sha }}
             directory: ${{ needs.pull-request.outputs.number }}
             deploy-repository: ${{ needs.pull-request.outputs.repository }}
+            pull-request-number: ${{ needs.pull-request.outputs.number }}

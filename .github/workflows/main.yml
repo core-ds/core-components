@@ -165,6 +165,7 @@ jobs:
         with:
             version: ${{ github.ref }}
             directory: ${{ github.event.pull_request.number }}
+            pull-request-number: ${{ github.event.pull_request.number }}
 
     screenshot-test:
         needs: demo
