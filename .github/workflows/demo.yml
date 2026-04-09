@@ -17,7 +17,7 @@ on:
                 type: string
             pull-request-number:
                 description: Pull request number
-                type: number
+                type: string
                 required: false
         outputs:
             run-id:
