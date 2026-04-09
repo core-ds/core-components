@@ -15,6 +15,10 @@ on:
                 description: Repository
                 required: false
                 type: string
+            pull-request-number:
+                description: Pull request number
+                type: number
+                required: false
         outputs:
             run-id:
                 description: Artifact workflow run id
@@ -78,4 +82,4 @@ jobs:
             variant: ${{ matrix.variant }}
             artifact-name: ${{ matrix.variant }}
             deploy-repository: ${{ inputs.deploy-repository }}
-            demo-ref: ${{ needs.params.outputs.ref }}
+            pull-request-number: ${{ inputs.pull-request-number }}
