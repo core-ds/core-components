@@ -14,7 +14,6 @@ jobs:
                   mkdir -p pull-request
 
                   echo $PULL_REQUEST_DATA > pull-request/data.json
-                  echo $GITHUB_SHA > pull-request/sha.txt
 
             - name: Upload pull request data
               uses: actions/upload-artifact@v7
