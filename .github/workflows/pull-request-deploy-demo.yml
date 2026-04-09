@@ -45,6 +45,7 @@ jobs:
         needs: pull-request
         if: ${{ needs.pull-request.outputs.repository != github.repository }}
         uses: ./.github/workflows/demo.yml
+        secrets: inherit
         with:
             version: ${{ needs.pull-request.outputs.sha }}
             directory: ${{ needs.pull-request.outputs.number }}
