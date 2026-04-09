@@ -1,5 +1,58 @@
 # @alfalab/core-components
 
+## 49.17.0
+
+### Minor Changes
+
+<sup><time>08.04.2026</time></sup>
+
+#### [#2150](https://github.com/core-ds/core-components/pull/2150)
+
+##### Input
+
+- Добавлен проп `fontWeight` для управления жирностью шрифта
+- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`
+
+<sup><time>08.04.2026</time></sup>
+
+#### [#2150](https://github.com/core-ds/core-components/pull/2150)
+
+##### Amount
+
+- Добавлен проп `fontWeight` для жирностью шрифта
+- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.1.0
+    - @alfalab/core-components-amount-input@8.2.0
+    - @alfalab/core-components-amount@4.1.0
+    - @alfalab/core-components-date-input@5.0.6
+    - @alfalab/core-components-date-range-input@4.0.13
+    - @alfalab/core-components-date-time-input@5.0.13
+    - @alfalab/core-components-input-autocomplete@13.1.5
+    - @alfalab/core-components-international-phone-input@3.2.13
+    - @alfalab/core-components-masked-input@7.0.6
+    - @alfalab/core-components-number-input@3.0.7
+    - @alfalab/core-components-password-input@6.0.7
+    - @alfalab/core-components-select@18.3.1
+    - @alfalab/core-components-slider-input@10.1.4
+    - @alfalab/core-components-time-input@3.0.6
+    - @alfalab/core-components-universal-date-input@3.1.3
+    - @alfalab/core-components-with-suffix@5.0.6
+    - @alfalab/core-components-pure-cell@5.1.1
+    - @alfalab/core-components-calendar-input@11.0.13
+    - @alfalab/core-components-calendar-range@8.0.13
+    - @alfalab/core-components-intl-phone-input@10.0.16
+    - @alfalab/core-components-bank-card@6.0.6
+    - @alfalab/core-components-phone-input@8.0.6
+    - @alfalab/core-components-custom-picker-button@3.2.1
+    - @alfalab/core-components-picker-button@12.1.5
+    - @alfalab/core-components-select-with-tags@9.1.1
+    - @alfalab/core-components-table@3.0.16
+    - @alfalab/core-components-tabs@9.2.13
+
 ## 49.16.0
 
 ### Minor Changes

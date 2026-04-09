@@ -1,5 +1,18 @@
 # @alfalab/core-components-input
 
+## 16.1.0
+
+### Minor Changes
+
+<sup><time>08.04.2026</time></sup>
+
+#### [#2150](https://github.com/core-ds/core-components/pull/2150)
+
+##### Input
+
+- Добавлен проп `fontWeight` для управления жирностью шрифта
+- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`
+
 ## 16.0.5
 
 ### Patch Changes

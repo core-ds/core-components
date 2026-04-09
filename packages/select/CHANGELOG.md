@@ -1,5 +1,12 @@
 # @alfalab/core-components-select
 
+## 18.3.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@16.1.0
+
 ## 18.3.0
 
 ### Minor Changes
