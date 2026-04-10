@@ -1,104 +1,16 @@
-import React, {
-    type ComponentProps,
-    type ComponentType,
-    type CSSProperties,
-    type ElementType,
-    type FC,
-    type MouseEventHandler,
-    type ReactNode,
-    type TouchEventHandler,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import Draggable, { type DraggableEventHandler } from 'react-draggable';
 import cn from 'classnames';
 
 import { noop, NoopComponent } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import { type CarouselProps, type PageIndicatorProps } from './types';
+import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
+
 import styles from './index.module.css';
 
-interface ItemProps {
-    className?: string;
-    key: React.Key;
-    width?: number | string;
-    children?: ReactNode;
-}
-
-interface CarouselOwnProps extends Pick<CSSProperties, 'height' | 'minHeight'> {
-    activeIndex?: number;
-    defaultActiveIndex?: number;
-    onActiveIndexChange?: (activeIndex: number) => void;
-    gap?: number;
-    visibleItems?: 'auto' | number;
-    items: ItemProps[];
-    colors?: 'default' | 'inverted';
-}
-
-interface BasePageIndicatorProps extends Pick<CarouselOwnProps, 'colors'> {
-    elements?: number;
-    activeElement: number;
-    className?: string;
-}
-
-export interface CarouselProps<
-    PageIndicatorProps extends BasePageIndicatorProps = BasePageIndicatorProps,
-> extends CarouselOwnProps {
-    PageIndicator?: ComponentType<PageIndicatorProps>;
-    pageIndicatorProps?: PageIndicatorProps;
-    Wrapper?: ElementType<ComponentProps<'div'>>;
-    Item?: ElementType<ComponentProps<'div'>>;
-}
-
-interface BypassProps<T extends Element> {
-    onMouseDown?: MouseEventHandler<T> | undefined;
-    onMouseUp?: MouseEventHandler<T> | undefined;
-    onTouchEnd?: TouchEventHandler<T> | undefined;
-    className?: string | undefined;
-    style?: CSSProperties | undefined;
-    transform?: string | undefined;
-}
-
-function getElementWindow(element: Element): typeof window {
-    return element.ownerDocument.defaultView!;
-}
-
-function getStylePropertyValue(element: Element, property: string): string {
-    const win = getElementWindow(element);
-
-    return win.getComputedStyle(element).getPropertyValue(property);
-}
-
-const Adapter: FC<
-    BypassProps<HTMLDivElement> & { children: (props: BypassProps<HTMLDivElement>) => ReactNode }
-> = ({ children, ...restProps }) => children(restProps);
-
-function sum(a: number, b: number): number {
-    return a + b;
-}
-
-function clamp(value: number, min: number, max: number) {
-    return Math.min(Math.max(value, min), max);
-}
-
-function findActiveIndex(translate: number, snaps: number[], sizes: number[]): number {
-    const [MIN_TRANSLATE] = snaps;
-    const MAX_TRANSLATE = snaps[snaps.length - 1];
-    const nextTranslate = clamp(translate, MIN_TRANSLATE, MAX_TRANSLATE);
-
-    switch (nextTranslate) {
-        case MAX_TRANSLATE:
-            return snaps.length - 1;
-        case MIN_TRANSLATE:
-            return 0;
-        default:
-            return snaps.findIndex((snap, index) => nextTranslate - snap <= sizes[index] / 2);
-    }
-}
-
-export function Carousel<PageIndicatorProps extends BasePageIndicatorProps>({
+export function Carousel<T extends PageIndicatorProps>({
     activeIndex: activeIndexFromProps,
     defaultActiveIndex = 0,
     onActiveIndexChange,
@@ -109,12 +21,10 @@ export function Carousel<PageIndicatorProps extends BasePageIndicatorProps>({
     items,
     colors = 'default',
     PageIndicator = NoopComponent,
-    pageIndicatorProps = {} as PageIndicatorProps,
+    pageIndicatorProps = { colors } as T,
     Wrapper = 'div',
     Item = 'div',
-}: Parameters<FC<CarouselProps<PageIndicatorProps>>>[0]): ReturnType<
-    FC<CarouselProps<PageIndicatorProps>>
-> {
+}: CarouselProps<T>): ReactNode {
     const visibleItems =
         visibleItemsFromProps === 'auto' ? 'auto' : clamp(visibleItemsFromProps, 1, items.length);
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -266,45 +176,29 @@ export function Carousel<PageIndicatorProps extends BasePageIndicatorProps>({
                     onStop={handleStop}
                     position={{ x: -translate, y: 0 }}
                 >
-                    <Adapter>
-                        {({
-                            style,
-                            transform,
-                            className: classNameFromAdapter,
-                            ...restAdapterProps
-                        }) => (
-                            <Wrapper
-                                {...restAdapterProps}
-                                ref={wrapperRef}
-                                className={cn(styles.wrapper, classNameFromAdapter)}
-                                style={style}
-                            >
-                                {items.map((item, index, array) => {
-                                    const isLast = index === array.length - 1;
-                                    const marginRight = isLast ? undefined : gap;
-                                    const width =
-                                        visibleItems === 'auto' ? item.width : sizes[index];
+                    <Wrapper ref={wrapperRef} className={cn(styles.wrapper)}>
+                        {items.map((item, index, array) => {
+                            const isLast = index === array.length - 1;
+                            const marginRight = isLast ? undefined : gap;
+                            const width = visibleItems === 'auto' ? item.width : sizes[index];
 
-                                    return (
-                                        <Item
-                                            key={item.key}
-                                            data-index={index}
-                                            className={cn(styles.item, item.className)}
-                                            style={{ marginRight, width }}
-                                        >
-                                            {item.children}
-                                        </Item>
-                                    );
-                                })}
-                            </Wrapper>
-                        )}
-                    </Adapter>
+                            return (
+                                <Item
+                                    key={item.key}
+                                    data-index={index}
+                                    className={cn(styles.item, item.className)}
+                                    style={{ marginRight, width }}
+                                >
+                                    {item.children}
+                                </Item>
+                            );
+                        })}
+                    </Wrapper>
                 </Draggable>
             </div>
             {total > 1 && (
                 <PageIndicator
                     {...pageIndicatorProps}
-                    colors={colors}
                     className={cn(styles.pagination, pageIndicatorProps.className)}
                     activeElement={activeIndex}
                     elements={total}
