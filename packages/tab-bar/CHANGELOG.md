@@ -1,5 +1,12 @@
 # @alfalab/core-components-tab-bar
 
+## 4.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.4
+
 ## 4.0.4
 
 ### Patch Changes

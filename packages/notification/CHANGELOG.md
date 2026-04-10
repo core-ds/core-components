@@ -1,5 +1,21 @@
 # @alfalab/core-components-notification
 
+## 9.0.5
+
+### Patch Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2156](https://github.com/core-ds/core-components/pull/2156)
+
+##### Notification
+
+- Исправлены внутренние отступы между элементами компонента
+- Убран разделить для кнопки "закрыть"
+
+- Обновлены зависимости
+    - @alfalab/core-components-toast-plate@9.1.0
+
 ## 9.0.4
 
 ### Patch Changes

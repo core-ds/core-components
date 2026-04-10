@@ -1,5 +1,106 @@
 # @alfalab/core-components
 
+## 50.10.0
+
+### Minor Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2156](https://github.com/core-ds/core-components/pull/2156)
+
+##### ToastPlate
+
+- Добавлен пропс `closerProps`, с помощью которого можно управлять параметрами кнопки "закрыть" (как новыми так и старыми)
+
+Значения по умолчанию
+
+```
+closerProps = {
+    hasCloser: false,
+    closerWrapperClassName: undefined,
+    closerClassName: undefined,
+    divider: true,
+    view: 'primary'
+}
+```
+
+Пропсы `hasCloser`, `closerWrapperClassName`, `closerClassName` - отмечены как `deprecated` и будут удалены в будущих версиях. Используйте их в составе `closerProps`
+
+### Patch Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2156](https://github.com/core-ds/core-components/pull/2156)
+
+##### Notification
+
+- Исправлены внутренние отступы между элементами компонента
+- Убран разделить для кнопки "закрыть"
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2121](https://github.com/core-ds/core-components/pull/2121)
+
+##### Skeleton
+
+- Изменена анимация с `background` на `opacity`, теперь производительность анимации выше
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2152](https://github.com/core-ds/core-components/pull/2152)
+
+##### NotificationManager
+
+- Исправили некорректное отображение нескольких Notification внутри NotificationManager: уведомления больше не застревают за пределами экрана и корректно отображаются при одновременном показе.
+
+- Обновлены зависимости
+    - @alfalab/core-components-notification@9.0.5
+    - @alfalab/core-components-skeleton@7.0.3
+    - @alfalab/core-components-toast-plate@9.1.0
+    - @alfalab/core-components-notification-manager@7.0.5
+    - @alfalab/core-components-calendar-with-skeleton@7.0.6
+    - @alfalab/core-components-segmented-control@3.1.2
+    - @alfalab/core-components-select@19.1.3
+    - @alfalab/core-components-switch@6.1.1
+    - @alfalab/core-components-tabs@10.0.10
+    - @alfalab/core-components-typography@6.0.4
+    - @alfalab/core-components-toast@8.0.5
+    - @alfalab/core-components-custom-picker-button@4.1.3
+    - @alfalab/core-components-input-autocomplete@14.0.10
+    - @alfalab/core-components-international-phone-input@4.0.10
+    - @alfalab/core-components-intl-phone-input@11.0.10
+    - @alfalab/core-components-picker-button@13.0.10
+    - @alfalab/core-components-select-with-tags@10.1.3
+    - @alfalab/core-components-table@4.0.10
+    - @alfalab/core-components-accordion@3.0.4
+    - @alfalab/core-components-calendar@9.1.2
+    - @alfalab/core-components-chart@5.0.4
+    - @alfalab/core-components-circular-progress-bar@5.0.4
+    - @alfalab/core-components-comment@4.0.4
+    - @alfalab/core-components-confirmation@15.0.5
+    - @alfalab/core-components-file-upload-item@8.0.5
+    - @alfalab/core-components-gallery@7.1.3
+    - @alfalab/core-components-list@5.0.4
+    - @alfalab/core-components-list-header@5.0.4
+    - @alfalab/core-components-markdown@3.0.7
+    - @alfalab/core-components-navigation-bar@3.0.5
+    - @alfalab/core-components-navigation-bar-private@2.0.6
+    - @alfalab/core-components-product-cover@3.1.5
+    - @alfalab/core-components-pure-cell@6.0.5
+    - @alfalab/core-components-stepped-progress-bar@4.0.4
+    - @alfalab/core-components-tab-bar@4.0.5
+    - @alfalab/core-components-calendar-input@12.0.7
+    - @alfalab/core-components-calendar-range@9.0.7
+    - @alfalab/core-components-date-range-input@5.0.7
+    - @alfalab/core-components-date-time-input@6.0.7
+    - @alfalab/core-components-universal-date-input@4.0.7
+    - @alfalab/core-components-bottom-sheet@8.1.3
+    - @alfalab/core-components-modal@11.0.6
+    - @alfalab/core-components-popup-sheet@3.0.6
+    - @alfalab/core-components-side-panel@7.0.6
+    - @alfalab/core-components-universal-modal@3.0.7
+    - @alfalab/core-components-tooltip@9.0.8
+
 ## 50.9.0
 
 ### Minor Changes

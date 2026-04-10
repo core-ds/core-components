@@ -1,5 +1,14 @@
 # @alfalab/core-components-select
 
+## 19.1.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-skeleton@7.0.3
+    - @alfalab/core-components-bottom-sheet@8.1.3
+    - @alfalab/core-components-modal@11.0.6
+
 ## 19.1.2
 
 ### Patch Changes
