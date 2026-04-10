@@ -49,6 +49,8 @@ jobs:
 
             - name: Checkout
               uses: actions/checkout@v6
+              with:
+                  token: ${{ steps.generate-token.outputs.token }}
 
             - name: Setup CI
               uses: ./.github/actions/ci-setup

@@ -170,8 +170,7 @@
     background: unset;
 }
 
-.completedIndicator > [class*='positive'] {
-    color: var(--steps-option-svg-color);
+.completedIndicator[class*='positive-checkmark'] {
     background-color: var(--steps-option-svg-color);
 }
 

@@ -93,7 +93,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             children,
             visible,
             offset = 108,
-            hasCloser = true,
+            hasCloser: legacyHasCloser,
             autoCloseDelay = 5000,
             usePortal = true,
             zIndex = stackingOrder.TOAST,
@@ -105,6 +105,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             onMouseLeave,
             onClickOutside,
             containerRef,
+            closerProps = { hasCloser: true },
             ...restProps
         },
         ref,
@@ -114,6 +115,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         const closeTimeoutRef = useRef(0);
 
         const [isClosing, setIsClosing] = useState(false);
+
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        const { hasCloser: _hasCloser, ...restCloserParams } = closerProps;
+        const hasCloser = legacyHasCloser ?? _hasCloser;
 
         const startAutoCloseTimer = useCallback(() => {
             if (autoCloseDelay !== null) {
@@ -219,6 +224,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                     {
                                         [styles.isVisible]: visible,
                                         [styles.isClosing]: isClosing,
+                                        [styles.hasCloser]: hasCloser,
                                     },
                                     className,
                                 )}
@@ -236,8 +242,13 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                 onMouseLeave={handleMouseLeave}
                                 ref={mergeRefs([ref, notificationRef])}
                                 role={visible ? 'alert' : undefined}
-                                hasCloser={hasCloser}
                                 onClose={onClose}
+                                closerProps={{
+                                    divider: false,
+                                    view: 'secondary',
+                                    hasCloser,
+                                    ...restCloserParams,
+                                }}
                                 {...restProps}
                             >
                                 {children}
