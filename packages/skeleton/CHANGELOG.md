@@ -1,5 +1,17 @@
 # @alfalab/core-components-skeleton
 
+## 7.0.3
+
+### Patch Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2121](https://github.com/core-ds/core-components/pull/2121)
+
+##### Skeleton
+
+- Изменена анимация с `background` на `opacity`, теперь производительность анимации выше
+
 ## 7.0.2
 
 ### Patch Changes
