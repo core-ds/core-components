@@ -65,7 +65,12 @@ render(() => {
                 <div style={inputWrapStyle}>
                     <Input defaultValue='Label' rightAddons={<DiamondsSIcon />} size={40} block />
                 </div>
-                <Button view='primary' size={40} leftAddons={<DiamondsSIcon />}>
+                <Button
+                    view='primary'
+                    size={40}
+                    leftAddons={<DiamondsSIcon />}
+                    style={{ width: '95px' }}
+                >
                     Label
                 </Button>
                 <div style={{ ...labelStyle }}>
@@ -92,6 +97,7 @@ render(() => {
                     view='primary'
                     size={40}
                     leftAddons={<Icon20Adapter icon={Diamonds20Icon} />}
+                    style={{ width: '95px' }}
                 >
                     Label
                 </Button>
@@ -116,10 +122,15 @@ render(() => {
                 <div style={inputWrapStyle}>
                     <Input defaultValue='Label' rightAddons={<Diamonds20Icon />} size={40} block />
                 </div>
-                <Button view='primary' size={40} leftAddons={<Diamonds20Icon />}>
+                <Button
+                    view='primary'
+                    size={40}
+                    leftAddons={<Diamonds20Icon />}
+                    style={{ width: '99px' }}
+                >
                     Label
                 </Button>
-                <div style={{ ...labelStyle, marginLeft: '12px' }}>
+                <div style={{ ...labelStyle, marginLeft: '10px' }}>
                     <StatusBadge view='negative-cross' size={16} />
                     <Typography.Text
                         view='component-primary'
