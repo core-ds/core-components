@@ -13,8 +13,7 @@
         "@alfalab/core-components-shared": "^2.1.1",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
-        "react-draggable": "^4.5.0",
-        "react-merge-refs": "^1.1.0",
+        "react-swipeable": "^7.0.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {

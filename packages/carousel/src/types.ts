@@ -4,14 +4,15 @@ export interface ItemProps {
     className?: string;
     key: React.Key;
     width?: number | string;
+    height?: number | string;
     children?: ReactNode;
 }
 
 export interface PageIndicatorProps {
-    colors?: string;
-    elements?: number;
     activeElement: number;
+    elements: number;
     className?: string;
+    colors?: string;
 }
 
 export interface CarouselProps<T extends PageIndicatorProps = PageIndicatorProps> {
@@ -24,6 +25,8 @@ export interface CarouselProps<T extends PageIndicatorProps = PageIndicatorProps
     visibleItems?: 'auto' | number;
     items: ItemProps[];
     colors?: 'default' | 'inverted';
+    loop?: boolean;
+    overflow?: 'hidden' | 'visible';
 
     PageIndicator?: ComponentType<T>;
     pageIndicatorProps?: T;

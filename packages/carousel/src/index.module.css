@@ -2,7 +2,6 @@
 
 .container {
     position: relative;
-    overflow: hidden;
 }
 
 .wrapper {
@@ -14,7 +13,7 @@
     min-height: inherit;
     height: inherit;
 
-    &:not(.dragging) {
+    &:not(.swiping) {
         transition: transform var(--carousel-animation-duration) ease-in-out;
     }
 }

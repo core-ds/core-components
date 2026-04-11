@@ -1,10 +1,11 @@
 import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
-import Draggable, { type DraggableEventHandler } from 'react-draggable';
+import { type SwipeCallback, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
 import { noop, NoopComponent } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
+import { AnimatedWrapper } from './components/animated-wrapper';
 import { type CarouselProps, type PageIndicatorProps } from './types';
 import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
 
@@ -16,27 +17,28 @@ export function Carousel<T extends PageIndicatorProps>({
     onActiveIndexChange,
     visibleItems: visibleItemsFromProps = 'auto',
     gap = 8,
-    height,
+    height = 'auto',
     minHeight,
     items,
     colors = 'default',
     PageIndicator = NoopComponent,
     pageIndicatorProps = { colors } as T,
-    Wrapper = 'div',
+    Wrapper = AnimatedWrapper,
     Item = 'div',
+    overflow = 'hidden',
 }: CarouselProps<T>): ReactNode {
     const visibleItems =
         visibleItemsFromProps === 'auto' ? 'auto' : clamp(visibleItemsFromProps, 1, items.length);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const [translate, setTranslate] = useState(0);
     const uncontrolled = activeIndexFromProps === undefined;
+    const [swiping, setSwiping] = useState(false);
     const [activeIndex, setActiveIndex] = useState(() =>
         Math.max(activeIndexFromProps ?? defaultActiveIndex, 0),
     );
     const [sizes, setSizes] = useState<number[]>([]);
     const [containerSize, setContainerSize] = useState<number>(0);
-    const isDragging = useRef(false);
-    const startDraggingTranslate = useRef<number>(0);
+    const startSwipingDelta = useRef<number>(0);
     const snaps = useMemo<number[]>(() => {
         const DEFAULT_TRANSLATE = 0;
         const result = [DEFAULT_TRANSLATE];
@@ -62,33 +64,31 @@ export function Carousel<T extends PageIndicatorProps>({
         return result;
     }, [containerSize, gap, sizes]);
 
-    const handleStart: DraggableEventHandler = (event, data) => {
-        isDragging.current = true;
-        startDraggingTranslate.current = -data.x;
+    const handleSwipeStart: SwipeCallback = (data) => {
+        setSwiping(true);
+
+        startSwipingDelta.current = data.deltaX;
     };
 
-    const handleDrag: DraggableEventHandler = (event, data) => {
-        const nextTranslate = -data.x;
+    const handleSwiping: SwipeCallback = (data) => {
+        const diff = data.deltaX - startSwipingDelta.current;
 
-        setTranslate(nextTranslate);
+        startSwipingDelta.current = data.deltaX;
+        setTranslate((prevTranslate) => prevTranslate + diff);
     };
 
-    const handleStop: DraggableEventHandler = (event, data) => {
-        isDragging.current = false;
+    const handleSwipeStop: SwipeCallback = () => {
+        setSwiping(false);
 
-        const nextTranslate = -data.x;
+        const nextActiveIndex = findActiveIndex(-translate, snaps, sizes);
 
-        if (startDraggingTranslate.current !== nextTranslate) {
-            const nextActiveIndex = findActiveIndex(translate, snaps, sizes);
+        if (nextActiveIndex === activeIndex) {
+            setTranslate(-snaps[activeIndex]);
+        } else {
+            onActiveIndexChange?.(nextActiveIndex);
 
-            if (nextActiveIndex === activeIndex) {
-                setTranslate(snaps[activeIndex]);
-            } else {
-                onActiveIndexChange?.(nextActiveIndex);
-
-                if (uncontrolled) {
-                    setActiveIndex(nextActiveIndex);
-                }
+            if (uncontrolled) {
+                setActiveIndex(nextActiveIndex);
             }
         }
     };
@@ -154,56 +154,60 @@ export function Carousel<T extends PageIndicatorProps>({
     );
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
-        if (!isDragging.current) {
-            setTranslate(snaps[activeIndex]);
+        if (!swiping) {
+            setTranslate(-snaps[activeIndex]);
         }
-    }, [snaps, activeIndex]);
+    }, [snaps, activeIndex, swiping]);
 
     const total =
         visibleItems === 'auto' ? snaps.length : items.length - Math.floor(visibleItems) + 1;
 
+    const swipeableHandlers = useSwipeable({
+        onSwipeStart: handleSwipeStart,
+        onSwiping: handleSwiping,
+        onSwiped: handleSwipeStop,
+        trackMouse: true,
+        trackTouch: true,
+        delta: 5,
+        preventScrollOnSwipe: true,
+    });
+
     return (
         <div className={styles.component}>
-            <div className={cn(styles.container)} style={{ height, minHeight }}>
-                <Draggable
-                    defaultClassNameDragging={styles.dragging}
-                    defaultClassNameDragged=''
-                    defaultClassName=''
-                    axis='x'
-                    nodeRef={wrapperRef}
-                    onStart={handleStart}
-                    onDrag={handleDrag}
-                    onStop={handleStop}
-                    position={{ x: -translate, y: 0 }}
+            <div
+                {...swipeableHandlers}
+                className={cn(styles.container)}
+                style={{ height, minHeight, overflow }}
+            >
+                <Wrapper
+                    ref={wrapperRef}
+                    style={{ transform: `translate(${translate}px, 0px)` }}
+                    className={cn(styles.wrapper, { [styles.swiping]: swiping })}
                 >
-                    <Wrapper ref={wrapperRef} className={cn(styles.wrapper)}>
-                        {items.map((item, index, array) => {
-                            const isLast = index === array.length - 1;
-                            const marginRight = isLast ? undefined : gap;
-                            const width = visibleItems === 'auto' ? item.width : sizes[index];
+                    {items.map((item, index) => {
+                        const marginRight = gap;
+                        const width = visibleItems === 'auto' ? item.width : sizes[index];
+                        const itemHeight = height === 'auto' ? item.height : undefined;
 
-                            return (
-                                <Item
-                                    key={item.key}
-                                    data-index={index}
-                                    className={cn(styles.item, item.className)}
-                                    style={{ marginRight, width }}
-                                >
-                                    {item.children}
-                                </Item>
-                            );
-                        })}
-                    </Wrapper>
-                </Draggable>
+                        return (
+                            <Item
+                                key={item.key}
+                                data-index={index}
+                                className={cn(styles.item, item.className)}
+                                style={{ marginRight, width, height: itemHeight }}
+                            >
+                                {item.children}
+                            </Item>
+                        );
+                    })}
+                </Wrapper>
             </div>
-            {total > 1 && (
-                <PageIndicator
-                    {...pageIndicatorProps}
-                    className={cn(styles.pagination, pageIndicatorProps.className)}
-                    activeElement={activeIndex}
-                    elements={total}
-                />
-            )}
+            <PageIndicator
+                {...pageIndicatorProps}
+                className={cn(styles.pagination, pageIndicatorProps.className)}
+                activeElement={activeIndex}
+                elements={total}
+            />
         </div>
     );
 }
