@@ -1,5 +1,5 @@
 import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
-import { type SwipeCallback, useSwipeable } from 'react-swipeable';
+import { type SwipeCallback, type TapCallback, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
 import { noop, NoopComponent } from '@alfalab/core-components-shared';
@@ -10,6 +10,8 @@ import { type CarouselProps, type PageIndicatorProps } from './types';
 import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
 
 import styles from './index.module.css';
+
+const preventDefault: TapCallback = ({ event }) => event.preventDefault();
 
 export function Carousel<T extends PageIndicatorProps>({
     activeIndex: activeIndexFromProps,
@@ -166,6 +168,7 @@ export function Carousel<T extends PageIndicatorProps>({
         onSwipeStart: handleSwipeStart,
         onSwiping: handleSwiping,
         onSwiped: handleSwipeStop,
+        onTouchStartOrOnMouseDown: preventDefault, // disable user selection
         trackMouse: true,
         trackTouch: true,
         delta: 5,
