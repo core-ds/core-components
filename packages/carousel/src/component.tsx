@@ -74,16 +74,16 @@ export function Carousel<T extends PageIndicatorProps>({
         const diff = data.deltaX - startSwipingDelta.current;
 
         startSwipingDelta.current = data.deltaX;
-        setTranslate((prevTranslate) => prevTranslate + diff);
+        setTranslate((prevTranslate) => prevTranslate - diff);
     };
 
     const handleSwipeStop: SwipeCallback = () => {
         setSwiping(false);
 
-        const nextActiveIndex = findActiveIndex(-translate, snaps, sizes);
+        const nextActiveIndex = findActiveIndex(translate, snaps, sizes);
 
         if (nextActiveIndex === activeIndex) {
-            setTranslate(-snaps[activeIndex]);
+            setTranslate(snaps[activeIndex]);
         } else {
             onActiveIndexChange?.(nextActiveIndex);
 
@@ -155,7 +155,7 @@ export function Carousel<T extends PageIndicatorProps>({
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
         if (!swiping) {
-            setTranslate(-snaps[activeIndex]);
+            setTranslate(snaps[activeIndex]);
         }
     }, [snaps, activeIndex, swiping]);
 
@@ -181,7 +181,7 @@ export function Carousel<T extends PageIndicatorProps>({
             >
                 <Wrapper
                     ref={wrapperRef}
-                    style={{ transform: `translate(${translate}px, 0px)` }}
+                    style={{ transform: `translate(${-translate}px, 0px)` }}
                     className={cn(styles.wrapper, { [styles.swiping]: swiping })}
                 >
                     {items.map((item, index) => {
