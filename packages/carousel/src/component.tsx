@@ -185,7 +185,6 @@ export function Carousel<T extends PageIndicatorProps>({
                     className={cn(styles.wrapper, { [styles.swiping]: swiping })}
                 >
                     {items.map((item, index) => {
-                        const marginRight = gap;
                         const width = visibleItems === 'auto' ? item.width : sizes[index];
                         const itemHeight = height === 'auto' ? item.height : undefined;
 
@@ -194,7 +193,7 @@ export function Carousel<T extends PageIndicatorProps>({
                                 key={item.key}
                                 data-index={index}
                                 className={cn(styles.item, item.className)}
-                                style={{ marginRight, width, height: itemHeight }}
+                                style={{ marginRight: gap, width, height: itemHeight }}
                             >
                                 {item.children}
                             </Item>
