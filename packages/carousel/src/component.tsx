@@ -11,7 +11,7 @@ import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
 
 import styles from './index.module.css';
 
-const preventDefault: TapCallback = ({ event }) => event.preventDefault();
+const disableUserSelection: TapCallback = ({ event }) => event.preventDefault();
 
 export function Carousel<T extends PageIndicatorProps>({
     activeIndex: activeIndexFromProps,
@@ -168,7 +168,7 @@ export function Carousel<T extends PageIndicatorProps>({
         onSwipeStart: handleSwipeStart,
         onSwiping: handleSwiping,
         onSwiped: handleSwipeStop,
-        onTouchStartOrOnMouseDown: preventDefault, // disable user selection
+        onTouchStartOrOnMouseDown: disableUserSelection,
         trackMouse: true,
         trackTouch: true,
         delta: 5,
