@@ -2,6 +2,7 @@
 
 .container {
     position: relative;
+    touch-action: pan-y;
 }
 
 .wrapper {

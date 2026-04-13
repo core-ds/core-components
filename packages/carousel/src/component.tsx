@@ -11,7 +11,9 @@ import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
 
 import styles from './index.module.css';
 
-const disableUserSelection: TapCallback = ({ event }) => event.preventDefault();
+const disableUserSelection: TapCallback = ({ event }) => {
+    event.preventDefault();
+};
 
 export function Carousel<T extends PageIndicatorProps>({
     activeIndex: activeIndexFromProps,
@@ -76,7 +78,10 @@ export function Carousel<T extends PageIndicatorProps>({
         const diff = data.deltaX - startSwipingDelta.current;
 
         startSwipingDelta.current = data.deltaX;
-        setTranslate((prevTranslate) => prevTranslate - diff);
+
+        if (data.dir === 'Left' || data.dir === 'Right') {
+            setTranslate((prevTranslate) => prevTranslate - diff);
+        }
     };
 
     const handleSwipeStop: SwipeCallback = () => {
@@ -170,9 +175,7 @@ export function Carousel<T extends PageIndicatorProps>({
         onSwiped: handleSwipeStop,
         onTouchStartOrOnMouseDown: disableUserSelection,
         trackMouse: true,
-        trackTouch: true,
-        delta: 5,
-        preventScrollOnSwipe: true,
+        delta: 20,
     });
 
     return (
