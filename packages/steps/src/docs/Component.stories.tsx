@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { number, boolean, select, text } from '@storybook/addon-knobs';
 import { Steps } from '@alfalab/core-components-steps';
+import { Button } from '@alfalab/core-components-button';
 import {
     getQueryParam,
     stylesStringToObj,
@@ -36,6 +37,26 @@ export const steps: Story = {
                     <div>Шаг 3</div>
                 </Steps>
             </div>
+        );
+    },
+};
+
+export const steps_vertical: Story = {
+    name: 'Steps Vertical',
+    render: () => {
+        return (
+            <Steps
+                activeStep={number('activeStep', 2)}
+                isVerticalAlign={true}
+                fullWidth={boolean('fullWidth', false)}
+            >
+                <div>Шаг 1</div>
+                <div>Шаг 2</div>
+                <Button view='primary' size={32} block={true}>
+                    Кнопка
+                </Button>
+                <div>Шаг 4</div>
+            </Steps>
         );
     },
 };

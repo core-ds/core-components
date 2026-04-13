@@ -102,6 +102,10 @@
         &.gap-32 {
             margin-bottom: var(--gap-16);
         }
+
+        &.fullWidth {
+            width: 100%;
+        }
     }
 }
 
@@ -113,6 +117,7 @@
     color: var(--color-light-text-primary);
     border-radius: var(--gap-8);
     height: min-content;
+    box-sizing: border-box;
 
     &.interactive:not(.disabled) {
         &:hover {
