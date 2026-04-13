@@ -2461,19 +2461,6 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
               1926
             </span>
           </button>
-          <button
-            aria-selected="false"
-            class="component text size-40 hug size-40 component text component text button default button"
-            data-date="-1420070400000"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="label stretchText"
-            >
-              1925
-            </span>
-          </button>
         </div>
       </div>
     </div>
@@ -3399,7 +3386,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       >
         <button
           aria-label="Предыдущий период"
-          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
           data-test-id="period-slider-btn-previous-day"
           type="button"
         >
@@ -3432,7 +3419,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
         </span>
         <button
           aria-label="Следующий период"
-          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component border-32"
+          class="component text size-48 hug size-48 component text component text cc-icon-button arrow primary component component border_32"
           data-test-id="period-slider-btn-next-day"
           type="button"
         >

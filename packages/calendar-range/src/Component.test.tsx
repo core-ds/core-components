@@ -1,12 +1,14 @@
 import React from 'react';
 import { render, waitFor, fireEvent, act, screen } from '@testing-library/react';
-import setMonth from 'date-fns/setMonth';
-import startOfMonth from 'date-fns/startOfMonth';
-import addMonths from 'date-fns/addMonths';
-import setDate from 'date-fns/setDate';
-import endOfMonth from 'date-fns/endOfMonth';
-import startOfDay from 'date-fns/startOfDay';
-import addDays from 'date-fns/addDays';
+import {
+    setMonth,
+    startOfMonth,
+    addMonths,
+    setDate,
+    endOfMonth,
+    startOfDay,
+    addDays,
+} from 'date-fns';
 import { MONTHS } from '../../calendar/src/utils';
 import { formatDate } from '../../calendar-input/src/utils';
 

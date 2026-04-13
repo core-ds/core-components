@@ -6,9 +6,9 @@ import * as grid from './blocks/grid';
 const coreComponentsContext =
     process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
         ? require.context(
-              '../dist',
+              '../packages',
               true,
-              /^\.\/(.*)\/modern\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).js$/,
+              /^\.\/((?!(env|screenshot-utils|test-utils)).)*\/dist\/modern\/(index|(desktop|mobile|responsive|circle|super-ellipse|rectangle|no-shape|shared|collapsible)\/index).js$/,
           )
         : require.context(
               '../packages',
@@ -17,6 +17,7 @@ const coreComponentsContext =
           );
 
 const glyphContext = require.context('../node_modules/@alfalab/icons-glyph', true, /(.*).js$/);
+const glyph26Context = require.context('../node_modules/@alfalab/icons-glyph-26', true, /(.*).js$/);
 
 const requireComponents = (context: __WebpackModuleApi.RequireContext) =>
     context.keys().reduce((acc: Record<string, ComponentType<unknown>>, key) => {
@@ -36,6 +37,7 @@ export default {
     isMobile: () => document.body.clientWidth < BREAKPOINT,
     ...requireComponents(coreComponentsContext),
     ...requireComponents(glyphContext),
+    ...requireComponents(glyph26Context),
     ...grid,
     ...dateUtils,
     ...knobs,

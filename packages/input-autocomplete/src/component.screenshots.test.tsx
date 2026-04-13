@@ -7,6 +7,7 @@ import {
     closeBrowser,
     createPreview,
     createSpriteStorybookUrl,
+    generateTestCases,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -246,6 +247,24 @@ describe('InputAutocompleteDesktop | screenshots addons', () => {
                         },
                     }),
                 ],
+                [
+                    `theme ${theme} | disabled`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input-autocomplete',
+                        componentName: 'InputAutocompleteDesktop',
+                        knobs: {
+                            block: true,
+                            value: 'Neptunium',
+                            selected: JSON.stringify([{ key: 'Neptunium' }]),
+                            options: JSON.stringify([
+                                { key: 'Neptunium', content: 'Вариант из списка' },
+                            ]),
+                            inputProps: ['{"rightAddons":"right","clear":true}'],
+                            size: [40, 48],
+                            disabled: [false, true],
+                        },
+                    }),
+                ],
             ],
             theme,
             screenshotOpts: {
@@ -302,6 +321,25 @@ describe('InputAutocompleteMobile | screenshots addons', () => {
                         },
                     }),
                 ],
+                [
+                    `theme ${theme} | disabled`,
+                    createSpriteStorybookUrl({
+                        packageName: 'input-autocomplete',
+                        componentName: 'InputAutocompleteMobile',
+                        knobs: {
+                            block: true,
+                            value: 'Neptunium',
+                            selected: JSON.stringify([{ key: 'Neptunium' }]),
+                            options: JSON.stringify([
+                                { key: 'Neptunium', content: 'Вариант из списка' },
+                            ]),
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            inputProps: ['{"clear":true}'],
+                            size: [40, 48],
+                            disabled: [false, true],
+                        },
+                    }),
+                ],
             ],
             theme,
             screenshotOpts: {
@@ -315,3 +353,55 @@ describe('InputAutocompleteMobile | screenshots addons', () => {
 
     ['default', 'site'].forEach((theme) => testCase(theme));
 });
+
+describe(
+    'InputAutocompleteDesktop | disabled with arrow',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'InputAutocomplete',
+                subComponentName: 'InputAutocompleteDesktop',
+                testStory: false,
+                knobs: {
+                    block: true,
+                    size: [40, 48],
+                    Arrow: [true],
+                    disabled: [false, true],
+                },
+            }),
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 320,
+            height: 80,
+        },
+    }),
+);
+
+describe(
+    'InputAutocompleteMobile | disabled with arrow',
+    screenshotTesting({
+        cases: [
+            ...generateTestCases({
+                componentName: 'InputAutocomplete',
+                subComponentName: 'InputAutocompleteMobile',
+                testStory: false,
+                knobs: {
+                    block: true,
+                    size: [40, 48],
+                    Arrow: [true],
+                    disabled: [false, true],
+                },
+            }),
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 320,
+            height: 80,
+        },
+    }),
+);

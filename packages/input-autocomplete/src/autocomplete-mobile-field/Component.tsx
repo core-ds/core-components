@@ -5,7 +5,7 @@ import {
     FormControlMobile,
     type FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
-import { ClearButton } from '@alfalab/core-components-input/shared';
+import { ClearButton, LockIcon } from '@alfalab/core-components-input/shared';
 import { type FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
@@ -28,6 +28,7 @@ export type AutocompleteMobileFieldProps = FormControlMobileProps &
         value?: string;
     };
 
+// eslint-disable-next-line complexity
 export const AutocompleteMobileField = ({
     size = 56,
     open,
@@ -62,22 +63,22 @@ export const AutocompleteMobileField = ({
 
     const filled = Boolean(value);
     const showPlaceholder = placeholder && !filled && labelView === 'outer';
-    const clearButtonVisible = clear && filled && !disabled && !readOnly;
-    const shouldShowSuccessIcon = success && !error;
+
     const statusBadgeSize = size === 40 ? 16 : 20;
 
     const { tabIndex, ...restInnerProps } = innerProps;
 
-    const formRightAddons = (Arrow || rightAddons || clearButtonVisible || error || success) && (
-        /**
-         * Right addon priority [4] <= [3] <= [2] <= [1]
-         * [4] - Clear
-         * [3] - Status (error, success)
-         * [2] - Common (info, e.g.)
-         * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
-         */
+    /**
+     * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+     * [4] - Clear
+     * [3] - Status (error, success)
+     * [2] - Common (info, e.g.)
+     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+     * [0] - Lock
+     */
+    const renderRightAddons = () => (
         <Fragment>
-            {clearButtonVisible && (
+            {clear && filled && !disabled && !readOnly && (
                 <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
             )}
             {error && (
@@ -89,7 +90,7 @@ export const AutocompleteMobileField = ({
                     />
                 </div>
             )}
-            {shouldShowSuccessIcon && (
+            {success && !error && (
                 <div className={styles.successIcon}>
                     <StatusBadge
                         view='positive-checkmark'
@@ -99,7 +100,8 @@ export const AutocompleteMobileField = ({
                 </div>
             )}
             {rightAddons}
-            {Arrow}
+            {!disabled && !readOnly && Arrow}
+            {(disabled || readOnly) && <LockIcon colors={colors} size={size} />}
         </Fragment>
     );
 
@@ -129,7 +131,7 @@ export const AutocompleteMobileField = ({
                 readOnly={readOnly}
                 colors={colors}
                 error={error}
-                rightAddons={formRightAddons}
+                rightAddons={renderRightAddons()}
             >
                 <div className={styles.contentWrapper}>
                     {showPlaceholder && <span className={styles.placeholder}>{placeholder}</span>}

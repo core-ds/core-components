@@ -6,8 +6,6 @@
         "rootDir": "src",
         "outDir": "no-dist",
         "paths": {
-            "@alfalab/core-components-badge": ["../badge/src"],
-            "@alfalab/core-components-badge/*": ["../badge/src/*"],
             "@alfalab/core-components-base-modal": ["../base-modal/src"],
             "@alfalab/core-components-base-modal/*": ["../base-modal/src/*"],
             "@alfalab/core-components-bottom-sheet": ["../bottom-sheet/src"],
@@ -41,7 +39,6 @@
         }
     },
     "references": [
-        { "path": "../badge/tsconfig.build.json" },
         { "path": "../base-modal/tsconfig.build.json" },
         { "path": "../bottom-sheet/tsconfig.build.json" },
         { "path": "../button/tsconfig.build.json" },

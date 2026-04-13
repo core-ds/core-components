@@ -40,4 +40,8 @@
     --button-spinner-inverted-primary-mobile-color: var(
         --color-static-neutral-translucent-1300-inverted
     );
+
+    /* hint */
+    --button-primary-hint-color: currentColor;
+    --button-inverted-primary-hint-color: currentColor;
 }

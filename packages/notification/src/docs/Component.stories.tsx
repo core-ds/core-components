@@ -53,7 +53,7 @@ export const notification: Story = {
                     hasCloser={boolean('hasCloser', true)}
                     actionButton={
                         boolean('renderActionButton', false) ? (
-                            <Button view='transparent' size='s' colors='inverted'>
+                            <Button view='transparent' size={48} colors='inverted'>
                                 Action Button
                             </Button>
                         ) : null

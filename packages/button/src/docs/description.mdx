@@ -27,7 +27,7 @@ render(() => {
                 </ButtonDesktop>
             </Space>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <Switch
                 checked={disabled}
@@ -46,27 +46,27 @@ render(() => {
             <ButtonMobile block={true} disabled={disabled} view='accent'>
                 Accent
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='primary'>
                 Primary
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='secondary'>
                 Secondary
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='outlined'>
                 Outlined
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='transparent'>
                 Transparent
             </ButtonMobile>
-            <Gap size='l' />
+            <Gap size={20} />
             <ButtonMobile block={true} disabled={disabled} view='text'>
                 Text
             </ButtonMobile>
-            <Gap size='xl' />
+            <Gap size={24} />
             <Switch
                 checked={disabled}
                 onChange={() => setDisabled((prevState) => !prevState)}
@@ -82,55 +82,39 @@ render(() => {
 Кнопка доступна в размерах 72, 64, 56, 48, 40, 32.
 
 ```jsx live mobileHeight={460}
-const BIG_SIZES = ['xl', 'l', 'm'];
-const SMALL_SIZES = ['s', 'xs', 'xxs'];
-const SIZES_MAP = {
-    xl: 72,
-    l: 64,
-    m: 56,
-    s: 48,
-    xs: 40,
-    xxs: 32,
-};
+const BIG_SIZES = [72, 64, 56];
+const SMALL_SIZES = [48, 40, 32];
 
 render(
     <>
         <Space direction='horizontal' align='center'>
             {BIG_SIZES.map((size) => (
                 <ButtonDesktop key={size} size={size} view='primary'>
-                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                    {`${size}px`}
                 </ButtonDesktop>
             ))}
         </Space>
-        <Gap size='l' />
+        <Gap size={20} />
         <Space direction='horizontal' align='center'>
             {SMALL_SIZES.map((size) => (
                 <ButtonDesktop key={size} size={size} view='primary'>
-                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                    {`${size}px`}
                 </ButtonDesktop>
             ))}
         </Space>
     </>,
 );
 //MOBILE
-const SIZES_MAP = {
-    xl: 72,
-    l: 64,
-    m: 56,
-    s: 48,
-    xs: 40,
-    xxs: 32,
-};
-const SIZES = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+const SIZES = [72, 64, 56, 48, 40, 32];
 
 render(
     <Container>
         {SIZES.map((size, idx) => (
             <React.Fragment key={size}>
                 <ButtonMobile block={true} size={size} view='primary'>
-                    {`${size.toUpperCase()} (${SIZES_MAP[size]}px)`}
+                    {`${size}px`}
                 </ButtonMobile>
-                {SIZES.length - 1 !== idx && <Gap size='l' />}
+                {SIZES.length - 1 !== idx && <Gap size={20} />}
             </React.Fragment>
         ))}
     </Container>,
@@ -151,7 +135,7 @@ render(() => {
                 Label
             </Button>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <RadioGroup
                 label='Shape'
@@ -176,14 +160,14 @@ render(() => {
 ```jsx live
 <div style={{ textAlign: isMobile() ? 'center' : 'left' }}>
     <Button breakpoint={BREAKPOINT}>Мин.</Button>
-    <Gap size='l' />
+    <Gap size={20} />
     <Button breakpoint={BREAKPOINT}>Ширина зависит от лейбла</Button>
-    <Gap size='l' />
+    <Gap size={20} />
     <style>{'.button { width: 300px; }'}</style>
     <Button breakpoint={BREAKPOINT} className='button'>
         Ширина задана вручную
     </Button>
-    <Gap size='l' />
+    <Gap size={20} />
     <Button block={true} size={56} nowrap={true} breakpoint={BREAKPOINT}>
         Занимает всю ширину контейнера
     </Button>
@@ -221,14 +205,14 @@ render(() => {
                 {label && 'Label'}
             </Button>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <Switch label='Label' checked={label} onChange={handleLabelChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='Hint' checked={hint} onChange={handleHintChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />
-            <Gap size='m' />
+            <Gap size={16} />
             <Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />
         </div>
     );
@@ -257,7 +241,7 @@ render(() => {
                 Label
             </Button>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <RadioGroup
                 label='Поведение текста'
@@ -324,6 +308,7 @@ render(() => {
     );
 });
 ```
+
 ## Размытие фона
 
 Для кнопок можно включить размытие фона, если она полупрозрачная, располагается поверх динамического контента или изображения.
@@ -338,14 +323,14 @@ render(() => {
         borderRadius: '16px',
         width: '330px',
         height: '100px',
-    }
+    };
 
     const image = {
         width: '100%',
         height: '100%',
         borderRadius: 'inherit',
         objectFit: 'cover',
-    }
+    };
 
     const wrapperButton = {
         position: 'absolute',
@@ -353,39 +338,31 @@ render(() => {
         inset: '0px',
         padding: '20px',
         justifyContent: 'space-between',
-    }
+    };
 
     return (
-    <>
-        <div style={wrapper}>
-        <img style={image} src='./images/buttonBlur.png' />
-        <div style={wrapperButton}>
-            <Button
-                view='primary'
-                colors='inverted'
-                disabled={true}
-                allowBackdropBlur={checked}
-            >
-                Disabled
-            </Button>
-            <Button
-                view='secondary'
-                colors='inverted'
-                allowBackdropBlur={checked}
-            >
-                Secondary
-            </Button>
-        </div>
-        </div>
+        <>
+            <div style={wrapper}>
+                <img style={image} src='./images/buttonBlur.png' />
+                <div style={wrapperButton}>
+                    <Button
+                        view='primary'
+                        colors='inverted'
+                        disabled={true}
+                        allowBackdropBlur={checked}
+                    >
+                        Disabled
+                    </Button>
+                    <Button view='secondary' colors='inverted' allowBackdropBlur={checked}>
+                        Secondary
+                    </Button>
+                </div>
+            </div>
 
-        <Row align='middle'>
-            <Switch
-                label='Включить размытие'
-                checked={checked}
-                onChange={handleChange}
-            />
-        </Row>
-    </>
+            <Row align='middle'>
+                <Switch label='Включить размытие' checked={checked} onChange={handleChange} />
+            </Row>
+        </>
     );
 });
 ```
@@ -429,7 +406,7 @@ render(() => {
                 Отправить запрос
             </Button>
 
-            <Gap size='xl' />
+            <Gap size={24} />
 
             <RadioGroup value={loadTimeout} onChange={handleTimeoutChange}>
                 <Radio value='30' label='Быстрый запрос (30ms)' />

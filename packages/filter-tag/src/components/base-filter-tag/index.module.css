@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '@alfalab/core-components-tag/src/vars.css';
 @import '../../vars.css';
 
@@ -67,7 +67,6 @@
     cursor: pointer;
     outline: none;
     white-space: nowrap;
-    font-family: var(--font-family);
     transition:
         border-color 0.2s ease,
         background-color 0.2s ease,

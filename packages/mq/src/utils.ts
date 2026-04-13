@@ -48,17 +48,12 @@ export function releaseMatchMedia(queryProp: string): void {
  * Возвращает `true`, если есть поддержка `Pointer Events`
  */
 export function isPointerEventsSupported() {
-    return 'PointerEvent' in window || 'msPointerEnabled' in window.navigator;
+    return 'PointerEvent' in globalThis;
 }
 
 /**
  * Возвращает `true`, если есть поддержка `Touch Events`
  */
 export function isTouchSupported() {
-    return (
-        'ontouchstart' in window ||
-        window.navigator.maxTouchPoints > 0 ||
-        // eslint-disable-next-line
-        (window.navigator as any).msMaxTouchPoints > 0
-    );
+    return 'ontouchstart' in globalThis || globalThis.navigator.maxTouchPoints > 0;
 }

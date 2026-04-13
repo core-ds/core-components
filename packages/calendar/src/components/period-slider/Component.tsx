@@ -1,7 +1,6 @@
 import React, { type FC, type MouseEvent, useMemo } from 'react';
 import cn from 'classnames';
-import endOfWeek from 'date-fns/endOfWeek';
-import startOfWeek from 'date-fns/startOfWeek';
+import { endOfWeek, startOfWeek } from 'date-fns';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
 import { IconButton } from '@alfalab/core-components-icon-button';
@@ -202,14 +201,14 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         if (periodType === 'month' && isMonthAndYearSelectable) {
             return (
                 <div>
-                    <Button className={styles.period} view='text' size='l' onClick={onMonthClick}>
+                    <Button className={styles.period} view='text' size={64} onClick={onMonthClick}>
                         {monthName(valueFrom)}
                     </Button>
                     {yearSelectorValue && (
                         <Button
                             className={cn(styles.yearSelectorButton, styles.period)}
                             view='text'
-                            size='l'
+                            size={64}
                             onClick={onYearClick}
                         >
                             {yearSelectorValue}
@@ -248,7 +247,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         >
             {showArrow('prev') && (
                 <IconButton
-                    size='xs'
+                    size={32}
                     className={styles.arrow}
                     icon={ChevronBackMIcon}
                     onClick={handlePrevArrowClick}
@@ -262,7 +261,7 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
 
             {showArrow('next') && (
                 <IconButton
-                    size='xs'
+                    size={32}
                     className={styles.arrow}
                     icon={ChevronBackMIcon}
                     onClick={handleNextArrowClick}

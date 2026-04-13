@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Amount as CoreAmount } from '@alfalab/core-components-amount';
 import { getDataTestId } from '@alfalab/core-components-shared';
-import { type Color, Text } from '@alfalab/core-components-typography';
+import { type Color, TypographyText } from '@alfalab/core-components-typography';
 
 import { PureCellContext } from '../../context';
 import { type AmountProps as AmountType } from '../typesProps';
@@ -19,7 +19,7 @@ type Props = {
     /**
      * Размер денежного значения
      */
-    textView?: 'component' | 'primary-small';
+    textView?: 'component-primary' | 'primary-small';
 
     /**
      * Цвет денежного значения
@@ -40,7 +40,7 @@ type Props = {
 
 export const Amount: React.FC<Props> = ({
     weight = 'normal',
-    textView = 'component',
+    textView = 'component-primary',
     color = 'primary',
     minority,
     minorUnits = 100,
@@ -59,7 +59,7 @@ export const Amount: React.FC<Props> = ({
     }
 
     return (
-        <Text
+        <TypographyText
             view={textView}
             dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount-text')}
             className={cn(styles.component)}
@@ -71,6 +71,6 @@ export const Amount: React.FC<Props> = ({
                 dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'amount')}
                 {...restProps}
             />
-        </Text>
+        </TypographyText>
     );
 };

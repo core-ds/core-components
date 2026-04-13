@@ -42,7 +42,6 @@ export const filter_tag: Story = {
             >
                 <FilterTag
                     size={select('size', SIZES, 48)}
-                    variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                     view={select('view', ['outlined', 'filled'], 'outlined')}
                     disabled={boolean('disabled', false)}
@@ -84,7 +83,6 @@ export const filter_tag_mobile: Story = {
             >
                 <FilterTagMobile
                     size={select('size', SIZES, 48)}
-                    variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                     view={select('view', ['outlined', 'filled'], 'outlined')}
                     disabled={boolean('disabled', false)}
@@ -126,7 +124,6 @@ export const filter_tag_desktop: Story = {
             >
                 <FilterTagDesktop
                     size={size}
-                    variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
                     view={select('view', ['outlined', 'filled'], 'outlined')}
                     disabled={boolean('disabled', false)}

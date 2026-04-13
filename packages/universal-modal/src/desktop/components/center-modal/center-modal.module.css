@@ -1,8 +1,6 @@
 @import '../../../vars.css';
 
 .component {
-    min-width: 500px;
-    min-height: 264px;
     border-radius: var(--border-radius-24);
     overflow-x: hidden;
     margin: unset;
