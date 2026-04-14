@@ -40,7 +40,6 @@ describe('Switch', () => {
                             hint: ['', 'Подсказка'],
                             checked: [false, true],
                             disabled: [false, true],
-                            inactive: [false, true],
                         },
                         size: { width: 240, height: 60 },
                     }),
@@ -80,6 +79,67 @@ describe(
         ],
         screenshotOpts: {
             clip: { x: 0, y: 0, width: 1024, height: 250 },
+        },
+    }),
+);
+
+describe(
+    'Switch | skeleton',
+    screenshotTesting({
+        cases: [
+            [
+                `sprite`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: '',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | inverted`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        colors: 'inverted',
+                        label: 'Условие тоггла',
+                        hint: '',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | hint`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: 'Описание пункта',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | hint inverted`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        colors: 'inverted',
+                        label: 'Условие тоггла',
+                        hint: 'Описание пункта',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 520, height: 120 },
         },
     }),
 );

@@ -1,5 +1,5 @@
 import { EOL } from 'node:os';
-import { stdin, stdout } from 'node:process';
+import * as process from 'node:process';
 import { Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 
@@ -15,10 +15,14 @@ async function main() {
                 .split(EOL)
                 .filter((line) => line.length > 0)
                 .forEach((line) => {
-                    const [, name, dataChunk] = line.match(/(@[^/\s]+\/[^:]+|[^/\s]+):\s(.*)/);
-                    const data = this.store.get(name)?.concat(dataChunk) ?? dataChunk;
+                    const match = line.match(/\[?(@[^/\s]+\/[^:]+|[^/\s]+)\]?:\s(.*)/);
 
-                    this.store.set(name, data);
+                    if (match) {
+                        const [, name, dataChunk] = match;
+                        const data = this.store.get(name)?.concat(dataChunk) ?? dataChunk;
+
+                        this.store.set(name, data);
+                    }
                 });
 
             callback();
@@ -39,7 +43,7 @@ async function main() {
         },
     });
 
-    await pipeline(stdin.setEncoding('utf8'), transform, stdout);
+    await pipeline(process.stdin.setEncoding('utf8'), transform, process.stdout);
 }
 
 await main();

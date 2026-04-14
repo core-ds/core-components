@@ -1,4 +1,4 @@
-import React, { type FC, useContext, useEffect, useRef } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import {
@@ -7,50 +7,34 @@ import {
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { ModalContext } from '../../../Context';
+import { useBaseHeader } from '../base-header/useBaseHeader';
 
 import styles from '../base-header/index.module.css';
 import mobileStyles from './mobile.module.css';
 
 export type HeaderMobileProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 
-export const HeaderMobile: FC<HeaderMobileProps> = ({
-    className,
-    children,
-    contentClassName,
-    title,
-    sticky,
-    dataTestId,
-    bottomAddonsClassName,
-    onClose,
-    ...restProps
-}) => {
+export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
     const {
-        setHasHeader,
-        headerHighlighted,
-        componentRef,
-        onClose: handleCloseByContext,
-    } = useContext(ModalContext);
+        className,
+        children,
+        contentClassName,
+        title,
+        sticky,
+        dataTestId,
+        bottomAddonsClassName,
+        onClose,
+        ...restProps
+    } = props;
 
-    const titleRef = useRef<HTMLDivElement>(null);
+    const { bottomAddons } = restProps;
 
-    const hasContent = Boolean(title || children || restProps.bottomAddons);
-
-    const handleClose: NavigationBarPrivateProps['onClose'] = (...args) => {
-        if (onClose) {
-            return onClose(...args);
-        }
-
-        return handleCloseByContext(...args);
-    };
-
-    useEffect(() => {
-        setHasHeader(true);
-
-        return () => {
-            setHasHeader(false);
-        };
-    }, [setHasHeader]);
+    const { headerHighlighted, hasContent, componentRef, titleRef, handleClose } = useBaseHeader({
+        title,
+        children,
+        bottomAddons,
+        onClose,
+    });
 
     return (
         <NavigationBarPrivate

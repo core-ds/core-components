@@ -23,6 +23,7 @@ import {
     Footer,
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
+    type OptionProps,
     type OptionShape,
     OptionsList as DefaultOptionsList,
     Search,
@@ -137,6 +138,8 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
         );
 
         const isOpen = Boolean(openProp ?? open);
+        const restOptionProps = (restProps?.optionProps as Partial<OptionProps>) ?? {};
+        const defaultCheckmarkPosition = view === 'desktop' ? 'before' : 'after';
 
         return (
             <BaseSelect
@@ -171,6 +174,11 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                     ...(view === 'mobile' && isOpen
                         ? { selectedMultiple: frozenValue.current }
                         : null),
+                }}
+                optionProps={{
+                    ...restOptionProps,
+                    checkmarkPosition:
+                        restOptionProps.checkmarkPosition ?? defaultCheckmarkPosition,
                 }}
                 selected={selected}
                 autocomplete={view === 'desktop' && isAutocomplete}

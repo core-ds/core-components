@@ -140,6 +140,21 @@ describe('Mobile | trim title', () => {
                         ],
                     },
                 }),
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                        'header.subtitle': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                        titleSize: 'compact',
+                    },
+                }),
             ],
             viewport: {
                 width: 320,

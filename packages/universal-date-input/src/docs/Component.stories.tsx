@@ -21,10 +21,15 @@ export const universal_date_input_responsive: Story = {
         return (
             <UniversalDateInput
                 autoCorrection={boolean('autoCorrection', true)}
-                view={select('view', ['date', 'date-time', 'date-range', 'time'] as any, 'date')}
+                view={select(
+                    'view',
+                    ['date', 'date-time', 'date-range', 'time', 'month'] as any,
+                    'date',
+                )}
                 picker={boolean('picker', false) as true}
                 Calendar={Calendar}
                 size={select('size', [40, 48, 56, 64, 72], 48)}
+                disabled={boolean('disabled', false)}
             />
         );
     },
@@ -36,10 +41,15 @@ export const universal_date_input_desktop: Story = {
         return (
             <UniversalDateInputDesktop
                 autoCorrection={boolean('autoCorrection', true)}
-                view={select('view', ['date', 'date-time', 'date-range', 'time'] as any, 'date')}
+                view={select(
+                    'view',
+                    ['date', 'date-time', 'date-range', 'time', 'month'] as any,
+                    'date',
+                )}
                 picker={boolean('picker', false) as true}
                 Calendar={Calendar}
                 size={select('size', [40, 48, 56, 64, 72], 48)}
+                disabled={boolean('disabled', false)}
             />
         );
     },
@@ -51,10 +61,15 @@ export const universal_date_input_mobile: Story = {
         return (
             <UniversalDateInputMobile
                 autoCorrection={boolean('autoCorrection', true)}
-                view={select('view', ['date', 'date-time', 'date-range', 'time'] as any, 'date')}
+                view={select(
+                    'view',
+                    ['date', 'date-time', 'date-range', 'time', 'month'] as any,
+                    'date',
+                )}
                 picker={boolean('picker', false) as true}
                 Calendar={Calendar}
                 size={select('size', [40, 48, 56, 64, 72], 48)}
+                disabled={boolean('disabled', false)}
             />
         );
     },

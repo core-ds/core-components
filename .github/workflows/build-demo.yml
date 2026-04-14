@@ -7,24 +7,39 @@ on:
                 description: Checkout ref
                 required: false
                 type: string
-                default: ${{ github.sha }}
+            variant:
+                description: Variant of core components
+                required: true
+                type: string
+            artifact-name:
+                description: Artifact name
+                required: true
+                type: string
         outputs:
             run-id:
                 description: Artifact workflow run id
-                value: ${{ jobs.artifact.outputs.workflow_run_id }}
+                value: ${{ jobs.artifact.outputs.run_id }}
+
+defaults:
+    run:
+        shell: bash
+
+env:
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
 jobs:
     artifact:
-        name: find artifact
         runs-on: ubuntu-latest
         outputs:
-            workflow_run_id: ${{ steps.find.outputs.result }}
+            run_id: ${{ steps.search.outputs.result }}
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
               with:
                   ref: ${{ inputs.ref }}
 
-            - id: find
+            - name: Searching artifact
+              id: search
               uses: actions/github-script@v8
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +57,7 @@ jobs:
                               repo,
                               page,
                               per_page,
-                              name: 'build',
+                              name: '${{ inputs.artifact-name }}',
                           });
 
                           const artifact = data.artifacts
@@ -64,27 +79,34 @@ jobs:
 
     build-demo:
         needs: artifact
-        if: ${{ needs.artifact.outputs.workflow_run_id == github.run_id }}
-        name: build demo
+        if: ${{ needs.artifact.outputs.run_id == github.run_id }}
         runs-on: ubuntu-latest
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
               with:
                   ref: ${{ inputs.ref }}
                   lfs: true
 
-            - uses: core-ds/core-components/.github/actions/ci-setup@master
+            - name: Setup variant
+              uses: core-ds/core-components/.github/actions/setup-variant@master
+              with:
+                  variant: ${{ inputs.variant }}
 
-            - name: build demo
-              shell: bash
+            - name: Setup CI
+              uses: core-ds/core-components/.github/actions/ci-setup@master
+
+            - name: Build demo
               env:
                   BUILD_CONCURRENCY: 4
               run: |
                   yarn build-storybook
 
-            - name: upload demo build
-              uses: actions/upload-artifact@v4
+            - name: Upload demo build
+              uses: actions/upload-artifact@v7
               with:
-                  name: build
+                  name: ${{ inputs.artifact-name }}
                   path: build
                   if-no-files-found: error

@@ -252,7 +252,7 @@ render(() => {
                 Показать шторку
             </ButtonMobile>
 
-            <Gap size='32' />
+            <Gap size={32} />
 
             <p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки шапки</p>
 
@@ -265,7 +265,7 @@ render(() => {
                 Option={BaseOption}
             />
 
-            <Gap size='16' />
+            <Gap size={16} />
 
             <CheckboxGroup onChange={handleHeaderSettingsChange}>
                 {HEADER_SETTINGS.map((item) => (
@@ -278,7 +278,7 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <Gap size='32' />
+            <Gap size={32} />
 
             <CheckboxGroup
                 label='Примеры наполнения контентной части'
@@ -291,7 +291,7 @@ render(() => {
                 />
             </CheckboxGroup>
 
-            <Gap size='32' />
+            <Gap size={32} />
 
             <p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки футера</p>
 
@@ -304,7 +304,7 @@ render(() => {
                 Option={BaseOption}
             />
 
-            <Gap size='16' />
+            <Gap size={16} />
 
             <CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>
                 {FOOTER_SETTINGS.map((item) => (
@@ -317,7 +317,7 @@ render(() => {
                 ))}
             </CheckboxGroup>
 
-            <Gap size='32' />
+            <Gap size={32} />
 
             <CheckboxGroup label='Механики' onChange={handleMechanicsChange}>
                 {MECHANICS_SETTINGS.map((item) => (
@@ -425,7 +425,7 @@ render(() => {
 
                             {footerSettings.hasPrimaryButton &&
                             footerSettings.hasSecondaryButton ? (
-                                <Gap size='16' direction={footerViewSelected} />
+                                <Gap size={16} direction={footerViewSelected} />
                             ) : null}
 
                             {footerSettings.hasPrimaryButton && (
@@ -448,7 +448,7 @@ render(() => {
                         <Typography.Title view='xsmall' tag='div' font='system'>
                             {`Почему банк проверяет мои операции?`}
                         </Typography.Title>
-                        <Gap size='16' />
+                        <Gap size={16} />
                     </>
                 ) : undefined}
 
@@ -651,7 +651,7 @@ render(() => {
                 {isExternalTrigger ? 'Открыть полностью' : 'Показать шторку'}
             </ButtonMobile>
 
-            <Gap size='32' />
+            <Gap size={32} />
 
             <RadioGroup
                 label='Конфигурация шторки'
@@ -665,7 +665,7 @@ render(() => {
                         value={item.value}
                         key={item.value}
                         hint={item.desc}
-                        size='24'
+                        size={24}
                     />
                 ))}
             </RadioGroup>

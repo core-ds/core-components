@@ -4,7 +4,7 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="component component formControlDesktop size-48 size-48 size-48 hasRightAddons"
+      class="component component formControlDesktop size-48 size-48 size-48"
     >
       <div
         class="field inner inner inner inner"

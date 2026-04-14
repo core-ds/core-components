@@ -145,6 +145,7 @@ export const InputAutocompleteMobile = React.forwardRef(
                               ...componentProps,
                               virtualKeyboard,
                               showSwipeMarker: false,
+                              actionButton: null,
                           },
                       }
                     : {

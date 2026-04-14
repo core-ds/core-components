@@ -6,7 +6,7 @@
 import { type CurrencyCodes } from '@alfalab/data';
 import { formatAmount, getCurrencySymbol } from '@alfalab/utils';
 
-import { type AmountInputProps } from '../Component';
+import { type AmountInputProps } from '../types';
 
 /**
  * Форматирует введенное значение

@@ -19,7 +19,7 @@ import { type HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
 import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
-import { fnUtils, getDataTestId, isClient, os } from '@alfalab/core-components-shared';
+import { fnUtils, getDataTestId, isClient, isIOS } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
 import { Header, type HeaderProps } from './components/header/Component';
@@ -141,6 +141,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         fullHeight = adjustContainerHeight(fullHeight);
 
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
+        const prevMagneticAreasPropRef = useRef<Array<number | string> | undefined>(
+            magneticAreasProp,
+        );
 
         const magneticAreas = useMemo(() => {
             if (magneticAreasProp) {
@@ -158,7 +161,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 }
             }
 
-            const viewHeight = os.isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
+            const viewHeight = isIOS() && !virtualKeyboard ? iOSViewHeight : fullHeight;
 
             return [0, viewHeight - headerOffset];
         }, [fullHeight, headerOffset, magneticAreasProp, virtualKeyboard, adjustContainerHeight]);
@@ -168,6 +171,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [sheetOffset, setSheetOffset] = useState(0);
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [activeAreaIdx, setActiveAreaIdx] = useState(-1);
+        const [skipTransition, setSkipTransition] = useState(false);
 
         const [swipingInProgress, setSwipingInProgress] = useState<boolean | null>(null);
         const scrollOccurred = useRef<boolean>(false);
@@ -546,6 +550,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         useEffect(() => {
             if (!isFirstRender) {
+                const magneticAreasPropChanged =
+                    prevMagneticAreasPropRef.current !== magneticAreasProp;
+
+                prevMagneticAreasPropRef.current = magneticAreasProp;
+
+                if (magneticAreasPropChanged) {
+                    setSkipTransition(true);
+                }
+
                 // Инициализируем стейт только после того, как была рассчитана высота вьюпорта
                 if (activeAreaIdx === -1) {
                     const idx = initialIndexRef.current as number;
@@ -555,9 +568,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 } else {
                     setSheetOffset(activeArea ? lastMagneticArea - activeArea : 0);
                 }
+
+                if (magneticAreasPropChanged) {
+                    requestAnimationFrame(() => {
+                        setSkipTransition(false);
+                    });
+                }
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [isFirstRender, magneticAreas, lastMagneticArea]);
+        }, [isFirstRender, magneticAreas, lastMagneticArea, magneticAreasProp]);
 
         useEffect(() => {
             if (!sheetRef.current) return;
@@ -682,8 +701,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             colorStyle.component,
                             className,
                             {
-                                [styles.withTransition]: swipingInProgress === false,
-                                [styles.safeAreaBottom]: os.isIOS(),
+                                [styles.withTransition]:
+                                    swipingInProgress === false && !skipTransition,
+                                [styles.safeAreaBottom]: isIOS(),
                             },
                         )}
                         style={{
@@ -727,8 +747,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             >
                                 {children}
                             </div>
-
-                            {actionButton && (
+                            {actionButton === null ? null : (
                                 <Footer
                                     sticky={stickyFooter}
                                     className={cn(bgClassName, footerClassName)}

@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     --notification-desktop-content-width: 278px;
@@ -12,6 +12,7 @@
     max-width: calc(100vw - var(--gap-24));
     user-select: none;
     transition: transform 0.4s ease-out;
+    border-radius: var(--gap-16);
 
     @media screen and (min-width: 600px) {
         right: var(--gap-48);
@@ -32,6 +33,10 @@
             transform: translate(calc(100% + var(--gap-48)), 0);
         }
     }
+
+    &.hasCloser {
+        padding-right: 52px;
+    }
 }
 
 .notificationComponent.notificationComponent {
@@ -42,11 +47,14 @@
     @media screen and (min-width: 600px) {
         width: var(--notification-desktop-content-width);
     }
+
+    box-sizing: border-box;
+    gap: var(--gap-16);
 }
 
 .actionSection {
     min-width: 104px;
     min-height: 48px;
-    padding: var(--gap-0) var(--gap-8);
+    padding: 0;
     margin: var(--gap-12-neg) var(--gap-0);
 }

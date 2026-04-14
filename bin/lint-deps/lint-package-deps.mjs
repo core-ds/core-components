@@ -1,5 +1,5 @@
 import depcheck from 'depcheck';
-import { cwd, exit } from 'node:process';
+import * as process from 'node:process';
 
 const { detector, parser } = depcheck;
 
@@ -10,8 +10,9 @@ async function main() {
     const depcheckOptions = {
         ignorePatterns: [
             // files matching these patterns will be ignored
-            'dist',
-            'node_modules',
+            '**/dist/**',
+            '**/ts-dist/**',
+            '**/node_modules/**',
             '**/*.test.ts',
             '**/*.test.tsx',
             '**/*.stories.tsx',
@@ -32,7 +33,7 @@ async function main() {
         ],
     };
 
-    const { dependencies, missing } = await depcheck(cwd(), depcheckOptions);
+    const { dependencies, missing } = await depcheck(process.cwd(), depcheckOptions);
 
     if ([dependencies, Object.keys(missing)].every((deps) => deps.length === 0)) {
         return;
@@ -57,7 +58,7 @@ async function main() {
         });
     }
 
-    exit(1);
+    process.exit(1);
 }
 
 await main();

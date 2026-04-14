@@ -16,7 +16,7 @@ import {
 
 <Story name='GenericWrapper'>
     {() => {
-        const gapSizes = ['3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', 0, 2, 4, 8, 12, 16, 20, 24];
+        const gapSizes = [0, 2, 4, 8, 12, 16, 20, 24];
         const alignItems = select('alignItems', ['end', 'start', 'center', 'baseline'], 'start');
         const justifyContent = select(
             'justifyContent',
@@ -39,8 +39,8 @@ import {
         const growElement1 = boolean('grow (1st element)', false);
         const growElement2 = boolean('grow (2st element)', false);
         const growElement3 = boolean(`grow (3d element)`, false);
-        const gapSize1 = select('1st Gap size', gapSizes, 'l');
-        const gapSize2 = select('2nd Gap size', gapSizes, 'l');
+        const gapSize1 = select('1st Gap size', gapSizes, 20);
+        const gapSize2 = select('2nd Gap size', gapSizes, 20);
         const previewStyles = stylesStringToObj(getQueryParam('wrapperStyles'));
         const isPreview = Object.keys(previewStyles).length > 0;
         const itemStyle = isPreview ? { width: 110, height: 80, borderRadius: 16 } : null;
@@ -118,7 +118,7 @@ import {
                         </GenericWrapper>
                     </GenericWrapper>
                 </div>
-                <Gap size='l' direction='horizontal' />
+                <Gap size={20} direction='horizontal' />
             </div>
         );
     }}

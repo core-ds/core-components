@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     --steps-option-svg-color: var(--color-light-status-positive);
@@ -102,6 +102,10 @@
         &.gap-32 {
             margin-bottom: var(--gap-16);
         }
+
+        &.fullWidth {
+            width: 100%;
+        }
     }
 }
 
@@ -113,6 +117,7 @@
     color: var(--color-light-text-primary);
     border-radius: var(--gap-8);
     height: min-content;
+    box-sizing: border-box;
 
     &.interactive:not(.disabled) {
         &:hover {
@@ -170,8 +175,7 @@
     background: unset;
 }
 
-.completedIndicator > [class*='positive'] {
-    color: var(--steps-option-svg-color);
+.completedIndicator[class*='positive-checkmark'] {
     background-color: var(--steps-option-svg-color);
 }
 

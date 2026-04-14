@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 import { ArrowLeftMediumMIcon } from '@alfalab/icons-glyph/ArrowLeftMediumMIcon';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 
@@ -64,7 +64,7 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
     return (
         <ButtonDesktop
             view='text'
-            size={isMobileView ? 'xxs' : 's'}
+            size={isMobileView ? 32 : 48}
             onClick={onClick}
             aria-label='назад'
             className={cn(
@@ -85,14 +85,14 @@ export const BackArrowAddon: React.FC<BackArrowAddonProps> = ({
                     <Icon />
                 </div>
                 {textOpacity > 0 && text && (
-                    <Text
+                    <TypographyText
                         className={cn(styles.text, colorStyles[colors].text)}
-                        view={view === 'desktop' ? 'primary-large' : 'component'}
+                        view={view === 'desktop' ? 'primary-large' : 'component-primary'}
                         weight='medium'
                         style={{ opacity: textOpacity }}
                     >
                         {text}
-                    </Text>
+                    </TypographyText>
                 )}
             </div>
         </ButtonDesktop>

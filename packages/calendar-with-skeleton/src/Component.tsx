@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
+import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
@@ -25,6 +26,7 @@ export type CalendarWithSkeletonProps = CalendarDesktopProps & {
 export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkeletonProps>(
     ({ calendarVisible = true, animate = true, className, ...restProps }, ref) => {
         const skeletonProps = { visible: true, animate };
+        const nodeRef = useRef<HTMLDivElement>(null);
 
         return (
             <div
@@ -39,8 +41,12 @@ export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkele
                     timeout={200}
                     unmountOnExit={true}
                     classNames={styles}
+                    nodeRef={nodeRef}
                 >
-                    <div className={styles.skeleton} ref={calendarVisible ? undefined : ref}>
+                    <div
+                        className={styles.skeleton}
+                        ref={calendarVisible ? undefined : mergeRefs([ref, nodeRef])}
+                    >
                         <Skeleton {...skeletonProps} className={styles.header} />
 
                         <Skeleton {...skeletonProps} className={styles.weekDays} />
