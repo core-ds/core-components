@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-navigation-bar-private",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "description": "Navigation bar private component",
     "keywords": [],
     "license": "MIT",
@@ -13,7 +13,7 @@
         "@alfalab/core-components-button": "^13.1.1",
         "@alfalab/core-components-icon-button": "^8.0.4",
         "@alfalab/core-components-shared": "^2.1.1",
-        "@alfalab/core-components-typography": "^6.0.3",
+        "@alfalab/core-components-typography": "^6.0.4",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",

@@ -1,5 +1,5 @@
-import React, { forwardRef, type HTMLAttributes, useRef } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import React, { forwardRef, type HTMLAttributes } from 'react';
+import { TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
 
 import { Portal, type PortalProps } from '@alfalab/core-components-portal';
@@ -10,7 +10,7 @@ import { Notification, type NotificationElement } from './components';
 
 import styles from './index.module.css';
 
-export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
+export interface NotificationManagerProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Массив нотификаций.
      * В нотификации обязательно передавайте id.
@@ -48,17 +48,7 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
      * Контейнер к которому будут добавляться порталы
      */
     container?: PortalProps['getPortalContainer'];
-};
-
-const CSS_TRANSITION_CLASS_NAMES = {
-    enter: styles.enter,
-    enterActive: styles.enterActive,
-};
-
-const TIMEOUT = {
-    exit: 0,
-    enter: 400,
-};
+}
 
 export const NotificationManager = forwardRef<HTMLDivElement, NotificationManagerProps>(
     (
@@ -74,50 +64,38 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
             ...restProps
         },
         ref,
-    ) => {
-        const nodeRef = useRef<HTMLDivElement>(null);
-
-        return (
-            <Stack value={zIndex}>
-                {(computedZIndex) => (
-                    <Portal getPortalContainer={container}>
-                        <div
-                            className={cn(styles.component, className)}
-                            ref={ref}
-                            data-test-id={dataTestId}
-                            style={{
-                                zIndex: computedZIndex,
-                                top: offset,
-                                ...style,
-                            }}
-                            {...restProps}
-                        >
-                            <TransitionGroup>
-                                {notifications.map((element, index) => (
-                                    <CSSTransition
-                                        key={element.props.id}
-                                        timeout={TIMEOUT}
-                                        classNames={CSS_TRANSITION_CLASS_NAMES}
-                                        unmountOnExit={true}
-                                        nodeRef={nodeRef}
-                                    >
-                                        <Notification
-                                            containerRef={nodeRef}
-                                            element={element}
-                                            className={cn(styles.notification, {
-                                                [styles.withoutMargin]: offset && index === 0,
-                                            })}
-                                            onRemoveNotification={onRemoveNotification}
-                                        />
-                                    </CSSTransition>
-                                ))}
-                            </TransitionGroup>
-                        </div>
-                    </Portal>
-                )}
-            </Stack>
-        );
-    },
+    ) => (
+        <Stack value={zIndex}>
+            {(computedZIndex) => (
+                <Portal getPortalContainer={container}>
+                    <div
+                        className={cn(styles.component, className)}
+                        ref={ref}
+                        data-test-id={dataTestId}
+                        style={{
+                            zIndex: computedZIndex,
+                            top: offset,
+                            ...style,
+                        }}
+                        {...restProps}
+                    >
+                        <TransitionGroup>
+                            {notifications.map((element, index) => (
+                                <Notification
+                                    key={element.props.id}
+                                    element={element}
+                                    onRemoveNotification={onRemoveNotification}
+                                    className={cn(styles.notification, {
+                                        [styles.withoutMargin]: offset && index === 0,
+                                    })}
+                                />
+                            ))}
+                        </TransitionGroup>
+                    </div>
+                </Portal>
+            )}
+        </Stack>
+    ),
 );
 
 NotificationManager.displayName = 'NotificationManager';

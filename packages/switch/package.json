@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-switch",
-    "version": "6.1.0",
+    "version": "6.1.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -11,7 +11,7 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-shared": "^2.1.1",
-        "@alfalab/core-components-skeleton": "^7.0.2",
+        "@alfalab/core-components-skeleton": "^7.0.3",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
