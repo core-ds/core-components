@@ -1,17 +1,18 @@
 const isNumericString = (str: string) => /^\d+$/.test(str);
 
-export const validateCardNumber = (value: string) => {
-    const trimmedValue = value.replace(/\s/g, '');
+export const validateCardNumber = (value: string): boolean => {
+    const digits = value.replace(/\s/g, '');
 
-    return trimmedValue.length === 16 && isNumericString(trimmedValue);
+    return digits.length === 16 && isNumericString(digits);
 };
 
-export const validateExpiry = (value: string) => {
+export const validateExpiry = (value: string): boolean => {
     if (value.length !== 5) return false;
-    const [month, year] = value.split('/');
-    const currentYear = new Date().getFullYear() % 100;
-    const currentMonth = new Date().getMonth() + 1;
 
+    const [month, year] = value.split('/');
+    const now = new Date();
+    const currentYear = now.getFullYear() % 100;
+    const currentMonth = now.getMonth() + 1;
     const monthNum = parseInt(month, 10);
     const yearNum = parseInt(year, 10);
 
@@ -23,8 +24,9 @@ export const validateExpiry = (value: string) => {
     );
 };
 
-export const validateCVC = (value: string | number | undefined) => {
-    if (typeof value === 'number') return value.toString().length === 3;
+export const validateCVC = (value: string | number | undefined): boolean => {
+    if (value === undefined) return false;
+    const str = String(value);
 
-    return value?.length === 3 && isNumericString(value);
+    return str.length === 3 && isNumericString(str);
 };

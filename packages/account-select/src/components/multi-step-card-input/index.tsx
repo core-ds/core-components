@@ -102,7 +102,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 return;
             }
 
-            const errors = [];
+            const errors: string[] = [];
 
             if (
                 activeField !== 'cardNumber' &&
@@ -112,11 +112,16 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 errors.push(ERRORS.CARD_NUMBER_ERROR);
             }
 
-            if (needExpiryDate && activeField !== 'expiry' && touchedFields.expiry) {
-                if (!cardExpiry) {
+            if (needExpiryDate && activeField !== 'expiry') {
+                if (!cardExpiry && touchedFields.expiry) {
                     errors.push(ERRORS.EXPIRY_EMPTY);
-                } else if (!validateExpiry(cardExpiry as string)) {
-                    errors.push(ERRORS.EXPIRY_ERROR);
+                } else if (cardExpiry) {
+                    const expiryStr = cardExpiry as string;
+                    const isComplete = EXPIRY_COMPLETE_REGEXP.test(expiryStr);
+
+                    if ((isComplete || touchedFields.expiry) && !validateExpiry(expiryStr)) {
+                        errors.push(ERRORS.EXPIRY_ERROR);
+                    }
                 }
             }
 
@@ -126,12 +131,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 }
             }
 
-            if (errors.length > 0) {
-                setError(errors.join('. '));
-            } else if (Object.values(touchedFields).some((touched) => touched)) {
-                // Очищаем ошибку только если какие-то поля уже были тронуты
-                setError(null);
-            }
+            setError(errors.length > 0 ? errors.join('. ') : null);
         }, [
             activeField,
             cardNumber,
@@ -233,20 +233,6 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
         const handleExpiryChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
             setCardExpiry(value);
-
-            if (EXPIRY_COMPLETE_REGEXP.test(value) && !validateExpiry(value)) {
-                setError((prev) => {
-                    if (prev?.includes(ERRORS.EXPIRY_ERROR)) {
-                        return prev;
-                    }
-                    const result = prev?.split('. ') ?? [];
-
-                    result.push(ERRORS.EXPIRY_ERROR);
-
-                    return result.join('. ');
-                });
-            }
-
             proceedToNextStepOrSubmit(cardNumber, value, cardCvc);
         };
 
@@ -262,15 +248,13 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         };
 
         const handleExpiryBlur = () => {
+            setActiveField('');
             setTouchedFields((prev) => ({ ...prev, expiry: true }));
         };
 
         const handleCvcBlur = () => {
+            setActiveField('');
             setTouchedFields((prev) => ({ ...prev, cvc: true }));
-        };
-
-        const handleFocus: React.FocusEventHandler<HTMLDivElement> = () => {
-            setError(null);
         };
 
         const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
@@ -299,7 +283,6 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             <div
                 className={styles.multistepCardInputWrapper}
                 aria-hidden='true'
-                onFocus={handleFocus}
                 onBlur={handleBlur}
                 onClick={handleClick}
             >
