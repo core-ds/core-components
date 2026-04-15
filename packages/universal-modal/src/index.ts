@@ -5,5 +5,4 @@ export { ContentResponsive, type ContentResponsiveProps } from './responsive';
 
 export { HeaderResponsive, type HeaderResponsiveProps } from './responsive';
 
-export { FooterResponsive } from './components/footer';
-export type { FooterResponsiveProps } from './components/footer';
+export { FooterResponsive, type FooterResponsiveProps } from './responsive';
