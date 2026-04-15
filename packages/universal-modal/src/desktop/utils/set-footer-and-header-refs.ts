@@ -9,7 +9,7 @@ import {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 
-import { type FooterDesktop } from '../../components/footer';
+import { type FooterDesktop } from '../components/footer';
 import { type HeaderDesktop } from '../components/header';
 
 import { isFooterNode } from './isFooterNode';
