@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 import { isMacOS, isSafari } from '@alfalab/core-components-shared';
 
-import { useModalWheel } from '../../hooks/useModalWheel';
+import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';
@@ -30,20 +30,24 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         verticalAlign = 'center',
         overlay = true,
         margin,
-        scrollableContainerRef,
+        scrollableContainerRef: scrollableContainerRefProp,
         onClose,
         ...restProps
     } = props;
 
     const componentRef = useRef<HTMLDivElement>(null);
-
-    const { wheelDeltaY, handleWheel } = useModalWheel(overlay);
+    const { handleWheel, scrollableContainerRef } = useScrollableContainerRef({
+        overlay,
+        refObject: scrollableContainerRefProp,
+    });
 
     const {
         isFullSizeModal,
         componentTransitions: fullSizeModalContentTransitions,
         backdropTransitions: fullSizeModalBackdropTransitions,
     } = getFullSizeModalTransitions({ verticalAlign, width, height });
+
+    const withoutOverlay = !overlay;
 
     return (
         <BaseModal
@@ -53,14 +57,14 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             ref={ref}
             componentRef={componentRef}
             scrollHandler='content'
-            disableBlockingScroll={!overlay}
-            wrapperClassName={cn({
+            disableBlockingScroll={withoutOverlay}
+            wrapperClassName={cn(styles.baseModalContainer, {
                 [styles.wrapperJustifyStart]: verticalAlign === 'top',
                 [styles.wrapperJustifyCenter]: verticalAlign === 'center',
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
+                [styles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(styles.component, className, {
-                [styles.overlayHidden]: !overlay,
+            className={cn(styles.component, className, styles.baseModalComponent, {
                 ...getMarginStyles({ styles, margin }),
             })}
             transitionProps={{
@@ -69,7 +73,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 ...restProps.transitionProps,
             }}
             backdropProps={{
-                transparent: !overlay,
+                shouldRender: overlay,
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
             }}
@@ -82,11 +86,7 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             onWheel={handleWheel}
             onClose={onClose}
         >
-            <ModalContent
-                height={height}
-                wheelDeltaY={wheelDeltaY}
-                scrollableContainerRef={scrollableContainerRef}
-            >
+            <ModalContent height={height} scrollableContainerRef={scrollableContainerRef}>
                 {children}
             </ModalContent>
         </BaseModal>

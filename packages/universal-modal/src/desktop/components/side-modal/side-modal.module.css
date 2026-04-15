@@ -31,8 +31,4 @@
     */
     will-change: transform;
     backface-visibility: hidden;
-
-    &.overlayHidden {
-        box-shadow: var(--shadow-m);
-    }
 }
