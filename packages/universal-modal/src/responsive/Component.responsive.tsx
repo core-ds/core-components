@@ -2,12 +2,13 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { ContentResponsive } from './components/content';
-import { FooterResponsive } from './components/footer';
-import { UniversalModalDesktop } from './desktop';
-import { UniversalModalMobile } from './mobile';
-import { HeaderResponsive } from './responsive';
-import { type UniversalModalResponsiveProps } from './typings';
+import { ContentResponsive } from '../components/content';
+import { FooterResponsive } from '../components/footer';
+import { UniversalModalDesktop } from '../desktop';
+import { UniversalModalMobile } from '../mobile';
+import { type UniversalModalResponsiveProps } from '../typings';
+
+import { HeaderResponsive } from './components/header';
 
 export const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
     ({ children, breakpoint, defaultMatchMediaValue, dataTestId, ...restProps }, ref) => {
