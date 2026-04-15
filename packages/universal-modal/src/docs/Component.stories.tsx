@@ -202,8 +202,8 @@ export const mobile: Story = {
     render: () => {
         const [isOpen, setOpen] = useState(false);
 
-        const header = boolean('header', true);
-        const headerTitle = text('header.title', '');
+        const header = boolean('header', false);
+        const headerTitle = text('header.title', 'Заголовок');
         const headerSubtitle = text('header.subtitle', '');
         const titleSize = select('titleSize', ['default', 'compact'], 'default');
         const headerAlign = select('header.align', ['left', 'center'], 'left');
