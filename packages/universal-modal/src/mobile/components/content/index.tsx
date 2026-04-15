@@ -1,10 +1,7 @@
 import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
-import {
-    BaseContent,
-    type ContentProps,
-} from '../../../components/content/base-content/base-content';
+import { BaseContent, type ContentProps } from '../../../components/base-content';
 import { ModalContext } from '../../../Context';
 
 import styles from './mobile.module.css';
