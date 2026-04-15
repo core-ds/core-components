@@ -4,9 +4,9 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { ContentResponsive } from './components/content';
 import { FooterResponsive } from './components/footer';
-import { HeaderResponsive } from './components/header';
 import { UniversalModalDesktop } from './desktop';
 import { UniversalModalMobile } from './mobile';
+import { HeaderResponsive } from './responsive';
 import { type UniversalModalResponsiveProps } from './typings';
 
 export const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
