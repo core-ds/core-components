@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { ModalContext } from '../../../Context';
 import { FOOTER_MEDIUM_BREAKPOINT } from '../../../desktop/constants';
 import { UniversalModalContext } from '../../../desktop/context';
-import { BaseFooter, type FooterProps } from '../base-footer/base-footer';
+import { BaseFooter, type FooterProps } from '../base-footer';
 
 import styles from './desktop.module.css';
 import layoutStyles from './layout.module.css';
