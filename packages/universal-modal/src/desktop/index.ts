@@ -3,7 +3,6 @@ export type { UniversalModalDesktopProps } from './types/props';
 
 export { HeaderDesktop, type HeaderDesktopProps } from './components/header';
 
-export { FooterDesktop } from '../components/footer';
-export type { FooterDesktopProps } from '../components/footer';
+export { FooterDesktop, type FooterDesktopProps } from './components/footer';
 
 export { ContentDesktop, type ContentDesktopProps } from './components/content';

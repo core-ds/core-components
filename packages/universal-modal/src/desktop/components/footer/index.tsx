@@ -1,10 +1,10 @@
 import React, { forwardRef, useContext } from 'react';
 import cn from 'classnames';
 
+import { BaseFooter, type FooterProps } from '../../../components/footer/base-footer';
 import { ModalContext } from '../../../Context';
-import { FOOTER_MEDIUM_BREAKPOINT } from '../../../desktop/constants';
-import { UniversalModalContext } from '../../../desktop/context';
-import { BaseFooter, type FooterProps } from '../base-footer';
+import { FOOTER_MEDIUM_BREAKPOINT } from '../../constants';
+import { UniversalModalContext } from '../../context';
 
 import styles from './desktop.module.css';
 import layoutStyles from './layout.module.css';
