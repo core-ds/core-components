@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { ModalContext } from '../../../Context';
+import { ModalContext } from '../../Context';
 
 import styles from './index.module.css';
 
