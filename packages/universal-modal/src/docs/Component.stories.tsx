@@ -204,7 +204,6 @@ export const mobile: Story = {
 
         const header = boolean('header', false);
         const headerTitle = text('header.title', 'Заголовок');
-        const headerSubtitle = text('header.subtitle', '');
         const titleSize = select('titleSize', ['default', 'compact'], 'default');
         const headerAlign = select('header.align', ['left', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
@@ -221,6 +220,8 @@ export const mobile: Story = {
         const trim = boolean('trim', true);
         const bottomAddons = text('header.bottomAddons', '');
 
+        const shouldRenderHeader = header && Boolean(headerTitle);
+
         return (
             <div style={{ display: 'inline-block', background: 'transparent' }}>
                 <Button type='button' size={40} onClick={() => setOpen(true)}>
@@ -231,11 +232,13 @@ export const mobile: Story = {
                     appearance={appearance}
                     onClose={() => setOpen(false)}
                 >
-                    {header && (
+                    {shouldRenderHeader && (
                         <UniversalModalMobile.Header
                             sticky={stickyHeader}
                             title={headerTitle}
-                            subtitle={headerSubtitle}
+                            {...(titleSize === 'compact' && {
+                                subtitle: text('header.subtitle', ''),
+                            })}
                             titleSize={titleSize}
                             align={headerAlign}
                             hasCloser={hasCloser}
