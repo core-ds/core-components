@@ -1,5 +1,77 @@
 # @alfalab/core-components-gallery
 
+## 7.1.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.4
+    - @alfalab/core-components-tooltip@9.0.8
+
+## 7.1.2
+
+### Patch Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2145](https://github.com/core-ds/core-components/pull/2145)
+
+##### Gallery
+
+- Обновлен `swiper@^12.1.3`
+
+## 7.1.1
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@8.0.4
+    - @alfalab/core-components-base-modal@7.1.2
+    - @alfalab/core-components-typography@6.0.3
+    - @alfalab/core-components-icon-view@5.0.2
+    - @alfalab/core-components-spinner@6.0.3
+    - @alfalab/core-components-tooltip@9.0.7
+    - @alfalab/core-components-button@13.1.1
+    - @alfalab/core-components-mq@6.0.3
+
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>04.03.2026</time></sup>
+
+#### [#1956](https://github.com/core-ds/core-components/pull/1956)
+
+- GalleryImage получило новое поле canShare чтобы можно было прятать кнопку "поделиться".
+
+### Patch Changes
+
+<sup><time>04.03.2026</time></sup>
+
+#### [#2005](https://github.com/core-ds/core-components/pull/2005)
+
+##### Gallery
+
+- Заменен статический импорт hls.js на динамический.
+- Добавлена retry логика для надежной загрузки.
+
+## 7.0.6
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@13.1.0
+    - @alfalab/core-components-icon-button@8.0.3
+    - @alfalab/core-components-tooltip@9.0.6
+
 ## 7.0.5
 
 ### Patch Changes

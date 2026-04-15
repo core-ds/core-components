@@ -8,6 +8,7 @@ on:
         branches:
             - master
             - next
+            - 'version/**'
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
@@ -18,163 +19,156 @@ defaults:
         shell: bash
 
 jobs:
-    variant:
-        uses: ./.github/workflows/variant.yml
+    variants:
+        uses: ./.github/workflows/variants.yml
 
     build:
-        name: build
-        needs: [variant, patch]
+        needs: [setup-variant, variants]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.config) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - name: apply patch
-              run: |
-                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+            - name: Setup variant
+              uses: ./.github/actions/setup-variant
+              with:
+                  variant: ${{ matrix.variant }}
 
-                  if [ -f "$PATCH_SOURCE" ]; then
-                      git apply "$PATCH_SOURCE"
-                  fi
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
-            - uses: ./.github/actions/ci-setup
-
-            - name: run build
+            - name: Build
               run: yarn build
               env:
                   BUILD_CONCURRENCY: 4
 
     lint:
-        name: lint
-        needs: [variant, patch]
+        needs: [setup-variant, variants]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.config) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - name: apply patch
-              run: |
-                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+            - name: Setup variant
+              uses: ./.github/actions/setup-variant
+              with:
+                  variant: ${{ matrix.variant }}
 
-                  if [ -f "$PATCH_SOURCE" ]; then
-                      git apply "$PATCH_SOURCE"
-                  fi
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
-            - uses: ./.github/actions/ci-setup
-
-            - name: check package.json
+            - name: Check package.json
               run: |
                   yarn check-package-json
 
-            - name: check tsconfig
+            - name: Check tsconfig
               run: |
                   yarn tsconfig check
 
-            - name: run format
+            - name: Format
               run: |
                   yarn format
 
-            - name: run lint
+            - name: Lint
               run: |
                   yarn lint
 
     test:
-        name: test
-        needs: [variant, patch]
+        needs: [setup-variant, variants]
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.config) }}
         env:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - name: apply patch
-              run: |
-                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
-
-                  if [ -f "$PATCH_SOURCE" ]; then
-                      git apply "$PATCH_SOURCE"
-                  fi
-
-            - uses: ./.github/actions/ci-setup
-
-            - name: setup timezone
-              uses: zcong1993/setup-timezone@master
+            - name: Setup variant
+              uses: ./.github/actions/setup-variant
               with:
-                  timezone: Europe/Moscow
+                  variant: ${{ matrix.variant }}
 
-            - name: build themes
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+            - name: Setup timezone
+              run: |
+                  sudo timedatectl set-timezone 'Europe/Moscow'
+
+            - name: Build themes
               run: |
                   yarn build --include @alfalab/core-components-themes
 
-            - name: run test
+            - name: Run tests
               run: |
                   yarn test --coverage
 
-            - if: ${{ matrix.variant == 'default' }}
-              uses: actions/upload-artifact@v4
+            - name: Upload coverage
+              if: ${{ matrix.variant == 'default' }}
+              uses: actions/upload-artifact@v7
               with:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
+
+    codemod-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+              env:
+                  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+            - name: Run codemod test
+              run: |
+                  yarn test:codemod
 
     upload-coverage:
         needs: test
         runs-on: ubuntu-latest
+        if: ${{ github.repository == 'core-ds/core-components' }}
         steps:
-            - uses: actions/download-artifact@v5
+            - name: Download coverage
+              uses: actions/download-artifact@v8
               with:
                   name: coverage
                   path: '${{ github.workspace }}/coverage'
 
-            - uses: coverallsapp/github-action@v2
+            - name: Upload coverage to coveralls
+              uses: coverallsapp/github-action@v2
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    demo-params:
-        uses: ./.github/workflows/resolve-demo-params.yml
+    demo:
+        uses: ./.github/workflows/demo.yml
         secrets: inherit
         with:
+            version: ${{ github.ref }}
             directory: ${{ github.event.pull_request.number }}
-
-    build-demo:
-        needs: [variant]
-        strategy:
-            matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
-        uses: ./.github/workflows/build-demo.yml
-        secrets: inherit
-        with:
-            variant: ${{ matrix.variant }}
-            artifact-name: ${{ matrix.variant }}
-
-    deploy:
-        if: ${{ github.repository == 'core-ds/core-components' }}
-        needs: [variant, demo-params, build-demo]
-        strategy:
-            max-parallel: 1
-            matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
-        uses: ./.github/workflows/deploy-demo.yml
-        secrets: inherit
-        with:
-            run-id: ${{ needs.build-demo.outputs.run-id }}
-            directory: '${{ needs.demo-params.outputs.directory }}-${{ matrix.variant }}'
-            variant: ${{ matrix.variant }}
-            artifact-name: ${{ matrix.variant }}
+            pull-request-number: ${{ github.event.pull_request.number }}
 
     screenshot-test:
-        name: screenshot test
-        needs: [build-demo]
+        needs: demo
         strategy:
             fail-fast: false
             matrix:
@@ -184,22 +178,24 @@ jobs:
             CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
               with:
                   lfs: true
 
-            - uses: ./.github/actions/ci-setup
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
 
-            - name: download build
-              uses: actions/download-artifact@v5
+            - name: Download demo
+              uses: actions/download-artifact@v8
               with:
                   name: ${{ matrix.variant }}
                   path: build
                   github-token: ${{ secrets.GITHUB_TOKEN }}
-                  run-id: ${{ needs.build-demo.outputs.run-id }}
+                  run-id: ${{ needs.demo.outputs.run-id }}
 
               # https://github.com/americanexpress/jest-image-snapshot/issues/281
-            - name: run screenshot test
+            - name: Run screenshot test
               uses: actions/github-script@v8
               with:
                   script: |
@@ -209,39 +205,74 @@ jobs:
                           core.setFailed(`Please add missing ${{ matrix.variant }} screenshots`);
                       }
 
-            - uses: actions/upload-artifact@v4
+            - name: Upload diff
+              uses: actions/upload-artifact@v7
               if: failure()
               with:
                   name: 'diff-${{ matrix.variant }}'
                   path: packages/**/__diff_output__/*
                   if-no-files-found: ignore
 
-    patch:
-        needs: [variant]
+    setup-variant:
+        needs: variants
         strategy:
             matrix:
-                include: ${{ fromJson(needs.variant.outputs.result) }}
+                include: ${{ fromJson(needs.variants.outputs.config) }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - name: Checkout
+              uses: actions/checkout@v6
 
-            - name: apply patch
+            - name: Setup variant
+              uses: ./.github/actions/setup-variant
+              with:
+                  variant: ${{ matrix.variant }}
+
+    upload-pull-request-data:
+        # upload pull request data when demo is completed
+        needs: demo
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: ./.github/workflows/upload-pull-request-data.yml
+
+    search-vars:
+        needs: [setup-variant, variants]
+        strategy:
+            matrix:
+                include: ${{ fromJson(needs.variants.outputs.config) }}
+        env:
+            CORE_COMPONENTS_VARIANT: ${{ matrix.variant }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+
+            - name: Setup variant
+              uses: ./.github/actions/setup-variant
+              with:
+                  variant: ${{ matrix.variant }}
+
+            - name: Setup CI
+              uses: ./.github/actions/ci-setup
+
+            - name: Run build
+              env:
+                  BUILD_WITHOUT_CSS_VARS: true
+                  BUILD_CONCURRENCY: 4
+                  BUILD_MODERN_ONLY: true
               run: |
-                  PATCH_SOURCE='variants/${{ matrix.variant }}.patch'
+                  yarn build
 
-                  if [ -f "$PATCH_SOURCE" ]; then
-                      git apply "$PATCH_SOURCE"
-                  fi
+            - name: Search
+              run: yarn non-existent-css-vars
 
-    ci-ok:
-        name: ci ok
+    ok:
         runs-on: ubuntu-latest
         if: always()
-        needs: [lint, build, build-demo, test, screenshot-test, patch]
+        needs: [lint, build, demo, test, screenshot-test, setup-variant, codemod-test, search-vars]
         env:
             FAILURE: ${{ contains(join(needs.*.result, ','), 'failure') }}
         steps:
-            - name: check for failure
+            - name: Check for failure
               run: |
                   echo $FAILURE
                   if [ "$FAILURE" = "false" ]; then

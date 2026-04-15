@@ -585,6 +585,12 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             ],
         );
 
+        const {
+            className: backdropClassName,
+            shouldRender: backdropShouldRender = true,
+            ...restBackdropProps
+        } = backdropProps;
+
         const renderContent = () => (
             <Stack value={zIndex}>
                 {(computedZIndex) => (
@@ -598,10 +604,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 removeScrollBar={false}
                             >
                                 <React.Fragment>
-                                    {Backdrop && (
+                                    {backdropShouldRender && Backdrop && (
                                         <Backdrop
-                                            {...backdropProps}
-                                            className={cn(backdropProps.className, styles.backdrop)}
+                                            {...restBackdropProps}
+                                            className={cn(backdropClassName, styles.backdrop)}
                                             open={open}
                                             style={{
                                                 zIndex: computedZIndex,

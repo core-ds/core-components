@@ -1,5 +1,34 @@
 # @alfalab/core-components-steps
 
+## 3.0.4
+
+### Patch Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2158](https://github.com/core-ds/core-components/pull/2158)
+
+##### Steps
+
+- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.
+- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`.
+
+## 3.0.3
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-badge@7.0.2
+
 ## 3.0.2
 
 ### Patch Changes

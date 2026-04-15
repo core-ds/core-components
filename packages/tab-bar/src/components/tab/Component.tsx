@@ -75,7 +75,9 @@ const TabComponent = forwardRef<HTMLElement, AllTabProps>(
                 onClick={handleClick}
             >
                 <div className={cn(styles.icon, commonIconClassName, iconClassName)}>
-                    {isValidElement(icon) ? cloneElement(icon, { selected }) : icon}
+                    {isValidElement<{ selected: unknown }>(icon)
+                        ? cloneElement(icon, { selected })
+                        : icon}
                 </div>
 
                 <TypographyText
@@ -85,7 +87,9 @@ const TabComponent = forwardRef<HTMLElement, AllTabProps>(
                         [styles.labelSelected]: selected,
                     })}
                 >
-                    {isValidElement(label) ? cloneElement(label, { selected }) : label}
+                    {isValidElement<{ selected: unknown }>(label)
+                        ? cloneElement(label, { selected })
+                        : label}
                 </TypographyText>
 
                 {showIndicator && (

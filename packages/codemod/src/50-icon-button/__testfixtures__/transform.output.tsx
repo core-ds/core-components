@@ -7,6 +7,13 @@ import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 
 export const Component = () => (
     <Fragment>
+        <IconButton size={24} icon={<DiamondsMIcon />} />
+        <IconButton size={24} icon={<DiamondsMIcon />} />
+        <IconButtonDesktop size={24} icon={<DiamondsMIcon />} />
+        <IconButtonDesktop size={24} icon={<DiamondsMIcon />} />
+        <IconButtonMobile size={24} icon={<DiamondsMIcon />} />
+        <IconButtonMobile size={24} icon={<DiamondsMIcon />} />
+
         <IconButton size={32} icon={<DiamondsMIcon />} />
         <IconButton size={32} icon={<DiamondsMIcon />} />
         <IconButtonDesktop size={32} icon={<DiamondsMIcon />} />
@@ -20,12 +27,5 @@ export const Component = () => (
         <IconButtonDesktop size={40} icon={<DiamondsMIcon />} />
         <IconButtonMobile size={40} icon={<DiamondsMIcon />} />
         <IconButtonMobile size={40} icon={<DiamondsMIcon />} />
-
-        <IconButton size={48} icon={<DiamondsMIcon />} />
-        <IconButton size={48} icon={<DiamondsMIcon />} />
-        <IconButtonDesktop size={48} icon={<DiamondsMIcon />} />
-        <IconButtonDesktop size={48} icon={<DiamondsMIcon />} />
-        <IconButtonMobile size={48} icon={<DiamondsMIcon />} />
-        <IconButtonMobile size={48} icon={<DiamondsMIcon />} />
     </Fragment>
 );

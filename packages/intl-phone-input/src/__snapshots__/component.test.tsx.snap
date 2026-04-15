@@ -10,7 +10,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component component size-56 formControlDesktop size-56 size-56 size-56 block hasLeftAddons"
+      class="component component size-56 formControlDesktop size-56 size-56 size-56 block"
     >
       <div
         class="field inner inner inner inner filled"
@@ -107,6 +107,9 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
             />
           </div>
         </div>
+        <div
+          class="addons rightAddons rightAddons size-56 addons"
+        />
       </div>
     </div>
   </div>

@@ -99,7 +99,7 @@ exports[`FormControl Snapshots tests should not render hint if has error 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasRightAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner hasError"
@@ -123,7 +123,7 @@ exports[`FormControl Snapshots tests should not render hint if has error 1`] = `
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasRightAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner hasError"
@@ -303,7 +303,7 @@ exports[`FormControl Snapshots tests should render error 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasRightAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner hasError"
@@ -327,7 +327,7 @@ exports[`FormControl Snapshots tests should render error 1`] = `
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasRightAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner hasError"
@@ -642,7 +642,7 @@ exports[`FormControl Snapshots tests should render left addons 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasLeftAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -667,7 +667,7 @@ exports[`FormControl Snapshots tests should render left addons 1`] = `
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasLeftAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner"
@@ -856,7 +856,7 @@ exports[`FormControl Snapshots tests should render right addons 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasRightAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -881,7 +881,7 @@ exports[`FormControl Snapshots tests should render right addons 1`] = `
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasRightAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner"

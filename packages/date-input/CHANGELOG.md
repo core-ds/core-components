@@ -1,5 +1,27 @@
 # @alfalab/core-components-date-input
 
+## 6.0.5
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@17.1.3
+
+## 6.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@17.1.2
+
 ## 6.0.3
 
 ### Patch Changes

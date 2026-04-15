@@ -1,5 +1,33 @@
 # @alfalab/core-components-form-control
 
+## 14.0.4
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-mq@6.0.3
+
+## 14.0.3
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2053](https://github.com/core-ds/core-components/pull/2053)
+
+##### Input, AmountInput, InputAutocomplete, NumberInput, Select, FormControl, SelectWithTags
+
+- Небольшие улучшения кодовой базы компонентов
+
 ## 14.0.2
 
 ### Patch Changes

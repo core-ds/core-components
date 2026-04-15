@@ -1,5 +1,56 @@
 # @alfalab/core-components-toast-plate
 
+## 9.1.0
+
+### Minor Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2156](https://github.com/core-ds/core-components/pull/2156)
+
+##### ToastPlate
+
+- Добавлен пропс `closerProps`, с помощью которого можно управлять параметрами кнопки "закрыть" (как новыми так и старыми)
+
+Значения по умолчанию
+
+```
+closerProps = {
+    hasCloser: false,
+    closerWrapperClassName: undefined,
+    closerClassName: undefined,
+    divider: true,
+    view: 'primary'
+}
+```
+
+Пропсы `hasCloser`, `closerWrapperClassName`, `closerClassName` - отмечены как `deprecated` и будут удалены в будущих версиях. Используйте их в составе `closerProps`
+
+## 9.0.4
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-status-badge@3.0.2
+    - @alfalab/core-components-icon-button@8.0.4
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-mq@6.0.3
+
+## 9.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-icon-button@8.0.3
+
 ## 9.0.2
 
 ### Patch Changes

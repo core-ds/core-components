@@ -7,7 +7,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
   >
     <div>
       <div
-        class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
+        class="component component formControlDesktop size-48 size-48 size-48 block"
       >
         <div
           class="field inner inner inner inner"
@@ -927,7 +927,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
     />
     <div>
       <div
-        class="component component formControlDesktop size-48 size-48 size-48 block hasRightAddons"
+        class="component component formControlDesktop size-48 size-48 size-48 block"
       >
         <div
           class="field inner inner inner inner"

@@ -1,4 +1,4 @@
-name: setup ci
+name: Setup ci
 
 description: Setup node and install dependencies
 
@@ -14,7 +14,8 @@ inputs:
 runs:
     using: composite
     steps:
-        - id: detect-node-version
+        - name: Detect node version
+          id: detect-node-version
           shell: bash
           run: |
               NODE_VERSION_FILE='${{ inputs.working-directory }}/.node-version'
@@ -30,13 +31,14 @@ runs:
 
               echo "result=$NODE_VERSION" >> "$GITHUB_OUTPUT"
 
-        - name: setup nodejs
+        - name: Setup node
           uses: actions/setup-node@v6
           with:
               node-version: ${{ steps.detect-node-version.outputs.result }}
               cache: yarn
 
-        - id: detect-yarn-version
+        - name: Detect yarn version
+          id: detect-yarn-version
           uses: actions/github-script@v8
           with:
               result-encoding: string
@@ -48,7 +50,7 @@ runs:
 
                   return packageManager.replace('yarn@', '');
 
-        - name: install dependencies
+        - name: Install dependencies
           shell: bash
           run: |
               yarn install ${{ case(startsWith(steps.detect-yarn-version.outputs.result, '1.'), '--frozen-lockfile', '--immutable') }}

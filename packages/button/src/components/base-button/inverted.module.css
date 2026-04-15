@@ -22,10 +22,6 @@
 
 .primary {
     border: 1px solid transparent;
-
-    & .hint {
-        color: var(--button-inverted-primary-hint-color);
-    }
 }
 
 .secondary {
@@ -36,7 +32,7 @@
         color: var(--button-spinner-inverted-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-inverted-secondary-hint-color);
     }
 }
@@ -61,7 +57,7 @@
         color: var(--button-spinner-inverted-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-inverted-outlined-hint-color);
     }
 }
@@ -85,7 +81,7 @@
         color: var(--button-spinner-inverted-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-inverted-transparent-base-hint-color);
     }
 }
@@ -104,7 +100,7 @@
         color: var(--button-spinner-inverted-color);
     }
 
-    & .hint {
+    &:not([disabled]) .hint {
         color: var(--button-inverted-text-base-hint-color);
     }
 }

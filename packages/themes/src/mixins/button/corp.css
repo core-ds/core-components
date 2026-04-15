@@ -45,4 +45,12 @@
 
     /* border-radius mobile */
     --button-xxs-size-mobile-border-radius: var(--border-radius-8);
+
+    /* hint */
+    --button-primary-hint-color: currentColor;
+    --button-inverted-primary-hint-color: currentColor;
+    --button-accent-hint-color: var(--color-light-text-secondary-inverted);
+    --button-inverted-accent-hint-color: var(--color-light-text-secondary);
+    --button-mobile-primary-hint-color: var(--color-light-text-secondary-inverted);
+    --button-mobile-inverted-primary-hint-color: var(--color-light-text-secondary-inverted);
 }

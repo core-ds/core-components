@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-link",
-    "version": "7.0.1",
+    "version": "7.0.2",
     "description": "Link component",
     "keywords": [],
     "license": "MIT",
@@ -23,6 +23,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.1",
-    "varsVersion": "11.0.1"
+    "themesVersion": "15.0.2",
+    "varsVersion": "11.0.2"
 }

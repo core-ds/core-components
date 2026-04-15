@@ -1,11 +1,11 @@
-import React, { type ElementType, useRef, useState } from 'react';
+import React, { type ElementType, Fragment, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import {
     FormControlMobile,
     type FormControlMobileProps,
 } from '@alfalab/core-components-form-control/mobile';
-import { ClearButton, getAddonsByPriority, LockIcon } from '@alfalab/core-components-input/shared';
+import { ClearButton, LockIcon } from '@alfalab/core-components-input/shared';
 import { type FieldProps as BaseFieldProps } from '@alfalab/core-components-select/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
@@ -76,16 +76,12 @@ export const AutocompleteMobileField = ({
      * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
      * [0] - Lock
      */
-    const rightAddonsMap = getAddonsByPriority([
-        {
-            priority: 4,
-            predicate: clear && filled && !disabled && !readOnly,
-            render: () => <ClearButton onClick={onClear} disabled={disabled} colors={colors} />,
-        },
-        {
-            priority: 3,
-            predicate: Boolean(error),
-            render: () => (
+    const renderRightAddons = () => (
+        <Fragment>
+            {clear && filled && !disabled && !readOnly && (
+                <ClearButton onClick={onClear} disabled={disabled} colors={colors} />
+            )}
+            {error && (
                 <div className={styles.errorIcon} data-addon='error-icon'>
                     <StatusBadge
                         view='negative-alert'
@@ -93,12 +89,8 @@ export const AutocompleteMobileField = ({
                         dataTestId={getDataTestId(dataTestId, 'error-icon')}
                     />
                 </div>
-            ),
-        },
-        {
-            priority: 3,
-            predicate: Boolean(success && !error),
-            render: () => (
+            )}
+            {success && !error && (
                 <div className={styles.successIcon}>
                     <StatusBadge
                         view='positive-checkmark'
@@ -106,24 +98,12 @@ export const AutocompleteMobileField = ({
                         dataTestId={getDataTestId(dataTestId, 'success-icon')}
                     />
                 </div>
-            ),
-        },
-        {
-            priority: 2,
-            predicate: Boolean(rightAddons),
-            render: () => rightAddons,
-        },
-        {
-            priority: 1,
-            predicate: Boolean(Arrow) && !disabled && !readOnly,
-            render: () => Arrow,
-        },
-        {
-            priority: 0,
-            predicate: Boolean(disabled || readOnly),
-            render: () => <LockIcon colors={colors} size={size} />,
-        },
-    ]);
+            )}
+            {rightAddons}
+            {!disabled && !readOnly && Arrow}
+            {(disabled || readOnly) && <LockIcon colors={colors} size={size} />}
+        </Fragment>
+    );
 
     return (
         <div
@@ -151,7 +131,7 @@ export const AutocompleteMobileField = ({
                 readOnly={readOnly}
                 colors={colors}
                 error={error}
-                rightAddons={rightAddonsMap}
+                rightAddons={renderRightAddons()}
             >
                 <div className={styles.contentWrapper}>
                     {showPlaceholder && <span className={styles.placeholder}>{placeholder}</span>}

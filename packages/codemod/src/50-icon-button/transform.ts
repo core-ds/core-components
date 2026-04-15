@@ -3,9 +3,9 @@ import { Transform } from 'jscodeshift';
 import { getKeys } from '../utils';
 
 const REPLACE_MAP = {
-    xxs: 32,
-    xs: 40,
-    s: 48,
+    xxs: 24,
+    xs: 32,
+    s: 40,
 } as const;
 
 const sizeTransform: Transform = (fileInfo, api) => {

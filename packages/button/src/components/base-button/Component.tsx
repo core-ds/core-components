@@ -120,7 +120,13 @@ export const BaseButton = forwardRef<
                     >
                         {children}
                         {showHint && (
-                            <span className={cn(commonStyles.hint, colorStyles[colors].hint)}>
+                            <span
+                                className={cn(
+                                    commonStyles.hint,
+                                    colorStylesMap[colors].hint,
+                                    colorStyles[colors].hint,
+                                )}
+                            >
                                 {hint}
                             </span>
                         )}

@@ -1,5 +1,71 @@
 # @alfalab/core-components-amount-input
 
+## 9.2.0
+
+### Minor Changes
+
+<sup><time>27.03.2026</time></sup>
+
+#### [#2140](https://github.com/core-ds/core-components/pull/2140)
+
+##### AmountInput
+
+- Уточнен цвет фона при отклоненни ввода
+- Добавленны `css` переменные для настройки цвета фона при отклоненни ввода:
+    - `--amount-input-input-reject-background-color`
+    - `--amount-input-inverted-input-reject-background-color`
+
+## 9.1.3
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2104](https://github.com/core-ds/core-components/pull/2104)
+
+##### AmountInput
+
+- Исправлена некорректная анимация отмены ввода
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-number-input@4.0.5
+    - @alfalab/core-components-with-suffix@6.0.5
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-input@17.1.3
+
+## 9.1.2
+
+### Patch Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2084](https://github.com/core-ds/core-components/pull/2084)
+
+##### AmountInput
+
+- Исправлена специфичность стилей
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2053](https://github.com/core-ds/core-components/pull/2053)
+
+##### Input, AmountInput, InputAutocomplete, NumberInput, Select, FormControl, SelectWithTags
+
+- Небольшие улучшения кодовой базы компонентов
+
+- Обновлены зависимости
+    - @alfalab/core-components-input@17.1.2
+    - @alfalab/core-components-number-input@4.0.4
+    - @alfalab/core-components-with-suffix@6.0.4
+
 ## 9.1.1
 
 ### Patch Changes

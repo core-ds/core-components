@@ -1,5 +1,42 @@
 # @alfalab/core-components-notification-manager
 
+## 7.0.5
+
+### Patch Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2152](https://github.com/core-ds/core-components/pull/2152)
+
+##### NotificationManager
+
+- Исправили некорректное отображение нескольких Notification внутри NotificationManager: уведомления больше не застревают за пределами экрана и корректно отображаются при одновременном показе.
+
+- Обновлены зависимости
+    - @alfalab/core-components-notification@9.0.5
+
+## 7.0.4
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-notification@9.0.4
+
+## 7.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-notification@9.0.3
+
 ## 7.0.2
 
 ### Patch Changes

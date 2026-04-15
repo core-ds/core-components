@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../vars.css';
 
 :global(.cc-calendar) {
@@ -11,6 +11,10 @@
         background-color: transparent;
         border-radius: var(--border-radius-12);
         box-shadow: var(--calendar-select-button-box-shadow);
+
+        &:disabled:not(.selected) {
+            color: var(--color-light-text-tertiary);
+        }
 
         &:not(:disabled):hover {
             background-color: var(--color-light-transparent-default-hover);

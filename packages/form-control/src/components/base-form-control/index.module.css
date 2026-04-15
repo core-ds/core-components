@@ -81,12 +81,18 @@
     align-items: center;
 }
 
-.leftAddons {
+.leftAddons:not(:empty),
+.rightAddons:not(:empty) {
+    padding-right: var(--gap-12);
     padding-left: var(--gap-12);
 }
 
-.rightAddons {
-    padding-right: var(--gap-12);
+.leftAddons:not(:empty) {
+    margin-right: var(--gap-12-neg);
+}
+
+.rightAddons:not(:empty) {
+    margin-left: var(--gap-12-neg);
 }
 
 .sub {
@@ -137,12 +143,18 @@
     }
 
     & .addons {
-        &.rightAddons {
+        &.rightAddons:not(:empty),
+        &.leftAddons:not(:empty) {
             padding-right: var(--gap-8);
+            padding-left: var(--gap-8);
         }
 
-        &.leftAddons {
-            padding-left: var(--gap-8);
+        &.rightAddons:not(:empty) {
+            margin-left: var(--gap-8-neg);
+        }
+
+        &.leftAddons:not(:empty) {
+            margin-right: var(--gap-8-neg);
         }
     }
 }
@@ -200,24 +212,14 @@
     padding: var(--form-control-labeled-xl-paddings);
 }
 
-.size-72 .leftAddons {
+.size-72 .leftAddons:not(:empty) {
     padding-left: var(--gap-16);
+    margin-right: var(--gap-16-neg);
 }
 
-.size-72 .rightAddons {
+.size-72 .rightAddons:not(:empty) {
     padding-right: var(--gap-16);
-}
-
-.size-72.hasLeftAddons .label {
-    left: var(--gap-12);
-}
-
-.size-72.hasLeftAddons .input > * {
-    padding-left: var(--gap-12);
-}
-
-.size-72.hasRightAddons .input > * {
-    padding-right: var(--gap-12);
+    margin-left: var(--gap-16-neg);
 }
 
 /* DISABLED STATE */
