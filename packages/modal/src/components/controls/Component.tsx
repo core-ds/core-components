@@ -57,6 +57,9 @@ export const Controls: React.FC<ControlsProps> = ({
                 styles.component,
                 layoutStyles[layout],
                 gap && layoutStyles[`gap-${gap}`],
+                {
+                    [layoutStyles.mobileView]: view === 'mobile',
+                },
             )}
         >
             {shouldReverse ? (

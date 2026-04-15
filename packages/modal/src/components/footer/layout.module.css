@@ -8,6 +8,10 @@
         margin-bottom: var(--modal-footer-default-gap);
     }
 
+    &.mobileView > *:not(:last-child):not(:only-child) {
+        margin-bottom: var(--modal-footer-mobile-default-gap);
+    }
+
     &.gap-16 > *:not(:last-child):not(:only-child) {
         margin-bottom: var(--gap-16);
     }
@@ -44,6 +48,10 @@
 
     & > *:not(:last-child):not(:only-child) {
         margin-right: var(--modal-footer-default-gap);
+    }
+
+    &.mobileView > *:not(:last-child):not(:only-child) {
+        margin-right: var(--modal-footer-mobile-default-gap);
     }
 
     &.gap-16 > *:not(:last-child):not(:only-child) {
