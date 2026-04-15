@@ -7,7 +7,7 @@ import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 
 import { UniversalModalDesktop } from '../desktop';
 import { UniversalModalMobile } from '../mobile';
-import { UniversalModal } from '../Component.responsive';
+import { UniversalModal } from '../responsive';
 
 const meta: Meta<typeof UniversalModal> = {
     title: 'Components/UniversalModal',
