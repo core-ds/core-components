@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { BaseContent, type ContentProps } from '../../../components/base-content';
 import { ModalContext } from '../../../Context';
 
-import styles from './mobile.module.css';
+import styles from './index.module.css';
 
 export type ContentMobileProps = ContentProps;
 

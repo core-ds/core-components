@@ -10,7 +10,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { useBaseHeader } from '../../../components/base-header/useBaseHeader';
 
 import styles from '../../../components/base-header/index.module.css';
-import mobileStyles from './mobile.module.css';
+import mobileStyles from './index.module.css';
 
 export type HeaderMobileProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 

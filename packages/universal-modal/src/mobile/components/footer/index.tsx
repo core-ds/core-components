@@ -4,8 +4,8 @@ import cn from 'classnames';
 import { BaseFooter, type FooterProps } from '../../../components/base-footer';
 import { ModalContext } from '../../../Context';
 
+import styles from './index.module.css';
 import layoutStylesMobile from './layout.mobile.module.css';
-import styles from './mobile.module.css';
 
 export type FooterMobileProps = FooterProps;
 
