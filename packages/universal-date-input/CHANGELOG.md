@@ -1,5 +1,12 @@
 # @alfalab/core-components-universal-date-input
 
+## 4.0.8
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-calendar@9.1.3
+
 ## 4.0.7
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.3
+
 ## 8.1.3
 
 ### Patch Changes
