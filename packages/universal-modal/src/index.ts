@@ -1,8 +1,7 @@
 export { UniversalModalResponsive, UniversalModal } from './responsive';
 export type { UniversalModalResponsiveProps } from './typings';
 
-export { ContentResponsive } from './components/content';
-export type { ContentResponsiveProps } from './components/content';
+export { ContentResponsive, type ContentResponsiveProps } from './responsive';
 
 export { HeaderResponsive, type HeaderResponsiveProps } from './responsive';
 

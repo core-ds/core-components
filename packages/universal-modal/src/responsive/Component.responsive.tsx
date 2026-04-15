@@ -2,12 +2,12 @@ import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { ContentResponsive } from '../components/content';
 import { FooterResponsive } from '../components/footer';
 import { UniversalModalDesktop } from '../desktop';
 import { UniversalModalMobile } from '../mobile';
 import { type UniversalModalResponsiveProps } from '../typings';
 
+import { ContentResponsive } from './components/content';
 import { HeaderResponsive } from './components/header';
 
 export const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
