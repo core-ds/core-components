@@ -2,8 +2,8 @@ import React, { type FC } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
+import { ContentMobile, type ContentMobileProps } from '../../../mobile';
 import { ContentDesktop, type ContentDesktopProps } from '../desktop/Component.desktop';
-import { ContentMobile, type ContentMobileProps } from '../mobile/Component.mobile';
 
 export interface ContentResponsiveProps extends ContentDesktopProps, ContentMobileProps {}
 
