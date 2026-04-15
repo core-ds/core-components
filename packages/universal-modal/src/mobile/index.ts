@@ -3,7 +3,6 @@ export type { UniversalModalMobileProps } from './types/props';
 
 export { HeaderMobile, type HeaderMobileProps } from './components/header';
 
-export { FooterMobile } from '../components/footer';
-export type { FooterMobileProps } from '../components/footer';
+export { FooterMobile, type FooterMobileProps } from './components/footer';
 
 export { ContentMobile, type ContentMobileProps } from './components/content';
