@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from 'react';
 
 import { type NavigationBarPrivateProps } from '@alfalab/core-components-navigation-bar-private';
 
-import { ModalContext } from '../../../Context';
+import { ModalContext } from '../../Context';
 
 type Params = Pick<NavigationBarPrivateProps, 'title' | 'children' | 'bottomAddons' | 'onClose'>;
 

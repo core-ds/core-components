@@ -7,9 +7,9 @@ import {
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { useBaseHeader } from '../../../components/header/base-header/useBaseHeader';
+import { useBaseHeader } from '../../../components/base-header/useBaseHeader';
 
-import styles from '../../../components/header/base-header/index.module.css';
+import styles from '../../../components/base-header/index.module.css';
 import desktopStyles from './desktop.module.css';
 
 export interface HeaderDesktopProps
