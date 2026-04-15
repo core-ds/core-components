@@ -1,9 +1,7 @@
 @import '../../../vars.css';
 
 .column {
-    display: flex;
     flex-direction: column;
-    gap: var(--gap-16);
 }
 
 .start {
@@ -24,7 +22,8 @@
 
 .start,
 .center,
-.space-between {
+.space-between,
+.column {
     display: flex;
-    gap: var(--gap-16);
+    gap: var(--gap-8);
 }
