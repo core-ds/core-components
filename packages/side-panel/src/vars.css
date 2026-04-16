@@ -6,6 +6,7 @@
     --side-panel-header-background: var(--color-light-modal-bg-primary);
     --side-panel-footer-background: var(--color-light-modal-bg-primary);
     --side-panel-footer-default-gap: var(--gap-16);
+    --side-panel-footer-mobile-default-gap: var(--gap-8);
 
     /* sizes */
     --side-panel-s-width: 500px;
