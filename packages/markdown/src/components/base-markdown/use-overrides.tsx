@@ -78,7 +78,14 @@ export const useOverrides = (platform?: PlatformType, font?: FontType): Override
                 </TypographyText>
             ),
             a: ({ children, href }) => (
-                <Link className='a' target='_blank' rel='noopener noreferrer' href={href}>
+                <Link
+                    view='default'
+                    underline={false}
+                    className='a'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={href}
+                >
                     {children}
                 </Link>
             ),
