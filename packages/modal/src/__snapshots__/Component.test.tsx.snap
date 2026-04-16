@@ -265,7 +265,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
         class="footer start footer"
       >
         <div
-          class="component start mobileView"
+          class="component start start"
         >
           Secondary
           Primary
