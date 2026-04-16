@@ -1,19 +1,15 @@
 import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
-import { type SwipeCallback, type TapCallback, useSwipeable } from 'react-swipeable';
 import cn from 'classnames';
 
 import { noop, NoopComponent } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { AnimatedWrapper } from './components/animated-wrapper';
+import { type SwipeCallback, useSwipe } from './hook';
 import { type CarouselProps, type PageIndicatorProps } from './types';
 import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
 
 import styles from './index.module.css';
-
-const disableUserSelection: TapCallback = ({ event }) => {
-    event.preventDefault();
-};
 
 export function Carousel<T extends PageIndicatorProps>({
     activeIndex: activeIndexFromProps,
@@ -42,7 +38,6 @@ export function Carousel<T extends PageIndicatorProps>({
     );
     const [sizes, setSizes] = useState<number[]>([]);
     const [containerSize, setContainerSize] = useState<number>(0);
-    const startSwipingDelta = useRef<number>(0);
     const snaps = useMemo<number[]>(() => {
         const DEFAULT_TRANSLATE = 0;
         const result = [DEFAULT_TRANSLATE];
@@ -68,20 +63,15 @@ export function Carousel<T extends PageIndicatorProps>({
         return result;
     }, [containerSize, gap, sizes]);
 
-    const handleSwipeStart: SwipeCallback = (data) => {
+    const handleSwipeStart: SwipeCallback = () => {
         setSwiping(true);
-
-        startSwipingDelta.current = data.deltaX;
     };
 
-    const handleSwiping: SwipeCallback = (data) => {
-        const diff = data.deltaX - startSwipingDelta.current;
+    const handleSwiping: SwipeCallback = ({ currentX, previousX }) => {
+        const resistanceRatio = 0.85;
+        const delta = (currentX! - previousX!) * resistanceRatio;
 
-        startSwipingDelta.current = data.deltaX;
-
-        if (data.dir === 'Left' || data.dir === 'Right') {
-            setTranslate((prevTranslate) => prevTranslate - diff);
-        }
+        setTranslate((prevTranslate) => prevTranslate - delta);
     };
 
     const handleSwipeStop: SwipeCallback = () => {
@@ -169,21 +159,18 @@ export function Carousel<T extends PageIndicatorProps>({
     const total =
         visibleItems === 'auto' ? snaps.length : items.length - Math.floor(visibleItems) + 1;
 
-    const swipeableHandlers = useSwipeable({
-        onSwipeStart: handleSwipeStart,
+    const [ref, getStyle] = useSwipe<HTMLDivElement>('x', {
+        onStartSwipe: handleSwipeStart,
         onSwiping: handleSwiping,
-        onSwiped: handleSwipeStop,
-        onTouchStartOrOnMouseDown: disableUserSelection,
-        trackMouse: true,
-        delta: 20,
+        onStopSwipe: handleSwipeStop,
     });
 
     return (
         <div className={styles.component}>
             <div
-                {...swipeableHandlers}
+                ref={ref}
                 className={cn(styles.container)}
-                style={{ height, minHeight, overflow }}
+                style={{ ...getStyle(), height, minHeight, overflow }}
             >
                 <Wrapper
                     ref={wrapperRef}

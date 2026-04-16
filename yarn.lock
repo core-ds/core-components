@@ -352,7 +352,6 @@ __metadata:
     "@alfalab/core-components-shared": "npm:^2.1.1"
     "@alfalab/hooks": "npm:^1.13.1"
     classnames: "npm:^2.5.1"
-    react-swipeable: "npm:^7.0.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0

@@ -1,0 +1,300 @@
+/* eslint-disable complexity */
+import { useEffect, useRef } from 'react';
+
+import { isSafari, isWebView, noop, useRefAsState } from '@alfalab/core-components-shared';
+
+export interface Coords {
+    startX: number | null;
+    startY: number | null;
+    currentX: number | null;
+    currentY: number | null;
+    previousX: number | null;
+    previousY: number | null;
+}
+
+export type SwipeCallback = (touches: Coords) => void;
+
+interface Listeners {
+    onStartSwipe?: (touches: Coords) => void;
+    onSwiping?: (touches: Coords) => void;
+    onStopSwipe?: (touches: Coords) => void;
+}
+
+interface XY {
+    x: number;
+    y: number;
+}
+
+function isPointerEvent(event: Event): event is PointerEvent {
+    return /^pointer(down|move|up|cancel|out|leave)$/.test(event.type);
+}
+
+function isTouchEvent(event: Event): event is TouchEvent {
+    return /^touch(start|move|end|cancel)$/.test(event.type);
+}
+
+function isOutOfRect(
+    { clientX, clientY }: { clientX: number; clientY: number },
+    { left, right, top, bottom }: DOMRect,
+    { x, y }: XY,
+) {
+    return clientX < left + x || clientX > right - x || clientY < top + y || clientY > bottom - y;
+}
+
+export function useSwipe<T extends Element>(
+    direction: 'x' | 'y',
+    listeners: Listeners,
+    options: {
+        touchAngle?: number;
+        threshold?: number;
+        edgeThreshold?: Partial<XY>;
+    } = {},
+): [ref: React.Ref<T>, getStyle: () => React.CSSProperties] {
+    const [ref, node] = useRefAsState<T>(null);
+    const lastListeners = useRef(listeners);
+
+    const { threshold = 5, touchAngle = 45, edgeThreshold } = options;
+    const xEdgeThreshold = edgeThreshold?.x ?? 10;
+    const yEdgeThreshold = edgeThreshold?.y ?? 0;
+
+    useEffect(() => {
+        lastListeners.current = listeners;
+    }, [listeners]);
+
+    useEffect(() => {
+        if (node) {
+            const params = {
+                threshold,
+                touchAngle,
+                edgeThreshold: { x: xEdgeThreshold, y: yEdgeThreshold },
+            };
+
+            const data: {
+                pointerId: number | null;
+                touchId: number | null;
+                isTouched: boolean;
+                isMoved: boolean;
+                isScrolling?: boolean;
+                startMoving?: boolean;
+            } = {
+                pointerId: null,
+                touchId: null,
+                isTouched: false,
+                isMoved: false,
+            };
+
+            const coords: Coords = {
+                startX: null,
+                startY: null,
+                currentX: null,
+                currentY: null,
+                previousX: null,
+                previousY: null,
+            };
+
+            const document = node.ownerDocument;
+
+            const swipeStart = (e: Event) => {
+                const event = e as PointerEvent | TouchEvent;
+                const domRect = node.getBoundingClientRect();
+
+                if (isPointerEvent(event)) {
+                    if (
+                        (data.pointerId !== null && data.pointerId !== event.pointerId) ||
+                        isOutOfRect(event, domRect, params.edgeThreshold) ||
+                        event.button > 0
+                    ) {
+                        return;
+                    }
+
+                    data.pointerId = event.pointerId;
+                } else if (isTouchEvent(event)) {
+                    if (event.targetTouches.length === 1) {
+                        const [targetTouch] = event.targetTouches;
+
+                        if (isOutOfRect(targetTouch, domRect, params.edgeThreshold)) {
+                            return;
+                        }
+
+                        data.touchId = targetTouch.identifier;
+
+                        return;
+                    }
+
+                    return;
+                }
+
+                if (data.isTouched && data.isMoved) {
+                    return;
+                }
+
+                Object.assign(coords, {
+                    startX: event.pageX,
+                    startY: event.pageY,
+                    currentX: event.pageX,
+                    currentY: event.pageY,
+                    previousX: null,
+                    previousY: null,
+                });
+
+                Object.assign(data, {
+                    isTouched: true,
+                    isMoved: false,
+                    isScrolling: undefined,
+                    startMoving: undefined,
+                });
+
+                event.preventDefault();
+
+                lastListeners.current.onStartSwipe?.(coords);
+            };
+
+            const swipe = (event: PointerEvent | TouchEvent) => {
+                let targetTouch: PointerEvent | Touch | undefined;
+
+                if (isPointerEvent(event)) {
+                    if (
+                        event.pointerId !== data.pointerId ||
+                        // return from pointer if we use touch
+                        data.touchId !== null
+                    ) {
+                        return;
+                    }
+                    targetTouch = event;
+                } else if (isTouchEvent(event)) {
+                    targetTouch = Array.from(event.changedTouches).find(
+                        (t) => t.identifier === data.touchId,
+                    );
+                }
+
+                if (!targetTouch) {
+                    return;
+                }
+
+                Object.assign(coords, {
+                    previousX: coords.currentX,
+                    previousY: coords.currentY,
+                    currentX: targetTouch.pageX,
+                    currentY: targetTouch.pageY,
+                });
+
+                const deltaX = coords.currentX! - coords.startX!;
+                const deltaY = coords.currentY! - coords.startY!;
+
+                if (Math.sqrt(deltaX ** 2 + deltaY ** 2) < params.threshold) {
+                    return;
+                }
+
+                if (data.isScrolling === undefined) {
+                    if (
+                        (direction === 'x' && coords.currentY === coords.startY) ||
+                        (direction === 'y' && coords.currentX === coords.startX)
+                    ) {
+                        data.isScrolling = false;
+                    } else if (deltaX * deltaX + deltaY * deltaY >= 25) {
+                        const angle =
+                            (Math.atan2(Math.abs(deltaY), Math.abs(deltaX)) * 180) / Math.PI;
+
+                        data.isScrolling =
+                            direction === 'x'
+                                ? angle > params.touchAngle
+                                : 90 - angle > params.touchAngle;
+                    }
+                }
+
+                if (data.startMoving === undefined) {
+                    if (coords.currentX !== coords.startX || coords.currentY !== coords.startY) {
+                        data.startMoving = true;
+                    }
+                }
+                if (data.isScrolling) {
+                    data.isTouched = false;
+
+                    return;
+                }
+                if (!data.startMoving) {
+                    return;
+                }
+
+                lastListeners.current.onSwiping?.(coords);
+            };
+
+            const swipeStop = (event: Event) => {
+                let targetTouch: PointerEvent | Touch | undefined;
+
+                if (isPointerEvent(event)) {
+                    if (
+                        data.touchId !== null || // return from pointer if we use touch
+                        event.pointerId !== data.pointerId
+                    ) {
+                        return;
+                    }
+                    targetTouch = event;
+                } else if (isTouchEvent(event)) {
+                    targetTouch = Array.from(event.changedTouches).find(
+                        (t) => t.identifier === data.touchId,
+                    );
+                }
+
+                if (!targetTouch) {
+                    return;
+                }
+
+                if (
+                    ['pointercancel', 'pointerout', 'pointerleave', 'contextmenu'].includes(
+                        event.type,
+                    )
+                ) {
+                    const proceed =
+                        ['pointercancel', 'contextmenu'].includes(event.type) &&
+                        (isSafari() || isWebView());
+
+                    if (!proceed) {
+                        return;
+                    }
+                }
+
+                Object.assign(data, {
+                    pointerId: null,
+                    touchId: null,
+                });
+
+                lastListeners.current.onStopSwipe?.(coords);
+            };
+
+            node.addEventListener('touchstart', swipeStart, { passive: false });
+            node.addEventListener('pointerdown', swipeStart, { passive: false });
+            document.addEventListener('touchmove', swipe, { passive: false }); // TODO capture
+            document.addEventListener('pointermove', swipe, { passive: false }); // TODO capture
+            document.addEventListener('touchend', swipeStop, { passive: true });
+            document.addEventListener('pointerup', swipeStop, { passive: true });
+            document.addEventListener('pointercancel', swipeStop, { passive: true });
+            document.addEventListener('touchcancel', swipeStop, { passive: true });
+            document.addEventListener('pointerout', swipeStop, { passive: true });
+            document.addEventListener('pointerleave', swipeStop, { passive: true });
+            document.addEventListener('contextmenu', swipeStop, { passive: true });
+
+            return () => {
+                node.removeEventListener('touchstart', swipeStart);
+                node.removeEventListener('pointerdown', swipeStart);
+                document.removeEventListener('touchmove', swipe); // TODO capture
+                document.removeEventListener('pointermove', swipe); // TODO capture
+                document.removeEventListener('touchend', swipeStop);
+                document.removeEventListener('pointerup', swipeStop);
+                document.removeEventListener('pointercancel', swipeStop);
+                document.removeEventListener('touchcancel', swipeStop);
+                document.removeEventListener('pointerout', swipeStop);
+                document.removeEventListener('pointerleave', swipeStop);
+                document.removeEventListener('contextmenu', swipeStop);
+            };
+        }
+
+        return noop;
+    }, [direction, node, threshold, touchAngle, xEdgeThreshold, yEdgeThreshold]);
+
+    const getStyle = (): React.CSSProperties => ({
+        touchAction: { x: 'pan-y', y: 'pan-x' }[direction],
+    });
+
+    return [ref, getStyle];
+}
