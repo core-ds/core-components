@@ -71,7 +71,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="content content noFooter"
+                      class="content content"
                     >
                       <div>
                         Bottom sheet content

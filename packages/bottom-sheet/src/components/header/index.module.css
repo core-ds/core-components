@@ -9,12 +9,12 @@
 
 .headerWrapper {
     composes: headerBase;
-    padding: var(--gap-12) var(--gap-8) var(--gap-4);
+    padding: var(--gap-20) var(--gap-12) var(--gap-4);
 }
 
 .headerWrapperWithoutSwipeMarker {
     composes: headerBase;
-    padding: var(--gap-8) var(--gap-8) var(--gap-4);
+    padding: var(--gap-20) var(--gap-12) var(--gap-4);
 }
 
 .header {
