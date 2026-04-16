@@ -17,6 +17,10 @@ export type GalleryImage = {
     canDownload?: boolean;
     canShare?: boolean;
     /**
+     * дата создания
+     */
+    createdAt?: string;
+    /**
      * Нижняя кнопка, есть только у видео
      */
     bottomButton?: TBottomButton;
