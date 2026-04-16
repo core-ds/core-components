@@ -12,12 +12,12 @@ export interface Coords {
     previousY: number | null;
 }
 
-export type SwipeCallback = (touches: Coords) => void;
+export type CoordsCallback = (coords: Coords) => void;
 
 interface Listeners {
-    onStartSwipe?: (touches: Coords) => void;
-    onSwiping?: (touches: Coords) => void;
-    onStopSwipe?: (touches: Coords) => void;
+    onStartSwipe?: (coords: Coords) => void;
+    onSwiping?: (coords: Coords) => void;
+    onStopSwipe?: (coords: Coords) => void;
 }
 
 interface XY {
@@ -297,4 +297,92 @@ export function useSwipe<T extends Element>(
     });
 
     return [ref, getStyle];
+}
+
+export function useMouseWheel<T extends Element>(listeners: Listeners): [ref: React.Ref<T>] {
+    const [ref, node] = useRefAsState<T>(null);
+    const lastListeners = useRef(listeners);
+
+    useEffect(() => {
+        lastListeners.current = listeners;
+    }, [listeners]);
+
+    useEffect(() => {
+        if (node) {
+            let touchTimeout: number | undefined;
+            let wheelActive: boolean | undefined;
+
+            const coords: Coords = {
+                startX: null,
+                startY: null,
+                currentX: null,
+                currentY: null,
+                previousX: null,
+                previousY: null,
+            };
+
+            const onWheel = (e: WheelEvent) => {
+                const { deltaX, deltaY } = e;
+
+                if (Math.sqrt(deltaX ** 2 + deltaY ** 2) < 5) {
+                    return;
+                }
+
+                if (deltaX * deltaX + deltaY * deltaY >= 25) {
+                    Object.assign(coords, {
+                        previousX: coords.currentX,
+                        previousY: coords.currentY,
+                    });
+
+                    coords.currentX! -= deltaX;
+                    coords.currentY! -= deltaY;
+
+                    lastListeners.current.onSwiping?.(coords);
+                }
+            };
+
+            const wheelStart = (e: WheelEvent) => {
+                Object.assign(coords, {
+                    startX: e.pageX,
+                    startY: e.pageY,
+                    currentX: e.pageX,
+                    currentY: e.pageY,
+                    previousX: null,
+                    previousY: null,
+                });
+
+                lastListeners.current.onStartSwipe?.(coords);
+            };
+
+            const wheelEnd = () => {
+                wheelActive = false;
+                lastListeners.current.onStopSwipe?.(coords);
+            };
+
+            const listener = (e: Event) => {
+                const event = e as WheelEvent;
+
+                event.preventDefault();
+                if (!wheelActive) {
+                    wheelStart(event);
+                    wheelActive = true;
+                }
+                onWheel(event);
+                clearTimeout(touchTimeout);
+                touchTimeout = window.setTimeout(() => {
+                    wheelEnd();
+                }, 50);
+            };
+
+            node.addEventListener('wheel', listener, { passive: false });
+
+            return () => {
+                node.removeEventListener('wheel', listener);
+            };
+        }
+
+        return noop;
+    }, [node]);
+
+    return [ref];
 }

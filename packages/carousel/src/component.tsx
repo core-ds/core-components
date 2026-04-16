@@ -1,11 +1,12 @@
-import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import React, { type ReactNode, useMemo, useRef, useState } from 'react';
+import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { noop, NoopComponent } from '@alfalab/core-components-shared';
+import { NoopComponent } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { AnimatedWrapper } from './components/animated-wrapper';
-import { type SwipeCallback, useSwipe } from './hook';
+import { type CoordsCallback, useMouseWheel, useSwipe } from './hook';
 import { type CarouselProps, type PageIndicatorProps } from './types';
 import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
 
@@ -26,6 +27,7 @@ export function Carousel<T extends PageIndicatorProps>({
     Wrapper = AnimatedWrapper,
     Item = 'div',
     overflow = 'hidden',
+    mouseWheel,
 }: CarouselProps<T>): ReactNode {
     const visibleItems =
         visibleItemsFromProps === 'auto' ? 'auto' : clamp(visibleItemsFromProps, 1, items.length);
@@ -63,18 +65,28 @@ export function Carousel<T extends PageIndicatorProps>({
         return result;
     }, [containerSize, gap, sizes]);
 
-    const handleSwipeStart: SwipeCallback = () => {
+    const handleSwipeStart: CoordsCallback = () => {
         setSwiping(true);
     };
 
-    const handleSwiping: SwipeCallback = ({ currentX, previousX }) => {
+    const handleMouseWheel: CoordsCallback = ({ currentX, currentY, previousX, previousY }) => {
+        const deltaX = currentX! - previousX!;
+        const deltaY = currentY! - previousY!;
+        const delta = Math.abs(deltaX) > Math.abs(deltaY) ? deltaX : deltaY;
+        const [min] = snaps;
+        const max = snaps[snaps.length - 1];
+
+        setTranslate((prevTranslate) => clamp(prevTranslate - delta, min, max));
+    };
+
+    const handleSwiping: CoordsCallback = ({ currentX, previousX }) => {
         const resistanceRatio = 0.85;
         const delta = (currentX! - previousX!) * resistanceRatio;
 
         setTranslate((prevTranslate) => prevTranslate - delta);
     };
 
-    const handleSwipeStop: SwipeCallback = () => {
+    const handleSwipeStop: CoordsCallback = () => {
         setSwiping(false);
 
         const nextActiveIndex = findActiveIndex(translate, snaps, sizes);
@@ -165,10 +177,16 @@ export function Carousel<T extends PageIndicatorProps>({
         onStopSwipe: handleSwipeStop,
     });
 
+    const [mouseWheelRef] = useMouseWheel<HTMLDivElement>({
+        onStartSwipe: handleSwipeStart,
+        onSwiping: handleMouseWheel,
+        onStopSwipe: handleSwipeStop,
+    });
+
     return (
         <div className={styles.component}>
             <div
-                ref={ref}
+                ref={mergeRefs([ref, mouseWheel ? mouseWheelRef : null])}
                 className={cn(styles.container)}
                 style={{ ...getStyle(), height, minHeight, overflow }}
             >
@@ -202,62 +220,4 @@ export function Carousel<T extends PageIndicatorProps>({
             />
         </div>
     );
-}
-
-// TODO mouse wheel
-export function useMouseWheel<T extends HTMLElement = HTMLElement>(
-    timeout: number = 500,
-): [getDirection: (event: React.WheelEvent<T>) => number, ref: React.Ref<T>] {
-    const ref = useRef<T>(null);
-    const delta = useRef(0);
-
-    useEffect(() => {
-        const node = ref.current;
-
-        if (node) {
-            const listener = (event: WheelEvent) => {
-                event.preventDefault();
-            };
-
-            node.addEventListener('wheel', listener, { capture: true, passive: false });
-
-            return () => {
-                node.removeEventListener('wheel', listener, { capture: true });
-            };
-        }
-
-        return noop;
-    }, []);
-    /*
-     * -1 => backward
-     * 0 => nothing
-     * 1 => forward
-     */
-    const direction = useRef(0);
-    const timer = useRef<number>();
-
-    const getDirection = ({ deltaX, deltaY }: React.WheelEvent<Element>): number => {
-        const lastDelta = delta.current;
-        const lastDirection = direction.current;
-        const nextDelta = Math.max(Math.abs(deltaX), Math.abs(deltaY));
-        const nextDirection = Math.sign(Math.abs(deltaX) > Math.abs(deltaY) ? deltaX : deltaY);
-
-        delta.current = nextDelta;
-        direction.current = nextDirection;
-
-        if (lastDirection === nextDirection || lastDelta > nextDelta || deltaX === deltaY) {
-            return 0;
-        }
-
-        clearTimeout(timer.current);
-
-        timer.current = window.setTimeout(() => {
-            direction.current = 0;
-            delta.current = 0;
-        }, timeout);
-
-        return nextDirection;
-    };
-
-    return [getDirection, ref];
 }

@@ -27,6 +27,7 @@ export interface CarouselProps<T extends PageIndicatorProps = PageIndicatorProps
     colors?: 'default' | 'inverted';
     loop?: boolean;
     overflow?: 'hidden' | 'visible';
+    mouseWheel?: boolean;
 
     PageIndicator?: ComponentType<T>;
     pageIndicatorProps?: T;
