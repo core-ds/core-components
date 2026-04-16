@@ -1,3 +1,5 @@
+@import '../../vars.css';
+
 .column {
     & > *:not(:last-child):not(:only-child) {
         margin-bottom: var(--modal-footer-mobile-default-gap);
