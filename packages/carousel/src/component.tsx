@@ -1,4 +1,4 @@
-import React, { type ReactNode, useMemo, useRef, useState } from 'react';
+import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -43,20 +43,17 @@ export function Carousel<T extends PageIndicatorProps>({
     const snaps = useMemo<number[]>(() => {
         const DEFAULT_TRANSLATE = 0;
         const result = [DEFAULT_TRANSLATE];
-        const [MIN_TRANSLATE] = result;
-        const MAX_TRANSLATE = Math.max(
-            sizes.reduce(sum, 0) + gap * (sizes.length - 1) - containerSize,
-            MIN_TRANSLATE,
-        );
+        const [min] = result;
+        const max = Math.max(sizes.reduce(sum, 0) + gap * (sizes.length - 1) - containerSize, min);
 
-        if (MAX_TRANSLATE !== MIN_TRANSLATE) {
+        if (max !== min) {
             for (let index = 0; index < sizes.length; index++) {
                 const size = sizes[index];
-                const nextSnap = Math.min(result[index] + size + gap, MAX_TRANSLATE);
+                const nextSnap = Math.min(result[index] + size + gap, max);
 
                 result.push(nextSnap);
 
-                if (nextSnap >= MAX_TRANSLATE) {
+                if (nextSnap >= max) {
                     break;
                 }
             }
@@ -91,9 +88,7 @@ export function Carousel<T extends PageIndicatorProps>({
 
         const nextActiveIndex = findActiveIndex(translate, snaps, sizes);
 
-        if (nextActiveIndex === activeIndex) {
-            setTranslate(snaps[activeIndex]);
-        } else {
+        if (nextActiveIndex !== activeIndex) {
             onActiveIndexChange?.(nextActiveIndex);
 
             if (uncontrolled) {
@@ -154,7 +149,7 @@ export function Carousel<T extends PageIndicatorProps>({
         return () => ro.disconnect();
     }, [gap, visibleItems]);
 
-    useLayoutEffect_SAFE_FOR_SSR(
+    useEffect(
         () =>
             setActiveIndex((prevActiveIndex) =>
                 clamp(activeIndexFromProps ?? prevActiveIndex, 0, snaps.length - 1),

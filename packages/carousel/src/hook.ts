@@ -309,7 +309,7 @@ export function useMouseWheel<T extends Element>(listeners: Listeners): [ref: Re
 
     useEffect(() => {
         if (node) {
-            let touchTimeout: number | undefined;
+            let timer: number | undefined;
             let wheelActive: boolean | undefined;
 
             const coords: Coords = {
@@ -368,8 +368,8 @@ export function useMouseWheel<T extends Element>(listeners: Listeners): [ref: Re
                     wheelActive = true;
                 }
                 onWheel(event);
-                clearTimeout(touchTimeout);
-                touchTimeout = window.setTimeout(() => {
+                clearTimeout(timer);
+                timer = window.setTimeout(() => {
                     wheelEnd();
                 }, 50);
             };
