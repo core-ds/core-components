@@ -28,6 +28,7 @@ export interface CarouselProps<T extends PageIndicatorProps = PageIndicatorProps
     loop?: boolean;
     overflow?: 'hidden' | 'visible';
     mouseWheel?: boolean;
+    navigation?: 'hover' | boolean;
 
     PageIndicator?: ComponentType<T>;
     pageIndicatorProps?: T;

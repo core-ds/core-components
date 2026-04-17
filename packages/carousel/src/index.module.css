@@ -31,7 +31,40 @@
     display: flex;
     flex-direction: column;
 
+    &.navigationHover {
+        .navButton {
+            opacity: 0;
+        }
+
+        @mixin hover {
+            .navButton {
+                opacity: 1;
+            }
+        }
+    }
+
     .pagination {
         margin: var(--gap-8) auto;
+    }
+}
+
+.frame {
+    position: relative;
+}
+
+.navButton {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    &.prev {
+        left: 0;
+        transform: translate(-50%, 0);
+    }
+
+    &.next {
+        right: 0;
+        transform: translate(50%, 0);
     }
 }

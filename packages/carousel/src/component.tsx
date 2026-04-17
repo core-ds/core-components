@@ -1,11 +1,14 @@
-import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import React, { Fragment, type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { NoopComponent } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
+import { ArrowRightMIcon } from '@alfalab/icons-glyph/ArrowRightMIcon';
 
 import { AnimatedWrapper } from './components/animated-wrapper';
+import { NavigationButton } from './components/navigation-button';
 import { type CoordsCallback, useMouseWheel, useSwipe } from './hook';
 import { type CarouselProps, type PageIndicatorProps } from './types';
 import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
@@ -28,6 +31,8 @@ export function Carousel<T extends PageIndicatorProps>({
     Item = 'div',
     overflow = 'hidden',
     mouseWheel,
+    navigation,
+    loop,
 }: CarouselProps<T>): ReactNode {
     const visibleItems =
         visibleItemsFromProps === 'auto' ? 'auto' : clamp(visibleItemsFromProps, 1, items.length);
@@ -62,6 +67,16 @@ export function Carousel<T extends PageIndicatorProps>({
         return result;
     }, [containerSize, gap, sizes]);
 
+    const handleActiveIndexChange = (nextActiveIndex: number) => {
+        if (nextActiveIndex !== activeIndex) {
+            onActiveIndexChange?.(nextActiveIndex);
+
+            if (uncontrolled) {
+                setActiveIndex(nextActiveIndex);
+            }
+        }
+    };
+
     const handleSwipeStart: CoordsCallback = () => {
         setSwiping(true);
     };
@@ -88,13 +103,7 @@ export function Carousel<T extends PageIndicatorProps>({
 
         const nextActiveIndex = findActiveIndex(translate, snaps, sizes);
 
-        if (nextActiveIndex !== activeIndex) {
-            onActiveIndexChange?.(nextActiveIndex);
-
-            if (uncontrolled) {
-                setActiveIndex(nextActiveIndex);
-            }
-        }
+        handleActiveIndexChange(nextActiveIndex);
     };
 
     useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -179,33 +188,63 @@ export function Carousel<T extends PageIndicatorProps>({
     });
 
     return (
-        <div className={styles.component}>
-            <div
-                ref={mergeRefs([ref, mouseWheel ? mouseWheelRef : null])}
-                className={cn(styles.container)}
-                style={{ ...getStyle(), height, minHeight, overflow }}
-            >
-                <Wrapper
-                    ref={wrapperRef}
-                    style={{ transform: `translate(${-translate}px, 0px)` }}
-                    className={cn(styles.wrapper, { [styles.swiping]: swiping })}
+        <div className={cn(styles.component, { [styles.navigationHover]: navigation === 'hover' })}>
+            <div className={styles.frame}>
+                <div
+                    ref={mergeRefs([ref, mouseWheel ? mouseWheelRef : null])}
+                    className={cn(styles.container)}
+                    style={{ ...getStyle(), height, minHeight, overflow }}
                 >
-                    {items.map((item, index) => {
-                        const width = visibleItems === 'auto' ? item.width : sizes[index];
-                        const itemHeight = height === 'auto' ? item.height : undefined;
+                    <Wrapper
+                        ref={wrapperRef}
+                        style={{ transform: `translate(${-translate}px, 0px)` }}
+                        className={cn(styles.wrapper, { [styles.swiping]: swiping })}
+                    >
+                        {items.map((item, index) => {
+                            const width = visibleItems === 'auto' ? item.width : sizes[index];
+                            const itemHeight = height === 'auto' ? item.height : undefined;
 
-                        return (
-                            <Item
-                                key={item.key}
-                                data-index={index}
-                                className={cn(styles.item, item.className)}
-                                style={{ marginRight: gap, width, height: itemHeight }}
-                            >
-                                {item.children}
-                            </Item>
-                        );
-                    })}
-                </Wrapper>
+                            return (
+                                <Item
+                                    key={item.key}
+                                    data-index={index}
+                                    className={cn(styles.item, item.className)}
+                                    style={{ marginRight: gap, width, height: itemHeight }}
+                                >
+                                    {item.children}
+                                </Item>
+                            );
+                        })}
+                    </Wrapper>
+                </div>
+                {navigation && (
+                    <Fragment>
+                        <NavigationButton
+                            colors={colors}
+                            className={cn(styles.navButton, styles.prev)}
+                            icon={ArrowLeftMIcon}
+                            disabled={!loop && activeIndex === 0}
+                            onClick={() => {
+                                const nextActiveIndex =
+                                    (loop && activeIndex === 0 ? total : activeIndex) - 1;
+
+                                handleActiveIndexChange(nextActiveIndex);
+                            }}
+                        />
+                        <NavigationButton
+                            colors={colors}
+                            className={cn(styles.navButton, styles.next)}
+                            icon={ArrowRightMIcon}
+                            disabled={!loop && activeIndex === total - 1}
+                            onClick={() => {
+                                const nextActiveIndex =
+                                    (loop && activeIndex === total - 1 ? 0 : activeIndex) + 1;
+
+                                handleActiveIndexChange(nextActiveIndex);
+                            }}
+                        />
+                    </Fragment>
+                )}
             </div>
             <PageIndicator
                 {...pageIndicatorProps}
