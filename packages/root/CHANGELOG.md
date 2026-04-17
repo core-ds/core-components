@@ -1,5 +1,85 @@
 # @alfalab/core-components
 
+## 50.11.0
+
+### Minor Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2159](https://github.com/core-ds/core-components/pull/2159)
+
+##### UniversalModal
+
+- Добавлена механика доступа к странице при открытом модальном окне и скрытом оверлее (страницу можно скроллить и взаимодействовать с элементами)
+- При скрытом оверлее по прежнему можно управлять блокировкой фокуса на компоненте или делать его доступным для всего контента (`disableFocusLock`)
+- Скролл при скрытом оверлее всегда в разблокированном состоянии. Если ваш кейс требует блокировку скролла при скрытом оверлее - сообщите команде поддержки
+- Пропсы для backdrop не будут работать при скрытом оверлее, так как для этого кейса backdrop не рендерится на странице
+- Улучшена логика скролла внутри компонента, когда событе скролла происходит по оверлею
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2176](https://github.com/core-ds/core-components/pull/2176)
+
+##### Markdown
+
+- Исправлен вид ссылок. Теперь они синего цвета, без подчёркивания
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2172](https://github.com/core-ds/core-components/pull/2172)
+
+##### Steps
+
+- Исправлено свойство `fullWidth`, которое было сломано в версии `48.19.0`
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2159](https://github.com/core-ds/core-components/pull/2159)
+
+##### BaseModal
+
+- Исправлен проброс пропсов для backdrop
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2089](https://github.com/core-ds/core-components/pull/2089)
+
+##### Themes
+
+- Темизация click удалена из navigation-bar и теперь соответствует default
+
+- Обновлены зависимости
+    - @alfalab/core-components-markdown@3.0.8
+    - @alfalab/core-components-steps@3.0.5
+    - @alfalab/core-components-universal-modal@3.1.0
+    - @alfalab/core-components-base-modal@7.1.3
+    - @alfalab/core-components-themes@15.0.3
+    - @alfalab/core-components-bottom-sheet@8.1.4
+    - @alfalab/core-components-drawer@7.0.5
+    - @alfalab/core-components-gallery@7.1.4
+    - @alfalab/core-components-modal@11.0.7
+    - @alfalab/core-components-popup-sheet@3.0.7
+    - @alfalab/core-components-select@19.1.4
+    - @alfalab/core-components-side-panel@7.0.7
+    - @alfalab/core-components-select-with-tags@10.1.4
+    - @alfalab/core-components-tooltip@9.0.9
+    - @alfalab/core-components-calendar@9.1.3
+    - @alfalab/core-components-custom-picker-button@4.1.4
+    - @alfalab/core-components-input-autocomplete@14.0.11
+    - @alfalab/core-components-international-phone-input@4.0.11
+    - @alfalab/core-components-intl-phone-input@11.0.11
+    - @alfalab/core-components-picker-button@13.0.11
+    - @alfalab/core-components-table@4.0.11
+    - @alfalab/core-components-calendar-input@12.0.8
+    - @alfalab/core-components-calendar-range@9.0.8
+    - @alfalab/core-components-calendar-with-skeleton@7.0.7
+    - @alfalab/core-components-date-range-input@5.0.8
+    - @alfalab/core-components-date-time-input@6.0.8
+    - @alfalab/core-components-universal-date-input@4.0.8
+    - @alfalab/core-components-tabs@10.0.11
+
 ## 50.10.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @alfalab/core-components-base-modal
 
+## 7.1.3
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2159](https://github.com/core-ds/core-components/pull/2159)
+
+##### BaseModal
+
+- Исправлен проброс пропсов для backdrop
+
 ## 7.1.2
 
 ### Patch Changes

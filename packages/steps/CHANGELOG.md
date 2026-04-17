@@ -1,5 +1,17 @@
 # @alfalab/core-components-steps
 
+## 3.0.5
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2172](https://github.com/core-ds/core-components/pull/2172)
+
+##### Steps
+
+- Исправлено свойство `fullWidth`, которое было сломано в версии `48.19.0`
+
 ## 3.0.4
 
 ### Patch Changes

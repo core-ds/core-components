@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-steps",
-    "version": "3.0.4",
+    "version": "3.0.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.2",
+    "themesVersion": "15.0.3",
     "varsVersion": "11.0.2"
 }

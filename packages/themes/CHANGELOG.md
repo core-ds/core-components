@@ -1,5 +1,17 @@
 # @alfalab/core-components-themes
 
+## 15.0.3
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2089](https://github.com/core-ds/core-components/pull/2089)
+
+##### Themes
+
+- Темизация click удалена из navigation-bar и теперь соответствует default
+
 ## 15.0.2
 
 ### Patch Changes
