@@ -40,6 +40,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     backgroundColor,
 }) => {
     const [actionsPresent, setActionsPresent] = useState(false);
+    const [isBrokenImage, setIsBrokenImage] = useState(false);
 
     return (
         <div
@@ -77,6 +78,8 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                     customContent,
                     truncate,
                     imageUrl,
+                    isBrokenImage,
+                    setIsBrokenImage,
                     backgroundColor,
                     actionsPresent,
                     setActionsPresent,

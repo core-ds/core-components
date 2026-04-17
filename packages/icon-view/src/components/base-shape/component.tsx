@@ -1,8 +1,16 @@
-import React, { type ElementType, forwardRef, Fragment, type ReactNode } from 'react';
+import React, {
+    type ElementType,
+    forwardRef,
+    Fragment,
+    type ReactNode,
+    useEffect,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
 import { useId, useImageLoadingState } from '@alfalab/hooks';
 
+import { checkImageIsBroken } from './check-image-is-broken';
 import { getPath, getPathName, type PathsMap } from './utils';
 
 import styles from './index.module.css';
@@ -46,6 +54,12 @@ export type BaseShapeProps = {
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
      */
     imageUrl?: string;
+
+    /**
+     * Колбек изменения статуса изображения.
+     * Возвращает true, если изображение не удалось загрузить/декодировать.
+     */
+    onImageBrokenChange?: (isBrokenImage: boolean) => void;
 
     /**
      * Режим масштабирования изображения
@@ -118,6 +132,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             border = false,
             backgroundColor,
             imageUrl,
+            onImageBrokenChange,
             scale = 'fill',
             backgroundIcon: Icon,
             className,
@@ -136,6 +151,32 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
     ) => {
         const [width, height] = typeof size === 'object' ? [size.width, size.height] : [size, size];
         const imageLoadingState = useImageLoadingState({ src: imageUrl || '' });
+        const [isBrokenImage, setIsBrokenImage] = useState(false);
+
+        useEffect(() => {
+            let isUnmounted = false;
+
+            setIsBrokenImage(false);
+            onImageBrokenChange?.(false);
+
+            if (!imageUrl) {
+                return;
+            }
+
+            checkImageIsBroken({
+                imageUrl,
+                onResolve: (isBroken) => {
+                    if (!isUnmounted) {
+                        setIsBrokenImage(isBroken);
+                        onImageBrokenChange?.(isBroken);
+                    }
+                },
+            });
+
+            return () => {
+                isUnmounted = true;
+            };
+        }, [imageUrl, onImageBrokenChange]);
 
         const clipPathId = useId();
 
@@ -188,7 +229,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                             d={shapeDPath}
                         />
 
-                        {imageUrl && imageLoadingState !== 'error' && (
+                        {imageUrl && imageLoadingState !== 'error' && !isBrokenImage && (
                             <Fragment>
                                 <defs>
                                     <clipPath id={clipPathId}>

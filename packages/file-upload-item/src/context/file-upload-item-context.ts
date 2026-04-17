@@ -34,6 +34,8 @@ type TFileUploadItemContext = {
     customContent?: ElementType;
     truncate?: boolean;
     imageUrl?: string;
+    isBrokenImage?: boolean;
+    setIsBrokenImage?: (isBroken: boolean) => void;
     backgroundColor?: SuperEllipseProps['backgroundColor'];
     actionsPresent?: boolean;
     setActionsPresent?: (present: boolean) => void;
@@ -64,6 +66,8 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     customContent: undefined,
     truncate: false,
     imageUrl: undefined,
+    isBrokenImage: false,
+    setIsBrokenImage: undefined,
     backgroundColor: undefined,
     actionsPresent: false,
     setActionsPresent: undefined,

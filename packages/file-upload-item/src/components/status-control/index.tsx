@@ -17,6 +17,7 @@ export const StatusControl = () => {
         progressBar = 0,
         progressBarAvailable = true,
         imageUrl,
+        setIsBrokenImage,
         backgroundColor,
         actionsPresent,
         isClickable,
@@ -27,7 +28,6 @@ export const StatusControl = () => {
     const strokeDashoffset = Math.max(measureDashoffset, 0);
 
     const hasFullStatus = isSuccessStatus(uploadStatus) || isErrorStatus(uploadStatus);
-
     return (
         <div
             className={cn(styles.container, {
@@ -37,6 +37,7 @@ export const StatusControl = () => {
             <SuperEllipse
                 backgroundColor={backgroundColor}
                 size={48}
+                onImageBrokenChange={setIsBrokenImage}
                 {...(imageUrl && { imageUrl })}
             >
                 <ExtensionIcon />

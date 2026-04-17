@@ -5,6 +5,7 @@ import { Document1CMIcon } from '@alfalab/icons-glyph/Document1CMIcon';
 import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
 import { DocumentExcelMIcon } from '@alfalab/icons-glyph/DocumentExcelMIcon';
 import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
+import { DocumentImageOffMIcon } from '@alfalab/icons-glyph/DocumentImageOffMIcon';
 import { DocumentMIcon } from '@alfalab/icons-glyph/DocumentMIcon';
 import { DocumentOffMIcon } from '@alfalab/icons-glyph/DocumentOffMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
@@ -22,11 +23,16 @@ export const ExtensionIcon = () => {
         iconStyle,
         customIcon: CustomIcon,
         imageUrl,
+        isBrokenImage,
         showRestore,
     } = useContext(FileUploadItemContext);
 
-    if (imageUrl) {
+    if (imageUrl && !isBrokenImage) {
         return null;
+    }
+
+    if (imageUrl && isBrokenImage && !CustomIcon) {
+        return <DocumentImageOffMIcon />;
     }
 
     if (CustomIcon) {
