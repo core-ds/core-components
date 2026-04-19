@@ -5,7 +5,7 @@ import {
     type ButtonPropsFactory,
 } from './components/base-button-candidate';
 
-interface StylesMap {
+export interface StylesMap {
     [key: string]: string;
 }
 
@@ -20,9 +20,8 @@ export interface ButtonLayoutOwnProps
     extends OmitStrict<BaseButtonOwnProps, 'disabledClassName' | 'Content'> {
     /**
      * Лэйаут кнопки
-     * @default button
      */
-    layout?: 'button' | 'text';
+    layout: 'button' | 'text';
 
     /**
      * Форма кнопки

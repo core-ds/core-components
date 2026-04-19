@@ -1,4 +1,4 @@
-import React, { type AnchorHTMLAttributes, forwardRef } from 'react';
+import React, { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -8,7 +8,7 @@ import { type ButtonComponentProps } from '../base-button-candidate';
 
 import styles from './index.module.css';
 
-function isAnchorProps(props: ButtonComponentProps): props is AnchorHTMLAttributes<HTMLElement> {
+function isAnchorProps(props: ButtonComponentProps): props is ComponentPropsWithoutRef<'a'> {
     return hasOwnProperty(props, 'href') && Boolean(props.href);
 }
 
