@@ -1,10 +1,10 @@
 import {
     type AnchorHTMLAttributes,
     type ButtonHTMLAttributes,
+    type ComponentPropsWithoutRef,
     type ComponentType,
-    type ForwardRefExoticComponent,
+    type ElementType,
     type ReactNode,
-    type RefAttributes,
 } from 'react';
 
 export interface DisableAttributes {
@@ -28,8 +28,7 @@ export interface BaseButtonContentProps {
     children?: ReactNode;
 }
 
-export type ButtonComponentProps = DisableAttributes &
-    (AnchorHTMLAttributes<HTMLElement> | ButtonHTMLAttributes<HTMLElement>);
+export type ButtonComponentProps = DisableAttributes & ComponentPropsWithoutRef<'a' | 'button'>;
 
 export interface BaseButtonOwnProps extends DisableAttributes {
     /**
@@ -68,17 +67,7 @@ export interface BaseButtonOwnProps extends DisableAttributes {
     /**
      * Кастомный компонент для кнопки
      */
-    Component?:
-        | ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
-        | ComponentType<ButtonHTMLAttributes<HTMLButtonElement>>
-        | ComponentType<ButtonComponentProps>
-        | ForwardRefExoticComponent<
-              AnchorHTMLAttributes<HTMLAnchorElement> & RefAttributes<HTMLAnchorElement>
-          >
-        | ForwardRefExoticComponent<
-              ButtonHTMLAttributes<HTMLButtonElement> & RefAttributes<HTMLButtonElement>
-          >
-        | ForwardRefExoticComponent<ButtonComponentProps & RefAttributes<HTMLElement>>;
+    Component?: ElementType<ComponentPropsWithoutRef<'a' | 'button'>, 'a' | 'button'>;
 
     Content?: ComponentType<BaseButtonContentProps>;
 }
