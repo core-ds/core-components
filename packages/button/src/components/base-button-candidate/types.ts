@@ -69,6 +69,9 @@ export interface BaseButtonCandidateOwnProps extends DisableAttributes {
      */
     Component?: ElementType<ComponentPropsWithoutRef<'a' | 'button'>, 'a' | 'button'>;
 
+    /**
+     * Кастомный компонент для контента
+     */
     Content?: ComponentType<BaseButtonContentProps>;
 }
 
