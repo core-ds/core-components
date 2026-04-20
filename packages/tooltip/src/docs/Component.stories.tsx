@@ -131,7 +131,6 @@ export const tooltip_responsive: Story = {
                     fallbackPlacements={['bottom', 'top']}
                     actionButtonTitle={text('title', 'Хорошо')}
                     view={select('view', ['tooltip', 'hint'], 'tooltip')}
-                    hasCloser={select('hasCloser', [true, false], false)}
                 >
                     <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
                         Подробнее

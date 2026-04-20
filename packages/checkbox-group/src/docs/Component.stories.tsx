@@ -67,7 +67,7 @@ export const checkbox_group: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={select('Tag.size', ['s', 'm'], 's')}
+                                size={select('Tag.size', [48, 56], 48)}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
                             >
@@ -127,7 +127,7 @@ export const checkbox_group_mobile: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={select('Tag.size', ['s', 'm'], 's')}
+                                size={select('Tag.size', [48, 56], 48)}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
                             >
@@ -187,7 +187,7 @@ export const checkbox_group_desktop: Story = {
                         ) : (
                             <Tag
                                 key={`${index}-tag`}
-                                size={select('Tag.size', ['s', 'm'], 's')}
+                                size={select('Tag.size', [48, 56], 48)}
                                 name={`${order[index][1]}`}
                                 checked={value[order[index][1]]}
                             >

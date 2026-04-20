@@ -31,10 +31,25 @@ export function useSkeleton(showSkeleton?: boolean, skeletonProps?: TextSkeleton
             const fontSize = parseInt(style.fontSize, 10);
             const lineHeight = parseInt(style.lineHeight, 10);
 
-            const padding =
+            let padding =
                 (lineHeight - fontSize) % 2 === 0
                     ? (lineHeight - fontSize) / 2
                     : (lineHeight - fontSize - 1) / 2;
+
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+
+            /**
+             * Расчет отступов с учётом размера глифа от базовой линии до верхней границы
+             * Это позволяет отображать более приближённый размер скелетона к начертанию текста
+             * @see DS-12535
+             */
+            if (context && textRef.current.textContent) {
+                context.font = style.font;
+                const metrics = context.measureText(textRef.current.textContent);
+
+                padding = (lineHeight - metrics.actualBoundingBoxAscent) / 2;
+            }
 
             const rows = skeletonProps?.rows
                 ? skeletonProps?.rows

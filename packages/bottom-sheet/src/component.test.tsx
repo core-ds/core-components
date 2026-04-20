@@ -6,6 +6,19 @@ import { BottomSheet, BottomSheetProps, CLOSE_OFFSET, HEADER_OFFSET } from '.';
 import { convertPercentToNumber } from './utils';
 import { getBottomSheetTestIds } from './utils';
 
+jest.mock('react-remove-scroll', () => {
+    const React = require('react');
+    const RemoveScroll = ({ children }: { children?: any }) =>
+        React.createElement('div', null, children);
+
+    RemoveScroll.classNames = {
+        fullWidth: 'RemoveScroll-fullWidth',
+        zeroRight: 'RemoveScroll-zeroRight',
+    };
+
+    return { __esModule: true, RemoveScroll };
+});
+
 jest.useFakeTimers();
 
 const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>((props, ref) => {
@@ -202,6 +215,14 @@ describe('Bottom sheet', () => {
             const className = 'class-name-3';
 
             render(<BottomSheetWrapper headerClassName={className} />);
+
+            expect(document.body.querySelector(`.${className}`)).toBeInTheDocument();
+        });
+
+        it('should set headerContentClassName', () => {
+            const className = 'class-name-4';
+
+            render(<BottomSheetWrapper headerContentClassName={className} />);
 
             expect(document.body.querySelector(`.${className}`)).toBeInTheDocument();
         });

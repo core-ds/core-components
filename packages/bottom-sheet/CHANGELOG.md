@@ -1,13 +1,435 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@2.0.6
+
+## 8.1.2
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@2.0.5
+    - @alfalab/core-components-base-modal@7.1.2
+    - @alfalab/core-components-backdrop@5.0.2
+    - @alfalab/core-components-shared@2.1.1
+
+## 8.1.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@2.0.4
+
+## 8.1.0
+
+### Minor Changes
+
+<sup><time>20.02.2026</time></sup>
+
+#### [#2073](https://github.com/core-ds/core-components/pull/2073)
+
+##### BottomSheet
+
+- Добавлен нижний отступ в `16px`, когда не задан футер (проп `actionButton` не указан или задан как `actionButton={undefined}`)
+- Чтобы убрать появившийся отступ необходимо задать `actionButton={null}`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+    - @alfalab/core-components-base-modal@7.1.1
+    - @alfalab/core-components-navigation-bar-private@2.0.3
+
+## 8.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@7.1.0
+    - @alfalab/core-components-navigation-bar-private@2.0.2
+
+## 8.0.3
+
+### Patch Changes
+
+<sup><time>13.02.2026</time></sup>
+
+#### [#2058](https://github.com/core-ds/core-components/pull/2058)
+
+##### BottomSheet
+
+- Исправлен визуальный скачок шторки при динамической смене `magneticAreasProp` (например, skeleton → content).
+- При изменении пропа временно отключается CSS transition для мгновенного перехода на новую позицию.
+
+## 8.0.2
+
+### Patch Changes
+
+<sup><time>09.02.2026</time></sup>
+
+#### [#2050](https://github.com/core-ds/core-components/pull/2050)
+
+##### BottomSheet
+
+- Учитываем `bottomAddons` как контент хедера и прокидываем в `NavigationBarPrivate`.
+
+## 8.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-backdrop@5.0.1
+    - @alfalab/core-components-base-modal@7.0.1
+    - @alfalab/core-components-navigation-bar-private@2.0.1
+    - @alfalab/core-components-shared@2.0.1
+    - @alfalab/core-components-types@2.0.1
+
+## 8.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1635](https://github.com/core-ds/core-components/pull/1635)
+
+##### BaseModal
+
+- Удалён matches полифил для поддержки работы focusLock в ie 11
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+##### Typography.{Text,Title,TitleMobile}
+
+- Проп `font` помечен как `deprecated`
+- Проп `font`, значения которого включает в себя `"alfasans"`, не имеет эффекта для шрифта `Alfa Interface Sans`, но для него сохраняется обратная совместимость по следующему принципу:
+    - для компонента `Text`:
+        1. для значения `font="alfasans"` соотвествует системный шрифт
+    - для компонентов `Title` и `TitleMobile`:
+        1. для значения `font="alfasans"` соотвествует шрифт `Styrene`
+        2. для значения `font={ font: 'alfasans', systemCompat: boolean }` в зависимости от значения параметра `systemCompat`: `true` - системный шрифт, `false` - шрифт `Styrene`
+- Для использования компонентов `Typography.{Text,Title,TitleMobile}` со шрифтом `Alfa Interface Sans` необходимо установить соответствующий пакет (пакеты)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1853](https://github.com/core-ds/core-components/pull/1853)
+
+##### Typography
+
+- Исправление атомарного экспорта Text => TypographyText
+- Исправление атомарного экспорта Title => TypographyTitle
+- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive
+- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1851](https://github.com/core-ds/core-components/pull/1851)
+
+##### PortalContext
+
+- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#2009](https://github.com/core-ds/core-components/pull/2009)
+
+##### CSS переменные
+
+- Удалены следующие css переменные, отвечающие за настройку шрифта:
+    - `--bottom-sheet-subtitle-font-family`
+    - `--bottom-sheet-subtitle-font-size`
+    - `--bottom-sheet-subtitle-font-weight`
+    - `--bottom-sheet-title-font-family`
+    - `--bottom-sheet-title-font-size`
+    - `--bottom-sheet-title-font-weight`
+    - `--button-font-family`
+    - `--button-font-weight`
+    - `--calendar-month-only-header-font-family`
+    - `--calendar-month-only-header-font-size`
+    - `--calendar-month-only-header-font-weight`
+    - `--circular-progress-bar-font-family`
+    - `--circular-progress-bar-font-weight`
+    - `--code-input-font-family`
+    - `--code-input-font-size`
+    - `--code-input-font-weight`
+    - `--confirmation-header-desktop-font-family`
+    - `--confirmation-header-desktop-font-size`
+    - `--confirmation-header-desktop-font-weight`
+    - `--confirmation-header-font-feature-settings`
+    - `--confirmation-header-mobile-font-family`
+    - `--confirmation-header-mobile-font-size`
+    - `--confirmation-header-mobile-font-weight`
+    - `--confirmation-input-font-family`
+    - `--confirmation-input-font-size`
+    - `--confirmation-input-font-weight`
+    - `--confirmation-text-font-family`
+    - `--confirmation-text-font-size`
+    - `--confirmation-text-font-weight`
+    - `--confirmation-title-font-family`
+    - `--confirmation-title-font-feature-settings`
+    - `--confirmation-title-font-size`
+    - `--confirmation-title-font-weight`
+    - `--form-control-font-family`
+    - `--modal-header-desktop-font-family`
+    - `--modal-header-desktop-font-weight`
+    - `--modal-header-mobile-font-family`
+    - `--modal-header-mobile-font-size`
+    - `--modal-header-mobile-font-weight`
+    - `--modal-l-header-desktop-font-size`
+    - `--modal-s-header-desktop-font-size`
+    - `--primary-tablist-font-feature-settings`
+    - `--primary-tablist-l-font-family`
+    - `--primary-tablist-l-font-size`
+    - `--primary-tablist-l-font-weight`
+    - `--primary-tablist-m-font-family`
+    - `--primary-tablist-m-font-size`
+    - `--primary-tablist-m-font-weight`
+    - `--primary-tablist-mobile-font-family`
+    - `--primary-tablist-mobile-font-size`
+    - `--primary-tablist-mobile-font-weight`
+    - `--primary-tablist-s-font-family`
+    - `--primary-tablist-s-font-size`
+    - `--primary-tablist-s-font-weight`
+    - `--primary-tablist-xl-font-family`
+    - `--primary-tablist-xl-font-size`
+    - `--primary-tablist-xl-font-weight`
+    - `--side-panel-header-desktop-font-family`
+    - `--side-panel-header-desktop-font-weight`
+    - `--side-panel-header-mobile-font-family`
+    - `--side-panel-header-mobile-font-size`
+    - `--side-panel-header-mobile-font-weight`
+    - `--side-panel-s-header-desktop-font-size`
+    - `--slider-input-font-weight`
+    - `--sys-message-desktop-title-font-size`
+    - `--sys-message-desktop-title-font-weight`
+    - `--sys-message-mobile-title-font-size`
+    - `--sys-message-mobile-title-font-weight`
+    - `--sys-message-title-font-family`
+    - `--toast-plate-title-font-weight`
+    - `--universal-modal-header-desktop-font-family`
+    - `--universal-modal-header-desktop-font-weight`
+    - `--universal-modal-header-mobile-font-family`
+    - `--universal-modal-header-mobile-font-size`
+    - `--universal-modal-header-mobile-font-weight`
+
+- Темизации, использовавшие указанные переменные, приведены к дизайну по-умолчанию
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1636](https://github.com/core-ds/core-components/pull/1636)
+
+##### BottomSheet
+
+- Удален пропс `ignoreScreenChange`, который был объявлен как `deprecated` в `core-components@29.x.x`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1575](https://github.com/core-ds/core-components/pull/1575)
+
+##### Typography
+
+- Удален тип пропса `view` - `component`. Используйте `component-primary`
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@2.0.0
+    - @alfalab/core-components-base-modal@7.0.0
+    - @alfalab/core-components-backdrop@5.0.0
+    - @alfalab/core-components-shared@2.0.0
+    - @alfalab/core-components-types@2.0.0
+
+## 7.4.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.6
+
+## 7.4.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.5
+
+## 7.4.1
+
+### Patch Changes
+
+<sup><time>19.01.2026</time></sup>
+
+#### [#2011](https://github.com/core-ds/core-components/pull/2011)
+
+##### BottomSheet
+
+- Исправлена специфичность подзаголовка. Теперь он принимает корректный цвет из default/inverted мода
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.4
+
+## 7.4.0
+
+### Minor Changes
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#2002](https://github.com/core-ds/core-components/pull/2002)
+
+##### BottomSheet
+
+- Добавлен слот `outerAddons` (контент над шторкой), пропы `bottomSheetWrapperClassName` и `outerClassName` для стилизации.
+
+<sup><time>30.12.2025</time></sup>
+
+#### [#1983](https://github.com/core-ds/core-components/pull/1983)
+
+##### BaseModal
+
+- Добавили блокировку фонового скролла через `react-remove-scroll` для `BaseModal` (и компонентов на его базе).
+- Добавили проп `scrollLock?: boolean` для управления блокировкой скролла (по умолчанию выключен).
+- Пропсы `disableBlockingScroll` и `iOSLock` помечены как deprecated (оставлены для обратной совместимости).
+
+##### BottomSheet
+
+- Подключили блокировку фонового скролла (через `BaseModal` / `react-remove-scroll`).
+- Добавили проп `scrollLock?: boolean` (по умолчанию включён), `disableBlockingScroll` и `iOSLock` помечены как deprecated.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-base-modal@6.1.0
+
+## 7.3.1
+
+### Patch Changes
+
+<sup><time>22.12.2025</time></sup>
+
+#### [#1987](https://github.com/core-ds/core-components/pull/1987)
+
+##### NavigationBarPrivate
+
+- Исправлен trim хэдера, когда часть текста продолжала отображаться под обрезаемой строкой
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.3
+
+## 7.3.0
+
+### Minor Changes
+
+<sup><time>08.12.2025</time></sup>
+
+#### [#1968](https://github.com/core-ds/core-components/pull/1968)
+
+##### BottomSheet
+
+- Добавлен пропс `preventScrollOnSwipe`, который передается в библиотеку `react-swipeable`. Позволяет предотвращать прокрутку во время свайпа.
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.2
+
+## 7.2.1
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-base-modal@6.0.2
+    - @alfalab/core-components-navigation-bar-private@1.1.1
+
+## 7.2.0
+
+### Minor Changes
+
+<sup><time>07.11.2025</time></sup>
+
+#### [#1915](https://github.com/core-ds/core-components/pull/1915)
+
+- Добавлен опциональный проп headerContentClassName в BottomSheet для кастомизации хэдера
+
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>05.11.2025</time></sup>
+
+#### [#1923](https://github.com/core-ds/core-components/pull/1923)
+
+- Добавлена инверсия BottomSheet через props `colors`
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.1.0
+
+## 7.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.0.2
+
 ## 7.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-navigation-bar-private@1.0.1
-    -   @alfalab/core-components-shared@1.1.0
-    -   @alfalab/core-components-base-modal@6.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-navigation-bar-private@1.0.1
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-base-modal@6.0.1
 
 ## 7.0.0
 
@@ -25,12 +447,12 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-backdrop@4.0.0
-    -   @alfalab/core-components-base-modal@6.0.0
-    -   @alfalab/core-components-navigation-bar-private@1.0.0
-    -   @alfalab/core-components-shared@1.0.0
-    -   @alfalab/core-components-types@1.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-backdrop@4.0.0
+    - @alfalab/core-components-base-modal@6.0.0
+    - @alfalab/core-components-navigation-bar-private@1.0.0
+    - @alfalab/core-components-shared@1.0.0
+    - @alfalab/core-components-types@1.0.0
 
 ## 6.19.0
 
@@ -40,56 +462,56 @@
 
 ### [#1764](https://github.com/core-ds/core-components/pull/1764)
 
--   Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
--   Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
+- Наличие язычка никак не влияет на возможность закрыть штору свайпом. Для управления видимостью язычка теперь используется проп showSwipeMarker.
+- Видимость язычка влияет на высоту шапки: если язычка нет — высота шапки становится меньше.
 
 ## 6.18.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.18.0
-    -   base-modal@5.9.4
-    -   navigation-bar-private@0.8.7
+- Обновлены зависимости
+    - shared@0.18.0
+    - base-modal@5.9.4
+    - navigation-bar-private@0.8.7
 
 ## 6.18.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.9.3
+- Обновлены зависимости
+    - base-modal@5.9.3
 
 ## 6.18.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
-    -   base-modal@5.9.2
-    -   navigation-bar-private@0.8.6
+- Обновлены зависимости
+    - shared@0.17.1
+    - base-modal@5.9.2
+    - navigation-bar-private@0.8.6
 
 ## 6.18.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.8.5
+- Обновлены зависимости
+    - navigation-bar-private@0.8.5
 
 ## 6.18.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.8.4
+- Обновлены зависимости
+    - navigation-bar-private@0.8.4
 
 ## 6.18.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
-    -   base-modal@5.9.1
-    -   navigation-bar-private@0.8.3
+- Обновлены зависимости
+    - shared@0.17.0
+    - base-modal@5.9.1
+    - navigation-bar-private@0.8.3
 
 ## 6.18.8
 
@@ -99,58 +521,58 @@
 
 ### [#1678](https://github.com/core-ds/core-components/pull/1678)
 
--   Добавлен хук `useVisualViewportSize`. Хук `useVisibleViewportSize` помечен как `@deprecated`
+- Добавлен хук `useVisualViewportSize`. Хук `useVisibleViewportSize` помечен как `@deprecated`
 
 ## 6.18.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.8.2
+- Обновлены зависимости
+    - navigation-bar-private@0.8.2
 
 ## 6.18.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.8.1
+- Обновлены зависимости
+    - navigation-bar-private@0.8.1
 
 ## 6.18.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.8.0
+- Обновлены зависимости
+    - navigation-bar-private@0.8.0
 
 ## 6.18.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.7.0
+- Обновлены зависимости
+    - navigation-bar-private@0.7.0
 
 ## 6.18.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.6.2
+- Обновлены зависимости
+    - navigation-bar-private@0.6.2
 
 ## 6.18.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.6.1
+- Обновлены зависимости
+    - navigation-bar-private@0.6.1
 
 ## 6.18.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.9.0
-    -   shared@0.16.0
-    -   navigation-bar-private@0.6.0
+- Обновлены зависимости
+    - base-modal@5.9.0
+    - shared@0.16.0
+    - navigation-bar-private@0.6.0
 
 ## 6.18.0
 
@@ -160,7 +582,7 @@
 
 ### [#1572](https://github.com/core-ds/core-components/pull/1572)
 
--   Добавлено свойство _adjustContainerHeight_ для возможности подстраивать высоту контейнера bottomSheet извне, например с учётом верхней и/или нижней safe-area
+- Добавлено свойство _adjustContainerHeight_ для возможности подстраивать высоту контейнера bottomSheet извне, например с учётом верхней и/или нижней safe-area
 
 ## 6.17.17
 
@@ -170,19 +592,19 @@
 
 ### [#1570](https://github.com/core-ds/core-components/pull/1570)
 
--   Исправление работы safe-area
+- Исправление работы safe-area
 
--   Обновлены зависимости
-    -   base-modal@5.8.10
+- Обновлены зависимости
+    - base-modal@5.8.10
 
 ## 6.17.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.15.0
-    -   base-modal@5.8.9
-    -   navigation-bar-private@0.5.8
+- Обновлены зависимости
+    - shared@0.15.0
+    - base-modal@5.8.9
+    - navigation-bar-private@0.5.8
 
 ## 6.17.15
 
@@ -192,22 +614,22 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   backdrop@3.4.5
-    -   base-modal@5.8.8
-    -   navigation-bar-private@0.5.7
+- Обновлены зависимости
+    - backdrop@3.4.5
+    - base-modal@5.8.8
+    - navigation-bar-private@0.5.7
 
 ## 6.17.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.5.6
-    -   backdrop@3.4.4
-    -   shared@0.14.1
-    -   base-modal@5.8.7
+- Обновлены зависимости
+    - navigation-bar-private@0.5.6
+    - backdrop@3.4.4
+    - shared@0.14.1
+    - base-modal@5.8.7
 
 ## 6.17.13
 
@@ -217,12 +639,12 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   backdrop@3.4.3
-    -   base-modal@5.8.6
-    -   navigation-bar-private@0.5.5
+- Обновлены зависимости
+    - backdrop@3.4.3
+    - base-modal@5.8.6
+    - navigation-bar-private@0.5.5
 
 ## 6.17.12
 
@@ -232,86 +654,86 @@
 
 ### [#1480](https://github.com/core-ds/core-components/pull/1480)
 
--   Добавлено sideEffects: false
+- Добавлено sideEffects: false
 
--   Обновлены зависимости
-    -   backdrop@3.4.2
-    -   base-modal@5.8.5
-    -   navigation-bar-private@0.5.4
+- Обновлены зависимости
+    - backdrop@3.4.2
+    - base-modal@5.8.5
+    - navigation-bar-private@0.5.4
 
 ## 6.17.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.5.3
+- Обновлены зависимости
+    - navigation-bar-private@0.5.3
 
 ## 6.17.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.5.2
+- Обновлены зависимости
+    - navigation-bar-private@0.5.2
 
 ## 6.17.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
-    -   base-modal@5.8.4
-    -   navigation-bar-private@0.5.1
+- Обновлены зависимости
+    - shared@0.14.0
+    - base-modal@5.8.4
+    - navigation-bar-private@0.5.1
 
 ## 6.17.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.8.3
+- Обновлены зависимости
+    - base-modal@5.8.3
 
 ## 6.17.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.5.0
+- Обновлены зависимости
+    - navigation-bar-private@0.5.0
 
 ## 6.17.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.4.3
+- Обновлены зависимости
+    - navigation-bar-private@0.4.3
 
 ## 6.17.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.4.2
+- Обновлены зависимости
+    - navigation-bar-private@0.4.2
 
 ## 6.17.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.13.0
-    -   navigation-bar-private@0.4.1
-    -   base-modal@5.8.2
+- Обновлены зависимости
+    - shared@0.13.0
+    - navigation-bar-private@0.4.1
+    - base-modal@5.8.2
 
 ## 6.17.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.4.0
+- Обновлены зависимости
+    - navigation-bar-private@0.4.0
 
 ## 6.17.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.3.1
+- Обновлены зависимости
+    - navigation-bar-private@0.3.1
 
 ## 6.17.1
 
@@ -321,25 +743,25 @@
 
 ### [#1358](https://github.com/core-ds/core-components/pull/1358)
 
--   Обновлены наименования переменных скругления
+- Обновлены наименования переменных скругления
 
 <sup><time>13.09.2024</time></sup>
 
 ### [#1369](https://github.com/core-ds/core-components/pull/1369)
 
--   Заменили числовые значения скругления на переменные
+- Заменили числовые значения скругления на переменные
 
 <sup><time>13.09.2024</time></sup>
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.3.0
-    -   backdrop@3.4.1
-    -   base-modal@5.8.1
-    -   shared@0.12.1
+- Обновлены зависимости
+    - navigation-bar-private@0.3.0
+    - backdrop@3.4.1
+    - base-modal@5.8.1
+    - shared@0.12.1
 
 ## 6.17.0
 
@@ -349,14 +771,14 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   backdrop@3.4.0
-    -   base-modal@5.8.0
-    -   navigation-bar-private@0.2.0
+- Обновлены зависимости
+    - backdrop@3.4.0
+    - base-modal@5.8.0
+    - navigation-bar-private@0.2.0
 
 ## 6.16.3
 
@@ -366,34 +788,34 @@
 
 ### [#1311](https://github.com/core-ds/core-components/pull/1311)
 
--   Обновили стили для заголовка в мобильной версии компонента
+- Обновили стили для заголовка в мобильной версии компонента
 
 <sup><time>04.09.2024</time></sup>
 
 ### [#1353](https://github.com/core-ds/core-components/pull/1353)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
--   Обновлены зависимости
-    -   backdrop@3.3.0
-    -   navigation-bar-private@0.1.10
-    -   base-modal@5.7.11
+- Обновлены зависимости
+    - backdrop@3.3.0
+    - navigation-bar-private@0.1.10
+    - base-modal@5.7.11
 
 ## 6.16.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.0
-    -   base-modal@5.7.10
-    -   navigation-bar-private@0.1.9
+- Обновлены зависимости
+    - shared@0.12.0
+    - base-modal@5.7.10
+    - navigation-bar-private@0.1.9
 
 ## 6.16.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.1.8
+- Обновлены зависимости
+    - navigation-bar-private@0.1.8
 
 ## 6.16.0
 
@@ -403,35 +825,35 @@
 
 ### [#1289](https://github.com/core-ds/core-components/pull/1289)
 
--   Добавлен проп для случаев, когда необходима отзывчивость компонента из-за изменении видимой части браузера при открытии клавиатуры устройства
+- Добавлен проп для случаев, когда необходима отзывчивость компонента из-за изменении видимой части браузера при открытии клавиатуры устройства
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.1.7
+- Обновлены зависимости
+    - navigation-bar-private@0.1.7
 
 ## 6.15.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.1.6
+- Обновлены зависимости
+    - navigation-bar-private@0.1.6
 
 ## 6.15.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.7.9
+- Обновлены зависимости
+    - base-modal@5.7.9
 
 ## 6.15.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.11.0
-    -   base-modal@5.7.8
-    -   navigation-bar-private@0.1.5
+- Обновлены зависимости
+    - shared@0.11.0
+    - base-modal@5.7.8
+    - navigation-bar-private@0.1.5
 
 ## 6.15.4
 
@@ -441,11 +863,11 @@
 
 ### [#1262](https://github.com/core-ds/core-components/pull/1262)
 
--   В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
+- В некоторых кейсах на iOS не блокируется прокрутка при открытом `bottom-sheet`. Добавлен пропс для обработки таких случаев.
 
--   Обновлены зависимости
-    -   base-modal@5.7.7
-    -   navigation-bar-private@0.1.4
+- Обновлены зависимости
+    - base-modal@5.7.7
+    - navigation-bar-private@0.1.4
 
 ## 6.15.3
 
@@ -455,17 +877,17 @@
 
 ### [#1235](https://github.com/core-ds/core-components/pull/1235)
 
--   Добавлен параметр displayName для корректного отображения компонентов в React Devtools
+- Добавлен параметр displayName для корректного отображения компонентов в React Devtools
 
 <sup><time>14.06.2024</time></sup>
 
 ### [#1240](https://github.com/core-ds/core-components/pull/1240)
 
--   Исправлена ошибка рендера в ssr
+- Исправлена ошибка рендера в ssr
 
--   Обновлены зависимости
-    -   base-modal@5.7.6
-    -   navigation-bar-private@0.1.3
+- Обновлены зависимости
+    - base-modal@5.7.6
+    - navigation-bar-private@0.1.3
 
 ## 6.15.2
 
@@ -475,19 +897,19 @@
 
 ### [#1234](https://github.com/core-ds/core-components/pull/1234)
 
--   Исправлено поведение scrollToArea при первом рендере, когда еще не выполнены расчеты высоты. Теперь scrollToArea при первом рендере ведет себя так же, как и initialActiveAreaIndex.
+- Исправлено поведение scrollToArea при первом рендере, когда еще не выполнены расчеты высоты. Теперь scrollToArea при первом рендере ведет себя так же, как и initialActiveAreaIndex.
 
--   Обновлены зависимости
-    -   navigation-bar-private@0.1.2
+- Обновлены зависимости
+    - navigation-bar-private@0.1.2
 
 ## 6.15.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.10.0
-    -   base-modal@5.7.5
-    -   navigation-bar-private@0.1.1
+- Обновлены зависимости
+    - shared@0.10.0
+    - base-modal@5.7.5
+    - navigation-bar-private@0.1.1
 
 ## 6.15.0
 
@@ -497,13 +919,13 @@
 
 ### [#1175](https://github.com/core-ds/core-components/pull/1175)
 
--   Внутренний компонент NavigationBar переименован в NavigationBarPrivate
+- Внутренний компонент NavigationBar переименован в NavigationBarPrivate
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.7.4
-    -   navigation-bar-private@0.1.0
+- Обновлены зависимости
+    - base-modal@5.7.4
+    - navigation-bar-private@0.1.0
 
 ## 6.14.6
 
@@ -513,16 +935,16 @@
 
 ### [#1188](https://github.com/core-ds/core-components/pull/1188)
 
--   Исправлено закрытие компонента при горизонтальных свайпах
+- Исправлено закрытие компонента при горизонтальных свайпах
 
 <sup><time>15.05.2024</time></sup>
 
 ### [#1197](https://github.com/core-ds/core-components/pull/1197)
 
--   Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
+- Исправлен отступ кнопок в компоненте `bottom-sheet` для iOS систем
 
--   Обновлены зависимости
-    -   base-modal@5.7.3
+- Обновлены зависимости
+    - base-modal@5.7.3
 
 ## 6.14.5
 
@@ -532,38 +954,38 @@
 
 ### [#1174](https://github.com/core-ds/core-components/pull/1174)
 
--   Обновление библиотеки ui-primitives и зависящих от нее файлов.
+- Обновление библиотеки ui-primitives и зависящих от нее файлов.
 
--   Обновлены зависимости
-    -   navigation-bar@0.8.7
+- Обновлены зависимости
+    - navigation-bar@0.8.7
 
 ## 6.14.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.8.6
+- Обновлены зависимости
+    - navigation-bar@0.8.6
 
 ## 6.14.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.8.5
+- Обновлены зависимости
+    - navigation-bar@0.8.5
 
 ## 6.14.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.8.4
+- Обновлены зависимости
+    - navigation-bar@0.8.4
 
 ## 6.14.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.8.3
+- Обновлены зависимости
+    - navigation-bar@0.8.3
 
 ## 6.14.0
 
@@ -571,31 +993,31 @@
 
 ### [#1049](https://github.com/core-ds/core-components/pull/1049)
 
--   Добавили возможность передавать dataTestId в слоты content и footer.
--   Добавлена функция getBottomSheetTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
+- Добавили возможность передавать dataTestId в слоты content и footer.
+- Добавлена функция getBottomSheetTestIds для поиска элементов. Подробное описание смотрите во вкладке Разработчику -> Использование dataTestId.
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.8.2
+- Обновлены зависимости
+    - navigation-bar@0.8.2
 
 ## 6.13.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.9.1
-    -   navigation-bar@0.8.1
-    -   base-modal@5.7.2
+- Обновлены зависимости
+    - shared@0.9.1
+    - navigation-bar@0.8.1
+    - base-modal@5.7.2
 
 ## 6.13.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.8.0
-    -   shared@0.9.0
-    -   base-modal@5.7.1
+- Обновлены зависимости
+    - navigation-bar@0.8.0
+    - shared@0.9.0
+    - base-modal@5.7.1
 
 ## 6.13.0
 
@@ -603,14 +1025,14 @@
 
 ### [#977](https://github.com/core-ds/core-components/pull/977)
 
--   В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
+- В компонентах Backdrop, BaseModal, BottomSheet, Modal, NavigationBar, Popover, Select, SelectWithTags, SidePanel, ToastPlate и Tooltip цветовые токены изменены на новые (синхронизация и обновление цветовых токенов в рамках перевода их значений на базовую палитру)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   backdrop@3.2.0
-    -   base-modal@5.7.0
-    -   navigation-bar@0.7.0
+- Обновлены зависимости
+    - backdrop@3.2.0
+    - base-modal@5.7.0
+    - navigation-bar@0.7.0
 
 ## 6.12.0
 
@@ -618,41 +1040,41 @@
 
 ### [#981](https://github.com/core-ds/core-components/pull/981)
 
--   Добавлен новый проп backButtonProps
+- Добавлен новый проп backButtonProps
 
 ### Patch Changes
 
 ### [#988](https://github.com/core-ds/core-components/pull/988)
 
--   Повышена специфичность стилей, конфликтующих с base-modal
+- Повышена специфичность стилей, конфликтующих с base-modal
 
--   Обновлены зависимости
-    -   navigation-bar@0.6.0
+- Обновлены зависимости
+    - navigation-bar@0.6.0
 
 ## 6.11.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.5.11
+- Обновлены зависимости
+    - navigation-bar@0.5.11
 
 ## 6.11.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.6.0
-    -   shared@0.8.0
-    -   navigation-bar@0.5.10
+- Обновлены зависимости
+    - base-modal@5.6.0
+    - shared@0.8.0
+    - navigation-bar@0.5.10
 
 ## 6.11.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.5.0
-    -   shared@0.7.0
-    -   navigation-bar@0.5.9
+- Обновлены зависимости
+    - base-modal@5.5.0
+    - shared@0.7.0
+    - navigation-bar@0.5.9
 
 ## 6.11.2
 
@@ -660,11 +1082,11 @@
 
 ### [#927](https://github.com/core-ds/core-components/pull/927)
 
--   Исправлены проблемы со скроллом, когда при открытой шторке контент внутри document.body скроллится
+- Исправлены проблемы со скроллом, когда при открытой шторке контент внутри document.body скроллится
 
 ### [#921](https://github.com/core-ds/core-components/pull/921)
 
--   initialHeight всегда выставляется в full, если переданы магнитные зоны
+- initialHeight всегда выставляется в full, если переданы магнитные зоны
 
 ## 6.11.1
 
@@ -672,7 +1094,7 @@
 
 ### [#925](https://github.com/core-ds/core-components/pull/925)
 
--   Добавлен border-radius контенту шторки для фикса черных углов в safari
+- Добавлен border-radius контенту шторки для фикса черных углов в safari
 
 ## 6.11.0
 
@@ -680,13 +1102,13 @@
 
 ### [#895](https://github.com/core-ds/core-components/pull/895)
 
--   Добавлены css-переменные (--bottom-sheet-top-radius, --bottom-sheet-shadow)
+- Добавлены css-переменные (--bottom-sheet-top-radius, --bottom-sheet-shadow)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.6.0
-    -   navigation-bar@0.5.8
+- Обновлены зависимости
+    - shared@0.6.0
+    - navigation-bar@0.5.8
 
 ## 6.10.0
 
@@ -694,28 +1116,28 @@
 
 ### [#874](https://github.com/core-ds/core-components/pull/874)
 
--   Теперь в коллбэке onMagnetizeEnd аргументом передается индекс магнитной зоны
+- Теперь в коллбэке onMagnetizeEnd аргументом передается индекс магнитной зоны
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.5.7
-    -   base-modal@5.4.1
+- Обновлены зависимости
+    - navigation-bar@0.5.7
+    - base-modal@5.4.1
 
 ## 6.9.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.5.0
-    -   navigation-bar@0.5.6
+- Обновлены зависимости
+    - shared@0.5.0
+    - navigation-bar@0.5.6
 
 ## 6.9.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.5.5
+- Обновлены зависимости
+    - navigation-bar@0.5.5
 
 ## 6.9.0
 
@@ -723,7 +1145,7 @@
 
 ### [#840](https://github.com/core-ds/core-components/pull/840)
 
--   Добавлен проп onSwipeStart, onSwipeEnd
+- Добавлен проп onSwipeStart, onSwipeEnd
 
 ## 6.8.0
 
@@ -731,25 +1153,25 @@
 
 ### [#839](https://github.com/core-ds/core-components/pull/839)
 
--   Добавлен проп onTouchEnd
+- Добавлен проп onTouchEnd
 
 ### Patch Changes
 
 ### [#837](https://github.com/core-ds/core-components/pull/837)
 
--   Исправлена ошибка, из-за которой не пересчитывалась высота магнитных зон
+- Исправлена ошибка, из-за которой не пересчитывалась высота магнитных зон
 
--   Обновлены зависимости
-    -   shared@0.4.0
-    -   navigation-bar@0.5.4
+- Обновлены зависимости
+    - shared@0.4.0
+    - navigation-bar@0.5.4
 
 ## 6.7.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.3.0
-    -   navigation-bar@0.5.3
+- Обновлены зависимости
+    - shared@0.3.0
+    - navigation-bar@0.5.3
 
 ## 6.7.0
 
@@ -757,28 +1179,28 @@
 
 ### [#799](https://github.com/core-ds/core-components/pull/799)
 
--   Добавлены новый пропы swipeableMarker и swipeableMarkerClassName
+- Добавлены новый пропы swipeableMarker и swipeableMarkerClassName
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.5.2
+- Обновлены зависимости
+    - navigation-bar@0.5.2
 
 ## 6.6.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.5.1
+- Обновлены зависимости
+    - navigation-bar@0.5.1
 
 ## 6.6.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.5.0
-    -   shared@0.2.0
-    -   base-modal@5.4.0
+- Обновлены зависимости
+    - navigation-bar@0.5.0
+    - shared@0.2.0
+    - base-modal@5.4.0
 
 ## 6.6.0
 
@@ -786,21 +1208,21 @@
 
 ### [#731](https://github.com/core-ds/core-components/pull/731)
 
--   Добавлены пропсы onOffsetChange, onMagnetizeEnd, swipeableContent, swipeThreshold, headerOffset
--   Исправлена ошибка, из-за которой компонент закрывался после события скролла.
--   Исправлена ошибка, из-за которой шторка неверно позиционировалась после свайпа влево/вправо
+- Добавлены пропсы onOffsetChange, onMagnetizeEnd, swipeableContent, swipeThreshold, headerOffset
+- Исправлена ошибка, из-за которой компонент закрывался после события скролла.
+- Исправлена ошибка, из-за которой шторка неверно позиционировалась после свайпа влево/вправо
 
 ### [#713](https://github.com/core-ds/core-components/pull/713)
 
--   Теперь каждый пакет публикуется с исходниками
+- Теперь каждый пакет публикуется с исходниками
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.1.0
-    -   backdrop@3.1.0
-    -   base-modal@5.3.0
-    -   navigation-bar@0.4.0
+- Обновлены зависимости
+    - shared@0.1.0
+    - backdrop@3.1.0
+    - base-modal@5.3.0
+    - navigation-bar@0.4.0
 
 ## 6.5.0
 
@@ -808,7 +1230,7 @@
 
 ### [#780](https://github.com/core-ds/core-components/pull/780)
 
--   Добавлены пропсы keepMounted, disableAutofocus, disableRestoreFocus, disableEscapeKeyDown
+- Добавлены пропсы keepMounted, disableAutofocus, disableRestoreFocus, disableEscapeKeyDown
 
 ## 6.4.2
 
@@ -816,19 +1238,19 @@
 
 ### [#766](https://github.com/core-ds/core-components/pull/766)
 
--   Удален скрипт отправки статистики (send-stats)
+- Удален скрипт отправки статистики (send-stats)
 
--   Обновлены зависимости
-    -   backdrop@3.0.7
-    -   base-modal@5.2.1
-    -   navigation-bar@0.3.7
+- Обновлены зависимости
+    - backdrop@3.0.7
+    - base-modal@5.2.1
+    - navigation-bar@0.3.7
 
 ## 6.4.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.3.6
+- Обновлены зависимости
+    - navigation-bar@0.3.6
 
 ## 6.4.0
 
@@ -836,12 +1258,12 @@
 
 ### [#745](https://github.com/core-ds/core-components/pull/745)
 
--   Добавлен usePortal проп
+- Добавлен usePortal проп
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.2.0
+- Обновлены зависимости
+    - base-modal@5.2.0
 
 ## 6.3.0
 
@@ -849,28 +1271,28 @@
 
 ### [#723](https://github.com/core-ds/core-components/pull/723)
 
--   Добавлен проп disableFocusLock, отключающий ловушку фокуса
+- Добавлен проп disableFocusLock, отключающий ловушку фокуса
 
 ## 6.2.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.3.5
+- Обновлены зависимости
+    - navigation-bar@0.3.5
 
 ## 6.2.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.3.4
+- Обновлены зависимости
+    - navigation-bar@0.3.4
 
 ## 6.2.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.3.3
+- Обновлены зависимости
+    - navigation-bar@0.3.3
 
 ## 6.2.4
 
@@ -878,18 +1300,18 @@
 
 ### [#654](https://github.com/core-ds/core-components/pull/654)
 
--   Удалены лишние dependencies, добавлены отсутствующие
+- Удалены лишние dependencies, добавлены отсутствующие
 
--   Обновлены зависимости
-    -   navigation-bar@0.3.2
+- Обновлены зависимости
+    - navigation-bar@0.3.2
 
 ## 6.2.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.0.10
-    -   navigation-bar@0.3.1
+- Обновлены зависимости
+    - icon-button@6.0.10
+    - navigation-bar@0.3.1
 
 ## 6.2.2
 
@@ -897,14 +1319,14 @@
 
 ### [#630](https://github.com/core-ds/core-components/pull/630)
 
--   Исправлен тип magneticAreas
+- Исправлен тип magneticAreas
 
 ## 6.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.3.0
+- Обновлены зависимости
+    - navigation-bar@0.3.0
 
 ## 6.2.0
 
@@ -912,14 +1334,14 @@
 
 ### [#615](https://github.com/core-ds/core-components/pull/615)
 
--   Добавлены магнитные области. Полное описание изменений в [#615](https://github.com/core-ds/core-components/pull/615)
+- Добавлены магнитные области. Полное описание изменений в [#615](https://github.com/core-ds/core-components/pull/615)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   backdrop@3.0.6
-    -   navigation-bar@0.2.0
-    -   base-modal@5.1.3
+- Обновлены зависимости
+    - backdrop@3.0.6
+    - navigation-bar@0.2.0
+    - base-modal@5.1.3
 
 ## 6.1.0
 
@@ -927,7 +1349,7 @@
 
 ### [#604](https://github.com/core-ds/core-components/pull/604)
 
--   Добавлен новый prop backgroundColor
+- Добавлен новый prop backgroundColor
 
 ## 6.0.5
 
@@ -935,14 +1357,14 @@
 
 ### [#588](https://github.com/core-ds/core-components/pull/588)
 
--   Добавлен \_\_esModule в cjs экспорт
+- Добавлен \_\_esModule в cjs экспорт
 
--   Обновлены зависимости
-    -   base-modal@5.1.2
-    -   backdrop@3.0.5
-    -   icon-button@6.0.9
-    -   navigation-bar@0.1.3
-    -   typography@3.2.1
+- Обновлены зависимости
+    - base-modal@5.1.2
+    - backdrop@3.0.5
+    - icon-button@6.0.9
+    - navigation-bar@0.1.3
+    - typography@3.2.1
 
 ## 6.0.4
 
@@ -950,7 +1372,7 @@
 
 ### [#557](https://github.com/core-ds/core-components/pull/557)
 
--   Добавлены бордеры у выпадающих меню
+- Добавлены бордеры у выпадающих меню
 
 ## 6.0.3
 
@@ -958,14 +1380,14 @@
 
 ### [#547](https://github.com/core-ds/core-components/pull/547)
 
--   Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer
+- Исправлена ошибка, из-за которой контент с z-index, отличным от auto, наезжал на sticky footer
 
 ## 6.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   navigation-bar@0.1.2
+- Обновлены зависимости
+    - navigation-bar@0.1.2
 
 ## 6.0.1
 
@@ -973,12 +1395,12 @@
 
 ### [#540](https://github.com/core-ds/core-components/pull/540)
 
--   Изменена нода с overflow: auto в SidePanelMobile
+- Изменена нода с overflow: auto в SidePanelMobile
 
--   Обновлены зависимости
-    -   base-modal@5.1.1
-    -   navigation-bar@0.1.1
-    -   icon-button@6.0.8
+- Обновлены зависимости
+    - base-modal@5.1.1
+    - navigation-bar@0.1.1
+    - icon-button@6.0.8
 
 ## 6.0.0
 
@@ -986,15 +1408,15 @@
 
 ### [#494](https://github.com/core-ds/core-components/pull/494)
 
--   В ModalContext у base-modal добавлен ref на div-обертку модальных окон
--   У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
+- В ModalContext у base-modal добавлен ref на div-обертку модальных окон
+- У компонентов Modal, SidePanel и BottomSheet обновлён компонент заголовка и изменены основные отступы<br />
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.1.0
-    -   navigation-bar@0.1.0
-    -   typography@3.2.0
+- Обновлены зависимости
+    - base-modal@5.1.0
+    - navigation-bar@0.1.0
+    - typography@3.2.0
 
 ## 5.3.1
 
@@ -1002,13 +1424,13 @@
 
 ### [#526](https://github.com/core-ds/core-components/pull/526)
 
--   В зависимости добавлена библиотека tslib
+- В зависимости добавлена библиотека tslib
 
--   Обновлены зависимости
-    -   backdrop@3.0.4
-    -   base-modal@5.0.10
-    -   icon-button@6.0.7
-    -   typography@3.1.1
+- Обновлены зависимости
+    - backdrop@3.0.4
+    - base-modal@5.0.10
+    - icon-button@6.0.7
+    - typography@3.1.1
 
 ## 5.3.0
 
@@ -1016,20 +1438,20 @@
 
 ### [#497](https://github.com/core-ds/core-components/pull/497)
 
--   fix(select): virtual options list
+- fix(select): virtual options list
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.0.9
-    -   icon-button@6.0.6
+- Обновлены зависимости
+    - base-modal@5.0.9
+    - icon-button@6.0.6
 
 ## 5.2.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.0.5
+- Обновлены зависимости
+    - icon-button@6.0.5
 
 ## 5.2.0
 
@@ -1037,39 +1459,39 @@
 
 ### [06cb65be9](https://github.com/core-ds/core-components/commit/06cb65be9eade56697f8e5494b8960d5917a5fad)
 
--   Добавлено свойство container. Теперь есть возможность указать ноду, в которой будет рендериться bottom-sheet
+- Добавлено свойство container. Теперь есть возможность указать ноду, в которой будет рендериться bottom-sheet
 
 ### Patch Changes
 
 ### [#470](https://github.com/core-ds/core-components/pull/470)
 
--   Обновлена версия react-transition-group
+- Обновлена версия react-transition-group
 
--   Обновлены зависимости
-    -   backdrop@3.0.3
-    -   base-modal@5.0.8
+- Обновлены зависимости
+    - backdrop@3.0.3
+    - base-modal@5.0.8
 
 ## 5.1.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@3.1.0
+- Обновлены зависимости
+    - typography@3.1.0
 
 ## 5.1.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.0.4
+- Обновлены зависимости
+    - icon-button@6.0.4
 
 ## 5.1.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.0.3
-    -   typography@3.0.8
+- Обновлены зависимости
+    - icon-button@6.0.3
+    - typography@3.0.8
 
 ## 5.1.13
 
@@ -1077,42 +1499,42 @@
 
 ### [#418](https://github.com/core-ds/core-components/pull/418)
 
--   Исправлена проблема с default-импортом в cjs форматах
+- Исправлена проблема с default-импортом в cjs форматах
 
--   Обновлены зависимости
-    -   backdrop@3.0.2
-    -   base-modal@5.0.7
-    -   icon-button@6.0.2
-    -   typography@3.0.7
+- Обновлены зависимости
+    - backdrop@3.0.2
+    - base-modal@5.0.7
+    - icon-button@6.0.2
+    - typography@3.0.7
 
 ## 5.1.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@3.0.6
+- Обновлены зависимости
+    - typography@3.0.6
 
 ## 5.1.11
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@3.0.5
-    -   base-modal@5.0.6
+- Обновлены зависимости
+    - typography@3.0.5
+    - base-modal@5.0.6
 
 ## 5.1.10
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@3.0.4
+- Обновлены зависимости
+    - typography@3.0.4
 
 ## 5.1.9
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   icon-button@6.0.1
+- Обновлены зависимости
+    - icon-button@6.0.1
 
 ## 5.1.8
 
@@ -1120,15 +1542,15 @@
 
 ### [#333](https://github.com/core-ds/core-components/pull/333)
 
--   Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
+- Явные значения в css классах(padding, border-radius и т.п) заменены на переменные
 
 ## 5.1.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   typography@3.0.3
-    -   base-modal@5.0.5
+- Обновлены зависимости
+    - typography@3.0.3
+    - base-modal@5.0.5
 
 ## 5.1.6
 
@@ -1136,26 +1558,26 @@
 
 ### [#292](https://github.com/core-ds/core-components/pull/292)
 
--   Новые стили кнопок в теме default
--   Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
--   Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
--   Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
+- Новые стили кнопок в теме default
+- Новый вид состояния loading во всех темах (Loader заменён на Spinner)<br />
+- Исправлена высота кнопки ghost в размерах s/m/l/xl (увеличилась на 4px)<br />
+- Исправлена ширина кнопок secondary/tertiary (уменьшилась на 2px)<br />
 
--   Обновлены зависимости
-    -   icon-button@6.0.0
+- Обновлены зависимости
+    - icon-button@6.0.0
 
 ## 5.1.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   base-modal@5.0.4
+- Обновлены зависимости
+    - base-modal@5.0.4
 
 ## 5.1.4
 
 ### Patch Changes
 
--   @alfalab/core-components-icon-button@5.0.5
+- @alfalab/core-components-icon-button@5.0.5
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -1164,7 +1586,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
+- **base-modal:** fixed scroll to top issues ([#224](https://github.com/core-ds/core-components/issues/224)) ([2e3fdd2](https://github.com/core-ds/core-components/commit/2e3fdd22a4af2b043c428a3ad800b82ac4166d5d))
 
 ## [5.1.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.1.1...@alfalab/core-components-bottom-sheet@5.1.2) (2022-09-12)
 
@@ -1178,14 +1600,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **side-panel:** add props imageUrl and fix doc ([#168](https://github.com/core-ds/core-components/issues/168)) ([9ca0f00](https://github.com/core-ds/core-components/commit/9ca0f0094b993bdd302765db79bcf8f91fae2a12))
--   testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
+- **side-panel:** add props imageUrl and fix doc ([#168](https://github.com/core-ds/core-components/issues/168)) ([9ca0f00](https://github.com/core-ds/core-components/commit/9ca0f0094b993bdd302765db79bcf8f91fae2a12))
+- testing-library versions update ([#216](https://github.com/core-ds/core-components/issues/216)) ([33b6225](https://github.com/core-ds/core-components/commit/33b62259a1332f535f367502590ea37e7ad051d4))
 
 ## [5.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.0.1...@alfalab/core-components-bottom-sheet@5.0.2) (2022-08-31)
 
 ### Bug Fixes
 
--   fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
+- fixed missing css vars ([#227](https://github.com/core-ds/core-components/issues/227)) ([42912d3](https://github.com/core-ds/core-components/commit/42912d306657490e8c7f577cb53120767d503fcb))
 
 ## [5.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@5.0.0...@alfalab/core-components-bottom-sheet@5.0.1) (2022-08-19)
 
@@ -1195,12 +1617,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
+- removed dist directory in published packages ([#200](https://github.com/core-ds/core-components/issues/200)) ([8af8fee](https://github.com/core-ds/core-components/commit/8af8fee53ca0bd19fa2d1ca1422e0df23096e2c8))
 
 ### BREAKING CHANGES
 
--   Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
-    директория dist)
+- Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
+  директория dist)
 
 Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
@@ -1208,13 +1630,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
+- returned dist directory ([#199](https://github.com/core-ds/core-components/issues/199)) ([fabc15e](https://github.com/core-ds/core-components/commit/fabc15effa1457ca65ec7238206f1b1fc2a2a613))
 
 # [4.9.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.8.1...@alfalab/core-components-bottom-sheet@4.9.0) (2022-08-12)
 
 ### Features
 
--   **BottonSheet:** improved bottomSheet component ([#185](https://github.com/core-ds/core-components/issues/185)) ([ba5fa06](https://github.com/core-ds/core-components/commit/ba5fa06d5f342ac5e04adadb72fd21e1f699c00a))
+- **BottonSheet:** improved bottomSheet component ([#185](https://github.com/core-ds/core-components/issues/185)) ([ba5fa06](https://github.com/core-ds/core-components/commit/ba5fa06d5f342ac5e04adadb72fd21e1f699c00a))
 
 ## [4.8.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.8.0...@alfalab/core-components-bottom-sheet@4.8.1) (2022-08-11)
 
@@ -1224,20 +1646,20 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **bottom-sheet:** добавлен dataTestId для элементов компонента ([f90c76b](https://github.com/core-ds/core-components/commit/f90c76bf539542957dc0aea7be28089e5c919859))
+- **bottom-sheet:** добавлен dataTestId для элементов компонента ([f90c76b](https://github.com/core-ds/core-components/commit/f90c76bf539542957dc0aea7be28089e5c919859))
 
 # [4.7.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.2...@alfalab/core-components-bottom-sheet@4.7.0) (2022-08-04)
 
 ### Features
 
--   react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
+- react 18 support ([#159](https://github.com/core-ds/core-components/issues/159)) ([2e6693c](https://github.com/core-ds/core-components/commit/2e6693c62f534e333aadb7d3fff4ffd78ac84c63))
 
 ## [4.6.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.1...@alfalab/core-components-bottom-sheet@4.6.2) (2022-07-25)
 
 ### Bug Fixes
 
--   **bottom-sheet:** fix component border-radius ([#157](https://github.com/core-ds/core-components/issues/157)) ([57b767e](https://github.com/core-ds/core-components/commit/57b767e43e40e9170967e3a53481e21f92cb0190))
--   **bottom-sheet:** fix doc ([#163](https://github.com/core-ds/core-components/issues/163)) ([cbf3282](https://github.com/core-ds/core-components/commit/cbf32828bc2fe472d59d52c1e5644e7934262d73))
+- **bottom-sheet:** fix component border-radius ([#157](https://github.com/core-ds/core-components/issues/157)) ([57b767e](https://github.com/core-ds/core-components/commit/57b767e43e40e9170967e3a53481e21f92cb0190))
+- **bottom-sheet:** fix doc ([#163](https://github.com/core-ds/core-components/issues/163)) ([cbf3282](https://github.com/core-ds/core-components/commit/cbf32828bc2fe472d59d52c1e5644e7934262d73))
 
 ## [4.6.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.6.0...@alfalab/core-components-bottom-sheet@4.6.1) (2022-07-18)
 
@@ -1247,13 +1669,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
+- **bottom-sheet:** add props for disable blocking scroll and modal wrapper classname ([#147](https://github.com/core-ds/core-components/issues/147)) ([a873c20](https://github.com/core-ds/core-components/commit/a873c2035d4885c1b8e5ffae02ce75c4826d1e71))
 
 ## [4.5.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.5.1...@alfalab/core-components-bottom-sheet@4.5.2) (2022-07-15)
 
 ### Bug Fixes
 
--   bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
+- bump packages version ([#153](https://github.com/core-ds/core-components/issues/153)) ([fd3e082](https://github.com/core-ds/core-components/commit/fd3e08205672129cdce04e1000c673f2cd9c10da))
 
 ## [4.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.5.0...@alfalab/core-components-bottom-sheet@4.5.1) (2022-07-14)
 
@@ -1263,7 +1685,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **bottom-sheet:** add prop to set modal classname ([#133](https://github.com/core-ds/core-components/issues/133)) ([8305c0e](https://github.com/core-ds/core-components/commit/8305c0e50b4fe6ebc8bb1f532d33157c63514915))
+- **bottom-sheet:** add prop to set modal classname ([#133](https://github.com/core-ds/core-components/issues/133)) ([8305c0e](https://github.com/core-ds/core-components/commit/8305c0e50b4fe6ebc8bb1f532d33157c63514915))
 
 ## [4.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.4.1...@alfalab/core-components-bottom-sheet@4.4.2) (2022-07-01)
 
@@ -1273,13 +1695,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
+- **base-modal:** fixed outside modal click ([#115](https://github.com/core-ds/core-components/issues/115)) ([6a08f72](https://github.com/core-ds/core-components/commit/6a08f726521dcd9a310b0e06345950429eac246a))
 
 # [4.4.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.3.2...@alfalab/core-components-bottom-sheet@4.4.0) (2022-06-28)
 
 ### Features
 
--   circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
+- circumflexus retrieval ([#57](https://github.com/core-ds/core-components/issues/57)) ([3820da8](https://github.com/core-ds/core-components/commit/3820da818bcdcbee6904c648b3e29c3c828fe202))
 
 ## [4.3.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.3.1...@alfalab/core-components-bottom-sheet@4.3.2) (2022-06-24)
 
@@ -1293,7 +1715,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
+- **input-autocomplete:** add new component InputAutocompleteMobile ([#96](https://github.com/core-ds/core-components/issues/96)) ([a0e9f95](https://github.com/core-ds/core-components/commit/a0e9f95edbfcd6722e99647d75a262805e81a4a7))
 
 ## [4.2.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.2.0...@alfalab/core-components-bottom-sheet@4.2.1) (2022-06-20)
 
@@ -1303,7 +1725,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **BottonSheet:** prop for controlling animation on screen size chan… ([#89](https://github.com/core-ds/core-components/issues/89)) ([a69e178](https://github.com/core-ds/core-components/commit/a69e17891d1fd91ba6f35bfc097ae1fc9cbf92df))
+- **BottonSheet:** prop for controlling animation on screen size chan… ([#89](https://github.com/core-ds/core-components/issues/89)) ([a69e178](https://github.com/core-ds/core-components/commit/a69e17891d1fd91ba6f35bfc097ae1fc9cbf92df))
 
 ## [4.1.5](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@4.1.4...@alfalab/core-components-bottom-sheet@4.1.5) (2022-06-03)
 
@@ -1317,18 +1739,18 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Bug Fixes
 
--   fix modal and bottom-sheet dark mode ([#1043](https://github.com/core-ds/core-components/issues/1043)) ([cad36a2](https://github.com/core-ds/core-components/commit/cad36a25b28bfa71296c3dd9dc325eec28b5c241))
--   **bottom-sheet:** fix bottom-sheet swipeable marker ([#1044](https://github.com/core-ds/core-components/issues/1044)) ([0734e55](https://github.com/core-ds/core-components/commit/0734e55cc0e394fb33452f875ffcf47819277aee))
+- fix modal and bottom-sheet dark mode ([#1043](https://github.com/core-ds/core-components/issues/1043)) ([cad36a2](https://github.com/core-ds/core-components/commit/cad36a25b28bfa71296c3dd9dc325eec28b5c241))
+- **bottom-sheet:** fix bottom-sheet swipeable marker ([#1044](https://github.com/core-ds/core-components/issues/1044)) ([0734e55](https://github.com/core-ds/core-components/commit/0734e55cc0e394fb33452f875ffcf47819277aee))
 
 # [4.0.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@3.1.1...@alfalab/core-components-bottom-sheet@4.0.0) (2022-03-24)
 
 ### Features
 
--   **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/core-ds/core-components/issues/1025)) ([26fa9aa](https://github.com/core-ds/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/core-ds/core-components/issues/1032)
+- **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/core-ds/core-components/issues/1025)) ([26fa9aa](https://github.com/core-ds/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/core-ds/core-components/issues/1032)
 
 ### BREAKING CHANGES
 
--   **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+- **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
 
 ## [3.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@3.1.0...@alfalab/core-components-bottom-sheet@3.1.1) (2022-03-03)
 
@@ -1338,13 +1760,13 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+- Исправить импорты в сторях. ([#998](https://github.com/core-ds/core-components/issues/998)) ([e6a654a](https://github.com/core-ds/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
 
 ## [3.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@3.0.1...@alfalab/core-components-bottom-sheet@3.0.2) (2022-01-27)
 
 ### Bug Fixes
 
--   **bottom-sheet:** fix double calling onClose fn ([#962](https://github.com/core-ds/core-components/issues/962)) ([feda2a4](https://github.com/core-ds/core-components/commit/feda2a4c8d3a4f40a1ab9c40eb21f5359e4fa538))
+- **bottom-sheet:** fix double calling onClose fn ([#962](https://github.com/core-ds/core-components/issues/962)) ([feda2a4](https://github.com/core-ds/core-components/commit/feda2a4c8d3a4f40a1ab9c40eb21f5359e4fa538))
 
 ## [3.0.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@3.0.0...@alfalab/core-components-bottom-sheet@3.0.1) (2022-01-17)
 
@@ -1354,48 +1776,48 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
+- **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/core-ds/core-components/issues/886)) ([88e657a](https://github.com/core-ds/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/core-ds/core-components/issues/890)
 
 ### BREAKING CHANGES
 
--   **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-    заменить размер на xxs. Можно воспользоваться codemod.
+- **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+  заменить размер на xxs. Можно воспользоваться codemod.
 
--   feat(codemod): add button xs to xxs transformer
+- feat(codemod): add button xs to xxs transformer
 
--   feat(tag): добавлен тэг размера 40px, изменены отступы
+- feat(tag): добавлен тэг размера 40px, изменены отступы
 
 Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
 на xxs.
 
--   **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
-    заменить размер на xxs. Можно воспользоваться codemod.
+- **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+  заменить размер на xxs. Можно воспользоваться codemod.
 
--   test: update screenshots
+- test: update screenshots
 
--   test: update screenshots
+- test: update screenshots
 
--   feat(button): linter fix
+- feat(button): linter fix
 
--   feat(button): fix min-width
+- feat(button): fix min-width
 
--   feat(tag): remove vertical paddings
+- feat(tag): remove vertical paddings
 
--   feat(tag): remove vertical paddings
+- feat(tag): remove vertical paddings
 
--   feat(button): updates
+- feat(button): updates
 
 ## [2.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@2.1.0...@alfalab/core-components-bottom-sheet@2.1.1) (2021-09-14)
 
 ### Bug Fixes
 
--   **base-modal:** modal scroll ([#820](https://github.com/core-ds/core-components/issues/820)) ([1b2d94a](https://github.com/core-ds/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
+- **base-modal:** modal scroll ([#820](https://github.com/core-ds/core-components/issues/820)) ([1b2d94a](https://github.com/core-ds/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
 
 # [2.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@2.0.2...@alfalab/core-components-bottom-sheet@2.1.0) (2021-07-23)
 
 ### Features
 
--   **bottom-sheet:** fix marker gap, fix animation duration ([#750](https://github.com/core-ds/core-components/issues/750)) ([cb04ed8](https://github.com/core-ds/core-components/commit/cb04ed8cc214fac9dba32a0ab39a4399743d5bfc))
+- **bottom-sheet:** fix marker gap, fix animation duration ([#750](https://github.com/core-ds/core-components/issues/750)) ([cb04ed8](https://github.com/core-ds/core-components/commit/cb04ed8cc214fac9dba32a0ab39a4399743d5bfc))
 
 ## [2.0.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@2.0.1...@alfalab/core-components-bottom-sheet@2.0.2) (2021-07-19)
 
@@ -1409,7 +1831,7 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
+- upgrade storybook ([#696](https://github.com/core-ds/core-components/issues/696))
 
 ## [1.1.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-bottom-sheet@1.1.0...@alfalab/core-components-bottom-sheet@1.1.1) (2021-07-02)
 
@@ -1419,4 +1841,4 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
--   **bottom-sheet:** new component (PDS-228) ([#645](https://github.com/core-ds/core-components/issues/645)) ([1f7391d](https://github.com/core-ds/core-components/commit/1f7391df16a270d8a3a28b8ebaf98d0ed0928bc8)), closes [#642](https://github.com/core-ds/core-components/issues/642) [#642](https://github.com/core-ds/core-components/issues/642) [#646](https://github.com/core-ds/core-components/issues/646) [#646](https://github.com/core-ds/core-components/issues/646) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#648](https://github.com/core-ds/core-components/issues/648) [#647](https://github.com/core-ds/core-components/issues/647) [#630](https://github.com/core-ds/core-components/issues/630) [#648](https://github.com/core-ds/core-components/issues/648) [#630](https://github.com/core-ds/core-components/issues/630) [#669](https://github.com/core-ds/core-components/issues/669)
+- **bottom-sheet:** new component (PDS-228) ([#645](https://github.com/core-ds/core-components/issues/645)) ([1f7391d](https://github.com/core-ds/core-components/commit/1f7391df16a270d8a3a28b8ebaf98d0ed0928bc8)), closes [#642](https://github.com/core-ds/core-components/issues/642) [#642](https://github.com/core-ds/core-components/issues/642) [#646](https://github.com/core-ds/core-components/issues/646) [#646](https://github.com/core-ds/core-components/issues/646) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#634](https://github.com/core-ds/core-components/issues/634) [#635](https://github.com/core-ds/core-components/issues/635) [#648](https://github.com/core-ds/core-components/issues/648) [#647](https://github.com/core-ds/core-components/issues/647) [#630](https://github.com/core-ds/core-components/issues/630) [#648](https://github.com/core-ds/core-components/issues/648) [#630](https://github.com/core-ds/core-components/issues/630) [#669](https://github.com/core-ds/core-components/issues/669)

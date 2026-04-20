@@ -4,6 +4,7 @@ import {
     createSpriteStorybookUrl,
     generateTestCases,
     createPreview,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -39,7 +40,6 @@ describe('Switch', () => {
                             hint: ['', 'Подсказка'],
                             checked: [false, true],
                             disabled: [false, true],
-                            inactive: [false, true],
                         },
                         size: { width: 240, height: 60 },
                     }),
@@ -84,6 +84,118 @@ describe(
 );
 
 describe(
+    'Switch | skeleton',
+    screenshotTesting({
+        cases: [
+            [
+                `sprite`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: '',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | inverted`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        colors: 'inverted',
+                        label: 'Условие тоггла',
+                        hint: '',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | hint`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Условие тоггла',
+                        hint: 'Описание пункта',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+            [
+                `sprite | hint inverted`,
+                createSpriteStorybookUrl({
+                    componentName: 'Switch',
+                    knobs: {
+                        colors: 'inverted',
+                        label: 'Условие тоггла',
+                        hint: 'Описание пункта',
+                        showSkeleton: [false, true],
+                    },
+                    size: { width: 240, height: 60 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 520, height: 120 },
+        },
+    }),
+);
+
+describe('Switch | colors', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Лейбл',
+                        hint: 'Подсказка',
+                        checked: true,
+                        colors: ['default', 'inverted'],
+                    },
+                }),
+            ],
+            theme,
+            viewport: { width: 240, height: 60 },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    const testCaseWithHover = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'Switch',
+                    knobs: {
+                        label: 'Лейбл',
+                        hint: 'Подсказка',
+                        checked: true,
+                        colors: ['default', 'inverted'],
+                    },
+                }),
+            ],
+            theme,
+            viewport: { width: 240, height: 60 },
+            evaluate: (page: Page) =>
+                page.hover('span[class^=switch]').then(() => page.waitForTimeout(500)),
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `hover-${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default', 'site'].map(testCase);
+    ['default', 'site'].map(testCaseWithHover);
+});
+
+describe(
     'Switch | layout',
     screenshotTesting({
         cases: [
@@ -122,7 +234,8 @@ describe(
                 disabled: [true, false],
             },
         }),
-        evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
+        evaluate: (page: Page) =>
+            page.hover('span[class^=switch]').then(() => page.waitForTimeout(500)),
         screenshotOpts: {
             clip,
         },

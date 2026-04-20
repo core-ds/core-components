@@ -1,30 +1,13 @@
-import React, { type ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 import cn from 'classnames';
 
 import { type GapProps } from '@alfalab/core-components-gap';
 
 import styles from './index.module.css';
 
-export type ReducedGapType = Omit<
+export type ReducedGapType = Exclude<
     GapProps['size'],
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl'
-    | '7xl'
-    | '8xl'
-    | 1
-    | 26
-    | 28
-    | 32
-    | 40
-    | 48
-    | 64
-    | 72
-    | 96
-    | 128
-    | 256
+    1 | 26 | 28 | 32 | 40 | 48 | 64 | 72 | 96 | 128 | 256
 >;
 
 export type PaddingPropType = {
@@ -102,7 +85,7 @@ export type GenericWrapperProps = React.HTMLAttributes<HTMLDivElement> & {
     gap?: GapType;
 };
 
-export const GenericWrapper = ({
+export const GenericWrapper: FC<GenericWrapperProps> = ({
     children,
     padding,
     alignItems,
@@ -113,7 +96,7 @@ export const GenericWrapper = ({
     grow = false,
     gap,
     ...restProps
-}: GenericWrapperProps) => {
+}) => {
     const paddingStyles = padding && {
         [styles[`padding-top-${padding.top}`]]: padding.top,
         [styles[`padding-right-${padding.right}`]]: padding.right,
@@ -135,7 +118,7 @@ export const GenericWrapper = ({
                 justifyContentStyles,
                 growStyles,
                 className,
-                { [styles[`gap-${gap}`]]: gap },
+                styles[`gap-${gap}`],
             )}
             data-test-id={dataTestId}
             {...restProps}

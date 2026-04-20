@@ -5,7 +5,7 @@ import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { Example } from 'storybook-addon-live-examples';
-import { Answers } from '.storybook/theming-wizard/types';
+import { Answers } from 'storybook/theming-wizard/types';
 
 import { aruiScriptsExample, withoutAruiScriptsExample } from './utils';
 

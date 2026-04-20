@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 
 import { type CurrencyCodes } from '@alfalab/data';
 
-export type AmountProps = {
+export interface AmountProps {
     /**
      * Денежное значение в минорных единицах
      */
@@ -36,8 +36,14 @@ export type AmountProps = {
 
     /**
      * Управление жирностью
+     * @deprecated Используйте проп {@link AmountProps.fontWeight}
      */
     bold?: 'full' | 'major' | 'none';
+
+    /**
+     * Управление жирностью
+     */
+    fontWeight?: 'bold' | 'medium' | { major: 'bold' | 'medium' };
 
     /**
      * Делает минорную часть полупрозрачной
@@ -64,4 +70,4 @@ export type AmountProps = {
      * @default false
      */
     trimZero?: boolean;
-};
+}

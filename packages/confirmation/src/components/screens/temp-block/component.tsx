@@ -1,7 +1,7 @@
 import React, { type FC, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { formatMsAsMinutes, useCountdown } from '../../../utils';
@@ -18,8 +18,14 @@ export type TempBlockProps = {
 };
 
 export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
-    const { alignContent, texts, tempBlockDuration, onChangeScreen, onTempBlockFinished } =
-        useContext(ConfirmationContext);
+    const {
+        alignContent,
+        titleTag,
+        texts,
+        tempBlockDuration,
+        onChangeScreen,
+        onTempBlockFinished,
+    } = useContext(ConfirmationContext);
 
     const [timeLeft, startTimer] = useCountdown(tempBlockDuration);
 
@@ -35,9 +41,11 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.tempBlockTitle}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.tempBlockTitle}
+            </Header>
 
-            <Text
+            <TypographyText
                 view='primary-medium'
                 color='primary'
                 className={cn(styles.description, {
@@ -46,7 +54,7 @@ export const TempBlock: FC<TempBlockProps> = ({ mobile }) => {
                 })}
             >
                 {texts.tempBlockDescription}
-            </Text>
+            </TypographyText>
 
             <div className={cn(styles.countdownWrap, { [styles.typographyTheme]: !mobile })}>
                 <CountdownLoader

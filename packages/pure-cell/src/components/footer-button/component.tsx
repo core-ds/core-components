@@ -57,7 +57,7 @@ export const FooterButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, Fo
         return (
             <Button
                 {...props}
-                size='xxs'
+                size={32}
                 dataTestId={getDataTestId(dataTestId || pureCellContext.dataTestId, 'button')}
                 className={styles.component}
                 ref={ref}

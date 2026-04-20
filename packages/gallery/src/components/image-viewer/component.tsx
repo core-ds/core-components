@@ -1,7 +1,7 @@
 import React, { type FC, type KeyboardEventHandler, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
-import SwiperCore, { A11y, Controller, EffectFade } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { A11y, Controller } from 'swiper/modules';
+import { Swiper, type SwiperProps, SwiperSlide } from 'swiper/react';
 
 import { useFocus } from '@alfalab/hooks';
 import { ChevronBackHeavyMIcon } from '@alfalab/icons-glyph/ChevronBackHeavyMIcon';
@@ -13,10 +13,7 @@ import { getImageAlt, getImageKey, isVideo, TestIds } from '../../utils';
 import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
 
-import 'swiper/swiper.min.css';
 import styles from './index.module.css';
-
-SwiperCore.use([EffectFade, A11y, Controller]);
 
 export const ImageViewer: FC = () => {
     const {
@@ -65,7 +62,7 @@ export const ImageViewer: FC = () => {
         }
     };
 
-    const swiperProps = useMemo<Swiper>(
+    const swiperProps = useMemo<SwiperProps>(
         () => ({
             slidesPerView: 1,
             effect: 'slide',
@@ -75,6 +72,7 @@ export const ImageViewer: FC = () => {
                 [styles.mobile]: isMobile,
                 [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
             }),
+            modules: [A11y, Controller],
             controller: { control: swiper },
             a11y: {
                 slideRole: 'img',

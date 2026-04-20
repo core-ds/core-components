@@ -18,5 +18,6 @@ export interface UniversalModalMobileProps
                 | 'onUnmount'
                 | 'transitionProps'
                 | 'onClose'
+                | 'disableFocusLock'
             >
         > {}

@@ -26,7 +26,9 @@ const ignored = ['.eslintignore', '.gitignore']
 const config = {
     root: true,
     parserOptions: {
-        project: [path.join(process.cwd(), 'tsconfig.json')],
+        project: ['tsconfig.json', 'tsconfig.eslint.json']
+            .map((tsConfigFile) => path.join(process.cwd(), tsConfigFile))
+            .filter((tsConfigPath) => fs.existsSync(tsConfigPath)),
     },
     ignorePatterns: ['**/*.test.*', '**/*.stories.*', ...ignored],
     extends: resolve.sync('@alfalab/lint-preset/eslint', { basedir: __dirname }),
@@ -39,6 +41,16 @@ const config = {
                 'react/no-unused-prop-types': 'off',
                 'dirnames/match-kebab-case': 'off',
                 'import/no-relative-packages': 'off',
+            },
+        },
+        {
+            files: '*.d.{ts,cts,mts}',
+            rules: {
+                // ts backport capability
+                'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+                '@typescript-eslint/consistent-type-imports': 'off',
+                'import/no-useless-path-segments': 'off',
+                'import/no-named-default': 'off',
             },
         },
     ],

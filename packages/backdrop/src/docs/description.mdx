@@ -8,10 +8,10 @@ render(() => {
 
     return (
         <div style={{ zIndex: 1, position: 'relative' }}>
-            <Button 
-                onClick={() => setOpen(!open)} 
-                size='m' 
-                block={isMobile()} 
+            <Button
+                onClick={() => setOpen(!open)}
+                size={56}
+                block={isMobile()}
                 breakpoint={BREAKPOINT}
             >
                 {open ? 'Закрыть Backdrop' : 'Показать Backdrop'}

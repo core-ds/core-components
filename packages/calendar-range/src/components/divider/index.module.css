@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../../../calendar/src/vars.css';
 
 .component {
@@ -24,18 +24,18 @@
     top: var(--gap-24);
 }
 
-.s {
+.size48 {
     height: var(--size-s-height);
 }
 
-.m {
+.size56 {
     height: var(--size-m-height);
 }
 
-.l {
+.size64 {
     height: var(--size-l-height);
 }
 
-.xl {
+.size72 {
     height: var(--size-xl-height);
 }

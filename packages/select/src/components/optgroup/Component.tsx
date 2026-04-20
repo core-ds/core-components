@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { type OptgroupProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Optgroup = ({ children, className, label, size = 48 }: OptgroupProps) => (
+export const Optgroup: FC<OptgroupProps> = ({ children, className, label, size = 48 }) => (
     <React.Fragment>
-        <div className={cn(styles.optgroup, className, styles[SIZE_TO_CLASSNAME_MAP[size]])}>
+        <div className={cn(styles.optgroup, className, styles[`size-${size}`])}>
             <span className={styles.label}>{label}</span>
         </div>
         {children}

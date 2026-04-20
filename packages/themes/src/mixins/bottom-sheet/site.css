@@ -1,3 +1,0 @@
-@define-mixin bottom-sheet-site {
-    --bottom-sheet-footer-border-top: 1px solid var(--color-light-neutral-400);
-}

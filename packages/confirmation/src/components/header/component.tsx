@@ -1,7 +1,6 @@
 import React, { type FC, type ReactNode } from 'react';
-import cn from 'classnames';
 
-import { TitleDesktop } from '@alfalab/core-components-typography';
+import { TitleDesktop, TitleMobile } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
@@ -15,14 +14,27 @@ export type HeaderProps = {
      * Отображать в мобильной версии экран компонента
      */
     mobile?: boolean;
+
+    /**
+     * HTML тег для заголовка
+     * @default 'h3'
+     */
+    titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
-export const Header: FC<HeaderProps> = ({ mobile, children }) => (
-    <TitleDesktop
-        className={cn(styles.header, styles.typography, { [styles.typographyMobile]: mobile })}
-        tag='h3'
-        color='primary'
-    >
-        {children}
-    </TitleDesktop>
-);
+export const Header: FC<HeaderProps> = ({ mobile, children, titleTag = 'h3' }) => {
+    const Tag = mobile ? TitleMobile : TitleDesktop;
+
+    return (
+        <Tag
+            font='system'
+            view='small'
+            className={styles.header}
+            tag={titleTag}
+            color='primary'
+            defaultMargins={false}
+        >
+            {children}
+        </Tag>
+    );
+};

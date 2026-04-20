@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { ConfirmationDesktop, DesktopConfirmationProps } from './desktop';
+import { ConfirmationMobile } from './mobile';
 
 /**
  * TODO: сделать тесты на все callbacks
@@ -216,6 +217,16 @@ describe('Confirmation', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
+        it('should set maxWidth for mobile via props', () => {
+            const testId = 'mobile-root';
+
+            const { getByTestId } = render(
+                <ConfirmationMobile {...baseProps} dataTestId={testId} maxWidth={320} />,
+            );
+
+            expect(getByTestId(testId).style.maxWidth).toBe('320px');
+        });
+
         it('should render passed inputs amount', () => {
             const requiredCharAmount = 2;
 
@@ -234,6 +245,20 @@ describe('Confirmation', () => {
             const { getByText } = render(<ConfirmationDesktop {...baseProps} phone={phone} />);
 
             expect(getByText(`Отправили на ${phone}`)).toBeInTheDocument();
+        });
+
+        it('should render with custom title tag', () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} titleTag='h1' />);
+
+            const titleElement = container.querySelector('h1');
+            expect(titleElement).toBeInTheDocument();
+        });
+
+        it('should render with default h3 title tag when titleTag is not provided', () => {
+            const { container } = render(<ConfirmationDesktop {...baseProps} />);
+
+            const titleElement = container.querySelector('h3');
+            expect(titleElement).toBeInTheDocument();
         });
     });
 

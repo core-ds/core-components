@@ -74,8 +74,8 @@ describe('Plate', () => {
         expect(queryByTestId('button-3')).toHaveClass(`size-${size}`);
 
         expect(queryByTestId('button-1')).toHaveClass('secondary');
-        expect(queryByTestId('button-2')).toHaveClass('link');
-        expect(queryByTestId('button-3')).toHaveClass('link');
+        expect(queryByTestId('button-2')).toHaveClass('transparent');
+        expect(queryByTestId('button-3')).toHaveClass('transparent');
     });
 
     it('should set `background` style', () => {
@@ -351,6 +351,27 @@ describe('Plate', () => {
 
             const el = getByTestId(dataTestId);
             const closeEl = el.querySelector('[aria-label="закрыть"]') as Element;
+
+            fireEvent.click(closeEl);
+
+            expect(cb).toHaveBeenCalledTimes(1);
+        });
+
+        it('should call `onClose` prop with custom aria label', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const closerAriaLabel = 'скрыть подсказку';
+            const { getByTestId } = render(
+                <Plate
+                    hasCloser={true}
+                    onClose={cb}
+                    dataTestId={dataTestId}
+                    closerAriaLabel={closerAriaLabel}
+                />,
+            );
+
+            const el = getByTestId(dataTestId);
+            const closeEl = el.querySelector(`[aria-label="${closerAriaLabel}"]`) as Element;
 
             fireEvent.click(closeEl);
 

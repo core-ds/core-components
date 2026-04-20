@@ -10,9 +10,11 @@ import {
 
 import { type IndicatorProps } from '@alfalab/core-components-indicator';
 
+export type AllTabProps = PublicTabProps & PrivateTabProps;
+
 type TabElementType = ReactElement<
-    TabProps,
-    ForwardRefExoticComponent<TabProps & RefAttributes<HTMLElement>>
+    AllTabProps,
+    ForwardRefExoticComponent<AllTabProps & RefAttributes<HTMLElement>>
 >;
 
 export interface TabBarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -83,11 +85,7 @@ export interface TabBarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onCha
     bgColor?: 'modal-bg-primary' | 'modal-bg-alt-primary';
 }
 
-type AdditionalTabProps = Record<string, unknown>;
-
-export interface TabProps
-    extends Omit<AllHTMLAttributes<unknown>, 'onChange' | 'label'>,
-        AdditionalTabProps {
+export interface PublicTabProps extends Omit<AllHTMLAttributes<unknown>, 'onChange' | 'label'> {
     /**
      * Кастомный компонент таба.
      * @default button

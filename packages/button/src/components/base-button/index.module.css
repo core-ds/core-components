@@ -1,12 +1,7 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../vars.css';
 
 .component {
-    && {
-        font-weight: var(--button-font-weight);
-        font-family: var(--font-family);
-    }
-
     @mixin reset-tap-highlight-color;
 
     position: relative;
@@ -175,7 +170,6 @@
         padding-right: 31px;
     }
 
-    &.ghost,
     &.text {
         padding-right: var(--gap-0);
     }
@@ -206,18 +200,15 @@
         padding-left: 31px;
     }
 
-    &.ghost,
     &.text {
         padding-left: var(--gap-0);
     }
 }
 
-.link,
 .transparent {
     min-width: 0;
 }
 
-.ghost.ghost,
 .text.text {
     min-width: 0;
     min-height: 0;
@@ -228,9 +219,7 @@
     &.iconOnly {
         min-width: 0;
     }
-}
 
-.text.text {
     &.size-48,
     &.size-56 {
         min-height: 24px;
@@ -256,11 +245,11 @@
     margin: var(--gap-0);
 
     &:first-child {
-        margin-right: 6px;
+        margin-right: var(--gap-6);
     }
 
     &:last-child {
-        margin-left: 6px;
+        margin-left: var(--gap-6);
     }
 
     &:only-child {

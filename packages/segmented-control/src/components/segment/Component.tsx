@@ -16,7 +16,7 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-export type SegmentProps = {
+export interface SegmentProps {
     /**
      * Дополнительный className
      */
@@ -46,7 +46,7 @@ export type SegmentProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+}
 
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
     ({ id, className, title, dataTestId }, ref) => {

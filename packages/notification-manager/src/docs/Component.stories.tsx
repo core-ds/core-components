@@ -20,7 +20,7 @@ export const notification_manager: Story = {
         const addNotification = () => {
             const newNotification = (
                 <Notification
-                    badge='positive'
+                    badge='positive-checkmark'
                     title={`Нотификация #${count}`}
                     autoCloseDelay={3000}
                     id={count.toString()}

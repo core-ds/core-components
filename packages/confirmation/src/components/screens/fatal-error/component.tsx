@@ -2,7 +2,7 @@ import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { Header } from '../../header';
@@ -17,14 +17,16 @@ export type FatalErrorProps = {
 };
 
 export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
-    const { alignContent, texts, onFatalErrorOkButtonClick, breakpoint, client } =
+    const { alignContent, titleTag, texts, onFatalErrorOkButtonClick, breakpoint, client } =
         useContext(ConfirmationContext);
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.fatalErrorTitle}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.fatalErrorTitle}
+            </Header>
 
-            <Text
+            <TypographyText
                 view='primary-medium'
                 color='primary'
                 className={cn({
@@ -33,10 +35,10 @@ export const FatalError: FC<FatalErrorProps> = ({ mobile }) => {
                 })}
             >
                 {texts.fatalErrorDescription}
-            </Text>
+            </TypographyText>
 
             <Button
-                size={mobile ? 'xs' : 's'}
+                size={mobile ? 40 : 48}
                 view='secondary'
                 onClick={onFatalErrorOkButtonClick}
                 className={styles.button}

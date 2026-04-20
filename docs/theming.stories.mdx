@@ -1,4 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
+import { Plate } from '@alfalab/core-components-plate';
+import { Typography } from '@alfalab/core-components-typography';
 
 import { ThemingWizard } from 'storybook/theming-wizard';
 
@@ -7,6 +9,23 @@ import { ThemingWizard } from 'storybook/theming-wizard';
     parameters={{ previewTabs: { canvas: { hidden: true } } }}
     id='Instructions/Theming'
 />
+
+<Plate
+    view='attention'
+    titleView='light'
+    limitContentWidth={false}
+    title={
+        <>
+            При переходе на версию&nbsp;
+            <Typography.Text weight='bold'>@alfalab/core-components` 49 версии</Typography.Text>
+            &nbsp;можно столкнуться с неработающей темизацией
+        </>
+    }
+>
+    <>
+        Подробности ниже, в секции <Typography.Text weight='bold'>Troubleshooting</Typography.Text>
+    </>
+</Plate>
 
 ## Темизация
 
@@ -32,3 +51,18 @@ import { ThemingWizard } from 'storybook/theming-wizard';
 #### Темный режим перекрашивает всю страницу целиком
 
 Темный режим применяется на всю страницу. Перекрасить отдельные блоки нельзя. Если вам это нужно — скорее всего это не темный режим, а inverted версия компонента.
+
+### Troubleshooting
+
+В случае неработающего `css` (темизация, переменные и тп) в проектах, использующих `@alfalab/core-components@49` необходимо произвести замены по следующему принципу:
+
+```diff
+- @import '@alfalab/core-components/themes/corp.css';
++ @import '@alfalab/core-components-themes/corp.css';
+```
+
+#### Почему так?
+
+Исторически сложилось, что `css` поставляемый `@alfalab/core-components`, не всегда валидный.
+
+В `@alfalab/core-components@50` планируется переход на полностью валидный `css`.

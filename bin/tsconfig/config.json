@@ -5,7 +5,24 @@
                 "exclude": ["@alfalab/core-components"]
             },
             "storybook": {
-                "skip": true
+                "include": [
+                    "@alfalab/core-components-button",
+                    "@alfalab/core-components-divider",
+                    "@alfalab/core-components-gap",
+                    "@alfalab/core-components-icon-button",
+                    "@alfalab/core-components-input",
+                    "@alfalab/core-components-link",
+                    "@alfalab/core-components-mq",
+                    "@alfalab/core-components-radio",
+                    "@alfalab/core-components-radio-group",
+                    "@alfalab/core-components-space",
+                    "@alfalab/core-components-tabs",
+                    "@alfalab/core-components-typography"
+                ],
+                "storybook": true,
+                "out": "tsconfig.json",
+                "template": "templates/tsconfig.storybook.json",
+                "references": "tsconfig.build.json"
             },
             "test": {
                 "include": ["**"],

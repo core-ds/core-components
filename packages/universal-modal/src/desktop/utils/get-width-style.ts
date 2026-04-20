@@ -12,7 +12,7 @@ export const getWidthStyle = (
         viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     }
 
-    if (width > viewportWidth || width === 'fullWidth') {
+    if (width === 'fullWidth' || width > viewportWidth) {
         const marginLeft = (margin && hasOwnProperty(margin, 'left') && margin.left) || 0;
         const marginRight = (margin && hasOwnProperty(margin, 'right') && margin.right) || 0;
 

@@ -6,13 +6,13 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="container bold"
+        class="container"
       >
         <div
-          class="component component component hasSuffix size-48 size-48"
+          class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner"
+            class="field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -21,7 +21,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                 class="input size-48"
               >
                 <input
-                  class="input size-48 input input"
+                  class="input size-48 input bold input"
                   inputmode="decimal"
                   pattern="[0-9\\s\\.,]*"
                   placeholder="0 ₽"
@@ -29,7 +29,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                   value=""
                 />
                 <div
-                  class="suffixContainer suffixContainer"
+                  class="suffixContainer suffixContainer bold"
                   translate="no"
                 >
                   <span
@@ -39,10 +39,17 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -55,13 +62,13 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="container bold"
+      class="container"
     >
       <div
-        class="component component component hasSuffix size-48 size-48"
+        class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
       >
         <div
-          class="inner inner inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -70,7 +77,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
               class="input size-48"
             >
               <input
-                class="input size-48 input input"
+                class="input size-48 input bold input"
                 inputmode="decimal"
                 pattern="[0-9\\s\\.,]*"
                 placeholder="0 ₽"
@@ -78,7 +85,7 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                 value=""
               />
               <div
-                class="suffixContainer suffixContainer"
+                class="suffixContainer suffixContainer bold"
                 translate="no"
               >
                 <span
@@ -88,10 +95,17 @@ exports[`AmountInput Snapshots tests should match snapshot 1`] = `
                   class="suffix"
                 >
                   <span
+                    class="suffixMajor"
+                  />
+                  <span
                     class="minorPartAndCurrency"
                   >
                      
-                    ₽
+                    <span
+                      class="suffixCurrency"
+                    >
+                      ₽
+                    </span>
                   </span>
                 </div>
               </div>
@@ -161,13 +175,13 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
   "baseElement": <body>
     <div>
       <div
-        class="container bold"
+        class="container"
       >
         <div
-          class="component component component hasSuffix size-48 size-48"
+          class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner"
+            class="field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -176,7 +190,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 class="input size-48"
               >
                 <input
-                  class="input size-48 input input"
+                  class="input size-48 input bold input"
                   inputmode="decimal"
                   pattern="[0-9\\s\\.,]*"
                   placeholder="0 ₽"
@@ -184,7 +198,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                   value=""
                 />
                 <div
-                  class="suffixContainer suffixContainer"
+                  class="suffixContainer suffixContainer bold"
                   translate="no"
                 >
                   <span
@@ -194,10 +208,17 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -209,13 +230,13 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
     </div>
     <div>
       <div
-        class="container bold filled"
+        class="container filled"
       >
         <div
-          class="component component component suffixVisible hasSuffix size-48 size-48"
+          class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner filled"
+            class="field inner inner inner inner filled"
           >
             <div
               class="inputWrapper"
@@ -224,7 +245,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 class="input size-48"
               >
                 <input
-                  class="input size-48 input input"
+                  class="input size-48 input bold input"
                   inputmode="decimal"
                   pattern="[0-9\\s\\.,]*"
                   placeholder="0 $"
@@ -232,7 +253,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                   value="12 345,67"
                 />
                 <div
-                  class="suffixContainer suffixContainer"
+                  class="suffixContainer suffixContainer bold"
                   translate="no"
                 >
                   <span
@@ -243,13 +264,25 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                   <div
                     class="suffix"
                   >
-                    12 345
+                    <span
+                      class="suffixMajor"
+                    >
+                      12 345
+                    </span>
                     <span
                       class="minorPartAndCurrency"
                     >
-                      ,67
+                      <span
+                        class="suffixMinor"
+                      >
+                        ,67
+                      </span>
                        
-                      $
+                      <span
+                        class="suffixCurrency"
+                      >
+                        $
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -262,13 +295,13 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
   </body>,
   "container": <div>
     <div
-      class="container bold filled"
+      class="container filled"
     >
       <div
-        class="component component component suffixVisible hasSuffix size-48 size-48"
+        class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
       >
         <div
-          class="inner inner inner inner filled"
+          class="field inner inner inner inner filled"
         >
           <div
             class="inputWrapper"
@@ -277,7 +310,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
               class="input size-48"
             >
               <input
-                class="input size-48 input input"
+                class="input size-48 input bold input"
                 inputmode="decimal"
                 pattern="[0-9\\s\\.,]*"
                 placeholder="0 $"
@@ -285,7 +318,7 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 value="12 345,67"
               />
               <div
-                class="suffixContainer suffixContainer"
+                class="suffixContainer suffixContainer bold"
                 translate="no"
               >
                 <span
@@ -296,13 +329,25 @@ exports[`AmountInput Snapshots tests should match snapshot 2`] = `
                 <div
                   class="suffix"
                 >
-                  12 345
+                  <span
+                    class="suffixMajor"
+                  >
+                    12 345
+                  </span>
                   <span
                     class="minorPartAndCurrency"
                   >
-                    ,67
+                    <span
+                      class="suffixMinor"
+                    >
+                      ,67
+                    </span>
                      
-                    $
+                    <span
+                      class="suffixCurrency"
+                    >
+                      $
+                    </span>
                   </span>
                 </div>
               </div>
