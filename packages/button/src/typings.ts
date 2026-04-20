@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ReactNode } from 'react';
 
 import {
     type BaseButtonCandidateOwnProps,
@@ -14,10 +14,8 @@ export interface StyleColors {
     inverted: StylesMap;
 }
 
-type OmitStrict<T, K extends keyof T> = Omit<T, K>;
-
 export interface ButtonLayoutOwnProps
-    extends OmitStrict<BaseButtonCandidateOwnProps, 'disabledClassName' | 'Content'> {
+    extends Omit<BaseButtonCandidateOwnProps, 'disabledClassName' | 'Content'> {
     /**
      * Лэйаут кнопки
      */
@@ -67,7 +65,7 @@ export type ButtonLayoutProps = ButtonPropsFactory<ButtonLayoutOwnProps> & {
     styles?: StylesMap[];
 };
 
-export interface ComponentProps extends OmitStrict<ButtonLayoutOwnProps, 'layout'> {
+export interface ComponentProps extends Omit<ButtonLayoutOwnProps, 'layout'> {
     /**
      * Тип кнопки
      * @default secondary
@@ -104,9 +102,10 @@ export interface PrivateButtonProps {
     colorStylesMap: StyleColors;
 }
 
-export type ButtonRef = HTMLElement;
+export type ButtonRef = HTMLAnchorElement | HTMLButtonElement;
 
-export type CommonButtonProps = ButtonPropsFactory<ComponentProps>;
+export type CommonButtonProps = ComponentProps &
+    Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
 
 export interface ResponsiveProps {
     /**

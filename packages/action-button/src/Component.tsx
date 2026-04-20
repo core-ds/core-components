@@ -1,11 +1,15 @@
-import React, { forwardRef, type ReactNode } from 'react';
+import React, {
+    type AnchorHTMLAttributes,
+    type ButtonHTMLAttributes,
+    forwardRef,
+    type ReactNode,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import {
     BaseButtonCandidate,
-    type BaseButtonOwnProps,
-    type ButtonPropsFactory,
+    type BaseButtonCandidateOwnProps,
 } from '@alfalab/core-components-button/components/base-button-candidate';
 import { ButtonContent } from '@alfalab/core-components-button/components/button-content';
 import { useLoading } from '@alfalab/core-components-button/shared';
@@ -22,7 +26,7 @@ const colorStyles = {
 } as const;
 
 interface ComponentProps
-    extends Omit<BaseButtonOwnProps, 'disabledClassName' | 'Content' | 'block'> {
+    extends Omit<BaseButtonCandidateOwnProps, 'disabledClassName' | 'Content' | 'block'> {
     /**
      * Иконка кнопки
      */
@@ -49,7 +53,9 @@ interface ComponentProps
     colors?: 'default' | 'inverted' | 'static';
 }
 
-export type ActionButtonProps = ButtonPropsFactory<ComponentProps>;
+type AnchorProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+type ButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
+export type ActionButtonProps = Partial<AnchorProps | ButtonProps>;
 
 export const ActionButton = forwardRef<HTMLAnchorElement | HTMLButtonElement, ActionButtonProps>(
     (

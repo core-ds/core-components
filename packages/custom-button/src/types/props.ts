@@ -1,9 +1,8 @@
-import { type ButtonPropsFactory } from '@alfalab/core-components-button/components/base-button-candidate';
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
+
 import { type ButtonLayoutOwnProps } from '@alfalab/core-components-button/typings';
 
-type OmitStrict<T, K extends keyof T> = Omit<T, K>;
-
-export interface ComponentProps extends OmitStrict<ButtonLayoutOwnProps, 'layout'> {
+export interface ComponentProps extends Omit<ButtonLayoutOwnProps, 'layout'> {
     /**
      * Цвет кнопки
      */
@@ -50,6 +49,7 @@ interface ResponsiveProps {
     defaultMatchMediaValue?: boolean | (() => boolean);
 }
 
-export type CommonCustomButtonProps = ButtonPropsFactory<ComponentProps>;
+export type CommonCustomButtonProps = ComponentProps &
+    (AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>);
 
 export type CustomButtonProps = CommonCustomButtonProps & ResponsiveProps;
