@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react';
 
 import {
-    type BaseButtonOwnProps,
+    type BaseButtonCandidateOwnProps,
     type ButtonPropsFactory,
 } from './components/base-button-candidate';
 
@@ -17,7 +17,7 @@ export interface StyleColors {
 type OmitStrict<T, K extends keyof T> = Omit<T, K>;
 
 export interface ButtonLayoutOwnProps
-    extends OmitStrict<BaseButtonOwnProps, 'disabledClassName' | 'Content'> {
+    extends OmitStrict<BaseButtonCandidateOwnProps, 'disabledClassName' | 'Content'> {
     /**
      * Лэйаут кнопки
      */

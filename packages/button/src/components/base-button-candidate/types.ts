@@ -30,7 +30,7 @@ export interface BaseButtonContentProps {
 
 export type ButtonComponentProps = DisableAttributes & ComponentPropsWithoutRef<'a' | 'button'>;
 
-export interface BaseButtonOwnProps extends DisableAttributes {
+export interface BaseButtonCandidateOwnProps extends DisableAttributes {
     /**
      * Растягивает компонент на ширину контейнера
      * @default false
@@ -82,4 +82,4 @@ type ButtonLikeProps<T> = MaybeAnchorAttributes<undefined> &
 
 export type ButtonPropsFactory<T> = AnchorLikeProps<T> | ButtonLikeProps<T>;
 
-export type BaseButtonCandidateProps = ButtonPropsFactory<BaseButtonOwnProps>;
+export type BaseButtonCandidateProps = ButtonPropsFactory<BaseButtonCandidateOwnProps>;
