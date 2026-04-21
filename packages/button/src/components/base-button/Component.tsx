@@ -26,7 +26,7 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
             loaderClassName = spinnerClassName,
             loading: loadingFromProps,
             colors = 'default',
-            Component = ButtonComponent,
+            as: AsComponent = ButtonComponent,
             styles: stylesFromProps = {},
             colorStylesMap,
             ...restProps
@@ -54,7 +54,7 @@ export const BaseButton = forwardRef<ButtonRef, CommonButtonProps & PrivateButto
                 ref={ref}
                 layout={view === 'text' ? 'text' : 'button'}
                 className={className}
-                Component={Component}
+                as={AsComponent}
                 loading={loading}
                 loaderClassName={loaderClassName}
                 styles={styles}

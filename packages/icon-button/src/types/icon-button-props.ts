@@ -9,7 +9,7 @@ import { type BaseButtonCandidateProps } from '@alfalab/core-components-button/c
 
 export interface IconButtonProps
     extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>,
-        Pick<BaseButtonCandidateProps, 'Component' | 'href' | 'loading'>,
+        Pick<BaseButtonCandidateProps, 'Component' | 'as' | 'href' | 'loading'>,
         Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'> {
     /**
      * Компонент иконки

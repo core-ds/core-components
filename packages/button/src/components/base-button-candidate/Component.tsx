@@ -22,7 +22,8 @@ export const BaseButtonCandidate = forwardRef<HTMLElement, BaseButtonCandidatePr
             disabledClassName,
             dataTestId,
             loading,
-            Component = ButtonComponent,
+            Component,
+            as: RenderComponent = ButtonComponent,
             disabled: disabledFromProps,
             type,
             onClick,
@@ -30,13 +31,22 @@ export const BaseButtonCandidate = forwardRef<HTMLElement, BaseButtonCandidatePr
             Content = DefaultContent,
             ...restProps
         },
-        ref,
+        forwardedRef,
     ) => {
         const buttonRef = useRef<HTMLElement>(null);
         const [focused] = useFocus(buttonRef, 'keyboard');
+        const ref = mergeRefs([buttonRef, forwardedRef]);
         const disabled = disabledFromProps || loading;
         const passDisabledClassName = disabled && Boolean(href);
-
+        const cls = cn(
+            styles.component,
+            {
+                [styles.focused]: focused,
+                [styles.block]: block,
+            },
+            passDisabledClassName && [styles.disabled, disabledClassName],
+            className,
+        );
         const handleClick: MouseEventHandler<HTMLElement> = (event) => {
             if (disabled) {
                 event.preventDefault();
@@ -47,24 +57,18 @@ export const BaseButtonCandidate = forwardRef<HTMLElement, BaseButtonCandidatePr
         };
 
         return (
-            <Component
+            <RenderComponent
                 data-test-id={dataTestId}
                 {...restProps}
+                // @ts-expect-error `as` and `Component` are not compatible
+                as={RenderComponent === ButtonComponent ? Component : undefined}
                 href={href}
-                className={cn(
-                    styles.component,
-                    {
-                        [styles.focused]: focused,
-                        [styles.block]: block,
-                    },
-                    passDisabledClassName && [styles.disabled, disabledClassName],
-                    className,
-                )}
+                className={cls}
                 // @ts-expect-error anchor's type and button's type are not compatible
                 type={type}
                 disabled={disabled}
                 onClick={handleClick}
-                ref={mergeRefs([buttonRef, ref])}
+                ref={ref}
             >
                 <Content
                     dataTestId={dataTestId}
@@ -73,7 +77,7 @@ export const BaseButtonCandidate = forwardRef<HTMLElement, BaseButtonCandidatePr
                 >
                     {children}
                 </Content>
-            </Component>
+            </RenderComponent>
         );
     },
 );

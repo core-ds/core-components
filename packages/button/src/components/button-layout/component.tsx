@@ -28,7 +28,7 @@ export const ButtonLayout = forwardRef<ButtonRef, ButtonLayoutProps>(
             loaderClassName,
             loading,
             nowrap,
-            Component = ButtonComponent,
+            as: AsComponent = ButtonComponent,
             styles: stylesFromProps = [],
             ...restProps
         },
@@ -57,7 +57,7 @@ export const ButtonLayout = forwardRef<ButtonRef, ButtonLayoutProps>(
                 ref={ref}
                 className={className}
                 Content={ButtonContent}
-                Component={Component}
+                as={AsComponent}
                 loading={loading}
                 loaderClassName={cn(
                     allStyles.map((s) => s.loader),

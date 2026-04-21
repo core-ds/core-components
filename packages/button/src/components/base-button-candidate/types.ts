@@ -28,7 +28,10 @@ export interface BaseButtonContentProps {
     children?: ReactNode;
 }
 
-export type ButtonComponentProps = DisableAttributes & ComponentPropsWithoutRef<'a' | 'button'>;
+export type ButtonComponentProps = {
+    as?: ElementType<ComponentPropsWithoutRef<'a' | 'button'>, 'a' | 'button'>;
+} & DisableAttributes &
+    ComponentPropsWithoutRef<'a' | 'button'>;
 
 export interface BaseButtonCandidateOwnProps extends DisableAttributes {
     /**
@@ -66,8 +69,14 @@ export interface BaseButtonCandidateOwnProps extends DisableAttributes {
 
     /**
      * Кастомный компонент для кнопки
+     * @deprecated Используйте {@link BaseButtonCandidateOwnProps.as}, не работает одновременно
      */
-    Component?: ElementType<ComponentPropsWithoutRef<'a' | 'button'>, 'a' | 'button'>;
+    Component?: ElementType;
+
+    /**
+     * Кастомный компонент для кнопки
+     */
+    as?: ElementType<ComponentPropsWithoutRef<'a' | 'button'>, 'a' | 'button'>;
 
     /**
      * Кастомный компонент для контента

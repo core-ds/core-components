@@ -1,4 +1,4 @@
-import React, { type ComponentPropsWithoutRef, forwardRef } from 'react';
+import React, { type ComponentPropsWithoutRef, type ElementType, forwardRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -19,6 +19,7 @@ export const ButtonComponent = forwardRef<HTMLElement, ButtonComponentProps>(
 
         if (isAnchorProps(props)) {
             const {
+                as = 'a',
                 href,
                 disabled,
                 target,
@@ -26,28 +27,34 @@ export const ButtonComponent = forwardRef<HTMLElement, ButtonComponentProps>(
                 ...restProps
             } = props;
 
+            const Component = as as ElementType<ComponentPropsWithoutRef<'a'>, 'a'>;
+            const hrefProps = {
+                [typeof Component === 'string' ? 'href' : 'to']: disabled ? undefined : href,
+            };
+
             return (
-                // children are in restProps
-                // eslint-disable-next-line jsx-a11y/anchor-has-content
-                <a
+                <Component
                     {...restProps}
+                    {...hrefProps}
                     ref={ref}
                     className={cls}
                     target={target}
                     rel={rel}
-                    href={disabled ? undefined : href}
                     aria-disabled={disabled}
                 />
             );
         }
 
+        const { as = 'button', ...restProps } = props;
+        const Component = as as ElementType<ComponentPropsWithoutRef<'button'>, 'button'>;
+
         return (
-            <button
-                {...props}
+            <Component
+                {...restProps}
                 ref={ref}
                 className={cls}
                 // eslint-disable-next-line react/button-has-type
-                type={props.type ?? 'button'}
+                type={restProps.type ?? 'button'}
             />
         );
     },
