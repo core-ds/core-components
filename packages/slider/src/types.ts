@@ -10,6 +10,7 @@ type SubRange = number | [number] | [number, number];
  * - 2: маленькая точка без числа
  */
 export type PipsType = -1 | 0 | 1 | 2;
+export type PipsLabelMode = 'all' | 'pipsOnly' | 'customPipsOnly' | 'none';
 
 interface RangeOptions {
     min: SubRange;
@@ -107,23 +108,25 @@ export interface SliderProps {
     dotsSlider?: 'step' | 'custom';
 
     /**
+     * Показывать точки для pips-значений вместе с customDots в режиме dotsSlider='custom'
+     * @default false
+     */
+    showPipsDots?: boolean;
+
+    /**
      * Массив значений для произвольного размещения точек
      */
     customDots?: number[];
 
     /**
-     * Включение/отключение отображения чисел под точками
-     * Действует на все точки кроме customDots
-     * @default true
+     * Отображение подписи под точками:
+     * - all: подпись для всех точек
+     * - pipsOnly: подпись только для pips-значений
+     * - customPipsOnly: подпись только для customDots
+     * - none: подписи отключены
+     * @default 'all'
      */
-    showNumbers?: boolean;
-
-    /**
-     * Скрытие чисел только для кастомных точек
-     * При hideCustomDotsNumbers=true числа скрываются только у customDots, остальные числа остаются видимыми
-     * @default false
-     */
-    hideCustomDotsNumbers?: boolean;
+    pipsLabel?: PipsLabelMode;
 
     /**
      * Обработчик поля ввода
@@ -153,14 +156,12 @@ export type CreatePipsConfigParams = {
     pips?: Pips;
     pipsValues: number[];
     customDots: number[];
-    hideCustomDotsNumbers: boolean;
-    showNumbers: boolean;
+    pipsLabel: PipsLabelMode;
 } & Omit<Pips, 'mode' | 'values'>;
 
 interface BasePipsParams {
     pipsValues: number[];
     customDots: number[];
-    hideCustomDotsNumbers: boolean;
 }
 
 export interface PipsFilter extends BasePipsParams {
@@ -168,5 +169,5 @@ export interface PipsFilter extends BasePipsParams {
 }
 
 export interface PipsFormat extends BasePipsParams {
-    showNumbers: boolean;
+    pipsLabel: PipsLabelMode;
 }

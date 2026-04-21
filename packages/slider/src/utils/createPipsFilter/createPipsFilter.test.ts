@@ -36,9 +36,8 @@ describe('Unit/utils/function/createPipsFilter', () => {
         ])('$description', ({ input, expected }) => {
             const filter = createPipsFilter({
                 customDots: input.customDots,
-                hideCustomDotsNumbers: false,
-                pipsValues: [],
                 mergeValues: [],
+                pipsValues: [],
             });
             const result = filter(input.value, input.type);
 
@@ -81,9 +80,8 @@ describe('Unit/utils/function/createPipsFilter', () => {
         ])('$description', ({ input, expected }) => {
             const filter = createPipsFilter({
                 customDots: input.customDots,
-                hideCustomDotsNumbers: false,
-                pipsValues: [],
                 mergeValues: [],
+                pipsValues: [],
             });
             const result = filter(input.value, input.type);
             expect(result).toBe(expected);
@@ -138,9 +136,8 @@ describe('Unit/utils/function/createPipsFilter', () => {
         ])('$description', ({ input, expected }) => {
             const filter = createPipsFilter({
                 customDots: input.customDots,
-                hideCustomDotsNumbers: false,
-                pipsValues: [],
                 mergeValues: [],
+                pipsValues: [],
             });
             const result = filter(input.value, input.type);
             expect(result).toBe(expected);
@@ -151,7 +148,6 @@ describe('Unit/utils/function/createPipsFilter', () => {
         it('Should create a reusable filter function', () => {
             const filter = createPipsFilter({
                 customDots: [25, 50, 75],
-                hideCustomDotsNumbers: false,
                 mergeValues: [],
                 pipsValues: [],
             });
@@ -165,9 +161,8 @@ describe('Unit/utils/function/createPipsFilter', () => {
         it('Should handle different original types correctly', () => {
             const filter = createPipsFilter({
                 customDots: [25, 50, 75],
-                hideCustomDotsNumbers: false,
-                pipsValues: [],
                 mergeValues: [],
+                pipsValues: [],
             });
 
             expect(filter(25, -1)).toBe(1); // custom dot overrides -1
@@ -179,9 +174,8 @@ describe('Unit/utils/function/createPipsFilter', () => {
         it('Should preserve original type when no custom dots', () => {
             const filter = createPipsFilter({
                 customDots: [],
-                hideCustomDotsNumbers: false,
-                pipsValues: [],
                 mergeValues: [],
+                pipsValues: [],
             });
 
             expect(filter(10, -1)).toBe(-1);

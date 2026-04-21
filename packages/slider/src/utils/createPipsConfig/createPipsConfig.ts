@@ -17,31 +17,36 @@ type PipsConfig = (params: Omit<CreatePipsConfigParams, 'dotsSlider'>) => Option
  *   - ...restPipsProps - остальные свойства из pips (например, stepped)
  */
 export const config: Record<'step' | 'custom', PipsConfig> = {
-    step: ({ pips, showNumbers }) => {
+    step: ({ pips, pipsLabel, customDots }) => {
         if (!pips) return undefined;
 
-        if (showNumbers) {
+        const { format: providedFormat, values = [] } = pips;
+        const pipsValues = Array.isArray(values) ? values : [];
+
+        if (pipsLabel === 'all' && !providedFormat) {
             return pips as Options['pips'];
         }
 
-        const { format: providedFormat, ...rest } = pips;
-
-        if (providedFormat) {
+        if (providedFormat && pipsLabel !== 'none') {
             return pips as Options['pips'];
         }
 
         return {
-            ...rest,
-            format: { to: () => '' },
+            ...pips,
+            format: createPipsFormat({
+                pipsValues,
+                customDots,
+                pipsLabel,
+            }),
         } as Options['pips'];
     },
 
     custom: (params: Omit<CreatePipsConfigParams, 'dotsSlider'>) => {
-        const { pips, customDots, hideCustomDotsNumbers, showNumbers } = params;
+        const { pips, customDots, pipsLabel } = params;
 
         const { values, filter, format, ...restPipsProps } = pips || {};
         const pipsValues = Array.isArray(values) ? values : [];
-        const pipsProps = { pipsValues, customDots, hideCustomDotsNumbers };
+        const pipsProps = { pipsValues, customDots, pipsLabel };
         const mergeValues = Array.from(new Set([...pipsValues, ...customDots])).sort(
             (a, b) => a - b,
         );
@@ -59,7 +64,6 @@ export const config: Record<'step' | 'custom', PipsConfig> = {
             format:
                 format ||
                 createPipsFormat({
-                    showNumbers,
                     ...pipsProps,
                 }),
         } as Options['pips'];

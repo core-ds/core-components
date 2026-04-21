@@ -23,14 +23,14 @@ export const Slider: FC<SliderProps> = ({
     valueTo,
     disabled,
     pips,
+    pipsLabel = 'all',
     behaviour = 'tap',
     range = { min, max },
     size = 2,
     dots = false,
     dotsSlider = 'step',
-    customDots,
-    showNumbers = true,
-    hideCustomDotsNumbers = false,
+    showPipsDots = false,
+    customDots = [],
     className,
     onChange,
     onStart,
@@ -43,6 +43,8 @@ export const Slider: FC<SliderProps> = ({
     const hasValueTo = valueTo !== undefined;
     const { values } = pips || {};
     const hasCustomDotsSlider = dotsSlider === 'custom';
+
+    const shouldHidePipsDots = hasCustomDotsSlider && !showPipsDots;
     const shouldCreatePipsConfig = pips || customDots?.length;
 
     const getSlider = () => sliderRef.current?.noUiSlider;
@@ -53,12 +55,11 @@ export const Slider: FC<SliderProps> = ({
             pips,
             pipsValues: Array.isArray(values) ? values : [],
             customDots: Array.isArray(customDots) ? customDots : [],
-            showNumbers,
-            hideCustomDotsNumbers,
+            pipsLabel,
         };
 
         return createPipsConfig(configParams);
-    }, [values, pips, dotsSlider, customDots, showNumbers, hideCustomDotsNumbers]);
+    }, [values, pips, dotsSlider, customDots, pipsLabel]);
 
     const { updateMarkersState, createSlideHandler } = useSliderMarkers({
         sliderRef,
@@ -160,21 +161,21 @@ export const Slider: FC<SliderProps> = ({
     useEffect(() => {
         const pipsValues = Array.isArray(values) ? values : [];
 
-        if (!hasCustomDotsSlider || !pipsValues.length || !sliderRef.current) return;
+        if (!shouldHidePipsDots || !pipsValues.length || !sliderRef.current) return;
 
         updateMarkerClasses({
             sliderElement: sliderRef.current,
             pipsValues,
             customDots,
         });
-    }, [customDots, dotsSlider, hasCustomDotsSlider, values]);
+    }, [customDots, shouldHidePipsDots, values]);
 
     return (
         <div
             className={cn(styles.component, className, styles[SIZE_TO_CLASSNAME_MAP[size]], {
-                [styles.numbersDisabled]: hasCustomDotsSlider && !customDots?.length,
-                [styles.hideLargePips]: hasCustomDotsSlider,
-                [styles.dotsDisabled]: !dots,
+                [styles.numbersDisabled]: pipsLabel === 'none',
+                [styles.hideLargePips]: shouldHidePipsDots,
+                [styles.dotsHidden]: !dots,
                 [styles.disabled]: disabled,
             })}
             ref={sliderRef}

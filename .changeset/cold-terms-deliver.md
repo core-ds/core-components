@@ -1,16 +1,9 @@
 ---
-'@alfalab/core-components-slider': major
-'@alfalab/core-components': major
+'@alfalab/core-components-slider': minor
+'@alfalab/core-components': minor
 ---
 
-- Добавлена возможность динамического отображения маркеров слайдера в зависимости от состояния (скрытие при точном совпадении позиции, изменение цвета при прохождении)
+##### Slider
 
-- Добавлены новые пропсы для управления точками на слайдере:
-    - `dots` - включение/отключение отображения точек
-    - `dotsSlider` - тип отображения точек ('step' | 'custom')
-    - `customDots` - массив значений для произвольного размещения точек
-    - `showNumbers` - включение/отключение отображения чисел под точками
-    - `hideCustomDotsNumbers` - скрытие чисел только для кастомных точек
-
-- Исправлена работа `showNumbers` для режима `dotsSlider='step'`
-- Добавлены стили для disabled состояния слайдера (черный цвет кноба и активной части)
+- В `Slider` добавлены пропсы `dots`, `dotsSlider`, `customDots`, `showPipsDots` и `pipsLabel` для раздельного управления точками (`dots`) и подписями (`pips`).
+- В режиме `dotsSlider='custom'` `showPipsDots` управляет отображением точек для `pips`-значений, а `pipsLabel` управляет только подписями (`all`, `pipsOnly`, `customPipsOnly`, `none`).

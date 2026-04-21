@@ -17,7 +17,6 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
-        console.log = jest.fn();
 
         mockMarkerElement = {
             style: { left: '50%' },
@@ -49,8 +48,8 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
         mockMarkerUtils.updateMarkerAttributes.mockImplementation(() => {});
     });
 
-    describe('SUCCESS', () => {
-        it('Должен возвращать updateMarkersState и createSlideHandler', () => {
+    describe('Success cases', () => {
+        it('Should return updateMarkersState and createSlideHandler', () => {
             const { result } = renderHook(() =>
                 useSliderMarkers({
                     sliderRef: mockSliderRef,
@@ -65,7 +64,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(result.current.updateMarkersState).toBeDefined();
         });
 
-        it('Должен возвращать createSlideHandler функцию', () => {
+        it('Should return createSlideHandler function', () => {
             const { result } = renderHook(() =>
                 useSliderMarkers({
                     sliderRef: mockSliderRef,
@@ -80,7 +79,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(result.current.createSlideHandler).toBeDefined();
         });
 
-        it('Должен обновлять состояние маркеров при вызове updateMarkersState', () => {
+        it('Should update marker state when updateMarkersState is called', () => {
             const { result } = renderHook(() =>
                 useSliderMarkers({
                     sliderRef: mockSliderRef,
@@ -103,7 +102,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             });
         });
 
-        it('Должен вызывать updateMarkerAttributes при обновлении маркеров', () => {
+        it('Should call updateMarkerAttributes when markers are updated', () => {
             const { result } = renderHook(() =>
                 useSliderMarkers({
                     sliderRef: mockSliderRef,
@@ -126,7 +125,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             });
         });
 
-        it('Должен создавать обработчик для одиночного значения', () => {
+        it('Should create handler for single value', () => {
             mockSliderAPI.get.mockReturnValue('7');
 
             const { result } = renderHook(() =>
@@ -149,7 +148,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(mockOnChange).toHaveBeenCalledWith({ value: 7 });
         });
 
-        it('Должен создавать обработчик для диапазона значений', () => {
+        it('Should create handler for range values', () => {
             mockSliderAPI.get.mockReturnValue(['3', '7']);
 
             const { result } = renderHook(() =>
@@ -173,7 +172,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(mockOnChange).toHaveBeenCalledWith({ value: 3, valueTo: 7 });
         });
 
-        it('Должен обновлять маркеры при изменении value', () => {
+        it('Should update markers when value changes', () => {
             const { rerender } = renderHook(
                 ({ value }) =>
                     useSliderMarkers({
@@ -195,8 +194,8 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
         });
     });
 
-    describe('EDGE', () => {
-        it('Должен корректно обрабатывать перевернутые значения диапазона', () => {
+    describe('Edge cases', () => {
+        it('Should handle reversed range values correctly', () => {
             mockSliderAPI.get.mockReturnValue(['7', '3']);
 
             const { result } = renderHook(() =>
@@ -220,7 +219,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(mockOnChange).toHaveBeenCalledWith({ value: 3, valueTo: 7 });
         });
 
-        it('Должен пропускать маркеры с null значением', () => {
+        it('Should skip markers with null value', () => {
             mockMarkerUtils.getMarkerValue.mockReturnValue(null);
 
             const { result } = renderHook(() =>
@@ -241,7 +240,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(mockMarkerUtils.updateMarkerAttributes).not.toHaveBeenCalled();
         });
 
-        it('Должен работать без onChange колбэка', () => {
+        it('Should work without onChange callback', () => {
             mockSliderAPI.get.mockReturnValue('7');
 
             const { result } = renderHook(() =>
@@ -264,8 +263,8 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
         });
     });
 
-    describe('ERROR', () => {
-        it('Должен корректно обрабатывать отсутствие sliderRef.current', () => {
+    describe('Error cases', () => {
+        it('Should handle missing sliderRef.current correctly', () => {
             mockSliderRef.current = null;
 
             const { result } = renderHook(() =>
@@ -286,7 +285,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             }).not.toThrow();
         });
 
-        it('Должен корректно обрабатывать отсутствие маркеров', () => {
+        it('Should handle missing markers correctly', () => {
             mockSliderElement.querySelectorAll = jest.fn().mockReturnValue([]);
 
             const { result } = renderHook(() =>
@@ -307,7 +306,7 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             }).not.toThrow();
         });
 
-        it('Должен корректно обрабатывать ошибки в utils функциях', () => {
+        it('Should handle errors in utils functions correctly', () => {
             mockMarkerUtils.getMarkerValue.mockImplementation(() => {
                 throw new Error('Test error');
             });

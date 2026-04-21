@@ -25,8 +25,8 @@ describe('Unit/utility/function/getMarkerValue', () => {
         } as any;
     });
 
-    describe('SUCCESS', () => {
-        it('Должна возвращать значение из data-value атрибута', () => {
+    describe('Success cases', () => {
+        it('should return value from data-value attribute', () => {
             mockNextElement.classList.contains = jest.fn().mockReturnValue(true);
             mockNextElement.getAttribute = jest.fn().mockReturnValue('5');
 
@@ -39,7 +39,7 @@ describe('Unit/utility/function/getMarkerValue', () => {
             expect(result).toBe(5);
         });
 
-        it('Должна вычислять значение по позиции при отсутствии data-value', () => {
+        it('should compute value from position when data-value is absent', () => {
             mockNextElement.classList.contains = jest.fn().mockReturnValue(false);
             mockMarkerElement.style.left = '50%';
 
@@ -52,7 +52,7 @@ describe('Unit/utility/function/getMarkerValue', () => {
             expect(result).toBe(5);
         });
 
-        it('Должна правильно вычислять значение для диапазона 0-100', () => {
+        it('should compute value correctly for 0–100 range', () => {
             mockNextElement.classList.contains = jest.fn().mockReturnValue(false);
             mockMarkerElement.style.left = '25%';
 
@@ -65,7 +65,7 @@ describe('Unit/utility/function/getMarkerValue', () => {
             expect(result).toBe(25);
         });
 
-        it('Должна правильно вычислять значение для кастомного диапазона', () => {
+        it('should compute value correctly for custom range', () => {
             mockNextElement.classList.contains = jest.fn().mockReturnValue(false);
             mockMarkerElement.style.left = '50%';
 
@@ -79,8 +79,8 @@ describe('Unit/utility/function/getMarkerValue', () => {
         });
     });
 
-    describe('EDGE', () => {
-        it('Должна возвращать 0 при data-value=""', () => {
+    describe('Edge cases', () => {
+        it('should return 0 when data-value is empty string', () => {
             mockNextElement.classList.contains = jest.fn().mockReturnValue(true);
             mockNextElement.getAttribute = jest.fn().mockReturnValue('');
 
@@ -93,7 +93,7 @@ describe('Unit/utility/function/getMarkerValue', () => {
             expect(result).toBe(0);
         });
 
-        it('Должна округлять результат вычислений', () => {
+        it('should round computed result', () => {
             mockNextElement.classList.contains = jest.fn().mockReturnValue(false);
             mockMarkerElement.style.left = '33.33%';
 
@@ -106,7 +106,7 @@ describe('Unit/utility/function/getMarkerValue', () => {
             expect(result).toBe(3);
         });
 
-        it('Должна возвращать null при отсутствии nextElementSibling', () => {
+        it('should return null when nextElementSibling is missing', () => {
             const elementWithoutSibling = {
                 nextElementSibling: null,
                 style: {
@@ -124,8 +124,8 @@ describe('Unit/utility/function/getMarkerValue', () => {
         });
     });
 
-    describe('ERROR', () => {
-        it('Должна возвращать null при некорректном style.left', () => {
+    describe('Error cases', () => {
+        it('should return null when style.left is invalid', () => {
             mockNextElement.classList.contains = jest.fn().mockReturnValue(false);
             mockMarkerElement.style.left = 'invalid';
 
@@ -138,7 +138,7 @@ describe('Unit/utility/function/getMarkerValue', () => {
             expect(result).toBe(null);
         });
 
-        it('Должна возвращать null при отсутствии style.left', () => {
+        it('should return null when style.left is missing', () => {
             mockNextElement.classList.contains = jest.fn().mockReturnValue(false);
             mockMarkerElement.style.left = '';
 
@@ -163,8 +163,8 @@ describe('Unit/utility/function/updateMarkerAttributes', () => {
         } as any;
     });
 
-    describe('SUCCESS', () => {
-        it('Должна устанавливать data-passed при isPassed=true', () => {
+    describe('Success cases', () => {
+        it('should set data-passed when isPassed is true', () => {
             updateMarkerAttributes({
                 markerElement: mockMarkerElement,
                 isPassed: true,
@@ -174,7 +174,7 @@ describe('Unit/utility/function/updateMarkerAttributes', () => {
             expect(mockMarkerElement.setAttribute).toHaveBeenCalledWith('data-passed', 'true');
         });
 
-        it('Должна устанавливать data-current при isCurrent=true', () => {
+        it('should set data-current when isCurrent is true', () => {
             updateMarkerAttributes({
                 markerElement: mockMarkerElement,
                 isPassed: false,
@@ -184,7 +184,7 @@ describe('Unit/utility/function/updateMarkerAttributes', () => {
             expect(mockMarkerElement.setAttribute).toHaveBeenCalledWith('data-current', 'true');
         });
 
-        it('Должна удалять data-passed при isPassed=false', () => {
+        it('should remove data-passed when isPassed is false', () => {
             updateMarkerAttributes({
                 markerElement: mockMarkerElement,
                 isPassed: false,
@@ -194,7 +194,7 @@ describe('Unit/utility/function/updateMarkerAttributes', () => {
             expect(mockMarkerElement.removeAttribute).toHaveBeenCalledWith('data-passed');
         });
 
-        it('Должна удалять data-current при isCurrent=false', () => {
+        it('should remove data-current when isCurrent is false', () => {
             updateMarkerAttributes({
                 markerElement: mockMarkerElement,
                 isPassed: false,
@@ -205,8 +205,8 @@ describe('Unit/utility/function/updateMarkerAttributes', () => {
         });
     });
 
-    describe('EDGE', () => {
-        it('Должна корректно обрабатывать одновременно isPassed=true и isCurrent=true', () => {
+    describe('Edge cases', () => {
+        it('should handle isPassed=true and isCurrent=true together', () => {
             updateMarkerAttributes({
                 markerElement: mockMarkerElement,
                 isPassed: true,
@@ -217,7 +217,7 @@ describe('Unit/utility/function/updateMarkerAttributes', () => {
             expect(mockMarkerElement.setAttribute).toHaveBeenCalledWith('data-current', 'true');
         });
 
-        it('Должна корректно обрабатывать одновременно isPassed=false и isCurrent=false', () => {
+        it('should handle isPassed=false and isCurrent=false together', () => {
             updateMarkerAttributes({
                 markerElement: mockMarkerElement,
                 isPassed: false,
@@ -229,8 +229,8 @@ describe('Unit/utility/function/updateMarkerAttributes', () => {
         });
     });
 
-    describe('ERROR', () => {
-        it('Должна корректно обрабатывать ошибки DOM методов', () => {
+    describe('Error cases', () => {
+        it('should propagate errors from DOM methods', () => {
             mockMarkerElement.setAttribute = jest.fn().mockImplementation(() => {
                 throw new Error('DOM error');
             });
@@ -247,8 +247,8 @@ describe('Unit/utility/function/updateMarkerAttributes', () => {
 });
 
 describe('Unit/utility/function/isMarkerPassed', () => {
-    describe('SUCCESS', () => {
-        it('Должна возвращать true когда маркер пройден для одиночного значения', () => {
+    describe('Success cases', () => {
+        it('should return true when marker is passed for single handle', () => {
             const result = isMarkerPassed({
                 markerValue: 5,
                 currentValue: 7,
@@ -258,7 +258,7 @@ describe('Unit/utility/function/isMarkerPassed', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна возвращать false когда маркер не пройден для одиночного значения', () => {
+        it('should return false when marker is not passed for single handle', () => {
             const result = isMarkerPassed({
                 markerValue: 7,
                 currentValue: 5,
@@ -268,7 +268,7 @@ describe('Unit/utility/function/isMarkerPassed', () => {
             expect(result).toBe(false);
         });
 
-        it('Должна возвращать true когда маркер в диапазоне', () => {
+        it('should return true when marker is within range', () => {
             const result = isMarkerPassed({
                 markerValue: 5,
                 currentValue: 3,
@@ -279,7 +279,7 @@ describe('Unit/utility/function/isMarkerPassed', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна возвращать false когда маркер вне диапазона', () => {
+        it('should return false when marker is outside range', () => {
             const result = isMarkerPassed({
                 markerValue: 10,
                 currentValue: 3,
@@ -291,8 +291,8 @@ describe('Unit/utility/function/isMarkerPassed', () => {
         });
     });
 
-    describe('EDGE', () => {
-        it('Должна возвращать false для равных значений одиночного слайдера', () => {
+    describe('Edge cases', () => {
+        it('should return false when marker equals current value on single slider', () => {
             const result = isMarkerPassed({
                 markerValue: 5,
                 currentValue: 5,
@@ -302,7 +302,7 @@ describe('Unit/utility/function/isMarkerPassed', () => {
             expect(result).toBe(false);
         });
 
-        it('Должна корректно обрабатывать перевернутый диапазон', () => {
+        it('should handle inverted range', () => {
             const result = isMarkerPassed({
                 markerValue: 5,
                 currentValue: 7,
@@ -313,7 +313,7 @@ describe('Unit/utility/function/isMarkerPassed', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна возвращать true для маркера на границе диапазона', () => {
+        it('should return true for marker on range boundary', () => {
             const result = isMarkerPassed({
                 markerValue: 3,
                 currentValue: 3,
@@ -324,7 +324,7 @@ describe('Unit/utility/function/isMarkerPassed', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна обрабатывать hasValueTo=true без currentValueTo', () => {
+        it('should handle hasValueTo=true without currentValueTo', () => {
             const result = isMarkerPassed({
                 markerValue: 5,
                 currentValue: 7,
@@ -335,8 +335,8 @@ describe('Unit/utility/function/isMarkerPassed', () => {
         });
     });
 
-    describe('ERROR', () => {
-        it('Должна обрабатывать отрицательные значения', () => {
+    describe('Error cases', () => {
+        it('should handle negative values', () => {
             const result = isMarkerPassed({
                 markerValue: -5,
                 currentValue: -3,
@@ -346,7 +346,7 @@ describe('Unit/utility/function/isMarkerPassed', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна обрабатывать нулевые значения', () => {
+        it('should handle zero values', () => {
             const result = isMarkerPassed({
                 markerValue: 0,
                 currentValue: 0,
@@ -359,8 +359,8 @@ describe('Unit/utility/function/isMarkerPassed', () => {
 });
 
 describe('Unit/utility/function/isMarkerCurrent', () => {
-    describe('SUCCESS', () => {
-        it('Должна возвращать true когда маркер равен текущему значению', () => {
+    describe('Success cases', () => {
+        it('should return true when marker equals current value', () => {
             const result = isMarkerCurrent({
                 markerValue: 5,
                 currentValue: 5,
@@ -370,7 +370,7 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна возвращать false когда маркер не равен текущему значению', () => {
+        it('should return false when marker does not equal current value', () => {
             const result = isMarkerCurrent({
                 markerValue: 5,
                 currentValue: 7,
@@ -380,7 +380,7 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
             expect(result).toBe(false);
         });
 
-        it('Должна возвращать true когда маркер равен первому значению диапазона', () => {
+        it('should return true when marker equals first range value', () => {
             const result = isMarkerCurrent({
                 markerValue: 5,
                 currentValue: 5,
@@ -391,7 +391,7 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна возвращать true когда маркер равен второму значению диапазона', () => {
+        it('should return true when marker equals second range value', () => {
             const result = isMarkerCurrent({
                 markerValue: 7,
                 currentValue: 5,
@@ -402,7 +402,7 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна возвращать false когда маркер не равен ни одному значению диапазона', () => {
+        it('should return false when marker equals neither range value', () => {
             const result = isMarkerCurrent({
                 markerValue: 6,
                 currentValue: 5,
@@ -414,8 +414,8 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
         });
     });
 
-    describe('EDGE', () => {
-        it('Должна обрабатывать одинаковые значения диапазона', () => {
+    describe('Edge cases', () => {
+        it('should handle equal range endpoints', () => {
             const result = isMarkerCurrent({
                 markerValue: 5,
                 currentValue: 5,
@@ -426,7 +426,7 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна обрабатывать hasValueTo=true без currentValueTo', () => {
+        it('should handle hasValueTo=true without currentValueTo', () => {
             const result = isMarkerCurrent({
                 markerValue: 5,
                 currentValue: 5,
@@ -436,7 +436,7 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна обрабатывать нулевые значения', () => {
+        it('should handle zero values', () => {
             const result = isMarkerCurrent({
                 markerValue: 0,
                 currentValue: 0,
@@ -447,8 +447,8 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
         });
     });
 
-    describe('ERROR', () => {
-        it('Должна обрабатывать отрицательные значения', () => {
+    describe('Error cases', () => {
+        it('should handle negative values', () => {
             const result = isMarkerCurrent({
                 markerValue: -5,
                 currentValue: -5,
@@ -458,7 +458,7 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна обрабатывать дробные значения', () => {
+        it('should handle fractional values', () => {
             const result = isMarkerCurrent({
                 markerValue: 5.5,
                 currentValue: 5.5,
@@ -468,7 +468,7 @@ describe('Unit/utility/function/isMarkerCurrent', () => {
             expect(result).toBe(true);
         });
 
-        it('Должна обрабатывать очень большие числа', () => {
+        it('should handle very large numbers', () => {
             const result = isMarkerCurrent({
                 markerValue: Number.MAX_SAFE_INTEGER,
                 currentValue: Number.MAX_SAFE_INTEGER,
