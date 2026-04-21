@@ -8,11 +8,7 @@ import { type PipsFormat } from '../../types';
  * - customPipsOnly: показывает метки только для customDots
  * - none: скрывает все метки
  */
-export const createPipsFormat = ({
-    customDots,
-    pipsValues,
-    pipsLabel,
-}: PipsFormat) => ({
+export const createPipsFormat = ({ customDots, pipsValues, pipsLabel }: PipsFormat) => ({
     to: (value: number): string | number => {
         if (pipsLabel === 'none') return '';
 
