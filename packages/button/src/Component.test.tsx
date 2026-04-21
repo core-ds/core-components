@@ -302,19 +302,68 @@ describe('Button', () => {
     });
 
     describe('Custom component', () => {
-        it('should use custom component', () => {
-            const cb = jest.fn();
-            cb.mockReturnValue(null);
+        describe('should use custom component', () => {
+            test('Component', () => {
+                expect.assertions(1);
 
-            render(<Button Component={forwardRef(cb)} dataTestId={dataTestId} />);
+                const CustomComponent = forwardRef<HTMLElement, { dataTestId?: string }>(
+                    (props, _) => {
+                        const firstRenderRef = useRef(true);
 
-            expect(cb).toHaveBeenCalled();
+                        if (firstRenderRef.current) {
+                            firstRenderRef.current = false;
+                            expect(props).toEqual(
+                                expect.objectContaining({ 'data-test-id': dataTestId }),
+                            );
+                        }
 
-            const props = cb.mock.calls[0][0];
-            expect(props['data-test-id']).toBe(dataTestId);
+                        return null;
+                    },
+                );
+
+                render(<Button Component={CustomComponent} dataTestId={dataTestId} />);
+            });
+
+            test('as', () => {
+                expect.assertions(1);
+
+                const CustomComponent = forwardRef<HTMLElement, { dataTestId?: string }>(
+                    (props, _) => {
+                        const firstRenderRef = useRef(true);
+
+                        if (firstRenderRef.current) {
+                            firstRenderRef.current = false;
+                            expect(props).toEqual(
+                                expect.objectContaining({ 'data-test-id': dataTestId }),
+                            );
+                        }
+
+                        return null;
+                    },
+                );
+
+                render(<Button as={CustomComponent} dataTestId={dataTestId} />);
+            });
         });
 
-        it('should pass `href` to custom component', () => {
+        it('should pass `to` to `Component` prop', () => {
+            expect.assertions(1);
+
+            const CustomComponent = forwardRef<HTMLElement, { to?: string }>((props, _) => {
+                const firstRenderRef = useRef(true);
+
+                if (firstRenderRef.current) {
+                    firstRenderRef.current = false;
+                    expect(props).toEqual(expect.objectContaining({ to: 'test' }));
+                }
+
+                return null;
+            });
+
+            render(<Button Component={CustomComponent} href='test' />);
+        });
+
+        it('should pass `href` to `as` prop', () => {
             expect.assertions(1);
 
             const CustomComponent = forwardRef<HTMLElement, { href?: string }>((props, _) => {
@@ -328,7 +377,7 @@ describe('Button', () => {
                 return null;
             });
 
-            render(<Button Component={CustomComponent} href='test' />);
+            render(<Button as={CustomComponent} href='test' />);
         });
     });
 
