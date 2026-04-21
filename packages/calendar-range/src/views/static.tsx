@@ -1,11 +1,19 @@
 /* eslint-disable complexity */
 import React, { type FC, type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { addMonths, endOfMonth, isSameMonth, max, startOfMonth, subMonths } from 'date-fns';
+import {
+    addMonths,
+    endOfMonth,
+    isSameMonth,
+    isValid,
+    max,
+    startOfMonth,
+    subMonths,
+} from 'date-fns';
 
 import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
 import { usePeriodWithReset } from '@alfalab/core-components-calendar/shared';
-import { CalendarInputProps } from '@alfalab/core-components-calendar-input';
+import { type CalendarInputProps } from '@alfalab/core-components-calendar-input';
 import {
     formatDate,
     isValidInputValue,
@@ -15,7 +23,7 @@ import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import {
     UniversalDateInput,
-    UniversalDateInputProps,
+    type UniversalDateInputProps,
 } from '@alfalab/core-components-universal-date-input';
 
 import { type CalendarRangeProps } from '../Component';
@@ -67,6 +75,8 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     returnInvalidDates = false,
     dataTestId,
     calendarContainerClassName,
+    autoSwap = false,
+    onError,
 }) => {
     const [inputFromValue, setInputFromValue] = useState<string>(valueFrom);
     const [inputToValue, setInputToValue] = useState<string>(valueTo);
@@ -83,6 +93,8 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     const isInternalUpdate = useRef(false);
 
     const swapDates = (newValue: string) => {
+        if (!autoSwap) return;
+
         if (
             isCompleteDateInput(newValue) &&
             isCompleteDateInput(inputToValue) &&
@@ -312,9 +324,9 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
 
     useEffect(() => {
         if (isCompleteDateInput(inputFromValue)) {
-            const isValid = isValidInputValue(inputFromValue, minDate, maxDate, offDays);
+            const isValidInput = isValidInputValue(inputFromValue, minDate, maxDate, offDays);
 
-            setInputFromError(!isValid);
+            setInputFromError(!isValidInput);
         } else {
             setInputFromError(false);
         }
@@ -322,13 +334,30 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
 
     useEffect(() => {
         if (isCompleteDateInput(inputToValue)) {
-            const isValid = isValidInputValue(inputToValue, minDate, maxDate, offDays);
+            const isValidInput = isValidInputValue(inputToValue, minDate, maxDate, offDays);
 
-            setInputToError(!isValid);
+            setInputToError(!isValidInput);
         } else {
             setInputToError(false);
         }
     }, [inputToValue, minDate, maxDate, offDays]);
+
+    useEffect(() => {
+        if (onError) {
+            const parsedFrom = valueFrom ? parseDateString(valueFrom) : null;
+            const parsedTo = valueTo ? parseDateString(valueTo) : null;
+
+            const isDateFromValid = parsedFrom && isValid(parsedFrom);
+            const isDateToValid = parsedTo && isValid(parsedTo);
+
+            let isError = false;
+
+            if (isDateFromValid && isDateToValid) {
+                isError = parsedFrom.getTime() > parsedTo.getTime();
+            }
+            onError(isError);
+        }
+    }, [valueFrom, valueTo, onError]);
 
     const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
 

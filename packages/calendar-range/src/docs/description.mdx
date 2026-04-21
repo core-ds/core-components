@@ -37,8 +37,22 @@ render(() => {
                 </Typography.Text>
                 <Gap size={16} />
                 <Typography.Text view='primary-medium' color='secondary'>
-                    Dates: {valueFrom.date && formatDate(valueFrom.date)} —{' '}
-                    {valueTo.date && formatDate(valueTo.date)}
+                    Dates:{' '}
+                    {valueFrom.date &&
+                        (() => {
+                            const dateObj = new Date(valueFrom.date);
+                            return isNaN(dateObj.getTime())
+                                ? ''
+                                : formatDate(dateObj, 'dd.MM.yyyy');
+                        })()}
+                    {' — '}
+                    {valueTo.date &&
+                        (() => {
+                            const dateObj = new Date(valueTo.date);
+                            return isNaN(dateObj.getTime())
+                                ? ''
+                                : formatDate(dateObj, 'dd.MM.yyyy');
+                        })()}
                 </Typography.Text>
             </>
             <RadioGroup
