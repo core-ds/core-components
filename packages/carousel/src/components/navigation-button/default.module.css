@@ -1,10 +1,4 @@
-:root {
-    --carousel-button-color: var(--color-light-neutral-translucent-700);
-    --carousel-button-hover-color: var(--color-light-neutral-translucent-700-hover);
-    --carousel-button-active-color: var(--color-light-neutral-translucent-700-press);
-    --carousel-button-disabled-color: var(--color-light-neutral-translucent-300);
-    --carousel-button-border-color: var(--color-light-neutral-translucent-200);
-}
+@import '../../vars.css';
 
 .component {
     color: var(--carousel-button-color);

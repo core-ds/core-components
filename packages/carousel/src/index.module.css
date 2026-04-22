@@ -33,6 +33,7 @@
 
     &.navigationHover {
         .navButton {
+            transition: opacity var(--carousel-animation-duration) ease-in;
             opacity: 0;
         }
 

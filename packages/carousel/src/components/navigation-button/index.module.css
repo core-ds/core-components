@@ -1,8 +1,10 @@
-@import '@alfalab/core-components-vars/src/index.css';
+@import '../../vars.css';
 
 $icon-size: 40px;
 
 .component {
+    @mixin reset-tap-highlight-color;
+
     margin: unset;
     padding: unset;
     text-decoration: none;
@@ -14,7 +16,6 @@ $icon-size: 40px;
     cursor: pointer;
     text-align: center;
     border: unset;
-    -webkit-tap-highlight-color: transparent;
 
     &.focused {
         @mixin focus-outline;
