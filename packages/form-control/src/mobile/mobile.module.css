@@ -1,17 +1,5 @@
 @import '../vars.css';
 
-.above {
-    padding: var(--form-control-mobile-sub-paddings);
-}
-
-.sub {
-    padding: var(--form-control-mobile-sub-paddings);
-}
-
-.error {
-    padding: var(--form-control-mobile-sub-paddings);
-}
-
 /* SIZES */
 
 .size-40 .inner {

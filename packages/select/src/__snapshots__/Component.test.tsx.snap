@@ -222,7 +222,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
           </div>
         </div>
         <span
-          class="sub size-48 error error"
+          class="sub size-48 error"
           role="alert"
         >
           Error

@@ -85,9 +85,6 @@
     --form-control-l-border-radius: var(--border-radius-8);
     --form-control-xl-border-radius: var(--border-radius-12);
 
-    /* paddings mobile */
-    --form-control-mobile-sub-paddings: var(--gap-0) var(--gap-4);
-
     /* border-radius mobile */
     --form-control-mobile-40-border-radius: var(--border-radius-10);
     --form-control-mobile-s-border-radius: var(--border-radius-10);
