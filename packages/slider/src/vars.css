@@ -24,7 +24,6 @@
     --slider-origin-width: calc(100% - 16px);
     --slider-origin-right: 8px;
     --slider-marker-size: 2px;
-    --slider-marker-offset: 4px;
     --slider-marker-border-radius: var(--border-radius-circle);
     --slider-marker-color: var(--color-light-neutral-translucent-700);
     --slider-marker-color-passed: var(--color-light-accent-primary);

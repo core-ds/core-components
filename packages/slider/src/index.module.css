@@ -2,8 +2,6 @@
 @import './vars.css';
 
 .component {
-    --slider-marker-top: calc(var(--gap-10-neg) - var(--slider-marker-offset) / 2);
-
     width: 100%;
     padding-top: var(--slider-progress-s-height);
     position: relative;
@@ -102,7 +100,7 @@
 
     & :global(.noUi-marker-large) {
         position: absolute;
-        top: var(--slider-marker-top);
+        top: -12px;
         transform: translateY(-50%);
 
         &:first-child {
@@ -124,7 +122,7 @@
 
     & :global(.noUi-marker-sub) {
         position: absolute;
-        top: var(--slider-marker-top);
+        top: -12px;
         transform: translateY(-50%);
 
         &:global([data-current='true']) {
@@ -204,7 +202,10 @@
 }
 
 .size-2 {
-    --slider-marker-top: calc(-11px - var(--slider-marker-offset) / 2);
+    & :global(.noUi-marker-large),
+    & :global(.noUi-marker-sub) {
+        top: -13px;
+    }
 
     & :global(.noUi-base) {
         border-radius: var(--slider-progress-s-border-radius);
