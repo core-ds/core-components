@@ -799,9 +799,13 @@ function processDecimalPartPlugin(
     view: 'default' | 'withZeroMinorPart',
 ) {
     return maskitoEventHandler('blur', (element) => {
-        const nextValue = processDecimalPart(element.value, numberParams, view);
+        const { value } = element;
 
-        maskitoUpdateElement(element, nextValue);
+        if (value) {
+            const nextValue = processDecimalPart(value, numberParams, view);
+
+            maskitoUpdateElement(element, nextValue);
+        }
     });
 }
 
