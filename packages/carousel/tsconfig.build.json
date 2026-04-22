@@ -9,9 +9,14 @@
         "paths": {
             "@alfalab/core-components-carousel": ["./src"],
             "@alfalab/core-components-carousel/*": ["./src/*"],
+            "@alfalab/core-components-icon-view": ["../icon-view/src"],
+            "@alfalab/core-components-icon-view/*": ["../icon-view/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
-    "references": [{ "path": "../shared/tsconfig.build.json" }]
+    "references": [
+        { "path": "../icon-view/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" }
+    ]
 }

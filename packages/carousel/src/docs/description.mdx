@@ -3,7 +3,7 @@
 Рекомендуется использовать 32, 40 и 48 размеры. Размеры 56, 64, 72 — не рекомендованы к использованию.
 
 ```jsx live
-const CarouselItem = ({ children, bgColor, itemColor }) => {
+const CarouselItem = ({ bgColor, itemColor }) => {
     return (
         <div
             style={{
@@ -159,7 +159,7 @@ render(() => {
 Контент карусели может выходить за границы компонента.
 
 ```jsx live
-const CarouselItem = ({ children, bgColor, itemColor }) => {
+const CarouselItem = ({ bgColor, itemColor }) => {
     return (
         <div
             style={{
@@ -406,7 +406,7 @@ render(() => {
 Компонент может принимать события извне. Поэтому при необходимости, можно отключить контролы навигации в самой карусели и расположить их в верхнем аддоне, а в нижний передать [PageIndicator](?path=/docs/pageindicator--docs).
 
 ```jsx live
-const CarouselItem = ({ children, bgColor, itemColor }) => {
+const CarouselItem = ({ bgColor, itemColor }) => {
     return (
         <div
             style={{
