@@ -25,7 +25,6 @@
     --slider-origin-width: calc(100% - 16px);
     --slider-origin-right: 8px;
     --slider-marker-size: 2px;
-    --slider-marker-offset: 4px;
     --slider-marker-border-radius: var(--border-radius-circle);
     --slider-marker-color: var(--color-light-neutral-translucent-700);
     --slider-marker-color-passed: var(--color-light-accent-primary);
@@ -35,8 +34,6 @@
 @import './vars.css';
 
 .component {
-    --slider-marker-top: calc(var(--gap-10-neg) - var(--slider-marker-offset) / 2);
-
     width: 100%;
     padding-top: var(--slider-progress-s-height);
     position: relative;
@@ -135,7 +132,7 @@
 
     & :global(.noUi-marker-large) {
         position: absolute;
-        top: var(--slider-marker-top);
+        top: -12px;
         transform: translateY(-50%);
 
         &:first-child {
@@ -157,7 +154,7 @@
 
     & :global(.noUi-marker-sub) {
         position: absolute;
-        top: var(--slider-marker-top);
+        top: -12px;
         transform: translateY(-50%);
 
         &:global([data-current='true']) {
@@ -237,7 +234,10 @@
 }
 
 .size-2 {
-    --slider-marker-top: calc(-11px - var(--slider-marker-offset) / 2);
+    & :global(.noUi-marker-large),
+    & :global(.noUi-marker-sub) {
+        top: -13px;
+    }
 
     & :global(.noUi-base) {
         border-radius: var(--slider-progress-s-border-radius);
