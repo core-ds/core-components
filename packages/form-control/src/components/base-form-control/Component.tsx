@@ -205,6 +205,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         className={cn(
                             commonStyles.above,
                             commonStyles[`size-${size}`],
+                            styles.above,
                             colorCommonStyles[colors].label,
                         )}
                     >
@@ -307,6 +308,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         className={cn(
                             commonStyles.sub,
                             commonStyles[`size-${size}`],
+                            styles.error,
                             colorCommonStyles[colors].error,
                         )}
                         role='alert'
@@ -321,6 +323,7 @@ export const BaseFormControl = React.forwardRef<HTMLDivElement, BaseFormControlP
                         className={cn(
                             commonStyles.sub,
                             commonStyles[`size-${size}`],
+                            styles.sub,
                             colorCommonStyles[colors].hint,
                         )}
                     >
