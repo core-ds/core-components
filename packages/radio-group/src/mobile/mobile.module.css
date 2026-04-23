@@ -7,6 +7,7 @@
 .label {
     @mixin paragraph_component_secondary;
     color: var(--radio-group-mobile-label-color);
+    padding-left: var(--radio-group-mobile-sub-padding-left);
     margin-bottom: var(--gap-12);
 
     &.tag {
@@ -17,6 +18,7 @@
 .sub {
     @mixin paragraph_component_secondary;
     margin-top: var(--gap-12);
+    padding-left: var(--radio-group-mobile-sub-padding-left);
 
     &.tag {
         margin-top: var(--gap-8);
