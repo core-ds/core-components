@@ -20,14 +20,14 @@ export const config: Record<'step' | 'custom', PipsConfig> = {
     step: ({ pips, pipsLabel, customDots }) => {
         if (!pips) return undefined;
 
-        const { format: providedFormat, values = [] } = pips;
+        const { format, values = [] } = pips;
         const pipsValues = Array.isArray(values) ? values : [];
 
-        if (pipsLabel === 'all' && !providedFormat) {
+        if (pipsLabel === 'all' && !format) {
             return pips as Options['pips'];
         }
 
-        if (providedFormat && pipsLabel !== 'none') {
+        if (format && pipsLabel !== 'none') {
             return pips as Options['pips'];
         }
 

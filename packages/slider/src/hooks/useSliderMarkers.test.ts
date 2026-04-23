@@ -48,48 +48,38 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
         mockMarkerUtils.updateMarkerAttributes.mockImplementation(() => {});
     });
 
+    const renderHookWithProps = (
+        initialProps: Partial<Parameters<typeof useSliderMarkers>[0]> = {},
+    ) =>
+        renderHook(
+            (props: Partial<Parameters<typeof useSliderMarkers>[0]>) =>
+                useSliderMarkers({
+                    sliderRef: mockSliderRef,
+                    hasValueTo: false,
+                    value: 5,
+                    min: 0,
+                    max: 10,
+                    onChange: mockOnChange,
+                    ...props,
+                }),
+            { initialProps },
+        );
+
     describe('Success cases', () => {
-        it('Should return updateMarkersState and createSlideHandler', () => {
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
-
-            expect(result.current.updateMarkersState).toBeDefined();
-        });
-
-        it('Should return createSlideHandler function', () => {
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+        it('should return createSlideHandler function', () => {
+            const { result } = renderHookWithProps();
 
             expect(result.current.createSlideHandler).toBeDefined();
         });
 
-        it('Should update marker state when updateMarkersState is called', () => {
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+        it('should return updateMarkersState and createSlideHandler', () => {
+            const { result } = renderHookWithProps();
+
+            expect(result.current.updateMarkersState).toBeDefined();
+        });
+
+        it('should update marker state when updateMarkersState is called', () => {
+            const { result } = renderHookWithProps();
 
             act(() => {
                 result.current.updateMarkersState(7);
@@ -102,17 +92,18 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             });
         });
 
-        it('Should call updateMarkerAttributes when markers are updated', () => {
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+        it('should update markers when value changes', () => {
+            const { rerender } = renderHookWithProps({ value: 5 });
+
+            mockMarkerUtils.getMarkerValue.mockClear();
+
+            rerender({ value: 7 });
+
+            expect(mockMarkerUtils.getMarkerValue).toHaveBeenCalled();
+        });
+
+        it('should call updateMarkerAttributes when markers are updated', () => {
+            const { result } = renderHookWithProps();
 
             act(() => {
                 result.current.updateMarkersState(7);
@@ -125,19 +116,10 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             });
         });
 
-        it('Should create handler for single value', () => {
+        it('should create handler for single value', () => {
             mockSliderAPI.get.mockReturnValue('7');
 
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+            const { result } = renderHookWithProps();
 
             const slideHandler = result.current.createSlideHandler(mockSliderAPI);
 
@@ -148,20 +130,14 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(mockOnChange).toHaveBeenCalledWith({ value: 7 });
         });
 
-        it('Should create handler for range values', () => {
+        it('should create handler for range values', () => {
             mockSliderAPI.get.mockReturnValue(['3', '7']);
 
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: true,
-                    value: 3,
-                    valueTo: 7,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+            const { result } = renderHookWithProps({
+                hasValueTo: true,
+                value: 3,
+                valueTo: 7,
+            });
 
             const slideHandler = result.current.createSlideHandler(mockSliderAPI);
 
@@ -170,45 +146,18 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             });
 
             expect(mockOnChange).toHaveBeenCalledWith({ value: 3, valueTo: 7 });
-        });
-
-        it('Should update markers when value changes', () => {
-            const { rerender } = renderHook(
-                ({ value }) =>
-                    useSliderMarkers({
-                        sliderRef: mockSliderRef,
-                        hasValueTo: false,
-                        value,
-                        min: 0,
-                        max: 10,
-                        onChange: mockOnChange,
-                    }),
-                { initialProps: { value: 5 } },
-            );
-
-            mockMarkerUtils.getMarkerValue.mockClear();
-
-            rerender({ value: 7 });
-
-            expect(mockMarkerUtils.getMarkerValue).toHaveBeenCalled();
         });
     });
 
     describe('Edge cases', () => {
-        it('Should handle reversed range values correctly', () => {
+        it('should handle reversed range values correctly', () => {
             mockSliderAPI.get.mockReturnValue(['7', '3']);
 
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: true,
-                    value: 3,
-                    valueTo: 7,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+            const { result } = renderHookWithProps({
+                hasValueTo: true,
+                value: 3,
+                valueTo: 7,
+            });
 
             const slideHandler = result.current.createSlideHandler(mockSliderAPI);
 
@@ -219,19 +168,10 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(mockOnChange).toHaveBeenCalledWith({ value: 3, valueTo: 7 });
         });
 
-        it('Should skip markers with null value', () => {
+        it('should skip markers with null value', () => {
             mockMarkerUtils.getMarkerValue.mockReturnValue(null);
 
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+            const { result } = renderHookWithProps();
 
             act(() => {
                 result.current.updateMarkersState(7);
@@ -240,18 +180,10 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             expect(mockMarkerUtils.updateMarkerAttributes).not.toHaveBeenCalled();
         });
 
-        it('Should work without onChange callback', () => {
+        it('should work without onChange callback', () => {
             mockSliderAPI.get.mockReturnValue('7');
 
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                }),
-            );
+            const { result } = renderHookWithProps();
 
             const slideHandler = result.current.createSlideHandler(mockSliderAPI);
 
@@ -264,19 +196,10 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
     });
 
     describe('Error cases', () => {
-        it('Should handle missing sliderRef.current correctly', () => {
+        it('should handle missing sliderRef.current correctly', () => {
             mockSliderRef.current = null;
 
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+            const { result } = renderHookWithProps();
 
             expect(() => {
                 act(() => {
@@ -285,19 +208,10 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             }).not.toThrow();
         });
 
-        it('Should handle missing markers correctly', () => {
+        it('should handle missing markers correctly', () => {
             mockSliderElement.querySelectorAll = jest.fn().mockReturnValue([]);
 
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+            const { result } = renderHookWithProps();
 
             expect(() => {
                 act(() => {
@@ -306,21 +220,12 @@ describe('Unit/hooks/function/useSliderMarkers', () => {
             }).not.toThrow();
         });
 
-        it('Should handle errors in utils functions correctly', () => {
+        it('should handle errors in utils functions correctly', () => {
             mockMarkerUtils.getMarkerValue.mockImplementation(() => {
                 throw new Error('Test error');
             });
 
-            const { result } = renderHook(() =>
-                useSliderMarkers({
-                    sliderRef: mockSliderRef,
-                    hasValueTo: false,
-                    value: 5,
-                    min: 0,
-                    max: 10,
-                    onChange: mockOnChange,
-                }),
-            );
+            const { result } = renderHookWithProps();
 
             expect(() => {
                 act(() => {

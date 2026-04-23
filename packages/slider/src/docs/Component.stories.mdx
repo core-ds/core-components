@@ -26,8 +26,8 @@ import Changelog from '../../CHANGELOG.md?raw';
                 size={select('size', [2, 4], 4)}
                 behaviour={select('behaviour', ['unconstrained-tap', 'tap'], 'tap')}
                 dots={boolean('dots', true)}
-                pipsLabel={select('pipsLabel', ['all', 'pipsOnly', 'customPipsOnly', 'none'], 'all')}
                 dotsSlider={select('dotsSlider', ['step', 'custom'], 'step')}
+                pipsLabel={select('pipsLabel', ['all', 'pipsOnly', 'customPipsOnly', 'none'], 'all')}
                 showPipsDots={boolean('showPipsDots', false)}
                 customDots={object('customDots', [25, 50, 75])}
             />

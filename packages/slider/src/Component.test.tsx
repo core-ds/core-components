@@ -3,19 +3,21 @@ import { render } from '@testing-library/react';
 
 import { Slider } from './index';
 
+type Props = {
+    dots: boolean;
+    hasPips: boolean;
+    hasCustomDots: boolean;
+    pipsLabel: 'all' | 'pipsOnly' | 'customPipsOnly' | 'none';
+    showPipsDots?: boolean;
+};
+
 const renderComponent = ({
     dots,
     hasPips,
     hasCustomDots,
     pipsLabel,
     showPipsDots = false,
-}: {
-    dots: boolean;
-    hasPips: boolean;
-    hasCustomDots: boolean;
-    pipsLabel: 'all' | 'pipsOnly' | 'customPipsOnly' | 'none';
-    showPipsDots?: boolean;
-}) =>
+}: Props) =>
     render(
         <Slider
             min={1}
@@ -32,63 +34,10 @@ const renderComponent = ({
     );
 
 describe('Slider', () => {
-    describe('Snapshots tests', () => {
-        it.each([
-            {
-                description: 'default',
-                props: {
-                    step: 1,
-                },
-            },
-            {
-                description: 'with pipsLabel set to none',
-                props: {
-                    min: 1,
-                    max: 3,
-                    value: 1,
-                    pips: {
-                        mode: 'values' as const,
-                        values: [1, 2, 3],
-                    },
-                    dots: true,
-                    pipsLabel: 'none' as const,
-                },
-            },
-            {
-                description: 'with dots enabled',
-                props: {
-                    min: 1,
-                    max: 5,
-                    value: 3,
-                    pips: {
-                        mode: 'values' as const,
-                        values: [1, 2, 3, 4, 5],
-                    },
-                    dots: true,
-                },
-            },
-            {
-                description: 'with custom dots enabled',
-                props: {
-                    min: 1,
-                    max: 7,
-                    step: 0.5,
-                    value: 1,
-                    pips: {
-                        mode: 'values' as const,
-                        values: [1, 2, 3, 4, 5, 6, 7],
-                    },
-                    dots: true,
-                    dotsSlider: 'custom' as const,
-                    customDots: [1, 4, 5.5, 7],
-                    pipsLabel: 'pipsOnly' as const,
-                },
-            },
-        ])('should match snapshot $description', ({ props }) => {
-            const { container } = render(<Slider {...props} />);
+    it('should match snapshot', () => {
+        const { container } = render(<Slider step={1} />);
 
-            expect(container).toMatchSnapshot();
-        });
+        expect(container).toMatchSnapshot();
     });
 
     describe('Success cases', () => {

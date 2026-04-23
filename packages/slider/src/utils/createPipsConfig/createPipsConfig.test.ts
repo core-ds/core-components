@@ -4,7 +4,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
     describe('Success cases', () => {
         it.each([
             {
-                description: 'Should create step pips config with default parameters',
+                description: 'should create step pips config with default parameters',
                 input: {
                     min: 0,
                     max: 100,
@@ -20,7 +20,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                 },
             },
             {
-                description: 'Should create custom pips config with custom dots',
+                description: 'should create custom pips config with custom dots',
                 input: {
                     min: 0,
                     max: 50,
@@ -37,7 +37,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                 },
             },
             {
-                description: 'Should merge pips and custom dots when both provided',
+                description: 'should merge pips and custom dots when both provided',
                 input: {
                     min: 0,
                     max: 100,
@@ -64,7 +64,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
     describe('Edge cases', () => {
         it.each([
             {
-                description: 'Should return undefined when pips is not provided for step mode',
+                description: 'should return undefined when pips is not provided for step mode',
                 input: {
                     min: 0,
                     max: 0,
@@ -77,7 +77,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                 expected: undefined,
             },
             {
-                description: 'Should handle negative range with custom dots',
+                description: 'should handle negative range with custom dots',
                 input: {
                     min: -10,
                     max: 10,
@@ -96,7 +96,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
             },
             {
                 description:
-                    'Should return undefined for decimal step values when pips not provided',
+                    'should return undefined for decimal step values when pips not provided',
                 input: {
                     min: 0,
                     max: 1,
@@ -109,7 +109,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                 expected: undefined,
             },
             {
-                description: 'Should handle empty custom dots array',
+                description: 'should handle empty custom dots array',
                 input: {
                     min: 0,
                     max: 100,
@@ -140,7 +140,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
     describe('Error cases', () => {
         it.each([
             {
-                description: 'Should return undefined for NaN min value when pips not provided',
+                description: 'should return undefined for NaN min value when pips not provided',
                 input: {
                     min: NaN,
                     max: 100,
@@ -162,7 +162,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
     describe('Pips integration cases', () => {
         it.each([
             {
-                description: 'Should merge pips values with custom dots',
+                description: 'should merge pips values with custom dots',
                 input: {
                     min: 0,
                     max: 100,
@@ -180,7 +180,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                 },
             },
             {
-                description: 'Should merge pips values with custom dots and pipsLabel main',
+                description: 'should merge pips values with custom dots and pipsLabel main',
                 input: {
                     min: 0,
                     max: 100,
@@ -198,7 +198,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                 },
             },
             {
-                description: 'Should merge pips values with custom dots and pipsLabel none',
+                description: 'should merge pips values with custom dots and pipsLabel none',
                 input: {
                     min: 0,
                     max: 100,
@@ -225,7 +225,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
     describe('Return pips directly cases', () => {
         it.each([
             {
-                description: 'Should return pips directly when no custom dots',
+                description: 'should return pips directly when no custom dots',
                 input: {
                     min: 0,
                     max: 100,
@@ -238,7 +238,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
                 expected: { mode: 'values', values: [0, 25, 50, 75, 100] },
             },
             {
-                description: 'Should return pips directly when custom dots is empty array',
+                description: 'should return pips directly when custom dots is empty array',
                 input: {
                     min: 0,
                     max: 100,
@@ -258,7 +258,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
     });
 
     describe('Function behavior', () => {
-        it('Should return undefined when pips not provided for step mode', () => {
+        it('should return undefined when pips not provided for step mode', () => {
             const result = createPipsConfig({
                 dotsSlider: 'step',
                 pipsLabel: 'all',
@@ -269,7 +269,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
             expect(result).toBeUndefined();
         });
 
-        it('Should handle different dotsSlider values', () => {
+        it('should handle different dotsSlider values', () => {
             const stepResult = createPipsConfig({
                 dotsSlider: 'step',
                 pipsLabel: 'all',
@@ -296,7 +296,7 @@ describe('Unit/utils/function/createPipsConfig', () => {
             });
         });
 
-        it('Should extract pips values correctly', () => {
+        it('should extract pips values correctly', () => {
             const result = createPipsConfig({
                 dotsSlider: 'custom',
                 pipsLabel: 'all',

@@ -80,3 +80,82 @@ describe(
         },
     }),
 );
+
+describe(
+    'Slider | dots and pips props',
+    screenshotTesting({
+        cases: [
+            [
+                'step dots',
+                createSpriteStorybookUrl({
+                    componentName: 'Slider',
+                    knobs: {
+                        min: 1,
+                        max: 10,
+                        step: 0.5,
+                        value: 2.5,
+                        size: 4,
+                        dots: true,
+                        pips: JSON.stringify({
+                            mode: 'values',
+                            values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                        }),
+                    },
+                    size: { width: 500, height: 120 },
+                }),
+            ],
+            [
+                'custom dots with pips only',
+                createSpriteStorybookUrl({
+                    componentName: 'Slider',
+                    knobs: {
+                        min: 1,
+                        max: 7,
+                        step: 0.5,
+                        value: 2.5,
+                        size: 4,
+                        dots: true,
+                        dotsSlider: 'custom',
+                        pipsLabel: 'pipsOnly',
+                        customDots: JSON.stringify([1, 4, 5.5, 7]),
+                        pips: JSON.stringify({
+                            mode: 'values',
+                            values: [1, 2, 3, 4, 5, 6, 7],
+                        }),
+                    },
+                    size: { width: 500, height: 120 },
+                }),
+            ],
+            [
+                'custom dots with visible pips dots',
+                createSpriteStorybookUrl({
+                    componentName: 'Slider',
+                    knobs: {
+                        min: 1,
+                        max: 7,
+                        step: 0.5,
+                        value: 2.5,
+                        size: 4,
+                        dots: true,
+                        dotsSlider: 'custom',
+                        pipsLabel: 'all',
+                        showPipsDots: true,
+                        customDots: JSON.stringify([1, 4, 5.5, 7]),
+                        pips: JSON.stringify({
+                            mode: 'values',
+                            values: [1, 2, 3, 4, 5, 6, 7],
+                        }),
+                    },
+                    size: { width: 500, height: 120 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 600,
+            height: 180,
+        },
+    }),
+);

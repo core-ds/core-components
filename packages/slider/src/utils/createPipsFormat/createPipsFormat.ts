@@ -2,6 +2,7 @@ import { type PipsFormat } from '../../types';
 
 /**
  * Создает format функцию для pips
+ *
  * @description
  * - all: показывает метки для всех соответствующих точек
  * - pipsOnly: показывает метки только для значений pips
