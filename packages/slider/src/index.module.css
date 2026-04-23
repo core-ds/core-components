@@ -116,7 +116,7 @@
         }
 
         &:global([data-passed='true']:not([data-current='true'])) {
-            background: white;
+            background: var(--slider-marker-color-passed);
         }
     }
 
@@ -130,7 +130,7 @@
         }
 
         &:global([data-passed='true']:not([data-current='true'])) {
-            background: white;
+            background: var(--slider-marker-color-passed);
         }
     }
 
@@ -152,7 +152,7 @@
         }
 
         &:global([data-passed='true']:not([data-current='true'])) {
-            background: white;
+            background: var(--slider-marker-color-passed);
         }
     }
 
