@@ -27,7 +27,7 @@
     --slider-marker-size: 2px;
     --slider-marker-border-radius: var(--border-radius-circle);
     --slider-marker-color: var(--color-light-neutral-translucent-700);
-    --slider-marker-color-passed: var(--color-light-accent-primary);
+    --slider-marker-color-passed: var(--color-static-neutral-0);
     --slider-marker-color-disabled: var(--color-light-neutral-translucent-300);
 }
 @import '@alfalab/core-components-vars/src/index.css';
@@ -148,7 +148,7 @@
         }
 
         &:global([data-passed='true']:not([data-current='true'])) {
-            background: white;
+            background: var(--slider-marker-color-passed);
         }
     }
 
@@ -162,7 +162,7 @@
         }
 
         &:global([data-passed='true']:not([data-current='true'])) {
-            background: white;
+            background: var(--slider-marker-color-passed);
         }
     }
 
@@ -184,7 +184,7 @@
         }
 
         &:global([data-passed='true']:not([data-current='true'])) {
-            background: white;
+            background: var(--slider-marker-color-passed);
         }
     }
 
