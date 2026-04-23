@@ -6,4 +6,3 @@
 ##### CheckboxGroup
 
 - Удалены боковые отступы в мобильном компоненте для `label`, `hint`
-- Удалена переменная для темизации отступов `--checkbox-group-mobile-sub-padding-left`
