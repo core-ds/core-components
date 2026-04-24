@@ -15,4 +15,6 @@ export function createIndexDir() {
     mkdirSync(versionDir, { recursive: true });
 
     console.log(`📁  Created directory: ${indexDir}`);
+
+    return versionDir;
 }

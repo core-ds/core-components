@@ -12,7 +12,20 @@ export function getComponentEntryPoints() {
             'packages/*/src/component.responsive.tsx',
         ],
         {
-            ignore: ['packages/*-v1/**', 'packages/*-private/**'],
+            ignore: [
+                'packages/*-private/**',
+                'packages/modal/**',
+                'packages/side-panel/**',
+                'packages/*-v1/**',
+                'packages/alert/**',
+                'packages/badge/**',
+                'packages/calendar-input/**',
+                'packages/date-input/**',
+                'packages/date-range-input/**',
+                'packages/intl-phone-input/**',
+                'packages/loader/**',
+                'packages/time-input/**',
+            ],
         },
     );
 

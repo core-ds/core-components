@@ -1,5 +1,5 @@
 import { withCustomConfig } from 'react-docgen-typescript';
-import { resolve } from 'node:path';
+import path, { resolve } from 'node:path';
 import { createIndexDir } from './create-index-dir.mjs';
 import { getComponentEntryPoints } from './get-component-entry-points.mjs';
 
@@ -7,15 +7,21 @@ import { getComponentEntryPoints } from './get-component-entry-points.mjs';
 function main() {
     const files = getComponentEntryPoints();
 
-    const parser = withCustomConfig(
-        resolve(process.cwd(), 'tsconfig.react-docgen-typescript.json'), {}
-    );
+    const versionDir = createIndexDir();
 
-    const docs = parser.parse(files);
-
-    console.log(docs[0]);
-
-    createIndexDir();
+    // const parser = withCustomConfig(
+    //     resolve(process.cwd(), 'tsconfig.react-docgen-typescript.json'),
+    //     {},
+    // );
+    //
+    // const docs = parser.parse(files);
+    //
+    // files.forEach((file) => {
+    //     const dirname = path.dirname(file);
+    //     const packageName = dirname.split('/')[1];
+    //
+    //     console.log(dirname);
+    // });
 }
 
 main();
