@@ -1,0 +1,39 @@
+{
+    "name": "core-components-mcp",
+    "version": "0.0.0-alpha.4",
+    "description": "MCP server providing component information for core UI components.",
+    "type": "module",
+    "main": "dist/index.js",
+    "bin": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:fulcanellee/core-components-mcp.git"
+    },
+    "scripts": {
+        "clean": "rm -rf dist",
+        "copy-index": "cp -r src/components-index dist/components-index",
+        "minify": "npx terser dist/index.js -o dist/index.js -c -m --module",
+        "build": "npm run clean && tsc -p tsconfig.json && npm run copy-index && npm run minify",
+        "dev": "tsx src/index.ts",
+        "start": "node dist/index.js",
+        "inspect": "npx @modelcontextprotocol/inspector",
+        "build-index": "tsx scripts/build-index.ts",
+        "prepublishOnly": "npm run build"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.18.0",
+        "zod": "^4.1.11"
+    },
+    "devDependencies": {
+        "@types/node": "^24.6.0",
+        "dotenv": "^17.4.1",
+        "glob": "^13.0.6",
+        "react-docgen-typescript": "^2.4.0",
+        "terser": "^5.46.1",
+        "tsx": "^4.20.6",
+        "typescript": "^5.9.3"
+    }
+}
