@@ -3,6 +3,11 @@ import { readFileSync } from 'node:fs';
 import { withCustomConfig } from 'react-docgen-typescript';
 import { resolve } from 'node:path';
 
+const rootPackageJson = JSON.parse(
+    readFileSync(resolve(process.cwd(), 'packages/root/package.json'), 'utf-8')
+);
+const version = rootPackageJson.version;
+
 
 function main() {
     console.log('🔍  Search for components...');
@@ -28,7 +33,7 @@ function main() {
 
     const docs = parser.parse(files);
 
-    console.log(docs.length);
+    console.log(docs.length, version);
 }
 
 main();
