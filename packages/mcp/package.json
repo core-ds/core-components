@@ -29,7 +29,6 @@
     },
     "devDependencies": {
         "@types/node": "^24.6.0",
-        "dotenv": "^17.4.1",
         "react-docgen-typescript": "^2.4.0",
         "terser": "^5.46.1",
         "tsx": "^4.20.6",
