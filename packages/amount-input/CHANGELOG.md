@@ -1,5 +1,17 @@
 # @alfalab/core-components-amount-input
 
+## 9.2.1
+
+### Patch Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#2184](https://github.com/core-ds/core-components/pull/2184)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения при `blur`
+
 ## 9.2.0
 
 ### Minor Changes

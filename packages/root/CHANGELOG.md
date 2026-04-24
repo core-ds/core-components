@@ -1,5 +1,42 @@
 # @alfalab/core-components
 
+## 50.12.0
+
+### Minor Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### Slider
+
+- В `Slider` добавлены пропсы `dots`, `dotsSlider`, `customDots`, `showPipsDots` и `pipsLabel` для раздельного управления точками (`dots`) и подписями (`pips`).
+- В режиме `dotsSlider='custom'` `showPipsDots` управляет отображением точек для `pips`-значений, а `pipsLabel` управляет только подписями (`all`, `pipsOnly`, `customPipsOnly`, `none`).
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### SliderInput
+
+- `SliderInput` теперь поддерживает отображение точек, кастомные точки и раздельное управление точками и подписями pips через API вложенного `Slider`.
+
+### Patch Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#2184](https://github.com/core-ds/core-components/pull/2184)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения при `blur`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-slider@6.1.0
+- @alfalab/core-components-slider-input@11.1.0
+- @alfalab/core-components-amount-input@9.2.1
+
 ## 50.11.0
 
 ### Minor Changes
