@@ -13,6 +13,8 @@ function main() {
 
     const docs = parser.parse(files);
 
+    console.log(docs[0]);
+
     createIndexDir();
 }
 
