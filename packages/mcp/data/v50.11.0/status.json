@@ -1,4 +1,151 @@
 {
   "packageName": "status",
-  "displayName": "Status"
+  "displayName": "Status",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "view": {
+      "defaultValue": {
+        "value": "muted-alt"
+      },
+      "description": "Вид компонента\n@description soft deprecated, используйте вместо него muted-alt",
+      "name": "view",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"contrast\" | \"soft\" | \"muted\" | \"muted-alt\" | undefined"
+      }
+    },
+    "color": {
+      "defaultValue": {
+        "value": "green"
+      },
+      "description": "Цветовое оформление компонента",
+      "name": "color",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"red\" | \"grey\" | \"blue\" | \"green\" | \"orange\" | \"purple\" | \"teal\" | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы.",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "size": {
+      "defaultValue": {
+        "value": 20
+      },
+      "description": "Размер компонента",
+      "name": "size",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "40 | 32 | 24 | 20 | undefined"
+      }
+    },
+    "shape": {
+      "defaultValue": {
+        "value": "rectangular"
+      },
+      "description": "Форма компонента",
+      "name": "shape",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"rounded\" | \"rectangular\" | undefined"
+      }
+    },
+    "uppercase": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Текст компонента в верхнем регистре",
+      "name": "uppercase",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "leftAddons": {
+      "defaultValue": null,
+      "description": "Слот слева",
+      "name": "leftAddons",
+      "declarations": [
+        {
+          "fileName": "packages/status/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    }
+  }
 }

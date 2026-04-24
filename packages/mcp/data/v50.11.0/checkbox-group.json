@@ -1,4 +1,235 @@
 {
   "packageName": "checkbox-group",
-  "displayName": "CheckboxGroup"
+  "displayName": "CheckboxGroup",
+  "props": {
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "type": {
+      "defaultValue": null,
+      "description": "Тип компонента",
+      "name": "type",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "CheckboxGroupType | undefined"
+      }
+    },
+    "onFocus": {
+      "defaultValue": null,
+      "description": "Обработчик фокуса.",
+      "name": "onFocus",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
+      }
+    },
+    "onBlur": {
+      "defaultValue": null,
+      "description": "Обработчик блюра.",
+      "name": "onBlur",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
+      }
+    },
+    "onChange": {
+      "defaultValue": null,
+      "description": "Обработчик изменения значения 'checked' одного из дочерних компонентов",
+      "name": "onChange",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: MouseEvent<Element, MouseEvent> | ChangeEvent<Element>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
+      }
+    },
+    "disabled": {
+      "defaultValue": null,
+      "description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox",
+      "name": "disabled",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "error": {
+      "defaultValue": null,
+      "description": "Отображение ошибки",
+      "name": "error",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "hint": {
+      "defaultValue": null,
+      "description": "Текст подсказки снизу",
+      "name": "hint",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "label": {
+      "defaultValue": null,
+      "description": "Заголовок группы",
+      "name": "label",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "direction": {
+      "defaultValue": null,
+      "description": "Направление",
+      "name": "direction",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Direction | undefined"
+      }
+    },
+    "breakpoint": {
+      "defaultValue": {
+        "value": "1024"
+      },
+      "description": "Контрольная точка, с нее начинается desktop версия",
+      "name": "breakpoint",
+      "declarations": [
+        {
+          "fileName": "packages/checkbox-group/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "client": {
+      "defaultValue": null,
+      "description": "Версия, которая будет использоваться при серверном рендеринге",
+      "name": "client",
+      "declarations": [
+        {
+          "fileName": "packages/checkbox-group/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"desktop\" | \"mobile\" | undefined"
+      }
+    },
+    "defaultMatchMediaValue": {
+      "defaultValue": {
+        "value": "client === undefined ? undefined : client === 'desktop'"
+      },
+      "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+      "name": "defaultMatchMediaValue",
+      "declarations": [
+        {
+          "fileName": "packages/checkbox-group/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | (() => boolean) | undefined"
+      }
+    }
+  }
 }

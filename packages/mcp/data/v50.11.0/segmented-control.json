@@ -1,4 +1,223 @@
 {
   "packageName": "segmented-control",
-  "displayName": "SegmentedControl"
+  "displayName": "SegmentedControl",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный className",
+      "name": "className",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "onChange": {
+      "defaultValue": null,
+      "description": "Обработчик смены выбранного сегмента",
+      "name": "onChange",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "(id: IDType) => void"
+      }
+    },
+    "selectedId": {
+      "defaultValue": null,
+      "description": "ID выбранного сегмента",
+      "name": "selectedId",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "IDType"
+      }
+    },
+    "size": {
+      "defaultValue": {
+        "value": 32
+      },
+      "description": "Размер компонента",
+      "name": "size",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "40 | 32 | undefined"
+      }
+    },
+    "shape": {
+      "defaultValue": {
+        "value": "rectangular"
+      },
+      "description": "Форма компонента",
+      "name": "shape",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"rounded\" | \"rectangular\" | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы",
+      "name": "children",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "ReactElement<SegmentProps, string | JSXElementConstructor<any>>[]"
+      }
+    },
+    "colors": {
+      "defaultValue": {
+        "value": "default"
+      },
+      "description": "Набор цветов для компонента",
+      "name": "colors",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"default\" | \"inverted\" | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "style": {
+      "defaultValue": null,
+      "description": "Дополнительные инлайн стили для враппера",
+      "name": "style",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "CSSProperties | undefined"
+      }
+    },
+    "disabled": {
+      "defaultValue": {
+        "value": false
+      },
+      "description": "Отключает пользовательский ввод",
+      "name": "disabled",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "skeleton": {
+      "defaultValue": null,
+      "description": "Настройки скелетона",
+      "name": "skeleton",
+      "parent": {
+        "fileName": "packages/segmented-control/src/Component.tsx",
+        "name": "SegmentedControlProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/segmented-control/src/Component.tsx",
+          "name": "SegmentedControlProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "SkeletonProps | undefined"
+      }
+    }
+  }
 }

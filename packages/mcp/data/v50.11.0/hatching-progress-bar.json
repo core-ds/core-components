@@ -1,4 +1,121 @@
 {
   "packageName": "hatching-progress-bar",
-  "displayName": "HatchingProgressBar"
+  "displayName": "HatchingProgressBar",
+  "props": {
+    "value": {
+      "defaultValue": null,
+      "description": "Значение заполненной части 0-100",
+      "name": "value",
+      "declarations": [
+        {
+          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "number"
+      }
+    },
+    "hatchValue": {
+      "defaultValue": null,
+      "description": "Значение будущей заполненной части 0-100",
+      "name": "hatchValue",
+      "declarations": [
+        {
+          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "number"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Css-класс для стилизации",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "view": {
+      "defaultValue": {
+        "value": "positive"
+      },
+      "description": "Цвет заполнения",
+      "name": "view",
+      "declarations": [
+        {
+          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"link\" | \"primary\" | \"secondary\" | \"accent\" | \"tertiary\" | \"positive\" | \"negative\" | \"attention\" | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Id компонента для тестов",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "ref": {
+      "defaultValue": null,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
+      "name": "ref",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "RefAttributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "RefAttributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined"
+      }
+    },
+    "key": {
+      "defaultValue": null,
+      "description": "",
+      "name": "key",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "Attributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "Attributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Key | null | undefined"
+      }
+    }
+  }
 }

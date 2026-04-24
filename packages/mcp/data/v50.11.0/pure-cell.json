@@ -1,4 +1,5 @@
 {
   "packageName": "pure-cell",
-  "displayName": "Context"
+  "displayName": "Context",
+  "props": {}
 }

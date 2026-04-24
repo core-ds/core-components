@@ -1,4 +1,324 @@
 {
   "packageName": "filter-tag",
-  "displayName": "FilterTag"
+  "displayName": "FilterTag",
+  "props": {
+    "children": {
+      "defaultValue": null,
+      "description": "Контент",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "onClick": {
+      "defaultValue": null,
+      "description": "Обработчик клика",
+      "name": "onClick",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+      }
+    },
+    "size": {
+      "defaultValue": null,
+      "description": "Размер компонента",
+      "name": "size",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "48 | 40 | 32 | undefined"
+      }
+    },
+    "view": {
+      "defaultValue": null,
+      "description": "Стиль тега",
+      "name": "view",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"filled\" | \"outlined\" | undefined"
+      }
+    },
+    "disabled": {
+      "defaultValue": null,
+      "description": "Состояние блокировки",
+      "name": "disabled",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "colors": {
+      "defaultValue": {
+        "value": "default"
+      },
+      "description": "Набор цветов для компонента",
+      "name": "colors",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"default\" | \"inverted\" | undefined"
+      }
+    },
+    "checked": {
+      "defaultValue": null,
+      "description": "Состояние выбора",
+      "name": "checked",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "block": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "description": "Растягивает компонент на ширину контейнера",
+      "name": "block",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "leftAddons": {
+      "defaultValue": null,
+      "description": "Слот слева",
+      "name": "leftAddons",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "onClear": {
+      "defaultValue": null,
+      "description": "Обработчик очистки",
+      "name": "onClear",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(() => void) | undefined"
+      }
+    },
+    "shape": {
+      "defaultValue": {
+        "value": "rounded"
+      },
+      "description": "Форма тега",
+      "name": "shape",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"rounded\" | \"rectangular\" | undefined"
+      }
+    },
+    "open": {
+      "defaultValue": null,
+      "description": "Состояние открытия",
+      "name": "open",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "showClear": {
+      "defaultValue": null,
+      "description": "Показывать крестик для очистки выбора",
+      "name": "showClear",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/filter-tag/src/types/base-filter-tag-props.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "breakpoint": {
+      "defaultValue": {
+        "value": "1024"
+      },
+      "description": "Контрольная точка, с нее начинается desktop версия",
+      "name": "breakpoint",
+      "declarations": [
+        {
+          "fileName": "packages/filter-tag/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "client": {
+      "defaultValue": null,
+      "description": "Версия, которая будет использоваться при серверном рендеринге",
+      "name": "client",
+      "declarations": [
+        {
+          "fileName": "packages/filter-tag/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"desktop\" | \"mobile\" | undefined"
+      }
+    },
+    "defaultMatchMediaValue": {
+      "defaultValue": {
+        "value": "client === undefined ? undefined : client === 'desktop'"
+      },
+      "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+      "name": "defaultMatchMediaValue",
+      "declarations": [
+        {
+          "fileName": "packages/filter-tag/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | (() => boolean) | undefined"
+      }
+    },
+    "ref": {
+      "defaultValue": null,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
+      "name": "ref",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "RefAttributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "RefAttributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined"
+      }
+    },
+    "key": {
+      "defaultValue": null,
+      "description": "",
+      "name": "key",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "Attributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "Attributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Key | null | undefined"
+      }
+    }
+  }
 }

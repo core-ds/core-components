@@ -1,4 +1,96 @@
 {
   "packageName": "system-message",
-  "displayName": "SystemMessage"
+  "displayName": "SystemMessage",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/system-message/src/types.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "fullHeight": {
+      "defaultValue": null,
+      "description": "Растянуть контент на всю доступную высоту.",
+      "name": "fullHeight",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/system-message/src/types.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/system-message/src/types.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы.",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/system-message/src/types.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "padding": {
+      "defaultValue": null,
+      "description": "Отступы.",
+      "name": "padding",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/system-message/src/types.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "PaddingType | undefined"
+      }
+    },
+    "view": {
+      "defaultValue": null,
+      "description": "",
+      "name": "view",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/system-message/src/types.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "\"desktop\" | \"mobile\""
+      }
+    }
+  }
 }

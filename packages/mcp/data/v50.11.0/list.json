@@ -1,4 +1,5 @@
 {
   "packageName": "list",
-  "displayName": "Context"
+  "displayName": "Context",
+  "props": {}
 }

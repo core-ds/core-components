@@ -1,4 +1,371 @@
 {
   "packageName": "navigation-bar",
-  "displayName": "NavigationBar"
+  "displayName": "NavigationBar",
+  "props": {
+    "title": {
+      "defaultValue": null,
+      "description": "Заголовок",
+      "name": "title",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "subtitle": {
+      "defaultValue": null,
+      "description": "Подзаголовок",
+      "name": "subtitle",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Контент шапки",
+      "name": "children",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "align": {
+      "defaultValue": {
+        "value": "center"
+      },
+      "description": "Выравнивание заголовка",
+      "name": "align",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"center\" | \"left\" | undefined"
+      }
+    },
+    "backgroundColor": {
+      "defaultValue": {
+        "value": "var(--color-light-base-bg-primary)"
+      },
+      "description": "Цвет фона",
+      "name": "backgroundColor",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "border": {
+      "defaultValue": null,
+      "description": "Наличие бордера",
+      "name": "border",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "sticky": {
+      "defaultValue": null,
+      "description": "Фиксирует шапку",
+      "name": "sticky",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "bottomAddons": {
+      "defaultValue": null,
+      "description": "Слот снизу",
+      "name": "bottomAddons",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "leftAddons": {
+      "defaultValue": null,
+      "description": "Слот слева",
+      "name": "leftAddons",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "rightAddons": {
+      "defaultValue": null,
+      "description": "Слот справа",
+      "name": "rightAddons",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "contentClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс для контента",
+      "name": "contentClassName",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "contentWrapperClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс для обертки контента",
+      "name": "contentWrapperClassName",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "rightAddonsClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс для правого аддона",
+      "name": "rightAddonsClassName",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "leftAddonsClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс для левого аддона",
+      "name": "leftAddonsClassName",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "bottomAddonsClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс для нижнего аддона",
+      "name": "bottomAddonsClassName",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования.",
+      "name": "dataTestId",
+      "parent": {
+        "fileName": "packages/navigation-bar/src/Component.tsx",
+        "name": "NavigationBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/navigation-bar/src/Component.tsx",
+          "name": "NavigationBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "ref": {
+      "defaultValue": null,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
+      "name": "ref",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "RefAttributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "RefAttributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined"
+      }
+    },
+    "key": {
+      "defaultValue": null,
+      "description": "",
+      "name": "key",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "Attributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "Attributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Key | null | undefined"
+      }
+    }
+  }
 }

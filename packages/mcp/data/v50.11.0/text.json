@@ -1,4 +1,204 @@
 {
   "packageName": "text",
-  "displayName": "Text"
+  "displayName": "Text",
+  "props": {
+    "tag": {
+      "defaultValue": {
+        "value": "span"
+      },
+      "description": "HTML тег",
+      "name": "tag",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"p\" | \"span\" | undefined"
+      }
+    },
+    "view": {
+      "defaultValue": {
+        "value": "paragraph-primary-medium"
+      },
+      "description": "Cтиль типографики",
+      "name": "view",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "TypographyType | undefined"
+      }
+    },
+    "align": {
+      "defaultValue": {
+        "value": "left"
+      },
+      "description": "Выравнивание текста",
+      "name": "align",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"center\" | \"left\" | \"right\" | undefined"
+      }
+    },
+    "color": {
+      "defaultValue": null,
+      "description": "Цвет текста",
+      "name": "color",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "textBackgroundColor": {
+      "defaultValue": null,
+      "description": "Цвет фона",
+      "name": "textBackgroundColor",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "rowLimit": {
+      "defaultValue": null,
+      "description": "Количество строк",
+      "name": "rowLimit",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "2 | 1 | 3 | undefined"
+      }
+    },
+    "monospaceNumbers": {
+      "defaultValue": {
+        "value": false
+      },
+      "description": "Делает цифры моноширинными",
+      "name": "monospaceNumbers",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы",
+      "name": "children",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования.",
+      "name": "dataTestId",
+      "parent": {
+        "fileName": "packages/text/src/Component.tsx",
+        "name": "TextProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/text/src/Component.tsx",
+          "name": "TextProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  }
 }

@@ -1,4 +1,551 @@
 {
   "packageName": "calendar-with-skeleton",
-  "displayName": "CalendarWithSkeleton"
+  "displayName": "CalendarWithSkeleton",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "headerClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс шапки десктопного календаря",
+      "name": "headerClassName",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "contentClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс контента десктопного календаря",
+      "name": "contentClassName",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "defaultView": {
+      "defaultValue": null,
+      "description": "Вид по умолчанию (выбор дней, месяцев, лет)",
+      "name": "defaultView",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "View | undefined"
+      }
+    },
+    "selectorView": {
+      "defaultValue": null,
+      "description": "Вид шапки — месяц и год или только месяц",
+      "name": "selectorView",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "SelectorView | undefined"
+      }
+    },
+    "value": {
+      "defaultValue": null,
+      "description": "Выбранная дата (timestamp)",
+      "name": "value",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | { dateFrom?: number | undefined; dateTo?: number | undefined; } | undefined"
+      }
+    },
+    "mode": {
+      "defaultValue": {
+        "value": "single"
+      },
+      "description": "Режим выбора дат",
+      "name": "mode",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"single\" | \"range\" | undefined"
+      }
+    },
+    "rangeBehavior": {
+      "defaultValue": {
+        "value": "clarification"
+      },
+      "description": "Тип выбора границ в календаре",
+      "name": "rangeBehavior",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"reset\" | \"clarification\" | undefined"
+      }
+    },
+    "month": {
+      "defaultValue": null,
+      "description": "Открытый месяц (timestamp)",
+      "name": "month",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "defaultMonth": {
+      "defaultValue": null,
+      "description": "Месяц, открытый по умолчанию (timestamp)",
+      "name": "defaultMonth",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "minDate": {
+      "defaultValue": null,
+      "description": "Минимальная дата, доступная для выбора (timestamp)",
+      "name": "minDate",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "maxDate": {
+      "defaultValue": null,
+      "description": "Максимальная дата, доступная для выбора (timestamp)",
+      "name": "maxDate",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "selectedFrom": {
+      "defaultValue": null,
+      "description": "Начало выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'",
+      "name": "selectedFrom",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "selectedTo": {
+      "defaultValue": null,
+      "description": "Конец выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'",
+      "name": "selectedTo",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "rangeComplete": {
+      "defaultValue": null,
+      "description": "Индикатор, что выбран полный период",
+      "name": "rangeComplete",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "events": {
+      "defaultValue": null,
+      "description": "Список событий",
+      "name": "events",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(number | Date)[] | undefined"
+      }
+    },
+    "offDays": {
+      "defaultValue": null,
+      "description": "Список отключенных для выбора дней.",
+      "name": "offDays",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(number | Date)[] | undefined"
+      }
+    },
+    "holidays": {
+      "defaultValue": null,
+      "description": "Список выходных",
+      "name": "holidays",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(number | Date)[] | undefined"
+      }
+    },
+    "onMonthChange": {
+      "defaultValue": null,
+      "description": "Обработчик изменения месяца (или года)",
+      "name": "onMonthChange",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((month: number) => void) | undefined"
+      }
+    },
+    "onChange": {
+      "defaultValue": null,
+      "description": "Обработчик выбора даты",
+      "name": "onChange",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((date?: number | undefined, dateTo?: number | undefined) => void) | undefined"
+      }
+    },
+    "onMonthClick": {
+      "defaultValue": null,
+      "description": "Обработчик нажатия на кнопку месяца",
+      "name": "onMonthClick",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+      }
+    },
+    "onYearClick": {
+      "defaultValue": null,
+      "description": "Обработчик нажатия на кнопку года",
+      "name": "onYearClick",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+      }
+    },
+    "onPeriodClick": {
+      "defaultValue": null,
+      "description": "Обработчик нажатия на период",
+      "name": "onPeriodClick",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: MouseEvent<HTMLAnchorElement, MouseEvent>) => void) | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "hasHeader": {
+      "defaultValue": null,
+      "description": "Нужно ли рендерить шапку календаря",
+      "name": "hasHeader",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "responsive": {
+      "defaultValue": null,
+      "description": "Должен ли календарь подстраиваться под ширину родителя.",
+      "name": "responsive",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "dayAddons": {
+      "defaultValue": null,
+      "description": "Дополнительный контент под числом",
+      "name": "dayAddons",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "DayAddons[] | undefined"
+      }
+    },
+    "shape": {
+      "defaultValue": null,
+      "description": "Форма ячейки дня",
+      "name": "shape",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"rounded\" | \"rectangular\" | undefined"
+      }
+    },
+    "showCurrentYearSelector": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "description": "Отображать ли текущий год, если selectorView 'month-only'",
+      "name": "showCurrentYearSelector",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "hideDisabledArrows": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "description": "Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'",
+      "name": "hideDisabledArrows",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "mobile": {
+      "defaultValue": null,
+      "description": "CalendarDesktop используется в мобильной и десктопной версии\nПропс позволяет определить платформу",
+      "name": "mobile",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/calendar/src/desktop/Component.desktop.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "animate": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Флаг включения анимации скелета",
+      "name": "animate",
+      "declarations": [
+        {
+          "fileName": "packages/calendar-with-skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "calendarVisible": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Флаг управлением видимостью календаря",
+      "name": "calendarVisible",
+      "declarations": [
+        {
+          "fileName": "packages/calendar-with-skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "ref": {
+      "defaultValue": null,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
+      "name": "ref",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "RefAttributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "RefAttributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined"
+      }
+    },
+    "key": {
+      "defaultValue": null,
+      "description": "",
+      "name": "key",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "Attributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "Attributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Key | null | undefined"
+      }
+    }
+  }
 }

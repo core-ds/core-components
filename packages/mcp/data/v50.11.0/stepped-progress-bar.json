@@ -1,4 +1,143 @@
 {
   "packageName": "stepped-progress-bar",
-  "displayName": "SteppedProgressBar"
+  "displayName": "SteppedProgressBar",
+  "props": {
+    "maxStep": {
+      "defaultValue": null,
+      "description": "Общее количество шагов",
+      "name": "maxStep",
+      "parent": {
+        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+        "name": "SteppedProgressBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+          "name": "SteppedProgressBarProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "number"
+      }
+    },
+    "description": {
+      "defaultValue": null,
+      "description": "Постфикс описание под прогрессбаром",
+      "name": "description",
+      "parent": {
+        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+        "name": "SteppedProgressBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+          "name": "SteppedProgressBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "step": {
+      "defaultValue": {
+        "value": 0
+      },
+      "description": "Количество пройденных шагов",
+      "name": "step",
+      "parent": {
+        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+        "name": "SteppedProgressBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+          "name": "SteppedProgressBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "view": {
+      "defaultValue": null,
+      "description": "Цвет заполнения",
+      "name": "view",
+      "parent": {
+        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+        "name": "SteppedProgressBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+          "name": "SteppedProgressBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "SteppedProgressBarViewValue | SteppedProgressBarViewValue[] | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "parent": {
+        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+        "name": "SteppedProgressBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+          "name": "SteppedProgressBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "colors": {
+      "defaultValue": {
+        "value": "default"
+      },
+      "description": "Набор цветов для компонента",
+      "name": "colors",
+      "parent": {
+        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+        "name": "SteppedProgressBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+          "name": "SteppedProgressBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"default\" | \"inverted\" | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "parent": {
+        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+        "name": "SteppedProgressBarProps"
+      },
+      "declarations": [
+        {
+          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
+          "name": "SteppedProgressBarProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  }
 }

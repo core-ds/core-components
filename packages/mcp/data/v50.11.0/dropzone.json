@@ -1,4 +1,209 @@
 {
   "packageName": "dropzone",
-  "displayName": "Dropzone"
+  "displayName": "Dropzone",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "contentClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс для контента",
+      "name": "contentClassName",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "text": {
+      "defaultValue": {
+        "value": "Перетащите файлы"
+      },
+      "description": "Подпись для заглушки",
+      "name": "text",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "disabled": {
+      "defaultValue": null,
+      "description": "Заблокированное состояние",
+      "name": "disabled",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "error": {
+      "defaultValue": {
+        "value": false
+      },
+      "description": "Состояние ошибки",
+      "name": "error",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "block": {
+      "defaultValue": {
+        "value": false
+      },
+      "description": "Растягивать ли компонент на всю ширину",
+      "name": "block",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "Overlay": {
+      "defaultValue": {
+        "value": "({ text = 'Перетащите файлы', visible = false }) => (\n    <div\n        className={cn(styles.overlay, {\n            [styles.visible]: visible,\n        })}\n    >\n        <ContainerMIcon />\n        <span className={styles.text}>{text}</span>\n    </div>\n)"
+      },
+      "description": "Компонент оверлея",
+      "name": "Overlay",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ComponentType<OverlayProps> | undefined"
+      }
+    },
+    "onDrop": {
+      "defaultValue": null,
+      "description": "Обработчик события 'drop'",
+      "name": "onDrop",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((files: File[]) => void) | undefined"
+      }
+    },
+    "onDragOver": {
+      "defaultValue": null,
+      "description": "Обработчик события 'dragover'",
+      "name": "onDragOver",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: DragEvent<HTMLElement>) => void) | undefined"
+      }
+    },
+    "onDragLeave": {
+      "defaultValue": null,
+      "description": "Обработчик события 'dragleave'",
+      "name": "onDragLeave",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: DragEvent<HTMLElement>) => void) | undefined"
+      }
+    },
+    "onDragEnter": {
+      "defaultValue": null,
+      "description": "Обработчик события 'dragenter'",
+      "name": "onDragEnter",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: DragEvent<HTMLElement>) => void) | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы.",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "packages/dropzone/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    }
+  }
 }

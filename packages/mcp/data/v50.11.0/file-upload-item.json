@@ -1,4 +1,552 @@
 {
   "packageName": "file-upload-item",
-  "displayName": "FileUploadItemComponent"
+  "displayName": "FileUploadItemComponent",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "id": {
+      "defaultValue": {
+        "value": "0"
+      },
+      "description": "Идентификатор элемента",
+      "name": "id",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "title": {
+      "defaultValue": {
+        "value": ""
+      },
+      "description": "Имя файла / заголовок",
+      "name": "title",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "subtitle": {
+      "defaultValue": null,
+      "description": "Подзаголовок файла",
+      "name": "subtitle",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "size": {
+      "defaultValue": null,
+      "description": "Размер файла",
+      "name": "size",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | number | undefined"
+      }
+    },
+    "uploadDate": {
+      "defaultValue": null,
+      "description": "Дата загрузки файла",
+      "name": "uploadDate",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "downloadLink": {
+      "defaultValue": null,
+      "description": "Ссылка на файл. Если прокидывается этот параметр, то появляется кнопка скачивания",
+      "name": "downloadLink",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "download": {
+      "defaultValue": null,
+      "description": "Рекомендует браузеру скачивать контент по ссылке.\nВ проп может быть передано рекомендуемое название скачиваемого файла.",
+      "name": "download",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | true | undefined"
+      }
+    },
+    "showDelete": {
+      "defaultValue": null,
+      "description": "Отображение кнопки удаления",
+      "name": "showDelete",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "showRestore": {
+      "defaultValue": null,
+      "description": "Отображение кнопки восстановления",
+      "name": "showRestore",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "uploadStatus": {
+      "defaultValue": null,
+      "description": "Статус загрузки файла",
+      "name": "uploadStatus",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "FileUploadItemStatus | undefined"
+      }
+    },
+    "error": {
+      "defaultValue": null,
+      "description": "Сообщение об ошибке",
+      "name": "error",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | string[] | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы",
+      "name": "children",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "onDownload": {
+      "defaultValue": null,
+      "description": "Обработчик загрузки файла",
+      "name": "onDownload",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((id: string) => void) | undefined"
+      }
+    },
+    "onDelete": {
+      "defaultValue": null,
+      "description": "Обработчик удаления файла",
+      "name": "onDelete",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((id: string, event?: MouseEvent<HTMLElement, MouseEvent> | undefined) => void) | undefined"
+      }
+    },
+    "onRestore": {
+      "defaultValue": null,
+      "description": "Обработчик восстановления файла",
+      "name": "onRestore",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((id: string) => void) | undefined"
+      }
+    },
+    "disableButtons": {
+      "defaultValue": null,
+      "description": "Управление активностью кнопок",
+      "name": "disableButtons",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "isClickable": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Управление отображением кликабельности элемента Content",
+      "name": "isClickable",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "target": {
+      "defaultValue": null,
+      "description": "Указывает, где открыть скачиваемый документ",
+      "name": "target",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "HTMLAttributeAnchorTarget | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "iconStyle": {
+      "defaultValue": {
+        "value": "gray"
+      },
+      "description": "Цвет заполнения иконки",
+      "name": "iconStyle",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"gray\" | \"colored\" | undefined"
+      }
+    },
+    "customIcon": {
+      "defaultValue": null,
+      "description": "Кастомная иконка",
+      "name": "customIcon",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ElementType<{ className?: string | undefined; }> | undefined"
+      }
+    },
+    "progressBar": {
+      "defaultValue": {
+        "value": 0
+      },
+      "description": "Шкала прогресса\nот 0 до 100",
+      "name": "progressBar",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "progressBarAvailable": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Шкала прогресса",
+      "name": "progressBarAvailable",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "customContent": {
+      "defaultValue": null,
+      "description": "Кастомный контент",
+      "name": "customContent",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ElementType | undefined"
+      }
+    },
+    "truncate": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "description": "Отсечение контента",
+      "name": "truncate",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "imageUrl": {
+      "defaultValue": null,
+      "description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой",
+      "name": "imageUrl",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "backgroundColor": {
+      "defaultValue": null,
+      "description": "Цвет заливки `StatusControl`",
+      "name": "backgroundColor",
+      "parent": {
+        "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+        "name": "FileUploadItemProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/file-upload-item/src/types/file-upload-item-props.ts",
+          "name": "FileUploadItemProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  }
 }

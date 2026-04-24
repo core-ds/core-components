@@ -1,4 +1,306 @@
 {
   "packageName": "product-cover",
-  "displayName": "Single"
+  "displayName": "Single",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "icon": {
+      "defaultValue": null,
+      "description": "Слот для иконки с оверлеем",
+      "name": "icon",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ElementType | undefined"
+      }
+    },
+    "size": {
+      "defaultValue": null,
+      "description": "Размер",
+      "name": "size",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Size | undefined"
+      }
+    },
+    "backgroundColor": {
+      "defaultValue": null,
+      "description": "Фон для компонента",
+      "name": "backgroundColor",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "cardId": {
+      "defaultValue": null,
+      "description": "Идентификатор карты\n(например: RM,SQ,SR)",
+      "name": "cardId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "layers": {
+      "defaultValue": null,
+      "description": "Какие слои показывать, через запятую без пробелов\n(полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)",
+      "name": "layers",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "baseUrl": {
+      "defaultValue": null,
+      "description": "Базовый URL сервиса с изображениями\n(например: https://online.alfabank.ru/cards-images/cards/)",
+      "name": "baseUrl",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "shadow": {
+      "defaultValue": null,
+      "description": "Тень для компонента",
+      "name": "shadow",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "borderColor": {
+      "defaultValue": null,
+      "description": "Бордер для компонента",
+      "name": "borderColor",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "iconColor": {
+      "defaultValue": null,
+      "description": "Цвет иконки",
+      "name": "iconColor",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "textColor": {
+      "defaultValue": null,
+      "description": "Цвет текстового контента",
+      "name": "textColor",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Color | undefined"
+      }
+    },
+    "overlayProps": {
+      "defaultValue": null,
+      "description": "Настройки оверлея",
+      "name": "overlayProps",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "OverlayProps | undefined"
+      }
+    },
+    "eyeButton": {
+      "defaultValue": null,
+      "description": "Кнопка показать номер карты",
+      "name": "eyeButton",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "cardholderNameUppercase": {
+      "defaultValue": null,
+      "description": "Имя владельца карты в верхнем регистре",
+      "name": "cardholderNameUppercase",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "cardholderName": {
+      "defaultValue": null,
+      "description": "Имя владельца карты",
+      "name": "cardholderName",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "cardNumber": {
+      "defaultValue": null,
+      "description": "Номер карты",
+      "name": "cardNumber",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "contentAddons": {
+      "defaultValue": null,
+      "description": "Слот для кастомного контента компонента",
+      "name": "contentAddons",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "contentAddonsProps": {
+      "defaultValue": null,
+      "description": "Свойства для обертки кастомного контента",
+      "name": "contentAddonsProps",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "HTMLAttributes<HTMLDivElement> | undefined"
+      }
+    },
+    "onEyeIconClick": {
+      "defaultValue": null,
+      "description": "Обработчик клика по кнопке 'показать номер карты'",
+      "name": "onEyeIconClick",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/product-cover/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(() => void) | undefined"
+      }
+    }
+  }
 }

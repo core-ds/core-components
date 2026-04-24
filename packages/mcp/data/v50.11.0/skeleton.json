@@ -1,4 +1,147 @@
 {
   "packageName": "skeleton",
-  "displayName": "Skeleton"
+  "displayName": "Skeleton",
+  "props": {
+    "visible": {
+      "defaultValue": null,
+      "description": "Флаг, явно задающий состояние, при котором контент закрывается прелоадером",
+      "name": "visible",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "animate": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Флаг явного включения анимации скелета",
+      "name": "animate",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "style": {
+      "defaultValue": null,
+      "description": "Дополнительные инлайн стили",
+      "name": "style",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "CSSProperties | undefined"
+      }
+    },
+    "allowBackdropBlur": {
+      "defaultValue": null,
+      "description": "Включает размытие фона",
+      "name": "allowBackdropBlur",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы.",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "colors": {
+      "defaultValue": {
+        "value": "default"
+      },
+      "description": "Набор цветов для компонента",
+      "name": "colors",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"default\" | \"inverted\" | undefined"
+      }
+    },
+    "borderRadius": {
+      "defaultValue": {
+        "value": 8
+      },
+      "description": "Скругление углов",
+      "name": "borderRadius",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/skeleton/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "BorderRadiusSize | undefined"
+      }
+    }
+  }
 }

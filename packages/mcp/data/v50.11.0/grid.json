@@ -1,4 +1,111 @@
 {
   "packageName": "grid",
-  "displayName": "Row"
+  "displayName": "Row",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/grid/src/row/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "gutter": {
+      "defaultValue": null,
+      "description": "Горизонтальный отступ между колонками.\nВозможные значения: `[0, 8, 16, 24]`\nили `{ mobile: [0..24], tablet: [0..24], desktop: [0..24] }`\nили `{ mobile: { xs: [0..24], s: [0..24], m: [0..24], l: [0..24] },\ntablet: { s: [0..24], m: [0..24] },\ndesktop: { s: [0..24], m: [0..24], l: [0..24], xl: [0..24] } }`.",
+      "name": "gutter",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/grid/src/row/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ResponsivePropertyType | undefined"
+      }
+    },
+    "align": {
+      "defaultValue": null,
+      "description": "Управление выравниванием колонок по вертикальной оси",
+      "name": "align",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/grid/src/row/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"top\" | \"bottom\" | \"middle\" | undefined"
+      }
+    },
+    "justify": {
+      "defaultValue": null,
+      "description": "Управление выравниванием колонок по горизонтальной оси",
+      "name": "justify",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/grid/src/row/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"center\" | \"left\" | \"right\" | \"between\" | \"around\" | undefined"
+      }
+    },
+    "tag": {
+      "defaultValue": null,
+      "description": "Html тег компонента.\nИз-за <a href=\"https://github.com/philipwalton/flexbugs#flexbug-9\" target=\"_blank\">ограничений и багов</a>,\nсуществующих во флексбоксах, невозможно использовать\nнекоторые элементы HTML как flex-контейнеры.",
+      "name": "tag",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/grid/src/row/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "keyof IntrinsicElements | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Контент",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/grid/src/row/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/grid/src/row/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  }
 }

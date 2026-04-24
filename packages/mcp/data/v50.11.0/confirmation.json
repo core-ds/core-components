@@ -1,4 +1,563 @@
 {
   "packageName": "confirmation",
-  "displayName": "ConfirmationResponsive"
+  "displayName": "ConfirmationResponsive",
+  "props": {
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы",
+      "name": "children",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Сss класс для стилизации общей обёртки",
+      "name": "className",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "client": {
+      "defaultValue": null,
+      "description": "Версия, которая будет использоваться при серверном рендеринге",
+      "name": "client",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        },
+        {
+          "fileName": "packages/confirmation/src/component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"desktop\" | \"mobile\" | undefined"
+      }
+    },
+    "mobile": {
+      "defaultValue": null,
+      "description": "Мобильная версия компонента для экрана",
+      "name": "mobile",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "clearCodeOnError": {
+      "defaultValue": null,
+      "description": "Флаг - нужно ли очищать код при возникновении ошибки",
+      "name": "clearCodeOnError",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "errorVisibleDuration": {
+      "defaultValue": {
+        "value": "1300"
+      },
+      "description": "Продолжительность отображения ошибки",
+      "name": "errorVisibleDuration",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "screen": {
+      "defaultValue": null,
+      "description": "Экран компонента",
+      "name": "screen",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "string"
+      }
+    },
+    "state": {
+      "defaultValue": null,
+      "description": "Состояние компонента",
+      "name": "state",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "string"
+      }
+    },
+    "alignContent": {
+      "defaultValue": null,
+      "description": "Позиционирование контента",
+      "name": "alignContent",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"center\" | \"left\" | undefined"
+      }
+    },
+    "titleTag": {
+      "defaultValue": {
+        "value": "'h3'"
+      },
+      "description": "HTML тег для заголовка",
+      "name": "titleTag",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | undefined"
+      }
+    },
+    "texts": {
+      "defaultValue": null,
+      "description": "Объект с текстами",
+      "name": "texts",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ConfirmationTexts | undefined"
+      }
+    },
+    "requiredCharAmount": {
+      "defaultValue": null,
+      "description": "Количество символов, которое можно ввести в поле ввода подписания до того, как произойдет автоотправка",
+      "name": "requiredCharAmount",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "countdownDuration": {
+      "defaultValue": null,
+      "description": "Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах",
+      "name": "countdownDuration",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "tempBlockDuration": {
+      "defaultValue": null,
+      "description": "Продолжительность блокировки формы (ms)",
+      "name": "tempBlockDuration",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "phone": {
+      "defaultValue": null,
+      "description": "Номер телефона, на который отправлен код",
+      "name": "phone",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "blockSmsRetry": {
+      "defaultValue": null,
+      "description": "Не осталось попыток ввода кода",
+      "name": "blockSmsRetry",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "maxWidth": {
+      "defaultValue": null,
+      "description": "Максимальная ширина контейнера компонента.\nДля mobile по умолчанию используется 288px, если не передано значение.",
+      "name": "maxWidth",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "MaxWidth<string | number> | undefined"
+      }
+    },
+    "onChangeState": {
+      "defaultValue": null,
+      "description": "Функция обновления состояния компонента",
+      "name": "onChangeState",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "(state: string) => void"
+      }
+    },
+    "onChangeScreen": {
+      "defaultValue": null,
+      "description": "Функция обновления состояния компонента",
+      "name": "onChangeScreen",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "(state: string) => void"
+      }
+    },
+    "onInputFinished": {
+      "defaultValue": null,
+      "description": "Обработчик события завершения ввода кода подписания",
+      "name": "onInputFinished",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "(code: string) => void"
+      }
+    },
+    "onSmsRetryClick": {
+      "defaultValue": null,
+      "description": "Обработчик события нажатия на кнопку \"Запросить код\"",
+      "name": "onSmsRetryClick",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "() => void"
+      }
+    },
+    "onFatalErrorOkButtonClick": {
+      "defaultValue": null,
+      "description": "Клик по кнопке \"Понятно\" на экране фатальной ошибки",
+      "name": "onFatalErrorOkButtonClick",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(() => void) | undefined"
+      }
+    },
+    "onTempBlockFinished": {
+      "defaultValue": null,
+      "description": "Временная блокировка формы закончилась",
+      "name": "onTempBlockFinished",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(() => void) | undefined"
+      }
+    },
+    "getScreensMap": {
+      "defaultValue": null,
+      "description": "Возвращает объект, где ключ - название экрана (screen), значение - компонент для экрана",
+      "name": "getScreensMap",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((defaultScreensMap: ScreensMap) => ScreensMap) | undefined"
+      }
+    },
+    "hideCountdownSection": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "description": "Скрыть секцию с повторной отправкой кода",
+      "name": "hideCountdownSection",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "initialScreenHintSlot": {
+      "defaultValue": null,
+      "description": "Слот для контента с подсказкой на главном экране",
+      "name": "initialScreenHintSlot",
+      "parent": {
+        "fileName": "core-components/packages/confirmation/src/types.ts",
+        "name": "ConfirmationProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/confirmation/src/types.ts",
+          "name": "ConfirmationProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "breakpoint": {
+      "defaultValue": {
+        "value": "1024"
+      },
+      "description": "Контрольная точка, с нее начинается desktop версия",
+      "name": "breakpoint",
+      "declarations": [
+        {
+          "fileName": "packages/confirmation/src/component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "defaultMatchMediaValue": {
+      "defaultValue": {
+        "value": "client === undefined ? undefined : client === 'desktop'"
+      },
+      "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+      "name": "defaultMatchMediaValue",
+      "declarations": [
+        {
+          "fileName": "packages/confirmation/src/component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | (() => boolean) | undefined"
+      }
+    }
+  }
 }

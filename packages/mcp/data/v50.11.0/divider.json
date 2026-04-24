@@ -1,4 +1,36 @@
 {
   "packageName": "divider",
-  "displayName": "Divider"
+  "displayName": "Divider",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Кастомный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "packages/divider/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Id компонента для тестов",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "packages/divider/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  }
 }

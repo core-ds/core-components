@@ -1,4 +1,215 @@
 {
   "packageName": "chart",
-  "displayName": "Chart"
+  "displayName": "Chart",
+  "props": {
+    "id": {
+      "defaultValue": null,
+      "description": "Индефикатор графика",
+      "name": "id",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "string"
+      }
+    },
+    "responsiveContainer": {
+      "defaultValue": null,
+      "description": "Компонент контейнера, позволяющий адаптировать диаграммы к размеру родительского контейнера",
+      "name": "responsiveContainer",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ResponsiveContainerProps | undefined"
+      }
+    },
+    "composeChart": {
+      "defaultValue": null,
+      "description": "Диаграмма, состоящая из bar, linear и area диаграмм",
+      "name": "composeChart",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "ComposedChartProps"
+      }
+    },
+    "cartesianGrid": {
+      "defaultValue": null,
+      "description": "Отображение линий осей графика",
+      "name": "cartesianGrid",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "CartesianGridProps | undefined"
+      }
+    },
+    "xAxis": {
+      "defaultValue": null,
+      "description": "Настройки оси Х",
+      "name": "xAxis",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "XAxisProps"
+      }
+    },
+    "yAxis": {
+      "defaultValue": null,
+      "description": "Настройки оси У",
+      "name": "yAxis",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "YAxisProps"
+      }
+    },
+    "tooltip": {
+      "defaultValue": null,
+      "description": "Всплывающаяся подсказка",
+      "name": "tooltip",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "TooltipProps | undefined"
+      }
+    },
+    "brush": {
+      "defaultValue": null,
+      "description": "Компонент маштабирования графика",
+      "name": "brush",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "BrushProps | undefined"
+      }
+    },
+    "legend": {
+      "defaultValue": null,
+      "description": "Компонент подписи графиков",
+      "name": "legend",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "LegendProps | undefined"
+      }
+    },
+    "series": {
+      "defaultValue": null,
+      "description": "Mассив объектов с параметрами грaфиков с обязательным полем",
+      "name": "series",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "SeriaProps[]"
+      }
+    },
+    "labels": {
+      "defaultValue": null,
+      "description": "Mассив меток",
+      "name": "labels",
+      "parent": {
+        "fileName": "core-components/packages/chart/src/types/options.types.ts",
+        "name": "OptionsProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/chart/src/types/options.types.ts",
+          "name": "OptionsProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "(string | number)[]"
+      }
+    }
+  }
 }

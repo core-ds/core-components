@@ -1,4 +1,85 @@
 {
   "packageName": "gap",
-  "displayName": "Gap"
+  "displayName": "Gap",
+  "props": {
+    "size": {
+      "defaultValue": null,
+      "description": "Размер отступа",
+      "name": "size",
+      "declarations": [
+        {
+          "fileName": "packages/gap/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "Size"
+      }
+    },
+    "direction": {
+      "defaultValue": {
+        "value": "vertical"
+      },
+      "description": "Вид отступа (вертикальный или горизонтальный)",
+      "name": "direction",
+      "declarations": [
+        {
+          "fileName": "packages/gap/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"horizontal\" | \"vertical\" | undefined"
+      }
+    },
+    "tag": {
+      "defaultValue": {
+        "value": "div"
+      },
+      "description": "HTML тег",
+      "name": "tag",
+      "declarations": [
+        {
+          "fileName": "packages/gap/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"div\" | \"span\" | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "packages/gap/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "packages/gap/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  }
 }

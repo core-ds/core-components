@@ -1,4 +1,83 @@
 {
   "packageName": "list-header",
-  "displayName": "ListHeader"
+  "displayName": "ListHeader",
+  "props": {
+    "title": {
+      "defaultValue": null,
+      "description": "Заголовок",
+      "name": "title",
+      "declarations": [
+        {
+          "fileName": "packages/list-header/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "string"
+      }
+    },
+    "description": {
+      "defaultValue": null,
+      "description": "Дополнительное описание",
+      "name": "description",
+      "declarations": [
+        {
+          "fileName": "packages/list-header/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "filled": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Наличие фоновой подложки",
+      "name": "filled",
+      "declarations": [
+        {
+          "fileName": "packages/list-header/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "packages/list-header/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "packages/list-header/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  }
 }

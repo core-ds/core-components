@@ -1,4 +1,83 @@
 {
   "packageName": "mq",
-  "displayName": "Mq"
+  "displayName": "Mq",
+  "props": {
+    "query": {
+      "defaultValue": {
+        "value": ""
+      },
+      "description": "Media выражение или кастомный запрос из `mq.json`, например `--mobile`.",
+      "name": "query",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/mq/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "touch": {
+      "defaultValue": null,
+      "description": "Запрос на поддержку тач-событий",
+      "name": "touch",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/mq/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "defaultMatchMediaValue": {
+      "defaultValue": null,
+      "description": "Значение по-умолчанию для хука useMatchMedia",
+      "name": "defaultMatchMediaValue",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/mq/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | (() => boolean) | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы.",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/mq/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "onMatchChange": {
+      "defaultValue": null,
+      "description": "Обработчик изменений в совпадении запросов",
+      "name": "onMatchChange",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/mq/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((isMatched: boolean) => void) | undefined"
+      }
+    }
+  }
 }

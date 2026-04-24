@@ -1,4 +1,66 @@
 {
   "packageName": "comment",
-  "displayName": "Comment"
+  "displayName": "Comment",
+  "props": {
+    "rowLimit": {
+      "defaultValue": null,
+      "description": "Количество строк",
+      "name": "rowLimit",
+      "declarations": [
+        {
+          "fileName": "packages/comment/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "2 | 5 | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Сss класс для стилизации общей обёртки",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "packages/comment/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Id компонента для тестов",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "packages/comment/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "children": {
+      "defaultValue": null,
+      "description": "Дочерние элементы.",
+      "name": "children",
+      "declarations": [
+        {
+          "fileName": "packages/comment/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    }
+  }
 }

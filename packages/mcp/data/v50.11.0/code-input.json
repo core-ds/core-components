@@ -1,4 +1,262 @@
 {
   "packageName": "code-input",
-  "displayName": "CodeInput"
+  "displayName": "CodeInput",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс (native prop)",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "onChange": {
+      "defaultValue": null,
+      "description": "Коллбек ввода значения",
+      "name": "onChange",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((code: string) => void) | undefined"
+      }
+    },
+    "disabled": {
+      "defaultValue": null,
+      "description": "Заблокированное состояние",
+      "name": "disabled",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "error": {
+      "defaultValue": null,
+      "description": "Состояние с ошибкой",
+      "name": "error",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "onComplete": {
+      "defaultValue": null,
+      "description": "Коллбек полного заполнения",
+      "name": "onComplete",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((code: string) => void) | undefined"
+      }
+    },
+    "fields": {
+      "defaultValue": null,
+      "description": "Количество полей",
+      "name": "fields",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "initialValues": {
+      "defaultValue": null,
+      "description": "Значение для предзаполнения",
+      "name": "initialValues",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "clearCodeOnError": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "description": "Флаг - нужно ли очищать код при возникновении ошибки",
+      "name": "clearCodeOnError",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "errorVisibleDuration": {
+      "defaultValue": {
+        "value": "1300"
+      },
+      "description": "Продолжительность отображения ошибки",
+      "name": "errorVisibleDuration",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "onErrorAnimationEnd": {
+      "defaultValue": null,
+      "description": "Коллбэк вызываемый после окончания проигрывания анимации при возникновении ошибки.",
+      "name": "onErrorAnimationEnd",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/code-input/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(() => void) | undefined"
+      }
+    },
+    "breakpoint": {
+      "defaultValue": {
+        "value": "1024"
+      },
+      "description": "Контрольная точка, с нее начинается desktop версия",
+      "name": "breakpoint",
+      "declarations": [
+        {
+          "fileName": "packages/code-input/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "client": {
+      "defaultValue": null,
+      "description": "Версия, которая будет использоваться при серверном рендеринге",
+      "name": "client",
+      "declarations": [
+        {
+          "fileName": "packages/code-input/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"desktop\" | \"mobile\" | undefined"
+      }
+    },
+    "defaultMatchMediaValue": {
+      "defaultValue": {
+        "value": "client === undefined ? undefined : client === 'desktop'"
+      },
+      "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+      "name": "defaultMatchMediaValue",
+      "declarations": [
+        {
+          "fileName": "packages/code-input/src/Component.responsive.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | (() => boolean) | undefined"
+      }
+    },
+    "ref": {
+      "defaultValue": null,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
+      "name": "ref",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "RefAttributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "RefAttributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined"
+      }
+    },
+    "key": {
+      "defaultValue": null,
+      "description": "",
+      "name": "key",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "Attributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "Attributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Key | null | undefined"
+      }
+    }
+  }
 }

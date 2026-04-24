@@ -1,4 +1,308 @@
 {
   "packageName": "pattern-lock",
-  "displayName": "PatternLock"
+  "displayName": "PatternLock",
+  "props": {
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования.\nДля сообщения используется модификатор -message, ошибки -error,\nкнопки \"забыли код\" -forgot-code-btn",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "observeTokens": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "description": "Следить ли за изменениями значений цветовых токенов",
+      "name": "observeTokens",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "observerParams": {
+      "defaultValue": null,
+      "description": "Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)",
+      "name": "observerParams",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "{ getTarget?: (() => Node) | undefined; options?: MutationObserverInit | undefined; } | undefined"
+      }
+    },
+    "messageClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс для message/errorMessage",
+      "name": "messageClassName",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "disabled": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "description": "Отключает ввод паттерна",
+      "name": "disabled",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "onDragStart": {
+      "defaultValue": null,
+      "description": "Коллбек, вызываемый при начале ввода кода.",
+      "name": "onDragStart",
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@alfalab/react-canvas-pattern-lock/dist/index.d.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(() => void) | undefined"
+      }
+    },
+    "onComplete": {
+      "defaultValue": null,
+      "description": "Коллбек, вызываемый после завершения ввода кода.",
+      "name": "onComplete",
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@alfalab/react-canvas-pattern-lock/dist/index.d.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((code: number[], nodes: TNodes) => void) | undefined"
+      }
+    },
+    "themeState": {
+      "defaultValue": null,
+      "description": "Состояние темы.",
+      "name": "themeState",
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@alfalab/react-canvas-pattern-lock/dist/index.d.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "extraBounds": {
+      "defaultValue": null,
+      "description": "Дополнительные границы в пикселях.\nСвойство позволяет расширить область прослушивания touch события.\nПо-умолчанию область ограничена размерами canvas.",
+      "name": "extraBounds",
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@alfalab/react-canvas-pattern-lock/dist/index.d.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "[number, number, number, number] | undefined"
+      }
+    },
+    "showForgotCodeBtn": {
+      "defaultValue": {
+        "value": "\"Забыли код?\""
+      },
+      "description": "Показать кнопку \"забыли код\"",
+      "name": "showForgotCodeBtn",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        },
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "forgotCodeBtnText": {
+      "defaultValue": {
+        "value": "\"Забыли код?\""
+      },
+      "description": "Текст кнопки \"забыли код\"",
+      "name": "forgotCodeBtnText",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        },
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "onForgotBtnClick": {
+      "defaultValue": null,
+      "description": "Коллбэк, вызываемый при клике на кнопку \"Забыли код\"",
+      "name": "onForgotBtnClick",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        },
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+      }
+    },
+    "breakpoint": {
+      "defaultValue": {
+        "value": "1024"
+      },
+      "description": "Контрольная точка, с нее начинается desktop версия",
+      "name": "breakpoint",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "client": {
+      "defaultValue": null,
+      "description": "Версия, которая будет использоваться при серверном рендеринге",
+      "name": "client",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"desktop\" | \"mobile\" | undefined"
+      }
+    },
+    "defaultMatchMediaValue": {
+      "defaultValue": {
+        "value": "client === undefined ? undefined : client === 'desktop'"
+      },
+      "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+      "name": "defaultMatchMediaValue",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | (() => boolean) | undefined"
+      }
+    },
+    "ref": {
+      "defaultValue": null,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
+      "name": "ref",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "RefAttributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "RefAttributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined"
+      }
+    },
+    "key": {
+      "defaultValue": null,
+      "description": "",
+      "name": "key",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "Attributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "Attributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Key | null | undefined"
+      }
+    }
+  }
 }

@@ -13,7 +13,7 @@ function main() {
 
 
     docs.forEach((doc) => {
-        const { packageName, displayName } = doc;
+        const { packageName, displayName, props } = doc;
 
         fs.writeFileSync(
             resolve(versionDir, `${packageName}.json`),
@@ -21,6 +21,7 @@ function main() {
                 {
                     packageName,
                     displayName,
+                    props,
                 },
                 null,
                 2,

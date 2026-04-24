@@ -1,4 +1,130 @@
 {
   "packageName": "gallery",
-  "displayName": "Gallery"
+  "displayName": "Gallery",
+  "props": {
+    "open": {
+      "defaultValue": null,
+      "description": "Управление видимостью",
+      "name": "open",
+      "declarations": [
+        {
+          "fileName": "packages/gallery/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "boolean"
+      }
+    },
+    "images": {
+      "defaultValue": null,
+      "description": "Массив изображений",
+      "name": "images",
+      "declarations": [
+        {
+          "fileName": "packages/gallery/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "GalleryImage[]"
+      }
+    },
+    "loop": {
+      "defaultValue": {
+        "value": true
+      },
+      "description": "Зациклить галерею",
+      "name": "loop",
+      "declarations": [
+        {
+          "fileName": "packages/gallery/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "initialSlide": {
+      "defaultValue": {
+        "value": 0
+      },
+      "description": "Индекс открытого изображение",
+      "name": "initialSlide",
+      "declarations": [
+        {
+          "fileName": "packages/gallery/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "onClose": {
+      "defaultValue": null,
+      "description": "Обработчик закрытия",
+      "name": "onClose",
+      "declarations": [
+        {
+          "fileName": "packages/gallery/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "() => void"
+      }
+    },
+    "slideIndex": {
+      "defaultValue": null,
+      "description": "Индекс текущего изображения",
+      "name": "slideIndex",
+      "declarations": [
+        {
+          "fileName": "packages/gallery/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "number | undefined"
+      }
+    },
+    "onSlideIndexChange": {
+      "defaultValue": null,
+      "description": "Обработчик изменения текущего изображения",
+      "name": "onSlideIndexChange",
+      "declarations": [
+        {
+          "fileName": "packages/gallery/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "((index: number) => void) | undefined"
+      }
+    },
+    "popupClassName": {
+      "defaultValue": null,
+      "description": "Дополнительный класс для попапа",
+      "name": "popupClassName",
+      "declarations": [
+        {
+          "fileName": "packages/gallery/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    }
+  }
 }

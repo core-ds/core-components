@@ -1,4 +1,101 @@
 {
   "packageName": "portal",
-  "displayName": "Portal"
+  "displayName": "Portal",
+  "props": {
+    "children": {
+      "defaultValue": null,
+      "description": "Контент",
+      "name": "children",
+      "parent": {
+        "fileName": "core-components/packages/portal/src/Component.ts",
+        "name": "PortalProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/portal/src/Component.ts",
+          "name": "PortalProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "getPortalContainer": {
+      "defaultValue": null,
+      "description": "Функция, возвращающая контейнер, в который будут рендериться дочерние элементы",
+      "name": "getPortalContainer",
+      "parent": {
+        "fileName": "core-components/packages/portal/src/Component.ts",
+        "name": "PortalProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/portal/src/Component.ts",
+          "name": "PortalProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "(() => Element | null | undefined) | undefined"
+      }
+    },
+    "immediateMount": {
+      "defaultValue": null,
+      "description": "Немедленно отрендерить дочерние элементы (false - контент будет отрендерен на след. рендер).",
+      "name": "immediateMount",
+      "parent": {
+        "fileName": "core-components/packages/portal/src/Component.ts",
+        "name": "PortalProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/portal/src/Component.ts",
+          "name": "PortalProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "ref": {
+      "defaultValue": null,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
+      "name": "ref",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "RefAttributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "RefAttributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined"
+      }
+    },
+    "key": {
+      "defaultValue": null,
+      "description": "",
+      "name": "key",
+      "parent": {
+        "fileName": "core-components/node_modules/@types/react/index.d.ts",
+        "name": "Attributes"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/node_modules/@types/react/index.d.ts",
+          "name": "Attributes"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "Key | null | undefined"
+      }
+    }
+  }
 }

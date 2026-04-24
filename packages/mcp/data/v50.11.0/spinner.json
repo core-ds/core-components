@@ -1,4 +1,145 @@
 {
   "packageName": "spinner",
-  "displayName": "Spinner"
+  "displayName": "Spinner",
+  "props": {
+    "colors": {
+      "defaultValue": {
+        "value": "default"
+      },
+      "description": "Палитра, в контексте которой используется спиннер",
+      "name": "colors",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"default\" | \"inverted\" | undefined"
+      }
+    },
+    "visible": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "description": "Управление видимостью компонента",
+      "name": "visible",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "id": {
+      "defaultValue": null,
+      "description": "Идентификатор компонента в DOM",
+      "name": "id",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "style": {
+      "defaultValue": null,
+      "description": "Дополнительные инлайн стили для cпиннера",
+      "name": "style",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "CSSProperties | undefined"
+      }
+    },
+    "size": {
+      "defaultValue": null,
+      "description": "Размер спиннера (кольца)",
+      "name": "size",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "number"
+      }
+    },
+    "lineWidth": {
+      "defaultValue": null,
+      "description": "Толщина линии спинера (кольца)",
+      "name": "lineWidth",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "number"
+      }
+    },
+    "preset": {
+      "defaultValue": null,
+      "description": "Преднастроенный вариант",
+      "name": "preset",
+      "declarations": [
+        {
+          "fileName": "core-components/packages/spinner/src/Component.tsx",
+          "name": "TypeLiteral"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "48 | 24 | 16"
+      }
+    }
+  }
 }

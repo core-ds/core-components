@@ -1,4 +1,263 @@
 {
   "packageName": "amount",
-  "displayName": "Amount"
+  "displayName": "Amount",
+  "props": {
+    "value": {
+      "defaultValue": null,
+      "description": "Денежное значение в минорных единицах",
+      "name": "value",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "number"
+      }
+    },
+    "currency": {
+      "defaultValue": null,
+      "description": "Валюта",
+      "name": "currency",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"ALL\" | \"AFN\" | \"ARS\" | \"AWG\" | \"AUD\" | \"AZN\" | \"BSD\" | \"BBD\" | \"BYN\" | \"BZD\" | \"BMD\" | \"BOB\" | \"BOV\" | \"BAM\" | \"BWP\" | \"BGN\" | \"BRL\" | \"BND\" | \"KHR\" | \"CAD\" | \"KYD\" | \"CLP\" | \"CNY\" | ... 157 more ... | undefined"
+      }
+    },
+    "rightAddons": {
+      "defaultValue": null,
+      "description": "Слот справа",
+      "name": "rightAddons",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "ReactNode"
+      }
+    },
+    "minority": {
+      "defaultValue": null,
+      "description": "Количество минорных единиц в валюте",
+      "name": "minority",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": true,
+      "type": {
+        "name": "number"
+      }
+    },
+    "codeFormat": {
+      "defaultValue": {
+        "value": "symbolic"
+      },
+      "description": "Формат отображения кода валюты",
+      "name": "codeFormat",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"letter\" | \"symbolic\" | undefined"
+      }
+    },
+    "view": {
+      "defaultValue": {
+        "value": "default"
+      },
+      "description": "default - не отображаем копейки, если их значение 0\nwithZeroMinorPart - отображаем копейки, даже если их значение равно 0",
+      "name": "view",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"default\" | \"withZeroMinorPart\" | undefined"
+      }
+    },
+    "bold": {
+      "defaultValue": null,
+      "description": "Управление жирностью\n@deprecated Используйте проп {@link AmountProps.fontWeight }",
+      "name": "bold",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"none\" | \"full\" | \"major\" | undefined"
+      }
+    },
+    "fontWeight": {
+      "defaultValue": {
+        "value": "bold === 'full' ? 'bold' : bold === 'major' ? { major: 'bold' } : undefined"
+      },
+      "description": "Управление жирностью",
+      "name": "fontWeight",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "\"bold\" | \"medium\" | { major: \"bold\" | \"medium\"; } | undefined"
+      }
+    },
+    "transparentMinor": {
+      "defaultValue": null,
+      "description": "Делает минорную часть полупрозрачной",
+      "name": "transparentMinor",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "showPlus": {
+      "defaultValue": {
+        "value": false
+      },
+      "description": "Показывать значок + для положительных значений",
+      "name": "showPlus",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    },
+    "className": {
+      "defaultValue": null,
+      "description": "Дополнительный класс",
+      "name": "className",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "dataTestId": {
+      "defaultValue": null,
+      "description": "Идентификатор для систем автоматизированного тестирования",
+      "name": "dataTestId",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "string | undefined"
+      }
+    },
+    "trimZero": {
+      "defaultValue": {
+        "value": false
+      },
+      "description": "Обрезать ноль в минорной части. Например: 1.70 -> 1.7",
+      "name": "trimZero",
+      "parent": {
+        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+        "name": "AmountProps"
+      },
+      "declarations": [
+        {
+          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
+          "name": "AmountProps"
+        }
+      ],
+      "required": false,
+      "type": {
+        "name": "boolean | undefined"
+      }
+    }
+  }
 }
