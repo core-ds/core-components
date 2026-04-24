@@ -4,28 +4,41 @@ import { createIndexDir } from './create-index-dir.mjs';
 import { getComponentEntryPoints } from './get-component-entry-points.mjs';
 import * as fs from 'node:fs';
 
-
 function main() {
     const files = getComponentEntryPoints();
 
     const versionDir = createIndexDir();
 
-    // const parser = withCustomConfig(
-    //     resolve(process.cwd(), 'tsconfig.react-docgen-typescript.json'),
-    //     {},
-    // );
-    //
-    // const docs = parser.parse(files);
+    const parser = withCustomConfig(
+        resolve(process.cwd(), 'tsconfig.react-docgen-typescript.json'),
+        {},
+    );
 
-    files.forEach((file) => {
-        const dirname = path.dirname(file);
-        const packageName = dirname.split('/')[1];
+    const docs = parser.parse(files);
+    const docsMap = new Map();
+
+    docs.forEach((doc) => {
+        const { filePath, displayName, props } = doc;
+        const packageName = filePath.split('packages/')[1].split('/')[0];
+
+        if (!docsMap.has(packageName)) {
+            docsMap.set(packageName, {
+                displayName,
+                packageName,
+                props,
+            });
+        }
+    });
+
+    docsMap.forEach((doc) => {
+        const { packageName, displayName } = doc;
 
         fs.writeFileSync(
             resolve(versionDir, `${packageName}.json`),
             JSON.stringify(
                 {
-                    packageName: packageName,
+                    packageName,
+                    displayName,
                 },
                 null,
                 2,

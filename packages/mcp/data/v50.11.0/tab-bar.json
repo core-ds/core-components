@@ -1,3 +1,4 @@
 {
-  "packageName": "tab-bar"
+  "packageName": "tab-bar",
+  "displayName": "TabBarComponent"
 }

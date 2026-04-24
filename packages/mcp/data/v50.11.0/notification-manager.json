@@ -1,3 +1,4 @@
 {
-  "packageName": "notification-manager"
+  "packageName": "notification-manager",
+  "displayName": "NotificationManager"
 }

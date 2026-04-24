@@ -1,3 +1,4 @@
 {
-  "packageName": "file-upload-item"
+  "packageName": "file-upload-item",
+  "displayName": "FileUploadItemComponent"
 }
