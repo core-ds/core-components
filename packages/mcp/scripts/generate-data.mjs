@@ -1,5 +1,5 @@
 import { globSync } from 'tinyglobby';
-import { readFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, rmSync } from 'node:fs';
 import { withCustomConfig } from 'react-docgen-typescript';
 import { resolve } from 'node:path';
 
@@ -32,8 +32,12 @@ function main() {
     );
 
     const docs = parser.parse(files);
-
-    console.log(docs.length, version);
+    
+    const versionDataDir = `v${version}`;
+    const versionDir = resolve(process.cwd(), 'packages/mcp/data', versionDataDir);
+    rmSync(versionDir, { recursive: true, force: true });
+    mkdirSync(versionDir, { recursive: true });
+    console.log(`📁  Created directory: ${versionDataDir}`);
 }
 
 main();
