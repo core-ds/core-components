@@ -16,6 +16,7 @@ export function getComponentEntryPoints() {
                 'packages/*-private/**',
                 'packages/modal/**',
                 'packages/side-panel/**',
+                'packages/with-suffix/**',
                 'packages/*-v1/**',
                 'packages/alert/**',
                 'packages/badge/**',
