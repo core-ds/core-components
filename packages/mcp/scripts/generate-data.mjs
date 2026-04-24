@@ -1,7 +1,7 @@
 import { globSync } from 'tinyglobby';
 
 function main() {
-    console.log('🔍  Search for components');
+    console.log('🔍  Search for components...');
 
     const files = globSync(
         [
