@@ -28,7 +28,6 @@
         "zod": "^4.1.11"
     },
     "devDependencies": {
-        "@types/node": "^24.6.0",
         "react-docgen-typescript": "^2.4.0",
         "terser": "^5.46.1",
         "tsx": "^4.20.6"

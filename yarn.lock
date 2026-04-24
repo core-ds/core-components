@@ -11494,15 +11494,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.6.0":
-  version: 24.12.2
-  resolution: "@types/node@npm:24.12.2"
-  dependencies:
-    undici-types: "npm:~7.16.0"
-  checksum: 10c0/710050c42f89075c4479e4e1e4c2532486b0c41b1e2a8a13ad88641c88b88cdaea87414e19224f30028719737bd70e327edcaa184d50e86b9418941edd7eb02b
-  languageName: node
-  linkType: hard
-
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.0
   resolution: "@types/normalize-package-data@npm:2.4.0"
@@ -15340,7 +15331,6 @@ __metadata:
   resolution: "core-components-mcp@workspace:packages/mcp"
   dependencies:
     "@modelcontextprotocol/sdk": "npm:^1.18.0"
-    "@types/node": "npm:^24.6.0"
     react-docgen-typescript: "npm:^2.4.0"
     terser: "npm:^5.46.1"
     tsx: "npm:^4.20.6"
