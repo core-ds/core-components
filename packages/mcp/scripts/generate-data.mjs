@@ -1,4 +1,8 @@
 import { globSync } from 'tinyglobby';
+import { readFileSync } from 'node:fs';
+import { withCustomConfig } from 'react-docgen-typescript';
+import { resolve } from 'node:path';
+
 
 function main() {
     console.log('🔍  Search for components...');
@@ -17,6 +21,14 @@ function main() {
     );
 
     console.log(`📦  Found ${files.length} components`);
+
+    const parser = withCustomConfig(
+        resolve(process.cwd(), 'tsconfig.react-docgen-typescript.json'), {}
+    );
+
+    const docs = parser.parse(files);
+
+    console.log(docs.length);
 }
 
 main();
