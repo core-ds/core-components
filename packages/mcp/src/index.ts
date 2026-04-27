@@ -22,12 +22,13 @@ server.registerTool(
         const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
 
         const components = files.map((file) => {
-            const { displayName, description } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
+            const { displayName, description, packageName } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
 
-            return { displayName, description };
+            return { displayName, description, packageName };
         });
 
-        const text = components.map((c) => `**${c.displayName}** — ${c.description}`).join('\n');
+        const list = components.map((c) => `**${c.displayName}** (${c.packageName}) — ${c.description}`).join('\n');
+        const text = `Version: ${DATA_VERSION}\n\n${list}`;
 
         return {
             content: [{ type: 'text', text }],
