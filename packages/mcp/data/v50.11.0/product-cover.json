@@ -184,5 +184,15 @@
       }
     }
   },
-  "demos": []
+  "demos": [
+    {
+      "title": "Размеры"
+    },
+    {
+      "title": "Примеры"
+    },
+    {
+      "title": "ProductCover.Stack"
+    }
+  ]
 }

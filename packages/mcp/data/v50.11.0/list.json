@@ -3,5 +3,12 @@
   "displayName": "Context",
   "description": "",
   "props": {},
-  "demos": []
+  "demos": [
+    {
+      "title": "Анатомия"
+    },
+    {
+      "title": "Примеры"
+    }
+  ]
 }

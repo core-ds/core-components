@@ -3,5 +3,24 @@
   "displayName": "Context",
   "description": "",
   "props": {},
-  "demos": []
+  "demos": [
+    {
+      "title": "Лейаут"
+    },
+    {
+      "title": "Примеры"
+    },
+    {
+      "title": ".Content"
+    },
+    {
+      "title": ".Main"
+    },
+    {
+      "title": ".Addon"
+    },
+    {
+      "title": ".Footer"
+    }
+  ]
 }

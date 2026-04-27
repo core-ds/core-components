@@ -57,5 +57,18 @@
       }
     }
   },
-  "demos": []
+  "demos": [
+    {
+      "title": "PageIndicatorDynamic"
+    },
+    {
+      "title": "PageIndicatorBullet"
+    },
+    {
+      "title": "PageIndicatorStep"
+    },
+    {
+      "title": "PageIndicatorRunner"
+    }
+  ]
 }
