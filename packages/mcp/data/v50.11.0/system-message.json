@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/system-message/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Растянуть контент на всю доступную высоту.",
       "name": "fullHeight",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/system-message/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля слотов используются одноименные модификаторы (-graphic, -title и тд)",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/system-message/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы.",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/system-message/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ReactNode"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Отступы.",
       "name": "padding",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/system-message/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "PaddingType | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/system-message/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "\"desktop\" | \"mobile\""

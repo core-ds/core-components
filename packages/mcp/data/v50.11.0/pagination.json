@@ -8,12 +8,6 @@
       },
       "description": "Текущая страница (с нуля)",
       "name": "currentPageIndex",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number"
@@ -23,12 +17,6 @@
       "defaultValue": null,
       "description": "Количество страниц",
       "name": "pagesCount",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -38,12 +26,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -55,12 +37,6 @@
       },
       "description": "Скрывает стрелки, если выбрана первая или последняя страница",
       "name": "hideArrows",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -72,12 +48,6 @@
       },
       "description": "Количество видимых страниц по бокам",
       "name": "sidePadding",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -89,12 +59,6 @@
       },
       "description": "Количество видимых страниц вокруг выбранной",
       "name": "activePadding",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -106,12 +70,6 @@
       },
       "description": "Режим пагинации",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"per-page\" | undefined"
@@ -123,12 +81,6 @@
       },
       "description": "Обработчик переключения страницы",
       "name": "onPageChange",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((pageIndex: number) => void) | undefined"
@@ -138,12 +90,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/pagination/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

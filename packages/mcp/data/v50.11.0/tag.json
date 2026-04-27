@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Обработчик нажатия",
       "name": "onClick",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | 40 | 56 | 64 | 72 | 32 | undefined"
@@ -53,12 +35,6 @@
       },
       "description": "Стиль тега",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"filled\" | \"outlined\" | \"transparent\" | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -83,12 +53,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -98,12 +62,6 @@
       "defaultValue": null,
       "description": "Отображение кнопки в отмеченном (зажатом) состоянии",
       "name": "checked",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -113,12 +71,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -128,12 +80,6 @@
       "defaultValue": null,
       "description": "Форма тега",
       "name": "shape",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"rounded\" | \"rectangular\" | undefined"
@@ -143,12 +89,6 @@
       "defaultValue": null,
       "description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
       "name": "allowBackdropBlur",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -158,12 +98,6 @@
       "defaultValue": null,
       "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега",
       "name": "variant",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"alt\" | undefined"
@@ -173,12 +107,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для обёртки children",
       "name": "childrenClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -188,12 +116,6 @@
       "defaultValue": null,
       "description": "ref на children",
       "name": "childrenRef",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/components/base-tag/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefObject<HTMLSpanElement> | undefined"
@@ -205,12 +127,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -220,12 +136,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -237,12 +147,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tag/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

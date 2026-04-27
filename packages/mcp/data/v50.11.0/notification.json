@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Растягивает компонент на ширину контейнера",
       "name": "block",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Слот слева, заменяет стандартную иконку",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Обработчик клика по крестику",
       "name": "onClose",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event?: MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => void) | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для контентной области",
       "name": "contentClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -96,12 +60,6 @@
       "defaultValue": null,
       "description": "Кнопка действия",
       "name": "actionButton",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -111,12 +69,6 @@
       "defaultValue": null,
       "description": "Доп. класс кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
       "name": "closerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -126,12 +78,6 @@
       "defaultValue": null,
       "description": "Управляет отображением кнопки закрытия уведомления\n@deprecated Используйте пропс `closerProps`",
       "name": "hasCloser",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -143,12 +89,6 @@
       },
       "description": "Параметры кнопки закрытия\n@property {boolean} [hasCloser] - Управляет отображением кнопки закрытия уведомления\n@property {string} [closerWrapperClassName] - Дополнительный класс враппера кнопки \"закрыть\"\n@property {string} [closerClassName] - Дополнительный класс кнопки \"закрыть\"\n@property {boolean} [divider] - Показывать разделитель\n@property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия",
       "name": "closerProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "{Object}"
@@ -158,12 +98,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для заголовка",
       "name": "titleClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -173,12 +107,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для области с кнопкой действия",
       "name": "actionSectionClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -188,12 +116,6 @@
       "defaultValue": null,
       "description": "Жирный заголовок",
       "name": "boldTitle",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -203,12 +125,6 @@
       "defaultValue": null,
       "description": "Вид бэйджа",
       "name": "badge",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "StatusBadgeViews | undefined"
@@ -218,12 +134,6 @@
       "defaultValue": null,
       "description": "Доп. класс враппера кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
       "name": "closerWrapperClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -233,12 +143,6 @@
       "defaultValue": null,
       "description": "Функция, с помощью которой можно переопределить иконки в StatusBadge",
       "name": "getBadgeIcons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/toast-plate/src/components/base-toast-plate/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>> | undefined"
@@ -248,12 +152,6 @@
       "defaultValue": null,
       "description": "Управление видимостью компонента",
       "name": "visible",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -265,12 +163,6 @@
       },
       "description": "Отступ от верхнего края",
       "name": "offset",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -282,12 +174,6 @@
       },
       "description": "Время до закрытия компонента",
       "name": "autoCloseDelay",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | null | undefined"
@@ -299,12 +185,6 @@
       },
       "description": "Использовать портал",
       "name": "usePortal",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -316,12 +196,6 @@
       },
       "description": "z-index компонента",
       "name": "zIndex",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -333,12 +207,6 @@
       },
       "description": "Позиционирование компонента от верхнего или нижнего края экрана",
       "name": "position",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"top\" | \"bottom\" | undefined"
@@ -348,12 +216,6 @@
       "defaultValue": null,
       "description": "Обработчик события истечения времени до закрытия компонента",
       "name": "onCloseTimeout",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -363,12 +225,6 @@
       "defaultValue": null,
       "description": "Обработчик клика вне компонента",
       "name": "onClickOutside",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event?: MouseEvent<any, MouseEvent> | undefined) => void) | undefined"
@@ -378,12 +234,6 @@
       "defaultValue": null,
       "description": "Ссылка на контейнер компонента, к которому применяется анимация",
       "name": "containerRef",
-      "declarations": [
-        {
-          "fileName": "packages/notification/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefObject<HTMLDivElement> | undefined"

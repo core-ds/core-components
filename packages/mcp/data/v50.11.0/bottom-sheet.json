@@ -8,12 +8,6 @@
       },
       "description": "Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area",
       "name": "adjustContainerHeight",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((height: number) => number) | undefined"
@@ -23,12 +17,6 @@
       "defaultValue": null,
       "description": "Контент",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -38,12 +26,6 @@
       "defaultValue": null,
       "description": "Управление видимостью",
       "name": "open",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "boolean"
@@ -53,12 +35,6 @@
       "defaultValue": null,
       "description": "Заголовок",
       "name": "title",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -70,12 +46,6 @@
       },
       "description": "Размер заголовка",
       "name": "titleSize",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"compact\" | undefined"
@@ -85,12 +55,6 @@
       "defaultValue": null,
       "description": "Подзаголовок.",
       "name": "subtitle",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -100,12 +64,6 @@
       "defaultValue": null,
       "description": "Кнопка действия (обычно, это кнопка закрытия)",
       "name": "actionButton",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -115,12 +73,6 @@
       "defaultValue": null,
       "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы",
       "name": "container",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => Element | null | undefined) | undefined"
@@ -130,12 +82,6 @@
       "defaultValue": null,
       "description": "Рендерить ли в контейнер через портал.",
       "name": "usePortal",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -145,12 +91,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -160,12 +100,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для обертки контейнера",
       "name": "bottomSheetWrapperClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -175,12 +109,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "contentClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -190,12 +118,6 @@
       "defaultValue": null,
       "description": "Дополнительные пропсы на контейнер.",
       "name": "containerProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "HTMLAttributes<HTMLDivElement> | undefined"
@@ -205,12 +127,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "containerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -220,12 +136,6 @@
       "defaultValue": null,
       "description": "Цвет фона",
       "name": "backgroundColor",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"primary\" | \"secondary\" | undefined"
@@ -235,12 +145,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс шапки",
       "name": "headerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -250,12 +154,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для контента шапки",
       "name": "headerContentClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -265,12 +163,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс футера",
       "name": "footerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -280,12 +172,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для аддонов",
       "name": "addonClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -295,12 +181,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для компонента крестика",
       "name": "closerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -310,12 +190,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для компонента стрелки назад",
       "name": "backerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -325,12 +199,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для компонента модального окна",
       "name": "modalClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -340,12 +208,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для обертки модального окна",
       "name": "modalWrapperClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -357,12 +219,6 @@
       },
       "description": "Дефолтный маркер",
       "name": "showSwipeMarker",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -372,12 +228,6 @@
       "defaultValue": null,
       "description": "",
       "name": "swipeableMarkerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -387,12 +237,6 @@
       "defaultValue": null,
       "description": "Кастомный маркер",
       "name": "swipeableMarker",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactElement<any, string | JSXElementConstructor<any>> | undefined"
@@ -404,12 +248,6 @@
       },
       "description": "TransitionProps, прокидываются в компонент CSSTransitionProps.",
       "name": "transitionProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Partial<TransitionProps> | undefined"
@@ -419,12 +257,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля заголовка используется модификатор -header",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -434,12 +266,6 @@
       "defaultValue": null,
       "description": "z-index компонента",
       "name": "zIndex",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -451,12 +277,6 @@
       },
       "description": "Будет ли свайпаться шторка",
       "name": "swipeable",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -468,12 +288,6 @@
       },
       "description": "Будет ли свайпаться контент",
       "name": "swipeableContent",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -485,12 +299,6 @@
       },
       "description": "Порог свайпа",
       "name": "swipeThreshold",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -500,12 +308,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для слота над шторкой",
       "name": "outerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -515,12 +317,6 @@
       "defaultValue": null,
       "description": "Слот над шторкой",
       "name": "outerAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -530,12 +326,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -545,12 +335,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -560,12 +344,6 @@
       "defaultValue": null,
       "description": "Слот снизу",
       "name": "bottomAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -575,12 +353,6 @@
       "defaultValue": null,
       "description": "Наличие компонента крестика",
       "name": "hasCloser",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -590,12 +362,6 @@
       "defaultValue": null,
       "description": "Наличие компонента стрелки назад",
       "name": "hasBacker",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -605,12 +371,6 @@
       "defaultValue": null,
       "description": "Дополнительные пропсы для кнопки \"Назад\"",
       "name": "backButtonProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Omit<BackArrowAddonProps, \"onClick\" | \"view\" | \"textOpacity\"> | undefined"
@@ -622,12 +382,6 @@
       },
       "description": "Выравнивание заголовка",
       "name": "titleAlign",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "BottomSheetTitleAlign | undefined"
@@ -637,12 +391,6 @@
       "defaultValue": null,
       "description": "Фиксирует шапку",
       "name": "stickyHeader",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -654,12 +402,6 @@
       },
       "description": "Фиксирует футер",
       "name": "stickyFooter",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -671,12 +413,6 @@
       },
       "description": "Высота шторки",
       "name": "initialHeight",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"full\" | undefined"
@@ -686,12 +422,6 @@
       "defaultValue": null,
       "description": "Будет ли виден оверлэй",
       "name": "hideOverlay",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -701,12 +431,6 @@
       "defaultValue": null,
       "description": "Будет ли видна шапка",
       "name": "hideHeader",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -716,12 +440,6 @@
       "defaultValue": null,
       "description": "Будет ли обрезан заголовок",
       "name": "trimTitle",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -731,12 +449,6 @@
       "defaultValue": null,
       "description": "Запретить закрытие шторки кликом на оверлэй",
       "name": "disableOverlayClick",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -746,12 +458,6 @@
       "defaultValue": null,
       "description": "Отключает блокировку скролла при открытии модального окна\n@deprecated Используйте `scrollLock={true}`.",
       "name": "disableBlockingScroll",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -763,12 +469,6 @@
       },
       "description": "Управляет блокировкой скролла/overscroll фона при открытой шторке.",
       "name": "scrollLock",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -778,12 +478,6 @@
       "defaultValue": null,
       "description": "Отключает ловушку фокуса",
       "name": "disableFocusLock",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -793,12 +487,6 @@
       "defaultValue": null,
       "description": "Свойства для Бэкдропа",
       "name": "backdropProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(Partial<BackdropProps> & Record<string, unknown>) | undefined"
@@ -810,12 +498,6 @@
       },
       "description": "Реф на контейнер, в котором происходит скролл",
       "name": "scrollableContainerRef",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefObject<HTMLElement> | undefined"
@@ -825,12 +507,6 @@
       "defaultValue": null,
       "description": "Реф для управления компонентом.",
       "name": "bottomSheetInstanceRef",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefObject<{ scrollToArea: (idx: number) => void; }> | undefined"
@@ -842,12 +518,6 @@
       },
       "description": "Реф на контейнер, в котором находится шторка",
       "name": "sheetContainerRef",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefObject<HTMLElement> | undefined"
@@ -857,12 +527,6 @@
       "defaultValue": null,
       "description": "Магнитные области видимой высоты шторки.\nМожно использовать значения в пикселях - 10(число), либо в процентах - 10%(строка).\nПо-умолчанию -[0, window.innerHeight - '24px']\nмассив должен состоять минимум из 2 элементов",
       "name": "magneticAreas",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(string | number)[] | undefined"
@@ -872,12 +536,6 @@
       "defaultValue": null,
       "description": "Индекс точки из magneticAreas, к которому нужно примагнититься при первом открытии шторки.",
       "name": "initialActiveAreaIndex",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -887,12 +545,6 @@
       "defaultValue": null,
       "description": "Отключает скролл контентной области.",
       "name": "scrollLocked",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -902,12 +554,6 @@
       "defaultValue": null,
       "description": "Скрыть скроллбар внутри шторки",
       "name": "hideScrollbar",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -919,12 +565,6 @@
       },
       "description": "Верхний отступ шторки, если она открыта на максимальную высоту",
       "name": "headerOffset",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -934,12 +574,6 @@
       "defaultValue": null,
       "description": "Содержимое bottom-sheet всегда в DOM",
       "name": "keepMounted",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -949,12 +583,6 @@
       "defaultValue": null,
       "description": "Отключает автоматический перевод фокуса на bottom-sheet при открытии",
       "name": "disableAutoFocus",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -964,12 +592,6 @@
       "defaultValue": null,
       "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия bottom-sheet",
       "name": "disableRestoreFocus",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -979,12 +601,6 @@
       "defaultValue": null,
       "description": "Отключает вызов `onClose` при нажатии Escape",
       "name": "disableEscapeKeyDown",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -994,12 +610,6 @@
       "defaultValue": null,
       "description": "Обработчик закрытия",
       "name": "onClose",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "() => void"
@@ -1009,12 +619,6 @@
       "defaultValue": null,
       "description": "Обработчик нажатия на стрелку назад",
       "name": "onBack",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -1024,12 +628,6 @@
       "defaultValue": null,
       "description": "Вызывается в начале анимации притягивания к одной из `magneticAreas`",
       "name": "onMagnetize",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((index: number) => void) | undefined"
@@ -1039,12 +637,6 @@
       "defaultValue": null,
       "description": "Вызывается после окончания анимации притягивания",
       "name": "onMagnetizeEnd",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((index: number) => void) | undefined"
@@ -1054,12 +646,6 @@
       "defaultValue": null,
       "description": "Вызывается при изменении положения шторки",
       "name": "onOffsetChange",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((offset: number, percent: number) => void) | undefined"
@@ -1069,12 +655,6 @@
       "defaultValue": null,
       "description": "Вызывается в начале свайпа",
       "name": "onSwipeStart",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: HandledEvents) => void) | undefined"
@@ -1084,12 +664,6 @@
       "defaultValue": null,
       "description": "Вызывается после окончания свайпа",
       "name": "onSwipeEnd",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: HandledEvents | null) => void) | undefined"
@@ -1101,12 +675,6 @@
       },
       "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS\n@deprecated Используйте `scrollLock={true}`.",
       "name": "iOSLock",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -1118,12 +686,6 @@
       },
       "description": "Учитывать высоту виртуальной клавиатуры",
       "name": "virtualKeyboard",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -1135,12 +697,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -1152,12 +708,6 @@
       },
       "description": "Предотвращать скролл во время свайпа",
       "name": "preventScrollOnSwipe",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/bottom-sheet/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"

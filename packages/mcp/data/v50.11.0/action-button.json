@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Иконка кнопки",
       "name": "icon",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -27,16 +17,6 @@
       },
       "description": "Размер кнопки",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | undefined"
@@ -48,16 +28,6 @@
       },
       "description": "Тип кнопки",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"primary\" | \"secondary\" | undefined"
@@ -67,24 +37,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -94,16 +46,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для обертки иконки",
       "name": "iconWrapperClassName",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -113,20 +55,6 @@
       "defaultValue": null,
       "description": "Значение href для ссылки",
       "name": "href",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "AnchorHTMLAttributes"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -136,20 +64,6 @@
       "defaultValue": null,
       "description": "Заблокировать кнопку",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "ButtonHTMLAttributes"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -159,16 +73,6 @@
       "defaultValue": null,
       "description": "Показать лоадер",
       "name": "loading",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -178,16 +82,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -199,16 +93,6 @@
       },
       "description": "Палитра, в контексте которой используется кнопка",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "packages/action-button/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Colors | undefined"

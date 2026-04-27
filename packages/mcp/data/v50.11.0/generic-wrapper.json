@@ -8,12 +8,6 @@
       },
       "description": "Свойство управляет направлением основной оси внутри флекс-контейнера",
       "name": "column",
-      "declarations": [
-        {
-          "fileName": "packages/generic-wrapper/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -23,12 +17,6 @@
       "defaultValue": null,
       "description": "Внутренние отступы\n@description 3xs, 2xs, xs, s, m, l, xl deprecated,\nиспользуйте 0, 2, 4, 8, 12, 16, 20, 24",
       "name": "padding",
-      "declarations": [
-        {
-          "fileName": "packages/generic-wrapper/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "PaddingPropType | undefined"
@@ -38,12 +26,6 @@
       "defaultValue": null,
       "description": "Свойство для выравнивания элементов внутри контейнера по поперечной оси.",
       "name": "alignItems",
-      "declarations": [
-        {
-          "fileName": "packages/generic-wrapper/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"start\" | \"end\" | \"center\" | \"stretch\" | \"baseline\" | undefined"
@@ -53,12 +35,6 @@
       "defaultValue": null,
       "description": "Свойство выравнивает флекс-элементы внутри флекс-контейнера по основной оси.",
       "name": "justifyContent",
-      "declarations": [
-        {
-          "fileName": "packages/generic-wrapper/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"start\" | \"end\" | \"center\" | \"between\" | \"around\" | \"evenly\" | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/generic-wrapper/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -85,12 +55,6 @@
       },
       "description": "Позволяет заполнить всё доступное пространство родительского элемента.",
       "name": "grow",
-      "declarations": [
-        {
-          "fileName": "packages/generic-wrapper/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -100,12 +64,6 @@
       "defaultValue": null,
       "description": "Отступы между элементами флекс-контейнера",
       "name": "gap",
-      "declarations": [
-        {
-          "fileName": "packages/generic-wrapper/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "GapType | undefined"

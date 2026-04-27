@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Уровень прогресса, %",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number | { timer: number; counting?: \"forward\" | \"backward\" | undefined; onFinish?: (() => void) | undefined; }"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -38,12 +26,6 @@
       },
       "description": "Основной текст",
       "name": "title",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -55,12 +37,6 @@
       },
       "description": "Цвет контента",
       "name": "contentColor",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Цвет заголовка\nПриоритет выше чем у `contentColor`",
       "name": "titleColor",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -85,12 +55,6 @@
       "defaultValue": null,
       "description": "Цвет подзаголовка\nПриоритет выше чем у `contentColor`",
       "name": "subtitleColor",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -100,12 +64,6 @@
       "defaultValue": null,
       "description": "Дополнительный текст",
       "name": "subtitle",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -115,12 +73,6 @@
       "defaultValue": null,
       "description": "Основной текст при 100%",
       "name": "titleComplete",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -130,12 +82,6 @@
       "defaultValue": null,
       "description": "Дополнительный текст при 100%",
       "name": "subtitleComplete",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -147,12 +93,6 @@
       },
       "description": "Цвет заполнения",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"positive\" | \"negative\" | undefined"
@@ -164,12 +104,6 @@
       },
       "description": "Размер (144 — 144×144px, 128 — 128×128px, 80 — 80×80px, 64 — 64×64px, 48 — 48×48px, 24 — 24×24px)",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ComponentSize | undefined"
@@ -181,12 +115,6 @@
       },
       "description": "Наличие желоба",
       "name": "stroke",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -196,12 +124,6 @@
       "defaultValue": null,
       "description": "Заливка при 100%",
       "name": "fillComplete",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -211,12 +133,6 @@
       "defaultValue": null,
       "description": "Цвет текста при 100%",
       "name": "completeTextColor",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"primary\" | \"primary-inverted\" | \"positive\" | \"negative\" | undefined"
@@ -228,12 +144,6 @@
       },
       "description": "Цвет иконки при 100%",
       "name": "completeIconColor",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"primary-inverted\" | \"tertiary\" | \"positive\" | \"negative\" | undefined"
@@ -243,12 +153,6 @@
       "defaultValue": null,
       "description": "Компонент иконки",
       "name": "icon",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ElementType<{ className?: string | undefined; }> | undefined"
@@ -258,12 +162,6 @@
       "defaultValue": null,
       "description": "Компонент иконки при 100%",
       "name": "iconComplete",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ElementType<{ className?: string | undefined; }> | undefined"
@@ -275,12 +173,6 @@
       },
       "description": "Направление прогресса (clockwise - по часовой стрелке, counter-clockwise - против часовой стрелки)",
       "name": "direction",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"clockwise\" | \"counter-clockwise\" | undefined"
@@ -290,12 +182,6 @@
       "defaultValue": null,
       "description": "Высота компонента, min = 24; max = 144\nиспользовать совместно с size :\n144 от 144\n128 от 128 до 143\n80 от 80 до 127\n64 от 64 до 79\n48 от 48 до 63\n24 от 24 до 47",
       "name": "height",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -305,12 +191,6 @@
       "defaultValue": null,
       "description": "Id компонента для тестов",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -320,12 +200,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -335,12 +209,6 @@
       "defaultValue": null,
       "description": "Цвет прогресса",
       "name": "progressStrokeColor",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -350,12 +218,6 @@
       "defaultValue": null,
       "description": "Цвет заливки внутри круга",
       "name": "circleColor",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -365,12 +227,6 @@
       "defaultValue": null,
       "description": "Цвет желоба",
       "name": "strokeColor",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -382,12 +238,6 @@
       },
       "description": "Направление заполнения круга",
       "name": "directionType",
-      "declarations": [
-        {
-          "fileName": "packages/circular-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desc\" | \"asc\" | undefined"

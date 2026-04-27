@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Рендер-проп, в который передается состояние фокуса и реф.\n\nРеф нужно установить на интерактивный элемент или на одного из его родителей.",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/keyboard-focusable/src/Component.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "(ref: RefObject<any>, focused: boolean) => Element"

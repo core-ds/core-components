@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля слота слева используется модификатор -left-addons, слота справа -right-addons,\nошибки -error-message, текста подсказки -hint, внутренней части компонента -inner",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -23,12 +17,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | 40 | 56 | 64 | 72 | undefined"
@@ -38,12 +26,6 @@
       "defaultValue": null,
       "description": "Заблокированное состояние",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -53,12 +35,6 @@
       "defaultValue": null,
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -83,12 +53,6 @@
       "defaultValue": null,
       "description": "Cостояние только для чтения",
       "name": "readOnly",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -98,12 +62,6 @@
       "defaultValue": null,
       "description": "Растягивает компонент на ширину контейнера",
       "name": "block",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -113,12 +71,6 @@
       "defaultValue": null,
       "description": "Отображение ошибки",
       "name": "error",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -128,12 +80,6 @@
       "defaultValue": null,
       "description": "Текст подсказки",
       "name": "hint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -143,12 +89,6 @@
       "defaultValue": null,
       "description": "Лейбл компонента",
       "name": "label",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -158,12 +98,6 @@
       "defaultValue": null,
       "description": "Вид лейбла внутри / снаружи",
       "name": "labelView",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"inner\" | \"outer\" | undefined"
@@ -173,12 +107,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -188,12 +116,6 @@
       "defaultValue": null,
       "description": "Свойства для обертки левых аддонов",
       "name": "leftAddonsProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "HTMLAttributes<HTMLDivElement> | undefined"
@@ -203,12 +125,6 @@
       "defaultValue": null,
       "description": "Свойства для обертки правых аддонов",
       "name": "rightAddonsProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "HTMLAttributes<HTMLDivElement> | undefined"
@@ -218,12 +134,6 @@
       "defaultValue": null,
       "description": "Слот под полем",
       "name": "bottomAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -233,12 +143,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для поля",
       "name": "fieldClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -248,12 +152,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для лейбла",
       "name": "labelClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -263,12 +161,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для аддонов",
       "name": "addonsClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -278,12 +170,6 @@
       "defaultValue": null,
       "description": "Заполненное состояние",
       "name": "filled",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -293,12 +179,6 @@
       "defaultValue": null,
       "description": "Выбранное (фокус) состояние",
       "name": "focused",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -308,12 +188,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для поля",
       "name": "inputWrapperClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/components/base-form-control/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -325,12 +199,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -340,12 +208,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -357,12 +219,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/form-control/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

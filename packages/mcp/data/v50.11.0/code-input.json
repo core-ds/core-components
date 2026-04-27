@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс (native prop)",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Коллбек ввода значения",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((code: string) => void) | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Заблокированное состояние",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Состояние с ошибкой",
       "name": "error",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Коллбек полного заполнения",
       "name": "onComplete",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((code: string) => void) | undefined"
@@ -96,12 +60,6 @@
       "defaultValue": null,
       "description": "Количество полей",
       "name": "fields",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -111,12 +69,6 @@
       "defaultValue": null,
       "description": "Значение для предзаполнения",
       "name": "initialValues",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -128,12 +80,6 @@
       },
       "description": "Флаг - нужно ли очищать код при возникновении ошибки",
       "name": "clearCodeOnError",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -145,12 +91,6 @@
       },
       "description": "Продолжительность отображения ошибки",
       "name": "errorVisibleDuration",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -160,12 +100,6 @@
       "defaultValue": null,
       "description": "Коллбэк вызываемый после окончания проигрывания анимации при возникновении ошибки.",
       "name": "onErrorAnimationEnd",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/code-input/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -177,12 +111,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "packages/code-input/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -192,12 +120,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "packages/code-input/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -209,12 +131,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "packages/code-input/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

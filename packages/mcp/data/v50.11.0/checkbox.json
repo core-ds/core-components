@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Обработчик переключения чекбокса",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: ChangeEvent<HTMLInputElement>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Текст подписи к чекбоксу",
       "name": "label",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Текст подсказки снизу",
       "name": "hint",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -53,12 +35,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "24 | 20 | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Доп. класс чекбокса",
       "name": "boxClassName",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -83,12 +53,6 @@
       "defaultValue": null,
       "description": "Доп. класс контента",
       "name": "contentClassName",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -98,12 +62,6 @@
       "defaultValue": null,
       "description": "Доп. класс лейбла",
       "name": "labelClassName",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -113,12 +71,6 @@
       "defaultValue": null,
       "description": "Доп. класс подсказки",
       "name": "hintClassName",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -128,12 +80,6 @@
       "defaultValue": null,
       "description": "Доп. класс ошибки",
       "name": "errorClassName",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -143,12 +89,6 @@
       "defaultValue": null,
       "description": "Доп. класс дополнительного слота",
       "name": "addonsClassName",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -160,12 +100,6 @@
       },
       "description": "Выравнивание",
       "name": "align",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Align | undefined"
@@ -175,12 +109,6 @@
       "defaultValue": null,
       "description": "Дополнительный слот",
       "name": "addons",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -190,12 +118,6 @@
       "defaultValue": null,
       "description": "Растягивать ли компонент на всю ширину",
       "name": "block",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -205,12 +127,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -222,12 +138,6 @@
       },
       "description": "Управление неопределенным состоянием чекбокса",
       "name": "indeterminate",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -237,12 +147,6 @@
       "defaultValue": null,
       "description": "Отображение ошибки",
       "name": "error",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -254,12 +158,6 @@
       },
       "description": "Позиция чекбокса относительно контента",
       "name": "position",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"before\" | \"after\" | undefined"
@@ -271,12 +169,6 @@
       },
       "description": "Флаг для скрытия нативного инпута.",
       "name": "hiddenInput",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -286,12 +178,6 @@
       "defaultValue": null,
       "description": "Реф на инпут",
       "name": "inputRef",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefObject<HTMLInputElement> | undefined"
@@ -301,12 +187,6 @@
       "defaultValue": null,
       "description": "Пропсы для label",
       "name": "labelProps",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> | undefined"
@@ -318,12 +198,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"

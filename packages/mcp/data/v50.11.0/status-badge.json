@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/status-badge/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -23,12 +17,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/status-badge/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "StatusBadgeSizes | undefined"
@@ -40,12 +28,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/status-badge/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -55,12 +37,6 @@
       "defaultValue": null,
       "description": "Вид бейджа.",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/status-badge/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "StatusBadgeViews"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/status-badge/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -85,12 +55,6 @@
       "defaultValue": null,
       "description": "Кастомные иконки",
       "name": "customIcons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/status-badge/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>> | undefined"

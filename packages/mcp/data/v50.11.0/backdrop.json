@@ -8,12 +8,6 @@
       },
       "description": "Прозрачный бэкдроп\n@deprecated данное свойство больше не используется, временно оставлено для обратной совместимости\nИспользуйте свойство transparent",
       "name": "invisible",
-      "declarations": [
-        {
-          "fileName": "packages/backdrop/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -25,12 +19,6 @@
       },
       "description": "Управляет видимостью компонента",
       "name": "open",
-      "declarations": [
-        {
-          "fileName": "packages/backdrop/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean"
@@ -40,12 +28,6 @@
       "defaultValue": null,
       "description": "Обработчик клика по бэкдропу",
       "name": "onClose",
-      "declarations": [
-        {
-          "fileName": "packages/backdrop/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLElement, MouseEvent>) => void) | undefined"
@@ -55,12 +37,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/backdrop/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Классы анимации\n\nhttp://reactcommunity.org/react-transition-group/css-transition#CSSTransition-prop-classNames",
       "name": "transitionClassNames",
-      "declarations": [
-        {
-          "fileName": "packages/backdrop/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | CSSTransitionClassNames | undefined"
@@ -85,12 +55,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/backdrop/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -102,12 +66,6 @@
       },
       "description": "Управляет прозрачностью бэкдроп",
       "name": "transparent",
-      "declarations": [
-        {
-          "fileName": "packages/backdrop/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"

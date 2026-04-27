@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Значение заполненной части 0-100",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Css-класс для стилизации",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -38,12 +26,6 @@
       },
       "description": "Цвет заполнения",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"link\" | \"primary\" | \"secondary\" | \"accent\" | \"tertiary\" | \"positive\" | \"negative\" | \"attention\" | undefined"
@@ -55,12 +37,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "4 | 8 | undefined"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Id компонента для тестов",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -87,12 +57,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"

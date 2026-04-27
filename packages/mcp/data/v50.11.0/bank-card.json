@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -23,12 +17,6 @@
       },
       "description": "Цвет фона карты",
       "name": "backgroundColor",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -40,12 +28,6 @@
       },
       "description": "Иконка логотипа банка (размер L)",
       "name": "bankLogo",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -57,12 +39,6 @@
       },
       "description": "Лэйбл поля ввода",
       "name": "inputLabel",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -72,12 +48,6 @@
       "defaultValue": null,
       "description": "Значение поля ввода",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -87,12 +57,6 @@
       "defaultValue": null,
       "description": "Обработчик ввода",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: ChangeEvent<HTMLInputElement>, payload: { value: string; }) => void) | undefined"
@@ -102,12 +66,6 @@
       "defaultValue": null,
       "description": "Обработчик вызова камеры",
       "name": "onUsePhoto",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
@@ -117,12 +75,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -134,12 +86,6 @@
       },
       "description": "Тип вводимой маски. Позволяет устанавливать необходимый тип номера (номер карты или номер счёта)\nЕсли параметр не передавать - работает с обоими типами номеров",
       "name": "maskType",
-      "declarations": [
-        {
-          "fileName": "packages/bank-card/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "MaskType | undefined"

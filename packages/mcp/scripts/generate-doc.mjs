@@ -2,7 +2,6 @@ import { withCustomConfig } from 'react-docgen-typescript';
 import { resolve } from 'node:path';
 import { isInheritedFromExternalTypes } from './is-inherited-from-external-types.mjs';
 
-// todo привести работу пропов к poc версии
 // todo в package json не должно быть оступов чтобы беречь контекст
 export function generateDoc(files) {
     const parser = withCustomConfig(
@@ -17,14 +16,25 @@ export function generateDoc(files) {
         const { filePath, displayName, props: _props } = doc;
         const packageName = filePath.split('packages/')[1].split('/')[0];
 
-        // if (packageName === 'accordion') {
-        //     console.warn(
-        //         Object.entries(props).filter(([key, prop]) => !isInheritedFromExternalTypes(prop)),
-        //     );
-        // }
-
         const props = Object.fromEntries(
-            Object.entries(_props).filter(([_, prop]) => !isInheritedFromExternalTypes(prop)),
+            Object.entries(_props)
+                .filter(([_, prop]) => !isInheritedFromExternalTypes(prop))
+                .reduce((acc, [key, prop]) => {
+                    const { defaultValue, description, name, required, type } = prop;
+                    return [
+                        ...acc,
+                        [
+                            key,
+                            {
+                                defaultValue,
+                                description,
+                                name,
+                                required,
+                                type,
+                            },
+                        ],
+                    ];
+                }, []),
         );
 
         if (!docsMap.has(packageName)) {

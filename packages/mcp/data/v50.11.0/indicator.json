@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Значение индикатора",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "packages/indicator/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | ReactElement<any, string | JSXElementConstructor<any>> | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Цвет заливки",
       "name": "backgroundColor",
-      "declarations": [
-        {
-          "fileName": "packages/indicator/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Высота компонента, min = 16; max = 48",
       "name": "height",
-      "declarations": [
-        {
-          "fileName": "packages/indicator/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -53,12 +35,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/indicator/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "40 | 32 | 24 | 20 | 8 | 16 | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Настройки обводки",
       "name": "border",
-      "declarations": [
-        {
-          "fileName": "packages/indicator/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | Border | undefined"
@@ -83,12 +53,6 @@
       "defaultValue": null,
       "description": "Пресет компонента",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "packages/indicator/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"white\" | \"red\" | \"grey\" | undefined"
@@ -98,12 +62,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/indicator/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

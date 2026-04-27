@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Идентификатор карты\n(например: ER, GQ, SU)",
       "name": "cardId",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -23,12 +17,6 @@
       },
       "description": "Какие слои показывать, через запятую без пробелов\n(полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,\nPAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)",
       "name": "layers",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -40,12 +28,6 @@
       },
       "description": "Ширина изображения",
       "name": "width",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -57,12 +39,6 @@
       },
       "description": "Скругление углов",
       "name": "rounded",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -74,12 +50,6 @@
       },
       "description": "Базовый URL сервиса с изображениями",
       "name": "baseUrl",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -89,12 +59,6 @@
       "defaultValue": null,
       "description": "Колбек, вызываемый при загрузке изображения",
       "name": "onLoad",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -104,12 +68,6 @@
       "defaultValue": null,
       "description": "Колбек, вызываемый при ошибке загрузки изображения",
       "name": "onError",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactEventHandler<HTMLImageElement> | undefined"
@@ -119,12 +77,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -134,12 +86,6 @@
       "defaultValue": null,
       "description": "Текстовое описание изображения",
       "name": "alt",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -149,12 +95,6 @@
       "defaultValue": null,
       "description": "Уникальный идентификатор блока",
       "name": "id",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -164,12 +104,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/card-image/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

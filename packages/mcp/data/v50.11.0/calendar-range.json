@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Значение инпута (используется и для календаря)",
       "name": "valueFrom",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Значение инпута (используется и для календаря)",
       "name": "valueTo",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Месяц в календаре по умолчанию",
       "name": "defaultMonth",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Минимальная дата, доступная для выбора (timestamp)",
       "name": "minDate",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Максимальная дата, доступная для выбора (timestamp)",
       "name": "maxDate",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -96,12 +60,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения даты от",
       "name": "onDateFromChange",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((payload: { date: number | null; value: string; }) => void) | undefined"
@@ -111,12 +69,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения даты до",
       "name": "onDateToChange",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((payload: { date: number | null; value: string; }) => void) | undefined"
@@ -126,12 +78,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((payload: { dateFrom: number | null; valueFrom: string; dateTo: number | null; valueTo: string; }) => void) | undefined"
@@ -141,12 +87,6 @@
       "defaultValue": null,
       "description": "Коллбэк, срабатывающий при возникновении ошибок валидации дат внутри компонента.",
       "name": "onError",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((hasError: boolean) => void) | undefined"
@@ -156,12 +96,6 @@
       "defaultValue": null,
       "description": "Список событий",
       "name": "events",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(number | Date)[] | undefined"
@@ -171,12 +105,6 @@
       "defaultValue": null,
       "description": "Список выходных",
       "name": "offDays",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(number | Date)[] | undefined"
@@ -186,12 +114,6 @@
       "defaultValue": null,
       "description": "Пропсы для инпута даты от",
       "name": "inputFromProps",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "CalendarInputResponsiveProps | undefined"
@@ -201,12 +123,6 @@
       "defaultValue": null,
       "description": "Пропсы для инпута даты до",
       "name": "inputToProps",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "CalendarInputResponsiveProps | undefined"
@@ -216,12 +132,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -233,12 +143,6 @@
       },
       "description": "Определяет, как рендерить календарь — в поповере или снизу инпута",
       "name": "calendarPosition",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"static\" | \"popover\" | undefined"
@@ -248,12 +152,6 @@
       "defaultValue": null,
       "description": "calendarPosition = static\nОтображать начальный месяц слева или справа (влияет только на начальный рендер)",
       "name": "defaultMonthPosition",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"left\" | \"right\" | undefined"
@@ -263,12 +161,6 @@
       "defaultValue": null,
       "description": "Возвращать невалидную дату для кастомной валидации",
       "name": "returnInvalidDates",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -278,12 +170,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для контейнера календаря",
       "name": "calendarContainerClassName",
-      "declarations": [
-        {
-          "fileName": "packages/calendar-range/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

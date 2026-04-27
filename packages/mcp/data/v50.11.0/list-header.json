@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Заголовок",
       "name": "title",
-      "declarations": [
-        {
-          "fileName": "packages/list-header/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "string"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Дополнительное описание",
       "name": "description",
-      "declarations": [
-        {
-          "fileName": "packages/list-header/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -38,12 +26,6 @@
       },
       "description": "Наличие фоновой подложки",
       "name": "filled",
-      "declarations": [
-        {
-          "fileName": "packages/list-header/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -53,12 +35,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/list-header/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/list-header/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

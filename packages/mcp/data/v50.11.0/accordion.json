@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Состояние компонента",
       "name": "expanded",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Элемент заголовка",
       "name": "header",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ReactNode"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Слот для элемента управления",
       "name": "control",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -53,12 +35,6 @@
       },
       "description": "Указывает компоненту - где будет размещен control",
       "name": "controlPosition",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ControlPosition | undefined"
@@ -70,12 +46,6 @@
       },
       "description": "Начальное состояние uncontrolled компонента",
       "name": "defaultExpanded",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -85,16 +55,6 @@
       "defaultValue": null,
       "description": "Основной элемент для отображения содержимого",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "DOMAttributes"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -104,16 +64,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс обертки",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -123,12 +73,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для контейнера с заголовком",
       "name": "containerClassName",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -138,12 +82,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для header",
       "name": "headerClassName",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -153,12 +91,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для control",
       "name": "controlClassName",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -168,12 +100,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для body",
       "name": "bodyClassName",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -183,12 +109,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для body content",
       "name": "bodyContentClassName",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -198,12 +118,6 @@
       "defaultValue": null,
       "description": "Обработчик смены состояний `expanded`",
       "name": "onExpandedChange",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((expanded: boolean) => void) | undefined"
@@ -213,12 +127,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/accordion/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

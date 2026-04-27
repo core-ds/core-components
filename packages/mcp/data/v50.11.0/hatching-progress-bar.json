@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Значение заполненной части 0-100",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Значение будущей заполненной части 0-100",
       "name": "hatchValue",
-      "declarations": [
-        {
-          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Css-класс для стилизации",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -53,12 +35,6 @@
       },
       "description": "Цвет заполнения",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"link\" | \"primary\" | \"secondary\" | \"accent\" | \"tertiary\" | \"positive\" | \"negative\" | \"attention\" | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Id компонента для тестов",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/hatching-progress-bar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

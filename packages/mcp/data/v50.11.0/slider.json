@@ -8,12 +8,6 @@
       },
       "description": "Мин. допустимое число",
       "name": "min",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -25,12 +19,6 @@
       },
       "description": "Макс. допустимое число",
       "name": "max",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -42,12 +30,6 @@
       },
       "description": "Шаг (должен нацело делить отрезок между мин и макс)",
       "name": "step",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -57,12 +39,6 @@
       "defaultValue": null,
       "description": "Отображение подписей\nhttps://refreshless.com/nouislider/pips/",
       "name": "pips",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Pips | undefined"
@@ -74,12 +50,6 @@
       },
       "description": "Настройка шагов\nhttps://refreshless.com/nouislider/pips/#section-range",
       "name": "range",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RangeOptions | undefined"
@@ -91,12 +61,6 @@
       },
       "description": "Флаг точной привязки к range\nhttps://refreshless.com/nouislider/examples/#section-skipping",
       "name": "snap",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -108,12 +72,6 @@
       },
       "description": "Значение слайдера",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -123,12 +81,6 @@
       "defaultValue": null,
       "description": "Второе значение слайдера (значение второго ползунка)\nесли передать ValueTo, то слайдер будет работать как range",
       "name": "valueTo",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -138,12 +90,6 @@
       "defaultValue": null,
       "description": "Заблокированное состояние",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -153,12 +99,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -170,12 +110,6 @@
       },
       "description": "Поведение ползунка",
       "name": "behaviour",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"unconstrained-tap\" | \"tap\" | undefined"
@@ -187,12 +121,6 @@
       },
       "description": "Размер",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "2 | 4 | undefined"
@@ -202,12 +130,6 @@
       "defaultValue": null,
       "description": "Обработчик поля ввода",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((payload: { value: number; valueTo?: number | undefined; }) => void) | undefined"
@@ -217,12 +139,6 @@
       "defaultValue": null,
       "description": "@deprecated Обработчик начала перетаскивания ползунка",
       "name": "onStart",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -232,12 +148,6 @@
       "defaultValue": null,
       "description": "Обработчик окончания перетаскивания ползунка\n@description https://refreshless.com/nouislider/events-callbacks/#section-change",
       "name": "onEnd",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -247,12 +157,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/slider/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

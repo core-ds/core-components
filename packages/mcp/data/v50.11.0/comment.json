@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Количество строк",
       "name": "rowLimit",
-      "declarations": [
-        {
-          "fileName": "packages/comment/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "2 | 5 | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Сss класс для стилизации общей обёртки",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/comment/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Id компонента для тестов",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/comment/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы.",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "packages/comment/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"

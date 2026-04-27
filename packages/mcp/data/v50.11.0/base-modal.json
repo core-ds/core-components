@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Контент",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -23,12 +17,6 @@
       },
       "description": "Компонент бэкдропа",
       "name": "Backdrop",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ComponentType<BackdropProps> | undefined"
@@ -40,12 +28,6 @@
       },
       "description": "Свойства для Бэкдропа",
       "name": "backdropProps",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(Partial<BackdropProps> & Record<string, unknown>) | undefined"
@@ -55,12 +37,6 @@
       "defaultValue": null,
       "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы",
       "name": "container",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => Element | null | undefined) | undefined"
@@ -72,12 +48,6 @@
       },
       "description": "Отключает автоматический перевод фокуса на модалку при открытии",
       "name": "disableAutoFocus",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -89,12 +59,6 @@
       },
       "description": "Отключает ловушку фокуса",
       "name": "disableFocusLock",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -106,12 +70,6 @@
       },
       "description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки",
       "name": "disableRestoreFocus",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -123,12 +81,6 @@
       },
       "description": "Отключает вызов `callback` при нажатии Escape",
       "name": "disableEscapeKeyDown",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -140,12 +92,6 @@
       },
       "description": "Отключает вызов `callback` при клике на бэкдроп",
       "name": "disableBackdropClick",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -157,12 +103,6 @@
       },
       "description": "Отключает блокировку скролла при открытии модального окна\n@deprecated Используйте `scrollLock={true}`.",
       "name": "disableBlockingScroll",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -174,12 +114,6 @@
       },
       "description": "Управляет блокировкой скролла/overscroll фона при открытой модалке.",
       "name": "scrollLock",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -191,12 +125,6 @@
       },
       "description": "Содержимое модалки всегда в DOM",
       "name": "keepMounted",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -206,12 +134,6 @@
       "defaultValue": null,
       "description": "Управление видимостью модалки",
       "name": "open",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "boolean"
@@ -221,12 +143,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -236,12 +152,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "contentClassName",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -251,12 +161,6 @@
       "defaultValue": null,
       "description": "Дополнительные пропсы на dialog wrapper",
       "name": "wrapperProps",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
@@ -266,12 +170,6 @@
       "defaultValue": null,
       "description": "Дополнительные пропсы на обертку контента",
       "name": "contentProps",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
@@ -281,12 +179,6 @@
       "defaultValue": null,
       "description": "Дополнительные пропсы на компонентную обертку контента",
       "name": "componentDivProps",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
@@ -296,12 +188,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для обертки (Modal)",
       "name": "wrapperClassName",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -313,12 +199,6 @@
       },
       "description": "Обработчик скролла контента",
       "name": "scrollHandler",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"content\" | \"wrapper\" | MutableRefObject<HTMLDivElement | null> | undefined"
@@ -330,12 +210,6 @@
       },
       "description": "Пропсы для анимации (CSSTransition)",
       "name": "transitionProps",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Partial<CSSTransitionProps> | undefined"
@@ -347,12 +221,6 @@
       },
       "description": "Рендерить ли в контейнер через портал.",
       "name": "usePortal",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -362,12 +230,6 @@
       "defaultValue": null,
       "description": "Обработчик события нажатия на бэкдроп",
       "name": "onBackdropClick",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<Element, MouseEvent>) => void) | undefined"
@@ -377,12 +239,6 @@
       "defaultValue": null,
       "description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе",
       "name": "onEscapeKeyDown",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: KeyboardEvent<Element>) => void) | undefined"
@@ -392,12 +248,6 @@
       "defaultValue": null,
       "description": "Обработчик закрытия",
       "name": "onClose",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\" | undefined) => void) | undefined"
@@ -407,12 +257,6 @@
       "defaultValue": null,
       "description": "Обработчик события onEntered компонента Transition",
       "name": "onMount",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -422,12 +266,6 @@
       "defaultValue": null,
       "description": "Обработчик события onExited компонента Transition",
       "name": "onUnmount",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -437,12 +275,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -454,12 +286,6 @@
       },
       "description": "z-index компонента",
       "name": "zIndex",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -471,12 +297,6 @@
       },
       "description": "Реф, который должен быть установлен компонентной области",
       "name": "componentRef",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "MutableRefObject<HTMLDivElement | null> | undefined"
@@ -488,12 +308,6 @@
       },
       "description": "Реф контентной области",
       "name": "contentElementRef",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "MutableRefObject<HTMLDivElement | null> | undefined"
@@ -505,12 +319,6 @@
       },
       "description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS.\n@deprecated Используйте `scrollLock={true}`.",
       "name": "iOSLock",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -520,12 +328,6 @@
       "defaultValue": null,
       "description": "Хэндлер события прокрутки колесиком",
       "name": "onWheel",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((e: WheelEvent<HTMLElement>) => void) | undefined"

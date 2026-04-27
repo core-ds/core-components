@@ -8,12 +8,6 @@
       },
       "description": "Содержимое кнопки для выбора файла",
       "name": "buttonContent",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -25,12 +19,6 @@
       },
       "description": "Свойства для кнопки",
       "name": "buttonProps",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) | undefined"
@@ -40,12 +28,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для блока с файлами",
       "name": "fileClassName",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -55,12 +37,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для блока с подсказкой, когда файл не загружен",
       "name": "noFileClassName",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Число символов, после которого имя файла будет обрезаться",
       "name": "maxFilenameLength",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -87,12 +57,6 @@
       },
       "description": "Текст для случая, когда файл не загружен",
       "name": "noFileText",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -102,12 +66,6 @@
       "defaultValue": null,
       "description": "Процент выполнения загрузки файла",
       "name": "progressBarPercent",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -119,12 +77,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | 40 | 56 | 64 | 32 | undefined"
@@ -134,12 +86,6 @@
       "defaultValue": null,
       "description": "Возможность прикрепления нескольких файлов",
       "name": "multiple",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -149,12 +95,6 @@
       "defaultValue": null,
       "description": "Содержимое поля ввода. Принимает массив объектов типа File или null.",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "File[] | null | undefined"
@@ -164,12 +104,6 @@
       "defaultValue": null,
       "description": "Содержимое поля ввода, указанное по умолчанию. Принимает массив объектов типа File или null.",
       "name": "defaultValue",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "File[] | null | undefined"
@@ -179,12 +113,6 @@
       "defaultValue": null,
       "description": "Обработчик поля ввода",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: ChangeEvent<HTMLInputElement>, payload: { files: File[]; }) => void) | undefined"
@@ -194,12 +122,6 @@
       "defaultValue": null,
       "description": "Обработчик нажатия на кнопку очистки",
       "name": "onClear",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
@@ -209,12 +131,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/attach/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

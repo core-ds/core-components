@@ -8,12 +8,6 @@
       },
       "description": "Тип кнопки",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"text\" | \"primary\" | \"secondary\" | \"accent\" | \"outlined\" | \"transparent\" | undefined"
@@ -25,12 +19,6 @@
       },
       "description": "Форма кнопки",
       "name": "shape",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"rounded\" | \"rectangular\" | undefined"
@@ -42,12 +30,6 @@
       },
       "description": "Ширина текстового контента",
       "name": "textResizing",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"fill\" | \"hug\" | undefined"
@@ -57,12 +39,6 @@
       "defaultValue": null,
       "description": "Подпись под лейблом (видна только в размерах >= m)",
       "name": "hint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -72,12 +48,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -87,12 +57,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -104,12 +68,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | 40 | 56 | 64 | 72 | 32 | undefined"
@@ -121,12 +79,6 @@
       },
       "description": "Растягивает компонент на ширину контейнера",
       "name": "block",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -136,24 +88,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
-        },
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -163,12 +97,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для спиннера",
       "name": "spinnerClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -178,20 +106,6 @@
       "defaultValue": null,
       "description": "Выводит ссылку в виде кнопки",
       "name": "href",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "AnchorHTMLAttributes"
-        },
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -201,12 +115,6 @@
       "defaultValue": null,
       "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
       "name": "Component",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ElementType | undefined"
@@ -216,12 +124,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -233,12 +135,6 @@
       },
       "description": "Показать лоадер",
       "name": "loading",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -250,12 +146,6 @@
       },
       "description": "Не переносить текст кнопки на новую строку",
       "name": "nowrap",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -265,12 +155,6 @@
       "defaultValue": null,
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -280,12 +164,6 @@
       "defaultValue": null,
       "description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
       "name": "allowBackdropBlur",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -295,24 +173,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы.",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "DOMAttributes"
-        },
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "DOMAttributes"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -324,12 +184,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -339,12 +193,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -356,12 +204,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

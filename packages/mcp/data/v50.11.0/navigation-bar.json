@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Заголовок",
       "name": "title",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Подзаголовок",
       "name": "subtitle",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Контент шапки",
       "name": "children",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -65,16 +35,6 @@
       },
       "description": "Выравнивание заголовка",
       "name": "align",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"center\" | \"left\" | undefined"
@@ -86,16 +46,6 @@
       },
       "description": "Цвет фона",
       "name": "backgroundColor",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -105,16 +55,6 @@
       "defaultValue": null,
       "description": "Наличие бордера",
       "name": "border",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -124,16 +64,6 @@
       "defaultValue": null,
       "description": "Фиксирует шапку",
       "name": "sticky",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -143,16 +73,6 @@
       "defaultValue": null,
       "description": "Слот снизу",
       "name": "bottomAddons",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -162,16 +82,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -181,16 +91,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -200,16 +100,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для контента",
       "name": "contentClassName",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -219,16 +109,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для обертки контента",
       "name": "contentWrapperClassName",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -238,16 +118,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -257,16 +127,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для правого аддона",
       "name": "rightAddonsClassName",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -276,16 +136,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для левого аддона",
       "name": "leftAddonsClassName",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -295,16 +145,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для нижнего аддона",
       "name": "bottomAddonsClassName",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -314,16 +154,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "packages/navigation-bar/src/Component.tsx",
-        "name": "NavigationBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/navigation-bar/src/Component.tsx",
-          "name": "NavigationBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

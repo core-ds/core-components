@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Значение поля ввода",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Начальное значение поля",
       "name": "defaultValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -38,12 +26,6 @@
       },
       "description": "Растягивает компонент на ширину контейнера",
       "name": "block",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -55,12 +37,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | 40 | 56 | 64 | 72 | undefined"
@@ -72,12 +48,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -87,12 +57,6 @@
       "defaultValue": null,
       "description": "Отображение ошибки",
       "name": "error",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -102,12 +66,6 @@
       "defaultValue": null,
       "description": "Текст подсказки",
       "name": "hint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -117,12 +75,6 @@
       "defaultValue": null,
       "description": "Лейбл компонента",
       "name": "label",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -134,12 +86,6 @@
       },
       "description": "Вид лейбла внутри / снаружи",
       "name": "labelView",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"inner\" | \"outer\" | undefined"
@@ -149,12 +95,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -164,12 +104,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -179,12 +113,6 @@
       "defaultValue": null,
       "description": "Слот под компонентом",
       "name": "bottomAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -194,12 +122,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для поля",
       "name": "fieldClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -209,12 +131,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс textarea",
       "name": "textareaClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -226,12 +142,6 @@
       },
       "description": "Управление возможностью подстраивать высоту компонента под высоту текста",
       "name": "autosize",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -241,12 +151,6 @@
       "defaultValue": null,
       "description": "Максимальное количество отображаемых строк (работает только вместе с autosize)",
       "name": "maxRows",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -256,12 +160,6 @@
       "defaultValue": null,
       "description": "Минимальное количество отображаемых строк (работает только вместе c autosize)",
       "name": "minRows",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -271,12 +169,6 @@
       "defaultValue": null,
       "description": "Максимальная высота элемента",
       "name": "maxHeight",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -288,12 +180,6 @@
       },
       "description": "Управление возможностью изменения размеров компонента (не работает вместе c autosize)",
       "name": "resize",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"none\" | \"vertical\" | undefined"
@@ -303,12 +189,6 @@
       "defaultValue": null,
       "description": "Обработчик ввода",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: ChangeEvent<HTMLTextAreaElement>, payload: { value: string; }) => void) | undefined"
@@ -318,12 +198,6 @@
       "defaultValue": null,
       "description": "Обработчик события изменения высоты компонента (работает только вместе c autosize)",
       "name": "onHeightChange",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((height?: number | undefined) => void) | undefined"
@@ -333,12 +207,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -350,12 +218,6 @@
       },
       "description": "Показывать счетчик введенных символов",
       "name": "showCounter",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -367,12 +229,6 @@
       },
       "description": "Функция, возвращающая текст для счетчика",
       "name": "getCounterText",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((textLength: number, maxLength?: number | undefined) => string) | undefined"
@@ -382,12 +238,6 @@
       "defaultValue": null,
       "description": "Нужно ли использовать нативный скроллбар.",
       "name": "nativeScrollbar",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -399,12 +249,6 @@
       },
       "description": "Разрешить переполнение, если количество символов превышает maxLength",
       "name": "allowOverflow",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -416,12 +260,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -431,12 +269,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -446,12 +278,6 @@
       "defaultValue": null,
       "description": "Ref для обертки textarea",
       "name": "wrapperRef",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/textarea/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Ref<HTMLDivElement> | undefined"

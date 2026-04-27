@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Текст подсказки снизу",
       "name": "hint",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Текст подписи",
       "name": "label",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -53,12 +35,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "24 | 20 | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Управление состоянием отмечен/не отмечен",
       "name": "checked",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -83,12 +53,6 @@
       "defaultValue": null,
       "description": "Управление состоянием включен / выключен",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -98,12 +62,6 @@
       "defaultValue": null,
       "description": "Html аттрибут name инпута",
       "name": "name",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -113,12 +71,6 @@
       "defaultValue": null,
       "description": "Класс компонента",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -128,12 +80,6 @@
       "defaultValue": null,
       "description": "Доп. класс радио кнопки",
       "name": "circleClassName",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -143,12 +89,6 @@
       "defaultValue": null,
       "description": "Доп. класс контента",
       "name": "contentClassName",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -160,12 +100,6 @@
       },
       "description": "Выравнивание",
       "name": "align",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Align | undefined"
@@ -175,12 +109,6 @@
       "defaultValue": null,
       "description": "Дополнительный слот",
       "name": "addons",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -190,12 +118,6 @@
       "defaultValue": null,
       "description": "Растягивать ли компонент на всю ширину",
       "name": "block",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -205,12 +127,6 @@
       "defaultValue": null,
       "description": "Пропсы для label",
       "name": "labelProps",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> | undefined"
@@ -220,12 +136,6 @@
       "defaultValue": null,
       "description": "Обработчик на выбор элемента",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: ChangeEvent<HTMLInputElement>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
@@ -237,12 +147,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "packages/radio/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"

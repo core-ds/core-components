@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Управление видимостью",
       "name": "open",
-      "declarations": [
-        {
-          "fileName": "packages/gallery/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "boolean"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Массив изображений",
       "name": "images",
-      "declarations": [
-        {
-          "fileName": "packages/gallery/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "GalleryImage[]"
@@ -38,12 +26,6 @@
       },
       "description": "Зациклить галерею",
       "name": "loop",
-      "declarations": [
-        {
-          "fileName": "packages/gallery/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -55,12 +37,6 @@
       },
       "description": "Индекс открытого изображение",
       "name": "initialSlide",
-      "declarations": [
-        {
-          "fileName": "packages/gallery/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Обработчик закрытия",
       "name": "onClose",
-      "declarations": [
-        {
-          "fileName": "packages/gallery/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "() => void"
@@ -85,12 +55,6 @@
       "defaultValue": null,
       "description": "Индекс текущего изображения",
       "name": "slideIndex",
-      "declarations": [
-        {
-          "fileName": "packages/gallery/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -100,12 +64,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения текущего изображения",
       "name": "onSlideIndexChange",
-      "declarations": [
-        {
-          "fileName": "packages/gallery/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((index: number) => void) | undefined"
@@ -115,12 +73,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для попапа",
       "name": "popupClassName",
-      "declarations": [
-        {
-          "fileName": "packages/gallery/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

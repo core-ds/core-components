@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Размер отступа",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/gap/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "Size"
@@ -23,12 +17,6 @@
       },
       "description": "Вид отступа (вертикальный или горизонтальный)",
       "name": "direction",
-      "declarations": [
-        {
-          "fileName": "packages/gap/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"horizontal\" | \"vertical\" | undefined"
@@ -40,12 +28,6 @@
       },
       "description": "HTML тег",
       "name": "tag",
-      "declarations": [
-        {
-          "fileName": "packages/gap/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"div\" | \"span\" | undefined"
@@ -55,12 +37,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/gap/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/gap/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

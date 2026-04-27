@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Атрибут id",
       "name": "id",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -63,16 +33,6 @@
       "defaultValue": null,
       "description": "Обработчик блюра поля",
       "name": "onBlur",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) | undefined"
@@ -82,16 +42,6 @@
       "defaultValue": null,
       "description": "Обработчик выбора",
       "name": "onChange",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((payload: BaseSelectChangePayload) => void) | undefined"
@@ -101,16 +51,6 @@
       "defaultValue": null,
       "description": "Обработчик скрола",
       "name": "onScroll",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
@@ -120,16 +60,6 @@
       "defaultValue": null,
       "description": "Управление возможностью выбора значения",
       "name": "disabled",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -139,16 +69,6 @@
       "defaultValue": null,
       "description": "Атрибут name",
       "name": "name",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -158,16 +78,6 @@
       "defaultValue": null,
       "description": "Растягивает компонент на ширину контейнера",
       "name": "block",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -177,16 +87,6 @@
       "defaultValue": null,
       "description": "Флаг, показать крестик для очистки поля",
       "name": "clear",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -196,16 +96,6 @@
       "defaultValue": null,
       "description": "Отображение ошибки",
       "name": "error",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -215,16 +105,6 @@
       "defaultValue": null,
       "description": "Лейбл поля",
       "name": "label",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -234,16 +114,6 @@
       "defaultValue": null,
       "description": "Вид лейбла внутри / снаружи",
       "name": "labelView",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"inner\" | \"outer\" | undefined"
@@ -253,16 +123,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для поля",
       "name": "fieldClassName",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -272,16 +132,6 @@
       "defaultValue": null,
       "description": "Обработчик нажатия на крестик для очистки поля",
       "name": "onClear",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
@@ -293,16 +143,6 @@
       },
       "description": "Контекст окружения для downshift.js",
       "name": "environment",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Environment | undefined"
@@ -312,16 +152,6 @@
       "defaultValue": null,
       "description": "Управление открытием",
       "name": "open",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -331,16 +161,6 @@
       "defaultValue": null,
       "description": "Начальное состояние селекта",
       "name": "defaultOpen",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -350,16 +170,6 @@
       "defaultValue": null,
       "description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
       "name": "preventFlip",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -369,16 +179,6 @@
       "defaultValue": null,
       "description": "Позиционирование выпадающего списка",
       "name": "popoverPosition",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Position | undefined"
@@ -388,16 +188,6 @@
       "defaultValue": null,
       "description": "z-index поповера",
       "name": "zIndexPopover",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -407,16 +197,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс выпадающего меню",
       "name": "optionsListClassName",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -426,16 +206,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для пункта меню",
       "name": "optionClassName",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -445,16 +215,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для компонента группы пунктов",
       "name": "optionGroupClassName",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -464,16 +224,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для поповера",
       "name": "popperClassName",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -483,16 +233,6 @@
       "defaultValue": null,
       "description": "Размер пунктов меню",
       "name": "optionsSize",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | 40 | 56 | 64 | 72 | undefined"
@@ -502,16 +242,6 @@
       "defaultValue": null,
       "description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля",
       "name": "optionsListWidth",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"content\" | \"field\" | undefined"
@@ -521,16 +251,6 @@
       "defaultValue": null,
       "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот.",
       "name": "circularNavigation",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -540,16 +260,6 @@
       "defaultValue": null,
       "description": "Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)",
       "name": "nativeSelect",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -559,16 +269,6 @@
       "defaultValue": null,
       "description": "Количество видимых пунктов меню (5 = 5.5)",
       "name": "visibleOptions",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -578,16 +278,6 @@
       "defaultValue": null,
       "description": "Кастомный рендер выбранного пункта",
       "name": "valueRenderer",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(({ selected, selectedMultiple, }: { selected?: OptionShape | undefined; selectedMultiple: OptionShape[]; valueSeparator?: string | undefined; }) => ReactNode) | undefined"
@@ -597,16 +287,6 @@
       "defaultValue": null,
       "description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)",
       "name": "valueSeparator",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -616,16 +296,6 @@
       "defaultValue": null,
       "description": "Компонент поля",
       "name": "Field",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ComponentType<FieldProps> | undefined"
@@ -635,16 +305,6 @@
       "defaultValue": null,
       "description": "Пропсы, которые будут прокинуты в компонент поля",
       "name": "fieldProps",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "unknown"
@@ -654,16 +314,6 @@
       "defaultValue": null,
       "description": "Пропсы, которые будут прокинуты в компонент списка",
       "name": "optionsListProps",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "unknown"
@@ -673,16 +323,6 @@
       "defaultValue": null,
       "description": "Пропсы, которые будут прокинуты в компонент пункта меню",
       "name": "optionProps",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "unknown"
@@ -692,16 +332,6 @@
       "defaultValue": null,
       "description": "Пропсы, которые будут прокинуты в компонент группового пункта меню",
       "name": "groupOptionProps",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "AnyObject | undefined"
@@ -711,16 +341,6 @@
       "defaultValue": null,
       "description": "Компонент выпадающего меню",
       "name": "OptionsList",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ComponentType<Pick<SelectProps, \"client\"> & { className?: string | undefined; optionGroupClassName?: string | undefined; scrollbarClassName?: string | undefined; ... 28 more ...; limitDynamicOptionGroupSize?: boolean | undefined; } & RefAttributes<...>> | undefined"
@@ -730,16 +350,6 @@
       "defaultValue": null,
       "description": "Компонент группы",
       "name": "Optgroup",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ComponentType<OptgroupProps> | undefined"
@@ -749,16 +359,6 @@
       "defaultValue": null,
       "description": "Компонент пункта меню",
       "name": "Option",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ComponentType<OptionProps> | undefined"
@@ -768,16 +368,6 @@
       "defaultValue": null,
       "description": "Обработчик открытия\\закрытия селекта",
       "name": "onOpen",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((payload: { open?: boolean | undefined; name?: string | undefined; }) => void) | undefined"
@@ -787,16 +377,6 @@
       "defaultValue": null,
       "description": "Хранит функцию, с помощью которой можно обновить положение поповера",
       "name": "updatePopover",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "MutableRefObject<(() => void) | undefined> | undefined"
@@ -806,16 +386,6 @@
       "defaultValue": null,
       "description": "Показывать OptionsList, если он пустой",
       "name": "showEmptyOptionsList",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -825,16 +395,6 @@
       "defaultValue": null,
       "description": "Дополнительные пропсы для Popover",
       "name": "popoverProps",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"zIndex\" | \"preventFlip\" | \"position\" | \"update\" | \"anchorElement\"> | undefined"
@@ -844,16 +404,6 @@
       "defaultValue": null,
       "description": "Ограничение динамического размера группы вариантов выбора",
       "name": "limitDynamicOptionGroupSize",
-      "parent": {
-        "fileName": "core-components/packages/select/src/typings.ts",
-        "name": "BaseSelectProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "BaseSelectProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -865,12 +415,6 @@
       },
       "description": "Тип кнопки",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"text\" | \"primary\" | \"secondary\" | \"accent\" | \"outlined\" | \"transparent\" | undefined"
@@ -882,12 +426,6 @@
       },
       "description": "Показать лоадер",
       "name": "loading",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -897,12 +435,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -912,12 +444,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -927,12 +453,6 @@
       "defaultValue": null,
       "description": "",
       "name": "options",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/picker-button/src/desktop/Component.desktop.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "((OptionShape | GroupShape) & { icon?: ComponentType<SVGProps<SVGSVGElement>> | undefined; })[]"
@@ -944,12 +464,6 @@
       },
       "description": "Размер кнопки",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/picker-button/src/desktop/Component.desktop.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "PickerButtonSize | undefined"
@@ -959,12 +473,6 @@
       "defaultValue": null,
       "description": "Тип кнопки",
       "name": "variant",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/picker-button/src/desktop/Component.desktop.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "PickerButtonVariant | undefined"
@@ -976,12 +484,6 @@
       },
       "description": "Показывать стрелку",
       "name": "showArrow",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/picker-button/src/desktop/Component.desktop.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -991,12 +493,6 @@
       "defaultValue": null,
       "description": "Кастомная иконка при variant = compact",
       "name": "icon",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/picker-button/src/desktop/Component.desktop.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ComponentType<SVGProps<SVGSVGElement>> | undefined"
@@ -1006,12 +502,6 @@
       "defaultValue": null,
       "description": "Показывать кнопку 'Сбросить' в футере мобильного компонента",
       "name": "showClear",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -1021,12 +511,6 @@
       "defaultValue": null,
       "description": "Показывать пункт \"Выбрать все\"",
       "name": "showSelectAll",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -1036,12 +520,6 @@
       "defaultValue": null,
       "description": "Показывать пункт \"Выбрать все\" в заголовке списка у мобильного компонента",
       "name": "showHeaderWithSelectAll",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -1051,12 +529,6 @@
       "defaultValue": null,
       "description": "Использовать ли хук useSelectWithApply в мобильном компоненте",
       "name": "useWithApplyHook",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -1068,12 +540,6 @@
       },
       "description": "Позиция чекбокса \"Выбрать все\" в Header",
       "name": "checkmarkPosition",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"before\" | \"after\" | undefined"
@@ -1083,12 +549,6 @@
       "defaultValue": null,
       "description": "Футер\n@deprecated Используйте bottomSheetProps.actionButton",
       "name": "footer",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -1098,12 +558,6 @@
       "defaultValue": null,
       "description": "Будет ли свайпаться шторка\n@deprecated Используйте bottomSheetProps.swipeable",
       "name": "swipeable",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -1113,12 +567,6 @@
       "defaultValue": null,
       "description": "Дополнительные пропсы шторки",
       "name": "bottomSheetProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/select/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(Omit<Partial<BottomSheetProps>, \"bottomAddons\"> & { bottomAddons?: ReactNode | ((flatOptions: OptionShape[]) => ReactNode); }) | undefined"
@@ -1130,12 +578,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "packages/picker-button/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -1145,12 +587,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "packages/picker-button/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"

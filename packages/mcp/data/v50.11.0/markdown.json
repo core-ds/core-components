@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Css класс для обертки разметки",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/markdown/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Шрифт разметки",
       "name": "font",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/markdown/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "FontType"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Переопределение компонентов для тегов разметки",
       "name": "overrides",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/markdown/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Components | undefined"
@@ -53,12 +35,6 @@
       },
       "description": "Трансформация ссылок неизвестных форматов\nhttps://github.com/remarkjs/react-markdown/issues/537",
       "name": "transformLinkUri",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/markdown/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -70,12 +46,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/markdown/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -85,12 +55,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/markdown/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -102,12 +66,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/markdown/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

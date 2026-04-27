@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Размеры подложки",
       "name": "dimensions",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DimensionsType | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Внутренние отступы",
       "name": "padding",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | PaddingType | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Радиус бордера",
       "name": "borderRadius",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "UnderlayBorderRadius | CornersRadiusType | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Цвет фона",
       "name": "backgroundColor",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Ширина бордера",
       "name": "borderSize",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "BorderSizeType | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Цвет бордера",
       "name": "borderColor",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "BorderColorType | undefined"
@@ -98,12 +62,6 @@
       },
       "description": "Настройка переполнения (true - разрешена)\ndefault: true",
       "name": "overflow",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -113,12 +71,6 @@
       "defaultValue": null,
       "description": "Тень",
       "name": "shadow",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ShadowType | undefined"
@@ -128,12 +80,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -143,12 +89,6 @@
       "defaultValue": null,
       "description": "Пропсы для стилизации контента подложки",
       "name": "contentProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/underlay/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ContentPropsType | undefined"

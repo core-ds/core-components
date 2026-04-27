@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Состояние компонента",
       "name": "expanded",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Текст ссылки в `expanded` состоянии",
       "name": "collapsedLabel",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Текст ссылки в `collapsed` состоянии",
       "name": "expandedLabel",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы `Collapse`",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс обертки",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для скрываемого контента",
       "name": "expandedContentClassName",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -96,12 +60,6 @@
       "defaultValue": null,
       "description": "Идентификатор компонента в DOM",
       "name": "id",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -113,12 +71,6 @@
       },
       "description": "Начальное состояние uncontrolled компонента",
       "name": "defaultExpanded",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -128,12 +80,6 @@
       "defaultValue": null,
       "description": "Обработчик смены состояний `expanded/collapsed`",
       "name": "onExpandedChange",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((expanded: boolean) => void) | undefined"
@@ -143,12 +89,6 @@
       "defaultValue": null,
       "description": "Обработчик события завершения анимации",
       "name": "onTransitionEnd",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((expanded: boolean) => void) | undefined"
@@ -158,12 +98,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -175,12 +109,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "packages/collapse/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"

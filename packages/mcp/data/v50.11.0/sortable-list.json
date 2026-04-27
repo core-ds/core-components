@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс на контейнер",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс на элемент списка",
       "name": "itemClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс на обертку контента у элемента списка",
       "name": "itemContentClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Пропсы портала, в котором отображается draggable элемент",
       "name": "portalProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "PortalProps | undefined"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Пропсы DragOverlay элемента",
       "name": "dragOverlayProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "{ className?: string | undefined; style?: CSSProperties | undefined; zIndex?: number | undefined; } | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Отступ контрола от края",
       "name": "controlPadding",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "PaddingSize | undefined"
@@ -98,12 +62,6 @@
       },
       "description": "Позиция контрола",
       "name": "controlPosition",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ControlPosition | undefined"
@@ -113,12 +71,6 @@
       "defaultValue": null,
       "description": "Рендер-функция элемента",
       "name": "renderItem",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "(item: { id: UniqueIdentifier; disabled?: boolean | undefined; }) => Element"
@@ -128,12 +80,6 @@
       "defaultValue": null,
       "description": "Список сортируемых идентификаторов",
       "name": "items",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "Items"
@@ -143,12 +89,6 @@
       "defaultValue": null,
       "description": "Отступы.",
       "name": "padding",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "PaddingSize | PaddingObj | undefined"
@@ -158,12 +98,6 @@
       "defaultValue": null,
       "description": "BorderRadius элементов списка",
       "name": "borderRadius",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "BorderRadius | undefined"
@@ -175,12 +109,6 @@
       },
       "description": "Вид",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "View | undefined"
@@ -192,12 +120,6 @@
       },
       "description": "Активатор события перетаскивания. Либо элемент целиком, либо только контрол",
       "name": "activatorNode",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ActivatorNode | undefined"
@@ -207,12 +129,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -container, для ячейки -item_${id}",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -224,12 +140,6 @@
       },
       "description": "Тексты объявления для screen reader",
       "name": "announcements",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Announcements | undefined"
@@ -241,12 +151,6 @@
       },
       "description": "Инструкция для screen reader",
       "name": "screenReaderInstructions",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -256,12 +160,6 @@
       "defaultValue": null,
       "description": "Коллбэк, вызываемый при начале процесса перетаскивания",
       "name": "onDragStart",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: DragStartEvent) => void) | undefined"
@@ -271,12 +169,6 @@
       "defaultValue": null,
       "description": "Коллбэк, вызываемый по окончании перетаскивания",
       "name": "onDragEnd",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/sortable-list/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: DragEndEvent, items: Items) => void) | undefined"

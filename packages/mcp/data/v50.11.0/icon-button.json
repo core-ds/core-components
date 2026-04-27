@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Компонент иконки",
       "name": "icon",
-      "parent": {
-        "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-        "name": "IconButtonProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-          "name": "IconButtonProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ElementType<{ className?: string | undefined; }> | ReactElement<{ className?: string | undefined; }, string | JSXElementConstructor<any>>"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Тип кнопки",
       "name": "view",
-      "parent": {
-        "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-        "name": "IconButtonProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-          "name": "IconButtonProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\" | undefined"
@@ -46,16 +26,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "parent": {
-        "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-        "name": "IconButtonProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-          "name": "IconButtonProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | 40 | 56 | 32 | 24 | undefined"
@@ -65,16 +35,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-        "name": "IconButtonProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-          "name": "IconButtonProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -86,16 +46,6 @@
       },
       "description": "Включает прозрачный фон",
       "name": "transparentBg",
-      "parent": {
-        "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-        "name": "IconButtonProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-          "name": "IconButtonProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -107,16 +57,6 @@
       },
       "description": "Выравнивание иконки",
       "name": "alignIcon",
-      "parent": {
-        "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-        "name": "IconButtonProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-          "name": "IconButtonProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"center\" | \"left\" | \"right\" | undefined"
@@ -126,16 +66,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-        "name": "IconButtonProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-          "name": "IconButtonProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -145,16 +75,6 @@
       "defaultValue": null,
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "parent": {
-        "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-        "name": "IconButtonProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/types/icon-button-props.ts",
-          "name": "IconButtonProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -164,20 +84,6 @@
       "defaultValue": null,
       "description": "Выводит ссылку в виде кнопки",
       "name": "href",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "AnchorHTMLAttributes"
-        },
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -189,12 +95,6 @@
       },
       "description": "Показать лоадер",
       "name": "loading",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -206,16 +106,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/icon-button/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -225,12 +115,6 @@
       "defaultValue": null,
       "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
       "name": "Component",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/button/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ElementType | undefined"
@@ -240,12 +124,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -255,12 +133,6 @@
       "defaultValue": null,
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/icon-button/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

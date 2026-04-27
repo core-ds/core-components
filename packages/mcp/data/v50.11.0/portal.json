@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Контент",
       "name": "children",
-      "parent": {
-        "fileName": "core-components/packages/portal/src/Component.ts",
-        "name": "PortalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/portal/src/Component.ts",
-          "name": "PortalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Функция, возвращающая контейнер, в который будут рендериться дочерние элементы",
       "name": "getPortalContainer",
-      "parent": {
-        "fileName": "core-components/packages/portal/src/Component.ts",
-        "name": "PortalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/portal/src/Component.ts",
-          "name": "PortalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => Element | null | undefined) | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Немедленно отрендерить дочерние элементы (false - контент будет отрендерен на след. рендер).",
       "name": "immediateMount",
-      "parent": {
-        "fileName": "core-components/packages/portal/src/Component.ts",
-        "name": "PortalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/portal/src/Component.ts",
-          "name": "PortalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"

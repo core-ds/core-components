@@ -8,12 +8,6 @@
       },
       "description": "Тип ссылки",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/link/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"primary\" | \"secondary\" | \"default\" | undefined"
@@ -25,12 +19,6 @@
       },
       "description": "Пунктирное подчеркивание",
       "name": "pseudo",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/link/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -42,12 +30,6 @@
       },
       "description": "Включает / отключает подчеркивание",
       "name": "underline",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/link/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -57,12 +39,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/link/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -72,12 +48,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/link/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -89,12 +59,6 @@
       },
       "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
       "name": "Component",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/link/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ElementType | undefined"
@@ -104,12 +68,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/link/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -121,12 +79,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/link/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"

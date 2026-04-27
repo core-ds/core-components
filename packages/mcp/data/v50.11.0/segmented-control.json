@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный className",
       "name": "className",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Обработчик смены выбранного сегмента",
       "name": "onChange",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "(id: IDType) => void"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "ID выбранного сегмента",
       "name": "selectedId",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "IDType"
@@ -65,16 +35,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "40 | 32 | undefined"
@@ -86,16 +46,6 @@
       },
       "description": "Форма компонента",
       "name": "shape",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"rounded\" | \"rectangular\" | undefined"
@@ -105,16 +55,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы",
       "name": "children",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ReactElement<SegmentProps, string | JSXElementConstructor<any>>[]"
@@ -126,16 +66,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -145,16 +75,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -164,16 +84,6 @@
       "defaultValue": null,
       "description": "Дополнительные инлайн стили для враппера",
       "name": "style",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "CSSProperties | undefined"
@@ -185,16 +95,6 @@
       },
       "description": "Отключает пользовательский ввод",
       "name": "disabled",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -204,16 +104,6 @@
       "defaultValue": null,
       "description": "Настройки скелетона",
       "name": "skeleton",
-      "parent": {
-        "fileName": "packages/segmented-control/src/Component.tsx",
-        "name": "SegmentedControlProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/segmented-control/src/Component.tsx",
-          "name": "SegmentedControlProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "SkeletonProps | undefined"

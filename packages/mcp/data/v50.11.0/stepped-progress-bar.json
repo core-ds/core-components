@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Общее количество шагов",
       "name": "maxStep",
-      "parent": {
-        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-        "name": "SteppedProgressBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-          "name": "SteppedProgressBarProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Постфикс описание под прогрессбаром",
       "name": "description",
-      "parent": {
-        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-        "name": "SteppedProgressBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-          "name": "SteppedProgressBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -46,16 +26,6 @@
       },
       "description": "Количество пройденных шагов",
       "name": "step",
-      "parent": {
-        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-        "name": "SteppedProgressBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-          "name": "SteppedProgressBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -65,16 +35,6 @@
       "defaultValue": null,
       "description": "Цвет заполнения",
       "name": "view",
-      "parent": {
-        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-        "name": "SteppedProgressBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-          "name": "SteppedProgressBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "SteppedProgressBarViewValue | SteppedProgressBarViewValue[] | undefined"
@@ -84,16 +44,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-        "name": "SteppedProgressBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-          "name": "SteppedProgressBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -105,16 +55,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "parent": {
-        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-        "name": "SteppedProgressBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-          "name": "SteppedProgressBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -124,16 +64,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-        "name": "SteppedProgressBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/stepped-progress-bar/src/Component.tsx",
-          "name": "SteppedProgressBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

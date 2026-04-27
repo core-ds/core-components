@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -23,12 +17,6 @@
       },
       "description": "Вид компонента\n@description soft deprecated, используйте вместо него muted-alt",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"contrast\" | \"soft\" | \"muted\" | \"muted-alt\" | undefined"
@@ -40,12 +28,6 @@
       },
       "description": "Цветовое оформление компонента",
       "name": "color",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"red\" | \"grey\" | \"blue\" | \"green\" | \"orange\" | \"purple\" | \"teal\" | undefined"
@@ -55,12 +37,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы.",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -87,12 +57,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "40 | 32 | 24 | 20 | undefined"
@@ -104,12 +68,6 @@
       },
       "description": "Форма компонента",
       "name": "shape",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"rounded\" | \"rectangular\" | undefined"
@@ -121,12 +79,6 @@
       },
       "description": "Текст компонента в верхнем регистре",
       "name": "uppercase",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -136,12 +88,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "packages/status/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"

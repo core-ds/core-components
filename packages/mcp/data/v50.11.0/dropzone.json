@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для контента",
       "name": "contentClassName",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -38,12 +26,6 @@
       },
       "description": "Подпись для заглушки",
       "name": "text",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -53,12 +35,6 @@
       "defaultValue": null,
       "description": "Заблокированное состояние",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -70,12 +46,6 @@
       },
       "description": "Состояние ошибки",
       "name": "error",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -87,12 +57,6 @@
       },
       "description": "Растягивать ли компонент на всю ширину",
       "name": "block",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -104,12 +68,6 @@
       },
       "description": "Компонент оверлея",
       "name": "Overlay",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ComponentType<OverlayProps> | undefined"
@@ -119,12 +77,6 @@
       "defaultValue": null,
       "description": "Обработчик события 'drop'",
       "name": "onDrop",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((files: File[]) => void) | undefined"
@@ -134,12 +86,6 @@
       "defaultValue": null,
       "description": "Обработчик события 'dragover'",
       "name": "onDragOver",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: DragEvent<HTMLElement>) => void) | undefined"
@@ -149,12 +95,6 @@
       "defaultValue": null,
       "description": "Обработчик события 'dragleave'",
       "name": "onDragLeave",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: DragEvent<HTMLElement>) => void) | undefined"
@@ -164,12 +104,6 @@
       "defaultValue": null,
       "description": "Обработчик события 'dragenter'",
       "name": "onDragEnter",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: DragEvent<HTMLElement>) => void) | undefined"
@@ -179,12 +113,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -194,12 +122,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы.",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "packages/dropzone/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"

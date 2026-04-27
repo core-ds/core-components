@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Индекс выбранного элемента",
       "name": "activeElement",
-      "parent": {
-        "fileName": "core-components/packages/page-indicator/src/types.ts",
-        "name": "PageIndicatorBulletProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/page-indicator/src/types.ts",
-          "name": "PageIndicatorBulletProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -27,16 +17,6 @@
       },
       "description": "Количество элементов (минимум 2)",
       "name": "elements",
-      "parent": {
-        "fileName": "core-components/packages/page-indicator/src/types.ts",
-        "name": "PageIndicatorBulletProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/page-indicator/src/types.ts",
-          "name": "PageIndicatorBulletProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -48,16 +28,6 @@
       },
       "description": "Высота компонента",
       "name": "size",
-      "parent": {
-        "fileName": "core-components/packages/page-indicator/src/types.ts",
-        "name": "PageIndicatorBulletProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/page-indicator/src/types.ts",
-          "name": "PageIndicatorBulletProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -69,16 +39,6 @@
       },
       "description": "Расстояние между элементами",
       "name": "gap",
-      "parent": {
-        "fileName": "core-components/packages/page-indicator/src/types.ts",
-        "name": "PageIndicatorBulletProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/page-indicator/src/types.ts",
-          "name": "PageIndicatorBulletProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -90,16 +50,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "parent": {
-        "fileName": "core-components/packages/page-indicator/src/types.ts",
-        "name": "PageIndicatorBulletProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/page-indicator/src/types.ts",
-          "name": "PageIndicatorBulletProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | \"static\" | \"static-inverted\" | undefined"

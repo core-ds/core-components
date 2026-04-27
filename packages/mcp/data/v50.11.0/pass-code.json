@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Код",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "string"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения кода",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "(code: string) => void"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Отображение ошибки ввода",
       "name": "error",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Отображение успешного ввода",
       "name": "success",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -96,12 +60,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -111,12 +69,6 @@
       "defaultValue": null,
       "description": "Заголовок для правого слота",
       "name": "rightAddonsTitle",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -126,12 +78,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, ошибки -error,\nсообщения над клавиатурой -message, блока с кодом -input-progress,\nблока с цифрами -keypad",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -143,12 +89,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -158,12 +98,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -175,12 +109,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"
@@ -190,12 +118,6 @@
       "defaultValue": null,
       "description": "Отключает ввод и удаление кода",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -207,16 +129,6 @@
       },
       "description": "Максимально возможная длина кода",
       "name": "maxCodeLength",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/pass-code/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -226,16 +138,6 @@
       "defaultValue": null,
       "description": "Длина кода",
       "name": "codeLength",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pass-code/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/pass-code/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"

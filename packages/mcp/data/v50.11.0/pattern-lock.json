@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля сообщения используется модификатор -message, ошибки -error,\nкнопки \"забыли код\" -forgot-code-btn",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -38,12 +26,6 @@
       },
       "description": "Следить ли за изменениями значений цветовых токенов",
       "name": "observeTokens",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -53,12 +35,6 @@
       "defaultValue": null,
       "description": "Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)",
       "name": "observerParams",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "{ getTarget?: (() => Node) | undefined; options?: MutationObserverInit | undefined; } | undefined"
@@ -68,12 +44,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для message/errorMessage",
       "name": "messageClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -85,12 +55,6 @@
       },
       "description": "Отключает ввод паттерна",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -100,12 +64,6 @@
       "defaultValue": null,
       "description": "Коллбек, вызываемый при начале ввода кода.",
       "name": "onDragStart",
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/@alfalab/react-canvas-pattern-lock/dist/index.d.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -115,12 +73,6 @@
       "defaultValue": null,
       "description": "Коллбек, вызываемый после завершения ввода кода.",
       "name": "onComplete",
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/@alfalab/react-canvas-pattern-lock/dist/index.d.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((code: number[], nodes: TNodes) => void) | undefined"
@@ -130,12 +82,6 @@
       "defaultValue": null,
       "description": "Состояние темы.",
       "name": "themeState",
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/@alfalab/react-canvas-pattern-lock/dist/index.d.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -145,12 +91,6 @@
       "defaultValue": null,
       "description": "Дополнительные границы в пикселях.\nСвойство позволяет расширить область прослушивания touch события.\nПо-умолчанию область ограничена размерами canvas.",
       "name": "extraBounds",
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/@alfalab/react-canvas-pattern-lock/dist/index.d.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "[number, number, number, number] | undefined"
@@ -162,16 +102,6 @@
       },
       "description": "Показать кнопку \"забыли код\"",
       "name": "showForgotCodeBtn",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -183,16 +113,6 @@
       },
       "description": "Текст кнопки \"забыли код\"",
       "name": "forgotCodeBtnText",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -202,16 +122,6 @@
       "defaultValue": null,
       "description": "Коллбэк, вызываемый при клике на кнопку \"Забыли код\"",
       "name": "onForgotBtnClick",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
@@ -223,12 +133,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -238,12 +142,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -255,12 +153,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/pattern-lock/src/typings.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

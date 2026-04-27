@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы тултипа.\nПри срабатывании событий на них, тултип будет открываться",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ReactElement<any, string | JSXElementConstructor<any>>"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Контент тултипа",
       "name": "content",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ReactNode"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Вид тултипа",
       "name": "view",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"tooltip\" | \"hint\" | undefined"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Если `true`, то тултип будет открыт",
       "name": "open",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -96,12 +60,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для контента",
       "name": "contentClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -111,12 +69,6 @@
       "defaultValue": null,
       "description": "z-index компонента",
       "name": "zIndex",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -126,12 +78,6 @@
       "defaultValue": null,
       "description": "Функция, возвращающая контейнер, в который будет рендериться тултип",
       "name": "getPortalContainer",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => HTMLElement) | undefined"
@@ -141,12 +87,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для поповера",
       "name": "popoverClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -156,12 +96,6 @@
       "defaultValue": null,
       "description": "Использовать ширину родительского элемента",
       "name": "useAnchorWidth",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -171,12 +105,6 @@
       "defaultValue": null,
       "description": "Позиционирование тултипа",
       "name": "position",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Position | undefined"
@@ -186,12 +114,6 @@
       "defaultValue": null,
       "description": "Хранит функцию, с помощью которой можно обновить положение компонента",
       "name": "updatePopover",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "MutableRefObject<(() => void) | undefined> | undefined"
@@ -201,12 +123,6 @@
       "defaultValue": null,
       "description": "Запрещает тултипу менять свою позицию, если он не влезает в видимую область.",
       "name": "preventOverflow",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -216,12 +132,6 @@
       "defaultValue": null,
       "description": "Позволяет тултипу подствраивать свою высоту под границы экрана, если из-за величины контента он выходит за рамки видимой области экрана",
       "name": "availableHeight",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => Element | null | undefined) | undefined"
@@ -231,12 +141,6 @@
       "defaultValue": null,
       "description": "Смещение тултипа",
       "name": "offset",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "[number, number] | undefined"
@@ -246,12 +150,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для стрелочки",
       "name": "arrowClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -261,12 +159,6 @@
       "defaultValue": null,
       "description": "Показывать тултип с анимацией",
       "name": "withTransition",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -276,12 +168,6 @@
       "defaultValue": null,
       "description": "Если тултип не помещается в переданной позиции (position), он попробует открыться в другой позиции,\nпо очереди для каждой позиции из этого списка.\nЕсли не передавать, то тултип открывается в противоположном направлении от переданного position.",
       "name": "fallbackPlacements",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Position[] | undefined"
@@ -291,12 +177,6 @@
       "defaultValue": null,
       "description": "Задержка перед открытием тултипа",
       "name": "onOpenDelay",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -306,12 +186,6 @@
       "defaultValue": null,
       "description": "Задержка перед закрытием тултипа",
       "name": "onCloseDelay",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -321,12 +195,6 @@
       "defaultValue": null,
       "description": "Событие, по которому происходит открытие тултипа",
       "name": "trigger",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Trigger | undefined"
@@ -336,12 +204,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для обертки над дочерними элементами",
       "name": "targetClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -351,12 +213,6 @@
       "defaultValue": null,
       "description": "Реф для обертки над дочерними элементами",
       "name": "targetRef",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "MutableRefObject<HTMLElement | null> | undefined"
@@ -366,12 +222,6 @@
       "defaultValue": null,
       "description": "Элемент, относительно которого будет позиционировать тултип.",
       "name": "anchor",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefElement | undefined"
@@ -383,12 +233,6 @@
       },
       "description": "Тэг для target обертки",
       "name": "targetTag",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"div\" | \"span\" | undefined"
@@ -398,12 +242,6 @@
       "defaultValue": null,
       "description": "Обработчик клика по целевому элементу\nСобытие всплытия останавливается до вызова этого обработчика",
       "name": "onTargetClick",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLElement, MouseEvent>) => void) | undefined"
@@ -413,12 +251,6 @@
       "defaultValue": null,
       "description": "Обработчик открытия",
       "name": "onOpen",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event?: MouseEvent<HTMLElement, MouseEvent> | undefined) => void) | undefined"
@@ -428,12 +260,6 @@
       "defaultValue": null,
       "description": "Обработчик закрытия",
       "name": "onClose",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event?: MouseEvent<HTMLElement, MouseEvent> | undefined) => void) | undefined"
@@ -443,12 +269,6 @@
       "defaultValue": null,
       "description": "Заголовок кнопки в футере",
       "name": "actionButtonTitle",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -458,12 +278,6 @@
       "defaultValue": null,
       "description": "Дополнительные пропсы компонента BottomSheet",
       "name": "bottomSheetProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Partial<BottomSheetProps> | undefined"
@@ -475,12 +289,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -490,12 +298,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -507,12 +309,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tooltip/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

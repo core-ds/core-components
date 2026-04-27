@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Оборачиваемый элемент.",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "DOMAttributes"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс на корневой элемент.",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -46,12 +26,6 @@
       },
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -63,12 +37,6 @@
       },
       "description": "Растягивать контент по горизонтали по ширине содержимого.",
       "name": "horizontalAutoStretch",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -80,12 +48,6 @@
       },
       "description": "Название css свойства, которое устанавливается на контейнер при horizontalAutoStretch.",
       "name": "widthPropName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"width\" | \"maxWidth\" | \"minWidth\" | undefined"
@@ -97,12 +59,6 @@
       },
       "description": "Включает автоскрытие ползунка.",
       "name": "autoHide",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -114,12 +70,6 @@
       },
       "description": "Время в мс, определяющее задержку до исчезновения полосы прокрутки (при включенной опции autoHide).",
       "name": "autoHideTimeout",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -131,12 +81,6 @@
       },
       "description": "Принудительное отображение полосы прокрутки.",
       "name": "forceVisible",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | \"x\" | \"y\" | undefined"
@@ -148,12 +92,6 @@
       },
       "description": "Управление поведением клика по треку.\nЕсли true, то будет выполняться прокрутка к месту клика.",
       "name": "clickOnTrack",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -165,12 +103,6 @@
       },
       "description": "HTML-aтрибуты на прокручиваемый узел.",
       "name": "scrollableNodeProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
@@ -182,12 +114,6 @@
       },
       "description": "HTML-aтрибуты на узел с контентом.",
       "name": "contentNodeProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
@@ -197,12 +123,6 @@
       "defaultValue": null,
       "description": "HTML-aтрибуты маски.",
       "name": "maskProps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
@@ -212,12 +132,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс контейнера вертикальной полосы прокрутки",
       "name": "verticalBarClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -227,12 +141,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс контейнера горизонтальной полосы прокрутки",
       "name": "horizontalBarClassName",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -242,12 +150,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения скролла",
       "name": "onContentScroll",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((e: Event) => void) | undefined"
@@ -257,12 +159,6 @@
       "defaultValue": null,
       "description": "Ref для вертикальной полосы прокрутки",
       "name": "verticalBarRef",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/scrollbar/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefObject<HTMLDivElement> | undefined"

@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Имя иконки",
       "name": "name",
-      "parent": {
-        "fileName": "packages/cdn-icon/src/Component.tsx",
-        "name": "CDNIconProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/cdn-icon/src/Component.tsx",
-          "name": "CDNIconProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "string"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Цвет иконки",
       "name": "color",
-      "parent": {
-        "fileName": "packages/cdn-icon/src/Component.tsx",
-        "name": "CDNIconProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/cdn-icon/src/Component.tsx",
-          "name": "CDNIconProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "packages/cdn-icon/src/Component.tsx",
-        "name": "CDNIconProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/cdn-icon/src/Component.tsx",
-          "name": "CDNIconProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -65,16 +35,6 @@
       },
       "description": "Базовый адрес cdn хранилища c иконками",
       "name": "baseUrl",
-      "parent": {
-        "fileName": "packages/cdn-icon/src/Component.tsx",
-        "name": "CDNIconProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/cdn-icon/src/Component.tsx",
-          "name": "CDNIconProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -84,16 +44,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "packages/cdn-icon/src/Component.tsx",
-        "name": "CDNIconProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/cdn-icon/src/Component.tsx",
-          "name": "CDNIconProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -103,16 +53,6 @@
       "defaultValue": null,
       "description": "Fallback на случай, если не удастся загрузить иконку",
       "name": "fallback",
-      "parent": {
-        "fileName": "packages/cdn-icon/src/Component.tsx",
-        "name": "CDNIconProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/cdn-icon/src/Component.tsx",
-          "name": "CDNIconProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -122,16 +62,6 @@
       "defaultValue": null,
       "description": "Callback, вызываемый при ошибке загрузки иконки",
       "name": "onError",
-      "parent": {
-        "fileName": "packages/cdn-icon/src/Component.tsx",
-        "name": "CDNIconProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/cdn-icon/src/Component.tsx",
-          "name": "CDNIconProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"

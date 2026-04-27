@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Денежное значение в минорных единицах",
       "name": "value",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Валюта",
       "name": "currency",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"ALL\" | \"AFN\" | \"ARS\" | \"AWG\" | \"AUD\" | \"AZN\" | \"BSD\" | \"BBD\" | \"BYN\" | \"BZD\" | \"BMD\" | \"BOB\" | \"BOV\" | \"BAM\" | \"BWP\" | \"BGN\" | \"BRL\" | \"BND\" | \"KHR\" | \"CAD\" | \"KYD\" | \"CLP\" | \"CNY\" | ... 157 more ... | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -63,16 +33,6 @@
       "defaultValue": null,
       "description": "Количество минорных единиц в валюте",
       "name": "minority",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -84,16 +44,6 @@
       },
       "description": "Формат отображения кода валюты",
       "name": "codeFormat",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"letter\" | \"symbolic\" | undefined"
@@ -105,16 +55,6 @@
       },
       "description": "default - не отображаем копейки, если их значение 0\nwithZeroMinorPart - отображаем копейки, даже если их значение равно 0",
       "name": "view",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"withZeroMinorPart\" | undefined"
@@ -124,16 +64,6 @@
       "defaultValue": null,
       "description": "Управление жирностью\n@deprecated Используйте проп {@link AmountProps.fontWeight }",
       "name": "bold",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"none\" | \"full\" | \"major\" | undefined"
@@ -145,16 +75,6 @@
       },
       "description": "Управление жирностью",
       "name": "fontWeight",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"bold\" | \"medium\" | { major: \"bold\" | \"medium\"; } | undefined"
@@ -164,16 +84,6 @@
       "defaultValue": null,
       "description": "Делает минорную часть полупрозрачной",
       "name": "transparentMinor",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -185,16 +95,6 @@
       },
       "description": "Показывать значок + для положительных значений",
       "name": "showPlus",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -204,16 +104,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -223,16 +113,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -244,16 +124,6 @@
       },
       "description": "Обрезать ноль в минорной части. Например: 1.70 -> 1.7",
       "name": "trimZero",
-      "parent": {
-        "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-        "name": "AmountProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/amount/src/types/amount-props.ts",
-          "name": "AmountProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"

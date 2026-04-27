@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, календаря -calendar, поповера -popover",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Атрибут type",
       "name": "type",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"number\" | \"text\" | \"tel\" | \"email\" | \"password\" | \"money\" | undefined"
@@ -63,16 +33,6 @@
       "defaultValue": null,
       "description": "Обработчик клика по полю",
       "name": "onClick",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
@@ -82,16 +42,6 @@
       "defaultValue": null,
       "description": "Обработчик MouseDown по полю",
       "name": "onMouseDown",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
@@ -101,16 +51,6 @@
       "defaultValue": null,
       "description": "Обработчик MouseUp по полю",
       "name": "onMouseUp",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
@@ -122,16 +62,6 @@
       },
       "description": "Размер компонента",
       "name": "size",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "48 | 40 | 56 | 64 | 72 | undefined"
@@ -141,68 +71,6 @@
       "defaultValue": null,
       "description": "Вид компонента",
       "name": "view",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "\"date\" | \"time\" | \"date-time\" | \"date-range\""
@@ -212,16 +80,6 @@
       "defaultValue": null,
       "description": "Набор цветов для компонента",
       "name": "colors",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
@@ -231,16 +89,6 @@
       "defaultValue": null,
       "description": "Слот справа",
       "name": "rightAddons",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -250,16 +98,6 @@
       "defaultValue": null,
       "description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
       "name": "bold",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -269,16 +107,6 @@
       "defaultValue": null,
       "description": "Вес шрифта инпута, в том числе плейсхолдера",
       "name": "fontWeight",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"bold\" | \"medium\" | \"regular\" | undefined"
@@ -288,16 +116,6 @@
       "defaultValue": null,
       "description": "Растягивает компонент на ширину контейнера",
       "name": "block",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -307,16 +125,6 @@
       "defaultValue": null,
       "description": "Крестик для очистки поля",
       "name": "clear",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -326,16 +134,6 @@
       "defaultValue": null,
       "description": "Отображение ошибки",
       "name": "error",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -345,16 +143,6 @@
       "defaultValue": null,
       "description": "Отображение иконки успеха",
       "name": "success",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -364,16 +152,6 @@
       "defaultValue": null,
       "description": "Текст подсказки",
       "name": "hint",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -383,16 +161,6 @@
       "defaultValue": null,
       "description": "Лейбл компонента",
       "name": "label",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -402,16 +170,6 @@
       "defaultValue": null,
       "description": "Вид лейбла внутри / снаружи",
       "name": "labelView",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"inner\" | \"outer\" | undefined"
@@ -421,16 +179,6 @@
       "defaultValue": null,
       "description": "Слот слева",
       "name": "leftAddons",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -440,16 +188,6 @@
       "defaultValue": null,
       "description": "Свойства для обертки левых аддонов",
       "name": "leftAddonsProps",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "HTMLAttributes<HTMLDivElement> | undefined"
@@ -459,16 +197,6 @@
       "defaultValue": null,
       "description": "Свойства для обертки правых аддонов",
       "name": "rightAddonsProps",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "HTMLAttributes<HTMLDivElement> | undefined"
@@ -478,16 +206,6 @@
       "defaultValue": null,
       "description": "Слот под инпутом",
       "name": "bottomAddons",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -497,16 +215,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для поля",
       "name": "fieldClassName",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -516,16 +224,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс инпута",
       "name": "inputClassName",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -535,16 +233,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для лейбла",
       "name": "labelClassName",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -554,16 +242,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для аддонов",
       "name": "addonsClassName",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -573,16 +251,6 @@
       "defaultValue": null,
       "description": "Класс, который будет установлен при фокусе",
       "name": "focusedClassName",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -592,16 +260,6 @@
       "defaultValue": null,
       "description": "Класс, который будет установлен, если в поле есть значение",
       "name": "filledClassName",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -611,16 +269,6 @@
       "defaultValue": null,
       "description": "Обработчик нажатия на кнопку очистки",
       "name": "onClear",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
@@ -630,16 +278,6 @@
       "defaultValue": null,
       "description": "Запрещает ввод с клавиатуры",
       "name": "disableUserInput",
-      "parent": {
-        "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-        "name": "BaseInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/components/base-input/types/base-input-props.ts",
-          "name": "BaseInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -651,12 +289,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -666,12 +298,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -683,12 +309,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/input/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"
@@ -698,24 +318,6 @@
       "defaultValue": null,
       "description": "Минимальная дата, доступная для выбора (timestamp)",
       "name": "minDate",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -725,24 +327,6 @@
       "defaultValue": null,
       "description": "Максимальная дата, доступная для выбора (timestamp)",
       "name": "maxDate",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -752,16 +336,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения значения в инпуте",
       "name": "onInputChange",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: ChangeEvent<HTMLInputElement> | null, payload: { value: string; }) => void) | undefined"
@@ -771,68 +345,6 @@
       "defaultValue": null,
       "description": "Открыть календарь при клике",
       "name": "picker",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -844,16 +356,6 @@
       },
       "description": "Автоматическое исправление ввода",
       "name": "autoCorrection",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -863,44 +365,6 @@
       "defaultValue": null,
       "description": "Компонент календаря",
       "name": "Calendar",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ForwardRefExoticComponent<CalendarDesktopProps & { title?: string | undefined; open: boolean; onClose?: (() => void) | undefined; allowSelectionFromEmptyRange?: boolean | undefined; ... 5 more ...; resetButtonContent?: string | undefined; } & ... 5 more ... & RefAttributes<...>> | undefined"
@@ -910,20 +374,6 @@
       "defaultValue": null,
       "description": "Пропсы календаря",
       "name": "calendarProps",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Omit<ResponsiveCalendarProps, \"open\" | \"onClose\" | \"minDate\" | \"maxDate\"> | undefined"
@@ -933,20 +383,6 @@
       "defaultValue": null,
       "description": "Обработчик открытия календаря\n@deprecated Используйте {@link BaseUniversalDateInputProps.onCalendarOpenChange }",
       "name": "onCalendarOpen",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -956,20 +392,6 @@
       "defaultValue": null,
       "description": "Обработчик закрытия календаря\n@deprecated Используйте {@link BaseUniversalDateInputProps.onCalendarOpenChange }",
       "name": "onCalendarClose",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -979,20 +401,6 @@
       "defaultValue": null,
       "description": "Пропсы поповера",
       "name": "popoverProps",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "PopoverProps | undefined"
@@ -1002,20 +410,6 @@
       "defaultValue": null,
       "description": "Флаг, открыт ли календарь",
       "name": "calendarOpen",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -1025,20 +419,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения открытия календаря",
       "name": "onCalendarOpenChange",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "BaseUniversalDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "BaseUniversalDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((open: boolean) => void) | undefined"
@@ -1048,28 +428,6 @@
       "defaultValue": null,
       "description": "Дата по умолчанию\nДиапазон дат по умолчанию\nВремя по умолчанию",
       "name": "defaultValue",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "InnerDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateRangeInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateRangeInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerTimeInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | number | Date | { dateFrom: number | Date; dateTo: number | Date; } | undefined"
@@ -1079,28 +437,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения значения",
       "name": "onChange",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "InnerDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateRangeInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateRangeInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerTimeInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((date: Date | null, value: string) => void) | ((range: { dateFrom: Date | null; dateTo: Date | null; }, value: string) => void) | ((value: string) => void) | undefined"
@@ -1110,28 +446,6 @@
       "defaultValue": null,
       "description": "Дата\nДиапазон дат\nВремя",
       "name": "value",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "InnerDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateRangeInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateRangeInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerTimeInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | number | Date | { dateFrom: number | Date | null; dateTo: number | Date | null; } | null | undefined"
@@ -1141,24 +455,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс обертки",
       "name": "wrapperClassName",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "InnerDateInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateInputProps"
-        },
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -1170,16 +466,6 @@
       },
       "description": "Тип выбора границ в календаре",
       "name": "rangeBehavior",
-      "parent": {
-        "fileName": "core-components/packages/universal-date-input/src/types.ts",
-        "name": "InnerDateRangeInputProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-date-input/src/types.ts",
-          "name": "InnerDateRangeInputProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"reset\" | \"clarification\" | undefined"

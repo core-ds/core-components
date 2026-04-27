@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы. Ожидаются компоненты `Radio` или `Tag`",
       "name": "children",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ReactNode"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -63,16 +33,6 @@
       "defaultValue": null,
       "description": "Тип компонента",
       "name": "type",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RadioGroupType | undefined"
@@ -82,16 +42,6 @@
       "defaultValue": null,
       "description": "Обработчик фокуса.",
       "name": "onFocus",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
@@ -101,16 +51,6 @@
       "defaultValue": null,
       "description": "Обработчик блюра.",
       "name": "onBlur",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
@@ -120,16 +60,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения значения 'checked' одного из дочерних компонентов",
       "name": "onChange",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<Element, MouseEvent> | ChangeEvent<Element>, payload: { value: string; name?: string | undefined; }) => void) | undefined"
@@ -139,16 +69,6 @@
       "defaultValue": null,
       "description": "Управление возможностью изменения состояния 'checked' дочерних компонентов Radio | Tag",
       "name": "disabled",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -158,16 +78,6 @@
       "defaultValue": null,
       "description": "Атрибут name для всех дочерних компонентов",
       "name": "name",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -177,16 +87,6 @@
       "defaultValue": null,
       "description": "Value выбранного дочернего элемента",
       "name": "value",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | null | undefined"
@@ -196,16 +96,6 @@
       "defaultValue": null,
       "description": "Отображение ошибки",
       "name": "error",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -215,16 +105,6 @@
       "defaultValue": null,
       "description": "Текст подсказки снизу",
       "name": "hint",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -234,16 +114,6 @@
       "defaultValue": null,
       "description": "Заголовок группы",
       "name": "label",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -253,16 +123,6 @@
       "defaultValue": null,
       "description": "Направление",
       "name": "direction",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Direction | undefined"
@@ -272,16 +132,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для списка радио элементов",
       "name": "radioListClassName",
-      "parent": {
-        "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-        "name": "BaseRadioGroupProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/radio-group/src/components/base-radio-group/Component.tsx",
-          "name": "BaseRadioGroupProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -293,12 +143,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "packages/radio-group/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -308,12 +152,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "packages/radio-group/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -325,12 +163,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "packages/radio-group/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

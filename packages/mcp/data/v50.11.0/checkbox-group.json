@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ReactNode"
@@ -21,12 +15,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -36,12 +24,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -51,12 +33,6 @@
       "defaultValue": null,
       "description": "Тип компонента",
       "name": "type",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "CheckboxGroupType | undefined"
@@ -66,12 +42,6 @@
       "defaultValue": null,
       "description": "Обработчик фокуса.",
       "name": "onFocus",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
@@ -81,12 +51,6 @@
       "defaultValue": null,
       "description": "Обработчик блюра.",
       "name": "onBlur",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
@@ -96,12 +60,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения значения 'checked' одного из дочерних компонентов",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<Element, MouseEvent> | ChangeEvent<Element>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
@@ -111,12 +69,6 @@
       "defaultValue": null,
       "description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox",
       "name": "disabled",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -126,12 +78,6 @@
       "defaultValue": null,
       "description": "Отображение ошибки",
       "name": "error",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -141,12 +87,6 @@
       "defaultValue": null,
       "description": "Текст подсказки снизу",
       "name": "hint",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -156,12 +96,6 @@
       "defaultValue": null,
       "description": "Заголовок группы",
       "name": "label",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -171,12 +105,6 @@
       "defaultValue": null,
       "description": "Направление",
       "name": "direction",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/checkbox-group/src/components/base-checkbox-group/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Direction | undefined"
@@ -188,12 +116,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox-group/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -203,12 +125,6 @@
       "defaultValue": null,
       "description": "Версия, которая будет использоваться при серверном рендеринге",
       "name": "client",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox-group/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"desktop\" | \"mobile\" | undefined"
@@ -220,12 +136,6 @@
       },
       "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
       "name": "defaultMatchMediaValue",
-      "declarations": [
-        {
-          "fileName": "packages/checkbox-group/src/Component.responsive.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"

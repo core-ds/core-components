@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования.\nДля таба используется модификатор -tab",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Дополнительные классы для таба.",
       "name": "tabClassNames",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "{ className?: string | undefined; selectedClassName?: string | undefined; labelClassName?: string | undefined; iconClassName?: string | undefined; } | undefined"
@@ -63,16 +33,6 @@
       "defaultValue": null,
       "description": "Список табов",
       "name": "children",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "TabElementType[]"
@@ -82,16 +42,6 @@
       "defaultValue": null,
       "description": "Идентификатор выбранного таба",
       "name": "selectedId",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -101,16 +51,6 @@
       "defaultValue": null,
       "description": "Включает верхний бордер",
       "name": "border",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -120,16 +60,6 @@
       "defaultValue": null,
       "description": "Обработчик изменения выбранного таба",
       "name": "onChange",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((id: string) => void) | undefined"
@@ -141,16 +71,6 @@
       },
       "description": "Цвет активного таба",
       "name": "accentColor",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"primary\" | \"secondary\" | undefined"
@@ -162,16 +82,6 @@
       },
       "description": "Цвет фона",
       "name": "bgColor",
-      "parent": {
-        "fileName": "core-components/packages/tab-bar/src/types.ts",
-        "name": "TabBarProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/tab-bar/src/types.ts",
-          "name": "TabBarProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"modal-bg-primary\" | \"modal-bg-alt-primary\" | undefined"

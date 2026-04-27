@@ -6,16 +6,6 @@
       "defaultValue": null,
       "description": "Массив нотификаций.\nВ нотификации обязательно передавайте id.",
       "name": "notifications",
-      "parent": {
-        "fileName": "packages/notification-manager/src/component.tsx",
-        "name": "NotificationManagerProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/notification-manager/src/component.tsx",
-          "name": "NotificationManagerProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "NotificationElement[]"
@@ -25,16 +15,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс (native prop)",
       "name": "className",
-      "parent": {
-        "fileName": "packages/notification-manager/src/component.tsx",
-        "name": "NotificationManagerProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/notification-manager/src/component.tsx",
-          "name": "NotificationManagerProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -44,16 +24,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "parent": {
-        "fileName": "packages/notification-manager/src/component.tsx",
-        "name": "NotificationManagerProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/notification-manager/src/component.tsx",
-          "name": "NotificationManagerProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -65,16 +35,6 @@
       },
       "description": "z-index компонента",
       "name": "zIndex",
-      "parent": {
-        "fileName": "packages/notification-manager/src/component.tsx",
-        "name": "NotificationManagerProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/notification-manager/src/component.tsx",
-          "name": "NotificationManagerProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -84,16 +44,6 @@
       "defaultValue": null,
       "description": "Отступ от верхнего края",
       "name": "offset",
-      "parent": {
-        "fileName": "packages/notification-manager/src/component.tsx",
-        "name": "NotificationManagerProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/notification-manager/src/component.tsx",
-          "name": "NotificationManagerProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -103,16 +53,6 @@
       "defaultValue": null,
       "description": "Удаление нотификации",
       "name": "onRemoveNotification",
-      "parent": {
-        "fileName": "packages/notification-manager/src/component.tsx",
-        "name": "NotificationManagerProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/notification-manager/src/component.tsx",
-          "name": "NotificationManagerProps"
-        }
-      ],
       "required": true,
       "type": {
         "name": "(id: string) => void"
@@ -122,16 +62,6 @@
       "defaultValue": null,
       "description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы",
       "name": "container",
-      "parent": {
-        "fileName": "packages/notification-manager/src/component.tsx",
-        "name": "NotificationManagerProps"
-      },
-      "declarations": [
-        {
-          "fileName": "packages/notification-manager/src/component.tsx",
-          "name": "NotificationManagerProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => Element | null | undefined) | undefined"

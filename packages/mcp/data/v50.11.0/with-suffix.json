@@ -6,20 +6,6 @@
       "defaultValue": null,
       "description": "Calls the function with the specified object as the this value and the elements of specified array as the arguments.\n@param thisArg The object to be used as the this object.\n@param thisArg The object to be used as the this object.\n@param args An array of argument values to be passed to the function.",
       "name": "apply",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-        "name": "CallableFunction"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "CallableFunction"
-        },
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "CallableFunction"
-        }
-      ],
       "required": true,
       "type": {
         "name": "{ <T, R>(this: (this: T) => R, thisArg: T): R; <T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, args: A): R; }"
@@ -29,16 +15,6 @@
       "defaultValue": null,
       "description": "Calls the function with the specified object as the this value and the specified rest arguments as the arguments.\n@param thisArg The object to be used as the this object.\n@param args Argument values to be passed to the function.",
       "name": "call",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-        "name": "CallableFunction"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "CallableFunction"
-        }
-      ],
       "required": true,
       "type": {
         "name": "<T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, ...args: A) => R"
@@ -48,20 +24,6 @@
       "defaultValue": null,
       "description": "For a given function, creates a bound function that has the same body as the original function.\nThe this object of the bound function is associated with the specified object, and has the specified initial parameters.\n@param thisArg The object to be used as the this object.\n@param thisArg The object to be used as the this object.\n@param args Arguments to bind to the parameters of the function.",
       "name": "bind",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-        "name": "CallableFunction"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "CallableFunction"
-        },
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "CallableFunction"
-        }
-      ],
       "required": true,
       "type": {
         "name": "{ <T>(this: T, thisArg: ThisParameterType<T>): OmitThisParameter<T>; <T, A extends any[], B extends any[], R>(this: (this: T, ...args: [...A, ...B]) => R, thisArg: T, ...args: A): (...args: B) => R; }"
@@ -71,16 +33,6 @@
       "defaultValue": {},
       "description": "Returns a string representation of a function.",
       "name": "toString",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-        "name": "Function"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "Function"
-        }
-      ],
       "required": false,
       "type": {
         "name": "() => string"
@@ -90,16 +42,6 @@
       "defaultValue": null,
       "description": "",
       "name": "prototype",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-        "name": "Function"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "Function"
-        }
-      ],
       "required": true,
       "type": {
         "name": "any"
@@ -109,16 +51,6 @@
       "defaultValue": null,
       "description": "",
       "name": "length",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-        "name": "Function"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "Function"
-        }
-      ],
       "required": true,
       "type": {
         "name": "number"
@@ -128,16 +60,6 @@
       "defaultValue": null,
       "description": "",
       "name": "arguments",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-        "name": "Function"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "Function"
-        }
-      ],
       "required": true,
       "type": {
         "name": "any"
@@ -147,16 +69,6 @@
       "defaultValue": null,
       "description": "",
       "name": "caller",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-        "name": "Function"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es5.d.ts",
-          "name": "Function"
-        }
-      ],
       "required": true,
       "type": {
         "name": "Function"
@@ -166,16 +78,6 @@
       "defaultValue": null,
       "description": "Returns the name of the function. Function names are read-only and can not be changed.",
       "name": "name",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es2015.core.d.ts",
-        "name": "Function"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es2015.core.d.ts",
-          "name": "Function"
-        }
-      ],
       "required": true,
       "type": {
         "name": "string"
@@ -185,16 +87,6 @@
       "defaultValue": null,
       "description": "Determines whether the given value inherits from this function if this function was used\nas a constructor function.\n\nA constructor function can control which objects are recognized as its instances by\n'instanceof' by overriding this method.",
       "name": "__@hasInstance@487",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
-        "name": "Function"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
-          "name": "Function"
-        }
-      ],
       "required": true,
       "type": {
         "name": "(value: any) => boolean"
@@ -204,16 +96,6 @@
       "defaultValue": null,
       "description": "",
       "name": "__@metadata@489",
-      "parent": {
-        "fileName": "core-components/node_modules/typescript/lib/lib.esnext.decorators.d.ts",
-        "name": "Function"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/typescript/lib/lib.esnext.decorators.d.ts",
-          "name": "Function"
-        }
-      ],
       "required": true,
       "type": {
         "name": "DecoratorMetadataObject | null"

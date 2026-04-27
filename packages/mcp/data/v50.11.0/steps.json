@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -23,12 +17,6 @@
       },
       "description": "Активный шаг, указанный по умолчанию",
       "name": "defaultActiveStep",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -38,12 +26,6 @@
       "defaultValue": null,
       "description": "Активный шаг",
       "name": "activeStep",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -55,12 +37,6 @@
       },
       "description": "Управление возможностью отключения пометки пройденного шага",
       "name": "isMarkCompletedSteps",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -70,12 +46,6 @@
       "defaultValue": null,
       "description": "Кастомный метод для управления состоянием disabled шага и\nвозможностью перехода на этот шаг\n@param stepNumber - номер шага\n@return Флаг состояния disabled",
       "name": "checkIsStepDisabled",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((stepNumber: number) => boolean) | undefined"
@@ -85,12 +55,6 @@
       "defaultValue": null,
       "description": "Кастомный метод для управления состоянием шага error\n@param stepNumber - номер шага\n@return Флаг состояния error",
       "name": "checkIsStepError",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((stepNumber: number) => boolean) | undefined"
@@ -100,12 +64,6 @@
       "defaultValue": null,
       "description": "Кастомный метод для управления состоянием шага criticalError\n@param stepNumber - номер шага\n@return Флаг состояния error",
       "name": "checkIsStepCriticalError",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((stepNumber: number) => boolean) | undefined"
@@ -115,12 +73,6 @@
       "defaultValue": null,
       "description": "Кастомный метод для управления состоянием шага warning\n@param stepNumber - номер шага\n@return Флаг состояния warning",
       "name": "checkIsStepWarning",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((stepNumber: number) => boolean) | undefined"
@@ -130,12 +82,6 @@
       "defaultValue": null,
       "description": "Кастомный метод для управления состоянием шага waiting\n@param stepNumber - номер шага\n@return Флаг состояния waiting",
       "name": "checkIsStepWaiting",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((stepNumber: number) => boolean) | undefined"
@@ -145,12 +91,6 @@
       "defaultValue": null,
       "description": "Кастомный метод для управления состоянием шага positive\n@param stepNumber - номер шага\n@return Флаг состояния positive",
       "name": "checkIsStepPositive",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((stepNumber: number) => boolean) | undefined"
@@ -160,12 +100,6 @@
       "defaultValue": null,
       "description": "Кастомный метод для установки кастомного индикатора шага\n@param stepNumber - номер шага\n@return Объект StepIndicatorProps { className, content, iconColor } или null",
       "name": "checkIsStepCustom",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((stepNumber: number) => StepIndicatorProps | null) | undefined"
@@ -175,12 +109,6 @@
       "defaultValue": null,
       "description": "Обработчик клика на шаг\n@param stepNumber - номер активного шага",
       "name": "onChange",
-      "declarations": [
-        {
-          "fileName": "packages/steps/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((stepNumber: number) => void) | undefined"
@@ -190,12 +118,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/steps/src/types/common-props.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -205,12 +127,6 @@
       "defaultValue": null,
       "description": "Дочерние элементы",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/steps/src/types/common-props.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "ReactNode"
@@ -222,12 +138,6 @@
       },
       "description": "Управление ориентацией компонента",
       "name": "isVerticalAlign",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/steps/src/types/common-props.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -239,12 +149,6 @@
       },
       "description": "Управление отображением номера шага",
       "name": "ordered",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/steps/src/types/common-props.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -256,12 +160,6 @@
       },
       "description": "Включение / отключение интерактивности шагов",
       "name": "interactive",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/steps/src/types/common-props.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -273,12 +171,6 @@
       },
       "description": "Растягивание шагов на всю ширину блока для вертикальной ориентации",
       "name": "fullWidth",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/steps/src/types/common-props.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -290,12 +182,6 @@
       },
       "description": "Минимальное расстояние между шагами для горизонтального расположения компонента\n@description Значение 8 устарело и будет удалено в будущих версиях. Используйте 16, 24 или 32.",
       "name": "minSpaceBetweenSteps",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/steps/src/types/common-props.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "32 | 24 | 8 | 16 | undefined"
@@ -305,12 +191,6 @@
       "defaultValue": null,
       "description": "Цвет тире выполненного шага",
       "name": "completedDashColor",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/steps/src/types/common-props.ts",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"

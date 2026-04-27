@@ -6,12 +6,6 @@
       "defaultValue": null,
       "description": "Render prop, в который передается функция.\nФункция принимает аргумент со значением z-index из текущего контекста.",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/stack/src/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "(value: number) => ReactNode"
@@ -23,12 +17,6 @@
       },
       "description": "Исходное значение для z-index.",
       "name": "value",
-      "declarations": [
-        {
-          "fileName": "core-components/packages/stack/src/component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"

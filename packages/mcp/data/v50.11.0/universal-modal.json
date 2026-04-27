@@ -8,16 +8,6 @@
       },
       "description": "Контрольная точка, с нее начинается desktop версия",
       "name": "breakpoint",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/typings/index.ts",
-        "name": "UniversalModalResponsiveProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/typings/index.ts",
-          "name": "UniversalModalResponsiveProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | undefined"
@@ -27,16 +17,6 @@
       "defaultValue": null,
       "description": "Значение по-умолчанию для хука useMatchMedia",
       "name": "defaultMatchMediaValue",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/typings/index.ts",
-        "name": "UniversalModalResponsiveProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/typings/index.ts",
-          "name": "UniversalModalResponsiveProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | (() => boolean) | undefined"
@@ -46,16 +26,6 @@
       "defaultValue": null,
       "description": "Реф контейнера на котором происходит scroll",
       "name": "scrollableContainerRef",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-        "name": "UniversalModalDesktopProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-          "name": "UniversalModalDesktopProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "RefObject<HTMLDivElement> | undefined"
@@ -67,16 +37,6 @@
       },
       "description": "Расположение по горизонтали и сторона с которой модал “выезжает” при открытии",
       "name": "horizontalAlign",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-        "name": "BaseUniversalModalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-          "name": "BaseUniversalModalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"start\" | \"end\" | \"center\" | undefined"
@@ -88,16 +48,6 @@
       },
       "description": "Расположение модального окна по вертикали",
       "name": "verticalAlign",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-        "name": "BaseUniversalModalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-          "name": "BaseUniversalModalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"center\" | \"top\" | \"bottom\" | undefined"
@@ -109,16 +59,6 @@
       },
       "description": "Ширина модального окна\nfullWidth - ширина модального окна подстроится под viewport\nminWidth - 500",
       "name": "width",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-        "name": "BaseUniversalModalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-          "name": "BaseUniversalModalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | \"fullWidth\" | undefined"
@@ -128,16 +68,6 @@
       "defaultValue": null,
       "description": "Высота модального окна\nfullHeight - высота модального окна подстроится под viewport (по умолчанию для боковой модалки)\nhugContent - высота модального окна зафиксируется под размер содержимого (по умолчания для центральной модалки)\nminHeight - 264",
       "name": "height",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-        "name": "BaseUniversalModalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-          "name": "BaseUniversalModalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "number | \"fullHeight\" | \"hugContent\" | undefined"
@@ -149,16 +79,6 @@
       },
       "description": "Наличие оверлея",
       "name": "overlay",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-        "name": "BaseUniversalModalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-          "name": "BaseUniversalModalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -168,16 +88,6 @@
       "defaultValue": null,
       "description": "Устанавливает отступы модального окна",
       "name": "margin",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-        "name": "BaseUniversalModalProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/desktop/types/props.ts",
-          "name": "BaseUniversalModalProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Margin | undefined"
@@ -187,12 +97,6 @@
       "defaultValue": null,
       "description": "Управление видимостью модалки",
       "name": "open",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": true,
       "type": {
         "name": "boolean"
@@ -202,12 +106,6 @@
       "defaultValue": null,
       "description": "Контент",
       "name": "children",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "ReactNode"
@@ -217,12 +115,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс",
       "name": "className",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -232,12 +124,6 @@
       "defaultValue": null,
       "description": "Идентификатор для систем автоматизированного тестирования",
       "name": "dataTestId",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -247,12 +133,6 @@
       "defaultValue": null,
       "description": "Обработчик закрытия",
       "name": "onClose",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\" | undefined) => void) | undefined"
@@ -262,12 +142,6 @@
       "defaultValue": null,
       "description": "Свойства для Бэкдропа",
       "name": "backdropProps",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(Partial<BackdropProps> & Record<string, unknown>) | undefined"
@@ -279,12 +153,6 @@
       },
       "description": "Отключает ловушку фокуса",
       "name": "disableFocusLock",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -296,12 +164,6 @@
       },
       "description": "Отключает вызов `callback` при клике на бэкдроп",
       "name": "disableBackdropClick",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "boolean | undefined"
@@ -311,12 +173,6 @@
       "defaultValue": null,
       "description": "Дополнительный класс для обертки (Modal)",
       "name": "wrapperClassName",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "string | undefined"
@@ -326,12 +182,6 @@
       "defaultValue": null,
       "description": "Пропсы для анимации (CSSTransition)",
       "name": "transitionProps",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "Partial<CSSTransitionProps> | undefined"
@@ -341,12 +191,6 @@
       "defaultValue": null,
       "description": "Обработчик события onExited компонента Transition",
       "name": "onUnmount",
-      "declarations": [
-        {
-          "fileName": "packages/base-modal/src/Component.tsx",
-          "name": "TypeLiteral"
-        }
-      ],
       "required": false,
       "type": {
         "name": "(() => void) | undefined"
@@ -356,16 +200,6 @@
       "defaultValue": null,
       "description": "Сторона с которой будет появляться модальное окно",
       "name": "appearance",
-      "parent": {
-        "fileName": "core-components/packages/universal-modal/src/mobile/types/props.ts",
-        "name": "BaseUniversalModalMobileProps"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/packages/universal-modal/src/mobile/types/props.ts",
-          "name": "BaseUniversalModalMobileProps"
-        }
-      ],
       "required": false,
       "type": {
         "name": "\"right\" | \"bottom\" | undefined"
