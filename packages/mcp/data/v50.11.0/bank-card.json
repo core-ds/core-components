@@ -97,7 +97,7 @@
     {
       "title": "Примеры",
       "description": "При необходимости можно изменить логотип и цвет карты.",
-      "desktop": "render(() => {\n    const [value, setValue] = React.useState('2201382000000013');\n\n    const handleChange = (event, payload) => setValue(payload.value);\n\n    return (\n        <>\n            <BankCard value={value} onChange={handleChange} />\n            <Gap size={24} />\n            <Button size={32} onClick={() => setValue('2201382000000013')}>\n                Вставить номер карты\n            </Button>\n            <Gap size={12} direction='horizontal' />\n            <Button size={32} onClick={() => setValue('')}>\n                Очистить\n            </Button>\n        </>\n    );\n});"
+      "desktop": "render(() => {\nconst [value, setValue] = React.useState('2201382000000013');\n\nconst handleChange = (event, payload) => setValue(payload.value);\n\nreturn (\n<>\n<BankCard value={value} onChange={handleChange} />\n<Gap size={24} />\n<Button size={32} onClick={() => setValue('2201382000000013')}>\nВставить номер карты\n</Button>\n<Gap size={12} direction='horizontal' />\n<Button size={32} onClick={() => setValue('')}>\nОчистить\n</Button>\n</>\n);\n});"
     }
   ]
 }

@@ -90,27 +90,27 @@
     {
       "title": "Обычная ссылка",
       "description": "Нестареющая классика. Ссылка может вести как на страницу внутри системы, так и на внешний ресурс.",
-      "desktop": "<Space>\n    <Typography.Text view='primary-medium'>\n        <Link\n            view='default'\n            rel='noopener'\n            target='_blank'\n            href='https://alfabank.ru/get-money/credit-cards/100-days/'\n        >\n            Default\n        </Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link\n            view='primary'\n            rel='noopener'\n            target='_blank'\n            href='https://alfabank.ru/get-money/credit-cards/100-days/'\n        >\n            Primary\n        </Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link\n            view='secondary'\n            rel='noopener'\n            target='_blank'\n            href='https://alfabank.ru/get-money/credit-cards/100-days/'\n        >\n            Secondary\n        </Link>\n    </Typography.Text>\n</Space>"
+      "desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link\nview='default'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nDefault\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link\nview='primary'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nPrimary\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link\nview='secondary'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nSecondary\n</Link>\n</Typography.Text>\n</Space>"
     },
     {
       "title": "Псевдоссылка",
       "description": "Вызывает информационный слой (collapse, dropdown, popup) без перехода на другую страницу.",
-      "desktop": "<Space>\n    <Typography.Text view='primary-medium'>\n        <Link pseudo={true} view='default'>\n            Default\n        </Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link pseudo={true} view='primary'>\n            Primary\n        </Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link pseudo={true} view='secondary'>\n            Secondary\n        </Link>\n    </Typography.Text>\n</Space>"
+      "desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link pseudo={true} view='default'>\nDefault\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link pseudo={true} view='primary'>\nPrimary\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link pseudo={true} view='secondary'>\nSecondary\n</Link>\n</Typography.Text>\n</Space>"
     },
     {
       "title": "Подчёркивание ссылок",
       "description": "Подчёркивание ссылок не является обязательным, но помогает пользователю определить их тип.",
-      "desktop": "<Space>\n    <Typography.Text view='primary-medium'>\n        <Link view='default'>Default link</Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link pseudo={true} view='default'>\n            Pseudo link\n        </Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link underline={false} view='default'>\n            Link without underline\n        </Link>\n    </Typography.Text>\n</Space>"
+      "desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link view='default'>Default link</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link pseudo={true} view='default'>\nPseudo link\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link underline={false} view='default'>\nLink without underline\n</Link>\n</Typography.Text>\n</Space>"
     },
     {
       "title": "Анатомия",
       "description": "С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать ссылку. Например, добавить иконку.\nПереданный контент будет отрисован слева или справа от текста ссылки.",
-      "desktop": "<Space>\n    <Typography.Text view='primary-medium'>\n        <Link view='default' leftAddons={<StarMIcon />}>\n            Default link\n        </Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link view='default' rightAddons={<StarMIcon />}>\n            Default link\n        </Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link view='default' leftAddons={<StarMIcon />} rightAddons={<StarMIcon />}>\n            Default link\n        </Link>\n    </Typography.Text>\n</Space>"
+      "desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link view='default' leftAddons={<StarMIcon />}>\nDefault link\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link view='default' rightAddons={<StarMIcon />}>\nDefault link\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link view='default' leftAddons={<StarMIcon />} rightAddons={<StarMIcon />}>\nDefault link\n</Link>\n</Typography.Text>\n</Space>"
     },
     {
       "title": "Размеры",
       "description": "Cсылка наследует текстовый стиль от родителя.",
-      "desktop": "<Space>\n    <Typography.Text view='primary-large'>\n        <Link view='default'>Paragraph primary large</Link>\n    </Typography.Text>\n    <Typography.Text view='primary-medium'>\n        <Link view='default'>Paragraph primary medium</Link>\n    </Typography.Text>\n    <Typography.Text view='primary-small'>\n        <Link view='default'>Paragraph primary small</Link>\n    </Typography.Text>\n</Space>"
+      "desktop": "<Space>\n<Typography.Text view='primary-large'>\n<Link view='default'>Paragraph primary large</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link view='default'>Paragraph primary medium</Link>\n</Typography.Text>\n<Typography.Text view='primary-small'>\n<Link view='default'>Paragraph primary small</Link>\n</Typography.Text>\n</Space>"
     }
   ]
 }

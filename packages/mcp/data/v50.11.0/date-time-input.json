@@ -480,12 +480,12 @@
     {
       "title": "Стандартный вид компонента",
       "description": "Стандартный вид компонента — поле ввода с маской ДД.ММ.ГГГГ, ЧЧ:ММ",
-      "desktop": "render(\n    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n        <DateTimeInput label='Дата и время' placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ' block size={56} />\n    </div>,\n);"
+      "desktop": "render(\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<DateTimeInput label='Дата и время' placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ' block size={56} />\n</div>,\n);"
     },
     {
       "title": "Пикер",
       "description": "Пикер используется, когда выбор дат ограничен. Например, если нельзя указывать выходные дни.\nПри наличии пикера допустимо блокировать ввод с клавиатуры.\nЕсли дата указывается с пикера, или пользователь покинул поле после ввода даты и не заполнил время, считаем время равным 00:00",
-      "desktop": "render(\n    <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n        <DateTimeInput\n            label='Дата и время'\n            placeholder='ДД.ММ.ГГГГ, ЧЧ:ММ'\n            picker\n            block\n            size={56}\n        />\n    </div>,\n);"
+      "desktop": "render(\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<DateTimeInput\nlabel='Дата и время'\nplaceholder='ДД.ММ.ГГГГ, ЧЧ:ММ'\npicker\nblock\nsize={56}\n/>\n</div>,\n);"
     }
   ]
 }

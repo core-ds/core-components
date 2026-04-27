@@ -106,22 +106,22 @@
     {
       "title": "Стили текста",
       "description": "Компоненту можно задать необходимый стиль текста.",
-      "desktop": "<div>\n    <TextComponent view='headline-system-small'>Headline-system-small</TextComponent>\n    <Gap size={16} />\n    <TextComponent view='paragraph-primary-medium'>Paragraph-primary-medium</TextComponent>\n</div>"
+      "desktop": "<div>\n<TextComponent view='headline-system-small'>Headline-system-small</TextComponent>\n<Gap size={16} />\n<TextComponent view='paragraph-primary-medium'>Paragraph-primary-medium</TextComponent>\n</div>"
     },
     {
       "title": "Цвет текста и фона",
       "description": "Тексту и фону под ним можно здать необходимый цвет.",
-      "desktop": "<TextComponent\n    color='var(--color-light-text-positive)'\n    textBackgroundColor='var(--color-light-status-muted-attention)'\n>\n    Пример с покраской фона\n</TextComponent>"
+      "desktop": "<TextComponent\ncolor='var(--color-light-text-positive)'\ntextBackgroundColor='var(--color-light-status-muted-attention)'\n>\nПример с покраской фона\n</TextComponent>"
     },
     {
       "title": "Отсечение текста",
       "description": "Можно настроить отсечение текста при переполнении одной, двух или трёх строк.",
-      "desktop": "<div style={{ width: isMobile() ? 320 : 430 }}>\n    <TextComponent rowLimit={1}>\n        Я взял со стола, как теперь помню, червонного туза и бросил кверху: дыхание у всех\n        остановилось;\n    </TextComponent>\n</div>"
+      "desktop": "<div style={{ width: isMobile() ? 320 : 430 }}>\n<TextComponent rowLimit={1}>\nЯ взял со стола, как теперь помню, червонного туза и бросил кверху: дыхание у всех\nостановилось;\n</TextComponent>\n</div>"
     },
     {
       "title": "Выравнивание",
       "description": "",
-      "desktop": "<div style={{ width: isMobile() ? 320 : 200 }}>\n    <TextComponent tag='div' align='center'>\n        По центру\n    </TextComponent>\n    <Gap size={12} />\n    <TextComponent tag='div' align='left'>\n        По левому краю\n    </TextComponent>\n    <Gap size={12} />\n    <TextComponent tag='div' align='right'>\n        По правому краю\n    </TextComponent>\n</div>"
+      "desktop": "<div style={{ width: isMobile() ? 320 : 200 }}>\n<TextComponent tag='div' align='center'>\nПо центру\n</TextComponent>\n<Gap size={12} />\n<TextComponent tag='div' align='left'>\nПо левому краю\n</TextComponent>\n<Gap size={12} />\n<TextComponent tag='div' align='right'>\nПо правому краю\n</TextComponent>\n</div>"
     }
   ]
 }

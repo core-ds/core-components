@@ -73,7 +73,7 @@
     {
       "title": "Примеры",
       "description": "",
-      "desktop": "<Space direction='horizontal' align='center' size={24}>\n    <CDNIcon \n        color='var(--color-light-neutral-translucent-1300)' \n        name='glyph_diamonds_xxl' \n    />\n    <CDNIcon \n        color='var(--color-light-neutral-700)' \n        name='glyph_diamonds_m' \n    />\n    <CDNIcon \n        color='var(--color-light-neutral-500)' \n        name='glyph_diamonds_s' \n    />\n</Space>"
+      "desktop": "<Space direction='horizontal' align='center' size={24}>\n<CDNIcon \ncolor='var(--color-light-neutral-translucent-1300)' \nname='glyph_diamonds_xxl' \n/>\n<CDNIcon \ncolor='var(--color-light-neutral-700)' \nname='glyph_diamonds_m' \n/>\n<CDNIcon \ncolor='var(--color-light-neutral-500)' \nname='glyph_diamonds_s' \n/>\n</Space>"
     }
   ]
 }

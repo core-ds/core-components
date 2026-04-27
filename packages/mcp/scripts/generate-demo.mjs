@@ -1,5 +1,14 @@
 import { readFileSync } from 'node:fs';
 
+function compactCode(code) {
+    return code
+        .split('\n')
+        .map((line) => line.trimStart())
+        .filter((line, i, arr) => !(line === '' && arr[i - 1] === ''))
+        .join('\n')
+        .trim();
+}
+
 export function generateDemo(docPath) {
     const content = readFileSync(docPath, 'utf-8');
 
@@ -28,14 +37,16 @@ export function generateDemo(docPath) {
 
         // код до //MOBILE — desktop, если //MOBILE нет — весь код
         const mobileSplit = codeContent.search(/^\/\/MOBILE$/m);
-        const desktop = mobileSplit === -1
-            ? codeContent.trim()
-            : codeContent.slice(0, mobileSplit).trim();
+        const desktop =
+            mobileSplit === -1
+                ? compactCode(codeContent)
+                : compactCode(codeContent.slice(0, mobileSplit));
 
         // код после //MOBILE — mobile, если //MOBILE нет — undefined
-        const mobile = mobileSplit === -1
-            ? undefined
-            : codeContent.slice(mobileSplit + '//MOBILE'.length).trim();
+        const mobile =
+            mobileSplit === -1
+                ? undefined
+                : compactCode(codeContent.slice(mobileSplit + '//MOBILE'.length));
 
         demos.push({ title, description, desktop, ...(mobile !== undefined && { mobile }) });
     }

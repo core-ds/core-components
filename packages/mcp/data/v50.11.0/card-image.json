@@ -115,7 +115,7 @@
     {
       "title": "Примеры",
       "description": "",
-      "desktop": "<CardImage\n    cardId='EG'\n    width={isMobile() ? 320 : 380}\n    baseUrl='https://online.alfabank.ru/cards-images/cards/'\n    className='some name'\n    id='some id'\n    dataTestId='test id'\n/>"
+      "desktop": "<CardImage\ncardId='EG'\nwidth={isMobile() ? 320 : 380}\nbaseUrl='https://online.alfabank.ru/cards-images/cards/'\nclassName='some name'\nid='some id'\ndataTestId='test id'\n/>"
     }
   ]
 }

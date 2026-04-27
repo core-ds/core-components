@@ -75,12 +75,12 @@
     {
       "title": "Пошаговый прогрессбар с описанием под шкалой",
       "description": "",
-      "desktop": "<SteppedProgressBar\n    step={5}\n    maxStep={10}\n    description={\"Название шага\"}\n/>"
+      "desktop": "<SteppedProgressBar\nstep={5}\nmaxStep={10}\ndescription={\"Название шага\"}\n/>"
     },
     {
       "title": "Пошаговый прогрессбар с выбором цветов отдельных сегментов",
       "description": "",
-      "desktop": "<SteppedProgressBar\n    step={8}\n    maxStep={10}\n    view={['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent']}\n/>"
+      "desktop": "<SteppedProgressBar\nstep={8}\nmaxStep={10}\nview={['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent']}\n/>"
     }
   ]
 }

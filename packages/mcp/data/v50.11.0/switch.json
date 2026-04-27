@@ -124,12 +124,12 @@
     {
       "title": "Как использовать",
       "description": "Свитч это аналог [Checkbox](?path=/docs/checkbox--docs). Для применения выбранного состояния не нужно совершать дополнительных действий,\nтаких как отправка формы или нажатие кнопки «применить». Свитч может располагаться слева или справа от контента.\n\nЕсли свитч нельзя использовать, его следует заблокировать. Валидация для свитчей не требуется.",
-      "desktop": "render(() => {\n    const [checked1, setChecked1] = React.useState(false);\n    const [checked2, setChecked2] = React.useState(false);\n\n    return (\n        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n            <Switch\n                block={true}\n                checked={checked1}\n                label='Сделать всё хорошо'\n                hint='Бесплатно без СМС'\n                onChange={() => setChecked1((prevState) => !prevState)}\n            />\n            <Gap size={24} />\n            <Switch\n                block={true}\n                reversed={true}\n                checked={checked2}\n                label='Сделать всё хорошо'\n                hint='Бесплатно без СМС'\n                onChange={() => setChecked2((prevState) => !prevState)}\n            />\n        </div>\n    );\n});"
+      "desktop": "render(() => {\nconst [checked1, setChecked1] = React.useState(false);\nconst [checked2, setChecked2] = React.useState(false);\n\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<Switch\nblock={true}\nchecked={checked1}\nlabel='Сделать всё хорошо'\nhint='Бесплатно без СМС'\nonChange={() => setChecked1((prevState) => !prevState)}\n/>\n<Gap size={24} />\n<Switch\nblock={true}\nreversed={true}\nchecked={checked2}\nlabel='Сделать всё хорошо'\nhint='Бесплатно без СМС'\nonChange={() => setChecked2((prevState) => !prevState)}\n/>\n</div>\n);\n});"
     },
     {
       "title": "Состояния",
       "description": "Свитч может находиться в выбранном и невыбранном состоянии. В редких кейсах его значение может быть недоступным для редактирования.",
-      "desktop": "render(() => {\n    return (\n        <>\n            <Switch checked={true} label='Выбран' />\n            <Gap size={16} />\n            <Switch checked={true} label='Выбран и недоступен' disabled={true} />\n            <Gap size={24} />\n            <Switch checked={false} label='По умолчанию' />\n            <Gap size={16} />\n            <Switch checked={false} label='По умолчанию и недоступен' disabled={true} />\n        </>\n    );\n});"
+      "desktop": "render(() => {\nreturn (\n<>\n<Switch checked={true} label='Выбран' />\n<Gap size={16} />\n<Switch checked={true} label='Выбран и недоступен' disabled={true} />\n<Gap size={24} />\n<Switch checked={false} label='По умолчанию' />\n<Gap size={16} />\n<Switch checked={false} label='По умолчанию и недоступен' disabled={true} />\n</>\n);\n});"
     }
   ]
 }

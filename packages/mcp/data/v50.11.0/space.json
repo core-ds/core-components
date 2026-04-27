@@ -98,7 +98,7 @@
     {
       "title": "Примеры",
       "description": "Фиксированное расстояние между блоками.",
-      "desktop": "render(() => {\n    const styleBlock = {\n        width: '64px',\n        height: '64px',\n        borderRadius: '8px',\n        backgroundColor: 'var(--color-light-neutral-translucent-200)',\n    };\n    return (\n        <Space useCssGaps={true} direction='horizontal' align={isMobile() ? 'center' : 'start'}>\n            {new Array(3).fill(null).map((_, idx) => (\n                <div key={idx} style={styleBlock} />\n            ))}\n        </Space>\n    );\n});"
+      "desktop": "render(() => {\nconst styleBlock = {\nwidth: '64px',\nheight: '64px',\nborderRadius: '8px',\nbackgroundColor: 'var(--color-light-neutral-translucent-200)',\n};\nreturn (\n<Space useCssGaps={true} direction='horizontal' align={isMobile() ? 'center' : 'start'}>\n{new Array(3).fill(null).map((_, idx) => (\n<div key={idx} style={styleBlock} />\n))}\n</Space>\n);\n});"
     }
   ]
 }

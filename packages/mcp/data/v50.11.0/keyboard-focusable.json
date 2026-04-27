@@ -17,7 +17,7 @@
     {
       "title": "Пример",
       "description": "Все интерактивные элементы должны иметь определенную обводку при фокусе, полученном при переходе к элементу при помощи клавиатуры.\nПри клике мышкой или тапе обводки быть не должно.\nВ примере ниже кликните на первую кнопку мышкой, а затем нажмите tab, чтобы выбрать правую кнопку.",
-      "desktop": "<KeyboardFocusable>\n    {(ref, focused) => {\n        const focusOutlineStyles = {\n            outline: '2px solid var(--focus-color)',\n            outlineOffset: '2px',\n        };\n\n        return (\n            <Space size={16} direction='horizontal'>\n                <Button size={56}>\n                    Кликни мышкой\n                </Button>\n                <Button size={56} ref={ref} style={focused ? focusOutlineStyles : {}}>\n                    Выбери табом\n                </Button>\n            </Space>\n\n        );\n    }}\n</KeyboardFocusable>"
+      "desktop": "<KeyboardFocusable>\n{(ref, focused) => {\nconst focusOutlineStyles = {\noutline: '2px solid var(--focus-color)',\noutlineOffset: '2px',\n};\n\nreturn (\n<Space size={16} direction='horizontal'>\n<Button size={56}>\nКликни мышкой\n</Button>\n<Button size={56} ref={ref} style={focused ? focusOutlineStyles : {}}>\nВыбери табом\n</Button>\n</Space>\n\n);\n}}\n</KeyboardFocusable>"
     }
   ]
 }

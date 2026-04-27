@@ -245,7 +245,7 @@
     {
       "title": "Пример",
       "description": "",
-      "desktop": "render(() => {\n    const [isVisible, setIsVisible] = React.useState(false);\n\n    const toggleVisibility = React.useCallback(() => setIsVisible((prev) => !prev), []);\n    const hideNotification = React.useCallback(() => setIsVisible(false), []);\n\n    return (\n        <div>\n            <Notification\n                badge='positive-checkmark'\n                title='Пример уведомления'\n                visible={isVisible}\n                offset={180}\n                onClose={hideNotification}\n                onCloseTimeout={hideNotification}\n            >\n                Описание уведомления\n            </Notification>\n            <Button onClick={toggleVisibility}>Показать уведомление</Button>\n        </div>\n    );\n});"
+      "desktop": "render(() => {\nconst [isVisible, setIsVisible] = React.useState(false);\n\nconst toggleVisibility = React.useCallback(() => setIsVisible((prev) => !prev), []);\nconst hideNotification = React.useCallback(() => setIsVisible(false), []);\n\nreturn (\n<div>\n<Notification\nbadge='positive-checkmark'\ntitle='Пример уведомления'\nvisible={isVisible}\noffset={180}\nonClose={hideNotification}\nonCloseTimeout={hideNotification}\n>\nОписание уведомления\n</Notification>\n<Button onClick={toggleVisibility}>Показать уведомление</Button>\n</div>\n);\n});"
     }
   ]
 }

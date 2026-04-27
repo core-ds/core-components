@@ -374,7 +374,7 @@
     {
       "title": "Пример",
       "description": "",
-      "desktop": "const masksCard = [\n    /\\d/,\n    /\\d/,\n    /\\d/,\n    /\\d/,\n    ' ',\n    /\\d/,\n    /\\d/,\n    /\\d/,\n    /\\d/,\n    ' ',\n    /\\d/,\n    /\\d/,\n    /\\d/,\n    /\\d/,\n    ' ',\n    /\\d/,\n    /\\d/,\n    /\\d/,\n    /\\d/,\n];\n\nrender(\n    <div style={{ width: '240px' }}>\n        <MaskedInput\n            mask={masksCard}\n            label='Номер карты'\n            placeholder='0000 0000 0000 0000'\n            labelView={isMobile() ? 'outer' : 'inner'}\n            size={isMobile() ? 48 : 56}\n            breakpoint={BREAKPOINT}\n            block={true}\n        />\n    </div>\n);"
+      "desktop": "const masksCard = [\n/\\d/,\n/\\d/,\n/\\d/,\n/\\d/,\n' ',\n/\\d/,\n/\\d/,\n/\\d/,\n/\\d/,\n' ',\n/\\d/,\n/\\d/,\n/\\d/,\n/\\d/,\n' ',\n/\\d/,\n/\\d/,\n/\\d/,\n/\\d/,\n];\n\nrender(\n<div style={{ width: '240px' }}>\n<MaskedInput\nmask={masksCard}\nlabel='Номер карты'\nplaceholder='0000 0000 0000 0000'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\nblock={true}\n/>\n</div>\n);"
     }
   ]
 }
