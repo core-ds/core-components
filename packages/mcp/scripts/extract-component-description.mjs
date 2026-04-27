@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 
 /**
  * Извлекает описание компонента из Component.docs.mdx.
- * Ищет тег <ComponentHeader name='...' children='...' /> и возвращает значение children.
+ * Ищет атрибут children='...' внутри <ComponentHeader> и возвращает его значение.
  */
 export function extractComponentDescription(docPath) {
     if (!existsSync(docPath)) {
@@ -11,8 +11,7 @@ export function extractComponentDescription(docPath) {
 
     const content = readFileSync(docPath, 'utf-8');
 
-    const componentHeaderMatch =
-        /<ComponentHeader\s+[^>]*children=['"]([^'"]*)['"][^>]*\s*\/>/.exec(content);
+    const match = /children=['"]([^'"]*)['"]/.exec(content);
 
-    return componentHeaderMatch ? componentHeaderMatch[1] : '';
+    return match ? match[1] : '';
 }
