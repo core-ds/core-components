@@ -59,16 +59,20 @@
   },
   "demos": [
     {
-      "title": "PageIndicatorDynamic"
+      "title": "PageIndicatorDynamic",
+      "description": "Доступен в двух размерах: 6 и 8 рх."
     },
     {
-      "title": "PageIndicatorBullet"
+      "title": "PageIndicatorBullet",
+      "description": "Доступен в двух размерах, 6 и 8 рх. В зависимости от количества элементов, меняется анимация и внешний вид индикатора.\n\nМеньше шести элементов."
     },
     {
-      "title": "PageIndicatorStep"
+      "title": "PageIndicatorStep",
+      "description": "Доступен в одном размере. Ширина подстраивается под ширину контейнера."
     },
     {
-      "title": "PageIndicatorRunner"
+      "title": "PageIndicatorRunner",
+      "description": "Доступен в одном размере. Ширина подстраивается под ширину контейнера."
     }
   ]
 }

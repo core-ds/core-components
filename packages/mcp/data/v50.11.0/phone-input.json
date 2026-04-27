@@ -354,7 +354,8 @@
   },
   "demos": [
     {
-      "title": "Пример"
+      "title": "Пример",
+      "description": ""
     }
   ]
 }

@@ -15,10 +15,13 @@ export function generateDemo(docPath) {
         const title = section.slice(0, titleEnd).trim();
 
         // проверяем, есть ли в секции jsx live блок
-        const hasCodeBlock = section.includes('```jsx live');
-        if (!hasCodeBlock) continue;
+        const codeBlockStart = section.indexOf('```jsx live');
+        if (codeBlockStart === -1) continue;
 
-        demos.push({ title });
+        // текст между заголовком и блоком кода
+        const description = section.slice(titleEnd, codeBlockStart).trim();
+
+        demos.push({ title, description });
     }
 
     return demos;

@@ -75,7 +75,8 @@
   },
   "demos": [
     {
-      "title": "Примеры"
+      "title": "Примеры",
+      "description": "Компонент поддерживает все параметры из [CSSTransition](http://reactcommunity.org/react-transition-group/css-transition)."
     }
   ]
 }

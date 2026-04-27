@@ -105,7 +105,8 @@
   },
   "demos": [
     {
-      "title": "Пример"
+      "title": "Пример",
+      "description": "HOC добавляет в переданный инпут доп. пропсу `suffix?: ReactNode`."
     }
   ]
 }
