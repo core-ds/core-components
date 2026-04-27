@@ -185,44 +185,6 @@
       "type": {
         "name": "\"default\" | \"inverted\" | undefined"
       }
-    },
-    "ref": {
-      "defaultValue": null,
-      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref).\n@see {@link https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom React Docs}",
-      "name": "ref",
-      "parent": {
-        "fileName": "core-components/node_modules/@types/react/index.d.ts",
-        "name": "RefAttributes"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "RefAttributes"
-        }
-      ],
-      "required": false,
-      "type": {
-        "name": "LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined"
-      }
-    },
-    "key": {
-      "defaultValue": null,
-      "description": "",
-      "name": "key",
-      "parent": {
-        "fileName": "core-components/node_modules/@types/react/index.d.ts",
-        "name": "Attributes"
-      },
-      "declarations": [
-        {
-          "fileName": "core-components/node_modules/@types/react/index.d.ts",
-          "name": "Attributes"
-        }
-      ],
-      "required": false,
-      "type": {
-        "name": "Key | null | undefined"
-      }
     }
   }
 }
