@@ -1,4 +1,9 @@
 import { globSync } from 'tinyglobby';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const repoRoot = resolve(__dirname, '../../..');
 
 export function getComponentEntryPoints() {
     console.log('🔍  Search for components...');
@@ -12,6 +17,7 @@ export function getComponentEntryPoints() {
             'packages/*/src/component.responsive.tsx',
         ],
         {
+            cwd: repoRoot,
             ignore: [
                 'packages/*-private/**',
                 'packages/*-v1/**',
@@ -29,5 +35,5 @@ export function getComponentEntryPoints() {
 
     console.log(`📦  Found ${files.length} components`);
 
-    return files;
+    return files.map((f) => resolve(repoRoot, f));
 }

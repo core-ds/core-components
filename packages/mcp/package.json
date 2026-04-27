@@ -19,7 +19,8 @@
         "build": "npm run clean && tsc -p tsconfig.json && npm run copy-index && npm run minify",
         "dev": "tsx src/index.ts",
         "start": "node dist/index.js",
-        "inspect": "npx @modelcontextprotocol/inspector"
+        "inspect": "npx @modelcontextprotocol/inspector",
+        "generate-index": "node ./scripts/generate-data.mjs"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.18.0",

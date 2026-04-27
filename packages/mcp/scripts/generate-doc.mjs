@@ -1,10 +1,13 @@
 import { withCustomConfig } from 'react-docgen-typescript';
-import { resolve } from 'node:path';
+import { resolve, dirname } from 'node:path';
 import { isInheritedFromExternalTypes } from './is-inherited-from-external-types.mjs';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export function generateDoc(files) {
     const parser = withCustomConfig(
-        resolve(process.cwd(), 'tsconfig.react-docgen-typescript.json'),
+        resolve(__dirname, '../../../tsconfig.react-docgen-typescript.json'),
         {},
     );
 
