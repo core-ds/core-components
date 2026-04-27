@@ -1,8 +1,7 @@
 import { withCustomConfig } from 'react-docgen-typescript';
-import path, { resolve } from 'node:path';
+import { resolve } from 'node:path';
 import { isInheritedFromExternalTypes } from './is-inherited-from-external-types.mjs';
 
-// todo в package json не должно быть оступов чтобы беречь контекст
 export function generateDoc(files) {
     const parser = withCustomConfig(
         resolve(process.cwd(), 'tsconfig.react-docgen-typescript.json'),
