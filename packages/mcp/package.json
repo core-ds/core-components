@@ -14,14 +14,12 @@
     },
     "scripts": {
         "clean": "rm -rf dist",
-        "copy-index": "cp -r src/components-index dist/components-index",
+        "copy-index": "cp -r ./src/data dist/data",
         "minify": "npx terser dist/index.js -o dist/index.js -c -m --module",
         "build": "npm run clean && tsc -p tsconfig.json && npm run copy-index && npm run minify",
         "dev": "tsx src/index.ts",
         "start": "node dist/index.js",
-        "inspect": "npx @modelcontextprotocol/inspector",
-        "build-index": "tsx scripts/build-index.ts",
-        "prepublishOnly": "npm run build"
+        "inspect": "npx @modelcontextprotocol/inspector"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.18.0",
@@ -30,6 +28,7 @@
     "devDependencies": {
         "react-docgen-typescript": "^2.4.0",
         "terser": "^5.46.1",
-        "tsx": "^4.20.6"
+        "tsx": "^4.20.6",
+        "typescript": "^5.9.3"
     }
 }
