@@ -84,19 +84,19 @@
 "name": "string"
 }
 },
-"__@hasInstance@487": {
+"__@hasInstance@489": {
 "defaultValue": null,
 "description": "Determines whether the given value inherits from this function if this function was used\nas a constructor function.\n\nA constructor function can control which objects are recognized as its instances by\n'instanceof' by overriding this method.",
-"name": "__@hasInstance@487",
+"name": "__@hasInstance@489",
 "required": true,
 "type": {
 "name": "(value: any) => boolean"
 }
 },
-"__@metadata@489": {
+"__@metadata@491": {
 "defaultValue": null,
 "description": "",
-"name": "__@metadata@489",
+"name": "__@metadata@491",
 "required": true,
 "type": {
 "name": "DecoratorMetadataObject | null"
