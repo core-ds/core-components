@@ -12,28 +12,6 @@ const server = new McpServer({
 });
 
 server.registerTool(
-    'hello_world',
-    {
-        description: 'Returns a simple greeting from the MCP server.',
-        inputSchema: {
-            name: z.string().optional().describe('Optional name to personalize the greeting'),
-        },
-    },
-    async ({ name }) => {
-        const target = name?.trim() || 'world';
-
-        return {
-            content: [
-                {
-                    type: 'text',
-                    text: `Hello, ${target}! This response came from your MCP server.`,
-                },
-            ],
-        };
-    },
-);
-
-server.registerTool(
     'list_components',
     {
         description: 'List all available core-components with names and descriptions.',
@@ -44,18 +22,12 @@ server.registerTool(
         const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
 
         const components = files.map((file) => {
-            const raw = readFileSync(join(versionDir, file), 'utf-8');
-            const data = JSON.parse(raw) as { displayName?: string; description?: string };
+            const { displayName, description } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
 
-            return {
-                displayName: data.displayName ?? file.replace('.json', ''),
-                description: data.description ?? '',
-            };
+            return { displayName, description };
         });
 
-        const text = components
-            .map((c) => `**${c.displayName}** — ${c.description}`)
-            .join('\n');
+        const text = components.map((c) => `**${c.displayName}** — ${c.description}`).join('\n');
 
         return {
             content: [{ type: 'text', text }],
