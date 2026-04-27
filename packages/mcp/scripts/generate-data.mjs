@@ -20,7 +20,7 @@ function main() {
             join(dirname(filePath), 'docs', 'Component.docs.mdx'),
         );
 
-        const demos = generateDemo();
+        const demos = generateDemo(join(dirname(filePath), 'docs', 'description.mdx'));
 
         writeFileSync(
             resolve(versionDir, `${packageName}.json`),
