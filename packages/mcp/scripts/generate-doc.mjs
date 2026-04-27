@@ -17,28 +17,12 @@ export function generateDoc(files) {
         const packageName = filePath.split('packages/')[1].split('/')[0];
 
         const props = Object.fromEntries(
-            Object.entries(_props).reduce((acc, current) => {
-                const [key, prop] = current;
-                const { defaultValue, description, name, required, type } = prop;
-
-                if (isInheritedFromExternalTypes(prop)) {
-                    return acc;
-                }
-
-                return [
-                    ...acc,
-                    [
-                        key,
-                        {
-                            defaultValue,
-                            description,
-                            name,
-                            required,
-                            type,
-                        },
-                    ],
-                ];
-            }, []),
+            Object.entries(_props)
+                .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
+                .map(([key, prop]) => {
+                    const { defaultValue, description, name, required, type } = prop;
+                    return [key, { defaultValue, description, name, required, type }];
+                }),
         );
 
         if (!docsMap.has(packageName)) {
