@@ -1,7 +1,6 @@
 import { withCustomConfig } from 'react-docgen-typescript';
 import path, { resolve } from 'node:path';
 import { isInheritedFromExternalTypes } from './is-inherited-from-external-types.mjs';
-import { extractComponentDescription } from './extract-component-description.mjs';
 
 // todo в package json не должно быть оступов чтобы беречь контекст
 export function generateDoc(files) {
@@ -17,10 +16,6 @@ export function generateDoc(files) {
         const { filePath, displayName, props: _props } = doc;
         const packageName = filePath.split('packages/')[1].split('/')[0];
 
-        const description = extractComponentDescription(
-            path.join(path.dirname(filePath), 'docs', 'Component.docs.mdx'),
-        );
-
         const props = Object.fromEntries(
             Object.entries(_props)
                 .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
@@ -34,8 +29,8 @@ export function generateDoc(files) {
             docsMap.set(packageName, {
                 displayName,
                 packageName,
-                description,
                 props,
+                filePath,
             });
         }
     });
