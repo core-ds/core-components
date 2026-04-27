@@ -29,5 +29,17 @@ server.registerTool(
     },
 );
 
+server.registerTool(
+    'list_components',
+    {
+        description: 'List all available core-components with names and descriptions.',
+    },
+    async () => {
+        return {
+            content: [],
+        };
+    },
+);
+
 const transport = new StdioServerTransport();
 await server.connect(transport);
