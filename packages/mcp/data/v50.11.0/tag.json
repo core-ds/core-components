@@ -1,6 +1,7 @@
 {
   "packageName": "tag",
   "displayName": "Tag",
+  "description": "Многофункциональный контрол. Используется в составе групп и других компонентов.",
   "props": {
     "dataTestId": {
       "defaultValue": null,

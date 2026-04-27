@@ -1,6 +1,7 @@
 {
   "packageName": "checkbox",
   "displayName": "Checkbox",
+  "description": "",
   "props": {
     "onChange": {
       "defaultValue": null,

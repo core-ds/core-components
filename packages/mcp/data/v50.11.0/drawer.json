@@ -1,6 +1,7 @@
 {
   "packageName": "drawer",
   "displayName": "Drawer",
+  "description": "Используется для десктопных модальных сущностей, появляющихся слева или справа.",
   "props": {
     "children": {
       "defaultValue": null,

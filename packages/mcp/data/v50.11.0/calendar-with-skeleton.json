@@ -1,6 +1,7 @@
 {
   "packageName": "calendar-with-skeleton",
   "displayName": "CalendarWithSkeleton",
+  "description": "Используется во время загрузки календаря.",
   "props": {
     "className": {
       "defaultValue": null,

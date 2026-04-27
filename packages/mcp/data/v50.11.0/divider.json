@@ -1,6 +1,7 @@
 {
   "packageName": "divider",
   "displayName": "Divider",
+  "description": "Используется как разделитель.",
   "props": {
     "className": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "dropzone",
   "displayName": "Dropzone",
+  "description": "Используется для прикрепления файлов.",
   "props": {
     "className": {
       "defaultValue": null,

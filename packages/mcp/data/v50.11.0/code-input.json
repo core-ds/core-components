@@ -1,6 +1,7 @@
 {
   "packageName": "code-input",
   "displayName": "CodeInput",
+  "description": "Используется для ввода кода.",
   "props": {
     "className": {
       "defaultValue": null,

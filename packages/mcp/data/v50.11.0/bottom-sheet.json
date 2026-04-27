@@ -1,6 +1,7 @@
 {
   "packageName": "bottom-sheet",
   "displayName": "BottomSheet",
+  "description": "Используется для отображения контента в модальном слое.",
   "props": {
     "adjustContainerHeight": {
       "defaultValue": {

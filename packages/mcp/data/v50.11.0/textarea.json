@@ -1,6 +1,7 @@
 {
   "packageName": "textarea",
   "displayName": "Textarea",
+  "description": "",
   "props": {
     "value": {
       "defaultValue": null,

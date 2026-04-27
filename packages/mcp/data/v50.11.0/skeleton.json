@@ -1,6 +1,7 @@
 {
   "packageName": "skeleton",
   "displayName": "Skeleton",
+  "description": "Используется как индикатор загрузки контента.",
   "props": {
     "visible": {
       "defaultValue": null,

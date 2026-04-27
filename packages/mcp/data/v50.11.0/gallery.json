@@ -1,6 +1,7 @@
 {
   "packageName": "gallery",
   "displayName": "Gallery",
+  "description": "Используется для просмотра изображений.",
   "props": {
     "open": {
       "defaultValue": null,

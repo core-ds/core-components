@@ -1,6 +1,7 @@
 {
   "packageName": "product-cover",
   "displayName": "Single",
+  "description": "Используется для отображения банковских карт.",
   "props": {
     "className": {
       "defaultValue": null,

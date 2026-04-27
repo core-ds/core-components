@@ -1,6 +1,7 @@
 {
   "packageName": "input",
   "displayName": "Input",
+  "description": "Дает возможность указать значение с помощью клавиатуры.",
   "props": {
     "className": {
       "defaultValue": null,

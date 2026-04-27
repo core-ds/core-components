@@ -1,6 +1,7 @@
 {
   "packageName": "radio",
   "displayName": "Radio",
+  "description": "",
   "props": {
     "dataTestId": {
       "defaultValue": null,

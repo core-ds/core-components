@@ -1,6 +1,7 @@
 {
   "packageName": "action-button",
   "displayName": "ActionButton",
+  "description": "Используется как триггер для выполнения определённого действия. Лейбл кнопки должен однозначно сообщать пользователю, что произойдёт после нажатия на неё.",
   "props": {
     "icon": {
       "defaultValue": null,

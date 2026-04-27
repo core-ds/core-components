@@ -1,6 +1,7 @@
 {
   "packageName": "stack",
   "displayName": "Stack",
+  "description": "",
   "props": {
     "children": {
       "defaultValue": null,

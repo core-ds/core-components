@@ -1,6 +1,7 @@
 {
   "packageName": "circular-progress-bar",
   "displayName": "CircularProgressBar",
+  "description": "Используется для отображения прогресса.",
   "props": {
     "value": {
       "defaultValue": null,

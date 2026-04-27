@@ -1,6 +1,7 @@
 {
   "packageName": "indicator",
   "displayName": "Indicator",
+  "description": "Используется для визаулизации количества уведомлений, сообщений и т. д.",
   "props": {
     "value": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "pattern-lock",
   "displayName": "PatternLock",
+  "description": "Компонент для авторизации пользователя с помощью графического ключа.",
   "props": {
     "className": {
       "defaultValue": null,

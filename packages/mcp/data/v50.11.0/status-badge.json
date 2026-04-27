@@ -1,6 +1,7 @@
 {
   "packageName": "status-badge",
   "displayName": "StatusBadge",
+  "description": "Используется как индикатор состояния.",
   "props": {
     "className": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "gap",
   "displayName": "Gap",
+  "description": "Используется для создания отступов между блоками.",
   "props": {
     "size": {
       "defaultValue": null,

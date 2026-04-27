@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { createIndexDir } from './create-index-dir.mjs';
 import { getComponentEntryPoints } from './get-component-entry-points.mjs';
-import * as fs from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { generateDoc } from './generate-doc.mjs';
 
 function main() {
@@ -11,16 +11,16 @@ function main() {
 
     const versionDir = createIndexDir();
 
-
     docs.forEach((doc) => {
-        const { packageName, displayName, props } = doc;
+        const { packageName, displayName, description, props } = doc;
 
-        fs.writeFileSync(
+        writeFileSync(
             resolve(versionDir, `${packageName}.json`),
             JSON.stringify(
                 {
                     packageName,
                     displayName,
+                    description,
                     props,
                 },
                 null,

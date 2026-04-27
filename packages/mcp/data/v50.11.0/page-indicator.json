@@ -1,6 +1,7 @@
 {
   "packageName": "page-indicator",
   "displayName": "PageIndicatorBullet",
+  "description": "",
   "props": {
     "activeElement": {
       "defaultValue": null,

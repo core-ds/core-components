@@ -1,6 +1,7 @@
 {
   "packageName": "filter-tag",
   "displayName": "FilterTag",
+  "description": "Используется чтобы вывести параметры фильтрации и отобразить примененное значение.",
   "props": {
     "children": {
       "defaultValue": null,

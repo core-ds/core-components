@@ -1,6 +1,7 @@
 {
   "packageName": "accordion",
   "displayName": "Accordion",
+  "description": "Используется для отображения скрытого контента по клику.",
   "props": {
     "expanded": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "calendar",
   "displayName": "CalendarResponsive",
+  "description": "",
   "props": {
     "className": {
       "defaultValue": null,

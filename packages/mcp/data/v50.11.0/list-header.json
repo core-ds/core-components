@@ -1,6 +1,7 @@
 {
   "packageName": "list-header",
   "displayName": "ListHeader",
+  "description": "Используется для разделения ячеек списка по смысловым группам.",
   "props": {
     "title": {
       "defaultValue": null,

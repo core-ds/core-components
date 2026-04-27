@@ -1,6 +1,7 @@
 {
   "packageName": "portal",
   "displayName": "Portal",
+  "description": "Используется для рендера дочерних элементов в DOM-узел, который находится вне DOM-иерархии родительского компонента.",
   "props": {
     "children": {
       "defaultValue": null,

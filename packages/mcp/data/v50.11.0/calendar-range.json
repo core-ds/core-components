@@ -1,6 +1,7 @@
 {
   "packageName": "calendar-range",
   "displayName": "CalendarRange",
+  "description": "Используется для ввода диапазона дат.",
   "props": {
     "className": {
       "defaultValue": null,

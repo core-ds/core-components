@@ -1,6 +1,7 @@
 {
   "packageName": "checkbox-group",
   "displayName": "CheckboxGroup",
+  "description": "Используется для выбора одного или нескольких доступных значений.",
   "props": {
     "children": {
       "defaultValue": null,

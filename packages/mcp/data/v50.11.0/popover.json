@@ -1,6 +1,7 @@
 {
   "packageName": "popover",
   "displayName": "Popover",
+  "description": "",
   "props": {
     "open": {
       "defaultValue": null,

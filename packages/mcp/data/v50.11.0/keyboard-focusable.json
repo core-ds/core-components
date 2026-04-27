@@ -1,6 +1,7 @@
 {
   "packageName": "keyboard-focusable",
   "displayName": "KeyboardFocusable",
+  "description": "Используется для подсветки элемента при фокусе.",
   "props": {
     "children": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "notification",
   "displayName": "Notification",
+  "description": "Информирует пользователя о текущем состоянии операций или сообщает пользователю о результате выполнения его команды. Не имеет мобильной версии.",
   "props": {
     "dataTestId": {
       "defaultValue": null,

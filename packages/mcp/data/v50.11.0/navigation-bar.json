@@ -1,6 +1,7 @@
 {
   "packageName": "navigation-bar",
   "displayName": "NavigationBar",
+  "description": "Используется для навигации между страницами.",
   "props": {
     "title": {
       "defaultValue": null,

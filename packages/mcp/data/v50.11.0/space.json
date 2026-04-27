@@ -1,6 +1,7 @@
 {
   "packageName": "space",
   "displayName": "Space",
+  "description": "Используется для создания отступов между блоками.",
   "props": {
     "align": {
       "defaultValue": null,

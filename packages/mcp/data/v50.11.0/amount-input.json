@@ -1,6 +1,7 @@
 {
   "packageName": "amount-input",
   "displayName": "AmountInput",
+  "description": "Используется для ввода сумм.",
   "props": {
     "className": {
       "defaultValue": null,

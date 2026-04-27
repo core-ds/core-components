@@ -1,6 +1,7 @@
 {
   "packageName": "phone-input",
   "displayName": "PhoneInputs",
+  "description": "Используется для ввода мобильного номера в заданном формате.",
   "props": {
     "className": {
       "defaultValue": null,

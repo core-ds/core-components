@@ -1,6 +1,7 @@
 {
   "packageName": "generic-wrapper",
   "displayName": "GenericWrapper",
+  "description": "",
   "props": {
     "column": {
       "defaultValue": {

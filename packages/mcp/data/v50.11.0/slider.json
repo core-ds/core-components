@@ -1,6 +1,7 @@
 {
   "packageName": "slider",
   "displayName": "Slider",
+  "description": "",
   "props": {
     "min": {
       "defaultValue": {

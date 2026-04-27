@@ -1,6 +1,7 @@
 {
   "packageName": "markdown",
   "displayName": "MarkdownResponsiveComponent",
+  "description": "Используется для отображения и форматирования текстового контента.",
   "props": {
     "className": {
       "defaultValue": null,

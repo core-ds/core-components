@@ -1,6 +1,7 @@
 {
   "packageName": "bank-card",
   "displayName": "BankCard",
+  "description": "Используется для ввода номера карты или банковского счета.",
   "props": {
     "className": {
       "defaultValue": null,

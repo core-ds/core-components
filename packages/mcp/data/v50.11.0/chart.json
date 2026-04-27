@@ -1,6 +1,7 @@
 {
   "packageName": "chart",
   "displayName": "Chart",
+  "description": "Используется для построения графиков.",
   "props": {
     "id": {
       "defaultValue": null,

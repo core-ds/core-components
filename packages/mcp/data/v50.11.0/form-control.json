@@ -1,6 +1,7 @@
 {
   "packageName": "form-control",
   "displayName": "FormControl",
+  "description": "Базовый компонент для построения полей ввода. Не может быть использован в чистом виде.",
   "props": {
     "dataTestId": {
       "defaultValue": null,

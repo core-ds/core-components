@@ -1,6 +1,7 @@
 {
   "packageName": "modal",
   "displayName": "ModalResponsiveComponent",
+  "description": "",
   "props": {
     "children": {
       "defaultValue": null,

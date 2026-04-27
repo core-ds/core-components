@@ -1,6 +1,7 @@
 {
   "packageName": "steps",
   "displayName": "Steps",
+  "description": "Используется для разделения сложной формы или анкеты на последовательные шаги.",
   "props": {
     "className": {
       "defaultValue": null,

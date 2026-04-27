@@ -1,6 +1,7 @@
 {
   "packageName": "confirmation",
   "displayName": "ConfirmationResponsive",
+  "description": "",
   "props": {
     "children": {
       "defaultValue": null,

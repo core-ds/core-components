@@ -1,6 +1,7 @@
 {
   "packageName": "attach",
   "displayName": "Attach",
+  "description": "Используется для прикрепления файлов.",
   "props": {
     "buttonContent": {
       "defaultValue": {

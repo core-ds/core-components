@@ -1,6 +1,7 @@
 {
   "packageName": "tooltip",
   "displayName": "TooltipResponsive",
+  "description": "Используется для отображения дополнительной информации.",
   "props": {
     "children": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "plate",
   "displayName": "Plate",
+  "description": "Информирует пользователя о текущем состоянии системы или сообщает какую-либо важную информацию.",
   "props": {
     "children": {
       "defaultValue": null,

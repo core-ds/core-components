@@ -1,6 +1,7 @@
 {
   "packageName": "backdrop",
   "displayName": "Backdrop",
+  "description": "Используется для затемнения фона при вызове модального слоя.",
   "props": {
     "invisible": {
       "defaultValue": {

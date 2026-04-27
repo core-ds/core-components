@@ -1,6 +1,7 @@
 {
   "packageName": "segmented-control",
   "displayName": "SegmentedControl",
+  "description": "Используется для переключения или фильтрации контента.",
   "props": {
     "className": {
       "defaultValue": null,

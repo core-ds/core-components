@@ -1,6 +1,7 @@
 {
   "packageName": "number-input",
   "displayName": "NumberInputResponsive",
+  "description": "Поле для ввода чисел.",
   "props": {
     "className": {
       "defaultValue": null,

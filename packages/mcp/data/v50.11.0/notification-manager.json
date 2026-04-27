@@ -1,6 +1,7 @@
 {
   "packageName": "notification-manager",
   "displayName": "NotificationManager",
+  "description": "Используется для одновременного вывода нескольких уведомлений.",
   "props": {
     "notifications": {
       "defaultValue": null,

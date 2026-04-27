@@ -1,6 +1,7 @@
 {
   "packageName": "icon-button",
   "displayName": "IconButtonResponsive",
+  "description": "Используется для создания кликабельных иконок.",
   "props": {
     "icon": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "radio-group",
   "displayName": "RadioGroup",
+  "description": "Используется для выбора одного значения из нескольких доступных.",
   "props": {
     "children": {
       "defaultValue": null,

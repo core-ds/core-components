@@ -1,6 +1,7 @@
 {
   "packageName": "custom-button",
   "displayName": "CustomButton",
+  "description": "",
   "props": {
     "children": {
       "defaultValue": null,

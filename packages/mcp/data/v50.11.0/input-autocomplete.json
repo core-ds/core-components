@@ -1,6 +1,7 @@
 {
   "packageName": "input-autocomplete",
   "displayName": "InputAutocomplete",
+  "description": "Дает возможность выбрать значение из списка доступных, либо ввести своё с помощью клавиатуры.",
   "props": {
     "mobileProps": {
       "defaultValue": null,

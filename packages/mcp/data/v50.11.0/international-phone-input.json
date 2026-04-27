@@ -1,6 +1,7 @@
 {
   "packageName": "international-phone-input",
   "displayName": "InternationalPhoneInput",
+  "description": "Используется для ввода телефонного номера в международном формате.",
   "props": {
     "country": {
       "defaultValue": null,

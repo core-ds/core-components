@@ -1,6 +1,7 @@
 {
   "packageName": "base-modal",
   "displayName": "BaseModal",
+  "description": "Используется для построения модальных сущностей.",
   "props": {
     "children": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "pass-code",
   "displayName": "PassCode",
+  "description": "Компонент для авторизации пользователя с помощью цифрового ключа.",
   "props": {
     "value": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "select",
   "displayName": "SelectResponsive",
+  "description": "Поле ввода с выпадающим списком.",
   "props": {
     "dataTestId": {
       "defaultValue": null,

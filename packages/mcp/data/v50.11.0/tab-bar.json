@@ -1,6 +1,7 @@
 {
   "packageName": "tab-bar",
   "displayName": "TabBarComponent",
+  "description": "Используется для навигации между разделами.",
   "props": {
     "className": {
       "defaultValue": null,

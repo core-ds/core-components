@@ -1,6 +1,7 @@
 {
   "packageName": "date-time-input",
   "displayName": "DateTimeInputResponsive",
+  "description": "",
   "props": {
     "className": {
       "defaultValue": null,

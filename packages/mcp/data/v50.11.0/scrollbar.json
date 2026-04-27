@@ -1,6 +1,7 @@
 {
   "packageName": "scrollbar",
   "displayName": "Scrollbar",
+  "description": "Используется для управления контентм с помощью полосы прокрутки.",
   "props": {
     "children": {
       "defaultValue": null,

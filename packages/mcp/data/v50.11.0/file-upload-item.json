@@ -1,6 +1,7 @@
 {
   "packageName": "file-upload-item",
   "displayName": "FileUploadItemComponent",
+  "description": "Используется для отображения загружаемого файла.",
   "props": {
     "className": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "slider-input",
   "displayName": "SliderInput",
+  "description": "Используется для указания значения из заданного диапазона.",
   "props": {
     "className": {
       "defaultValue": null,

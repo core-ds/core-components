@@ -1,6 +1,7 @@
 {
   "packageName": "pagination",
   "displayName": "Pagination",
+  "description": "Используется для переключения между страницами.",
   "props": {
     "currentPageIndex": {
       "defaultValue": {

@@ -1,6 +1,7 @@
 {
   "packageName": "spinner",
   "displayName": "Spinner",
+  "description": "",
   "props": {
     "colors": {
       "defaultValue": {

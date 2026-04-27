@@ -1,6 +1,7 @@
 {
   "packageName": "mq",
   "displayName": "Mq",
+  "description": "Используется для имплементации поддержки медиа запросов.",
   "props": {
     "query": {
       "defaultValue": {

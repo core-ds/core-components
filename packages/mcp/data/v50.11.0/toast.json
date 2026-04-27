@@ -1,6 +1,7 @@
 {
   "packageName": "toast",
   "displayName": "Toast",
+  "description": "Используется для уведомления пользователя о результате выполнения его команды.",
   "props": {
     "dataTestId": {
       "defaultValue": null,

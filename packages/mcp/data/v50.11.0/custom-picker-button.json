@@ -1,6 +1,7 @@
 {
   "packageName": "custom-picker-button",
   "displayName": "CustomPickerButtonResponsive",
+  "description": "",
   "props": {
     "className": {
       "defaultValue": null,

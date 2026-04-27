@@ -1,6 +1,7 @@
 {
   "packageName": "picker-button",
   "displayName": "PickerButtonResponsive",
+  "description": "",
   "props": {
     "className": {
       "defaultValue": null,

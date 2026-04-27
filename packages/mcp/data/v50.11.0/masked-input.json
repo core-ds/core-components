@@ -1,6 +1,7 @@
 {
   "packageName": "masked-input",
   "displayName": "MaskedInput",
+  "description": "Используется для ввода текста по указанной маске.",
   "props": {
     "className": {
       "defaultValue": null,

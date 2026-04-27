@@ -1,6 +1,7 @@
 {
   "packageName": "grid",
   "displayName": "Row",
+  "description": "Используется для создания лейаута.",
   "props": {
     "className": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "cdn-icon",
   "displayName": "CDNIcon",
+  "description": "Используется для отображения иконок.",
   "props": {
     "name": {
       "defaultValue": null,

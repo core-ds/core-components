@@ -1,6 +1,7 @@
 {
   "packageName": "toast-plate",
   "displayName": "ToastPlate",
+  "description": "",
   "props": {
     "dataTestId": {
       "defaultValue": null,

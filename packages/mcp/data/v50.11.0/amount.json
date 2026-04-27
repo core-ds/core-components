@@ -1,6 +1,7 @@
 {
   "packageName": "amount",
   "displayName": "Amount",
+  "description": "Используется для отображения сумм.",
   "props": {
     "value": {
       "defaultValue": null,

@@ -1,6 +1,7 @@
 {
   "packageName": "comment",
   "displayName": "Comment",
+  "description": "Используется для отображаения комментариев.",
   "props": {
     "rowLimit": {
       "defaultValue": null,

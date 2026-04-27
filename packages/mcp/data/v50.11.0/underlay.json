@@ -1,6 +1,7 @@
 {
   "packageName": "underlay",
   "displayName": "Underlay",
+  "description": "",
   "props": {
     "dimensions": {
       "defaultValue": null,

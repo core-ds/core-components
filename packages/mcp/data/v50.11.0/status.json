@@ -1,6 +1,7 @@
 {
   "packageName": "status",
   "displayName": "Status",
+  "description": "Используется для цветового кодирования статусов.",
   "props": {
     "className": {
       "defaultValue": null,

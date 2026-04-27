@@ -1,6 +1,7 @@
 {
   "packageName": "side-panel",
   "displayName": "SidePanelResponsiveComponent",
+  "description": "",
   "props": {
     "children": {
       "defaultValue": null,

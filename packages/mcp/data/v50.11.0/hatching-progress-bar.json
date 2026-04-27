@@ -1,6 +1,7 @@
 {
   "packageName": "hatching-progress-bar",
   "displayName": "HatchingProgressBar",
+  "description": "Используется для отображения прогресса при заполнении формы.",
   "props": {
     "value": {
       "defaultValue": null,

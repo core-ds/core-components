@@ -1,6 +1,7 @@
 {
   "packageName": "with-suffix",
   "displayName": "withSuffix",
+  "description": "Используется чтобы расположить текст после значения инпута.",
   "props": {
     "apply": {
       "defaultValue": null,

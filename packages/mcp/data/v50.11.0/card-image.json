@@ -1,6 +1,7 @@
 {
   "packageName": "card-image",
   "displayName": "CardImage",
+  "description": "Компонент изображения карты.",
   "props": {
     "cardId": {
       "defaultValue": null,

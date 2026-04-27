@@ -1,6 +1,7 @@
 {
   "packageName": "stepped-progress-bar",
   "displayName": "SteppedProgressBar",
+  "description": "",
   "props": {
     "maxStep": {
       "defaultValue": null,

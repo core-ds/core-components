@@ -1,6 +1,7 @@
 {
   "packageName": "universal-date-input",
   "displayName": "UniversalDateInput",
+  "description": "Используется для указания даты и времени.",
   "props": {
     "className": {
       "defaultValue": null,
