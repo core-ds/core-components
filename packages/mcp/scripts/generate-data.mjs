@@ -33,7 +33,7 @@ function main() {
                     demos,
                 },
                 null,
-                2,
+                1,
             ).replace(/^ +/gm, ''),
         );
     });
