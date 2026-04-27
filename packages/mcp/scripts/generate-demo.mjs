@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 
+// убирает ведущие пробелы у каждой строки и схлопывает подряд идущие пустые строки в одну
 function compactCode(code) {
     return code
         .split('\n')
