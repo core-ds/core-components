@@ -11,7 +11,7 @@ export function extractComponentDescription(docPath) {
 
     const content = readFileSync(docPath, 'utf-8');
 
-    const match = /children=['"]([^'"]*)['"]/.exec(content);
+    const match = /children='([^']*)'/.exec(content);
 
     return match ? match[1] : '';
 }
