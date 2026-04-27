@@ -183,7 +183,8 @@
     {
       "title": "Размеры",
       "description": "Доступны 2 и 4 размеры компонента.",
-      "desktop": "render(() => {\n    const [value, setValue] = React.useState(0);\n    const [slider, setSlider] = React.useState(0);\n\n    const handleChange = ({ value }) => setValue(value);\n    const handleChangeSlider = ({ value }) => setSlider(value);\n\n    return (\n        <>\n            <Slider size={4} value={value} onChange={handleChange} />\n            <br />\n            <br />\n            <Slider size={2} value={slider} onChange={handleChangeSlider} />\n        </>\n    );\n});"
+      "desktop": "render(() => {\n    const [value, setValue] = React.useState(0);\n    const [slider, setSlider] = React.useState(0);\n\n    const handleChange = ({ value }) => setValue(value);\n    const handleChangeSlider = ({ value }) => setSlider(value);\n\n    return (\n        <>\n            <Slider size={4} value={value} onChange={handleChange} />\n            <br />\n            <br />\n            <Slider size={2} value={slider} onChange={handleChangeSlider} />\n        </>\n    );\n});",
+      "mobile": "render(() => {\n    const [value, setValue] = React.useState(0);\n    const [slider, setSlider] = React.useState(0);\n\n    const handleChange = ({ value }) => setValue(value);\n    const handleChangeSlider = ({ value }) => setSlider(value);\n\n    return (\n        <>\n            <div style={{ marginBottom: 80 }}>\n                <Slider size={4} value={value} onChange={handleChange} />\n            </div>\n            <Slider size={2} value={slider} onChange={handleChangeSlider} />\n        </>\n    );\n});"
     }
   ]
 }

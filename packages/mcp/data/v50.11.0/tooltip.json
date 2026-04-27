@@ -320,7 +320,8 @@
     {
       "title": "Виды тултипов",
       "description": "",
-      "desktop": "<div style={{display: 'flex'}}>\n    <TooltipDesktop\n        position='bottom'\n        trigger='click'\n        content={\n            <div style={{ width: 241}}> Пример небольшого вспомогательного текста. </div>\n        }\n    >\n        <Button view='primary'>Показать Tooltip</Button>\n    </TooltipDesktop>\n    <Gap direction='horizontal' size={16}/>\n    <TooltipDesktop content={<div>Пример подсказки</div>} position='bottom' view='hint' trigger='click'>\n        <Button view='primary'>Показать Hint</Button>\n    </TooltipDesktop>\n</div>"
+      "desktop": "<div style={{display: 'flex'}}>\n    <TooltipDesktop\n        position='bottom'\n        trigger='click'\n        content={\n            <div style={{ width: 241}}> Пример небольшого вспомогательного текста. </div>\n        }\n    >\n        <Button view='primary'>Показать Tooltip</Button>\n    </TooltipDesktop>\n    <Gap direction='horizontal' size={16}/>\n    <TooltipDesktop content={<div>Пример подсказки</div>} position='bottom' view='hint' trigger='click'>\n        <Button view='primary'>Показать Hint</Button>\n    </TooltipDesktop>\n</div>",
+      "mobile": "<Container>\n    <Tooltip\n        position='bottom'\n        trigger='click'\n        content={\n            <div> Пример небольшого вспомогательного текста. </div>\n        }\n    >\n        <div style={{ width: 320 }}>\n            <Button block={true} view='primary'>Показать Tooltip</Button>\n        </div>\n    </Tooltip>\n    <Gap size={16}/>\n    <Tooltip content={<div>Пример подсказки</div>} position='bottom' view='hint' trigger='click'>\n        <div style={{ width: 320 }}>\n            <Button block={true} view='primary'>Показать Hint</Button>\n        </div>\n    </Tooltip>\n</Container>"
     },
     {
       "title": "Позиционирование",

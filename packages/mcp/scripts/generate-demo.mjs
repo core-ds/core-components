@@ -32,7 +32,12 @@ export function generateDemo(docPath) {
             ? codeContent.trim()
             : codeContent.slice(0, mobileSplit).trim();
 
-        demos.push({ title, description, desktop });
+        // код после //MOBILE — mobile, если //MOBILE нет — undefined
+        const mobile = mobileSplit === -1
+            ? undefined
+            : codeContent.slice(mobileSplit + '//MOBILE'.length).trim();
+
+        demos.push({ title, description, desktop, ...(mobile !== undefined && { mobile }) });
     }
 
     return demos;
