@@ -61,5 +61,6 @@
         "name": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>> | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

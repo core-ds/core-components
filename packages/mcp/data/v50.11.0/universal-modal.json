@@ -206,5 +206,6 @@
         "name": "\"right\" | \"bottom\" | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

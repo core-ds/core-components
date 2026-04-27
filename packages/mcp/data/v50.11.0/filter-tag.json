@@ -175,5 +175,6 @@
         "name": "boolean | (() => boolean) | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

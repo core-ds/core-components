@@ -358,5 +358,6 @@
         "name": "Omit<CloserProps, \"view\" | \"onClose\"> | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

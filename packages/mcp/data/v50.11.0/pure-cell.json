@@ -2,5 +2,6 @@
   "packageName": "pure-cell",
   "displayName": "Context",
   "description": "",
-  "props": {}
+  "props": {},
+  "demos": []
 }

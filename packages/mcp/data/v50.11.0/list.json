@@ -2,5 +2,6 @@
   "packageName": "list",
   "displayName": "Context",
   "description": "",
-  "props": {}
+  "props": {},
+  "demos": []
 }

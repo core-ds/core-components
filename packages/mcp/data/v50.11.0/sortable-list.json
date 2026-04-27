@@ -175,5 +175,6 @@
         "name": "((event: DragEndEvent, items: Items) => void) | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

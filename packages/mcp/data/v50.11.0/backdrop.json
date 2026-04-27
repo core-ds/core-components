@@ -72,5 +72,6 @@
         "name": "boolean | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

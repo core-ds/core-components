@@ -56,5 +56,6 @@
         "name": "\"default\" | \"inverted\" | \"static\" | \"static-inverted\" | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

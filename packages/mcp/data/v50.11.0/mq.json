@@ -50,5 +50,6 @@
         "name": "((isMatched: boolean) => void) | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

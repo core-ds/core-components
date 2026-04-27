@@ -79,5 +79,6 @@
         "name": "string | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

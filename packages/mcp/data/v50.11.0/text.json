@@ -101,5 +101,6 @@
         "name": "string | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

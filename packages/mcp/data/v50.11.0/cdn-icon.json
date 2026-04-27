@@ -68,5 +68,6 @@
         "name": "(() => void) | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

@@ -102,5 +102,6 @@
         "name": "DecoratorMetadataObject | null"
       }
     }
-  }
+  },
+  "demos": []
 }

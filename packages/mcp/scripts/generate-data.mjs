@@ -4,6 +4,7 @@ import { getComponentEntryPoints } from './get-component-entry-points.mjs';
 import { writeFileSync } from 'node:fs';
 import { generateDoc } from './generate-doc.mjs';
 import { extractComponentDescription } from './extract-component-description.mjs';
+import { generateDemo } from './generate-demo.mjs';
 
 function main() {
     const files = getComponentEntryPoints();
@@ -19,6 +20,8 @@ function main() {
             join(dirname(filePath), 'docs', 'Component.docs.mdx'),
         );
 
+        const demos = generateDemo();
+
         writeFileSync(
             resolve(versionDir, `${packageName}.json`),
             JSON.stringify(
@@ -27,6 +30,7 @@ function main() {
                     displayName,
                     description,
                     props,
+                    demos,
                 },
                 null,
                 2,

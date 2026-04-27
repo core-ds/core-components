@@ -96,5 +96,6 @@
         "name": "string | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

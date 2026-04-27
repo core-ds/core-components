@@ -12,5 +12,6 @@
         "name": "(ref: RefObject<any>, focused: boolean) => Element"
       }
     }
-  }
+  },
+  "demos": []
 }

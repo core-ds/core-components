@@ -688,5 +688,6 @@
         "name": "Partial<FooterProps> | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

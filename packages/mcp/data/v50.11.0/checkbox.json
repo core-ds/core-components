@@ -204,5 +204,6 @@
         "name": "\"default\" | \"inverted\" | undefined"
       }
     }
-  }
+  },
+  "demos": []
 }

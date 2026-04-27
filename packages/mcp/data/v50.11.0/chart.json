@@ -102,5 +102,6 @@
         "name": "(string | number)[]"
       }
     }
-  }
+  },
+  "demos": []
 }
