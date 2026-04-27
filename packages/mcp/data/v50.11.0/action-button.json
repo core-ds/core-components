@@ -103,19 +103,23 @@
   "demos": [
     {
       "title": "Виды кнопок",
-      "description": ""
+      "description": "",
+      "desktop": "render(() => {\n    const [disabled, setDisabled] = React.useState(false);\n\n    return (\n        <>\n            <ActionButton disabled={disabled} icon={<DiamondsMIcon />} view='primary'>\n                Primary\n            </ActionButton>\n            <Gap direction='horizontal' size={24} />\n            <ActionButton disabled={disabled} icon={<DiamondsMIcon />} view='secondary'>\n                Secondary\n            </ActionButton>\n            <Gap size={24} />\n            <Switch\n                checked={disabled}\n                onChange={() => setDisabled((prevState) => !prevState)}\n                label='Недоступна'\n            />\n        </>\n    );\n});"
     },
     {
       "title": "Перенос текста внутри кнопки",
-      "description": "Лейбл кнопки ограничен двумя строками."
+      "description": "Лейбл кнопки ограничен двумя строками.",
+      "desktop": "<ActionButton nowrap={true} icon={<DiamondsMIcon />} view='primary'>\n        Пример переноса текста\n    </ActionButton>"
     },
     {
       "title": "Обработка событий",
-      "description": "С помощью свойства `loading` можно отобразить состояние загрузки.\nМинимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала»."
+      "description": "С помощью свойства `loading` можно отобразить состояние загрузки.\nМинимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».",
+      "desktop": "render(() => {\n    const [loading, setLoading] = React.useState({\n        primary: false,\n        secondary: false,\n    });\n\n    const handleClick = (buttonName, timeout) => {\n        setLoading({ ...loading, [buttonName]: true });\n        setTimeout(() => {\n            setLoading({ ...loading, [buttonName]: false });\n        }, timeout);\n    };\n\n    return (\n        <>\n            <ActionButton\n                icon={<DiamondsMIcon />}\n                loading={loading.primary}\n                onClick={() => handleClick('primary', 30)}\n            >\n                Быстрый запрос\n            </ActionButton>\n            <Gap direction='horizontal' size={24} />\n            <ActionButton\n                icon={<DiamondsMIcon />}\n                loading={loading.secondary}\n                onClick={() => handleClick('secondary', 1500)}\n                view='secondary'\n            >\n                Долгий запрос\n            </ActionButton>\n        </>\n    );\n});"
     },
     {
       "title": "Кнопка-ссылка",
-      "description": "Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`."
+      "description": "Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.",
+      "desktop": "render(() => {\n    return (\n        <ActionButton icon={<DiamondsMIcon />} href='http://www.alfabank.ru'>\n            {'Переход  по ссылке'}\n        </ActionButton>\n    );\n});"
     }
   ]
 }

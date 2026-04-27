@@ -248,15 +248,18 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": "Доступны 144, 128, 96, 80, 64, 48, 24 и произвольный размер компонента."
+      "description": "Доступны 144, 128, 96, 80, 64, 48, 24 и произвольный размер компонента.",
+      "desktop": "<Container align={isMobile() ? 'center' : 'left'}>\n    <Space direction={isMobile() ? 'vertical' : 'horizontal'} align='center' size={24}>\n        <CircularProgressBar value={25} size={144} contentColor='primary' />\n        <CircularProgressBar value={25} size={128} contentColor='primary' />\n        <CircularProgressBar value={25} size={96} contentColor='primary' />\n        <CircularProgressBar value={25} size={80} contentColor='primary' />\n        <CircularProgressBar value={25} size={64} contentColor='primary' />\n        <CircularProgressBar value={25} size={48} contentColor='primary' />\n        <CircularProgressBar value={25} size={24} contentColor='primary' />\n    </Space>\n</Container>"
     },
     {
       "title": "Атрибуты",
-      "description": "У компонента есть два состояния — в процессе заполнения и полностью заполненный.\nМожно задать направление заполнения, цвет прогрессбара, наличие желоба и контент для обоих состояний."
+      "description": "У компонента есть два состояния — в процессе заполнения и полностью заполненный.\nМожно задать направление заполнения, цвет прогрессбара, наличие желоба и контент для обоих состояний.",
+      "desktop": "<Container align={isMobile() ? 'center' : 'left'}>\n    <Space direction='horizontal'>\n        <CircularProgressBar\n            value={0}\n            title='0%'\n            size={80}\n            subtitle='Caption'\n            contentColor='primary'\n        />\n        <CircularProgressBar\n            value={50}\n            title='50%'\n            size={80}\n            subtitle='Caption'\n            contentColor='primary'\n        />\n        <CircularProgressBar\n            value={100}\n            size={80}\n            icon={CheckmarkMIcon}\n            contentColor='tertiary'\n            completeIconColor='positive'\n        />\n    </Space>\n    <Gap size={16} />\n    <Space direction='horizontal'>\n        <CircularProgressBar value={0} size={80} icon={CheckmarkMIcon} contentColor='tertiary' />\n        <CircularProgressBar value={50} size={80} icon={CheckmarkMIcon} contentColor='tertiary' />\n        <CircularProgressBar\n            value={100}\n            size={80}\n            icon={CheckmarkMIcon}\n            contentColor='tertiary'\n            completeIconColor='primary-inverted'\n            fillComplete={true}\n        />\n    </Space>\n    <Gap size={16} />\n    <Space direction='horizontal'>\n        <CircularProgressBar value={0} title='0%' size={80} contentColor='primary' />\n        <CircularProgressBar\n            value={50}\n            title='50%'\n            size={80}\n            view='negative'\n            contentColor='primary'\n        />\n        <CircularProgressBar\n            value={100}\n            size={80}\n            titleComplete='100%'\n            view='negative'\n            completeTextColor='negative'\n        />\n    </Space>\n</Container>"
     },
     {
       "title": "Таймер",
-      "description": "Компонент можно превратить в таймер, передав соответствующие параметры."
+      "description": "Компонент можно превратить в таймер, передав соответствующие параметры.",
+      "desktop": "<Container align={isMobile() ? 'center' : 'left'}>\n    <Space direction='horizontal'>\n        <CircularProgressBar\n            value={{ timer: 60 }}\n            size={80}\n            directionType='desc'\n            contentColor='primary'\n        />\n        <CircularProgressBar\n            value={{ timer: 60, counting: 'forward' }}\n            size={80}\n            directionType='asc'\n            contentColor='primary'\n        />\n    </Space>\n    <Gap size={16} />\n    <Space direction='horizontal'>\n        <CircularProgressBar\n            value={{ timer: 60, counting: 'forward' }}\n            size={80}\n            directionType='desc'\n            contentColor='primary'\n        />\n        <CircularProgressBar\n            value={{ timer: 60 }}\n            size={80}\n            directionType='asc'\n            contentColor='primary'\n        />\n    </Space>\n</Container>"
     }
   ]
 }

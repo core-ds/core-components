@@ -100,7 +100,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": "Пагинация с возможностью быстрого доступа к крайним страницам."
+      "description": "Пагинация с возможностью быстрого доступа к крайним страницам.",
+      "desktop": "render(() => {\n    const DATA_SIZE = isMobile() ? 5 : 20;\n    const PER_PAGE = 1;\n\n    const [page, setPage] = React.useState(0);\n\n    const handlePageChange = pageIndex => setPage(pageIndex);\n\n    const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);\n\n    return (\n        <Container align='center'>\n            <Pagination\n                currentPageIndex={page}\n                pagesCount={pagesCount}\n                onPageChange={handlePageChange}\n            />\n        </Container>\n    );\n});"
     }
   ]
 }

@@ -72,7 +72,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": ""
+      "description": "",
+      "desktop": "<Space direction='horizontal' align='center' size={24}>\n    <CDNIcon \n        color='var(--color-light-neutral-translucent-1300)' \n        name='glyph_diamonds_xxl' \n    />\n    <CDNIcon \n        color='var(--color-light-neutral-700)' \n        name='glyph_diamonds_m' \n    />\n    <CDNIcon \n        color='var(--color-light-neutral-500)' \n        name='glyph_diamonds_s' \n    />\n</Space>"
     }
   ]
 }

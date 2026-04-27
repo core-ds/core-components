@@ -288,11 +288,13 @@
   "demos": [
     {
       "title": "Высота",
-      "description": "Для компонента можно задать одну из механик изменения высоты:\n\n1. Зафиксировать минимальное и максимальное количество строк.\n2. Задать максимальную высоту.\n3. Сделать изменение высоты автоматическим.\n4. Предоставить пользователю возможность управлять высотой самостоятельно."
+      "description": "Для компонента можно задать одну из механик изменения высоты:\n\n1. Зафиксировать минимальное и максимальное количество строк.\n2. Задать максимальную высоту.\n3. Сделать изменение высоты автоматическим.\n4. Предоставить пользователю возможность управлять высотой самостоятельно.",
+      "desktop": "const OPTIONS = [\n    { key: '1', content: 'Нет' },\n    { key: '2', content: 'Внутри' },\n    { key: '3', content: 'Снаружи' },\n];\nrender(() => {\n    const [selected, setSelected] = React.useState(OPTIONS[1]);\n    const handleChange = ({ selected }) => {\n        if (selected) {\n            setSelected(selected);\n        }\n    };\n    const visibleLabel = selected.key !== '1';\n    const positionLabel = visibleLabel && selected.key !== '2' ? 'outer' : 'inner';\n    return (\n        <div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n            <Select\n                label='Лейбл'\n                allowUnselect={true}\n                block={true}\n                size={56}\n                options={OPTIONS}\n                Option={BaseOption}\n                onChange={handleChange}\n                selected={selected}\n            />\n            <Gap size={24} />\n            <Textarea\n                label={visibleLabel && 'Автоматическое изменение высоты'}\n                block={true}\n                labelView={positionLabel}\n            />\n            <Gap size={16} />\n            <Textarea\n                label={visibleLabel && 'Высота в три строки'}\n                minRows={3}\n                autosize={false}\n                block={true}\n                labelView={positionLabel}\n            />\n            <Gap size={16} />\n            <Textarea\n                label={visibleLabel && 'Ручное управление высотой'}\n                labelView={positionLabel}\n                autosize={false}\n                resize='vertical'\n                minRows={3}\n                block={true}\n            />\n        </div>\n    );\n});"
     },
     {
       "title": "Максимальное количество символов",
-      "description": "Можно ограничить количество вводимых символов."
+      "description": "Можно ограничить количество вводимых символов.",
+      "desktop": "<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n    <Textarea label='Label' block={true} minRows={3} maxLength={96} showCounter={true} />\n</div>"
     }
   ]
 }

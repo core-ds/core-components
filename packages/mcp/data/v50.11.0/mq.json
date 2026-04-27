@@ -54,7 +54,8 @@
   "demos": [
     {
       "title": "Пример",
-      "description": "В этом примере при изменении ширины окна браузера кнопка будет переключаться между мобильной и десктопной версией."
+      "description": "В этом примере при изменении ширины окна браузера кнопка будет переключаться между мобильной и десктопной версией.",
+      "desktop": "<div>\n    <Mq query='--mobile'>\n        <Button breakpoint={BREAKPOINT} >Мобильная кнопка</Button>\n    </Mq>\n    <Mq query='--tablet-s'>\n        <Button breakpoint={BREAKPOINT} >Десктопная кнопка</Button>\n    </Mq>\n</div>"
     }
   ]
 }

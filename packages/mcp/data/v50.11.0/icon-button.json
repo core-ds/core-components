@@ -143,19 +143,23 @@
   "demos": [
     {
       "title": "Виды кнопок",
-      "description": "Primary, secondary, tertiary, negative."
+      "description": "Primary, secondary, tertiary, negative.",
+      "desktop": "<Container>\n    <Row>\n        {['primary', 'secondary', 'tertiary', 'negative'].map((view) => (\n            <Col key={view}>\n                <IconButton view={view} size={32} icon={DiamondsMIcon} />\n            </Col>\n        ))}\n    </Row>\n</Container>"
     },
     {
       "title": "Размеры компонента",
-      "description": "Рекомендуется использовать один из пяти размеров, в зависимости от контекста."
+      "description": "Рекомендуется использовать один из пяти размеров, в зависимости от контекста.",
+      "desktop": "<Space direction='horizontal' size={[20]}>\n    {[56, 48, 40, 32, 24].map((size) => (\n        <IconButton\n            key={size}\n            view='primary'\n            size={size}\n            icon={DiamondsMIcon}\n            style={{\n                backgroundColor: 'rgba(55, 120, 251, 0.1)',\n                borderRadius: 0,\n            }}\n        />\n    ))}\n</Space>"
     },
     {
       "title": "Размеры иконки",
-      "description": "Допускается использовать иконку 24 и 16 размера."
+      "description": "Допускается использовать иконку 24 и 16 размера.",
+      "desktop": "<Space direction='horizontal' size={[20]}>\n    <IconButton\n        view='primary'\n        size={56}\n        icon={DiamondsMIcon}\n        style={{\n            backgroundColor: 'rgba(55, 120, 251, 0.1)',\n            borderRadius: 0,\n        }}\n    />\n    <IconButton\n        view='primary'\n        size={56}\n        icon={DiamondsSIcon}\n        style={{\n            backgroundColor: 'rgba(55, 120, 251, 0.1)',\n            borderRadius: 0,\n        }}\n    />\n</Space>"
     },
     {
       "title": "Обработка событий",
-      "description": "С помощью свойства `loading` можно отобразить состояние загрузки. Минимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала»."
+      "description": "С помощью свойства `loading` можно отобразить состояние загрузки. Минимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».",
+      "desktop": "render(() => {\n    const [loading, setLoading] = React.useState({\n        primary: false,\n        secondary: false,\n    });\n\n    const handleClick = (buttonName, timeout) => {\n        setLoading({ ...loading, [buttonName]: true });\n        setTimeout(() => {\n            setLoading({ ...loading, [buttonName]: false });\n        }, timeout);\n    };\n\n    return (\n        <Container>\n            <Row>\n                <Col>\n                    <IconButton\n                        view='primary'\n                        size={32}\n                        icon={DiamondsMIcon}\n                        loading={loading.primary}\n                        onClick={() => handleClick('primary', 30)}\n                    />\n                </Col>\n                <Col>\n                    <IconButton\n                        view='secondary'\n                        size={32}\n                        icon={DiamondsMIcon}\n                        loading={loading.secondary}\n                        onClick={() => handleClick('secondary', 1500)}\n                    />\n                </Col>\n            </Row>\n        </Container>\n    );\n});"
     }
   ]
 }

@@ -179,11 +179,13 @@
   "demos": [
     {
       "title": "Анатомия",
-      "description": "Ячейка состоит из кастомизируемого слота и контрола. У ячейки можно настроить фон, скругление и отступ от контрола."
+      "description": "Ячейка состоит из кастомизируемого слота и контрола. У ячейки можно настроить фон, скругление и отступ от контрола.",
+      "desktop": "render(() => {\n    const renderItem = () => {\n        return (\n            <div\n                style={{\n                    background: 'rgba(55, 120, 251, 0.1)',\n                    border: '1px dashed #3778FB',\n                    height: 48,\n                    boxSizing: 'border-box',\n                }}\n            />\n        );\n    };\n\n    return (\n        <div style={{ maxWidth: 340 }}>\n            <SortableList items={[{ id: 0, disabled: true }]} renderItem={renderItem} />\n        </div>\n    );\n});"
     },
     {
       "title": "Примеры",
-      "description": "Для враппера можно настроить внутренние отступы и фон."
+      "description": "Для враппера можно настроить внутренние отступы и фон.",
+      "desktop": "render(() => {\n    const [items, setItems] = React.useState(() =>\n        [1, 2, 3, 4, 5, 6].map((item) => ({ id: item })),\n    );\n\n    const renderItem = (item) => {\n        return (\n            <GenericWrapper alignItems='center' padding={{ top: 12, bottom: 12, left: 16 }}>\n                <GenericWrapper>\n                    <SuperEllipse size={48}>\n                        <DiamondsMIcon />\n                    </SuperEllipse>\n                </GenericWrapper>\n                <Gap size={16} direction='horizontal' />\n                <GenericWrapper>\n                    <GenericWrapper column>\n                        <Typography.Text view='component-primary'>{`Элемент списка ${item.id}`}</Typography.Text>\n                        <Gap size={4} />\n                        <Typography.Text view='primary-small' color='secondary'>\n                            Перетащи меня\n                        </Typography.Text>\n                    </GenericWrapper>\n                </GenericWrapper>\n            </GenericWrapper>\n        );\n    };\n\n    return (\n        <div style={{ maxWidth: 350 }}>\n            <SortableList\n                items={items}\n                onDragEnd={(_, newIds) => setItems(newIds)}\n                padding={8}\n                borderRadius={8}\n                controlPadding={12}\n                renderItem={renderItem}\n            />\n        </div>\n    );\n});"
     }
   ]
 }

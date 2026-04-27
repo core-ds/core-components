@@ -137,15 +137,18 @@
   "demos": [
     {
       "title": "Анатомия",
-      "description": "Компонент состоит из только 3 слотов: Control - элемента управления, Header - основной элемент для отображения содержимого и Body - содержимое.\nСлоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку."
+      "description": "Компонент состоит из только 3 слотов: Control - элемента управления, Header - основной элемент для отображения содержимого и Body - содержимое.\nСлоты могут принимать в себя как готовые компоненты, так и кастомную вёрстку.",
+      "desktop": "<Accordion\n        className='accordion-wrapper'\n        header={<div className='accordion-header' />}\n        control={<div className='accordion-control' />}\n    >\n        <div className='accordion-body' />\n    </Accordion>"
     },
     {
       "title": "Контрол",
-      "description": "Control может быть в виде кнопки, иконки или любым другим интерактивным элементом, который инициирует раскрытие или сворачивание секции.\nПо умолчанию Control размещается сбоку справа от Header, но может располагаться и слева, что больше напоминает дерево."
+      "description": "Control может быть в виде кнопки, иконки или любым другим интерактивным элементом, который инициирует раскрытие или сворачивание секции.\nПо умолчанию Control размещается сбоку справа от Header, но может располагаться и слева, что больше напоминает дерево.",
+      "desktop": "render(() => {\n    const [controlPosition, setControlPosition] = React.useState('end');\n\n    const handleControlPositionChange = React.useCallback((_, payload) => {\n        setControlPosition(payload.value);\n    }, []);\n\n    return <Space>\n        <Accordion\n            className='accordion-wrapper'\n            header={<div className='accordion-header' />}\n            controlPosition={controlPosition}\n        >\n            <div className='accordion-body' />\n        </Accordion>\n\n        <Accordion\n            className='accordion-wrapper'\n            header={<div className='accordion-header' />}\n            controlPosition={controlPosition}\n        >\n            <div className='accordion-body' />\n        </Accordion>\n\n        <Accordion\n            className='accordion-wrapper'\n            header={<div className='accordion-header' />}\n            controlPosition={controlPosition}\n        >\n            <div className='accordion-body' />\n        </Accordion>\n\n        <RadioGroup\n            label='Расположение контрола'\n            direction='vertical'\n            name='radioGroup'\n            onChange={handleControlPositionChange}\n            value={controlPosition}\n        >\n            <Radio size={24} label='Справа' value='end' />\n            <Radio size={24} label='Слева' value='start' />\n        </RadioGroup>\n    </Space>\n})"
     },
     {
       "title": "Примеры",
-      "description": "В качестве пресетов в компонент заложены текстовые контейнеры, как самый распространённый вариант использования."
+      "description": "В качестве пресетов в компонент заложены текстовые контейнеры, как самый распространённый вариант использования.",
+      "desktop": "render(() => {\n    return <Space>\n        <Accordion\n            header='Зачем нужен аккордeон?'\n            className='accordion-container'\n        >\n            Используется для создания интерактивных списков,\n            которые можно разворачивать и сворачивать для\n            отображения дополнительной информации.\n        </Accordion>\n\n        <Accordion\n            header='Когда лучше использовать аккордeон?'\n            className='accordion-container'\n        >\n            Подходит для организации сложной информации в ограниченном пространстве,\n            представления большого объема данных, иерархической структуры с\n            возможностью скрытия и открытия разделов,\n            удовлетворения потребностей пользователей в доступе к информации\n            по запросу и просмотра нескольких связанных разделов контента.\n        </Accordion>\n    </Space>\n})"
     }
   ]
 }

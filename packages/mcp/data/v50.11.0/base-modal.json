@@ -338,7 +338,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": ""
+      "description": "",
+      "desktop": "render(() => {\n    const [open, setOpen] = React.useState(false);\n    const handleModalOpen = () => setOpen(!open);\n\n    return (\n        <>\n            <Button\n                size={56}\n                onClick={handleModalOpen}\n                block={isMobile()}\n                breakpoint={BREAKPOINT}\n            >\n                Показать BaseModal\n            </Button>\n\n            <BaseModal open={open} onClose={handleModalOpen}>\n                <div style={{ padding: '100px' }}>BaseModal</div>\n            </BaseModal>\n        </>\n    );\n});"
     }
   ]
 }

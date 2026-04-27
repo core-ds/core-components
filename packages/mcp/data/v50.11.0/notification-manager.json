@@ -72,7 +72,8 @@
   "demos": [
     {
       "title": "Пример",
-      "description": "В этом примере можно вызвать сразу несколько уведомлений."
+      "description": "В этом примере можно вызвать сразу несколько уведомлений.",
+      "desktop": "render(() => {\n    const [notifications, setNotifications] = React.useState([]);\n\n    const [count, setCount] = React.useState(1);\n\n    const getColorBadge = (num) => {\n        if (num % 3 === 1) {\n            return 'positive-checkmark';\n        }\n        if (num % 3 === 2) {\n            return 'attention-alert';\n        }\n        return 'negative-cross';\n    };\n\n    const addNotification = () => {\n        const newNotification = (\n            <Notification\n                badge={getColorBadge(count)}\n                title={`Уведомление #${count}`}\n                autoCloseDelay={3000}\n                id={count.toString()}\n                key={count.toString()}\n                zIndex={1000 + count}\n            >\n                Описание уведомления\n            </Notification>\n        );\n\n        setNotifications([...notifications, newNotification]);\n        setCount((val) => val + 1);\n    };\n\n    const removeNotification = React.useCallback((id) => {\n        /**\n         * Обратите внимание, что актуальный массив нотификаций\n         * нужно брать из аргументов функции обновления состояния.\n         */\n        setNotifications((actualNotifications) =>\n            actualNotifications.filter((notification) => notification.props.id !== id),\n        );\n    }, []);\n\n    return (\n        <div>\n            <Button onClick={addNotification}>Показать уведомление</Button>\n            <NotificationManager\n                notifications={notifications}\n                onRemoveNotification={removeNotification}\n            />\n        </div>\n    );\n});"
     }
   ]
 }

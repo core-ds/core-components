@@ -76,7 +76,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": "Компонент поддерживает все параметры из [CSSTransition](http://reactcommunity.org/react-transition-group/css-transition)."
+      "description": "Компонент поддерживает все параметры из [CSSTransition](http://reactcommunity.org/react-transition-group/css-transition).",
+      "desktop": "render(() => {\n    const [open, setOpen] = React.useState(false);\n\n    return (\n        <div style={{ zIndex: 1, position: 'relative' }}>\n            <Button\n                onClick={() => setOpen(!open)}\n                size={56}\n                block={isMobile()}\n                breakpoint={BREAKPOINT}\n            >\n                {open ? 'Закрыть Backdrop' : 'Показать Backdrop'}\n            </Button>\n            <Backdrop open={open} onClick={() => setOpen(false)} />\n        </div>\n    );\n});"
     }
   ]
 }

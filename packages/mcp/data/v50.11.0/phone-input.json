@@ -355,7 +355,8 @@
   "demos": [
     {
       "title": "Пример",
-      "description": ""
+      "description": "",
+      "desktop": "<div style={{ width: isMobile() ? '100%' : 320 }}>\n    <PhoneInput\n        placeholder='+7 000 000 00 00'\n        label='Телефонный номер'\n        labelView={isMobile() ? 'outer' : 'inner'}\n        size={isMobile() ? 48 : 56}\n        breakpoint={BREAKPOINT}\n        block={true}\n    />\n</div>"
     }
   ]
 }

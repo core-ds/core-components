@@ -141,7 +141,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": "Для компонента можно настроить текст-плейсхолдер, размер и лейбл кнопки. Рекомендуем прикреплять для тестов тяжелый файл, иначе загрузка будет мгновенной."
+      "description": "Для компонента можно настроить текст-плейсхолдер, размер и лейбл кнопки. Рекомендуем прикреплять для тестов тяжелый файл, иначе загрузка будет мгновенной.",
+      "desktop": "render(() => {\n    const [multiple, setMultiple] = React.useState(false);\n    const [progress, setProgress] = React.useState(0);\n\n    const simulateProgress = () => {\n        const interval = setInterval(() => {\n            setProgress((prevProgress) => {\n                if (prevProgress === 100) {\n                    clearInterval(interval);\n                    return 100;\n                }\n                return prevProgress + 1;\n            });\n        }, 100);\n  };\n  \n    const handleChange = () => {\n        simulateProgress()\n    };\n    \n    return (\n        <Space size={24} >\n        <Attach \n            size={56} \n            onChange={handleChange}\n            multiple={multiple} \n            maxFilenameLength={isMobile() ? 10 : undefined}\n            progressBarPercent={progress === 100 ? null : progress}\n            buttonProps={{\n                breakpoint: BREAKPOINT,\n                nowrap: true,\n            }}\n        />\n        <Switch\n            block={true}\n            checked={multiple}\n            label='Несколько файлов'\n            onChange={() => setMultiple(!multiple)}\n        />\n        </Space>\n    );\n});"
     }
   ]
 }

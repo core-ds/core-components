@@ -624,7 +624,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": ""
+      "description": "",
+      "desktop": "const options = [{ key: 'Car' }, { key: 'Star' }, { key: 'Flower' }, { key: 'Banknote' }];\n\nconst optionsWithIcons = [\n    { key: 'Car', icon: CarMIcon },\n    { key: 'Star', icon: StarMIcon },\n    { key: 'Flower', icon: FlowerMMIcon },\n    { key: 'Banknote', icon: BanknoteMIcon },\n];\n\nrender(\n    <Space direction='horizontal'>\n        <CustomPickerButtonDesktop\n            backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)'\n            options={optionsWithIcons}\n            label='Picker button'\n        />\n        <CustomPickerButtonDesktop\n            backgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)'\n            options={options}\n            variant='compact'\n        />\n    </Space>,\n);"
     }
   ]
 }

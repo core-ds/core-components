@@ -6,11 +6,13 @@
   "demos": [
     {
       "title": "Анатомия",
-      "description": "Компонент состоит из кастомизируемого слота под маркер и текстовой части."
+      "description": "Компонент состоит из кастомизируемого слота под маркер и текстовой части.",
+      "desktop": "render(() => {\n    const styleContent = {\n        width: '24px',\n        height: '24px',\n        borderRadius: '8px',\n        backgroundColor: 'rgba(55, 120, 251, 0.1)',\n        border: '1px dashed rgb(55, 120, 251)',\n        boxSizing: 'border-box',\n    };\n\n    return (\n        <Container>\n            <Row align='middle'>\n                <div style={styleContent}></div>\n                <Typography.Text view='primary-medium'>Пример текстовой части</Typography.Text>\n            </Row>\n        </Container>\n    );\n});"
     },
     {
       "title": "Примеры",
-      "description": "Доступны нумерованные и маркированные виды списков.\nПри необходимости, цвет маркера можно изменить. Каждому пункту можно добавить подпись."
+      "description": "Доступны нумерованные и маркированные виды списков.\nПри необходимости, цвет маркера можно изменить. Каждому пункту можно добавить подпись.",
+      "desktop": "<Space>\n    <Typography.Text view='primary-medium'>Пример маркированного списка:</Typography.Text>\n    <List tag='ul' marker='–'>\n        <List.Item>Пример элемента списка</List.Item>\n        <List.Item>Пример элемента списка</List.Item>\n        <List.Item>Пример элемента списка</List.Item>\n        <List.Item>Пример элемента списка</List.Item>\n        <List.Item>Пример элемента списка</List.Item>\n    </List>\n    <Typography.Text view='primary-medium'>Пример нумерованного списка:</Typography.Text>\n\n    <List tag='ol' colorMarker='tertiary'>\n        <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n        <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n        <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n        <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n        <List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n    </List>\n</Space>"
     }
   ]
 }

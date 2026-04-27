@@ -301,7 +301,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": "Для плашки можно включить скругление и обводку. Наличие скругления влияет на формат обводки."
+      "description": "Для плашки можно включить скругление и обводку. Наличие скругления влияет на формат обводки.",
+      "desktop": "render(() => {\n    const [border, setBorder] = React.useState(true);\n    const [rounded, setRounded] = React.useState(true);\n    return (\n        <div style={{ height: isMobile() ? 110 : 150 }}>\n            <Plate\n                view='positive'\n                title='Пример уведомления'\n                border={border}\n                rounded={rounded}\n                subAddons={!isMobile() && [<Button>Подробнее</Button>]}\n                buttons={isMobile() && [<Button>Подробнее</Button>]}\n                leftAddons={\n                    <StatusBadge view='positive-checkmark' />\n                }\n                breakpoint={BREAKPOINT}\n            />\n            <Gap size={24} />\n            <Switch\n                block={true}\n                checked={rounded}\n                label='Скругление'\n                onChange={() => setRounded(!rounded)}\n            />\n            <Gap size={16} />\n            <Switch\n                block={true}\n                checked={border}\n                label='Обводка'\n                onChange={() => setBorder(!border)}\n            />\n        </div>\n    );\n});"
     }
   ]
 }

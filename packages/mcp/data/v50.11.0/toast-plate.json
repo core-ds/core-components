@@ -193,7 +193,8 @@
   "demos": [
     {
       "title": "Кастомные иконки",
-      "description": "Компонент может принимать кастомные иконки"
+      "description": "Компонент может принимать кастомные иконки",
+      "desktop": "render(() => {\n    const isMobile = document.body.clientWidth < 450;\n\n    const customIcons = {\n        'positive-checkmark': {\n            24: AScoresCircleMIcon,\n        },\n    };\n\n    return (\n        <ToastPlate\n            badge='positive-checkmark'\n            title='Поздравляем, полный успех'\n            hasCloser={true}\n            block={true}\n            bottomButtonPosition={isMobile}\n            onClose={Function.prototype}\n            actionButton={\n                <Button colors='inverted' view='text' size={isMobile ? 40 : 48}>\n                    Восстановить\n                </Button>\n            }\n            getBadgeIcons={customIcons}\n        />\n    );\n});"
     }
   ]
 }

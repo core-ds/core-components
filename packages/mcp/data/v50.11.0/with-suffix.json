@@ -106,7 +106,8 @@
   "demos": [
     {
       "title": "Пример",
-      "description": "HOC добавляет в переданный инпут доп. пропсу `suffix?: ReactNode`."
+      "description": "HOC добавляет в переданный инпут доп. пропсу `suffix?: ReactNode`.",
+      "desktop": "const SuffixInput = withSuffix(Input);\n\nrender(\n    <div style={{ width: 320 }}>\n        <SuffixInput\n            block={true}\n            placeholder='Введите число'\n            label='Количество месяцев'\n            labelView={isMobile() ? 'outer' : 'inner'}\n            suffix={<Typography.Text view='component-primary' color='secondary'> мес</Typography.Text> }\n            size={isMobile() ? 48 : 56}\n            breakpoint={BREAKPOINT}/>\n    </div>\n);"
     }
   ]
 }

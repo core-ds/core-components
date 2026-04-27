@@ -92,7 +92,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": "Компонент может отобразить от двух до пяти табов."
+      "description": "Компонент может отобразить от двух до пяти табов.",
+      "desktop": "render(() => {\n    const [border, setBorder] = React.useState(false);\n    const [selectedId, setSelectedId] = React.useState('1');\n\n    return (\n        <div\n            style={{\n                minHeight: 105,\n                display: 'flex',\n                flexDirection: 'column',\n                justifyContent: 'space-between',\n            }}\n        >\n            <Switch label='Бордер' checked={border} onChange={() => setBorder((p) => !p)} />\n\n            <div style={{ margin: '0 -20px -20px' }}>\n                <TabBar selectedId={selectedId} onChange={setSelectedId} border={border}>\n                    <TabBar.Tab id='1' label='TabName1' icon={<DiamondsMIcon />} />\n                    <TabBar.Tab id='2' label='TabName2' icon={<DiamondsMIcon />} />\n                </TabBar>\n            </div>\n        </div>\n    );\n});"
     }
   ]
 }

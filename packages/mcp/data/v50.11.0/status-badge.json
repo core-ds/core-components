@@ -65,11 +65,13 @@
   "demos": [
     {
       "title": "Виды статусов",
-      "description": "Компонент доступен в пяти размерах. Представленный ниже набор комбинаций иконки и цвета является единым для всех продуктов.\nЕсли нужной конфигурации нет, её придётся собрать на основе компонента [IconView](?path=/docs/iconview--docs)."
+      "description": "Компонент доступен в пяти размерах. Представленный ниже набор комбинаций иконки и цвета является единым для всех продуктов.\nЕсли нужной конфигурации нет, её придётся собрать на основе компонента [IconView](?path=/docs/iconview--docs).",
+      "desktop": "<div>\n    {[\n        'negative-cross',\n        'negative-block',\n        'negative-alert',\n        'attention-alert',\n        'positive-checkmark',\n        'neutral-information',\n        'neutral-cross',\n        'neutral-operation',\n    ].map((view) => (\n        <React.Fragment key={view}>\n            <Space size={20} align='center' direction={isMobile() ? 'horizontal' : 'vertical'}>\n                {[40, 32, 24, 20, 16].map((size) => (\n                    <StatusBadge key={size} view={view} size={size} />\n                ))}\n            </Space>\n            <Gap size={20} direction={isMobile() ? 'vertical' : 'horizontal'} />\n        </React.Fragment>\n    ))}\n</div>"
     },
     {
       "title": "Кастомные иконки",
-      "description": "Статусы могут содержать кастомные иконки"
+      "description": "Статусы могут содержать кастомные иконки",
+      "desktop": "render(() => {\n    const sizes = [16, 20, 24, 32, 40];\n    const customIcons = {\n        'positive-checkmark': {\n            16: AScoresCircleMIcon,\n            20: AScoresCircleMIcon,\n            24: AScoresCircleMIcon,\n            32: AScoresCircleMIcon,\n            40: AScoresCircleMIcon,\n        },\n    };\n    return (\n        <React.Fragment>\n            <Space size={20} align='center' direction={isMobile() ? 'horizontal' : 'vertical'}>\n                {sizes.reverse().map((size) => {\n                    return (\n                        <StatusBadge\n                            key={size}\n                            view={'positive-checkmark'}\n                            size={size}\n                            customIcons={customIcons}\n                        />\n                    );\n                })}\n            </Space>\n        </React.Fragment>\n    );\n});"
     }
   ]
 }

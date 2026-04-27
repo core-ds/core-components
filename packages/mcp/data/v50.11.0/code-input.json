@@ -141,7 +141,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": "Компонент поддерживает автоподстановку кода из СМС в браузерах с поддержкой WebOTP Api."
+      "description": "Компонент поддерживает автоподстановку кода из СМС в браузерах с поддержкой WebOTP Api.",
+      "desktop": "<Container align = {isMobile() ? 'center' : 'left'}>\n    <CodeInput fields={isMobile() ? 4 : 5} breakpoint={BREAKPOINT}/>\n</Container>"
     }
   ]
 }

@@ -72,15 +72,18 @@
   "demos": [
     {
       "title": "Размер",
-      "description": "Компонент занимает заданную высоту, подстраивая под неё свои отступы и стиль текста."
+      "description": "Компонент занимает заданную высоту, подстраивая под неё свои отступы и стиль текста.",
+      "desktop": "const styles = {\n    display: 'flex',\n    justifyContent: 'center',\n    gap: '20px',\n    width: 342,\n    padding: 20,\n    backgroundColor: 'var(--color-light-base-bg-secondary)',\n    borderRadius: '12px',\n    boxSizing: 'border-box',\n    alignItems: 'center',\n};\n\nrender(\n    <Container>\n        <div style={styles}>\n            <Indicator height={48} value={1} view='red' />\n            <Indicator height={40} value={1} view='red' />\n            <Indicator height={32} value={1} view='red' />\n            <Indicator height={24} value={1} view='red' />\n            <Indicator height={20} value={1} view='red' />\n            <Indicator height={16} value={1} view='red' />\n            <Indicator view='red' />\n        </div>\n    </Container>\n);"
     },
     {
       "title": "Виды индикатора",
-      "description": "Индикатор имеет три преднастроенных вида."
+      "description": "Индикатор имеет три преднастроенных вида.",
+      "desktop": "render(() => {\nconst [border, setBorder] = React.useState(false);\n\nconst styles = {\n    display: 'flex',\n    justifyContent: 'center',\n    gap: '20px',\n    width: 169,\n    padding: 20,\n    backgroundColor: 'var(--color-light-base-bg-secondary)',\n    borderRadius: '12px',\n    boxSizing: 'border-box',\n    alignItems: 'center',\n};\n    return (\n        <Container>\n\n            <div style={styles}>\n                <Indicator height={24} value={1} view='red' border={border} />\n                <Indicator height={24} value={99} view='red' border={border} />\n                <Indicator height={24} value={100} view='red' border={border} />\n            </div>\n            <Gap size={8} />\n            <div style={styles}>\n                <Indicator height={24} value={1} view='grey' border={border} />\n                <Indicator height={24} value={99} view='grey' border={border} />\n                <Indicator height={24} value={100} view='grey' border={border} />\n            </div>\n            <Gap size={8} />\n            <div style={styles}>\n                <Indicator height={24} value={1} view='white' border={border} />\n                <Indicator height={24} value={99} view='white' border={border} />\n                <Indicator height={24} value={100} view='white' border={border} />\n            </div>\n            <Gap size={24} />\n            <Switch\n                block={true}\n                checked={border}\n                label='Обводка'\n                onChange={() => setBorder(!border)}\n            />\n        </Container>\n    );\n});"
     },
     {
       "title": "Кастомизация",
-      "description": "При необходимости, можно задать индикатору кастомный фон, цвет текста, цвет и толщину обводки."
+      "description": "При необходимости, можно задать индикатору кастомный фон, цвет текста, цвет и толщину обводки.",
+      "desktop": "const styles = {\n    display: 'flex',\n    justifyContent: 'center',\n    gap: '20px',\n    width: 108,\n    padding: 20,\n    backgroundColor: 'var(--color-light-base-bg-secondary)',\n    borderRadius: '12px',\n    boxSizing: 'border-box',\n    alignItems: 'center',\n};\n\nrender(\n    <Container>\n        <div style={styles}>\n            <Indicator\n                value={1}\n                height={24}\n                backgroundColor='var(--color-light-status-attention)'\n                color='var(--color-light-status-negative)'\n                border={{\n                    width: 4,\n                    color: 'var(--color-light-status-negative)',\n                }}\n            />\n            <Indicator\n                value={1}\n                height={24}\n                backgroundColor='var(--color-light-base-bg-primary)'\n                color='var(--color-light-status-info)'\n                border={{\n                    width: 2,\n                    color: 'var(--color-light-status-info)',\n                }}\n            />\n        </div>\n    </Container>\n);"
     }
   ]
 }

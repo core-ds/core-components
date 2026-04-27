@@ -56,7 +56,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": ""
+      "description": "",
+      "desktop": "render(() => {\n    const [direction, setDirection] = React.useState('horizontal');\n\n    const stylesAddon={\n        width: '64px',\n        height: '64px',\n        borderRadius: '8px',\n        backgroundColor: 'rgba(38, 55, 88, 0.06)',\n        boxSizing: 'border-box',\n    }\n    \n    const stylesWrapper = {\n        display: 'flex',\n        flexDirection: direction === 'vertical' ? 'column' : 'row',\n    }\n\n    return (\n        <div>\n            <div style={stylesWrapper}>\n                <div style={stylesAddon}/>\n                <Gap size={16} direction={direction} />\n                <div style={stylesAddon}/>\n                <Gap size={16} direction={direction} />\n                <div style={stylesAddon}/>\n            </div>\n            <Gap size={24} />\n            <RadioGroup\n                label='Лейаут'\n                direction='vertical'\n                name='radioGroupFirst'\n                onChange={(_, { value }) => setDirection(value)}\n                value={direction}\n            >\n                <Radio label='Горизонтальный' value='horizontal' />\n                <Radio label='Вертикальный' value='vertical' />\n            </RadioGroup>\n        </div>\n    );\n});"
     }
   ]
 }

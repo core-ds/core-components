@@ -169,7 +169,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": ""
+      "description": "",
+      "desktop": "render(() => {\n    const getChildStyle = (bgColor) => ({\n        height: 80,\n        textAlign: 'center',\n        lineHeight: '80px',\n        fontSize: 40,\n        fontWeight: 700,\n        color: 'var(--color-light-text-tertiary)',\n        background: `var(${bgColor})`,\n    });\n    return (\n        <div style={{ height: 240, margin: 'var(--gap-20-neg)' }}>\n            <Scrollbar style={{ height: '100%' }} autoHide={false}>\n                {new Array(51).fill(null).map((_, idx) => {\n                    const style = getChildStyle(\n                        idx % 2 === 0 ? '--color-light-neutral-200' : '--color-light-base-bg-secondary',\n                    );\n                    return (\n                        <div key={idx} style={style}>\n                            {idx + 1}\n                        </div>\n                    );\n                })}\n            </Scrollbar>\n        </div>\n    );\n});"
     }
   ]
 }

@@ -60,19 +60,23 @@
   "demos": [
     {
       "title": "PageIndicatorDynamic",
-      "description": "Доступен в двух размерах: 6 и 8 рх."
+      "description": "Доступен в двух размерах: 6 и 8 рх.",
+      "desktop": "render(() => {\n    const elements = 7;\n    const [active, setActive] = React.useState(true);\n    const toggleActive = () => setActive((active) => !active);\n    const [activeElement, setActiveElement] = React.useState(0);\n    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));\n    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));\n    const duration = (index) => (index % 2 === 0 ? 2000 : 4000);\n\n    return (\n        <div>\n            <Container>\n                <PageIndicatorDynamic\n                    size={8}\n                    activeElement={activeElement}\n                    elements={elements}\n                    onActiveElementChange={setActiveElement}\n                    active={active}\n                    cycle={true}\n                    duration={duration}\n                />\n                <Gap size={8} />\n                <PageIndicatorDynamic\n                    size={6}\n                    activeElement={activeElement}\n                    elements={elements}\n                    active={active}\n                    duration={duration}\n                />\n            </Container>\n            <Row style={{ gap: 'var(--gap-xs)' }}>\n                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />\n                <Button\n                    leftAddons={active ? <PauseCompactMIcon /> : <PlayCompactMIcon />}\n                    onClick={toggleActive}\n                />\n                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />\n            </Row>\n        </div>\n    );\n});"
     },
     {
       "title": "PageIndicatorBullet",
-      "description": "Доступен в двух размерах, 6 и 8 рх. В зависимости от количества элементов, меняется анимация и внешний вид индикатора.\n\nМеньше шести элементов."
+      "description": "Доступен в двух размерах, 6 и 8 рх. В зависимости от количества элементов, меняется анимация и внешний вид индикатора.\n\nМеньше шести элементов.",
+      "desktop": "render(() => {\n    const elements = 5;\n    const [activeElement, setActiveElement] = React.useState(0);\n    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));\n    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));\n\n    return (\n        <div>\n            <Container>\n                <PageIndicatorBullet size={8} activeElement={activeElement} elements={elements} />\n                <Gap size={8} />\n                <PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />\n            </Container>\n            <Row style={{ gap: 'var(--gap-xs)' }}>\n                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />\n                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />\n            </Row>\n        </div>\n    );\n});"
     },
     {
       "title": "PageIndicatorStep",
-      "description": "Доступен в одном размере. Ширина подстраивается под ширину контейнера."
+      "description": "Доступен в одном размере. Ширина подстраивается под ширину контейнера.",
+      "desktop": "render(() => {\n    const elements = 5;\n    const [activeElement, setActiveElement] = React.useState(0);\n    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));\n    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));\n\n    return (\n        <div>\n            <div style={{ width: 168 }}>\n                <PageIndicatorStep size={4} activeElement={activeElement} elements={elements} />\n            </div>\n            <Row style={{ gap: 'var(--gap-xs)' }}>\n                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />\n                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />\n            </Row>\n        </div>\n    );\n});"
     },
     {
       "title": "PageIndicatorRunner",
-      "description": "Доступен в одном размере. Ширина подстраивается под ширину контейнера."
+      "description": "Доступен в одном размере. Ширина подстраивается под ширину контейнера.",
+      "desktop": "render(() => {\n    const elements = 5;\n    const [activeElement, setActiveElement] = React.useState(0);\n    const handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));\n    const handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));\n\n    return (\n        <div>\n            <div style={{ width: 168 }}>\n                <PageIndicatorRunner size={4} activeElement={activeElement} elements={elements} />\n            </div>\n            <Row style={{ gap: 'var(--gap-xs)' }}>\n                <Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />\n                <Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />\n            </Row>\n        </div>\n    );\n});"
     }
   ]
 }

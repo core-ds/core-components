@@ -43,7 +43,8 @@
   "demos": [
     {
       "title": "Примеры",
-      "description": ""
+      "description": "",
+      "desktop": "<div style={{ width: 290 }}>\n    <Comment>Короткий комментарий</Comment>\n    <Gap size={16} />\n    <Comment>Длинный комментарий без ограничения по количеству строк</Comment>\n    <Gap size={16} />\n    <Comment rowLimit={2}>Длинный комментарий с ограничением по количеству строк</Comment>\n</div>"
     }
   ]
 }

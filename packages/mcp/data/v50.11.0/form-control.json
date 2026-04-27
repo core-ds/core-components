@@ -229,27 +229,33 @@
   "demos": [
     {
       "title": "Размеры",
-      "description": "Компонент доступен в размерах 72, 64, 56, 48, 40."
+      "description": "Компонент доступен в размерах 72, 64, 56, 48, 40.",
+      "desktop": "<div style={{ width: 320 }}>\n    <FormControl\n        block={true}\n        label='Label'\n        labelView={isMobile() ? 'outer' : 'inner'}\n        size={76}\n        breakpoint={BREAKPOINT}\n    />\n    <Gap size={16} />\n    <FormControl\n        block={true}\n        label='Label'\n        labelView={isMobile() ? 'outer' : 'inner'}\n        size={64}\n        breakpoint={BREAKPOINT}\n    />\n    <Gap size={16} />\n    <FormControl\n        block={true}\n        label='Label'\n        labelView={isMobile() ? 'outer' : 'inner'}\n        size={56}\n        breakpoint={BREAKPOINT}\n    />\n    <Gap size={16} />\n    <FormControl\n        block={true}\n        label='Label'\n        labelView={isMobile() ? 'outer' : 'inner'}\n        size={48}\n        breakpoint={BREAKPOINT}\n    />\n    <Gap size={16} />\n    <FormControl\n        block={true}\n        label='Label'\n        labelView={isMobile() ? 'outer' : 'inner'}\n        size={40}\n        breakpoint={BREAKPOINT}\n    />\n</div>"
     },
     {
       "title": "Лейбл",
-      "description": "Лейбл может быть размещен внутри либо снаружи инпута или отсутствовать."
+      "description": "Лейбл может быть размещен внутри либо снаружи инпута или отсутствовать.",
+      "desktop": "<div style={{ width: 320 }}>\n    <Input\n        block\n        placeholder='Placeholder'\n        label='Лейбл внутри'\n        size={isMobile() ? 48 : 56}\n        breakpoint={BREAKPOINT}\n    />\n    <Gap size={20} />\n    <Input\n        block\n        placeholder='Placeholder'\n        label='Лейбл снаружи'\n        size={isMobile() ? 48 : 56}\n        labelView='outer'\n        breakpoint={BREAKPOINT}\n    />\n    <Gap size={20} />\n    <Input block placeholder='Placeholder' size={isMobile() ? 48 : 56} breakpoint={BREAKPOINT} />\n</div>"
     },
     {
       "title": "Префиксы и суффиксы",
-      "description": "Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения."
+      "description": "Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения.",
+      "desktop": "render(() => {\n    const SuffixInputComponent = isMobile() ? withSuffix(InputMobile) : withSuffix(InputDesktop);\n\n    return (\n        <div style={{ width: 320 }}>\n            <SuffixInputComponent\n                value='Value'\n                block={true}\n                label='Label'\n                labelView={isMobile() ? 'outer' : 'inner'}\n                size={isMobile() ? 48 : 56}\n                suffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}\n                breakpoint={BREAKPOINT}\n            />\n        </div>\n    );\n});"
     },
     {
       "title": "Хинт",
-      "description": "Под полем ввода можно разместить подсказку."
+      "description": "Под полем ввода можно разместить подсказку.",
+      "desktop": "<div style={{ width: 320 }}>\n    <FormControl\n        block={true}\n        label='Label'\n        hint='Hint'\n        labelView={isMobile() ? 'outer' : 'inner'}\n        size={isMobile() ? 48 : 56}\n        breakpoint={BREAKPOINT}\n    />\n</div>"
     },
     {
       "title": "Аддоны",
-      "description": "С помощью `leftAddons` и `rightAddons` можно кастомизировать инпут. Каждый аддон может содержать до двух элементов.\nТип, приоритет расположения контента в слотах и механики взаимодействия описаны в спецификациях к конкретным типам инпутов."
+      "description": "С помощью `leftAddons` и `rightAddons` можно кастомизировать инпут. Каждый аддон может содержать до двух элементов.\nТип, приоритет расположения контента в слотах и механики взаимодействия описаны в спецификациях к конкретным типам инпутов.",
+      "desktop": "render(() => {\n    const styleWrapperIcons = {\n        height: '100%',\n        display: 'flex',\n        gap: 4,\n    };\n\n    return (\n        <div style={{ width: 320 }}>\n            <FormControl\n                block={true}\n                label='Label'\n                labelView={isMobile() ? 'outer' : 'inner'}\n                size={isMobile() ? 48 : 56}\n                breakpoint={BREAKPOINT}\n                leftAddons={\n                    <IconButton view='secondary' icon={DiamondsMIcon} size={32} alignIcon='left' />\n                }\n            />\n            <Gap size={20} />\n            <FormControl\n                block={true}\n                label='Label'\n                labelView={isMobile() ? 'outer' : 'inner'}\n                size={isMobile() ? 48 : 56}\n                breakpoint={BREAKPOINT}\n                rightAddons={\n                    <IconButton view='secondary' icon={DiamondsMIcon} size={32} alignIcon='right' />\n                }\n            />\n            <Gap size={20} />\n            <FormControl\n                block={true}\n                label='Label'\n                labelView={isMobile() ? 'outer' : 'inner'}\n                size={isMobile() ? 48 : 56}\n                breakpoint={BREAKPOINT}\n                leftAddons={\n                    <div style={{ ...styleWrapperIcons, marginLeft: 'var(--gap-8-neg)' }}>\n                        <IconButton\n                            view='secondary'\n                            icon={DiamondsMIcon}\n                            size={32}\n                            alignIcon='right'\n                        />\n                        <IconButton\n                            view='secondary'\n                            icon={DiamondsMIcon}\n                            size={32}\n                            alignIcon='left'\n                        />\n                    </div>\n                }\n                rightAddons={\n                    <div style={{ ...styleWrapperIcons, marginRight: 'var(--gap-8-neg)' }}>\n                        <IconButton\n                            view='secondary'\n                            icon={DiamondsMIcon}\n                            size={32}\n                            alignIcon='right'\n                        />\n                        <IconButton\n                            view='secondary'\n                            icon={DiamondsMIcon}\n                            size={32}\n                            alignIcon='left'\n                        />\n                    </div>\n                }\n            />\n        </div>\n    );\n});"
     },
     {
       "title": "BottomAddon",
-      "description": "При необходимости в BottomAddon может быть передан любой контент, например шкала для слайдера."
+      "description": "При необходимости в BottomAddon может быть передан любой контент, например шкала для слайдера.",
+      "desktop": "render(() => {\n    const [value, setValue] = React.useState(3);\n\n    return (\n        <div style={{ width: 320 }}>\n            <SliderInput\n                value={value}\n                label='Label'\n                labelView={isMobile() ? 'outer' : 'inner'}\n                size={isMobile() ? 48 : 56}\n                pips={{\n                    mode: 'values',\n                    values: [1, 10 / 2, 10],\n                }}\n                min={1}\n                max={10}\n                step={1}\n                block={true}\n                onChange={(_, { value }) => setValue(value)}\n                breakpoint={BREAKPOINT}\n            />\n        </div>\n    );\n});"
     }
   ]
 }

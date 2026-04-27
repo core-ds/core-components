@@ -21,7 +21,18 @@ export function generateDemo(docPath) {
         // текст между заголовком и блоком кода
         const description = section.slice(titleEnd, codeBlockStart).trim();
 
-        demos.push({ title, description });
+        // извлекаем содержимое блока кода
+        const codeStart = section.indexOf('\n', codeBlockStart) + 1;
+        const codeEnd = section.indexOf('\n```', codeStart);
+        const codeContent = section.slice(codeStart, codeEnd);
+
+        // код до //MOBILE — desktop, если //MOBILE нет — весь код
+        const mobileSplit = codeContent.search(/^\/\/MOBILE$/m);
+        const desktop = mobileSplit === -1
+            ? codeContent.trim()
+            : codeContent.slice(0, mobileSplit).trim();
+
+        demos.push({ title, description, desktop });
     }
 
     return demos;
