@@ -37,6 +37,8 @@ function main() {
             ).replace(/^ +/gm, ''),
         );
     });
+
+    console.log('☑️  Data generation done');
 }
 
 main();
