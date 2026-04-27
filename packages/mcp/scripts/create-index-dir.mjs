@@ -1,4 +1,4 @@
-import { readFileSync, mkdirSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const rootPackageJson = JSON.parse(
@@ -13,6 +13,11 @@ export function createIndexDir() {
 
     rmSync(versionDir, { recursive: true, force: true });
     mkdirSync(versionDir, { recursive: true });
+
+    writeFileSync(
+        resolve(process.cwd(), 'packages/mcp/src/version.ts'),
+        `export const DATA_VERSION = 'v${version}';\n`,
+    );
 
     console.log(`📁  Created directory: ${indexDir}`);
 

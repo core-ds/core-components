@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { readdirSync, readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { DATA_VERSION } from './version.js';
 
 const server = new McpServer({
     name: '@alfalab/core-components-mcp',
@@ -38,15 +39,7 @@ server.registerTool(
         description: 'List all available core-components with names and descriptions.',
     },
     async () => {
-        const dataDir = join(dirname(fileURLToPath(import.meta.url)), 'data');
-
-        const versions = readdirSync(dataDir, { withFileTypes: true })
-            .filter((d) => d.isDirectory())
-            .map((d) => d.name)
-            .sort();
-
-        const latestVersion = versions[versions.length - 1];
-        const versionDir = join(dataDir, latestVersion);
+        const versionDir = join(dirname(fileURLToPath(import.meta.url)), 'data', DATA_VERSION);
 
         const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
 
