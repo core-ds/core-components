@@ -13,7 +13,6 @@ function compactCode(code) {
 export function generateDemo(docPath) {
     const content = readFileSync(docPath, 'utf-8');
 
-    // формат демо {title: Заголовок, description: Описание демо, desktop: код для desktop, mobile: код для mobile }
     const demos = [];
 
     // разбиваем по заголовкам второго уровня
