@@ -34,7 +34,7 @@ function main() {
                 },
                 null,
                 2,
-            ),
+            ).replace(/^ +/gm, ''),
         );
     });
 }
