@@ -74,31 +74,8 @@ server.registerTool(
 
         const { displayName, props } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
 
-        // Сформировать строку для каждого пропа с типом, дефолтом, признаком обязательности и описанием
-        const propsText = Object.values(
-            props as Record<
-                string,
-                {
-                    name: string;
-                    description: string;
-                    type: { name: string };
-                    defaultValue: { value: string } | null;
-                    required: boolean;
-                }
-            >,
-        )
-            .map((prop) => {
-                const defaultPart = prop.defaultValue ? ` = ${prop.defaultValue.value}` : '';
-                const requiredPart = prop.required ? ' (required)' : '';
-                const descriptionPart = prop.description ? `\n    ${prop.description}` : '';
-                return `- **${prop.name}**: \`${prop.type.name}\`${defaultPart}${requiredPart}${descriptionPart}`;
-            })
-            .join('\n');
-
-        const text = `## ${displayName}\n\n### Props\n\n${propsText}`;
-
         return {
-            content: [{ type: 'text' as const, text }],
+            content: [{ type: 'text' as const, text: JSON.stringify({ displayName, props }, null, 2) }],
         };
     },
 );
