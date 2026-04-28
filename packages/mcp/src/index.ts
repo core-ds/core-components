@@ -22,12 +22,16 @@ server.registerTool(
         const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
 
         const components = files.map((file) => {
-            const { displayName, description, packageName } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
+            const { displayName, description, packageName } = JSON.parse(
+                readFileSync(join(versionDir, file), 'utf-8'),
+            );
 
             return { displayName, description, packageName };
         });
 
-        const list = components.map((c) => `**${c.displayName}** (${c.packageName}) — ${c.description}`).join('\n');
+        const list = components
+            .map((c) => `**${c.displayName}** (${c.packageName}) — ${c.description}`)
+            .join('\n');
         const text = `Version: ${DATA_VERSION}\n\n${list}`;
 
         return {
@@ -35,6 +39,20 @@ server.registerTool(
         };
     },
 );
+
+//todo component_info (Get component API information including props, types, and default values.)
+// {
+//     name: 'antd_info',
+//         description: 'Get component API information including props, types, and default values.',
+//     inputSchema: {
+//     type: 'object' as const,
+//         properties: {
+//         component: { type: 'string', description: 'Component name (e.g. Button, Table)' },
+//     },
+//     required: ['component'],
+// },
+
+//todo component_demo (Get demo source code for a component. Without a name, lists all demos; with a name, returns specific demo code.)
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
