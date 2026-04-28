@@ -217,8 +217,11 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             setActiveField('cvv');
         };
 
-        const handleBlur = () => {
+        const handleWrapperBlur = (e: React.FocusEvent<HTMLDivElement>) => {
             setActiveField('');
+            if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                setTouchedFields({ cardNumber: true, expiry: true, cvc: true });
+            }
         };
 
         const handleCardNumberChange = ({
@@ -283,7 +286,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             <div
                 className={styles.multistepCardInputWrapper}
                 aria-hidden='true'
-                onBlur={handleBlur}
+                onBlur={handleWrapperBlur}
                 onClick={handleClick}
             >
                 <div className={styles.inputs}>

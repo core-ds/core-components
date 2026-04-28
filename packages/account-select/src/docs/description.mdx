@@ -103,7 +103,7 @@ render(() => {
                 return (
                     <PureCell verticalPadding='none'>
                         <PureCell.Graphics verticalAlign='center'>
-                            <ProductCover.Single size={40} />
+                            <ProductCover.Single size={32} />
                         </PureCell.Graphics>
                         <PureCell.Content>
                             <PureCell.Main>
@@ -126,7 +126,7 @@ render(() => {
                     </PureCell>
                 );
             }}
-            fieldProps={{ leftAddons: <ProductCover.Single size={40} /> }}
+            fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
             options={getOptions()}
         />
     );
@@ -200,14 +200,14 @@ render(() => {
             <AccountSelect
                 size={56}
                 placeholder='Карта отправителя'
-                fieldProps={{ leftAddons: <ProductCover.Single size={40} /> }}
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
                 options={getOptions()}
                 valueRenderer={({ selected }) => {
                     return (
                         <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
-                                    size={40}
+                                    size={32}
                                     baseUrl='https://online.alfabank.ru/cards-images/cards/'
                                     layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                                     cardId='RM'
@@ -260,7 +260,7 @@ render(() => {
                     cardImage,
                 }}
             />
-            <Gap size='m' />
+            <Gap size={8} />
             <RadioGroup
                 direction='horizontal'
                 name='radioGroup'
@@ -326,6 +326,8 @@ render(() => {
                 layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
                 cardId: 'RM',
             });
+        } else {
+            setCardImage(undefined);
         }
     };
 
@@ -334,7 +336,7 @@ render(() => {
             <AccountSelect
                 size={56}
                 placeholder='Карта получателя'
-                fieldProps={{ leftAddons: <ProductCover.Single size={40} /> }}
+                fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
                 options={getOptions()}
                 popoverPosition='top'
                 valueRenderer={({ selected }) => {
@@ -342,7 +344,7 @@ render(() => {
                         <PureCell verticalPadding='none'>
                             <PureCell.Graphics verticalAlign='center'>
                                 <ProductCover.Single
-                                    size={40}
+                                    size={32}
                                     baseUrl='https://online.alfabank.ru/cards-images/cards/'
                                     layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                                     cardId='RM'
