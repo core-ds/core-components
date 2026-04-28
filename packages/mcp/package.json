@@ -9,14 +9,14 @@
         "dist"
     ],
     "scripts": {
+        "build": "npm run clean && tsc -p tsconfig.json && npm run copy-index && npm run minify",
         "clean": "rm -rf dist",
         "copy-index": "cp -r ./src/data dist/data",
-        "minify": "npx terser dist/index.js -o dist/index.js -c -m --module",
-        "build": "npm run clean && tsc -p tsconfig.json && npm run copy-index && npm run minify",
         "dev": "tsx src/index.ts",
-        "start": "node dist/index.js",
+        "generate-index": "node ./scripts/generate-data.mjs",
         "inspect": "npx @modelcontextprotocol/inspector",
-        "generate-index": "node ./scripts/generate-data.mjs"
+        "minify": "npx terser dist/index.js -o dist/index.js -c -m --module",
+        "start": "node dist/index.js"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.18.0",
