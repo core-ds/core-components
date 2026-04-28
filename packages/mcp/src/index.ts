@@ -55,18 +55,6 @@ server.registerTool(
     () => {},
 );
 
-//todo component_info (Get component API information including props, types, and default values.)
-// {
-//     name: 'antd_info',
-//         description: 'Get component API information including props, types, and default values.',
-//     inputSchema: {
-//     type: 'object' as const,
-//         properties: {
-//         component: { type: 'string', description: 'Component name (e.g. Button, Table)' },
-//     },
-//     required: ['component'],
-// },
-
 //todo component_demo (Get demo source code for a component. Without a name, lists all demos; with a name, returns specific demo code.)
 
 const transport = new StdioServerTransport();
