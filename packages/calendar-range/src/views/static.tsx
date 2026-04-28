@@ -1,15 +1,7 @@
 /* eslint-disable complexity */
 import React, { type FC, type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import {
-    addMonths,
-    endOfMonth,
-    isSameMonth,
-    isValid,
-    max,
-    startOfMonth,
-    subMonths,
-} from 'date-fns';
+import { addMonths, endOfMonth, isSameMonth, max, startOfMonth, subMonths } from 'date-fns';
 
 import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
 import { usePeriodWithReset } from '@alfalab/core-components-calendar/shared';
@@ -28,17 +20,15 @@ import {
 
 import { type CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';
-import { useSelectionProps, useStaticViewMonthes } from '../hooks';
+import { useSelectionProps, useStaticRangeAutoSwap, useStaticViewMonthes } from '../hooks';
 import { isDayButton } from '../utils';
 
 import styles from './index.module.css';
 
 type DateInputProps = Omit<CalendarInputProps, 'onCalendarOpen' | 'onCalendarClose' | 'onChange'>;
 
-export type CalendarRangeStaticProps = Omit<
-    CalendarRangeProps,
-    'calendarPosition' | 'inputFromProps' | 'inputToProps'
-> & {
+interface CalendarRangeStaticProps
+    extends Omit<CalendarRangeProps, 'calendarPosition' | 'inputFromProps' | 'inputToProps'> {
     /**
      * Отображать начальный месяц слева или справа (влияет только на начальный рендер)
      */
@@ -53,7 +43,7 @@ export type CalendarRangeStaticProps = Omit<
      * Пропсы для инпута конечной даты диапазона
      */
     inputToProps?: DateInputProps;
-};
+}
 
 type CorrectionToggleRef = { handleCorrection: () => void };
 
@@ -90,48 +80,17 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     const inputToRef = useRef<HTMLInputElement>(null);
     const inputFromRef = useRef<HTMLInputElement>(null);
 
-    const isInternalUpdate = useRef(false);
+    const { swapDates, isInternalUpdate } = useStaticRangeAutoSwap({
+        autoSwap,
+        setInputFromValue,
+        setInputToValue,
+        toggleCorrectionFromRef,
+        toggleCorrectionToRef,
+        inputFromRef,
+        inputToRef,
+    });
 
-    const swapDates = (newValue: string) => {
-        if (!autoSwap) return;
-
-        if (
-            isCompleteDateInput(newValue) &&
-            isCompleteDateInput(inputToValue) &&
-            parseDateString(newValue).getTime() > parseDateString(inputToValue).getTime()
-        ) {
-            if (inputFromValue !== inputToValue) {
-                isInternalUpdate.current = true;
-                setInputFromValue(inputToValue);
-                setInputToValue(newValue);
-
-                toggleCorrectionFromRef.current?.handleCorrection();
-                toggleCorrectionToRef.current?.handleCorrection();
-
-                setTimeout(() => {
-                    inputToRef.current?.focus();
-                }, 0);
-            }
-        }
-        if (
-            isCompleteDateInput(newValue) &&
-            isCompleteDateInput(inputFromValue) &&
-            parseDateString(newValue).getTime() < parseDateString(inputFromValue).getTime()
-        ) {
-            if (inputToValue !== inputFromValue) {
-                isInternalUpdate.current = true;
-                setInputToValue(inputFromValue);
-                setInputFromValue(newValue);
-
-                toggleCorrectionFromRef.current?.handleCorrection();
-                toggleCorrectionToRef.current?.handleCorrection();
-
-                setTimeout(() => {
-                    inputFromRef.current?.focus();
-                }, 0);
-            }
-        }
-    };
+    const [rangeValidationError, setRangeValidationError] = useState(false);
 
     let dateFrom = isValidInputValue(inputFromValue, minDate, maxDate, offDays)
         ? parseDateString(inputFromValue).getTime()
@@ -181,7 +140,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         setInputFromValue(newValue);
 
         if (isValidInputValue(newValue, minDate, maxDate, offDays)) {
-            swapDates(newValue);
+            swapDates(newValue, inputFromValue, inputToValue);
         }
 
         const payloadWithDate = { date: parseDateString(payload.value), value: payload.value };
@@ -203,7 +162,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         setInputToValue(newValue);
 
         if (isValidInputValue(newValue, minDate, maxDate, offDays)) {
-            swapDates(newValue);
+            swapDates(newValue, inputFromValue, inputToValue);
         }
 
         const payloadWithDate = { date: parseDateString(payload.value), value: payload.value };
@@ -323,41 +282,52 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     }, [inputToValue]);
 
     useEffect(() => {
-        if (isCompleteDateInput(inputFromValue)) {
-            const isValidInput = isValidInputValue(inputFromValue, minDate, maxDate, offDays);
+        const isInputFromValueComplete = isCompleteDateInput(inputFromValue);
+        const isInputToValueComplete = isCompleteDateInput(inputToValue);
 
-            setInputFromError(!isValidInput);
-        } else {
-            setInputFromError(false);
+        let individualInputFromError = false;
+        let individualInputToError = false;
+
+        if (isInputFromValueComplete) {
+            individualInputFromError = !isValidInputValue(
+                inputFromValue,
+                minDate,
+                maxDate,
+                offDays,
+            );
         }
-    }, [inputFromValue, minDate, maxDate, offDays]);
 
-    useEffect(() => {
-        if (isCompleteDateInput(inputToValue)) {
-            const isValidInput = isValidInputValue(inputToValue, minDate, maxDate, offDays);
-
-            setInputToError(!isValidInput);
-        } else {
-            setInputToError(false);
+        if (isInputToValueComplete) {
+            individualInputToError = !isValidInputValue(inputToValue, minDate, maxDate, offDays);
         }
-    }, [inputToValue, minDate, maxDate, offDays]);
+
+        let isRangeError = false;
+
+        const isValidInputFromValueStandalone =
+            isInputFromValueComplete && individualInputFromError === false;
+        const isValidInputToValueStandalone =
+            isInputToValueComplete && individualInputToError === false;
+
+        if (isValidInputFromValueStandalone && isValidInputToValueStandalone) {
+            const parsedDateFrom = parseDateString(inputFromValue).getTime();
+            const parsedDateTo = parseDateString(inputToValue).getTime();
+
+            if (parsedDateFrom > parsedDateTo) {
+                isRangeError = true;
+            }
+        }
+
+        setInputFromError(individualInputFromError || isRangeError);
+        setInputToError(individualInputToError || isRangeError);
+
+        setRangeValidationError(isRangeError);
+    }, [inputFromValue, inputToValue, minDate, maxDate, offDays]);
 
     useEffect(() => {
         if (onError) {
-            const parsedFrom = valueFrom ? parseDateString(valueFrom) : null;
-            const parsedTo = valueTo ? parseDateString(valueTo) : null;
-
-            const isDateFromValid = parsedFrom && isValid(parsedFrom);
-            const isDateToValid = parsedTo && isValid(parsedTo);
-
-            let isError = false;
-
-            if (isDateFromValid && isDateToValid) {
-                isError = parsedFrom.getTime() > parsedTo.getTime();
-            }
-            onError(isError);
+            onError(rangeValidationError);
         }
-    }, [valueFrom, valueTo, onError]);
+    }, [onError, rangeValidationError]);
 
     const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
 
