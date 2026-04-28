@@ -2,6 +2,35 @@
 
 MCP-сервер для работы с библиотекой компонентов [@alfalab/core-components](https://github.com/core-ds/core-components).
 
+## Подключение
+
+### Локальный запуск
+
+```json
+{
+  "mcpServers": {
+    "core-components-mcp-dev": {
+      "command": "npm",
+      "args": ["run", "dev"],
+      "cwd": "path/to/folder"
+    }
+  }
+}
+```
+
+### Прод-вариант
+
+```json
+{
+  "mcpServers": {
+    "core-components-mcp": {
+      "command": "npx",
+      "args": ["-y", "core-components-mcp@latest"]
+    }
+  }
+}
+```
+
 ## Инструменты
 
 ### `component_list`
