@@ -8,10 +8,6 @@
     "files": [
         "dist"
     ],
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:fulcanellee/core-components-mcp.git"
-    },
     "scripts": {
         "clean": "rm -rf dist",
         "copy-index": "cp -r ./src/data dist/data",
