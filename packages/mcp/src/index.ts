@@ -75,12 +75,28 @@ server.registerTool(
         const { displayName, props } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
 
         return {
-            content: [{ type: 'text' as const, text: JSON.stringify({ displayName, props }, null, 2) }],
+            content: [
+                { type: 'text' as const, text: JSON.stringify({ displayName, props }, null, 2) },
+            ],
         };
     },
 );
 
-//todo component_demo (Get demo source code for a component. Without a name, lists all demos; with a name, returns specific demo code.)
+server.registerTool(
+    'component_demo',
+    {
+        description:
+            'Get demo source code for a component. Without a name, lists all demos; with a name, returns specific demo code.',
+        inputSchema: {
+            // properties: {
+            //     component: { type: 'string', description: 'Component name (e.g. Button, Input)' },
+            //     name: { type: 'string', description: 'Demo name to get specific demo code' },
+            // },
+            // required: ['component'],
+        },
+    },
+    async () => {},
+);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
