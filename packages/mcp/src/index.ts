@@ -16,6 +16,7 @@ const versionDir = join(dirname(fileURLToPath(import.meta.url)), 'data', DATA_VE
 // Найти и распарсить JSON-файл компонента по имени или slug
 function readComponentData(component: string): Record<string, unknown> | null {
     const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
+
     // Сначала ищем по kebab-slug (быстро), затем по displayName (медленно — читает все файлы)
     const slug = component.trim().toLowerCase().replace(/\s+/g, '-');
     const normalized = component.trim().toLowerCase();
@@ -23,6 +24,7 @@ function readComponentData(component: string): Record<string, unknown> | null {
     const file = files.find((f) => {
         if (f.replace('.json', '') === slug) return true;
         const data = JSON.parse(readFileSync(join(versionDir, f), 'utf-8'));
+
         return data.displayName.toLowerCase() === normalized;
     });
 
@@ -47,6 +49,7 @@ server.registerTool(
                 const { displayName, description, packageName } = JSON.parse(
                     readFileSync(join(versionDir, file), 'utf-8'),
                 );
+
                 return `**${displayName}** (${packageName}) — ${description}`;
             })
             .join('\n');
@@ -66,7 +69,9 @@ server.registerTool(
     async ({ component }) => {
         const data = readComponentData(component);
 
-        if (!data) return toText(`Component "${component}" not found.`);
+        if (!data) {
+            return toText(`Component "${component}" not found.`);
+        }
 
         return toText({ displayName: data.displayName, props: data.props });
     },
@@ -85,7 +90,9 @@ server.registerTool(
     async ({ component, name }) => {
         const data = readComponentData(component);
 
-        if (!data) return toText(`Component "${component}" not found.`);
+        if (!data) {
+            return toText(`Component "${component}" not found.`);
+        }
 
         const demos = data.demos as Array<{ title: string; description: string }>;
 
@@ -96,7 +103,9 @@ server.registerTool(
 
         const demo = demos.find((d) => d.title.toLowerCase() === name.trim().toLowerCase());
 
-        if (!demo) return toText(`Demo "${name}" not found for component "${component}".`);
+        if (!demo) {
+            return toText(`Demo "${name}" not found for component "${component}".`);
+        }
 
         return toText(demo);
     },
