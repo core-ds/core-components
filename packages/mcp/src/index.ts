@@ -49,15 +49,19 @@ server.registerTool(
         },
     },
     async ({ component }) => {
+        // Получить список всех json-файлов из директории версии
         const versionDir = join(dirname(fileURLToPath(import.meta.url)), 'data', DATA_VERSION);
-
         const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
 
+        // Привести имя компонента к kebab-slug для сравнения с именем файла
         const slug = component.trim().toLowerCase().replace(/\s+/g, '-');
 
+        // Найти файл по slug или по displayName
         const file = files.find((f) => {
-            const name = f.replace('.json', '');
-            if (name === slug) return true;
+            const fileName = f.replace('.json', '');
+            if (fileName === slug) {
+                return true;
+            }
             const data = JSON.parse(readFileSync(join(versionDir, f), 'utf-8'));
             return data.displayName.toLowerCase() === component.trim().toLowerCase();
         });
@@ -70,18 +74,24 @@ server.registerTool(
 
         const { displayName, props } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
 
-        const propsText = Object.values(props as Record<string, {
-            name: string;
-            description: string;
-            type: { name: string };
-            defaultValue: { value: string } | null;
-            required: boolean;
-        }>)
+        // Сформировать строку для каждого пропа с типом, дефолтом, признаком обязательности и описанием
+        const propsText = Object.values(
+            props as Record<
+                string,
+                {
+                    name: string;
+                    description: string;
+                    type: { name: string };
+                    defaultValue: { value: string } | null;
+                    required: boolean;
+                }
+            >,
+        )
             .map((prop) => {
-                const def = prop.defaultValue ? ` = ${prop.defaultValue.value}` : '';
-                const req = prop.required ? ' (required)' : '';
-                const desc = prop.description ? `\n    ${prop.description}` : '';
-                return `- **${prop.name}**: \`${prop.type.name}\`${def}${req}${desc}`;
+                const defaultPart = prop.defaultValue ? ` = ${prop.defaultValue.value}` : '';
+                const requiredPart = prop.required ? ' (required)' : '';
+                const descriptionPart = prop.description ? `\n    ${prop.description}` : '';
+                return `- **${prop.name}**: \`${prop.type.name}\`${defaultPart}${requiredPart}${descriptionPart}`;
             })
             .join('\n');
 
