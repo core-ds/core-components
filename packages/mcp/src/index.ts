@@ -88,14 +88,62 @@ server.registerTool(
         description:
             'Get demo source code for a component. Without a name, lists all demos; with a name, returns specific demo code.',
         inputSchema: {
-            // properties: {
-            //     component: { type: 'string', description: 'Component name (e.g. Button, Input)' },
-            //     name: { type: 'string', description: 'Demo name to get specific demo code' },
-            // },
-            // required: ['component'],
+            component: z.string().describe('Component name (e.g. Button, Input, ActionButton)'),
+            name: z.string().optional().describe('Demo title to get specific demo code'),
         },
     },
-    async () => {},
+    async ({ component, name }) => {
+        // Получить список всех json-файлов из директории версии
+        const versionDir = join(dirname(fileURLToPath(import.meta.url)), 'data', DATA_VERSION);
+        const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
+
+        // Привести имя компонента к kebab-slug для сравнения с именем файла
+        const slug = component.trim().toLowerCase().replace(/\s+/g, '-');
+
+        // Найти файл по slug или по displayName
+        const file = files.find((f) => {
+            const fileName = f.replace('.json', '');
+            if (fileName === slug) {
+                return true;
+            }
+            const data = JSON.parse(readFileSync(join(versionDir, f), 'utf-8'));
+            return data.displayName.toLowerCase() === component.trim().toLowerCase();
+        });
+
+        if (!file) {
+            return {
+                content: [{ type: 'text' as const, text: `Component "${component}" not found.` }],
+            };
+        }
+
+        const { demos } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
+
+        // Вернуть список демо без кода, если имя не указано
+        if (!name) {
+            const list = demos.map(({ title, description }: { title: string; description: string }) => ({
+                title,
+                description,
+            }));
+            return {
+                content: [{ type: 'text' as const, text: JSON.stringify(list, null, 2) }],
+            };
+        }
+
+        // Найти демо по заголовку
+        const demo = demos.find(
+            (d: { title: string }) => d.title.toLowerCase() === name.trim().toLowerCase(),
+        );
+
+        if (!demo) {
+            return {
+                content: [{ type: 'text' as const, text: `Demo "${name}" not found for component "${component}".` }],
+            };
+        }
+
+        return {
+            content: [{ type: 'text' as const, text: JSON.stringify(demo, null, 2) }],
+        };
+    },
 );
 
 const transport = new StdioServerTransport();
