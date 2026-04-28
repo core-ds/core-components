@@ -12,7 +12,7 @@ const server = new McpServer({
 });
 
 server.registerTool(
-    'list_components',
+    'component_list',
     {
         description: 'List all available core-components with names and descriptions.',
     },
@@ -38,6 +38,21 @@ server.registerTool(
             content: [{ type: 'text', text }],
         };
     },
+);
+
+server.registerTool(
+    'component_info',
+    {
+        description: 'Get component API information including props, types, and default values.',
+        inputSchema: {
+            // type: 'object' as const,
+            // properties: {
+            //     component: { type: 'string', description: 'Component name (e.g. Button, Input)' },
+            // },
+            // required: ['component'],
+        },
+    },
+    () => {},
 );
 
 //todo component_info (Get component API information including props, types, and default values.)
