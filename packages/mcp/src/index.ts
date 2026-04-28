@@ -11,32 +11,47 @@ const server = new McpServer({
     version: '0.1.0',
 });
 
+const versionDir = join(dirname(fileURLToPath(import.meta.url)), 'data', DATA_VERSION);
+
+// Найти и распарсить JSON-файл компонента по имени или slug
+function readComponentData(component: string): Record<string, unknown> | null {
+    const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
+    // Сначала ищем по kebab-slug (быстро), затем по displayName (медленно — читает все файлы)
+    const slug = component.trim().toLowerCase().replace(/\s+/g, '-');
+    const normalized = component.trim().toLowerCase();
+
+    const file = files.find((f) => {
+        if (f.replace('.json', '') === slug) return true;
+        const data = JSON.parse(readFileSync(join(versionDir, f), 'utf-8'));
+        return data.displayName.toLowerCase() === normalized;
+    });
+
+    return file ? JSON.parse(readFileSync(join(versionDir, file), 'utf-8')) : null;
+}
+
+function toText(data: unknown) {
+    const text = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+    return { content: [{ type: 'text' as const, text }] };
+}
+
 server.registerTool(
     'component_list',
     {
         description: 'List all available core-components with names and descriptions.',
     },
     async () => {
-        const versionDir = join(dirname(fileURLToPath(import.meta.url)), 'data', DATA_VERSION);
-
         const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
 
-        const components = files.map((file) => {
-            const { displayName, description, packageName } = JSON.parse(
-                readFileSync(join(versionDir, file), 'utf-8'),
-            );
-
-            return { displayName, description, packageName };
-        });
-
-        const list = components
-            .map((c) => `**${c.displayName}** (${c.packageName}) — ${c.description}`)
+        const list = files
+            .map((file) => {
+                const { displayName, description, packageName } = JSON.parse(
+                    readFileSync(join(versionDir, file), 'utf-8'),
+                );
+                return `**${displayName}** (${packageName}) — ${description}`;
+            })
             .join('\n');
-        const text = `Version: ${DATA_VERSION}\n\n${list}`;
 
-        return {
-            content: [{ type: 'text', text }],
-        };
+        return toText(`Version: ${DATA_VERSION}\n\n${list}`);
     },
 );
 
@@ -49,36 +64,11 @@ server.registerTool(
         },
     },
     async ({ component }) => {
-        // Получить список всех json-файлов из директории версии
-        const versionDir = join(dirname(fileURLToPath(import.meta.url)), 'data', DATA_VERSION);
-        const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
+        const data = readComponentData(component);
 
-        // Привести имя компонента к kebab-slug для сравнения с именем файла
-        const slug = component.trim().toLowerCase().replace(/\s+/g, '-');
+        if (!data) return toText(`Component "${component}" not found.`);
 
-        // Найти файл по slug или по displayName
-        const file = files.find((f) => {
-            const fileName = f.replace('.json', '');
-            if (fileName === slug) {
-                return true;
-            }
-            const data = JSON.parse(readFileSync(join(versionDir, f), 'utf-8'));
-            return data.displayName.toLowerCase() === component.trim().toLowerCase();
-        });
-
-        if (!file) {
-            return {
-                content: [{ type: 'text' as const, text: `Component "${component}" not found.` }],
-            };
-        }
-
-        const { displayName, props } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
-
-        return {
-            content: [
-                { type: 'text' as const, text: JSON.stringify({ displayName, props }, null, 2) },
-            ],
-        };
+        return toText({ displayName: data.displayName, props: data.props });
     },
 );
 
@@ -93,56 +83,22 @@ server.registerTool(
         },
     },
     async ({ component, name }) => {
-        // Получить список всех json-файлов из директории версии
-        const versionDir = join(dirname(fileURLToPath(import.meta.url)), 'data', DATA_VERSION);
-        const files = readdirSync(versionDir).filter((f) => f.endsWith('.json'));
+        const data = readComponentData(component);
 
-        // Привести имя компонента к kebab-slug для сравнения с именем файла
-        const slug = component.trim().toLowerCase().replace(/\s+/g, '-');
+        if (!data) return toText(`Component "${component}" not found.`);
 
-        // Найти файл по slug или по displayName
-        const file = files.find((f) => {
-            const fileName = f.replace('.json', '');
-            if (fileName === slug) {
-                return true;
-            }
-            const data = JSON.parse(readFileSync(join(versionDir, f), 'utf-8'));
-            return data.displayName.toLowerCase() === component.trim().toLowerCase();
-        });
+        const demos = data.demos as Array<{ title: string; description: string }>;
 
-        if (!file) {
-            return {
-                content: [{ type: 'text' as const, text: `Component "${component}" not found.` }],
-            };
-        }
-
-        const { demos } = JSON.parse(readFileSync(join(versionDir, file), 'utf-8'));
-
-        // Вернуть список демо без кода, если имя не указано
         if (!name) {
-            const list = demos.map(({ title, description }: { title: string; description: string }) => ({
-                title,
-                description,
-            }));
-            return {
-                content: [{ type: 'text' as const, text: JSON.stringify(list, null, 2) }],
-            };
+            // Вернуть только заголовки и описания — без кода, для выбора нужного демо
+            return toText(demos.map(({ title, description }) => ({ title, description })));
         }
 
-        // Найти демо по заголовку
-        const demo = demos.find(
-            (d: { title: string }) => d.title.toLowerCase() === name.trim().toLowerCase(),
-        );
+        const demo = demos.find((d) => d.title.toLowerCase() === name.trim().toLowerCase());
 
-        if (!demo) {
-            return {
-                content: [{ type: 'text' as const, text: `Demo "${name}" not found for component "${component}".` }],
-            };
-        }
+        if (!demo) return toText(`Demo "${name}" not found for component "${component}".`);
 
-        return {
-            content: [{ type: 'text' as const, text: JSON.stringify(demo, null, 2) }],
-        };
+        return toText(demo);
     },
 );
 
