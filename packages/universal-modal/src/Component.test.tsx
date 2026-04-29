@@ -1,4 +1,4 @@
-import React, { useContext, ContextType, useEffect } from 'react';
+import React, { useContext, ContextType, useEffect, useRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { getUniversalModalTestIds } from './utils/getUniversalModalTestIds';
 import { UniversalModalDesktop } from './desktop';
@@ -603,6 +603,79 @@ describe('UniversalModal', () => {
                 const backdrop = screen.queryByTestId(testId);
 
                 expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+    });
+
+    describe('portal container tests', () => {
+        const textContent = 'Text content';
+        const customPortalContainer = 'custom-portal-container';
+
+        describe('desktop', () => {
+            it('should render default container', () => {
+                render(<UniversalModalDesktop open={true}>{textContent}</UniversalModalDesktop>);
+
+                const portalContainer = document.querySelector('[alfa-portal-container]');
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+
+            it('should render custom container', () => {
+                const TestWrapper = () => {
+                    const containerRef = useRef<HTMLDivElement>(null);
+                    const getPortalContainer = () => containerRef.current;
+
+                    return (
+                        <>
+                            <div ref={containerRef} data-test-id={customPortalContainer} />
+                            <UniversalModalDesktop container={getPortalContainer} open={true}>
+                                {textContent}
+                            </UniversalModalDesktop>
+                        </>
+                    );
+                };
+
+                render(<TestWrapper />);
+
+                const portalContainer = screen.queryByTestId(customPortalContainer);
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+        });
+
+        describe('mobile', () => {
+            it('should render default container', () => {
+                render(<UniversalModalMobile open={true}>{textContent}</UniversalModalMobile>);
+
+                const portalContainer = document.querySelector('[alfa-portal-container]');
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+
+            it('should render custom container', () => {
+                const TestWrapper = () => {
+                    const containerRef = useRef<HTMLDivElement>(null);
+                    const getPortalContainer = () => containerRef.current;
+
+                    return (
+                        <>
+                            <div ref={containerRef} data-test-id={customPortalContainer} />
+                            <UniversalModalMobile container={getPortalContainer} open={true}>
+                                {textContent}
+                            </UniversalModalMobile>
+                        </>
+                    );
+                };
+
+                render(<TestWrapper />);
+
+                const portalContainer = screen.queryByTestId(customPortalContainer);
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
             });
         });
     });
