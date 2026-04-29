@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-amount-input",
-    "version": "9.2.0",
+    "version": "9.2.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -32,6 +32,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.2",
+    "themesVersion": "15.0.3",
     "varsVersion": "11.0.2"
 }

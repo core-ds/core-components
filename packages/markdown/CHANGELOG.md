@@ -1,5 +1,17 @@
 # @alfalab/core-components-markdown
 
+## 3.0.8
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2176](https://github.com/core-ds/core-components/pull/2176)
+
+##### Markdown
+
+- Исправлен вид ссылок. Теперь они синего цвета, без подчёркивания
+
 ## 3.0.7
 
 ### Patch Changes

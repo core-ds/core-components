@@ -1,0 +1,1 @@
+export { createPipsConfig } from './createPipsConfig';

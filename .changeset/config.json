@@ -1,6 +1,7 @@
 {
-    "$schema": "https://unpkg.com/@changesets/config@2.1.1/schema.json",
-    "changelog": "../tools/changesets/changelogFunctions.js",
+    "$schema": "https://unpkg.com/@changesets/config@3.1.4/schema.json",
+    "changelog": ["../tools/changesets/changelog.js", { "repo": "core-ds/core-components" }],
+    "privatePackages": false,
     "commit": false,
     "linked": [],
     "ignore": [

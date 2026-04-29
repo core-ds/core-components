@@ -1,4 +1,4 @@
-import React, { useContext, ContextType, useEffect } from 'react';
+import React, { useContext, ContextType, useEffect, useRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { getUniversalModalTestIds } from './utils/getUniversalModalTestIds';
 import { UniversalModalDesktop } from './desktop';
@@ -508,6 +508,175 @@ describe('UniversalModal', () => {
             const footer = screen.queryByTestId(testIds.footer);
 
             expect(footer).toHaveClass('middle');
+        });
+    });
+
+    describe('desktop backdrop tests', () => {
+        const testId = 'backdrop-test-id';
+
+        describe('center modal', () => {
+            it('should render backdrop by default', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=true', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        overlay={true}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=false', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'start'}
+                        overlay={false}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+
+        describe('side modal', () => {
+            it('should render backdrop by default', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=true', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        overlay={true}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).toBeInTheDocument();
+            });
+
+            it('should render backdrop by overlay=false', () => {
+                render(
+                    <UniversalModalDesktop
+                        open={true}
+                        horizontalAlign={'center'}
+                        overlay={false}
+                        backdropProps={{ dataTestId: testId }}
+                    />,
+                );
+
+                const backdrop = screen.queryByTestId(testId);
+
+                expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+    });
+
+    describe('portal container tests', () => {
+        const textContent = 'Text content';
+        const customPortalContainer = 'custom-portal-container';
+
+        describe('desktop', () => {
+            it('should render default container', () => {
+                render(<UniversalModalDesktop open={true}>{textContent}</UniversalModalDesktop>);
+
+                const portalContainer = document.querySelector('[alfa-portal-container]');
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+
+            it('should render custom container', () => {
+                const TestWrapper = () => {
+                    const containerRef = useRef<HTMLDivElement>(null);
+                    const getPortalContainer = () => containerRef.current;
+
+                    return (
+                        <>
+                            <div ref={containerRef} data-test-id={customPortalContainer} />
+                            <UniversalModalDesktop container={getPortalContainer} open={true}>
+                                {textContent}
+                            </UniversalModalDesktop>
+                        </>
+                    );
+                };
+
+                render(<TestWrapper />);
+
+                const portalContainer = screen.queryByTestId(customPortalContainer);
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+        });
+
+        describe('mobile', () => {
+            it('should render default container', () => {
+                render(<UniversalModalMobile open={true}>{textContent}</UniversalModalMobile>);
+
+                const portalContainer = document.querySelector('[alfa-portal-container]');
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+
+            it('should render custom container', () => {
+                const TestWrapper = () => {
+                    const containerRef = useRef<HTMLDivElement>(null);
+                    const getPortalContainer = () => containerRef.current;
+
+                    return (
+                        <>
+                            <div ref={containerRef} data-test-id={customPortalContainer} />
+                            <UniversalModalMobile container={getPortalContainer} open={true}>
+                                {textContent}
+                            </UniversalModalMobile>
+                        </>
+                    );
+                };
+
+                render(<TestWrapper />);
+
+                const portalContainer = screen.queryByTestId(customPortalContainer);
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
         });
     });
 });

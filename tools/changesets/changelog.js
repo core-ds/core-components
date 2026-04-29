@@ -1,7 +1,5 @@
 const { getInfo } = require('@changesets/get-github-info');
 
-const repo = 'core-ds/core-components';
-
 const getLinesFromSummary = (summary, prLink, showPrLink = true) => {
     let returnVal = `<sup><time>${new Date().toLocaleDateString('ru-RU')}</time></sup>\n\n`;
 
@@ -9,7 +7,7 @@ const getLinesFromSummary = (summary, prLink, showPrLink = true) => {
         returnVal += `#### ${prLink}\n\n`;
     }
 
-    const [firstLine, ...futureLines] = summary.split('\n').map((l) => l.trimRight());
+    const [firstLine, ...futureLines] = summary.split('\n').map((l) => l.trimEnd());
 
     const hasFutureLines = futureLines.length > 0;
 
@@ -26,8 +24,11 @@ const getLinesFromSummary = (summary, prLink, showPrLink = true) => {
     return returnVal;
 };
 
-const getReleaseLine = async (changeset) => {
-    const links = await getGithubLinks([changeset.commit]);
+/**
+ * @type {import('@changesets/types').ChangelogFunctions['getReleaseLine']}
+ */
+const getReleaseLine = async (changeset, _, { repo }) => {
+    const links = await getGithubLinks([changeset.commit], repo);
 
     return getLinesFromSummary(
         changeset.summary,
@@ -35,7 +36,7 @@ const getReleaseLine = async (changeset) => {
     );
 };
 
-async function getGithubLinks(commits) {
+async function getGithubLinks(commits, repo) {
     return Promise.all(
         commits.map(async (commit) => {
             if (commit) {
@@ -49,10 +50,13 @@ async function getGithubLinks(commits) {
     );
 }
 
+/**
+ * @type {import('@changesets/types').ChangelogFunctions['getDependencyReleaseLine']}
+ */
 const getDependencyReleaseLine = (_, dependenciesUpdated) => {
     if (dependenciesUpdated.length === 0) return '';
 
-    const firstLine = '- Обновлены зависимости';
+    const firstLine = '#### Обновлены зависимости';
 
     const updatedDependenciesList = dependenciesUpdated.map(
         (dependency) => `  - ${dependency.name}@${dependency.newVersion}`,
