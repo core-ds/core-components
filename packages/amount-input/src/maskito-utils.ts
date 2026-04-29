@@ -56,6 +56,10 @@ export function toValueAsString(value: number | string | null): string {
     return `${value ?? ''}`;
 }
 
+function getSelectionRange({ selectionStart, selectionEnd }: MaskitoElement): SelectionRange {
+    return [selectionStart ?? 0, selectionEnd ?? 0];
+}
+
 function getNotEmptySelection(
     value: string,
     [from, to]: SelectionRange,
@@ -570,8 +574,7 @@ function selectionChangeHandler(
         const onPointerUp = (): void => {
             isPointerDown = Math.max(--isPointerDown, 0);
         };
-        const { selectionStart, selectionEnd } = element;
-        const selection: SelectionRange = [selectionStart ?? 0, selectionEnd ?? 0];
+        const selection = getSelectionRange(element);
 
         const listener = (event: Event): void => {
             if (!element.matches(':focus')) {
@@ -759,8 +762,7 @@ function preventDeletePlugin({
     return maskitoEventHandler(
         'beforeinput',
         (element, __, event) => {
-            const from = element.selectionStart ?? 0;
-            const to = element.selectionEnd ?? 0;
+            const [from, to] = getSelectionRange(element);
 
             if (
                 (from !== to &&
@@ -831,8 +833,7 @@ function selectionPlugin(numberParams: NumberParams): MaskitoPlugin {
                 const input = element as HTMLInputElement;
                 const { value } = input;
                 const direction = input.selectionDirection ?? undefined;
-                let from = input.selectionStart ?? 0;
-                let to = input.selectionEnd ?? 0;
+                let [from, to] = getSelectionRange(input);
                 const [prevFrom, prevTo] = selection;
 
                 Object.assign(selection, [from, to]);
