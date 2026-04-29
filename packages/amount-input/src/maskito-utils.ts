@@ -733,9 +733,7 @@ const maskitoRejectEvent = (onReject: () => void = noop): MaskitoPlugin =>
                     (event) => {
                         if (
                             event.defaultPrevented &&
-                            (event.inputType.startsWith('delete')
-                                ? event.inputType !== 'deleteByDrag'
-                                : element.value) &&
+                            !event.inputType.startsWith('delete') &&
                             value === element.value
                         ) {
                             dispatchInputRejectEvent(element);
