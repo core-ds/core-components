@@ -9,15 +9,17 @@ const OFFSET = 3;
 const SIN_45 = Math.SQRT2 / 2;
 
 /** Радиус круга в точках пересечения эллипса и окружности */
-export const JR = 2;
+export const JR = 4.5;
 /** Сторона чёрного квадрата-резца в точках пересечения эллипса и окружности */
-export const JR_RECT = 4;
+export const JR_RECT = 6;
 
 const EPSILON = 1e-3;
 const DOUBLE_INDICATOR_SHIFT_X = 3;
 const TRIPLE_INDICATOR_SHIFT_X = 6;
-const INDICATOR_INSET_X = 2;
-const INDICATOR_INSET_Y = 2;
+const INDICATOR_INSET_X = 3;
+const INDICATOR_INSET_Y = 3;
+
+const RECT_CORNER_RADIUS_FACTOR = 0.31;
 
 type BadgeIconSize = NonNullable<BaseTagProps['size']>;
 
@@ -162,12 +164,15 @@ export const resolveGeometry = ({
             badgeX: 0,
             badgeY: 0,
             cutoutR: 0,
-            cr: shape === 'rectangular' ? Math.round(Math.min(w, h) * 0.22) : undefined,
+            cr:
+                shape === 'rectangular'
+                    ? Math.round(Math.min(w, h) * RECT_CORNER_RADIUS_FACTOR)
+                    : undefined,
             junctions: null,
         };
     }
 
-    const cutoutR = badgeRadius + 2;
+    const cutoutR = badgeRadius + 1;
     const outerR = cutoutR + JR;
 
     /*
@@ -178,7 +183,7 @@ export const resolveGeometry = ({
      * Если подкоренные выражения отрицательные, стыка нет (junctions = null).
      */
     if (shape === 'rectangular') {
-        const cr = Math.round(Math.min(w, h) * 0.22);
+        const cr = Math.round(Math.min(w, h) * RECT_CORNER_RADIUS_FACTOR);
         const badgeX = w - cr + (cr + OFFSET) * SIN_45 - INDICATOR_INSET_X;
         const badgeY = cr - (cr + OFFSET) * SIN_45 + INDICATOR_INSET_Y;
 

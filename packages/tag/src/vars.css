@@ -44,18 +44,13 @@
     --tag-filled-background-color-hover: var(--color-light-neutral-translucent-300-hover);
     --tag-filled-background-color-active: var(--color-light-neutral-translucent-300-press);
     --tag-filled-background-color-disabled: var(--color-light-neutral-translucent-100);
+    --tag-filled-mask-positive-color: var(--color-static-neutral-0);
 
     /* background-color checked */
     --tag-background-color-checked: var(--color-light-accent-secondary);
     --tag-background-color-checked-hover: var(--color-light-accent-secondary-hover);
     --tag-background-color-checked-active: var(--color-light-accent-secondary-press);
     --tag-background-color-checked-disabled: var(--color-light-neutral-translucent-100);
-
-    /* background-color indicator-tag (badge icon) */
-    --tag-badge-icon-background-color: var(--color-light-neutral-translucent-300);
-    --tag-badge-icon-background-color-hover: var(--color-light-neutral-translucent-300-hover);
-    --tag-badge-icon-background-color-active: var(--color-light-neutral-translucent-300-press);
-    --tag-badge-icon-mask-positive-color: var(--color-static-neutral-0);
 
     /* text color */
     --tag-text-color: var(--color-light-text-primary);
@@ -106,6 +101,7 @@
     --tag-inverted-filled-background-color-active: var(
         --color-light-neutral-translucent-300-inverted-press
     );
+    --tag-inverted-filled-mask-positive-color: var(--color-static-neutral-0);
 
     /* background-color checked */
     --tag-inverted-background-color-checked: var(--color-light-accent-secondary-inverted);
@@ -119,16 +115,6 @@
         --color-light-neutral-translucent-100-inverted
     );
 
-    /* background-color indicator-tag (badge icon) */
-    --tag-badge-icon-inverted-background-color: var(--color-light-neutral-translucent-300-inverted);
-    --tag-badge-icon-inverted-background-color-hover: var(
-        --color-light-neutral-translucent-300-inverted-hover
-    );
-    --tag-badge-icon-inverted-background-color-active: var(
-        --color-light-neutral-translucent-300-inverted-press
-    );
-    --tag-badge-icon-mask-positive-color-inverted: var(--color-static-neutral-0);
-
     /* text color */
     --tag-inverted-text-color: var(--color-light-text-primary-inverted);
     --tag-inverted-text-color-checked: var(--color-light-text-primary);
@@ -141,7 +127,7 @@
     --tag-rectangular-mobile-xs-border-radius: var(--border-radius-12);
     --tag-rectangular-mobile-s-border-radius: var(--border-radius-12);
     --tag-filled-mobile-background-color: var(--color-light-neutral-translucent-100);
-    --tag-filled-mobile-background-color-hover: var(--color-light-neutral-translucent-100);
+    --tag-filled-mobile-background-color-hover: var(--color-light-neutral-translucent-100-hover);
     --tag-filled-mobile-background-color-active: var(--color-light-neutral-translucent-100-press);
     --tag-filled-mobile-background-color-disabled: var(--color-light-neutral-translucent-100);
 
@@ -150,7 +136,7 @@
         --color-light-neutral-translucent-100-inverted
     );
     --tag-inverted-filled-mobile-background-color-hover: var(
-        --color-light-neutral-translucent-100-inverted
+        --color-light-neutral-translucent-100-inverted-hover
     );
     --tag-inverted-filled-mobile-background-color-active: var(
         --color-light-neutral-translucent-100-inverted-press

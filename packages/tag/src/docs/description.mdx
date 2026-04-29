@@ -67,11 +67,11 @@ render(() => {
     };
 
     const amountAddon = (
-        <div
+        <span
             style={{
+                display: 'inline-flex',
+                alignItems: 'center',
                 paddingRight: '4px',
-                color: checkedMap.amount ? 'var(--tag-text-color-checked)' : 'var(--tag-text-color)',
-                fontWeight: 'normal',
             }}
         >
             <Amount
@@ -79,15 +79,16 @@ render(() => {
                 value={123400}
                 currency='RUR'
                 minority={100}
-                style={{ color: 'inherit', fontWeight: 'inherit' }}
+                fontWeight='none'
+                transparentMinor
             />
-        </div>
+        </span>
     );
 
     return (
         <Container>
             <Row>
-                <div style={{ marginRight: 12 }}>
+                <div style={{ marginRight: 8 }}>
                     <Tag
                         rightAddons={addon}
                         leftAddons={addon}
@@ -100,7 +101,7 @@ render(() => {
                         Label
                     </Tag>
                 </div>
-                <div style={{ marginRight: 12 }}>
+                <div style={{ marginRight: 8 }}>
                     <Tag
                         rightAddons={<Badge view='count' height={16} content={1} />}
                         checked={checkedMap.badge}
@@ -112,7 +113,7 @@ render(() => {
                         Label
                     </Tag>
                 </div>
-                <div style={{ marginRight: 12 }}>
+                <div style={{ marginRight: 8 }}>
                     <Tag
                         rightAddons={<Badge view='count' height={16} />}
                         checked={checkedMap.emptyBadge}
@@ -124,7 +125,7 @@ render(() => {
                         Label
                     </Tag>
                 </div>
-                <div style={{ marginRight: 12 }}>
+                <div style={{ marginRight: 8 }}>
                     <Tag
                         size={40}
                         rightAddons={amountAddon}
@@ -138,10 +139,10 @@ render(() => {
                         Label
                     </Tag>
                 </div>
-                <div style={{ marginRight: 12 }}>
+                <div style={{ marginRight: 8 }}>
                     <Tag
                         Component={IndicatorTag}
-                        leftAddons={<SlidersMIcon height={16} width={16} />}
+                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
                         checked={checkedMap.indicator}
                         onClick={(_, { checked: nextChecked }) =>
                             setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
@@ -183,11 +184,11 @@ render(() => {
     };
 
     const amountAddon = (
-        <div
+        <span
             style={{
+                display: 'inline-flex',
+                alignItems: 'center',
                 paddingRight: '4px',
-                color: checkedMap.amount ? 'var(--tag-text-color-checked)' : 'var(--tag-text-color)',
-                fontWeight: 'normal',
             }}
         >
             <Amount
@@ -195,9 +196,10 @@ render(() => {
                 value={123400}
                 currency='RUR'
                 minority={100}
-                style={{ color: 'inherit', fontWeight: 'inherit' }}
+                fontWeight='none'
+                transparentMinor
             />
-        </div>
+        </span>
     );
 
     return (
@@ -261,10 +263,10 @@ render(() => {
                         Label
                     </Tag>
                 </div>
-                <div style={{ marginRight: '12px' }}>
+                <div style={{ marginRight: 8 }}>
                     <Tag
                         Component={IndicatorTag}
-                        leftAddons={<SlidersMIcon height={16} width={16} />}
+                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
                         checked={checkedMap.indicator}
                         onClick={(_, { checked: nextChecked }) =>
                             setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
@@ -300,7 +302,7 @@ render(() => {
     return (
         <Container>
             <Row align='middle'>
-                <div style={{ marginRight: 12 }}>
+                <div style={{ marginRight: 8 }}>
                     <Tag
                         {...tagProps}
                         checked={checkedWithAddon}
@@ -382,7 +384,7 @@ render(() => {
     return (
         <Container>
             <Row align='middle' style={{ marginBottom: 20 }}>
-                <div style={{ marginRight: 12 }}>
+                <div style={{ marginRight: 8 }}>
                     <Tag
                         {...tagProps}
                         checked={checkedWithAddon}
@@ -430,6 +432,12 @@ render(() => {
                 <Radio label='Outlined' value='outlined' />
             </RadioGroup>
 
+            <Gap size={32} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
+
             <Gap size={20} />
 
             <Switch
@@ -466,7 +474,7 @@ const DYNAMIC_META = {
     autopay: 'Автоплатежи',
 };
 
-const emptyFilters = () => ({
+const EMPTY = () => ({
     replenishment: false,
     writeoff: false,
     dynamicKeys: [],
@@ -486,63 +494,13 @@ const countActive = ({ accounts, dynamicKeys, period, replenishment, writeoff })
 };
 
 const DESKTOP_TAG_SIZE = 40;
+const OPTIONS_LIST_ROW_SIZE = 40;
 
 render(() => {
-    const TagFieldSelectArrow = ({ open, size }) => {
-        const ChevronIcon = size === 40 ? ChevronDownSIcon : ChevronDownMIcon;
-
-        return (
-            <ChevronIcon
-                style={{
-                    display: 'block',
-                    color: 'currentColor',
-                    transition: 'transform 0.15s ease-in-out, opacity 0.2s ease',
-                    transform: open ? 'rotate(180deg)' : undefined,
-                }}
-            />
-        );
-    };
-
-    const TagField = ({
-        open,
-        disabled,
-        innerProps,
-        valueRenderer,
-        selected,
-        selectedMultiple,
-        placeholder,
-        Arrow,
-        size = DESKTOP_TAG_SIZE,
-    }) => {
-        const value = valueRenderer({
-            selected,
-            selectedMultiple: selectedMultiple || [],
-        });
-        const filled = Boolean(value);
-        const display = filled ? value : placeholder;
-        const checked = open || filled;
-
-        return (
-            <div style={{ display: 'inline-block' }}>
-                <Tag
-                    size={size}
-                    view='filled'
-                    shape='rectangular'
-                    checked={checked}
-                    disabled={disabled}
-                    rightAddons={Arrow}
-                    {...innerProps}
-                >
-                    {display}
-                </Tag>
-            </div>
-        );
-    };
-
     const [panelOpen, setPanelOpen] = React.useState(false);
     const [countIndicator, setCountIndicator] = React.useState(false);
-    const [applied, setApplied] = React.useState(emptyFilters);
-    const [draft, setDraft] = React.useState(emptyFilters);
+    const [applied, setApplied] = React.useState(EMPTY);
+    const [draft, setDraft] = React.useState(EMPTY);
 
     const openOrTogglePanel = () => {
         if (panelOpen) {
@@ -574,29 +532,20 @@ render(() => {
         }));
     };
 
-    const periodValueRenderer = ({ selected }) => {
-        if (!selected) return null;
+    const [periodOpen, setPeriodOpen] = React.useState(false);
+    const [accountsOpen, setAccountsOpen] = React.useState(false);
+    const [periodAnchorEl, setPeriodAnchorEl] = React.useState(null);
+    const [accountsAnchorEl, setAccountsAnchorEl] = React.useState(null);
 
-        return `Период: ${selected.content}`;
-    };
+    const appliedPeriodOption = React.useMemo(
+        () => PERIOD_OPTIONS.find((o) => o.key === applied.period),
+        [applied.period],
+    );
 
-    const accountsValueRenderer = ({ selectedMultiple }) => {
-        if (!selectedMultiple.length) return null;
-        if (selectedMultiple.length === 1) return `Счета: ${selectedMultiple[0].content}`;
-
-        return `Счета: Выбрано ${selectedMultiple.length}`;
-    };
-
-    const selectRowProps = {
-        allowUnselect: true,
-        block: false,
-        size: 40,
-        Option: BaseOption,
-        Field: TagField,
-        Arrow: TagFieldSelectArrow,
-        optionsListWidth: 'field',
-        optionsListClassName: 'tag-filter-row-options',
-    };
+    const accountsSelectedOpts = React.useMemo(
+        () => ACCOUNT_OPTIONS.filter((o) => applied.accounts.includes(o.key)),
+        [applied.accounts],
+    );
 
     const filterSectionTitleStyle = { fontSize: 22, lineHeight: '28px' };
 
@@ -604,19 +553,29 @@ render(() => {
         <Container>
             <style>
                 {`
-                    .tag-filter-row-options {
+                    .tag-filter-popover-panel {
                         width: 280px;
-                        min-width: 280px;
-                        max-width: 280px;
-                        box-sizing: border-box;
+                        border-radius: 16px;
                     }
-                    .tag-filter-row-options [class*='contentWrapper'] {
-                        width: 280px !important;
-                        min-width: 280px !important;
-                        max-width: 280px !important;
+                    .tag-filter-row-options {
+                        border-radius: 16px;
+                        overflow: hidden;
                     }
                     .tag-filter-panel-footer {
                         padding: 24px 32px 32px !important;
+                    }
+                    .tag-filter-side-panel-scroll {
+                        flex: 1 1 auto;
+                        min-height: 0;
+                        overflow-y: auto;
+                        box-sizing: border-box;
+                        padding: var(--gap-0)  var(--gap-40);
+                    }
+                    .tag-filter-side-panel-scroll:last-child {
+                        padding-bottom: var(--gap-32) !important;
+                    }
+                    .tag-filter-side-panel-header {
+                        padding: 20px 28px 0 28px !important;
                     }
                 `}
             </style>
@@ -630,11 +589,11 @@ render(() => {
             >
                 <Tag
                     Component={IndicatorTag}
-                    leftAddons={<SlidersMIcon height={16} width={16} />}
+                    leftAddons={<SlidersSIcon height={16} width={16} />}
                     size={DESKTOP_TAG_SIZE}
                     view='filled'
                     shape='rectangular'
-                    checked={activeCount > 0}
+                    checked={false}
                     indicatorProps={
                         activeCount > 0
                             ? countIndicator
@@ -674,30 +633,155 @@ render(() => {
                 >
                     Списания
                 </Tag>
-                <SelectDesktop
-                    {...selectRowProps}
-                    options={PERIOD_OPTIONS}
-                    placeholder='Период'
-                    selected={applied.period}
-                    valueRenderer={periodValueRenderer}
-                    onChange={({ selected: next }) => {
-                        setApplied((p) => ({ ...p, period: next ? next.key : null }));
-                    }}
-                />
-                <SelectDesktop
-                    {...selectRowProps}
-                    options={ACCOUNT_OPTIONS}
-                    placeholder='Счета'
-                    multiple={true}
-                    selected={applied.accounts}
-                    valueRenderer={accountsValueRenderer}
-                    onChange={({ selectedMultiple }) => {
-                        setApplied((p) => ({
-                            ...p,
-                            accounts: selectedMultiple.map((o) => o.key),
-                        }));
-                    }}
-                />
+                <div>
+                    <FilterTag
+                        ref={setPeriodAnchorEl}
+                        client='desktop'
+                        size={DESKTOP_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        showClear={false}
+                        checked={Boolean(applied.period)}
+                        open={periodOpen}
+                        onClick={() => {
+                            setAccountsOpen(false);
+                            setPeriodOpen((v) => !v);
+                        }}
+                    >
+                        {appliedPeriodOption ? (
+                            <>
+                                Период:
+                                <span style={{ fontWeight: 700 }}>
+                                    {appliedPeriodOption.content}
+                                </span>
+                            </>
+                        ) : (
+                            'Период'
+                        )}
+                    </FilterTag>
+                    <Popover
+                        anchorElement={periodAnchorEl}
+                        open={periodOpen}
+                        position='bottom-start'
+                        offset={[0, 4]}
+                        preventFlip={true}
+                        popperClassName='tag-filter-popover-panel'
+                    >
+                        <div className='tag-filter-row-options'>
+                            <OptionsList
+                                Option={Option}
+                                client='desktop'
+                                nativeScrollbar={true}
+                                size={OPTIONS_LIST_ROW_SIZE}
+                                options={PERIOD_OPTIONS}
+                                open={periodOpen}
+                                selectedItems={PERIOD_OPTIONS.filter(
+                                    (item) => item.key === applied.period,
+                                )}
+                                getOptionProps={(option, index) => ({
+                                    option,
+                                    index,
+                                    mobile: false,
+                                    multiple: false,
+                                    selected: applied.period === option.key,
+                                    innerProps: {
+                                        id: `tag-doc-desktop-period-${option.key}`,
+                                        role: 'option',
+                                        onMouseDown: (e) => e.preventDefault(),
+                                        onClick: () => {
+                                            setApplied((p) => ({
+                                                ...p,
+                                                period: p.period === option.key ? null : option.key,
+                                            }));
+                                            setPeriodOpen(false);
+                                        },
+                                    },
+                                })}
+                            />
+                        </div>
+                    </Popover>
+                </div>
+                <div>
+                    <FilterTag
+                        ref={setAccountsAnchorEl}
+                        client='desktop'
+                        size={DESKTOP_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        showClear={false}
+                        checked={applied.accounts.length > 0}
+                        open={accountsOpen}
+                        onClick={() => {
+                            setPeriodOpen(false);
+                            setAccountsOpen((v) => !v);
+                        }}
+                    >
+                        {accountsSelectedOpts.length === 0 ? (
+                            'Счета'
+                        ) : accountsSelectedOpts.length === 1 ? (
+                            <>
+                                Счета:
+                                <span style={{ fontWeight: 700 }}>
+                                    {accountsSelectedOpts[0].content}
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                Счета:
+                                <span style={{ fontWeight: 700 }}>
+                                    Выбрано {accountsSelectedOpts.length}
+                                </span>
+                            </>
+                        )}
+                    </FilterTag>
+                    <Popover
+                        anchorElement={accountsAnchorEl}
+                        open={accountsOpen}
+                        position='bottom-start'
+                        offset={[0, 4]}
+                        preventFlip={true}
+                        popperClassName='tag-filter-popover-panel'
+                    >
+                        <div className='tag-filter-row-options'>
+                            <OptionsList
+                                Option={Option}
+                                client='desktop'
+                                nativeScrollbar={true}
+                                size={OPTIONS_LIST_ROW_SIZE}
+                                options={ACCOUNT_OPTIONS}
+                                open={accountsOpen}
+                                multiple={true}
+                                selectedItems={ACCOUNT_OPTIONS.filter((item) =>
+                                    applied.accounts.includes(item.key),
+                                )}
+                                getOptionProps={(option, index) => ({
+                                    option,
+                                    index,
+                                    mobile: false,
+                                    multiple: true,
+                                    selected: applied.accounts.includes(option.key),
+                                    innerProps: {
+                                        id: `tag-doc-desktop-accounts-${option.key}`,
+                                        role: 'option',
+                                        onMouseDown: (e) => e.preventDefault(),
+                                        onClick: () => {
+                                            setApplied((p) => {
+                                                const selected = p.accounts.includes(option.key);
+
+                                                return {
+                                                    ...p,
+                                                    accounts: selected
+                                                        ? p.accounts.filter((k) => k !== option.key)
+                                                        : [...p.accounts, option.key],
+                                                };
+                                            });
+                                        },
+                                    },
+                                })}
+                            />
+                        </div>
+                    </Popover>
+                </div>
             </div>
 
             <Gap size={20} />
@@ -730,10 +814,12 @@ render(() => {
                 }}
             >
                 <SidePanel.Header
+                    className='tag-filter-side-panel-header'
+                    sticky={true}
                     hasCloser={true}
                     title={<span style={{ fontSize: 30, lineHeight: '36px' }}>Фильтры</span>}
                 />
-                <SidePanel.Content>
+                <SidePanel.Content className='tag-filter-side-panel-scroll'>
                     {
                         <div>
                             <Typography.Title
@@ -904,7 +990,7 @@ render(() => {
                         </div>
                     }
                 </SidePanel.Content>
-                <SidePanel.Footer className='tag-filter-panel-footer'>
+                <SidePanel.Footer sticky={true} className='tag-filter-panel-footer'>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
                         <Button
                             view='primary'
@@ -921,7 +1007,7 @@ render(() => {
                             view='secondary'
                             size={56}
                             type='button'
-                            onClick={() => setDraft(emptyFilters())}
+                            onClick={() => setDraft(EMPTY())}
                         >
                             Сбросить
                         </Button>
@@ -951,7 +1037,7 @@ const DYNAMIC_META = {
     autopay: 'Автоплатежи',
 };
 
-const emptyFilters = () => ({
+const EMPTY = () => ({
     replenishment: false,
     writeoff: false,
     dynamicKeys: [],
@@ -959,124 +1045,134 @@ const emptyFilters = () => ({
     accounts: [],
 });
 
-const countActive = (f) => {
-    let n = 0;
-    if (f.replenishment) n += 1;
-    if (f.writeoff) n += 1;
-    n += f.dynamicKeys.length;
-    if (f.period) n += 1;
-    n += f.accounts.length;
-    return n;
-};
+const toggleInArray = (arr, value) =>
+    arr.includes(value) ? arr.filter((item) => item !== value) : [...arr, value];
+
+const countActive = (filters) =>
+    [
+        filters.replenishment,
+        filters.writeoff,
+        filters.period,
+        ...filters.dynamicKeys,
+        ...filters.accounts,
+    ].filter(Boolean).length;
 
 const MOBILE_ROW_TAG_SIZE = 32;
+const OPTIONS_LIST_ROW_SIZE = 40;
+
+const DYNAMIC_GROUPS = [
+    {
+        title: 'Движение средств',
+        items: [
+            { key: 'replenishment', label: 'Пополнение', type: 'boolean' },
+            { key: 'writeoff', label: 'Списание', type: 'boolean' },
+            { key: 'added_expenses', label: DYNAMIC_META.added_expenses, type: 'dynamic' },
+        ],
+    },
+    {
+        title: 'Переводы',
+        items: [
+            { key: 'to_client', label: DYNAMIC_META.to_client, type: 'dynamic' },
+            { key: 'between_accounts', label: DYNAMIC_META.between_accounts, type: 'dynamic' },
+        ],
+    },
+    {
+        title: 'Шаблоны и автоплатежи',
+        items: [
+            { key: 'templates', label: DYNAMIC_META.templates, type: 'dynamic' },
+            { key: 'autopay', label: DYNAMIC_META.autopay, type: 'dynamic' },
+        ],
+    },
+];
+
+const FilterTagItem = ({ checked, onClick, size = MOBILE_ROW_TAG_SIZE, children }) => (
+    <TagMobile size={size} view='filled' shape='rectangular' checked={checked} onClick={onClick}>
+        {children}
+    </TagMobile>
+);
+
+const CheckboxItem = ({ selected, disabled, position }) => (
+    <span
+        style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexShrink: 0,
+            ...(position === 'before'
+                ? { marginRight: 'var(--gap-12)' }
+                : { marginLeft: 'var(--gap-12)' }),
+        }}
+    >
+        <Checkbox
+            hiddenInput={true}
+            checked={Boolean(selected)}
+            disabled={disabled}
+            size={24}
+            position={position}
+        />
+    </span>
+);
 
 render(() => {
-    const TagFieldSelectArrow = ({ open, size }) => {
-        const ChevronIcon = size === 40 ? ChevronDownSIcon : ChevronDownMIcon;
-
-        return (
-            <ChevronIcon
-                style={{
-                    display: 'block',
-                    color: 'currentColor',
-                    transition: 'transform 0.15s ease-in-out, opacity 0.2s ease',
-                    transform: open ? 'rotate(180deg)' : undefined,
-                }}
-            />
-        );
-    };
-
-    const TagField = (props) => {
-        const {
-            open,
-            disabled,
-            innerProps,
-            valueRenderer,
-            selected,
-            selectedMultiple,
-            placeholder,
-            Arrow,
-            size = MOBILE_ROW_TAG_SIZE,
-        } = props;
-        const value = valueRenderer({
-            selected,
-            selectedMultiple: selectedMultiple || [],
-        });
-        const filled = Boolean(value);
-        const display = filled ? value : placeholder;
-        const checked = open || filled;
-
-        return (
-            <div style={{ display: 'inline-block' }}>
-                <TagMobile
-                    size={size}
-                    view='filled'
-                    shape='rectangular'
-                    checked={checked}
-                    disabled={disabled}
-                    rightAddons={Arrow}
-                    {...innerProps}
-                >
-                    {display}
-                </TagMobile>
-            </div>
-        );
-    };
-
     const [panelOpen, setPanelOpen] = React.useState(false);
     const [countIndicator, setCountIndicator] = React.useState(false);
-    const [applied, setApplied] = React.useState(emptyFilters);
-    const [draft, setDraft] = React.useState(emptyFilters);
+    const [applied, setApplied] = React.useState(EMPTY);
+    const [draft, setDraft] = React.useState(EMPTY);
+    const [filterSheet, setFilterSheet] = React.useState(null);
+    const [accountsSheetDraft, setAccountsSheetDraft] = React.useState([]);
+    const prevFilterSheetRef = React.useRef(null);
 
-    const openOrTogglePanel = () => {
-        if (panelOpen) {
-            setPanelOpen(false);
-        } else {
-            setDraft({ ...applied });
-            setPanelOpen(true);
-        }
+    const updateApplied = (patch) => setApplied((prev) => ({ ...prev, ...patch }));
+    const updateDraft = (patch) => setDraft((prev) => ({ ...prev, ...patch }));
+
+    const closeFilterSheet = () => setFilterSheet(null);
+
+    const toggleFilterSheet = (name) => {
+        setFilterSheet((prev) => (prev === name ? null : name));
     };
 
-    const activeCount = countActive(applied);
+    React.useEffect(() => {
+        if (filterSheet) {
+            setPanelOpen(false);
+        }
+    }, [filterSheet]);
 
-    const toggleDraftDynamic = (id) => {
-        setDraft((prev) => {
-            const has = prev.dynamicKeys.includes(id);
-            if (has) {
-                return { ...prev, dynamicKeys: prev.dynamicKeys.filter((k) => k !== id) };
-            }
-            return { ...prev, dynamicKeys: [...prev.dynamicKeys, id] };
+    React.useEffect(() => {
+        if (filterSheet === 'accounts' && prevFilterSheetRef.current !== 'accounts') {
+            setAccountsSheetDraft([...applied.accounts]);
+        }
+        prevFilterSheetRef.current = filterSheet;
+    }, [filterSheet, applied.accounts]);
+
+    const openOrTogglePanel = () => {
+        setFilterSheet(null);
+        setPanelOpen((isOpen) => {
+            if (isOpen) return false;
+
+            setDraft({ ...applied });
+            return true;
         });
     };
 
-    const toggleAppliedDynamic = (id) => {
-        setApplied((prev) => ({
-            ...prev,
-            dynamicKeys: prev.dynamicKeys.filter((k) => k !== id),
-        }));
+    const closePanel = () => {
+        setPanelOpen(false);
+        setFilterSheet(null);
     };
+    const activeCount = countActive(applied);
 
-    const periodValueRenderer = ({ selected }) => {
-        if (!selected) return null;
-        return `Период: ${selected.content}`;
-    };
+    const toggleDraftDynamic = (key) =>
+        updateDraft({
+            dynamicKeys: toggleInArray(draft.dynamicKeys, key),
+        });
 
-    const accountsValueRenderer = ({ selectedMultiple }) => {
-        if (!selectedMultiple.length) return null;
-        if (selectedMultiple.length === 1) return `Счета: ${selectedMultiple[0].content}`;
-        return `Счета: Выбрано ${selectedMultiple.length}`;
-    };
+    const appliedPeriodOption = React.useMemo(
+        () => PERIOD_OPTIONS.find((o) => o.key === applied.period),
+        [applied.period],
+    );
 
-    const selectRowProps = {
-        allowUnselect: true,
-        block: false,
-        size: MOBILE_ROW_TAG_SIZE,
-        Option: BaseOption,
-        Field: TagField,
-        Arrow: TagFieldSelectArrow,
-        optionsListWidth: 'field',
-    };
+    const accountsSelectedOpts = React.useMemo(
+        () => ACCOUNT_OPTIONS.filter((o) => applied.accounts.includes(o.key)),
+        [applied.accounts],
+    );
 
     const mobileFilterTagsScrollRowStyle = {
         display: 'flex',
@@ -1091,6 +1187,11 @@ render(() => {
         paddingTop: 10,
         paddingBottom: 4,
         boxSizing: 'border-box',
+        width: 'max-content',
+        maxWidth: '100%',
+        minWidth: 0,
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
     };
 
     const mobileFilterSheetTagsRowStyle = {
@@ -1103,100 +1204,155 @@ render(() => {
 
     return (
         <Container>
-            <div style={mobileFilterTagsScrollRowStyle}>
-                <div style={{ display: 'flex' }}>
-                    <TagMobile
-                        Component={IndicatorTag}
-                        leftAddons={<SlidersMIcon height={16} width={16} />}
-                        size={MOBILE_ROW_TAG_SIZE}
-                        view='filled'
-                        shape='rectangular'
-                        checked={activeCount > 0}
-                        indicatorProps={
-                            activeCount > 0
-                                ? countIndicator
-                                    ? { mode: 'count', value: activeCount }
-                                    : { mode: 'dot' }
-                                : undefined
-                        }
-                        onClick={openOrTogglePanel}
-                    />
-                </div>
-
-                {applied.dynamicKeys.map((id) => (
-                    <div key={id}>
+            <style>
+                {`
+                    .tag-doc-mobile-filter-tags-scroll::-webkit-scrollbar {
+                        display: none;
+                        width: 0;
+                        height: 0;
+                    }
+                    .tag-filter-row-options {
+                        border-radius: 16px;
+                        overflow: hidden;
+                    }
+                    .tag-doc-mobile-bottom-sheet-content {
+                        padding-left: 4px;
+                        padding-right: 2px;
+                        box-sizing: border-box;
+                    }
+                    .tag-doc-mobile-sheet-options [class*='textContent'] {
+                        padding-top: var(--gap-16);
+                        padding-bottom: var(--gap-16);
+                    }
+                `}
+            </style>
+            <div
+                style={{
+                    display: 'inline-grid',
+                    gridTemplateColumns: 'minmax(0, max-content)',
+                    maxWidth: '100%',
+                }}
+            >
+                <div
+                    className='tag-doc-mobile-filter-tags-scroll'
+                    style={mobileFilterTagsScrollRowStyle}
+                >
+                    <div style={{ display: 'flex' }}>
                         <TagMobile
+                            Component={IndicatorTag}
+                            leftAddons={<SlidersSIcon height={16} width={16} />}
                             size={MOBILE_ROW_TAG_SIZE}
                             view='filled'
                             shape='rectangular'
-                            checked={true}
-                            onClick={() => toggleAppliedDynamic(id)}
-                        >
-                            {DYNAMIC_META[id]}
-                        </TagMobile>
+                            checked={false}
+                            indicatorProps={
+                                activeCount > 0
+                                    ? countIndicator
+                                        ? { mode: 'count', value: activeCount }
+                                        : { mode: 'dot' }
+                                    : undefined
+                            }
+                            onClick={openOrTogglePanel}
+                        />
                     </div>
-                ))}
 
-                <div>
-                    <TagMobile
-                        size={MOBILE_ROW_TAG_SIZE}
-                        view='filled'
-                        shape='rectangular'
-                        checked={applied.replenishment}
-                        onClick={() =>
-                            setApplied((p) => ({ ...p, replenishment: !p.replenishment }))
-                        }
-                    >
-                        Пополнения
-                    </TagMobile>
-                </div>
-                <div>
-                    <TagMobile
-                        size={MOBILE_ROW_TAG_SIZE}
-                        view='filled'
-                        shape='rectangular'
-                        checked={applied.writeoff}
-                        onClick={() => setApplied((p) => ({ ...p, writeoff: !p.writeoff }))}
-                    >
-                        Списания
-                    </TagMobile>
+                    {applied.dynamicKeys.map((id) => (
+                        <div key={id}>
+                            <FilterTagItem
+                                checked={true}
+                                onClick={() =>
+                                    updateApplied({
+                                        dynamicKeys: applied.dynamicKeys.filter(
+                                            (key) => key !== id,
+                                        ),
+                                    })
+                                }
+                            >
+                                {DYNAMIC_META[id]}
+                            </FilterTagItem>
+                        </div>
+                    ))}
+
+                    <div>
+                        <FilterTagItem
+                            checked={applied.replenishment}
+                            onClick={() => updateApplied({ replenishment: !applied.replenishment })}
+                        >
+                            Пополнения
+                        </FilterTagItem>
+                    </div>
+                    <div>
+                        <FilterTagItem
+                            checked={applied.writeoff}
+                            onClick={() => updateApplied({ writeoff: !applied.writeoff })}
+                        >
+                            Списания
+                        </FilterTagItem>
+                    </div>
+
+                    <div>
+                        <FilterTag
+                            client='mobile'
+                            size={MOBILE_ROW_TAG_SIZE}
+                            view='filled'
+                            shape='rectangular'
+                            showClear={false}
+                            checked={Boolean(applied.period)}
+                            open={filterSheet === 'period'}
+                            onClick={() => toggleFilterSheet('period')}
+                        >
+                            {appliedPeriodOption ? (
+                                <>
+                                    Период:
+                                    <span style={{ fontWeight: 700 }}>
+                                        {appliedPeriodOption.content}
+                                    </span>
+                                </>
+                            ) : (
+                                'Период'
+                            )}
+                        </FilterTag>
+                    </div>
+                    <div>
+                        <FilterTag
+                            client='mobile'
+                            size={MOBILE_ROW_TAG_SIZE}
+                            view='filled'
+                            shape='rectangular'
+                            showClear={false}
+                            checked={applied.accounts.length > 0}
+                            open={filterSheet === 'accounts'}
+                            onClick={() => toggleFilterSheet('accounts')}
+                        >
+                            {accountsSelectedOpts.length === 0 ? (
+                                'Счета'
+                            ) : accountsSelectedOpts.length === 1 ? (
+                                <>
+                                    Счета:
+                                    <span style={{ fontWeight: 700 }}>
+                                        {accountsSelectedOpts[0].content}
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    Счета:
+                                    <span style={{ fontWeight: 700 }}>
+                                        Выбрано {accountsSelectedOpts.length}
+                                    </span>
+                                </>
+                            )}
+                        </FilterTag>
+                    </div>
                 </div>
 
-                <div>
-                    <SelectMobile
-                        {...selectRowProps}
-                        options={PERIOD_OPTIONS}
-                        placeholder='Период'
-                        selected={applied.period}
-                        valueRenderer={periodValueRenderer}
-                        onChange={({ selected: next }) => {
-                            setApplied((p) => ({ ...p, period: next ? next.key : null }));
-                        }}
-                    />
-                </div>
-                <div>
-                    <SelectMobile
-                        {...selectRowProps}
-                        options={ACCOUNT_OPTIONS}
-                        placeholder='Счета'
-                        multiple={true}
-                        selected={applied.accounts}
-                        valueRenderer={accountsValueRenderer}
-                        onChange={({ selectedMultiple }) => {
-                            setApplied((p) => ({
-                                ...p,
-                                accounts: selectedMultiple.map((o) => o.key),
-                            }));
-                        }}
-                    />
+                <Gap size={20} />
+
+                <div style={{ width: '100%', minWidth: 0 }}>
+                    <Divider />
                 </div>
             </div>
 
-            <Gap size={16} />
-
-            <Divider />
-
-            <Gap size={16} />
+            <Gap size={20} />
 
             <Switch
                 checked={countIndicator}
@@ -1205,8 +1361,126 @@ render(() => {
             />
 
             <BottomSheet
+                open={filterSheet === 'period'}
+                onClose={closeFilterSheet}
+                title='Период'
+                hasCloser={true}
+                stickyFooter={false}
+                initialHeight='default'
+                contentClassName='tag-doc-mobile-bottom-sheet-content'
+            >
+                <div className='tag-filter-row-options tag-doc-mobile-sheet-options'>
+                    <OptionsList
+                        Option={Option}
+                        client='mobile'
+                        nativeScrollbar={true}
+                        size={OPTIONS_LIST_ROW_SIZE}
+                        options={PERIOD_OPTIONS}
+                        open={filterSheet === 'period'}
+                        selectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}
+                        getOptionProps={(option, index) => ({
+                            option,
+                            index,
+                            mobile: true,
+                            multiple: false,
+                            selected: applied.period === option.key,
+                            innerProps: {
+                                id: `tag-doc-mobile-period-sheet-${option.key}`,
+                                role: 'option',
+                                onMouseDown: (e) => e.preventDefault(),
+                                onClick: () => {
+                                    updateApplied({
+                                        period: applied.period === option.key ? null : option.key,
+                                    });
+                                    closeFilterSheet();
+                                },
+                            },
+                        })}
+                    />
+                </div>
+            </BottomSheet>
+
+            <BottomSheet
+                open={filterSheet === 'accounts'}
+                onClose={closeFilterSheet}
+                title='Счета'
+                hasCloser={true}
+                stickyFooter={true}
+                initialHeight='default'
+                contentClassName='tag-doc-mobile-bottom-sheet-content'
+                actionButton={
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: 16,
+                            width: '100%',
+                            boxSizing: 'border-box',
+                        }}
+                    >
+                        <ButtonMobile
+                            view='secondary'
+                            size={48}
+                            type='button'
+                            block={true}
+                            style={{ flex: 1 }}
+                            onClick={() => setAccountsSheetDraft([])}
+                        >
+                            Сбросить
+                        </ButtonMobile>
+                        <ButtonMobile
+                            view='primary'
+                            size={48}
+                            type='button'
+                            block={true}
+                            style={{ flex: 1 }}
+                            onClick={() => {
+                                updateApplied({ accounts: accountsSheetDraft });
+                                closeFilterSheet();
+                            }}
+                        >
+                            Применить
+                        </ButtonMobile>
+                    </div>
+                }
+            >
+                <div className='tag-filter-row-options tag-doc-mobile-sheet-options'>
+                    <OptionsList
+                        Option={Option}
+                        client='mobile'
+                        nativeScrollbar={true}
+                        size={OPTIONS_LIST_ROW_SIZE}
+                        options={ACCOUNT_OPTIONS}
+                        open={filterSheet === 'accounts'}
+                        multiple={true}
+                        selectedItems={ACCOUNT_OPTIONS.filter((item) =>
+                            accountsSheetDraft.includes(item.key),
+                        )}
+                        getOptionProps={(option, index) => ({
+                            option,
+                            index,
+                            mobile: true,
+                            multiple: true,
+                            Checkmark: CheckboxItem,
+                            selected: accountsSheetDraft.includes(option.key),
+                            innerProps: {
+                                id: `tag-doc-mobile-accounts-sheet-${option.key}`,
+                                role: 'option',
+                                onMouseDown: (e) => e.preventDefault(),
+                                onClick: () => {
+                                    setAccountsSheetDraft((prev) =>
+                                        toggleInArray(prev, option.key),
+                                    );
+                                },
+                            },
+                        })}
+                    />
+                </div>
+            </BottomSheet>
+
+            <BottomSheet
                 open={panelOpen}
-                onClose={() => setPanelOpen(false)}
+                onClose={closePanel}
                 title='Фильтры'
                 hasCloser={true}
                 stickyFooter={true}
@@ -1227,7 +1501,7 @@ render(() => {
                             type='button'
                             block={true}
                             style={{ flex: 1 }}
-                            onClick={() => setDraft(emptyFilters())}
+                            onClick={() => setDraft(EMPTY)}
                         >
                             Сбросить
                         </ButtonMobile>
@@ -1239,7 +1513,7 @@ render(() => {
                             style={{ flex: 1 }}
                             onClick={() => {
                                 setApplied({ ...draft });
-                                setPanelOpen(false);
+                                closePanel();
                             }}
                         >
                             Применить
@@ -1280,126 +1554,48 @@ render(() => {
 
                     <Gap size={24} />
 
-                    <Typography.Text
-                        tag='p'
-                        view='component-secondary'
-                        color='secondary'
-                        defaultMargins={false}
-                    >
-                        Движение средств
-                    </Typography.Text>
-                    <Gap size={8} />
-                    <div style={mobileFilterSheetTagsRowStyle}>
-                        <div>
-                            <TagMobile
-                                size={MOBILE_ROW_TAG_SIZE}
-                                view='filled'
-                                shape='rectangular'
-                                checked={draft.replenishment}
-                                onClick={() =>
-                                    setDraft((p) => ({ ...p, replenishment: !p.replenishment }))
-                                }
+                    {DYNAMIC_GROUPS.map((group) => (
+                        <React.Fragment key={group.title}>
+                            <Typography.Text
+                                tag='p'
+                                view='component-secondary'
+                                color='secondary'
+                                defaultMargins={false}
                             >
-                                Пополнение
-                            </TagMobile>
-                        </div>
-                        <div>
-                            <TagMobile
-                                size={MOBILE_ROW_TAG_SIZE}
-                                view='filled'
-                                shape='rectangular'
-                                checked={draft.writeoff}
-                                onClick={() => setDraft((p) => ({ ...p, writeoff: !p.writeoff }))}
-                            >
-                                Списание
-                            </TagMobile>
-                        </div>
-                        <div>
-                            <TagMobile
-                                size={MOBILE_ROW_TAG_SIZE}
-                                view='filled'
-                                shape='rectangular'
-                                checked={draft.dynamicKeys.includes('added_expenses')}
-                                onClick={() => toggleDraftDynamic('added_expenses')}
-                            >
-                                Добавленные расходы
-                            </TagMobile>
-                        </div>
-                    </div>
+                                {group.title}
+                            </Typography.Text>
+                            <Gap size={8} />
+                            <div style={mobileFilterSheetTagsRowStyle}>
+                                {group.items.map((item) => {
+                                    const checked =
+                                        item.type === 'boolean'
+                                            ? Boolean(draft[item.key])
+                                            : draft.dynamicKeys.includes(item.key);
 
-                    <Gap size={24} />
+                                    return (
+                                        <div key={item.key}>
+                                            <FilterTagItem
+                                                checked={checked}
+                                                onClick={() => {
+                                                    if (item.type === 'boolean') {
+                                                        updateDraft({
+                                                            [item.key]: !draft[item.key],
+                                                        });
+                                                        return;
+                                                    }
 
-                    <Typography.Text
-                        tag='p'
-                        view='component-secondary'
-                        color='secondary'
-                        defaultMargins={false}
-                    >
-                        Переводы
-                    </Typography.Text>
-                    <Gap size={8} />
-                    <div style={mobileFilterSheetTagsRowStyle}>
-                        <div>
-                            <TagMobile
-                                size={MOBILE_ROW_TAG_SIZE}
-                                view='filled'
-                                shape='rectangular'
-                                checked={draft.dynamicKeys.includes('to_client')}
-                                onClick={() => toggleDraftDynamic('to_client')}
-                            >
-                                Клиенту банка
-                            </TagMobile>
-                        </div>
-                        <div>
-                            <TagMobile
-                                size={MOBILE_ROW_TAG_SIZE}
-                                view='filled'
-                                shape='rectangular'
-                                checked={draft.dynamicKeys.includes('between_accounts')}
-                                onClick={() => toggleDraftDynamic('between_accounts')}
-                            >
-                                Между счетами
-                            </TagMobile>
-                        </div>
-                    </div>
-
-                    <Gap size={24} />
-
-                    <Typography.Text
-                        tag='p'
-                        view='component-secondary'
-                        color='secondary'
-                        defaultMargins={false}
-                    >
-                        Шаблоны и автоплатежи
-                    </Typography.Text>
-                    <Gap size={8} />
-                    <div style={mobileFilterSheetTagsRowStyle}>
-                        <div>
-                            <TagMobile
-                                size={MOBILE_ROW_TAG_SIZE}
-                                view='filled'
-                                shape='rectangular'
-                                checked={draft.dynamicKeys.includes('templates')}
-                                onClick={() => toggleDraftDynamic('templates')}
-                            >
-                                Шаблоны
-                            </TagMobile>
-                        </div>
-                        <div>
-                            <TagMobile
-                                size={MOBILE_ROW_TAG_SIZE}
-                                view='filled'
-                                shape='rectangular'
-                                checked={draft.dynamicKeys.includes('autopay')}
-                                onClick={() => toggleDraftDynamic('autopay')}
-                            >
-                                Автоплатежи
-                            </TagMobile>
-                        </div>
-                    </div>
-
-                    <Gap size={24} />
+                                                    toggleDraftDynamic(item.key);
+                                                }}
+                                            >
+                                                {item.label}
+                                            </FilterTagItem>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                            <Gap size={24} />
+                        </React.Fragment>
+                    ))}
 
                     <Typography.Text
                         tag='p'
@@ -1417,14 +1613,8 @@ render(() => {
                                 checked={draft.accounts.includes(opt.key)}
                                 label={opt.content}
                                 onChange={() =>
-                                    setDraft((p) => {
-                                        const has = p.accounts.includes(opt.key);
-                                        return {
-                                            ...p,
-                                            accounts: has
-                                                ? p.accounts.filter((k) => k !== opt.key)
-                                                : [...p.accounts, opt.key],
-                                        };
+                                    updateDraft({
+                                        accounts: toggleInArray(draft.accounts, opt.key),
                                     })
                                 }
                             />

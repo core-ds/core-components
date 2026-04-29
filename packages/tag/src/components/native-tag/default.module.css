@@ -77,5 +77,13 @@
             background-color: var(--tag-background-color-checked-active);
             border-color: var(--tag-background-color-checked-active);
         }
+
+        &:disabled span {
+            color: var(--tag-text-color-checked-disabled);
+        }
+
+        &:not(:disabled) span {
+            color: var(--tag-text-color-checked);
+        }
     }
 }
