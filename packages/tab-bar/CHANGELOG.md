@@ -1,5 +1,25 @@
 # @alfalab/core-components-tab-bar
 
+## 4.0.5
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.4
+
+## 4.0.4
+
+### Patch Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2151](https://github.com/core-ds/core-components/pull/2151)
+
+##### TabBar
+
+- Изменена высота компонента
+- Верхний и нижний отступы изменены в соответствии с дизайном
+
 ## 4.0.3
 
 ### Patch Changes

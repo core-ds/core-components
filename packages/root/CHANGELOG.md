@@ -1,5 +1,260 @@
 # @alfalab/core-components
 
+## 50.12.0
+
+### Minor Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### Slider
+
+- В `Slider` добавлены пропсы `dots`, `dotsSlider`, `customDots`, `showPipsDots` и `pipsLabel` для раздельного управления точками (`dots`) и подписями (`pips`).
+- В режиме `dotsSlider='custom'` `showPipsDots` управляет отображением точек для `pips`-значений, а `pipsLabel` управляет только подписями (`all`, `pipsOnly`, `customPipsOnly`, `none`).
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### SliderInput
+
+- `SliderInput` теперь поддерживает отображение точек, кастомные точки и раздельное управление точками и подписями pips через API вложенного `Slider`.
+
+### Patch Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#2184](https://github.com/core-ds/core-components/pull/2184)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения при `blur`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-slider@6.1.0
+- @alfalab/core-components-slider-input@11.1.0
+- @alfalab/core-components-amount-input@9.2.1
+
+## 50.11.0
+
+### Minor Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2159](https://github.com/core-ds/core-components/pull/2159)
+
+##### UniversalModal
+
+- Добавлена механика доступа к странице при открытом модальном окне и скрытом оверлее (страницу можно скроллить и взаимодействовать с элементами)
+- При скрытом оверлее по прежнему можно управлять блокировкой фокуса на компоненте или делать его доступным для всего контента (`disableFocusLock`)
+- Скролл при скрытом оверлее всегда в разблокированном состоянии. Если ваш кейс требует блокировку скролла при скрытом оверлее - сообщите команде поддержки
+- Пропсы для backdrop не будут работать при скрытом оверлее, так как для этого кейса backdrop не рендерится на странице
+- Улучшена логика скролла внутри компонента, когда событе скролла происходит по оверлею
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2176](https://github.com/core-ds/core-components/pull/2176)
+
+##### Markdown
+
+- Исправлен вид ссылок. Теперь они синего цвета, без подчёркивания
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2172](https://github.com/core-ds/core-components/pull/2172)
+
+##### Steps
+
+- Исправлено свойство `fullWidth`, которое было сломано в версии `48.19.0`
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2159](https://github.com/core-ds/core-components/pull/2159)
+
+##### BaseModal
+
+- Исправлен проброс пропсов для backdrop
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2089](https://github.com/core-ds/core-components/pull/2089)
+
+##### Themes
+
+- Темизация click удалена из navigation-bar и теперь соответствует default
+
+- Обновлены зависимости
+    - @alfalab/core-components-markdown@3.0.8
+    - @alfalab/core-components-steps@3.0.5
+    - @alfalab/core-components-universal-modal@3.1.0
+    - @alfalab/core-components-base-modal@7.1.3
+    - @alfalab/core-components-themes@15.0.3
+    - @alfalab/core-components-bottom-sheet@8.1.4
+    - @alfalab/core-components-drawer@7.0.5
+    - @alfalab/core-components-gallery@7.1.4
+    - @alfalab/core-components-modal@11.0.7
+    - @alfalab/core-components-popup-sheet@3.0.7
+    - @alfalab/core-components-select@19.1.4
+    - @alfalab/core-components-side-panel@7.0.7
+    - @alfalab/core-components-select-with-tags@10.1.4
+    - @alfalab/core-components-tooltip@9.0.9
+    - @alfalab/core-components-calendar@9.1.3
+    - @alfalab/core-components-custom-picker-button@4.1.4
+    - @alfalab/core-components-input-autocomplete@14.0.11
+    - @alfalab/core-components-international-phone-input@4.0.11
+    - @alfalab/core-components-intl-phone-input@11.0.11
+    - @alfalab/core-components-picker-button@13.0.11
+    - @alfalab/core-components-table@4.0.11
+    - @alfalab/core-components-calendar-input@12.0.8
+    - @alfalab/core-components-calendar-range@9.0.8
+    - @alfalab/core-components-calendar-with-skeleton@7.0.7
+    - @alfalab/core-components-date-range-input@5.0.8
+    - @alfalab/core-components-date-time-input@6.0.8
+    - @alfalab/core-components-universal-date-input@4.0.8
+    - @alfalab/core-components-tabs@10.0.11
+
+## 50.10.0
+
+### Minor Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2156](https://github.com/core-ds/core-components/pull/2156)
+
+##### ToastPlate
+
+- Добавлен пропс `closerProps`, с помощью которого можно управлять параметрами кнопки "закрыть" (как новыми так и старыми)
+
+Значения по умолчанию
+
+```
+closerProps = {
+    hasCloser: false,
+    closerWrapperClassName: undefined,
+    closerClassName: undefined,
+    divider: true,
+    view: 'primary'
+}
+```
+
+Пропсы `hasCloser`, `closerWrapperClassName`, `closerClassName` - отмечены как `deprecated` и будут удалены в будущих версиях. Используйте их в составе `closerProps`
+
+### Patch Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2156](https://github.com/core-ds/core-components/pull/2156)
+
+##### Notification
+
+- Исправлены внутренние отступы между элементами компонента
+- Убран разделить для кнопки "закрыть"
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2121](https://github.com/core-ds/core-components/pull/2121)
+
+##### Skeleton
+
+- Изменена анимация с `background` на `opacity`, теперь производительность анимации выше
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2152](https://github.com/core-ds/core-components/pull/2152)
+
+##### NotificationManager
+
+- Исправили некорректное отображение нескольких Notification внутри NotificationManager: уведомления больше не застревают за пределами экрана и корректно отображаются при одновременном показе.
+
+- Обновлены зависимости
+    - @alfalab/core-components-notification@9.0.5
+    - @alfalab/core-components-skeleton@7.0.3
+    - @alfalab/core-components-toast-plate@9.1.0
+    - @alfalab/core-components-notification-manager@7.0.5
+    - @alfalab/core-components-calendar-with-skeleton@7.0.6
+    - @alfalab/core-components-segmented-control@3.1.2
+    - @alfalab/core-components-select@19.1.3
+    - @alfalab/core-components-switch@6.1.1
+    - @alfalab/core-components-tabs@10.0.10
+    - @alfalab/core-components-typography@6.0.4
+    - @alfalab/core-components-toast@8.0.5
+    - @alfalab/core-components-custom-picker-button@4.1.3
+    - @alfalab/core-components-input-autocomplete@14.0.10
+    - @alfalab/core-components-international-phone-input@4.0.10
+    - @alfalab/core-components-intl-phone-input@11.0.10
+    - @alfalab/core-components-picker-button@13.0.10
+    - @alfalab/core-components-select-with-tags@10.1.3
+    - @alfalab/core-components-table@4.0.10
+    - @alfalab/core-components-accordion@3.0.4
+    - @alfalab/core-components-calendar@9.1.2
+    - @alfalab/core-components-chart@5.0.4
+    - @alfalab/core-components-circular-progress-bar@5.0.4
+    - @alfalab/core-components-comment@4.0.4
+    - @alfalab/core-components-confirmation@15.0.5
+    - @alfalab/core-components-file-upload-item@8.0.5
+    - @alfalab/core-components-gallery@7.1.3
+    - @alfalab/core-components-list@5.0.4
+    - @alfalab/core-components-list-header@5.0.4
+    - @alfalab/core-components-markdown@3.0.7
+    - @alfalab/core-components-navigation-bar@3.0.5
+    - @alfalab/core-components-navigation-bar-private@2.0.6
+    - @alfalab/core-components-product-cover@3.1.5
+    - @alfalab/core-components-pure-cell@6.0.5
+    - @alfalab/core-components-stepped-progress-bar@4.0.4
+    - @alfalab/core-components-tab-bar@4.0.5
+    - @alfalab/core-components-calendar-input@12.0.7
+    - @alfalab/core-components-calendar-range@9.0.7
+    - @alfalab/core-components-date-range-input@5.0.7
+    - @alfalab/core-components-date-time-input@6.0.7
+    - @alfalab/core-components-universal-date-input@4.0.7
+    - @alfalab/core-components-bottom-sheet@8.1.3
+    - @alfalab/core-components-modal@11.0.6
+    - @alfalab/core-components-popup-sheet@3.0.6
+    - @alfalab/core-components-side-panel@7.0.6
+    - @alfalab/core-components-universal-modal@3.0.7
+    - @alfalab/core-components-tooltip@9.0.8
+
+## 50.9.0
+
+### Minor Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2154](https://github.com/core-ds/core-components/pull/2154)
+
+##### Switch
+
+- Добавлен пропс `showSkeleton` с помощью которого можно отобразить скелетон компонента
+
+### Patch Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2151](https://github.com/core-ds/core-components/pull/2151)
+
+##### TabBar
+
+- Изменена высота компонента
+- Верхний и нижний отступы изменены в соответствии с дизайном
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2158](https://github.com/core-ds/core-components/pull/2158)
+
+##### Steps
+
+- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.
+- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`.
+
+- Обновлены зависимости
+    - @alfalab/core-components-tab-bar@4.0.4
+    - @alfalab/core-components-steps@3.0.4
+    - @alfalab/core-components-switch@6.1.0
+
 ## 50.8.0
 
 ### Minor Changes

@@ -100,6 +100,36 @@ describe('NotificationManager', () => {
         });
     });
 
+    it('should pass unique `containerRef` to each notification', () => {
+        const cloneElementSpy = jest.spyOn(React, 'cloneElement');
+
+        render(
+            <NotificationManager
+                onRemoveNotification={jest.fn()}
+                notifications={[
+                    <Notification title='title' key={1} id='1' />,
+                    <Notification title='title' key={2} id='2' />,
+                ]}
+            />,
+        );
+
+        const containerRefs = cloneElementSpy.mock.calls.reduce<React.RefObject<HTMLDivElement>[]>(
+            (acc, [, props]) => {
+                if (props && 'containerRef' in props) {
+                    acc.push(props.containerRef as React.RefObject<HTMLDivElement>);
+                }
+
+                return acc;
+            },
+            [],
+        );
+
+        expect(containerRefs).toHaveLength(2);
+        expect(containerRefs[0]).not.toBe(containerRefs[1]);
+
+        cloneElementSpy.mockRestore();
+    });
+
     it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(

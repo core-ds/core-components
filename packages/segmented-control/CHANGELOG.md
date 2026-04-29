@@ -1,5 +1,12 @@
 # @alfalab/core-components-segmented-control
 
+## 3.1.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-skeleton@7.0.3
+
 ## 3.1.1
 
 ### Patch Changes

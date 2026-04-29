@@ -1,5 +1,20 @@
 # @alfalab/core-components-calendar
 
+## 9.1.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-modal@11.0.7
+
+## 9.1.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-typography@6.0.4
+    - @alfalab/core-components-modal@11.0.6
+
 ## 9.1.1
 
 ### Patch Changes

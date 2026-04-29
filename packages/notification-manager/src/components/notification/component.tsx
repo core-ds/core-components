@@ -1,30 +1,52 @@
-import {
+import React, {
     cloneElement,
     type FC,
     type ReactElement,
-    type RefObject,
     useCallback,
     useMemo,
+    useRef,
 } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import cn from 'classnames';
 
 import { type NotificationProps as CoreNotificationProps } from '@alfalab/core-components-notification';
 
+import styles from './index.module.css';
+
 export type NotificationElement = ReactElement<CoreNotificationProps & { id: string }>;
 
-type NotificationProps = {
+const TIMEOUT = {
+    exit: 0,
+    enter: 400,
+};
+
+const CSS_TRANSITION_CLASS_NAMES = {
+    enter: styles.enter,
+    enterActive: styles.enterActive,
+};
+
+type NotificationTransitionProps = Partial<
+    Pick<CSSTransitionProps<HTMLDivElement>, 'in' | 'onExited' | 'appear' | 'enter' | 'exit'>
+>;
+
+interface NotificationProps extends NotificationTransitionProps {
     element: NotificationElement;
     className: string;
     onRemoveNotification: (id: string) => void;
-    containerRef: RefObject<HTMLDivElement>;
-};
+}
 
 export const Notification: FC<NotificationProps> = ({
+    in: inProp,
+    onExited,
+    appear,
+    enter,
+    exit,
     element,
     className,
     onRemoveNotification,
-    containerRef,
 }) => {
+    const nodeRef = useRef<HTMLDivElement>(null);
     const { onClose, onCloseTimeout } = element.props;
 
     const handleClose = useCallback(() => {
@@ -52,11 +74,25 @@ export const Notification: FC<NotificationProps> = ({
             offset: 0,
             onClose: handleClose,
             onCloseTimeout: handleCloseTimeout,
-            containerRef,
+            containerRef: nodeRef,
         }),
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [element, handleClose, handleCloseTimeout, containerRef],
+        [element, handleClose, handleCloseTimeout, className],
     );
 
-    return cloneElement(element, notificationProps);
+    return (
+        <CSSTransition<HTMLDivElement>
+            in={inProp}
+            onExited={onExited}
+            appear={appear}
+            enter={enter}
+            exit={exit}
+            timeout={TIMEOUT}
+            classNames={CSS_TRANSITION_CLASS_NAMES}
+            unmountOnExit={true}
+            nodeRef={nodeRef}
+        >
+            {cloneElement(element, notificationProps)}
+        </CSSTransition>
+    );
 };

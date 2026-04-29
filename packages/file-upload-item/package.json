@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-file-upload-item",
-    "version": "8.0.4",
+    "version": "8.0.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,7 +13,7 @@
         "@alfalab/core-components-icon-button": "^8.0.4",
         "@alfalab/core-components-icon-view": "^5.0.2",
         "@alfalab/core-components-shared": "^2.1.1",
-        "@alfalab/core-components-typography": "^6.0.3",
+        "@alfalab/core-components-typography": "^6.0.4",
         "@alfalab/hooks": "^1.13.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
@@ -27,6 +27,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.2",
+    "themesVersion": "15.0.3",
     "varsVersion": "11.0.2"
 }

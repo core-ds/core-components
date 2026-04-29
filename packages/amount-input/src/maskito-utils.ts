@@ -283,13 +283,20 @@ export function processDecimalPart(
     numberParams: NumberParams,
     view: 'default' | 'withZeroMinorPart',
 ): string {
-    const { decimalPart, decimalSeparator, ...numberParts } = toNumberParts(value, numberParams);
-    const nextDecimalPart =
-        view === 'withZeroMinorPart' || /[1-9]/.test(decimalPart)
-            ? decimalPart.padEnd(numberParams.maximumFractionDigits, ZERO_AS_STRING)
-            : decimalPart.replace(/0+$/, '');
+    if (value) {
+        const { decimalPart, decimalSeparator, ...numberParts } = toNumberParts(
+            value,
+            numberParams,
+        );
+        const nextDecimalPart =
+            view === 'withZeroMinorPart' || /[1-9]/.test(decimalPart)
+                ? decimalPart.padEnd(numberParams.maximumFractionDigits, ZERO_AS_STRING)
+                : decimalPart.replace(/0+$/, '');
 
-    return fromNumberParts({ ...numberParts, decimalPart: nextDecimalPart }, numberParams);
+        return fromNumberParts({ ...numberParts, decimalPart: nextDecimalPart }, numberParams);
+    }
+
+    return value;
 }
 
 /**

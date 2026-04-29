@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-toast-plate",
-    "version": "9.0.4",
+    "version": "9.1.0",
     "description": "Toast plate component",
     "keywords": [],
     "license": "MIT",
@@ -26,6 +26,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.2",
+    "themesVersion": "15.0.3",
     "varsVersion": "11.0.2"
 }
