@@ -283,13 +283,20 @@ export function processDecimalPart(
     numberParams: NumberParams,
     view: 'default' | 'withZeroMinorPart',
 ): string {
-    const { decimalPart, decimalSeparator, ...numberParts } = toNumberParts(value, numberParams);
-    const nextDecimalPart =
-        view === 'withZeroMinorPart' || /[1-9]/.test(decimalPart)
-            ? decimalPart.padEnd(numberParams.maximumFractionDigits, ZERO_AS_STRING)
-            : decimalPart.replace(/0+$/, '');
+    if (value) {
+        const { decimalPart, decimalSeparator, ...numberParts } = toNumberParts(
+            value,
+            numberParams,
+        );
+        const nextDecimalPart =
+            view === 'withZeroMinorPart' || /[1-9]/.test(decimalPart)
+                ? decimalPart.padEnd(numberParams.maximumFractionDigits, ZERO_AS_STRING)
+                : decimalPart.replace(/0+$/, '');
 
-    return fromNumberParts({ ...numberParts, decimalPart: nextDecimalPart }, numberParams);
+        return fromNumberParts({ ...numberParts, decimalPart: nextDecimalPart }, numberParams);
+    }
+
+    return value;
 }
 
 /**
@@ -799,13 +806,9 @@ function processDecimalPartPlugin(
     view: 'default' | 'withZeroMinorPart',
 ) {
     return maskitoEventHandler('blur', (element) => {
-        const { value } = element;
+        const nextValue = processDecimalPart(element.value, numberParams, view);
 
-        if (value) {
-            const nextValue = processDecimalPart(value, numberParams, view);
-
-            maskitoUpdateElement(element, nextValue);
-        }
+        maskitoUpdateElement(element, nextValue);
     });
 }
 
