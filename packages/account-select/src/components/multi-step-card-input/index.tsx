@@ -9,7 +9,7 @@ import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
 import { parseDate } from '../../utils/parse-date';
 import { validateCardNumber, validateCVC, validateExpiry } from '../../utils/validate';
 
-import { useValidationError } from './useValidationError';
+import { useValidationError } from './hooks/useValidationError';
 
 import styles from './index.module.css';
 

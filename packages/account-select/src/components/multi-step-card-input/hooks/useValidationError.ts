@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { ERRORS, EXPIRY_COMPLETE_REGEXP } from '../../constants';
-import { useError } from '../../context';
-import { validateCardNumber, validateCVC, validateExpiry } from '../../utils/validate';
+import { ERRORS, EXPIRY_COMPLETE_REGEXP } from '../../../constants';
+import { useError } from '../../../context';
+import { validateCardNumber, validateCVC, validateExpiry } from '../../../utils/validate';
 
 type TouchedFields = { cardNumber: boolean; expiry: boolean; cvc: boolean };
 
