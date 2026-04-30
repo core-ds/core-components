@@ -141,6 +141,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         fullHeight = adjustContainerHeight(fullHeight);
 
         const initialIndexRef = useRef<number | undefined>(initialActiveAreaIndex);
+        const prevMagneticAreasRef = useRef<number[]>();
         const prevMagneticAreasPropRef = useRef<Array<number | string> | undefined>(
             magneticAreasProp,
         );
@@ -259,6 +260,25 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const getActiveAreaIndex = (area?: number) => magneticAreas.findIndex((a) => a === area);
+        const getClosestAreaIndex = (area: number, areas: number[]) =>
+            areas.reduce(
+                (result, currentArea, currentIndex) => {
+                    const distance = Math.abs(currentArea - area);
+
+                    if (distance < result.distance) {
+                        return {
+                            distance,
+                            index: currentIndex,
+                        };
+                    }
+
+                    return result;
+                },
+                {
+                    distance: Number.POSITIVE_INFINITY,
+                    index: 0,
+                },
+            ).index;
 
         const setSheetHeight = () => {
             if (sheetRef.current) {
@@ -552,8 +572,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (!isFirstRender) {
                 const magneticAreasPropChanged =
                     prevMagneticAreasPropRef.current !== magneticAreasProp;
+                const prevMagneticAreas = prevMagneticAreasRef.current;
 
                 prevMagneticAreasPropRef.current = magneticAreasProp;
+                prevMagneticAreasRef.current = magneticAreas;
 
                 if (magneticAreasPropChanged) {
                     setSkipTransition(true);
@@ -565,6 +587,16 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
                     setSheetOffset(isNil(idx) ? 0 : lastMagneticArea - magneticAreas[idx]);
                     setActiveAreaIdx(isNil(idx) ? magneticAreas.length - 1 : idx);
+                } else if (magneticAreasPropChanged && prevMagneticAreas?.length) {
+                    const prevActiveArea =
+                        prevMagneticAreas[activeAreaIdx] ??
+                        prevMagneticAreas[prevMagneticAreas.length - 1];
+                    const nextAreaIdx = getClosestAreaIndex(prevActiveArea, magneticAreas);
+                    const nextArea = magneticAreas[nextAreaIdx];
+
+                    setSheetOffset(lastMagneticArea - nextArea);
+                    setActiveAreaIdx(nextAreaIdx);
+                    onMagnetize?.(nextAreaIdx);
                 } else {
                     setSheetOffset(activeArea ? lastMagneticArea - activeArea : 0);
                 }
