@@ -1,7 +1,6 @@
 import React, { type FC, useRef } from 'react';
 import cn from 'classnames';
 
-import { Badge } from '@alfalab/core-components-badge';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
@@ -121,7 +120,7 @@ export const Step: FC<StepProps> = ({
 
     const getStepIndicator = () => {
         if (customStepIndicator) {
-            return <Badge view='icon' size='l' {...customStepIndicator} />;
+            return <StepIndicator {...customStepIndicator} />;
         }
         if (isCriticalError) {
             return <StepIndicator view='negative-cross' />;

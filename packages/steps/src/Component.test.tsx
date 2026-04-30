@@ -63,7 +63,7 @@ describe('Steps', () => {
     });
 
     describe('Render tests', () => {
-        test('should render with default active step', () => {
+        it('should render with default active step', () => {
             const defaultActiveStep = 2;
 
             const { container } = render(
@@ -79,7 +79,7 @@ describe('Steps', () => {
             expect(steps[defaultActiveStep - 1]).toHaveClass('selected');
         });
 
-        test('should render ordered steps', () => {
+        it('should render ordered steps', () => {
             const { queryAllByText } = render(
                 <Steps>
                     <div>Подготовка</div>
@@ -93,7 +93,7 @@ describe('Steps', () => {
             expect(steps[1].innerHTML).toBe('2');
         });
 
-        test('should render unordered steps', () => {
+        it('should render unordered steps', () => {
             const { container } = render(
                 <Steps ordered={false}>
                     <div>Шаг 1</div>
@@ -107,7 +107,19 @@ describe('Steps', () => {
             expect(unorderedSteps.length).toBe(3);
         });
 
-        test('should unmount without errors', () => {
+        it('should render custom status badge indicator', () => {
+            const { queryByText, getByText } = render(
+                <Steps checkIsStepCustom={(stepNumber) => (stepNumber === 1 ? { view: 'negative-alert' } : null)}>
+                    <div>Первый шаг</div>
+                    <div>Второй шаг</div>
+                </Steps>,
+            );
+
+            expect(queryByText(/^1$/)).not.toBeInTheDocument();
+            expect(getByText(/^2$/)).toBeInTheDocument();
+        });
+
+        it('should unmount without errors', () => {
             const { unmount } = render(
                 <Steps>
                     <div>Шаг 1</div>
