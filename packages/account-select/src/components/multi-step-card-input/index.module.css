@@ -12,13 +12,18 @@
     -moz-appearance: none;
     appearance: none;
 
-    &:focus {
-        outline: none;
-    }
-
     &::placeholder,
     &::-webkit-input-placeholder {
-        color: var(--color-light-text-tertiary);
+        color: var(--color-light-text-secondary);
+    }
+
+    &:focus {
+        outline: none;
+
+        &::placeholder,
+        &::-webkit-input-placeholder {
+            color: var(--color-light-text-tertiary);
+        }
     }
 }
 
@@ -29,6 +34,7 @@
 
 .hidden {
     opacity: 0;
+    pointer-events: none;
 }
 
 .cardNumberInput {

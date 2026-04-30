@@ -2,12 +2,14 @@ import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
 
-import { CARD_MASK, CVV_MASK, ERRORS, EXPIRY_COMPLETE_REGEXP, EXPIRY_MASK } from '../../constants';
-import { useAccountSelect, useError } from '../../context';
+import { CARD_MASK, CVV_MASK, EXPIRY_MASK } from '../../constants';
+import { useAccountSelect } from '../../context';
 import { type CardAddingProps } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
 import { parseDate } from '../../utils/parse-date';
 import { validateCardNumber, validateCVC, validateExpiry } from '../../utils/validate';
+
+import { useValidationError } from './useValidationError';
 
 import styles from './index.module.css';
 
@@ -35,8 +37,6 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             setCardCvc,
             setCardExpiry,
         } = useAccountSelect();
-
-        const { setError } = useError();
 
         const [touchedFields, setTouchedFields] = useState({
             cardNumber: false,
@@ -95,54 +95,16 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             if (step === 3) cvvRef.current?.focus();
         }, [step]);
 
-        useEffect(() => {
-            if (valuesEmpty) {
-                setError(null);
-
-                return;
-            }
-
-            const errors: string[] = [];
-
-            if (
-                activeField !== 'cardNumber' &&
-                touchedFields.cardNumber &&
-                !validateCardNumber(cardNumber)
-            ) {
-                errors.push(ERRORS.CARD_NUMBER_ERROR);
-            }
-
-            if (needExpiryDate && activeField !== 'expiry') {
-                if (!cardExpiry && touchedFields.expiry) {
-                    errors.push(ERRORS.EXPIRY_EMPTY);
-                } else if (cardExpiry) {
-                    const expiryStr = cardExpiry as string;
-                    const isComplete = EXPIRY_COMPLETE_REGEXP.test(expiryStr);
-
-                    if ((isComplete || touchedFields.expiry) && !validateExpiry(expiryStr)) {
-                        errors.push(ERRORS.EXPIRY_ERROR);
-                    }
-                }
-            }
-
-            if (needCVC && activeField !== 'cvv' && touchedFields.cvc) {
-                if (!cardCvc || !validateCVC(cardCvc)) {
-                    errors.push(ERRORS.CVV_EMPTY);
-                }
-            }
-
-            setError(errors.length > 0 ? errors.join('. ') : null);
-        }, [
-            activeField,
+        useValidationError({
             cardNumber,
             cardExpiry,
             cardCvc,
+            activeField,
             touchedFields,
             needExpiryDate,
             needCVC,
-            setError,
             valuesEmpty,
-        ]);
+        });
 
         const proceedToNextStepOrSubmit = useCallback(
             (
@@ -313,8 +275,12 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                             onInput={handleExpiryChange}
                             onFocus={handleExpiryFocus}
                             className={cn(styles.multistepInput, styles.expiryInput, {
-                                [styles.hidden]: activeField === 'cardNumber' || valuesEmpty,
+                                [styles.hidden]:
+                                    activeField === 'cardNumber' ||
+                                    valuesEmpty ||
+                                    !validateCardNumber(cardNumber),
                             })}
+                            tabIndex={validateCardNumber(cardNumber) ? 0 : -1}
                             inputMode='numeric'
                             onBlur={handleExpiryBlur}
                             pattern='[0-9]*'
@@ -329,8 +295,12 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                             onInput={handleCvcChange}
                             onFocus={handleCVVFocus}
                             className={cn(styles.multistepInput, styles.cvvInput, {
-                                [styles.hidden]: activeField === 'cardNumber' || valuesEmpty,
+                                [styles.hidden]:
+                                    activeField === 'cardNumber' ||
+                                    valuesEmpty ||
+                                    !validateCardNumber(cardNumber),
                             })}
+                            tabIndex={validateCardNumber(cardNumber) ? 0 : -1}
                             inputMode='numeric'
                             onBlur={handleCvcBlur}
                             pattern='[0-9]*'
