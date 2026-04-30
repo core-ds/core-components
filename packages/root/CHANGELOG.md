@@ -1,5 +1,48 @@
 # @alfalab/core-components
 
+## 50.12.1
+
+### Patch Changes
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2195](https://github.com/core-ds/core-components/pull/2195)
+
+##### UniversalModal
+
+- Открыта типизация пропа `container` для desktop/mobile компонента. Данный проп позволяет менять рендер контейнер компонента.
+- Открыта типизация пропа `backdropProps` для mobile компонента. Данный проп позволяет задавать анимацию для backdrop слоя компонента.
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2192](https://github.com/core-ds/core-components/pull/2192)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2181](https://github.com/core-ds/core-components/pull/2181)
+
+##### SelectWithTags
+
+- Исправлено отображение поиска в мобильной версии при `showSearch={true}` без явной передачи пропа `Search`
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2196](https://github.com/core-ds/core-components/pull/2196)
+
+##### AmountInput
+
+- Улучшена работа анимации при отклонении ввода
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-universal-modal@3.1.1
+- @alfalab/core-components-amount-input@9.2.2
+- @alfalab/core-components-select-with-tags@10.1.5
+
 ## 50.12.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "50.12.0",
+    "version": "50.12.1",
     "homepage": "https://github.com/core-ds/core-components#readme",
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
@@ -14,7 +14,7 @@
         "@alfalab/core-components-action-button": "^3.0.3",
         "@alfalab/core-components-alert": "^6.0.4",
         "@alfalab/core-components-amount": "^5.1.1",
-        "@alfalab/core-components-amount-input": "^9.2.1",
+        "@alfalab/core-components-amount-input": "^9.2.2",
         "@alfalab/core-components-attach": "^8.0.4",
         "@alfalab/core-components-backdrop": "^5.0.2",
         "@alfalab/core-components-badge": "^7.0.2",
@@ -97,7 +97,7 @@
         "@alfalab/core-components-scrollbar": "^5.0.2",
         "@alfalab/core-components-segmented-control": "^3.1.2",
         "@alfalab/core-components-select": "^19.1.4",
-        "@alfalab/core-components-select-with-tags": "^10.1.4",
+        "@alfalab/core-components-select-with-tags": "^10.1.5",
         "@alfalab/core-components-shared": "^2.1.1",
         "@alfalab/core-components-side-panel": "^7.0.7",
         "@alfalab/core-components-skeleton": "^7.0.3",
@@ -128,7 +128,7 @@
         "@alfalab/core-components-typography": "^6.0.4",
         "@alfalab/core-components-underlay": "^3.0.2",
         "@alfalab/core-components-universal-date-input": "^4.0.8",
-        "@alfalab/core-components-universal-modal": "^3.1.0",
+        "@alfalab/core-components-universal-modal": "^3.1.1",
         "@alfalab/core-components-vars": "^11.0.2",
         "@alfalab/core-components-with-suffix": "^6.0.5"
     },
