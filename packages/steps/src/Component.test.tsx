@@ -109,7 +109,11 @@ describe('Steps', () => {
 
         it('should render custom status badge indicator', () => {
             const { queryByText, getByText } = render(
-                <Steps checkIsStepCustom={(stepNumber) => (stepNumber === 1 ? { view: 'negative-alert' } : null)}>
+                <Steps
+                    checkIsStepCustom={(stepNumber) =>
+                        stepNumber === 1 ? { view: 'negative-alert' } : null
+                    }
+                >
                     <div>Первый шаг</div>
                     <div>Второй шаг</div>
                 </Steps>,
