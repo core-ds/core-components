@@ -1,5 +1,17 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.5
+
+### Patch Changes
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2181](https://github.com/core-ds/core-components/pull/2181)
+
+##### SelectWithTags
+
+- Исправлено отображение поиска в мобильной версии при `showSearch={true}` без явной передачи пропа `Search`
+
 ## 10.1.4
 
 ### Patch Changes
