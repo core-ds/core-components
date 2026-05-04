@@ -19,7 +19,7 @@ const TRIPLE_INDICATOR_SHIFT_X = 6;
 const INDICATOR_INSET_X = 3;
 const INDICATOR_INSET_Y = 3;
 
-const RECT_CORNER_RADIUS_FACTOR = 0.31;
+const RECT_CORNER_RADIUS_FACTOR = 0.21;
 
 type BadgeIconSize = NonNullable<BaseTagProps['size']>;
 

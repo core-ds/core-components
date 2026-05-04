@@ -5,7 +5,6 @@
 }
 
 .shapeInner {
-    background-color: var(--tag-filled-background-color);
     color: inherit;
 
     & svg {

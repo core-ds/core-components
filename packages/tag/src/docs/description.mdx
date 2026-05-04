@@ -68,6 +68,11 @@ render(() => {
 
     const amountAddon = (
         <span
+            className={
+                checkedMap.amount
+                    ? 'tag-description-amount-addon tag-description-amount-addon-checked'
+                    : 'tag-description-amount-addon'
+            }
             style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -75,18 +80,38 @@ render(() => {
             }}
         >
             <Amount
+                className='tag-description-amount'
                 view='withZeroMinorPart'
                 value={123400}
                 currency='RUR'
                 minority={100}
-                fontWeight='none'
                 transparentMinor
             />
         </span>
     );
 
     return (
-        <Container>
+        <React.Fragment>
+            <style>
+                {`
+                    .tag-description-amount-addon .tag-description-amount,
+                    .tag-description-amount-addon .tag-description-amount span {
+                        color: var(--text-primary, rgba(3, 3, 6, 0.88));
+                        font-family: var(--font-family-20, "Alfa Interface Sans");
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;
+                        letter-spacing: var(--regular_letter_spacing-14, -0.08px);
+                    }
+
+                    .tag-description-amount-addon-checked .tag-description-amount,
+                    .tag-description-amount-addon-checked .tag-description-amount span {
+                        color: var(--tag-text-color-checked);
+                    }
+                `}
+            </style>
+            <Container>
             <Row>
                 <div style={{ marginRight: 8 }}>
                     <Tag
@@ -142,7 +167,7 @@ render(() => {
                 <div style={{ marginRight: 8 }}>
                     <Tag
                         Component={IndicatorTag}
-                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
+                        leftAddons={<ArrowsUpDownSIcon />}
                         checked={checkedMap.indicator}
                         onClick={(_, { checked: nextChecked }) =>
                             setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
@@ -151,7 +176,8 @@ render(() => {
                     />
                 </div>
             </Row>
-        </Container>
+            </Container>
+        </React.Fragment>
     );
 });
 //MOBILE
@@ -185,6 +211,11 @@ render(() => {
 
     const amountAddon = (
         <span
+            className={
+                checkedMap.amount
+                    ? 'tag-description-amount-addon tag-description-amount-addon-checked'
+                    : 'tag-description-amount-addon'
+            }
             style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -192,18 +223,38 @@ render(() => {
             }}
         >
             <Amount
+                className='tag-description-amount'
                 view='withZeroMinorPart'
                 value={123400}
                 currency='RUR'
                 minority={100}
-                fontWeight='none'
                 transparentMinor
             />
         </span>
     );
 
     return (
-        <Container>
+        <React.Fragment>
+            <style>
+                {`
+                    .tag-description-amount-addon .tag-description-amount,
+                    .tag-description-amount-addon .tag-description-amount span {
+                        color: var(--text-primary, rgba(3, 3, 6, 0.88));
+                        font-family: var(--font-family-20, "Alfa Interface Sans");
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;
+                        letter-spacing: var(--regular_letter_spacing-14, -0.08px);
+                    }
+
+                    .tag-description-amount-addon-checked .tag-description-amount,
+                    .tag-description-amount-addon-checked .tag-description-amount span {
+                        color: var(--tag-text-color-checked);
+                    }
+                `}
+            </style>
+            <Container>
             <div
                 style={{
                     display: 'flex',
@@ -266,7 +317,7 @@ render(() => {
                 <div style={{ marginRight: 8 }}>
                     <Tag
                         Component={IndicatorTag}
-                        leftAddons={<ArrowsUpDownMIcon height={16} width={16} />}
+                        leftAddons={<ArrowsUpDownSIcon />}
                         checked={checkedMap.indicator}
                         onClick={(_, { checked: nextChecked }) =>
                             setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
@@ -275,7 +326,8 @@ render(() => {
                     />
                 </div>
             </div>
-        </Container>
+            </Container>
+        </React.Fragment>
     );
 });
 ```
@@ -559,6 +611,13 @@ render(() => {
                     }
                     .tag-filter-row-options {
                         border-radius: 16px;
+                        border: 1px solid var(--neutral-300, #E7E8EB);
+                        background: var(--modal-bg-primary, #FFF);
+                        box-shadow:
+                            0 20px 24px 0 rgba(0, 0, 0, 0.08),
+                            0 12px 16px 0 rgba(0, 0, 0, 0.04),
+                            0 4px 8px 0 rgba(0, 0, 0, 0.04),
+                            0 0 1px 0 rgba(0, 0, 0, 0.04);
                         overflow: hidden;
                     }
                     .tag-filter-panel-footer {

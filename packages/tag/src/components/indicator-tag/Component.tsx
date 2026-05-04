@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Indicator } from '@alfalab/core-components-indicator';
 
-import { type BaseTagProps } from '../../typings';
+import { type BaseTagProps, type StyleColors } from '../../typings';
 import {
     JR,
     JR_RECT,
@@ -36,6 +36,7 @@ export interface IndicatorTagProps
         | 'size'
     > {
     size: 32 | 40;
+    colorStyles?: StyleColors['default'];
     onClick?: MouseEventHandler<HTMLButtonElement>;
     focused?: boolean;
 }
@@ -56,6 +57,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
             dataTestId,
             onClick,
             focused = false,
+            colorStyles,
             ...restProps
         },
         ref,
@@ -162,6 +164,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                             className={cn(
                                 commonStyles.shapeInner,
                                 colorStyle.shapeInner,
+                                colorStyles?.filled,
                                 { [colorStyle.checkedInner]: Boolean(checked) },
                                 childrenClassName,
                             )}
