@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent, RenderResult, waitFor } from '@testing-library/react';
+import { render, cleanup, fireEvent, RenderResult } from '@testing-library/react';
 
 import { BaseModal, BaseModalProps } from './Component';
 
@@ -230,7 +230,7 @@ describe('BaseModal', () => {
     });
 
     describe('two modal at the same time', () => {
-        it('should open and close with legacy scroll lock', async () => {
+        it('should not set overflow hidden by default', () => {
             const TestCase = (props?: Partial<BaseModalProps>) => {
                 const defaultProps = { open: false, ...props };
                 return (
@@ -248,11 +248,9 @@ describe('BaseModal', () => {
             const { rerender } = render(<TestCase open={false} />);
             expect(document.body.style.overflow).toBe('');
             rerender(<TestCase open={true} />);
-            expect(document.body.style.overflow).toBe('hidden');
+            expect(document.body.style.overflow).toBe('');
             rerender(<TestCase open={false} />);
-            await waitFor(() => {
-                expect(document.body.style.overflow).toBe('');
-            });
+            expect(document.body.style.overflow).toBe('');
         });
 
         it('should not set overflow hidden when scrollLock is true', async () => {
@@ -305,48 +303,19 @@ describe('BaseModal', () => {
         expect(container2).toContainElement(getByTestId('BaseModal'));
     });
 
-    describe('Body styles restore (legacy scrollLock={false})', () => {
-        it('should restore styles after close', async () => {
-            const { rerender } = render(<BaseModal open={false} />);
-            expect(document.body.style.overflow).toBe('');
-
-            rerender(<BaseModal open={true} />);
-            expect(document.body.style.overflow).toBe('hidden');
-
-            rerender(<BaseModal open={false} />);
-            await waitFor(() => {
+    describe('Body styles with scrollLock', () => {
+        it.each([false, true])(
+            'should not set overflow hidden directly when scrollLock=%s',
+            (scrollLock) => {
+                const { rerender } = render(<BaseModal open={false} scrollLock={scrollLock} />);
                 expect(document.body.style.overflow).toBe('');
-            });
-        });
 
-        it('should restore styles after unmount', async () => {
-            const { rerender, unmount } = render(<BaseModal open={false} />);
-            expect(document.body.style.overflow).toBe('');
-
-            rerender(<BaseModal open={true} />);
-            expect(document.body.style.overflow).toBe('hidden');
-
-            unmount();
-
-            await waitFor(() => {
+                rerender(<BaseModal open={true} scrollLock={scrollLock} />);
                 expect(document.body.style.overflow).toBe('');
-            });
-        });
-    });
 
-    describe('Body styles with scrollLock={true}', () => {
-        it('should not set overflow hidden directly - react-remove-scroll handles scroll lock', async () => {
-            const { rerender } = render(<BaseModal open={false} scrollLock={true} />);
-            expect(document.body.style.overflow).toBe('');
-
-            rerender(<BaseModal open={true} scrollLock={true} />);
-            // react-remove-scroll не устанавливает overflow: hidden напрямую на body
-            expect(document.body.style.overflow).toBe('');
-
-            rerender(<BaseModal open={false} scrollLock={true} />);
-            await waitFor(() => {
+                rerender(<BaseModal open={false} scrollLock={scrollLock} />);
                 expect(document.body.style.overflow).toBe('');
-            });
-        });
+            },
+        );
     });
 });

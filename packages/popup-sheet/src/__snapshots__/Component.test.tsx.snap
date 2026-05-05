@@ -3,9 +3,7 @@
 exports[`PopupSheet Snapshot tests should match snapshot 1`] = `
 {
   "asFragment": [Function],
-  "baseElement": <body
-    style="padding-right: 0px; overflow: hidden;"
-  >
+  "baseElement": <body>
     <div />
     <div
       alfa-portal-container=""
