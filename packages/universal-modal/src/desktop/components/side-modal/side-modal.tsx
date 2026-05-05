@@ -29,6 +29,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         margin,
         scrollableContainerRef: scrollableContainerRefProp,
         onClose,
+        scrollLock = false,
         ...restProps
     } = props;
     const componentRef = useRef<HTMLDivElement>(null);
@@ -55,7 +56,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             componentRef={componentRef}
             contentElementRef={contentRef}
             scrollHandler='content'
-            disableBlockingScroll={withoutOverlay}
+            scrollLock={scrollLock}
             wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, {
                 [styles.wrapperAlignStart]: horizontalAlign === 'start',
                 [styles.wrapperAlignEnd]: horizontalAlign === 'end',

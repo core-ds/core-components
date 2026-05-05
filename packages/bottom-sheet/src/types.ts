@@ -257,12 +257,6 @@ export type BottomSheetProps = {
     disableOverlayClick?: boolean;
 
     /**
-     * Отключает блокировку скролла при открытии модального окна
-     * @deprecated Используйте `scrollLock={true}`.
-     */
-    disableBlockingScroll?: boolean;
-
-    /**
      * Управляет блокировкой скролла/overscroll фона при открытой шторке.
      * @default true
      */
@@ -375,12 +369,6 @@ export type BottomSheetProps = {
      * Вызывается после окончания свайпа
      */
     onSwipeEnd?: (event: HandledEvents | null) => void;
-
-    /**
-     * Блокирует скролл когда модальное окно открыто. Работает только на iOS
-     * @deprecated Используйте `scrollLock={true}`.
-     */
-    iOSLock?: boolean;
 
     /**
      * Учитывать высоту виртуальной клавиатуры
