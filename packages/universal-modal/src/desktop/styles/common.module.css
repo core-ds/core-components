@@ -8,3 +8,22 @@
         }
     }
 }
+
+.hugContent {
+    --top-gap: 0;
+    --bottom-gap: 0;
+
+    max-height: calc(100% - var(--top-gap) - var(--bottom-gap));
+    margin-top: var(--top-gap);
+    margin-bottom: var(--bottom-gap);
+
+    /* prettier-ignore */
+    @for $i from 0 to 128 {
+        &.topGap-$(i) {
+            --top-gap: $(i)px;
+        }
+        &.bottomGap-$(i) {
+            --bottom-gap: $(i)px;
+        }
+    }
+}

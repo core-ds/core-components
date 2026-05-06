@@ -1,23 +1,24 @@
-import { hasOwnProperty } from '@alfalab/core-components-shared';
+import cn from 'classnames';
 
 import { type UniversalModalDesktopProps } from '../types/props';
 
 interface Params {
     styles: Record<string, string>;
-    margin: UniversalModalDesktopProps['margin'];
+    margin: NonNullable<UniversalModalDesktopProps['margin']>;
+    height: NonNullable<UniversalModalDesktopProps['height']>;
 }
 
-export const getMarginStyles = (params: Params): Record<string, boolean> => {
-    const { margin, styles } = params;
+export const getMarginStyles = (params: Params): string => {
+    const { margin, styles, height } = params;
+    const { top, right, bottom, left } = margin;
 
-    if (margin) {
-        return {
-            [styles[`marginTop-${margin.top}`]]: hasOwnProperty(margin, 'top'),
-            [styles[`marginRight-${margin.right}`]]: hasOwnProperty(margin, 'right'),
-            [styles[`marginBottom-${margin.bottom}`]]: hasOwnProperty(margin, 'bottom'),
-            [styles[`marginLeft-${margin.left}`]]: hasOwnProperty(margin, 'left'),
-        };
-    }
+    const isHugContent = height === 'hugContent';
 
-    return {};
+    return cn(
+        styles[`marginTop-${top}`],
+        styles[`marginRight-${right}`],
+        styles[`marginBottom-${bottom}`],
+        styles[`marginLeft-${left}`],
+        isHugContent && [styles.hugContent, styles[`topGap-${top}`], styles[`bottomGap-${bottom}`]],
+    );
 };
