@@ -35,9 +35,11 @@ $icon-size: 40px;
         box-shadow: var(--shadow-s);
     }
 
-    @mixin hover {
-        .icon {
-            box-shadow: var(--shadow-m);
+    &:not([disabled]) {
+        @mixin hover {
+            .icon {
+                box-shadow: var(--shadow-m);
+            }
         }
     }
 }

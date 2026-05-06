@@ -49,9 +49,9 @@ render(() => {
     const handleLoopChange = (_, payload) => {
         setLoop(payload.value === 'true');
     };
-    const [navigationState, setNavigation] = React.useState(true);
+    const [navigationState, setNavigation] = React.useState('always');
     const handleNavigationChange = (_, payload) => {
-        setNavigation(payload.value === 'hover' ? payload.value : payload.value === 'true');
+        setNavigation(payload.value);
     };
 
     return (
@@ -100,7 +100,7 @@ render(() => {
                     children: <CarouselItem {...itemProps} />,
                 }))}
                 visibleItems={visibleItems === 'fixed' ? VISIBLE_ITEMS : 'auto'}
-                navigation={navigationState === 'hover' ? navigationState : navigationState}
+                navigation={navigationState}
                 gap={8}
                 loop={loop}
                 height={height === 'fixed' ? 280 : undefined}
@@ -134,11 +134,11 @@ render(() => {
                 direction='vertical'
                 name='height'
                 onChange={handleNavigationChange}
-                value={`${navigationState}`}
+                value={navigationState}
             >
-                <Radio size={24} label='Доступны всегда' value='true' />
+                <Radio size={24} label='Доступны всегда' value='always' />
                 <Radio size={24} label='Доступны по ховеру' value='hover' />
-                <Radio size={24} label='Без кнопок' value='false' />
+                <Radio size={24} label='Без кнопок' value='never' />
             </RadioGroup>
             <Gap size={24} />
             <RadioGroup
@@ -259,6 +259,7 @@ render(() => {
                     }))}
                     visibleItems={'auto'}
                     gap={8}
+                    navigation={isMobile() ? 'never' : 'always'}
                     overflow={overflow}
                 />
             </div>
@@ -504,8 +505,10 @@ render(() => {
                 }))}
                 visibleItems={VISIBLE_ITEMS}
                 gap={8}
-                PageIndicator={PageIndicatorBullet}
-                pageIndicatorProps={{ size: 6 }}
+                navigation='always'
+                navigationPosition='start'
+                Pagination={PageIndicatorBullet}
+                paginationProps={{ size: 6 }}
             />
         </div>
     );

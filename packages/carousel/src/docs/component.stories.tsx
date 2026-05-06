@@ -50,7 +50,6 @@ const Card: FC<{ bgColor: string; itemColor: string }> = ({ bgColor, itemColor }
 export const carousel: Story = {
     name: 'Carousel',
     render: () => {
-        const navigation = select('navigation', ['hover', 'true', 'false'], 'false');
         const visibleItems = select('visibleItems', ['auto', 1, 2, 2.2, 3], 'auto');
         const height = select('height', ['auto', 200, 300], 'auto');
 
@@ -100,7 +99,7 @@ export const carousel: Story = {
                 }))}
                 visibleItems={visibleItems === 'auto' ? visibleItems : Number(visibleItems)}
                 height={height === 'auto' ? height : Number(height)}
-                navigation={navigation === 'hover' ? navigation : navigation === 'true'}
+                navigation={select('navigation', ['hover', 'always', 'never'], 'never')}
                 gap={number('gap', 8)}
                 loop={boolean('loop', false)}
                 mouseWheel={boolean('mouseWheel', false)}

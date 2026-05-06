@@ -1,0 +1,28 @@
+@import '../../vars.css';
+
+.component {
+    display: flex;
+    justify-content: end;
+    padding-bottom: var(--gap-16);
+
+    & > button + button {
+        margin-left: var(--gap-8);
+    }
+}
+
+.button {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    &.prev {
+        left: 0;
+        transform: translate(-50%, 0);
+    }
+
+    &.next {
+        right: 0;
+        transform: translate(50%, 0);
+    }
+}

@@ -46,7 +46,7 @@ export const AnimatedWrapper = forwardRef<React.ElementRef<'div'>, ComponentProp
 
         return (
             <div {...restProps} ref={ref}>
-                {latestChildrenRef.current.map((child: ReactElement<ComponentProps<'div'>>) => {
+                {nextChildren.map((child: ReactElement<ComponentProps<'div'>>) => {
                     const key = getChildKey(child);
 
                     return keys.has(key)
@@ -57,11 +57,14 @@ export const AnimatedWrapper = forwardRef<React.ElementRef<'div'>, ComponentProp
                               className: cn(child.props.className, styles.remove),
                               onAnimationEnd: (event) => {
                                   child.props?.onAnimationEnd?.(event);
+
                                   // TODO somehow call in useEffect
-                                  latestChildrenRef.current = latestChildrenRef.current.filter(
-                                      (c) => getChildKey(c) !== key,
-                                  );
-                                  forceUpdate();
+                                  if (event.currentTarget.classList.contains(styles.remove)) {
+                                      latestChildrenRef.current = latestChildrenRef.current.filter(
+                                          (c) => getChildKey(c) !== key,
+                                      );
+                                      forceUpdate();
+                                  }
                               },
                           });
                 })}

@@ -28,3 +28,7 @@ export function getStylePropertyValue(element: Element, property: string): strin
 
     return win.getComputedStyle(element).getPropertyValue(property);
 }
+
+export function identity<T>(value: T): T {
+    return value;
+}

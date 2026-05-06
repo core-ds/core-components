@@ -1,21 +1,25 @@
-import React, { Fragment, type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { NoopComponent } from '@alfalab/core-components-shared';
+import { NoopComponent, PassThroughComponent } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
-import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
-import { ArrowRightMIcon } from '@alfalab/icons-glyph/ArrowRightMIcon';
 
 import { AnimatedWrapper } from './components/animated-wrapper';
-import { NavigationButton } from './components/navigation-button';
+import { Layout as DefaultLayout } from './components/layout';
+import { Navigation as DefaultNavigation } from './components/navigation';
 import { type CoordsCallback, useMouseWheel, useSwipe } from './hook';
-import { type CarouselProps, type PageIndicatorProps } from './types';
-import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
+import {
+    type BaseCarouselProps,
+    type CarouselProps,
+    type NavigationProps,
+    type PaginationProps,
+} from './types';
+import { clamp, findActiveIndex, getStylePropertyValue, identity, sum } from './utils';
 
 import styles from './index.module.css';
 
-export function Carousel<T extends PageIndicatorProps>({
+export function BaseCarousel<T, U extends PaginationProps, V extends NavigationProps>({
     activeIndex: activeIndexFromProps,
     defaultActiveIndex = 0,
     onActiveIndexChange,
@@ -23,17 +27,20 @@ export function Carousel<T extends PageIndicatorProps>({
     gap = 8,
     height = 'auto',
     minHeight,
-    items,
+    items = [],
     colors = 'default',
-    PageIndicator = NoopComponent,
-    pageIndicatorProps = { colors } as T,
-    Wrapper = AnimatedWrapper,
+    Layout = PassThroughComponent,
+    getLayoutProps,
+    Navigation = NoopComponent,
+    getNavigationProps,
+    Pagination = NoopComponent,
+    getPaginationProps,
+    Wrapper = 'div',
     Item = 'div',
     overflow = 'hidden',
     mouseWheel,
-    navigation,
     loop,
-}: CarouselProps<T>): ReactNode {
+}: BaseCarouselProps<T, U, V>): ReactNode {
     const visibleItems =
         visibleItemsFromProps === 'auto' ? 'auto' : clamp(visibleItemsFromProps, 1, items.length);
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -172,7 +179,7 @@ export function Carousel<T extends PageIndicatorProps>({
         }
     }, [snaps, activeIndex, swiping]);
 
-    const total =
+    const count =
         visibleItems === 'auto' ? snaps.length : items.length - Math.floor(visibleItems) + 1;
 
     const [ref, getStyle] = useSwipe<HTMLDivElement>('x', {
@@ -187,71 +194,75 @@ export function Carousel<T extends PageIndicatorProps>({
         onStopSwipe: handleSwipeStop,
     });
 
+    const contextValue = {
+        activeElement: activeIndex,
+        elements: count,
+        colors,
+        loop,
+        onActiveElementChange: handleActiveIndexChange,
+    };
+
     return (
-        <div className={cn(styles.component, { [styles.navigationHover]: navigation === 'hover' })}>
-            <div className={styles.frame}>
-                <div
-                    ref={mergeRefs([ref, mouseWheel ? mouseWheelRef : null])}
-                    className={cn(styles.container)}
-                    style={{ ...getStyle(), height, minHeight, overflow }}
+        <Layout
+            layoutProps={getLayoutProps(contextValue)}
+            Navigation={Navigation}
+            navigationProps={getNavigationProps(contextValue)}
+            Pagination={Pagination}
+            paginationProps={getPaginationProps(contextValue)}
+        >
+            <div
+                ref={mergeRefs([ref, mouseWheel ? mouseWheelRef : null])}
+                className={cn(styles.container)}
+                style={{ ...getStyle(), height, minHeight, overflow }}
+            >
+                <Wrapper
+                    ref={wrapperRef}
+                    style={{ transform: `translate(${-translate}px, 0px)` }}
+                    className={cn(styles.wrapper, { [styles.swiping]: swiping })}
                 >
-                    <Wrapper
-                        ref={wrapperRef}
-                        style={{ transform: `translate(${-translate}px, 0px)` }}
-                        className={cn(styles.wrapper, { [styles.swiping]: swiping })}
-                    >
-                        {items.map((item, index) => {
-                            const width = visibleItems === 'auto' ? item.width : sizes[index];
-                            const itemHeight = height === 'auto' ? item.height : undefined;
+                    {items.map((item, index) => {
+                        const width = visibleItems === 'auto' ? item.width : sizes[index];
+                        const itemHeight = height === 'auto' ? item.height : undefined;
 
-                            return (
-                                <Item
-                                    key={item.key}
-                                    data-index={index}
-                                    className={cn(styles.item, item.className)}
-                                    style={{ marginRight: gap, width, height: itemHeight }}
-                                >
-                                    {item.children}
-                                </Item>
-                            );
-                        })}
-                    </Wrapper>
-                </div>
-                {navigation && (
-                    <Fragment>
-                        <NavigationButton
-                            colors={colors}
-                            className={cn(styles.navButton, styles.prev)}
-                            icon={ArrowLeftMIcon}
-                            disabled={!loop && activeIndex === 0}
-                            onClick={() => {
-                                const nextActiveIndex =
-                                    (loop && activeIndex === 0 ? total : activeIndex) - 1;
-
-                                handleActiveIndexChange(nextActiveIndex);
-                            }}
-                        />
-                        <NavigationButton
-                            colors={colors}
-                            className={cn(styles.navButton, styles.next)}
-                            icon={ArrowRightMIcon}
-                            disabled={!loop && activeIndex === total - 1}
-                            onClick={() => {
-                                const nextActiveIndex =
-                                    (loop && activeIndex === total - 1 ? 0 : activeIndex) + 1;
-
-                                handleActiveIndexChange(nextActiveIndex);
-                            }}
-                        />
-                    </Fragment>
-                )}
+                        return (
+                            <Item
+                                key={item.key}
+                                data-index={index}
+                                className={cn(styles.item, item.className)}
+                                style={{ marginRight: gap, width, height: itemHeight }}
+                            >
+                                {item.children}
+                            </Item>
+                        );
+                    })}
+                </Wrapper>
             </div>
-            <PageIndicator
-                {...pageIndicatorProps}
-                className={cn(styles.pagination, pageIndicatorProps.className)}
-                activeElement={activeIndex}
-                elements={total}
-            />
-        </div>
+        </Layout>
+    );
+}
+
+export function Carousel<T extends PaginationProps>({
+    navigation = 'never',
+    navigationPosition = 'center',
+    Pagination = NoopComponent,
+    paginationProps,
+    ...restProps
+}: CarouselProps<T>): ReactNode {
+    return (
+        <BaseCarousel
+            {...restProps}
+            Wrapper={AnimatedWrapper}
+            Layout={DefaultLayout}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            Pagination={Pagination}
+            Navigation={navigation === 'never' ? NoopComponent : DefaultNavigation}
+            getNavigationProps={identity}
+            getPaginationProps={(ctx) => ({ ...paginationProps, ...ctx })}
+            getLayoutProps={() => ({
+                navigationDisplay: navigation,
+                navigationPosition,
+            })}
+        />
     );
 }
