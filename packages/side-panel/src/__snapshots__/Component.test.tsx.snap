@@ -272,7 +272,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
           class="footer footer start"
         >
           <div
-            class="component start"
+            class="component start start"
           >
             Secondary
             Primary

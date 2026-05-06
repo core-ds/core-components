@@ -1,10 +1,9 @@
 import React, { forwardRef, useMemo } from 'react';
 
-import { ContentDesktop } from '../components/content';
-import { FooterDesktop } from '../components/footer';
-import { HeaderDesktop } from '../components/header';
-
 import { CenterModal } from './components/center-modal';
+import { ContentDesktop } from './components/content';
+import { FooterDesktop } from './components/footer';
+import { HeaderDesktop } from './components/header';
 import { SideModal } from './components/side-modal';
 import { type UniversalModalContextType } from './types/context';
 import { type UniversalModalDesktopProps } from './types/props';
