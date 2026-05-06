@@ -10,7 +10,6 @@
 @import './pure-cell/click.css';
 @import './icon-view/click.css';
 @import './radio-group/click.css';
-@import './form-control/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -28,5 +27,4 @@
     @mixin dropzone-click;
     @mixin icon-view-click;
     @mixin radio-group-click;
-    @mixin form-control-click;
 }
