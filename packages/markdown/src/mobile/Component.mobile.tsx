@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { BaseMarkdown } from './components/base-markdown';
-import { type MarkdownMobileProps } from './typings';
+import { BaseMarkdown } from '../components/base-markdown';
+import { type MarkdownMobileProps } from '../typings';
 
 export const MarkdownMobileComponent: React.FC<MarkdownMobileProps> = ({
     children,
@@ -11,3 +11,5 @@ export const MarkdownMobileComponent: React.FC<MarkdownMobileProps> = ({
         {children}
     </BaseMarkdown>
 );
+
+export const MarkdownMobile = MarkdownMobileComponent;

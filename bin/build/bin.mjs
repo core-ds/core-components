@@ -53,6 +53,11 @@ async function main(args) {
         'generate',
     ]);
 
+    /*
+     * Генерация JSON для split-компонентов на основе тегов @splitComponent
+     */
+    await $('node', [path.resolve(cwd(), 'tools/generate-split-components.mjs')]);
+
     const BUILD_IGNORED_PACKAGES = await readPackagesFile(
         path.resolve(cwd(), 'tools/.build-ignored-packages'),
     );
