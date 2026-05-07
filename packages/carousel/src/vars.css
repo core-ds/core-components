@@ -10,6 +10,8 @@
     --carousel-button-active-color: var(--color-light-neutral-translucent-700-press);
     --carousel-button-disabled-color: var(--color-light-neutral-translucent-300);
     --carousel-button-border-color: var(--color-light-neutral-translucent-200);
+    --caruosel-button-background-color: var(--color-light-neutral-0);
+    --caruosel-button-active-background-color: var(--color-light-neutral-100);
 
     /* navigation-button inverted */
     --carousel-button-inverted-color: var(--color-light-neutral-translucent-700-inverted);
@@ -21,4 +23,6 @@
     );
     --carousel-button-inverted-disabled-color: var(--color-light-neutral-translucent-300-inverted);
     --carousel-button-inverted-border-color: var(--color-light-neutral-translucent-200-inverted);
+    --caruosel-button-inverted-background-color: var(--color-light-neutral-0-inverted);
+    --caruosel-button-inverted-active-background-color: var(--color-light-neutral-100-inverted);
 }

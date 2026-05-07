@@ -5,6 +5,7 @@
 
     .icon {
         border: 1px solid var(--carousel-button-inverted-border-color);
+        background-color: var(--caruosel-button-inverted-background-color);
     }
 
     &:not([disabled]) {
@@ -14,6 +15,10 @@
 
         &:active {
             color: var(--carousel-button-inverted-active-color);
+
+            .icon {
+                background-color: var(--caruosel-button-inverted-background-color);
+            }
         }
     }
 
