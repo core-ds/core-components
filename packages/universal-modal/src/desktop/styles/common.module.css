@@ -10,8 +10,10 @@
 }
 
 .hugContent {
-    --top-gap: 0;
-    --bottom-gap: 0;
+    /* stylelint-disable-next-line length-zero-no-unit */
+    --top-gap: 0px;
+    /* stylelint-disable-next-line length-zero-no-unit */
+    --bottom-gap: 0px;
 
     max-height: calc(100% - var(--top-gap) - var(--bottom-gap));
     margin-top: var(--top-gap);

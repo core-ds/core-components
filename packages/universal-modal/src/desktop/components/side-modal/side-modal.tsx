@@ -26,7 +26,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         dataTestId,
         className,
         children,
-        margin = { top: 0, right: 0, bottom: 0, left: 0 },
+        margin,
         scrollableContainerRef: scrollableContainerRefProp,
         onClose,
         ...restProps
@@ -63,12 +63,9 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 [styles.wrapperJustifyEnd]: verticalAlign === 'bottom',
                 [styles.withoutOverlay]: withoutOverlay,
             })}
-            className={cn(
-                styles.component,
-                className,
-                styles.baseModalComponent,
-                getMarginStyles({ styles, margin, height }),
-            )}
+            className={cn(styles.component, className, styles.baseModalComponent, {
+                ...getMarginStyles({ styles, margin, height }),
+            })}
             contentClassName={styles.content}
             transitionProps={{
                 ...getDefaultTransitionProps({
