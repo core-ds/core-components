@@ -24,15 +24,20 @@ export const Navigation: FC<NavigationProps> = ({
     loop,
     colors,
 }) => {
-    const Wrapper = position === 'center' ? PassThroughComponent : 'div';
+    const positionCenter = position === 'center';
+    const Wrapper = positionCenter ? PassThroughComponent : 'div';
+    const prevIsDisabled = !loop && activeElement === 0;
+    const nextIsDisabled = !loop && activeElement === elements - 1;
 
     return (
         <Wrapper className={cn(styles.component, className)}>
             <NavigationButton
                 colors={colors}
-                className={cn(className, position === 'center' && [styles.button, styles.prev])}
+                className={cn(className, positionCenter && [styles.button, styles.prev], {
+                    [styles.hidden]: positionCenter && prevIsDisabled,
+                })}
                 icon={ArrowLeftMIcon}
-                disabled={!loop && activeElement === 0}
+                disabled={prevIsDisabled}
                 onClick={() => {
                     const nextActiveIndex =
                         (loop && activeElement === 0 ? elements : activeElement) - 1;
@@ -42,9 +47,11 @@ export const Navigation: FC<NavigationProps> = ({
             />
             <NavigationButton
                 colors={colors}
-                className={cn(className, position === 'center' && [styles.button, styles.next])}
+                className={cn(className, positionCenter && [styles.button, styles.next], {
+                    [styles.hidden]: positionCenter && nextIsDisabled,
+                })}
                 icon={ArrowRightMIcon}
-                disabled={!loop && activeElement === elements - 1}
+                disabled={nextIsDisabled}
                 onClick={() => {
                     const nextActiveIndex =
                         (loop && activeElement === elements - 1 ? 0 : activeElement) + 1;
