@@ -16,7 +16,7 @@
         }
     }
 
-    & [data-name='universal-modal-base-content']:has(+ [data-name='universal-modal-base-footer']) {
+    & [data-name='universal-modal-base-content']:not(:last-child) {
         padding-bottom: var(--gap-0);
     }
 }
