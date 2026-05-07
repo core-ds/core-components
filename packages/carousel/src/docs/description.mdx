@@ -199,71 +199,74 @@ render(() => {
     };
 
     return (
-        <div
-            style={{
-                margin: isMobile() ? -20 : undefined,
-                display: 'flex',
-                flexDirection: 'column',
-                overflow: 'hidden',
-            }}
-        >
+        <React.Fragment>
             <div
                 style={{
-                    padding: isMobile() ? 20 : '20px 80px',
-                    background: isMobile() ? undefined : 'var(--color-light-base-bg-secondary)',
-                    borderRadius: isMobile() ? undefined : 'var(--border-radius-20)',
+                    margin: isMobile() ? -20 : undefined,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    overflow: 'hidden',
                 }}
             >
-                <Carousel
-                    items={[
-                        {
-                            bgColor: 'var(--color-light-decorative-muted-blue)',
-                            itemColor: 'var(--color-light-decorative-muted-alt-blue)',
-                            height: 200,
-                        },
-                        {
-                            bgColor: 'var(--color-light-decorative-muted-red)',
-                            itemColor: 'var(--color-light-decorative-muted-alt-red)',
-                            height: 280,
-                        },
-                        {
-                            bgColor: 'var(--color-light-decorative-muted-orange)',
-                            itemColor: 'var(--color-light-decorative-muted-alt-orange)',
-                            height: 160,
-                        },
-                        {
-                            bgColor: 'var(--color-light-decorative-muted-green)',
-                            itemColor: 'var(--color-light-decorative-muted-alt-green)',
-                            height: 240,
-                        },
-                        {
-                            bgColor: 'var(--color-light-decorative-muted-indigo)',
-                            itemColor: 'var(--color-light-decorative-muted-alt-indigo)',
-                            height: 200,
-                        },
-                        {
-                            bgColor: 'var(--color-light-decorative-muted-cyan)',
-                            itemColor: 'var(--color-light-decorative-muted-alt-cyan)',
-                            height: 160,
-                        },
-                        {
-                            bgColor: 'var(--color-light-decorative-muted-pistachio)',
-                            itemColor: 'var(--color-light-decorative-muted-alt-pistachio)',
-                            height: 240,
-                        },
-                    ].map((itemProps, i) => ({
-                        key: i,
-                        height: itemProps.height,
-                        width: 200,
-                        children: <CarouselItem {...itemProps} />,
-                    }))}
-                    visibleItems={'auto'}
-                    gap={8}
-                    navigation={isMobile() ? 'never' : 'always'}
-                    overflow={overflow}
-                />
+                <div
+                    style={{
+                        padding: isMobile() ? 20 : '20px 80px',
+                        background: isMobile() ? undefined : 'var(--color-light-base-bg-secondary)',
+                        borderRadius: isMobile() ? undefined : 'var(--border-radius-20)',
+                    }}
+                >
+                    <Carousel
+                        items={[
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-blue)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-blue)',
+                                height: 200,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-red)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-red)',
+                                height: 280,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-orange)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-orange)',
+                                height: 160,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-green)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-green)',
+                                height: 240,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-indigo)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-indigo)',
+                                height: 200,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-cyan)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-cyan)',
+                                height: 160,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-pistachio)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-pistachio)',
+                                height: 240,
+                            },
+                        ].map((itemProps, i) => ({
+                            key: i,
+                            height: itemProps.height,
+                            width: 200,
+                            children: <CarouselItem {...itemProps} />,
+                        }))}
+                        visibleItems={'auto'}
+                        gap={8}
+                        navigation={isMobile() ? 'never' : 'always'}
+                        overflow={overflow}
+                        mouseWheel={!isMobile()}
+                    />
+                </div>
             </div>
-            <Gap size={8} />
+            <Gap size={24} />
             <RadioGroup
                 label='Отсечение контента'
                 direction='vertical'
@@ -274,7 +277,7 @@ render(() => {
                 <Radio size={24} label='Отсекать границами компонента' value='hidden' />
                 <Radio size={24} label='Отсекать границами внешнего контейнера' value='visible' />
             </RadioGroup>
-        </div>
+        </React.Fragment>
     );
 });
 ```
@@ -408,6 +411,7 @@ render(() => {
             visibleItems={'auto'}
             gap={8}
             height={200}
+            mouseWheel={!isMobile()}
         />
     );
 });
@@ -506,6 +510,7 @@ render(() => {
                 visibleItems={VISIBLE_ITEMS}
                 gap={8}
                 navigation='always'
+                mouseWheel={!isMobile()}
                 navigationPosition='start'
                 Pagination={PageIndicatorBullet}
                 paginationProps={{ size: 6 }}
