@@ -24,6 +24,9 @@ export type PickerButtonMobileProps = Omit<
         breakpoint?: number;
     };
 
+/**
+ * @splitComponent mobile
+ */
 export const PickerButtonMobile = forwardRef<HTMLInputElement, PickerButtonMobileProps>(
     (
         {

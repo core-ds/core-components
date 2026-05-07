@@ -7,6 +7,9 @@ import styles from './desktop.module.css';
 
 export type CodeInputDesktopProps = Omit<BaseCodeInputProps, 'stylesInput'>;
 
+/**
+ * @splitComponent desktop
+ */
 export const CodeInputDesktop = forwardRef<CustomInputRef, CodeInputDesktopProps>(
     (restProps, ref) => <BaseCodeInput {...restProps} ref={ref} stylesInput={styles} />,
 );

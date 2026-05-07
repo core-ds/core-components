@@ -24,6 +24,9 @@ export interface HeaderDesktopProps
     bigTitle?: boolean;
 }
 
+/**
+ * @splitComponent desktop
+ */
 export const HeaderDesktop = forwardRef<HTMLDivElement, HeaderDesktopProps>((props, ref) => {
     const {
         className,

@@ -7,6 +7,9 @@ import styles from './desktop.module.css';
 
 export type ToastPlateDesktopProps = Omit<BaseToastPlateProps, 'styles' | 'bottomButtonPosition'>;
 
+/**
+ * @splitComponent desktop
+ */
 export const ToastPlateDesktop = forwardRef<HTMLDivElement, ToastPlateDesktopProps>(
     ({ boldTitle = true, titleClassName, ...restProps }, ref) => (
         <BaseToastPlate

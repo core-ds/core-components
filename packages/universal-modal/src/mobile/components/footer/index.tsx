@@ -9,6 +9,9 @@ import layoutStylesMobile from './layout.mobile.module.css';
 
 export type FooterMobileProps = FooterProps;
 
+/**
+ * @splitComponent mobile
+ */
 export const FooterMobile: FC<FooterMobileProps> = ({
     className,
     sticky,

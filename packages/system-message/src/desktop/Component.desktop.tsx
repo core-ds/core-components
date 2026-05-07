@@ -18,6 +18,9 @@ const SystemMessageDesktopComponent: React.FC<SystemMessageDesktopProps> = ({
     </SystemMessage>
 );
 
+/**
+ * @splitComponent desktop
+ */
 export const SystemMessageDesktop = createCompound(SystemMessageDesktopComponent);
 
 export {

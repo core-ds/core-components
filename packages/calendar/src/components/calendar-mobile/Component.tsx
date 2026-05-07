@@ -36,6 +36,9 @@ export const CalendarMonthOnlyViewHeader = () => (
     </table>
 );
 
+/**
+ * @splitComponent mobile
+ */
 export const CalendarMobile = forwardRef<HTMLDivElement, CalendarMobileProps>(
     (
         {

@@ -6,6 +6,9 @@ import { FormControlMobile } from '@alfalab/core-components-form-control/mobile'
 import { BaseSelectWithTags } from '../components/base-select-with-tags';
 import { type SelectWithTagsMobileProps } from '../types';
 
+/**
+ * @splitComponent mobile
+ */
 export const SelectWithTagsMobile = React.forwardRef<HTMLInputElement, SelectWithTagsMobileProps>(
     (props, ref) => (
         <BaseSelectWithTags

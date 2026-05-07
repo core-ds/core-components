@@ -24,6 +24,9 @@ import { searchFilterStub } from '../utils';
 
 import styles from './mobile.module.css';
 
+/**
+ * @splitComponent mobile
+ */
 export const InputAutocompleteMobile = React.forwardRef(
     (
         {

@@ -5,6 +5,9 @@ import { type ConfirmationProps } from '../types';
 
 export type DesktopConfirmationProps = Omit<ConfirmationProps, 'mobile' | 'breakpoint'>;
 
+/**
+ * @splitComponent desktop
+ */
 export const ConfirmationDesktop: FC<DesktopConfirmationProps> = (props) => (
     <BaseConfirmation {...props} />
 );

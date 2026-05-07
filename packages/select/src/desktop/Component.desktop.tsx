@@ -12,6 +12,9 @@ import { OptionsList as DefaultOptionsList } from '../components/options-list';
 import { Search as DefaultSearch } from '../components/search';
 import { type SelectDesktopProps } from '../typings';
 
+/**
+ * @splitComponent desktop
+ */
 export const SelectDesktop = forwardRef<HTMLDivElement, SelectDesktopProps>(
     (
         {

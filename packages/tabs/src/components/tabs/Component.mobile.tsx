@@ -13,6 +13,9 @@ const views = {
 
 export type TabsMobileProps = Omit<TabsProps, 'TabList' | 'collapsedTabsIds'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const TabsMobile = ({
     view = 'primary',
     scrollable = true,

@@ -6,6 +6,9 @@ import { type PassCodeProps } from '../typings';
 
 import styles from './desktop.module.css';
 
+/**
+ * @splitComponent desktop
+ */
 export const PassCodeDesktop = forwardRef<HTMLDivElement, PassCodeProps>(
     ({ className, ...restProps }, ref) => (
         <PassCode {...restProps} ref={ref} className={cn(styles.component, className)} />

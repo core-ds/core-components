@@ -10,6 +10,9 @@ import {
     type InternationalPhoneInputMobileProps,
 } from '../types';
 
+/**
+ * @splitComponent mobile
+ */
 export const InternationalPhoneInputMobile = forwardRef<
     HTMLInputElement,
     InternationalPhoneInputMobileProps

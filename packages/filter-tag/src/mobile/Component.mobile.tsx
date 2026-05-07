@@ -15,6 +15,9 @@ const colorStyles = {
 
 export type FilterTagMobileProps = Omit<BaseFilterTagProps, keyof PrivateProps>;
 
+/**
+ * @splitComponent mobile
+ */
 export const FilterTagMobile = forwardRef<HTMLDivElement, FilterTagMobileProps>(
     (restProps, ref) => (
         <BaseFilterTag {...restProps} ref={ref} styles={styles} colorStylesMap={colorStyles} />

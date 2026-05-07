@@ -20,6 +20,7 @@ export type DateRangeInputDesktopProps = Omit<
 /**
  * @deprecated
  * use UniversalDateInput instead
+ * @splitComponent desktop
  */
 export const DateRangeInputDesktop = forwardRef<HTMLInputElement, DateRangeInputDesktopProps>(
     (props, ref) => (

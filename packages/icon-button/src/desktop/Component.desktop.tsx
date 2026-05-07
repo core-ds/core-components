@@ -7,6 +7,9 @@ import clientStyles from './desktop.module.css';
 
 export type IconButtonDesktopProps = IconButtonProps;
 
+/**
+ * @splitComponent desktop
+ */
 export const IconButtonDesktop = forwardRef<HTMLButtonElement, IconButtonDesktopProps>(
     (props, ref) => (
         <BaseIconButton {...props} ref={ref} client='desktop' clientStyles={clientStyles} />

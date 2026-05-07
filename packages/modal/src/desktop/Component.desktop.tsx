@@ -14,6 +14,9 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>((pro
 const HeaderDesktop = Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtitle'>>;
 const ControlsDesktop = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
 
+/**
+ * @splitComponent desktop
+ */
 export const ModalDesktop = Object.assign(ModalDesktopComponent, {
     Content,
     Header: HeaderDesktop,

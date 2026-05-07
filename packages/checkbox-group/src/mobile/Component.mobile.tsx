@@ -6,6 +6,9 @@ import styles from './mobile.module.css';
 
 export type CheckboxGroupMobileProps = Omit<BaseCheckboxGroupProps, 'styles'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const CheckboxGroupMobile: FC<CheckboxGroupMobileProps> = (props) => (
     <BaseCheckboxGroup {...props} styles={styles} />
 );

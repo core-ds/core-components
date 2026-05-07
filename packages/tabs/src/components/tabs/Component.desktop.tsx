@@ -16,6 +16,9 @@ export type TabsDesktopProps = Omit<
     'TabList' | 'fullWidthScroll' | 'breakpoint' | 'collapsedTabsIds'
 >;
 
+/**
+ * @splitComponent desktop
+ */
 export const TabsDesktop = ({
     view = 'primary',
     scrollable = false,

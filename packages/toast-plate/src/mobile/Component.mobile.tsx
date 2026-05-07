@@ -7,6 +7,9 @@ import styles from './mobile.module.css';
 
 export type ToastPlateMobileProps = Omit<BaseToastPlateProps, 'styles'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const ToastPlateMobile = forwardRef<HTMLDivElement, ToastPlateMobileProps>(
     ({ titleClassName, boldTitle = true, ...restProps }, ref) => (
         <BaseToastPlate

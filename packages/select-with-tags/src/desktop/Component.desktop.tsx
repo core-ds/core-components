@@ -6,6 +6,9 @@ import { Popover } from '@alfalab/core-components-popover';
 import { BaseSelectWithTags } from '../components/base-select-with-tags';
 import { type SelectWithTagsDesktopProps } from '../types';
 
+/**
+ * @splitComponent desktop
+ */
 export const SelectWithTagsDesktop = React.forwardRef<HTMLInputElement, SelectWithTagsDesktopProps>(
     (props, ref) => (
         <BaseSelectWithTags

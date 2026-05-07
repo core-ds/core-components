@@ -6,6 +6,9 @@ import styles from './mobile.module.css';
 
 export type RadioGroupMobileProps = Omit<BaseRadioGroupProps, 'styles'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const RadioGroupMobile = forwardRef<HTMLDivElement, RadioGroupMobileProps>((props, ref) => (
     <BaseRadioGroup {...props} ref={ref} styles={styles} />
 ));

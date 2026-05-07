@@ -7,6 +7,9 @@ import { type CommonPatternLockProps } from '../typings';
 
 import styles from './mobile.module.css';
 
+/**
+ * @splitComponent mobile
+ */
 export const PatternLockMobile = forwardRef<TPatternLockInstance, CommonPatternLockProps>(
     (restProps, ref) => <BasePatternLock {...restProps} ref={ref} styles={styles} />,
 );

@@ -18,6 +18,9 @@ const styles = {
 
 export type SecondaryTabListMobileProps = Omit<SecondaryTabListProps, 'tagSize'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const SecondaryTabListMobile = ({
     className,
     size,

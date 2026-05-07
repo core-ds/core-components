@@ -14,6 +14,9 @@ import mobileStyles from './index.module.css';
 
 export type HeaderMobileProps = Omit<NavigationBarPrivateProps, 'size' | 'view' | 'parentRef'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const HeaderMobile: FC<HeaderMobileProps> = (props) => {
     const {
         className,

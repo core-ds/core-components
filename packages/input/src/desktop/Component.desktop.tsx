@@ -8,6 +8,9 @@ import styles from './index.module.css';
 
 export type InputDesktopProps = Omit<BaseInputProps, 'FormControlComponent'>;
 
+/**
+ * @splitComponent desktop
+ */
 export const InputDesktop = forwardRef<HTMLInputElement, InputDesktopProps>((restProps, ref) => (
     <BaseInput
         {...restProps}

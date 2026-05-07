@@ -18,6 +18,9 @@ const SystemMessageMobileComponent: React.FC<SystemMessageMobileProps> = ({
     </SystemMessage>
 );
 
+/**
+ * @splitComponent mobile
+ */
 export const SystemMessageMobile = createCompound(SystemMessageMobileComponent);
 
 export {

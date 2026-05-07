@@ -14,6 +14,9 @@ const DEFAULT_CONTENT_COLOR = 'white';
 export type CustomPickerButtonMobileProps = Omit<PickerButtonMobileProps, 'view' | 'colors'> &
     Pick<CustomButtonProps, 'backgroundColor' | 'contentColor' | 'stateType'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const CustomPickerButtonMobile = forwardRef<HTMLInputElement, CustomPickerButtonMobileProps>(
     (
         {

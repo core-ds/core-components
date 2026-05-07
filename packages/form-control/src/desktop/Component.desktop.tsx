@@ -13,6 +13,9 @@ const colorStyles = {
 
 export type FormControlDesktopProps = Omit<BaseFormControlProps, 'styles' | 'colorStyles'>;
 
+/**
+ * @splitComponent desktop
+ */
 export const FormControlDesktop = forwardRef<HTMLDivElement, FormControlDesktopProps>(
     (restProps, ref) => (
         <BaseFormControl {...restProps} ref={ref} styles={styles} colorStyles={colorStyles} />

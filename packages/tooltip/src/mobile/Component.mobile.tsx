@@ -9,6 +9,9 @@ import { type TooltipMobileProps } from '../types';
 
 import styles from './mobile.module.css';
 
+/**
+ * @splitComponent mobile
+ */
 export const TooltipMobile: React.FC<TooltipMobileProps> = ({
     onClose,
     actionButtonTitle = 'Понятно',

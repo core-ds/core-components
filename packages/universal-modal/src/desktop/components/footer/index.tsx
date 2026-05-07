@@ -16,6 +16,9 @@ export interface FooterDesktopProps extends FooterProps {
     size?: 's' | 500;
 }
 
+/**
+ * @splitComponent desktop
+ */
 export const FooterDesktop = forwardRef<HTMLDivElement, FooterDesktopProps>((props, ref) => {
     const { className, sticky, layout = 'start', ...restProps } = props;
     const { width: modalWidth } = useContext(UniversalModalContext);

@@ -12,6 +12,9 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
+/**
+ * @splitComponent mobile
+ */
 export const ButtonMobile = forwardRef<HTMLAnchorElement | HTMLButtonElement, CommonButtonProps>(
     (restProps, ref) => (
         <BaseButton {...restProps} ref={ref} colorStylesMap={colorStyles} styles={styles} />

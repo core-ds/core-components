@@ -7,6 +7,9 @@ import styles from './mobile.module.css';
 
 export type CodeInputMobileProps = Omit<BaseCodeInputProps, 'stylesInput'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const CodeInputMobile = forwardRef<CustomInputRef, CodeInputMobileProps>(
     (restProps, ref) => <BaseCodeInput {...restProps} ref={ref} stylesInput={styles} />,
 );

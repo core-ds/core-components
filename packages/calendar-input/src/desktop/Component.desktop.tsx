@@ -11,6 +11,7 @@ export type CalendarInputDesktopProps = Omit<CalendarInputProps, 'view'>;
 /**
  * @deprecated
  * use UniversalDateInput instead
+ * @splitComponent desktop
  */
 export const CalendarInputDesktop = forwardRef<HTMLInputElement, CalendarInputDesktopProps>(
     (props, ref) => <CalendarInput Calendar={CalendarDesktop} {...props} ref={ref} />,

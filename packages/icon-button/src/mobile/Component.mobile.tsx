@@ -7,6 +7,9 @@ import clientStyles from './mobile.module.css';
 
 export type IconButtonMobileProps = IconButtonProps;
 
+/**
+ * @splitComponent mobile
+ */
 export const IconButtonMobile = forwardRef<HTMLButtonElement, IconButtonMobileProps>(
     (props, ref) => (
         <BaseIconButton {...props} ref={ref} client='mobile' clientStyles={clientStyles} />

@@ -12,6 +12,9 @@ import {
 import { AutocompleteField as DefaultField } from '../autocomplete-field';
 import { type InputAutocompleteCommonProps } from '../types';
 
+/**
+ * @splitComponent desktop
+ */
 export const InputAutocompleteDesktop = forwardRef<HTMLInputElement, InputAutocompleteCommonProps>(
     (
         {

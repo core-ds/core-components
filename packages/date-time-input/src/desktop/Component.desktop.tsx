@@ -12,6 +12,7 @@ export type DateTimeInputDesktopProps = Omit<DateTimeInputProps, 'view' | 'Input
 /**
  * @deprecated
  * use UniversalDateInput instead
+ * @splitComponent desktop
  */
 export const DateTimeInputDesktop = forwardRef<HTMLInputElement, DateTimeInputDesktopProps>(
     (props, ref) => (

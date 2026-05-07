@@ -14,6 +14,9 @@ const styles = {
 
 export type PrimaryTabListMobileProps = Omit<TabListProps, 'size' | 'collapsedTabsIds'>;
 
+/**
+ * @splitComponent mobile
+ */
 export const PrimaryTabListMobile = (props: PrimaryTabListMobileProps) => (
     <PrimaryTabList {...props} styles={styles} platform='mobile' />
 );

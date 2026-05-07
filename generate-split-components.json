@@ -1,0 +1,913 @@
+[
+    {
+        "packageName": "@alfalab/core-components-alert",
+        "imports": [
+            {
+                "componentName": "AlertDesktop",
+                "sourcePath": "./src/desktop/Component.tsx",
+                "atomPath": "@alfalab/core-components-alert/desktop",
+                "importPath": "@alfalab/core-components/alert/desktop"
+            },
+            {
+                "componentName": "AlertMobile",
+                "sourcePath": "./src/mobile/Component.tsx",
+                "atomPath": "@alfalab/core-components-alert/mobile",
+                "importPath": "@alfalab/core-components/alert/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-button",
+        "imports": [
+            {
+                "componentName": "ButtonDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-button/desktop",
+                "importPath": "@alfalab/core-components/button/desktop"
+            },
+            {
+                "componentName": "ButtonMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-button/mobile",
+                "importPath": "@alfalab/core-components/button/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-calendar-input",
+        "imports": [
+            {
+                "componentName": "CalendarInputDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-calendar-input/desktop",
+                "importPath": "@alfalab/core-components/calendar-input/desktop"
+            },
+            {
+                "componentName": "CalendarInputMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-calendar-input/mobile",
+                "importPath": "@alfalab/core-components/calendar-input/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-calendar",
+        "imports": [
+            {
+                "componentName": "CalendarMonthOnlyViewHeader",
+                "sourcePath": "./src/components/calendar-mobile/Component.tsx",
+                "atomPath": "@alfalab/core-components-calendar/mobile",
+                "importPath": "@alfalab/core-components/calendar/mobile"
+            },
+            {
+                "componentName": "CalendarMobile",
+                "sourcePath": "./src/components/calendar-mobile/Component.tsx",
+                "atomPath": "@alfalab/core-components-calendar/mobile",
+                "importPath": "@alfalab/core-components/calendar/mobile"
+            },
+            {
+                "componentName": "CalendarDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-calendar/desktop",
+                "importPath": "@alfalab/core-components/calendar/desktop"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-checkbox-group",
+        "imports": [
+            {
+                "componentName": "CheckboxGroupDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-checkbox-group/desktop",
+                "importPath": "@alfalab/core-components/checkbox-group/desktop"
+            },
+            {
+                "componentName": "CheckboxGroupMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-checkbox-group/mobile",
+                "importPath": "@alfalab/core-components/checkbox-group/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-code-input",
+        "imports": [
+            {
+                "componentName": "CodeInputDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-code-input/desktop",
+                "importPath": "@alfalab/core-components/code-input/desktop"
+            },
+            {
+                "componentName": "CodeInputMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-code-input/mobile",
+                "importPath": "@alfalab/core-components/code-input/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-confirmation",
+        "imports": [
+            {
+                "componentName": "ConfirmationDesktop",
+                "sourcePath": "./src/desktop/component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-confirmation/desktop",
+                "importPath": "@alfalab/core-components/confirmation/desktop"
+            },
+            {
+                "componentName": "ConfirmationMobile",
+                "sourcePath": "./src/mobile/component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-confirmation/mobile",
+                "importPath": "@alfalab/core-components/confirmation/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-custom-button",
+        "imports": [
+            {
+                "componentName": "CustomButtonDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-custom-button/desktop",
+                "importPath": "@alfalab/core-components/custom-button/desktop"
+            },
+            {
+                "componentName": "CustomButtonMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-custom-button/mobile",
+                "importPath": "@alfalab/core-components/custom-button/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-custom-picker-button",
+        "imports": [
+            {
+                "componentName": "CustomPickerButtonDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-custom-picker-button/desktop",
+                "importPath": "@alfalab/core-components/custom-picker-button/desktop"
+            },
+            {
+                "componentName": "CustomPickerButtonMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-custom-picker-button/mobile",
+                "importPath": "@alfalab/core-components/custom-picker-button/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-date-range-input",
+        "imports": [
+            {
+                "componentName": "DateRangeInputDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-date-range-input/desktop",
+                "importPath": "@alfalab/core-components/date-range-input/desktop"
+            },
+            {
+                "componentName": "DateRangeInputMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-date-range-input/mobile",
+                "importPath": "@alfalab/core-components/date-range-input/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-date-time-input",
+        "imports": [
+            {
+                "componentName": "DateTimeInputDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-date-time-input/desktop",
+                "importPath": "@alfalab/core-components/date-time-input/desktop"
+            },
+            {
+                "componentName": "DateTimeInputMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-date-time-input/mobile",
+                "importPath": "@alfalab/core-components/date-time-input/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-filter-tag",
+        "imports": [
+            {
+                "componentName": "FilterTagDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-filter-tag/desktop",
+                "importPath": "@alfalab/core-components/filter-tag/desktop"
+            },
+            {
+                "componentName": "FilterTagMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-filter-tag/mobile",
+                "importPath": "@alfalab/core-components/filter-tag/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-form-control",
+        "imports": [
+            {
+                "componentName": "FormControlDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-form-control/desktop",
+                "importPath": "@alfalab/core-components/form-control/desktop"
+            },
+            {
+                "componentName": "FormControlMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-form-control/mobile",
+                "importPath": "@alfalab/core-components/form-control/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-icon-button",
+        "imports": [
+            {
+                "componentName": "IconButtonDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-icon-button/desktop",
+                "importPath": "@alfalab/core-components/icon-button/desktop"
+            },
+            {
+                "componentName": "IconButtonMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-icon-button/mobile",
+                "importPath": "@alfalab/core-components/icon-button/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-input-autocomplete",
+        "imports": [
+            {
+                "componentName": "InputAutocompleteDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-input-autocomplete/desktop",
+                "importPath": "@alfalab/core-components/input-autocomplete/desktop"
+            },
+            {
+                "componentName": "InputAutocompleteMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-input-autocomplete/mobile",
+                "importPath": "@alfalab/core-components/input-autocomplete/mobile"
+            },
+            {
+                "componentName": "InputAutocompleteModalMobile",
+                "sourcePath": "./src/mobile/Component.modal.mobile.tsx",
+                "atomPath": "@alfalab/core-components-input-autocomplete/mobile",
+                "importPath": "@alfalab/core-components/input-autocomplete/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-input",
+        "imports": [
+            {
+                "componentName": "InputDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-input/desktop",
+                "importPath": "@alfalab/core-components/input/desktop"
+            },
+            {
+                "componentName": "InputMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-input/mobile",
+                "importPath": "@alfalab/core-components/input/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-international-phone-input",
+        "imports": [
+            {
+                "componentName": "InternationalPhoneInputDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-international-phone-input/desktop",
+                "importPath": "@alfalab/core-components/international-phone-input/desktop"
+            },
+            {
+                "componentName": "InternationalPhoneInputMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-international-phone-input/mobile",
+                "importPath": "@alfalab/core-components/international-phone-input/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-markdown",
+        "imports": [
+            {
+                "componentName": "MarkdownDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-markdown/desktop",
+                "importPath": "@alfalab/core-components/markdown/desktop"
+            },
+            {
+                "componentName": "MarkdownMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-markdown/mobile",
+                "importPath": "@alfalab/core-components/markdown/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-modal",
+        "imports": [
+            {
+                "componentName": "ModalDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-modal/desktop",
+                "importPath": "@alfalab/core-components/modal/desktop"
+            },
+            {
+                "componentName": "ModalComponentDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-modal/desktop",
+                "importPath": "@alfalab/core-components/modal/desktop"
+            },
+            {
+                "componentName": "ContentDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-modal/desktop",
+                "importPath": "@alfalab/core-components/modal/desktop"
+            },
+            {
+                "componentName": "HeaderDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-modal/desktop",
+                "importPath": "@alfalab/core-components/modal/desktop"
+            },
+            {
+                "componentName": "FooterDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-modal/desktop",
+                "importPath": "@alfalab/core-components/modal/desktop"
+            },
+            {
+                "componentName": "ControlsDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-modal/desktop",
+                "importPath": "@alfalab/core-components/modal/desktop"
+            },
+            {
+                "componentName": "ModalMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-modal/mobile",
+                "importPath": "@alfalab/core-components/modal/mobile"
+            },
+            {
+                "componentName": "ModalComponentMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-modal/mobile",
+                "importPath": "@alfalab/core-components/modal/mobile"
+            },
+            {
+                "componentName": "ContentMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-modal/mobile",
+                "importPath": "@alfalab/core-components/modal/mobile"
+            },
+            {
+                "componentName": "HeaderMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-modal/mobile",
+                "importPath": "@alfalab/core-components/modal/mobile"
+            },
+            {
+                "componentName": "FooterMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-modal/mobile",
+                "importPath": "@alfalab/core-components/modal/mobile"
+            },
+            {
+                "componentName": "ControlsMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-modal/mobile",
+                "importPath": "@alfalab/core-components/modal/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-number-input",
+        "imports": [
+            {
+                "componentName": "NumberInputDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-number-input/desktop",
+                "importPath": "@alfalab/core-components/number-input/desktop"
+            },
+            {
+                "componentName": "NumberInputMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-number-input/mobile",
+                "importPath": "@alfalab/core-components/number-input/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-pass-code",
+        "imports": [
+            {
+                "componentName": "PassCodeDesktop",
+                "sourcePath": "./src/desktop/PassCodeDesktop.tsx",
+                "atomPath": "@alfalab/core-components-pass-code/desktop",
+                "importPath": "@alfalab/core-components/pass-code/desktop"
+            },
+            {
+                "componentName": "PassCodeMobile",
+                "sourcePath": "./src/mobile/PassCodeMobile.tsx",
+                "atomPath": "@alfalab/core-components-pass-code/mobile",
+                "importPath": "@alfalab/core-components/pass-code/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-pattern-lock-v1",
+        "imports": [
+            {
+                "componentName": "PatternLockDesktopV1",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-pattern-lock-v1/desktop",
+                "importPath": "@alfalab/core-components/pattern-lock-v1/desktop"
+            },
+            {
+                "componentName": "PatternLockMobileV1",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-pattern-lock-v1/mobile",
+                "importPath": "@alfalab/core-components/pattern-lock-v1/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-pattern-lock",
+        "imports": [
+            {
+                "componentName": "PatternLockDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-pattern-lock/desktop",
+                "importPath": "@alfalab/core-components/pattern-lock/desktop"
+            },
+            {
+                "componentName": "PatternLockMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-pattern-lock/mobile",
+                "importPath": "@alfalab/core-components/pattern-lock/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-picker-button",
+        "imports": [
+            {
+                "componentName": "PickerButtonDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-picker-button/desktop",
+                "importPath": "@alfalab/core-components/picker-button/desktop"
+            },
+            {
+                "componentName": "PickerButtonMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-picker-button/mobile",
+                "importPath": "@alfalab/core-components/picker-button/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-plate",
+        "imports": [
+            {
+                "componentName": "PlateDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-plate/desktop",
+                "importPath": "@alfalab/core-components/plate/desktop"
+            },
+            {
+                "componentName": "PlateMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-plate/mobile",
+                "importPath": "@alfalab/core-components/plate/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-radio-group",
+        "imports": [
+            {
+                "componentName": "RadioGroupDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-radio-group/desktop",
+                "importPath": "@alfalab/core-components/radio-group/desktop"
+            },
+            {
+                "componentName": "RadioGroupMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-radio-group/mobile",
+                "importPath": "@alfalab/core-components/radio-group/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-select-with-tags",
+        "imports": [
+            {
+                "componentName": "SelectWithTagsDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-select-with-tags/desktop",
+                "importPath": "@alfalab/core-components/select-with-tags/desktop"
+            },
+            {
+                "componentName": "SelectWithTagsMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-select-with-tags/mobile",
+                "importPath": "@alfalab/core-components/select-with-tags/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-select",
+        "imports": [
+            {
+                "componentName": "SelectDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-select/desktop",
+                "importPath": "@alfalab/core-components/select/desktop"
+            },
+            {
+                "componentName": "SelectMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-select/mobile",
+                "importPath": "@alfalab/core-components/select/mobile"
+            },
+            {
+                "componentName": "SelectModalMobile",
+                "sourcePath": "./src/mobile/Component.modal.mobile.tsx",
+                "atomPath": "@alfalab/core-components-select/mobile",
+                "importPath": "@alfalab/core-components/select/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-side-panel",
+        "imports": [
+            {
+                "componentName": "SidePanelDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/desktop",
+                "importPath": "@alfalab/core-components/side-panel/desktop"
+            },
+            {
+                "componentName": "SidePanelComponentDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/desktop",
+                "importPath": "@alfalab/core-components/side-panel/desktop"
+            },
+            {
+                "componentName": "ContentDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/desktop",
+                "importPath": "@alfalab/core-components/side-panel/desktop"
+            },
+            {
+                "componentName": "HeaderDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/desktop",
+                "importPath": "@alfalab/core-components/side-panel/desktop"
+            },
+            {
+                "componentName": "FooterDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/desktop",
+                "importPath": "@alfalab/core-components/side-panel/desktop"
+            },
+            {
+                "componentName": "ControlsDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/desktop",
+                "importPath": "@alfalab/core-components/side-panel/desktop"
+            },
+            {
+                "componentName": "SidePanelMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/mobile",
+                "importPath": "@alfalab/core-components/side-panel/mobile"
+            },
+            {
+                "componentName": "SidePanelComponentMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/mobile",
+                "importPath": "@alfalab/core-components/side-panel/mobile"
+            },
+            {
+                "componentName": "ContentMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/mobile",
+                "importPath": "@alfalab/core-components/side-panel/mobile"
+            },
+            {
+                "componentName": "HeaderMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/mobile",
+                "importPath": "@alfalab/core-components/side-panel/mobile"
+            },
+            {
+                "componentName": "FooterMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/mobile",
+                "importPath": "@alfalab/core-components/side-panel/mobile"
+            },
+            {
+                "componentName": "ControlsMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-side-panel/mobile",
+                "importPath": "@alfalab/core-components/side-panel/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-system-message",
+        "imports": [
+            {
+                "componentName": "SystemMessageDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-system-message/desktop",
+                "importPath": "@alfalab/core-components/system-message/desktop"
+            },
+            {
+                "componentName": "SystemMessageComponentDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-system-message/desktop",
+                "importPath": "@alfalab/core-components/system-message/desktop"
+            },
+            {
+                "componentName": "SystemMessageCaptionDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-system-message/desktop",
+                "importPath": "@alfalab/core-components/system-message/desktop"
+            },
+            {
+                "componentName": "SystemMessageControlsDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-system-message/desktop",
+                "importPath": "@alfalab/core-components/system-message/desktop"
+            },
+            {
+                "componentName": "SystemMessageGraphicDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-system-message/desktop",
+                "importPath": "@alfalab/core-components/system-message/desktop"
+            },
+            {
+                "componentName": "SystemMessageSubtitleDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-system-message/desktop",
+                "importPath": "@alfalab/core-components/system-message/desktop"
+            },
+            {
+                "componentName": "SystemMessageTitleDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-system-message/desktop",
+                "importPath": "@alfalab/core-components/system-message/desktop"
+            },
+            {
+                "componentName": "SystemMessageMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-system-message/mobile",
+                "importPath": "@alfalab/core-components/system-message/mobile"
+            },
+            {
+                "componentName": "SystemMessageComponentMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-system-message/mobile",
+                "importPath": "@alfalab/core-components/system-message/mobile"
+            },
+            {
+                "componentName": "SystemMessageCaptionMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-system-message/mobile",
+                "importPath": "@alfalab/core-components/system-message/mobile"
+            },
+            {
+                "componentName": "SystemMessageControlsMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-system-message/mobile",
+                "importPath": "@alfalab/core-components/system-message/mobile"
+            },
+            {
+                "componentName": "SystemMessageGraphicMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-system-message/mobile",
+                "importPath": "@alfalab/core-components/system-message/mobile"
+            },
+            {
+                "componentName": "SystemMessageSubtitleMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-system-message/mobile",
+                "importPath": "@alfalab/core-components/system-message/mobile"
+            },
+            {
+                "componentName": "SystemMessageTitleMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-system-message/mobile",
+                "importPath": "@alfalab/core-components/system-message/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-tabs",
+        "imports": [
+            {
+                "componentName": "PrimaryTabListDesktop",
+                "sourcePath": "./src/components/primary-tablist/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-tabs/desktop",
+                "importPath": "@alfalab/core-components/tabs/desktop"
+            },
+            {
+                "componentName": "PrimaryTabListMobile",
+                "sourcePath": "./src/components/primary-tablist/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-tabs/mobile",
+                "importPath": "@alfalab/core-components/tabs/mobile"
+            },
+            {
+                "componentName": "SecondaryTabListDesktop",
+                "sourcePath": "./src/components/secondary-tablist/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-tabs/desktop",
+                "importPath": "@alfalab/core-components/tabs/desktop"
+            },
+            {
+                "componentName": "SecondaryTabListMobile",
+                "sourcePath": "./src/components/secondary-tablist/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-tabs/mobile",
+                "importPath": "@alfalab/core-components/tabs/mobile"
+            },
+            {
+                "componentName": "TabsDesktop",
+                "sourcePath": "./src/components/tabs/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-tabs/desktop",
+                "importPath": "@alfalab/core-components/tabs/desktop"
+            },
+            {
+                "componentName": "TabsMobile",
+                "sourcePath": "./src/components/tabs/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-tabs/mobile",
+                "importPath": "@alfalab/core-components/tabs/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-tag",
+        "imports": [
+            {
+                "componentName": "TagDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-tag/desktop",
+                "importPath": "@alfalab/core-components/tag/desktop"
+            },
+            {
+                "componentName": "TagMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-tag/mobile",
+                "importPath": "@alfalab/core-components/tag/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-toast-plate",
+        "imports": [
+            {
+                "componentName": "ToastPlateDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-toast-plate/desktop",
+                "importPath": "@alfalab/core-components/toast-plate/desktop"
+            },
+            {
+                "componentName": "ToastPlateMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-toast-plate/mobile",
+                "importPath": "@alfalab/core-components/toast-plate/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-toast",
+        "imports": [
+            {
+                "componentName": "ToastDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-toast/desktop",
+                "importPath": "@alfalab/core-components/toast/desktop"
+            },
+            {
+                "componentName": "ToastMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-toast/mobile",
+                "importPath": "@alfalab/core-components/toast/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-tooltip",
+        "imports": [
+            {
+                "componentName": "TooltipDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-tooltip/desktop",
+                "importPath": "@alfalab/core-components/tooltip/desktop"
+            },
+            {
+                "componentName": "TooltipMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-tooltip/mobile",
+                "importPath": "@alfalab/core-components/tooltip/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-universal-date-input",
+        "imports": [
+            {
+                "componentName": "UniversalDateInputDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-universal-date-input/desktop",
+                "importPath": "@alfalab/core-components/universal-date-input/desktop"
+            },
+            {
+                "componentName": "UniversalDateInputMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-universal-date-input/mobile",
+                "importPath": "@alfalab/core-components/universal-date-input/mobile"
+            }
+        ]
+    },
+    {
+        "packageName": "@alfalab/core-components-universal-modal",
+        "imports": [
+            {
+                "componentName": "UniversalModalDesktopComponent",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/desktop",
+                "importPath": "@alfalab/core-components/universal-modal/desktop"
+            },
+            {
+                "componentName": "UniversalModalDesktop",
+                "sourcePath": "./src/desktop/Component.desktop.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/desktop",
+                "importPath": "@alfalab/core-components/universal-modal/desktop"
+            },
+            {
+                "componentName": "ContentDesktop",
+                "sourcePath": "./src/desktop/components/content/index.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/desktop",
+                "importPath": "@alfalab/core-components/universal-modal/desktop"
+            },
+            {
+                "componentName": "FooterDesktop",
+                "sourcePath": "./src/desktop/components/footer/index.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/desktop",
+                "importPath": "@alfalab/core-components/universal-modal/desktop"
+            },
+            {
+                "componentName": "HeaderDesktop",
+                "sourcePath": "./src/desktop/components/header/index.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/desktop",
+                "importPath": "@alfalab/core-components/universal-modal/desktop"
+            },
+            {
+                "componentName": "UniversalModalMobileComponent",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/mobile",
+                "importPath": "@alfalab/core-components/universal-modal/mobile"
+            },
+            {
+                "componentName": "UniversalModalMobile",
+                "sourcePath": "./src/mobile/Component.mobile.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/mobile",
+                "importPath": "@alfalab/core-components/universal-modal/mobile"
+            },
+            {
+                "componentName": "ContentMobile",
+                "sourcePath": "./src/mobile/components/content/index.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/mobile",
+                "importPath": "@alfalab/core-components/universal-modal/mobile"
+            },
+            {
+                "componentName": "FooterMobile",
+                "sourcePath": "./src/mobile/components/footer/index.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/mobile",
+                "importPath": "@alfalab/core-components/universal-modal/mobile"
+            },
+            {
+                "componentName": "HeaderMobile",
+                "sourcePath": "./src/mobile/components/header/index.tsx",
+                "atomPath": "@alfalab/core-components-universal-modal/mobile",
+                "importPath": "@alfalab/core-components/universal-modal/mobile"
+            }
+        ]
+    }
+]
