@@ -4,13 +4,11 @@ import { fileURLToPath } from 'node:url';
 import slash from 'slash';
 import { glob } from 'tinyglobby';
 
-// Запуск => node tools/generate-split-components.mjs
-
 const currentFilename = fileURLToPath(import.meta.url);
 const currentDirname = path.dirname(currentFilename);
 
 const ROOT_DIR = path.resolve(currentDirname, '..');
-const OUTPUT_FILE = path.resolve(ROOT_DIR, 'generate-split-components.json');
+const OUTPUT_FILE = path.resolve(ROOT_DIR, 'packages', 'root', 'generate-split-components.json');
 
 const SPLIT_TAG = '@splitComponent';
 

@@ -21,6 +21,7 @@
         "format": "prettier --check \"{packages,scripts,bin,tools}/**/*.{ts,tsx,js,jsx,mjs,mts,cjs,cts,css,json,yaml,yml,md}\"",
         "generate-dark-colors": "node bin/dark-colors-generator.mjs",
         "generate-major-changeset": "node bin/generate-major-changeset.mjs",
+        "generate-split-components": "node tools/generate-split-components.mjs",
         "lint": "yarn lint:css && yarn lint:js && yarn lint:deps",
         "lint:css": "stylelint packages/**/*.css",
         "lint:deps": "node bin/lint-deps/bin.mjs",
