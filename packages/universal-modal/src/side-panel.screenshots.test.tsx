@@ -1,7 +1,10 @@
+import { Page } from 'playwright';
+
 import {
     setupScreenshotTesting,
     generateTestCases,
     customSnapshotIdentifier,
+    createStorybookUrl,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -286,4 +289,110 @@ describe('SidePanel | header bottom addons', () => {
         })();
 
     ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('SidePanel | hug content', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 center',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'center',
+                    },
+                }),
+            ],
+            [
+                '002 top',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'top',
+                    },
+                }),
+            ],
+            [
+                '003 bottom',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'bottom',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+    })();
+});
+
+describe('SidePanel | hug content', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 interactive center',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'center',
+                    },
+                }),
+            ],
+            [
+                '002 interactive top',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'top',
+                    },
+                }),
+            ],
+            [
+                '003 interactive bottom',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'bottom',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+        evaluate: (page: Page) =>
+            page.click('button[class*=showMoreButton]').then(() => page.waitForTimeout(500)),
+    })();
 });
