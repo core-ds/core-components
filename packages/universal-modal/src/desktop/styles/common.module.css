@@ -9,6 +9,18 @@
     }
 }
 
+.component {
+    & [data-name='universal-modal-header'] {
+        & + [data-name='universal-modal-base-content'] {
+            padding-top: var(--gap-0);
+        }
+    }
+
+    & [data-name='universal-modal-base-content']:has(+ [data-name='universal-modal-base-footer']) {
+        padding-bottom: var(--gap-0);
+    }
+}
+
 :root {
     /* stylelint-disable-next-line length-zero-no-unit */
     --hug-content-top-gap: 0px;

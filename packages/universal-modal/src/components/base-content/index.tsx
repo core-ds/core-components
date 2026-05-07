@@ -32,6 +32,7 @@ export const BaseContent: FC<ContentProps> = ({ children, className, dataTestId 
             className={cn(styles.content, className)}
             ref={contentRef as Ref<HTMLDivElement>}
             data-test-id={getDataTestId(dataTestId, 'content')}
+            data-name='universal-modal-base-content'
         >
             {children}
         </div>
