@@ -396,3 +396,71 @@ describe('SidePanel | hug content', () => {
             page.click('button[class*=showMoreButton]').then(() => page.waitForTimeout(500)),
     })();
 });
+
+describe('SidePanel | content gap', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 only content',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        header: false,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                    },
+                }),
+            ],
+            [
+                '002 with header',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+            [
+                '003 with footer',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        header: false,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'footer.sticky': true,
+                    },
+                }),
+            ],
+            [
+                '004 with header and footer',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'SidePanel',
+                    knobs: {
+                        open: true,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'header.title': 'Заголовок',
+                        'footer.sticky': true,
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+    })();
+});
