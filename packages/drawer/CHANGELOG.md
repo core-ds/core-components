@@ -1,5 +1,13 @@
 # @alfalab/core-components-drawer
 
+## 7.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+
 ## 7.0.5
 
 ### Patch Changes

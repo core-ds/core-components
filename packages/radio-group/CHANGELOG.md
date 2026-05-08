@@ -1,5 +1,17 @@
 # @alfalab/core-components-radio-group
 
+## 6.0.4
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### RadioGroup
+
+- Удалены боковые отступы в мобильном компоненте для `label`, `hint`
+
 ## 6.0.3
 
 ### Patch Changes

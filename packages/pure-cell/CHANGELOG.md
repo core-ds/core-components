@@ -1,5 +1,17 @@
 # @alfalab/core-components-pure-cell
 
+## 6.0.6
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2208](https://github.com/core-ds/core-components/pull/2208)
+
+##### PureCell
+
+- Добавлен проп `className` для футера в `PureCell`
+
 ## 6.0.5
 
 ### Patch Changes

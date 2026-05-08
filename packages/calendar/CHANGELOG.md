@@ -1,5 +1,21 @@
 # @alfalab/core-components-calendar
 
+## 9.1.4
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2190](https://github.com/core-ds/core-components/pull/2190)
+
+##### Calendar
+
+- Исправлен `border-radius` кнопок выбора месяца и года
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-modal@11.0.8
+
 ## 9.1.3
 
 ### Patch Changes
