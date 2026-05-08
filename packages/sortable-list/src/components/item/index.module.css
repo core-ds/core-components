@@ -38,6 +38,10 @@
 .icon {
     flex-shrink: 0;
     color: var(--color-light-neutral-translucent-700);
+
+    & .dragIcon {
+        vertical-align: middle;
+    }
 }
 
 .dragging {
