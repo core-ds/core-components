@@ -299,9 +299,16 @@ export function useSwipe<T extends Element>(
     return [ref, getStyle];
 }
 
-export function useMouseWheel<T extends Element>(listeners: Listeners): [ref: React.Ref<T>] {
+export function useMouseWheel<T extends Element>(
+    direction: 'x' | 'y',
+    listeners: Listeners,
+    options: {
+        angle?: number;
+    } = {},
+): [ref: React.Ref<T>] {
     const [ref, node] = useRefAsState<T>(null);
     const lastListeners = useRef(listeners);
+    const scrollAngle = options.angle ?? 45;
 
     useEffect(() => {
         lastListeners.current = listeners;
@@ -311,6 +318,7 @@ export function useMouseWheel<T extends Element>(listeners: Listeners): [ref: Re
         if (node) {
             let timer: number | undefined;
             let wheelActive: boolean | undefined;
+            let isScrolling: boolean | undefined;
 
             const coords: Coords = {
                 startX: null,
@@ -321,35 +329,54 @@ export function useMouseWheel<T extends Element>(listeners: Listeners): [ref: Re
                 previousY: null,
             };
 
-            const onWheel = (e: WheelEvent) => {
-                const { deltaX, deltaY } = e;
+            const onWheel = (event: WheelEvent) => {
+                const { deltaX, deltaY } = event;
+                const a = direction === 'x' ? deltaX : deltaY;
+                const b = direction === 'x' ? deltaY : deltaX;
 
-                if (Math.sqrt(deltaX ** 2 + deltaY ** 2) < 5) {
-                    return;
+                if (Math.abs(a) >= Math.abs(b)) {
+                    event.preventDefault();
                 }
 
-                if (deltaX * deltaX + deltaY * deltaY >= 25) {
-                    Object.assign(coords, {
-                        previousX: coords.currentX,
-                        previousY: coords.currentY,
-                    });
+                Object.assign(coords, {
+                    previousX: coords.currentX,
+                    previousY: coords.currentY,
+                });
 
-                    coords.currentX! -= deltaX;
-                    coords.currentY! -= deltaY;
+                coords.currentX! -= deltaX;
+                coords.currentY! -= deltaY;
 
+                if (isScrolling === undefined) {
+                    if (
+                        (direction === 'x' && coords.currentY === coords.startY) ||
+                        (direction === 'y' && coords.currentX === coords.startX)
+                    ) {
+                        isScrolling = false;
+                    } else {
+                        const angle =
+                            (Math.atan2(Math.abs(deltaY), Math.abs(deltaX)) * 180) / Math.PI;
+
+                        isScrolling =
+                            direction === 'x' ? angle > scrollAngle : 90 - angle > scrollAngle;
+                    }
+                }
+
+                if (!isScrolling) {
                     lastListeners.current.onSwiping?.(coords);
                 }
             };
 
-            const wheelStart = (e: WheelEvent) => {
+            const wheelStart = (event: WheelEvent) => {
                 Object.assign(coords, {
-                    startX: e.pageX,
-                    startY: e.pageY,
-                    currentX: e.pageX,
-                    currentY: e.pageY,
+                    startX: event.pageX,
+                    startY: event.pageY,
+                    currentX: event.pageX,
+                    currentY: event.pageY,
                     previousX: null,
                     previousY: null,
                 });
+
+                isScrolling = undefined;
 
                 lastListeners.current.onStartSwipe?.(coords);
             };
@@ -362,16 +389,18 @@ export function useMouseWheel<T extends Element>(listeners: Listeners): [ref: Re
             const listener = (e: Event) => {
                 const event = e as WheelEvent;
 
-                event.preventDefault();
-                if (!wheelActive) {
-                    wheelStart(event);
-                    wheelActive = true;
+                // non-zooming wheel events only
+                if (!event.ctrlKey) {
+                    if (!wheelActive) {
+                        wheelStart(event);
+                        wheelActive = true;
+                    }
+                    onWheel(event);
+                    clearTimeout(timer);
+                    timer = window.setTimeout(() => {
+                        wheelEnd();
+                    }, 50);
                 }
-                onWheel(event);
-                clearTimeout(timer);
-                timer = window.setTimeout(() => {
-                    wheelEnd();
-                }, 50);
             };
 
             node.addEventListener('wheel', listener, { passive: false });
@@ -382,7 +411,7 @@ export function useMouseWheel<T extends Element>(listeners: Listeners): [ref: Re
         }
 
         return noop;
-    }, [node]);
+    }, [direction, node, options.angle, scrollAngle]);
 
     return [ref];
 }

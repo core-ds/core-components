@@ -88,10 +88,8 @@ export function BaseCarousel<T, U extends PaginationProps, V extends NavigationP
         setSwiping(true);
     };
 
-    const handleMouseWheel: CoordsCallback = ({ currentX, currentY, previousX, previousY }) => {
-        const deltaX = currentX! - previousX!;
-        const deltaY = currentY! - previousY!;
-        const delta = Math.abs(deltaX) > Math.abs(deltaY) ? deltaX : deltaY;
+    const handleMouseWheel: CoordsCallback = ({ currentX, previousX }) => {
+        const delta = currentX! - previousX!;
         const [min] = snaps;
         const max = snaps[snaps.length - 1];
 
@@ -182,13 +180,13 @@ export function BaseCarousel<T, U extends PaginationProps, V extends NavigationP
     const count =
         visibleItems === 'auto' ? snaps.length : items.length - Math.floor(visibleItems) + 1;
 
-    const [ref, getStyle] = useSwipe<HTMLDivElement>('x', {
+    const [swipeRef, getStyle] = useSwipe<HTMLDivElement>('x', {
         onStartSwipe: handleSwipeStart,
         onSwiping: handleSwiping,
         onStopSwipe: handleSwipeStop,
     });
 
-    const [mouseWheelRef] = useMouseWheel<HTMLDivElement>({
+    const [mouseWheelRef] = useMouseWheel<HTMLDivElement>('x', {
         onStartSwipe: handleSwipeStart,
         onSwiping: handleMouseWheel,
         onStopSwipe: handleSwipeStop,
@@ -211,7 +209,7 @@ export function BaseCarousel<T, U extends PaginationProps, V extends NavigationP
             paginationProps={getPaginationProps(contextValue)}
         >
             <div
-                ref={mergeRefs([ref, mouseWheel ? mouseWheelRef : null])}
+                ref={mergeRefs([swipeRef, mouseWheel ? mouseWheelRef : null])}
                 className={cn(styles.container)}
                 style={{ ...getStyle(), height, minHeight, overflow }}
             >
