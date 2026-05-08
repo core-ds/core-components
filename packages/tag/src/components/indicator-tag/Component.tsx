@@ -75,12 +75,14 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
 
         const { width, height } = resolveSizeToDimensions(size);
 
-        const { badgeX, badgeY, cutoutR, cr, junctionR, junctionRect, junctions } = resolveGeometry({
-            width,
-            height,
-            shape,
-            indicatorProps,
-        });
+        const { badgeX, badgeY, cutoutR, cr, junctionR, junctionRect, junctions } = resolveGeometry(
+            {
+                width,
+                height,
+                shape,
+                indicatorProps,
+            },
+        );
 
         const buttonProps = {
             className: cn(commonStyles.badgeIcon, colorStyle.badgeIcon, className, {

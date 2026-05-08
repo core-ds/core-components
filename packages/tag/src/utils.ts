@@ -236,9 +236,9 @@ export const resolveGeometry = ({
         const junctions: [JunctionPoint, JunctionPoint] | null =
             dySq >= 0 && dxSq >= 0
                 ? [
-                    { cx: edgeRight, cy: badgeY + Math.sqrt(dySq) },
-                    { cx: badgeX - Math.sqrt(dxSq), cy: edgeTop },
-                ]
+                      { cx: edgeRight, cy: badgeY + Math.sqrt(dySq) },
+                      { cx: badgeX - Math.sqrt(dxSq), cy: edgeTop },
+                  ]
                 : null;
 
         return { badgeX, badgeY, cutoutR, cr, junctionR, junctionRect, junctions };
