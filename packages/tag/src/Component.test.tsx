@@ -1,7 +1,9 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
+import { IndicatorTag } from './components/indicator-tag';
 import { TagDesktop as Tag } from './desktop';
+import { resolveGeometry } from './utils';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {
@@ -84,13 +86,13 @@ describe('Attributes tests', () => {
 });
 
 describe('Render tests', () => {
-    test('should unmount without errors', () => {
+    it('should unmount without errors', () => {
         const { unmount } = render(<Tag rightAddons={<div>addons</div>}>Tag</Tag>);
 
         expect(unmount).not.toThrow();
     });
 
-    test('should contain right addons', () => {
+    it('should contain right addons', () => {
         const rightAddonText = 'Right addon text';
 
         const { container, getByText } = render(
@@ -100,7 +102,7 @@ describe('Render tests', () => {
         expect(container.firstElementChild).toContainElement(getByText(rightAddonText));
     });
 
-    test('should contain left addons', () => {
+    it('should contain left addons', () => {
         const leftAddonText = 'Left addon text';
 
         const { container, getByText } = render(
@@ -109,10 +111,67 @@ describe('Render tests', () => {
 
         expect(container.firstElementChild).toContainElement(getByText(leftAddonText));
     });
+
+    it.each([32, 40] as const)(
+        'should keep rectangular dot indicator inside tag bounds for size=%s',
+        (size) => {
+            const { container } = render(
+                <IndicatorTag
+                    size={size}
+                    shape='rectangular'
+                    indicatorProps={{ mode: 'dot' }}
+                    leftAddons={<span />}
+                />,
+            );
+            const indicator = container.querySelector('[class*="indicator"]');
+
+            expect(indicator).toHaveStyle({ left: '36px', top: '4px' });
+        },
+    );
+
+    it.each([32, 40] as const)(
+        'should place rounded dot indicator by circle diagonal for size=%s',
+        (size) => {
+            const { container } = render(
+                <IndicatorTag
+                    size={size}
+                    shape='rounded'
+                    indicatorProps={{ mode: 'dot' }}
+                    leftAddons={<span />}
+                />,
+            );
+            const indicator = container.querySelector('[class*="indicator"]') as HTMLElement;
+
+            expect(parseFloat(indicator.style.left)).toBeLessThanOrEqual(36);
+            expect(parseFloat(indicator.style.top)).toBeGreaterThanOrEqual(4);
+        },
+    );
+
+    it('should use separate cutout gap for count indicator', () => {
+        const dotGeometry = resolveGeometry({
+            width: 40,
+            height: 32,
+            shape: 'rectangular',
+            indicatorProps: { mode: 'dot' },
+        });
+        const countGeometry = resolveGeometry({
+            width: 40,
+            height: 32,
+            shape: 'rectangular',
+            indicatorProps: { mode: 'count', value: 7 },
+        });
+
+        expect(dotGeometry.cutoutR).toBe(6);
+        expect(countGeometry.cutoutR).toBe(11);
+        expect(dotGeometry.junctionR).toBe(4);
+        expect(dotGeometry.junctionRect).toBe(6);
+        expect(countGeometry.junctionR).toBe(2);
+        expect(countGeometry.junctionRect).toBe(4);
+    });
 });
 
-describe('Interaction tests', () => {
-    test('should call `onClick` prop, if tag not disabled', () => {
+describe('Interaction its', () => {
+    it('should call `onClick` prop, if tag not disabled', () => {
         const cb = jest.fn();
 
         const { container } = render(<Tag onClick={cb}>Press me!</Tag>);
@@ -124,7 +183,7 @@ describe('Interaction tests', () => {
         expect(cb).toHaveBeenCalledTimes(1);
     });
 
-    test('should not call `onClick` prop, if tag is disabled', () => {
+    it('should not call `onClick` prop, if tag is disabled', () => {
         const cb = jest.fn();
 
         const { container } = render(
@@ -140,7 +199,7 @@ describe('Interaction tests', () => {
         expect(cb).toHaveBeenCalledTimes(0);
     });
 
-    test('should not call `onClick` prop, if tag is disabled and checked', () => {
+    it('should not call `onClick` prop, if tag is disabled and checked', () => {
         const cb = jest.fn();
 
         const { container } = render(

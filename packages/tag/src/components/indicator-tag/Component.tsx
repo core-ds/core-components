@@ -5,8 +5,6 @@ import { Indicator } from '@alfalab/core-components-indicator';
 
 import { type BaseTagProps, type StyleColors } from '../../typings';
 import {
-    JR,
-    JR_RECT,
     resolveGeometry,
     resolveSizeToDimensions,
     resolveValueToIndicatorShiftX,
@@ -77,7 +75,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
 
         const { width, height } = resolveSizeToDimensions(size);
 
-        const { badgeX, badgeY, cutoutR, cr, junctions } = resolveGeometry({
+        const { badgeX, badgeY, cutoutR, cr, junctionR, junctionRect, junctions } = resolveGeometry({
             width,
             height,
             shape,
@@ -130,27 +128,27 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                                         <Fragment>
                                             <rect
                                                 x={junctions[0].cx}
-                                                y={junctions[0].cy - JR_RECT}
-                                                width={JR_RECT}
-                                                height={JR_RECT}
+                                                y={junctions[0].cy - junctionRect}
+                                                width={junctionRect}
+                                                height={junctionRect}
                                             />
                                             <rect
                                                 x={junctions[1].cx}
-                                                y={junctions[1].cy - JR_RECT}
-                                                width={JR_RECT}
-                                                height={JR_RECT}
+                                                y={junctions[1].cy - junctionRect}
+                                                width={junctionRect}
+                                                height={junctionRect}
                                             />
                                             <circle
                                                 className={colorStyle.mask}
                                                 cx={junctions[0].cx}
                                                 cy={junctions[0].cy}
-                                                r={JR}
+                                                r={junctionR}
                                             />
                                             <circle
                                                 className={colorStyle.mask}
                                                 cx={junctions[1].cx}
                                                 cy={junctions[1].cy}
-                                                r={JR}
+                                                r={junctionR}
                                             />
                                         </Fragment>
                                     ) : null}

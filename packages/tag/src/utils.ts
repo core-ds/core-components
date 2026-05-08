@@ -5,13 +5,29 @@ type JunctionPoint = { cx: number; cy: number };
 export const DOT_RADIUS = 5;
 export const BADGE_NUMBER_RADIUS = 8;
 
-const OFFSET = 3;
+const OFFSET = 4;
+const DOT_INDICATOR_RADIUS = 4;
+const DOT_INDICATOR_GAP = 1;
+
+const BADGE_NUMBER_GAP = 3;
+
+const CIRCLE_INDICATOR_OFFSET = 6;
+const CIRCLE_INDICATOR_INSET_X = 2;
+const CIRCLE_INDICATOR_INSET_Y = 2;
+
+const CIRCLE_DOT_INDICATOR_OFFSET = 6;
+const CIRCLE_DOT_INDICATOR_INSET_X = 3;
+const CIRCLE_DOT_INDICATOR_INSET_Y = 4;
+
 const SIN_45 = Math.SQRT2 / 2;
 
 /** Радиус круга в точках пересечения эллипса и окружности */
-export const JR = 4.5;
+export const JR = 4;
 /** Сторона чёрного квадрата-резца в точках пересечения эллипса и окружности */
 export const JR_RECT = 6;
+
+const COUNT_JR = 2;
+const COUNT_JR_RECT = 4;
 
 const EPSILON = 1e-3;
 const DOUBLE_INDICATOR_SHIFT_X = 3;
@@ -142,11 +158,24 @@ const resolveBadgeRadiusFromIndicatorProps = (
     return typeof indicatorProps.value === 'number' ? BADGE_NUMBER_RADIUS : DOT_RADIUS;
 };
 
+const isDotIndicator = (indicatorProps: BaseTagProps['indicatorProps'] | undefined): boolean => {
+    if (indicatorProps === undefined) {
+        return false;
+    }
+
+    const mode =
+        indicatorProps.mode ?? (typeof indicatorProps.value === 'number' ? 'count' : 'dot');
+
+    return mode === 'dot';
+};
+
 type BadgeGeometry = {
     badgeX: number;
     badgeY: number;
     cutoutR: number;
     cr?: number;
+    junctionR: number;
+    junctionRect: number;
     junctions: [JunctionPoint, JunctionPoint] | null;
 };
 
@@ -168,12 +197,17 @@ export const resolveGeometry = ({
                 shape === 'rectangular'
                     ? Math.round(Math.min(w, h) * RECT_CORNER_RADIUS_FACTOR)
                     : undefined,
+            junctionR: JR,
+            junctionRect: JR_RECT,
             junctions: null,
         };
     }
 
-    const cutoutR = badgeRadius + 1;
-    const outerR = cutoutR + JR;
+    const dotIndicator = isDotIndicator(indicatorProps);
+    const junctionR = dotIndicator ? JR : COUNT_JR;
+    const junctionRect = dotIndicator ? JR_RECT : COUNT_JR_RECT;
+    const cutoutR = badgeRadius + (dotIndicator ? DOT_INDICATOR_GAP : BADGE_NUMBER_GAP);
+    const outerR = cutoutR + junctionR;
 
     /*
      * Rectangular: центр бейджа сдвигаем в правый верхний угол по диагонали 45° относительно скругления (cr).
@@ -184,42 +218,49 @@ export const resolveGeometry = ({
      */
     if (shape === 'rectangular') {
         const cr = Math.round(Math.min(w, h) * RECT_CORNER_RADIUS_FACTOR);
-        const badgeX = w - cr + (cr + OFFSET) * SIN_45 - INDICATOR_INSET_X;
-        const badgeY = cr - (cr + OFFSET) * SIN_45 + INDICATOR_INSET_Y;
+        const badgeX = dotIndicator
+            ? w - DOT_INDICATOR_RADIUS
+            : w - cr + (cr + OFFSET) * SIN_45 - INDICATOR_INSET_X;
+        const badgeY = dotIndicator
+            ? DOT_INDICATOR_RADIUS
+            : cr - (cr + OFFSET) * SIN_45 + INDICATOR_INSET_Y;
 
-        const edgeRight = w - JR;
+        const edgeRight = w - junctionR;
         const dx = edgeRight - badgeX;
         const dySq = outerR * outerR - dx * dx;
 
-        const edgeTop = JR;
+        const edgeTop = junctionR;
         const dy = edgeTop - badgeY;
         const dxSq = outerR * outerR - dy * dy;
 
         const junctions: [JunctionPoint, JunctionPoint] | null =
             dySq >= 0 && dxSq >= 0
                 ? [
-                      { cx: edgeRight, cy: badgeY + Math.sqrt(dySq) },
-                      { cx: badgeX - Math.sqrt(dxSq), cy: edgeTop },
-                  ]
+                    { cx: edgeRight, cy: badgeY + Math.sqrt(dySq) },
+                    { cx: badgeX - Math.sqrt(dxSq), cy: edgeTop },
+                ]
                 : null;
 
-        return { badgeX, badgeY, cutoutR, cr, junctions };
+        return { badgeX, badgeY, cutoutR, cr, junctionR, junctionRect, junctions };
     }
 
     const rx = w / 2;
     const ry = h / 2;
-    const badgeX = rx + (rx + OFFSET) * SIN_45 - INDICATOR_INSET_X;
-    const badgeY = ry - (ry + OFFSET) * SIN_45 + INDICATOR_INSET_Y;
+    const circleOffset = dotIndicator ? CIRCLE_DOT_INDICATOR_OFFSET : CIRCLE_INDICATOR_OFFSET;
+    const circleInsetX = dotIndicator ? CIRCLE_DOT_INDICATOR_INSET_X : CIRCLE_INDICATOR_INSET_X;
+    const circleInsetY = dotIndicator ? CIRCLE_DOT_INDICATOR_INSET_Y : CIRCLE_INDICATOR_INSET_Y;
+    const badgeX = rx + (rx + circleOffset) * SIN_45 - circleInsetX;
+    const badgeY = ry - (ry + circleOffset) * SIN_45 + circleInsetY;
 
     const junctions = intersectEllipseCircle({
         ecx: rx,
         ecy: ry,
-        erx: rx - JR,
-        ery: ry - JR,
+        erx: rx - junctionR,
+        ery: ry - junctionR,
         ccx: badgeX,
         ccy: badgeY,
         cr: outerR,
     });
 
-    return { badgeX, badgeY, cutoutR, junctions };
+    return { badgeX, badgeY, cutoutR, junctionR, junctionRect, junctions };
 };
