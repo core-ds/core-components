@@ -24,17 +24,14 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, type PortalProps } from '@alfalab/core-components-portal';
-import { getScrollbarSize, isIOS } from '@alfalab/core-components-shared';
+import { getScrollbarSize } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
-import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {
-    handleContainer,
     hasScrollbar,
     isScrolledToBottom,
     isScrolledToTop,
-    restoreContainerStyles,
 } from './utils';
 
 import styles from './index.module.css';
@@ -91,13 +88,6 @@ export type BaseModalProps = {
      * @default false
      */
     disableBackdropClick?: boolean;
-
-    /**
-     * Отключает блокировку скролла при открытии модального окна
-     * @default false
-     * @deprecated Используйте `scrollLock={true}`.
-     */
-    disableBlockingScroll?: boolean;
 
     /**
      * Управляет блокировкой скролла/overscroll фона при открытой модалке.
@@ -216,12 +206,6 @@ export type BaseModalProps = {
     contentElementRef?: MutableRefObject<HTMLDivElement | null>;
 
     /**
-     * Блокирует скролл когда модальное окно открыто. Работает только на iOS.
-     * @deprecated Используйте `scrollLock={true}`.
-     */
-    iOSLock?: boolean;
-
-    /**
      * Хэндлер события прокрутки колесиком
      */
     onWheel?: (e: WheelEvent<HTMLElement>) => void;
@@ -279,7 +263,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             disableFocusLock = false,
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
-            disableBlockingScroll = false,
             scrollLock = false,
             keepMounted = false,
             className,
@@ -298,7 +281,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             componentRef = null,
             contentElementRef = null,
             usePortal = true,
-            iOSLock = false,
             onWheel,
         },
         ref,
@@ -315,7 +297,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const wrapperRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
         const contentNodeRef = useRef<HTMLDivElement | null>(null);
-        const restoreContainerStylesRef = useRef<null | (() => void)>(null);
         const mouseDownTarget = useRef<HTMLElement>();
         const resizeObserverRef = useRef<ResizeObserver>();
 
@@ -330,11 +311,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const isExited = exited || exited === null;
         const shouldRender = keepMounted || open || !isExited;
-
-        const getContainer = useCallback(
-            () => (container ? container() : document.body) as HTMLElement,
-            [container],
-        );
 
         const addResizeHandle = useCallback(() => {
             if (!resizeObserverRef.current) return;
@@ -380,10 +356,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
-                if (!scrollLock && iOSLock && isIOS()) {
-                    unlockScroll();
-                }
-
                 if (onClose) {
                     onClose(event, reason);
                 }
@@ -398,7 +370,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 return null;
             },
-            [onBackdropClick, onClose, onEscapeKeyDown, iOSLock, scrollLock],
+            [onBackdropClick, onClose, onEscapeKeyDown],
         );
 
         const handleBackdropMouseDown = (event: MouseEvent<HTMLElement>) => {
@@ -492,45 +464,15 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 if (onUnmount) onUnmount();
 
-                if (restoreContainerStylesRef.current) {
-                    restoreContainerStylesRef.current();
-                }
             },
             [handleScroll, onUnmount, removeResizeHandle, transitionProps],
         );
 
         useEffect(() => {
             if (open && isExited) {
-                /*
-                 * При scrollLock={true} блокировка обрабатывается через react-remove-scroll,
-                 * старая логика нужна только для обратной совместимости (deprecated пропсы)
-                 */
-                const shouldUseLegacyScrollLock = !scrollLock && !disableBlockingScroll;
-
-                if (shouldUseLegacyScrollLock) {
-                    const el = getContainer();
-
-                    const shouldIOSLock = iOSLock && isIOS();
-
-                    handleContainer(el, shouldIOSLock);
-                    if (shouldIOSLock) {
-                        syncHeight();
-                        lockScroll();
-                    }
-
-                    restoreContainerStylesRef.current = () => {
-                        restoreContainerStylesRef.current = null;
-                        restoreContainerStyles(el);
-                    };
-                }
-
                 setExited(false);
             }
-
-            if (!open) {
-                unlockScroll();
-            }
-        }, [getContainer, open, disableBlockingScroll, scrollLock, isExited, iOSLock]);
+        }, [open, isExited]);
 
         useEffect(() => {
             const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
@@ -538,10 +480,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             resizeObserverRef.current = new ResizeObserver(checkToHasScrollBar);
 
             return () => {
-                if (restoreContainerStylesRef.current) {
-                    restoreContainerStylesRef.current();
-                }
-
                 if (resizeObserverRef.current) {
                     resizeObserverRef.current.disconnect();
                 }

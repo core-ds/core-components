@@ -62,6 +62,7 @@ export interface UniversalModalDesktopProps
                 | 'onClose'
                 | 'disableFocusLock'
                 | 'container'
+                | 'scrollLock'
             >
         > {
     /**

@@ -18,7 +18,7 @@ import {
 import { type HandledEvents } from 'react-swipeable/es/types';
 import cn from 'classnames';
 
-import { BaseModal, unlockScroll } from '@alfalab/core-components-base-modal';
+import { BaseModal } from '@alfalab/core-components-base-modal';
 import { fnUtils, getDataTestId, isClient, isIOS } from '@alfalab/core-components-shared';
 
 import { Footer } from './components/footer/Component';
@@ -91,7 +91,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             hideScrollbar,
             hideHeader,
             disableOverlayClick,
-            disableBlockingScroll,
             scrollLock = true,
             disableFocusLock,
             children,
@@ -125,7 +124,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             swipeableMarker,
             swipeableMarkerClassName,
             backButtonProps,
-            iOSLock = false,
             virtualKeyboard = false,
             colors = 'default',
             preventScrollOnSwipe,
@@ -286,9 +284,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const nextAreaIdx = getActiveAreaIndex(nextArea);
 
             if (nextArea === 0) {
-                if (iOSLock) {
-                    unlockScroll();
-                }
                 onClose();
 
                 return;
@@ -327,10 +322,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     .find((area) => area < activeArea);
 
                 if (nextArea === 0) {
-                    if (iOSLock) {
-                        unlockScroll();
-                    }
-
                     onClose();
 
                     return;
@@ -365,10 +356,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 isSecondArea && canClose && 1 - currentSheetHeight / activeArea > CLOSE_OFFSET;
 
             if (shouldCloseByOffset) {
-                if (iOSLock) {
-                    unlockScroll();
-                }
-
                 onClose();
 
                 return;
@@ -390,10 +377,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             );
 
             if (nearestArea === 0) {
-                if (iOSLock) {
-                    unlockScroll();
-                }
-
                 onClose();
             } else {
                 const nextOffset = lastMagneticArea - nearestArea;
@@ -661,7 +644,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 wrapperClassName={cn(modalWrapperClassName, {
                     [styles.disabledPointerEvents]: hideOverlay,
                 })}
-                disableBlockingScroll={disableBlockingScroll}
                 disableFocusLock={disableFocusLock}
                 transitionProps={{
                     appear: true,
@@ -677,7 +659,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 disableEscapeKeyDown={disableEscapeKeyDown}
                 disableRestoreFocus={disableRestoreFocus}
                 keepMounted={keepMounted}
-                iOSLock={iOSLock}
                 scrollLock={scrollLock}
             >
                 <div
