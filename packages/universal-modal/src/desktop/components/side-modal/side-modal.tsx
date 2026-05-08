@@ -64,7 +64,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 [styles.withoutOverlay]: withoutOverlay,
             })}
             className={cn(styles.component, className, styles.baseModalComponent, {
-                ...getMarginStyles({ styles, margin }),
+                ...getMarginStyles({ styles, margin, height }),
             })}
             contentClassName={styles.content}
             transitionProps={{

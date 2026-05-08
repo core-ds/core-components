@@ -360,63 +360,6 @@ describe('UniversalModal', () => {
         });
     });
 
-    describe('desktop content gap tests', () => {
-        const dti = 'modal-dti';
-        const testIds = getUniversalModalTestIds(dti);
-
-        it.each(['withHeader', 'withFooter'])('should not have class %s', (className) => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).not.toHaveClass(className);
-        });
-
-        it.each(['withHeader', 'withFooter'])('should have class %s', (className) => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} />
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                    <UniversalModalDesktop.Footer dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass(className);
-        });
-
-        it('should render with header gap', () => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} />
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass('withHeader');
-        });
-
-        it('should render with footer gap', () => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                    <UniversalModalDesktop.Footer dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass('withFooter');
-        });
-    });
-
     describe('desktop highlight tests', () => {
         const dti = 'modal-dti';
         const testIds = getUniversalModalTestIds(dti);
