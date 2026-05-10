@@ -349,7 +349,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-carousel@workspace:packages/carousel"
   dependencies:
-    "@alfalab/core-components-icon-view": "npm:^5.0.2"
+    "@alfalab/core-components-icon-view": "npm:^5.0.3"
     "@alfalab/core-components-shared": "npm:^2.1.1"
     "@alfalab/hooks": "npm:^1.13.1"
     "@alfalab/icons-glyph": "npm:^2.260.0"
@@ -841,7 +841,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-icon-view@npm:^5.0.2, @alfalab/core-components-icon-view@npm:^5.0.3, @alfalab/core-components-icon-view@workspace:packages/icon-view":
+"@alfalab/core-components-icon-view@npm:^5.0.3, @alfalab/core-components-icon-view@workspace:packages/icon-view":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-icon-view@workspace:packages/icon-view"
   dependencies:
