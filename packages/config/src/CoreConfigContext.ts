@@ -4,6 +4,9 @@ export type CoreConfigContextValue = {
     breakpoint: number;
     client: 'desktop' | 'mobile';
     getPortalContainer?: () => Element | null | undefined;
+    haptics?: {
+        enabled?: boolean;
+    };
 };
 
 export const CoreConfigContext = createContext<CoreConfigContextValue>({

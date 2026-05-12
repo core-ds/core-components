@@ -4,6 +4,7 @@ import React, {
     forwardRef,
     type InputHTMLAttributes,
     type LabelHTMLAttributes,
+    type PointerEvent,
     type ReactNode,
     type Ref,
     type RefObject,
@@ -12,7 +13,8 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { dom, getDataTestId } from '@alfalab/core-components-shared';
+import { useCoreConfig } from '@alfalab/core-components-config';
+import { dom, getDataTestId, triggerHaptic } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { CheckIcon } from './icon';
@@ -189,8 +191,22 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         ref,
     ) => {
         const labelRef = useRef<HTMLLabelElement>(null);
+        const addonsRef = useRef<HTMLSpanElement>(null);
+        const { haptics } = useCoreConfig();
 
         const [focused] = useFocus(labelRef, 'keyboard');
+
+        const handlePointerDown = (event: PointerEvent<HTMLLabelElement>) => {
+            labelProps?.onPointerDown?.(event);
+
+            const isAddonClick = addonsRef.current?.contains(event.target as Node);
+
+            if (event.defaultPrevented || disabled || isAddonClick) {
+                return;
+            }
+
+            triggerHaptic('selection', { enabled: haptics?.enabled });
+        };
 
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
@@ -216,6 +232,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         return (
             <label
                 {...labelProps}
+                onPointerDown={handlePointerDown}
                 className={cn(
                     styles.component,
                     colorStyle.component,
@@ -288,6 +305,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 {addons && (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                     <span
+                        ref={addonsRef}
                         className={cn(styles.addons, addonsClassName)}
                         onClick={dom.preventDefault}
                     >
