@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-checkbox-group",
-    "version": "6.0.3",
+    "version": "6.0.4",
     "description": "Checkbox group",
     "keywords": [],
     "license": "MIT",
@@ -26,6 +26,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.3",
+    "themesVersion": "15.0.4",
     "varsVersion": "11.0.2"
 }

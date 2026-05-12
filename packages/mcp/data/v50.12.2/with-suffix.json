@@ -1,0 +1,113 @@
+{
+    "packageName": "with-suffix",
+    "displayName": "withSuffix",
+    "description": "Используется чтобы расположить текст после значения инпута.",
+    "props": {
+        "apply": {
+            "defaultValue": null,
+            "description": "Calls the function with the specified object as the this value and the elements of specified array as the arguments.\n@param thisArg The object to be used as the this object.\n@param thisArg The object to be used as the this object.\n@param args An array of argument values to be passed to the function.",
+            "name": "apply",
+            "required": true,
+            "type": {
+                "name": "{ <T, R>(this: (this: T) => R, thisArg: T): R; <T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, args: A): R; }"
+            }
+        },
+        "call": {
+            "defaultValue": null,
+            "description": "Calls the function with the specified object as the this value and the specified rest arguments as the arguments.\n@param thisArg The object to be used as the this object.\n@param args Argument values to be passed to the function.",
+            "name": "call",
+            "required": true,
+            "type": {
+                "name": "<T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, ...args: A) => R"
+            }
+        },
+        "bind": {
+            "defaultValue": null,
+            "description": "For a given function, creates a bound function that has the same body as the original function.\nThe this object of the bound function is associated with the specified object, and has the specified initial parameters.\n@param thisArg The object to be used as the this object.\n@param thisArg The object to be used as the this object.\n@param args Arguments to bind to the parameters of the function.",
+            "name": "bind",
+            "required": true,
+            "type": {
+                "name": "{ <T>(this: T, thisArg: ThisParameterType<T>): OmitThisParameter<T>; <T, A extends any[], B extends any[], R>(this: (this: T, ...args: [...A, ...B]) => R, thisArg: T, ...args: A): (...args: B) => R; }"
+            }
+        },
+        "toString": {
+            "defaultValue": {},
+            "description": "Returns a string representation of a function.",
+            "name": "toString",
+            "required": false,
+            "type": {
+                "name": "() => string"
+            }
+        },
+        "prototype": {
+            "defaultValue": null,
+            "description": "",
+            "name": "prototype",
+            "required": true,
+            "type": {
+                "name": "any"
+            }
+        },
+        "length": {
+            "defaultValue": null,
+            "description": "",
+            "name": "length",
+            "required": true,
+            "type": {
+                "name": "number"
+            }
+        },
+        "arguments": {
+            "defaultValue": null,
+            "description": "",
+            "name": "arguments",
+            "required": true,
+            "type": {
+                "name": "any"
+            }
+        },
+        "caller": {
+            "defaultValue": null,
+            "description": "",
+            "name": "caller",
+            "required": true,
+            "type": {
+                "name": "Function"
+            }
+        },
+        "name": {
+            "defaultValue": null,
+            "description": "Returns the name of the function. Function names are read-only and can not be changed.",
+            "name": "name",
+            "required": true,
+            "type": {
+                "name": "string"
+            }
+        },
+        "__@hasInstance@489": {
+            "defaultValue": null,
+            "description": "Determines whether the given value inherits from this function if this function was used\nas a constructor function.\n\nA constructor function can control which objects are recognized as its instances by\n'instanceof' by overriding this method.",
+            "name": "__@hasInstance@489",
+            "required": true,
+            "type": {
+                "name": "(value: any) => boolean"
+            }
+        },
+        "__@metadata@491": {
+            "defaultValue": null,
+            "description": "",
+            "name": "__@metadata@491",
+            "required": true,
+            "type": {
+                "name": "DecoratorMetadataObject | null"
+            }
+        }
+    },
+    "demos": [
+        {
+            "title": "Пример",
+            "description": "HOC добавляет в переданный инпут доп. пропсу `suffix?: ReactNode`.",
+            "desktop": "const SuffixInput = withSuffix(Input);\n\nrender(\n<div style={{ width: 320 }}>\n<SuffixInput\nblock={true}\nplaceholder='Введите число'\nlabel='Количество месяцев'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsuffix={<Typography.Text view='component-primary' color='secondary'> мес</Typography.Text> }\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}/>\n</div>\n);"
+        }
+    ]
+}

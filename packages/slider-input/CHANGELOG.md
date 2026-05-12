@@ -1,5 +1,31 @@
 # @alfalab/core-components-slider-input
 
+## 11.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.4
+
+## 11.1.0
+
+### Minor Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### SliderInput
+
+- `SliderInput` теперь поддерживает отображение точек, кастомные точки и раздельное управление точками и подписями pips через API вложенного `Slider`.
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-slider@6.1.0
+
 ## 11.0.5
 
 ### Patch Changes

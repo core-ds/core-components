@@ -1,5 +1,47 @@
 # @alfalab/core-components-amount-input
 
+## 9.2.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.4
+- @alfalab/core-components-number-input@4.0.6
+- @alfalab/core-components-with-suffix@6.0.6
+
+## 9.2.2
+
+### Patch Changes
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2192](https://github.com/core-ds/core-components/pull/2192)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2196](https://github.com/core-ds/core-components/pull/2196)
+
+##### AmountInput
+
+- Улучшена работа анимации при отклонении ввода
+
+## 9.2.1
+
+### Patch Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#2184](https://github.com/core-ds/core-components/pull/2184)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения при `blur`
+
 ## 9.2.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @alfalab/core-components-input
 
+## 17.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-form-control@14.0.5
+
 ## 17.1.3
 
 ### Patch Changes

@@ -24,8 +24,10 @@ defaults:
         shell: bash
 
 jobs:
-    guard:
+    sha:
         runs-on: ubuntu-latest
+        outputs:
+            result: ${{ steps.sha.outputs.result }}
         steps:
             - name: Check if repo is correct
               if: ${{ github.repository != 'core-ds/core-components' }}
@@ -35,39 +37,46 @@ jobs:
 
                   exit 1
 
+            - name: Get SHA
+              id: sha
+              uses: actions/github-script@v8
+              with:
+                  result-encoding: string
+                  script: |
+                      const { data } = await octokit.rest.pulls.get({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          pull_number: ${{ inputs.pull-request }},
+                      });
+
+                      return data.head.sha;
+
     build-demo:
-        needs: guard
+        needs: sha
         uses: ./.github/workflows/build-demo.yml
         secrets: inherit
         with:
+            ref: ${{ needs.sha.outputs.result }}
             variant: ${{ inputs.variant }}
             artifact-name: ${{ inputs.variant }}
 
     update:
         runs-on: ubuntu-latest
-        needs: build-demo
+        needs: [build-demo, sha]
         env:
             CORE_COMPONENTS_VARIANT: ${{ inputs.variant }}
         steps:
-            - name: Parse repository name
-              id: repository
-              uses: core-ds/core-components/.github/actions/parse-repository@master
-              with:
-                  repository: ${{ github.repository }}
-
             - name: Generate app token
               id: generate-token
               uses: actions/create-github-app-token@v3
               with:
-                  app-id: ${{ vars.APP_ID }}
+                  client-id: ${{ vars.APP_ID }}
                   private-key: ${{ secrets.APP_PRIVATE_KEY }}
-                  owner: ${{ steps.repository.outputs.owner }}
-                  repositories: ${{ steps.repository.outputs.repo }}
 
             - name: Checkout
               uses: actions/checkout@v6
               with:
-                  repository: ${{ steps.repository.outputs.full-name }}
+                  ref: ${{ needs.sha.outputs.result }}
                   token: ${{ steps.generate-token.outputs.token }}
                   lfs: true
 

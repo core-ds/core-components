@@ -2,10 +2,10 @@
 @import '../../vars.css';
 
 .footer {
-    padding: var(--gap-16);
+    padding: var(--gap-20);
 
     &:empty {
-        padding: var(--gap-16) var(--gap-0) var(--gap-0);
+        padding: var(--gap-20) var(--gap-0) var(--gap-0);
         position: sticky;
         bottom: var(--gap-0);
         z-index: 1;

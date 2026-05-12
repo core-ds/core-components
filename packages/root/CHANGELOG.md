@@ -1,5 +1,282 @@
 # @alfalab/core-components
 
+## 50.12.2
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### Modal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### UniversalModal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2207](https://github.com/core-ds/core-components/pull/2207)
+
+##### SortableList
+
+- Исправлено вертикальное выравнивание drag иконки
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### Themes
+
+- Удалена темизаця `click` для компонента `SidePanel`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### Select
+
+- Изменён боковой отступ в option list mobile
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### UniversalModal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+- Удалена темизация `click`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2205](https://github.com/core-ds/core-components/pull/2205)
+
+##### UniversalModal
+
+- Расчёт `max-height` для режима `hugContent` перенесён из inline-стилей в CSS
+- Исправлено определение нижнего и верхнего отступов для подкомпонента `Content`. Предыдущая реализация приводила к визуальным артефактам при открытии в режиме `hugContent`
+- Удалён проп `size` из `ContentDesktopProps`, который не использовался в коде
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### BottomSheet
+
+- Изменение внутренних отступов компонента
+- Исправлен нижний отступ контентой части, когда он складывался с оступом футера
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### RadioGroup
+
+- Удалены боковые отступы в мобильном компоненте для `label`, `hint`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### CheckboxGroup
+
+- Удалены боковые отступы в мобильном компоненте для `label`, `hint`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### FormControl
+
+- Удалены боковые отступы в мобильном компоненте для `outer label`, `hint`, `error`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2190](https://github.com/core-ds/core-components/pull/2190)
+
+##### Calendar
+
+- Исправлен `border-radius` кнопок выбора месяца и года
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2200](https://github.com/core-ds/core-components/pull/2200)
+
+##### UniversalModal ,BaseModal
+
+- Исправлена обработка явного `scrollLock={false}` в `BaseModal`: legacy-блокировка скролла применяется только когда `scrollLock` не передан.
+- В `UniversalModal` блокировка скролла теперь управляется через `scrollLock={overlay}` вместо deprecated `disableBlockingScroll`.
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### Themes
+
+- Из темизации `FormControl` для `click` и `site` удалена переменная `--form-control-mobile-sub-paddings`, которая переопределяла отступы для `outer label`, `hint`, `error`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+- Из темизации `CheckboxGroup` для `click` и `site` удалена переменная `--checkbox-group-mobile-sub-padding-left`, которая переопределяла боковой отступ для `label` и `hint`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+- Из темизации `RadioGroup` для `click` и `site` удалена переменная `--radio-group-mobile-sub-padding-left`, которая переопределяла боковой отступ для `label` и `hint`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2190](https://github.com/core-ds/core-components/pull/2190)
+
+##### Themes
+
+- Удалена темизация `corp` для календаря в связи с отсутствием различий
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2202](https://github.com/core-ds/core-components/pull/2202)
+
+##### IconView
+
+- Исправлено обрезание SVG-форм в Safari при масштабировании страницы.
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2208](https://github.com/core-ds/core-components/pull/2208)
+
+##### PureCell
+
+- Добавлен проп `className` для футера в `PureCell`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-modal@11.0.8
+- @alfalab/core-components-universal-modal@3.1.2
+- @alfalab/core-components-sortable-list@3.0.4
+- @alfalab/core-components-themes@15.0.4
+- @alfalab/core-components-select@19.1.5
+- @alfalab/core-components-bottom-sheet@8.1.5
+- @alfalab/core-components-radio-group@6.0.4
+- @alfalab/core-components-checkbox-group@6.0.4
+- @alfalab/core-components-form-control@14.0.5
+- @alfalab/core-components-calendar@9.1.4
+- @alfalab/core-components-base-modal@7.1.4
+- @alfalab/core-components-icon-view@5.0.3
+- @alfalab/core-components-pure-cell@6.0.6
+- @alfalab/core-components-custom-picker-button@4.1.5
+- @alfalab/core-components-input-autocomplete@14.0.12
+- @alfalab/core-components-international-phone-input@4.0.12
+- @alfalab/core-components-intl-phone-input@11.0.12
+- @alfalab/core-components-picker-button@13.0.12
+- @alfalab/core-components-select-with-tags@10.1.6
+- @alfalab/core-components-table@4.0.12
+- @alfalab/core-components-tooltip@9.0.10
+- @alfalab/core-components-input@17.1.4
+- @alfalab/core-components-textarea@10.0.5
+- @alfalab/core-components-calendar-input@12.0.9
+- @alfalab/core-components-calendar-range@9.0.9
+- @alfalab/core-components-calendar-with-skeleton@7.0.8
+- @alfalab/core-components-date-range-input@5.0.9
+- @alfalab/core-components-date-time-input@6.0.9
+- @alfalab/core-components-universal-date-input@4.0.9
+- @alfalab/core-components-drawer@7.0.6
+- @alfalab/core-components-gallery@7.1.5
+- @alfalab/core-components-popup-sheet@3.0.8
+- @alfalab/core-components-side-panel@7.0.8
+- @alfalab/core-components-file-upload-item@8.0.6
+- @alfalab/core-components-tabs@10.0.12
+- @alfalab/core-components-amount-input@9.2.3
+- @alfalab/core-components-date-input@6.0.6
+- @alfalab/core-components-masked-input@8.0.6
+- @alfalab/core-components-number-input@4.0.6
+- @alfalab/core-components-password-input@7.0.6
+- @alfalab/core-components-slider-input@11.1.1
+- @alfalab/core-components-time-input@4.0.6
+- @alfalab/core-components-with-suffix@6.0.6
+- @alfalab/core-components-bank-card@7.0.6
+- @alfalab/core-components-phone-input@9.0.6
+
+## 50.12.1
+
+### Patch Changes
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2195](https://github.com/core-ds/core-components/pull/2195)
+
+##### UniversalModal
+
+- Открыта типизация пропа `container` для desktop/mobile компонента. Данный проп позволяет менять рендер контейнер компонента.
+- Открыта типизация пропа `backdropProps` для mobile компонента. Данный проп позволяет задавать анимацию для backdrop слоя компонента.
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2192](https://github.com/core-ds/core-components/pull/2192)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2181](https://github.com/core-ds/core-components/pull/2181)
+
+##### SelectWithTags
+
+- Исправлено отображение поиска в мобильной версии при `showSearch={true}` без явной передачи пропа `Search`
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2196](https://github.com/core-ds/core-components/pull/2196)
+
+##### AmountInput
+
+- Улучшена работа анимации при отклонении ввода
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-universal-modal@3.1.1
+- @alfalab/core-components-amount-input@9.2.2
+- @alfalab/core-components-select-with-tags@10.1.5
+
+## 50.12.0
+
+### Minor Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### Slider
+
+- В `Slider` добавлены пропсы `dots`, `dotsSlider`, `customDots`, `showPipsDots` и `pipsLabel` для раздельного управления точками (`dots`) и подписями (`pips`).
+- В режиме `dotsSlider='custom'` `showPipsDots` управляет отображением точек для `pips`-значений, а `pipsLabel` управляет только подписями (`all`, `pipsOnly`, `customPipsOnly`, `none`).
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#1770](https://github.com/core-ds/core-components/pull/1770)
+
+##### SliderInput
+
+- `SliderInput` теперь поддерживает отображение точек, кастомные точки и раздельное управление точками и подписями pips через API вложенного `Slider`.
+
+### Patch Changes
+
+<sup><time>24.04.2026</time></sup>
+
+#### [#2184](https://github.com/core-ds/core-components/pull/2184)
+
+##### AmountInput
+
+- Для `view="withZeroMinorPart"` исправлено форматирование пустого значения при `blur`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-slider@6.1.0
+- @alfalab/core-components-slider-input@11.1.0
+- @alfalab/core-components-amount-input@9.2.1
+
 ## 50.11.0
 
 ### Minor Changes

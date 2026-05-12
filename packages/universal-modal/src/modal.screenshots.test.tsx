@@ -1,7 +1,10 @@
+import { Page } from 'playwright';
+
 import {
     setupScreenshotTesting,
     generateTestCases,
     customSnapshotIdentifier,
+    createStorybookUrl,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -252,4 +255,178 @@ describe('Modal | header bottom addons', () => {
         })();
 
     ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Modal | hug content', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 center',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'center',
+                    },
+                }),
+            ],
+            [
+                '002 top',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'top',
+                    },
+                }),
+            ],
+            [
+                '003 bottom',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'bottom',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+    })();
+});
+
+describe('Modal | hug content', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 interactive center',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'center',
+                    },
+                }),
+            ],
+            [
+                '002 interactive top',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'top',
+                    },
+                }),
+            ],
+            [
+                '003 interactive bottom',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        height: 'hugContent',
+                        margin: '{"top": 48, "bottom":24}',
+                        verticalAlign: 'bottom',
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+        evaluate: (page: Page) =>
+            page.click('button[class*=showMoreButton]').then(() => page.waitForTimeout(500)),
+    })();
+});
+
+describe('Modal | content gap', () => {
+    screenshotTesting({
+        cases: [
+            [
+                '001 only content',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        header: false,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                    },
+                }),
+            ],
+            [
+                '002 with header',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'header.title': 'Заголовок',
+                    },
+                }),
+            ],
+            [
+                '003 with footer',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        header: false,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'footer.sticky': true,
+                    },
+                }),
+            ],
+            [
+                '004 with header and footer',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Modal',
+                    knobs: {
+                        open: true,
+                        verticalAlign: 'center',
+                        height: 'hugContent',
+                        'header.title': 'Заголовок',
+                        'footer.sticky': true,
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: false,
+        },
+    })();
 });

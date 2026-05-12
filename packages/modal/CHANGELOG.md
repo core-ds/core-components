@@ -1,5 +1,21 @@
 # @alfalab/core-components-modal
 
+## 11.0.8
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### Modal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+
 ## 11.0.7
 
 ### Patch Changes

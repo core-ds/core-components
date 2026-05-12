@@ -1,5 +1,17 @@
 # @alfalab/core-components-form-control
 
+## 14.0.5
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### FormControl
+
+- Удалены боковые отступы в мобильном компоненте для `outer label`, `hint`, `error`
+
 ## 14.0.4
 
 ### Patch Changes
