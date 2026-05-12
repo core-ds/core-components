@@ -1,0 +1,264 @@
+{
+    "packageName": "button",
+    "displayName": "Button",
+    "description": "Используется как триггер для выполнения определённого действия. Лейбл кнопки должен однозначно сообщать пользователю, что произойдёт после нажатия на неё.",
+    "props": {
+        "view": {
+            "defaultValue": {
+                "value": "secondary"
+            },
+            "description": "Тип кнопки",
+            "name": "view",
+            "required": false,
+            "type": {
+                "name": "\"text\" | \"primary\" | \"secondary\" | \"accent\" | \"outlined\" | \"transparent\" | undefined"
+            }
+        },
+        "shape": {
+            "defaultValue": {
+                "value": "rectangular"
+            },
+            "description": "Форма кнопки",
+            "name": "shape",
+            "required": false,
+            "type": {
+                "name": "\"rounded\" | \"rectangular\" | undefined"
+            }
+        },
+        "textResizing": {
+            "defaultValue": {
+                "value": "hug"
+            },
+            "description": "Ширина текстового контента",
+            "name": "textResizing",
+            "required": false,
+            "type": {
+                "name": "\"fill\" | \"hug\" | undefined"
+            }
+        },
+        "hint": {
+            "defaultValue": null,
+            "description": "Подпись под лейблом (видна только в размерах >= m)",
+            "name": "hint",
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "leftAddons": {
+            "defaultValue": null,
+            "description": "Слот слева",
+            "name": "leftAddons",
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "rightAddons": {
+            "defaultValue": null,
+            "description": "Слот справа",
+            "name": "rightAddons",
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "size": {
+            "defaultValue": {
+                "value": "56"
+            },
+            "description": "Размер компонента",
+            "name": "size",
+            "required": false,
+            "type": {
+                "name": "48 | 40 | 56 | 64 | 72 | 32 | undefined"
+            }
+        },
+        "block": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "Растягивает компонент на ширину контейнера",
+            "name": "block",
+            "required": false,
+            "type": {
+                "name": "boolean | undefined"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "Дополнительный класс",
+            "name": "className",
+            "required": false,
+            "type": {
+                "name": "string | undefined"
+            }
+        },
+        "spinnerClassName": {
+            "defaultValue": null,
+            "description": "Дополнительный класс для спиннера",
+            "name": "spinnerClassName",
+            "required": false,
+            "type": {
+                "name": "string | undefined"
+            }
+        },
+        "href": {
+            "defaultValue": null,
+            "description": "Выводит ссылку в виде кнопки",
+            "name": "href",
+            "required": false,
+            "type": {
+                "name": "string | undefined"
+            }
+        },
+        "Component": {
+            "defaultValue": null,
+            "description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
+            "name": "Component",
+            "required": false,
+            "type": {
+                "name": "ElementType | undefined"
+            }
+        },
+        "dataTestId": {
+            "defaultValue": null,
+            "description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader",
+            "name": "dataTestId",
+            "required": false,
+            "type": {
+                "name": "string | undefined"
+            }
+        },
+        "loading": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "Показать лоадер",
+            "name": "loading",
+            "required": false,
+            "type": {
+                "name": "boolean | undefined"
+            }
+        },
+        "nowrap": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "Не переносить текст кнопки на новую строку",
+            "name": "nowrap",
+            "required": false,
+            "type": {
+                "name": "boolean | undefined"
+            }
+        },
+        "colors": {
+            "defaultValue": null,
+            "description": "Набор цветов для компонента",
+            "name": "colors",
+            "required": false,
+            "type": {
+                "name": "\"default\" | \"inverted\" | undefined"
+            }
+        },
+        "allowBackdropBlur": {
+            "defaultValue": null,
+            "description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
+            "name": "allowBackdropBlur",
+            "required": false,
+            "type": {
+                "name": "boolean | undefined"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "Дочерние элементы.",
+            "name": "children",
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "breakpoint": {
+            "defaultValue": {
+                "value": "1024"
+            },
+            "description": "Контрольная точка, с нее начинается desktop версия",
+            "name": "breakpoint",
+            "required": false,
+            "type": {
+                "name": "number | undefined"
+            }
+        },
+        "client": {
+            "defaultValue": null,
+            "description": "Версия, которая будет использоваться при серверном рендеринге",
+            "name": "client",
+            "required": false,
+            "type": {
+                "name": "\"desktop\" | \"mobile\" | undefined"
+            }
+        },
+        "defaultMatchMediaValue": {
+            "defaultValue": {
+                "value": "client === undefined ? undefined : client === 'desktop'"
+            },
+            "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+            "name": "defaultMatchMediaValue",
+            "required": false,
+            "type": {
+                "name": "boolean | (() => boolean) | undefined"
+            }
+        }
+    },
+    "demos": [
+        {
+            "title": "Виды кнопок",
+            "description": "",
+            "desktop": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nreturn (\n<>\n<Space direction='horizontal' align='center'>\n<ButtonDesktop disabled={disabled} view='accent'>\nAccent\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='primary'>\nPrimary\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='secondary'>\nSecondary\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='outlined'>\nOutlined\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='transparent'>\nTransparent\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='text'>\nText\n</ButtonDesktop>\n</Space>\n\n<Gap size={24} />\n\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Недоступна'\n/>\n</>\n);\n});",
+            "mobile": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nreturn (\n<>\n<ButtonMobile block={true} disabled={disabled} view='accent'>\nAccent\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='primary'>\nPrimary\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='secondary'>\nSecondary\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='outlined'>\nOutlined\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='transparent'>\nTransparent\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='text'>\nText\n</ButtonMobile>\n<Gap size={24} />\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Недоступна'\n/>\n</>\n);\n});"
+        },
+        {
+            "title": "Размеры",
+            "description": "Кнопка доступна в размерах 72, 64, 56, 48, 40, 32.",
+            "desktop": "const BIG_SIZES = [72, 64, 56];\nconst SMALL_SIZES = [48, 40, 32];\n\nrender(\n<>\n<Space direction='horizontal' align='center'>\n{BIG_SIZES.map((size) => (\n<ButtonDesktop key={size} size={size} view='primary'>\n{`${size}px`}\n</ButtonDesktop>\n))}\n</Space>\n<Gap size={20} />\n<Space direction='horizontal' align='center'>\n{SMALL_SIZES.map((size) => (\n<ButtonDesktop key={size} size={size} view='primary'>\n{`${size}px`}\n</ButtonDesktop>\n))}\n</Space>\n</>,\n);",
+            "mobile": "const SIZES = [72, 64, 56, 48, 40, 32];\n\nrender(\n<Container>\n{SIZES.map((size, idx) => (\n<React.Fragment key={size}>\n<ButtonMobile block={true} size={size} view='primary'>\n{`${size}px`}\n</ButtonMobile>\n{SIZES.length - 1 !== idx && <Gap size={20} />}\n</React.Fragment>\n))}\n</Container>,\n);"
+        },
+        {
+            "title": "Форма",
+            "description": "Для кнопки доступно два варианта скругления углов.",
+            "desktop": "render(() => {\nconst [shape, setShape] = React.useState('rectangular');\n\nreturn (\n<>\n<Button shape={shape} view='primary' breakpoint={BREAKPOINT}>\nLabel\n</Button>\n\n<Gap size={24} />\n\n<RadioGroup\nlabel='Shape'\nvalue={shape}\nonChange={(_, { value }) => setShape(value)}\nbreakpoint={BREAKPOINT}\n>\n<Radio value='rectangular' label='Rectangular' />\n<Radio value='rounded' label='Rounded' />\n</RadioGroup>\n</>\n);\n});"
+        },
+        {
+            "title": "Ширина",
+            "description": "Кнопка адаптируется под длину контента. Для каждого вертикального размера кнопки задан минимальный горизонтальный размер.\nС помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.\nЧерез доступ по classname можно задать кнопке ширину в рх.",
+            "desktop": "<div style={{ textAlign: isMobile() ? 'center' : 'left' }}>\n<Button breakpoint={BREAKPOINT}>Мин.</Button>\n<Gap size={20} />\n<Button breakpoint={BREAKPOINT}>Ширина зависит от лейбла</Button>\n<Gap size={20} />\n<style>{'.button { width: 300px; }'}</style>\n<Button breakpoint={BREAKPOINT} className='button'>\nШирина задана вручную\n</Button>\n<Gap size={20} />\n<Button block={true} size={56} nowrap={true} breakpoint={BREAKPOINT}>\nЗанимает всю ширину контейнера\n</Button>\n</div>"
+        },
+        {
+            "title": "Анатомия",
+            "description": "С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.\nПереданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.\nВ 56, 64 и 72 размерах доступна подпись под лейблом.",
+            "desktop": "render(() => {\nconst [label, setLabel] = React.useState(true);\nconst [hint, setHint] = React.useState();\nconst [leftAddons, setLeftAddons] = React.useState(false);\nconst [rightAddons, setRightAddons] = React.useState(false);\n\nconst handleLabelChange = () => setLabel(!label);\nconst handleHintChange = () => setHint((p) => (p ? undefined : 'Hint'));\nconst handleLeftAddonsChange = () => setLeftAddons(!leftAddons);\nconst handleRightAddonsChange = () => setRightAddons(!rightAddons);\n\nreturn (\n<div>\n<Button\nbreakpoint={BREAKPOINT}\nleftAddons={leftAddons && <StarMIcon />}\nrightAddons={rightAddons && <StarMIcon />}\nhint={hint}\nview='primary'\nblock={isMobile()}\n>\n{label && 'Label'}\n</Button>\n\n<Gap size={24} />\n\n<Switch label='Label' checked={label} onChange={handleLabelChange} />\n<Gap size={16} />\n<Switch label='Hint' checked={hint} onChange={handleHintChange} />\n<Gap size={16} />\n<Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />\n<Gap size={16} />\n<Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />\n</div>\n);\n});"
+        },
+        {
+            "title": "Поведение лейбла",
+            "description": "С помощью свойства `textResizing` можно сжать или растянуть текстовый контент внутри кнопки.",
+            "desktop": "render(() => {\nconst [textResizing, setTextResizing] = React.useState('hug');\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 240 }}>\n<Button\nview='primary'\nbreakpoint={BREAKPOINT}\nblock={true}\nrightAddons={<StarMIcon />}\nleftAddons={<StarMIcon />}\nhint='Hint'\ntextResizing={textResizing}\n>\nLabel\n</Button>\n\n<Gap size={24} />\n\n<RadioGroup\nlabel='Поведение текста'\nvalue={textResizing}\nonChange={(_, { value }) => setTextResizing(value)}\nbreakpoint={BREAKPOINT}\n>\n<Radio value='hug' label='Hug' />\n<Radio value='fill' label='Fill' />\n</RadioGroup>\n</div>\n);\n});"
+        },
+        {
+            "title": "Перенос текста внутри кнопки",
+            "description": "С помощью свойства `nowrap` можно запретить перенос текста на новую строку.",
+            "desktop": "render(() => {\nconst [checked, setChecked] = React.useState(true);\n\nconst handleChange = () => setChecked(!checked);\n\nreturn (\n<Container>\n<div style={{ display: 'flex', width: '180px' }}>\n<ButtonDesktop view='primary' nowrap={checked}>\nПример длинного текста\n</ButtonDesktop>\n</div>\n<Row align='middle'>\n<Switch\nlabel={<span>Запретить перенос строки</span>}\nchecked={checked}\nonChange={handleChange}\n/>\n</Row>\n</Container>\n);\n});",
+            "mobile": "render(() => {\nconst [checked, setChecked] = React.useState(true);\n\nconst handleChange = () => setChecked(!checked);\n\nreturn (\n<Container>\n<div style={{ display: 'flex', width: '180px' }}>\n<ButtonMobile view='primary' nowrap={checked}>\nПример длинного текста\n</ButtonMobile>\n</div>\n<Row align='middle'>\n<Switch\nlabel={<span>Запретить перенос строки</span>}\nchecked={checked}\nonChange={handleChange}\n/>\n</Row>\n</Container>\n);\n});"
+        },
+        {
+            "title": "Размытие фона",
+            "description": "Для кнопок можно включить размытие фона, если она полупрозрачная, располагается поверх динамического контента или изображения.",
+            "desktop": "render(() => {\nconst [checked, setChecked] = React.useState(true);\nconst handleChange = () => setChecked(!checked);\n\nconst wrapper = {\nposition: 'relative',\nborderRadius: '16px',\nwidth: '330px',\nheight: '100px',\n};\n\nconst image = {\nwidth: '100%',\nheight: '100%',\nborderRadius: 'inherit',\nobjectFit: 'cover',\n};\n\nconst wrapperButton = {\nposition: 'absolute',\ndisplay: 'flex',\ninset: '0px',\npadding: '20px',\njustifyContent: 'space-between',\n};\n\nreturn (\n<>\n<div style={wrapper}>\n<img style={image} src='./images/buttonBlur.png' />\n<div style={wrapperButton}>\n<Button\nview='primary'\ncolors='inverted'\ndisabled={true}\nallowBackdropBlur={checked}\n>\nDisabled\n</Button>\n<Button view='secondary' colors='inverted' allowBackdropBlur={checked}>\nSecondary\n</Button>\n</div>\n</div>\n\n<Row align='middle'>\n<Switch label='Включить размытие' checked={checked} onChange={handleChange} />\n</Row>\n</>\n);\n});"
+        },
+        {
+            "title": "Обработка событий",
+            "description": "С помощью свойства `loading` можно отобразить состояние загрузки.\nМинимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».",
+            "desktop": "render(() => {\nconst [loading, setLoading] = React.useState(false);\nconst [loadTimeout, setLoadTimeout] = React.useState('30');\nconst timeoutId = React.useRef();\n\nconst handleClick = () => {\nsetLoading(true);\n\nclearTimeout(timeoutId.current);\n\ntimeoutId.current = setTimeout(() => {\nsetLoading(false);\n}, Number(loadTimeout));\n};\n\nconst handleTimeoutChange = (_, { value }) => {\nclearTimeout(timeoutId.current);\nsetLoading(false);\nsetLoadTimeout(value);\n};\n\nreturn (\n<>\n<Button\nview='primary'\nloading={loading}\nonClick={handleClick}\nbreakpoint={BREAKPOINT}\nblock={isMobile()}\n>\nОтправить запрос\n</Button>\n\n<Gap size={24} />\n\n<RadioGroup value={loadTimeout} onChange={handleTimeoutChange}>\n<Radio value='30' label='Быстрый запрос (30ms)' />\n<Radio value='1500' label='Долгий запрос (1500ms)' />\n</RadioGroup>\n</>\n);\n});"
+        }
+    ]
+}

@@ -1,13 +1,13 @@
 import { withCustomConfig } from 'react-docgen-typescript';
-import { resolve, dirname } from 'node:path';
-import { isInheritedFromExternalTypes } from './is-inherited-from-external-types.mjs';
-import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import { isInheritedFromExternalTypes } from './is-inherited-from-external-types.mjs';
+
+const { dirname } = import.meta;
 
 export function generateDoc(files) {
     const parser = withCustomConfig(
-        resolve(__dirname, '../../../tsconfig.react-docgen-typescript.json'),
+        path.resolve(dirname, '../../../tsconfig.react-docgen-typescript.json'),
         {},
     );
 
@@ -15,14 +15,15 @@ export function generateDoc(files) {
     const docsMap = new Map();
 
     docs.forEach((doc) => {
-        const { filePath, displayName, props: _props } = doc;
-        const packageName = filePath.split('packages/')[1].split('/')[0];
+        const { filePath, displayName, props: componentProps } = doc;
+        const [packageName] = filePath.split('packages/')[1].split('/');
 
         const props = Object.fromEntries(
-            Object.entries(_props)
+            Object.entries(componentProps)
                 .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
                 .map(([key, prop]) => {
                     const { defaultValue, description, name, required, type } = prop;
+
                     return [key, { defaultValue, description, name, required, type }];
                 }),
         );

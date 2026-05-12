@@ -1,24 +1,23 @@
-import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import path from 'node:path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const { dirname } = import.meta;
 
 const rootPackageJson = JSON.parse(
-    readFileSync(resolve(__dirname, '../../../packages/root/package.json'), 'utf-8'),
+    readFileSync(path.resolve(dirname, '../../../packages/root/package.json'), 'utf-8'),
 );
 
-const version = rootPackageJson.version;
+const { version } = rootPackageJson;
 
 export function createIndexDir() {
     const indexDir = `v${version}`;
-    const versionDir = resolve(__dirname, '../src/data', indexDir);
+    const versionDir = path.resolve(dirname, '..', 'data', indexDir);
 
     rmSync(versionDir, { recursive: true, force: true });
     mkdirSync(versionDir, { recursive: true });
 
     writeFileSync(
-        resolve(__dirname, '../', 'src/version.ts'),
+        path.resolve(dirname, '..', 'src/version.ts'),
         `export const DATA_VERSION = 'v${version}';\n`,
     );
 

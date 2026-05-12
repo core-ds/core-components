@@ -1,0 +1,82 @@
+{
+    "packageName": "page-indicator",
+    "displayName": "PageIndicatorBullet",
+    "description": "",
+    "props": {
+        "activeElement": {
+            "defaultValue": null,
+            "description": "Индекс выбранного элемента",
+            "name": "activeElement",
+            "required": true,
+            "type": {
+                "name": "number"
+            }
+        },
+        "elements": {
+            "defaultValue": {
+                "value": 10
+            },
+            "description": "Количество элементов (минимум 2)",
+            "name": "elements",
+            "required": false,
+            "type": {
+                "name": "number | undefined"
+            }
+        },
+        "size": {
+            "defaultValue": {
+                "value": 8
+            },
+            "description": "Высота компонента",
+            "name": "size",
+            "required": false,
+            "type": {
+                "name": "number | undefined"
+            }
+        },
+        "gap": {
+            "defaultValue": {
+                "value": 8
+            },
+            "description": "Расстояние между элементами",
+            "name": "gap",
+            "required": false,
+            "type": {
+                "name": "number | undefined"
+            }
+        },
+        "colors": {
+            "defaultValue": {
+                "value": "default"
+            },
+            "description": "Набор цветов для компонента",
+            "name": "colors",
+            "required": false,
+            "type": {
+                "name": "\"default\" | \"inverted\" | \"static\" | \"static-inverted\" | undefined"
+            }
+        }
+    },
+    "demos": [
+        {
+            "title": "PageIndicatorDynamic",
+            "description": "Доступен в двух размерах: 6 и 8 рх.",
+            "desktop": "render(() => {\nconst elements = 7;\nconst [active, setActive] = React.useState(true);\nconst toggleActive = () => setActive((active) => !active);\nconst [activeElement, setActiveElement] = React.useState(0);\nconst handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));\nconst handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));\nconst duration = (index) => (index % 2 === 0 ? 2000 : 4000);\n\nreturn (\n<div>\n<Container>\n<PageIndicatorDynamic\nsize={8}\nactiveElement={activeElement}\nelements={elements}\nonActiveElementChange={setActiveElement}\nactive={active}\ncycle={true}\nduration={duration}\n/>\n<Gap size={8} />\n<PageIndicatorDynamic\nsize={6}\nactiveElement={activeElement}\nelements={elements}\nactive={active}\nduration={duration}\n/>\n</Container>\n<Row style={{ gap: 'var(--gap-xs)' }}>\n<Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />\n<Button\nleftAddons={active ? <PauseCompactMIcon /> : <PlayCompactMIcon />}\nonClick={toggleActive}\n/>\n<Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />\n</Row>\n</div>\n);\n});"
+        },
+        {
+            "title": "PageIndicatorBullet",
+            "description": "Доступен в двух размерах, 6 и 8 рх. В зависимости от количества элементов, меняется анимация и внешний вид индикатора.\n\nМеньше шести элементов.",
+            "desktop": "render(() => {\nconst elements = 5;\nconst [activeElement, setActiveElement] = React.useState(0);\nconst handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));\nconst handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));\n\nreturn (\n<div>\n<Container>\n<PageIndicatorBullet size={8} activeElement={activeElement} elements={elements} />\n<Gap size={8} />\n<PageIndicatorBullet size={6} activeElement={activeElement} elements={elements} />\n</Container>\n<Row style={{ gap: 'var(--gap-xs)' }}>\n<Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />\n<Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />\n</Row>\n</div>\n);\n});"
+        },
+        {
+            "title": "PageIndicatorStep",
+            "description": "Доступен в одном размере. Ширина подстраивается под ширину контейнера.",
+            "desktop": "render(() => {\nconst elements = 5;\nconst [activeElement, setActiveElement] = React.useState(0);\nconst handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));\nconst handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));\n\nreturn (\n<div>\n<div style={{ width: 168 }}>\n<PageIndicatorStep size={4} activeElement={activeElement} elements={elements} />\n</div>\n<Row style={{ gap: 'var(--gap-xs)' }}>\n<Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />\n<Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />\n</Row>\n</div>\n);\n});"
+        },
+        {
+            "title": "PageIndicatorRunner",
+            "description": "Доступен в одном размере. Ширина подстраивается под ширину контейнера.",
+            "desktop": "render(() => {\nconst elements = 5;\nconst [activeElement, setActiveElement] = React.useState(0);\nconst handlePrevClick = () => setActiveElement((prev) => Math.max(--prev, 0));\nconst handleNextClick = () => setActiveElement((prev) => Math.min(++prev, elements - 1));\n\nreturn (\n<div>\n<div style={{ width: 168 }}>\n<PageIndicatorRunner size={4} activeElement={activeElement} elements={elements} />\n</div>\n<Row style={{ gap: 'var(--gap-xs)' }}>\n<Button leftAddons={<ChevronLeftMIcon />} onClick={handlePrevClick} />\n<Button leftAddons={<ChevronRightMIcon />} onClick={handleNextClick} />\n</Row>\n</div>\n);\n});"
+        }
+    ]
+}

@@ -25,6 +25,7 @@ export function generateDemo(docPath) {
 
         // проверяем, есть ли в секции jsx live блок
         const codeBlockStart = section.indexOf('```jsx live');
+
         if (codeBlockStart === -1) continue;
 
         // текст между заголовком и блоком кода

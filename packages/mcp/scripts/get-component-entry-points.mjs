@@ -1,9 +1,8 @@
+import path from 'node:path';
 import { globSync } from 'tinyglobby';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const repoRoot = resolve(__dirname, '../../..');
+const { dirname } = import.meta;
+const repoRoot = path.resolve(dirname, '../../..');
 
 export function getComponentEntryPoints() {
     console.log('🔍  Search for components...');
@@ -35,5 +34,5 @@ export function getComponentEntryPoints() {
 
     console.log(`📦  Found ${files.length} components`);
 
-    return files.map((f) => resolve(repoRoot, f));
+    return files.map((f) => path.resolve(repoRoot, f));
 }

@@ -1033,6 +1033,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-mcp@workspace:packages/mcp":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-mcp@workspace:packages/mcp"
+  dependencies:
+    "@modelcontextprotocol/sdk": "npm:^1.18.0"
+    react-docgen-typescript: "npm:^2.4.0"
+    tsx: "npm:^4.20.6"
+    typescript: "npm:^5.9.3"
+    zod: "npm:^4.1.11"
+  bin:
+    core-components-mcp: dist/index.js
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-modal@npm:^11.0.7, @alfalab/core-components-modal@workspace:packages/modal":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-modal@workspace:packages/modal"
@@ -12749,15 +12763,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.15.0":
-  version: 8.16.0
-  resolution: "acorn@npm:8.16.0"
-  bin:
-    acorn: bin/acorn
-  checksum: 10c0/c9c52697227661b68d0debaf972222d4f622aa06b185824164e153438afa7b08273432ca43ea792cadb24dada1d46f6f6bb1ef8de9956979288cc1b96bf9914e
-  languageName: node
-  linkType: hard
-
 "address@npm:^1.0.1, address@npm:^1.1.2":
   version: 1.2.2
   resolution: "address@npm:1.2.2"
@@ -15325,21 +15330,6 @@ __metadata:
   checksum: 10c0/3ebf5e8ee00601f8c440b83ec08d838e8eabb068c1fae94a9cda6b42f288f7e1b552f3463635f419af44bf7675afc8d0390d30876cf5c2d5d35f86d9c56a3e5f
   languageName: node
   linkType: hard
-
-"core-components-mcp@workspace:packages/mcp":
-  version: 0.0.0-use.local
-  resolution: "core-components-mcp@workspace:packages/mcp"
-  dependencies:
-    "@modelcontextprotocol/sdk": "npm:^1.18.0"
-    react-docgen-typescript: "npm:^2.4.0"
-    terser: "npm:^5.46.1"
-    tsx: "npm:^4.20.6"
-    typescript: "npm:^5.9.3"
-    zod: "npm:^4.1.11"
-  bin:
-    core-components-mcp: dist/index.js
-  languageName: unknown
-  linkType: soft
 
 "core-js-compat@npm:^3.31.0, core-js-compat@npm:^3.33.1":
   version: 3.33.3
@@ -32136,20 +32126,6 @@ __metadata:
   bin:
     terser: bin/terser
   checksum: 10c0/83326545ea1aecd6261030568b6191ccfa4cb6aa61d9ea41746a52479f50017a78b77e4725fbbc207c5df841ffa66a773c5ac33636e95c7ab94fe7e0379ae5c7
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.46.1":
-  version: 5.46.2
-  resolution: "terser@npm:5.46.2"
-  dependencies:
-    "@jridgewell/source-map": "npm:^0.3.3"
-    acorn: "npm:^8.15.0"
-    commander: "npm:^2.20.0"
-    source-map-support: "npm:~0.5.20"
-  bin:
-    terser: bin/terser
-  checksum: 10c0/476f1820160c42e6b2f611410115b00321c4666d421f12db87f13810f8789de45cb254e3ad5178650696d0ba6b706f5a0a239272255d6d1be95816c660f8cbbb
   languageName: node
   linkType: hard
 
