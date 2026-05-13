@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import path from 'node:path';
 import * as process from 'node:process';
 
 import { ESLINT_IGNORED_PACKAGES } from '../tools/eslint.cjs';
@@ -39,8 +38,6 @@ async function main() {
                     '.js,.jsx,.ts,.tsx,.mjs,.mts,.cjs,.cts',
                     '--max-warnings',
                     '0',
-                    '--config',
-                    path.resolve(process.cwd(), '.eslintrc.cjs'),
                 ],
                 {
                     preferLocal: true,
