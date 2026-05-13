@@ -154,6 +154,8 @@ const generateSplitAtomImportsJson = async () => {
                     '**/*.test.*',
                     '**/*.spec.*',
                     // Скриншоты
+                    '**/__image_snapshots__/**',
+                    '**/__snapshots__/**',
                     '**/screenshots/**',
                     '**/*.screenshots.*',
                     '**/*.screenshot.*',
