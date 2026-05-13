@@ -2047,7 +2047,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-toast@npm:^8.0.5, @alfalab/core-components-toast@workspace:packages/toast":
+"@alfalab/core-components-toast@npm:^8.0.6, @alfalab/core-components-toast@workspace:packages/toast":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-toast@workspace:packages/toast"
   dependencies:
@@ -2307,7 +2307,7 @@ __metadata:
     "@alfalab/core-components-textarea": "npm:^10.0.5"
     "@alfalab/core-components-themes": "npm:^15.0.4"
     "@alfalab/core-components-time-input": "npm:^4.0.6"
-    "@alfalab/core-components-toast": "npm:^8.0.5"
+    "@alfalab/core-components-toast": "npm:^8.0.6"
     "@alfalab/core-components-toast-plate": "npm:^9.1.0"
     "@alfalab/core-components-tooltip": "npm:^9.0.10"
     "@alfalab/core-components-types": "npm:^2.0.1"
