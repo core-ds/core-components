@@ -52,7 +52,7 @@ export const SortableItem: React.FC<SortableItemProps> = ({
                 {...(isControlActivator ? listeners : null)}
                 {...(isControlActivator ? attributes : null)}
             >
-                <DragMIcon aria-label='drag control' />
+                <DragMIcon className={styles.dragIcon} aria-label='drag control' />
             </div>
         );
     };

@@ -280,7 +280,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
             disableBlockingScroll = false,
-            scrollLock = false,
+            scrollLock,
             keepMounted = false,
             className,
             contentClassName,
@@ -505,7 +505,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                  * При scrollLock={true} блокировка обрабатывается через react-remove-scroll,
                  * старая логика нужна только для обратной совместимости (deprecated пропсы)
                  */
-                const shouldUseLegacyScrollLock = !scrollLock && !disableBlockingScroll;
+                const shouldUseLegacyScrollLock =
+                    scrollLock === undefined && !disableBlockingScroll;
 
                 if (shouldUseLegacyScrollLock) {
                     const el = getContainer();

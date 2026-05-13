@@ -1,5 +1,25 @@
 # @alfalab/core-components-select
 
+## 19.1.5
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### Select
+
+- Изменён боковой отступ в option list mobile
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-modal@11.0.8
+- @alfalab/core-components-bottom-sheet@8.1.5
+- @alfalab/core-components-form-control@14.0.5
+- @alfalab/core-components-base-modal@7.1.4
+- @alfalab/core-components-input@17.1.4
+
 ## 19.1.4
 
 ### Patch Changes

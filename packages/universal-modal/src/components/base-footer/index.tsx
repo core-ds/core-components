@@ -59,7 +59,7 @@ export const BaseFooter = forwardRef<HTMLDivElement, FooterProps>((props, ref) =
                 [styles.sticky]: sticky,
             })}
             data-test-id={getDataTestId(dataTestId, 'footer')}
-            data-name='modalFooterDesktop'
+            data-name='universal-modal-base-footer'
         >
             {children}
         </div>

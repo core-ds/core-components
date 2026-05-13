@@ -24,14 +24,24 @@ type Props = {
      * Используется модификатор -footer
      */
     dataTestId?: string;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 };
 
-export const Footer: React.FC<Props> = ({ children, footerPadding = 'default', dataTestId }) => {
+export const Footer: React.FC<Props> = ({
+    children,
+    footerPadding = 'default',
+    dataTestId,
+    className,
+}) => {
     const pureCellContext = useContext(PureCellContext);
 
     return (
         <footer
-            className={cn(styles.component, styles[footerPadding])}
+            className={cn(styles.component, styles[footerPadding], className)}
             data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'footer')}
         >
             {children}

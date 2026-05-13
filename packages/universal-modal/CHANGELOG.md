@@ -1,5 +1,49 @@
 # @alfalab/core-components-universal-modal
 
+## 3.1.2
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### UniversalModal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### UniversalModal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+- Удалена темизация `click`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2205](https://github.com/core-ds/core-components/pull/2205)
+
+##### UniversalModal
+
+- Расчёт `max-height` для режима `hugContent` перенесён из inline-стилей в CSS
+- Исправлено определение нижнего и верхнего отступов для подкомпонента `Content`. Предыдущая реализация приводила к визуальным артефактам при открытии в режиме `hugContent`
+- Удалён проп `size` из `ContentDesktopProps`, который не использовался в коде
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2200](https://github.com/core-ds/core-components/pull/2200)
+
+##### UniversalModal ,BaseModal
+
+- Исправлена обработка явного `scrollLock={false}` в `BaseModal`: legacy-блокировка скролла применяется только когда `scrollLock` не передан.
+- В `UniversalModal` блокировка скролла теперь управляется через `scrollLock={overlay}` вместо deprecated `disableBlockingScroll`.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+
 ## 3.1.1
 
 ### Patch Changes
