@@ -105,7 +105,6 @@
         {
             "packageName": "@alfalab/core-components-markdown",
             "imports": [
-                "MarkdownResponsiveComponent",
                 "Markdown"
             ]
         },

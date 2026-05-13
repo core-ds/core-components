@@ -8,7 +8,7 @@ import { type MarkdownResponsiveProps } from './typings';
 /**
  * @hasSplitImport
  */
-export const MarkdownResponsiveComponent: React.FC<MarkdownResponsiveProps> = ({
+export const Markdown: React.FC<MarkdownResponsiveProps> = ({
     breakpoint,
     client,
     defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
