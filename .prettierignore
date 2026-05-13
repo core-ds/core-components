@@ -4,3 +4,4 @@ colors-indigo.css
 colors-addons.css
 **/dist/**
 split-atom-imports.json
+packages/mcp/data
