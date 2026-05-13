@@ -148,6 +148,19 @@ const generateSplitAtomImportsJson = async () => {
             const allComponentFiles = await glob('src/**/*.{tsx,jsx,ts,js}', {
                 cwd: pkgDir,
                 absolute: true,
+                ignore: [
+                    // Тесты
+                    '**/__tests__/**',
+                    '**/*.test.*',
+                    '**/*.spec.*',
+                    // Скриншоты
+                    '**/screenshots/**',
+                    '**/*.screenshots.*',
+                    '**/*.screenshot.*',
+                    // Storybook
+                    '**/*.stories.*',
+                    '**/stories/**',
+                ],
             });
 
             allComponentFiles.sort((a, b) => a.localeCompare(b));
