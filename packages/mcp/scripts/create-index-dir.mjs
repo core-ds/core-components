@@ -17,7 +17,7 @@ export function createIndexDir() {
     mkdirSync(versionDir, { recursive: true });
 
     writeFileSync(
-        path.resolve(dirname, '..', 'src/version.ts'),
+        path.resolve(dirname, '..', 'src/version.mts'),
         `export const DATA_VERSION = 'v${version}';\n`,
     );
 
