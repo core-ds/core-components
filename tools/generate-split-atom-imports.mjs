@@ -229,9 +229,12 @@ const generateSplitAtomImportsJson = async () => {
 };
 
 if (process.argv[1] === currentFilename) {
+    console.time('generateSplitAtomImportsJson');
     try {
         await generateSplitAtomImportsJson();
     } catch (error) {
         console.error(error);
+    } finally {
+        console.timeEnd('generateSplitAtomImportsJson');
     }
 }
