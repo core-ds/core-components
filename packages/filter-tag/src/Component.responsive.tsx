@@ -26,6 +26,9 @@ export type FilterTagProps = Omit<BaseFilterTagProps, keyof PrivateProps> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
     (
         {

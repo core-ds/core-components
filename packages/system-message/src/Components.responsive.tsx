@@ -27,8 +27,15 @@ const SystemMessageResponsiveComponent: FC<SystemMessageResponsiveProps> = ({
     );
 };
 
+/**
+ * @hasSplitImport
+ * @hasAtomImport
+ */
 export const SystemMessageResponsive = createCompound(SystemMessageResponsiveComponent);
 
+/**
+ * @hasSplitImport
+ */
 export {
     SystemMessageResponsiveComponent as SystemMessageComponent,
     Caption as SystemMessageCaption,

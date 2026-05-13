@@ -13,9 +13,6 @@ const colorStyles = {
 
 export type TagMobileProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'>;
 
-/**
- * @splitComponent mobile
- */
 export const TagMobile = forwardRef<HTMLButtonElement, TagMobileProps>((restProps, ref) => (
     <BaseTag {...restProps} colorStylesMap={colorStyles} ref={ref} styles={styles} />
 ));

@@ -12,9 +12,6 @@ const colorStyles = {
     inverted: invertedColors,
 };
 
-/**
- * @splitComponent desktop
- */
 export const ButtonDesktop = forwardRef<HTMLAnchorElement | HTMLButtonElement, CommonButtonProps>(
     (restProps, ref) => (
         <BaseButton {...restProps} ref={ref} styles={styles} colorStylesMap={colorStyles} />

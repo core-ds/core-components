@@ -5,9 +5,6 @@ import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
 import { BaseCustomButton } from '../components/base-custom-button';
 import { type CustomButtonProps } from '../types/props';
 
-/**
- * @splitComponent desktop
- */
 export const CustomButtonDesktop = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
     CustomButtonProps

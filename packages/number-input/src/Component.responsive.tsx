@@ -7,6 +7,9 @@ import { NumberInput, type NumberInputProps } from './components/number-input';
 
 export type NumberInputResponsiveProps = Omit<NumberInputProps, 'Input' | 'view'>;
 
+/**
+ * @hasSplitImport
+ */
 export const NumberInputResponsive = forwardRef<HTMLInputElement, NumberInputResponsiveProps>(
     (
         {

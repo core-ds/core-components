@@ -25,6 +25,9 @@ export type InputProps = Omit<BaseInputProps, 'FormControlComponent'> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
     (
         {

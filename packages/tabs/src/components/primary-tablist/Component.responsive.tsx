@@ -7,6 +7,9 @@ import { type TabListProps } from '../../typings';
 import { PrimaryTabListDesktop } from './Component.desktop';
 import { PrimaryTabListMobile } from './Component.mobile';
 
+/**
+ * @hasSplitImport
+ */
 export const PrimaryTabListResponsive = ({
     size,
     breakpoint,

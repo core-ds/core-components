@@ -6,6 +6,9 @@ import { PassCodeDesktop } from './desktop';
 import { PassCodeMobile } from './mobile';
 import { type PassCodeProps } from './typings';
 
+/**
+ * @hasSplitImport
+ */
 export const PassCode = forwardRef<HTMLDivElement, PassCodeProps>(
     (
         {

@@ -20,7 +20,6 @@ export type DateRangeInputMobileProps = Omit<
 /**
  * @deprecated
  * use UniversalDateInput instead
- * @splitComponent mobile
  */
 export const DateRangeInputMobile = forwardRef<HTMLInputElement, DateRangeInputMobileProps>(
     (props, ref) => (

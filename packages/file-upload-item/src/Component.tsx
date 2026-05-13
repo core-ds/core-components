@@ -88,6 +88,9 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     );
 };
 
+/**
+ * @hasAtomImport
+ */
 export const FileUploadItem = Object.assign(FileUploadItemComponent, {
     StatusControl,
     Content,

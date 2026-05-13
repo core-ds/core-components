@@ -25,6 +25,9 @@ export type PlateProps = Omit<BasePlateProps, 'styles'> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const Plate = forwardRef<HTMLDivElement, PlateProps>(
     (
         {

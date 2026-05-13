@@ -6,6 +6,9 @@ import { InternationalPhoneInputDesktop } from './desktop';
 import { InternationalPhoneInputMobile } from './mobile';
 import { type InternationalPhoneInputProps } from './types';
 
+/**
+ * @hasSplitImport
+ */
 export const InternationalPhoneInput = forwardRef<HTMLInputElement, InternationalPhoneInputProps>(
     (
         {

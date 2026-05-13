@@ -62,7 +62,7 @@ const SidePanelMobileComponent = forwardRef<HTMLDivElement, SidePanelMobileProps
 const ControlsMobile = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
 
 /**
- * @splitComponent mobile
+ * @hasAtomImport
  */
 const SidePanelMobile = Object.assign(SidePanelMobileComponent, {
     Content: ContentMobile,

@@ -9,6 +9,9 @@ import { Popover } from '@alfalab/core-components-popover';
 import { BaseSelectWithTags } from './components/base-select-with-tags';
 import { type SelectWithTagsProps } from './types';
 
+/**
+ * @hasSplitImport
+ */
 export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
     (
         {

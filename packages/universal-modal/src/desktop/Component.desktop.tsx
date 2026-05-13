@@ -47,7 +47,7 @@ export const UniversalModalDesktopComponent = forwardRef<
 });
 
 /**
- * @splitComponent desktop
+ * @hasAtomImport
  */
 export const UniversalModalDesktop = Object.assign(UniversalModalDesktopComponent, {
     Header: HeaderDesktop,

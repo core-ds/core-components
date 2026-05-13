@@ -6,9 +6,6 @@ import { type PassCodeProps } from '../typings';
 
 import styles from './mobile.module.css';
 
-/**
- * @splitComponent mobile
- */
 export const PassCodeMobile = forwardRef<HTMLDivElement, PassCodeProps>(
     ({ className, ...restProps }, ref) => (
         <PassCode {...restProps} ref={ref} className={cn(styles.component, className)} />

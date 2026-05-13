@@ -26,6 +26,7 @@ export type CalendarInputMedia = 'desktop' | 'mobile';
 /**
  * @deprecated
  * use UniversalDateInput instead
+ * @hasSplitImport
  */
 export const CalendarInputResponsive = forwardRef<HTMLInputElement, CalendarInputResponsiveProps>(
     ({ breakpoint, client, ...restProps }, ref) => {

@@ -191,9 +191,6 @@ export type CalendarDesktopProps = {
     mobile?: boolean;
 };
 
-/**
- * @splitComponent desktop
- */
 export const CalendarDesktop = forwardRef<HTMLDivElement, CalendarDesktopProps>(
     (
         {

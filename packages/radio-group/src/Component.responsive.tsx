@@ -25,6 +25,9 @@ export type RadioGroupProps = Omit<BaseRadioGroupProps, 'styles'> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
     (
         {

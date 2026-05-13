@@ -9,7 +9,4 @@ const MarkdownMobileComponent: React.FC<MarkdownMobileProps> = ({ children, ...r
     </BaseMarkdown>
 );
 
-/**
- * @splitComponent mobile
- */
 export const MarkdownMobile = MarkdownMobileComponent;

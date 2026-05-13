@@ -7,6 +7,9 @@ import { ContentMobile, type ContentMobileProps } from '../../../mobile';
 
 export interface ContentResponsiveProps extends ContentDesktopProps, ContentMobileProps {}
 
+/**
+ * @hasSplitImport
+ */
 export const ContentResponsive: FC<ContentResponsiveProps> = ({ ...restProps }) => {
     const isDesktop = useIsDesktop();
 

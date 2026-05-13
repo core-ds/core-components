@@ -10,9 +10,6 @@ import {
     type InternationalPhoneInputDesktopProps,
 } from '../types';
 
-/**
- * @splitComponent desktop
- */
 export const InternationalPhoneInputDesktop = forwardRef<
     HTMLInputElement,
     InternationalPhoneInputDesktopProps

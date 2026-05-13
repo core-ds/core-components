@@ -37,7 +37,7 @@ export const UniversalModalMobileComponent = forwardRef<HTMLDivElement, Universa
 );
 
 /**
- * @splitComponent mobile
+ * @hasAtomImport
  */
 export const UniversalModalMobile = Object.assign(UniversalModalMobileComponent, {
     Header: HeaderMobile,

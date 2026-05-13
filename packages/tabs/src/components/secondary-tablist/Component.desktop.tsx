@@ -12,9 +12,6 @@ import styles from './index.module.css';
 
 export type SecondaryTabListDesktopProps = Omit<SecondaryTabListProps, 'tagSize' | 'breakpoint'>;
 
-/**
- * @splitComponent desktop
- */
 export const SecondaryTabListDesktop = ({
     className,
     size = 's',

@@ -6,9 +6,6 @@ import styles from './desktop.module.css';
 
 export type CheckboxGroupDesktopProps = Omit<BaseCheckboxGroupProps, 'styles'>;
 
-/**
- * @splitComponent desktop
- */
 export const CheckboxGroupDesktop: FC<CheckboxGroupDesktopProps> = (props) => (
     <BaseCheckboxGroup {...props} styles={styles} />
 );

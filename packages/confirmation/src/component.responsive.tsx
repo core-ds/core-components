@@ -28,6 +28,9 @@ export type ResponsiveConfirmationProps = Omit<
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const ConfirmationResponsive: FC<ResponsiveConfirmationProps> = ({
     breakpoint,
     client,

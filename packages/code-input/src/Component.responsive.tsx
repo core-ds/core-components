@@ -25,6 +25,9 @@ export type CodeInputProps = Omit<BaseCodeInputProps, 'stylesInput'> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
     (
         {

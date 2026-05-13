@@ -3,9 +3,6 @@ import React, { forwardRef } from 'react';
 import { BaseUniversalDateInput } from '../components/base-universal-date-input';
 import { type UniversalDateInputMobileProps } from '../types';
 
-/**
- * @splitComponent mobile
- */
 export const UniversalDateInputMobile = forwardRef<HTMLInputElement, UniversalDateInputMobileProps>(
     (props, ref) => (
         <BaseUniversalDateInput

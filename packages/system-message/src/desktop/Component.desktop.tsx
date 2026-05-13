@@ -19,7 +19,7 @@ const SystemMessageDesktopComponent: React.FC<SystemMessageDesktopProps> = ({
 );
 
 /**
- * @splitComponent desktop
+ * @hasAtomImport
  */
 export const SystemMessageDesktop = createCompound(SystemMessageDesktopComponent);
 

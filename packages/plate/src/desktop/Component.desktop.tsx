@@ -6,9 +6,6 @@ import styles from './desktop.module.css';
 
 export type PlateDesktopProps = Omit<BasePlateProps, 'styles'>;
 
-/**
- * @splitComponent desktop
- */
 export const PlateDesktop = forwardRef<HTMLDivElement, PlateDesktopProps>((restProps, ref) => (
     <BasePlate {...restProps} styles={styles} ref={ref} />
 ));

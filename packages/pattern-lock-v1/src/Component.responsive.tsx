@@ -10,6 +10,7 @@ import { type PatternLockProps } from './typings';
 /**
  * @deprecated
  * Использует PatternLock
+ * @hasSplitImport
  */
 export const PatternLockV1 = forwardRef<TPatternLockInstance, PatternLockProps>(
     ({ breakpoint, ...restProps }, ref) => {

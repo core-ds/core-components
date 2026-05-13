@@ -23,6 +23,9 @@ export type DateTimeInputResponsiveProps = Omit<DateTimeInputProps, 'view' | 'In
 
 export type DateTimeInputMedia = 'desktop' | 'mobile';
 
+/**
+ * @hasSplitImport
+ */
 export const DateTimeInputResponsive = forwardRef<HTMLInputElement, DateTimeInputResponsiveProps>(
     ({ breakpoint, client, ...restProps }, ref) => {
         const isDesktop = useIsDesktop(breakpoint, client === 'desktop');

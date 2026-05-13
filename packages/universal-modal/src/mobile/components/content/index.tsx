@@ -8,9 +8,6 @@ import styles from './index.module.css';
 
 export type ContentMobileProps = ContentProps;
 
-/**
- * @splitComponent mobile
- */
 export const ContentMobile: FC<ContentMobileProps> = ({ className, ...restProps }) => {
     const { hasHeader, hasFooter } = useContext(ModalContext);
 

@@ -5,9 +5,6 @@ import { ButtonMobile } from '@alfalab/core-components-button/mobile';
 import { BaseCustomButton } from '../components/base-custom-button';
 import { type CustomButtonProps } from '../types/props';
 
-/**
- * @splitComponent mobile
- */
 export const CustomButtonMobile = forwardRef<
     HTMLAnchorElement | HTMLButtonElement,
     CustomButtonProps

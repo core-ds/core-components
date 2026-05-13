@@ -7,6 +7,9 @@ import { FooterMobile, type FooterMobileProps } from '../../../mobile';
 
 export interface FooterResponsiveProps extends FooterDesktopProps, FooterMobileProps {}
 
+/**
+ * @hasSplitImport
+ */
 export const FooterResponsive = forwardRef<HTMLDivElement, FooterResponsiveProps>((props, ref) => {
     const isDesktop = useIsDesktop();
 

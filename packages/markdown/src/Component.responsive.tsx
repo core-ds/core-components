@@ -5,6 +5,9 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 import { BaseMarkdown } from './components/base-markdown';
 import { type MarkdownResponsiveProps } from './typings';
 
+/**
+ * @hasSplitImport
+ */
 export const MarkdownResponsiveComponent: React.FC<MarkdownResponsiveProps> = ({
     breakpoint,
     client,

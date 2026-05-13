@@ -6,9 +6,6 @@ import { BaseToast, type BaseToastProps } from '../components/base-toast';
 
 export type ToastMobileProps = Omit<BaseToastProps, 'breakpoint'>;
 
-/**
- * @splitComponent mobile
- */
 export const ToastMobile = forwardRef<HTMLDivElement, ToastMobileProps>(
     ({ ToastPlate = ToastPlateMobile, ...restProps }, ref) => (
         <BaseToast ToastPlate={ToastPlate} {...restProps} ref={ref} client='mobile' />

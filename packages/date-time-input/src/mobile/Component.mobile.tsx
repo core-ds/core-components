@@ -9,9 +9,6 @@ import { DateTimeInput, type DateTimeInputProps } from '../components/date-time-
 
 export type DateTimeInputMobileProps = Omit<DateTimeInputProps, 'view' | 'InputComponent'>;
 
-/**
- * @splitComponent mobile
- */
 export const DateTimeInputMobile = forwardRef<HTMLInputElement, DateTimeInputMobileProps>(
     (props, ref) => (
         <DateTimeInput

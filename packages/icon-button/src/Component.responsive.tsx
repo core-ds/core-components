@@ -27,6 +27,9 @@ type ResponsiveProps = {
 
 export type IconButtonResponsiveProps = IconButtonProps & ResponsiveProps;
 
+/**
+ * @hasSplitImport
+ */
 export const IconButtonResponsive = forwardRef<HTMLButtonElement, IconButtonResponsiveProps>(
     (props, ref) => {
         const {

@@ -54,9 +54,10 @@ async function main(args) {
     ]);
 
     /*
-     * Генерация JSON для split-компонентов на основе тегов @splitComponent
+     * Генерация JSON для split и atom импортов
+     * на основе тегов @hasSplitImport и @hasAtomImport
      */
-    await $('node', [path.resolve(cwd(), 'tools/generate-split-components.mjs')]);
+    await $('node', [path.resolve(cwd(), 'tools/generate-split-atom-imports.mjs')]);
 
     const BUILD_IGNORED_PACKAGES = await readPackagesFile(
         path.resolve(cwd(), 'tools/.build-ignored-packages'),

@@ -11,7 +11,6 @@ export type CalendarInputMobileProps = Omit<CalendarInputProps, 'view'>;
 /**
  * @deprecated
  * use UniversalDateInput instead
- * @splitComponent mobile
  */
 export const CalendarInputMobile = forwardRef<HTMLInputElement, CalendarInputMobileProps>(
     (props, ref) => <CalendarInput Calendar={CalendarMobile} view='mobile' {...props} ref={ref} />,

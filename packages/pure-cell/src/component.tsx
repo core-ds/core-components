@@ -219,6 +219,7 @@ const ExtraSubtitle = FooterText;
  * Универсальный конструктор для сборки любой ячейки.
  *
  * [Макет](https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=43525%3A240018)
+ * @hasAtomImport
  */
 const PureCell = Object.assign(PureCellComponent, {
     Main,

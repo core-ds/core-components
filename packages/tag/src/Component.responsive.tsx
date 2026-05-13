@@ -25,6 +25,9 @@ export type TagProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
     (
         {

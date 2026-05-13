@@ -19,7 +19,7 @@ const SystemMessageMobileComponent: React.FC<SystemMessageMobileProps> = ({
 );
 
 /**
- * @splitComponent mobile
+ * @hasAtomImport
  */
 export const SystemMessageMobile = createCompound(SystemMessageMobileComponent);
 

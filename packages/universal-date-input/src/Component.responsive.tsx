@@ -5,6 +5,9 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 import { BaseUniversalDateInput } from './components/base-universal-date-input';
 import { type UniversalDateInputProps } from './types';
 
+/**
+ * @hasSplitImport
+ */
 export const UniversalDateInput = forwardRef<HTMLInputElement, UniversalDateInputProps>(
     (
         {

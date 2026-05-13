@@ -108,7 +108,7 @@ const HeaderDesktop = Header as React.FC<Omit<HeaderProps, 'titleSize' | 'subtit
 const ControlsDesktop = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
 
 /**
- * @splitComponent desktop
+ * @hasAtomImport
  */
 const SidePanelDesktop = Object.assign(SidePanelDesktopComponent, {
     Content: ContentDesktop,

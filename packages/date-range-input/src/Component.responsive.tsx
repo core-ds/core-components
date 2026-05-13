@@ -30,6 +30,7 @@ export type DateRangeInputMedia = 'desktop' | 'mobile';
 /**
  * @deprecated
  * use UniversalDateInput instead
+ * @hasSplitImport
  */
 export const DateRangeInputResponsive = forwardRef<HTMLInputElement, DateRangeInputResponsiveProps>(
     ({ breakpoint, client, ...restProps }, ref) => {

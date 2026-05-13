@@ -7,6 +7,9 @@ import { PatternLockDesktop } from './desktop';
 import { PatternLockMobile } from './mobile';
 import { type PatternLockProps } from './typings';
 
+/**
+ * @hasSplitImport
+ */
 export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
     (
         {

@@ -24,6 +24,9 @@ export type PickerButtonResponsiveProps = PickerButtonDesktopProps &
         client?: 'desktop' | 'mobile';
     };
 
+/**
+ * @hasSplitImport
+ */
 export const PickerButtonResponsive = forwardRef<HTMLInputElement, PickerButtonResponsiveProps>(
     (
         {

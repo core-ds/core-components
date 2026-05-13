@@ -25,6 +25,9 @@ export type FormControlProps = Omit<BaseFormControlProps, 'styles' | 'colorStyle
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const FormControl = forwardRef<HTMLDivElement, FormControlProps>(
     (
         {

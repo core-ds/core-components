@@ -68,9 +68,6 @@ export type PickerButtonDesktopProps = Omit<
         icon?: ComponentType<SVGProps<SVGSVGElement>>;
     };
 
-/**
- * @splitComponent desktop
- */
 export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesktopProps>(
     (
         {

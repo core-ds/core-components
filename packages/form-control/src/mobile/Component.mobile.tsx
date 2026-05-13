@@ -13,9 +13,6 @@ const colorStyles = {
 
 export type FormControlMobileProps = Omit<BaseFormControlProps, 'styles' | 'colorStyles'>;
 
-/**
- * @splitComponent mobile
- */
 export const FormControlMobile = forwardRef<HTMLDivElement, FormControlMobileProps>(
     (restProps, ref) => (
         <BaseFormControl {...restProps} ref={ref} styles={styles} colorStyles={colorStyles} />

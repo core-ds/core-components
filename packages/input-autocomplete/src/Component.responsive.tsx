@@ -6,6 +6,9 @@ import { InputAutocompleteDesktop } from './desktop';
 import { InputAutocompleteMobile } from './mobile';
 import { type InputAutocompleteProps } from './types';
 
+/**
+ * @hasSplitImport
+ */
 export const InputAutocomplete = forwardRef<
     HTMLInputElement | HTMLDivElement,
     InputAutocompleteProps

@@ -25,6 +25,9 @@ export type CheckboxGroupProps = Omit<BaseCheckboxGroupProps, 'styles'> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({
     breakpoint,
     client,

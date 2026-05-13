@@ -6,6 +6,9 @@ import { ButtonDesktop } from './desktop';
 import { ButtonMobile } from './mobile';
 import { type ButtonProps } from './typings';
 
+/**
+ * @hasSplitImport
+ */
 export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
         {

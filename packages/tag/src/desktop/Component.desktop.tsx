@@ -13,9 +13,6 @@ const colorStyles = {
 
 export type TagDesktopProps = Omit<BaseTagProps, 'styles' | 'colorStylesMap'>;
 
-/**
- * @splitComponent desktop
- */
 export const TagDesktop = forwardRef<HTMLButtonElement, TagDesktopProps>((restProps, ref) => (
     <BaseTag {...restProps} colorStylesMap={colorStyles} ref={ref} styles={styles} />
 ));

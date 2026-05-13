@@ -25,6 +25,9 @@ export type ResponsiveCalendarProps = CalendarDesktopProps &
         defaultMatchMediaValue?: boolean | (() => boolean);
     };
 
+/**
+ * @hasSplitImport
+ */
 export const CalendarResponsive = forwardRef<HTMLDivElement, ResponsiveCalendarProps>(
     (
         {

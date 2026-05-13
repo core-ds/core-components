@@ -19,9 +19,6 @@ import { type AnyObject, type OptionShape, type SelectMobileProps } from '../typ
 
 const VIRTUAL_OPTIONS_LIST_THRESHOLD = 30;
 
-/**
- * @splitComponent mobile
- */
 export const SelectMobile = forwardRef(
     (
         {

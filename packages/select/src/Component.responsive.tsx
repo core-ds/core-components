@@ -6,6 +6,9 @@ import { SelectDesktop } from './desktop';
 import { SelectMobile } from './mobile';
 import { type SelectFieldProps, type SelectProps } from './typings';
 
+/**
+ * @hasSplitImport
+ */
 export const SelectResponsive = forwardRef<
     HTMLDivElement,
     SelectProps & { originalProps?: SelectProps }

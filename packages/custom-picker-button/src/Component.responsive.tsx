@@ -32,6 +32,9 @@ export type CustomPickerButtonResponsiveProps = CustomPickerButtonDesktopProps &
         defaultMatchMediaValue?: boolean | (() => boolean);
     };
 
+/**
+ * @hasSplitImport
+ */
 export const CustomPickerButtonResponsive = forwardRef<
     HTMLInputElement,
     CustomPickerButtonResponsiveProps

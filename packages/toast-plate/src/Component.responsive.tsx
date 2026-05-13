@@ -25,6 +25,9 @@ export type ToastPlateProps = Omit<BaseToastPlateProps, 'styles'> & {
     defaultMatchMediaValue?: boolean | (() => boolean);
 };
 
+/**
+ * @hasSplitImport
+ */
 export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
     (
         {

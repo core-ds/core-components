@@ -7,6 +7,9 @@ import { type SecondaryTabListProps } from '../../typings';
 import { SecondaryTabListDesktop } from './Component.desktop';
 import { SecondaryTabListMobile } from './Component.mobile';
 
+/**
+ * @hasSplitImport
+ */
 export const SecondaryTabListResponsive = ({
     fullWidthScroll,
     breakpoint,

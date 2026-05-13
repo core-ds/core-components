@@ -7,9 +7,6 @@ import { SelectMobile } from './Component.mobile';
 
 import styles from './modal.mobile.module.css';
 
-/**
- * @splitComponent mobile
- */
 export const SelectModalMobile = forwardRef((props: SelectModalMobileProps, ref) => {
     const { modalHeaderProps, className: headerClassName } = props;
 

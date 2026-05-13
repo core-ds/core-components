@@ -13,6 +13,9 @@ const views = {
 
 export type TabsResponsiveProps = Omit<TabsProps, 'TabList' | 'collapsedTabsIds'>;
 
+/**
+ * @hasSplitImport
+ */
 export const TabsResponsive = ({
     view = 'primary',
     scrollable = false,

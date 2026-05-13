@@ -15,9 +15,6 @@ const colorStyles = {
 
 export type FilterTagDesktopProps = Omit<BaseFilterTagProps, keyof PrivateProps>;
 
-/**
- * @splitComponent desktop
- */
 export const FilterTagDesktop = forwardRef<HTMLDivElement, FilterTagDesktopProps>(
     (restProps, ref) => (
         <BaseFilterTag {...restProps} ref={ref} styles={styles} colorStylesMap={colorStyles} />

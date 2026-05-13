@@ -1,0 +1,301 @@
+{
+    "splitImports": [
+        {
+            "packageName": "@alfalab/core-components-alert",
+            "imports": [
+                "AlertResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-button",
+            "imports": [
+                "Button"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-calendar-input",
+            "imports": [
+                "CalendarInputResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-calendar",
+            "imports": [
+                "CalendarResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-checkbox-group",
+            "imports": [
+                "CheckboxGroup"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-code-input",
+            "imports": [
+                "CodeInput"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-confirmation",
+            "imports": [
+                "ConfirmationResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-custom-button",
+            "imports": [
+                "CustomButton"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-custom-picker-button",
+            "imports": [
+                "CustomPickerButtonResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-date-range-input",
+            "imports": [
+                "DateRangeInputResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-date-time-input",
+            "imports": [
+                "DateTimeInputResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-filter-tag",
+            "imports": [
+                "FilterTag"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-form-control",
+            "imports": [
+                "FormControl"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-icon-button",
+            "imports": [
+                "IconButtonResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-input-autocomplete",
+            "imports": [
+                "InputAutocomplete"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-input",
+            "imports": [
+                "Input"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-international-phone-input",
+            "imports": [
+                "InternationalPhoneInput"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-markdown",
+            "imports": [
+                "MarkdownResponsiveComponent",
+                "Markdown"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-modal",
+            "imports": [
+                "ModalResponsive",
+                "ModalComponentResponsive",
+                "HeaderResponsive",
+                "ContentResponsive",
+                "FooterResponsive",
+                "ControlsResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-number-input",
+            "imports": [
+                "NumberInputResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-pass-code",
+            "imports": [
+                "PassCode"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-pattern-lock-v1",
+            "imports": [
+                "PatternLockV1"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-pattern-lock",
+            "imports": [
+                "PatternLock"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-picker-button",
+            "imports": [
+                "PickerButtonResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-plate",
+            "imports": [
+                "Plate"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-radio-group",
+            "imports": [
+                "RadioGroup"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-select-with-tags",
+            "imports": [
+                "SelectWithTags"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-select",
+            "imports": [
+                "SelectResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-side-panel",
+            "imports": [
+                "SidePanelResponsive",
+                "SidePanelComponentResponsive",
+                "HeaderResponsive",
+                "ControlsResponsive",
+                "ContentResponsive",
+                "FooterResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-system-message",
+            "imports": [
+                "SystemMessageResponsive",
+                "SystemMessageComponent",
+                "SystemMessageCaption",
+                "SystemMessageControls",
+                "SystemMessageGraphic",
+                "SystemMessageSubtitle",
+                "SystemMessageTitle"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-tabs",
+            "imports": [
+                "PrimaryTabListResponsive",
+                "SecondaryTabListResponsive",
+                "TabsResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-tag",
+            "imports": [
+                "Tag"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-toast-plate",
+            "imports": [
+                "ToastPlate"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-toast",
+            "imports": [
+                "Toast"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-tooltip",
+            "imports": [
+                "TooltipResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-universal-date-input",
+            "imports": [
+                "UniversalDateInput"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-universal-modal",
+            "imports": [
+                "UniversalModal",
+                "UniversalModalResponsive",
+                "ContentResponsive",
+                "FooterResponsive",
+                "HeaderResponsive"
+            ]
+        }
+    ],
+    "atomImports": [
+        {
+            "packageName": "@alfalab/core-components-file-upload-item",
+            "imports": [
+                "FileUploadItem"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-modal",
+            "imports": [
+                "ModalResponsive",
+                "ModalDesktop",
+                "ModalMobile"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-pure-cell",
+            "imports": [
+                "PureCell"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-side-panel",
+            "imports": [
+                "SidePanelResponsive",
+                "SidePanelDesktop",
+                "SidePanelMobile"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-system-message",
+            "imports": [
+                "SystemMessageResponsive",
+                "SystemMessageDesktop",
+                "SystemMessageMobile"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-table",
+            "imports": [
+                "Table"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-universal-modal",
+            "imports": [
+                "UniversalModalDesktop",
+                "UniversalModalMobile",
+                "UniversalModalResponsive"
+            ]
+        }
+    ]
+}

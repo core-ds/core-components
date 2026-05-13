@@ -9,7 +9,4 @@ const MarkdownDesktopComponent: React.FC<MarkdownDesktopProps> = ({ children, ..
     </BaseMarkdown>
 );
 
-/**
- * @splitComponent desktop
- */
 export const MarkdownDesktop = MarkdownDesktopComponent;

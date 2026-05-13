@@ -27,9 +27,6 @@ const colorStyles = {
 
 const DEFAULT_OFFSET: [number, number] = [0, 16];
 
-/**
- * @splitComponent desktop
- */
 export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     children,
     content,

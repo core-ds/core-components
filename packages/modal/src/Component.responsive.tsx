@@ -30,6 +30,10 @@ const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps
     },
 );
 
+/**
+ * @hasSplitImport
+ * @hasAtomImport
+ */
 export const ModalResponsive = Object.assign(ModalResponsiveComponent, {
     Header,
     Content,
@@ -39,6 +43,9 @@ export const ModalResponsive = Object.assign(ModalResponsiveComponent, {
 
 ModalResponsiveComponent.displayName = 'ModalResponsiveComponent';
 
+/**
+ * @hasSplitImport
+ */
 export {
     ModalResponsiveComponent as ModalComponentResponsive,
     Header as HeaderResponsive,

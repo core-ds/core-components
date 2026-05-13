@@ -7,9 +7,6 @@ import { type CommonPatternLockProps } from '../typings';
 
 import styles from './desktop.module.css';
 
-/**
- * @splitComponent desktop
- */
 export const PatternLockDesktop = forwardRef<TPatternLockInstance, CommonPatternLockProps>(
     (restProps, ref) => <BasePatternLock {...restProps} hover={true} ref={ref} styles={styles} />,
 );

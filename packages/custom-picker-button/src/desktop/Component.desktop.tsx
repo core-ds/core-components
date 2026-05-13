@@ -14,9 +14,6 @@ const DEFAULT_CONTENT_COLOR = 'white';
 export type CustomPickerButtonDesktopProps = Omit<PickerButtonDesktopProps, 'view' | 'colors'> &
     Pick<CustomButtonProps, 'backgroundColor' | 'contentColor' | 'stateType'>;
 
-/**
- * @splitComponent desktop
- */
 export const CustomPickerButtonDesktop = forwardRef<
     HTMLInputElement,
     CustomPickerButtonDesktopProps

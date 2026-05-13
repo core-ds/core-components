@@ -7,6 +7,9 @@ import { HeaderMobile, type HeaderMobileProps } from '../../../mobile';
 
 export interface HeaderResponsiveProps extends HeaderDesktopProps, HeaderMobileProps {}
 
+/**
+ * @hasSplitImport
+ */
 export const HeaderResponsive = forwardRef<HTMLDivElement, HeaderResponsiveProps>((props, ref) => {
     const isDesktop = useIsDesktop();
 

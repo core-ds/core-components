@@ -4,9 +4,6 @@ import { type InputAutocompleteMobileProps } from '../types';
 
 import { InputAutocompleteMobile } from './Component.mobile';
 
-/**
- * @splitComponent mobile
- */
 export const InputAutocompleteModalMobile = React.forwardRef<
     HTMLDivElement,
     InputAutocompleteMobileProps

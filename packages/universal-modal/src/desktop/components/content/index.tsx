@@ -13,9 +13,6 @@ export interface ContentDesktopProps extends ContentProps {
     size?: 's' | 500;
 }
 
-/**
- * @splitComponent desktop
- */
 export const ContentDesktop: FC<ContentDesktopProps> = ({ className, ...restProps }) => {
     const { hasHeader, hasFooter } = useContext(ModalContext);
 

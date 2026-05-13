@@ -14,7 +14,7 @@ const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>((props
 const ControlsMobile = Controls as React.FC<Omit<ControlsProps, 'mobileLayout'>>;
 
 /**
- * @splitComponent mobile
+ * @hasAtomImport
  */
 export const ModalMobile = Object.assign(ModalMobileComponent, {
     Content,

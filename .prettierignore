@@ -3,3 +3,4 @@ colors-bluetint.css
 colors-indigo.css
 colors-addons.css
 **/dist/**
+split-atom-imports.json

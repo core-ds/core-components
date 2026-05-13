@@ -8,6 +8,9 @@ import { ToastMobile } from './mobile';
 
 export type ToastProps = BaseToastProps;
 
+/**
+ * @hasSplitImport
+ */
 export const Toast = forwardRef<HTMLDivElement, ToastProps>(
     (
         {

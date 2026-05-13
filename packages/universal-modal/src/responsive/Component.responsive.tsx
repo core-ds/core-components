@@ -10,6 +10,9 @@ import { ContentResponsive } from './components/content';
 import { FooterResponsive } from './components/footer';
 import { HeaderResponsive } from './components/header';
 
+/**
+ * @hasSplitImport
+ */
 export const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiveProps>(
     ({ children, breakpoint, defaultMatchMediaValue, dataTestId, ...restProps }, ref) => {
         const isDesktop = useIsDesktop(breakpoint, defaultMatchMediaValue);
@@ -24,6 +27,10 @@ export const UniversalModal = forwardRef<HTMLDivElement, UniversalModalResponsiv
     },
 );
 
+/**
+ * @hasSplitImport
+ * @hasAtomImport
+ */
 export const UniversalModalResponsive = Object.assign(UniversalModal, {
     Header: HeaderResponsive,
     Content: ContentResponsive,

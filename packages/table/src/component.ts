@@ -10,6 +10,9 @@ import {
     TSortableHeadCell,
 } from './components';
 
+/**
+ * @hasAtomImport
+ */
 export const Table = Object.assign(TableComponent, {
     TBody,
     THead,

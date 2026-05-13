@@ -4,4 +4,7 @@ import { Plate } from '@alfalab/core-components-plate';
 
 import { AlertBase, type AlertProps } from './Component';
 
+/**
+ * @hasSplitImport
+ */
 export const AlertResponsive = (props: AlertProps) => <AlertBase {...props} Plate={Plate} />;
