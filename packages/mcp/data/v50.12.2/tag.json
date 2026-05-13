@@ -1,176 +1,176 @@
 {
-    "packageName": "tag",
-    "displayName": "Tag",
-    "description": "Многофункциональный контрол. Используется в составе групп и других компонентов.",
-    "props": {
-        "dataTestId": {
-            "defaultValue": null,
-            "description": "Идентификатор для систем автоматизированного тестирования",
-            "name": "dataTestId",
-            "required": false,
-            "type": {
-                "name": "string | undefined"
-            }
-        },
-        "onClick": {
-            "defaultValue": null,
-            "description": "Обработчик нажатия",
-            "name": "onClick",
-            "required": false,
-            "type": {
-                "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
-            }
-        },
-        "size": {
-            "defaultValue": null,
-            "description": "Размер компонента",
-            "name": "size",
-            "required": false,
-            "type": {
-                "name": "48 | 40 | 56 | 64 | 72 | 32 | undefined"
-            }
-        },
-        "view": {
-            "defaultValue": {
-                "value": "outlined"
-            },
-            "description": "Стиль тега",
-            "name": "view",
-            "required": false,
-            "type": {
-                "name": "\"filled\" | \"outlined\" | \"transparent\" | undefined"
-            }
-        },
-        "colors": {
-            "defaultValue": null,
-            "description": "Набор цветов для компонента",
-            "name": "colors",
-            "required": false,
-            "type": {
-                "name": "\"default\" | \"inverted\" | undefined"
-            }
-        },
-        "rightAddons": {
-            "defaultValue": null,
-            "description": "Слот справа",
-            "name": "rightAddons",
-            "required": false,
-            "type": {
-                "name": "ReactNode"
-            }
-        },
-        "checked": {
-            "defaultValue": null,
-            "description": "Отображение кнопки в отмеченном (зажатом) состоянии",
-            "name": "checked",
-            "required": false,
-            "type": {
-                "name": "boolean | undefined"
-            }
-        },
-        "leftAddons": {
-            "defaultValue": null,
-            "description": "Слот слева",
-            "name": "leftAddons",
-            "required": false,
-            "type": {
-                "name": "ReactNode"
-            }
-        },
-        "shape": {
-            "defaultValue": null,
-            "description": "Форма тега",
-            "name": "shape",
-            "required": false,
-            "type": {
-                "name": "\"rounded\" | \"rectangular\" | undefined"
-            }
-        },
-        "allowBackdropBlur": {
-            "defaultValue": null,
-            "description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
-            "name": "allowBackdropBlur",
-            "required": false,
-            "type": {
-                "name": "boolean | undefined"
-            }
-        },
-        "variant": {
-            "defaultValue": null,
-            "description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега",
-            "name": "variant",
-            "required": false,
-            "type": {
-                "name": "\"default\" | \"alt\" | undefined"
-            }
-        },
-        "childrenClassName": {
-            "defaultValue": null,
-            "description": "Дополнительный класс для обёртки children",
-            "name": "childrenClassName",
-            "required": false,
-            "type": {
-                "name": "string | undefined"
-            }
-        },
-        "childrenRef": {
-            "defaultValue": null,
-            "description": "ref на children",
-            "name": "childrenRef",
-            "required": false,
-            "type": {
-                "name": "RefObject<HTMLSpanElement> | undefined"
-            }
-        },
-        "breakpoint": {
-            "defaultValue": {
-                "value": "1024"
-            },
-            "description": "Контрольная точка, с нее начинается desktop версия",
-            "name": "breakpoint",
-            "required": false,
-            "type": {
-                "name": "number | undefined"
-            }
-        },
-        "client": {
-            "defaultValue": null,
-            "description": "Версия, которая будет использоваться при серверном рендеринге",
-            "name": "client",
-            "required": false,
-            "type": {
-                "name": "\"desktop\" | \"mobile\" | undefined"
-            }
-        },
-        "defaultMatchMediaValue": {
-            "defaultValue": {
-                "value": "client === undefined ? undefined : client === 'desktop'"
-            },
-            "description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
-            "name": "defaultMatchMediaValue",
-            "required": false,
-            "type": {
-                "name": "boolean | (() => boolean) | undefined"
-            }
-        }
-    },
-    "demos": [
-        {
-            "title": "Размеры",
-            "description": "Рекомендуется использовать 48, 40 и 32 размеры. Размеры 72, 64, 56 — не рекомендованы к использованию.",
-            "desktop": "render(() => {\nconst SIZES = [48, 40, 32];\n\nconst [checked, setChecked] = React.useState(\nObject.fromEntries(SIZES.map((key) => [key, false])),\n);\n\nreturn (\n<Container>\n<Row align='middle'>\n{SIZES.map((size) => (\n<div key={size} style={{ marginRight: 12 }}>\n<Tag\nsize={size}\nchecked={checked[size]}\nonClick={() => setChecked({ ...checked, [size]: !checked[size] })}\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n</Container>\n);\n});"
-        },
-        {
-            "title": "Анатомия",
-            "description": "С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать тэг.\nНапример, добавить иконку. Переданный контент будет отрисован слева или справа от текста тэга.",
-            "desktop": "render(() => {\nconst addon = (\n<div\nstyle={{\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed #3778FB',\nborderRadius: '8px',\nheight: '24px',\nwidth: '24px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nconst amountAddon = (\n<div style={{ paddingRight: '4px' }}>\n<Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />\n</div>\n);\n\nreturn (\n<Container>\n<Row>\n<div style={{ marginRight: 12 }}>\n<Tag size={48}>Label</Tag>\n</div>\n<div style={{ marginRight: 12 }}>\n<Tag size={48} rightAddons={addon} leftAddons={addon}>\nLabel\n</Tag>\n</div>\n<div style={{ marginRight: 12 }}>\n<Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>\nLabel\n</Tag>\n</div>\n<div style={{ marginRight: 12 }}>\n<Tag size={48} rightAddons={amountAddon}>\nLabel\n</Tag>\n</div>\n</Row>\n</Container>\n);\n});",
-            "mobile": "render(() => {\nconst addon = (\n<div\nstyle={{\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed #3778FB',\nborderRadius: '8px',\nheight: '24px',\nwidth: '24px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nconst amountAddon = (\n<div style={{ paddingRight: '4px' }}>\n<Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />\n</div>\n);\n\nreturn (\n<Container>\n<Row>\n<div style={{ marginRight: 12 }}>\n<Tag size={48}>Label</Tag>\n</div>\n<div>\n<Tag size={48} rightAddons={addon} leftAddons={addon}>\nLabel\n</Tag>\n</div>\n</Row>\n<div style={{ display: 'flex', marginTop: 16 }}>\n<div style={{ marginRight: 12 }}>\n<Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>\nLabel\n</Tag>\n</div>\n<div>\n<Tag size={48} rightAddons={amountAddon}>\nLabel\n</Tag>\n</div>\n</div>\n</Container>\n);\n});"
-        },
-        {
-            "title": "Состояния и стили",
-            "description": "У тега есть две опции, отвечающие за внешний вид:\n\n- shape (форма) — овальные или прямоугольные.\n- view (стиль) — залитые или бордерные.\n\nТег может находиться в активном и неактивном состоянии.\nВзаимодействие с тегом может быть ограничено с помощью свойства `disabled`.",
-            "desktop": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nconst VIEWS = [\n{ key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },\n{ key: 'filledRounded', view: 'filled', shape: 'rounded' },\n{ key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },\n{ key: 'filledRectangular', view: 'filled', shape: 'rectangular' },\n];\n\nconst [checked, setChecked] = React.useState(\nObject.fromEntries(VIEWS.map((item) => [item.key, false])),\n);\n\nreturn (\n<Container>\n<Row align='middle'>\n{VIEWS.map((item) => (\n<div key={item.key} style={{ marginRight: 12 }}>\n<Tag\nsize={48}\nview={item.view}\nshape={item.shape}\ndisabled={disabled}\nchecked={checked[item.key]}\nonClick={() =>\nsetChecked({ ...checked, [item.key]: !checked[item.key] })\n}\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n\n<Gap size={20} />\n\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Disabled'\n/>\n</Container>\n);\n});",
-            "mobile": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nconst ROUNDEDS = [\n{ key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },\n{ key: 'filledRounded', view: 'filled', shape: 'rounded' },\n];\n\nconst RECTANGLES = [\n{ key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },\n{ key: 'filledRectangular', view: 'filled', shape: 'rectangular' },\n];\nconst [checkedRounded, setCheckedRounded] = React.useState(\nObject.fromEntries(ROUNDEDS.map((item) => [item.key, false])),\n);\nconst [checkedRectangular, setCheckedRectangular] = React.useState(\nObject.fromEntries(ROUNDEDS.map((item) => [item.key, false])),\n);\n\nreturn (\n<Container>\n<Row align='middle'>\n{ROUNDEDS.map((item) => (\n<div key={item.key} style={{ marginRight: 12 }}>\n<Tag\nsize={48}\nview={item.view}\nshape={item.shape}\ndisabled={disabled}\nchecked={checkedRounded[item.key]}\nonClick={() =>\nsetCheckedRounded({\n...checkedRounded,\n[item.key]: !checkedRounded[item.key],\n})\n}\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n<Row align='middle'>\n{RECTANGLES.map((item) => (\n<div key={item.key} style={{ marginRight: 12 }}>\n<Tag\nsize={48}\nview={item.view}\nshape={item.shape}\ndisabled={disabled}\nchecked={checkedRectangular[item.key]}\nonClick={() =>\nsetCheckedRectangular({\n...checkedRectangular,\n[item.key]: !checkedRectangular[item.key],\n})\n}\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n\n<Gap size={20} />\n\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Disabled'\n/>\n</Container>\n);\n});"
-        }
-    ]
+"packageName": "tag",
+"displayName": "Tag",
+"description": "Многофункциональный контрол. Используется в составе групп и других компонентов.",
+"props": {
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик нажатия",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
+}
+},
+"size": {
+"defaultValue": null,
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "48 | 40 | 56 | 64 | 72 | 32 | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "outlined"
+},
+"description": "Стиль тега",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"filled\" | \"outlined\" | \"transparent\" | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"checked": {
+"defaultValue": null,
+"description": "Отображение кнопки в отмеченном (зажатом) состоянии",
+"name": "checked",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"shape": {
+"defaultValue": null,
+"description": "Форма тега",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"allowBackdropBlur": {
+"defaultValue": null,
+"description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
+"name": "allowBackdropBlur",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"variant": {
+"defaultValue": null,
+"description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега",
+"name": "variant",
+"required": false,
+"type": {
+"name": "\"default\" | \"alt\" | undefined"
+}
+},
+"childrenClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обёртки children",
+"name": "childrenClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"childrenRef": {
+"defaultValue": null,
+"description": "ref на children",
+"name": "childrenRef",
+"required": false,
+"type": {
+"name": "RefObject<HTMLSpanElement> | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Размеры",
+"description": "Рекомендуется использовать 48, 40 и 32 размеры. Размеры 72, 64, 56 — не рекомендованы к использованию.",
+"desktop": "render(() => {\nconst SIZES = [48, 40, 32];\n\nconst [checked, setChecked] = React.useState(\nObject.fromEntries(SIZES.map((key) => [key, false])),\n);\n\nreturn (\n<Container>\n<Row align='middle'>\n{SIZES.map((size) => (\n<div key={size} style={{ marginRight: 12 }}>\n<Tag\nsize={size}\nchecked={checked[size]}\nonClick={() => setChecked({ ...checked, [size]: !checked[size] })}\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n</Container>\n);\n});"
+},
+{
+"title": "Анатомия",
+"description": "С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать тэг.\nНапример, добавить иконку. Переданный контент будет отрисован слева или справа от текста тэга.",
+"desktop": "render(() => {\nconst addon = (\n<div\nstyle={{\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed #3778FB',\nborderRadius: '8px',\nheight: '24px',\nwidth: '24px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nconst amountAddon = (\n<div style={{ paddingRight: '4px' }}>\n<Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />\n</div>\n);\n\nreturn (\n<Container>\n<Row>\n<div style={{ marginRight: 12 }}>\n<Tag size={48}>Label</Tag>\n</div>\n<div style={{ marginRight: 12 }}>\n<Tag size={48} rightAddons={addon} leftAddons={addon}>\nLabel\n</Tag>\n</div>\n<div style={{ marginRight: 12 }}>\n<Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>\nLabel\n</Tag>\n</div>\n<div style={{ marginRight: 12 }}>\n<Tag size={48} rightAddons={amountAddon}>\nLabel\n</Tag>\n</div>\n</Row>\n</Container>\n);\n});",
+"mobile": "render(() => {\nconst addon = (\n<div\nstyle={{\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed #3778FB',\nborderRadius: '8px',\nheight: '24px',\nwidth: '24px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nconst amountAddon = (\n<div style={{ paddingRight: '4px' }}>\n<Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />\n</div>\n);\n\nreturn (\n<Container>\n<Row>\n<div style={{ marginRight: 12 }}>\n<Tag size={48}>Label</Tag>\n</div>\n<div>\n<Tag size={48} rightAddons={addon} leftAddons={addon}>\nLabel\n</Tag>\n</div>\n</Row>\n<div style={{ display: 'flex', marginTop: 16 }}>\n<div style={{ marginRight: 12 }}>\n<Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>\nLabel\n</Tag>\n</div>\n<div>\n<Tag size={48} rightAddons={amountAddon}>\nLabel\n</Tag>\n</div>\n</div>\n</Container>\n);\n});"
+},
+{
+"title": "Состояния и стили",
+"description": "У тега есть две опции, отвечающие за внешний вид:\n\n- shape (форма) — овальные или прямоугольные.\n- view (стиль) — залитые или бордерные.\n\nТег может находиться в активном и неактивном состоянии.\nВзаимодействие с тегом может быть ограничено с помощью свойства `disabled`.",
+"desktop": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nconst VIEWS = [\n{ key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },\n{ key: 'filledRounded', view: 'filled', shape: 'rounded' },\n{ key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },\n{ key: 'filledRectangular', view: 'filled', shape: 'rectangular' },\n];\n\nconst [checked, setChecked] = React.useState(\nObject.fromEntries(VIEWS.map((item) => [item.key, false])),\n);\n\nreturn (\n<Container>\n<Row align='middle'>\n{VIEWS.map((item) => (\n<div key={item.key} style={{ marginRight: 12 }}>\n<Tag\nsize={48}\nview={item.view}\nshape={item.shape}\ndisabled={disabled}\nchecked={checked[item.key]}\nonClick={() =>\nsetChecked({ ...checked, [item.key]: !checked[item.key] })\n}\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n\n<Gap size={20} />\n\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Disabled'\n/>\n</Container>\n);\n});",
+"mobile": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nconst ROUNDEDS = [\n{ key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },\n{ key: 'filledRounded', view: 'filled', shape: 'rounded' },\n];\n\nconst RECTANGLES = [\n{ key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },\n{ key: 'filledRectangular', view: 'filled', shape: 'rectangular' },\n];\nconst [checkedRounded, setCheckedRounded] = React.useState(\nObject.fromEntries(ROUNDEDS.map((item) => [item.key, false])),\n);\nconst [checkedRectangular, setCheckedRectangular] = React.useState(\nObject.fromEntries(ROUNDEDS.map((item) => [item.key, false])),\n);\n\nreturn (\n<Container>\n<Row align='middle'>\n{ROUNDEDS.map((item) => (\n<div key={item.key} style={{ marginRight: 12 }}>\n<Tag\nsize={48}\nview={item.view}\nshape={item.shape}\ndisabled={disabled}\nchecked={checkedRounded[item.key]}\nonClick={() =>\nsetCheckedRounded({\n...checkedRounded,\n[item.key]: !checkedRounded[item.key],\n})\n}\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n<Row align='middle'>\n{RECTANGLES.map((item) => (\n<div key={item.key} style={{ marginRight: 12 }}>\n<Tag\nsize={48}\nview={item.view}\nshape={item.shape}\ndisabled={disabled}\nchecked={checkedRectangular[item.key]}\nonClick={() =>\nsetCheckedRectangular({\n...checkedRectangular,\n[item.key]: !checkedRectangular[item.key],\n})\n}\n>\nLabel\n</Tag>\n</div>\n))}\n</Row>\n\n<Gap size={20} />\n\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Disabled'\n/>\n</Container>\n);\n});"
+}
+]
 }
