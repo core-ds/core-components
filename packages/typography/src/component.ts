@@ -6,6 +6,9 @@ import { TitleMobile, type TitleMobileProps } from './title-mobile';
 import { TitleResponsive, type TitleResponsiveProps } from './title-responsive';
 import { type TextElementType } from './types';
 
+/**
+ * @hasAtomImport
+ */
 export const Typography: {
     Title: FC<TitleProps>;
     Text: ForwardRefExoticComponent<TextProps & RefAttributes<TextElementType>>;

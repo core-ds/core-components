@@ -1,3 +1,6 @@
+/**
+ * @hasSplitImport
+ */
 export {
     // обратная совместимость
     SidePanelResponsive as SidePanel,

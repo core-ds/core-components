@@ -1,3 +1,6 @@
+/**
+ * @hasSplitImport
+ */
 export {
     // Обратная совместимость
     ModalResponsive as Modal,

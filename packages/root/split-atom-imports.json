@@ -116,7 +116,8 @@
                 "HeaderResponsive",
                 "ContentResponsive",
                 "FooterResponsive",
-                "ControlsResponsive"
+                "ControlsResponsive",
+                "Modal"
             ]
         },
         {
@@ -181,7 +182,8 @@
                 "HeaderResponsive",
                 "ControlsResponsive",
                 "ContentResponsive",
-                "FooterResponsive"
+                "FooterResponsive",
+                "SidePanel"
             ]
         },
         {
@@ -226,6 +228,12 @@
             "packageName": "@alfalab/core-components-tooltip",
             "imports": [
                 "TooltipResponsive"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-typography",
+            "imports": [
+                "TitleResponsive"
             ]
         },
         {
@@ -286,6 +294,12 @@
             "packageName": "@alfalab/core-components-table",
             "imports": [
                 "Table"
+            ]
+        },
+        {
+            "packageName": "@alfalab/core-components-typography",
+            "imports": [
+                "Typography"
             ]
         },
         {

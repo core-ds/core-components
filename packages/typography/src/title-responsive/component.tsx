@@ -18,6 +18,9 @@ export type TitleResponsiveProps = TitleProps & {
     client?: 'desktop' | 'mobile';
 };
 
+/**
+ * @hasSplitImport
+ */
 export const TitleResponsive = forwardRef<
     HTMLHeadingElement | HTMLDivElement,
     TitleResponsiveProps
