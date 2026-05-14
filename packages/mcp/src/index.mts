@@ -16,11 +16,7 @@ const server = new McpServer({
     version: pkg.version,
 });
 
-const versionDir = path.join(
-    path.dirname(import.meta.resolve('@alfalab/core-components-mcp/package.json')),
-    'data',
-    DATA_VERSION,
-);
+const versionDir = path.join(import.meta.dirname, 'data', DATA_VERSION);
 
 // Найти и распарсить JSON-файл компонента по имени или slug
 function readComponentData(component: string): Record<string, unknown> | null {

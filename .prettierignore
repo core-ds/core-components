@@ -3,5 +3,6 @@ colors-bluetint.css
 colors-indigo.css
 colors-addons.css
 **/dist/**
+
+packages/mcp/src/data
 split-atom-imports.json
-packages/mcp/data
