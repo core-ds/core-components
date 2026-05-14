@@ -13,6 +13,7 @@
         "README.md"
     ],
     "scripts": {
+        "build": "copyfiles -u 1 \"src/data/**/*\" dist/",
         "dev": "tsx src/index.mts",
         "generate-data": "node scripts/generate-data.mjs",
         "start": "node dist/index.mjs"
@@ -22,6 +23,7 @@
         "zod": "^4.1.11"
     },
     "devDependencies": {
+        "copyfiles": "^2.4.1",
         "react-docgen-typescript": "^2.4.0",
         "tsx": "^4.20.6",
         "typescript": "^5.9.3"

@@ -4,4 +4,4 @@ colors-indigo.css
 colors-addons.css
 **/dist/**
 
-packages/mcp/data
+packages/mcp/src/data
