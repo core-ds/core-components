@@ -6,8 +6,7 @@
     "exports": {
         "./package.json": "./package.json"
     },
-    "main": "dist/index.js",
-    "bin": "dist/index.js",
+    "bin": "dist/index.mjs",
     "files": [
         "data",
         "dist",
