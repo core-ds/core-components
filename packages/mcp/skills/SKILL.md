@@ -2,10 +2,6 @@
 name: core-components
 description: Work with @alfalab/core-components React UI library — imports, theming, MCP tools, and component patterns
 license: MIT
-compatibility: opencode
-metadata:
-    audience: developers
-    workflow: ui-development
 ---
 
 # Core Components Skill
