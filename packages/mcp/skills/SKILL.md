@@ -4,8 +4,8 @@ description: Work with @alfalab/core-components React UI library — imports, th
 license: MIT
 compatibility: opencode
 metadata:
-  audience: developers
-  workflow: ui-development
+    audience: developers
+    workflow: ui-development
 ---
 
 # Core Components Skill
@@ -44,28 +44,31 @@ Always follow this order when working with components:
 ### When to call each tool
 
 **`component_list`** — call when:
+
 - User asks to build UI but doesn't specify which component to use
 - You need to check whether a specific component exists
 - You want to discover related components (e.g., all date-related inputs)
 
 **`component_info`** — call when:
+
 - You need to know available props and their types
 - User asks how a specific component works
 - You need to check a prop's default value or allowed values
 
 **`component_demo`** — is a two-step tool:
+
 - First call **without `name`** to list available demos (titles and descriptions only, no code):
-  ```
-  component_demo("Button")
-  ```
+    ```
+    component_demo("Button")
+    ```
 - Then call **with `name`** to get the actual demo source code:
-  ```
-  component_demo("Button", "Loading")
-  ```
+    ```
+    component_demo("Button", "Loading")
+    ```
 
 ### Example: building a feature
 
-User asks: *"Add a date picker to this form"*
+User asks: _"Add a date picker to this form"_
 
 ```
 1. component_list()                          → find: UniversalDateInput, DateInput, CalendarInput
@@ -90,10 +93,10 @@ yarn add @alfalab/core-components-button
 
 Components can be imported from two sources:
 
-| Source | Example |
-|--------|---------|
+| Source             | Example                                                    |
+| ------------------ | ---------------------------------------------------------- |
 | Individual package | `import { Button } from '@alfalab/core-components-button'` |
-| Root package | `import { Button } from '@alfalab/core-components/button'` |
+| Root package       | `import { Button } from '@alfalab/core-components/button'` |
 
 Both approaches are equivalent. Use individual packages for installing without the entire library.
 
@@ -119,11 +122,11 @@ import { Button } from '@alfalab/core-components-button/modern';
 
 Some components have responsive variants:
 
-| Variant | Root package | Individual package |
-|---------|--------------|-------------------|
-| Responsive (default) | `@alfalab/core-components/button` | `@alfalab/core-components-button` |
-| Desktop only | `@alfalab/core-components/button/desktop` | `@alfalab/core-components-button/desktop` |
-| Mobile only | `@alfalab/core-components/button/mobile` | `@alfalab/core-components-button/mobile` |
+| Variant              | Root package                              | Individual package                        |
+| -------------------- | ----------------------------------------- | ----------------------------------------- |
+| Responsive (default) | `@alfalab/core-components/button`         | `@alfalab/core-components-button`         |
+| Desktop only         | `@alfalab/core-components/button/desktop` | `@alfalab/core-components-button/desktop` |
+| Mobile only          | `@alfalab/core-components/button/mobile`  | `@alfalab/core-components-button/mobile`  |
 
 ```tsx
 // Responsive (auto-detects viewport)
@@ -144,7 +147,7 @@ Use responsive variant with `breakpoint` prop for automatic switching, or explic
 
 ```tsx
 <Button loading={isLoading} onClick={handleClick}>
-  Submit
+    Submit
 </Button>
 ```
 
@@ -152,7 +155,7 @@ Use responsive variant with `breakpoint` prop for automatic switching, or explic
 
 ```tsx
 <Button leftAddons={<Icon />} rightAddons={<Badge />}>
-  Label
+    Label
 </Button>
 ```
 
@@ -199,13 +202,13 @@ yarn add @alfalab/core-components-themes
 
 ### Available Themes
 
-| Theme | Package path | Purpose |
-|-------|--------------|---------|
-| Mobile | `@alfalab/core-components-themes/mobile.css` | Mobile application styling |
-| Site | `@alfalab/core-components-themes/site.css` | Site/website styling |
-| Corp | `@alfalab/core-components-themes/corp.css` | Corporate styling |
-| Click | `@alfalab/core-components-themes/click.css` | Click banking styling |
-| Intranet | `@alfalab/core-components-themes/intranet.css` | Intranet styling |
+| Theme    | Package path                                   | Purpose                    |
+| -------- | ---------------------------------------------- | -------------------------- |
+| Mobile   | `@alfalab/core-components-themes/mobile.css`   | Mobile application styling |
+| Site     | `@alfalab/core-components-themes/site.css`     | Site/website styling       |
+| Corp     | `@alfalab/core-components-themes/corp.css`     | Corporate styling          |
+| Click    | `@alfalab/core-components-themes/click.css`    | Click banking styling      |
+| Intranet | `@alfalab/core-components-themes/intranet.css` | Intranet styling           |
 
 ### Dark Mode
 
@@ -217,21 +220,23 @@ yarn add @alfalab/core-components-themes
 
 Default palette is `bluetint`. Additional palettes available:
 
-| Palette | CSS |
-|---------|-----|
-| Bluetint | `@alfalab/core-components/vars/colors-bluetint.css` |
-| Decorative | `@alfalab/core-components/vars/colors-decorative.css` |
+| Palette     | CSS                                                    |
+| ----------- | ------------------------------------------------------ |
+| Bluetint    | `@alfalab/core-components/vars/colors-bluetint.css`    |
+| Decorative  | `@alfalab/core-components/vars/colors-decorative.css`  |
 | Qualitative | `@alfalab/core-components/vars/colors-qualitative.css` |
-| Sequential | `@alfalab/core-components/vars/colors-sequential.css` |
-| PFM | `@alfalab/core-components/vars/colors-pfm.css` |
-| Students | `@alfalab/core-components/vars/colors-students.css` |
+| Sequential  | `@alfalab/core-components/vars/colors-sequential.css`  |
+| PFM         | `@alfalab/core-components/vars/colors-pfm.css`         |
+| Students    | `@alfalab/core-components/vars/colors-students.css`    |
 
 Import color palette:
+
 ```css
 @import '@alfalab/core-components/vars/colors-bluetint.css';
 ```
 
 Import color in JS:
+
 ```tsx
 import { colorLightDecorativeOrange } from '@alfalab/core-components/vars/colors-decorative.module';
 ```
@@ -248,11 +253,11 @@ yarn add @alfalab/core-components-config
 
 ### Parameters
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `breakpoint` | `number` | `1024` | Viewport width for switching mobile/desktop |
-| `client` | `'desktop' \| 'mobile'` | `'desktop'` | Target client for SSR |
-| `getPortalContainer` | `() => Element \| null \| undefined` | - | Custom container for portals |
+| Parameter            | Type                                 | Default     | Description                                 |
+| -------------------- | ------------------------------------ | ----------- | ------------------------------------------- |
+| `breakpoint`         | `number`                             | `1024`      | Viewport width for switching mobile/desktop |
+| `client`             | `'desktop' \| 'mobile'`              | `'desktop'` | Target client for SSR                       |
+| `getPortalContainer` | `() => Element \| null \| undefined` | -           | Custom container for portals                |
 
 ### Usage
 
@@ -266,7 +271,7 @@ const coreConfig = {
 
 <CoreConfigContext.Provider value={coreConfig}>
     <App />
-</CoreConfigContext.Provider>
+</CoreConfigContext.Provider>;
 ```
 
 ### Using config in components
@@ -292,6 +297,7 @@ The library provides CSS custom properties for styling.
 ```
 
 Or import as JS variables:
+
 ```tsx
 import * as vars from '@alfalab/core-components/vars';
 
@@ -300,18 +306,19 @@ vars.gap2xl === '32px'; // true
 
 ### Available Variable Sets
 
-| Category | Import path |
-|----------|-------------|
-| All variables | `@alfalab/core-components/vars` |
-| Gaps/Spacing | `@alfalab/core-components/vars/gaps.css` |
-| Border radius | `@alfalab/core-components/vars/border-radius.css` |
+| Category           | Import path                                          |
+| ------------------ | ---------------------------------------------------- |
+| All variables      | `@alfalab/core-components/vars`                      |
+| Gaps/Spacing       | `@alfalab/core-components/vars/gaps.css`             |
+| Border radius      | `@alfalab/core-components/vars/border-radius.css`    |
 | Shadows (bluetint) | `@alfalab/core-components/vars/shadows-bluetint.css` |
-| Typography | `@alfalab/core-components/vars/typography.css` |
-| Mixins | `@alfalab/core-components/vars/mixins.css` |
+| Typography         | `@alfalab/core-components/vars/typography.css`       |
+| Mixins             | `@alfalab/core-components/vars/mixins.css`           |
 
 ### Product Bundles
 
 Pre-configured bundles for specific products:
+
 ```css
 @import '@alfalab/core-components/vars/bundle/click.css';
 ```
@@ -326,18 +333,18 @@ Pre-configured bundles for specific products:
 
 ## Component Categories
 
-| Category | Components |
-|----------|------------|
-| Typography | Title, TitleResponsive, TitleMobile, Text |
-| Icons | CDNIcon |
-| Inputs | Input, Textarea, Checkbox, Radio, Switch, Select, MaskedInput |
-| Buttons | Button, ActionButton, IconButton, CustomButton |
-| Layout | Grid, Gap, Space, Stack, Plate |
-| Navigation | Tabs, SidePanel, NavigationBar, Pagination |
-| Feedback | Toast, Notification, Spinner, ProgressBar |
-| Data Display | Badge, Tag, Amount, Skeleton, Status |
-| Modals | Modal, Drawer, BottomSheet, Popover |
-| Forms | FormControl, Slider, DateInput, FileUploadItem |
+| Category     | Components                                                    |
+| ------------ | ------------------------------------------------------------- |
+| Typography   | Title, TitleResponsive, TitleMobile, Text                     |
+| Icons        | CDNIcon                                                       |
+| Inputs       | Input, Textarea, Checkbox, Radio, Switch, Select, MaskedInput |
+| Buttons      | Button, ActionButton, IconButton, CustomButton                |
+| Layout       | Grid, Gap, Space, Stack, Plate                                |
+| Navigation   | Tabs, SidePanel, NavigationBar, Pagination                    |
+| Feedback     | Toast, Notification, Spinner, ProgressBar                     |
+| Data Display | Badge, Tag, Amount, Skeleton, Status                          |
+| Modals       | Modal, Drawer, BottomSheet, Popover                           |
+| Forms        | FormControl, Slider, DateInput, FileUploadItem                |
 
 ## Troubleshooting
 
