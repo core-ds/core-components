@@ -49,7 +49,7 @@ render(() => {
     const handleLoopChange = (_, payload) => {
         setLoop(payload.value === 'true');
     };
-    const [navigationState, setNavigation] = React.useState('always');
+    const [navigationState, setNavigation] = React.useState(isMobile() ? 'never' : 'always');
     const handleNavigationChange = (_, payload) => {
         setNavigation(payload.value);
     };
@@ -128,18 +128,23 @@ render(() => {
                 <Radio size={24} label='Фиксированное' value='fixed' />
                 <Radio size={24} label='Зависит от ширины элементов' value='auto' />
             </RadioGroup>
-            <Gap size={24} />
-            <RadioGroup
-                label='Кнопки'
-                direction='vertical'
-                name='height'
-                onChange={handleNavigationChange}
-                value={navigationState}
-            >
-                <Radio size={24} label='Доступны всегда' value='always' />
-                <Radio size={24} label='Доступны по ховеру' value='hover' />
-                <Radio size={24} label='Без кнопок' value='never' />
-            </RadioGroup>
+
+            {!isMobile() && (
+                <React.Fragment>
+                    <Gap size={24} />
+                    <RadioGroup
+                        label='Кнопки'
+                        direction='vertical'
+                        name='height'
+                        onChange={handleNavigationChange}
+                        value={navigationState}
+                    >
+                        <Radio size={24} label='Доступны всегда' value='always' />
+                        <Radio size={24} label='Доступны по ховеру' value='hover' />
+                        <Radio size={24} label='Без кнопок' value='never' />
+                    </RadioGroup>
+                </React.Fragment>
+            )}
             <Gap size={24} />
             <RadioGroup
                 label='Поведение'
