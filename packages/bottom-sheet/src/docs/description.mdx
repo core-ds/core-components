@@ -60,8 +60,6 @@ const Header = () => {
     );
 };
 
-const slides = Array.from({ length: 4 }, (_, i) => ({ children: <div>{`Slide ${i}`}</div> }));
-
 render(() => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -98,17 +96,7 @@ render(() => {
                 actionButton={<div style={footerStyle} />}
                 showSwipeMarker={false}
             >
-                <Carousel
-                  items={slides}
-                  visibleItems={2.4}
-                  gap={0}
-                  height={120}
-                  PageIndicator={PageIndicatorStep}
-                  pageIndicatorProps={{
-                      cycle: true,
-                      duration: 2000,
-                  }}
-        />
+                <div style={contentStyle} />
             </BottomSheet>
         </Container>
     );
