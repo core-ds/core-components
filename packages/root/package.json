@@ -30,6 +30,7 @@
         "@alfalab/core-components-calendar-range": "^9.0.9",
         "@alfalab/core-components-calendar-with-skeleton": "^7.0.8",
         "@alfalab/core-components-card-image": "^5.0.2",
+        "@alfalab/core-components-carousel": "^0.0.1",
         "@alfalab/core-components-cdn-icon": "^7.1.2",
         "@alfalab/core-components-chart": "^5.0.4",
         "@alfalab/core-components-checkbox": "^6.2.0",
