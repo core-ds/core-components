@@ -8,7 +8,7 @@ import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 import { AnimatedWrapper } from './components/animated-wrapper';
 import { Layout as DefaultLayout } from './components/layout';
 import { Navigation as DefaultNavigation } from './components/navigation';
-import { type CoordsCallback, useMouseWheel, useSwipe } from './hook';
+import { type CoordsCallback, useMouseWheel, useSwipe } from './hooks';
 import {
     type BaseCarouselProps,
     type CarouselProps,
