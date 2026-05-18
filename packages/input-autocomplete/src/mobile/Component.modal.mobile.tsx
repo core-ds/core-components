@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InputAutocompleteMobileProps } from '../types';
+import { type InputAutocompleteMobileProps } from '../types';
 
 import { InputAutocompleteMobile } from './Component.mobile';
 

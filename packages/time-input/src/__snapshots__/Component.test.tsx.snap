@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`TimeInput Display tests should match snapshot 1`] = `
 <div>
   <div
-    class="component component size-48 size-48"
+    class="component component formControlDesktop size-48 size-48 size-48"
   >
     <div
-      class="inner inner inner inner filled"
+      class="field inner inner inner inner filled"
     >
       <div
         class="inputWrapper"
@@ -21,6 +21,9 @@ exports[`TimeInput Display tests should match snapshot 1`] = `
           />
         </div>
       </div>
+      <div
+        class="addons rightAddons rightAddons size-48"
+      />
     </div>
   </div>
 </div>

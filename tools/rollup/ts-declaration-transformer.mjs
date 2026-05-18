@@ -2,6 +2,8 @@ import path from 'node:path';
 import slash from 'slash';
 import ts from 'typescript';
 
+import { unquote } from '../utils.cjs';
+
 import { matchCoreComponentsModule } from './utils.mjs';
 
 /**
@@ -30,7 +32,6 @@ export function transformDeclarations(build) {
                                     const [, componentName, entryPoint] = match;
 
                                     return ts.factory.createExportDeclaration(
-                                        node.decorators,
                                         node.modifiers,
                                         node.isTypeOnly,
                                         node.exportClause,
@@ -38,7 +39,7 @@ export function transformDeclarations(build) {
                                             slash(path.join(componentName, build, entryPoint)),
                                             quote === "'",
                                         ),
-                                        node.assertClause,
+                                        node.attributes,
                                     );
                                 }
                             }
@@ -51,14 +52,13 @@ export function transformDeclarations(build) {
                                 const [, componentName, entryPoint] = match;
 
                                 return ts.factory.createImportDeclaration(
-                                    node.decorators,
                                     node.modifiers,
                                     node.importClause,
                                     ts.factory.createStringLiteral(
                                         slash(path.join(componentName, build, entryPoint)),
                                         quote === "'",
                                     ),
-                                    node.assertClause,
+                                    node.attributes,
                                 );
                             }
                         }
@@ -73,11 +73,4 @@ export function transformDeclarations(build) {
     };
 
     return transform;
-}
-
-/**
- * @param {string} text
- */
-function unquote(text) {
-    return text.replace(/(['"])(.*)(\1)/, '$2');
 }

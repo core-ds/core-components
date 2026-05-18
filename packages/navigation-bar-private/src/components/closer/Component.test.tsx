@@ -32,7 +32,7 @@ describe('Closer', () => {
     it('should have base style to inline', () => {
         const { getByRole } = renderComponent();
         const button = getByRole('button');
-        expect(button).toHaveStyle({ zIndex: 10, color: 'blue' });
+        expect(button).toHaveStyle({ 'z-index': 10, color: 'rgb(0, 0, 255)' });
     });
 
     it('should call onClose with "closerClick" reason when clicked', () => {

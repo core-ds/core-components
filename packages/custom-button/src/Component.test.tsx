@@ -137,6 +137,6 @@ describe('CustomButton', () => {
             </CustomButton>,
         );
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

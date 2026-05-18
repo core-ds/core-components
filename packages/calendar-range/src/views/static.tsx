@@ -1,12 +1,7 @@
 /* eslint-disable complexity */
-import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
+import React, { type FC, type MouseEvent, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
-import addMonths from 'date-fns/addMonths';
-import endOfMonth from 'date-fns/endOfMonth';
-import isSameMonth from 'date-fns/isSameMonth';
-import max from 'date-fns/max';
-import startOfMonth from 'date-fns/startOfMonth';
-import subMonths from 'date-fns/subMonths';
+import { addMonths, endOfMonth, isSameMonth, max, startOfMonth, subMonths } from 'date-fns';
 
 import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
 import { usePeriodWithReset } from '@alfalab/core-components-calendar/shared';
@@ -17,12 +12,12 @@ import {
 } from '@alfalab/core-components-calendar-input/shared';
 import {
     DateInput,
-    DateInputProps,
+    type DateInputProps,
     isCompleteDateInput,
 } from '@alfalab/core-components-date-input';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { CalendarRangeProps } from '../Component';
+import { type CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';
 import { useSelectionProps, useStaticViewMonthes } from '../hooks';
 import { isDayButton } from '../utils';
@@ -261,6 +256,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
         <div
             className={cn(styles.component, styles.static, className)}
+            // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
             onMouseOver={handleMouseOver}
             data-test-id={dataTestId}
         >

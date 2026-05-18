@@ -1,4 +1,4 @@
-import React, { MouseEvent, useContext } from 'react';
+import React, { type MouseEvent, useContext } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import CrossMIcon from '@alfalab/icons-glyph/CrossMIcon';
@@ -19,7 +19,7 @@ export const DeleteButton = () => {
     return (
         <IconButton
             className={styles.icon}
-            size='xxs'
+            size={24}
             aria-label='удалить'
             icon={<CrossMIcon className={styles.deleteIconColor} />}
             disabled={disableButtons}

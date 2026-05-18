@@ -5,9 +5,9 @@
 }
 
 .preset24 {
-    padding: var(--gap-3xs);
+    padding: var(--gap-2);
 }
 
 .preset48 {
-    padding: var(--gap-2xs);
+    padding: var(--gap-4);
 }

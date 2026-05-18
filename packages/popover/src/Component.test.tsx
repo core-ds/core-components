@@ -102,6 +102,6 @@ describe('Render tests', () => {
             anchorElement: document.body,
         });
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

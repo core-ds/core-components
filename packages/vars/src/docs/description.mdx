@@ -8,7 +8,8 @@ import colorsPfm from '!!raw-loader!../colors-pfm.css';
 import borderRadius from '!!raw-loader!../border-radius.css';
 import gaps from '!!raw-loader!../gaps.css';
 import shadowsBluetint from '!!raw-loader!../shadows-bluetint.css';
-import typography from '!!raw-loader!../typography.css';
+import typographyVars from '!!raw-loader!../typography-vars.css';
+import typographyMixins from '!!raw-loader!../typography.css';
 import mixins from '!!raw-loader!../mixins.css';
 
 ```css
@@ -139,7 +140,7 @@ vars.gap2xl === '32px'; //true
 
 #
 
-<CssVars css={typography} expandable />
+<CssVars css={typographyVars} expandable />
 &nbsp;
 
 #### Миксины
@@ -148,7 +149,7 @@ vars.gap2xl === '32px'; //true
 
 #
 
-<CssVars css={typography} expandable type='mixins' />
+<CssVars css={typographyMixins} expandable type='mixins' />
 &nbsp;
 
 #### Дополнительные миксины

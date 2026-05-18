@@ -1,12 +1,12 @@
 import React, {
-    ChangeEvent,
-    DetailedHTMLProps,
+    type ChangeEvent,
+    type DetailedHTMLProps,
     forwardRef,
-    InputHTMLAttributes,
-    LabelHTMLAttributes,
-    ReactNode,
-    Ref,
-    RefObject,
+    type InputHTMLAttributes,
+    type LabelHTMLAttributes,
+    type ReactNode,
+    type Ref,
+    type RefObject,
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
@@ -58,9 +58,9 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
 
     /**
      * Размер компонента
-     * @description s и m deprecated, используйте вместо них 20 и 24 соответственно
+     * @default 20
      */
-    size?: 's' | 'm' | 20 | 24;
+    size?: 20 | 24;
 
     /**
      * Доп. класс чекбокса
@@ -73,6 +73,26 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     contentClassName?: string;
 
     /**
+     * Доп. класс лейбла
+     */
+    labelClassName?: string;
+
+    /**
+     * Доп. класс подсказки
+     */
+    hintClassName?: string;
+
+    /**
+     * Доп. класс ошибки
+     */
+    errorClassName?: string;
+
+    /**
+     * Доп. класс дополнительного слота
+     */
+    addonsClassName?: string;
+
+    /**
      * Выравнивание
      */
     align?: Align;
@@ -80,7 +100,7 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     /**
      * Дополнительный слот
      */
-    addons?: React.ReactNode;
+    addons?: ReactNode;
 
     /**
      * Растягивать ли компонент на всю ширину
@@ -91,13 +111,6 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * Управление состоянием включен / выключен
      */
     disabled?: boolean;
-
-    /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props disabled
-     * Управление состоянием активен / неактивен
-     */
-    inactive?: boolean;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -113,6 +126,12 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * Отображение ошибки
      */
     error?: ReactNode | boolean;
+
+    /**
+     * Позиция чекбокса относительно контента
+     * @default 'before'
+     */
+    position?: 'before' | 'after';
 
     /**
      * Флаг для скрытия нативного инпута.
@@ -137,13 +156,6 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
     colors?: 'default' | 'inverted';
 };
 
-const SIZE_TO_CLASSNAME_MAP = {
-    s: 'size-20',
-    m: 'size-24',
-    20: 'size-20',
-    24: 'size-24',
-};
-
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
     (
         {
@@ -153,6 +165,11 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             size = 20,
             boxClassName,
             contentClassName,
+            labelClassName,
+            hintClassName,
+            errorClassName,
+            addonsClassName,
+            position = 'before',
             align = 'start',
             addons,
             block,
@@ -160,7 +177,6 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             className,
             name,
             disabled,
-            inactive,
             dataTestId,
             indeterminate = false,
             hiddenInput = false,
@@ -186,19 +202,30 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 
         const colorStyle = colorStyles[colors];
 
+        const renderCheckmark = () => (
+            <span className={cn(styles.box, colorStyle.box, boxClassName)}>
+                {checked && (
+                    <CheckIcon className={cn(styles.checkedIcon, colorStyle.checkedIcon)} />
+                )}
+                {indeterminate && !checked && (
+                    <span className={cn(styles.indeterminateLine, colorStyle.indeterminateLine)} />
+                )}
+            </span>
+        );
+
         return (
             <label
                 {...labelProps}
                 className={cn(
                     styles.component,
                     colorStyle.component,
-                    styles[SIZE_TO_CLASSNAME_MAP[size]],
+                    styles[`size-${size}`],
                     styles[align],
                     className,
                     labelProps?.className,
                     {
-                        [styles.disabled]: disabled || inactive,
-                        [colorStyle.disabled]: disabled || inactive,
+                        [styles.disabled]: disabled,
+                        [colorStyle.disabled]: disabled,
                         [styles.checked]: checked,
                         [colorStyle.checked]: checked,
                         [styles.indeterminate]: indeterminate,
@@ -214,29 +241,21 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         type='checkbox'
                         onChange={handleChange}
                         name={name}
-                        disabled={disabled || inactive}
+                        disabled={disabled}
                         checked={checked}
                         data-test-id={dataTestId}
                         ref={inputRef}
                         {...restProps}
                     />
                 )}
-                <span className={cn(styles.box, colorStyle.box, boxClassName)}>
-                    {checked && (
-                        <CheckIcon className={cn(styles.checkedIcon, colorStyle.checkedIcon)} />
-                    )}
-                    {indeterminate && !checked && (
-                        <span
-                            className={cn(styles.indeterminateLine, colorStyle.indeterminateLine)}
-                        />
-                    )}
-                </span>
+
+                {position === 'before' && renderCheckmark()}
 
                 {(label || hint || errorMessage) && (
                     <span className={cn(styles.content, contentClassName)}>
                         {label && (
                             <span
-                                className={cn(styles.label, colorStyle.label)}
+                                className={cn(styles.label, colorStyle.label, labelClassName)}
                                 data-test-id={getDataTestId(dataTestId, 'label')}
                             >
                                 {label}
@@ -245,7 +264,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 
                         {hint && !errorMessage && (
                             <span
-                                className={cn(styles.hint, colorStyle.hint)}
+                                className={cn(styles.hint, colorStyle.hint, hintClassName)}
                                 data-test-id={getDataTestId(dataTestId, 'hint')}
                             >
                                 {hint}
@@ -254,7 +273,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
 
                         {errorMessage && (
                             <span
-                                className={styles.errorMessage}
+                                className={cn(styles.errorMessage, errorClassName)}
                                 role='alert'
                                 data-test-id={getDataTestId(dataTestId, 'error')}
                             >
@@ -264,9 +283,14 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     </span>
                 )}
 
+                {position === 'after' && renderCheckmark()}
+
                 {addons && (
                     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-                    <span className={styles.addons} onClick={dom.preventDefault}>
+                    <span
+                        className={cn(styles.addons, addonsClassName)}
+                        onClick={dom.preventDefault}
+                    >
                         {addons}
                     </span>
                 )}

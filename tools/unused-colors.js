@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
-const child_process = require('child_process');
+const childProcess = require('child_process');
 const { promisify } = require('util');
 
-const exec = promisify(child_process.exec);
+const exec = promisify(childProcess.exec);
 const readFile = promisify(fs.readFile);
 
 // Ищет используемые и неиспользуемые производные цвета
@@ -16,8 +16,8 @@ const readFile = promisify(fs.readFile);
     const usages = [];
     const unused = [];
 
-    const job = color =>
-        findUsages(color).then(colorUsages => {
+    const job = (color) =>
+        findUsages(color).then((colorUsages) => {
             console.log(`${color} usages: `);
 
             if (colorUsages.length) {
@@ -32,7 +32,7 @@ const readFile = promisify(fs.readFile);
         });
 
     for (const colorsChunk of chunkArray(colors, 20)) {
-        await Promise.all(colorsChunk.map(color => job(color)));
+        await Promise.all(colorsChunk.map((color) => job(color)));
     }
 
     console.log({ usages, unused });
@@ -45,8 +45,10 @@ async function importColors(files) {
         const cssContent = await readFile(path, 'utf-8');
 
         const colors = [...cssContent.match(/--(.|\n)*?;/gm)]
-            .map(line => line.split(':')[0].trim())
-            .filter(color => /-(alpha|tint|shade)-/.test(color) && /-(light|static)-/.test(color));
+            .map((line) => line.split(':')[0].trim())
+            .filter(
+                (color) => /-(alpha|tint|shade)-/.test(color) && /-(light|static)-/.test(color),
+            );
 
         result.push(...colors);
     }
@@ -61,8 +63,8 @@ async function findUsages(color) {
         const usages = stdout
             .trim()
             .split('\n')
-            .filter(usage => {
-                const [fileName] = usage.split(':').map(s => s.trim());
+            .filter((usage) => {
+                const [fileName] = usage.split(':').map((s) => s.trim());
 
                 return fileName.includes('/themes/colors') === false;
             });

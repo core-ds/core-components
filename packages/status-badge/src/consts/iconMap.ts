@@ -12,7 +12,11 @@ import { StopBrickCompactMIcon } from '@alfalab/icons-glyph/StopBrickCompactMIco
 import { StopBrickMIcon } from '@alfalab/icons-glyph/StopBrickMIcon';
 import { StopBrickSIcon } from '@alfalab/icons-glyph/StopBrickSIcon';
 
-import { StatusBadgeIcon, StatusBadgeSizes, StatusBadgeViews } from '../types/statusBadgePropTypes';
+import {
+    type StatusBadgeIcon,
+    type StatusBadgeSizes,
+    type StatusBadgeViews,
+} from '../types/statusBadgePropTypes';
 
 export type IconMap = Record<
     StatusBadgeViews,

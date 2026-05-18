@@ -1,10 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import addMonths from 'date-fns/addMonths';
-import isEqual from 'date-fns/isEqual';
-import max from 'date-fns/max';
-import min from 'date-fns/min';
-import startOfMonth from 'date-fns/startOfMonth';
-import subMonths from 'date-fns/subMonths';
+import { addMonths, isEqual, max, min, startOfMonth, subMonths } from 'date-fns';
 
 export function usePopoverViewMonthes({
     dateFrom,
@@ -141,13 +136,13 @@ export function useStaticViewMonthes({
         const toMonthOnScreen = toMonthOnLeft || toMonthOnRight;
 
         if (fromMonthOnLeft && toMonthOnLeft) {
-            setMonthTo(max([addMonths(selectedFromMonth as number, 1), monthTo]).getTime());
+            setMonthTo(max([addMonths(selectedFromMonth, 1), monthTo]).getTime());
 
             return;
         }
 
         if (fromMonthOnRight && toMonthOnRight) {
-            setMonthFrom(min([subMonths(selectedToMonth as number, 1), monthFrom]).getTime());
+            setMonthFrom(min([subMonths(selectedToMonth, 1), monthFrom]).getTime());
 
             return;
         }
@@ -190,7 +185,7 @@ export function useSelectionProps(from?: number, to?: number, highlighted?: numb
             };
         }
 
-        const dates = [from, to, highlighted].filter((date) => date !== undefined) as number[];
+        const dates = [from, to, highlighted].filter((date) => date !== undefined);
 
         return {
             rangeComplete: false,

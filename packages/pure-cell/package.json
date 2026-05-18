@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pure-cell",
-    "version": "5.0.1",
+    "version": "6.0.6",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -9,12 +9,15 @@
     ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "dependencies": {
-        "@alfalab/core-components-amount": "^4.0.0",
-        "@alfalab/core-components-button": "^12.0.1",
-        "@alfalab/core-components-comment": "^3.0.1",
-        "@alfalab/core-components-shared": "^1.1.0",
-        "@alfalab/core-components-typography": "^5.0.1",
+        "@alfalab/core-components-amount": "^5.1.1",
+        "@alfalab/core-components-button": "^13.1.1",
+        "@alfalab/core-components-comment": "^4.0.4",
+        "@alfalab/core-components-shared": "^2.1.1",
+        "@alfalab/core-components-typography": "^6.0.4",
         "@alfalab/data": "^1.9.2",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
@@ -22,13 +25,13 @@
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
     },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.1",
-    "varsVersion": "10.1.0"
+    "themesVersion": "15.0.4",
+    "varsVersion": "11.0.2"
 }

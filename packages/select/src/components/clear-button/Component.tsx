@@ -5,7 +5,7 @@ import { Button } from '@alfalab/core-components-button';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
-import { ClearButtonProps } from '../../typings';
+import { type ClearButtonProps } from '../../typings';
 
 import styles from './index.module.css';
 

@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
-import { Footer, FooterProps } from './Component';
+import { Footer, type FooterProps } from './Component';
 
 import styles from './mobile.module.css';
 

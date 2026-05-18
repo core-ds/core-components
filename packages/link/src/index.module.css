@@ -3,7 +3,7 @@
 .component {
     box-sizing: border-box;
     text-decoration: none;
-    font-family: var(--font-family);
+    font-family: inherit;
     cursor: pointer;
     outline: none;
 
@@ -26,7 +26,9 @@
 
 .text {
     border-bottom: 1px solid;
-    transition: border 0.2s ease, color 0.2s ease;
+    transition:
+        border 0.2s ease,
+        color 0.2s ease;
 }
 
 .focused {

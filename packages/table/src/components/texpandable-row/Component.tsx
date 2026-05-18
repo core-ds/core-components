@@ -1,7 +1,7 @@
-import React, { forwardRef, ReactNode, Ref, useState } from 'react';
+import React, { forwardRef, type ReactNode, type Ref, useState } from 'react';
 import cn from 'classnames';
 
-import { TRow, TRowProps } from '../trow';
+import { TRow, type TRowProps } from '../trow';
 
 import styles from './index.module.css';
 
@@ -35,7 +35,7 @@ export const TExpandableRow = forwardRef<HTMLTableRowElement, TExpandableRowProp
 
         const uncontrolled = expanded === undefined;
 
-        const isExpanded = (uncontrolled ? expandedState : expanded) as boolean;
+        const isExpanded = uncontrolled ? expandedState : expanded;
 
         const handleToggle = () => {
             if (uncontrolled) {

@@ -119,7 +119,7 @@ describe('ActionButton', () => {
 
         await userEvent.click(screen.getByRole('button'));
 
-        expect(cb).toBeCalledTimes(1);
+        expect(cb).toHaveBeenCalledTimes(1);
     });
 
     it('should have data-test-id', () => {

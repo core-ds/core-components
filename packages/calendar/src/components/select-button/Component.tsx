@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { type ButtonHTMLAttributes, forwardRef } from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
@@ -23,7 +23,7 @@ export const SelectButton = forwardRef<HTMLButtonElement, SelectButtonProps>(
             {...restProps}
             ref={ref}
             view='text'
-            size='xs'
+            size={40}
             className={cn(styles.button, styles[view], className)}
         >
             {children}

@@ -1,11 +1,10 @@
-import React, { FC, useCallback } from 'react';
+import React, { type FC, useCallback } from 'react';
 import cn from 'classnames';
-import isSameMonth from 'date-fns/isSameMonth';
-import isThisMonth from 'date-fns/isThisMonth';
+import { isSameMonth, isThisMonth } from 'date-fns';
 
-import { Month } from '../../typings';
+import { type Month } from '../../typings';
 import { monthName } from '../../utils';
-import { SelectButton, SelectButtonProps } from '../select-button';
+import { SelectButton, type SelectButtonProps } from '../select-button';
 
 import styles from './index.module.css';
 

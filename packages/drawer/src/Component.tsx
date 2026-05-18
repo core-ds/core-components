@@ -1,9 +1,13 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useMemo, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { TransitionProps } from 'react-transition-group/Transition';
+import { type TransitionProps } from 'react-transition-group/Transition';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalContext, BaseModalProps } from '@alfalab/core-components-base-modal';
+import {
+    BaseModal,
+    BaseModalContext,
+    type BaseModalProps,
+} from '@alfalab/core-components-base-modal';
 
 import styles from './index.module.css';
 
@@ -70,6 +74,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
         },
         ref,
     ) => {
+        const nodeRef = useRef<HTMLDivElement>(null);
         const isRightPlacement = placement === 'right';
         const isLeftPlacement = placement === 'left';
 
@@ -113,11 +118,14 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                 backdropProps={{ ...backdropProps, ...restProps.backdropProps }}
             >
                 <CSSTransition
+                    nodeRef={nodeRef}
                     {...{ ...contentProps, ...contentTransitionProps }}
                     appear={true}
                     in={open}
                 >
-                    <div className={styles.content}>{children}</div>
+                    <div ref={nodeRef} className={styles.content}>
+                        {children}
+                    </div>
                 </CSSTransition>
             </BaseModal>
         );

@@ -12,7 +12,7 @@
     padding-top: var(--select-options-list-offset);
     padding-bottom: var(--select-options-list-offset);
     background: transparent;
-    border-radius: 0;
+    border-radius: var(--border-radius-0);
     position: relative;
 }
 

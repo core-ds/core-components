@@ -4,5 +4,5 @@
     --calendar-icon-color: var(--color-light-neutral-translucent-700);
 
     /* border */
-    --calendar-popover-border-radius: var(--border-radius-8);
+    --calendar-popover-border-radius: var(--border-radius-16);
 }

@@ -1,39 +1,43 @@
 #!/usr/bin/env node
 
-import path from 'node:path';
-import { cwd, exit } from 'node:process';
+import * as process from 'node:process';
 
+import { ESLINT_IGNORED_PACKAGES } from '../tools/eslint.cjs';
 import { $ } from '../tools/execa.mjs';
-import { readPackagesFile } from '../tools/read-packages-file.cjs';
 
 async function main() {
-    const ESLINT_IGNORED_PACKAGES = await readPackagesFile(
-        path.resolve(cwd(), 'tools/.eslint-ignored-packages'),
-    );
-
     const exitCodes = (
         await Promise.all([
-            $('eslint', ['bin', 'tools', '--ext', '.cjs,.mjs,.js', '--max-warnings', '0'], {
-                preferLocal: true,
-                stdio: 'inherit',
-                reject: false,
-            }),
             $(
-                'lerna',
+                'eslint',
                 [
+                    'bin',
+                    'tools',
+                    '--ext',
+                    '.js,.jsx,.ts,.tsx,.mjs,.mts,.cjs,.cts',
+                    '--max-warnings',
+                    '0',
+                ],
+                {
+                    preferLocal: true,
+                    stdio: 'inherit',
+                    reject: false,
+                },
+            ),
+            $(
+                'yarn',
+                [
+                    'workspaces',
+                    'foreach',
+                    '-Ap',
+                    ...ESLINT_IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
                     'exec',
-                    '--no-bail',
-                    '--stream',
-                    ...ESLINT_IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
-                    '--',
                     'eslint',
                     'src',
                     '--ext',
-                    '.ts,.tsx,.js,.jsx',
+                    '.js,.jsx,.ts,.tsx,.mjs,.mts,.cjs,.cts',
                     '--max-warnings',
                     '0',
-                    '--config',
-                    path.resolve(cwd(), '.eslintrc.cjs'),
                 ],
                 {
                     preferLocal: true,
@@ -44,11 +48,9 @@ async function main() {
         ])
     ).map(({ exitCode }) => exitCode);
 
-    if (exitCodes.every((exitCode) => exitCode === 0)) {
-        return;
+    if (exitCodes.every((exitCode) => exitCode !== 0)) {
+        process.exit(1);
     }
-
-    exit(1);
 }
 
 await main();

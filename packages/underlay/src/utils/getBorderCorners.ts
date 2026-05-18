@@ -1,4 +1,4 @@
-import type { CornersRadiusType, UnderlayBorderRadius } from '../types';
+import { type CornersRadiusType, type UnderlayBorderRadius } from '../types';
 
 import styles from '../index.module.css';
 
@@ -6,7 +6,7 @@ export const getBorderCorners = (
     borderRadius: UnderlayBorderRadius | CornersRadiusType | undefined,
 ) => {
     const bordersSize =
-        typeof borderRadius === 'string'
+        typeof borderRadius === 'number'
             ? {
                   bottomRight: borderRadius,
                   bottomLeft: borderRadius,

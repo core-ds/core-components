@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-markdown",
-    "version": "2.1.0",
+    "version": "3.0.8",
     "description": "",
     "license": "MIT",
     "sideEffects": [
@@ -8,25 +8,28 @@
     ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "dependencies": {
-        "@alfalab/core-components-link": "^6.0.0",
-        "@alfalab/core-components-list": "^4.0.1",
-        "@alfalab/core-components-mq": "^5.0.1",
-        "@alfalab/core-components-typography": "^5.0.1",
+        "@alfalab/core-components-link": "^7.0.2",
+        "@alfalab/core-components-list": "^5.0.4",
+        "@alfalab/core-components-mq": "^6.0.3",
+        "@alfalab/core-components-typography": "^6.0.4",
         "classnames": "^2.5.1",
         "mdast-util-gfm-strikethrough": "^0.2.3",
         "micromark-extension-gfm-strikethrough": "^0.6.5",
-        "react-markdown": "6.0.2",
+        "react-markdown": "9.1.0",
         "tslib": "^2.4.0"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1 || ^18.0.0",
-        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0"
+        "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0"
     },
     "publishConfig": {
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "14.1.1",
-    "varsVersion": "10.1.0"
+    "themesVersion": "15.0.4",
+    "varsVersion": "11.0.2"
 }

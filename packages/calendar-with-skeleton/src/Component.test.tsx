@@ -30,7 +30,7 @@ describe('Calendar', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<CalendarWithSkeleton value={defaultValue} />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

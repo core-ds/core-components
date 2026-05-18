@@ -1,45 +1,41 @@
+// @ts-check
+
 /* eslint-disable @typescript-eslint/no-var-requires, import/no-extraneous-dependencies */
 const fs = require('node:fs');
 const path = require('node:path');
-const resolve = require('resolve/sync');
-
-const ignored = ['.eslintignore', '.gitignore']
-    .map((file) => path.join(process.cwd(), file))
-    .filter((file) => fs.existsSync(file))
-    .map((file) => fs.readFileSync(file, { encoding: 'utf8' }))
-    .flatMap((content) => content.split('\n'))
-    .map((line) => line.trim())
-    .filter((str) => str.length > 0)
-    .map((pattern) =>
-        /**
-         * ./src/foo.ts -> src/foo.ts
-         * /src/bar.ts -> src/bar.ts
-         */
-        pattern.replace(/^\.?\/(.*)/, '$1'),
-    );
+const resolve = require('resolve');
 
 /**
- * @type {import('eslint').Linter.Config}
+ * @type {import('eslint').Linter.LegacyConfig}
  */
 const config = {
     root: true,
-    env: {
-        es2023: true,
-    },
     parserOptions: {
-        project: [path.join(process.cwd(), 'tsconfig.json')],
+        project: ['tsconfig.json', 'tsconfig.eslint.json']
+            .map((tsConfigFile) => path.join(process.cwd(), tsConfigFile))
+            .filter((tsConfigPath) => fs.existsSync(tsConfigPath)),
     },
-    ignorePatterns: ['**/*.test*', '**/*.stories*', ...ignored],
-    extends: resolve('arui-presets-lint/eslint', { basedir: __dirname }),
+    ignorePatterns: ['**/*.test.*', '**/*.stories.*', '**/dist/**', '**/node_modules/**'],
+    extends: resolve.sync('@alfalab/lint-preset/eslint', { basedir: __dirname }),
     overrides: [
         {
             files: ['**/*.tsx', '**/*.ts', '**/*.jsx', '**/*.js'],
             rules: {
-                'import/no-extraneous-dependencies': 0,
-                'unicorn/filename-case': 0,
-                'react/no-unused-prop-types': 0,
-                'dirnames/match-kebab-case': 0,
-                'import/no-relative-packages': 0,
+                'import/no-extraneous-dependencies': 'off',
+                'unicorn/filename-case': 'off',
+                'react/no-unused-prop-types': 'off',
+                'dirnames/match-kebab-case': 'off',
+                'import/no-relative-packages': 'off',
+            },
+        },
+        {
+            files: '*.d.{ts,cts,mts}',
+            rules: {
+                // ts backport capability
+                'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+                '@typescript-eslint/consistent-type-imports': 'off',
+                'import/no-useless-path-segments': 'off',
+                'import/no-named-default': 'off',
             },
         },
     ],
@@ -52,6 +48,9 @@ const config = {
             },
         ],
         'multiline-comment-style': ['error', 'starred-block'],
+        '@typescript-eslint/default-param-last': 'off',
+        'max-lines': 'off',
+        'max-params': 'off',
     },
 };
 

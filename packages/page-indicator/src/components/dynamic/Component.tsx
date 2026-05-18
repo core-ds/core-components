@@ -9,7 +9,7 @@ import {
     noop,
 } from '@alfalab/core-components-shared';
 
-import { PageIndicatorDynamicProps } from '../../types';
+import { type PageIndicatorDynamicProps } from '../../types';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';

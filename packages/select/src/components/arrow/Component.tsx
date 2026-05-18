@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { ChevronDownSIcon } from '@alfalab/icons-glyph/ChevronDownSIcon';
 
-import { ArrowProps } from '../../typings';
+import { type ArrowProps } from '../../typings';
 
 import styles from './index.module.css';
 

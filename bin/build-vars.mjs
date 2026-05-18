@@ -1,4 +1,3 @@
-import { globby } from 'globby';
 import handlebars from 'handlebars';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -9,6 +8,7 @@ import exportCustomVariables, {
     defaultPropertySetAssigner,
 } from 'postcss-export-custom-variables';
 import postcssImport from 'postcss-import';
+import { glob } from 'tinyglobby';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -69,7 +69,7 @@ async function cssVarsExporter(rawVariables, options, deprecated = {}) {
 }
 
 async function buildCssIndex() {
-    const matches = await globby('src/*index.css');
+    const matches = await glob('src/*index.css');
 
     return Promise.all(
         matches.map(async (cssPath) => {
@@ -85,7 +85,7 @@ async function buildCssIndex() {
 }
 
 async function buildPalettes() {
-    const matches = await globby('src/{colors,shadows}*.css');
+    const matches = await glob('src/{colors,shadows}*.css');
 
     return Promise.all(
         matches.map(async (cssPath) => {

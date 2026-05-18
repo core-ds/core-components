@@ -122,6 +122,6 @@ describe('Badge', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Badge view='count' />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

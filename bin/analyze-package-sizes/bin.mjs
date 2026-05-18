@@ -12,23 +12,25 @@ async function main() {
     // clean
     await Promise.all([
         $('rimraf', ['package-sizes.json']),
-        $('lerna', [
+        $('yarn', [
+            'workspaces',
+            'foreach',
+            '-Ap',
+            ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
             'exec',
-            '--stream',
-            ...IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
-            '--',
             'rimraf',
             'package-size.json',
         ]),
     ]);
 
     await $(
-        'lerna',
+        'yarn',
         [
+            'workspaces',
+            'foreach',
+            '-Ap',
+            ...IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
             'exec',
-            '--stream',
-            ...IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
-            '--',
             'node',
             path.join(dirname, 'analyze-and-report.mjs'),
         ],

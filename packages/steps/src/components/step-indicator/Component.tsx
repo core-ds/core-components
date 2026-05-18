@@ -1,18 +1,21 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Badge, BadgeProps } from '@alfalab/core-components-badge';
+import { type BadgeProps } from '@alfalab/core-components-badge';
+import { StatusBadge, type StatusBadgeProps } from '@alfalab/core-components-status-badge';
 
 import styles from './index.module.css';
 
+/** @description В `@alfalab/core-components@51.0.0` тип будет изменен на Pick<StatusBadgeProps, 'view' | 'className' | 'colors'> */
 export type StepIndicatorProps = Pick<BadgeProps, 'content' | 'iconColor' | 'className'>;
 
-export const StepIndicator: React.FC<StepIndicatorProps> = ({ content, iconColor, className }) => (
-    <Badge
-        size='l'
-        view='icon'
-        iconColor={iconColor}
+type StatusBadgeIndicatorProps = Pick<StatusBadgeProps, 'view' | 'className' | 'colors'>;
+
+export const StepIndicator: React.FC<StatusBadgeIndicatorProps> = ({ view, className, colors }) => (
+    <StatusBadge
+        size={24}
+        view={view}
+        colors={colors}
         className={cn(styles.component, className)}
-        content={content}
     />
 );

@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`SliderInput should match snapshot 1`] = `
 <div>
   <div
-    class="component size-48"
+    class="component bold size-48"
   >
     <div
-      class="component component input size-48 size-48 block"
+      class="component component input formControlDesktop size-48 size-48 size-48 block"
     >
       <div
-        class="field size-48 inner inner inner inner"
+        class="field size-48 field inner inner inner inner"
       >
         <div
           class="inputWrapper"
@@ -26,9 +26,12 @@ exports[`SliderInput should match snapshot 1`] = `
             />
           </div>
         </div>
+        <div
+          class="addons rightAddons rightAddons size-48"
+        />
       </div>
       <div
-        class="component slider size-48 size-2 noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
+        class="component slider size-48 size-2 dotsHidden noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr noUi-state-tap"
       >
         <div
           class="noUi-base"

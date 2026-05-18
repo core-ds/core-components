@@ -1,27 +1,31 @@
 /* eslint-disable @typescript-eslint/no-var-requires, global-require */
 
 const fse = require('fs-extra');
-const { globbySync } = require('globby');
+const { globSync } = require('tinyglobby');
 const { resolveInternal } = require('./tools/resolve-internal.cjs');
 
 module.exports = {
     plugins: [
         require('postcss-import')({}),
         require('postcss-for')({}),
-        require('postcss-each')({}),
+        require('./tools/postcss/postcss-each.cjs')({}),
         require('./tools/postcss/postcss-subtract-mixin.cjs')({}),
         require('postcss-mixins')({
-            mixinsFiles: globbySync('src/*.css', {
-                ignore: ['**/alfasans-*.css'],
+            mixinsFiles: globSync('src/*.css', {
                 cwd: resolveInternal('@alfalab/core-components-vars'),
                 absolute: true,
             }),
         }),
+        require('postcss-simple-vars')({
+            unknown: (node, name, result) => {
+                node.warn(result, `Unresolved variable ${name}`);
+            },
+        }),
+        require('postcss-color-mod-function')({ unresolved: 'ignore' }),
         require('postcss-preset-env')({
             stage: 3,
             features: {
                 'nesting-rules': true,
-                'color-mod-function': { unresolved: 'ignore' },
                 'custom-properties': false,
             },
         }),
@@ -33,8 +37,5 @@ module.exports = {
                 ),
             },
         }),
-        ...(process.env.BUILD_WITHOUT_CSS_VARS === 'true'
-            ? [require('postcss-custom-properties')({ preserve: false })]
-            : []),
     ],
 };

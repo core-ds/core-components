@@ -1,16 +1,16 @@
-import React, { Ref, useEffect, useMemo, useRef } from 'react';
+import React, { type Ref, useEffect, useMemo, useRef } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import {
     PickerButtonDesktop,
-    PickerButtonDesktopProps,
+    type PickerButtonDesktopProps,
 } from '@alfalab/core-components-picker-button/desktop';
 
 import { useTablistTitles } from '../../hooks/use-tablist-titles';
 import { createSyntheticMouseEvent } from '../../synthetic-events';
-import { TabListProps } from '../../typings';
+import { type TabListProps } from '../../typings';
 import { Title } from '../title';
 
 import styles from './index.module.css';
@@ -66,6 +66,7 @@ export const CollapsiblePrimaryTabList = ({
                                     ref={toggleRef as Ref<HTMLButtonElement>}
                                     styles={styles}
                                     isOption={true}
+                                    className={styles.noTextStyle}
                                 />
                             ),
                         });
@@ -111,6 +112,7 @@ export const CollapsiblePrimaryTabList = ({
                             styles={styles}
                             showSkeleton={showSkeleton}
                             skeletonProps={skeletonProps}
+                            className={cn({ [styles.noTextStyle]: !textStyle })}
                         />
                     )}
                 </KeyboardFocusable>
@@ -128,7 +130,7 @@ export const CollapsiblePrimaryTabList = ({
                                 <Badge view='count' content={collapsedAddonsLength} />
                             ) : null
                         }
-                        size='m'
+                        size={56}
                         view='text'
                         label='Ещё'
                         popoverPosition='bottom-end'

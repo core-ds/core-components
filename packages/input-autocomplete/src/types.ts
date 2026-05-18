@@ -1,9 +1,9 @@
-import type { ComponentType, RefAttributes } from 'react';
+import { type ComponentType, type RefAttributes } from 'react';
 
-import type { InputProps } from '@alfalab/core-components-input';
-import type {
-    BaseSelectProps,
-    BottomSheetSelectMobileProps,
+import { type InputProps } from '@alfalab/core-components-input';
+import {
+    type BaseSelectProps,
+    type BottomSheetSelectMobileProps,
 } from '@alfalab/core-components-select/shared';
 
 type OnInputTypeReason = 'close' | 'change';
@@ -11,13 +11,7 @@ type OnInputTypeReason = 'close' | 'change';
 export interface InputAutocompleteCommonProps
     extends Omit<
         BaseSelectProps,
-        | 'autocomplete'
-        | 'Field'
-        | 'nativeSelect'
-        | 'searchProps'
-        | 'showSearch'
-        | 'Search'
-        | 'valueRenderer'
+        'autocomplete' | 'nativeSelect' | 'showSearch' | 'valueRenderer'
     > {
     /**
      * Компонент ввода значения

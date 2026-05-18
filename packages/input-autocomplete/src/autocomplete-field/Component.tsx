@@ -1,13 +1,13 @@
-import React, { useCallback, useRef } from 'react';
+import React, { Fragment, useCallback, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { InputProps } from '@alfalab/core-components-input';
+import { type InputProps } from '@alfalab/core-components-input';
 import { InputDesktop as DefaultInput } from '@alfalab/core-components-input/desktop';
-import type { FieldProps } from '@alfalab/core-components-select/shared';
+import { type FieldProps } from '@alfalab/core-components-select/shared';
 
 import { OnInputReason } from '../enums';
-import { InputAutocompleteCommonProps } from '../types';
+import { type InputAutocompleteCommonProps } from '../types';
 
 import styles from './index.module.css';
 
@@ -52,6 +52,29 @@ export const AutocompleteField = ({
     const handleInput: InputProps['onChange'] = (_, payload) =>
         onInput?.(payload.value, OnInputReason.Change);
 
+    /**
+     * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+     * [4] - Clear
+     * [3] - Status (error, success)
+     * [2] - Common (info, e.g.)
+     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+     * [0] - Lock
+     */
+    const renderRightAddons = () => (
+        <Fragment>
+            {inputProps.rightAddons}
+            {Arrow && !inputDisabled && (
+                <span
+                    className={cn(styles.arrow, {
+                        [styles.error]: error,
+                    })}
+                >
+                    {Arrow}
+                </span>
+            )}
+        </Fragment>
+    );
+
     return (
         <Input
             dataTestId={dataTestId}
@@ -77,22 +100,7 @@ export const AutocompleteField = ({
             onFocus={inputDisabled ? undefined : onFocus}
             autoComplete='off'
             value={value}
-            rightAddons={
-                (Arrow || inputProps.rightAddons) && (
-                    <React.Fragment>
-                        {inputProps.rightAddons}
-                        {Arrow && (
-                            <span
-                                className={cn(styles.arrow, {
-                                    [styles.error]: error,
-                                })}
-                            >
-                                {Arrow}
-                            </span>
-                        )}
-                    </React.Fragment>
-                )
-            }
+            rightAddons={renderRightAddons()}
         />
     );
 };

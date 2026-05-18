@@ -89,7 +89,9 @@
 }
 
 .textarea::placeholder {
-    transition: opacity 0.2s ease, color 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        color 0.2s ease;
 }
 
 .hasInnerLabel::placeholder {
@@ -261,4 +263,25 @@
 /** Нужно чтобы нативная икона resize была прижата к краю */
 .resizable-40.resizable-40 {
     padding-right: 0;
+}
+
+.rightAddonsClassName {
+    align-self: flex-start;
+
+    &.size-40,
+    &.size-48 {
+        padding-top: var(--gap-12);
+    }
+
+    &.size-56 {
+        padding-top: var(--gap-16);
+    }
+
+    &.size-64 {
+        padding-top: var(--gap-20);
+    }
+
+    &.size-72 {
+        padding-top: var(--gap-24);
+    }
 }

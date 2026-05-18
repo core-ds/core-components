@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
-import { isErrorStatus, isSuccessStatus } from '../../utils';
+import { isErrorStatus, isLoadingStatus, isSuccessStatus } from '../../utils';
 
 import { ExtensionIcon } from './extension-icon';
 import { ProgressBar } from './progress-bar';
@@ -15,7 +15,9 @@ export const StatusControl = () => {
     const {
         uploadStatus = 'INITIAL',
         progressBar = 0,
+        progressBarAvailable = true,
         imageUrl,
+        backgroundColor,
         actionsPresent,
         isClickable,
     } = useContext(FileUploadItemContext);
@@ -24,22 +26,31 @@ export const StatusControl = () => {
     const measureDashoffset = strokeDasharray * (1 - progressBar / 100);
     const strokeDashoffset = Math.max(measureDashoffset, 0);
 
+    const hasFullStatus = isSuccessStatus(uploadStatus) || isErrorStatus(uploadStatus);
+
     return (
         <div
             className={cn(styles.container, {
                 [styles.clickable]: !actionsPresent && isClickable,
             })}
         >
-            <SuperEllipse size={48} {...(imageUrl && { imageUrl })}>
+            <SuperEllipse
+                backgroundColor={backgroundColor}
+                size={48}
+                {...(imageUrl && { imageUrl })}
+            >
                 <ExtensionIcon />
             </SuperEllipse>
+
             <ProgressBar
                 className={cn(styles.progress, {
-                    [styles.success]: isSuccessStatus(uploadStatus),
+                    [styles.loading]: !progressBarAvailable && isLoadingStatus(uploadStatus),
                     [styles.error]: isErrorStatus(uploadStatus),
+                    [styles.success]: isSuccessStatus(uploadStatus),
                 })}
                 strokeDasharray={strokeDasharray}
-                strokeDashoffset={strokeDashoffset}
+                strokeDashoffset={hasFullStatus ? 0 : strokeDashoffset}
+                isIndeterminate={!progressBarAvailable && isLoadingStatus(uploadStatus)}
             />
         </div>
     );

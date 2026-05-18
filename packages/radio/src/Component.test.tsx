@@ -98,7 +98,7 @@ describe('Radio', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<Radio />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 
@@ -112,7 +112,7 @@ describe('Radio', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).toBeCalledTimes(0);
+            expect(cb).toHaveBeenCalledTimes(0);
         });
 
         test('should call `onChange` prop if checked', () => {
@@ -124,7 +124,7 @@ describe('Radio', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         test('should not call `onChange` prop if disabled', () => {
@@ -136,7 +136,7 @@ describe('Radio', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         test('should not call `onChange` prop if disabled and checked', () => {
@@ -148,31 +148,31 @@ describe('Radio', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
-        test('should not call `onChange` prop if inactive', () => {
+        test('should not call `onChange` prop if disabled', () => {
             const cb = jest.fn();
 
-            const { container } = render(<Radio onChange={cb} inactive={true} />);
+            const { container } = render(<Radio onChange={cb} disabled={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
-        test('should not call `onChange` prop if inactive and checked', () => {
+        test('should not call `onChange` prop if disabled and checked', () => {
             const cb = jest.fn();
 
-            const { container } = render(<Radio onChange={cb} checked={true} inactive={true} />);
+            const { container } = render(<Radio onChange={cb} checked={true} disabled={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         test('should not call `onChange` on addon click', () => {
@@ -185,7 +185,7 @@ describe('Radio', () => {
 
             fireEvent.click(getByTestId(addonDti));
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
     });
 });

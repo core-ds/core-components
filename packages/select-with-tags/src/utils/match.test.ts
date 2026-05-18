@@ -43,6 +43,6 @@ describe('Filter options tests', () => {
 
         filterOptions(optionsGroup, 'cu', match);
 
-        expect(match).toBeCalled();
+        expect(match).toHaveBeenCalled();
     });
 });

@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { ImageCard, Overlay, Text } from '../components';
 import { WIDTH_TO_SIZE } from '../consts';
-import { SingleCommonProps } from '../typings';
+import { type SingleCommonProps } from '../typings';
 
 import styles from './index.module.css';
 
@@ -19,6 +19,7 @@ export const Single: FC<SingleCommonProps> = ({
     iconColor,
     backgroundColor,
     borderColor,
+    textColor,
     overlayProps = { colors: 'default', visible: false },
     eyeButton,
     cardholderNameUppercase,
@@ -77,6 +78,7 @@ export const Single: FC<SingleCommonProps> = ({
                     size={size}
                     onEyeIconClick={onEyeIconClick}
                     dataTestId={getDataTestId(dataTestId, 'user-info')}
+                    textColor={textColor}
                 />
             )}
 

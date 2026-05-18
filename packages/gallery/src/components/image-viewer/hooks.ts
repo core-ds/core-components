@@ -1,6 +1,6 @@
 import {
-    MouseEventHandler,
-    SyntheticEvent,
+    type MouseEventHandler,
+    type SyntheticEvent,
     useCallback,
     useContext,
     useEffect,

@@ -6,7 +6,7 @@ import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import { fnUtils } from '@alfalab/core-components-shared';
 
 import { useTabs } from '../../hooks/use-tabs';
-import { PlatformProps, Styles, TabListProps } from '../../typings';
+import { type PlatformProps, type Styles, type TabListProps } from '../../typings';
 import { ScrollableContainer } from '../scrollable-container';
 import { Title } from '../title';
 
@@ -82,6 +82,7 @@ export const PrimaryTabList = ({
                             showSkeleton={showSkeleton}
                             skeletonProps={skeletonProps}
                             onResize={handleTitleResize}
+                            className={cn({ [styles.noTextStyle]: !textStyle })}
                         />
                     )}
                 </KeyboardFocusable>

@@ -1,0 +1,33 @@
+@import '../vars.css';
+
+.formControlDesktop {
+    &.size-72 {
+        & .field {
+            border-radius: var(--input-desktop-border-radius-size-72);
+        }
+    }
+
+    &.size-64 {
+        & .field {
+            border-radius: var(--input-desktop-border-radius-size-64);
+        }
+    }
+
+    &.size-56 {
+        & .field {
+            border-radius: var(--input-desktop-border-radius-size-56);
+        }
+    }
+
+    &.size-48 {
+        & .field {
+            border-radius: var(--input-desktop-border-radius-size-48);
+        }
+    }
+
+    &.size-40 {
+        & .field {
+            border-radius: var(--input-desktop-border-radius-size-40);
+        }
+    }
+}

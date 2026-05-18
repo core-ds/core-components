@@ -1,7 +1,14 @@
-import React, { ComponentType, FC, ReactNode, useCallback, useRef, useState } from 'react';
+import React, {
+    type ComponentType,
+    type FC,
+    type ReactNode,
+    useCallback,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
-import { Overlay as DefaultOverlay, OverlayProps } from './components';
+import { Overlay as DefaultOverlay, type OverlayProps } from './components';
 import { preventAndStopEvent } from './utils';
 
 import styles from './index.module.css';
@@ -36,12 +43,6 @@ export type DropzoneProps = {
      * Растягивать ли компонент на всю ширину
      */
     block?: boolean;
-
-    /**
-     * @deprecated(используйте Overlay)
-     * Позволяет вручную управлять видимостью заглушки
-     */
-    overlayVisible?: boolean;
 
     /**
      * Компонент оверлея
@@ -85,7 +86,6 @@ export const Dropzone: FC<DropzoneProps> = ({
     children,
     text = 'Перетащите файлы',
     error = false,
-    overlayVisible,
     Overlay = DefaultOverlay,
     onDragEnter,
     onDragLeave,
@@ -103,7 +103,7 @@ export const Dropzone: FC<DropzoneProps> = ({
      */
     const dragCounter = useRef(0);
 
-    const isOverlayVisible = Boolean(dragOver || overlayVisible);
+    const isOverlayVisible = Boolean(dragOver);
 
     const handleDragOver = useCallback(
         (event: React.DragEvent<HTMLElement>) => {

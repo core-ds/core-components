@@ -1,15 +1,15 @@
-import React, { FC, useCallback, useContext, useEffect } from 'react';
+import React, { type FC, useCallback, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import {
     NavigationBarPrivate,
-    NavigationBarPrivateProps,
+    type NavigationBarPrivateProps,
 } from '@alfalab/core-components-navigation-bar-private';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
+import { getSizeStyle } from '../../utils';
 
 import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
@@ -64,7 +64,7 @@ export const Header: FC<HeaderProps> = ({
                 [styles.hasContent]: hasContent,
                 [desktopStyles.header]: view === 'desktop',
                 [desktopStyles.sticky]: view === 'desktop' && sticky,
-                [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop',
+                [desktopStyles[getSizeStyle(size)]]: view === 'desktop',
                 [mobileStyles.header]: view === 'mobile',
                 [mobileStyles.sticky]: view === 'mobile' && sticky,
             })}

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 
 import { useTabs } from '../../hooks/use-tabs';
-import { PlatformProps, SecondaryTabListProps, Styles } from '../../typings';
+import { type PlatformProps, type SecondaryTabListProps, type Styles } from '../../typings';
 import { ScrollableContainer } from '../scrollable-container';
 
 function getBorderRadius(
@@ -31,7 +31,7 @@ export const SecondaryTabList = ({
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
     fullWidthScroll,
-    tagSize = 'xs',
+    tagSize = 40,
     onChange,
     dataTestId,
     TagComponent,
@@ -87,7 +87,16 @@ export const SecondaryTabList = ({
                                 ...skeletonProps?.style,
                                 borderRadius: getBorderRadius(
                                     tagShape,
-                                    tagSize as SecondaryTabListProps['size'],
+                                    (
+                                        {
+                                            32: 'xxs',
+                                            40: 'xs',
+                                            48: 's',
+                                            56: 'm',
+                                            64: 'l',
+                                            72: 'xl',
+                                        } as const
+                                    )[tagSize],
                                     platform === 'mobile',
                                 ),
                             }}

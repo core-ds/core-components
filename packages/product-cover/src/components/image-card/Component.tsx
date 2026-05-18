@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { useId, useImageLoadingState } from '@alfalab/hooks';
 
@@ -99,8 +99,8 @@ export const ImageCard: FC<ImageCardProps> = ({
     const renderImageCard = () => {
         if (!imageFailed) {
             return (
+                // eslint-disable-next-line jsx-a11y/alt-text
                 <img
-                    alt='card'
                     className={styles.cardImage}
                     width={width}
                     height={height}

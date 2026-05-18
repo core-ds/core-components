@@ -1,4 +1,4 @@
-import { BasePassCodeProps } from './Component';
+import { type BasePassCodeProps } from './Component';
 
 type PropsWithUnknownLen = {
     codeLength?: never;

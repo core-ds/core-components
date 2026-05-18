@@ -1,4 +1,12 @@
-import React, { FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    type FC,
+    type MouseEvent,
+    type ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
@@ -148,7 +156,7 @@ export const Countdown: FC<CountdownProps> = ({
 
     const retryButton = (
         <Button
-            size='xs'
+            size={40}
             view='secondary'
             onClick={handleRepeatSmsButtonClick}
             className={styles.getCodeButton}

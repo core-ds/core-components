@@ -42,6 +42,36 @@ describe('Checkbox', () => {
             expect(container.querySelector('.box')).toHaveClass(className);
         });
 
+        it('should set labelClassName', () => {
+            const className = 'custom-label-class';
+            const { container } = render(<Checkbox label='label' labelClassName={className} />);
+
+            expect(container.querySelector('.label')).toHaveClass(className);
+        });
+
+        it('should set hintClassName', () => {
+            const className = 'custom-hint-class';
+            const { container } = render(<Checkbox hint='hint' hintClassName={className} />);
+
+            expect(container.querySelector('.hint')).toHaveClass(className);
+        });
+
+        it('should set errorClassName', () => {
+            const className = 'custom-error-class';
+            const { container } = render(<Checkbox error='error' errorClassName={className} />);
+
+            expect(container.querySelector('.errorMessage')).toHaveClass(className);
+        });
+
+        it('should set addonsClassName', () => {
+            const className = 'custom-addons-class';
+            const { container } = render(
+                <Checkbox addons={<span>addon</span>} addonsClassName={className} />,
+            );
+
+            expect(container.querySelector('.addons')).toHaveClass(className);
+        });
+
         it('should set `checked` class', () => {
             const { container } = render(<Checkbox checked={true} />);
 
@@ -115,7 +145,7 @@ describe('Checkbox', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<Checkbox />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 
@@ -129,7 +159,7 @@ describe('Checkbox', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         test('should not call `onChange` prop if disabled', () => {
@@ -141,7 +171,7 @@ describe('Checkbox', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         test('should not call `onChange` prop if disabled and checked', () => {
@@ -153,31 +183,31 @@ describe('Checkbox', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
-        test('should not call `onChange` prop if inactive', () => {
+        test('should not call `onChange` prop if disabled', () => {
             const cb = jest.fn();
 
-            const { container } = render(<Checkbox onChange={cb} inactive={true} />);
+            const { container } = render(<Checkbox onChange={cb} disabled={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
-        test('should not call `onChange` prop if inactive and checked', () => {
+        test('should not call `onChange` prop if disabled and checked', () => {
             const cb = jest.fn();
 
-            const { container } = render(<Checkbox onChange={cb} checked={true} inactive={true} />);
+            const { container } = render(<Checkbox onChange={cb} checked={true} disabled={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         test('should not call `onChange` on addon click', () => {
@@ -190,7 +220,7 @@ describe('Checkbox', () => {
 
             fireEvent.click(getByTestId(addonDti));
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
     });
 });

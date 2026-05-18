@@ -41,7 +41,7 @@ describe('CardImage', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<CardImage />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
 
         test('should have default baseUrl', () => {

@@ -1,4 +1,4 @@
-import { MouseEvent, RefObject } from 'react';
+import { type MouseEvent, type RefObject } from 'react';
 
 export type TBottomButton = {
     text: string;
@@ -15,6 +15,7 @@ export type GalleryImage = {
     previewSrc?: string;
     alt?: string;
     canDownload?: boolean;
+    canShare?: boolean;
     /**
      * Нижняя кнопка, есть только у видео
      */

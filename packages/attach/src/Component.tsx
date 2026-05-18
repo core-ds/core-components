@@ -1,8 +1,8 @@
 import React, {
-    ButtonHTMLAttributes,
-    ChangeEvent,
-    InputHTMLAttributes,
-    MouseEvent,
+    type ButtonHTMLAttributes,
+    type ChangeEvent,
+    type InputHTMLAttributes,
+    type MouseEvent,
     useEffect,
     useRef,
     useState,
@@ -10,7 +10,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
+import { Button, type ButtonProps } from '@alfalab/core-components-button';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
@@ -70,9 +70,8 @@ export type AttachProps = Omit<
     /**
      * Размер компонента
      * @default 48
-     * @description xxs, xs, s, m, l deprecated, используйте вместо них 32 , 40 , 48 , 56 , 64 соответственно
      */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 32 | 40 | 48 | 56 | 64;
+    size?: 32 | 40 | 48 | 56 | 64;
 
     /**
      * Возможность прикрепления нескольких файлов

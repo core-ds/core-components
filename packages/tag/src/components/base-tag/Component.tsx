@@ -1,4 +1,10 @@
-import React, { ButtonHTMLAttributes, forwardRef, ReactNode, RefObject, useRef } from 'react';
+import React, {
+    type ButtonHTMLAttributes,
+    forwardRef,
+    type ReactNode,
+    type RefObject,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
@@ -11,7 +17,7 @@ import invertedColors from './inverted.module.css';
 const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
-};
+} as const;
 
 export type StyleColors = {
     default: {
@@ -32,9 +38,8 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
 
     /**
      * Размер компонента
-     * @description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
      */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 32 | 40 | 48 | 56 | 64 | 72;
+    size?: 32 | 40 | 48 | 56 | 64 | 72;
 
     /**
      * Дочерние элементы.
@@ -118,21 +123,6 @@ export type BaseTagProps = Omit<NativeProps, 'onClick'> & {
     colorStylesMap?: StyleColors;
 };
 
-const SIZE_TO_CLASSNAME_MAP = {
-    xxs: 'size-32',
-    xs: 'size-40',
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    32: 'size-32',
-    40: 'size-40',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
-};
-
 export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
     (
         {
@@ -168,13 +158,15 @@ export const BaseTag = forwardRef<HTMLButtonElement, BaseTagProps>(
 
         const shapeClassName = shape || variantClassName;
 
+        const sizeClassName = `size-${size}`;
+
         const tagProps = {
             className: cn(
                 commonStyles.component,
                 colorCommonStyles[colors].component,
                 colorStyles.component,
-                commonStyles[SIZE_TO_CLASSNAME_MAP[size]],
-                styles[SIZE_TO_CLASSNAME_MAP[size]],
+                commonStyles[sizeClassName],
+                styles[sizeClassName],
                 colorCommonStyles[colors][view],
                 commonStyles[view],
                 {

@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { BaseCheckboxGroupProps } from './components/base-checkbox-group';
+import { type BaseCheckboxGroupProps } from './components/base-checkbox-group';
 import { CheckboxGroupDesktop } from './desktop';
 import { CheckboxGroupMobile } from './mobile';
 

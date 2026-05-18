@@ -151,7 +151,7 @@ describe('CalendarInput', () => {
             });
 
             await waitFor(() => {
-                expect(onCalendarOpen).toBeCalledTimes(1);
+                expect(onCalendarOpen).toHaveBeenCalledTimes(1);
             });
         });
 
@@ -171,7 +171,7 @@ describe('CalendarInput', () => {
 
             await waitFor(() => {
                 fireEvent.blur(component);
-                expect(onCalendarClose).toBeCalledTimes(1);
+                expect(onCalendarClose).toHaveBeenCalledTimes(1);
             });
         });
 
@@ -550,7 +550,7 @@ describe('CalendarInput', () => {
 
             const { date, value } = cb.mock.calls[0][1];
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(date).toBeTruthy();
             expect((date as Date).getTime()).toBe(defaultMonth);
             expect(value).toBe('01.11.2020');
@@ -571,7 +571,7 @@ describe('CalendarInput', () => {
 
             const date = cb.mock.calls[0][0];
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
             expect(date).toBeTruthy();
             expect(date).toBe(defaultMonth);
         });
@@ -601,7 +601,7 @@ describe('CalendarInput', () => {
 
             const payload = cb.mock.calls[value.length - 1][1];
 
-            expect(cb).toBeCalledTimes(value.length);
+            expect(cb).toHaveBeenCalledTimes(value.length);
             expect(payload.date).toBeTruthy();
             expect(payload.date.getTime()).toBe(defaultMonth);
             expect(payload.value).toBe('01.11.2020');
@@ -622,7 +622,7 @@ describe('CalendarInput', () => {
                 expect(input).toHaveValue(value);
             });
 
-            expect(cb).toBeCalledTimes(value.length);
+            expect(cb).toHaveBeenCalledTimes(value.length);
         });
 
         it('should not call onChange until the full date is entered', async () => {
@@ -648,7 +648,7 @@ describe('CalendarInput', () => {
                 { timeout: 2000 },
             );
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onChange if empty date is entered', async () => {
@@ -662,7 +662,7 @@ describe('CalendarInput', () => {
             input.setSelectionRange(0, 2);
             await userEvent.type(input, '{backspace}');
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
 
             const { date, value } = cb.mock.calls[0][1];
 
@@ -675,7 +675,7 @@ describe('CalendarInput', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<CalendarInput />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

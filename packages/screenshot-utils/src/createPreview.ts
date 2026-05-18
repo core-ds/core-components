@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-import { createStorybookUrl, CreateStorybookUrlParams } from './createStorybookUrl';
-import { closeBrowser, matchHtml, MatchHtmlParams, openBrowserPage } from './helpers';
+import { createStorybookUrl, type CreateStorybookUrlParams } from './createStorybookUrl';
+import { closeBrowser, matchHtml, type MatchHtmlParams, openBrowserPage } from './helpers';
 
 function runTest(
     { darkMode, ...restUrlParams }: CreateStorybookUrlParams,

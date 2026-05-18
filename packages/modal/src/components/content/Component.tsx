@@ -1,12 +1,12 @@
-import React, { FC, Ref, useContext } from 'react';
+import React, { type FC, type Ref, useContext } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import { ModalContext } from '../../Context';
 import { ResponsiveContext } from '../../ResponsiveContext';
-import { ContentProps } from '../../typings';
+import { type ContentProps } from '../../typings';
+import { getSizeStyle } from '../../utils';
 
 import desktopStyles from './desktop.module.css';
 import styles from './index.module.css';
@@ -21,7 +21,7 @@ export const Content: FC<ContentProps> = ({ children, flex, className }) => {
             className={cn(styles.content, className, {
                 [styles.flex]: flex,
                 [styles.withHeader]: hasHeader,
-                [desktopStyles[SIZE_TO_CLASSNAME_MAP[size]]]: view === 'desktop' && size,
+                [desktopStyles[getSizeStyle(size)]]: view === 'desktop' && size,
                 [mobileStyles.content]: view === 'mobile',
             })}
             ref={contentRef as Ref<HTMLDivElement>}

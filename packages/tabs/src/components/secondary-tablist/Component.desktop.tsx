@@ -3,7 +3,8 @@ import cn from 'classnames';
 
 import { TagDesktop } from '@alfalab/core-components-tag/desktop';
 
-import { SecondaryTabListProps } from '../../typings';
+import { type SecondaryTabListProps } from '../../typings';
+import { tabSizeToTagSize } from '../../utils';
 
 import { SecondaryTabList } from './Component';
 
@@ -25,7 +26,7 @@ export const SecondaryTabListDesktop = ({
         className={cn(className, styles.desktop, {
             [styles.transparentView]: tagView === 'transparent',
         })}
-        tagSize={size}
+        tagSize={tabSizeToTagSize(size)}
         tagView={tagView}
         platform='desktop'
     />

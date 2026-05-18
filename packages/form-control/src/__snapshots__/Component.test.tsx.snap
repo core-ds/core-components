@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`FormControl Snapshots tests should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -94,12 +94,12 @@ Object {
 `;
 
 exports[`FormControl Snapshots tests should not render hint if has error 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasRightAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner hasError"
@@ -123,7 +123,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasRightAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner hasError"
@@ -199,7 +199,7 @@ Object {
 `;
 
 exports[`FormControl Snapshots tests should render bottom addons 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -298,12 +298,12 @@ Object {
 `;
 
 exports[`FormControl Snapshots tests should render error 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasRightAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner hasError"
@@ -327,7 +327,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasRightAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner hasError"
@@ -403,7 +403,7 @@ Object {
 `;
 
 exports[`FormControl Snapshots tests should render hint 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -506,7 +506,7 @@ Object {
 `;
 
 exports[`FormControl Snapshots tests should render inner label 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -637,12 +637,12 @@ Object {
 `;
 
 exports[`FormControl Snapshots tests should render left addons 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasLeftAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -667,7 +667,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasLeftAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner"
@@ -744,7 +744,7 @@ Object {
 `;
 
 exports[`FormControl Snapshots tests should render outer label 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -851,12 +851,12 @@ Object {
 `;
 
 exports[`FormControl Snapshots tests should render right addons 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="component component size-48 size-48 hasRightAddons"
+        class="component component size-48 size-48"
       >
         <div
           class="inner inner inner inner"
@@ -881,7 +881,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component component size-48 size-48 hasRightAddons"
+      class="component component size-48 size-48"
     >
       <div
         class="inner inner inner inner"

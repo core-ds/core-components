@@ -1,26 +1,27 @@
-import React, { FC, useRef } from 'react';
+import React, { type FC, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { BaseModalProps } from '@alfalab/core-components-base-modal';
+import { type BaseModalProps } from '@alfalab/core-components-base-modal';
 import { Scrollbar } from '@alfalab/core-components-scrollbar';
 
 import { useModalHighlighted } from '../../hooks/use-modal-highlighted';
-import { useOutsideScroll } from '../../hooks/use-outside-scroll';
 import { useSetScrollbarHeight } from '../../hooks/use-set-scrollbar-height';
-import type { UniversalModalDesktopProps } from '../../types/props';
+import { type UniversalModalDesktopProps } from '../../types/props';
 import { setFooterAndHeaderRefs } from '../../utils/set-footer-and-header-refs';
 
 import styles from './modal-content.module.css';
 
-interface Props
-    extends Pick<BaseModalProps, 'children'>,
-        Pick<UniversalModalDesktopProps, 'height' | 'scrollableContainerRef'> {
-    wheelDeltaY: number;
-}
+type PickedBaseModalProps = Pick<BaseModalProps, 'children'>;
+type PickedUniversalModalDesktopProps = Pick<
+    UniversalModalDesktopProps,
+    'height' | 'scrollableContainerRef'
+>;
+
+type Props = PickedBaseModalProps & PickedUniversalModalDesktopProps;
 
 export const ModalContent: FC<Props> = (props) => {
-    const { children, wheelDeltaY, height, scrollableContainerRef = null } = props;
+    const { children, height, scrollableContainerRef = null } = props;
 
     const scrollableNodeRef = useRef<HTMLDivElement>(null);
     const scrollbarContentNodeRef = useRef<HTMLDivElement>(null);
@@ -30,8 +31,6 @@ export const ModalContent: FC<Props> = (props) => {
     const footerElementRef = useRef<HTMLDivElement | null>(null);
 
     const { handleScroll } = useModalHighlighted({ scrollbarContentNodeRef, scrollableNodeRef });
-
-    useOutsideScroll({ scrollableNodeRef, wheelDeltaY });
 
     const { enhancedChildren } = setFooterAndHeaderRefs({
         children,

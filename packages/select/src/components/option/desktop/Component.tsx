@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { OptionCommonProps } from '../../../typings';
+import { type OptionCommonProps } from '../../../typings';
 import { Checkmark as DefaultCheckMark } from '../../checkmark';
 import { OptionBase } from '../Component';
 

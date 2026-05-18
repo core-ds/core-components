@@ -1,6 +1,6 @@
-import { GroupShape, isGroup, OptionShape } from '@alfalab/core-components-select/shared';
+import { type GroupShape, isGroup, type OptionShape } from '@alfalab/core-components-select/shared';
 
-import { OptionMatcher, SelectWithTagsProps } from '../types';
+import { type OptionMatcher, type SelectWithTagsProps } from '../types';
 
 const defaultMatch: OptionMatcher = (option, inputValue) =>
     option.value.toLowerCase().indexOf((inputValue || '').toLowerCase(), 0) !== -1;

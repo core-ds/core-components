@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TabsProps } from '../../typings';
+import { type TabsProps } from '../../typings';
 import { CollapsiblePrimaryTabList } from '../primary-tablist/Component.collapsible';
 
 import { Tabs } from './Component';

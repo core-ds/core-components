@@ -1,7 +1,7 @@
-import React, { FC, ReactElement, ReactNode } from 'react';
+import React, { type FC, type ReactElement, type ReactNode } from 'react';
 import cn from 'classnames';
 
-import { ButtonProps } from '@alfalab/core-components-button';
+import { type ButtonProps } from '@alfalab/core-components-button';
 
 export type ButtonListProps = {
     /**
@@ -35,8 +35,8 @@ export const ButtonList: FC<ButtonListProps> = ({
                         ? React.cloneElement(button, {
                               // eslint-disable-next-line react/no-array-index-key
                               key: index,
-                              size: 'xxs',
-                              view: index === 0 ? 'secondary' : 'link',
+                              size: 32,
+                              view: index === 0 ? 'secondary' : 'transparent',
                               className: cn(button.props.className, buttonClassName),
                           })
                         : null,

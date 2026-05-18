@@ -67,7 +67,7 @@ describe('Switch', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<Switch />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 
@@ -81,7 +81,7 @@ describe('Switch', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         test('should not call `onChange` prop if disabled', () => {
@@ -93,7 +93,7 @@ describe('Switch', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         test('should not call `onChange` prop if disabled and checked', () => {
@@ -105,31 +105,31 @@ describe('Switch', () => {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
-        test('should not call `onChange` prop if inactive', () => {
+        test('should not call `onChange` prop if disabled', () => {
             const cb = jest.fn();
 
-            const { container } = render(<Switch onChange={cb} inactive={true} />);
+            const { container } = render(<Switch onChange={cb} disabled={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
-        test('should not call `onChange` prop if inactive and checked', () => {
+        test('should not call `onChange` prop if disabled and checked', () => {
             const cb = jest.fn();
 
-            const { container } = render(<Switch onChange={cb} checked={true} inactive={true} />);
+            const { container } = render(<Switch onChange={cb} checked={true} disabled={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
 
         test('should not call `onChange` on addon click', () => {
@@ -142,7 +142,7 @@ describe('Switch', () => {
 
             fireEvent.click(getByTestId(addonDti));
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
         });
     });
 });

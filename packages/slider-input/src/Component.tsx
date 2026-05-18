@@ -1,27 +1,27 @@
 import React, {
-    ChangeEvent,
+    type ChangeEvent,
     cloneElement,
-    ComponentType,
-    FocusEvent,
+    type ComponentType,
     forwardRef,
     Fragment,
     isValidElement,
-    ReactNode,
+    type ReactNode,
     useCallback,
 } from 'react';
 import cn from 'classnames';
 
-import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
-import { Slider, SliderProps } from '@alfalab/core-components-slider';
+import { Input as DefaultInput, type InputProps } from '@alfalab/core-components-input';
+import { Slider, type SliderProps } from '@alfalab/core-components-slider';
 
-import { OnChangeType, OnInputChangeType } from './types/propTypes';
+import { type OnChangeType, type OnInputChangeType } from './types/propTypes';
 
 import styles from './index.module.css';
 
-export type SliderInputProps = Omit<
-    InputProps,
-    'min' | 'max' | 'step' | 'value' | 'type' | 'onChange' | 'bottomAddons' | 'size'
-> & {
+export interface SliderInputProps
+    extends Omit<
+        InputProps,
+        'min' | 'max' | 'step' | 'value' | 'type' | 'onChange' | 'bottomAddons' | 'size'
+    > {
     /**
      * Размер компонента
      * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
@@ -37,14 +37,6 @@ export type SliderInputProps = Omit<
      * Макс. допустимое число
      */
     max?: number;
-
-    /**
-     * Предотвращает ввод числа если оно больше или меньше допустимого.
-     * При событии blur установится число по верхней границе, если оно больше допустимого, и наоборот - по нижней границе, если число меньше допустимого.
-     * @default false
-     * @deprecated Обработайте установку лимитов самостоятельно в событии onBlur. Пропс будет удален в версии core-components@49.0
-     */
-    lockLimit?: boolean;
 
     /**
      * Массив подписей к слайдеру
@@ -86,7 +78,7 @@ export type SliderInputProps = Omit<
     /**
      * Компонент поля ввода
      */
-    Input?: ComponentType<Omit<InputProps, 'onChange' | 'value'>>;
+    Input?: ComponentType<Omit<InputProps, 'onChange' | 'value' | 'defaultValue'>>;
 
     /**
      * Кастомные пропсы для поля ввода
@@ -134,10 +126,49 @@ export type SliderInputProps = Omit<
     onSliderEnd?: SliderProps['onEnd'];
 
     /**
+     * Включение/отключение отображения точек на слайдере
+     * @default false
+     */
+    dots?: SliderProps['dots'];
+
+    /**
+     * Тип отображения точек на слайдере: 'step' - по шагу, 'custom' - произвольные
+     * @default 'step'
+     */
+    dotsSlider?: SliderProps['dotsSlider'];
+
+    /**
+     * Массив значений для произвольного размещения точек
+     */
+    customDots?: SliderProps['customDots'];
+
+    /**
+     * Показывать точки для pips-значений вместе с customDots в режиме dotsSlider='custom'
+     * @default false
+     */
+    showPipsDots?: SliderProps['showPipsDots'];
+
+    /**
+     * Отображение подписи под точками:
+     * - all: подпись для всех точек
+     * - pipsOnly: подпись только для pips-значений
+     * - customPipsOnly: подпись только для customDots
+     * - none: подписи отключены
+     * @default 'all'
+     */
+    pipsLabel?: SliderProps['pipsLabel'];
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-};
+
+    /**
+     * Жирность текста
+     * @default true
+     */
+    bold?: boolean;
+}
 
 const SIZE_TO_CLASSNAME_MAP = {
     s: 'size-48',
@@ -163,7 +194,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             min = 0,
             max = 100,
             step = 1,
-            lockLimit = false,
             block,
             steps = [],
             sliderValue = +value,
@@ -182,9 +212,15 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             customInputProps = {},
             error,
             hint,
+            dots,
+            dotsSlider,
+            customDots,
+            showPipsDots,
             pips,
+            pipsLabel,
             range,
             dataTestId,
+            bold = true,
             ...restProps
         },
         ref,
@@ -212,43 +248,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             [getValidInputValue, onChange, onInputChange],
         );
 
-        const handleInputBlur = useCallback(
-            (event: FocusEvent<HTMLInputElement>) => {
-                const { value: inputValue } = event.target as HTMLInputElement;
-                const validValue = getValidInputValue(inputValue);
-
-                const getEventPayloadValue = (payload: number | '') => {
-                    if (payload > max) {
-                        return max;
-                    }
-
-                    if (payload < min) {
-                        return min;
-                    }
-
-                    return '';
-                };
-
-                if (lockLimit) {
-                    if (onChange) {
-                        onChange(null, {
-                            value: getEventPayloadValue(validValue),
-                        });
-                    }
-                    if (onInputChange) {
-                        onInputChange(null, {
-                            value: getEventPayloadValue(validValue),
-                        });
-                    }
-                }
-
-                if (restProps.onBlur) {
-                    restProps.onBlur(event);
-                }
-            },
-            [getValidInputValue, lockLimit, max, min, onChange, onInputChange, restProps],
-        );
-
         return (
             <div
                 className={cn(
@@ -258,6 +257,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         [styles.filled]: Boolean(value),
                         [styles.hasLabel]: label,
                         [styles.hasError]: Boolean(error),
+                        [styles.bold]: bold,
                     },
                     styles[SIZE_TO_CLASSNAME_MAP[size]],
                     className,
@@ -266,11 +266,9 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             >
                 <Input
                     {...restProps}
-                    {...customInputProps}
                     ref={ref}
                     value={value.toString()}
                     onChange={handleInputChange}
-                    onBlur={handleInputBlur}
                     block={true}
                     size={size}
                     label={label}
@@ -308,6 +306,11 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                                     sliderClassName,
                                 )}
                                 pips={pips}
+                                pipsLabel={pipsLabel}
+                                dots={dots}
+                                dotsSlider={dotsSlider}
+                                customDots={customDots}
+                                showPipsDots={showPipsDots}
                                 range={range}
                             />
                         )
@@ -320,6 +323,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                             </Fragment>
                         )
                     }
+                    {...customInputProps}
                 />
                 {/* eslint-disable react/no-array-index-key */}
                 {steps.length > 0 && !error && (

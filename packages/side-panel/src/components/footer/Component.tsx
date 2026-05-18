@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext, useEffect } from 'react';
+import React, { type FC, type ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
@@ -54,6 +54,10 @@ export const Footer: FC<FooterProps> = ({
 
     useEffect(() => {
         setHasFooter(true);
+
+        return () => {
+            setHasFooter(false);
+        };
     }, [setHasFooter]);
 
     return (

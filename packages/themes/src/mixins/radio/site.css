@@ -6,4 +6,12 @@
 
     /* icon */
     --radio-icon-color: var(--color-static-neutral-translucent-1300-inverted);
+
+    /* checked inverted */
+    --radio-checked-bg-color-inverted: var(--color-light-accent-primary-inverted);
+    --radio-checked-hover-bg-color-inverted: var(--color-light-accent-primary-inverted-hover);
+    --radio-checked-active-bg-color-inverted: var(--color-light-accent-primary-inverted-press);
+
+    /* icon inverted */
+    --radio-icon-color-inverted: var(--color-static-neutral-translucent-1300);
 }

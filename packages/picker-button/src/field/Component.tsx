@@ -1,10 +1,15 @@
-import React, { ButtonHTMLAttributes, ComponentType, Fragment, SVGProps } from 'react';
+import React, {
+    type ButtonHTMLAttributes,
+    type ComponentType,
+    Fragment,
+    type SVGProps,
+} from 'react';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
-import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/typings';
+import { Button, type ButtonProps } from '@alfalab/core-components-button';
+import { type FieldProps as BaseFieldProps } from '@alfalab/core-components-select/typings';
 
-import type { PickerButtonSize, PickerButtonVariant } from '../types';
+import { type PickerButtonSize, type PickerButtonVariant } from '../types';
 import { getIcon } from '../utils';
 
 import styles from './index.module.css';
@@ -16,21 +21,6 @@ type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | '
         showArrow?: boolean;
         icon?: ComponentType<SVGProps<SVGSVGElement>>;
     };
-
-const SIZE_TO_CLASSNAME_MAP = {
-    xxs: 'size-32',
-    xs: 'size-40',
-    s: 'size-48',
-    m: 'size-56',
-    l: 'size-64',
-    xl: 'size-72',
-    32: 'size-32',
-    40: 'size-40',
-    48: 'size-48',
-    56: 'size-56',
-    64: 'size-64',
-    72: 'size-72',
-};
 
 export const Field = ({
     buttonSize = 56,
@@ -57,7 +47,7 @@ export const Field = ({
 }: FieldProps) => {
     const Icon: ComponentType<SVGProps<SVGSVGElement>> = getIcon(
         buttonVariant,
-        SIZE_TO_CLASSNAME_MAP[buttonSize],
+        `size-${buttonSize}`,
         icon,
     );
 
@@ -101,7 +91,7 @@ export const Field = ({
                 view={view}
                 size={buttonSize}
                 className={cn(className, {
-                    [styles.linkOpen]: view === 'link' && open,
+                    [styles.linkOpen]: view === 'transparent' && open,
                 })}
             >
                 {buttonVariant !== 'compact' && label}

@@ -109,7 +109,7 @@ describe('PatternLockV1 test', () => {
             fireEvent.click(buttonEl);
 
             expect(buttonEl).toBeInTheDocument();
-            expect(onForgotBtnClick).toBeCalledTimes(1);
+            expect(onForgotBtnClick).toHaveBeenCalledTimes(1);
         });
     });
 
@@ -131,6 +131,6 @@ describe('PatternLockV1 test', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<PatternLockV1 />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

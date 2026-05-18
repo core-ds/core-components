@@ -1,12 +1,13 @@
 import { createContext } from 'react';
 
-import { TConfirmationContext } from './types';
+import { type TConfirmationContext } from './types';
 import { ONE_DAY, ONE_MINUTE } from './utils';
 
 const mockFn = () => undefined;
 
 export const ConfirmationContext = createContext<TConfirmationContext>({
     alignContent: 'left',
+    titleTag: 'h3',
     texts: {},
     state: 'INITIAL',
     screen: 'INITIAL',

@@ -4,12 +4,12 @@ import json from '@rollup/plugin-json';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 import fse from 'fs-extra';
-import { globbySync } from 'globby';
 import path from 'node:path';
-import { cwd } from 'node:process';
+import { cwd, env } from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'rollup';
 import copy from 'rollup-plugin-copy';
+import { globSync } from 'tinyglobby';
 import ts from 'typescript';
 
 import { readPackagesFileSync } from '../read-packages-file.cjs';
@@ -36,7 +36,7 @@ const externals = [
 const baseConfig = () =>
     defineConfig({
         cache: false,
-        input: globbySync('src/**/*.{ts,tsx}', {
+        input: globSync('src/**/*.{ts,tsx}', {
             ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
         }),
         plugins: [
@@ -67,6 +67,7 @@ const sourceCopyPlugin = copy({
         },
     ],
 });
+
 /**
  * Сборка ES5 с commonjs модулями.
  */
@@ -101,7 +102,7 @@ const es5 = () => {
             }),
             processCss(),
             assetsCopyPlugin('dist'),
-            copy({ flatten: false, targets: [{ src: '**/package.json', dest: 'dist' }] }),
+            copy({ flatten: false, targets: [{ src: 'package.json', dest: 'dist' }] }),
             !IS_ROOT_PACKAGE && sourceCopyPlugin,
         ],
     });
@@ -180,7 +181,9 @@ const modern = () => {
                 outputToFilesystem: false,
                 transformers: transformDeclarations('modern'),
             }),
-            processCss(),
+            processCss({
+                preserveVars: !(env.BUILD_WITHOUT_CSS_VARS === 'true'),
+            }),
             assetsCopyPlugin('dist/modern'),
         ],
     });
@@ -261,12 +264,12 @@ const esm = () => {
                 transformers: transformDeclarations('esm'),
             }),
             processCss(),
-            assetsCopyPlugin('dist'),
+            assetsCopyPlugin('dist/esm'),
         ],
     });
 };
 
-export default process.env.BUILD_MODERN_ONLY === 'true'
+export default env.BUILD_MODERN_ONLY === 'true'
     ? modern()
     : [
           es5(),

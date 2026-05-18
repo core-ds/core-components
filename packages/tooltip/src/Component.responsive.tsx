@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
 import { TooltipDesktop } from './desktop';
 import { TooltipMobile } from './mobile';
-import { TooltipResponsiveProps } from './types';
+import { type TooltipResponsiveProps } from './types';
 
 export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     children,

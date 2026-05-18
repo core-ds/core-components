@@ -1,4 +1,6 @@
-import React, { ChangeEvent, ReactNode, TextareaHTMLAttributes } from 'react';
+import { type ChangeEvent, type ReactNode, type TextareaHTMLAttributes } from 'react';
+
+import { type FormControlProps } from '@alfalab/core-components-form-control';
 
 type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
 
@@ -26,9 +28,9 @@ export type TextareaIncomeProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     * @default 48
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: FormControlProps['size'];
 
     /**
      * Набор цветов для компонента

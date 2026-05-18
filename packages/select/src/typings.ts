@@ -1,23 +1,27 @@
-import type {
-    AriaAttributes,
-    ComponentType,
-    FC,
-    FocusEvent,
-    MouseEvent,
-    ReactElement,
-    ReactNode,
-    RefAttributes,
-    SVGProps,
+import {
+    type AriaAttributes,
+    type ComponentType,
+    type FC,
+    type FocusEvent,
+    type MouseEvent,
+    type ReactElement,
+    type ReactNode,
+    type RefAttributes,
+    type SVGProps,
 } from 'react';
+import { type Environment } from 'downshift';
 
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { FormControlProps } from '@alfalab/core-components-form-control';
-import type { InputProps } from '@alfalab/core-components-input';
-import type { ModalProps } from '@alfalab/core-components-modal';
-import type { ModalFooterProps, ModalHeaderProps } from '@alfalab/core-components-modal/shared';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import { type BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { type InputProps } from '@alfalab/core-components-input';
+import { type ModalProps } from '@alfalab/core-components-modal';
+import {
+    type ModalFooterProps,
+    type ModalHeaderProps,
+} from '@alfalab/core-components-modal/shared';
+import { type PopoverProps } from '@alfalab/core-components-popover';
 
-import type { UseSelectWithApplyProps } from './presets/useSelectWithApply/hook';
+import { type UseSelectWithApplyProps } from './presets/useSelectWithApply/hook';
 
 // eslint-disable-next-line
 export type AnyObject = Record<string, any>;
@@ -69,7 +73,7 @@ export type BaseSelectChangePayload = {
     name?: string;
 };
 
-export type BaseSelectProps = {
+export interface BaseSelectProps {
     /**
      * Идентификатор для систем автоматизированного тестирования.
      * Для пункта меню используется модификатор -option, компонента поиска -search,
@@ -145,15 +149,14 @@ export type BaseSelectProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
+     * @default 48
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: FormControlProps['size'];
 
     /**
      * Размер пунктов меню
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    optionsSize?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    optionsSize?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -391,7 +394,13 @@ export type BaseSelectProps = {
      * Ограничение динамического размера группы вариантов выбора
      */
     limitDynamicOptionGroupSize?: boolean;
-};
+
+    /**
+     * Контекст окружения для downshift.js
+     * @default window
+     */
+    environment?: Environment;
+}
 
 // TODO: использовать InputProps
 export type FieldProps = {
@@ -521,7 +530,7 @@ export type ArrowProps = {
     size?: BaseSelectProps['size'];
 };
 
-export type OptionsListProps = {
+export type OptionsListProps = Pick<SelectProps, 'client'> & {
     /**
      * Дополнительный класс
      */
@@ -544,9 +553,8 @@ export type OptionsListProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Компонент пункта меню
@@ -693,9 +701,8 @@ export type OptgroupProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Заголовок группы
@@ -742,9 +749,8 @@ export type OptionCommonProps = {
 
     /**
      * Размер компонента
-     * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
      */
-    size?: 's' | 'm' | 'l' | 'xl' | 40 | 48 | 56 | 64 | 72;
+    size?: 40 | 48 | 56 | 64 | 72;
 
     /**
      * Контент пункта меню
@@ -814,12 +820,12 @@ export type OptionCommonProps = {
     align?: 'start' | 'center';
 };
 
-export type OptionProps = OptionCommonProps & {
+export interface OptionProps extends OptionCommonProps, AriaAttributes {
     /**
      * Мобильная версия option.
      */
     mobile?: boolean;
-};
+}
 
 export type CheckmarkProps = {
     /**
@@ -846,6 +852,11 @@ export type CheckmarkProps = {
      * Расположение отметки
      */
     position?: 'before' | 'after';
+
+    /**
+     * Дополнительный контент
+     */
+    content?: ReactNode;
 
     /**
      * Иконка выбранного пункта
@@ -882,6 +893,12 @@ export type AdditionalMobileProps = {
      * Использовать ли хук useSelectWithApply в мобильном компоненте
      */
     useWithApplyHook?: boolean;
+
+    /**
+     * Позиция чекбокса "Выбрать все" в Header
+     * @default 'before'
+     */
+    checkmarkPosition?: 'before' | 'after';
 };
 
 export type BottomSheetSelectMobileProps = {

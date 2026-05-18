@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, Ref, useContext } from 'react';
+import React, { type FC, type ReactNode, type Ref, useContext } from 'react';
 import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';

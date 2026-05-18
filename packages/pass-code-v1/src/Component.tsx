@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef, type ReactNode } from 'react';
 import cn from 'classnames';
 
 import { Gap } from '@alfalab/core-components-gap';
@@ -134,7 +134,7 @@ export const PassCodeV1 = forwardRef<HTMLDivElement, PassCodeProps>(
             >
                 {error ? renderError() : renderMessage()}
 
-                <Gap size='m' />
+                <Gap size={16} />
 
                 <InputProgress
                     dataTestId={dataTestId}
@@ -144,7 +144,7 @@ export const PassCodeV1 = forwardRef<HTMLDivElement, PassCodeProps>(
                     error={Boolean(error)}
                 />
 
-                <Gap size='4xl' />
+                <Gap size={48} />
 
                 <KeyPad
                     dataTestId={dataTestId}

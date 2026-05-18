@@ -1,7 +1,7 @@
 import React, {
-    FC,
+    type FC,
     Fragment,
-    HTMLAttributes,
+    type HTMLAttributes,
     useCallback,
     useEffect,
     useRef,
@@ -11,8 +11,9 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { Popover } from '@alfalab/core-components-popover';
+import { getDataTestId } from '@alfalab/core-components-shared';
 
-import type { TooltipDesktopProps } from '../types';
+import { type TooltipDesktopProps } from '../types';
 
 import defaultColors from '../default.module.css';
 import styles from '../index.module.css';
@@ -95,11 +96,11 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
 
     const clickedOutside = useCallback(
         (node: Element): boolean => {
-            if (target && target.contains(node)) {
+            if (target?.contains(node)) {
                 return false;
             }
 
-            if (contentRef.current && contentRef.current.contains(node)) {
+            if (contentRef.current?.contains(node)) {
                 return false;
             }
 
@@ -177,6 +178,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
             className: cn(styles.target, targetClassName, {
                 [styles.inline]: TargetTag === 'span',
             }),
+            'data-test-id': getDataTestId(dataTestId, 'target'),
         };
 
         switch (trigger) {
@@ -198,7 +200,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
     const getContentProps = (): HTMLAttributes<HTMLElement> => {
         const props = {
             ref: contentRef,
-            'data-test-id': dataTestId,
+            'data-test-id': getDataTestId(dataTestId, 'content'),
             className: cn(styles.component, contentClassName),
         };
 
@@ -240,6 +242,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
                 availableHeight={availableHeight}
                 useAnchorWidth={useAnchorWidth}
                 withTransition={withTransition}
+                dataTestId={getDataTestId(dataTestId, 'popover')}
             >
                 <div {...getContentProps()}>{content}</div>
             </Popover>

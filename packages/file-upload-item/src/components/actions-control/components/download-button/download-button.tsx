@@ -1,4 +1,4 @@
-import React, { MouseEvent, useContext } from 'react';
+import React, { type MouseEvent, useContext } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import ArrowDownLineDownCompactMIcon from '@alfalab/icons-glyph/ArrowDownLineDownCompactMIcon';
@@ -27,7 +27,7 @@ export const DownloadButton = () => {
     return (
         <IconButton
             className={styles.icon}
-            size='xxs'
+            size={24}
             aria-label='скачать'
             icon={<ArrowDownLineDownCompactMIcon className={styles.downloadIconColor} />}
             disabled={disableButtons}

@@ -1,4 +1,4 @@
-import { GalleryImage, ImageMeta } from '../types';
+import { type GalleryImage, type ImageMeta } from '../types';
 
 export const PLACEHOLDER_WIDTH = 400;
 export const PLACEHOLDER_HEIGHT = 300;
@@ -10,7 +10,7 @@ export const getImageAlt = ({ alt, name }: GalleryImage, index: number): string 
     alt || name || `Изображение ${index + 1}`;
 
 export const isSmallImage = (meta?: ImageMeta) => {
-    if (meta && meta.width && meta.height) {
+    if (meta?.width && meta.height) {
         return meta.width < PLACEHOLDER_WIDTH && meta.height < PLACEHOLDER_HEIGHT;
     }
 

@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 
 import { useIsDesktop } from '@alfalab/core-components-mq';
-import type { TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
+import { type TPatternLockInstance } from '@alfalab/react-canvas-pattern-lock';
 
 import { PatternLockDesktop } from './desktop';
 import { PatternLockMobile } from './mobile';
-import { PatternLockProps } from './typings';
+import { type PatternLockProps } from './typings';
 
 export const PatternLock = forwardRef<TPatternLockInstance, PatternLockProps>(
     (

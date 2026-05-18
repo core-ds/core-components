@@ -8,7 +8,7 @@
     --tooltip-hint-box-shadow: var(--shadow-m-hard);
 }
 
-.hint {
+.hint.hint {
     background-color: var(--tooltip-hint-bg-color);
     box-shadow: var(--tooltip-hint-box-shadow);
     color: var(--tooltip-hint-text-color);
@@ -19,7 +19,7 @@
     border-color: var(--tooltip-hint-bg-color);
 }
 
-.tooltip {
+.tooltip.tooltip {
     border: 1px solid var(--tooltip-border-color);
     background-color: var(--tooltip-bg-color);
 

@@ -1,11 +1,12 @@
-import React, { ElementType, useCallback, useRef, useState } from 'react';
+import React, { type ElementType, Fragment, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import type { FormControlProps } from '@alfalab/core-components-form-control';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { LockIcon } from '@alfalab/core-components-input/shared';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
-import { FieldProps as BaseFieldProps } from '../../typings';
+import { type FieldProps as BaseFieldProps } from '../../typings';
 import { joinOptions } from '../../utils';
 import { ClearButton } from '../clear-button';
 
@@ -18,6 +19,7 @@ type FieldProps = {
     FormControlComponent?: ElementType;
 };
 
+// eslint-disable-next-line complexity
 export const Field = ({
     size = 56,
     open,
@@ -44,6 +46,7 @@ export const Field = ({
     valueSeparator,
     ...restProps
 }: BaseFieldProps & FormControlProps & FieldProps) => {
+    const { colors = 'default' } = restProps;
     const [focused, setFocused] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -58,6 +61,30 @@ export const Field = ({
     const filled = Boolean(value);
     const showLabel = !!label || labelView === 'outer';
     const showPlaceholder = !!placeholder && !filled && (open || !label || labelView === 'outer');
+
+    /**
+     * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
+     * [4] - Clear
+     * [3] - Status (error, success)
+     * [2] - Common (info, e.g.)
+     * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
+     * [0] - Lock
+     */
+    const renderRightAddons = () => (
+        <Fragment>
+            {clear && filled && !disabled && (
+                <ClearButton
+                    onClick={onClear}
+                    disabled={disabled}
+                    dataTestId={getDataTestId(dataTestId, 'clear-icon')}
+                    size={size}
+                />
+            )}
+            {rightAddons}
+            {!disabled && Arrow && React.cloneElement(Arrow, { className: styles.arrow })}
+            {disabled && <LockIcon colors={colors} size={size} />}
+        </Fragment>
+    );
 
     return (
         <div
@@ -82,25 +109,7 @@ export const Field = ({
                     labelView={labelView}
                     error={error}
                     hint={hint}
-                    rightAddons={
-                        (Arrow || rightAddons) && (
-                            <React.Fragment>
-                                {rightAddons}
-                                {clear && filled ? (
-                                    <ClearButton
-                                        onClick={onClear}
-                                        disabled={disabled}
-                                        dataTestId={getDataTestId(dataTestId, 'clear-icon')}
-                                        size={size}
-                                    />
-                                ) : null}
-                                {/* TODO: стоит переделать, но это будет мажорка */}
-                                {Arrow
-                                    ? React.cloneElement(Arrow, { className: styles.arrow })
-                                    : null}
-                            </React.Fragment>
-                        )
-                    }
+                    rightAddons={renderRightAddons()}
                     data-test-id={dataTestId}
                     {...restProps}
                     {...innerProps}

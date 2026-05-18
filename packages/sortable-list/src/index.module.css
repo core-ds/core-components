@@ -12,7 +12,7 @@
     background: var(--color-light-neutral-100);
 }
 
-@each $size in 3xs, 2xs, xs, s, m, l {
+@each $size in 2, 4, 8, 12, 16, 20 {
     .padding-top-$(size) {
         padding-top: var(--gap-$(size));
     }
@@ -30,7 +30,7 @@
     }
 }
 
-@each $size in m, l, xl {
+@each $size in 8, 12, 16 {
     .border-radius-$(size) {
         border-radius: var(--border-radius-$(size));
     }

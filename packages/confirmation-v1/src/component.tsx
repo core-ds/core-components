@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { ButtonDesktop as Button } from '@alfalab/core-components-button/desktop';
@@ -369,7 +369,7 @@ export const ConfirmationV1 = forwardRef<HTMLDivElement, ConfirmationV1Props>(
 
                         <span className={styles.errorText}>{errorText}</span>
 
-                        <Button size='xs' view='secondary' onClick={handleErrorSmsRetryClick}>
+                        <Button size={40} view='secondary' onClick={handleErrorSmsRetryClick}>
                             {buttonErrorText}
                         </Button>
                     </div>
@@ -410,7 +410,7 @@ export const ConfirmationV1 = forwardRef<HTMLDivElement, ConfirmationV1Props>(
 
                         <Button
                             className={styles.repeatButton}
-                            size='xs'
+                            size={40}
                             view='secondary'
                             onClick={handleSmsRetryFromHintClick}
                         >

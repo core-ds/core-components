@@ -5,9 +5,9 @@ import { InputAutocompleteMobile } from '@alfalab/core-components-input-autocomp
 import { SelectMobile } from '@alfalab/core-components-select/mobile';
 
 import { BaseInternationalPhoneInput } from '../components/base-international-phone-input';
-import type {
-    BaseInternationalPhoneInputProps,
-    InternationalPhoneInputMobileProps,
+import {
+    type BaseInternationalPhoneInputProps,
+    type InternationalPhoneInputMobileProps,
 } from '../types';
 
 export const InternationalPhoneInputMobile = forwardRef<

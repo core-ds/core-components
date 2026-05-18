@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 
 export type OnChangeType = (
     event: ChangeEvent<HTMLInputElement> | null,

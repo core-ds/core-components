@@ -1,16 +1,16 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import React, { forwardRef, type HTMLAttributes } from 'react';
+import { TransitionGroup } from 'react-transition-group';
 import cn from 'classnames';
 
-import { Portal, PortalProps } from '@alfalab/core-components-portal';
+import { Portal, type PortalProps } from '@alfalab/core-components-portal';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
-import { Notification, NotificationElement } from './components';
+import { Notification, type NotificationElement } from './components';
 
 import styles from './index.module.css';
 
-export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
+export interface NotificationManagerProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Массив нотификаций.
      * В нотификации обязательно передавайте id.
@@ -48,17 +48,7 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
      * Контейнер к которому будут добавляться порталы
      */
     container?: PortalProps['getPortalContainer'];
-};
-
-const CSS_TRANSITION_CLASS_NAMES = {
-    enter: styles.enter,
-    enterActive: styles.enterActive,
-};
-
-const TIMEOUT = {
-    exit: 0,
-    enter: 400,
-};
+}
 
 export const NotificationManager = forwardRef<HTMLDivElement, NotificationManagerProps>(
     (
@@ -91,20 +81,14 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                     >
                         <TransitionGroup>
                             {notifications.map((element, index) => (
-                                <CSSTransition
+                                <Notification
                                     key={element.props.id}
-                                    timeout={TIMEOUT}
-                                    classNames={CSS_TRANSITION_CLASS_NAMES}
-                                    unmountOnExit={true}
-                                >
-                                    <Notification
-                                        element={element}
-                                        className={cn(styles.notification, {
-                                            [styles.withoutMargin]: offset && index === 0,
-                                        })}
-                                        onRemoveNotification={onRemoveNotification}
-                                    />
-                                </CSSTransition>
+                                    element={element}
+                                    onRemoveNotification={onRemoveNotification}
+                                    className={cn(styles.notification, {
+                                        [styles.withoutMargin]: offset && index === 0,
+                                    })}
+                                />
                             ))}
                         </TransitionGroup>
                     </div>

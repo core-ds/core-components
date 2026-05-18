@@ -102,6 +102,6 @@ describe('Status', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Status />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

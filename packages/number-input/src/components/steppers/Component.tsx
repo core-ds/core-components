@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { InputProps } from '@alfalab/core-components-input';
+import { type InputProps } from '@alfalab/core-components-input';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { MinusMIcon } from '@alfalab/icons-glyph/MinusMIcon';
 import { MinusSIcon } from '@alfalab/icons-glyph/MinusSIcon';

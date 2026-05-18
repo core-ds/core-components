@@ -95,9 +95,10 @@ describe('getColorVar', () => {
 
 // Проверяем все цвета из набора color-mapper.ts,
 describe('translateColors', () => {
-    Object.entries(colorMapper).forEach(([key, val]) => {
-        it(`should show valid results ${key} = ${JSON.stringify(val)}`, () => {
-            expect(translateColors(key)).toEqual(val);
-        });
-    });
+    test.each(Object.entries(colorMapper).map(([key, value]) => ({ key, value })))(
+        'should show valid results $key $value',
+        ({ key, value }) => {
+            expect(translateColors(key)).toEqual(value);
+        },
+    );
 });

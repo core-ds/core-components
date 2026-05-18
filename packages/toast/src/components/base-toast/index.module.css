@@ -10,10 +10,6 @@
     word-break: break-word;
 }
 
-.title {
-    font-weight: 400;
-}
-
 .popoverInner {
     border: none;
     border-radius: var(--toast-plate-border-radius);
@@ -25,7 +21,7 @@
     width: 100%;
 }
 
-.fixed {
+.fixed.fixed {
     position: fixed;
     bottom: var(--gap-32);
 
@@ -37,7 +33,9 @@
     &.enterActive {
         opacity: 1;
         transform: scale(1);
-        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+        transition:
+            opacity 150ms ease-in-out,
+            transform 150ms ease-in-out;
     }
 
     &.exit {
@@ -48,6 +46,8 @@
     &.exitActive {
         opacity: 0;
         transform: scale(0.98);
-        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+        transition:
+            opacity 150ms ease-in-out,
+            transform 150ms ease-in-out;
     }
 }

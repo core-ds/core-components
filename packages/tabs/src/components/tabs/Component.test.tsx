@@ -1,6 +1,6 @@
 /* eslint-disable multiline-comment-style */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import { TabsDesktop } from './Component.desktop';
 import { TabsMobile } from './Component.mobile';
@@ -162,7 +162,7 @@ describe('Tabs', () => {
         it.each(tabVariants)('should unmount without errors', (Component, view) => {
             const { unmount } = renderTabs(Component, { view });
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
 
         it('should not render empty tabs', () => {
@@ -191,7 +191,7 @@ describe('Tabs', () => {
                 fireEvent.click(tab[0]);
             }
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it.each(tabVariants)('should not call `onChange` for selected tab', (Component, view) => {
@@ -203,7 +203,104 @@ describe('Tabs', () => {
                 fireEvent.click(tab);
             }
 
-            expect(cb).not.toBeCalled();
+            expect(cb).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('Aria and data attributes', () => {
+        it('should pass aria and data attributes through titleProps', () => {
+            const { container } = renderTabs(TabsDesktop, {
+                titleProps: {
+                    'aria-describedby': 'description-id',
+                    'data-custom-title': 'custom-title-value',
+                },
+            });
+
+            const allButtons = container.querySelectorAll('button[role="tab"]');
+            expect(allButtons.length).toBeGreaterThan(0);
+
+            const ariaButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('aria-describedby') === 'description-id',
+            );
+            expect(ariaButton).toBeInTheDocument();
+
+            const dataButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('data-custom-title') === 'custom-title-value',
+            );
+            expect(dataButton).toBeInTheDocument();
+        });
+
+        it('should prioritize dataTestId prop over data-test-id attribute', () => {
+            const { container } = renderTabs(
+                TabsDesktop,
+                {},
+                {
+                    'data-test-id': 'attribute-test-id',
+                    dataTestId: 'prop-test-id',
+                },
+            );
+
+            const allButtons = container.querySelectorAll('button[role="tab"]');
+            expect(allButtons.length).toBeGreaterThan(0);
+
+            const tabButton = Array.from(allButtons).find(
+                (button) => button.getAttribute('data-test-id') === 'prop-test-id-toggle',
+            );
+            expect(tabButton).toBeInTheDocument();
+        });
+
+        it('<Tab> should render aria attributes', () => {
+            render(
+                <Tab
+                    dataTestId='tab'
+                    title='Таб 1'
+                    id='tab-1'
+                    rightAddons='addon'
+                    aria-label='test-aria-label'
+                    aria-selected={true}
+                >
+                    Таб 1
+                </Tab>,
+            );
+
+            const tabElement = screen.getByTestId('tab');
+
+            expect(tabElement).toHaveAttribute('aria-label', 'test-aria-label');
+            expect(tabElement).toHaveAttribute('aria-selected', 'true');
+        });
+
+        describe('should not render useless attributes', () => {
+            const renderTab = () => {
+                render(
+                    <Tab
+                        dataTestId='tab'
+                        title='Таб 1'
+                        id='tab-1'
+                        rightAddons='addon'
+                        aria-label='test-aria-label'
+                        aria-selected={true}
+                    >
+                        Таб 1
+                    </Tab>,
+                );
+
+                return screen.getByTestId('tab');
+            };
+
+            it('<Tab> should not render "title" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('title')).toBe(false);
+            });
+
+            it('<Tab> should not render "rightAddons" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('rightAddons')).toBe(false);
+            });
+
+            it('<Tab> should not render "id" attributes', () => {
+                const tabElement = renderTab();
+                expect(tabElement.hasAttribute('id')).toBe(false);
+            });
         });
     });
 });

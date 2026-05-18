@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Snapshots tests should display correctly 1`] = `
 <div>
@@ -34,6 +34,7 @@ exports[`Snapshots tests should display correctly 1`] = `
     >
       <div
         class="gradient"
+        style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
       />
     </foreignobject>
   </svg>
@@ -74,6 +75,7 @@ exports[`Spinner props should render preset 16 correctly 1`] = `
     >
       <div
         class="gradient"
+        style="background-image: conic-gradient(from 10deg, transparent 70deg, currentColor);"
       />
     </foreignobject>
   </svg>
@@ -114,6 +116,7 @@ exports[`Spinner props should render preset 24 correctly 1`] = `
     >
       <div
         class="gradient"
+        style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
       />
     </foreignobject>
   </svg>
@@ -154,6 +157,7 @@ exports[`Spinner props should render preset 48 correctly 1`] = `
     >
       <div
         class="gradient"
+        style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
       />
     </foreignobject>
   </svg>
@@ -194,6 +198,7 @@ exports[`Spinner props should support \`size\` and \`lineWidth\` 1`] = `
     >
       <div
         class="gradient"
+        style="background-image: conic-gradient(from 3deg, transparent 84deg, currentColor);"
       />
     </foreignobject>
   </svg>
@@ -234,6 +239,7 @@ exports[`Spinner props should support \`style\` 1`] = `
     >
       <div
         class="gradient"
+        style="background-image: conic-gradient(from 9deg, transparent 72deg, currentColor);"
       />
     </foreignobject>
   </svg>

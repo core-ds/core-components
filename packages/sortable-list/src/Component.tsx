@@ -2,14 +2,14 @@ import React, { forwardRef } from 'react';
 import {
     closestCenter,
     DndContext,
-    DragEndEvent,
-    DragOverEvent,
+    type DragEndEvent,
+    type DragOverEvent,
     DragOverlay,
-    DragStartEvent,
+    type DragStartEvent,
     KeyboardSensor,
     MouseSensor,
     TouchSensor,
-    UniqueIdentifier,
+    type UniqueIdentifier,
     useSensor,
     useSensors,
 } from '@dnd-kit/core';
@@ -20,7 +20,7 @@ import { Portal } from '@alfalab/core-components-portal';
 import { getDataTestId } from '@alfalab/core-components-shared';
 
 import { SortableItem } from './components/item/Components';
-import type { Items, SortableItemProps, SortableListProps } from './types';
+import { type Items, type SortableItemProps, type SortableListProps } from './types';
 import { restrictToParentElement, restrictToVerticalAxis } from './utils';
 
 import styles from './index.module.css';
@@ -86,15 +86,15 @@ export const SortableList = forwardRef<HTMLDivElement, SortableListProps>(
 
         const getPaddingClassName = () => {
             if (typeof padding === 'object') {
-                return cn({
-                    [styles[`padding-top-${padding.top}`]]: padding.top,
-                    [styles[`padding-right-${padding.right}`]]: padding.right,
-                    [styles[`padding-bottom-${padding.bottom}`]]: padding.bottom,
-                    [styles[`padding-left-${padding.left}`]]: padding.left,
-                });
+                return cn(
+                    styles[`padding-top-${padding.top}`],
+                    styles[`padding-right-${padding.right}`],
+                    styles[`padding-bottom-${padding.bottom}`],
+                    styles[`padding-left-${padding.left}`],
+                );
             }
 
-            if (typeof padding === 'string') {
+            if (typeof padding === 'number') {
                 return cn(
                     styles[`padding-top-${padding}`],
                     styles[`padding-right-${padding}`],

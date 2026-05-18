@@ -1,4 +1,4 @@
-import React, { forwardRef, RefObject, useEffect, useState } from 'react';
+import React, { forwardRef, type RefObject, useEffect, useState } from 'react';
 import cn from 'classnames';
 import _debounce from 'lodash/debounce';
 
@@ -6,7 +6,7 @@ import { IconButton } from '@alfalab/core-components-icon-button';
 import { ChevronLeftCompactSIcon } from '@alfalab/icons-glyph/ChevronLeftCompactSIcon';
 import { ChevronRightCompactSIcon } from '@alfalab/icons-glyph/ChevronRightCompactSIcon';
 
-import { TabsProps } from '../../typings';
+import { type TabsProps } from '../../typings';
 
 import { getDisabledState, scrollIntoFirstTab, scrollIntoLastTab } from './utils';
 
@@ -39,10 +39,10 @@ export const ScrollControls = forwardRef<HTMLDivElement, ScrollControlsProps>(
 
         const getSize = () => {
             if (view === 'primary') {
-                return sizeProp === 'xl' ? 'xs' : 'xxs';
+                return sizeProp === 'xl' ? 32 : 24;
             }
 
-            return sizeProp && ['s', 'm', 'l', 'xl'].includes(sizeProp) ? 's' : 'xs';
+            return sizeProp && ['s', 'm', 'l', 'xl'].includes(sizeProp) ? 48 : 32;
         };
 
         const handleScrollLeft = () => scrollIntoFirstTab(container);

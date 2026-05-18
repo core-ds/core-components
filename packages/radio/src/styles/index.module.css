@@ -29,7 +29,9 @@
     border-radius: var(--border-radius-circle);
     position: relative;
     margin: var(--gap-2);
-    transition: background-color 0.2s ease, border 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        border 0.2s ease;
 
     &:before {
         content: '';

@@ -1,25 +1,23 @@
-import React, { FC, ForwardRefExoticComponent, RefAttributes } from 'react';
+import { type FC, type ForwardRefExoticComponent, type RefAttributes } from 'react';
 
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type {
-    ModalContentProps,
-    ModalFooterProps,
-    ModalHeaderProps,
+import { type BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import {
+    type ModalContentProps,
+    type ModalFooterProps,
+    type ModalHeaderProps,
 } from '@alfalab/core-components-modal/shared';
-import type { ModalMobileProps } from '@alfalab/core-components-modal/typings';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import { type ModalMobileProps } from '@alfalab/core-components-modal/typings';
+import { type PopoverProps } from '@alfalab/core-components-popover';
 
-import type {
-    AdditionalMobileProps,
-    BaseSelectProps,
-    BottomSheetSelectMobileProps,
-    ModalSelectMobileProps,
+import {
+    type AdditionalMobileProps,
+    type BaseSelectProps,
+    type BottomSheetSelectMobileProps,
+    type ModalSelectMobileProps,
 } from '../../../typings';
 
 type PopoverType = ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>;
-type BottomSheetType = React.ForwardRefExoticComponent<
-    BottomSheetProps & React.RefAttributes<HTMLDivElement>
->;
+type BottomSheetType = ForwardRefExoticComponent<BottomSheetProps & RefAttributes<HTMLDivElement>>;
 type ModalMobileType = ForwardRefExoticComponent<
     ModalMobileProps & RefAttributes<HTMLDivElement>
 > & {

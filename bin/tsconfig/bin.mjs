@@ -6,7 +6,7 @@ import fse from 'fs-extra';
 import micromatch from 'micromatch';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { argv, cwd, exit } from 'node:process';
+import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import slash from 'slash';
 import yargs from 'yargs';
@@ -29,15 +29,15 @@ const INTERNAL_PACKAGES = getPackages().packages.filter(
 );
 const INTERNAL_PACKAGES_NAMES = INTERNAL_PACKAGES.map(({ packageJson: { name } }) => name);
 
-await yargs(hideBin(argv))
+await yargs(hideBin(process.argv))
     .command(
         'generate',
         'Generate tsconfig',
         (yargs) =>
             yargs
-                .option('scope', {
+                .option('include', {
                     type: 'array',
-                    description: 'Scope of packages to generate tsconfig for',
+                    description: 'Included packages to generate tsconfig for',
                     choices: INTERNAL_PACKAGES_NAMES,
                 })
                 .option('test', {
@@ -50,6 +50,11 @@ await yargs(hideBin(argv))
                     description: 'Generate tsconfig for storybook',
                     default: false,
                 })
+                .option('type-gen', {
+                    type: 'boolean',
+                    description: 'Generate tsconfig for react-docgen-typescript',
+                    default: false,
+                })
                 .option('all', {
                     type: 'boolean',
                     description: 'Generate tsconfig for all',
@@ -60,7 +65,8 @@ await yargs(hideBin(argv))
                 [
                     ...(yargs.storybook || yargs.all ? ['storybook'] : []),
                     ...(yargs.test || yargs.all ? ['test'] : []),
-                    ...(yargs.all ? INTERNAL_PACKAGES_NAMES : yargs.scope ?? []),
+                    ...(yargs['type-gen'] || yargs.all ? ['type-gen'] : []),
+                    ...(yargs.all ? INTERNAL_PACKAGES_NAMES : (yargs.include ?? [])),
                 ].map(async (id) =>
                     Promise.all(
                         configs.map(async (config) => {
@@ -85,30 +91,32 @@ await yargs(hideBin(argv))
         async () => {
             const errors = (
                 await Promise.all(
-                    ['storybook', 'test', ...INTERNAL_PACKAGES_NAMES].map(async (id) => {
-                        const result = await Promise.all(
-                            configs.map(async (config) => {
-                                const options = resolveOptions(config, id);
+                    ['storybook', 'test', 'type-gen', ...INTERNAL_PACKAGES_NAMES].map(
+                        async (id) => {
+                            const result = await Promise.all(
+                                configs.map(async (config) => {
+                                    const options = resolveOptions(config, id);
 
-                                if (options.skip) {
-                                    return true;
-                                }
+                                    if (options.skip) {
+                                        return true;
+                                    }
 
-                                if (existsSync(options.out)) {
-                                    const [expected, actual] = await Promise.all([
-                                        makeTsConfig(options),
-                                        fse.readJson(options.out, { encoding: 'utf8' }),
-                                    ]);
+                                    if (existsSync(options.out)) {
+                                        const [expected, actual] = await Promise.all([
+                                            makeTsConfig(options),
+                                            fse.readJson(options.out, { encoding: 'utf8' }),
+                                        ]);
 
-                                    return isEqual(expected, actual);
-                                }
+                                        return isEqual(expected, actual);
+                                    }
 
-                                return false;
-                            }),
-                        );
+                                    return false;
+                                }),
+                            );
 
-                        return [id, result.every((isEqual) => isEqual)];
-                    }),
+                            return [id, result.every((isEqual) => isEqual)];
+                        },
+                    ),
                 )
             ).filter(([, isEqual]) => !isEqual);
 
@@ -120,7 +128,7 @@ await yargs(hideBin(argv))
                 Please update tsconfig files, using the following commands:
                     ${errors.map(([id]) => {
                         const args = INTERNAL_PACKAGES_NAMES.includes(id)
-                            ? `--scope ${id}`
+                            ? `--include ${id}`
                             : `--${id}`;
 
                         return `yarn tsconfig generate ${args}`;
@@ -128,7 +136,7 @@ await yargs(hideBin(argv))
                     `)}
             `);
 
-            exit(1);
+            process.exit(1);
         },
     )
     .demandCommand()
@@ -193,7 +201,7 @@ async function makeTsConfig(options) {
             ...tsconfig.compilerOptions.paths,
         };
 
-        if (options.references) {
+        if (options.references && relativeStorybookPath !== '.') {
             tsconfig.references = [{ path: relativeStorybookPath }, ...tsconfig.references];
         }
     }
@@ -264,7 +272,7 @@ function resolveOptions(config, id) {
 
         include = [...include, id, ...all];
     } else {
-        dir = id === 'storybook' ? STORYBOOK_PATH : cwd();
+        dir = id === 'storybook' ? STORYBOOK_PATH : process.cwd();
     }
     const out = path.resolve(dir, output);
     const packages = INTERNAL_PACKAGES.filter(({ packageJson: { name } }) =>
@@ -286,7 +294,7 @@ function resolveOptions(config, id) {
         dir,
         out,
         packages,
-        storybook: override.storybook ?? rules.storybook ? STORYBOOK_PATH : undefined,
+        storybook: (override.storybook ?? rules.storybook) ? STORYBOOK_PATH : undefined,
         template: path.resolve(dirname, override.template ?? rules.template),
         references,
         referencesValues,

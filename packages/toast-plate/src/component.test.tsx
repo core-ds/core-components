@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import { ToastPlateDesktop as ToastPlate } from './desktop';
-import { getBaseToastPlateTestIds } from './components/base-toast-plate/utils/getBaseToastPlateTestIds';
+import { getBaseToastPlateTestIds } from './utils/getBaseToastPlateTestIds';
 
 jest.useFakeTimers();
 
@@ -101,13 +101,13 @@ describe('Notification', () => {
 
             fireEvent.click(closeEl);
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
     });
 
     it('should unmount without errors', () => {
         const { unmount } = render(<ToastPlate />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

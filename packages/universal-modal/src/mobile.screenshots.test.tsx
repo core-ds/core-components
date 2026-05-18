@@ -1,6 +1,7 @@
 import {
     setupScreenshotTesting,
     generateTestCases,
+    customSnapshotIdentifier,
 } from '@alfalab/core-components-screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -20,7 +21,7 @@ describe(
                 testStory: false,
                 knobs: {
                     open: true,
-                    'header.title': 'Заголовок',
+                    header: true,
                     'footer.sticky': true,
                     showMore: [false, true],
                 },
@@ -31,7 +32,7 @@ describe(
                 testStory: false,
                 knobs: {
                     open: true,
-                    'header.title': 'Заголовок',
+                    header: true,
                     'footer.sticky': true,
                     'footer.layout': ['column'],
                 },
@@ -55,7 +56,6 @@ describe(
                     open: true,
                     header: true,
                     showMore: true,
-                    'header.title': 'Заголовок',
                     'header.hasBackButton': true,
                     'header.hasCloser': true,
                     'header.sticky': [true, false],
@@ -70,7 +70,6 @@ describe(
                     open: true,
                     header: true,
                     showMore: true,
-                    'header.title': 'Заголовок',
                     'header.sticky': true,
                     'header.hasBackButton': false,
                     'header.hasCloser': true,
@@ -99,7 +98,6 @@ describe(
                 open: true,
                 header: true,
                 showMore: true,
-                'header.title': 'Заголовок',
                 'header.sticky': true,
                 'header.hasBackButton': true,
                 'header.hasCloser': true,
@@ -122,3 +120,132 @@ describe(
         },
     }),
 );
+
+describe('Mobile | trim title', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        trim: [false, true],
+                        header: true,
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                    },
+                }),
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        'header.title': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                        'header.subtitle': [
+                            'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
+                        ],
+                        titleSize: 'compact',
+                    },
+                }),
+            ],
+            viewport: {
+                width: 320,
+                height: 600,
+            },
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Mobile | sticky header', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        showMore: true,
+                        header: true,
+                        'header.sticky': [false, true],
+                    },
+                }),
+            ],
+            viewport: {
+                width: 320,
+                height: 600,
+            },
+            screenshotOpts: {
+                fullPage: true,
+            },
+            evaluate: async (page) => {
+                await page.waitForTimeout(500);
+                await page.$eval('button[class*=showMoreButton]', (el) => {
+                    el.scrollIntoView();
+                });
+                await page.waitForTimeout(500);
+            },
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});
+
+describe('Mobile | header bottom addons', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    testStory: false,
+                    componentName: 'UniversalModal',
+                    subComponentName: 'Mobile',
+                    knobs: {
+                        open: true,
+                        header: true,
+                        'header.title': 'Title',
+                        'header.bottomAddons': ['BottomAddons'],
+                    },
+                }),
+            ],
+            viewport: {
+                width: 320,
+                height: 600,
+            },
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+            matchImageSnapshotOptions: {
+                failureThreshold: 1,
+                failureThresholdType: 'pixel',
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+        })();
+
+    ['default'].forEach((theme) => testCase(theme));
+});

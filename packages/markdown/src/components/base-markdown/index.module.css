@@ -16,17 +16,17 @@
 }
 
 .h2 {
-    margin-top: var(--gap-32);
+    padding-top: var(--gap-32);
     margin-bottom: var(--gap-16);
 }
 
 .h3 {
-    margin-top: var(--gap-16);
+    padding-top: var(--gap-16);
     margin-bottom: var(--gap-16);
 }
 
 .h4 {
-    margin-top: var(--gap-8);
+    padding-top: var(--gap-8);
     margin-bottom: var(--gap-4);
 }
 
@@ -39,13 +39,16 @@
     font: inherit;
 }
 
-.list > li {
-    margin-top: var(--gap-0);
+.list {
     margin-bottom: var(--gap-12);
 }
 
-.list > li:only-child {
-    margin-bottom: var(--gap-0);
+.list > li {
+    margin-top: var(--gap-0);
+
+    &:not(:last-child) {
+        margin-bottom: var(--gap-12);
+    }
 }
 
 .list > li p {
@@ -54,6 +57,7 @@
 }
 
 .imageContainer {
+    display: inline-block;
     margin-top: var(--gap-16);
     margin-bottom: var(--gap-24);
 }

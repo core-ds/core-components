@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { devWarning, hasOwnProperty, isNonNullable } from '@alfalab/core-components-shared';
@@ -9,58 +9,57 @@ import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 import presetStyles from './preset.module.css';
 
-export type SpinnerProps =
+export type SpinnerProps = {
+    /**
+     * Палитра, в контексте которой используется спиннер
+     * @default default
+     */
+    colors?: 'default' | 'inverted';
+
+    /**
+     * Управление видимостью компонента
+     * @default false
+     */
+    visible?: boolean;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Идентификатор компонента в DOM
+     */
+    id?: string;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
+     * Дополнительные инлайн стили для cпиннера
+     */
+    style?: React.CSSProperties;
+} & (
     | {
           /**
-           * Палитра, в контексте которой используется спиннер
-           * @default default
+           * Размер спиннера (кольца)
            */
-          colors?: 'default' | 'inverted';
+          size: number;
 
           /**
-           * Управление видимостью компонента
-           * @default false
+           * Толщина линии спинера (кольца)
            */
-          visible?: boolean;
-
+          lineWidth: number;
+      }
+    | {
           /**
-           * Дополнительный класс
+           * Преднастроенный вариант
            */
-          className?: string;
-
-          /**
-           * Идентификатор компонента в DOM
-           */
-          id?: string;
-
-          /**
-           * Идентификатор для систем автоматизированного тестирования
-           */
-          dataTestId?: string;
-
-          /**
-           * Дополнительные инлайн стили для cпиннера
-           */
-          style?: React.CSSProperties;
-      } & (
-          | {
-                /**
-                 * Размер спиннера (кольца)
-                 */
-                size: number;
-
-                /**
-                 * Толщина линии спинера (кольца)
-                 */
-                lineWidth: number;
-            }
-          | {
-                /**
-                 * Преднастроенный вариант
-                 */
-                preset: 16 | 24 | 48;
-            }
-      );
+          preset: 16 | 24 | 48;
+      }
+);
 
 const colorStyles = {
     default: defaultColors,

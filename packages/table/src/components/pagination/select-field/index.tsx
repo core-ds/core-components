@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Button, ButtonProps } from '@alfalab/core-components-button';
-import { SelectProps } from '@alfalab/core-components-select';
+import { Button, type ButtonProps } from '@alfalab/core-components-button';
+import { type SelectProps } from '@alfalab/core-components-select';
 
 import styles from './index.module.css';
 
@@ -13,7 +13,7 @@ export const CustomSelectField: SelectProps['Field'] = ({ selected, innerProps, 
         <div ref={ref}>
             <Button
                 {...(restInnerProps as ButtonProps)}
-                size='xxs'
+                size={32}
                 view='transparent'
                 className={cn(styles.field, { [styles.open]: open })}
                 rightAddons={Arrow}

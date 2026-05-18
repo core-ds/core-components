@@ -1,13 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`NavigationBar Snapshots tests should match default snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
         class="component"
         data-test-id="nb-dti"
+        style="background-color: var(--color-light-base-bg-primary);"
       >
         <div
           class="mainLine center"
@@ -56,6 +57,7 @@ Object {
     <div
       class="component"
       data-test-id="nb-dti"
+      style="background-color: var(--color-light-base-bg-primary);"
     >
       <div
         class="mainLine center"

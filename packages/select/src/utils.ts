@@ -1,17 +1,23 @@
 import {
     cloneElement,
     isValidElement,
-    ReactNode,
-    RefObject,
+    type ReactNode,
+    type RefObject,
     useEffect,
     useRef,
     useState,
 } from 'react';
 
 import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_SEPARATOR } from './consts';
-import { BaseSelectProps, GroupShape, OptionShape, OptionsListProps } from './typings';
+import {
+    type BaseSelectProps,
+    type GroupShape,
+    type OptionShape,
+    type OptionsListProps,
+} from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
@@ -243,7 +249,7 @@ export function useVisibleOptions({
     const [measured, setMeasured] = useState(false);
     const [height, setHeight] = useState<number | undefined>();
 
-    useEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const measureOptionHeight = (element: HTMLElement) =>
             typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
 

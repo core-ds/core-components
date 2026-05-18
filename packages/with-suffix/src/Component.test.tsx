@@ -69,6 +69,6 @@ describe('withSuffix', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<SuffixInput value='10' suffix=' лет' />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

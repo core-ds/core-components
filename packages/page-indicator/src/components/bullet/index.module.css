@@ -28,7 +28,8 @@
     }
     &.entered {
         opacity: 1;
-        transition: background var(--page-indicator-animation-duration)
+        transition:
+            background var(--page-indicator-animation-duration)
                 var(--page-indicator-animation-timing-function),
             opacity var(--page-indicator-animation-duration)
                 var(--page-indicator-animation-timing-function);

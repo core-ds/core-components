@@ -1,7 +1,7 @@
-import React, { ButtonHTMLAttributes, ElementType, FC } from 'react';
+import React, { type ButtonHTMLAttributes, type ElementType, type FC } from 'react';
 import cn from 'classnames';
 
-import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
+import { IconButton, type IconButtonProps } from '@alfalab/core-components-icon-button';
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
@@ -80,7 +80,7 @@ export const Closer: FC<CloserProps> = ({
             })}
         >
             <IconButton
-                size={view === 'desktop' ? 's' : 'xs'}
+                size={view === 'desktop' ? 48 : 32}
                 className={cn(styles.button, colorStyles[colors].button, {
                     [colorStyles[colors].mobile]: view === 'mobile',
                 })}

@@ -78,8 +78,8 @@ describe('DateTimeInput', () => {
             await userEvent.type(input, value);
 
             await waitFor(() => {
-                expect(onComplete).toBeCalledTimes(1);
-                expect(onChange).toBeCalledTimes(value.length);
+                expect(onComplete).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledTimes(value.length);
             });
         });
 
@@ -118,8 +118,8 @@ describe('DateTimeInput', () => {
             });
 
             await waitFor(() => {
-                expect(onChange).toBeCalledTimes(1);
-                expect(onChange).toBeCalledWith(null, {
+                expect(onChange).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledWith(null, {
                     date: getFullDateTime(dateAsString),
                     value: dateAsString,
                 });
@@ -130,8 +130,8 @@ describe('DateTimeInput', () => {
             });
 
             await waitFor(() => {
-                expect(onComplete).toBeCalledTimes(1);
-                expect(onComplete).toBeCalledWith(null, {
+                expect(onComplete).toHaveBeenCalledTimes(1);
+                expect(onComplete).toHaveBeenCalledWith(null, {
                     date: getFullDateTime(dateAsString),
                     value: addTimeToDate(dateAsString),
                 });
@@ -143,7 +143,7 @@ describe('DateTimeInput', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<DateTimeInput />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

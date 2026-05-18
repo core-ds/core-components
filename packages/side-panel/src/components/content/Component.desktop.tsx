@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 
-import { Content, ContentProps } from './Component';
+import { Content, type ContentProps } from './Component';
 
 import styles from './desktop.module.css';
 

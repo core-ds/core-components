@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef } from 'react';
+import React, { type FC, useContext, useEffect, useRef } from 'react';
 
 import { GalleryContext } from '../../context';
 import { isSmallImage, isVideo, TestIds } from '../../utils';

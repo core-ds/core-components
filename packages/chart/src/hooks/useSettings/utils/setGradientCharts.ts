@@ -1,5 +1,5 @@
-import { SeriaProps } from '../../../types/seria.types';
-import { DataProps } from '../../../types/utils/data.types';
+import { type SeriaProps } from '../../../types/seria.types';
+import { type DataProps } from '../../../types/utils/data.types';
 
 export const setGradientCharts = (series: SeriaProps[]): SeriaProps[] => {
     const filterSeries = series.filter((item) => item.chart !== 'gradient');

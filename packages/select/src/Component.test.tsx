@@ -13,10 +13,13 @@ import {
     OptionProps,
     useSelectWithApply,
     Arrow,
+    SelectProps,
 } from './shared';
 import { SelectDesktop as Select } from './desktop';
 import { SelectMobile, SelectModalMobile } from './mobile';
+import { BaseOption } from './components';
 import { getSelectTestIds } from './utils';
+import { Environment } from 'downshift';
 
 function SelectWithApplyComponent({ testId }: { testId: string }) {
     const selectProps = useSelectWithApply({
@@ -676,14 +679,17 @@ describe('Select', () => {
         it('should transfer props to OptionsList', async () => {
             const spy = jest.spyOn(optionsListModule.OptionsList, 'render' as never);
 
-            const optionsListProps: Partial<OptionsListProps> = {
+            const optionsListProps: Pick<
+                OptionsListProps,
+                'emptyPlaceholder' | 'flatOptions' | 'highlightedIndex'
+            > = {
                 emptyPlaceholder: 'list-placeholder',
-            };
-
-            const expectedProps: Partial<OptionsListProps> = {
-                options,
                 flatOptions: options,
                 highlightedIndex: -1,
+            };
+
+            const expectedProps: Partial<SelectProps> = {
+                options,
                 open: true,
                 size: 64,
                 visibleOptions: 3,
@@ -825,7 +831,7 @@ describe('Select', () => {
                 (await screen.findByTestId('select-options-list')).getElementsByClassName(
                     'checkmark',
                 ).length,
-            ).toBe(16);
+            ).toBe(8);
         });
 
         it('should hide checkmark', async () => {
@@ -870,10 +876,10 @@ describe('Select', () => {
                     <input />
                 </>,
             );
-            expect(onFocus).toBeCalledTimes(1);
+            expect(onFocus).toHaveBeenCalledTimes(1);
 
             await userEvent.tab();
-            expect(onBlur).toBeCalledTimes(1);
+            expect(onBlur).toHaveBeenCalledTimes(1);
         });
 
         it('should not call onBlur when focusing inner focusable element', async () => {
@@ -888,7 +894,7 @@ describe('Select', () => {
             );
 
             await userEvent.click(getByTestId('focusable-1'));
-            expect(onBlur).not.toBeCalled();
+            expect(onBlur).not.toHaveBeenCalled();
         });
 
         it('should call onOpen', () => {
@@ -900,7 +906,7 @@ describe('Select', () => {
             fireEvent.click(input);
 
             waitFor(() => {
-                expect(cb).toBeCalledTimes(1);
+                expect(cb).toHaveBeenCalledTimes(1);
             });
         });
 
@@ -916,7 +922,7 @@ describe('Select', () => {
 
             const option = await findByText(options[0].content);
             fireEvent.click(option);
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onScroll', () => {
@@ -933,7 +939,7 @@ describe('Select', () => {
             );
 
             fireEvent.scroll(getByTestId('test-id-options-list'));
-            expect(onScroll).toBeCalledTimes(1);
+            expect(onScroll).toHaveBeenCalledTimes(1);
         });
 
         it('should call valueRenderer', async () => {
@@ -951,7 +957,7 @@ describe('Select', () => {
             fireEvent.click(getByTestId('select-field'));
             fireEvent.click(getByText(options[0].content));
 
-            expect(valueRenderer).toBeCalled();
+            expect(valueRenderer).toHaveBeenCalled();
         });
 
         it('should call custom value renderer', async () => {
@@ -989,8 +995,8 @@ describe('Select', () => {
             );
             fireEvent.focus(document.querySelector('.field') as HTMLElement);
             fireEvent.blur(document.querySelector('.field') as HTMLElement);
-            expect(onFocus).toBeCalledTimes(1);
-            expect(onBlur).toBeCalledTimes(1);
+            expect(onFocus).toHaveBeenCalledTimes(1);
+            expect(onBlur).toHaveBeenCalledTimes(1);
         });
 
         it('should call onScroll', () => {
@@ -1007,7 +1013,7 @@ describe('Select', () => {
             );
 
             fireEvent.scroll(document.querySelector('.sheetContainer') as HTMLElement);
-            expect(onScroll).toBeCalledTimes(1);
+            expect(onScroll).toHaveBeenCalledTimes(1);
         });
     });
 
@@ -1032,6 +1038,82 @@ describe('Select', () => {
             const { container } = render(<Arrow disabled={true} />);
 
             expect(container.firstElementChild).toHaveClass('disabled');
+        });
+    });
+
+    describe('Environment tests', () => {
+        it('should pass environment prop to downshift', async () => {
+            const mockEnvironment = {
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                document: document,
+                Node: window.Node,
+            };
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    options={options}
+                    environment={mockEnvironment}
+                    dataTestId='select'
+                />,
+            );
+
+            expect(getByTestId('select')).toBeInTheDocument();
+
+            fireEvent.click(getByTestId('select-field'));
+            await waitFor(() => {
+                expect(screen.getByRole('listbox')).toBeInTheDocument();
+            });
+        });
+
+        it('should work with ShadowRoot-like environment', async () => {
+            const mockShadowRootEnvironment: Environment = {
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                document: {
+                    ...document,
+                    // activeElement null или элемент из shadow DOM
+                    activeElement: null,
+                    elementFromPoint: jest.fn().mockReturnValue(null),
+                    // ShadowRoot имеет свой document
+                    ownerDocument: document,
+                } as unknown as Document,
+                Node: window.Node,
+            };
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    options={options}
+                    environment={mockShadowRootEnvironment}
+                    dataTestId='select'
+                />,
+            );
+
+            expect(getByTestId('select')).toBeInTheDocument();
+
+            fireEvent.click(getByTestId('select-field'));
+            await waitFor(() => {
+                expect(screen.getByRole('listbox')).toBeInTheDocument();
+            });
+
+            const option = screen.getByText(options[0].content);
+            fireEvent.click(option);
+            expect(screen.getByText(options[0].content)).toBeInTheDocument();
+        });
+
+        it('should work without environment prop (default behavior)', async () => {
+            const { getByTestId } = render(
+                <Select {...baseProps} options={options} dataTestId='select' />,
+            );
+
+            expect(getByTestId('select')).toBeInTheDocument();
+
+            fireEvent.click(getByTestId('select-field'));
+            await waitFor(() => {
+                expect(screen.getByRole('listbox')).toBeInTheDocument();
+            });
         });
     });
 });

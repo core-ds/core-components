@@ -9,8 +9,7 @@ import { getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { PseudoTextArea } from './components';
-import { SIZE_TO_CLASSNAME_MAP } from './consts';
-import { TextareaProps } from './typings';
+import { type TextareaProps } from './typings';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
@@ -103,7 +102,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
-            if (autosize && maxHeight && textareaNode && textareaNode.style) {
+            if (autosize && maxHeight && textareaNode?.style) {
                 textareaNode.style.maxHeight = `${maxHeight}px`;
             }
         }, [autosize, maxHeight, textareaNode]);
@@ -151,13 +150,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 return stateValue.length;
             }
 
-            return (value as string).length;
+            return value.length;
         };
 
         const textareaClassNameCalc = cn(
             styles.textarea,
             colorStyles[colors].textarea,
-            styles[SIZE_TO_CLASSNAME_MAP[size]],
+            styles[`size-${size}`],
             {
                 [styles.overflowHidden]: autosize && !maxRows,
                 [styles.customScrollbar]: !nativeScrollbar,
@@ -213,7 +212,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                     [styles.focusVisible]: focusVisible,
                     [styles['resizable-40']]: resize === 'vertical' && size === 40,
                 })}
-                inputWrapperClassName={cn(styles.wrapper, styles[SIZE_TO_CLASSNAME_MAP[size]], {
+                inputWrapperClassName={cn(styles.wrapper, styles[`size-${size}`], {
                     [styles.hasInnerLabel]: hasInnerLabel,
                     [styles.resizeVertical]: resize === 'vertical',
                 })}
@@ -232,6 +231,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 bottomAddons={getBottomAddons()}
                 breakpoint={breakpoint}
                 dataTestId={getDataTestId(dataTestId, 'form-control')}
+                addonsClassName={cn(styles[`size-${size}`], {
+                    [styles.rightAddonsClassName]: rightAddons,
+                })}
             >
                 <React.Fragment>
                     {hasOverflow && (

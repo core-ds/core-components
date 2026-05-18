@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`CustomButton Snapshots tests should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -74,7 +74,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should match snapshot 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -154,7 +154,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should match snapshot 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -241,7 +241,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render CustomButton view=primary by default 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -314,7 +314,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render CustomButton view=primary by default 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -394,7 +394,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render CustomButton view=primary by default 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -481,7 +481,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render black color content 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -554,7 +554,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render black color content 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -634,7 +634,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render black color content 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -721,7 +721,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render custom background color 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -794,7 +794,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render custom background color 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -874,7 +874,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render custom background color 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -961,7 +961,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render loader if loading pass 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -1003,6 +1003,7 @@ Object {
           >
             <div
               class="gradient"
+              style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
             />
           </foreignobject>
         </svg>
@@ -1048,6 +1049,7 @@ Object {
         >
           <div
             class="gradient"
+            style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
           />
         </foreignobject>
       </svg>
@@ -1108,7 +1110,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render loader if loading pass 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -1150,6 +1152,7 @@ Object {
           >
             <div
               class="gradient"
+              style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
             />
           </foreignobject>
         </svg>
@@ -1194,6 +1197,7 @@ Object {
           >
             <div
               class="gradient"
+              style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
             />
           </foreignobject>
         </svg>
@@ -1239,6 +1243,7 @@ Object {
         >
           <div
             class="gradient"
+            style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
           />
         </foreignobject>
       </svg>
@@ -1299,7 +1304,7 @@ Object {
 `;
 
 exports[`CustomButton Snapshots tests should render loader if loading pass 3`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
@@ -1341,6 +1346,7 @@ Object {
           >
             <div
               class="gradient"
+              style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
             />
           </foreignobject>
         </svg>
@@ -1385,6 +1391,7 @@ Object {
           >
             <div
               class="gradient"
+              style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
             />
           </foreignobject>
         </svg>
@@ -1429,6 +1436,7 @@ Object {
           >
             <div
               class="gradient"
+              style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
             />
           </foreignobject>
         </svg>
@@ -1474,6 +1482,7 @@ Object {
         >
           <div
             class="gradient"
+            style="background-image: conic-gradient(from 7deg, transparent 76deg, currentColor);"
           />
         </foreignobject>
       </svg>

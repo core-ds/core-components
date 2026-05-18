@@ -1,8 +1,8 @@
 import {
     createStorybookUrl,
-    CreateStorybookUrlParams,
-    KnobsCombinations,
-    KnobValueType,
+    type CreateStorybookUrlParams,
+    type KnobsCombinations,
+    type KnobValueType,
 } from './createStorybookUrl';
 import { generateCombos } from './utils';
 

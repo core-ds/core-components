@@ -1,8 +1,7 @@
-import React, { FC, isValidElement } from 'react';
+import React, { type FC, isValidElement } from 'react';
 import cn from 'classnames';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
-import { OptionCommonProps } from '../../typings';
+import { type OptionCommonProps } from '../../typings';
 
 import type stylesDesktop from './desktop/index.module.css';
 import type stylesMobile from './mobile/index.module.css';
@@ -29,6 +28,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     multiple,
     mobile,
     Checkmark,
+    checkmarkPosition = multiple ? 'before' : 'after',
     innerProps,
     dataTestId,
     styles,
@@ -36,24 +36,28 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
     const content = children || option.content || option.key;
     const { showCheckMark = true } = option;
 
+    const renderCheckmark = (position: 'before' | 'after') =>
+        Checkmark &&
+        showCheckMark && (
+            <Checkmark
+                disabled={disabled}
+                selected={selected}
+                multiple={multiple}
+                position={position}
+            />
+        );
+
     return (
         <div
             {...innerProps}
-            className={cn(styles.option, styles[SIZE_TO_CLASSNAME_MAP[size]], className, {
+            className={cn(styles.option, styles[`size-${size}`], className, {
                 [styles.highlighted]: !mobile && highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,
             })}
             data-test-id={dataTestId}
         >
-            {Checkmark && showCheckMark && (
-                <Checkmark
-                    disabled={disabled}
-                    selected={selected}
-                    multiple={multiple}
-                    position='before'
-                />
-            )}
+            {checkmarkPosition === 'before' && renderCheckmark('before')}
 
             <div
                 className={cn(styles.content, {
@@ -63,15 +67,7 @@ export const OptionBase: FC<OptionCommonProps & OptionPrivateProps> = ({
                 {content}
             </div>
 
-            {/** Workaround чтобы для клика показывать отметку справа и всегда в виде иконки */}
-            {Checkmark && showCheckMark && (
-                <Checkmark
-                    disabled={disabled}
-                    selected={selected}
-                    multiple={multiple}
-                    position='after'
-                />
-            )}
+            {checkmarkPosition === 'after' && renderCheckmark('after')}
         </div>
     );
 };

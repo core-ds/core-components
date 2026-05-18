@@ -35,7 +35,7 @@ describe('segmented-control', () => {
 
         fireEvent.click(screen.getByTestId(SEGMENT_TEST_ID));
 
-        expect(onChange).toBeCalledWith(2);
+        expect(onChange).toHaveBeenCalledWith(2);
     });
 
     it('should set dataTestId', () => {
@@ -73,5 +73,20 @@ describe('segmented-control', () => {
         const firstElement = container.firstChild;
 
         expect(firstElement).toHaveStyle('padding: 20px');
+    });
+
+    it('should render skeleton when skeleton.visible is true', () => {
+        const dataTestId = 'skeleton-test-id';
+        render(
+            renderComponent({
+                onChange: () => null,
+                selectedId: 2,
+                skeleton: { visible: true },
+                dataTestId,
+            }),
+        );
+
+        expect(screen.getByTestId(dataTestId)).toBeInTheDocument();
+        expect(screen.queryByTestId(SEGMENT_TEST_ID)).not.toBeInTheDocument();
     });
 });

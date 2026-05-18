@@ -1,58 +1,14 @@
-import React, { Children, ReactNode } from 'react';
+import React, { Children, type ReactNode } from 'react';
 import cn from 'classnames';
 
 import { Item } from './components/item';
+import { ListContext, type TListContext } from './context';
+import { type ColorMarkerType } from './types';
 import { isItem } from './utils';
 
 import styles from './index.module.css';
 
-export type TListContext = {
-    /**
-     * Упорядоченный список
-     */
-    orderedList?: boolean;
-
-    /**
-     * Маркер
-     * @default '–' for ul and 'decimal' for ol
-     */
-    markerType?: 'lower-alpha' | 'decimal' | string | ReactNode;
-
-    /**
-     * Цвет маркера
-     */
-    colorMarker?: ColorMarkerType;
-
-    /**
-     * Список обратного счета
-     */
-    reversed?: boolean;
-
-    /**
-     * Номер пункта
-     */
-    index?: number;
-
-    /**
-     * Начало отсчета элементов списка
-     */
-    start?: number;
-};
-
-export const ListContext = React.createContext<TListContext>({});
-
-type ColorMarkerType =
-    | 'tertiary'
-    | 'accent'
-    | 'primary'
-    | 'attention'
-    | 'positive'
-    | 'secondary'
-    | 'tertiary-inverted'
-    | 'primary-inverted'
-    | 'secondary-inverted'
-    | 'link'
-    | 'negative';
+export { ListContext, type TListContext };
 
 export type ListProps = {
     /**

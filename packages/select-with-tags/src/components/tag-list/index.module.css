@@ -1,8 +1,13 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
+@define-mixin indent-correction $var-name {
+    margin-left: calc(-1 * var($var-name));
+    padding-left: var($var-name);
+}
+
 .component.size-72 {
     & .contentWrapper {
-        padding: 18px 14px;
+        padding: 18px var(--gap-2s);
     }
 
     & .placeholder {
@@ -11,12 +16,16 @@
 
     & .input {
         margin-left: var(--gap-2);
+    }
+
+    & .rightAddons:not(:empty) {
+        @mixin indent-correction --gap-2s;
     }
 }
 
 .component.size-64 {
     & .contentWrapper {
-        padding: 14px 10px;
+        padding: var(--gap-2s) var(--gap-10);
     }
 
     & .placeholder {
@@ -25,12 +34,16 @@
 
     & .input {
         margin-left: var(--gap-2);
+    }
+
+    & .rightAddons:not(:empty) {
+        @mixin indent-correction --gap-10;
     }
 }
 
 .component.size-56 {
     & .contentWrapper {
-        padding: 10px;
+        padding: var(--gap-10);
     }
 
     & .placeholder {
@@ -40,19 +53,27 @@
     & .input {
         margin-left: var(--gap-2);
     }
+
+    & .rightAddons:not(:empty) {
+        @mixin indent-correction --gap-10;
+    }
 }
 
 .component.size-48 {
     & .contentWrapper {
-        padding: 6px;
+        padding: var(--gap-6);
     }
 
     & .placeholder {
-        padding-left: 6px;
+        padding-left: var(--gap-6);
     }
 
     & .input {
-        margin-left: 6px;
+        margin-left: var(--gap-6);
+    }
+
+    & .rightAddons:not(:empty) {
+        @mixin indent-correction --gap-6;
     }
 }
 
@@ -157,7 +178,7 @@
 }
 
 .component.size-64.label {
-    top: 10px;
+    top: var(--gap-10);
     left: var(--gap-16);
 }
 
@@ -171,5 +192,6 @@
     align-items: flex-start;
     height: auto;
     transform: none;
-    font-size: 14px;
+
+    @mixin paragraph_primary_small;
 }

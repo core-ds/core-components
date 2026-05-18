@@ -1,15 +1,15 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { AsYouType, CountryCode } from 'libphonenumber-js/min';
+import { type AsYouType, type CountryCode } from 'libphonenumber-js/min';
 
 import {
     InputAutocompleteDesktop,
-    InputAutocompleteDesktopProps,
+    type InputAutocompleteDesktopProps,
 } from '@alfalab/core-components-input-autocomplete/desktop';
-import type { SelectProps } from '@alfalab/core-components-select';
-import type { OptionShape } from '@alfalab/core-components-select/shared';
+import { type SelectProps } from '@alfalab/core-components-select';
+import { type OptionShape } from '@alfalab/core-components-select/shared';
 import WorldMagnifierMIcon from '@alfalab/icons-glyph/WorldMagnifierMIcon';
-import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
+import { type Country, getCountries, getCountriesHash } from '@alfalab/utils';
 
 import { calculateCaretPos } from './utils/calculateCaretPos';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
@@ -113,7 +113,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             canBeEmptyCountry = false,
             ruNumberPriority = false,
             clear = false,
-            size = 'm',
+            size = 56,
             colors = 'default',
             options = [],
             countries = getCountries(),
@@ -533,7 +533,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     wrapperRef: setInputWrapperRef,
                     type: 'tel',
                     colors,
-                    className: cn(className, styles[size]),
+                    className: cn(className, styles[`size-${size}`]),
                     addonsClassName: styles.addons,
                     onKeyDown: handleKeyDown,
                     onPaste: handlePaste,
@@ -554,9 +554,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                                 selected={countryIso2}
                                 countries={countries}
                                 onChange={handleSelectChange}
-                                fieldWidth={
-                                    inputWrapperRef && inputWrapperRef.getBoundingClientRect().width
-                                }
+                                fieldWidth={inputWrapperRef?.getBoundingClientRect().width ?? null}
                                 preventFlip={preventFlip}
                             />
                         )

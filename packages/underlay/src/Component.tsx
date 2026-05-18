@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { getBorderCorners } from './utils/getBorderCorners';
 import { getClasses, isBackgroundToken } from './utils/getClasses';
-import { UnderlayProps } from './types';
+import { type UnderlayProps } from './types';
 
 import styles from './index.module.css';
 
@@ -27,7 +27,7 @@ export const Underlay = forwardRef<HTMLDivElement, UnderlayProps>(
         ref,
     ) => {
         const paddingSize =
-            typeof padding === 'string'
+            typeof padding === 'number'
                 ? { top: padding, left: padding, right: padding, bottom: padding }
                 : padding;
 

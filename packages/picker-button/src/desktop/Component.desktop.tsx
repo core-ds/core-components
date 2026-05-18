@@ -1,18 +1,18 @@
-import React, { ComponentType, forwardRef, SVGProps } from 'react';
+import React, { type ComponentType, forwardRef, type SVGProps } from 'react';
 import cn from 'classnames';
 
-import type { ButtonProps } from '@alfalab/core-components-button';
+import { type ButtonProps } from '@alfalab/core-components-button';
 import { Popover } from '@alfalab/core-components-popover';
 import {
     BaseSelect,
-    BaseSelectProps,
+    type BaseSelectProps,
     Optgroup as DefaultOptgroup,
     OptionsList as DefaultOptionsList,
 } from '@alfalab/core-components-select/shared';
 
 import { Field as DefaultField } from '../field';
 import { Option as DefaultOption } from '../option';
-import type { PickerButtonSize, PickerButtonVariant } from '../types';
+import { type PickerButtonSize, type PickerButtonVariant } from '../types';
 
 import styles from '../index.module.css';
 
@@ -47,7 +47,7 @@ export type PickerButtonDesktopProps = Omit<
 
         /**
          * Размер кнопки
-         * @description xxs, xs, s, m, l, xl deprecated, используйте вместо них 32, 40, 48, 56, 64, 72 соответственно
+         * @default 56
          */
         size?: PickerButtonSize;
 
@@ -116,7 +116,7 @@ export const PickerButtonDesktop = forwardRef<HTMLInputElement, PickerButtonDesk
                 ref={ref}
                 Option={Option}
                 Field={Field}
-                size={size === 'm' || size === 56 ? 56 : 48}
+                size={size === 56 ? 56 : 48}
                 fieldProps={{
                     ...fieldDefaultProps,
                     ...(fieldProps as object),

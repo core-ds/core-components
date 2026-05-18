@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { DragMIcon } from '@alfalab/icons-glyph/DragMIcon';
 
-import { SortableItemProps } from '../../types';
+import { type SortableItemProps } from '../../types';
 
 import styles from './index.module.css';
 
@@ -52,7 +52,7 @@ export const SortableItem: React.FC<SortableItemProps> = ({
                 {...(isControlActivator ? listeners : null)}
                 {...(isControlActivator ? attributes : null)}
             >
-                <DragMIcon aria-label='drag control' />
+                <DragMIcon className={styles.dragIcon} aria-label='drag control' />
             </div>
         );
     };

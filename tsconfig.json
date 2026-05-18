@@ -1,31 +1,13 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "include": [
-        ".eslintrc.cjs",
-        "bin",
-        "bin/.eslintrc.cjs",
-        "commitlint.config.ts",
-        "jest.config.mjs",
-        "jest.screenshots.config.mjs",
-        "lint-staged.config.mjs",
-        "playwright.config.js",
-        "tools",
-        "tools/.eslintrc.cjs",
-        "tools/gh-actions/.eslintrc.cjs"
-    ],
+    "extends": "@alfalab/core-components-tsconfig-node24-backport",
     "compilerOptions": {
-        "lib": ["es2022"],
-        "module": "nodenext",
-        "target": "es2022",
-
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "moduleResolution": "node16",
-
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "noEmit": true,
-        "allowJs": true
-    }
+        "allowJs": true,
+        "types": ["@alfalab/core-components-env"]
+    },
+    "include": ["**/*", "**/.eslintrc.cjs"],
+    "exclude": [".storybook", "docs", "node_modules", "packages"]
 }

@@ -1,8 +1,8 @@
 import React, {
-    CSSProperties,
+    type CSSProperties,
     forwardRef,
-    MutableRefObject,
-    ReactNode,
+    type MutableRefObject,
+    type ReactNode,
     useEffect,
     useMemo,
     useRef,
@@ -11,9 +11,14 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import { usePopper } from 'react-popper';
 import { CSSTransition } from 'react-transition-group';
-import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
+import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
-import { BasePlacement, Modifier, Obj, VariationPlacement } from '@popperjs/core';
+import {
+    type BasePlacement,
+    type Modifier,
+    type Obj,
+    type VariationPlacement,
+} from '@popperjs/core';
 import cn from 'classnames';
 import maxSize from 'popper-max-size-modifier';
 
@@ -299,7 +304,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         }
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
-            const nextBoundry = isFn(availableHeight) ? availableHeight() ?? undefined : undefined;
+            const nextBoundry = isFn(availableHeight)
+                ? (availableHeight() ?? undefined)
+                : undefined;
 
             if (!(maxSizeOptions.boundary === nextBoundry)) {
                 setMaxSizeOptions({ boundary: nextBoundry });

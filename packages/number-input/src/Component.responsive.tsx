@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { Input } from '@alfalab/core-components-input';
 import { useIsDesktop } from '@alfalab/core-components-mq';
 
-import { NumberInput, NumberInputProps } from './components/number-input';
+import { NumberInput, type NumberInputProps } from './components/number-input';
 
 export type NumberInputResponsiveProps = Omit<NumberInputProps, 'Input' | 'view'>;
 

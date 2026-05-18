@@ -1,4 +1,4 @@
-import { DataDynamicBooleanProps } from './utils/data.types';
+import { type DataDynamicBooleanProps } from './utils/data.types';
 
 export interface PayloadProps {
     /**

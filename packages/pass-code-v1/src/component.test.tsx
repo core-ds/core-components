@@ -43,7 +43,7 @@ describe('PassCodeV1', () => {
 
             fireEvent.click(button);
 
-            expect(cb).toBeCalledWith(currentValue + pressedDigit);
+            expect(cb).toHaveBeenCalledWith(currentValue + pressedDigit);
         });
     });
 
@@ -165,6 +165,6 @@ describe('PassCodeV1', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<PassCodeV1 value='' onChange={jest.fn} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 });

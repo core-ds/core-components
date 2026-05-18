@@ -1,9 +1,24 @@
 import React, { forwardRef } from 'react';
+import cn from 'classnames';
 
-import { SelectModalMobileProps } from '../typings';
+import { type SelectModalMobileProps } from '../typings';
 
 import { SelectMobile } from './Component.mobile';
 
-export const SelectModalMobile = forwardRef((props: SelectModalMobileProps, ref) => (
-    <SelectMobile {...props} isBottomSheet={false} ref={ref} />
-));
+import styles from './modal.mobile.module.css';
+
+export const SelectModalMobile = forwardRef((props: SelectModalMobileProps, ref) => {
+    const { modalHeaderProps, className: headerClassName } = props;
+
+    return (
+        <SelectMobile
+            {...props}
+            isBottomSheet={false}
+            ref={ref}
+            modalHeaderProps={{
+                ...modalHeaderProps,
+                className: cn(styles.header, headerClassName),
+            }}
+        />
+    );
+});

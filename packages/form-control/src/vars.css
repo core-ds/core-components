@@ -63,7 +63,6 @@
     --form-control-m-min-height: var(--size-m-height);
     --form-control-l-min-height: var(--size-l-height);
     --form-control-xl-min-height: var(--size-xl-height);
-    --form-control-border-radius: var(--border-radius-4) var(--border-radius-4) 0 0;
     --form-control-bg-backdrop-filter: unset;
 
     /* paddings */
@@ -79,9 +78,6 @@
     /* disabled */
     --form-control-disabled-opacity: 1;
 
-    /* font */
-    --form-control-font-family: var(--font-family);
-
     /* border-radius */
     --form-control-40-border-radius: var(--border-radius-8);
     --form-control-s-border-radius: var(--border-radius-8);
@@ -90,7 +86,7 @@
     --form-control-xl-border-radius: var(--border-radius-12);
 
     /* paddings mobile */
-    --form-control-mobile-sub-paddings: var(--gap-0) var(--gap-4);
+    --form-control-mobile-sub-paddings: var(--gap-0) var(--gap-0);
 
     /* border-radius mobile */
     --form-control-mobile-40-border-radius: var(--border-radius-10);
@@ -112,5 +108,5 @@
     display: block;
 
     /* adjusting overall height 👌 */
-    margin-top: 6px;
+    margin-top: var(--gap-6);
 }

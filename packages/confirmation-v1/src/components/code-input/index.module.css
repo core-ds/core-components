@@ -6,6 +6,8 @@
 }
 
 .input {
+    @mixin headline-system_medium;
+
     flex-shrink: 0;
     width: 36px;
     height: 48px;
@@ -18,9 +20,6 @@
     outline: none;
     color: var(--confirmation-input-text-color);
     text-align: center;
-    font-size: var(--confirmation-input-font-size);
-    font-weight: var(--confirmation-input-font-weight);
-    font-family: var(--confirmation-input-font-family);
 
     &.hasError {
         color: var(--confirmation-error-color);

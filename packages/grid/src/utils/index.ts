@@ -1,8 +1,7 @@
 import {
-    BreakpointObjectKeysType,
-    BreakpointObjectType,
-    BreakpointsKeysType,
-    ResponsivePropertyType,
+    type BreakpointObjectKeysType,
+    type BreakpointsKeysType,
+    type ResponsivePropertyType,
 } from '../typings';
 
 export function createClassNames(
@@ -27,7 +26,7 @@ export function createClassNames(
                 return;
             }
             if (typeof prop[breakpoint] === 'object') {
-                const propBreakpointObject = prop[breakpoint] as BreakpointObjectType;
+                const propBreakpointObject = prop[breakpoint];
 
                 (Object.keys(propBreakpointObject) as BreakpointObjectKeysType[]).forEach(
                     (size) => {

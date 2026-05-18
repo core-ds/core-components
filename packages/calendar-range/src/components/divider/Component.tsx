@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
-import { CalendarRangeProps } from '../../Component';
+import { type CalendarRangeProps } from '../../Component';
 
 import styles from './index.module.css';
 
@@ -17,7 +17,9 @@ export const Divider: FC<Props> = ({ inputFromProps, inputToProps }) => {
         inputToProps?.label &&
         inputToProps?.labelView === 'outer';
 
-    const size = inputFromProps?.size || inputToProps?.size || 's';
+    const size = inputFromProps?.size ?? inputToProps?.size ?? 48;
 
-    return <span className={cn(styles.component, styles[size], { [styles.outer]: outer })} />;
+    return (
+        <span className={cn(styles.component, styles[`size${size}`], { [styles.outer]: outer })} />
+    );
 };

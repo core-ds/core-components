@@ -1,12 +1,12 @@
-import React, { FC, useCallback, useContext, useMemo } from 'react';
+import React, { type FC, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
 
 import {
     Pagination as CorePagination,
-    PaginationProps as CorePaginationProps,
+    type PaginationProps as CorePaginationProps,
 } from '@alfalab/core-components-pagination';
-import { SelectDesktop, SelectDesktopProps } from '@alfalab/core-components-select/desktop';
-import { BaseSelectChangePayload } from '@alfalab/core-components-select/shared';
+import { SelectDesktop, type SelectDesktopProps } from '@alfalab/core-components-select/desktop';
+import { type BaseSelectChangePayload } from '@alfalab/core-components-select/shared';
 
 import { TableContext } from '../table-context';
 
@@ -93,7 +93,7 @@ export const Pagination: FC<PaginationProps> = ({
                     selected={perPage.toString()}
                     onChange={handlePerPageChange}
                     preventFlip={false}
-                    size='s'
+                    size={48}
                     className={styles.select}
                     optionsListClassName={styles.menu}
                     optionClassName={styles.option}

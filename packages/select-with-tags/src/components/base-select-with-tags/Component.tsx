@@ -1,9 +1,9 @@
 import React, {
-    ChangeEvent,
-    FC,
+    type ChangeEvent,
+    type FC,
     forwardRef,
-    ForwardRefExoticComponent,
-    Ref,
+    type ForwardRefExoticComponent,
+    type Ref,
     useCallback,
     useMemo,
     useRef,
@@ -11,24 +11,25 @@ import React, {
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 
-import type { BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
-import type { FormControlProps } from '@alfalab/core-components-form-control';
-import type { PopoverProps } from '@alfalab/core-components-popover';
+import { type BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { type FormControlProps } from '@alfalab/core-components-form-control';
+import { type PopoverProps } from '@alfalab/core-components-popover';
 import {
-    AnyObject,
+    type AnyObject,
     Arrow as DefaultArrow,
     BaseSelect,
-    BaseSelectProps,
-    FieldProps,
+    type BaseSelectProps,
+    type FieldProps,
     Footer,
     Optgroup as DefaultOptgroup,
     Option as DefaultOption,
-    OptionShape,
+    type OptionProps,
+    type OptionShape,
     OptionsList as DefaultOptionsList,
-    Search,
+    Search as DefaultSearch,
 } from '@alfalab/core-components-select/shared';
 
-import { SelectWithTagsProps } from '../../types';
+import { type SelectWithTagsProps } from '../../types';
 import { filterOptions } from '../../utils';
 import { TagList } from '../tag-list';
 
@@ -66,6 +67,8 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
             dataTestId,
             open: openProp,
             searchProps,
+            showSearch,
+            Search = DefaultSearch,
             ...restProps
         },
         ref,
@@ -74,12 +77,12 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
 
         const [selectedTags, setSelectedTags] = useState(selectedProp || []);
         const [open, setOpen] = useState<boolean | undefined>(false);
-        const updatePopover = useRef(() => null);
+        const updatePopover = useRef<(() => void) | undefined>();
         const inputRef = useRef<HTMLInputElement>(null);
         const frozenValue = useRef<Array<string | OptionShape>>([]);
 
         const selected = selectedProp || selectedTags;
-        const isAutocomplete = autocomplete || Boolean(match);
+        const isAutocomplete = showSearch || autocomplete || Boolean(match);
 
         const resetValue = () => {
             if (value) {
@@ -92,9 +95,7 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
         };
 
         const handleUpdatePopover = useCallback(() => {
-            if (updatePopover && updatePopover.current) {
-                requestAnimationFrame(() => updatePopover.current?.());
-            }
+            requestAnimationFrame(() => updatePopover.current?.());
         }, []);
 
         const updateSelectedTags: SelectWithTagsProps['onChange'] = (payload) => {
@@ -139,6 +140,8 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
         );
 
         const isOpen = Boolean(openProp ?? open);
+        const restOptionProps = (restProps?.optionProps as Partial<OptionProps>) ?? {};
+        const defaultCheckmarkPosition = view === 'desktop' ? 'before' : 'after';
 
         return (
             <BaseSelect
@@ -173,6 +176,11 @@ export const BaseSelectWithTags = forwardRef<HTMLInputElement, BaseSelectWithTag
                     ...(view === 'mobile' && isOpen
                         ? { selectedMultiple: frozenValue.current }
                         : null),
+                }}
+                optionProps={{
+                    ...restOptionProps,
+                    checkmarkPosition:
+                        restOptionProps.checkmarkPosition ?? defaultCheckmarkPosition,
                 }}
                 selected={selected}
                 autocomplete={view === 'desktop' && isAutocomplete}

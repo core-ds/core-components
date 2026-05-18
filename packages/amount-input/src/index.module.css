@@ -15,11 +15,18 @@
 
 .container {
     position: relative;
-}
 
-.bold .input,
-.bold .suffixContainer {
-    font-weight: bold;
+    &.filled .input.input {
+        -webkit-text-fill-color: transparent;
+    }
+
+    /*
+     * Когда пользователь выделяет текст, показываем реальный текст инпута
+     * и скрываем визуальный суффикс, чтобы избежать артефактов рендеринга (Windows).
+     */
+    &.focused .input.input {
+        -webkit-text-fill-color: currentColor;
+    }
 }
 
 /* суффикс = текст в поле. Скрываем спейсер, чтобы суффикс выглядел как введенное в поле значение */
@@ -27,7 +34,11 @@
     display: none;
 }
 
-.filled .input,
 .input:focus {
     -webkit-text-fill-color: transparent;
+}
+
+.focused .suffixMajor,
+.focused .suffixMinor {
+    opacity: 0;
 }

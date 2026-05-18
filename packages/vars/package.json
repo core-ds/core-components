@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-vars",
-    "version": "10.1.0",
+    "version": "11.0.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -10,6 +10,9 @@
     "main": "index.js",
     "module": "esm/index.js",
     "style": "index.css",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "publishConfig": {
         "access": "public",
         "directory": "dist"

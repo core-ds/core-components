@@ -1,32 +1,41 @@
-import { ReactNode } from 'react';
-import addDays from 'date-fns/addDays';
-import addMonths from 'date-fns/addMonths';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import eachMonthOfInterval from 'date-fns/eachMonthOfInterval';
-import eachYearOfInterval from 'date-fns/eachYearOfInterval';
-import endOfDay from 'date-fns/endOfDay';
-import endOfWeek from 'date-fns/endOfWeek';
-import endOfYear from 'date-fns/endOfYear';
-import format from 'date-fns/format';
-import isAfter from 'date-fns/isAfter';
-import isBefore from 'date-fns/isBefore';
-import isSameDay from 'date-fns/isSameDay';
-import isThisMonth from 'date-fns/isThisMonth';
-import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import max from 'date-fns/max';
-import min from 'date-fns/min';
-import parse from 'date-fns/parse';
-import startOfDay from 'date-fns/startOfDay';
-import startOfMonth from 'date-fns/startOfMonth';
-import startOfWeek from 'date-fns/startOfWeek';
-import startOfYear from 'date-fns/startOfYear';
-import subDays from 'date-fns/subDays';
-import subMonths from 'date-fns/subMonths';
+import { type ReactNode } from 'react';
+import {
+    addDays,
+    addMonths,
+    eachDayOfInterval,
+    eachMonthOfInterval,
+    eachYearOfInterval,
+    endOfDay,
+    endOfWeek,
+    endOfYear,
+    format,
+    isAfter,
+    isBefore,
+    isSameDay,
+    isThisMonth,
+    lastDayOfMonth,
+    max,
+    min,
+    parse,
+    startOfDay,
+    startOfMonth,
+    startOfWeek,
+    startOfYear,
+    subDays,
+    subMonths,
+} from 'date-fns';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { DateShift, Day, DayAddons, Month, SpecialDays, SpecialDaysAddon } from './typings';
-import { CalendarProps } from '.';
+import {
+    type DateShift,
+    type Day,
+    type DayAddons,
+    type Month,
+    type SpecialDays,
+    type SpecialDaysAddon,
+} from './typings';
+import { type CalendarProps } from '.';
 
 export const DAYS_IN_WEEK = 7;
 export const MONTHS_IN_YEAR = 12;
@@ -99,7 +108,14 @@ export function generateWeeks(
 /**
  * Возвращает массив с месяцами для переданного года
  */
-export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?: Date }) {
+export function generateMonths(
+    year: Date,
+    options: {
+        minMonth?: Date;
+        maxMonth?: Date;
+        offDaysMap?: Record<number, boolean>;
+    },
+) {
     return eachMonthOfInterval({ start: startOfYear(year), end: endOfYear(year) }).map((month) =>
         buildMonth(month, options),
     );
@@ -153,14 +169,38 @@ export function buildDay(
 }
 
 /**
+ * Проверяет, все ли дни месяца находятся в offDaysMap
+ */
+export function isMonthFullyDisabled(month: Date, offDaysMap: Record<number, boolean>): boolean {
+    const start = startOfMonth(month);
+    const end = lastDayOfMonth(month);
+    const days = eachDayOfInterval({ start, end });
+
+    return days.every((day) => offDaysMap[startOfDay(day).getTime()]);
+}
+
+/**
  * Добавляет метаданные для переданного месяца
  */
-export function buildMonth(month: Date, options: { minMonth?: Date; maxMonth?: Date }): Month {
-    const { minMonth, maxMonth } = options;
+export function buildMonth(
+    month: Date,
+    options: {
+        minMonth?: Date;
+        maxMonth?: Date;
+        offDaysMap?: Record<number, boolean>;
+    },
+): Month {
+    const { minMonth, maxMonth, offDaysMap = {} } = options;
+
+    const disabledByRange =
+        (minMonth && isBefore(month, minMonth)) || (maxMonth && isAfter(month, maxMonth));
+
+    const disabledByOffDays =
+        Object.keys(offDaysMap).length > 0 && isMonthFullyDisabled(month, offDaysMap);
 
     return {
         date: month,
-        disabled: (minMonth && isBefore(month, minMonth)) || (maxMonth && isAfter(month, maxMonth)),
+        disabled: disabledByRange || disabledByOffDays,
     };
 }
 

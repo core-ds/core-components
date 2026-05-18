@@ -35,18 +35,19 @@
     &.checked {
         &.rectangular {
             &.size-32 {
-                border-radius: var(--tag-rectangular-mobile-xxs-border-radius) 0 0
+                border-radius: var(--tag-rectangular-mobile-xxs-border-radius)
+                    var(--border-radius-0) var(--border-radius-0)
                     var(--tag-rectangular-mobile-xxs-border-radius);
             }
 
             &.size-40 {
-                border-radius: var(--tag-rectangular-mobile-xs-border-radius) 0 0
-                    var(--tag-rectangular-mobile-xs-border-radius);
+                border-radius: var(--tag-rectangular-mobile-xs-border-radius) var(--border-radius-0)
+                    var(--border-radius-0) var(--tag-rectangular-mobile-xs-border-radius);
             }
 
             &.size-48 {
-                border-radius: var(--tag-rectangular-mobile-s-border-radius) 0 0
-                    var(--tag-rectangular-mobile-s-border-radius);
+                border-radius: var(--tag-rectangular-mobile-s-border-radius) var(--border-radius-0)
+                    var(--border-radius-0) var(--tag-rectangular-mobile-s-border-radius);
             }
 
             &:disabled,
@@ -70,18 +71,18 @@
 .clear {
     &.rectangular {
         &.size-32 {
-            border-radius: 0 var(--tag-rectangular-mobile-xxs-border-radius)
-                var(--tag-rectangular-mobile-xxs-border-radius) 0;
+            border-radius: var(--border-radius-0) var(--tag-rectangular-mobile-xxs-border-radius)
+                var(--tag-rectangular-mobile-xxs-border-radius) var(--border-radius-0);
         }
 
         &.size-40 {
-            border-radius: 0 var(--tag-rectangular-mobile-xs-border-radius)
-                var(--tag-rectangular-mobile-xs-border-radius) 0;
+            border-radius: var(--border-radius-0) var(--tag-rectangular-mobile-xs-border-radius)
+                var(--tag-rectangular-mobile-xs-border-radius) var(--border-radius-0);
         }
 
         &.size-48 {
-            border-radius: 0 var(--tag-rectangular-mobile-s-border-radius)
-                var(--tag-rectangular-mobile-s-border-radius) 0;
+            border-radius: var(--border-radius-0) var(--tag-rectangular-mobile-s-border-radius)
+                var(--tag-rectangular-mobile-s-border-radius) var(--border-radius-0);
         }
     }
 }

@@ -27,13 +27,13 @@ import { TooltipContent } from './components/TooltipContent';
 import { CustomizedHOC } from './hoc/Customized';
 import { useSettings } from './hooks/useSettings';
 import {
-    ActiveDotProps,
-    CoordinatesProps,
-    DataDynamicBooleanProps,
-    DataDynamicProps,
-    OptionsProps,
-    SeriaProps,
-    ToggleChartProps,
+    type ActiveDotProps,
+    type CoordinatesProps,
+    type DataDynamicBooleanProps,
+    type DataDynamicProps,
+    type OptionsProps,
+    type SeriaProps,
+    type ToggleChartProps,
 } from './types';
 
 import styles from './index.module.css';
@@ -193,9 +193,12 @@ export const Chart = (props: OptionsProps) => {
 
         return (
             <Tooltip
-                ref={tooltipRef}
                 {...state.tooltip}
-                content={CustomizedHOC(TooltipContent, { series: state.series, tooltipArrowSide })}
+                content={CustomizedHOC(TooltipContent, {
+                    series: state.series,
+                    tooltipArrowSide,
+                    ref: tooltipRef,
+                })}
             />
         );
     }, [state, tooltipArrowSide]);
@@ -287,7 +290,7 @@ export const Chart = (props: OptionsProps) => {
 
     // Позиционирование brush
     useEffect(() => {
-        if (!state || !state.brush) return;
+        if (!state?.brush) return;
         if (!heightLegend || heightLegend === 0) return;
 
         const align = state?.legend?.verticalAlign;
@@ -324,7 +327,7 @@ export const Chart = (props: OptionsProps) => {
                 (svgRef?.current?.clientWidth || 0) -
                     (state?.composeChart?.margin?.right || 0) -
                     activeCoordinate.x -
-                    (tooltipRef.current?.state?.boxWidth || 0) >
+                    (tooltipRef.current?.clientWidth || 0) >
                 20;
 
             setTooltipArrowSide(side);

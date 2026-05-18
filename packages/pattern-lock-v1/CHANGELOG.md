@@ -1,13 +1,125 @@
 # @alfalab/core-components-pattern-lock-v1
 
+## 3.0.4
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@13.1.1
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-mq@6.0.3
+
+## 3.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@13.1.0
+
+## 3.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+    - @alfalab/core-components-button@13.0.2
+    - @alfalab/core-components-mq@6.0.2
+
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@13.0.1
+    - @alfalab/core-components-mq@6.0.1
+    - @alfalab/core-components-shared@2.0.1
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1638](https://github.com/core-ds/core-components/pull/1638)
+
+##### Button
+
+- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`
+- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@13.0.0
+    - @alfalab/core-components-shared@2.0.0
+    - @alfalab/core-components-mq@6.0.0
+
+## 2.0.4
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.1
+
+## 2.0.3
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.1.0
+
+## 2.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.1
+    - @alfalab/core-components-button@12.0.2
+    - @alfalab/core-components-mq@5.0.2
+
 ## 2.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-shared@1.1.0
-    -   @alfalab/core-components-button@12.0.1
-    -   @alfalab/core-components-mq@5.0.1
+- Обновлены зависимости
+    - @alfalab/core-components-shared@1.1.0
+    - @alfalab/core-components-button@12.0.1
+    - @alfalab/core-components-mq@5.0.1
 
 ## 2.0.0
 
@@ -25,64 +137,64 @@
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   @alfalab/core-components-button@12.0.0
-    -   @alfalab/core-components-mq@5.0.0
-    -   @alfalab/core-components-shared@1.0.0
+- Обновлены зависимости
+    - @alfalab/core-components-button@12.0.0
+    - @alfalab/core-components-mq@5.0.0
+    - @alfalab/core-components-shared@1.0.0
 
 ## 1.1.18
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.18.0
-    -   button@11.11.10
+- Обновлены зависимости
+    - shared@0.18.0
+    - button@11.11.10
 
 ## 1.1.17
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.1
-    -   button@11.11.9
+- Обновлены зависимости
+    - shared@0.17.1
+    - button@11.11.9
 
 ## 1.1.16
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.17.0
-    -   button@11.11.8
+- Обновлены зависимости
+    - shared@0.17.0
+    - button@11.11.8
 
 ## 1.1.15
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.11.7
+- Обновлены зависимости
+    - button@11.11.7
 
 ## 1.1.14
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.11.6
+- Обновлены зависимости
+    - button@11.11.6
 
 ## 1.1.13
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.16.0
-    -   button@11.11.5
+- Обновлены зависимости
+    - shared@0.16.0
+    - button@11.11.5
 
 ## 1.1.12
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.15.0
-    -   button@11.11.4
+- Обновлены зависимости
+    - shared@0.15.0
+    - button@11.11.4
 
 ## 1.1.11
 
@@ -92,10 +204,10 @@
 
 ### [#1461](https://github.com/core-ds/core-components/pull/1461)
 
--   Обновление зависимостей
+- Обновление зависимостей
 
--   Обновлены зависимости
-    -   button@11.11.3
+- Обновлены зависимости
+    - button@11.11.3
 
 ## 1.1.10
 
@@ -105,12 +217,12 @@
 
 ### [#1509](https://github.com/core-ds/core-components/pull/1509)
 
--   Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
+- Добавлено "sideEffects": false, чтобы бандлер лучше делал тришейк.
 
--   Обновлены зависимости
-    -   mq@4.4.1
-    -   shared@0.14.1
-    -   button@11.11.2
+- Обновлены зависимости
+    - mq@4.4.1
+    - shared@0.14.1
+    - button@11.11.2
 
 ## 1.1.9
 
@@ -120,62 +232,62 @@
 
 ### [#1478](https://github.com/core-ds/core-components/pull/1478)
 
--   Вендор classnames обновлён 2.3.1 -> 2.5.1
+- Вендор classnames обновлён 2.3.1 -> 2.5.1
 
--   Обновлены зависимости
-    -   button@11.11.1
+- Обновлены зависимости
+    - button@11.11.1
 
 ## 1.1.8
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.11.0
+- Обновлены зависимости
+    - button@11.11.0
 
 ## 1.1.7
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.4.0
-    -   button@11.10.2
+- Обновлены зависимости
+    - mq@4.4.0
+    - button@11.10.2
 
 ## 1.1.6
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.14.0
-    -   button@11.10.1
+- Обновлены зависимости
+    - shared@0.14.0
+    - button@11.10.1
 
 ## 1.1.5
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.10.0
+- Обновлены зависимости
+    - button@11.10.0
 
 ## 1.1.4
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.9.0
-    -   shared@0.13.0
+- Обновлены зависимости
+    - button@11.9.0
+    - shared@0.13.0
 
 ## 1.1.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.8.0
+- Обновлены зависимости
+    - button@11.8.0
 
 ## 1.1.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.7.1
+- Обновлены зависимости
+    - button@11.7.1
 
 ## 1.1.1
 
@@ -185,11 +297,11 @@
 
 ### [#1370](https://github.com/core-ds/core-components/pull/1370)
 
--   Заменили числовые значения на переменные отступов
+- Заменили числовые значения на переменные отступов
 
--   Обновлены зависимости
-    -   button@11.7.0
-    -   shared@0.12.1
+- Обновлены зависимости
+    - button@11.7.0
+    - shared@0.12.1
 
 ## 1.1.0
 
@@ -199,12 +311,12 @@
 
 ### [#1347](https://github.com/core-ds/core-components/pull/1347)
 
--   Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
+- Добавлена сборка moderncssm (ES2020, esm, сырые css-модули, отключен импорт базовых токенов)
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.6.0
+- Обновлены зависимости
+    - button@11.6.0
 
 ## 1.0.4
 
@@ -214,33 +326,33 @@
 
 ### [#1355](https://github.com/core-ds/core-components/pull/1355)
 
--   Обновлены наименования переменных отступов
+- Обновлены наименования переменных отступов
 
--   Обновлены зависимости
-    -   button@11.5.5
+- Обновлены зависимости
+    - button@11.5.5
 
 ## 1.0.3
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   shared@0.12.0
-    -   button@11.5.4
+- Обновлены зависимости
+    - shared@0.12.0
+    - button@11.5.4
 
 ## 1.0.2
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   mq@4.3.0
-    -   button@11.5.3
+- Обновлены зависимости
+    - mq@4.3.0
+    - button@11.5.3
 
 ## 1.0.1
 
 ### Patch Changes
 
--   Обновлены зависимости
-    -   button@11.5.2
+- Обновлены зависимости
+    - button@11.5.2
 
 ## 1.0.0
 
@@ -252,9 +364,9 @@
 
 Редизайн компонентов PassCode и PatternLock
 
--   Внесены изменения в адаптивность
--   Удалены пропсы для вывода кастомных сообщений и ошибок
-    Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
+- Внесены изменения в адаптивность
+- Удалены пропсы для вывода кастомных сообщений и ошибок
+  Эти исправления уменьшили габариты компонентов, что позволит упростить работу с их размещением на странице
 
 ## Обновление
 

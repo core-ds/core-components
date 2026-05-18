@@ -1,8 +1,8 @@
 import React, {
-    FocusEvent,
+    type FocusEvent,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
+    type KeyboardEvent,
+    type MouseEvent,
     useEffect,
     useMemo,
     useRef,
@@ -11,8 +11,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import { useMaskito } from '@maskito/react';
 import cn from 'classnames';
-import endOfDay from 'date-fns/endOfDay';
-import startOfDay from 'date-fns/startOfDay';
+import { endOfDay, startOfDay } from 'date-fns';
 
 import { hasOwnProperty } from '@alfalab/core-components-shared';
 
@@ -23,7 +22,7 @@ import {
     HOURS_MINUTES_SEPARATOR,
 } from '../../consts';
 import { createMaskOptions } from '../../mask';
-import { BaseUniversalDateInputProps } from '../../types';
+import { type BaseUniversalDateInputProps } from '../../types';
 import { DateInput } from '../date-input';
 import { DateRangeInput } from '../date-range-input';
 import { MonthInput } from '../month-input';

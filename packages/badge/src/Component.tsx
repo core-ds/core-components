@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { BackgroundColorType, GraphicColorType } from '@alfalab/core-components-types';
+import { type BackgroundColorType, type GraphicColorType } from '@alfalab/core-components-types';
 
 import styles from './index.module.css';
 
@@ -98,7 +98,8 @@ export const Badge = ({
     const isCountView = view === 'count';
 
     const isHidden = isCountView && typeof content === 'number' && content <= 0;
-    const componentContent = isCountView && content && content >= 100 ? '99+' : content;
+    const componentContent =
+        isCountView && typeof content === 'number' && content >= 100 ? '99+' : content;
     const heightSize = getSize(height);
 
     return (

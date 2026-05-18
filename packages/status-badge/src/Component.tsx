@@ -3,9 +3,9 @@ import cn from 'classnames';
 
 import { useStatusBadgeIcon } from './hooks/useStatusBadgeIcon';
 import {
-    StatusBadgeCustomIcon,
-    StatusBadgeSizes,
-    StatusBadgeViews,
+    type StatusBadgeCustomIcon,
+    type StatusBadgeSizes,
+    type StatusBadgeViews,
 } from './types/statusBadgePropTypes';
 
 import defaultColors from './default.module.css';

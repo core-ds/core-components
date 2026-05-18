@@ -1,8 +1,8 @@
-import React, { FC, useContext } from 'react';
+import React, { type FC, useContext } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
-import { Text } from '@alfalab/core-components-typography';
+import { TypographyText } from '@alfalab/core-components-typography';
 
 import { ConfirmationContext } from '../../../context';
 import { Header } from '../../header';
@@ -17,7 +17,7 @@ export type TempBlockOverProps = {
 };
 
 export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
-    const { alignContent, texts, breakpoint, client, onChangeScreen, onChangeState } =
+    const { alignContent, titleTag, texts, breakpoint, client, onChangeScreen, onChangeState } =
         useContext(ConfirmationContext);
 
     const handleReturnButtonClick = () => {
@@ -27,9 +27,11 @@ export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <Header mobile={mobile}>{texts.tempBlockOverTitle}</Header>
+            <Header mobile={mobile} titleTag={titleTag}>
+                {texts.tempBlockOverTitle}
+            </Header>
 
-            <Text
+            <TypographyText
                 view='primary-medium'
                 color='primary'
                 className={cn(styles.description, {
@@ -38,10 +40,10 @@ export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
                 })}
             >
                 {texts.tempBlockOverDescription}
-            </Text>
+            </TypographyText>
 
             <Button
-                size={mobile ? 'xs' : 's'}
+                size={mobile ? 40 : 48}
                 view='secondary'
                 onClick={handleReturnButtonClick}
                 className={styles.button}

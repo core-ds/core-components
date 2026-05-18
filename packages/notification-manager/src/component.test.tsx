@@ -74,7 +74,7 @@ describe('NotificationManager', () => {
 
             jest.runAllTimers();
 
-            expect(cb).toBeCalledWith(notificationId);
+            expect(cb).toHaveBeenCalledWith(notificationId);
         });
 
         it('should call `onRemoveNotification` prop by closer click', () => {
@@ -96,8 +96,38 @@ describe('NotificationManager', () => {
                 fireEvent.click(closer);
             }
 
-            expect(cb).toBeCalledWith(notificationId);
+            expect(cb).toHaveBeenCalledWith(notificationId);
         });
+    });
+
+    it('should pass unique `containerRef` to each notification', () => {
+        const cloneElementSpy = jest.spyOn(React, 'cloneElement');
+
+        render(
+            <NotificationManager
+                onRemoveNotification={jest.fn()}
+                notifications={[
+                    <Notification title='title' key={1} id='1' />,
+                    <Notification title='title' key={2} id='2' />,
+                ]}
+            />,
+        );
+
+        const containerRefs = cloneElementSpy.mock.calls.reduce<React.RefObject<HTMLDivElement>[]>(
+            (acc, [, props]) => {
+                if (props && 'containerRef' in props) {
+                    acc.push(props.containerRef as React.RefObject<HTMLDivElement>);
+                }
+
+                return acc;
+            },
+            [],
+        );
+
+        expect(containerRefs).toHaveLength(2);
+        expect(containerRefs[0]).not.toBe(containerRefs[1]);
+
+        cloneElementSpy.mockRestore();
     });
 
     it('should set `data-test-id` attribute', () => {
@@ -148,7 +178,7 @@ describe('NotificationManager', () => {
             <NotificationManager onRemoveNotification={jest.fn()} notifications={[]} />,
         );
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     it('should render to container', () => {

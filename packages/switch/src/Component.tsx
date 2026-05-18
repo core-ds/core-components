@@ -1,11 +1,18 @@
-import React, { ChangeEvent, forwardRef, InputHTMLAttributes, ReactNode, useRef } from 'react';
+import React, {
+    type ChangeEvent,
+    forwardRef,
+    type InputHTMLAttributes,
+    type ReactNode,
+    useRef,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
 import { dom } from '@alfalab/core-components-shared';
+import { Skeleton } from '@alfalab/core-components-skeleton';
 import { useFocus } from '@alfalab/hooks';
 
-import { Colors } from './types/colors';
+import { type Colors } from './types/colors';
 
 import defaultStyles from './default.module.css';
 import styles from './index.module.css';
@@ -63,13 +70,6 @@ export type SwitchProps = Omit<
     disabled?: boolean;
 
     /**
-     * @deprecated данный проп больше не используется, временно оставлен для обратной совместимости
-     * Используйте props disabled
-     * Управление состоянием активен / неактивен
-     */
-    inactive?: boolean;
-
-    /**
      * Отображение ошибки
      */
     error?: ReactNode | boolean;
@@ -95,6 +95,12 @@ export type SwitchProps = Omit<
      * @default default
      */
     colors?: Colors;
+
+    /**
+     * Показать скелетон
+     * @default false
+     */
+    showSkeleton?: boolean;
 };
 
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
@@ -106,7 +112,6 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             addons,
             block,
             disabled,
-            inactive,
             error,
             label,
             hint,
@@ -116,6 +121,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             onChange,
             dataTestId,
             colors = 'default',
+            showSkeleton = false,
             ...restProps
         },
         ref,
@@ -135,8 +141,8 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         return (
             <label
                 className={cn(styles.component, styles[align], className, {
-                    [styles.disabled]: disabled || inactive,
-                    [colorStyles[colors].disabled]: disabled || inactive,
+                    [styles.disabled]: disabled,
+                    [colorStyles[colors].disabled]: disabled,
 
                     [styles.checked]: checked,
                     [colorStyles[colors].checked]: checked,
@@ -150,7 +156,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 <input
                     type='checkbox'
                     onChange={handleChange}
-                    disabled={disabled || inactive}
+                    disabled={disabled}
                     checked={checked}
                     name={name}
                     value={value}
@@ -158,19 +164,47 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     {...restProps}
                 />
 
-                <span className={cn(styles.switch, colorStyles[colors].switch)} />
+                <Skeleton
+                    visible={showSkeleton}
+                    borderRadius='pill'
+                    colors={colors}
+                    className={cn({
+                        [styles.switchSkeleton]: showSkeleton,
+                    })}
+                >
+                    <span className={cn(styles.switch, colorStyles[colors].switch)} />
+                </Skeleton>
 
                 {(label || hint || errorMessage) && (
                     <span className={styles.content}>
                         {label && (
-                            <span className={cn(styles.label, colorStyles[colors].label)}>
-                                {label}
-                            </span>
+                            <Skeleton
+                                visible={showSkeleton}
+                                borderRadius='pill'
+                                colors={colors}
+                                className={cn(styles.labelWrap, {
+                                    [styles.loading]: showSkeleton,
+                                })}
+                            >
+                                <span className={cn(styles.label, colorStyles[colors].label)}>
+                                    {label}
+                                </span>
+                            </Skeleton>
                         )}
+
                         {hint && !errorMessage && (
-                            <span className={cn(styles.hint, colorStyles[colors].hint)}>
-                                {hint}
-                            </span>
+                            <Skeleton
+                                visible={showSkeleton}
+                                borderRadius='pill'
+                                colors={colors}
+                                className={cn(styles.hintWrap, {
+                                    [styles.loading]: showSkeleton,
+                                })}
+                            >
+                                <span className={cn(styles.hint, colorStyles[colors].hint)}>
+                                    {hint}
+                                </span>
+                            </Skeleton>
                         )}
 
                         {errorMessage && (

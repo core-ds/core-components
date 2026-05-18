@@ -1,7 +1,12 @@
-import React from 'react';
-import type { Announcements, DragEndEvent, DragStartEvent, UniqueIdentifier } from '@dnd-kit/core';
+import type React from 'react';
+import {
+    type Announcements,
+    type DragEndEvent,
+    type DragStartEvent,
+    type UniqueIdentifier,
+} from '@dnd-kit/core';
 
-import type { PortalProps } from '@alfalab/core-components-portal';
+import { type PortalProps } from '@alfalab/core-components-portal';
 
 type View = 'primary' | 'secondary';
 type ActivatorNode = 'cell' | 'control';
@@ -11,9 +16,9 @@ export type Items = Array<{
     disabled?: boolean;
 }>;
 
-type BorderRadius = 'm' | 'l' | 'xl';
+type BorderRadius = 8 | 12 | 16;
 
-type PaddingSize = '3xs' | '2xs' | 'xs' | 's' | 'm' | 'l';
+type PaddingSize = 2 | 4 | 8 | 12 | 16 | 20;
 
 type PaddingObj = {
     top?: PaddingSize;

@@ -126,7 +126,7 @@ describe('Render tests', () => {
     it.each(customPickerButtonVariants)('should unmount without errors', async (Component) => {
         const { unmount } = render(<Component options={options} />);
 
-        expect(unmount).not.toThrowError();
+        expect(unmount).not.toThrow();
     });
 
     it.each(customPickerButtonVariants)('should have loading class', async (Component) => {

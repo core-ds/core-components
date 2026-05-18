@@ -3,13 +3,13 @@ import cn from 'classnames';
 
 import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
 
-import { CheckmarkProps } from '../../typings';
+import { type CheckmarkProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Checkmark = ({ selected, className }: CheckmarkProps) => (
+export const Checkmark = ({ selected, className, position = 'after' }: CheckmarkProps) => (
     <div
-        className={cn(styles.checkmark, className, {
+        className={cn(styles.checkmark, className, styles[position], {
             [styles.selected]: selected,
         })}
     >

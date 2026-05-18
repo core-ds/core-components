@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { BackspaceXxlIcon } from '@alfalab/icons-glyph/BackspaceXxlIcon';
@@ -85,7 +85,11 @@ export const KeyPad: React.FC<KeyPadProps> = ({
 
                 if (rightAddons) {
                     if (rightAddonsTitle) {
-                        return <div title={rightAddonsTitle}>{rightAddons}</div>;
+                        return (
+                            <div key='right-addons-title' title={rightAddonsTitle}>
+                                {rightAddons}
+                            </div>
+                        );
                     }
 
                     return rightAddons;

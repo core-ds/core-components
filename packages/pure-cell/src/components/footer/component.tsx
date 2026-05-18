@@ -3,8 +3,8 @@ import cn from 'classnames';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 
-import { PureCellContext } from '../../component';
-import { FooterElement } from '../types';
+import { PureCellContext } from '../../context';
+import { type FooterElement } from '../types';
 
 import styles from './index.module.css';
 
@@ -24,14 +24,24 @@ type Props = {
      * Используется модификатор -footer
      */
     dataTestId?: string;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 };
 
-export const Footer: React.FC<Props> = ({ children, footerPadding = 'default', dataTestId }) => {
+export const Footer: React.FC<Props> = ({
+    children,
+    footerPadding = 'default',
+    dataTestId,
+    className,
+}) => {
     const pureCellContext = useContext(PureCellContext);
 
     return (
         <footer
-            className={cn(styles.component, styles[footerPadding])}
+            className={cn(styles.component, styles[footerPadding], className)}
             data-test-id={getDataTestId(dataTestId || pureCellContext.dataTestId, 'footer')}
         >
             {children}

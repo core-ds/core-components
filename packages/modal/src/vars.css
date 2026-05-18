@@ -6,6 +6,7 @@
     --modal-header-background: var(--color-light-modal-bg-primary);
     --modal-footer-background: var(--color-light-modal-bg-primary);
     --modal-footer-default-gap: var(--gap-16);
+    --modal-footer-mobile-default-gap: var(--gap-8);
 
     /* sizes */
     --modal-s-width: 500px;
@@ -27,23 +28,13 @@
 
     /* desktop */
     --modal-s-header-desktop-content-paddings: var(--gap-12);
-    --modal-s-header-desktop-font-size: 22px;
-    --modal-s-header-desktop-line-height: 26px;
-    --modal-l-header-desktop-content-paddings: 6px var(--gap-12) var(--gap-16);
-    --modal-l-header-desktop-font-size: 30px;
-    --modal-l-header-desktop-line-height: 36px;
-    --modal-header-desktop-font-weight: bold;
-    --modal-header-desktop-font-family: var(--font-family-system);
+    --modal-l-header-desktop-content-paddings: var(--gap-6) var(--gap-12) var(--gap-16);
 
     /* mobile */
-    --modal-header-mobile-content-paddings: 10px var(--gap-8);
-    --modal-header-mobile-font-size: 20px;
-    --modal-header-mobile-line-height: 28px;
-    --modal-header-mobile-font-family: var(--font-family-system);
-    --modal-header-mobile-font-weight: 600;
+    --modal-header-mobile-content-paddings: var(--gap-10) var(--gap-8);
 
     /* paddings */
     --modal-header-mobile-top-padding: var(--gap-4);
-    --modal-header-mobile-paddings: var(--modal-header-mobile-top-padding) var(--gap-8) var(--gap-4)
-        var(--gap-8);
+    --modal-header-mobile-paddings: var(--modal-header-mobile-top-padding) var(--gap-12)
+        var(--gap-4) var(--gap-12);
 }

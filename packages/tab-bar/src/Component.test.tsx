@@ -157,7 +157,7 @@ describe('TagBar', () => {
 
             render(<TabBarComponent tabProps={{ Component: forwardRef(cb), to }} />);
 
-            expect(cb).toBeCalled();
+            expect(cb).toHaveBeenCalled();
 
             const props = cb.mock.calls[0][0];
             expect(props.to).toBe(to);
@@ -172,8 +172,8 @@ describe('TagBar', () => {
             const tab2 = getAllByRole('button')[1];
             fireEvent.click(tab2);
 
-            expect(onChange).toBeCalledTimes(1);
-            expect(onChange).toBeCalledWith('2');
+            expect(onChange).toHaveBeenCalledTimes(1);
+            expect(onChange).toHaveBeenCalledWith('2');
         });
     });
 });

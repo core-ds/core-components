@@ -1,14 +1,16 @@
 import React from 'react';
 import { render, fireEvent, renderHook, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import subDays from 'date-fns/subDays';
-import addDays from 'date-fns/addDays';
-import setDate from 'date-fns/setDate';
-import endOfMonth from 'date-fns/endOfMonth';
-import setMonth from 'date-fns/setMonth';
-import addMonths from 'date-fns/addMonths';
-import endOfYear from 'date-fns/endOfYear';
-import subMonths from 'date-fns/subMonths';
+import {
+    subDays,
+    addDays,
+    setDate,
+    endOfMonth,
+    setMonth,
+    addMonths,
+    endOfYear,
+    subMonths,
+} from 'date-fns';
 import { act } from 'react-dom/test-utils';
 import { getCalendarMobileTestIds, monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
@@ -603,7 +605,7 @@ describe('Calendar', () => {
 
             fireEvent.click(getByText('10'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onMonthChange callback in full view', async () => {
@@ -626,7 +628,7 @@ describe('Calendar', () => {
 
             fireEvent.click(getByText('2019'));
 
-            expect(cb).toBeCalledTimes(2);
+            expect(cb).toHaveBeenCalledTimes(2);
         });
 
         it('should call onMonthChange callback in month-only view', () => {
@@ -642,7 +644,7 @@ describe('Calendar', () => {
             fireEvent.click(getByLabelText('Следующий период'));
             fireEvent.click(getByLabelText('Предыдущий период'));
 
-            expect(cb).toBeCalledTimes(2);
+            expect(cb).toHaveBeenCalledTimes(2);
         });
 
         it('should call onPeriodClick callback in month-only view', () => {
@@ -657,7 +659,7 @@ describe('Calendar', () => {
 
             fireEvent.click(getByText('Ноябрь 2020'));
 
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onMonthClick callback in full view', () => {
@@ -671,7 +673,7 @@ describe('Calendar', () => {
             );
 
             fireEvent.click(getByText('Ноябрь'));
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should call onYearClick callback in full view', () => {
@@ -685,7 +687,7 @@ describe('Calendar', () => {
             );
 
             fireEvent.click(getByText('2020'));
-            expect(cb).toBeCalledTimes(1);
+            expect(cb).toHaveBeenCalledTimes(1);
         });
 
         it('should not call onApply when close button is clicked', () => {
@@ -1406,7 +1408,7 @@ describe('Calendar', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<Calendar />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

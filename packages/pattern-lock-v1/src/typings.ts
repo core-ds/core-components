@@ -1,5 +1,5 @@
-import { MouseEvent, ReactNode } from 'react';
-import { ReactPatternLockProps } from 'react-canvas-pattern-lock';
+import { type MouseEvent, type ReactNode } from 'react';
+import { type ReactPatternLockProps } from 'react-canvas-pattern-lock';
 
 type ConditionalProps =
     | {

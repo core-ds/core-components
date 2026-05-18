@@ -1,18 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`AmountInput Snapshots tests should match snapshot 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="container bold"
+        class="container"
       >
         <div
-          class="component component component hasSuffix size-48 size-48"
+          class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner"
+            class="field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -21,15 +21,15 @@ Object {
                 class="input size-48"
               >
                 <input
-                  class="input size-48 input input"
+                  class="input size-48 input bold input"
                   inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
+                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
                 />
                 <div
-                  class="suffixContainer suffixContainer"
+                  class="suffixContainer suffixContainer bold"
                   translate="no"
                 >
                   <span
@@ -39,10 +39,17 @@ Object {
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -55,13 +62,13 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="container bold"
+      class="container"
     >
       <div
-        class="component component component hasSuffix size-48 size-48"
+        class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
       >
         <div
-          class="inner inner inner inner"
+          class="field inner inner inner inner"
         >
           <div
             class="inputWrapper"
@@ -70,15 +77,15 @@ Object {
               class="input size-48"
             >
               <input
-                class="input size-48 input input"
+                class="input size-48 input bold input"
                 inputmode="decimal"
-                pattern="[0-9\\\\s\\\\.,]*"
+                pattern="[0-9\\s\\.,]*"
                 placeholder="0 ₽"
                 type="text"
                 value=""
               />
               <div
-                class="suffixContainer suffixContainer"
+                class="suffixContainer suffixContainer bold"
                 translate="no"
               >
                 <span
@@ -88,10 +95,17 @@ Object {
                   class="suffix"
                 >
                   <span
+                    class="suffixMajor"
+                  />
+                  <span
                     class="minorPartAndCurrency"
                   >
                      
-                    ₽
+                    <span
+                      class="suffixCurrency"
+                    >
+                      ₽
+                    </span>
                   </span>
                 </div>
               </div>
@@ -156,18 +170,18 @@ Object {
 `;
 
 exports[`AmountInput Snapshots tests should match snapshot 2`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="container bold"
+        class="container"
       >
         <div
-          class="component component component hasSuffix size-48 size-48"
+          class="component component component hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner"
+            class="field inner inner inner inner"
           >
             <div
               class="inputWrapper"
@@ -176,15 +190,15 @@ Object {
                 class="input size-48"
               >
                 <input
-                  class="input size-48 input input"
+                  class="input size-48 input bold input"
                   inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
+                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
                 />
                 <div
-                  class="suffixContainer suffixContainer"
+                  class="suffixContainer suffixContainer bold"
                   translate="no"
                 >
                   <span
@@ -194,10 +208,17 @@ Object {
                     class="suffix"
                   >
                     <span
+                      class="suffixMajor"
+                    />
+                    <span
                       class="minorPartAndCurrency"
                     >
                        
-                      ₽
+                      <span
+                        class="suffixCurrency"
+                      >
+                        ₽
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -209,13 +230,13 @@ Object {
     </div>
     <div>
       <div
-        class="container bold filled"
+        class="container filled"
       >
         <div
-          class="component component component suffixVisible hasSuffix size-48 size-48"
+          class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
         >
           <div
-            class="inner inner inner inner filled"
+            class="field inner inner inner inner filled"
           >
             <div
               class="inputWrapper"
@@ -224,15 +245,15 @@ Object {
                 class="input size-48"
               >
                 <input
-                  class="input size-48 input input"
+                  class="input size-48 input bold input"
                   inputmode="decimal"
-                  pattern="[0-9\\\\s\\\\.,]*"
+                  pattern="[0-9\\s\\.,]*"
                   placeholder="0 $"
                   type="text"
                   value="12 345,67"
                 />
                 <div
-                  class="suffixContainer suffixContainer"
+                  class="suffixContainer suffixContainer bold"
                   translate="no"
                 >
                   <span
@@ -243,13 +264,25 @@ Object {
                   <div
                     class="suffix"
                   >
-                    12 345
+                    <span
+                      class="suffixMajor"
+                    >
+                      12 345
+                    </span>
                     <span
                       class="minorPartAndCurrency"
                     >
-                      ,67
+                      <span
+                        class="suffixMinor"
+                      >
+                        ,67
+                      </span>
                        
-                      $
+                      <span
+                        class="suffixCurrency"
+                      >
+                        $
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -262,13 +295,13 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="container bold filled"
+      class="container filled"
     >
       <div
-        class="component component component suffixVisible hasSuffix size-48 size-48"
+        class="component component component suffixVisible hasSuffix formControlDesktop size-48 size-48 size-48"
       >
         <div
-          class="inner inner inner inner filled"
+          class="field inner inner inner inner filled"
         >
           <div
             class="inputWrapper"
@@ -277,15 +310,15 @@ Object {
               class="input size-48"
             >
               <input
-                class="input size-48 input input"
+                class="input size-48 input bold input"
                 inputmode="decimal"
-                pattern="[0-9\\\\s\\\\.,]*"
+                pattern="[0-9\\s\\.,]*"
                 placeholder="0 $"
                 type="text"
                 value="12 345,67"
               />
               <div
-                class="suffixContainer suffixContainer"
+                class="suffixContainer suffixContainer bold"
                 translate="no"
               >
                 <span
@@ -296,13 +329,25 @@ Object {
                 <div
                   class="suffix"
                 >
-                  12 345
+                  <span
+                    class="suffixMajor"
+                  >
+                    12 345
+                  </span>
                   <span
                     class="minorPartAndCurrency"
                   >
-                    ,67
+                    <span
+                      class="suffixMinor"
+                    >
+                      ,67
+                    </span>
                      
-                    $
+                    <span
+                      class="suffixCurrency"
+                    >
+                      $
+                    </span>
                   </span>
                 </div>
               </div>

@@ -75,8 +75,8 @@ describe('TimeInput', () => {
             userEvent.type(input, value);
 
             await waitFor(() => {
-                expect(onComplete).toBeCalledTimes(1);
-                expect(onChange).toBeCalledTimes(value.length);
+                expect(onComplete).toHaveBeenCalledTimes(1);
+                expect(onChange).toHaveBeenCalledTimes(value.length);
             });
         });
     });
@@ -85,7 +85,7 @@ describe('TimeInput', () => {
         test('should unmount without errors', () => {
             const { unmount } = render(<TimeInput />);
 
-            expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrow();
         });
     });
 });

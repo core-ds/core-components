@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { PageIndicatorRunnerProps } from '../../types';
+import { type PageIndicatorRunnerProps } from '../../types';
 
 import defaultColors from './default.module.css';
 import styles from './index.module.css';
