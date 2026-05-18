@@ -66,24 +66,82 @@ export interface BaseCarouselProps<
 }
 
 export interface GeneralCarouselProps {
+    /**
+     * Минимальная высота карусели
+     */
     minHeight?: string | number;
+    /**
+     * Высота карусели
+     * @default auto
+     */
     height?: string | number;
+    /**
+     * Индекс активного элемента карусели
+     */
     activeIndex?: number;
+    /**
+     * Индекс активного элемента карусели по-умолчанию
+     */
     defaultActiveIndex?: number;
+    /**
+     * Обработчик изменения индекса активного элемента карусели
+     */
     onActiveIndexChange?: (nextActiveIndex: number) => void;
+    /**
+     * Отступ между элементами карусели
+     * @default 8
+     */
     gap?: number;
+    /**
+     * Количество видимых элементов карусели
+     * @default auto
+     */
     visibleItems?: 'auto' | number;
+    /**
+     * Массив элементов карусели
+     * @default auto
+     */
     items?: ItemProps[];
+    /**
+     * Набор цветов для карусели
+     * @default default
+     */
     colors?: 'default' | 'inverted';
+    /**
+     * Зациклена ли карусель
+     * @default false
+     */
     loop?: boolean;
+    /**
+     * Поведение при переполнении контента элементов карусели
+     * @default hidden
+     */
     overflow?: 'hidden' | 'visible';
+    /**
+     * Управление каруселью через колесо мыши
+     * @default false
+     */
     mouseWheel?: boolean;
 }
 
 export interface CarouselProps<T extends PaginationProps = PaginationProps>
     extends GeneralCarouselProps {
+    /**
+     * Управление каруселью через кнопки навигации
+     * @default never
+     */
     navigation?: 'hover' | 'always' | 'never';
+    /**
+     * Положение кнопок навигации
+     * @default center
+     */
     navigationPosition?: 'start' | 'center';
+    /**
+     * Компонент для рендера пагинации
+     */
     Pagination?: ComponentType<T>;
+    /**
+     * Дополнительные пропс для компонента пагинации
+     */
     paginationProps?: Omit<T, keyof PaginationProps>;
 }
