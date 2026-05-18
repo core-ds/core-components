@@ -95,7 +95,7 @@ export const Slide: FC<SlideProps> = ({
                 isVideoView={true}
                 active={isActive}
                 broken={broken}
-                loading={!meta || !meta.loaded}
+                loading={!meta?.loaded}
             >
                 <Video url={image.src} index={index} isActive={isActive} />
             </SlideInner>

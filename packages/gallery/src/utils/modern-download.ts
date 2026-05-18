@@ -22,6 +22,35 @@ const downloadWithLink = (url: string, fileName: string): void => {
     document.body.removeChild(link);
 };
 
+const canUseBlobDownload = (): boolean =>
+    typeof fetch === 'function' &&
+    typeof URL.createObjectURL === 'function' &&
+    typeof URL.revokeObjectURL === 'function';
+
+const canUseFileShare = (): boolean =>
+    typeof File === 'function' &&
+    typeof navigator !== 'undefined' &&
+    typeof navigator.share === 'function' &&
+    typeof navigator.canShare === 'function';
+
+const canShareFiles = (files: File[]): boolean =>
+    canUseFileShare() && navigator.canShare({ files });
+
+const getBlob = async (url: string): Promise<Blob> => {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error('Network error');
+    }
+
+    return response.blob();
+};
+
+const isAbortError = (error: unknown): boolean =>
+    typeof DOMException !== 'undefined' &&
+    error instanceof DOMException &&
+    error.name === 'AbortError';
+
 export interface DownloadOptions {
     url: string;
     fileName?: string;
@@ -33,60 +62,46 @@ export const downloadFile = async ({
     fileName = 'download',
     fileType,
 }: DownloadOptions): Promise<void> => {
-    if ('share' in navigator && navigator?.canShare) {
-        const response = await fetch(url);
-        const blob = await response.blob();
+    if (!canUseBlobDownload()) {
+        downloadWithLink(url, fileName);
 
-        const file = new File([blob], fileName, { type: blob.type || fileType });
+        return;
+    }
 
-        if (navigator?.canShare?.({ files: [file] })) {
+    if (canUseFileShare() && canShareFiles([new File([], fileName, { type: fileType })])) {
+        try {
+            const blob = await getBlob(url);
+
+            const file = new File([blob], fileName, { type: blob.type || fileType });
+
+            if (!canShareFiles([file])) {
+                downloadWithBlob(blob, fileName);
+
+                return;
+            }
+
             await navigator.share({
                 files: [file],
                 title: `Скачать ${fileName}`,
             });
 
             return;
-        }
-    }
+        } catch (error) {
+            if (isAbortError(error)) {
+                return;
+            }
 
-    if ('WritableStream' in window && 'ReadableStream' in window) {
-        const response = await fetch(url);
-
-        if (!response.ok) throw new Error('Network error');
-
-        const contentLength = response.headers.get('content-length');
-        const isLargeFile = contentLength && parseInt(contentLength, 10) > 10 * 1024 * 1024; // 10MB
-
-        if (isLargeFile && response.body) {
-            const reader = response.body.getReader();
-            const chunks: Uint8Array[] = [];
-
-            const readAllChunks = async (): Promise<void> => {
-                const { done, value } = await reader.read();
-
-                if (!done) {
-                    chunks.push(value);
-
-                    return readAllChunks();
-                }
-
-                return Promise.resolve();
-            };
-
-            await readAllChunks();
-            const blob = new Blob(chunks);
-
-            downloadWithBlob(blob, fileName);
+            downloadWithLink(url, fileName);
 
             return;
         }
-
-        const blob = await response.blob();
-
-        downloadWithBlob(blob, fileName);
-
-        return;
     }
 
-    downloadWithLink(url, fileName);
+    try {
+        const blob = await getBlob(url);
+
+        downloadWithBlob(blob, fileName);
+    } catch {
+        downloadWithLink(url, fileName);
+    }
 };
