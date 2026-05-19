@@ -4,7 +4,9 @@
 .indicatorFilled {
     --tag-indicator-filled-background-color: var(--tag-filled-mobile-background-color);
     --tag-indicator-filled-background-color-hover: var(--tag-filled-mobile-background-color-hover);
-    --tag-indicator-filled-background-color-active: var(--tag-filled-mobile-background-color-active);
+    --tag-indicator-filled-background-color-active: var(
+        --tag-filled-mobile-background-color-active
+    );
 }
 
 .filled {

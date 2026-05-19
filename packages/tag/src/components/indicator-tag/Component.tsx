@@ -73,7 +73,8 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
         const pathMode = hasIndicator ? mode : 'none';
 
         const colorStyle = colorCommonStyles?.[colors];
-        const { width, height, indicatorX, indicatorY } = indicatorTagGeometry[mode][indicatorTagSize];
+        const { width, height, indicatorX, indicatorY } =
+            indicatorTagGeometry[mode][indicatorTagSize];
         const shapePath = indicatorTagPaths[shape][pathMode][indicatorTagSize];
 
         const buttonProps = {

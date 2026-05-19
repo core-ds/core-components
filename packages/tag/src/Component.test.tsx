@@ -224,7 +224,11 @@ describe('Indicator tag', () => {
     describe('Success Cases', () => {
         it('should render dot indicator if mode is dot', () => {
             const { container } = render(
-                <Tag Component={IndicatorTag} indicatorProps={{ mode: 'dot' }} leftAddons={<span />} />,
+                <Tag
+                    Component={IndicatorTag}
+                    indicatorProps={{ mode: 'dot' }}
+                    leftAddons={<span />}
+                />,
             );
 
             expect(container.querySelector('.indicator')).toBeInTheDocument();
@@ -355,7 +359,11 @@ describe('Indicator tag', () => {
 
         it('should use count mode if value is provided without mode', () => {
             const { getByText } = render(
-                <Tag Component={IndicatorTag} indicatorProps={{ value: 7 }} leftAddons={<span />} />,
+                <Tag
+                    Component={IndicatorTag}
+                    indicatorProps={{ value: 7 }}
+                    leftAddons={<span />}
+                />,
             );
 
             expect(getByText('7')).toBeInTheDocument();
