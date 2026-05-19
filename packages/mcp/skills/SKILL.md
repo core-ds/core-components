@@ -75,26 +75,21 @@ User asks: _"Add a date picker to this form"_
 
 ## Import Patterns
 
-### Installation Options
+### Installation
 
 ```bash
-# Install entire library
 yarn add @alfalab/core-components
-
-# Install individual component
-yarn add @alfalab/core-components-button
 ```
 
-### Import Variants
+### Import Rule
 
-Components can be imported from two sources:
+**Always import from the root package** `@alfalab/core-components/<component>`:
 
-| Source             | Example                                                    |
-| ------------------ | ---------------------------------------------------------- |
-| Individual package | `import { Button } from '@alfalab/core-components-button'` |
-| Root package       | `import { Button } from '@alfalab/core-components/button'` |
+```tsx
+import { Button } from '@alfalab/core-components/button';
+```
 
-Both approaches are equivalent. Use individual packages for installing without the entire library.
+Never use individual packages (`@alfalab/core-components-button`). Root imports are the required pattern for this library.
 
 ### Build Variants
 
@@ -102,37 +97,34 @@ Components are shipped in three build variants:
 
 ```tsx
 // ES5 (default)
-import { Button } from '@alfalab/core-components-button';
 import { Button } from '@alfalab/core-components/button';
 
 // ES5 with CSS Modules
 import { Button } from '@alfalab/core-components/button/cssm';
-import { Button } from '@alfalab/core-components-button/cssm';
 
 // ES2020
 import { Button } from '@alfalab/core-components/button/modern';
-import { Button } from '@alfalab/core-components-button/modern';
 ```
 
 ### Desktop/Mobile Variants
 
 Some components have responsive variants:
 
-| Variant              | Root package                              | Individual package                        |
-| -------------------- | ----------------------------------------- | ----------------------------------------- |
-| Responsive (default) | `@alfalab/core-components/button`         | `@alfalab/core-components-button`         |
-| Desktop only         | `@alfalab/core-components/button/desktop` | `@alfalab/core-components-button/desktop` |
-| Mobile only          | `@alfalab/core-components/button/mobile`  | `@alfalab/core-components-button/mobile`  |
+| Variant              | Import path                               |
+| -------------------- | ----------------------------------------- |
+| Responsive (default) | `@alfalab/core-components/button`         |
+| Desktop only         | `@alfalab/core-components/button/desktop` |
+| Mobile only          | `@alfalab/core-components/button/mobile`  |
 
 ```tsx
 // Responsive (auto-detects viewport)
-import { Button } from '@alfalab/core-components-button';
+import { Button } from '@alfalab/core-components/button';
 
 // Explicit desktop variant
-import { ButtonDesktop } from '@alfalab/core-components-button/desktop';
+import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 
 // Explicit mobile variant
-import { ButtonMobile } from '@alfalab/core-components-button/mobile';
+import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 ```
 
 Use responsive variant with `breakpoint` prop for automatic switching, or explicit variants when you need platform-specific behavior.
@@ -159,13 +151,13 @@ Use responsive variant with `breakpoint` prop for automatic switching, or explic
 
 ```tsx
 // Titles — use Typography package
-import { Typography } from '@alfalab/core-components-typography';
+import { Typography } from '@alfalab/core-components/typography';
 
 <Typography.Title tag="h1" view="xlarge">Page title</Typography.Title>
 <Typography.TitleResponsive tag="h2" view="large">Section title</Typography.TitleResponsive>
 
 // Inline/block text — use Text package
-import { Text } from '@alfalab/core-components-text';
+import { Text } from '@alfalab/core-components/text';
 
 <Text tag="p" view="primary-medium">Body text</Text>
 <Text tag="span" view="secondary-small" rowLimit={2}>Truncated text</Text>
@@ -174,7 +166,7 @@ import { Text } from '@alfalab/core-components-text';
 ### Icons
 
 ```tsx
-import { CDNIcon } from '@alfalab/core-components-cdn-icon';
+import { CDNIcon } from '@alfalab/core-components/cdn-icon';
 
 // Mono icon — inherits color from parent
 <CDNIcon name="monkey_m" color="#FF5733" />
@@ -241,12 +233,6 @@ import { colorLightDecorativeOrange } from '@alfalab/core-components/vars/colors
 
 Global configuration for responsive components. Instead of setting `breakpoint` on each component, use the context provider.
 
-### Installation
-
-```bash
-yarn add @alfalab/core-components-config
-```
-
 ### Parameters
 
 | Parameter            | Type                                 | Default     | Description                                 |
@@ -258,7 +244,7 @@ yarn add @alfalab/core-components-config
 ### Usage
 
 ```tsx
-import { CoreConfigContext } from '@alfalab/core-components-config';
+import { CoreConfigContext } from '@alfalab/core-components/config';
 
 const coreConfig = {
     breakpoint: 1024,
@@ -273,7 +259,7 @@ const coreConfig = {
 ### Using config in components
 
 ```tsx
-import { useCoreConfig } from '@alfalab/core-components-config';
+import { useCoreConfig } from '@alfalab/core-components/config';
 
 const MyComponent = () => {
     const config = useCoreConfig();
