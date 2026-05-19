@@ -78,8 +78,17 @@ User asks: _"Add a date picker to this form"_
 ### Installation
 
 ```bash
+# Main library
 yarn add @alfalab/core-components
+
+# Required peer dependencies
+yarn add @alfalab/core-components-config @alfalab/core-components-stack-context
 ```
+
+Both peer packages are mandatory for the library to function correctly:
+
+- **`@alfalab/core-components-config`** — provides `CoreConfigContext` and `useCoreConfig` for global configuration of responsive components (breakpoint, client type, portal container). See [CoreConfig](#coreconfig) section.
+- **`@alfalab/core-components-stack-context`** — provides `StackingContext` and `stackingOrder` constants for z-index management. Used internally by overlay components (Modal, Popover, Toast, etc.). Rarely used directly.
 
 ### Import Rule
 
