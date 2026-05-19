@@ -25,7 +25,6 @@ export interface IndicatorProps {
 
     /**
      * Число для бейджа: в UI показывается только при эффективном режиме `count` (в `dot` в `Indicator` не прокидывается).
-     * Влияет на геометрию выреза маски при `mode: 'count'` (см. `resolveGeometry`).
      */
     value?: number;
 }

@@ -1,9 +1,5 @@
 @import '../../vars.css';
 
-.mask {
-    fill: var(--tag-filled-mask-positive-color);
-}
-
 .shapeInner {
     color: inherit;
 
@@ -16,9 +12,15 @@
     }
 }
 
-.checkedInner {
-    background: var(--tag-background-color-checked);
+.shapePath {
+    fill: var(--tag-indicator-filled-background-color, var(--tag-filled-background-color));
+}
 
+.checkedShapePath {
+    fill: var(--tag-background-color-checked);
+}
+
+.checkedInner {
     & svg {
         fill: var(--tag-text-color-checked);
     }
@@ -27,25 +29,27 @@
 .badgeIcon {
     color: var(--tag-text-color);
 
-    &:active:not(:disabled) .shapeInner {
-        background-color: var(--tag-filled-background-color-active);
+    &:active:not(:disabled) .shapePath {
+        fill: var(--tag-indicator-filled-background-color-active, var(--tag-filled-background-color-active));
+    }
+
+    &.checked .shapePath {
+        fill: var(--tag-background-color-checked);
     }
 
     &.checked .shapeInner {
-        background-color: var(--tag-background-color-checked);
-
         & svg {
             fill: var(--tag-text-color-checked);
         }
     }
 
     @media (hover: hover) {
-        &:hover .shapeInner {
-            background-color: var(--tag-filled-background-color-hover);
+        &:hover .shapePath {
+            fill: var(--tag-indicator-filled-background-color-hover, var(--tag-filled-background-color-hover));
         }
 
-        &.checked:hover:not(:disabled) .shapeInner {
-            background-color: var(--tag-background-color-checked-hover);
+        &.checked:hover:not(:disabled) .shapePath {
+            fill: var(--tag-background-color-checked-hover);
         }
     }
 }

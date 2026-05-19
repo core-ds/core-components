@@ -50,8 +50,8 @@ render(() => {
     const addon = (
         <div
             style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
+                background: '#D8EAFF',
+                border: '1px solid #3778FB',
                 borderRadius: '4px',
                 height: '16px',
                 width: '16px',
@@ -193,8 +193,8 @@ render(() => {
     const addon = (
         <div
             style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
+                background: '#D8EAFF',
+                border: '1px solid #3778FB',
                 borderRadius: '4px',
                 height: '16px',
                 width: '16px',
@@ -607,7 +607,10 @@ render(() => {
                 {`
                     .tag-filter-popover-panel {
                         width: 280px;
-                        border-radius: 16px;
+                        border-radius: 0;
+                        border: none;
+                        background: transparent;
+                        box-shadow: none;
                     }
                     .tag-filter-row-options {
                         border-radius: 16px;
@@ -726,38 +729,35 @@ render(() => {
                         preventFlip={true}
                         popperClassName='tag-filter-popover-panel'
                     >
-                        <div className='tag-filter-row-options'>
-                            <OptionsList
-                                Option={Option}
-                                client='desktop'
-                                nativeScrollbar={true}
-                                size={OPTIONS_LIST_ROW_SIZE}
-                                options={PERIOD_OPTIONS}
-                                open={periodOpen}
-                                selectedItems={PERIOD_OPTIONS.filter(
-                                    (item) => item.key === applied.period,
-                                )}
-                                getOptionProps={(option, index) => ({
-                                    option,
-                                    index,
-                                    mobile: false,
-                                    multiple: false,
-                                    selected: applied.period === option.key,
-                                    innerProps: {
-                                        id: `tag-doc-desktop-period-${option.key}`,
-                                        role: 'option',
-                                        onMouseDown: (e) => e.preventDefault(),
-                                        onClick: () => {
-                                            setApplied((p) => ({
-                                                ...p,
-                                                period: p.period === option.key ? null : option.key,
-                                            }));
-                                            setPeriodOpen(false);
-                                        },
+                        <OptionsList
+                            Option={Option}
+                            className='tag-filter-row-options'
+                            client='desktop'
+                            nativeScrollbar={true}
+                            size={OPTIONS_LIST_ROW_SIZE}
+                            options={PERIOD_OPTIONS}
+                            open={periodOpen}
+                            selectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}
+                            getOptionProps={(option, index) => ({
+                                option,
+                                index,
+                                mobile: false,
+                                multiple: false,
+                                selected: applied.period === option.key,
+                                innerProps: {
+                                    id: `tag-doc-desktop-period-${option.key}`,
+                                    role: 'option',
+                                    onMouseDown: (e) => e.preventDefault(),
+                                    onClick: () => {
+                                        setApplied((p) => ({
+                                            ...p,
+                                            period: p.period === option.key ? null : option.key,
+                                        }));
+                                        setPeriodOpen(false);
                                     },
-                                })}
-                            />
-                        </div>
+                                },
+                            })}
+                        />
                     </Popover>
                 </div>
                 <div>
@@ -801,44 +801,43 @@ render(() => {
                         preventFlip={true}
                         popperClassName='tag-filter-popover-panel'
                     >
-                        <div className='tag-filter-row-options'>
-                            <OptionsList
-                                Option={Option}
-                                client='desktop'
-                                nativeScrollbar={true}
-                                size={OPTIONS_LIST_ROW_SIZE}
-                                options={ACCOUNT_OPTIONS}
-                                open={accountsOpen}
-                                multiple={true}
-                                selectedItems={ACCOUNT_OPTIONS.filter((item) =>
-                                    applied.accounts.includes(item.key),
-                                )}
-                                getOptionProps={(option, index) => ({
-                                    option,
-                                    index,
-                                    mobile: false,
-                                    multiple: true,
-                                    selected: applied.accounts.includes(option.key),
-                                    innerProps: {
-                                        id: `tag-doc-desktop-accounts-${option.key}`,
-                                        role: 'option',
-                                        onMouseDown: (e) => e.preventDefault(),
-                                        onClick: () => {
-                                            setApplied((p) => {
-                                                const selected = p.accounts.includes(option.key);
+                        <OptionsList
+                            Option={Option}
+                            className='tag-filter-row-options'
+                            client='desktop'
+                            nativeScrollbar={true}
+                            size={OPTIONS_LIST_ROW_SIZE}
+                            options={ACCOUNT_OPTIONS}
+                            open={accountsOpen}
+                            multiple={true}
+                            selectedItems={ACCOUNT_OPTIONS.filter((item) =>
+                                applied.accounts.includes(item.key),
+                            )}
+                            getOptionProps={(option, index) => ({
+                                option,
+                                index,
+                                mobile: false,
+                                multiple: true,
+                                selected: applied.accounts.includes(option.key),
+                                innerProps: {
+                                    id: `tag-doc-desktop-accounts-${option.key}`,
+                                    role: 'option',
+                                    onMouseDown: (e) => e.preventDefault(),
+                                    onClick: () => {
+                                        setApplied((p) => {
+                                            const selected = p.accounts.includes(option.key);
 
-                                                return {
-                                                    ...p,
-                                                    accounts: selected
-                                                        ? p.accounts.filter((k) => k !== option.key)
-                                                        : [...p.accounts, option.key],
-                                                };
-                                            });
-                                        },
+                                            return {
+                                                ...p,
+                                                accounts: selected
+                                                    ? p.accounts.filter((k) => k !== option.key)
+                                                    : [...p.accounts, option.key],
+                                            };
+                                        });
                                     },
-                                })}
-                            />
-                        </div>
+                                },
+                            })}
+                        />
                     </Popover>
                 </div>
             </div>
@@ -1428,35 +1427,34 @@ render(() => {
                 initialHeight='default'
                 contentClassName='tag-doc-mobile-bottom-sheet-content'
             >
-                <div className='tag-filter-row-options tag-doc-mobile-sheet-options'>
-                    <OptionsList
-                        Option={Option}
-                        client='mobile'
-                        nativeScrollbar={true}
-                        size={OPTIONS_LIST_ROW_SIZE}
-                        options={PERIOD_OPTIONS}
-                        open={filterSheet === 'period'}
-                        selectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}
-                        getOptionProps={(option, index) => ({
-                            option,
-                            index,
-                            mobile: true,
-                            multiple: false,
-                            selected: applied.period === option.key,
-                            innerProps: {
-                                id: `tag-doc-mobile-period-sheet-${option.key}`,
-                                role: 'option',
-                                onMouseDown: (e) => e.preventDefault(),
-                                onClick: () => {
-                                    updateApplied({
-                                        period: applied.period === option.key ? null : option.key,
-                                    });
-                                    closeFilterSheet();
-                                },
+                <OptionsList
+                    Option={Option}
+                    className='tag-filter-row-options tag-doc-mobile-sheet-options'
+                    client='mobile'
+                    nativeScrollbar={true}
+                    size={OPTIONS_LIST_ROW_SIZE}
+                    options={PERIOD_OPTIONS}
+                    open={filterSheet === 'period'}
+                    selectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}
+                    getOptionProps={(option, index) => ({
+                        option,
+                        index,
+                        mobile: true,
+                        multiple: false,
+                        selected: applied.period === option.key,
+                        innerProps: {
+                            id: `tag-doc-mobile-period-sheet-${option.key}`,
+                            role: 'option',
+                            onMouseDown: (e) => e.preventDefault(),
+                            onClick: () => {
+                                updateApplied({
+                                    period: applied.period === option.key ? null : option.key,
+                                });
+                                closeFilterSheet();
                             },
-                        })}
-                    />
-                </div>
+                        },
+                    })}
+                />
             </BottomSheet>
 
             <BottomSheet
@@ -1503,38 +1501,35 @@ render(() => {
                     </div>
                 }
             >
-                <div className='tag-filter-row-options tag-doc-mobile-sheet-options'>
-                    <OptionsList
-                        Option={Option}
-                        client='mobile'
-                        nativeScrollbar={true}
-                        size={OPTIONS_LIST_ROW_SIZE}
-                        options={ACCOUNT_OPTIONS}
-                        open={filterSheet === 'accounts'}
-                        multiple={true}
-                        selectedItems={ACCOUNT_OPTIONS.filter((item) =>
-                            accountsSheetDraft.includes(item.key),
-                        )}
-                        getOptionProps={(option, index) => ({
-                            option,
-                            index,
-                            mobile: true,
-                            multiple: true,
-                            Checkmark: CheckboxItem,
-                            selected: accountsSheetDraft.includes(option.key),
-                            innerProps: {
-                                id: `tag-doc-mobile-accounts-sheet-${option.key}`,
-                                role: 'option',
-                                onMouseDown: (e) => e.preventDefault(),
-                                onClick: () => {
-                                    setAccountsSheetDraft((prev) =>
-                                        toggleInArray(prev, option.key),
-                                    );
-                                },
+                <OptionsList
+                    Option={Option}
+                    className='tag-filter-row-options tag-doc-mobile-sheet-options'
+                    client='mobile'
+                    nativeScrollbar={true}
+                    size={OPTIONS_LIST_ROW_SIZE}
+                    options={ACCOUNT_OPTIONS}
+                    open={filterSheet === 'accounts'}
+                    multiple={true}
+                    selectedItems={ACCOUNT_OPTIONS.filter((item) =>
+                        accountsSheetDraft.includes(item.key),
+                    )}
+                    getOptionProps={(option, index) => ({
+                        option,
+                        index,
+                        mobile: true,
+                        multiple: true,
+                        Checkmark: CheckboxItem,
+                        selected: accountsSheetDraft.includes(option.key),
+                        innerProps: {
+                            id: `tag-doc-mobile-accounts-sheet-${option.key}`,
+                            role: 'option',
+                            onMouseDown: (e) => e.preventDefault(),
+                            onClick: () => {
+                                setAccountsSheetDraft((prev) => toggleInArray(prev, option.key));
                             },
-                        })}
-                    />
-                </div>
+                        },
+                    })}
+                />
             </BottomSheet>
 
             <BottomSheet

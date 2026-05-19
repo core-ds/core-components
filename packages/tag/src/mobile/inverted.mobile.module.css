@@ -1,5 +1,16 @@
 @import '../vars.css';
 
+.filled,
+.indicatorFilled {
+    --tag-indicator-filled-background-color: var(--tag-inverted-filled-mobile-background-color);
+    --tag-indicator-filled-background-color-hover: var(
+        --tag-inverted-filled-mobile-background-color-hover
+    );
+    --tag-indicator-filled-background-color-active: var(
+        --tag-inverted-filled-mobile-background-color-active
+    );
+}
+
 .filled {
     background-color: var(--tag-inverted-filled-mobile-background-color);
 

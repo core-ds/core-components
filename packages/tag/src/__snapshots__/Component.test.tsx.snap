@@ -1,5 +1,259 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`Snapshots tests should match indicatorTag snapshot shape=rectangular 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="badgeIcon size-40 badgeIcon indicatorFilled rectangular"
+        type="button"
+        view="outlined"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg"
+          focusable="false"
+          height="40"
+          viewBox="0 0 40 40"
+          width="40"
+        >
+          <path
+            class="shapePath shapePath"
+            d="M26 0a2 2 0 0 1 2 2c0 5.523 4.477 10 10 10a2 2 0 0 1 2 2v16c0 5.523-4.477 10-10 10H10C4.477 40 0 35.523 0 30V10C0 4.477 4.477 0 10 0z"
+          />
+        </svg>
+        <div
+          aria-hidden="true"
+          class="shapeInner shapeInner rectangular count"
+        >
+          <span />
+        </div>
+        <div
+          class="component size-16 indicator"
+          style="left: 38px; top: 2px;"
+        >
+          <span
+            class="content"
+          >
+            7
+          </span>
+        </div>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="badgeIcon size-40 badgeIcon indicatorFilled rectangular"
+      type="button"
+      view="outlined"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg"
+        focusable="false"
+        height="40"
+        viewBox="0 0 40 40"
+        width="40"
+      >
+        <path
+          class="shapePath shapePath"
+          d="M26 0a2 2 0 0 1 2 2c0 5.523 4.477 10 10 10a2 2 0 0 1 2 2v16c0 5.523-4.477 10-10 10H10C4.477 40 0 35.523 0 30V10C0 4.477 4.477 0 10 0z"
+        />
+      </svg>
+      <div
+        aria-hidden="true"
+        class="shapeInner shapeInner rectangular count"
+      >
+        <span />
+      </div>
+      <div
+        class="component size-16 indicator"
+        style="left: 38px; top: 2px;"
+      >
+        <span
+          class="content"
+        >
+          7
+        </span>
+      </div>
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Snapshots tests should match indicatorTag snapshot shape=rounded 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <button
+        class="badgeIcon size-40 badgeIcon indicatorFilled rounded"
+        type="button"
+        view="outlined"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg"
+          focusable="false"
+          height="40"
+          viewBox="0 0 40 40"
+          width="40"
+        >
+          <path
+            class="shapePath shapePath"
+            d="M20 0c3.249 0 6.316.775 9.028 2.15.67.34.972 1.1.972 1.85a6 6 0 0 0 6 6c.75 0 1.51.301 1.849.97A19.9 19.9 0 0 1 40 20c0 11.046-8.954 20-20 20S0 31.046 0 20 8.954 0 20 0"
+          />
+        </svg>
+        <div
+          aria-hidden="true"
+          class="shapeInner shapeInner rounded dot"
+        >
+          <span />
+        </div>
+        <div
+          class="component size-8 indicator"
+          style="left: 36px; top: 4px;"
+        />
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="badgeIcon size-40 badgeIcon indicatorFilled rounded"
+      type="button"
+      view="outlined"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg"
+        focusable="false"
+        height="40"
+        viewBox="0 0 40 40"
+        width="40"
+      >
+        <path
+          class="shapePath shapePath"
+          d="M20 0c3.249 0 6.316.775 9.028 2.15.67.34.972 1.1.972 1.85a6 6 0 0 0 6 6c.75 0 1.51.301 1.849.97A19.9 19.9 0 0 1 40 20c0 11.046-8.954 20-20 20S0 31.046 0 20 8.954 0 20 0"
+        />
+      </svg>
+      <div
+        aria-hidden="true"
+        class="shapeInner shapeInner rounded dot"
+      >
+        <span />
+      </div>
+      <div
+        class="component size-8 indicator"
+        style="left: 36px; top: 4px;"
+      />
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`Snapshots tests should match snapshot 1`] = `
 {
   "asFragment": [Function],

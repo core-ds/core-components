@@ -1,15 +1,12 @@
-import React, { forwardRef, Fragment, type MouseEventHandler, useId } from 'react';
+import React, { forwardRef, type MouseEventHandler } from 'react';
 import cn from 'classnames';
 
 import { Indicator } from '@alfalab/core-components-indicator';
 
 import { type BaseTagProps, type StyleColors } from '../../typings';
-import {
-    resolveGeometry,
-    resolveSizeToDimensions,
-    resolveValueToIndicatorShiftX,
-} from '../../utils';
 import { Button as BaseButton } from '../button';
+
+import { indicatorTagGeometry, indicatorTagPaths, resolveValueToIndicatorShiftX } from './paths';
 
 import defaultColors from './default.module.css';
 import commonStyles from './index.module.css';
@@ -19,6 +16,8 @@ const colorCommonStyles = {
     default: defaultColors,
     inverted: invertedColors,
 } as const;
+
+const INDICATOR_TAG_SIZES = [32, 40] as const;
 
 export interface IndicatorTagProps
     extends Omit<
@@ -33,8 +32,9 @@ export interface IndicatorTagProps
         | 'childrenRef'
         | 'size'
     > {
-    size: 32 | 40;
+    size?: 32 | 40;
     colorStyles?: StyleColors['default'];
+    styles?: BaseTagProps['styles'];
     onClick?: MouseEventHandler<HTMLButtonElement>;
     focused?: boolean;
 }
@@ -47,7 +47,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
             colors = 'default',
             className,
             childrenClassName,
-            shape,
+            shape = 'rounded',
             checked,
             children,
             leftAddons,
@@ -56,13 +56,13 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
             onClick,
             focused = false,
             colorStyles,
+            style,
+            styles = {},
             ...restProps
         },
         ref,
     ) => {
-        const maskId = useId();
-
-        const isRect = shape === 'rectangular';
+        const indicatorTagSize = INDICATOR_TAG_SIZES.includes(size) ? size : 40;
         const hasIndicator = indicatorProps !== undefined;
 
         const { mode: modeProp, value, ...restIndicatorProps } = indicatorProps ?? {};
@@ -70,27 +70,27 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
 
         const isDotMode = mode === 'dot';
         const dotModeValue = isDotMode ? undefined : value;
+        const pathMode = hasIndicator ? mode : 'none';
 
         const colorStyle = colorCommonStyles?.[colors];
-
-        const { width, height } = resolveSizeToDimensions(size);
-
-        const { badgeX, badgeY, cutoutR, cr, junctionR, junctionRect, junctions } = resolveGeometry(
-            {
-                width,
-                height,
-                shape,
-                indicatorProps,
-            },
-        );
+        const { width, height, indicatorX, indicatorY } = indicatorTagGeometry[mode][indicatorTagSize];
+        const shapePath = indicatorTagPaths[shape][pathMode][indicatorTagSize];
 
         const buttonProps = {
-            className: cn(commonStyles.badgeIcon, colorStyle.badgeIcon, className, {
-                [commonStyles.focused]: focused,
-                [colorStyle.checked]: Boolean(checked),
-            }),
+            className: cn(
+                commonStyles.badgeIcon,
+                commonStyles[`size-${indicatorTagSize}`],
+                colorStyle.badgeIcon,
+                colorStyles?.indicatorFilled,
+                styles[shape],
+                className,
+                {
+                    [commonStyles.focused]: focused,
+                    [colorStyle.checked]: Boolean(checked),
+                },
+            ),
+            style,
             'data-test-id': dataTestId,
-            style: { width, minWidth: width, height },
         };
 
         return (
@@ -101,86 +101,39 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                     height={height}
                     viewBox={`0 0 ${width} ${height}`}
                     aria-hidden={true}
-                    style={{ borderRadius: isRect ? `${cr}px` : '50%' }}
+                    focusable={false}
                 >
-                    <defs>
-                        <mask id={maskId}>
-                            {isRect ? (
-                                <rect
-                                    className={colorStyle.mask}
-                                    width={width}
-                                    height={height}
-                                    rx={cr}
-                                    ry={cr}
-                                />
-                            ) : (
-                                <ellipse
-                                    className={colorStyle.mask}
-                                    cx={width / 2}
-                                    cy={height / 2}
-                                    rx={width / 2}
-                                    ry={height / 2}
-                                />
-                            )}
-
-                            {hasIndicator ? (
-                                <Fragment>
-                                    <circle cx={badgeX} cy={badgeY} r={cutoutR} />
-                                    {junctions ? (
-                                        <Fragment>
-                                            <rect
-                                                x={junctions[0].cx}
-                                                y={junctions[0].cy - junctionRect}
-                                                width={junctionRect}
-                                                height={junctionRect}
-                                            />
-                                            <rect
-                                                x={junctions[1].cx}
-                                                y={junctions[1].cy - junctionRect}
-                                                width={junctionRect}
-                                                height={junctionRect}
-                                            />
-                                            <circle
-                                                className={colorStyle.mask}
-                                                cx={junctions[0].cx}
-                                                cy={junctions[0].cy}
-                                                r={junctionR}
-                                            />
-                                            <circle
-                                                className={colorStyle.mask}
-                                                cx={junctions[1].cx}
-                                                cy={junctions[1].cy}
-                                                r={junctionR}
-                                            />
-                                        </Fragment>
-                                    ) : null}
-                                </Fragment>
-                            ) : null}
-                        </mask>
-                    </defs>
-
-                    <foreignObject width={width} height={height} mask={`url(#${maskId})`}>
-                        <div
-                            className={cn(
-                                commonStyles.shapeInner,
-                                colorStyle.shapeInner,
-                                colorStyles?.filled,
-                                { [colorStyle.checkedInner]: Boolean(checked) },
-                                childrenClassName,
-                            )}
-                        >
-                            {leftAddons}
-                        </div>
-                    </foreignObject>
+                    <path
+                        className={cn(commonStyles.shapePath, colorStyle.shapePath, {
+                            [colorStyle.checkedShapePath]: Boolean(checked),
+                        })}
+                        d={shapePath}
+                    />
                 </svg>
+
+                <div
+                    className={cn(
+                        commonStyles.shapeInner,
+                        colorStyle.shapeInner,
+                        commonStyles[shape],
+                        commonStyles[mode],
+                        {
+                            [colorStyle.checkedInner]: Boolean(checked),
+                        },
+                        childrenClassName,
+                    )}
+                    aria-hidden={true}
+                >
+                    {leftAddons}
+                </div>
 
                 {hasIndicator ? (
                     <Indicator
                         {...restIndicatorProps}
                         className={commonStyles.indicator}
                         style={{
-                            left: badgeX + resolveValueToIndicatorShiftX(dotModeValue),
-                            top: badgeY,
+                            left: indicatorX + resolveValueToIndicatorShiftX(dotModeValue),
+                            top: indicatorY,
                         }}
                         size={isDotMode ? 8 : 16}
                         value={dotModeValue}
