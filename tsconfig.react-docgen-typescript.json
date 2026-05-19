@@ -108,6 +108,8 @@
             "@alfalab/core-components-global-store/*": ["./packages/global-store/src/*"],
             "@alfalab/core-components-grid": ["./packages/grid/src"],
             "@alfalab/core-components-grid/*": ["./packages/grid/src/*"],
+            "@alfalab/core-components-haptics": ["./packages/haptics/src"],
+            "@alfalab/core-components-haptics/*": ["./packages/haptics/src/*"],
             "@alfalab/core-components-hatching-progress-bar": [
                 "./packages/hatching-progress-bar/src"
             ],

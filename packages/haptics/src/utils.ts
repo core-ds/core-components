@@ -1,21 +1,27 @@
-import { WebHaptics } from 'web-haptics';
+import { defaultPatterns, type HapticPattern, WebHaptics } from 'web-haptics';
 
-import { isClient } from './isClient';
-import { isIOS } from './os';
+import { isIOS } from '@alfalab/core-components-shared';
 
-export type HapticPreset = 'selection';
+import {
+    type HapticPreset,
+    type TriggerHapticOptions,
+} from './types';
 
-export type TriggerHapticOptions = {
-    enabled?: boolean;
+// todo: add more haptic patterns
+const hapticPatterns: Record<HapticPreset, HapticPattern> = {
+    ...defaultPatterns,
+    selection: [{ duration: 500, intensity: 1 }],
 };
 
-const hapticPatterns: Record<HapticPreset, Parameters<WebHaptics['trigger']>[0]> = {
-    selection: [{ duration: 50, intensity: 1 }],
-    // TODO: add more custom haptic patterns... (or use defaultPatterns)
+// todo: add more native haptic patterns
+const nativeHapticPatterns: Record<HapticPreset, number> = {
+    selection: 50,
 };
 
 let haptics: WebHaptics | null = null;
 let iosHapticInput: HTMLInputElement | null = null;
+
+const isClient = () => typeof window !== 'undefined';
 
 const isTouchEnvironment = () => {
     if (!isClient()) return false;
@@ -46,13 +52,15 @@ const getIOSHapticInput = () => {
     input.setAttribute('switch', '');
     input.setAttribute('aria-hidden', 'true');
     input.tabIndex = -1;
-    input.style.position = 'fixed';
-    input.style.opacity = '0';
-    input.style.pointerEvents = 'none';
-    input.style.width = '1px';
-    input.style.height = '1px';
-    input.style.left = '-9999px';
-    input.style.top = '0';
+    input.style.cssText = [
+        'position:fixed',
+        'top:0',
+        'left:0',
+        'width:1px',
+        'height:1px',
+        'opacity:0',
+        'pointer-events:none',
+    ].join(';');
 
     document.body.appendChild(input);
     iosHapticInput = input;
@@ -60,25 +68,26 @@ const getIOSHapticInput = () => {
     return iosHapticInput;
 };
 
-const triggerIOSHapticFallback = () => {
-    const input = getIOSHapticInput();
-
-    input.checked = !input.checked;
-    input.click();
-};
-
 export const triggerHaptic = (preset: HapticPreset, options: TriggerHapticOptions = {}) => {
     if (options.enabled === false) return;
     if (!isHapticsSupported()) return;
 
+    if (typeof window.navigator.vibrate === 'function') {
+        window.navigator.vibrate(nativeHapticPatterns[preset]);
+
+        return;
+    }
+
     if (isIOS()) {
-        triggerIOSHapticFallback();
+        const input = getIOSHapticInput();
+
+        input.checked = !input.checked;
+        input.click();
 
         return;
     }
 
     getHaptics()
         .trigger(hapticPatterns[preset])
-        // no-op on error
         .catch(() => {});
 };

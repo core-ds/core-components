@@ -9,6 +9,7 @@ exports[`Checkbox Display tests should display correctly 1`] = `
         class="component component size-20 start"
       >
         <input
+          data-haptic="false"
           type="checkbox"
         />
         <span
@@ -36,6 +37,7 @@ exports[`Checkbox Display tests should display correctly 1`] = `
       class="component component size-20 start"
     >
       <input
+        data-haptic="false"
         type="checkbox"
       />
       <span
@@ -120,6 +122,7 @@ exports[`Checkbox Display tests should display error state 1`] = `
         class="component component size-20 start"
       >
         <input
+          data-haptic="false"
           type="checkbox"
         />
         <span
@@ -148,6 +151,7 @@ exports[`Checkbox Display tests should display error state 1`] = `
       class="component component size-20 start"
     >
       <input
+        data-haptic="false"
         type="checkbox"
       />
       <span
@@ -233,6 +237,7 @@ exports[`Checkbox Display tests should display indeterminate correctly 1`] = `
         class="component component size-20 start indeterminate"
       >
         <input
+          data-haptic="false"
           type="checkbox"
         />
         <span
@@ -264,6 +269,7 @@ exports[`Checkbox Display tests should display indeterminate correctly 1`] = `
       class="component component size-20 start indeterminate"
     >
       <input
+        data-haptic="false"
         type="checkbox"
       />
       <span

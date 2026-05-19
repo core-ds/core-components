@@ -20,6 +20,7 @@ exports[`Checkbox Display tests should display checkbox group correctly 1`] = `
             class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              data-haptic="false"
               name="one"
               type="checkbox"
             />
@@ -40,6 +41,7 @@ exports[`Checkbox Display tests should display checkbox group correctly 1`] = `
             class="component component size-20 start checkbox"
           >
             <input
+              data-haptic="false"
               name="two"
               type="checkbox"
             />
@@ -60,6 +62,7 @@ exports[`Checkbox Display tests should display checkbox group correctly 1`] = `
             class="component component size-20 start checkbox"
           >
             <input
+              data-haptic="false"
               name="three"
               type="checkbox"
             />
@@ -96,6 +99,7 @@ exports[`Checkbox Display tests should display checkbox group correctly 1`] = `
           class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            data-haptic="false"
             name="one"
             type="checkbox"
           />
@@ -116,6 +120,7 @@ exports[`Checkbox Display tests should display checkbox group correctly 1`] = `
           class="component component size-20 start checkbox"
         >
           <input
+            data-haptic="false"
             name="two"
             type="checkbox"
           />
@@ -136,6 +141,7 @@ exports[`Checkbox Display tests should display checkbox group correctly 1`] = `
           class="component component size-20 start checkbox"
         >
           <input
+            data-haptic="false"
             name="three"
             type="checkbox"
           />
@@ -229,6 +235,7 @@ exports[`Checkbox Display tests should display checkbox group with error correct
             class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              data-haptic="false"
               name="one"
               type="checkbox"
             />
@@ -249,6 +256,7 @@ exports[`Checkbox Display tests should display checkbox group with error correct
             class="component component size-20 start checkbox"
           >
             <input
+              data-haptic="false"
               name="two"
               type="checkbox"
             />
@@ -269,6 +277,7 @@ exports[`Checkbox Display tests should display checkbox group with error correct
             class="component component size-20 start checkbox"
           >
             <input
+              data-haptic="false"
               name="three"
               type="checkbox"
             />
@@ -311,6 +320,7 @@ exports[`Checkbox Display tests should display checkbox group with error correct
           class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            data-haptic="false"
             name="one"
             type="checkbox"
           />
@@ -331,6 +341,7 @@ exports[`Checkbox Display tests should display checkbox group with error correct
           class="component component size-20 start checkbox"
         >
           <input
+            data-haptic="false"
             name="two"
             type="checkbox"
           />
@@ -351,6 +362,7 @@ exports[`Checkbox Display tests should display checkbox group with error correct
           class="component component size-20 start checkbox"
         >
           <input
+            data-haptic="false"
             name="three"
             type="checkbox"
           />
@@ -450,6 +462,7 @@ exports[`Checkbox Display tests should display checkbox group with one child cor
             class="component component size-20 start my-checkbox checkbox"
           >
             <input
+              data-haptic="false"
               name="one"
               type="checkbox"
             />
@@ -486,6 +499,7 @@ exports[`Checkbox Display tests should display checkbox group with one child cor
           class="component component size-20 start my-checkbox checkbox"
         >
           <input
+            data-haptic="false"
             name="one"
             type="checkbox"
           />
