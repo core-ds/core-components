@@ -484,11 +484,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-config@workspace:packages/config":
+"@alfalab/core-components-config@npm:^1.1.0, @alfalab/core-components-config@workspace:packages/config":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-config@workspace:packages/config"
   dependencies:
-    "@alfalab/core-components-haptics": "npm:^0.0.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
@@ -805,6 +804,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-haptics@workspace:packages/haptics"
   dependencies:
+    "@alfalab/core-components-config": "npm:^1.1.0"
+    "@alfalab/core-components-shared": "npm:^2.1.1"
     tslib: "npm:^2.4.0"
     web-haptics: "npm:^0.0.6"
   peerDependencies:
