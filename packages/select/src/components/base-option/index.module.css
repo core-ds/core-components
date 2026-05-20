@@ -48,7 +48,7 @@
         }
 
         &.mobile {
-            padding: var(--gap-16) var(--gap-20) var(--gap-16) var(--gap-16);
+            padding: var(--gap-16) var(--gap-20);
         }
     }
 }

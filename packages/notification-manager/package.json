@@ -9,6 +9,9 @@
     ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "dependencies": {
         "@alfalab/core-components-notification": "^9.0.5",
         "@alfalab/core-components-portal": "^5.0.1",
@@ -26,6 +29,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.3",
+    "themesVersion": "15.0.4",
     "varsVersion": "11.0.2"
 }

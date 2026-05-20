@@ -92,6 +92,9 @@ export const ModalComponent = ModalDesktop;
         const isPreview = Object.keys(previewStyles).length > 0;
         const isMobile = ModalComponent === ModalMobile;
         const FooterButton = isMobile ? ButtonMobile : ButtonDesktop;
+
+        const shouldRenderHeader = header && (Boolean(headerTitle) || Boolean(hasCloser) || Boolean(hasBackButton));
+
         return (
             <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
                 <Button type='button' size={40} onClick={handleModalOpen}>
@@ -106,7 +109,7 @@ export const ModalComponent = ModalDesktop;
                     }}
                     {...props}
                 >
-                    {header && (
+                    {shouldRenderHeader && (
                         <ModalComponent.Header
                             sticky={stickyHeader}
                             hasCloser={hasCloser}

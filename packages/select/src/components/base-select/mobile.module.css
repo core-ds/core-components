@@ -38,7 +38,7 @@
 }
 
 .option.option {
-    padding: var(--gap-4) var(--gap-20) var(--gap-4) var(--gap-16);
+    padding: var(--gap-4) var(--gap-20) var(--gap-4);
 
     &:before {
         display: none;

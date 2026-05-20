@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-universal-date-input",
-    "version": "4.0.8",
+    "version": "4.0.9",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -9,9 +9,12 @@
     ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^9.1.3",
-        "@alfalab/core-components-input": "^17.1.3",
+        "@alfalab/core-components-calendar": "^9.1.4",
+        "@alfalab/core-components-input": "^17.1.4",
         "@alfalab/core-components-mq": "^6.0.3",
         "@alfalab/core-components-popover": "^8.0.3",
         "@alfalab/core-components-shared": "^2.1.1",
@@ -31,6 +34,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.3",
+    "themesVersion": "15.0.4",
     "varsVersion": "11.0.2"
 }
