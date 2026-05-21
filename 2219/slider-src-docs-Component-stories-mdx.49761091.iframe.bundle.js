@@ -24,12 +24,7 @@
     --slider-clickable-area-half-size: calc(var(--slider-clickable-area-size) / 2);
     --slider-origin-width: calc(100% - 16px);
     --slider-origin-right: 8px;
-    --slider-pips-offset-top: var(--gap-6);
-    --slider-pips-offset-inline: var(--slider-origin-right);
-    --slider-pips-width: calc(100% - (var(--slider-pips-offset-inline) * 2));
     --slider-marker-size: 2px;
-    --slider-marker-offset-top: var(--gap-6-neg);
-    --slider-marker-offset-top-size-s: calc(var(--slider-marker-offset-top) - 1px);
     --slider-marker-border-radius: var(--border-radius-circle);
     --slider-marker-color: var(--color-light-neutral-translucent-700);
     --slider-marker-color-passed: var(--color-static-neutral-0);
@@ -128,8 +123,8 @@
 
     & :global(.noUi-pips) {
         @mixin paragraph_component_secondary;
-        margin: var(--slider-pips-offset-top) var(--slider-pips-offset-inline) 0;
-        width: var(--slider-pips-width);
+        margin: var(--gap-6) var(--slider-origin-right) 0;
+        width: calc(100% - (var(--slider-origin-right) * 2));
         height: 18px;
         color: var(--color-light-text-secondary);
         position: relative;
@@ -137,7 +132,7 @@
 
     & :global(.noUi-marker-large) {
         position: absolute;
-        top: var(--slider-marker-offset-top);
+        top: var(--gap-6-neg);
         transform: translateY(-50%);
 
         &:first-child {
@@ -159,7 +154,7 @@
 
     & :global(.noUi-marker-sub) {
         position: absolute;
-        top: var(--slider-marker-offset-top);
+        top: var(--gap-6-neg);
         transform: translateY(-50%);
 
         &:global([data-current='true']) {
@@ -241,7 +236,7 @@
 .size-2 {
     & :global(.noUi-marker-large),
     & :global(.noUi-marker-sub) {
-        top: var(--slider-marker-offset-top-size-s);
+        top: calc(var(--gap-6-neg) - 1px);
     }
 
     & :global(.noUi-base) {
