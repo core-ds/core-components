@@ -96,6 +96,7 @@ render(() => {
     const [progressBar, setProgressBar] = React.useState(0);
     const [isProgressKnown, setIsProgressKnown] = React.useState(false);
     const [error, setError] = React.useState('');
+    const [showRestore, setShowRestore] = React.useState(false);
 
     const isUploading = status === 'UPLOADING' || status === 'LOADING';
     const subtitle = isUploading ? 'Загружается' : 'Нет файла';
@@ -109,6 +110,7 @@ render(() => {
         setError('');
         setProgressBar(0);
         setStatus('INITIAL');
+        setShowRestore(false);
     };
 
     const measure = (timestamp, status, isSpinner = false) => {
@@ -137,17 +139,31 @@ render(() => {
             setStatus(status);
         } else if (status === 'ERROR') {
             setStatus('ERROR');
-            setError('Описание первой ошибки');
-        } else if (status === 'MULTI_ERROR') {
-            setStatus('ERROR');
-            setError(['Описание первой ошибки', 'Описание второй ошибки']);
+            setError(['Ошибка загрузки.', 'Попробуйте ещё раз']);
+            setShowRestore(true);
         }
     };
 
-    const startUpload = (finalStatus, errorMessage) => {
+    const startUpload = (finalStatus) => {
+        setTitle('Пример.docx');
+        setShowRestore(false);
+
+        if (finalStatus === 'INCORRECT_FILE') {
+            setStatus('ERROR');
+            setError('Описание первой ошибки');
+
+            return;
+        }
+
+        if (finalStatus === 'MULTI_ERROR') {
+            setStatus('ERROR');
+            setError(['Описание первой ошибки', 'Описание второй ошибки']);
+
+            return;
+        }
+
         setError('');
         setProgressBar(0);
-        setTitle('Пример.docx');
 
         if (!isProgressKnown) {
             setStatus('LOADING');
@@ -159,9 +175,9 @@ render(() => {
     };
 
     const handleSuccessClick = () => startUpload('SUCCESS');
-    const handleError = () => startUpload('ERROR', 'Описание первой ошибки');
-    const handleMultiError = () =>
-        startUpload('MULTI_ERROR', ['Описание первой ошибки', 'Описание второй ошибки']);
+    const handleError = () => startUpload('ERROR');
+    const handeIncorrectFile = () => startUpload('INCORRECT_FILE');
+    const handleMultiError = () => startUpload('MULTI_ERROR');
 
     const handleToggleChange = () => {
         setIsProgressKnown((prev) => !prev);
@@ -170,20 +186,24 @@ render(() => {
 
     return (
         <React.Fragment>
-            <FileUploadItem
-                title={title}
-                subtitle={subtitle}
-                uploadStatus={status}
-                progressBar={isProgressKnown ? progressBar : undefined}
-                progressBarAvailable={isProgressKnown}
-                uploadDate='22.07.2024'
-                size={2097152} // 2mb
-                error={error}
-            >
-                <FileUploadItem.StatusControl />
-                <FileUploadItem.Content />
-                <FileUploadItem.Actions />
-            </FileUploadItem>
+            <div style={{ width: 360 }}>
+                <FileUploadItem
+                    title={title}
+                    subtitle={subtitle}
+                    uploadStatus={status}
+                    progressBar={isProgressKnown ? progressBar : undefined}
+                    progressBarAvailable={isProgressKnown}
+                    uploadDate='22.07.2024'
+                    size={2097152} // 2mb
+                    error={error}
+                    showRestore={showRestore}
+                    onRestore={() => handleError()}
+                >
+                    <FileUploadItem.StatusControl />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>
+            </div>
             <Gap size={20} />
             <div>
                 <Button size={32} onClick={handleSuccessClick}>
@@ -192,6 +212,10 @@ render(() => {
                 <Gap size={8} direction='horizontal' />
                 <Button size={32} onClick={handleError}>
                     Ошибка
+                </Button>
+                <Gap size={8} direction={isMobile() ? 'vertical' : 'horizontal'} />
+                <Button size={32} onClick={handeIncorrectFile}>
+                    Некорректный файл
                 </Button>
                 <Gap size={8} direction={isMobile() ? 'vertical' : 'horizontal'} />
                 <Button size={32} onClick={handleMultiError}>
