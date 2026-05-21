@@ -5,14 +5,15 @@
 ```jsx live mobileHeight={500}
 render(() => {
     const radioButtons = [
-        { title: 'Нет файла', extension: 'Нет файла' },
-        { title: 'Пример.docx', extension: 'DocX' },
-        { title: 'Пример.pdf', extension: 'PDF' },
-        { title: 'Пример.xls', extension: 'XLS' },
-        { title: 'Пример.1c', extension: '1C' },
-        { title: 'Фото газеты.jpg', extension: 'Img' },
-        { title: 'Пример.fig', extension: 'Другой тип' },
-        { title: '2 файла', extension: 'Несколько файлов' },
+        { title: 'Прикрепите файл', radioLabel: 'Нет файла' },
+        { title: 'Пример.docx', radioLabel: 'DocX' },
+        { title: 'Пример.pdf', radioLabel: 'PDF' },
+        { title: 'Пример.xls', radioLabel: 'XLS' },
+        { title: 'Пример.1c', radioLabel: '1C' },
+        { title: 'Архив.zip', radioLabel: 'Архив' },
+        { title: 'Фото газеты.jpg', radioLabel: 'Img' },
+        { title: 'Пример.fig', radioLabel: 'Другой тип' },
+        { title: '2 файла', radioLabel: 'Несколько файлов' },
     ];
 
     const [status, setStatus] = React.useState('INITIAL');
@@ -38,7 +39,7 @@ render(() => {
         setSwitchChecked((prev) => !prev);
     };
 
-    const isImg = radioButtons[checked].extension === 'Img';
+    const isImg = radioButtons[checked].radioLabel === 'Img';
 
     return (
         <React.Fragment>
@@ -71,7 +72,7 @@ render(() => {
                         size={24}
                         onChange={handleChange(index)}
                         checked={checked === index}
-                        label={button.extension}
+                        label={button.radioLabel}
                     />
                     <Gap size={12} />
                 </React.Fragment>

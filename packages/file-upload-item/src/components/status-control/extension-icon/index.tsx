@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import cn from 'classnames';
 
 import { Document1CMIcon } from '@alfalab/icons-glyph/Document1CMIcon';
+import { DocumentArchiveMIcon } from '@alfalab/icons-glyph/DocumentArchiveMIcon';
 import { DocumentDocMIcon } from '@alfalab/icons-glyph/DocumentDocMIcon';
 import { DocumentExcelMIcon } from '@alfalab/icons-glyph/DocumentExcelMIcon';
 import { DocumentImageMIcon } from '@alfalab/icons-glyph/DocumentImageMIcon';
@@ -15,6 +16,7 @@ import { getExtension, isInitialStatus } from '../../../utils';
 
 import styles from './index.module.css';
 
+// eslint-disable-next-line complexity
 export const ExtensionIcon = () => {
     const {
         title = '',
@@ -66,6 +68,14 @@ export const ExtensionIcon = () => {
         case 'tif':
         case 'tiff':
             return <DocumentImageMIcon />;
+        case 'zip':
+        case 'rar':
+        case '7z':
+            return (
+                <DocumentArchiveMIcon
+                    className={cn({ [styles.iconArchiveColored]: isColoredIcon })}
+                />
+            );
         default:
             return (
                 <DocumentMIcon className={cn({ [styles.iconDocumentColored]: isColoredIcon })} />

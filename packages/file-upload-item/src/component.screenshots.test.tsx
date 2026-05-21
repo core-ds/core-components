@@ -58,7 +58,7 @@ describe(
             componentName: 'FileUploadItem',
             testStory: false,
             knobs: {
-                title: ['docx', 'xlsx', '1c', 'pdf', 'document'],
+                title: ['docx', 'xlsx', '1c', 'pdf', 'document', 'jpg', 'zip'],
                 uploadDate: '22.01.2018',
                 size: 500000000,
                 uploadStatus: 'SUCCESS',
