@@ -1,5 +1,24 @@
 # @alfalab/core-components-select
 
+## 19.1.6
+
+### Patch Changes
+
+<sup><time>22.05.2026</time></sup>
+
+#### [#2221](https://github.com/core-ds/core-components/pull/2221)
+
+##### Select
+
+- После очистки значения кнопкой `clear` нажатие `Enter` больше не восстанавливает ранее удаленную опцию.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.2
+- @alfalab/core-components-input@17.1.5
+- @alfalab/core-components-bottom-sheet@8.1.6
+- @alfalab/core-components-modal@11.0.9
+
 ## 19.1.5
 
 ### Patch Changes
