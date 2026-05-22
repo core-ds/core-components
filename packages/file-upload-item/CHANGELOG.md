@@ -1,5 +1,13 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.5
+
 ## 8.0.6
 
 ### Patch Changes

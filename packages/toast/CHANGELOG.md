@@ -1,5 +1,13 @@
 # @alfalab/core-components-toast
 
+## 8.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-toast-plate@9.1.1
+
 ## 8.0.6
 
 ### Patch Changes
