@@ -6,8 +6,6 @@
         "rootDir": "src",
         "outDir": "no-dist",
         "paths": {
-            "@alfalab/core-components-badge": ["../badge/src"],
-            "@alfalab/core-components-badge/*": ["../badge/src/*"],
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
@@ -21,7 +19,6 @@
         }
     },
     "references": [
-        { "path": "../badge/tsconfig.build.json" },
         { "path": "../screenshot-utils/tsconfig.build.json" },
         { "path": "../shared/tsconfig.build.json" },
         { "path": "../status-badge/tsconfig.build.json" },

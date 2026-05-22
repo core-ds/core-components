@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react';
 
 /** Обобщенный набор типов который подходит для Steps, но также прокинут в дочерний Step */
-export type CommonProps = {
+export interface CommonProps {
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
@@ -45,4 +45,4 @@ export type CommonProps = {
      * Цвет тире выполненного шага
      */
     completedDashColor?: string;
-};
+}

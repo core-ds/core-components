@@ -7,7 +7,7 @@ import { type CommonProps } from './types/common-props';
 
 import styles from './index.module.css';
 
-export type StepsProps = {
+export interface StepsProps extends CommonProps {
     /**
      * Дополнительный класс
      */
@@ -76,7 +76,7 @@ export type StepsProps = {
     /**
      * Кастомный метод для установки кастомного индикатора шага
      * @param stepNumber - номер шага
-     * @return Объект StepIndicatorProps { className, content, iconColor } или null
+     * @return Объект StepIndicatorProps { view, className, colors } или null
      */
     checkIsStepCustom?: (stepNumber: number) => StepIndicatorProps | null;
 
@@ -85,7 +85,7 @@ export type StepsProps = {
      * @param stepNumber - номер активного шага
      */
     onChange?: (stepNumber: number) => void;
-} & CommonProps;
+}
 
 export const Steps: React.FC<StepsProps> = ({
     className,
