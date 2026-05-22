@@ -24,6 +24,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.4",
+    "themesVersion": "15.1.0",
     "varsVersion": "11.0.2"
 }

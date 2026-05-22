@@ -1,5 +1,17 @@
 # @alfalab/core-components-themes
 
+## 15.1.0
+
+### Minor Changes
+
+<sup><time>22.05.2026</time></sup>
+
+#### [#2219](https://github.com/core-ds/core-components/pull/2219)
+
+##### Themes
+
+- Добавлены дополнительные токены темы
+
 ## 15.0.4
 
 ### Patch Changes

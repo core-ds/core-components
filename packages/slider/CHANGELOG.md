@@ -1,5 +1,17 @@
 # @alfalab/core-components-slider
 
+## 6.1.1
+
+### Patch Changes
+
+<sup><time>22.05.2026</time></sup>
+
+#### [#2219](https://github.com/core-ds/core-components/pull/2219)
+
+##### Slider ,SliderInput
+
+- Исправлен регресс выравниваний крайних подписей (`min`/`max`) под слайдером.
+
 ## 6.1.0
 
 ### Minor Changes

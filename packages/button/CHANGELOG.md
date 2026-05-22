@@ -1,5 +1,17 @@
 # @alfalab/core-components-button
 
+## 13.1.2
+
+### Patch Changes
+
+<sup><time>22.05.2026</time></sup>
+
+#### [#2218](https://github.com/core-ds/core-components/pull/2218)
+
+##### Button
+
+- Исправлена высота текста `hint`
+
 ## 13.1.1
 
 ### Patch Changes
