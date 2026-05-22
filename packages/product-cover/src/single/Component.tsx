@@ -33,13 +33,19 @@ export const Single: FC<SingleCommonProps> = ({
     contentAddonsProps,
     onEyeIconClick,
     dataTestId,
+    stateType = false,
 }) => {
     const hasContent = Boolean(cardNumber || cardholderName || numberOfCards);
     const showContent = hasContent && size !== 16 && !contentAddons;
 
     return (
         <div
-            className={cn(styles.component, styles[`size-${size}`], className)}
+            className={cn(
+                styles.component,
+                styles[`size-${size}`],
+                stateType && styles[stateType],
+                className,
+            )}
             style={{
                 width: WIDTH_TO_SIZE[size],
                 height: size,

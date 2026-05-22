@@ -31,6 +31,35 @@
     &.size-16 {
         border-radius: var(--border-radius-2);
     }
+
+    &:before {
+        content: '';
+        position: absolute;
+        inset: var(--gap-0);
+        z-index: 4;
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity 0.2s;
+        will-change: opacity;
+    }
+
+    /* prettier-ignore */
+    @each $state, $color in
+        (darkening, var(--color-light-neutral-translucent-200)),
+        (lightening, var(--color-light-neutral-translucent-200-inverted)),
+        (static-darkening, rgba(0, 0, 0, 0.07)),
+        (static-lightening, rgba(255, 255, 255, 0.07)) {
+            &.$(state) {
+                &:before {
+                    background-color: $color;
+                }
+                @mixin hover {
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
 }
 
 .icon {
