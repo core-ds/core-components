@@ -1,30 +1,33 @@
 import React, { type ReactNode } from 'react';
 import cn from 'classnames';
 
+import { useCarouselContext } from '../../context';
 import { type LayoutProps, type PaginationProps } from '../../types';
-import { type NavigationProps } from '../navigation';
+import { type CarouselNavigationProps } from '../navigation';
 
 import styles from './index.module.css';
 
-export function Layout<T extends PaginationProps>({
-    layoutProps: { navigationDisplay, navigationPosition },
+export type CarouselLayoutProps<T extends PaginationProps> = LayoutProps<
+    {
+        navigationDisplay: 'hover' | 'always' | 'never';
+    },
+    T,
+    CarouselNavigationProps
+>;
+
+export function CarouselLayout<T extends PaginationProps>({
+    layoutProps: { navigationDisplay },
     Navigation,
     navigationProps,
     Pagination,
     paginationProps,
     children,
-}: LayoutProps<
-    {
-        navigationDisplay: 'hover' | 'always' | 'never';
-        navigationPosition: 'start' | 'center';
-    },
-    T,
-    NavigationProps
->): ReactNode {
-    const navigation = (
+}: CarouselLayoutProps<T>): ReactNode {
+    const { count, activeIndex } = useCarouselContext();
+    const navigationPosition = navigationProps.position;
+    const navigation = navigationDisplay !== 'never' && (
         <Navigation
             {...navigationProps}
-            position={navigationPosition}
             className={cn(styles.navigation, navigationProps.className)}
         />
     );
@@ -40,9 +43,11 @@ export function Layout<T extends PaginationProps>({
                 {children}
                 {navigationPosition === 'center' && navigation}
             </div>
-            {paginationProps.elements && (
+            {count && (
                 <Pagination
                     {...paginationProps}
+                    activeElement={activeIndex}
+                    elements={count}
                     className={cn(styles.pagination, paginationProps.className)}
                 />
             )}

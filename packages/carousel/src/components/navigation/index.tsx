@@ -5,29 +5,22 @@ import { PassThroughComponent } from '@alfalab/core-components-shared';
 import { ArrowLeftMIcon } from '@alfalab/icons-glyph/ArrowLeftMIcon';
 import { ArrowRightMIcon } from '@alfalab/icons-glyph/ArrowRightMIcon';
 
-import { type NavigationProps as DefaultNavigationProps } from '../../types';
+import { useCarouselContext } from '../../context';
 import { NavigationButton } from '../navigation-button';
 
 import styles from './index.module.css';
 
-export interface NavigationProps extends DefaultNavigationProps {
-    position?: 'start' | 'center';
-    colors?: 'default' | 'inverted';
+export interface CarouselNavigationProps {
+    className?: string;
+    position: 'start' | 'center';
 }
 
-export const Navigation: FC<NavigationProps> = ({
-    onActiveElementChange,
-    activeElement,
-    elements,
-    position,
-    className,
-    loop,
-    colors,
-}) => {
+export const CarouselNavigation: FC<CarouselNavigationProps> = ({ className, position }) => {
+    const { colors, loop, activeIndex, count, onActiveIndexChange } = useCarouselContext();
     const positionCenter = position === 'center';
     const Wrapper = positionCenter ? PassThroughComponent : 'div';
-    const prevIsDisabled = !loop && activeElement === 0;
-    const nextIsDisabled = !loop && activeElement === elements - 1;
+    const prevIsDisabled = !loop && activeIndex === 0;
+    const nextIsDisabled = !loop && activeIndex === count - 1;
 
     return (
         <Wrapper className={cn(styles.component, className)}>
@@ -39,10 +32,9 @@ export const Navigation: FC<NavigationProps> = ({
                 icon={ArrowLeftMIcon}
                 disabled={prevIsDisabled}
                 onClick={() => {
-                    const nextActiveIndex =
-                        (loop && activeElement === 0 ? elements : activeElement) - 1;
+                    const nextActiveIndex = (loop && activeIndex === 0 ? count : activeIndex) - 1;
 
-                    onActiveElementChange?.(nextActiveIndex);
+                    onActiveIndexChange(nextActiveIndex);
                 }}
             />
             <NavigationButton
@@ -54,9 +46,9 @@ export const Navigation: FC<NavigationProps> = ({
                 disabled={nextIsDisabled}
                 onClick={() => {
                     const nextActiveIndex =
-                        (loop && activeElement === elements - 1 ? 0 : activeElement) + 1;
+                        (loop && activeIndex === count - 1 ? 0 : activeIndex) + 1;
 
-                    onActiveElementChange?.(nextActiveIndex);
+                    onActiveIndexChange(nextActiveIndex);
                 }}
             />
         </Wrapper>

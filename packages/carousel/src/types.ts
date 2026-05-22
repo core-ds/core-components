@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { type ComponentProps, type ComponentType, type ElementType, type ReactNode } from 'react';
 
 export interface ItemProps {
@@ -14,28 +15,15 @@ export interface PaginationProps {
     className?: string;
 }
 
-export interface NavigationProps {
-    activeElement: number;
-    elements: number;
-    className?: string;
-    loop?: boolean;
-    onActiveElementChange?: (nextActiveElement: number) => void;
-}
-
 export interface CarouselContextValue {
-    activeElement: number;
-    elements: number;
-    className?: string;
+    activeIndex: number;
+    onActiveIndexChange: (nextActiveElement: number) => void;
+    count: number;
     colors?: 'default' | 'inverted';
     loop?: boolean;
-    onActiveElementChange?: (nextActiveElement: number) => void;
 }
 
-export interface LayoutProps<
-    T,
-    U extends PaginationProps = PaginationProps,
-    V extends NavigationProps = NavigationProps,
-> {
+export interface LayoutProps<T = {}, U = {}, V = {}> {
     layoutProps: T;
 
     children?: React.ReactNode;
@@ -47,19 +35,15 @@ export interface LayoutProps<
     navigationProps: V;
 }
 
-export interface BaseCarouselProps<
-    T,
-    U extends PaginationProps = PaginationProps,
-    V extends NavigationProps = NavigationProps,
-> extends GeneralCarouselProps {
+export interface HeadlessCarouselProps<T, U, V> extends GeneralCarouselProps {
     Layout?: ComponentType<LayoutProps<T, U, V>>;
-    getLayoutProps: (ctx: CarouselContextValue) => T;
+    layoutProps: T;
 
     Pagination?: ComponentType<U>;
-    getPaginationProps: (ctx: CarouselContextValue) => U;
+    paginationProps: U;
 
     Navigation?: ComponentType<V>;
-    getNavigationProps: (ctx: CarouselContextValue) => V;
+    navigationProps: V;
 
     Wrapper?: ElementType<ComponentProps<'div'>>;
     Item?: ElementType<ComponentProps<'div'>>;
@@ -124,8 +108,7 @@ export interface GeneralCarouselProps {
     mouseWheel?: boolean;
 }
 
-export interface CarouselProps<T extends PaginationProps = PaginationProps>
-    extends GeneralCarouselProps {
+export interface CarouselProps<T extends PaginationProps> extends GeneralCarouselProps {
     /**
      * Управление каруселью через кнопки навигации
      * @default never
