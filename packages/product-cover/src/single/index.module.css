@@ -32,7 +32,8 @@
         border-radius: var(--border-radius-2);
     }
 
-    &:before {
+    &:before,
+    &:after {
         content: '';
         position: absolute;
         inset: var(--gap-0);
@@ -44,17 +45,25 @@
     }
 
     /* prettier-ignore */
-    @each $state, $color in
-        (darkening, var(--color-light-neutral-translucent-200)),
-        (lightening, var(--color-light-neutral-translucent-200-inverted)),
-        (static-darkening, rgba(0, 0, 0, 0.07)),
-        (static-lightening, rgba(255, 255, 255, 0.07)) {
+    @each $state, $hover, $active in
+        (darkening, var(--color-light-neutral-translucent-200), var(--color-light-neutral-translucent-400)),
+        (lightening, var(--color-light-neutral-translucent-200-inverted), var(--color-light-neutral-translucent-400-inverted)),
+        (static-darkening, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.15)),
+        (static-lightening, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.15)) {
             &.$(state) {
                 &:before {
-                    background-color: $color;
+                    background-color: $hover;
+                }
+                &:after {
+                    background-color: $active;
                 }
                 @mixin hover {
-                    &:before {
+                    &:not(:active):before {
+                        opacity: 1;
+                    }
+                }
+                &:active {
+                    &:after {
                         opacity: 1;
                     }
                 }

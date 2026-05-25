@@ -124,7 +124,7 @@ describe('ProductCover | text color', () => {
     ['default'].forEach((theme) => testCase(theme));
 });
 
-describe('ProductCover | interactive', () => {
+describe('ProductCover | hover', () => {
     const cardholderName = 'JOHN DOE';
     const cardNumber = 1111222233334444;
 
@@ -201,5 +201,89 @@ describe('ProductCover | interactive', () => {
             height: 180,
         },
         evaluate: (page) => page.hover('[class*=component]').then(() => page.waitForTimeout(2500)),
+    })();
+});
+
+describe('ProductCover | active', () => {
+    const cardholderName = 'JOHN DOE';
+    const cardNumber = 1111222233334444;
+
+    return screenshotTesting({
+        cases: [
+            [
+                'state type | false',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'ProductCover',
+                    subComponentName: 'ProductCover.Single',
+                    knobs: {
+                        cardholderName,
+                        cardNumber,
+                        stateType: false,
+                    },
+                }),
+            ],
+            [
+                'state type | darkening',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'ProductCover',
+                    subComponentName: 'ProductCover.Single',
+                    knobs: {
+                        cardholderName,
+                        cardNumber,
+                        stateType: 'darkening',
+                    },
+                }),
+            ],
+            [
+                'state type | lightening',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'ProductCover',
+                    subComponentName: 'ProductCover.Single',
+                    knobs: {
+                        cardholderName,
+                        cardNumber,
+                        stateType: 'lightening',
+                    },
+                }),
+            ],
+            [
+                'state type | static-darkening',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'ProductCover',
+                    subComponentName: 'ProductCover.Single',
+                    knobs: {
+                        cardholderName,
+                        cardNumber,
+                        stateType: 'static-darkening',
+                    },
+                }),
+            ],
+            [
+                'state type | static-lightening',
+                createStorybookUrl({
+                    testStory: false,
+                    componentName: 'ProductCover',
+                    subComponentName: 'ProductCover.Single',
+                    knobs: {
+                        cardholderName,
+                        cardNumber,
+                        stateType: 'static-lightening',
+                    },
+                }),
+            ],
+        ],
+        viewport: {
+            width: 280,
+            height: 180,
+        },
+        evaluate: (page) =>
+            page
+                .hover('[class*=component]')
+                .then(() => page.mouse.down())
+                .then(() => page.waitForTimeout(2500)),
     })();
 });
