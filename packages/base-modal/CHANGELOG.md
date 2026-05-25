@@ -1,5 +1,13 @@
 # @alfalab/core-components-base-modal
 
+## 7.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+
 ## 7.1.4
 
 ### Patch Changes
