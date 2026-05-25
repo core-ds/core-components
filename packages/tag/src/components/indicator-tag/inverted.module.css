@@ -13,7 +13,7 @@
 }
 
 .shapePath {
-    fill: var(--tag-indicator-filled-background-color, var(--tag-inverted-filled-background-color));
+    fill: var(--tag-inverted-filled-background-color);
 }
 
 .checkedShapePath {
@@ -30,10 +30,7 @@
     color: var(--tag-inverted-text-color);
 
     &:active:not(:disabled) .shapePath {
-        fill: var(
-            --tag-indicator-filled-background-color-active,
-            var(--tag-inverted-filled-background-color-active)
-        );
+        fill: var(--tag-inverted-filled-background-color-active);
     }
 
     &.checked .shapePath {
@@ -48,10 +45,7 @@
 
     @media (hover: hover) {
         &:hover .shapePath {
-            fill: var(
-                --tag-indicator-filled-background-color-hover,
-                var(--tag-inverted-filled-background-color-hover)
-            );
+            fill: var(--tag-inverted-filled-background-color-hover);
         }
 
         &.checked:hover:not(:disabled) .shapePath {

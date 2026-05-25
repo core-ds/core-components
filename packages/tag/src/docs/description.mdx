@@ -114,7 +114,7 @@ render(() => {
             <Container>
             <Row>
                 <div style={{ marginRight: 8 }}>
-                    <Tag
+                    <TagDesktop
                         rightAddons={addon}
                         leftAddons={addon}
                         checked={checkedMap.icon}
@@ -124,10 +124,10 @@ render(() => {
                         {...defaultProps}
                     >
                         Label
-                    </Tag>
+                    </TagDesktop>
                 </div>
                 <div style={{ marginRight: 8 }}>
-                    <Tag
+                    <TagDesktop
                         rightAddons={<Badge view='count' height={16} content={1} />}
                         checked={checkedMap.badge}
                         onClick={(_, { checked: nextChecked }) =>
@@ -136,10 +136,10 @@ render(() => {
                         {...defaultProps}
                     >
                         Label
-                    </Tag>
+                    </TagDesktop>
                 </div>
                 <div style={{ marginRight: 8 }}>
-                    <Tag
+                    <TagDesktop
                         rightAddons={<Badge view='count' height={16} />}
                         checked={checkedMap.emptyBadge}
                         onClick={(_, { checked: nextChecked }) =>
@@ -148,10 +148,10 @@ render(() => {
                         {...defaultProps}
                     >
                         Label
-                    </Tag>
+                    </TagDesktop>
                 </div>
                 <div style={{ marginRight: 8 }}>
-                    <Tag
+                    <TagDesktop
                         size={40}
                         rightAddons={amountAddon}
                         view='filled'
@@ -162,10 +162,10 @@ render(() => {
                         }
                     >
                         Label
-                    </Tag>
+                    </TagDesktop>
                 </div>
                 <div style={{ marginRight: 8 }}>
-                    <Tag
+                    <TagDesktop
                         Component={IndicatorTag}
                         leftAddons={<ArrowsUpDownSIcon />}
                         checked={checkedMap.indicator}
@@ -266,7 +266,7 @@ render(() => {
                 }}
             >
                 <div>
-                    <Tag
+                    <TagMobile
                         rightAddons={addon}
                         leftAddons={addon}
                         checked={checkedMap.icon}
@@ -276,10 +276,10 @@ render(() => {
                         {...defaultProps}
                     >
                         Label
-                    </Tag>
+                    </TagMobile>
                 </div>
                 <div>
-                    <Tag
+                    <TagMobile
                         rightAddons={<Badge view='count' height={16} content={1} />}
                         checked={checkedMap.badge}
                         onClick={(_, { checked: nextChecked }) =>
@@ -288,10 +288,10 @@ render(() => {
                         {...defaultProps}
                     >
                         Label
-                    </Tag>
+                    </TagMobile>
                 </div>
                 <div>
-                    <Tag
+                    <TagMobile
                         rightAddons={<Badge view='count' height={16} />}
                         checked={checkedMap.emptyBadge}
                         onClick={(_, { checked: nextChecked }) =>
@@ -300,10 +300,10 @@ render(() => {
                         {...defaultProps}
                     >
                         Label
-                    </Tag>
+                    </TagMobile>
                 </div>
                 <div>
-                    <Tag
+                    <TagMobile
                         rightAddons={amountAddon}
                         checked={checkedMap.amount}
                         onClick={(_, { checked: nextChecked }) =>
@@ -312,10 +312,10 @@ render(() => {
                         {...defaultProps}
                     >
                         Label
-                    </Tag>
+                    </TagMobile>
                 </div>
                 <div style={{ marginRight: 8 }}>
-                    <Tag
+                    <TagMobile
                         Component={IndicatorTag}
                         leftAddons={<ArrowsUpDownSIcon />}
                         checked={checkedMap.indicator}
@@ -355,23 +355,23 @@ render(() => {
         <Container>
             <Row align='middle'>
                 <div style={{ marginRight: 8 }}>
-                    <Tag
+                    <TagDesktop
                         {...tagProps}
                         checked={checkedWithAddon}
                         leftAddons={<DiamondsMIcon height={16} width={16} />}
                         onClick={() => setCheckedWithAddon((v) => !v)}
                     >
                         Label
-                    </Tag>
+                    </TagDesktop>
                 </div>
                 <div>
-                    <Tag
+                    <TagDesktop
                         {...tagProps}
                         checked={checkedPlain}
                         onClick={() => setCheckedPlain((v) => !v)}
                     >
                         Label
-                    </Tag>
+                    </TagDesktop>
                 </div>
             </Row>
 
@@ -437,23 +437,23 @@ render(() => {
         <Container>
             <Row align='middle' style={{ marginBottom: 20 }}>
                 <div style={{ marginRight: 8 }}>
-                    <Tag
+                    <TagMobile
                         {...tagProps}
                         checked={checkedWithAddon}
                         leftAddons={<DiamondsMIcon height={16} width={16} />}
                         onClick={() => setCheckedWithAddon((v) => !v)}
                     >
                         Label
-                    </Tag>
+                    </TagMobile>
                 </div>
                 <div>
-                    <Tag
+                    <TagMobile
                         {...tagProps}
                         checked={checkedPlain}
                         onClick={() => setCheckedPlain((v) => !v)}
                     >
                         Label
-                    </Tag>
+                    </TagMobile>
                 </div>
             </Row>
 
@@ -649,7 +649,7 @@ render(() => {
                     alignItems: 'center',
                 }}
             >
-                <Tag
+                <TagDesktop
                     Component={IndicatorTag}
                     leftAddons={<SlidersSIcon height={16} width={16} />}
                     size={DESKTOP_TAG_SIZE}
@@ -666,7 +666,7 @@ render(() => {
                     onClick={openOrTogglePanel}
                 />
                 {applied.dynamicKeys.map((id) => (
-                    <Tag
+                    <TagDesktop
                         key={id}
                         size={DESKTOP_TAG_SIZE}
                         view='filled'
@@ -675,9 +675,9 @@ render(() => {
                         onClick={() => toggleAppliedDynamic(id)}
                     >
                         {DYNAMIC_META[id]}
-                    </Tag>
+                    </TagDesktop>
                 ))}
-                <Tag
+                <TagDesktop
                     size={DESKTOP_TAG_SIZE}
                     view='filled'
                     shape='rectangular'
@@ -685,8 +685,8 @@ render(() => {
                     onClick={() => setApplied((p) => ({ ...p, replenishment: !p.replenishment }))}
                 >
                     Пополнения
-                </Tag>
-                <Tag
+                </TagDesktop>
+                <TagDesktop
                     size={DESKTOP_TAG_SIZE}
                     view='filled'
                     shape='rectangular'
@@ -694,7 +694,7 @@ render(() => {
                     onClick={() => setApplied((p) => ({ ...p, writeoff: !p.writeoff }))}
                 >
                     Списания
-                </Tag>
+                </TagDesktop>
                 <div>
                     <FilterTag
                         ref={setPeriodAnchorEl}
@@ -891,7 +891,7 @@ render(() => {
                             <Gap size={16} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                                 {PERIOD_OPTIONS.map(({ key, content }) => (
-                                    <Tag
+                                    <TagDesktop
                                         key={key}
                                         size={32}
                                         view='filled'
@@ -905,7 +905,7 @@ render(() => {
                                         }
                                     >
                                         {content}
-                                    </Tag>
+                                    </TagDesktop>
                                 ))}
                             </div>
                             <Gap size={24} />
@@ -920,7 +920,7 @@ render(() => {
                             </Typography.Title>
                             <Gap size={16} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                                <Tag
+                                <TagDesktop
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
@@ -930,8 +930,8 @@ render(() => {
                                     }
                                 >
                                     Пополнение
-                                </Tag>
-                                <Tag
+                                </TagDesktop>
+                                <TagDesktop
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
@@ -941,8 +941,8 @@ render(() => {
                                     }
                                 >
                                     Списание
-                                </Tag>
-                                <Tag
+                                </TagDesktop>
+                                <TagDesktop
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
@@ -950,7 +950,7 @@ render(() => {
                                     onClick={() => toggleDraftDynamic('added_expenses')}
                                 >
                                     Добавленные расходы
-                                </Tag>
+                                </TagDesktop>
                             </div>
                             <Gap size={24} />
 
@@ -964,7 +964,7 @@ render(() => {
                             </Typography.Title>
                             <Gap size={16} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                                <Tag
+                                <TagDesktop
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
@@ -972,8 +972,8 @@ render(() => {
                                     onClick={() => toggleDraftDynamic('to_client')}
                                 >
                                     Клиенту банка
-                                </Tag>
-                                <Tag
+                                </TagDesktop>
+                                <TagDesktop
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
@@ -981,7 +981,7 @@ render(() => {
                                     onClick={() => toggleDraftDynamic('between_accounts')}
                                 >
                                     Между счетами
-                                </Tag>
+                                </TagDesktop>
                             </div>
                             <Gap size={24} />
 
@@ -995,7 +995,7 @@ render(() => {
                             </Typography.Title>
                             <Gap size={16} />
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                                <Tag
+                                <TagDesktop
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
@@ -1003,8 +1003,8 @@ render(() => {
                                     onClick={() => toggleDraftDynamic('templates')}
                                 >
                                     Шаблоны
-                                </Tag>
-                                <Tag
+                                </TagDesktop>
+                                <TagDesktop
                                     size={32}
                                     view='filled'
                                     shape='rectangular'
@@ -1012,7 +1012,7 @@ render(() => {
                                     onClick={() => toggleDraftDynamic('autopay')}
                                 >
                                     Автоплатежи
-                                </Tag>
+                                </TagDesktop>
                             </div>
                             <Gap size={24} />
 
