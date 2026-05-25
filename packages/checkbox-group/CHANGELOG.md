@@ -1,5 +1,14 @@
 # @alfalab/core-components-checkbox-group
 
+## 6.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-mq@6.0.4
+
 ## 6.0.4
 
 ### Patch Changes

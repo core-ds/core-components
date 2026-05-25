@@ -1,5 +1,24 @@
 # @alfalab/core-components-universal-modal
 
+## 3.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-base-modal@7.1.5
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-navigation-bar-private@2.0.8
+
+## 3.1.3
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.7
+
 ## 3.1.2
 
 ### Patch Changes
