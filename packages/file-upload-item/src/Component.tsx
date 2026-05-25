@@ -38,6 +38,8 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     truncate,
     imageUrl,
     backgroundColor,
+    reupload,
+    onReupload,
 }) => {
     const [actionsPresent, setActionsPresent] = useState(false);
 
@@ -80,6 +82,8 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                     backgroundColor,
                     actionsPresent,
                     setActionsPresent,
+                    reupload,
+                    onReupload,
                 }}
             >
                 {children}

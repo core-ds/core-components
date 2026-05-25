@@ -60,6 +60,11 @@ export interface FileUploadItemProps {
     showRestore?: boolean;
 
     /**
+     * Отображает кнопку повторной загрузки
+     */
+    reupload?: boolean;
+
+    /**
      * Статус загрузки файла
      */
     uploadStatus?: FileUploadItemStatus;
@@ -88,6 +93,11 @@ export interface FileUploadItemProps {
      * Обработчик восстановления файла
      */
     onRestore?: (id: string) => void;
+
+    /**
+     * Обработчик кнопки повторной загрузки файла
+     */
+    onReupload?: (id: string) => void;
 
     /**
      * Управление активностью кнопок

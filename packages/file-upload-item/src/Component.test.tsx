@@ -295,6 +295,18 @@ describe('FileUploadItem', () => {
             expect(element).toBeInTheDocument();
         });
 
+        it('should set `reupload` element', () => {
+            render(
+                <FileUploadItem reupload={true}>
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const element = screen.getByLabelText('повторная загрузка');
+
+            expect(element).toBeInTheDocument();
+        });
+
         it('should set `download` element', () => {
             render(
                 <FileUploadItem showRestore={false} downloadLink='/link'>
@@ -349,6 +361,19 @@ describe('FileUploadItem', () => {
             );
 
             fireEvent.click(getByLabelText('восстановить'));
+
+            expect(cb).toHaveBeenCalledTimes(1);
+            expect(cb.mock.calls[0][0]).toBe(fileId);
+        });
+
+        it('should call `onReupload` prop', () => {
+            const { getByLabelText } = render(
+                <FileUploadItem reupload={true} onReupload={cb} id={fileId}>
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            fireEvent.click(getByLabelText('повторная загрузка'));
 
             expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);

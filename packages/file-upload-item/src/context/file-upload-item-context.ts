@@ -37,6 +37,8 @@ type TFileUploadItemContext = {
     backgroundColor?: SuperEllipseProps['backgroundColor'];
     actionsPresent?: boolean;
     setActionsPresent?: (present: boolean) => void;
+    reupload?: boolean;
+    onReupload?: (id: string) => void;
 };
 
 export const FileUploadItemContext = createContext<TFileUploadItemContext>({
@@ -67,4 +69,6 @@ export const FileUploadItemContext = createContext<TFileUploadItemContext>({
     backgroundColor: undefined,
     actionsPresent: false,
     setActionsPresent: undefined,
+    reupload: false,
+    onReupload: undefined,
 });

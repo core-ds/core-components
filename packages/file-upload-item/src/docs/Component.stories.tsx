@@ -52,6 +52,7 @@ export const file_upload_item: Story = {
                         showDelete={boolean('showDelete', false)}
                         showRestore={boolean('showRestore', false)}
                         truncate={boolean('truncate', false)}
+                        reupload={boolean('reupload', false)}
                     >
                         <FileUploadItem.StatusControl />
                         <FileUploadItem.Content />

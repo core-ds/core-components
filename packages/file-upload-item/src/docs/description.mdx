@@ -97,7 +97,8 @@ render(() => {
     const [progressBar, setProgressBar] = React.useState(0);
     const [isProgressKnown, setIsProgressKnown] = React.useState(false);
     const [error, setError] = React.useState('');
-    const [showRestore, setShowRestore] = React.useState(false);
+    const [showReupload, setShowReupload] = React.useState(false);
+    const [showDelete, setShowDelete] = React.useState(false);
 
     const isUploading = status === 'UPLOADING' || status === 'LOADING';
     const subtitle = isUploading ? 'Загружается' : 'Нет файла';
@@ -109,9 +110,11 @@ render(() => {
 
     const resetState = () => {
         setError('');
+        setTitle('Прикрепите файл');
         setProgressBar(0);
         setStatus('INITIAL');
-        setShowRestore(false);
+        setShowReupload(false);
+        setShowDelete(false);
     };
 
     const measure = (timestamp, status, isSpinner = false) => {
@@ -138,20 +141,24 @@ render(() => {
 
         if (status === 'SUCCESS') {
             setStatus(status);
+            setShowDelete(true);
         } else if (status === 'ERROR') {
             setStatus('ERROR');
             setError(['Ошибка загрузки.', 'Попробуйте ещё раз']);
-            setShowRestore(true);
+            setShowReupload(true);
+            setShowDelete(true);
         }
     };
 
     const startUpload = (finalStatus) => {
         setTitle('Пример.docx');
-        setShowRestore(false);
+        setShowReupload(false);
+        setShowDelete(false);
 
         if (finalStatus === 'INCORRECT_FILE') {
             setStatus('ERROR');
             setError('Описание первой ошибки');
+            setShowDelete(true);
 
             return;
         }
@@ -159,6 +166,7 @@ render(() => {
         if (finalStatus === 'MULTI_ERROR') {
             setStatus('ERROR');
             setError(['Описание первой ошибки', 'Описание второй ошибки']);
+            setShowDelete(true);
 
             return;
         }
@@ -195,10 +203,12 @@ render(() => {
                     progressBar={isProgressKnown ? progressBar : undefined}
                     progressBarAvailable={isProgressKnown}
                     uploadDate='22.07.2024'
-                    size={2097152} // 2mb
+                    size={2 * 1024 * 1024} // 2mb
                     error={error}
-                    showRestore={showRestore}
-                    onRestore={() => handleError()}
+                    reupload={showReupload}
+                    showDelete={showDelete}
+                    onReupload={() => handleError()}
+                    onDelete={() => resetState()}
                 >
                     <FileUploadItem.StatusControl />
                     <FileUploadItem.Content />
@@ -212,7 +222,7 @@ render(() => {
                 </Button>
                 <Gap size={8} direction='horizontal' />
                 <Button size={32} onClick={handleError}>
-                    Ошибка
+                    Ошибка загрузки
                 </Button>
                 <Gap size={8} direction={isMobile() ? 'vertical' : 'horizontal'} />
                 <Button size={32} onClick={handeIncorrectFile}>
