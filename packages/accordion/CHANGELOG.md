@@ -1,5 +1,14 @@
 # @alfalab/core-components-accordion
 
+## 3.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-typography@6.0.5
+
 ## 3.0.4
 
 ### Patch Changes

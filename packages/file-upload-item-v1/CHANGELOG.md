@@ -1,5 +1,15 @@
 # @alfalab/core-components-file-upload-item-v1
 
+## 3.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-spinner@6.0.4
+- @alfalab/core-components-icon-button@8.0.6
+
 ## 3.0.5
 
 ### Patch Changes
