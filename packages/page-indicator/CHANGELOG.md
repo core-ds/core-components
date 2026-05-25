@@ -1,5 +1,21 @@
 # @alfalab/core-components-page-indicator
 
+## 3.0.4
+
+### Patch Changes
+
+<sup><time>25.05.2026</time></sup>
+
+#### [#2173](https://github.com/core-ds/core-components/pull/2173)
+
+##### PageIndicator
+
+- Упрощение верстки компнента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+
 ## 3.0.3
 
 ### Patch Changes

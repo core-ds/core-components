@@ -1,5 +1,16 @@
 # @alfalab/core-components-calendar-input
 
+## 12.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.6
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-popover@8.0.4
+- @alfalab/core-components-date-input@6.0.8
+
 ## 12.0.10
 
 ### Patch Changes

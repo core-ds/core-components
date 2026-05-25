@@ -1,5 +1,13 @@
 # @alfalab/core-components-steps
 
+## 3.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+
 ## 3.0.5
 
 ### Patch Changes
