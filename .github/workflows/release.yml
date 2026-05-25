@@ -39,6 +39,7 @@ jobs:
         runs-on: ubuntu-latest
         outputs:
             published: ${{ steps.changesets.outputs.published }}
+            has-changesets: ${{ steps.changesets.outputs.hasChangesets }}
         steps:
             - name: Generate app token
               id: generate-token
@@ -69,13 +70,13 @@ jobs:
 
     variants:
         needs: release
-        if: ${{ fromJson(needs.release.outputs.published) }}
+        if: ${{ !fromJson(needs.release.outputs.has-changesets) }}
         uses: ./.github/workflows/variants.yml
         with:
             include-default: false
 
     variant-release:
-        needs: [release, variants]
+        needs: variants
         strategy:
             matrix:
                 include: ${{ fromJson(needs.variants.outputs.config) }}
