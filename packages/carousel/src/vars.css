@@ -1,0 +1,28 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+:root {
+    /* general */
+    --carousel-animation-duration: 0.25s;
+
+    /* navigation-button default */
+    --carousel-button-color: var(--color-light-neutral-translucent-700);
+    --carousel-button-hover-color: var(--color-light-neutral-translucent-700-hover);
+    --carousel-button-active-color: var(--color-light-neutral-translucent-700-press);
+    --carousel-button-disabled-color: var(--color-light-neutral-translucent-300);
+    --carousel-button-border-color: var(--color-light-neutral-translucent-200);
+    --caruosel-button-background-color: var(--color-light-neutral-0);
+    --caruosel-button-active-background-color: var(--color-light-neutral-100);
+
+    /* navigation-button inverted */
+    --carousel-button-inverted-color: var(--color-light-neutral-translucent-700-inverted);
+    --carousel-button-inverted-hover-color: var(
+        --color-light-neutral-translucent-700-inverted-hover
+    );
+    --carousel-button-inverted-active-color: var(
+        --color-light-neutral-translucent-700-inverted-press
+    );
+    --carousel-button-inverted-disabled-color: var(--color-light-neutral-translucent-300-inverted);
+    --carousel-button-inverted-border-color: var(--color-light-neutral-translucent-200-inverted);
+    --caruosel-button-inverted-background-color: var(--color-light-neutral-0-inverted);
+    --caruosel-button-inverted-active-background-color: var(--color-light-neutral-100-inverted);
+}

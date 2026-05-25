@@ -1,0 +1,19 @@
+@import '../../vars.css';
+
+.remove {
+    animation:
+        var(--carousel-animation-duration) ease-in-out 0s phase1,
+        var(--carousel-animation-duration) ease-in-out var(--carousel-animation-duration) phase2;
+}
+
+@keyframes phase1 {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes phase2 {
+    to {
+        width: 0;
+    }
+}

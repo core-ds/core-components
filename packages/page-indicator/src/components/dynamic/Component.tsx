@@ -39,6 +39,7 @@ export const PageIndicatorDynamic: React.FC<PageIndicatorDynamicProps> = (props)
         duration: durationFromProps = 3000,
         cycle = false,
         colors = 'default',
+        className,
     } = props;
     const [activeIndex, setActiveIndex] = useState<number | undefined>(
         indexFromProps ?? defaultIndex,
@@ -94,7 +95,7 @@ export const PageIndicatorDynamic: React.FC<PageIndicatorDynamicProps> = (props)
     }, [activeIndex, activeIndexInProps, count, cycle, inProgress, onActiveElementChange]);
 
     return (
-        <ol className={styles.pageIndicator} style={{ height, gap }}>
+        <div className={cn(styles.pageIndicator, className)} style={{ height, gap }}>
             {Array.from({ length: count }, (_, index) => {
                 const isActive = index === activeIndex;
                 const style: React.CSSProperties = {
@@ -106,7 +107,7 @@ export const PageIndicatorDynamic: React.FC<PageIndicatorDynamicProps> = (props)
                     : undefined;
 
                 return (
-                    <li
+                    <div
                         key={index}
                         style={style}
                         className={cn(styles.element, colorsStyle[colors].element, {
@@ -118,9 +119,9 @@ export const PageIndicatorDynamic: React.FC<PageIndicatorDynamicProps> = (props)
                             style={progressStyle}
                             className={cn(styles.progress, colorsStyle[colors].progress)}
                         />
-                    </li>
+                    </div>
                 );
             })}
-        </ol>
+        </div>
     );
 };

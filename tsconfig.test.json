@@ -41,6 +41,8 @@
             ],
             "@alfalab/core-components-card-image": ["./packages/card-image/src"],
             "@alfalab/core-components-card-image/*": ["./packages/card-image/src/*"],
+            "@alfalab/core-components-carousel": ["./packages/carousel/src"],
+            "@alfalab/core-components-carousel/*": ["./packages/carousel/src/*"],
             "@alfalab/core-components-cdn-icon": ["./packages/cdn-icon/src"],
             "@alfalab/core-components-cdn-icon/*": ["./packages/cdn-icon/src/*"],
             "@alfalab/core-components-chart": ["./packages/chart/src"],

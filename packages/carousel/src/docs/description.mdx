@@ -1,0 +1,526 @@
+## Примеры
+
+```jsx live
+const CarouselItem = ({ bgColor, itemColor }) => {
+    return (
+        <div
+            style={{
+                background: bgColor,
+                padding: 'var(--gap-16)',
+                display: 'flex',
+                flexDirection: 'column',
+                borderRadius: 'var(--border-radius-20)',
+                height: 'calc(100% - var(--gap-16) * 2)',
+            }}
+        >
+            <SuperEllipse backgroundColor={itemColor} />
+            <div
+                style={{
+                    height: 12,
+                    background: itemColor,
+                    margin: 'auto 0 var(--gap-6)',
+                    borderRadius: 'var(--border-radius-pill)',
+                }}
+            />
+            <div
+                style={{
+                    height: 12,
+                    background: itemColor,
+                    margin: 'var(--gap-6) 0',
+                    borderRadius: 'var(--border-radius-pill)',
+                }}
+            />
+        </div>
+    );
+};
+
+const VISIBLE_ITEMS = isMobile() ? 2.2 : 4.2;
+
+render(() => {
+    const [height, setHeight] = React.useState('fixed');
+    const handleHeightChange = (_, payload) => {
+        setHeight(payload.value);
+    };
+    const [visibleItems, setVisibleItems] = React.useState('fixed');
+    const handleVisibleItemsChange = (_, payload) => {
+        setVisibleItems(payload.value);
+    };
+    const [loop, setLoop] = React.useState(false);
+    const handleLoopChange = (_, payload) => {
+        setLoop(payload.value === 'true');
+    };
+    const [navigationState, setNavigation] = React.useState(isMobile() ? 'never' : 'always');
+    const handleNavigationChange = (_, payload) => {
+        setNavigation(payload.value);
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Carousel
+                items={[
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-blue)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-blue)',
+                        height: 200,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-red)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-red)',
+                        height: 280,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-orange)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-orange)',
+                        height: 160,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-green)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-green)',
+                        height: 240,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-indigo)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-indigo)',
+                        height: 200,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-cyan)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-cyan)',
+                        height: 160,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-pistachio)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-pistachio)',
+                        height: 240,
+                    },
+                ].map((itemProps, i) => ({
+                    key: i,
+                    height: itemProps.height,
+                    width: 256,
+                    children: <CarouselItem {...itemProps} />,
+                }))}
+                visibleItems={visibleItems === 'fixed' ? VISIBLE_ITEMS : 'auto'}
+                navigation={navigationState}
+                gap={8}
+                loop={loop}
+                height={height === 'fixed' ? 280 : undefined}
+                mouseWheel={!isMobile()}
+            />
+            <Gap size={24} />
+            <RadioGroup
+                label='Высота компонента'
+                direction='vertical'
+                name='height'
+                onChange={handleHeightChange}
+                value={height}
+            >
+                <Radio size={24} label='Фиксированная' value='fixed' />
+                <Radio size={24} label='По самому высокому элементу' value='auto' />
+            </RadioGroup>
+            <Gap size={24} />
+            <RadioGroup
+                label='Количество видимых элементов'
+                direction='vertical'
+                name='height'
+                onChange={handleVisibleItemsChange}
+                value={visibleItems}
+            >
+                <Radio size={24} label='Фиксированное' value='fixed' />
+                <Radio size={24} label='Зависит от ширины элементов' value='auto' />
+            </RadioGroup>
+
+            {!isMobile() && (
+                <React.Fragment>
+                    <Gap size={24} />
+                    <RadioGroup
+                        label='Кнопки'
+                        direction='vertical'
+                        name='height'
+                        onChange={handleNavigationChange}
+                        value={navigationState}
+                    >
+                        <Radio size={24} label='Доступны всегда' value='always' />
+                        <Radio size={24} label='Доступны по ховеру' value='hover' />
+                        <Radio size={24} label='Без кнопок' value='never' />
+                    </RadioGroup>
+                </React.Fragment>
+            )}
+            <Gap size={24} />
+            <RadioGroup
+                label='Поведение'
+                direction='vertical'
+                name='height'
+                onChange={handleLoopChange}
+                value={`${loop}`}
+            >
+                <Radio size={24} label='Без зацикливания' value='false' />
+                <Radio size={24} label='Зациклить слайды' value='true' />
+            </RadioGroup>
+        </div>
+    );
+});
+```
+
+Контент карусели может выходить за границы компонента.
+
+```jsx live
+const CarouselItem = ({ bgColor, itemColor }) => {
+    return (
+        <div
+            style={{
+                background: bgColor,
+                padding: 'var(--gap-16)',
+                display: 'flex',
+                flexDirection: 'column',
+                borderRadius: 'var(--border-radius-20)',
+                height: 'calc(100% - var(--gap-16) * 2)',
+            }}
+        >
+            <SuperEllipse backgroundColor={itemColor} />
+            <div
+                style={{
+                    height: 12,
+                    background: itemColor,
+                    margin: 'auto 0 var(--gap-6)',
+                    borderRadius: 'var(--border-radius-pill)',
+                }}
+            />
+            <div
+                style={{
+                    height: 12,
+                    background: itemColor,
+                    margin: 'var(--gap-6) 0',
+                    borderRadius: 'var(--border-radius-pill)',
+                }}
+            />
+        </div>
+    );
+};
+
+render(() => {
+    const [overflow, setOverflow] = React.useState('hidden');
+    const handleOverflowChange = (_, payload) => {
+        setOverflow(payload.value);
+    };
+
+    return (
+        <React.Fragment>
+            <div
+                style={{
+                    margin: isMobile() ? -20 : undefined,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    overflow: 'hidden',
+                }}
+            >
+                <div
+                    style={{
+                        padding: isMobile() ? 20 : '20px 80px',
+                        background: isMobile() ? undefined : 'var(--color-light-base-bg-secondary)',
+                        borderRadius: isMobile() ? undefined : 'var(--border-radius-20)',
+                    }}
+                >
+                    <Carousel
+                        items={[
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-blue)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-blue)',
+                                height: 200,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-red)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-red)',
+                                height: 280,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-orange)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-orange)',
+                                height: 160,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-green)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-green)',
+                                height: 240,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-indigo)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-indigo)',
+                                height: 200,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-cyan)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-cyan)',
+                                height: 160,
+                            },
+                            {
+                                bgColor: 'var(--color-light-decorative-muted-pistachio)',
+                                itemColor: 'var(--color-light-decorative-muted-alt-pistachio)',
+                                height: 240,
+                            },
+                        ].map((itemProps, i) => ({
+                            key: i,
+                            height: itemProps.height,
+                            width: 200,
+                            children: <CarouselItem {...itemProps} />,
+                        }))}
+                        visibleItems={'auto'}
+                        gap={8}
+                        navigation={isMobile() ? 'never' : 'always'}
+                        overflow={overflow}
+                        mouseWheel={!isMobile()}
+                    />
+                </div>
+            </div>
+            <Gap size={24} />
+            <RadioGroup
+                label='Отсечение контента'
+                direction='vertical'
+                name='height'
+                onChange={handleOverflowChange}
+                value={overflow}
+            >
+                <Radio size={24} label='Отсекать границами компонента' value='hidden' />
+                <Radio size={24} label='Отсекать границами внешнего контейнера' value='visible' />
+            </RadioGroup>
+        </React.Fragment>
+    );
+});
+```
+
+## Удаление контента
+
+Элементами карусели могут быть карточки счетов на оплату, подписки или другие сущности, которые пользователь должен иметь возможность удалить.
+
+```jsx live
+const CarouselItem = ({ children, bgColor, itemColor }) => {
+    return (
+        <div
+            style={{
+                background: bgColor,
+                padding: 'var(--gap-16)',
+                display: 'flex',
+                flexDirection: 'column',
+                borderRadius: 'var(--border-radius-20)',
+                height: 'calc(100% - var(--gap-16) * 2)',
+                position: 'relative',
+            }}
+        >
+            <SuperEllipse backgroundColor={itemColor} />
+            <div
+                style={{
+                    height: 12,
+                    background: itemColor,
+                    margin: 'auto 0 var(--gap-6)',
+                    borderRadius: 'var(--border-radius-pill)',
+                }}
+            />
+            <div
+                style={{
+                    height: 12,
+                    background: itemColor,
+                    margin: 'var(--gap-6) 0',
+                    borderRadius: 'var(--border-radius-pill)',
+                }}
+            />
+            {children}
+        </div>
+    );
+};
+
+render(() => {
+    const [slides, setSlides] = React.useState(() =>
+        [
+            {
+                bgColor: 'var(--color-light-decorative-muted-blue)',
+                itemColor: 'var(--color-light-decorative-muted-alt-blue)',
+                height: 200,
+            },
+            {
+                bgColor: 'var(--color-light-decorative-muted-red)',
+                itemColor: 'var(--color-light-decorative-muted-alt-red)',
+                height: 280,
+            },
+            {
+                bgColor: 'var(--color-light-decorative-muted-orange)',
+                itemColor: 'var(--color-light-decorative-muted-alt-orange)',
+                height: 160,
+            },
+            {
+                bgColor: 'var(--color-light-decorative-muted-green)',
+                itemColor: 'var(--color-light-decorative-muted-alt-green)',
+                height: 240,
+            },
+            {
+                bgColor: 'var(--color-light-decorative-muted-indigo)',
+                itemColor: 'var(--color-light-decorative-muted-alt-indigo)',
+                height: 200,
+            },
+            {
+                bgColor: 'var(--color-light-decorative-muted-cyan)',
+                itemColor: 'var(--color-light-decorative-muted-alt-cyan)',
+                height: 160,
+            },
+            {
+                bgColor: 'var(--color-light-decorative-muted-pistachio)',
+                itemColor: 'var(--color-light-decorative-muted-alt-pistachio)',
+                height: 240,
+            },
+        ].map((slide, index) => ({ ...slide, key: index, order: index })),
+    );
+
+    const handleRemove = (key) => {
+        const slide = slides.find((slide) => slide.key === key);
+
+        setSlides(slides.filter((slide) => slide.key !== key));
+
+        setTimeout(() => {
+            setSlides((prevSlides) => [...prevSlides, slide].sort((a, b) => a.order - b.order));
+        }, 5000);
+    };
+    return (
+        <Carousel
+            items={slides.map(({ key, ...itemProps }) => ({
+                key,
+                height: itemProps.height,
+                width: 256,
+                children: (
+                    <CarouselItem {...itemProps}>
+                        {itemProps.order < 2 && (
+                            <div
+                                role='button'
+                                title='Удалить'
+                                onClick={() => {
+                                    handleRemove(key);
+                                }}
+                                style={{
+                                    position: 'absolute',
+                                    top: '50%',
+                                    left: '50%',
+                                    translate: '-50% -50%',
+                                    background: 'var(--color-light-neutral-translucent-100)',
+                                    borderRadius: '50%',
+                                    width: 32,
+                                    height: 32,
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    zIndex: 1,
+                                }}
+                            >
+                                <CrossMIcon />
+                            </div>
+                        )}
+                    </CarouselItem>
+                ),
+            }))}
+            visibleItems={'auto'}
+            gap={8}
+            height={200}
+            mouseWheel={!isMobile()}
+        />
+    );
+});
+```
+
+## Дополнительные слоты
+
+Компонент может принимать события извне. Поэтому при необходимости, можно отключить контролы навигации в самой карусели и расположить их в верхнем аддоне, а в нижний передать [PageIndicator](?path=/docs/pageindicator--docs).
+
+```jsx live
+const CarouselItem = ({ bgColor, itemColor }) => {
+    return (
+        <div
+            style={{
+                background: bgColor,
+                padding: 'var(--gap-16)',
+                display: 'flex',
+                flexDirection: 'column',
+                borderRadius: 'var(--border-radius-20)',
+                height: 'calc(100% - var(--gap-16) * 2)',
+            }}
+        >
+            <SuperEllipse backgroundColor={itemColor} />
+            <div
+                style={{
+                    height: 12,
+                    background: itemColor,
+                    margin: 'auto 0 var(--gap-6)',
+                    borderRadius: 'var(--border-radius-pill)',
+                }}
+            />
+            <div
+                style={{
+                    height: 12,
+                    background: itemColor,
+                    margin: 'var(--gap-6) 0',
+                    borderRadius: 'var(--border-radius-pill)',
+                }}
+            />
+        </div>
+    );
+};
+
+const VISIBLE_ITEMS = isMobile() ? 2.2 : 4.2;
+
+render(() => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Carousel
+                activeIndex={activeIndex}
+                onActiveIndexChange={setActiveIndex}
+                items={[
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-blue)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-blue)',
+                        height: 200,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-red)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-red)',
+                        height: 280,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-orange)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-orange)',
+                        height: 160,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-green)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-green)',
+                        height: 240,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-indigo)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-indigo)',
+                        height: 200,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-cyan)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-cyan)',
+                        height: 160,
+                    },
+                    {
+                        bgColor: 'var(--color-light-decorative-muted-pistachio)',
+                        itemColor: 'var(--color-light-decorative-muted-alt-pistachio)',
+                        height: 240,
+                    },
+                ].map((itemProps, i) => ({
+                    key: i,
+                    height: itemProps.height,
+                    width: 256,
+                    children: <CarouselItem {...itemProps} />,
+                }))}
+                visibleItems={VISIBLE_ITEMS}
+                gap={8}
+                navigation='always'
+                mouseWheel={!isMobile()}
+                navigationPosition='start'
+                Pagination={PageIndicatorBullet}
+                paginationProps={{ size: 6 }}
+            />
+        </div>
+    );
+});
+```

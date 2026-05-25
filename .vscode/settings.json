@@ -27,6 +27,7 @@
         "packages/calendar-range",
         "packages/calendar-with-skeleton",
         "packages/card-image",
+        "packages/carousel",
         "packages/cdn-icon",
         "packages/chart",
         "packages/checkbox",

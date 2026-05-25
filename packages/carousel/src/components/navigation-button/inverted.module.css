@@ -1,0 +1,28 @@
+@import '../../vars.css';
+
+.component {
+    color: var(--carousel-button-inverted-color);
+
+    .icon {
+        border: 1px solid var(--carousel-button-inverted-border-color);
+        background-color: var(--caruosel-button-inverted-background-color);
+    }
+
+    &:not([disabled]) {
+        @mixin hover {
+            color: var(--carousel-button-inverted-hover-color);
+        }
+
+        &:active {
+            color: var(--carousel-button-inverted-active-color);
+
+            .icon {
+                background-color: var(--caruosel-button-inverted-background-color);
+            }
+        }
+    }
+
+    &[disabled] {
+        color: var(--carousel-button-inverted-disabled-color);
+    }
+}
