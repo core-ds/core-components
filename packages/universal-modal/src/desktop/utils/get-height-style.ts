@@ -4,8 +4,6 @@ import { hasOwnProperty, isClient } from '@alfalab/core-components-shared';
 
 import { type UniversalModalDesktopProps } from '../types/props';
 
-import { getMaxHeightStyle } from './get-max-height-style';
-
 /**
  * Передает высоту компонента для нескольких кейсов
  * 1. Высота строится по контенту;
@@ -17,7 +15,7 @@ export const getHeightStyle = (
     margin: UniversalModalDesktopProps['margin'],
 ): Pick<CSSProperties, 'height' | 'maxHeight'> => {
     if (height === 'hugContent') {
-        return { maxHeight: getMaxHeightStyle(margin) };
+        return {};
     }
 
     let viewportHeight = 0;

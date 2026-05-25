@@ -1,5 +1,40 @@
 # @alfalab/core-components-modal
 
+## 11.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-base-modal@7.1.5
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-navigation-bar-private@2.0.8
+
+## 11.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.7
+
+## 11.0.8
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### Modal
+
+- Изменение внутренних отступов для `mobile` версии компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+
 ## 11.0.7
 
 ### Patch Changes

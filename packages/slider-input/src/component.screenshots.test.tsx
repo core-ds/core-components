@@ -86,3 +86,63 @@ describe('SliderInput | sprite', () => {
 
     ['default', 'mobile'].map(testCase);
 });
+
+describe('SliderInput | edge labels alignment', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} | default state`,
+                    createSpriteStorybookUrl({
+                        componentName: 'SliderInput',
+                        knobs: {
+                            label: 'Label',
+                            value: 15000,
+                            sliderValue: 15000,
+                            min: 10000,
+                            max: 30000,
+                            step: 100,
+                            size: 56,
+                            pips: JSON.stringify({
+                                mode: 'values',
+                                values: [10000, 20000, 30000],
+                            }),
+                        },
+                        size: { width: 380, height: 140 },
+                    }),
+                ],
+                [
+                    `${theme} | error and disabled states`,
+                    createSpriteStorybookUrl({
+                        componentName: 'SliderInput',
+                        knobs: {
+                            label: 'Label',
+                            value: 15000,
+                            sliderValue: 15000,
+                            min: 10000,
+                            max: 30000,
+                            step: 100,
+                            size: 56,
+                            error: ['', 'Ошибка'],
+                            disabled: [false, true],
+                            pips: JSON.stringify({
+                                mode: 'values',
+                                values: [10000, 20000, 30000],
+                            }),
+                        },
+                        size: { width: 380, height: 140 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 900,
+                height: 420,
+            },
+            theme,
+        })();
+
+    ['default', 'mobile', 'site'].map(testCase);
+});

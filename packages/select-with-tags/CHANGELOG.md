@@ -1,5 +1,52 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.7
+- @alfalab/core-components-form-control@14.0.6
+- @alfalab/core-components-input@17.1.6
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-popover@8.0.4
+- @alfalab/core-components-select@19.1.7
+- @alfalab/core-components-tag@10.0.4
+
+## 10.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.6
+- @alfalab/core-components-input@17.1.5
+- @alfalab/core-components-bottom-sheet@8.1.6
+
+## 10.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.5
+- @alfalab/core-components-bottom-sheet@8.1.5
+- @alfalab/core-components-form-control@14.0.5
+- @alfalab/core-components-input@17.1.4
+
+## 10.1.5
+
+### Patch Changes
+
+<sup><time>30.04.2026</time></sup>
+
+#### [#2181](https://github.com/core-ds/core-components/pull/2181)
+
+##### SelectWithTags
+
+- Исправлено отображение поиска в мобильной версии при `showSearch={true}` без явной передачи пропа `Search`
+
 ## 10.1.4
 
 ### Patch Changes

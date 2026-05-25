@@ -1,5 +1,49 @@
 # @alfalab/core-components-themes
 
+## 15.1.0
+
+### Minor Changes
+
+<sup><time>22.05.2026</time></sup>
+
+#### [#2219](https://github.com/core-ds/core-components/pull/2219)
+
+##### Themes
+
+- Добавлены дополнительные токены темы
+
+## 15.0.4
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### Themes
+
+- Удалена темизаця `click` для компонента `SidePanel`
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2186](https://github.com/core-ds/core-components/pull/2186)
+
+##### Themes
+
+- Из темизации `FormControl` для `click` и `site` удалена переменная `--form-control-mobile-sub-paddings`, которая переопределяла отступы для `outer label`, `hint`, `error`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+- Из темизации `CheckboxGroup` для `click` и `site` удалена переменная `--checkbox-group-mobile-sub-padding-left`, которая переопределяла боковой отступ для `label` и `hint`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+- Из темизации `RadioGroup` для `click` и `site` удалена переменная `--radio-group-mobile-sub-padding-left`, которая переопределяла боковой отступ для `label` и `hint`. Переопределяемое значение теперь совпадает с текущим значением компонента
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2190](https://github.com/core-ds/core-components/pull/2190)
+
+##### Themes
+
+- Удалена темизация `corp` для календаря в связи с отсутствием различий
+
 ## 15.0.3
 
 ### Patch Changes

@@ -5,9 +5,7 @@ const margin: Margin = { top: 2, right: 2, bottom: 2, left: 2 };
 
 describe('getHeightStyle', () => {
     it('hugContent', () => {
-        expect(getHeightStyle('hugContent', margin)).toEqual({
-            maxHeight: 'calc(100% - 2px - 2px)',
-        });
+        expect(getHeightStyle('hugContent', margin)).toEqual({});
     });
 
     it('fullHeight', () => {

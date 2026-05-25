@@ -1,5 +1,5 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib",
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
     "files.associations": {
         "*.css": "postcss"
     },
@@ -27,6 +27,7 @@
         "packages/calendar-range",
         "packages/calendar-with-skeleton",
         "packages/card-image",
+        "packages/carousel",
         "packages/cdn-icon",
         "packages/chart",
         "packages/checkbox",
@@ -71,6 +72,7 @@
         "packages/loader",
         "packages/markdown",
         "packages/masked-input",
+        "packages/mcp",
         "packages/modal",
         "packages/mq",
         "packages/navigation-bar",
