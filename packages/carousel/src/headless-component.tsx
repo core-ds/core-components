@@ -32,6 +32,8 @@ export function HeadlessCarousel<T, U, V>({
     Item = 'div',
     overflow = 'hidden',
     mouseWheel,
+    touchMoveStopPropagation = false,
+    captureEvent = false,
     loop,
 }: HeadlessCarouselProps<T, U, V>): ReactNode {
     const visibleItems =
@@ -103,9 +105,19 @@ export function HeadlessCarousel<T, U, V>({
 
     const handleSwiping: CoordsCallback = ({ currentX, previousX }) => {
         const resistanceRatio = 0.85;
-        const delta = (currentX! - previousX!) * resistanceRatio;
+        const delta = currentX! - previousX!;
+        const [min] = snaps;
+        const max = snaps[snaps.length - 1];
 
-        setTranslate((prevTranslate) => prevTranslate - delta);
+        setTranslate((prevTranslate) => {
+            const next = prevTranslate - delta;
+
+            if (next < min || next > max) {
+                return prevTranslate - Math.abs(delta) ** resistanceRatio * Math.sign(delta);
+            }
+
+            return next;
+        });
     };
 
     const handleSwipeStop: CoordsCallback = () => {
@@ -182,11 +194,15 @@ export function HeadlessCarousel<T, U, V>({
         }
     }, [snaps, activeIndex, swiping]);
 
-    const [swipeRef, getStyle] = useSwipe<HTMLDivElement>('x', {
-        onStartSwipe: handleSwipeStart,
-        onSwiping: handleSwiping,
-        onStopSwipe: handleSwipeStop,
-    });
+    const [swipeRef, getStyle] = useSwipe<HTMLDivElement>(
+        'x',
+        {
+            onStartSwipe: handleSwipeStart,
+            onSwiping: handleSwiping,
+            onStopSwipe: handleSwipeStop,
+        },
+        { touchMoveStopPropagation, captureEvent },
+    );
 
     const [mouseWheelRef] = useMouseWheel<HTMLDivElement>('x', {
         onStartSwipe: handleSwipeStart,

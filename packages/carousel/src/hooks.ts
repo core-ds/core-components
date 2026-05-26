@@ -48,12 +48,19 @@ export function useSwipe<T extends Element>(
         touchAngle?: number;
         threshold?: number;
         edgeThreshold?: Partial<XY>;
+        touchMoveStopPropagation?: boolean;
+        captureEvent?: boolean;
     } = {},
 ): [ref: React.Ref<T>, getStyle: () => React.CSSProperties] {
     const [ref, node] = useRefAsState<T>(null);
     const lastListeners = useRef(listeners);
-
-    const { threshold = 5, touchAngle = 45, edgeThreshold } = options;
+    const {
+        threshold = 5,
+        touchAngle = 45,
+        edgeThreshold,
+        touchMoveStopPropagation = false,
+        captureEvent = false,
+    } = options;
     const xEdgeThreshold = edgeThreshold?.x ?? 10;
     const yEdgeThreshold = edgeThreshold?.y ?? 0;
 
@@ -220,6 +227,10 @@ export function useSwipe<T extends Element>(
                     event.preventDefault();
                 }
 
+                if (touchMoveStopPropagation) {
+                    event.stopPropagation();
+                }
+
                 lastListeners.current.onSwiping?.(coords);
             };
 
@@ -268,8 +279,14 @@ export function useSwipe<T extends Element>(
 
             node.addEventListener('touchstart', swipeStart, { passive: false });
             node.addEventListener('pointerdown', swipeStart, { passive: false });
-            document.addEventListener('touchmove', swipe, { passive: false }); // TODO capture
-            document.addEventListener('pointermove', swipe, { passive: false }); // TODO capture
+            document.addEventListener('touchmove', swipe, {
+                passive: false,
+                capture: captureEvent,
+            });
+            document.addEventListener('pointermove', swipe, {
+                passive: false,
+                capture: captureEvent,
+            });
             document.addEventListener('touchend', swipeStop, { passive: true });
             document.addEventListener('pointerup', swipeStop, { passive: true });
             document.addEventListener('pointercancel', swipeStop, { passive: true });
@@ -281,8 +298,8 @@ export function useSwipe<T extends Element>(
             return () => {
                 node.removeEventListener('touchstart', swipeStart);
                 node.removeEventListener('pointerdown', swipeStart);
-                document.removeEventListener('touchmove', swipe); // TODO capture
-                document.removeEventListener('pointermove', swipe); // TODO capture
+                document.removeEventListener('touchmove', swipe, { capture: captureEvent });
+                document.removeEventListener('pointermove', swipe, { capture: captureEvent });
                 document.removeEventListener('touchend', swipeStop);
                 document.removeEventListener('pointerup', swipeStop);
                 document.removeEventListener('pointercancel', swipeStop);
@@ -294,7 +311,16 @@ export function useSwipe<T extends Element>(
         }
 
         return noop;
-    }, [direction, node, threshold, touchAngle, xEdgeThreshold, yEdgeThreshold]);
+    }, [
+        captureEvent,
+        direction,
+        node,
+        threshold,
+        touchAngle,
+        touchMoveStopPropagation,
+        xEdgeThreshold,
+        yEdgeThreshold,
+    ]);
 
     const getStyle = (): React.CSSProperties => ({
         touchAction: { x: 'pan-y', y: 'pan-x' }[direction],

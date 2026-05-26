@@ -106,6 +106,16 @@ export interface GeneralCarouselProps {
      * @default false
      */
     mouseWheel?: boolean;
+    /**
+     * Остановка всплытия событий при свайпе
+     * @default false
+     */
+    touchMoveStopPropagation?: boolean;
+    /**
+     * Захват события при свайпе
+     * @default false
+     */
+    captureEvent?: boolean;
 }
 
 export interface CarouselProps<T extends PaginationProps> extends GeneralCarouselProps {
