@@ -96,8 +96,8 @@ export const Single: FC<SingleCommonProps> = ({
                     {contentAddons}
                 </div>
             )}
-            <div className={cn(styles.stateLayer, styles.hoverLayer)} />
-            <div className={cn(styles.stateLayer, styles.activeLayer)} />
+            {stateType && <div className={cn(styles.state, styles.hover)} />}
+            {stateType && <div className={cn(styles.state, styles.active)} />}
         </div>
     );
 };

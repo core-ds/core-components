@@ -32,7 +32,7 @@
         border-radius: var(--border-radius-2);
     }
 
-    & .stateLayer {
+    & .state {
         position: absolute;
         inset: var(--gap-0);
         z-index: 2;
@@ -49,19 +49,19 @@
         (static-darkening, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.15)),
         (static-lightening, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.15)) {
             &.$(state) {
-                & .hoverLayer {
+                & .hover {
                     background-color: $hover;
                 }
-                & .activeLayer {
+                & .active {
                     background-color: $active;
                 }
                 @mixin hover {
-                    &:not(:active) .hoverLayer {
+                    &:not(:active) .hover {
                         opacity: 1;
                     }
                 }
                 &:active {
-                    & .activeLayer {
+                    & .active {
                         opacity: 1;
                     }
                 }
