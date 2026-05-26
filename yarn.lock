@@ -1609,6 +1609,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-scrollbar@workspace:packages/scrollbar"
   dependencies:
+    "@alfalab/core-components-shared": "npm:^2.2.0"
     "@juggle/resize-observer": "npm:^3.3.1"
     can-use-dom: "npm:^0.1.0"
     classnames: "npm:^2.5.1"
