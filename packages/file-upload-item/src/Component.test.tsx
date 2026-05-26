@@ -395,6 +395,47 @@ describe('FileUploadItem', () => {
         });
     });
 
+    describe('Pointer tests', () => {
+        it('should have clickable class', () => {
+            const { container } = render(
+                <FileUploadItem>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const content = container.firstElementChild?.firstElementChild;
+
+            expect(content).toHaveClass('clickable');
+        });
+
+        it('should not have clickable class', () => {
+            const { container } = render(
+                <FileUploadItem showDelete={true}>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const content = container.firstElementChild?.firstElementChild;
+
+            expect(content).not.toHaveClass('clickable');
+        });
+
+        it('should have clickable class by prop', () => {
+            const { container } = render(
+                <FileUploadItem showDelete={true} isClickable={false}>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const content = container.firstElementChild?.firstElementChild;
+
+            expect(content).not.toHaveClass('clickable');
+        });
+    });
+
     it('should unmount without errors', () => {
         const { unmount } = render(
             <FileUploadItem>
