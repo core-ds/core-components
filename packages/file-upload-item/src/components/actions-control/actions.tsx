@@ -15,9 +15,11 @@ export const Actions = () => {
 
     useEffect(() => {
         if (setActionsPresent) {
-            setActionsPresent(!!(showRestore || downloadLink || showDelete || onDownload));
+            setActionsPresent(
+                !!(showRestore || downloadLink || showDelete || onDownload || reupload),
+            );
         }
-    }, [showRestore, downloadLink, showDelete, setActionsPresent, onDownload]);
+    }, [showRestore, downloadLink, showDelete, setActionsPresent, onDownload, reupload]);
 
     return (
         <div className={styles.container}>

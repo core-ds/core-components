@@ -422,9 +422,61 @@ describe('FileUploadItem', () => {
             expect(content).not.toHaveClass('clickable');
         });
 
-        it('should have clickable class by prop', () => {
+        it('should have clickable class by isClickable prop', () => {
             const { container } = render(
                 <FileUploadItem showDelete={true} isClickable={false}>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const content = container.firstElementChild?.firstElementChild;
+
+            expect(content).not.toHaveClass('clickable');
+        });
+
+        it('should have clickable class by showDelete', () => {
+            const { container } = render(
+                <FileUploadItem showDelete={true}>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const content = container.firstElementChild?.firstElementChild;
+
+            expect(content).not.toHaveClass('clickable');
+        });
+
+        it('should have clickable class by showRestore', () => {
+            const { container } = render(
+                <FileUploadItem showRestore={true}>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const content = container.firstElementChild?.firstElementChild;
+
+            expect(content).not.toHaveClass('clickable');
+        });
+
+        it('should have clickable class by downloadLink', () => {
+            const { container } = render(
+                <FileUploadItem downloadLink='#'>
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const content = container.firstElementChild?.firstElementChild;
+
+            expect(content).not.toHaveClass('clickable');
+        });
+
+        it('should have clickable class by reupload', () => {
+            const { container } = render(
+                <FileUploadItem reupload={true}>
                     <FileUploadItem.Content />
                     <FileUploadItem.Actions />
                 </FileUploadItem>,
