@@ -151,6 +151,14 @@ exports[`PassCode Snapshot tests should match snapshot with code length 1`] = `
       </button>
       <div />
     </div>
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="visuallyHidden"
+      role="status"
+    >
+      <span />
+    </div>
   </div>
 </div>
 `;
@@ -276,6 +284,14 @@ exports[`PassCode Snapshot tests should match snapshot with unknown code length 
         0
       </button>
       <div />
+    </div>
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="visuallyHidden"
+      role="status"
+    >
+      <span />
     </div>
   </div>
 </div>
