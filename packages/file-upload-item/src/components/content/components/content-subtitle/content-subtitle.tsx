@@ -26,15 +26,7 @@ export const ContentSubtitle = () => {
         !showRestore && (isSuccessStatus(uploadStatus) || isUploadedStatus(uploadStatus));
 
     // валидация progressBar (не должен превышать 100 и быть меньше 0)
-    const validateProgressBarValue = (progressValue: number | undefined) => {
-        if (progressValue === undefined) {
-            return 0;
-        }
-
-        return Math.min(Math.max(progressValue, 0), MAX_PROGRESS_BAR_VALUE);
-    };
-
-    const validProgressBar = validateProgressBarValue(progressBar);
+    const validProgressBar = Math.min(Math.max(progressBar ?? 0, 0), MAX_PROGRESS_BAR_VALUE);
 
     // uploading status
     if (isUploadingStatus(uploadStatus)) {

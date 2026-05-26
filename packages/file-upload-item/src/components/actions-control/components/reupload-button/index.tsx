@@ -10,7 +10,7 @@ import styles from '../../actions-control.module.css';
 export const ReuploadButton = () => {
     const { id = '0', disableButtons, reupload } = useFileUploadItemContext();
 
-    const handleRestore = () => {
+    const handleClick = () => {
         if (typeof reupload === 'object') {
             reupload.onClick?.(id);
         }
@@ -23,7 +23,7 @@ export const ReuploadButton = () => {
             aria-label='повторная загрузка'
             icon={<ArrowsCwCompactMIcon className={styles.restoreIconColor} />}
             disabled={disableButtons}
-            onClick={handleRestore}
+            onClick={handleClick}
         />
     );
 };
