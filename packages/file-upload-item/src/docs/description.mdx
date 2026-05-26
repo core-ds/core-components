@@ -205,9 +205,8 @@ render(() => {
                     uploadDate='22.07.2024'
                     size={2 * 1024 * 1024} // 2mb
                     error={error}
-                    reupload={showReupload}
+                    reupload={showReupload ? { onClick: handleError } : undefined}
                     showDelete={showDelete}
-                    onReupload={() => handleError()}
                     onDelete={() => resetState()}
                 >
                     <FileUploadItem.StatusControl />
