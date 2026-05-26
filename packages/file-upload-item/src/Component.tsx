@@ -5,6 +5,7 @@ import { Actions } from './components/actions-control';
 import { Content } from './components/content';
 import { StatusControl } from './components/status-control';
 import { FileUploadItemContext } from './context/file-upload-item-context';
+import { useContextValue } from './context/use-context-value';
 import { type FileUploadItemProps } from './types/file-upload-item-props';
 
 import styles from './index.module.css';
@@ -12,37 +13,11 @@ import styles from './index.module.css';
 export const FileUploadItemComponent: FC<FileUploadItemProps> = ({
     className,
     children,
-    id = '0',
-    title = '',
-    subtitle,
-    size,
-    uploadDate,
-    downloadLink,
-    download,
-    uploadStatus,
-    error,
-    showDelete,
-    showRestore,
-    onDelete,
-    onDownload,
-    onRestore,
-    disableButtons,
-    isClickable = true,
-    target,
     dataTestId,
-    customIcon,
-    iconStyle = 'gray',
-    progressBar = 0,
-    progressBarAvailable = true,
-    customContent,
-    truncate,
-    imageUrl,
-    backgroundColor,
-    reupload,
+    uploadStatus,
+    ...rest
 }) => {
-    const hasActions = Boolean(
-        showRestore || downloadLink || showDelete || onDownload || Boolean(reupload),
-    );
+    const contextValue = useContextValue({ uploadStatus, ...rest });
 
     return (
         <div
@@ -53,38 +28,7 @@ export const FileUploadItemComponent: FC<FileUploadItemProps> = ({
             )}
             data-test-id={dataTestId}
         >
-            <FileUploadItemContext.Provider
-                // eslint-disable-next-line react/jsx-no-constructed-context-values
-                value={{
-                    showRestore,
-                    uploadStatus,
-                    error,
-                    title,
-                    subtitle,
-                    uploadDate,
-                    size,
-                    id,
-                    onDownload,
-                    onDelete,
-                    onRestore,
-                    downloadLink,
-                    download,
-                    disableButtons,
-                    isClickable,
-                    target,
-                    showDelete,
-                    customIcon,
-                    iconStyle,
-                    progressBar,
-                    progressBarAvailable,
-                    customContent,
-                    truncate,
-                    imageUrl,
-                    backgroundColor,
-                    actionsPresent: hasActions,
-                    reupload,
-                }}
-            >
+            <FileUploadItemContext.Provider value={contextValue}>
                 {children}
             </FileUploadItemContext.Provider>
         </div>
