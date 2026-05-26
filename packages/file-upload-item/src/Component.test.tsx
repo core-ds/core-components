@@ -368,7 +368,7 @@ describe('FileUploadItem', () => {
 
         it('should call `onReupload` prop', () => {
             const { getByLabelText } = render(
-                <FileUploadItem reupload={true} onReupload={cb} id={fileId}>
+                <FileUploadItem reupload={{ onClick: cb }} id={fileId}>
                     <FileUploadItem.Actions />
                 </FileUploadItem>,
             );

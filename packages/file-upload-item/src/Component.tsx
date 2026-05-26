@@ -39,9 +39,10 @@ export const FileUploadItemComponent: FC<FileUploadItemProps> = ({
     imageUrl,
     backgroundColor,
     reupload,
-    onReupload,
 }) => {
-    const hasActions = Boolean(showRestore || downloadLink || showDelete || onDownload || reupload);
+    const hasActions = Boolean(
+        showRestore || downloadLink || showDelete || onDownload || Boolean(reupload),
+    );
 
     return (
         <div
@@ -82,7 +83,6 @@ export const FileUploadItemComponent: FC<FileUploadItemProps> = ({
                     backgroundColor,
                     actionsPresent: hasActions,
                     reupload,
-                    onReupload,
                 }}
             >
                 {children}

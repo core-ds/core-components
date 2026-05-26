@@ -8,11 +8,11 @@ import { useFileUploadItemContext } from '../../../../context/file-upload-item-c
 import styles from '../../actions-control.module.css';
 
 export const ReuploadButton = () => {
-    const { id = '0', disableButtons, onReupload } = useFileUploadItemContext();
+    const { id = '0', disableButtons, reupload } = useFileUploadItemContext();
 
     const handleRestore = () => {
-        if (onReupload) {
-            onReupload(id);
+        if (typeof reupload === 'object') {
+            reupload.onClick?.(id);
         }
     };
 

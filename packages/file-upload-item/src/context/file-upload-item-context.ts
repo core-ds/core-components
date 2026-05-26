@@ -31,7 +31,6 @@ interface ContextType
         | 'imageUrl'
         | 'backgroundColor'
         | 'reupload'
-        | 'onReupload'
     > {
     actionsPresent?: boolean;
 }
