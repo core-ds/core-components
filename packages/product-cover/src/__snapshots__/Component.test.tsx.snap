@@ -35,6 +35,12 @@ exports[`ProductCover Snapshots tests should match snapshots 1`] = `
         </span>
       </div>
     </div>
+    <div
+      class="stateLayer hoverLayer"
+    />
+    <div
+      class="stateLayer activeLayer"
+    />
   </div>
 </div>
 `;

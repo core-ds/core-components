@@ -32,12 +32,10 @@
         border-radius: var(--border-radius-2);
     }
 
-    &:before,
-    &:after {
-        content: '';
+    & .stateLayer {
         position: absolute;
         inset: var(--gap-0);
-        z-index: 4;
+        z-index: 2;
         border-radius: inherit;
         opacity: 0;
         transition: opacity 0.2s;
@@ -51,19 +49,19 @@
         (static-darkening, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.15)),
         (static-lightening, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.15)) {
             &.$(state) {
-                &:before {
+                & .hoverLayer {
                     background-color: $hover;
                 }
-                &:after {
+                & .activeLayer {
                     background-color: $active;
                 }
                 @mixin hover {
-                    &:not(:active):before {
+                    &:not(:active) .hoverLayer {
                         opacity: 1;
                     }
                 }
                 &:active {
-                    &:after {
+                    & .activeLayer {
                         opacity: 1;
                     }
                 }
