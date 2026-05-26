@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { type FC } from 'react';
 import cn from 'classnames';
 
 import { Actions } from './components/actions-control';
@@ -9,7 +9,7 @@ import { type FileUploadItemProps } from './types/file-upload-item-props';
 
 import styles from './index.module.css';
 
-export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
+export const FileUploadItemComponent: FC<FileUploadItemProps> = ({
     className,
     children,
     id = '0',
@@ -41,7 +41,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
     reupload,
     onReupload,
 }) => {
-    const [actionsPresent, setActionsPresent] = useState(false);
+    const hasActions = Boolean(showRestore || downloadLink || showDelete || onDownload || reupload);
 
     return (
         <div
@@ -80,8 +80,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                     truncate,
                     imageUrl,
                     backgroundColor,
-                    actionsPresent,
-                    setActionsPresent,
+                    actionsPresent: hasActions,
                     reupload,
                     onReupload,
                 }}

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import { FileUploadItemContext } from '../../context/file-upload-item-context';
 
@@ -10,16 +10,8 @@ import { ReuploadButton } from './components/reupload-button';
 import styles from './actions-control.module.css';
 
 export const Actions = () => {
-    const { showRestore, downloadLink, showDelete, setActionsPresent, onDownload, reupload } =
+    const { showRestore, downloadLink, showDelete, onDownload, reupload } =
         useContext(FileUploadItemContext);
-
-    useEffect(() => {
-        if (setActionsPresent) {
-            setActionsPresent(
-                !!(showRestore || downloadLink || showDelete || onDownload || reupload),
-            );
-        }
-    }, [showRestore, downloadLink, showDelete, setActionsPresent, onDownload, reupload]);
 
     return (
         <div className={styles.container}>
