@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import { SuperEllipse } from '@alfalab/core-components-icon-view/super-ellipse';
 
-import { FileUploadItemContext } from '../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../context/file-upload-item-context';
 import { isErrorStatus, isLoadingStatus, isSuccessStatus } from '../../utils';
 
 import { ExtensionIcon } from './extension-icon';
@@ -20,7 +20,7 @@ export const StatusControl = () => {
         backgroundColor,
         actionsPresent,
         isClickable,
-    } = useContext(FileUploadItemContext);
+    } = useFileUploadItemContext();
 
     const strokeDasharray = 182.5742645263672; // total length
     const measureDashoffset = strokeDasharray * (1 - progressBar / 100);

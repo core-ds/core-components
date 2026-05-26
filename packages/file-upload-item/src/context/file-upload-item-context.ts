@@ -1,72 +1,49 @@
-import {
-    createContext,
-    type ElementType,
-    type HTMLAttributeAnchorTarget,
-    type MouseEvent,
-} from 'react';
+import { createContext, useContext } from 'react';
 
-import { type SuperEllipseProps } from '@alfalab/core-components-icon-view/super-ellipse';
+import { type FileUploadItemProps } from '../types/file-upload-item-props';
 
-import { type FileUploadItemStatus } from '../types/status';
-
-type TFileUploadItemContext = {
-    showRestore?: boolean;
-    uploadStatus?: FileUploadItemStatus;
-    error?: string | string[];
-    title?: string;
-    subtitle?: string;
-    uploadDate?: string;
-    size?: string | number;
-    id?: string;
-    onDownload?: (id: string) => void;
-    onDelete?: (id: string, event?: MouseEvent<HTMLElement>) => void;
-    onRestore?: (id: string) => void;
-    downloadLink?: string;
-    download?: string | true;
-    disableButtons?: boolean;
-    isClickable?: boolean;
-    target?: HTMLAttributeAnchorTarget;
-    showDelete?: boolean;
-    customIcon?: ElementType<{ className?: string }>;
-    iconStyle?: 'gray' | 'colored';
-    progressBar?: number;
-    progressBarAvailable?: boolean;
-    customContent?: ElementType;
-    truncate?: boolean;
-    imageUrl?: string;
-    backgroundColor?: SuperEllipseProps['backgroundColor'];
+interface ContextType
+    extends Pick<
+        FileUploadItemProps,
+        | 'showRestore'
+        | 'uploadStatus'
+        | 'error'
+        | 'title'
+        | 'subtitle'
+        | 'uploadDate'
+        | 'size'
+        | 'id'
+        | 'onDownload'
+        | 'onDelete'
+        | 'onRestore'
+        | 'downloadLink'
+        | 'download'
+        | 'disableButtons'
+        | 'isClickable'
+        | 'target'
+        | 'showDelete'
+        | 'customIcon'
+        | 'iconStyle'
+        | 'progressBar'
+        | 'progressBarAvailable'
+        | 'customContent'
+        | 'truncate'
+        | 'imageUrl'
+        | 'backgroundColor'
+        | 'reupload'
+        | 'onReupload'
+    > {
     actionsPresent?: boolean;
-    reupload?: boolean;
-    onReupload?: (id: string) => void;
-};
+}
 
-export const FileUploadItemContext = createContext<TFileUploadItemContext>({
-    showRestore: false,
-    uploadStatus: 'INITIAL',
-    error: undefined,
-    title: '',
-    subtitle: '',
-    uploadDate: '',
-    size: 0,
-    id: '0',
-    onDownload: undefined,
-    onDelete: undefined,
-    onRestore: undefined,
-    downloadLink: '',
-    download: '',
-    disableButtons: false,
-    isClickable: true,
-    target: undefined,
-    showDelete: false,
-    iconStyle: 'gray',
-    customIcon: undefined,
-    progressBar: 0,
-    progressBarAvailable: true,
-    customContent: undefined,
-    truncate: false,
-    imageUrl: undefined,
-    backgroundColor: undefined,
-    actionsPresent: false,
-    reupload: false,
-    onReupload: undefined,
-});
+export const FileUploadItemContext = createContext<ContextType | null>(null);
+
+export const useFileUploadItemContext = (): ContextType => {
+    const ctx = useContext(FileUploadItemContext);
+
+    if (!ctx) {
+        throw new Error('Used outside of FileUploadItem');
+    }
+
+    return ctx;
+};

@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { FileUploadItemContext } from '../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../context/file-upload-item-context';
 
 import { DeleteButton } from './components/delete-button';
 import { DownloadButton } from './components/download-button';
@@ -11,7 +11,7 @@ import styles from './actions-control.module.css';
 
 export const Actions = () => {
     const { showRestore, downloadLink, showDelete, onDownload, reupload } =
-        useContext(FileUploadItemContext);
+        useFileUploadItemContext();
 
     return (
         <div className={styles.container}>

@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import ArrowsCwCompactMIcon from '@alfalab/icons-glyph/ArrowsCwCompactMIcon';
 
-import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../../../context/file-upload-item-context';
 
 import styles from '../../actions-control.module.css';
 
 export const ReuploadButton = () => {
-    const { id = '0', disableButtons, onReupload } = useContext(FileUploadItemContext);
+    const { id = '0', disableButtons, onReupload } = useFileUploadItemContext();
 
     const handleRestore = () => {
         if (onReupload) {

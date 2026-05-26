@@ -504,4 +504,20 @@ describe('FileUploadItem', () => {
 
         expect(unmount).not.toThrow();
     });
+
+    describe('Outside provider', () => {
+        const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+        afterAll(() => {
+            consoleError.mockRestore();
+        });
+
+        it.each([
+            ['StatusControl', <FileUploadItem.StatusControl />],
+            ['Content', <FileUploadItem.Content />],
+            ['Actions', <FileUploadItem.Actions />],
+        ])('%s should throw when rendered outside FileUploadItem', (_, element) => {
+            expect(() => render(element)).toThrow('Used outside of FileUploadItem');
+        });
+    });
 });

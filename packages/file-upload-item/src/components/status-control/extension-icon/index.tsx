@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import { Document1CMIcon } from '@alfalab/icons-glyph/Document1CMIcon';
@@ -11,7 +11,7 @@ import { DocumentOffMIcon } from '@alfalab/icons-glyph/DocumentOffMIcon';
 import { DocumentPdfMIcon } from '@alfalab/icons-glyph/DocumentPdfMIcon';
 import { PaperclipMIcon } from '@alfalab/icons-glyph/PaperclipMIcon';
 
-import { FileUploadItemContext } from '../../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../../context/file-upload-item-context';
 import { getExtension, isInitialStatus } from '../../../utils';
 
 import styles from './index.module.css';
@@ -25,7 +25,7 @@ export const ExtensionIcon = () => {
         customIcon: CustomIcon,
         imageUrl,
         showRestore,
-    } = useContext(FileUploadItemContext);
+    } = useFileUploadItemContext();
 
     if (imageUrl) {
         return null;
