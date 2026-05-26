@@ -216,6 +216,10 @@ export function useSwipe<T extends Element>(
                     return;
                 }
 
+                if (event.cancelable) {
+                    event.preventDefault();
+                }
+
                 lastListeners.current.onSwiping?.(coords);
             };
 
