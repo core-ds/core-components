@@ -1,426 +1,53 @@
-## Виды кнопок
+## Spring animation
 
 ```jsx live mobileHeight={500}
 render(() => {
-    const [disabled, setDisabled] = React.useState(false);
+    const [state, setState] = React.useState({ stiffness: 100, damping: 10, mass: 1 });
 
     return (
         <>
-            <Space direction='horizontal' align='center'>
-                <ButtonDesktop disabled={disabled} view='accent'>
+            <div style={{ padding: '16px' }}>
+                <ButtonDesktop view='primary'>
                     Accent
                 </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='primary'>
-                    Primary
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='secondary'>
-                    Secondary
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='outlined'>
-                    Outlined
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='transparent'>
-                    Transparent
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='text'>
-                    Text
-                </ButtonDesktop>
-            </Space>
-
-            <Gap size={24} />
-
-            <Switch
-                checked={disabled}
-                onChange={() => setDisabled((prevState) => !prevState)}
-                label='Недоступна'
-            />
-        </>
-    );
-});
-//MOBILE
-render(() => {
-    const [disabled, setDisabled] = React.useState(false);
-
-    return (
-        <>
-            <ButtonMobile block={true} disabled={disabled} view='accent'>
-                Accent
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='primary'>
-                Primary
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='secondary'>
-                Secondary
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='outlined'>
-                Outlined
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='transparent'>
-                Transparent
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='text'>
-                Text
-            </ButtonMobile>
-            <Gap size={24} />
-            <Switch
-                checked={disabled}
-                onChange={() => setDisabled((prevState) => !prevState)}
-                label='Недоступна'
-            />
-        </>
-    );
-});
-```
-
-## Размеры
-
-Кнопка доступна в размерах 72, 64, 56, 48, 40, 32.
-
-```jsx live mobileHeight={460}
-const BIG_SIZES = [72, 64, 56];
-const SMALL_SIZES = [48, 40, 32];
-
-render(
-    <>
-        <Space direction='horizontal' align='center'>
-            {BIG_SIZES.map((size) => (
-                <ButtonDesktop key={size} size={size} view='primary'>
-                    {`${size}px`}
-                </ButtonDesktop>
-            ))}
-        </Space>
-        <Gap size={20} />
-        <Space direction='horizontal' align='center'>
-            {SMALL_SIZES.map((size) => (
-                <ButtonDesktop key={size} size={size} view='primary'>
-                    {`${size}px`}
-                </ButtonDesktop>
-            ))}
-        </Space>
-    </>,
-);
-//MOBILE
-const SIZES = [72, 64, 56, 48, 40, 32];
-
-render(
-    <Container>
-        {SIZES.map((size, idx) => (
-            <React.Fragment key={size}>
-                <ButtonMobile block={true} size={size} view='primary'>
-                    {`${size}px`}
-                </ButtonMobile>
-                {SIZES.length - 1 !== idx && <Gap size={20} />}
-            </React.Fragment>
-        ))}
-    </Container>,
-);
-```
-
-## Форма
-
-Для кнопки доступно два варианта скругления углов.
-
-```jsx live
-render(() => {
-    const [shape, setShape] = React.useState('rectangular');
-
-    return (
-        <>
-            <Button shape={shape} view='primary' breakpoint={BREAKPOINT}>
-                Label
-            </Button>
-
-            <Gap size={24} />
-
-            <RadioGroup
-                label='Shape'
-                value={shape}
-                onChange={(_, { value }) => setShape(value)}
-                breakpoint={BREAKPOINT}
-            >
-                <Radio value='rectangular' label='Rectangular' />
-                <Radio value='rounded' label='Rounded' />
-            </RadioGroup>
-        </>
-    );
-});
-```
-
-## Ширина
-
-Кнопка адаптируется под длину контента. Для каждого вертикального размера кнопки задан минимальный горизонтальный размер.
-С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
-Через доступ по classname можно задать кнопке ширину в рх.
-
-```jsx live
-<div style={{ textAlign: isMobile() ? 'center' : 'left' }}>
-    <Button breakpoint={BREAKPOINT}>Мин.</Button>
-    <Gap size={20} />
-    <Button breakpoint={BREAKPOINT}>Ширина зависит от лейбла</Button>
-    <Gap size={20} />
-    <style>{'.button { width: 300px; }'}</style>
-    <Button breakpoint={BREAKPOINT} className='button'>
-        Ширина задана вручную
-    </Button>
-    <Gap size={20} />
-    <Button block={true} size={56} nowrap={true} breakpoint={BREAKPOINT}>
-        Занимает всю ширину контейнера
-    </Button>
-</div>
-```
-
-## Анатомия
-
-С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.
-Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
-В 56, 64 и 72 размерах доступна подпись под лейблом.
-
-```jsx live
-render(() => {
-    const [label, setLabel] = React.useState(true);
-    const [hint, setHint] = React.useState();
-    const [leftAddons, setLeftAddons] = React.useState(false);
-    const [rightAddons, setRightAddons] = React.useState(false);
-
-    const handleLabelChange = () => setLabel(!label);
-    const handleHintChange = () => setHint((p) => (p ? undefined : 'Hint'));
-    const handleLeftAddonsChange = () => setLeftAddons(!leftAddons);
-    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
-
-    return (
-        <div>
-            <Button
-                breakpoint={BREAKPOINT}
-                leftAddons={leftAddons && <StarMIcon />}
-                rightAddons={rightAddons && <StarMIcon />}
-                hint={hint}
-                view='primary'
-                block={isMobile()}
-            >
-                {label && 'Label'}
-            </Button>
-
-            <Gap size={24} />
-
-            <Switch label='Label' checked={label} onChange={handleLabelChange} />
-            <Gap size={16} />
-            <Switch label='Hint' checked={hint} onChange={handleHintChange} />
-            <Gap size={16} />
-            <Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />
-            <Gap size={16} />
-            <Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />
-        </div>
-    );
-});
-```
-
-## Поведение лейбла
-
-С помощью свойства `textResizing` можно сжать или растянуть текстовый контент внутри кнопки.
-
-```jsx live
-render(() => {
-    const [textResizing, setTextResizing] = React.useState('hug');
-
-    return (
-        <div style={{ width: isMobile() ? '100%' : 240 }}>
-            <Button
-                view='primary'
-                breakpoint={BREAKPOINT}
-                block={true}
-                rightAddons={<StarMIcon />}
-                leftAddons={<StarMIcon />}
-                hint='Hint'
-                textResizing={textResizing}
-            >
-                Label
-            </Button>
-
-            <Gap size={24} />
-
-            <RadioGroup
-                label='Поведение текста'
-                value={textResizing}
-                onChange={(_, { value }) => setTextResizing(value)}
-                breakpoint={BREAKPOINT}
-            >
-                <Radio value='hug' label='Hug' />
-                <Radio value='fill' label='Fill' />
-            </RadioGroup>
-        </div>
-    );
-});
-```
-
-## Перенос текста внутри кнопки
-
-С помощью свойства `nowrap` можно запретить перенос текста на новую строку.
-
-```jsx live
-render(() => {
-    const [checked, setChecked] = React.useState(true);
-
-    const handleChange = () => setChecked(!checked);
-
-    return (
-        <Container>
-            <div style={{ display: 'flex', width: '180px' }}>
-                <ButtonDesktop view='primary' nowrap={checked}>
-                    Пример длинного текста
-                </ButtonDesktop>
-            </div>
-            <Row align='middle'>
-                <Switch
-                    label={<span>Запретить перенос строки</span>}
-                    checked={checked}
-                    onChange={handleChange}
-                />
-            </Row>
-        </Container>
-    );
-});
-//MOBILE
-render(() => {
-    const [checked, setChecked] = React.useState(true);
-
-    const handleChange = () => setChecked(!checked);
-
-    return (
-        <Container>
-            <div style={{ display: 'flex', width: '180px' }}>
-                <ButtonMobile view='primary' nowrap={checked}>
-                    Пример длинного текста
-                </ButtonMobile>
-            </div>
-            <Row align='middle'>
-                <Switch
-                    label={<span>Запретить перенос строки</span>}
-                    checked={checked}
-                    onChange={handleChange}
-                />
-            </Row>
-        </Container>
-    );
-});
-```
-
-## Размытие фона
-
-Для кнопок можно включить размытие фона, если она полупрозрачная, располагается поверх динамического контента или изображения.
-
-```jsx live expanded
-render(() => {
-    const [checked, setChecked] = React.useState(true);
-    const handleChange = () => setChecked(!checked);
-
-    const wrapper = {
-        position: 'relative',
-        borderRadius: '16px',
-        width: '330px',
-        height: '100px',
-    };
-
-    const image = {
-        width: '100%',
-        height: '100%',
-        borderRadius: 'inherit',
-        objectFit: 'cover',
-    };
-
-    const wrapperButton = {
-        position: 'absolute',
-        display: 'flex',
-        inset: '0px',
-        padding: '20px',
-        justifyContent: 'space-between',
-    };
-
-    return (
-        <>
-            <div style={wrapper}>
-                <img style={image} src='./images/buttonBlur.png' />
-                <div style={wrapperButton}>
-                    <Button
-                        view='primary'
-                        colors='inverted'
-                        disabled={true}
-                        allowBackdropBlur={checked}
-                    >
-                        Disabled
-                    </Button>
-                    <Button view='secondary' colors='inverted' allowBackdropBlur={checked}>
-                        Secondary
-                    </Button>
+                <Gap size={24} />
+                <div style={{ marginBottom: '16px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '200px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>Stiffness: {state.stiffness}</div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={300}
+                            step={1}
+                            onChange={({ value }) => setState(s => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '200px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>Damping: {state.damping}</div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState(s => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '200px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>Mass: {state.mass}</div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState(s => ({ ...s, mass: value }))}
+                        />
+                    </div>
                 </div>
             </div>
-
-            <Row align='middle'>
-                <Switch label='Включить размытие' checked={checked} onChange={handleChange} />
-            </Row>
         </>
     );
 });
 ```
-
-## Обработка событий
-
-С помощью свойства `loading` можно отобразить состояние загрузки.
-Минимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
-
-```jsx live expanded
-render(() => {
-    const [loading, setLoading] = React.useState(false);
-    const [loadTimeout, setLoadTimeout] = React.useState('30');
-    const timeoutId = React.useRef();
-
-    const handleClick = () => {
-        setLoading(true);
-
-        clearTimeout(timeoutId.current);
-
-        timeoutId.current = setTimeout(() => {
-            setLoading(false);
-        }, Number(loadTimeout));
-    };
-
-    const handleTimeoutChange = (_, { value }) => {
-        clearTimeout(timeoutId.current);
-        setLoading(false);
-        setLoadTimeout(value);
-    };
-
-    return (
-        <>
-            <Button
-                view='primary'
-                loading={loading}
-                onClick={handleClick}
-                breakpoint={BREAKPOINT}
-                block={isMobile()}
-            >
-                Отправить запрос
-            </Button>
-
-            <Gap size={24} />
-
-            <RadioGroup value={loadTimeout} onChange={handleTimeoutChange}>
-                <Radio value='30' label='Быстрый запрос (30ms)' />
-                <Radio value='1500' label='Долгий запрос (1500ms)' />
-            </RadioGroup>
-        </>
-    );
-});
-```
-
-## Другие кнопки
-
-Если нужна кнопка с одной иконкой, но без подложки, используйте [IconButton](/docs/iconbutton--docs).
-
-Если нужна кнопка с другим цветом фона, используйте [CustomButton](/docs/custombutton--docs).
-
-Если нужна кнопка с выпадающим списком, используйте [PickerButton](/docs/pickerbutton--docs).
