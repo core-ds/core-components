@@ -4,7 +4,7 @@ import {
     type ElementType,
     type ReactNode,
 } from 'react';
-import  { type MotionProps } from 'motion/react';
+import { type MotionProps } from 'motion/react';
 
 export type StyleColors = {
     default: {
