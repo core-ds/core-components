@@ -2,6 +2,23 @@ import { ComponentType } from 'react';
 import * as dateUtils from 'date-fns';
 import * as knobs from '@storybook/addon-knobs';
 import * as grid from './blocks/grid';
+import {
+    motion,
+    AnimatePresence,
+    LayoutGroup,
+    LazyMotion,
+    MotionConfig,
+    Reorder,
+    domMax,
+    m,
+    useAnimation,
+    useMotionValue,
+    useMotionValueEvent,
+    useSpring,
+    useTransform,
+    useReducedMotion,
+    useInView,
+} from 'motion/react';
 
 const coreComponentsContext =
     process.env.BUILD_STORYBOOK_FROM_DIST === 'true'
@@ -41,4 +58,19 @@ export default {
     ...grid,
     ...dateUtils,
     ...knobs,
+    motion,
+    AnimatePresence,
+    LayoutGroup,
+    LazyMotion,
+    MotionConfig,
+    Reorder,
+    domMax,
+    m,
+    useAnimation,
+    useMotionValue,
+    useMotionValueEvent,
+    useSpring,
+    useTransform,
+    useReducedMotion,
+    useInView,
 };

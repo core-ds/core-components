@@ -1,426 +1,509 @@
-## Виды кнопок
+## Анимация (motion)
 
-```jsx live mobileHeight={500}
-render(() => {
-    const [disabled, setDisabled] = React.useState(false);
+С помощью пропа `motionProps` можно передать любые анимационные свойства библиотеки [motion](https://motion.dev).
+Кнопка автоматически переключается на `motion`-компонент при наличии `motionProps`.
 
-    return (
-        <>
-            <Space direction='horizontal' align='center'>
-                <ButtonDesktop disabled={disabled} view='accent'>
-                    Accent
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='primary'>
-                    Primary
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='secondary'>
-                    Secondary
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='outlined'>
-                    Outlined
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='transparent'>
-                    Transparent
-                </ButtonDesktop>
-                <ButtonDesktop disabled={disabled} view='text'>
-                    Text
-                </ButtonDesktop>
-            </Space>
+### 1. Scale при нажатии
 
-            <Gap size={24} />
-
-            <Switch
-                checked={disabled}
-                onChange={() => setDisabled((prevState) => !prevState)}
-                label='Недоступна'
-            />
-        </>
-    );
-});
-//MOBILE
-render(() => {
-    const [disabled, setDisabled] = React.useState(false);
-
-    return (
-        <>
-            <ButtonMobile block={true} disabled={disabled} view='accent'>
-                Accent
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='primary'>
-                Primary
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='secondary'>
-                Secondary
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='outlined'>
-                Outlined
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='transparent'>
-                Transparent
-            </ButtonMobile>
-            <Gap size={20} />
-            <ButtonMobile block={true} disabled={disabled} view='text'>
-                Text
-            </ButtonMobile>
-            <Gap size={24} />
-            <Switch
-                checked={disabled}
-                onChange={() => setDisabled((prevState) => !prevState)}
-                label='Недоступна'
-            />
-        </>
-    );
-});
+```jsx live
+<ButtonDesktop
+    view='primary'
+    motionProps={{ whileTap: { scale: 0.92 } }}
+>
+    Нажми меня
+</ButtonDesktop>
 ```
 
-## Размеры
+### 2. Scale при наведении
 
-Кнопка доступна в размерах 72, 64, 56, 48, 40, 32.
+```jsx live
+<ButtonDesktop
+    view='accent'
+    motionProps={{
+        whileHover: { scale: 1.06 },
+        transition: { type: 'spring', stiffness: 400, damping: 15 },
+    }}
+>
+    Наведи курсор
+</ButtonDesktop>
+```
 
-```jsx live mobileHeight={460}
-const BIG_SIZES = [72, 64, 56];
-const SMALL_SIZES = [48, 40, 32];
+### 3. Bounce-эффект при нажатии
 
-render(
-    <>
+```jsx live
+<ButtonDesktop
+    view='primary'
+    motionProps={{
+        whileTap: { scale: 0.88 },
+        transition: { type: 'spring', stiffness: 600, damping: 8 },
+    }}
+>
+    Bounce
+</ButtonDesktop>
+```
+
+### 4. Rotation при наведении
+
+```jsx live
+<ButtonDesktop
+    view='secondary'
+    motionProps={{
+        whileHover: { rotate: 3, scale: 1.04 },
+        transition: { type: 'spring', stiffness: 300, damping: 12 },
+    }}
+>
+    Hover rotate
+</ButtonDesktop>
+```
+
+### 5. Анимация появления при монтировании
+
+```jsx live
+render(() => {
+    const [visible, setVisible] = React.useState(false);
+
+    return (
         <Space direction='horizontal' align='center'>
-            {BIG_SIZES.map((size) => (
-                <ButtonDesktop key={size} size={size} view='primary'>
-                    {`${size}px`}
-                </ButtonDesktop>
-            ))}
+            <ButtonDesktop view='secondary' onClick={() => setVisible((v) => !v)}>
+                {visible ? 'Скрыть' : 'Показать'}
+            </ButtonDesktop>
+
+            <AnimatePresence>
+                {visible && (
+                    <ButtonDesktop
+                        view='accent'
+                        motionProps={{
+                            initial: { opacity: 0, y: -12 },
+                            animate: { opacity: 1, y: 0 },
+                            exit: { opacity: 0, y: -12 },
+                            transition: { duration: 0.25 },
+                        }}
+                    >
+                        Я появился
+                    </ButtonDesktop>
+                )}
+            </AnimatePresence>
         </Space>
-        <Gap size={20} />
-        <Space direction='horizontal' align='center'>
-            {SMALL_SIZES.map((size) => (
-                <ButtonDesktop key={size} size={size} view='primary'>
-                    {`${size}px`}
-                </ButtonDesktop>
-            ))}
-        </Space>
-    </>,
-);
-//MOBILE
-const SIZES = [72, 64, 56, 48, 40, 32];
-
-render(
-    <Container>
-        {SIZES.map((size, idx) => (
-            <React.Fragment key={size}>
-                <ButtonMobile block={true} size={size} view='primary'>
-                    {`${size}px`}
-                </ButtonMobile>
-                {SIZES.length - 1 !== idx && <Gap size={20} />}
-            </React.Fragment>
-        ))}
-    </Container>,
-);
-```
-
-## Форма
-
-Для кнопки доступно два варианта скругления углов.
-
-```jsx live
-render(() => {
-    const [shape, setShape] = React.useState('rectangular');
-
-    return (
-        <>
-            <Button shape={shape} view='primary' breakpoint={BREAKPOINT}>
-                Label
-            </Button>
-
-            <Gap size={24} />
-
-            <RadioGroup
-                label='Shape'
-                value={shape}
-                onChange={(_, { value }) => setShape(value)}
-                breakpoint={BREAKPOINT}
-            >
-                <Radio value='rectangular' label='Rectangular' />
-                <Radio value='rounded' label='Rounded' />
-            </RadioGroup>
-        </>
     );
 });
 ```
 
-## Ширина
-
-Кнопка адаптируется под длину контента. Для каждого вертикального размера кнопки задан минимальный горизонтальный размер.
-С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
-Через доступ по classname можно задать кнопке ширину в рх.
-
-```jsx live
-<div style={{ textAlign: isMobile() ? 'center' : 'left' }}>
-    <Button breakpoint={BREAKPOINT}>Мин.</Button>
-    <Gap size={20} />
-    <Button breakpoint={BREAKPOINT}>Ширина зависит от лейбла</Button>
-    <Gap size={20} />
-    <style>{'.button { width: 300px; }'}</style>
-    <Button breakpoint={BREAKPOINT} className='button'>
-        Ширина задана вручную
-    </Button>
-    <Gap size={20} />
-    <Button block={true} size={56} nowrap={true} breakpoint={BREAKPOINT}>
-        Занимает всю ширину контейнера
-    </Button>
-</div>
-```
-
-## Анатомия
-
-С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.
-Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
-В 56, 64 и 72 размерах доступна подпись под лейблом.
+### 6. Shake-анимация при ошибке
 
 ```jsx live
 render(() => {
-    const [label, setLabel] = React.useState(true);
-    const [hint, setHint] = React.useState();
-    const [leftAddons, setLeftAddons] = React.useState(false);
-    const [rightAddons, setRightAddons] = React.useState(false);
+    const controls = useAnimation();
 
-    const handleLabelChange = () => setLabel(!label);
-    const handleHintChange = () => setHint((p) => (p ? undefined : 'Hint'));
-    const handleLeftAddonsChange = () => setLeftAddons(!leftAddons);
-    const handleRightAddonsChange = () => setRightAddons(!rightAddons);
+    const handleClick = () => {
+        controls.start({
+            x: [0, -8, 8, -8, 8, -4, 4, 0],
+            transition: { duration: 0.45 },
+        });
+    };
+
+    return (
+        <ButtonDesktop
+            view='outlined'
+            motionProps={{ animate: controls }}
+            onClick={handleClick}
+        >
+            Нажми — ошибка
+        </ButtonDesktop>
+    );
+});
+```
+
+### 7. Pulse-анимация для привлечения внимания
+
+```jsx live
+<ButtonDesktop
+    view='accent'
+    motionProps={{
+        animate: { scale: [1, 1.04, 1] },
+        transition: { duration: 1.2, repeat: Infinity, ease: 'easeInOut' },
+    }}
+>
+    Обрати внимание
+</ButtonDesktop>
+```
+
+### 8. Fade + slide при появлении группы кнопок
+
+```jsx live
+render(() => {
+    const [show, setShow] = React.useState(false);
+
+    const items = ['Сохранить', 'Отменить', 'Удалить'];
 
     return (
         <div>
-            <Button
-                breakpoint={BREAKPOINT}
-                leftAddons={leftAddons && <StarMIcon />}
-                rightAddons={rightAddons && <StarMIcon />}
-                hint={hint}
-                view='primary'
-                block={isMobile()}
-            >
-                {label && 'Label'}
-            </Button>
+            <ButtonDesktop view='primary' onClick={() => setShow((v) => !v)}>
+                {show ? 'Скрыть' : 'Показать действия'}
+            </ButtonDesktop>
 
-            <Gap size={24} />
+            <Gap size={16} />
 
-            <Switch label='Label' checked={label} onChange={handleLabelChange} />
-            <Gap size={16} />
-            <Switch label='Hint' checked={hint} onChange={handleHintChange} />
-            <Gap size={16} />
-            <Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />
-            <Gap size={16} />
-            <Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />
+            <AnimatePresence>
+                {show && (
+                    <Space direction='horizontal' align='center'>
+                        {items.map((label, i) => (
+                            <ButtonDesktop
+                                key={label}
+                                view={i === 0 ? 'accent' : i === 1 ? 'secondary' : 'outlined'}
+                                motionProps={{
+                                    initial: { opacity: 0, x: -20 },
+                                    animate: { opacity: 1, x: 0 },
+                                    exit: { opacity: 0, x: -20 },
+                                    transition: { delay: i * 0.08, duration: 0.2 },
+                                }}
+                            >
+                                {label}
+                            </ButtonDesktop>
+                        ))}
+                    </Space>
+                )}
+            </AnimatePresence>
         </div>
     );
 });
 ```
 
-## Поведение лейбла
-
-С помощью свойства `textResizing` можно сжать или растянуть текстовый контент внутри кнопки.
+### 9. Перетаскиваемая кнопка
 
 ```jsx live
 render(() => {
-    const [textResizing, setTextResizing] = React.useState('hug');
+    const constraintsRef = React.useRef(null);
 
     return (
-        <div style={{ width: isMobile() ? '100%' : 240 }}>
-            <Button
-                view='primary'
-                breakpoint={BREAKPOINT}
-                block={true}
-                rightAddons={<StarMIcon />}
-                leftAddons={<StarMIcon />}
-                hint='Hint'
-                textResizing={textResizing}
+        <div
+            ref={constraintsRef}
+            style={{
+                width: '100%',
+                height: 120,
+                border: '1px dashed var(--color-light-neutral-400)',
+                borderRadius: 12,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+            }}
+        >
+            <ButtonDesktop
+                view='accent'
+                motionProps={{
+                    drag: true,
+                    dragConstraints: constraintsRef,
+                    dragElastic: 0.15,
+                    whileDrag: { scale: 1.08, cursor: 'grabbing' },
+                    whileHover: { cursor: 'grab' },
+                }}
             >
-                Label
-            </Button>
-
-            <Gap size={24} />
-
-            <RadioGroup
-                label='Поведение текста'
-                value={textResizing}
-                onChange={(_, { value }) => setTextResizing(value)}
-                breakpoint={BREAKPOINT}
-            >
-                <Radio value='hug' label='Hug' />
-                <Radio value='fill' label='Fill' />
-            </RadioGroup>
+                Перетащи меня
+            </ButtonDesktop>
         </div>
     );
 });
 ```
 
-## Перенос текста внутри кнопки
-
-С помощью свойства `nowrap` можно запретить перенос текста на новую строку.
+### 10. Переход между состояниями через animate
 
 ```jsx live
 render(() => {
-    const [checked, setChecked] = React.useState(true);
-
-    const handleChange = () => setChecked(!checked);
+    const [active, setActive] = React.useState(false);
 
     return (
-        <Container>
-            <div style={{ display: 'flex', width: '180px' }}>
-                <ButtonDesktop view='primary' nowrap={checked}>
-                    Пример длинного текста
-                </ButtonDesktop>
-            </div>
-            <Row align='middle'>
-                <Switch
-                    label={<span>Запретить перенос строки</span>}
-                    checked={checked}
-                    onChange={handleChange}
-                />
-            </Row>
-        </Container>
-    );
-});
-//MOBILE
-render(() => {
-    const [checked, setChecked] = React.useState(true);
-
-    const handleChange = () => setChecked(!checked);
-
-    return (
-        <Container>
-            <div style={{ display: 'flex', width: '180px' }}>
-                <ButtonMobile view='primary' nowrap={checked}>
-                    Пример длинного текста
-                </ButtonMobile>
-            </div>
-            <Row align='middle'>
-                <Switch
-                    label={<span>Запретить перенос строки</span>}
-                    checked={checked}
-                    onChange={handleChange}
-                />
-            </Row>
-        </Container>
+        <ButtonDesktop
+            view={active ? 'accent' : 'secondary'}
+            motionProps={{
+                animate: {
+                    scale: active ? 1.05 : 1,
+                    opacity: active ? 1 : 0.8,
+                },
+                transition: { type: 'spring', stiffness: 300, damping: 20 },
+                whileTap: { scale: 0.95 },
+            }}
+            onClick={() => setActive((v) => !v)}
+        >
+            {active ? 'Активно' : 'Неактивно'}
+        </ButtonDesktop>
     );
 });
 ```
 
-## Размытие фона
+### 11. MotionConfig — глобальная конфигурация анимаций
 
-Для кнопок можно включить размытие фона, если она полупрозрачная, располагается поверх динамического контента или изображения.
+`MotionConfig` применяет общий `transition` ко всем дочерним motion-компонентам. Переключи режим — и все кнопки разом изменят скорость анимации.
 
-```jsx live expanded
+```jsx live
 render(() => {
-    const [checked, setChecked] = React.useState(true);
-    const handleChange = () => setChecked(!checked);
-
-    const wrapper = {
-        position: 'relative',
-        borderRadius: '16px',
-        width: '330px',
-        height: '100px',
-    };
-
-    const image = {
-        width: '100%',
-        height: '100%',
-        borderRadius: 'inherit',
-        objectFit: 'cover',
-    };
-
-    const wrapperButton = {
-        position: 'absolute',
-        display: 'flex',
-        inset: '0px',
-        padding: '20px',
-        justifyContent: 'space-between',
-    };
+    const [slow, setSlow] = React.useState(false);
 
     return (
-        <>
-            <div style={wrapper}>
-                <img style={image} src='./images/buttonBlur.png' />
-                <div style={wrapperButton}>
-                    <Button
-                        view='primary'
-                        colors='inverted'
-                        disabled={true}
-                        allowBackdropBlur={checked}
+        <MotionConfig transition={{ duration: slow ? 1.5 : 0.12, type: 'tween' }}>
+            <Space direction='horizontal' align='center'>
+                {['accent', 'primary', 'secondary'].map((view) => (
+                    <ButtonDesktop
+                        key={view}
+                        view={view}
+                        motionProps={{
+                            whileHover: { scale: 1.08 },
+                            whileTap: { scale: 0.9 },
+                        }}
                     >
-                        Disabled
-                    </Button>
-                    <Button view='secondary' colors='inverted' allowBackdropBlur={checked}>
-                        Secondary
-                    </Button>
-                </div>
-            </div>
-
-            <Row align='middle'>
-                <Switch label='Включить размытие' checked={checked} onChange={handleChange} />
-            </Row>
-        </>
+                        {view}
+                    </ButtonDesktop>
+                ))}
+            </Space>
+            <Gap size={16} />
+            <Switch
+                checked={slow}
+                onChange={() => setSlow((v) => !v)}
+                label='Медленный режим (1.5s)'
+            />
+        </MotionConfig>
     );
 });
 ```
 
-## Обработка событий
+### 12. LayoutGroup — скоординированные layout-анимации
 
-С помощью свойства `loading` можно отобразить состояние загрузки.
-Минимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
+`LayoutGroup` синхронизирует анимации макета между независимыми компонентами. Точка-индикатор плавно перемещается между кнопками благодаря общему `layoutId`.
 
-```jsx live expanded
+```jsx live
 render(() => {
-    const [loading, setLoading] = React.useState(false);
-    const [loadTimeout, setLoadTimeout] = React.useState('30');
-    const timeoutId = React.useRef();
+    const [selected, setSelected] = React.useState(0);
+    const items = ['Accent', 'Primary', 'Secondary'];
 
-    const handleClick = () => {
-        setLoading(true);
+    return (
+        <LayoutGroup>
+            <Space direction='horizontal' align='center'>
+                {items.map((label, i) => (
+                    <div key={label} style={{ position: 'relative', display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+                        <ButtonDesktop
+                            view={i === selected ? 'accent' : 'secondary'}
+                            onClick={() => setSelected(i)}
+                        >
+                            {label}
+                        </ButtonDesktop>
+                        {i === selected && (
+                            <motion.span
+                                layoutId='tab-indicator'
+                                style={{
+                                    width: 6,
+                                    height: 6,
+                                    borderRadius: '50%',
+                                    background: 'var(--color-light-accent-primary)',
+                                    display: 'block',
+                                }}
+                                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                            />
+                        )}
+                    </div>
+                ))}
+            </Space>
+        </LayoutGroup>
+    );
+});
+```
 
-        clearTimeout(timeoutId.current);
+### 13. LazyMotion — оптимизированная загрузка
 
-        timeoutId.current = setTimeout(() => {
-            setLoading(false);
-        }, Number(loadTimeout));
+`LazyMotion` + `m` уменьшают bundle, загружая возможности анимаций по требованию. `m` — это облегчённый аналог `motion` для использования внутри `LazyMotion`.
+
+```jsx live
+render(() => {
+    const [visible, setVisible] = React.useState(false);
+
+    return (
+        <LazyMotion features={domMax}>
+            <ButtonDesktop view='secondary' onClick={() => setVisible((v) => !v)}>
+                {visible ? 'Скрыть' : 'Показать кнопку'}
+            </ButtonDesktop>
+            <Gap size={16} />
+            <AnimatePresence>
+                {visible && (
+                    <m.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.25 }}
+                        style={{ display: 'inline-block' }}
+                    >
+                        <ButtonDesktop view='accent'>Загружено лениво</ButtonDesktop>
+                    </m.div>
+                )}
+            </AnimatePresence>
+        </LazyMotion>
+    );
+});
+```
+
+### 14. Reorder — перетаскивание для сортировки
+
+`Reorder.Group` + `Reorder.Item` позволяют пользователю менять порядок элементов drag-and-drop.
+
+```jsx live
+render(() => {
+    const [items, setItems] = React.useState([
+        { id: 'save', label: 'Сохранить', view: 'accent' },
+        { id: 'cancel', label: 'Отменить', view: 'secondary' },
+        { id: 'delete', label: 'Удалить', view: 'outlined' },
+    ]);
+
+    return (
+        <Reorder.Group
+            axis='y'
+            values={items}
+            onReorder={setItems}
+            style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8, width: 220 }}
+        >
+            {items.map((item) => (
+                <Reorder.Item
+                    key={item.id}
+                    value={item}
+                    style={{ cursor: 'grab' }}
+                    whileDrag={{ scale: 1.03, boxShadow: '0 4px 16px rgba(0,0,0,0.12)' }}
+                >
+                    <ButtonDesktop view={item.view} block>
+                        {item.label}
+                    </ButtonDesktop>
+                </Reorder.Item>
+            ))}
+        </Reorder.Group>
+    );
+});
+```
+
+### 15. useMotionValue + useTransform — tilt при движении мышью
+
+`useMotionValue` хранит значение вне React-рендера. `useTransform` пересчитывает одно значение в другое без перерисовки компонента. Здесь координаты курсора внутри кнопки трансформируются в `rotateX` / `rotateY`.
+
+```jsx live
+render(() => {
+    const ref = React.useRef(null);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+    const rotateX = useTransform(y, [-30, 30], [12, -12]);
+    const rotateY = useTransform(x, [-60, 60], [-12, 12]);
+
+    const handleMouseMove = (e) => {
+        const rect = ref.current.getBoundingClientRect();
+        x.set(e.clientX - rect.left - rect.width / 2);
+        y.set(e.clientY - rect.top - rect.height / 2);
     };
 
-    const handleTimeoutChange = (_, { value }) => {
-        clearTimeout(timeoutId.current);
-        setLoading(false);
-        setLoadTimeout(value);
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
     };
 
     return (
-        <>
-            <Button
-                view='primary'
-                loading={loading}
-                onClick={handleClick}
-                breakpoint={BREAKPOINT}
-                block={isMobile()}
+        <div style={{ perspective: 600, display: 'inline-block' }}>
+            <ButtonDesktop
+                ref={ref}
+                view='accent'
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                motionProps={{
+                    style: { rotateX, rotateY, transformStyle: 'preserve-3d' },
+                    transition: { type: 'spring', stiffness: 300, damping: 20 },
+                }}
             >
-                Отправить запрос
-            </Button>
-
-            <Gap size={24} />
-
-            <RadioGroup value={loadTimeout} onChange={handleTimeoutChange}>
-                <Radio value='30' label='Быстрый запрос (30ms)' />
-                <Radio value='1500' label='Долгий запрос (1500ms)' />
-            </RadioGroup>
-        </>
+                Наведи и двигай курсор
+            </ButtonDesktop>
+        </div>
     );
 });
 ```
 
-## Другие кнопки
+### 16. useSpring — пружинное значение
 
-Если нужна кнопка с одной иконкой, но без подложки, используйте [IconButton](/docs/iconbutton--docs).
+`useSpring` создаёт MotionValue, которое физически «догоняет» целевое значение. В отличие от `transition: spring`, оно работает непрерывно и не привязано к React-рендеру. Здесь счётчик плавно досчитывает до нового числа.
 
-Если нужна кнопка с другим цветом фона, используйте [CustomButton](/docs/custombutton--docs).
+```jsx live
+render(() => {
+    const [target, setTarget] = React.useState(0);
+    const spring = useSpring(0, { stiffness: 80, damping: 18 });
+    const display = useTransform(spring, (v) => Math.round(v));
+    const [displayed, setDisplayed] = React.useState(0);
 
-Если нужна кнопка с выпадающим списком, используйте [PickerButton](/docs/pickerbutton--docs).
+    useMotionValueEvent(display, 'change', setDisplayed);
+
+    const randomize = () => {
+        const next = Math.floor(Math.random() * 10000);
+        setTarget(next);
+        spring.set(next);
+    };
+
+    return (
+        <Space direction='horizontal' align='center'>
+            <ButtonDesktop view='primary' onClick={randomize}>
+                Случайное число
+            </ButtonDesktop>
+            <span style={{ fontVariantNumeric: 'tabular-nums', fontSize: 32, fontWeight: 600, minWidth: 80 }}>
+                {displayed}
+            </span>
+        </Space>
+    );
+});
+```
+
+---
+
+## Motion+ — платные возможности
+
+Перечисленные компоненты доступны только в пакете `motion-plus` (единоразовая покупка, пожизненные обновления).
+Они импортируются из `motion-plus/react` и **не входят** в свободно распространяемые `motion` / `framer-motion`.
+
+### AnimateNumber
+Анимирует числовые значения при их изменении — для счётчиков, цен, таймеров.
+Поддерживает `Intl.NumberFormat` (валюты, компактная нотация), кастомные transitions и отдельные CSS-классы для каждой части числа (префикс, целая часть, дробная часть, суффикс).
+
+### ScrambleText
+Перемешивает символы текста перед тем, как показать финальное значение — эффект «матрицы».
+Управляется пропом `active`, поддерживает `duration`, `delay` (в том числе `stagger()`), кастомный набор символов (`chars`).
+
+### Typewriter
+Имитирует набор текста с человекоподобной скоростью и ритмом.
+Умеет делать backspace до первого отличающегося символа при смене контента, поддерживает `speed`, `variance`, режимы удаления `"character" | "word" | "all"`, ARIA-атрибуты для доступности.
+
+### Ticker
+Бесконечная прокрутка (marquee) по горизонтали или вертикали.
+Принимает любые React-узлы через `items`, скорость задаётся через `velocity` (px/s, отрицательное значение — обратное направление), поддерживает `axis`, RTL и reduced-motion.
+
+### Carousel
+Полнофункциональная карусель с инерцией, клавиатурной навигацией, snap-прокруткой и бесконечным циклом.
+Хук `useCarousel` внутри дочерних компонентов даёт доступ к `nextPage()`, `prevPage()`, `gotoPage(n)`, `currentPage`, `totalPages`. Поддерживает `axis`, `gap`, `loop`, `itemSize: "fill"`, RTL, ARIA.
+
+---
+
+## Почему motion — плохой выбор для компонентной библиотеки
+
+### ✅ Вес
+
+Несмотря на tree-shaking, `motion/react` тянет за собой весь animation runtime — даже если компонент использует только `whileTap`. Минимизировать это через `LazyMotion + m` можно, но это требует изменения архитектуры каждого компонента.
+
+### ✅ Слишком большая зависимость
+
+`motion` v12 — это фактически alias над `framer-motion`, который тянет цепочку: `framer-motion → motion-dom → motion-utils`. Сам `framer-motion` на диске занимает **5.6 MB**, `motion` — ещё 728 KB сверху. Это сторонняя зависимость от коммерческой компании **Framer Inc.**, история которой показывает смены API и ребрендинги (`popmotion → framer-motion → motion`). Любой breaking change в мажорной версии придётся синхронно обрабатывать во всех 131 пакете монорепозитория.
+
+### ✅ Сложность интеграции в сложные компоненты: хуже, чем кажется
+
+Кнопка — простейший случай: один DOM-элемент, нет оверлеев, нет порталов. Даже здесь интеграция потребовала изменений в типизации, `useMemo` для `motion.create`, замены `Component` на `Tag` в двух ветках рендера, и нового пропа в публичном API.
+
+Для реальных составных компонентов проблемы умножаются:
+
+- **`SidePanel` / `BottomSheet`**: анимация должна охватывать и оверлей, и само полотно, которые рендерятся в портале. `AnimatePresence` должен оборачивать оба, но портал разрывает дерево — координировать exit-анимации становится нетривиально.
+- **`Select` / `Dropdown`**: список появляется в портале с абсолютным позиционированием. Layout-анимации (`LayoutGroup`) не работают через границы порталов.
+- **`Collapse` / аккордеон**: анимация высоты через `animate: { height: 'auto' }` — известная больная точка framer-motion, требующая `layout`-анимаций или специальных обходных решений.
+- **Все компоненты с `ref`**: `motion.create()` создаёт новый тип компонента. Если пропа `Component` меняется между рендерами, React **полностью размонтирует** поддерево — это потенциальный источник трудновоспроизводимых багов.
+
+### ➕ Проблемы с SSR
+
+Библиотека поддерживает серверный рендеринг через проп `client` у адаптивных компонентов. `framer-motion` имеет известные проблемы с SSR в контексте layout-анимаций и `AnimatePresence`: первый рендер на сервере не совпадает с клиентским, что вызывает hydration mismatch. Это требует дополнительной настройки (`LazyMotion` с `domMax`, явный `initial={false}`) в каждом компоненте.
+
+### ➕ Конфликт с нативными CSS-анимациями
+
+В библиотеке уже есть CSS transitions (`:hover`, `:active`, `loading`-состояние). motion управляет стилями напрямую через `style`, перезаписывая инлайн-значения. При одновременном использовании CSS transitions и motion-анимаций порядок применения становится непредсказуемым — особенно в темизированных компонентах, где цвета задаются через CSS-переменные.
+
+---
