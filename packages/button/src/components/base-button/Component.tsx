@@ -3,12 +3,14 @@ import React, {
     type AnchorHTMLAttributes,
     type ButtonHTMLAttributes,
     forwardRef,
+    useCallback,
     useEffect,
     useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+import { animate } from 'motion';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
@@ -53,6 +55,8 @@ export const BaseButton = forwardRef<
             onClick,
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
+            shake = false,
+            shakeSpring = {},
             ...restProps
         },
         ref,
@@ -60,6 +64,8 @@ export const BaseButton = forwardRef<
         const buttonRef = useRef<HTMLElement>(null);
 
         const [focused] = useFocus(buttonRef, 'keyboard');
+
+        const isAnimating = useRef(false);
 
         const [loaderTimePassed, setLoaderTimePassed] = useState(true);
 
@@ -168,6 +174,30 @@ export const BaseButton = forwardRef<
             [],
         );
 
+        const triggerShake = useCallback(() => {
+            if (!shake || !buttonRef.current || isAnimating.current) return;
+
+            isAnimating.current = true;
+
+            const springOptions = {
+                type: 'spring' as const,
+                stiffness: shakeSpring.stiffness ?? 100,
+                damping: shakeSpring.damping ?? 10,
+                mass: shakeSpring.mass ?? 1,
+            };
+
+            animate(buttonRef.current, { x: [0, 10] }, springOptions)
+                .finished.then(() =>
+                    animate(buttonRef.current, { x: [10, -10] }, springOptions).finished,
+                )
+                .then(() =>
+                    animate(buttonRef.current, { x: [-10, 0] }, springOptions).finished,
+                )
+                .then(() => {
+                    isAnimating.current = false;
+                });
+        }, [shake, shakeSpring]);
+
         const handleClick = (
             e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
                 React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -179,6 +209,7 @@ export const BaseButton = forwardRef<
                 return;
             }
             onClick?.(e);
+            triggerShake();
         };
 
         if (href) {

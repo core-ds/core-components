@@ -113,6 +113,21 @@ type ComponentProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Включить shake-анимацию по клику
+     * @default false
+     */
+    shake?: boolean;
+
+    /**
+     * Spring-параметры для shake-анимации
+     */
+    shakeSpring?: {
+        stiffness?: number;
+        damping?: number;
+        mass?: number;
+    };
 };
 
 export type PrivateButtonProps = {
