@@ -15,9 +15,47 @@
     ],
     "compilerOptions": {
         "types": ["@alfalab/core-components-env", "@types/webpack-env"],
-        "noEmit": true,
+        "outDir": "ts-dist",
         "paths": {
-            "storybook/*": ["./*"]
+            "storybook/*": ["./*"],
+            "@alfalab/core-components-button": ["../packages/button/src"],
+            "@alfalab/core-components-button/*": ["../packages/button/src/*"],
+            "@alfalab/core-components-divider": ["../packages/divider/src"],
+            "@alfalab/core-components-divider/*": ["../packages/divider/src/*"],
+            "@alfalab/core-components-gap": ["../packages/gap/src"],
+            "@alfalab/core-components-gap/*": ["../packages/gap/src/*"],
+            "@alfalab/core-components-icon-button": ["../packages/icon-button/src"],
+            "@alfalab/core-components-icon-button/*": ["../packages/icon-button/src/*"],
+            "@alfalab/core-components-input": ["../packages/input/src"],
+            "@alfalab/core-components-input/*": ["../packages/input/src/*"],
+            "@alfalab/core-components-link": ["../packages/link/src"],
+            "@alfalab/core-components-link/*": ["../packages/link/src/*"],
+            "@alfalab/core-components-mq": ["../packages/mq/src"],
+            "@alfalab/core-components-mq/*": ["../packages/mq/src/*"],
+            "@alfalab/core-components-radio": ["../packages/radio/src"],
+            "@alfalab/core-components-radio/*": ["../packages/radio/src/*"],
+            "@alfalab/core-components-radio-group": ["../packages/radio-group/src"],
+            "@alfalab/core-components-radio-group/*": ["../packages/radio-group/src/*"],
+            "@alfalab/core-components-space": ["../packages/space/src"],
+            "@alfalab/core-components-space/*": ["../packages/space/src/*"],
+            "@alfalab/core-components-tabs": ["../packages/tabs/src"],
+            "@alfalab/core-components-tabs/*": ["../packages/tabs/src/*"],
+            "@alfalab/core-components-typography": ["../packages/typography/src"],
+            "@alfalab/core-components-typography/*": ["../packages/typography/src/*"]
         }
-    }
+    },
+    "references": [
+        { "path": "../packages/button/tsconfig.build.json" },
+        { "path": "../packages/divider/tsconfig.build.json" },
+        { "path": "../packages/gap/tsconfig.build.json" },
+        { "path": "../packages/icon-button/tsconfig.build.json" },
+        { "path": "../packages/input/tsconfig.build.json" },
+        { "path": "../packages/link/tsconfig.build.json" },
+        { "path": "../packages/mq/tsconfig.build.json" },
+        { "path": "../packages/radio/tsconfig.build.json" },
+        { "path": "../packages/radio-group/tsconfig.build.json" },
+        { "path": "../packages/space/tsconfig.build.json" },
+        { "path": "../packages/tabs/tsconfig.build.json" },
+        { "path": "../packages/typography/tsconfig.build.json" }
+    ]
 }

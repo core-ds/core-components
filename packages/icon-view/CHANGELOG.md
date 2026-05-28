@@ -1,5 +1,65 @@
 # @alfalab/core-components-icon-view
 
+## 5.0.3
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2202](https://github.com/core-ds/core-components/pull/2202)
+
+##### IconView
+
+- Исправлено обрезание SVG-форм в Safari при масштабировании страницы.
+
+## 5.0.2
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+## 5.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+## 5.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1688](https://github.com/core-ds/core-components/pull/1688)
+
+##### Indicator
+
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в` core-components@44.x.x` (замените `xs, s, m, l` на `8, 16, 20, 24, 32, 40` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
 ## 4.0.1
 
 ### Patch Changes

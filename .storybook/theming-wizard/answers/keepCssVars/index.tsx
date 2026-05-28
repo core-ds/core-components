@@ -6,7 +6,7 @@ import { Typography } from '@alfalab/core-components-typography';
 
 import { Example } from 'storybook-addon-live-examples';
 import { cssImportsExample, darkModeExample } from './utils';
-import { Answers } from '.storybook/theming-wizard/types';
+import { Answers } from 'storybook/theming-wizard/types';
 
 export const KeepCssVars = ({ answers }: { answers: Answers }) => {
     const steps = [];
@@ -28,9 +28,7 @@ export const KeepCssVars = ({ answers }: { answers: Answers }) => {
                 Также если вы используете индексный файл с переменными (vars/index.css) , то
                 рекомендуем вам перейти на один из бандлов, подготовленных под продукты (например,
                 vars/bundle/click.css). В этих бандлах всегда будет правильный набор переменных для
-                вашего продукта. Если в продукте встречаются очень старые deprecated цвета из файла
-                vars/colors.css, дополнительно подключите его (он всё ещё есть в индексном файле, но
-                в бандлы его уже не добавляли).
+                вашего продукта.
             </Typography.Text>
         </div>,
     );

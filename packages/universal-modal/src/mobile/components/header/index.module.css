@@ -1,0 +1,17 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.header {
+    padding: var(--gap-8) var(--gap-4);
+}
+
+.content {
+    @mixin headline-system-mobile_small;
+    padding: 0 var(--gap-12);
+    min-height: 40px;
+    justify-content: center;
+}
+
+.bottomAddons {
+    @mixin headline-system-mobile_small;
+    padding: var(--gap-6) var(--gap-16);
+}

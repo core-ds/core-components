@@ -1,5 +1,111 @@
 # @alfalab/core-components-steps
 
+## 3.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+
+## 3.0.5
+
+### Patch Changes
+
+<sup><time>15.04.2026</time></sup>
+
+#### [#2172](https://github.com/core-ds/core-components/pull/2172)
+
+##### Steps
+
+- Исправлено свойство `fullWidth`, которое было сломано в версии `48.19.0`
+
+## 3.0.4
+
+### Patch Changes
+
+<sup><time>03.04.2026</time></sup>
+
+#### [#2158](https://github.com/core-ds/core-components/pull/2158)
+
+##### Steps
+
+- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.
+- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`.
+
+## 3.0.3
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.1
+    - @alfalab/core-components-badge@7.0.2
+
+## 3.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+
+## 3.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-badge@7.0.1
+    - @alfalab/core-components-shared@2.0.1
+
+## 3.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Обновление `@alfalab/icons-*` библиотек
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.0.0
+    - @alfalab/core-components-badge@7.0.0
+
 ## 2.0.2
 
 ### Patch Changes

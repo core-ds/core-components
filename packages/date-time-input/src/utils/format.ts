@@ -1,7 +1,6 @@
 /* eslint-disable no-useless-escape */
 
-import dateFnsIsValid from 'date-fns/isValid';
-import parse from 'date-fns/parse';
+import { isValid as dateFnsIsValid, parse } from 'date-fns';
 
 export const DATE_FORMAT = 'dd.MM.yyyy';
 export const DATE_MASK = [

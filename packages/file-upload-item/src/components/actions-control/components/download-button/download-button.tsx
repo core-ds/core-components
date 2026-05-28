@@ -27,7 +27,7 @@ export const DownloadButton = () => {
     return (
         <IconButton
             className={styles.icon}
-            size='xxs'
+            size={24}
             aria-label='скачать'
             icon={<ArrowDownLineDownCompactMIcon className={styles.downloadIconColor} />}
             disabled={disableButtons}

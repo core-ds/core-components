@@ -1,12 +1,14 @@
 {
-    "$schema": "https://unpkg.com/@changesets/config@2.1.1/schema.json",
-    "changelog": "../tools/changesets/changelogFunctions.js",
+    "$schema": "https://unpkg.com/@changesets/config@3.1.4/schema.json",
+    "changelog": ["../tools/changesets/changelog.js", { "repo": "core-ds/core-components" }],
+    "privatePackages": false,
     "commit": false,
     "linked": [],
     "ignore": [
         "@alfalab/core-components-env",
         "@alfalab/core-components-screenshot-utils",
-        "@alfalab/core-components-test-utils"
+        "@alfalab/core-components-test-utils",
+        "@alfalab/core-components-tsconfig-node24-backport"
     ],
     "access": "public",
     "baseBranch": "master",
@@ -16,7 +18,7 @@
         "useCalculatedVersion": true
     },
     "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
-        "onlyUpdatePeerDependentsWhenOutOfRange": true,
+        "onlyUpdatePeerDependentsWhenOutOfRange": false,
         "updateInternalDependents": "always"
     }
 }

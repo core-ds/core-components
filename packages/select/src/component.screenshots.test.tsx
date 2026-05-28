@@ -409,6 +409,22 @@ describe('SelectDesktop | screenshots addons', () => {
                         },
                     }),
                 ],
+                [
+                    `${theme} theme | disabled addon`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectDesktop',
+                        knobs: {
+                            options: JSON.stringify([{ key: '1', content: 'Neptunium' }]),
+                            selected: JSON.stringify(['1']),
+                            block: true,
+                            clear: true,
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            size: [40, 48],
+                            disabled: [false, true],
+                        },
+                    }),
+                ],
             ],
             screenshotOpts: {
                 fullPage: true,
@@ -454,6 +470,22 @@ describe('SelectMobile | screenshots addons', () => {
                             error: true,
                             fieldProps: ['{"rightAddons":"right"}'],
                             size: [40, 48, 56, 64, 72],
+                        },
+                    }),
+                ],
+                [
+                    `${theme} theme | disabled addon`,
+                    createSpriteStorybookUrl({
+                        packageName: 'select',
+                        componentName: 'SelectMobile',
+                        knobs: {
+                            options: JSON.stringify([{ key: '1', content: 'Neptunium' }]),
+                            selected: JSON.stringify(['1']),
+                            block: true,
+                            clear: true,
+                            fieldProps: ['{"rightAddons":"right"}'],
+                            size: [40, 48],
+                            disabled: [false, true],
                         },
                     }),
                 ],

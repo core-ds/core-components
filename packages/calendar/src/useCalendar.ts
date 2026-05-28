@@ -8,14 +8,16 @@ import {
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import addMonths from 'date-fns/addMonths';
-import addYears from 'date-fns/addYears';
-import isSameDay from 'date-fns/isSameDay';
-import isSameMonth from 'date-fns/isSameMonth';
-import isSameYear from 'date-fns/isSameYear';
-import setYear from 'date-fns/setYear';
-import startOfMonth from 'date-fns/startOfMonth';
-import subYears from 'date-fns/subYears';
+import {
+    addMonths,
+    addYears,
+    isSameDay,
+    isSameMonth,
+    isSameYear,
+    setYear,
+    startOfMonth,
+    subYears,
+} from 'date-fns';
 
 import { type DateShift, type Day, type DayAddons, type Month, type View } from './typings';
 import {
@@ -145,8 +147,8 @@ export function useCalendar({
     );
 
     const months = useMemo(
-        () => generateMonths(activeMonth, { minMonth, maxMonth }),
-        [minMonth, maxMonth, activeMonth],
+        () => generateMonths(activeMonth, { minMonth, maxMonth, offDaysMap }),
+        [minMonth, maxMonth, activeMonth, offDaysMap],
     );
 
     const years = useMemo(

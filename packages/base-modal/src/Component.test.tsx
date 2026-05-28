@@ -334,19 +334,21 @@ describe('BaseModal', () => {
         });
     });
 
-    describe('Body styles with scrollLock={true}', () => {
-        it('should not set overflow hidden directly - react-remove-scroll handles scroll lock', async () => {
-            const { rerender } = render(<BaseModal open={false} scrollLock={true} />);
-            expect(document.body.style.overflow).toBe('');
-
-            rerender(<BaseModal open={true} scrollLock={true} />);
-            // react-remove-scroll не устанавливает overflow: hidden напрямую на body
-            expect(document.body.style.overflow).toBe('');
-
-            rerender(<BaseModal open={false} scrollLock={true} />);
-            await waitFor(() => {
+    describe('Body styles with scrollLock', () => {
+        it.each([false, true])(
+            'should not set overflow hidden directly when scrollLock=%s',
+            async (scrollLock) => {
+                const { rerender } = render(<BaseModal open={false} scrollLock={scrollLock} />);
                 expect(document.body.style.overflow).toBe('');
-            });
-        });
+
+                rerender(<BaseModal open={true} scrollLock={scrollLock} />);
+                expect(document.body.style.overflow).toBe('');
+
+                rerender(<BaseModal open={false} scrollLock={scrollLock} />);
+                await waitFor(() => {
+                    expect(document.body.style.overflow).toBe('');
+                });
+            },
+        );
     });
 });

@@ -35,8 +35,8 @@ export const ButtonList: FC<ButtonListProps> = ({
                         ? React.cloneElement(button, {
                               // eslint-disable-next-line react/no-array-index-key
                               key: index,
-                              size: 'xxs',
-                              view: index === 0 ? 'secondary' : 'link',
+                              size: 32,
+                              view: index === 0 ? 'secondary' : 'transparent',
                               className: cn(button.props.className, buttonClassName),
                           })
                         : null,

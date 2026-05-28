@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../vars.css';
 
 .sheet {
@@ -38,7 +38,7 @@
 }
 
 .option.option {
-    padding: var(--gap-4) var(--gap-20) var(--gap-4) var(--gap-16);
+    padding: var(--gap-4) var(--gap-20) var(--gap-4);
 
     &:before {
         display: none;

@@ -1,0 +1,9 @@
+@import '@alfalab/core-components-vars/src/index.css';
+
+.footer {
+    padding: var(--gap-20);
+}
+
+.sticky {
+    bottom: var(--gap-0);
+}

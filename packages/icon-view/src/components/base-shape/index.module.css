@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     --icon-view-color: var(--color-light-neutral-translucent-700);
@@ -14,7 +14,9 @@
 
 .component {
     position: relative;
-    overflow: hidden;
+
+    /* Hack from https://stackoverflow.com/questions/39155167 */
+    overflow: visible;
     width: 100%;
     height: 100%;
     color: var(--icon-view-color);

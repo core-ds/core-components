@@ -1,5 +1,57 @@
 # @alfalab/core-components-skeleton
 
+## 7.0.3
+
+### Patch Changes
+
+<sup><time>10.04.2026</time></sup>
+
+#### [#2121](https://github.com/core-ds/core-components/pull/2121)
+
+##### Skeleton
+
+- Изменена анимация с `background` на `opacity`, теперь производительность анимации выше
+
+## 7.0.2
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+## 7.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+## 7.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
 ## 6.0.1
 
 ### Patch Changes

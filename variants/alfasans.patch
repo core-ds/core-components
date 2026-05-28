@@ -1,0 +1,870 @@
+From 688c378e949f0077b4c9cfcc5f4a9abadb45f00a Mon Sep 17 00:00:00 2001
+From: hextion <100ishundred@gmail.com>
+Date: Mon, 25 May 2026 12:53:57 +0300
+Subject: [PATCH] fix: only system alfasans
+
+---
+ packages/typography/src/title/component.tsx   |  11 +-
+ .../typography/src/title/index.module.css     |   8 -
+ packages/typography/src/title/utils.test.ts   |  12 -
+ packages/typography/src/title/utils.ts        |  14 -
+ packages/vars/src/typography.css              | 282 ++++++++++--------
+ 5 files changed, 167 insertions(+), 160 deletions(-)
+ delete mode 100644 packages/typography/src/title/utils.test.ts
+ delete mode 100644 packages/typography/src/title/utils.ts
+
+diff --git a/packages/typography/src/title/component.tsx b/packages/typography/src/title/component.tsx
+index c73e5fdcc8..c286c51b0b 100644
+--- a/packages/typography/src/title/component.tsx
++++ b/packages/typography/src/title/component.tsx
+@@ -2,13 +2,10 @@ import React, { forwardRef, type HTMLAttributes } from 'react';
+ import mergeRefs from 'react-merge-refs';
+ import cn from 'classnames';
+
+-import { isObject } from '@alfalab/core-components-shared';
+ import { type TextSkeletonProps, useSkeleton } from '@alfalab/core-components-skeleton';
+
+ import { type Color } from '../colors';
+
+-import { getDefaultWeight } from './utils';
+-
+ import colors from '../colors.module.css';
+ import commonStyles from './common.module.css';
+
+@@ -40,7 +37,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
+      *
+      * @deprecated
+      */
+-    font?: 'styrene' | 'system' | 'alfasans' | { font: 'alfasans'; systemCompat: boolean };
++    font?: 'styrene' | 'system';
+
+     /**
+      * Добавляет отступы
+@@ -97,9 +94,9 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
+         {
+             tag: Component = 'div',
+             view = 'medium',
+-            font = 'styrene',
++            font,
+             platform,
+-            weight = getDefaultWeight(isObject(font) ? font.font : font, platform),
++            weight = 'bold',
+             defaultMargins = false,
+             color,
+             className,
+@@ -136,8 +133,6 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
+                     {
+                         [commonStyles[`rowLimit${rowLimit}`]]: rowLimit,
+                         [commonStyles.transparent]: showSkeleton,
+-                        [styles.font]:
+-                            (isObject(font) && !font.systemCompat) || !(font === 'system'),
+                     },
+                 )}
+                 data-test-id={dataTestId}
+diff --git a/packages/typography/src/title/index.module.css b/packages/typography/src/title/index.module.css
+index edef8eb6d3..50fd1d8ae7 100644
+--- a/packages/typography/src/title/index.module.css
++++ b/packages/typography/src/title/index.module.css
+@@ -4,18 +4,10 @@
+ @each $view in xlarge, large, medium, small, xsmall {
+     .$(view) {
+         @mixin headline-system_$(view);
+-
+-        &.font {
+-            @subtract-mixin headline_$(view), headline-system_$(view);
+-        }
+     }
+
+     .regular-$(view) {
+         @mixin promo-system_$(view);
+-
+-        &.font {
+-            @subtract-mixin promo_$(view), promo-system_$(view);
+-        }
+     }
+ }
+
+diff --git a/packages/typography/src/title/utils.test.ts b/packages/typography/src/title/utils.test.ts
+deleted file mode 100644
+index 1a6dc6065f..0000000000
+--- a/packages/typography/src/title/utils.test.ts
++++ /dev/null
+@@ -1,12 +0,0 @@
+-import { getDefaultWeight } from './utils';
+-
+-describe('utils tests', () => {
+-    describe('getDefaultWeight', () => {
+-        it('should return valid weight', () => {
+-            expect(getDefaultWeight('styrene', 'mobile')).toBe('medium');
+-            expect(getDefaultWeight('styrene', 'desktop')).toBe('medium');
+-            expect(getDefaultWeight('system', 'mobile')).toBe('semibold');
+-            expect(getDefaultWeight('system', 'desktop')).toBe('bold');
+-        });
+-    });
+-});
+diff --git a/packages/typography/src/title/utils.ts b/packages/typography/src/title/utils.ts
+deleted file mode 100644
+index 5961dc3577..0000000000
+--- a/packages/typography/src/title/utils.ts
++++ /dev/null
+@@ -1,14 +0,0 @@
+-export function getDefaultWeight(
+-    font: 'styrene' | 'system' | 'alfasans',
+-    platform: 'mobile' | 'desktop',
+-) {
+-    if (font === 'styrene' || font === 'alfasans') {
+-        return 'medium';
+-    }
+-
+-    if (platform === 'desktop') {
+-        return 'bold';
+-    }
+-
+-    return 'semibold';
+-}
+diff --git a/packages/vars/src/typography.css b/packages/vars/src/typography.css
+index f1eaec5c52..1aa4a7ba48 100644
+--- a/packages/vars/src/typography.css
++++ b/packages/vars/src/typography.css
+@@ -6,63 +6,71 @@
+     font-weight: 700;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_component_primary {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.43px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_component_secondary {
+     font-size: 14px;
+     line-height: 18px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.47px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_primary_large {
+     font-size: 18px;
+     line-height: 24px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.38px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_primary_medium {
+     font-size: 16px;
+     line-height: 24px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.43px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_primary_small {
+     font-size: 14px;
+     line-height: 20px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.47px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_secondary_large {
+     font-size: 13px;
+     line-height: 16px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.54px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_secondary_medium {
+     font-size: 12px;
+     line-height: 16px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.57px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_secondary_small {
+     font-size: 11px;
+     line-height: 16px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.54px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_tagline {
+@@ -71,7 +79,7 @@
+     font-weight: 700;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_caps {
+@@ -80,63 +88,71 @@
+     font-weight: 500;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_component_primary {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.05px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_component_secondary {
+     font-size: 14px;
+     line-height: 18px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.07px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_primary_large {
+     font-size: 18px;
+     line-height: 24px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.17px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_primary_medium {
+     font-size: 16px;
+     line-height: 24px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.05px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_primary_small {
+     font-size: 14px;
+     line-height: 20px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.07px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_secondary_large {
+     font-size: 13px;
+     line-height: 16px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.13px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_secondary_medium {
+     font-size: 12px;
+     line-height: 16px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.19px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_secondary_small {
+     font-size: 11px;
+     line-height: 16px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin action_tagline {
+@@ -145,157 +161,167 @@
+     font-weight: 500;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline_large {
+     font-size: 40px;
+     line-height: 48px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline_medium {
+     font-size: 32px;
+     line-height: 40px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.3px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline_small {
+     font-size: 24px;
+     line-height: 32px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.39px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline_xlarge {
+     font-size: 48px;
+     line-height: 64px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline_xsmall {
+     font-size: 20px;
+     line-height: 24px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: 0.33px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-mobile_large {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.25px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-mobile_medium {
+     font-size: 26px;
+     line-height: 32px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.25px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-mobile_small {
+     font-size: 20px;
+     line-height: 28px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.15px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-mobile_xlarge {
+     font-size: 34px;
+     line-height: 40px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.32px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-mobile_xsmall {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: 0.17px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system_large {
+     font-size: 40px;
+     line-height: 48px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system_medium {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system_small {
+     font-size: 22px;
+     line-height: 26px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.2px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system_xlarge {
+     font-size: 48px;
+     line-height: 52px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system_xsmall {
+     font-size: 18px;
+     line-height: 22px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.38px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system-mobile_large {
+     font-size: 30px;
+     line-height: 36px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: -0.25px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system-mobile_medium {
+     font-size: 26px;
+     line-height: 32px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: -0.25px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system-mobile_small {
+     font-size: 20px;
+     line-height: 28px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: -0.15px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system-mobile_xlarge {
+     font-size: 34px;
+     line-height: 40px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: -0.32px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin headline-system-mobile_xsmall {
+     font-size: 16px;
+     line-height: 20px;
+-    font-weight: 600;
+-    font-family: var(--font-family-system);
++    font-weight: 500;
++    letter-spacing: 0.17px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_caps {
+@@ -304,63 +330,70 @@
+     font-weight: 400;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_component_primary {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_component_secondary {
+     font-size: 14px;
+     line-height: 18px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.08px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_primary_large {
+     font-size: 18px;
+     line-height: 24px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.36px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_primary_medium {
+     font-size: 16px;
+     line-height: 24px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_primary_small {
+     font-size: 14px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.08px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_secondary_large {
+     font-size: 13px;
+     line-height: 16px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_secondary_medium {
+     font-size: 12px;
+     line-height: 16px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.06px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_secondary_small {
+     font-size: 11px;
+     line-height: 16px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.15px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin paragraph_tagline {
+@@ -369,216 +402,229 @@
+     font-weight: 400;
+     letter-spacing: 1.25px;
+     text-transform: uppercase;
+-    font-family: var(--font-family-system);
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo_large {
+     font-size: 40px;
+     line-height: 48px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1.7px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo_medium {
+     font-size: 32px;
+     line-height: 40px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1.36px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo_small {
+     font-size: 24px;
+     line-height: 32px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.9px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo_xlarge {
+     font-size: 48px;
+     line-height: 64px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -2.1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo_xsmall {
+     font-size: 20px;
+     line-height: 24px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.68px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-mobile_large {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1.25px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-mobile_medium {
+     font-size: 26px;
+     line-height: 32px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-mobile_small {
+     font-size: 20px;
+     line-height: 28px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.68px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-mobile_xlarge {
+     font-size: 34px;
+     line-height: 40px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -1.36px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-mobile_xsmall {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system_large {
+     font-size: 40px;
+     line-height: 48px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1.7px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system_medium {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1.25px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system_small {
+     font-size: 22px;
+     line-height: 26px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.8px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system_xlarge {
+     font-size: 48px;
+     line-height: 52px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -2.1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system_xsmall {
+     font-size: 18px;
+     line-height: 22px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.36px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system-mobile_large {
+     font-size: 30px;
+     line-height: 36px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1.25px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system-mobile_medium {
+     font-size: 26px;
+     line-height: 32px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system-mobile_small {
+     font-size: 20px;
+     line-height: 28px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.68px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system-mobile_xlarge {
+     font-size: 34px;
+     line-height: 40px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -1.36px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin promo-system-mobile_xsmall {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ }
+
+ @define-mixin accent_component {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 700;
+-    font-family: var(--font-family-system);
++    letter-spacing: 0.43px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+
+ @define-mixin action_component {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 500;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.05px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+
+ @define-mixin key_large {
+     font-size: 120px;
+     line-height: 132px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -0.8px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+
+ @define-mixin key_medium {
+     font-size: 96px;
+     line-height: 120px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -0.7px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+
+ @define-mixin key_small {
+     font-size: 80px;
+     line-height: 96px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -0.6px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+
+ @define-mixin key_xlarge {
+     font-size: 144px;
+     line-height: 180px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -1.1px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+
+ @define-mixin key_xsmall {
+     font-size: 64px;
+     line-height: 80px;
+-    font-weight: 500;
+-    font-feature-settings: 'ss01';
+-    font-family: var(--font-family-styrene);
++    font-weight: 700;
++    letter-spacing: -0.2px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+
+ @define-mixin paragraph_component {
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 400;
+-    font-family: var(--font-family-system);
++    letter-spacing: -0.24px;
++    font-family: var(--font-family-alfasans);
+ } /* deprecated */
+--
+2.50.1 (Apple Git-155)
+

@@ -15,6 +15,30 @@ import { TooltipDesktop } from '@alfalab/core-components/tooltip/desktop';
 // Мобильная версия
 import { TooltipMobile } from '@alfalab/core-components/tooltip/mobile';
 ```
+## Использование dataTestId
+
+В компоненте используются модификаторы для `dataTestId`.
+Для удобного поиска элементов можно воспользоваться функциями `getTooltipDesktopTestIds` и `getTooltipMobileTestIds`.
+Импорт из `@alfalab/core-components/tooltip/shared`.
+
+Функции возвращают объекты:
+
+```jsx
+// desktop
+{
+     target: `${dataTestId}-target`,
+     content: `${dataTestId}-content`,
+     popover:`${dataTestId}-popover`,
+};
+
+
+// mobile
+{
+    target: `${dataTestId}-target`,
+    bottomSheet: popover:`${dataTestId}-bottom-sheet`,
+};
+
+```
 
 ## Свойства
 

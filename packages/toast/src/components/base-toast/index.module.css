@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../../../toast-plate/src/vars.css';
 
 :root {
@@ -8,10 +8,6 @@
 .toastPlate {
     box-shadow: var(--toast-box-shadow);
     word-break: break-word;
-}
-
-.title {
-    font-weight: 400;
 }
 
 .popoverInner {
@@ -25,7 +21,7 @@
     width: 100%;
 }
 
-.fixed {
+.fixed.fixed {
     position: fixed;
     bottom: var(--gap-32);
 

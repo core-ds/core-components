@@ -25,7 +25,6 @@ import {
 import { fnUtils, getDataTestId, isClient } from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
-import { SIZE_TO_CLASSNAME_MAP } from '../../consts';
 import {
     type AnyObject,
     type OptionShape,
@@ -321,6 +320,13 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     case useCombobox.stateChangeTypes.ItemClick: {
                         const { selectedItem } = changes;
 
+                        if (
+                            type === useCombobox.stateChangeTypes.InputKeyDownEnter &&
+                            state.highlightedIndex === -1
+                        ) {
+                            return state;
+                        }
+
                         initiatorRef.current = selectedItem || null;
 
                         return {
@@ -587,7 +593,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                             [styles.search]: view === 'desktop',
                             [mobileStyles.search]: view === 'mobile',
                         },
-                        size && styles[SIZE_TO_CLASSNAME_MAP[size]],
+                        styles[`size-${size}`],
                     )}
                     ref={mergeRefs([searchRef, searchProps?.componentProps?.ref || null])}
                     client={view}
@@ -714,7 +720,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         contentClassName={mobileStyles.sheetContent}
                         containerClassName={mobileStyles.sheetContainer}
                         title={label || placeholder}
-                        actionButton={footer}
+                        actionButton={footer ?? (multiple ? null : undefined)}
                         stickyHeader={true}
                         hasCloser={true}
                         swipeable={swipeable}

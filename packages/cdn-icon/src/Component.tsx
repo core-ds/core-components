@@ -5,7 +5,7 @@ import { LoadingStatus, useIcon } from './hooks/use-icon';
 
 import styles from './index.module.css';
 
-type CDNIconProps = {
+interface CDNIconProps {
     /**
      * Имя иконки
      */
@@ -35,7 +35,7 @@ type CDNIconProps = {
      * Callback, вызываемый при ошибке загрузки иконки
      */
     onError?: () => void;
-};
+}
 
 export const CDNIcon: React.FC<CDNIconProps> = ({
     name,
@@ -46,14 +46,17 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     fallback,
     onError,
 }) => {
-    const [icon, status] = useIcon(`${baseUrl}/${name}.svg`);
+    const [icon, status] = useIcon(name, baseUrl);
     const isMonoIcon = !name.includes('_color');
 
+    const hasError = status === LoadingStatus.FAILURE;
+
     useEffect(() => {
-        if (status === LoadingStatus.FAILURE) {
+        if (hasError) {
             onError?.();
         }
-    }, [onError, status]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [hasError]);
 
     return (
         <span
@@ -68,7 +71,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
                 status === LoadingStatus.SUCCESS ? { __html: icon! } : undefined
             }
         >
-            {status === LoadingStatus.FAILURE ? fallback : undefined}
+            {hasError ? fallback : undefined}
         </span>
     );
 };

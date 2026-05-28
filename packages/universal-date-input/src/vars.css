@@ -1,8 +1,8 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 :root {
     --calendar-icon-color: var(--color-light-neutral-translucent-700);
 
     /* border */
-    --calendar-popover-border-radius: var(--border-radius-8);
+    --calendar-popover-border-radius: var(--border-radius-16);
 }

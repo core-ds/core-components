@@ -1,5 +1,110 @@
 # @alfalab/core-components-checkbox
 
+## 6.2.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+
+## 6.2.0
+
+### Minor Changes
+
+<sup><time>20.03.2026</time></sup>
+
+#### [#2119](https://github.com/core-ds/core-components/pull/2119)
+
+##### Checkbox
+
+- Добавлены пропсы `labelClassName`, `hintClassName`, `errorClassName`, `addonsClassName` для передачи дополнительных классов соответствующим элементам компонента
+
+## 6.1.1
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.1
+
+## 6.1.0
+
+### Minor Changes
+
+<sup><time>27.02.2026</time></sup>
+
+#### [#2071](https://github.com/core-ds/core-components/pull/2071)
+
+##### Checkbox
+
+- Добавлен prop `position` для управления положением чекбокса относительно контента ('before' | 'after'), теперь компонент сам контролирует порядок DOM-узлов (label/checkbox).
+
+## 6.0.2
+
+### Patch Changes
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.1.0
+
+## 6.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.0.1
+
+## 6.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1645](https://github.com/core-ds/core-components/pull/1645)
+
+##### Checkbox
+
+- Удален пропс `inactive`, который был помечен как `deprecated` в `core-components@43.x.x`
+- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `20 и 24` соответственно)
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-shared@2.0.0
+
 ## 5.0.2
 
 ### Patch Changes

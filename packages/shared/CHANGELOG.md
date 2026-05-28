@@ -1,5 +1,87 @@
 # @alfalab/core-components-shared
 
+## 2.2.0
+
+### Minor Changes
+
+<sup><time>25.05.2026</time></sup>
+
+#### [#2173](https://github.com/core-ds/core-components/pull/2173)
+
+##### Shared
+
+- Добавлены `utility` компоненты:
+    - `NoopComponent`
+    - `PassThroughComponent`
+- Добавлен хук `useForceUpdate`
+- Добавлен хук `useRefAsState`
+
+## 2.1.1
+
+### Patch Changes
+
+<sup><time>06.03.2026</time></sup>
+
+#### [#2102](https://github.com/core-ds/core-components/pull/2102)
+
+##### Vars
+
+- Удален файл `no-typography-index.css`
+
+## 2.1.0
+
+### Minor Changes
+
+<sup><time>20.02.2026</time></sup>
+
+#### [#2074](https://github.com/core-ds/core-components/pull/2074)
+
+##### Shared
+
+- Добавлен компонент `Icon20Adapter` для использования иконок 20 размера в слотах для иконок 16 размера
+
+## 2.0.1
+
+### Patch Changes
+
+<sup><time>05.02.2026</time></sup>
+
+#### [#2047](https://github.com/core-ds/core-components/pull/2047)
+
+- Корректная версия `alfasans`-пакетов в `package.json`
+
+- Обновлены зависимости
+    - @alfalab/core-components-types@2.0.1
+
+## 2.0.0
+
+### Major Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1620](https://github.com/core-ds/core-components/pull/1620)
+
+##### Shared
+
+- Импорты browser и os утилит заменены с компаунд на атомарные
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1989](https://github.com/core-ds/core-components/pull/1989)
+
+- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`
+
+### Patch Changes
+
+<sup><time>04.02.2026</time></sup>
+
+#### [#1898](https://github.com/core-ds/core-components/pull/1898)
+
+- Добавлена поддержка `React@19.0.0`
+
+- Обновлены зависимости
+    - @alfalab/core-components-types@2.0.0
+
 ## 1.1.1
 
 ### Patch Changes

@@ -79,17 +79,26 @@ describe(
     }),
 );
 
-describe('Button | views & themes', () => {
+describe('ButtonDesktop | views & themes', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
                 [
                     `${theme} theme`,
                     createSpriteStorybookUrl({
-                        componentName: 'Button',
+                        packageName: 'button',
+                        componentName: 'ButtonDesktop',
                         knobs: {
                             children: 'Оплатить',
-                            view: ['primary', 'secondary', 'outlined', 'transparent', 'text'],
+                            hint: 'Подсказка',
+                            view: [
+                                'accent',
+                                'primary',
+                                'secondary',
+                                'outlined',
+                                'transparent',
+                                'text',
+                            ],
                             disabled: [false, true],
                         },
                         size: { width: 150, height: 80 },
@@ -109,17 +118,103 @@ describe('Button | views & themes', () => {
     ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
 });
 
-describe('Button | inverted views & themes', () => {
+describe('ButtonMobile | views & themes', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
                 [
                     `${theme} theme`,
                     createSpriteStorybookUrl({
-                        componentName: 'Button',
+                        packageName: 'button',
+                        componentName: 'ButtonMobile',
                         knobs: {
                             children: 'Оплатить',
-                            view: ['primary', 'secondary', 'outlined', 'transparent', 'text'],
+                            hint: 'Подсказка',
+                            view: [
+                                'accent',
+                                'primary',
+                                'secondary',
+                                'outlined',
+                                'transparent',
+                                'text',
+                            ],
+                            disabled: [false, true],
+                        },
+                        size: { width: 150, height: 80 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 1100,
+                height: 240,
+            },
+            theme,
+        })();
+
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
+});
+
+describe('ButtonDesktop | inverted views & themes', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'button',
+                        componentName: 'ButtonDesktop',
+                        knobs: {
+                            children: 'Оплатить',
+                            view: [
+                                'accent',
+                                'primary',
+                                'secondary',
+                                'outlined',
+                                'transparent',
+                                'text',
+                            ],
+                            disabled: [false, true],
+                            colors: 'inverted',
+                        },
+                        size: { width: 150, height: 80 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 1100,
+                height: 240,
+            },
+            theme,
+        })();
+
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
+});
+
+describe('ButtonMobile | inverted views & themes', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        packageName: 'button',
+                        componentName: 'ButtonMobile',
+                        knobs: {
+                            children: 'Оплатить',
+                            view: [
+                                'accent',
+                                'primary',
+                                'secondary',
+                                'outlined',
+                                'transparent',
+                                'text',
+                            ],
                             disabled: [false, true],
                             colors: 'inverted',
                         },
@@ -151,7 +246,7 @@ describe(
                     size: { width: 500, height: 80 },
                     knobs: {
                         children: 'Оплатить',
-                        view: ['primary', 'secondary', 'outlined', 'transparent', 'text'],
+                        view: ['accent', 'primary', 'secondary', 'outlined', 'transparent', 'text'],
                         block: true,
                     },
                 }),

@@ -14,7 +14,7 @@ import {
     type CredentialRequestOtpOptions,
     type CustomInputRef,
 } from '../../typings';
-import { Input, type InputProps } from '..';
+import { Input, type InputProps } from '../input';
 
 import { parseInputIdx, syncSelection } from './utils';
 

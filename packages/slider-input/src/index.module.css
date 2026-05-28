@@ -1,11 +1,10 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../slider/src/vars.css';
 @import '../../form-control/src/vars.css';
 
 :root {
     --slider-input-steps-color: var(--color-light-text-secondary);
     --slider-input-info-color: var(--color-light-text-secondary);
-    --slider-input-font-weight: 700;
     --slider-input-s-border-bottom-radius: var(--border-radius-8);
     --slider-input-m-border-bottom-radius: var(--border-radius-8);
     --slider-input-l-border-bottom-radius: var(--border-radius-8);
@@ -17,6 +16,8 @@
     --slider-input-progress-hover-bg-color: var(--color-light-neutral-700);
     --slider-input-origin-width: calc(100% - 16px);
     --slider-input-origin-right: var(--gap-8);
+    --slider-input-edge-value-margin: -50%;
+    --slider-input-pips-margin: var(--gap-6) var(--gap-6) 0;
 }
 
 .component {
@@ -57,8 +58,39 @@
     }
 
     & :global(.noUi-origin) {
-        width: var(--slider-input-origin-width);
-        right: var(--slider-input-origin-right);
+        width: calc(100% - var(--gap-12));
+        right: var(--gap-6);
+    }
+
+    & :global(.noUi-pips) {
+        margin: var(--slider-input-pips-margin);
+        width: initial;
+    }
+
+    & :global(.noUi-value) {
+        &:nth-child(2) {
+            transform: translateX(var(--slider-input-edge-value-margin));
+        }
+
+        &:last-child {
+            transform: translateX(calc(-100% - var(--slider-input-edge-value-margin)));
+        }
+    }
+
+    & :global(.noUi-marker-large),
+    & :global(.noUi-marker-sub) {
+        top: calc(var(--gap-6-neg) - 1px);
+    }
+
+    & :global(.noUi-marker-large) {
+        &:first-child {
+            transform: translateX(var(--slider-input-edge-value-margin)) translateY(-50%);
+        }
+
+        &:nth-last-child(2) {
+            transform: translateX(calc(-100% - var(--slider-input-edge-value-margin)))
+                translateY(-50%);
+        }
     }
 
     /* TODO исправить на 6px когда слайдеру добавят position: absolute */
@@ -100,16 +132,12 @@
     & input + div {
         font-variant-numeric: tabular-nums;
     }
-
-    & input::placeholder {
-        font-weight: 400;
-    }
 }
 
 .bold .input {
     & input,
     & input + div {
-        font-weight: var(--slider-input-font-weight);
+        @mixin accent_component_primary;
     }
 }
 

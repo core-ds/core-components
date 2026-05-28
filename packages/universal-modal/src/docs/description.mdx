@@ -153,11 +153,11 @@ const verticalOptions = [
 ];
 
 const heightOptions = [
-    { key: 'hugContent', content: 'Hug Content' },
-    { key: '500', content: '500' },
-    { key: '600', content: '600' },
-    { key: '800', content: '800' },
-    { key: 'fullHeight', content: 'Full' },
+    { key: 'hugContent', content: 'Hug Content', value: 'hugContent' },
+    { key: '500', content: '500', value: 500 },
+    { key: '600', content: '600', value: 600 },
+    { key: '800', content: '800', value: 800 },
+    { key: 'fullHeight', content: 'Full', value: 'fullHeight' },
 ];
 
 const widthOptions = [
@@ -244,6 +244,7 @@ render(() => {
     const [verticalAlign, setVerticalAlign] = React.useState('center');
     const [modalWidth, setModalWidth] = React.useState('500');
     const [modalHeight, setModalHeight] = React.useState('hugContent');
+    const [selected, setSelected] = React.useState('hugContent');
 
     const [headerButtonCross, setHeaderButtonCross] = React.useState(true);
     const [headerButtonArrow, setHeaderButtonArrow] = React.useState(false);
@@ -275,10 +276,13 @@ render(() => {
                     <SelectDesktop
                         size={56}
                         options={heightOptions}
-                        selected={modalHeight}
+                        selected={selected}
                         label='Высота'
                         block={true}
-                        onChange={({ selected }) => setModalHeight(selected.key)}
+                        onChange={({ selected }) => {
+                            setModalHeight(selected.value);
+                            setSelected(selected.key);
+                        }}
                     />
                 </div>
                 <div style={{ width: 360 }}>

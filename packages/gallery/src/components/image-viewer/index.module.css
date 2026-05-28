@@ -1,10 +1,73 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 
 .component {
     display: flex;
     flex-grow: 1;
     justify-content: center;
     background-color: var(--color-static-neutral-0-inverted);
+
+    /* swiper/swiper.css; */
+    :global(.swiper) {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+        display: block;
+    }
+    :global(.swiper-wrapper) {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        transition-property: transform;
+        transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+        box-sizing: content-box;
+    }
+    :global(.swiper-android) :global(.swiper-slide),
+    :global(.swiper-ios) :global(.swiper-slide),
+    :global(.swiper-wrapper) {
+        transform: translate3d(0, 0, 0);
+    }
+    :global(.swiper-horizontal) {
+        touch-action: pan-y;
+    }
+    :global(.swiper-slide) {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+        display: block;
+    }
+    :global(.swiper-slide-invisible-blank) {
+        visibility: hidden;
+    }
+    :global(.swiper-autoheight),
+    :global(.swiper-autoheight) :global(.swiper-slide) {
+        height: auto;
+    }
+    :global(.swiper-autoheight) :global(.swiper-wrapper) {
+        align-items: flex-start;
+        transition-property: transform, height;
+    }
+    :global(.swiper-backface-hidden) :global(.swiper-slide) {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    /* swiper/modules/a11y.css */
+    :global(.swiper) :global(.swiper-notification) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+        opacity: 0;
+        z-index: -1000;
+    }
 }
 
 .swiper {

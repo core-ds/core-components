@@ -1,9 +1,12 @@
-@import '../../../../vars/src/index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '../../vars.css';
 
 .highlighted {
     background-color: var(--bottom-sheet-footer-background-color-inverted);
-    border-top: var(--bottom-sheet-footer-border-top-inverted);
+
+    &:not(:empty) {
+        border-top: var(--bottom-sheet-footer-border-top-inverted);
+    }
 }
 
 .hasContent {

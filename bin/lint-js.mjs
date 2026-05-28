@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-import path from 'node:path';
-import { cwd, exit } from 'node:process';
+import * as process from 'node:process';
 
 import { ESLINT_IGNORED_PACKAGES } from '../tools/eslint.cjs';
 import { $ } from '../tools/execa.mjs';
@@ -26,21 +25,19 @@ async function main() {
                 },
             ),
             $(
-                'lerna',
+                'yarn',
                 [
+                    'workspaces',
+                    'foreach',
+                    '-Ap',
+                    ...ESLINT_IGNORED_PACKAGES.flatMap((pkg) => ['--exclude', pkg]),
                     'exec',
-                    '--no-bail',
-                    '--stream',
-                    ...ESLINT_IGNORED_PACKAGES.flatMap((pkg) => ['--ignore', pkg]),
-                    '--',
                     'eslint',
                     'src',
                     '--ext',
                     '.js,.jsx,.ts,.tsx,.mjs,.mts,.cjs,.cts',
                     '--max-warnings',
                     '0',
-                    '--config',
-                    path.resolve(cwd(), '.eslintrc.cjs'),
                 ],
                 {
                     preferLocal: true,
@@ -51,11 +48,9 @@ async function main() {
         ])
     ).map(({ exitCode }) => exitCode);
 
-    if (exitCodes.every((exitCode) => exitCode === 0)) {
-        return;
+    if (exitCodes.every((exitCode) => exitCode !== 0)) {
+        process.exit(1);
     }
-
-    exit(1);
 }
 
 await main();

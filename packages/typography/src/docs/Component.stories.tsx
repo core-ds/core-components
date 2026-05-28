@@ -114,6 +114,7 @@ export const typography_text: Story = {
         const weight = select('weight', ['regular', 'medium', 'bold', undefined], 'regular');
         const monospace = boolean('monospaceNumbers', false);
         const defaultMargins = tag === 'p' ? boolean('defaultMargins', true) : undefined;
+        const rowLimit = select('rowLimit', [1, 2, 3, undefined], undefined);
         return (
             <>
                 {VIEW_TYPES.map((view) => (
@@ -125,6 +126,7 @@ export const typography_text: Story = {
                         monospaceNumbers={monospace}
                         key={view}
                         defaultMargins={defaultMargins}
+                        rowLimit={rowLimit}
                         font={font === 'alfasans' ? 'alfasans' : undefined}
                     >
                         {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый

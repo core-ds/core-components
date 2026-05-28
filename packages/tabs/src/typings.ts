@@ -10,6 +10,7 @@ import {
 
 import { type SkeletonProps } from '@alfalab/core-components-skeleton';
 import { type TagProps } from '@alfalab/core-components-tag';
+import { type TypographyType } from '@alfalab/core-components-types';
 
 export type SelectedId = string | number;
 export type TitleProps = Omit<
@@ -56,7 +57,8 @@ export interface TabsProps
     /**
      * Стиль текста. Имеет приоритет над size. Работает только в primary табах.
      */
-    textStyle?:
+    textStyle?: Extract<
+        TypographyType,
         | 'paragraph-primary-large'
         | 'paragraph-primary-medium'
         | 'paragraph-primary-small'
@@ -75,7 +77,8 @@ export interface TabsProps
         | 'headline-large'
         | 'headline-medium'
         | 'headline-small'
-        | 'headline-xsmall';
+        | 'headline-xsmall'
+    >;
 
     /**
      * Высота заголовков табов

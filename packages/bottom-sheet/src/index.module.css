@@ -1,4 +1,4 @@
-@import '@alfalab/core-components-vars/src/no-typography-index.css';
+@import '@alfalab/core-components-vars/src/index.css';
 @import '@alfalab/core-components-vars/src/safe-area.css';
 @import './vars.css';
 
@@ -80,17 +80,17 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: var(--gap-0) var(--gap-16);
+    padding: var(--gap-0) var(--gap-20);
     background-color: inherit;
     border-radius: inherit;
 }
 
 .noHeader {
-    padding-top: var(--gap-16);
+    padding-top: var(--gap-20);
 }
 
 .noFooter {
-    padding-bottom: var(--gap-16);
+    padding-bottom: var(--gap-20);
 }
 
 .scrollLocked {

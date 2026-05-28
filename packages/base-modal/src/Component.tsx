@@ -24,7 +24,7 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, type PortalProps } from '@alfalab/core-components-portal';
-import { browser, os } from '@alfalab/core-components-shared';
+import { getScrollbarSize, isIOS } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
@@ -38,9 +38,6 @@ import {
 } from './utils';
 
 import styles from './index.module.css';
-
-// TODO Без полифила крашится FocusLock в IE11. Выпилить в будущем!!!.
-import './matches-polyfill';
 
 export type BaseModalProps = {
     /**
@@ -244,6 +241,8 @@ export type BaseModalContext = {
     setHasHeader: (exists: boolean) => void;
     setHasFooter: (exists: boolean) => void;
     onClose: Required<BaseModalProps>['onClose'];
+    setHeaderHighlighted: (value: boolean) => void;
+    setFooterHighlighted: (value: boolean) => void;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
@@ -261,6 +260,8 @@ export const BaseModalContext = React.createContext<BaseModalContext>({
     setHasHeader: () => null,
     setHasFooter: () => null,
     onClose: () => null,
+    setHeaderHighlighted: () => {},
+    setFooterHighlighted: () => {},
 });
 
 export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
@@ -279,7 +280,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
             disableBlockingScroll = false,
-            scrollLock = false,
+            scrollLock,
             keepMounted = false,
             className,
             contentClassName,
@@ -379,7 +380,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
-                if (!scrollLock && iOSLock && os.isIOS()) {
+                if (!scrollLock && iOSLock && isIOS()) {
                     unlockScroll();
                 }
 
@@ -406,7 +407,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
             if (event.clientX && clientWidth) {
                 // Устанавливаем смещение для абсолютно спозиционированного скроллбара в OSX в 17px.
-                const offset = browser.getScrollbarSize() === 0 ? 17 : 0;
+                const offset = getScrollbarSize() === 0 ? 17 : 0;
 
                 clickedOnScrollbar = event.clientX + offset > clientWidth;
             }
@@ -504,12 +505,13 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                  * При scrollLock={true} блокировка обрабатывается через react-remove-scroll,
                  * старая логика нужна только для обратной совместимости (deprecated пропсы)
                  */
-                const shouldUseLegacyScrollLock = !scrollLock && !disableBlockingScroll;
+                const shouldUseLegacyScrollLock =
+                    scrollLock === undefined && !disableBlockingScroll;
 
                 if (shouldUseLegacyScrollLock) {
                     const el = getContainer();
 
-                    const shouldIOSLock = iOSLock && os.isIOS();
+                    const shouldIOSLock = iOSLock && isIOS();
 
                     handleContainer(el, shouldIOSLock);
                     if (shouldIOSLock) {
@@ -568,6 +570,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 setHasHeader,
                 setHasFooter,
                 onClose: handleClose,
+                setHeaderHighlighted,
+                setFooterHighlighted,
             }),
             [
                 contentRef,
@@ -582,6 +586,12 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             ],
         );
 
+        const {
+            className: backdropClassName,
+            shouldRender: backdropShouldRender = true,
+            ...restBackdropProps
+        } = backdropProps;
+
         const renderContent = () => (
             <Stack value={zIndex}>
                 {(computedZIndex) => (
@@ -595,10 +605,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 removeScrollBar={false}
                             >
                                 <React.Fragment>
-                                    {Backdrop && (
+                                    {backdropShouldRender && Backdrop && (
                                         <Backdrop
-                                            {...backdropProps}
-                                            className={cn(backdropProps.className, styles.backdrop)}
+                                            {...restBackdropProps}
+                                            className={cn(backdropClassName, styles.backdrop)}
                                             open={open}
                                             style={{
                                                 zIndex: computedZIndex,

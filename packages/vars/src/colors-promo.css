@@ -1,45 +1,225 @@
 :root {
+    --color-dark-promo-chardonnay: #ffcf99;
+    --color-dark-promo-chardonnay-hover: #ffd8ac;
+    --color-dark-promo-chardonnay-press: #ffe0be;
     --color-dark-promo-classic: #2a2c2f;
+    --color-dark-promo-classic-hover: #313337;
+    --color-dark-promo-classic-press: #36393d;
+    --color-dark-promo-conclave: #b3ccff;
+    --color-dark-promo-conclave-hover: #bdd3ff;
+    --color-dark-promo-conclave-press: #c6d9ff;
+    --color-dark-promo-gravel: #2a2c2f;
+    --color-dark-promo-gravel-hover: #313337;
+    --color-dark-promo-gravel-press: #36393d;
+    --color-dark-promo-lagoon: #9df2f5;
+    --color-dark-promo-lagoon-hover: #b5f5f7;
+    --color-dark-promo-lagoon-press: #cbf8f9;
+    --color-dark-promo-menthol: #bff0a8;
+    --color-dark-promo-menthol-hover: #cef3bd;
+    --color-dark-promo-menthol-press: #dbf6d0;
     --color-dark-promo-muted-gravel: #353539;
+    --color-dark-promo-muted-gravel-hover: #3a3a3f;
+    --color-dark-promo-muted-gravel-press: #3f3f44;
     --color-dark-promo-muted-menthol: #1b2816;
+    --color-dark-promo-muted-menthol-hover: #1f2d1a;
+    --color-dark-promo-muted-menthol-press: #23331d;
     --color-dark-promo-muted-sonata: #222a3e;
+    --color-dark-promo-muted-sonata-hover: #262f45;
+    --color-dark-promo-muted-sonata-press: #2a344b;
     --color-dark-promo-muted-tomato: #3e2321;
+    --color-dark-promo-muted-tomato-hover: #452725;
+    --color-dark-promo-muted-tomato-press: #4c2c29;
+    --color-dark-promo-oasis: #dfbfff;
+    --color-dark-promo-oasis-hover: #e3c8ff;
+    --color-dark-promo-oasis-press: #e7d1ff;
+    --color-dark-promo-pale-chardonnay: #ffe5c7;
+    --color-dark-promo-pale-conclave: #d6e6ff;
+    --color-dark-promo-pale-lagoon: #c5f8fa;
+    --color-dark-promo-pale-oasis: #ebd6ff;
+    --color-dark-promo-pale-pearl: #f1f4f4;
+    --color-dark-promo-pale-primrose: #eaffb3;
+    --color-dark-promo-pale-seafoam: #d6ffe7;
+    --color-dark-promo-pale-tomato: #ffdbd8;
+    --color-dark-promo-peach: #ffcbb3;
+    --color-dark-promo-peach-hover: #ffd4c1;
+    --color-dark-promo-peach-press: #ffddce;
+    --color-dark-promo-pearl: #eaeeee;
+    --color-dark-promo-pearl-hover: #f2f4f4;
+    --color-dark-promo-pearl-press: #f6f7f7;
+    --color-dark-promo-prelude: #c7bfff;
+    --color-dark-promo-prelude-hover: #cdc7ff;
+    --color-dark-promo-prelude-press: #d4ceff;
+    --color-dark-promo-primrose: #d6f09a;
+    --color-dark-promo-primrose-hover: #ddf6a4;
+    --color-dark-promo-primrose-press: #e8f8c7;
+    --color-dark-promo-seafoam: #a0fac6;
+    --color-dark-promo-seafoam-hover: #bafbd4;
+    --color-dark-promo-seafoam-press: #d1fce1;
+    --color-dark-promo-sonata: #9edfff;
+    --color-dark-promo-sonata-hover: #aee4ff;
+    --color-dark-promo-sonata-press: #bee9ff;
+    --color-dark-promo-tomato: #ffcac7;
+    --color-dark-promo-tomato-hover: #ffd4d1;
+    --color-dark-promo-tomato-press: #ffdddb;
+    --color-dark-promo-vibrant-chardonnay: #fa9319;
+    --color-dark-promo-vibrant-chardonnay-hover: #fda146;
+    --color-dark-promo-vibrant-chardonnay-press: #fdb473;
+    --color-dark-promo-vibrant-conclave: #266fff;
+    --color-dark-promo-vibrant-conclave-hover: #397cff;
+    --color-dark-promo-vibrant-conclave-press: #4a88ff;
+    --color-dark-promo-vibrant-lagoon: #00e8f0;
+    --color-dark-promo-vibrant-lagoon-hover: #00f3fb;
+    --color-dark-promo-vibrant-lagoon-press: #69f9ff;
+    --color-dark-promo-vibrant-menthol: #31e300;
+    --color-dark-promo-vibrant-menthol-hover: #34ee00;
+    --color-dark-promo-vibrant-menthol-press: #37fa00;
+    --color-dark-promo-vibrant-oasis: #93f;
+    --color-dark-promo-vibrant-oasis-hover: #9f4cff;
+    --color-dark-promo-vibrant-oasis-press: #a55fff;
+    --color-dark-promo-vibrant-peach: #ff681c;
+    --color-dark-promo-vibrant-peach-hover: #ff7c44;
+    --color-dark-promo-vibrant-peach-press: #ff8d5f;
+    --color-dark-promo-vibrant-prelude: #6a4dff;
+    --color-dark-promo-vibrant-prelude-hover: #715eff;
+    --color-dark-promo-vibrant-prelude-press: #796dff;
+    --color-dark-promo-vibrant-primrose: #a8f000;
+    --color-dark-promo-vibrant-primrose-hover: #adf700;
+    --color-dark-promo-vibrant-primrose-press: #b2ff00;
+    --color-dark-promo-vibrant-seafoam: #00f064;
+    --color-dark-promo-vibrant-seafoam-hover: #00fb69;
+    --color-dark-promo-vibrant-seafoam-press: #6bff8b;
+    --color-dark-promo-vibrant-sonata: #17a0e5;
+    --color-dark-promo-vibrant-sonata-hover: #18aaf3;
+    --color-dark-promo-vibrant-sonata-press: #2db4fc;
+    --color-dark-promo-vibrant-tomato: #ef3124;
+    --color-dark-promo-vibrant-tomato-hover: #f54838;
+    --color-dark-promo-vibrant-tomato-press: #f55f4e;
+    --color-light-promo-chardonnay: #ffcf99;
+    --color-light-promo-chardonnay-hover: #ffc685;
+    --color-light-promo-chardonnay-press: #ffbd6f;
     --color-light-promo-classic: #000;
+    --color-light-promo-classic-hover: #161616;
+    --color-light-promo-classic-press: #1b1b1b;
+    --color-light-promo-conclave: #b3ccff;
+    --color-light-promo-conclave-hover: #a9c5ff;
+    --color-light-promo-conclave-press: #9fbfff;
+    --color-light-promo-gravel: #2a2c2f;
+    --color-light-promo-gravel-hover: #25272a;
+    --color-light-promo-gravel-press: #202225;
+    --color-light-promo-lagoon: #9df2f5;
+    --color-light-promo-lagoon-hover: #7cf0f4;
+    --color-light-promo-lagoon-press: #5fecf1;
+    --color-light-promo-menthol: #bff0a8;
+    --color-light-promo-menthol-hover: #aeee8f;
+    --color-light-promo-menthol-press: #a8e788;
     --color-light-promo-muted-gravel: #2a2c2f;
+    --color-light-promo-muted-gravel-hover: #25272a;
+    --color-light-promo-muted-gravel-press: #202225;
     --color-light-promo-muted-menthol: #eafae2;
+    --color-light-promo-muted-menthol-hover: #def7d1;
+    --color-light-promo-muted-menthol-press: #d3f2c3;
     --color-light-promo-muted-sonata: #e9f6fd;
+    --color-light-promo-muted-sonata-hover: #dcf1fc;
+    --color-light-promo-muted-sonata-press: #cfecfb;
     --color-light-promo-muted-tomato: #fdf1f1;
+    --color-light-promo-muted-tomato-hover: #ffe7e7;
+    --color-light-promo-muted-tomato-press: #ffdede;
+    --color-light-promo-oasis: #dfbfff;
+    --color-light-promo-oasis-hover: #dbb6ff;
+    --color-light-promo-oasis-press: #d7adff;
+    --color-light-promo-pale-chardonnay: #ffe5c7;
+    --color-light-promo-pale-conclave: #d6e6ff;
+    --color-light-promo-pale-lagoon: #c5f8fa;
+    --color-light-promo-pale-oasis: #ebd6ff;
+    --color-light-promo-pale-pearl: #f1f4f4;
+    --color-light-promo-pale-primrose: #eaffb3;
+    --color-light-promo-pale-seafoam: #d6ffe7;
+    --color-light-promo-pale-tomato: #ffdbd8;
+    --color-light-promo-peach: #ffcbb3;
+    --color-light-promo-peach-hover: #ffc2a6;
+    --color-light-promo-peach-press: #ffb898;
+    --color-light-promo-pearl: #eaeeee;
+    --color-light-promo-pearl-hover: #e2e8e8;
+    --color-light-promo-pearl-press: #dae2e2;
+    --color-light-promo-prelude: #c7bfff;
+    --color-light-promo-prelude-hover: #c1b7ff;
+    --color-light-promo-prelude-press: #baafff;
+    --color-light-promo-primrose: #d6f09a;
+    --color-light-promo-primrose-hover: #cdec7f;
+    --color-light-promo-primrose-press: #c6e578;
+    --color-light-promo-seafoam: #a0fac6;
+    --color-light-promo-seafoam-hover: #80f9b7;
+    --color-light-promo-seafoam-press: #64f6ab;
+    --color-light-promo-sonata: #9edfff;
+    --color-light-promo-sonata-hover: #8ddaff;
+    --color-light-promo-sonata-press: #7ad5ff;
+    --color-light-promo-tomato: #ffcac7;
+    --color-light-promo-tomato-hover: #ffc1bd;
+    --color-light-promo-tomato-press: #ffb7b3;
+    --color-light-promo-vibrant-chardonnay: #fa9319;
+    --color-light-promo-vibrant-chardonnay-hover: #f18e17;
+    --color-light-promo-vibrant-chardonnay-press: #e48615;
+    --color-light-promo-vibrant-conclave: #266fff;
+    --color-light-promo-vibrant-conclave-hover: #0d61ff;
+    --color-light-promo-vibrant-conclave-press: #0057f3;
+    --color-light-promo-vibrant-lagoon: #00e8f0;
+    --color-light-promo-vibrant-lagoon-hover: #00dae1;
+    --color-light-promo-vibrant-lagoon-press: #00cfd6;
+    --color-light-promo-vibrant-menthol: #31e300;
+    --color-light-promo-vibrant-menthol-hover: #2ed800;
+    --color-light-promo-vibrant-menthol-press: #2bcd00;
+    --color-light-promo-vibrant-oasis: #93f;
+    --color-light-promo-vibrant-oasis-hover: #951aff;
+    --color-light-promo-vibrant-oasis-press: #8c00f2;
+    --color-light-promo-vibrant-peach: #ff681c;
+    --color-light-promo-vibrant-peach-hover: #f55d00;
+    --color-light-promo-vibrant-peach-press: #eb5900;
+    --color-light-promo-vibrant-prelude: #6a4dff;
+    --color-light-promo-vibrant-prelude-hover: #6438ff;
+    --color-light-promo-vibrant-prelude-press: #6024ff;
+    --color-light-promo-vibrant-primrose: #a8f000;
+    --color-light-promo-vibrant-primrose-hover: #a0e500;
+    --color-light-promo-vibrant-primrose-press: #98da00;
+    --color-light-promo-vibrant-seafoam: #00f064;
+    --color-light-promo-vibrant-seafoam-hover: #00e55f;
+    --color-light-promo-vibrant-seafoam-press: #00d95a;
+    --color-light-promo-vibrant-sonata: #17a0e5;
+    --color-light-promo-vibrant-sonata-hover: #1496d8;
+    --color-light-promo-vibrant-sonata-press: #128dca;
+    --color-light-promo-vibrant-tomato: #ef3124;
+    --color-light-promo-vibrant-tomato-hover: #e02d21;
+    --color-light-promo-vibrant-tomato-press: #d02a1e;
     --color-static-promo-classic: #000;
-    --color-static-promo-chardonnay: #ffcf99;
-    --color-static-promo-conclave: #b3ccff;
-    --color-static-promo-gravel: #2a2c2f;
-    --color-static-promo-lagoon: #9df2f5;
-    --color-static-promo-menthol: #bff0a8;
-    --color-static-promo-oasis: #dfbfff;
-    --color-static-promo-pale-chardonnay: #ffe5c7;
-    --color-static-promo-pale-conclave: #d6e6ff;
-    --color-static-promo-pale-lagoon: #c5f8fa;
-    --color-static-promo-pale-oasis: #ebd6ff;
-    --color-static-promo-pale-pearl: #f1f4f4;
-    --color-static-promo-pale-primrose: #eaffb3;
-    --color-static-promo-pale-seafoam: #d6ffe7;
-    --color-static-promo-pale-tomato: #ffdbd8;
-    --color-static-promo-peach: #ffcbb3;
-    --color-static-promo-pearl: #eaeeee;
-    --color-static-promo-prelude: #c7bfff;
-    --color-static-promo-primrose: #d6f09a;
-    --color-static-promo-seafoam: #a0fac6;
-    --color-static-promo-sonata: #9edfff;
-    --color-static-promo-tomato: #ffcac7;
-    --color-static-promo-vibrant-chardonnay: #fa9319;
-    --color-static-promo-vibrant-conclave: #266fff;
-    --color-static-promo-vibrant-lagoon: #00e8f0;
-    --color-static-promo-vibrant-menthol: #31e300;
-    --color-static-promo-vibrant-oasis: #93f;
-    --color-static-promo-vibrant-peach: #ff681c;
-    --color-static-promo-vibrant-prelude: #6a4dff;
-    --color-static-promo-vibrant-primrose: #a8f000;
-    --color-static-promo-vibrant-seafoam: #00f064;
-    --color-static-promo-vibrant-sonata: #17a0e5;
-    --color-static-promo-vibrant-tomato: #ef3124;
+    --color-static-promo-chardonnay: #ffcf99; /* deprecated */
+    --color-static-promo-conclave: #b3ccff; /* deprecated */
+    --color-static-promo-gravel: #2a2c2f; /* deprecated */
+    --color-static-promo-lagoon: #9df2f5; /* deprecated */
+    --color-static-promo-menthol: #bff0a8; /* deprecated */
+    --color-static-promo-oasis: #dfbfff; /* deprecated */
+    --color-static-promo-pale-chardonnay: #ffe5c7; /* deprecated */
+    --color-static-promo-pale-conclave: #d6e6ff; /* deprecated */
+    --color-static-promo-pale-lagoon: #c5f8fa; /* deprecated */
+    --color-static-promo-pale-oasis: #ebd6ff; /* deprecated */
+    --color-static-promo-pale-pearl: #f1f4f4; /* deprecated */
+    --color-static-promo-pale-primrose: #eaffb3; /* deprecated */
+    --color-static-promo-pale-seafoam: #d6ffe7; /* deprecated */
+    --color-static-promo-pale-tomato: #ffdbd8; /* deprecated */
+    --color-static-promo-peach: #ffcbb3; /* deprecated */
+    --color-static-promo-pearl: #eaeeee; /* deprecated */
+    --color-static-promo-prelude: #c7bfff; /* deprecated */
+    --color-static-promo-primrose: #d6f09a; /* deprecated */
+    --color-static-promo-seafoam: #a0fac6; /* deprecated */
+    --color-static-promo-sonata: #9edfff; /* deprecated */
+    --color-static-promo-tomato: #ffcac7; /* deprecated */
+    --color-static-promo-vibrant-chardonnay: #fa9319; /* deprecated */
+    --color-static-promo-vibrant-conclave: #266fff; /* deprecated */
+    --color-static-promo-vibrant-lagoon: #00e8f0; /* deprecated */
+    --color-static-promo-vibrant-menthol: #31e300; /* deprecated */
+    --color-static-promo-vibrant-oasis: #93f; /* deprecated */
+    --color-static-promo-vibrant-peach: #ff681c; /* deprecated */
+    --color-static-promo-vibrant-prelude: #6a4dff; /* deprecated */
+    --color-static-promo-vibrant-primrose: #a8f000; /* deprecated */
+    --color-static-promo-vibrant-seafoam: #00f064; /* deprecated */
+    --color-static-promo-vibrant-sonata: #17a0e5; /* deprecated */
+    --color-static-promo-vibrant-tomato: #ef3124; /* deprecated */
 }

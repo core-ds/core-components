@@ -2,6 +2,7 @@ import React, {
     forwardRef,
     Fragment,
     type MouseEvent,
+    type RefObject,
     useCallback,
     useEffect,
     useRef,
@@ -75,6 +76,11 @@ export type NotificationProps = ToastPlateDesktopProps & {
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickOutside?: (event?: MouseEvent<any>) => void;
+
+    /**
+     * Ссылка на контейнер компонента, к которому применяется анимация
+     */
+    containerRef?: RefObject<HTMLDivElement>;
 };
 
 const notificationClassNameSelector = `.${styles.notificationComponent}`;
@@ -87,7 +93,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             children,
             visible,
             offset = 108,
-            hasCloser = true,
+            hasCloser: legacyHasCloser,
             autoCloseDelay = 5000,
             usePortal = true,
             zIndex = stackingOrder.TOAST,
@@ -98,6 +104,8 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             onMouseEnter,
             onMouseLeave,
             onClickOutside,
+            containerRef,
+            closerProps = { hasCloser: true },
             ...restProps
         },
         ref,
@@ -107,6 +115,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         const closeTimeoutRef = useRef(0);
 
         const [isClosing, setIsClosing] = useState(false);
+
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        const { hasCloser: _hasCloser, ...restCloserParams } = closerProps;
+        const hasCloser = legacyHasCloser ?? _hasCloser;
 
         const startAutoCloseTimer = useCallback(() => {
             if (autoCloseDelay !== null) {
@@ -205,13 +217,14 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             <Stack value={zIndex}>
                 {(computedZIndex) => (
                     <Wrapper>
-                        <div {...swipeableHandlers}>
+                        <div {...swipeableHandlers} ref={containerRef}>
                             <ToastPlateDesktop
                                 className={cn(
                                     styles.notificationComponent,
                                     {
                                         [styles.isVisible]: visible,
                                         [styles.isClosing]: isClosing,
+                                        [styles.hasCloser]: hasCloser,
                                     },
                                     className,
                                 )}
@@ -229,8 +242,13 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                 onMouseLeave={handleMouseLeave}
                                 ref={mergeRefs([ref, notificationRef])}
                                 role={visible ? 'alert' : undefined}
-                                hasCloser={hasCloser}
                                 onClose={onClose}
+                                closerProps={{
+                                    divider: false,
+                                    view: 'secondary',
+                                    hasCloser,
+                                    ...restCloserParams,
+                                }}
                                 {...restProps}
                             >
                                 {children}
