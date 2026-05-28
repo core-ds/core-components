@@ -1,5 +1,6 @@
 import { type RefObject, useCallback, useEffect, useRef, useState } from 'react';
-import { animate } from 'motion';
+import { spring } from 'motion';
+import { animate } from 'motion/mini';
 
 import { type SpringOptions } from '../typings';
 
@@ -14,7 +15,7 @@ export type AnimationType =
     | 'nod'
     | 'rubber';
 
-type AnimationValues = Record<string, [number, number]>;
+type AnimationValues = Record<string, [number | string, number | string]>;
 
 type AnimationPreset = {
     defaultSpring: Required<SpringOptions>;
@@ -24,7 +25,11 @@ type AnimationPreset = {
 const PRESETS: Record<AnimationType, AnimationPreset> = {
     shake: {
         defaultSpring: { stiffness: 100, damping: 10, mass: 1 },
-        steps: [{ x: [0, 10] }, { x: [10, -10] }, { x: [-10, 0] }],
+        steps: [
+            { translate: ['0px', '10px'] },
+            { translate: ['10px', '-10px'] },
+            { translate: ['-10px', '0px'] },
+        ],
     },
     pulse: {
         defaultSpring: { stiffness: 300, damping: 15, mass: 1 },
@@ -32,27 +37,32 @@ const PRESETS: Record<AnimationType, AnimationPreset> = {
     },
     bounce: {
         defaultSpring: { stiffness: 200, damping: 12, mass: 1 },
-        steps: [{ y: [0, -14] }, { y: [-14, 0] }],
+        steps: [{ translate: ['0px 0px', '0px -14px'] }, { translate: ['0px -14px', '0px 0px'] }],
     },
     wobble: {
         defaultSpring: { stiffness: 150, damping: 8, mass: 1 },
-        steps: [{ rotate: [0, -6] }, { rotate: [-6, 6] }, { rotate: [6, -3] }, { rotate: [-3, 0] }],
+        steps: [
+            { rotate: ['0deg', '-6deg'] },
+            { rotate: ['-6deg', '6deg'] },
+            { rotate: ['6deg', '-3deg'] },
+            { rotate: ['-3deg', '0deg'] },
+        ],
     },
     jelly: {
         defaultSpring: { stiffness: 300, damping: 10, mass: 1 },
         steps: [
-            { scaleX: [1, 1.25], scaleY: [1, 0.75] },
-            { scaleX: [1.25, 0.85], scaleY: [0.75, 1.15] },
-            { scaleX: [0.85, 1], scaleY: [1.15, 1] },
+            { scale: ['1 1', '1.25 0.75'] },
+            { scale: ['1.25 0.75', '0.85 1.15'] },
+            { scale: ['0.85 1.15', '1 1'] },
         ],
     },
     swing: {
         defaultSpring: { stiffness: 100, damping: 8, mass: 1 },
         steps: [
-            { rotate: [0, -12] },
-            { rotate: [-12, 8] },
-            { rotate: [8, -4] },
-            { rotate: [-4, 0] },
+            { rotate: ['0deg', '-12deg'] },
+            { rotate: ['-12deg', '8deg'] },
+            { rotate: ['8deg', '-4deg'] },
+            { rotate: ['-4deg', '0deg'] },
         ],
     },
     pop: {
@@ -61,11 +71,15 @@ const PRESETS: Record<AnimationType, AnimationPreset> = {
     },
     nod: {
         defaultSpring: { stiffness: 200, damping: 12, mass: 1 },
-        steps: [{ y: [0, 8] }, { y: [8, 0] }],
+        steps: [{ translate: ['0px 0px', '0px 8px'] }, { translate: ['0px 8px', '0px 0px'] }],
     },
     rubber: {
         defaultSpring: { stiffness: 250, damping: 12, mass: 1 },
-        steps: [{ scaleX: [1, 0.85] }, { scaleX: [0.85, 1.1] }, { scaleX: [1.1, 1] }],
+        steps: [
+            { scale: ['1 1', '0.85 1'] },
+            { scale: ['0.85 1', '1.1 1'] },
+            { scale: ['1.1 1', '1 1'] },
+        ],
     },
 };
 
@@ -100,7 +114,7 @@ export function useSpringAnimation<T extends HTMLElement>(
         if (ref.current) {
             animate(
                 ref.current,
-                { x: 0, y: 0, scale: 1, scaleX: 1, scaleY: 1, rotate: 0 },
+                { translate: '0px 0px', scale: '1 1', rotate: '0deg' },
                 { duration: 0 },
             );
         }
@@ -117,7 +131,7 @@ export function useSpringAnimation<T extends HTMLElement>(
         const el = ref.current;
         const preset = PRESETS[type];
         const merged = { ...preset.defaultSpring, ...springOptionsRef.current };
-        const springOpts = { type: 'spring' as const, ...merged };
+        const springOpts = { type: spring, ...merged };
 
         isPlayingRef.current = true;
         setIsPlaying(true);
