@@ -20,10 +20,10 @@ export interface CarouselContextValue {
     onActiveIndexChange: (nextActiveElement: number) => void;
     count: number;
     colors?: 'default' | 'inverted';
-    loop?: boolean;
+    loop: boolean;
 }
 
-export interface LayoutProps<T = {}, U = {}, V = {}> {
+export interface LayoutProps<T, U, V> {
     layoutProps: T;
 
     children?: React.ReactNode;

@@ -34,7 +34,7 @@ export function HeadlessCarousel<T, U, V>({
     mouseWheel,
     touchMoveStopPropagation = false,
     captureEvent = false,
-    loop,
+    loop = false,
     shortSwipe = true,
     longSwipeTimeMs = 300,
 }: HeadlessCarouselProps<T, U, V>): ReactNode {
