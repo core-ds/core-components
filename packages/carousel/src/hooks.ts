@@ -13,6 +13,23 @@ export interface Coords {
 }
 
 export type CoordsCallback = (coords: Coords) => void;
+export type SwipeCallback = (coords: Coords, data: SwipeData) => void;
+
+export interface SwipeData {
+    pointerId: number | null;
+    touchId: number | null;
+    isTouched: boolean;
+    isMoved: boolean;
+    isScrolling?: boolean;
+    startMoving?: boolean;
+    startTime: number | null;
+}
+
+interface SwipeListeners {
+    onStartSwipe?: SwipeCallback;
+    onSwiping?: SwipeCallback;
+    onStopSwipe?: SwipeCallback;
+}
 
 interface Listeners {
     onStartSwipe?: (coords: Coords) => void;
@@ -43,7 +60,7 @@ function isOutOfRect(
 
 export function useSwipe<T extends Element>(
     direction: 'x' | 'y',
-    listeners: Listeners,
+    listeners: SwipeListeners,
     options: {
         touchAngle?: number;
         threshold?: number;
@@ -76,18 +93,12 @@ export function useSwipe<T extends Element>(
                 edgeThreshold: { x: xEdgeThreshold, y: yEdgeThreshold },
             };
 
-            const data: {
-                pointerId: number | null;
-                touchId: number | null;
-                isTouched: boolean;
-                isMoved: boolean;
-                isScrolling?: boolean;
-                startMoving?: boolean;
-            } = {
+            const data: SwipeData = {
                 pointerId: null,
                 touchId: null,
                 isTouched: false,
                 isMoved: false,
+                startTime: null,
             };
 
             const coords: Coords = {
@@ -149,11 +160,12 @@ export function useSwipe<T extends Element>(
                     isMoved: false,
                     isScrolling: undefined,
                     startMoving: undefined,
+                    startTime: Date.now(),
                 });
 
                 event.preventDefault();
 
-                lastListeners.current.onStartSwipe?.(coords);
+                lastListeners.current.onStartSwipe?.(coords, data);
             };
 
             const swipe = (event: PointerEvent | TouchEvent) => {
@@ -223,6 +235,10 @@ export function useSwipe<T extends Element>(
                     return;
                 }
 
+                if (!data.isMoved) {
+                    data.isMoved = true;
+                }
+
                 if (event.cancelable) {
                     event.preventDefault();
                 }
@@ -231,7 +247,7 @@ export function useSwipe<T extends Element>(
                     event.stopPropagation();
                 }
 
-                lastListeners.current.onSwiping?.(coords);
+                lastListeners.current.onSwiping?.(coords, data);
             };
 
             const swipeStop = (event: Event) => {
@@ -269,12 +285,14 @@ export function useSwipe<T extends Element>(
                     }
                 }
 
+                lastListeners.current.onStopSwipe?.(coords, data);
+
                 Object.assign(data, {
                     pointerId: null,
                     touchId: null,
+                    isTouched: false,
+                    isMoved: false,
                 });
-
-                lastListeners.current.onStopSwipe?.(coords);
             };
 
             node.addEventListener('touchstart', swipeStart, { passive: false });

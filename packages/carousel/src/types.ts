@@ -116,6 +116,16 @@ export interface GeneralCarouselProps {
      * @default false
      */
     captureEvent?: boolean;
+    /**
+     * Обработка короткого свайпа
+     * @default true
+     */
+    shortSwipe?: boolean;
+    /**
+     * Минимальная время длинного свайпа в миллисекундах
+     * @default 300
+     */
+    longSwipeTimeMs?: number;
 }
 
 export interface CarouselProps<T extends PaginationProps> extends GeneralCarouselProps {

@@ -6,7 +6,7 @@ import { NoopComponent, PassThroughComponent } from '@alfalab/core-components-sh
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { CarouselContext } from './context';
-import { type CoordsCallback, useMouseWheel, useSwipe } from './hooks';
+import { type CoordsCallback, type SwipeCallback, useMouseWheel, useSwipe } from './hooks';
 import { type CarouselContextValue, type HeadlessCarouselProps } from './types';
 import { clamp, findActiveIndex, getStylePropertyValue, sum } from './utils';
 
@@ -35,6 +35,8 @@ export function HeadlessCarousel<T, U, V>({
     touchMoveStopPropagation = false,
     captureEvent = false,
     loop,
+    shortSwipe = true,
+    longSwipeTimeMs = 300,
 }: HeadlessCarouselProps<T, U, V>): ReactNode {
     const visibleItems =
         visibleItemsFromProps === 'auto' ? 'auto' : clamp(visibleItemsFromProps, 1, items.length);
@@ -91,19 +93,11 @@ export function HeadlessCarousel<T, U, V>({
         [activeIndex, colors, count, loop, onActiveIndexChange, uncontrolled],
     );
 
-    const handleSwipeStart: CoordsCallback = () => {
+    const handleSwipeStart = () => {
         setSwiping(true);
     };
 
-    const handleMouseWheel: CoordsCallback = ({ currentX, previousX }) => {
-        const delta = currentX! - previousX!;
-        const [min] = snaps;
-        const max = snaps[snaps.length - 1];
-
-        setTranslate((prevTranslate) => clamp(prevTranslate - delta, min, max));
-    };
-
-    const handleSwiping: CoordsCallback = ({ currentX, previousX }) => {
+    const handleSwiping: SwipeCallback = ({ currentX, previousX }) => {
         const resistanceRatio = 0.85;
         const delta = currentX! - previousX!;
         const [min] = snaps;
@@ -120,7 +114,34 @@ export function HeadlessCarousel<T, U, V>({
         });
     };
 
-    const handleSwipeStop: CoordsCallback = () => {
+    const handleSwipeStop: SwipeCallback = ({ startX, currentX }, { isMoved, startTime }) => {
+        setSwiping(false);
+
+        let nextActiveIndex = findActiveIndex(translate, snaps, sizes);
+
+        if (
+            shortSwipe &&
+            isMoved &&
+            nextActiveIndex === activeIndex &&
+            Date.now() - startTime! <= longSwipeTimeMs
+        ) {
+            const shift = currentX! - startX! > 0 ? -1 : 1;
+
+            nextActiveIndex = clamp(activeIndex + shift, 0, snaps.length - 1);
+        }
+
+        contextValue.onActiveIndexChange(nextActiveIndex);
+    };
+
+    const handleMouseWheel: CoordsCallback = ({ currentX, previousX }) => {
+        const delta = currentX! - previousX!;
+        const [min] = snaps;
+        const max = snaps[snaps.length - 1];
+
+        setTranslate((prevTranslate) => clamp(prevTranslate - delta, min, max));
+    };
+
+    const handleMouseWheelStop = () => {
         setSwiping(false);
 
         const nextActiveIndex = findActiveIndex(translate, snaps, sizes);
@@ -207,7 +228,7 @@ export function HeadlessCarousel<T, U, V>({
     const [mouseWheelRef] = useMouseWheel<HTMLDivElement>('x', {
         onStartSwipe: handleSwipeStart,
         onSwiping: handleMouseWheel,
-        onStopSwipe: handleSwipeStop,
+        onStopSwipe: handleMouseWheelStop,
     });
 
     return (
