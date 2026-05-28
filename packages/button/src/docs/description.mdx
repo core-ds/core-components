@@ -870,6 +870,25 @@ render(() => {
 
 Хук реализован в `packages/button/src/hooks/useSpringAnimation.ts` и инкапсулирует всю логику spring-анимаций на основе библиотеки [motion](https://motion.dev/docs/animate).
 
+### Зависимости и размер бандла
+
+Для уменьшения размера бандла используется `motion/mini` вместо полного `motion`:
+
+```ts
+import { animate } from 'motion/mini'; // WAAPI-обёртка без встроенного spring
+import { spring } from 'motion';       // точечный импорт spring-генератора
+```
+
+`motion/mini` использует браузерный Web Animations API (WAAPI) и весит значительно меньше полного пакета. Однако WAAPI не поддерживает spring-физику нативно, поэтому `spring` импортируется точечно из основного пакета.
+
+**Ограничение WAAPI:** принимает только валидные CSS-свойства. Motion-шорткаты `x`, `y`, `scaleX`, `scaleY` не работают — вместо них используются CSS Individual Transform Properties:
+
+- смещение по X → CSS `translate: '10px'`
+- смещение по Y → CSS `translate: '0px -14px'`
+- независимый scaleX/scaleY → CSS `scale: '1.25 0.75'`
+
+Требует браузеры с поддержкой CSS Transforms Level 2 (Chrome 104+, Firefox 72+, Safari 14.1+).
+
 ### Зачем хук, а не инлайн-код
 
 Каждая анимация — это цепочка вызовов `animate()` (motion не поддерживает больше двух keyframes в spring-режиме). Хук берёт на себя:
@@ -949,7 +968,7 @@ const { trigger, cancel, isPlaying } = useSpringAnimation(
             </td>
             <td>Горизонтальный сдвиг влево-вправо</td>
             <td>
-                <code>x</code>
+                <code>translate</code> (X)
             </td>
             <td>stiffness 100, damping 10</td>
         </tr>
@@ -969,7 +988,7 @@ const { trigger, cancel, isPlaying } = useSpringAnimation(
             </td>
             <td>Прыжок вверх и обратно</td>
             <td>
-                <code>y</code>
+                <code>translate</code> (Y)
             </td>
             <td>stiffness 200, damping 12</td>
         </tr>
@@ -987,9 +1006,9 @@ const { trigger, cancel, isPlaying } = useSpringAnimation(
             <td>
                 <code>jelly</code>
             </td>
-            <td>Деформация scaleX/scaleY в противофазе</td>
+            <td>Деформация по X и Y в противофазе</td>
             <td>
-                <code>scaleX + scaleY</code>
+                <code>scale</code> (X Y)
             </td>
             <td>stiffness 300, damping 10</td>
         </tr>
@@ -1019,7 +1038,7 @@ const { trigger, cancel, isPlaying } = useSpringAnimation(
             </td>
             <td>Кивок вниз и обратно</td>
             <td>
-                <code>y</code>
+                <code>translate</code> (Y)
             </td>
             <td>stiffness 200, damping 12</td>
         </tr>
@@ -1029,7 +1048,7 @@ const { trigger, cancel, isPlaying } = useSpringAnimation(
             </td>
             <td>Сужение и растяжение по X</td>
             <td>
-                <code>scaleX</code>
+                <code>scale</code> (X 1)
             </td>
             <td>stiffness 250, damping 12</td>
         </tr>
