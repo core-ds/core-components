@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { AccountSelectDesktop } from '../desktop';
-import { PureCell } from '@alfalab/core-components-pure-cell';
 import { ProductCover } from '@alfalab/core-components-product-cover';
+import { type SingleProps } from '@alfalab/core-components-product-cover/typings';
 import { PlusMIcon } from '@alfalab/icons-glyph/PlusMIcon';
 import { AccountSelectMobile } from '../mobile';
 import { CardData } from '../types';
 import { Amount } from '@alfalab/core-components-amount';
 import { Typography } from '@alfalab/core-components-typography';
 import { PRODUCT_COVER_SIZE_MAPPER } from '../constants';
+import { GenericWrapper, type GenericWrapperProps } from '@alfalab/core-components-generic-wrapper';
 
 const baseCard = {
     baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
@@ -31,31 +32,65 @@ const DATA = [
     { text: 'Карта с вашим дизайном', amount: 0, id: '3' },
 ];
 
+const renderCardContent = ({
+    text,
+    amount,
+    coverSize,
+    padding,
+}: {
+    text?: string;
+    amount?: number;
+    coverSize: SingleProps['size'];
+    padding?: GenericWrapperProps['padding'];
+}) => (
+    <GenericWrapper alignItems='center' gap={16} padding={padding}>
+        <GenericWrapper>
+            <ProductCover.Single size={coverSize} />
+        </GenericWrapper>
+        <GenericWrapper column grow>
+            <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                {text}
+            </Typography.Text>
+            <Amount
+                value={amount}
+                minority={100}
+                currency='RUR'
+                bold='major'
+                transparentMinor={true}
+            />
+        </GenericWrapper>
+    </GenericWrapper>
+);
+
+const renderAddCardContent = (
+    coverSize: SingleProps['size'],
+    padding?: GenericWrapperProps['padding'],
+) => (
+    <GenericWrapper alignItems='center' gap={16} padding={padding}>
+        <GenericWrapper>
+            <ProductCover.Single
+                size={coverSize}
+                iconColor='var(--color-light-neutral-700)'
+                backgroundColor='var(--color-light-neutral-200)'
+                icon={PlusMIcon}
+            />
+        </GenericWrapper>
+        <GenericWrapper column grow>
+            <Typography.Text view='component-primary'>Новая карта</Typography.Text>
+        </GenericWrapper>
+    </GenericWrapper>
+);
+
 const getOptions = (platform: 'desktop' | 'mobile' = 'desktop') =>
     DATA.map((el) => ({
         key: el.id,
         value: el,
-        content: (
-            <PureCell verticalPadding='default'>
-                <PureCell.Graphics verticalAlign='center'>
-                    <ProductCover.Single size={platform === 'desktop' ? 48 : 40} />
-                </PureCell.Graphics>
-                <PureCell.Content>
-                    <PureCell.Main>
-                        <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
-                            {el.text}
-                        </Typography.Text>
-                        <Amount
-                            value={el.amount}
-                            minority={100}
-                            currency='RUR'
-                            bold='major'
-                            transparentMinor={true}
-                        />
-                    </PureCell.Main>
-                </PureCell.Content>
-            </PureCell>
-        ),
+        content: renderCardContent({
+            text: el.text,
+            amount: el.amount,
+            coverSize: platform === 'desktop' ? 48 : 40,
+            padding: platform === 'desktop' ? { top: 12, bottom: 12 } : undefined,
+        }),
     }));
 
 export const account_select_desktop: Story = {
@@ -82,56 +117,18 @@ export const account_select_desktop: Story = {
                         console.log(e);
                     }}
                     valueRenderer={({ selected }) => {
-                        return (
-                            <PureCell verticalPadding='none'>
-                                <PureCell.Graphics verticalAlign='center'>
-                                    <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />
-                                </PureCell.Graphics>
-                                <PureCell.Content>
-                                    <PureCell.Main>
-                                        <Typography.Text
-                                            rowLimit={1}
-                                            color='secondary'
-                                            view='primary-small'
-                                        >
-                                            {selected?.value.text}
-                                        </Typography.Text>
-                                        <Amount
-                                            value={selected?.value.amount}
-                                            minority={100}
-                                            currency='RUR'
-                                            bold='major'
-                                            transparentMinor={true}
-                                        />
-                                    </PureCell.Main>
-                                </PureCell.Content>
-                            </PureCell>
-                        );
+                        return renderCardContent({
+                            text: selected?.value.text,
+                            amount: selected?.value.amount,
+                            coverSize: PRODUCT_COVER_SIZE_MAPPER[size],
+                        });
                     }}
                     placeholder={text('placeholder', 'Элемент')}
                     fieldProps={{
                         leftAddons: <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />,
                     }}
                     cardAddingProps={{
-                        content: (
-                            <PureCell verticalPadding='default'>
-                                <PureCell.Graphics verticalAlign='center'>
-                                    <ProductCover.Single
-                                        size={48}
-                                        iconColor='var(--color-light-neutral-700)'
-                                        backgroundColor='var(--color-light-neutral-200)'
-                                        icon={PlusMIcon}
-                                    />
-                                </PureCell.Graphics>
-                                <PureCell.Content>
-                                    <PureCell.Main>
-                                        <Typography.Text view='component-primary'>
-                                            Новая карта
-                                        </Typography.Text>
-                                    </PureCell.Main>
-                                </PureCell.Content>
-                            </PureCell>
-                        ),
+                        content: renderAddCardContent(48, { top: 12, bottom: 12 }),
                         onInput: handleInput,
                         onSubmit: handleSubmit,
                         needCVC: boolean('needCVC', true),
@@ -159,52 +156,14 @@ export const account_select_mobile: Story = {
                     leftAddons: <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />,
                 }}
                 valueRenderer={({ selected }) => {
-                    return (
-                        <PureCell verticalPadding='none'>
-                            <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single size={PRODUCT_COVER_SIZE_MAPPER[size]} />
-                            </PureCell.Graphics>
-                            <PureCell.Content>
-                                <PureCell.Main>
-                                    <Typography.Text
-                                        rowLimit={1}
-                                        color='secondary'
-                                        view='primary-small'
-                                    >
-                                        {selected?.value.text}
-                                    </Typography.Text>
-                                    <Amount
-                                        value={selected?.value.amount}
-                                        minority={100}
-                                        currency='RUR'
-                                        bold='major'
-                                        transparentMinor={true}
-                                    />
-                                </PureCell.Main>
-                            </PureCell.Content>
-                        </PureCell>
-                    );
+                    return renderCardContent({
+                        text: selected?.value.text,
+                        amount: selected?.value.amount,
+                        coverSize: PRODUCT_COVER_SIZE_MAPPER[size],
+                    });
                 }}
                 cardAddingProps={{
-                    content: (
-                        <PureCell verticalPadding='none'>
-                            <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single
-                                    size={40}
-                                    iconColor='var(--color-light-neutral-700)'
-                                    backgroundColor='var(--color-light-neutral-200)'
-                                    icon={PlusMIcon}
-                                />
-                            </PureCell.Graphics>
-                            <PureCell.Content>
-                                <PureCell.Main>
-                                    <Typography.Text view='component-primary'>
-                                        Новая карта
-                                    </Typography.Text>
-                                </PureCell.Main>
-                            </PureCell.Content>
-                        </PureCell>
-                    ),
+                    content: renderAddCardContent(40),
                     needCVC: boolean('needCVC', true),
                     needExpiryDate: boolean('needExpiryDate', true),
                     expiryAsDate: boolean('expiryAsDate', true),

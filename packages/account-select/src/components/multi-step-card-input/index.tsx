@@ -26,6 +26,8 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         needExpiryDate = true,
         expiryAsDate = true,
         placeholder,
+        open,
+        toggleMenu,
     }) => {
         const {
             step,
@@ -180,8 +182,8 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         };
 
         const handleWrapperBlur = (e: React.FocusEvent<HTMLDivElement>) => {
-            setActiveField('');
             if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                setActiveField('');
                 setTouchedFields({ cardNumber: true, expiry: true, cvc: true });
             }
         };
@@ -192,6 +194,10 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             const cleanValue = value.replace(/\s/g, '');
 
             setCardNumber(cleanValue);
+
+            if (open && cleanValue) {
+                toggleMenu();
+            }
 
             proceedToNextStepOrSubmit(cleanValue, cardExpiry, cardCvc);
         };
@@ -214,12 +220,10 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
         const handleExpiryBlur = () => {
             setActiveField('');
-            setTouchedFields((prev) => ({ ...prev, expiry: true }));
         };
 
         const handleCvcBlur = () => {
             setActiveField('');
-            setTouchedFields((prev) => ({ ...prev, cvc: true }));
         };
 
         const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {

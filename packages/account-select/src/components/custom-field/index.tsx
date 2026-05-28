@@ -32,9 +32,35 @@ export const CustomField = ({
     size,
     toggleMenu,
     open,
+    rightAddonsProps,
+    disabled,
     ...restProps
 }: CustomFieldProps) => {
     const { cardNumber } = useAccountSelect();
+    const isAddCardSelected = selected?.key === ADD_CARD_KEY;
+
+    const rightAddonsPropsWithToggle = React.useMemo(
+        () => ({
+            ...rightAddonsProps,
+            onClick: (event: React.MouseEvent<HTMLDivElement>) => {
+                if (disabled) return;
+
+                event.stopPropagation();
+                toggleMenu();
+                rightAddonsProps?.onClick?.(event);
+            },
+        }),
+        [disabled, rightAddonsProps, toggleMenu],
+    );
+
+    const innerPropsWithRestrictedOpen = React.useMemo(() => {
+        if (!isAddCardSelected || !cardNumber) return innerProps;
+
+        return {
+            ...innerProps,
+            onClick: undefined,
+        };
+    }, [cardNumber, innerProps, isAddCardSelected]);
 
     const fieldRenderer = ({
         selected: selectedOption,
@@ -89,11 +115,13 @@ export const CustomField = ({
             size={size}
             placeholder={placeholder}
             selected={selected}
-            innerProps={innerProps}
+            disabled={disabled}
+            innerProps={innerPropsWithRestrictedOpen}
             leftAddons={getLeftAddon()}
             leftAddonsProps={{ className: cn(styles.leftAddon, styles[`size${size}`]) }}
             toggleMenu={toggleMenu}
             open={open}
+            rightAddonsProps={rightAddonsPropsWithToggle}
             {...restProps}
             valueRenderer={fieldRenderer}
         />

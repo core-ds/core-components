@@ -7,50 +7,41 @@ render(() => {
         { text: 'Экспресс-счёт ··0909', amount: 100000099, id: '2' },
         { text: 'Депозитный счёт ··4567', amount: 0, id: '3' },
     ];
+    const renderAccountOption = ({ text, amount, padding }) => (
+        <GenericWrapper alignItems='center' padding={padding}>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
     const getOptions = () =>
         DATA.map((el) => ({
             key: el.id,
             value: el,
-            content: (
-                <PureCell verticalPadding='default'>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
-                                {el.text}
-                            </Typography.Text>
-                            <Amount
-                                value={el.amount}
-                                minority={100}
-                                currency='RUR'
-                                bold='major'
-                                transparentMinor={true}
-                            />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            ),
+            content: renderAccountOption({
+                text: el.text,
+                amount: el.amount,
+                padding: { top: 12, bottom: 12, left: 12, right: 12 },
+            }),
         }));
 
     return (
         <AccountSelect
             size={56}
             valueRenderer={({ selected }) => {
-                return (
-                    <PureCell verticalPadding='none'>
-                        <PureCell.Main>
-                            <Typography.Text color='secondary' view='primary-small'>
-                                {selected.value.text}
-                            </Typography.Text>
-                            <Amount
-                                value={selected.value.amount}
-                                minority={100}
-                                currency='RUR'
-                                bold='major'
-                                transparentMinor={true}
-                            />
-                        </PureCell.Main>
-                    </PureCell>
-                );
+                return renderAccountOption({
+                    text: selected.value.text,
+                    amount: selected.value.amount,
+                });
             }}
             placeholder='Куда'
             options={getOptions()}
@@ -69,62 +60,46 @@ render(() => {
         { text: 'Карта с кредитным лимитом', amount: 999999, id: '2' },
         { text: 'Карта с вашим дизайном', amount: 0, id: '3' },
     ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single size={coverSize} />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
     const getOptions = () =>
         DATA.map((el) => ({
             key: el.id,
             value: el,
-            content: (
-                <PureCell verticalPadding='default'>
-                    <PureCell.Graphics verticalAlign='center'>
-                        <ProductCover.Single size={isDesktop ? 48 : 40} />
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
-                                {el.text}
-                            </Typography.Text>
-                            <Amount
-                                value={el.amount}
-                                minority={100}
-                                currency='RUR'
-                                bold='major'
-                                transparentMinor={true}
-                            />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            ),
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: isDesktop ? 48 : 40,
+                padding: { top: 12, bottom: 12 },
+            }),
         }));
     return (
         <AccountSelect
             size={56}
             placeholder='Карта получателя'
             valueRenderer={({ selected }) => {
-                return (
-                    <PureCell verticalPadding='none'>
-                        <PureCell.Graphics verticalAlign='center'>
-                            <ProductCover.Single size={32} />
-                        </PureCell.Graphics>
-                        <PureCell.Content>
-                            <PureCell.Main>
-                                <Typography.Text
-                                    rowLimit={1}
-                                    color='secondary'
-                                    view='primary-small'
-                                >
-                                    {selected.value.text}
-                                </Typography.Text>
-                                <Amount
-                                    value={selected.value.amount}
-                                    minority={100}
-                                    currency='RUR'
-                                    bold='major'
-                                    transparentMinor={true}
-                                />
-                            </PureCell.Main>
-                        </PureCell.Content>
-                    </PureCell>
-                );
+                return renderCardOption({
+                    text: selected.value.text,
+                    amount: selected.value.amount,
+                    coverSize: 32,
+                });
             }}
             fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
             options={getOptions()}
@@ -145,36 +120,55 @@ render(() => {
         { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
         { text: 'Карта с кредитным лимитом', amount: 2500000, id: '2' },
     ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={coverSize}
+                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                    cardId='RM'
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const renderAddCardOption = () => (
+        <GenericWrapper alignItems='center' gap={16} padding={{ top: 12, bottom: 12 }}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={isDesktop ? 48 : 40}
+                    iconColor='var(--color-light-neutral-700)'
+                    backgroundColor='var(--color-light-neutral-200)'
+                    icon={PlusMIcon}
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text view='component-primary'>Новая карта</Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+    );
     const getOptions = () =>
         DATA.map((el) => ({
             key: el.id,
             value: el,
-            content: (
-                <PureCell verticalPadding='default'>
-                    <PureCell.Graphics verticalAlign='center'>
-                        <ProductCover.Single
-                            size={isDesktop ? 48 : 40}
-                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
-                            cardId='RM'
-                        />
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
-                                {el.text}
-                            </Typography.Text>
-                            <Amount
-                                value={el.amount}
-                                minority={100}
-                                currency='RUR'
-                                bold='major'
-                                transparentMinor={true}
-                            />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            ),
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: isDesktop ? 48 : 40,
+                padding: { top: 12, bottom: 12 },
+            }),
         }));
 
     const [valueRadio, setValueRadio] = React.useState('1');
@@ -196,71 +190,30 @@ render(() => {
     };
 
     return (
-        <div style={{ width: 456 }}>
+        <div style={{ width: 456, maxWidth: '100%' }}>
             <AccountSelect
                 size={56}
                 placeholder='Карта отправителя'
                 fieldProps={{ leftAddons: <ProductCover.Single size={32} /> }}
                 options={getOptions()}
                 valueRenderer={({ selected }) => {
-                    return (
-                        <PureCell verticalPadding='none'>
-                            <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single
-                                    size={32}
-                                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
-                                    cardId='RM'
-                                />
-                            </PureCell.Graphics>
-                            <PureCell.Content>
-                                <PureCell.Main>
-                                    <Typography.Text
-                                        rowLimit={1}
-                                        color='secondary'
-                                        view='primary-small'
-                                    >
-                                        {selected.value.text}
-                                    </Typography.Text>
-                                    <Amount
-                                        value={selected.value.amount}
-                                        minority={100}
-                                        currency='RUR'
-                                        bold='major'
-                                        transparentMinor={true}
-                                    />
-                                </PureCell.Main>
-                            </PureCell.Content>
-                        </PureCell>
-                    );
+                    return renderCardOption({
+                        text: selected.value.text,
+                        amount: selected.value.amount,
+                        coverSize: 32,
+                    });
                 }}
                 cardAddingProps={{
-                    content: (
-                        <PureCell verticalPadding='default'>
-                            <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single
-                                    size={isDesktop ? 48 : 40}
-                                    iconColor='var(--color-light-neutral-700)'
-                                    backgroundColor='var(--color-light-neutral-200)'
-                                    icon={PlusMIcon}
-                                />
-                            </PureCell.Graphics>
-                            <PureCell.Content>
-                                <PureCell.Main>
-                                    <PureCell.Text titleColor='primary' view='primary-medium'>
-                                        Новая карта
-                                    </PureCell.Text>
-                                </PureCell.Main>
-                            </PureCell.Content>
-                        </PureCell>
-                    ),
+                    content: renderAddCardOption(),
                     needCVC: valueRadio === '1',
                     needExpiryDate: true,
                     onInput: handleInput,
                     cardImage,
                 }}
             />
-            <Gap size={8} />
+            <div style={{ margin: '20px 0' }}>
+                <Divider />
+            </div>
             <RadioGroup
                 direction='horizontal'
                 name='radioGroup'
@@ -285,37 +238,55 @@ render(() => {
         { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
         { text: 'Карта с кредитным лимитом', amount: 100099, id: '2' },
     ];
+    const renderCardOption = ({ text, amount, coverSize, padding }) => (
+        <GenericWrapper alignItems='center' gap={16} padding={padding}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={coverSize}
+                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
+                    cardId='RM'
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
+                    {text}
+                </Typography.Text>
+                <Amount
+                    value={amount}
+                    minority={100}
+                    currency='RUR'
+                    bold='major'
+                    transparentMinor={true}
+                />
+            </GenericWrapper>
+        </GenericWrapper>
+    );
+    const renderAddCardOption = () => (
+        <GenericWrapper alignItems='center' gap={16} padding={{ top: 12, bottom: 12 }}>
+            <GenericWrapper>
+                <ProductCover.Single
+                    size={isDesktop ? 48 : 40}
+                    iconColor='var(--color-light-neutral-700)'
+                    backgroundColor='var(--color-light-neutral-200)'
+                    icon={PlusMIcon}
+                />
+            </GenericWrapper>
+            <GenericWrapper column grow>
+                <Typography.Text view='component-primary'>Новая карта</Typography.Text>
+            </GenericWrapper>
+        </GenericWrapper>
+    );
     const getOptions = () =>
         DATA.map((el) => ({
             key: el.id,
             value: el,
-            content: (
-                <PureCell verticalPadding='default'>
-                    <PureCell.Graphics verticalAlign='center'>
-                        <ProductCover.Single
-                            size={isDesktop ? 48 : 40}
-                            baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                            layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
-                            cardId='RM'
-                        />
-                    </PureCell.Graphics>
-                    <PureCell.Content>
-                        <PureCell.Main>
-                            <PureCell.Text rowLimit={1} titleColor='secondary' view='primary-small'>
-                                {el.text}
-                            </PureCell.Text>
-                            <PureCell.Amount
-                                value={el.amount}
-                                minorUnits={100}
-                                currency='RUR'
-                                color='primary'
-                                view={'withZeroMinorPart'}
-                                transparentMinor={true}
-                            />
-                        </PureCell.Main>
-                    </PureCell.Content>
-                </PureCell>
-            ),
+            content: renderCardOption({
+                text: el.text,
+                amount: el.amount,
+                coverSize: isDesktop ? 48 : 40,
+                padding: { top: 12, bottom: 12 },
+            }),
         }));
 
     const [cardImage, setCardImage] = React.useState(undefined);
@@ -332,7 +303,7 @@ render(() => {
     };
 
     return (
-        <div style={{ width: 456 }}>
+        <div style={{ width: 456, maxWidth: '100%' }}>
             <AccountSelect
                 size={56}
                 placeholder='Карта получателя'
@@ -340,57 +311,14 @@ render(() => {
                 options={getOptions()}
                 popoverPosition='top'
                 valueRenderer={({ selected }) => {
-                    return (
-                        <PureCell verticalPadding='none'>
-                            <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single
-                                    size={32}
-                                    baseUrl='https://online.alfabank.ru/cards-images/cards/'
-                                    layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
-                                    cardId='RM'
-                                />
-                            </PureCell.Graphics>
-                            <PureCell.Content>
-                                <PureCell.Main>
-                                    <Typography.Text
-                                        rowLimit={1}
-                                        color='secondary'
-                                        view='primary-small'
-                                    >
-                                        {selected.value.text}
-                                    </Typography.Text>
-                                    <Amount
-                                        value={selected.value.amount}
-                                        minority={100}
-                                        currency='RUR'
-                                        bold='major'
-                                        transparentMinor={true}
-                                    />
-                                </PureCell.Main>
-                            </PureCell.Content>
-                        </PureCell>
-                    );
+                    return renderCardOption({
+                        text: selected.value.text,
+                        amount: selected.value.amount,
+                        coverSize: 32,
+                    });
                 }}
                 cardAddingProps={{
-                    content: (
-                        <PureCell verticalPadding='default'>
-                            <PureCell.Graphics verticalAlign='center'>
-                                <ProductCover.Single
-                                    size={isDesktop ? 48 : 40}
-                                    iconColor='var(--color-light-neutral-700)'
-                                    backgroundColor='var(--color-light-neutral-200)'
-                                    icon={PlusMIcon}
-                                />
-                            </PureCell.Graphics>
-                            <PureCell.Content>
-                                <PureCell.Main>
-                                    <PureCell.Text titleColor='primary' view='primary-medium'>
-                                        Новая карта
-                                    </PureCell.Text>
-                                </PureCell.Main>
-                            </PureCell.Content>
-                        </PureCell>
-                    ),
+                    content: renderAddCardOption(),
                     needCVC: false,
                     needExpiryDate: false,
                     onInput: handleInput,

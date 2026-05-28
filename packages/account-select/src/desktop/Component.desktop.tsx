@@ -27,7 +27,7 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
             Option = BaseOption,
             closeOnSelect = true,
             options,
-            optionsListProps = {},
+            optionsListWidth = 'field',
             cardAddingProps,
             dataTestId,
             onChange,
@@ -78,14 +78,8 @@ export const AccountSelectDesktop = forwardRef<HTMLInputElement, AccountSelectPr
                         OptionsList={OptionsList}
                         Arrow={Arrow}
                         optionClassName={cn(styles.option, styles[`size${size}`])}
-                        optionsListProps={{
-                            ...(optionsListProps as AnyObject),
-                            scrollbarClassName: cn(
-                                styles.optionsListScrollbar,
-                                (optionsListProps as AnyObject).scrollbarClassName,
-                            ),
-                        }}
                         size={size}
+                        optionsListWidth={optionsListWidth}
                         {...restProps}
                         fieldProps={{
                             ...(restProps.fieldProps as AnyObject),
