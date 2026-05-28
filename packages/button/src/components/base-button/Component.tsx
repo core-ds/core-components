@@ -3,20 +3,19 @@ import React, {
     type AnchorHTMLAttributes,
     type ButtonHTMLAttributes,
     forwardRef,
-    useCallback,
     useEffect,
     useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
-import { animate } from 'motion';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
 import { LOADER_MIN_DISPLAY_INTERVAL } from '../../constants/loader-min-display-interval';
+import { useSpringAnimation } from '../../hooks';
 import { type CommonButtonProps, type PrivateButtonProps } from '../../typings';
 
 import defaultColors from './default.module.css';
@@ -56,7 +55,25 @@ export const BaseButton = forwardRef<
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
             shake = false,
-            shakeSpring = {},
+            shakeSpring,
+            pulse = false,
+            pulseSpring,
+            bounce = false,
+            bounceSpring,
+            wobble = false,
+            wobbleSpring,
+            jelly = false,
+            jellySpring,
+            swing = false,
+            swingSpring,
+            pop = false,
+            popSpring,
+            nod = false,
+            nodSpring,
+            rubber = false,
+            rubberSpring,
+            onSpringAnimationStart,
+            onSpringAnimationEnd,
             ...restProps
         },
         ref,
@@ -65,18 +82,39 @@ export const BaseButton = forwardRef<
 
         const [focused] = useFocus(buttonRef, 'keyboard');
 
-        const isAnimating = useRef(false);
-
         const [loaderTimePassed, setLoaderTimePassed] = useState(true);
-
         const timerId = useRef(0);
-
         const showLoader = loading || !loaderTimePassed;
 
+        const animationCallbacks = { onStart: onSpringAnimationStart, onEnd: onSpringAnimationEnd };
+
+        const shakeAnim = useSpringAnimation(buttonRef, 'shake', shakeSpring, animationCallbacks);
+        const pulseAnim = useSpringAnimation(buttonRef, 'pulse', pulseSpring, animationCallbacks);
+        const bounceAnim = useSpringAnimation(
+            buttonRef,
+            'bounce',
+            bounceSpring,
+            animationCallbacks,
+        );
+        const wobbleAnim = useSpringAnimation(
+            buttonRef,
+            'wobble',
+            wobbleSpring,
+            animationCallbacks,
+        );
+        const jellyAnim = useSpringAnimation(buttonRef, 'jelly', jellySpring, animationCallbacks);
+        const swingAnim = useSpringAnimation(buttonRef, 'swing', swingSpring, animationCallbacks);
+        const popAnim = useSpringAnimation(buttonRef, 'pop', popSpring, animationCallbacks);
+        const nodAnim = useSpringAnimation(buttonRef, 'nod', nodSpring, animationCallbacks);
+        const rubberAnim = useSpringAnimation(
+            buttonRef,
+            'rubber',
+            rubberSpring,
+            animationCallbacks,
+        );
+
         const showHint = hint && [56, 64, 72].includes(size);
-
         const iconOnly = !children;
-
         const sizeStyle = `size-${size}`;
 
         const componentProps = {
@@ -174,30 +212,6 @@ export const BaseButton = forwardRef<
             [],
         );
 
-        const triggerShake = useCallback(() => {
-            if (!shake || !buttonRef.current || isAnimating.current) return;
-
-            isAnimating.current = true;
-
-            const springOptions = {
-                type: 'spring' as const,
-                stiffness: shakeSpring.stiffness ?? 100,
-                damping: shakeSpring.damping ?? 10,
-                mass: shakeSpring.mass ?? 1,
-            };
-
-            animate(buttonRef.current, { x: [0, 10] }, springOptions)
-                .finished.then(() =>
-                    animate(buttonRef.current, { x: [10, -10] }, springOptions).finished,
-                )
-                .then(() =>
-                    animate(buttonRef.current, { x: [-10, 0] }, springOptions).finished,
-                )
-                .then(() => {
-                    isAnimating.current = false;
-                });
-        }, [shake, shakeSpring]);
-
         const handleClick = (
             e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
                 React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -209,7 +223,15 @@ export const BaseButton = forwardRef<
                 return;
             }
             onClick?.(e);
-            triggerShake();
+            if (shake) shakeAnim.trigger();
+            else if (pulse) pulseAnim.trigger();
+            else if (bounce) bounceAnim.trigger();
+            else if (wobble) wobbleAnim.trigger();
+            else if (jelly) jellyAnim.trigger();
+            else if (swing) swingAnim.trigger();
+            else if (pop) popAnim.trigger();
+            else if (nod) nodAnim.trigger();
+            else if (rubber) rubberAnim.trigger();
         };
 
         if (href) {

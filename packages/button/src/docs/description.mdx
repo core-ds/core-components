@@ -1,21 +1,55 @@
+# Приведённый код и live-демо имеют демонстрационный характер и не являются финальной реализацией.
+
 ## Shake
 
-Shake-анимация с эффектом «выброса» — кнопка смещается с начальной скоростью, а затем плавно возвращается обратно благодаря spring-физике.
+Shake-анимация с эффектом «выброса» — кнопка смещается по оси X и плавно возвращается благодаря spring-физике.
 
 ```jsx live mobileHeight={500}
 render(() => {
     const [state, setState] = React.useState({ stiffness: 100, damping: 10, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
 
     return (
         <>
             <div style={{ padding: '16px' }}>
-                <ButtonDesktop view='primary' shake={true} shakeSpring={state}>
-                    Click me!
-                </ButtonDesktop>
-                <Gap size={24} />
                 <div
-                    style={{ marginBottom: '16px', display: 'flex', gap: '24px', flexWrap: 'wrap' }}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
                 >
+                    <ButtonDesktop
+                        view='primary'
+                        shake={true}
+                        shakeSpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
                     <div style={{ minWidth: '180px' }}>
                         <div style={{ fontSize: '12px', marginBottom: '4px' }}>
                             Stiffness: {state.stiffness}
@@ -61,3 +95,1100 @@ render(() => {
     );
 });
 ```
+
+## Pulse
+
+Pulse-анимация — кнопка кратковременно увеличивается в масштабе и возвращается обратно.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [state, setState] = React.useState({ stiffness: 300, damping: 15, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
+
+    return (
+        <>
+            <div style={{ padding: '16px' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <ButtonDesktop
+                        view='primary'
+                        pulse={true}
+                        pulseSpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Stiffness: {state.stiffness}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={500}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Damping: {state.damping}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Mass: {state.mass.toFixed(1)}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState((s) => ({ ...s, mass: value }))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+});
+```
+
+## Bounce
+
+Bounce-анимация — кнопка подпрыгивает вверх и возвращается обратно.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [state, setState] = React.useState({ stiffness: 200, damping: 12, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
+
+    return (
+        <>
+            <div style={{ padding: '16px', paddingTop: '40px' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <ButtonDesktop
+                        view='primary'
+                        bounce={true}
+                        bounceSpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Stiffness: {state.stiffness}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={400}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Damping: {state.damping}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Mass: {state.mass.toFixed(1)}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState((s) => ({ ...s, mass: value }))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+});
+```
+
+## Wobble
+
+Wobble-анимация — кнопка покачивается вокруг своей оси. Создаёт более мягкий эффект привлечения внимания по сравнению со shake.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [state, setState] = React.useState({ stiffness: 150, damping: 8, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
+
+    return (
+        <>
+            <div style={{ padding: '16px' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <ButtonDesktop
+                        view='primary'
+                        wobble={true}
+                        wobbleSpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Stiffness: {state.stiffness}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={300}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Damping: {state.damping}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Mass: {state.mass.toFixed(1)}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState((s) => ({ ...s, mass: value }))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+});
+```
+
+## Jelly
+
+Jelly-анимация — кнопка деформируется: растягивается по X и сжимается по Y, затем возвращается. Эффект желе благодаря одновременной анимации `scaleX` и `scaleY`.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [state, setState] = React.useState({ stiffness: 300, damping: 10, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
+
+    return (
+        <>
+            <div style={{ padding: '16px' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <ButtonDesktop
+                        view='primary'
+                        jelly={true}
+                        jellySpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Stiffness: {state.stiffness}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={500}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Damping: {state.damping}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Mass: {state.mass.toFixed(1)}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState((s) => ({ ...s, mass: value }))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+});
+```
+
+## Swing
+
+Swing-анимация — маятниковое качание с затуханием. Отличается от wobble тем, что амплитуда уменьшается с каждым качком.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [state, setState] = React.useState({ stiffness: 100, damping: 8, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
+
+    return (
+        <>
+            <div style={{ padding: '16px' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <ButtonDesktop
+                        view='primary'
+                        swing={true}
+                        swingSpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Stiffness: {state.stiffness}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={300}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Damping: {state.damping}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Mass: {state.mass.toFixed(1)}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState((s) => ({ ...s, mass: value }))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+});
+```
+
+## Pop
+
+Pop-анимация — быстрый масштаб вверх, чуть ниже единицы, обратно.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [state, setState] = React.useState({ stiffness: 400, damping: 20, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
+
+    return (
+        <>
+            <div style={{ padding: '16px' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <ButtonDesktop
+                        view='primary'
+                        pop={true}
+                        popSpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Stiffness: {state.stiffness}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={600}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Damping: {state.damping}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Mass: {state.mass.toFixed(1)}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState((s) => ({ ...s, mass: value }))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+});
+```
+
+## Nod
+
+Nod-анимация — кивок вниз и обратно. Противоположность bounce по направлению.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [state, setState] = React.useState({ stiffness: 200, damping: 12, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
+
+    return (
+        <>
+            <div style={{ padding: '16px' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <ButtonDesktop
+                        view='primary'
+                        nod={true}
+                        nodSpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Stiffness: {state.stiffness}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={400}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Damping: {state.damping}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Mass: {state.mass.toFixed(1)}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState((s) => ({ ...s, mass: value }))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+});
+```
+
+## Rubber
+
+Rubber-анимация — кнопка сужается по X как резинка, затем растягивается и возвращается. Акцент на горизонтальной эластичности.
+
+```jsx live mobileHeight={500}
+render(() => {
+    const [state, setState] = React.useState({ stiffness: 250, damping: 12, mass: 1 });
+    const [playing, setPlaying] = React.useState(false);
+    const cancelRef = React.useRef(null);
+
+    return (
+        <>
+            <div style={{ padding: '16px' }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        flexWrap: 'wrap',
+                        marginBottom: '16px',
+                    }}
+                >
+                    <ButtonDesktop
+                        view='primary'
+                        rubber={true}
+                        rubberSpring={state}
+                        onSpringAnimationStart={(cancel) => {
+                            setPlaying(true);
+                            cancelRef.current = cancel;
+                        }}
+                        onSpringAnimationEnd={() => setPlaying(false)}
+                    >
+                        Click me!
+                    </ButtonDesktop>
+                    {playing && (
+                        <>
+                            <span style={{ fontSize: '13px', color: '#888' }}>
+                                Анимация воспроизводится...
+                            </span>
+                            <ButtonDesktop
+                                view='outlined'
+                                size={40}
+                                onClick={() => cancelRef.current && cancelRef.current()}
+                            >
+                                Отменить
+                            </ButtonDesktop>
+                        </>
+                    )}
+                </div>
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Stiffness: {state.stiffness}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.stiffness}
+                            min={1}
+                            max={400}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, stiffness: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Damping: {state.damping}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.damping}
+                            min={1}
+                            max={50}
+                            step={1}
+                            onChange={({ value }) => setState((s) => ({ ...s, damping: value }))}
+                        />
+                    </div>
+                    <div style={{ minWidth: '180px' }}>
+                        <div style={{ fontSize: '12px', marginBottom: '4px' }}>
+                            Mass: {state.mass.toFixed(1)}
+                        </div>
+                        <Gap size={8} />
+                        <Slider
+                            value={state.mass}
+                            min={0.1}
+                            max={5}
+                            step={0.1}
+                            onChange={({ value }) => setState((s) => ({ ...s, mass: value }))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+});
+```
+
+---
+
+## Модуль анимаций: `useSpringAnimation`
+
+Хук реализован в `packages/button/src/hooks/useSpringAnimation.ts` и инкапсулирует всю логику spring-анимаций на основе библиотеки [motion](https://motion.dev/docs/animate).
+
+### Зачем хук, а не инлайн-код
+
+Каждая анимация — это цепочка вызовов `animate()` (motion не поддерживает больше двух keyframes в spring-режиме). Хук берёт на себя:
+
+- построение цепочки шагов из пресета
+- блокировку повторного запуска пока анимация идёт
+- отмену с мгновенным сбросом трансформов
+- cleanup при размонтировании компонента
+
+### API хука
+
+```tsx
+const { trigger, cancel, isPlaying } = useSpringAnimation(
+    ref, // RefObject<HTMLElement> — элемент для анимации
+    type, // 'shake' | 'pulse' | 'bounce' | 'wobble'
+    springOptions, // { stiffness?, damping?, mass? } — переопределяют дефолты пресета
+    callbacks, // { onStart?(cancel): void, onEnd?(): void }
+);
+```
+
+<table>
+    <thead>
+        <tr>
+            <th>Возвращаемое</th>
+            <th>Тип</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>trigger</code>
+            </td>
+            <td>
+                <code>() =&gt; void</code>
+            </td>
+            <td>Запускает анимацию. Игнорируется, если уже играет.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>cancel</code>
+            </td>
+            <td>
+                <code>() =&gt; void</code>
+            </td>
+            <td>Останавливает анимацию и мгновенно возвращает элемент в исходное положение.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>isPlaying</code>
+            </td>
+            <td>
+                <code>boolean</code>
+            </td>
+            <td>
+                React-состояние: <code>true</code> пока анимация воспроизводится.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### Пресеты анимаций
+
+<table>
+    <thead>
+        <tr>
+            <th>Тип</th>
+            <th>Эффект</th>
+            <th>Свойство</th>
+            <th>Дефолтный spring</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>shake</code>
+            </td>
+            <td>Горизонтальный сдвиг влево-вправо</td>
+            <td>
+                <code>x</code>
+            </td>
+            <td>stiffness 100, damping 10</td>
+        </tr>
+        <tr>
+            <td>
+                <code>pulse</code>
+            </td>
+            <td>Масштабирование вверх и обратно</td>
+            <td>
+                <code>scale</code>
+            </td>
+            <td>stiffness 300, damping 15</td>
+        </tr>
+        <tr>
+            <td>
+                <code>bounce</code>
+            </td>
+            <td>Прыжок вверх и обратно</td>
+            <td>
+                <code>y</code>
+            </td>
+            <td>stiffness 200, damping 12</td>
+        </tr>
+        <tr>
+            <td>
+                <code>wobble</code>
+            </td>
+            <td>Вращение влево-вправо</td>
+            <td>
+                <code>rotate</code>
+            </td>
+            <td>stiffness 150, damping 8</td>
+        </tr>
+        <tr>
+            <td>
+                <code>jelly</code>
+            </td>
+            <td>Деформация scaleX/scaleY в противофазе</td>
+            <td>
+                <code>scaleX + scaleY</code>
+            </td>
+            <td>stiffness 300, damping 10</td>
+        </tr>
+        <tr>
+            <td>
+                <code>swing</code>
+            </td>
+            <td>Маятниковое вращение с затуханием</td>
+            <td>
+                <code>rotate</code>
+            </td>
+            <td>stiffness 100, damping 8</td>
+        </tr>
+        <tr>
+            <td>
+                <code>pop</code>
+            </td>
+            <td>Резкий масштаб вверх и обратно</td>
+            <td>
+                <code>scale</code>
+            </td>
+            <td>stiffness 400, damping 20</td>
+        </tr>
+        <tr>
+            <td>
+                <code>nod</code>
+            </td>
+            <td>Кивок вниз и обратно</td>
+            <td>
+                <code>y</code>
+            </td>
+            <td>stiffness 200, damping 12</td>
+        </tr>
+        <tr>
+            <td>
+                <code>rubber</code>
+            </td>
+            <td>Сужение и растяжение по X</td>
+            <td>
+                <code>scaleX</code>
+            </td>
+            <td>stiffness 250, damping 12</td>
+        </tr>
+    </tbody>
+</table>
+
+### Использование в компоненте
+
+```tsx
+import { useRef } from 'react';
+import { useSpringAnimation } from './hooks';
+
+function MyComponent() {
+    const ref = useRef<HTMLDivElement>(null);
+
+    const { trigger, cancel, isPlaying } = useSpringAnimation(
+        ref,
+        'shake',
+        { stiffness: 150, damping: 12 },
+        {
+            onStart: (cancelFn) => console.log('started', cancelFn),
+            onEnd: () => console.log('finished'),
+        },
+    );
+
+    return (
+        <div ref={ref}>
+            <button onClick={trigger}>Shake</button>
+            {isPlaying && <button onClick={cancel}>Отменить</button>}
+        </div>
+    );
+}
+```
+
+### Пропсы Button для анимаций
+
+Button оборачивает хук и предоставляет декларативный API через пропсы. Одновременно активна только одна анимация — они взаимоисключающие.
+
+<table>
+    <thead>
+        <tr>
+            <th>Проп</th>
+            <th>Тип</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>shake</code>
+            </td>
+            <td>
+                <code>boolean</code>
+            </td>
+            <td>Включить shake-анимацию по клику</td>
+        </tr>
+        <tr>
+            <td>
+                <code>shakeSpring</code>
+            </td>
+            <td>
+                <code>SpringOptions</code>
+            </td>
+            <td>Переопределить spring-параметры shake</td>
+        </tr>
+        <tr>
+            <td>
+                <code>pulse</code>
+            </td>
+            <td>
+                <code>boolean</code>
+            </td>
+            <td>Включить pulse-анимацию по клику</td>
+        </tr>
+        <tr>
+            <td>
+                <code>pulseSpring</code>
+            </td>
+            <td>
+                <code>SpringOptions</code>
+            </td>
+            <td>Переопределить spring-параметры pulse</td>
+        </tr>
+        <tr>
+            <td>
+                <code>bounce</code>
+            </td>
+            <td>
+                <code>boolean</code>
+            </td>
+            <td>Включить bounce-анимацию по клику</td>
+        </tr>
+        <tr>
+            <td>
+                <code>bounceSpring</code>
+            </td>
+            <td>
+                <code>SpringOptions</code>
+            </td>
+            <td>Переопределить spring-параметры bounce</td>
+        </tr>
+        <tr>
+            <td>
+                <code>wobble</code>
+            </td>
+            <td>
+                <code>boolean</code>
+            </td>
+            <td>Включить wobble-анимацию по клику</td>
+        </tr>
+        <tr>
+            <td>
+                <code>wobbleSpring</code>
+            </td>
+            <td>
+                <code>SpringOptions</code>
+            </td>
+            <td>Переопределить spring-параметры wobble</td>
+        </tr>
+        <tr>
+            <td>
+                <code>onSpringAnimationStart</code>
+            </td>
+            <td>
+                <code>(cancel: () =&gt; void) =&gt; void</code>
+            </td>
+            <td>Вызывается при старте; получает функцию отмены</td>
+        </tr>
+        <tr>
+            <td>
+                <code>onSpringAnimationEnd</code>
+            </td>
+            <td>
+                <code>() =&gt; void</code>
+            </td>
+            <td>Вызывается при завершении или отмене</td>
+        </tr>
+    </tbody>
+</table>
+
+### Добавление нового пресета
+
+Чтобы добавить новый тип анимации, достаточно расширить `PRESETS` в файле хука и добавить тип в `AnimationType`:
+
+```ts
+// packages/button/src/hooks/useSpringAnimation.ts
+
+export type AnimationType = 'shake' | 'pulse' | 'bounce' | 'wobble' | 'flip';
+
+const PRESETS: Record<AnimationType, AnimationPreset> = {
+    // ...существующие пресеты...
+    flip: {
+        defaultSpring: { stiffness: 200, damping: 20, mass: 1 },
+        steps: [
+            { property: 'rotateY', from: 0, to: 90 },
+            { property: 'rotateY', from: -90, to: 0 },
+        ],
+    },
+};
+```
+
+Новый тип сразу доступен в хуке и может использоваться в любом компоненте.
