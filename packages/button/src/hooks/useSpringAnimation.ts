@@ -103,9 +103,11 @@ export function useSpringAnimation<T extends HTMLElement>(
     const animationRef = useRef<ReturnType<typeof animate> | null>(null);
 
     const callbacksRef = useRef(callbacks);
+
     callbacksRef.current = callbacks;
 
     const springOptionsRef = useRef(springOptions);
+
     springOptionsRef.current = springOptions;
 
     const cancel = useCallback(() => {
