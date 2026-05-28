@@ -1,5 +1,17 @@
 # @alfalab/core-components-icon-view
 
+## 5.0.3
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2202](https://github.com/core-ds/core-components/pull/2202)
+
+##### IconView
+
+- Исправлено обрезание SVG-форм в Safari при масштабировании страницы.
+
 ## 5.0.2
 
 ### Patch Changes

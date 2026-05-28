@@ -1,0 +1,15 @@
+@import '../../vars.css';
+
+.column {
+    & > *:not(:last-child):not(:only-child) {
+        margin-bottom: var(--side-panel-footer-mobile-default-gap);
+    }
+}
+
+.start,
+.center,
+.space-between {
+    & > *:not(:last-child):not(:only-child) {
+        margin-right: var(--side-panel-footer-mobile-default-gap);
+    }
+}

@@ -1,5 +1,40 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-base-modal@7.1.5
+- @alfalab/core-components-navigation-bar-private@2.0.8
+
+## 8.1.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.7
+
+## 8.1.5
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2177](https://github.com/core-ds/core-components/pull/2177)
+
+##### BottomSheet
+
+- Изменение внутренних отступов компонента
+- Исправлен нижний отступ контентой части, когда он складывался с оступом футера
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.4
+
 ## 8.1.4
 
 ### Patch Changes

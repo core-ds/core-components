@@ -394,7 +394,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     />
                   </div>
                   <div
-                    class="content content sheetContent noFooter"
+                    class="content content sheetContent"
                   >
                     <div
                       aria-labelledby="downshift-:r3:-label"
@@ -885,7 +885,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     />
                   </div>
                   <div
-                    class="content content sheetContent noFooter"
+                    class="content content sheetContent"
                   >
                     <div
                       aria-labelledby="downshift-:r5:-label"

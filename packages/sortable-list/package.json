@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-sortable-list",
-    "version": "3.0.3",
+    "version": "3.0.5",
     "description": "Sortable list component",
     "keywords": [],
     "license": "MIT",
@@ -9,9 +9,12 @@
     ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "dependencies": {
         "@alfalab/core-components-portal": "^5.0.1",
-        "@alfalab/core-components-shared": "^2.1.1",
+        "@alfalab/core-components-shared": "^2.2.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "@dnd-kit/core": "^6.0.7",
         "@dnd-kit/sortable": "^7.0.2",
@@ -27,6 +30,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.3",
+    "themesVersion": "15.1.0",
     "varsVersion": "11.0.2"
 }

@@ -21,7 +21,7 @@ describe(
                 testStory: false,
                 knobs: {
                     open: true,
-                    'header.title': 'Заголовок',
+                    header: true,
                     'footer.sticky': true,
                     showMore: [false, true],
                 },
@@ -32,7 +32,7 @@ describe(
                 testStory: false,
                 knobs: {
                     open: true,
-                    'header.title': 'Заголовок',
+                    header: true,
                     'footer.sticky': true,
                     'footer.layout': ['column'],
                 },
@@ -56,7 +56,6 @@ describe(
                     open: true,
                     header: true,
                     showMore: true,
-                    'header.title': 'Заголовок',
                     'header.hasBackButton': true,
                     'header.hasCloser': true,
                     'header.sticky': [true, false],
@@ -71,7 +70,6 @@ describe(
                     open: true,
                     header: true,
                     showMore: true,
-                    'header.title': 'Заголовок',
                     'header.sticky': true,
                     'header.hasBackButton': false,
                     'header.hasCloser': true,
@@ -100,7 +98,6 @@ describe(
                 open: true,
                 header: true,
                 showMore: true,
-                'header.title': 'Заголовок',
                 'header.sticky': true,
                 'header.hasBackButton': true,
                 'header.hasCloser': true,
@@ -135,6 +132,7 @@ describe('Mobile | trim title', () => {
                     knobs: {
                         open: true,
                         trim: [false, true],
+                        header: true,
                         'header.title': [
                             'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
                         ],
@@ -146,6 +144,7 @@ describe('Mobile | trim title', () => {
                     subComponentName: 'Mobile',
                     knobs: {
                         open: true,
+                        header: true,
                         'header.title': [
                             'Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок Очень длинный заголовок',
                         ],
@@ -186,7 +185,7 @@ describe('Mobile | sticky header', () => {
                     knobs: {
                         open: true,
                         showMore: true,
-                        'header.title': 'Заголовок',
+                        header: true,
                         'header.sticky': [false, true],
                     },
                 }),
@@ -226,6 +225,7 @@ describe('Mobile | header bottom addons', () => {
                     subComponentName: 'Mobile',
                     knobs: {
                         open: true,
+                        header: true,
                         'header.title': 'Title',
                         'header.bottomAddons': ['BottomAddons'],
                     },

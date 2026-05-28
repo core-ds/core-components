@@ -4,6 +4,10 @@
     min-width: 456px;
 }
 
+.optionsListScrollbar.optionsListScrollbar {
+    overflow-x: hidden;
+}
+
 .option.option.option {
     &.size72 {
         padding-left: var(--gap-16);

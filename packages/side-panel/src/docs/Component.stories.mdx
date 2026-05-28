@@ -92,6 +92,9 @@ export let SidePanelComponent = SidePanelDesktop;
         const isPreview = Object.keys(previewStyles).length > 0;
         const isMobile = SidePanelComponent === SidePanelMobile;
         const FooterButton = isMobile ? ButtonMobile : ButtonDesktop;
+
+        const shouldRenderHeader = header && (Boolean(headerTitle) ||  hasCloser || hasBackButton);
+
         return (
             <div style={{ display: 'inline-block', background: 'transparent', ...previewStyles }}>
                 {!isPreview && (
@@ -104,7 +107,7 @@ export let SidePanelComponent = SidePanelDesktop;
                     onClose={handleModalOpen}
                     {...props}
                 >
-                    {header && (
+                    {shouldRenderHeader && (
                         <SidePanelComponent.Header
                             sticky={stickyHeader}
                             hasCloser={hasCloser}

@@ -21,7 +21,7 @@
     width: 100%;
 }
 
-.fixed {
+.fixed.fixed {
     position: fixed;
     bottom: var(--gap-32);
 

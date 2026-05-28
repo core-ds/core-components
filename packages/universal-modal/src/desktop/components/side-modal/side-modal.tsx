@@ -55,7 +55,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             componentRef={componentRef}
             contentElementRef={contentRef}
             scrollHandler='content'
-            disableBlockingScroll={withoutOverlay}
+            scrollLock={overlay}
             wrapperClassName={cn(styles.wrapper, styles.baseModalContainer, {
                 [styles.wrapperAlignStart]: horizontalAlign === 'start',
                 [styles.wrapperAlignEnd]: horizontalAlign === 'end',
@@ -64,7 +64,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 [styles.withoutOverlay]: withoutOverlay,
             })}
             className={cn(styles.component, className, styles.baseModalComponent, {
-                ...getMarginStyles({ styles, margin }),
+                ...getMarginStyles({ styles, margin, height }),
             })}
             contentClassName={styles.content}
             transitionProps={{

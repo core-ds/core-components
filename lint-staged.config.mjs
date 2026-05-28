@@ -2,7 +2,6 @@
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { exec } from '@actions/exec';
-import path from 'node:path';
 import { convertPathToPattern } from 'tinyglobby';
 
 import { ESLINT_IGNORED_PACKAGES } from './tools/eslint.cjs';
@@ -23,16 +22,11 @@ const config = {
     ...packages
         .filter(({ packageJson }) => !ESLINT_IGNORED_PACKAGES.includes(packageJson.name))
         .reduce(
-            (packagesConfig, { dir, relativeDir, packageJson }) => ({
+            (packagesConfig, { relativeDir, packageJson }) => ({
                 ...packagesConfig,
                 [`./${convertPathToPattern(relativeDir)}/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}`]: {
                     title: `eslint in ${relativeDir}`,
                     task: async () => {
-                        const eslintConfig = path.relative(
-                            dir,
-                            path.join(import.meta.dirname, '.eslintrc.cjs'),
-                        );
-
                         await exec('yarn', [
                             'workspace',
                             packageJson.name,
@@ -42,8 +36,6 @@ const config = {
                             '--fix',
                             '--max-warnings',
                             '0',
-                            '--config',
-                            eslintConfig,
                         ]);
                     },
                 },
