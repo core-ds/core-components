@@ -1,5 +1,125 @@
 # @alfalab/core-components
 
+## 50.15.0
+
+### Minor Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2164](https://github.com/core-ds/core-components/pull/2164)
+
+##### Vars
+
+- Добавлен CSS-миксин `visually-hidden` для скрытия текста визуально с сохранением доступности для screen reader.
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2229](https://github.com/core-ds/core-components/pull/2229)
+
+##### Carousel
+
+- Добавлена поддержка короткого свайпа - проп `shortSwipe`
+- Добавлены пропсы для более тонкой обработки жестов, для случаев использования `Carousel` внутри компонентов с поддержкой свайпов, например `BottomSheet`:
+    - `touchMoveStopPropagation` для остановки всплытия событий при свайпе
+    - `captureEvent` для захвата события при свайпе
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2229](https://github.com/core-ds/core-components/pull/2229)
+
+##### Carousel
+
+- Исключены непредвиденные скроллы при свайпе `Carousel` внутри скроллящихся контейнеров
+- Уточнена типизация
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2164](https://github.com/core-ds/core-components/pull/2164)
+
+##### PassCode
+
+- Добавлена озвучка прогресса ввода для screen reader после локального ввода и удаления символов через keypad
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2231](https://github.com/core-ds/core-components/pull/2231)
+
+##### Select
+
+- Исправлено отображение `content`/`children` в `BaseOption` при передаче кастомного `Checkmark`
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2226](https://github.com/core-ds/core-components/pull/2226)
+
+##### BottomSheet
+
+- Исправлены пути импорта css переменных
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2229](https://github.com/core-ds/core-components/pull/2229)
+
+##### Scrollbar
+
+- Работа с зависимостями
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2226](https://github.com/core-ds/core-components/pull/2226)
+
+##### Typography
+
+- Для `alfasans` версии пакета оставлен только один вариант шрифта, проп `font` игнорируется
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-vars@11.1.0
+- @alfalab/core-components-carousel@1.1.0
+- @alfalab/core-components-pass-code@4.0.7
+- @alfalab/core-components-select@19.1.8
+- @alfalab/core-components-bottom-sheet@8.1.8
+- @alfalab/core-components-scrollbar@5.0.3
+- @alfalab/core-components-typography@6.0.6
+- @alfalab/core-components-custom-picker-button@4.1.8
+- @alfalab/core-components-input-autocomplete@14.0.15
+- @alfalab/core-components-international-phone-input@4.0.15
+- @alfalab/core-components-intl-phone-input@11.0.15
+- @alfalab/core-components-picker-button@13.0.15
+- @alfalab/core-components-select-with-tags@10.1.9
+- @alfalab/core-components-table@4.0.15
+- @alfalab/core-components-tooltip@9.0.13
+- @alfalab/core-components-universal-modal@3.1.5
+- @alfalab/core-components-accordion@3.0.6
+- @alfalab/core-components-calendar@9.1.7
+- @alfalab/core-components-chart@5.0.6
+- @alfalab/core-components-circular-progress-bar@5.0.6
+- @alfalab/core-components-comment@4.0.6
+- @alfalab/core-components-confirmation@15.0.8
+- @alfalab/core-components-file-upload-item@8.0.9
+- @alfalab/core-components-gallery@7.1.8
+- @alfalab/core-components-list@5.0.6
+- @alfalab/core-components-list-header@5.0.6
+- @alfalab/core-components-markdown@3.0.10
+- @alfalab/core-components-navigation-bar@3.0.8
+- @alfalab/core-components-navigation-bar-private@2.0.9
+- @alfalab/core-components-product-cover@3.1.8
+- @alfalab/core-components-pure-cell@6.0.9
+- @alfalab/core-components-stepped-progress-bar@4.0.6
+- @alfalab/core-components-tab-bar@4.0.7
+- @alfalab/core-components-tabs@10.0.15
+- @alfalab/core-components-calendar-input@12.0.12
+- @alfalab/core-components-calendar-range@9.0.12
+- @alfalab/core-components-calendar-with-skeleton@7.0.11
+- @alfalab/core-components-date-range-input@5.0.12
+- @alfalab/core-components-date-time-input@6.0.12
+- @alfalab/core-components-universal-date-input@4.0.12
+- @alfalab/core-components-modal@11.0.11
+- @alfalab/core-components-popup-sheet@3.0.11
+- @alfalab/core-components-side-panel@7.0.11
+
 ## 50.14.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @alfalab/core-components-typography
 
+## 6.0.6
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2226](https://github.com/core-ds/core-components/pull/2226)
+
+##### Typography
+
+- Для `alfasans` версии пакета оставлен только один вариант шрифта, проп `font` игнорируется
+
 ## 6.0.5
 
 ### Patch Changes

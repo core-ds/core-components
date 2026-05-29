@@ -1,5 +1,13 @@
 # @alfalab/core-components-confirmation
 
+## 15.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.6
+
 ## 15.0.7
 
 ### Patch Changes

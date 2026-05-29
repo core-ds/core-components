@@ -1,5 +1,23 @@
 # @alfalab/core-components-select
 
+## 19.1.8
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2231](https://github.com/core-ds/core-components/pull/2231)
+
+##### Select
+
+- Исправлено отображение `content`/`children` в `BaseOption` при передаче кастомного `Checkmark`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.8
+- @alfalab/core-components-scrollbar@5.0.3
+- @alfalab/core-components-modal@11.0.11
+
 ## 19.1.7
 
 ### Patch Changes
