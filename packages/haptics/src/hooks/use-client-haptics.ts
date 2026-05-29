@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
+import { type HapticPreset } from 'web-haptics';
 
 import {
     type ClientHapticsApi,
-    type HapticPreset,
+    // type HapticPreset,
     type TriggerHapticOptions,
     type UseClientHapticsParams,
 } from '../types';

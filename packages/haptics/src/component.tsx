@@ -1,35 +1,45 @@
 import React, {
+    type ComponentProps,
     forwardRef,
-    type MouseEvent,
+    type Ref,
 } from 'react';
 
-import { useCoreConfig } from '@alfalab/core-components-config';
-
-import { type HapticPreset, type HapticProps, type HapticType } from './types';
-import { triggerHaptic } from './utils';
-
-// todo: add more haptic presets
-const hapticPresets: Record<HapticType, HapticPreset> = {
-    checkbox: 'selection',
-};
+import { HapticA } from './components/haptic-a';
+import { HapticButton } from './components/haptic-button';
+import { HapticInput } from './components/haptic-input';
+import { type HapticPreset, type HapticProps } from './types';
 
 export const Haptic = forwardRef<HTMLElement, HapticProps>(
-    ({ Component = 'button', haptic, onClick, ...restProps }, ref) => {
-        const { haptics } = useCoreConfig();
+    ({ Component = 'button', 'data-haptic-pattern': hapticPattern = 'selection', ...restProps }, ref) => {
+        const resolvedHapticPattern = hapticPattern as HapticPreset; // match with web-haptics
 
-        const handleClick = (event: MouseEvent<HTMLElement>) => {
-            onClick?.(event);
+        if (Component === 'a') {
+            return (
+                <HapticA
+                    {...(restProps as ComponentProps<typeof HapticA>)}
+                    data-haptic-pattern={resolvedHapticPattern}
+                    ref={ref as unknown as Ref<HTMLAnchorElement>}
+                />
+            );
+        }
 
-            // if the event is default prevented, don't trigger the haptic
-            if (event.defaultPrevented) return;
+        if (Component === 'input') {
+            return (
+                <HapticInput
+                    {...(restProps as ComponentProps<typeof HapticInput>)}
+                    data-haptic-pattern={resolvedHapticPattern}
+                    ref={ref as unknown as Ref<HTMLInputElement>}
+                />
+            );
+        }
 
-            triggerHaptic(hapticPresets[haptic as HapticType], {
-                enabled: true || haptics?.enabled,
-            });
-        };
-
-        // data-haptic='false' research
-        return <Component {...restProps} data-haptic='false' ref={ref} onClick={handleClick} />;
+        return (
+            <HapticButton
+                {...(restProps as ComponentProps<typeof HapticButton>)}
+                data-haptic-pattern={resolvedHapticPattern}
+                ref={ref as unknown as Ref<HTMLButtonElement>}
+            />
+        );
     });
 
 Haptic.displayName = 'Haptic';

@@ -240,7 +240,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 {!hiddenInput && (
                     <Button
                         Component='input'
-                        haptic='checkbox'
+                        data-haptic-pattern="selection"
                         type='checkbox'
                         onChange={handleChange}
                         name={name}

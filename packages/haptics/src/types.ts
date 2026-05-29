@@ -1,38 +1,45 @@
 import {
     type AnchorHTMLAttributes,
     type ButtonHTMLAttributes,
-    type ElementType,
-    type HTMLAttributes,
     type InputHTMLAttributes,
 } from 'react';
-
-// todo: add more haptic types
-export type HapticType = 'checkbox';
+import { type HapticPreset as WebHapticPreset } from 'web-haptics';
 
 // todo: add more haptic presets
-export type HapticPreset = 'selection';
+export type HapticPreset = WebHapticPreset;
+export type HapticComponent = 'button' | 'a' | 'input';
 
 export interface HapticBaseProps {
     /**
-     * Компонент или тег, на который навешивается haptic-поведение
+     * Интерактивный элемент, на который навешивается haptic-поведение
+     * @default button
      */
-    Component?: ElementType;
+    Component?: HapticComponent;
 
     /**
-     * Тип элемента, для которого нужно применить haptic-поведение
+     * Паттерн хаптика, который будет запущен по клику
+     * @default selection
      */
-    haptic: HapticType;
+    'data-haptic-pattern'?: HapticPreset;
 }
 
-type NativeInteractiveProps = Partial<
-    | InputHTMLAttributes<HTMLInputElement>
-    | ButtonHTMLAttributes<HTMLButtonElement>
-    | AnchorHTMLAttributes<HTMLAnchorElement>
->;
+type HapticButtonProps = Omit<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    'type' | 'data-haptic-pattern'
+> & {
+    Component?: 'button';
+    type?: ButtonHTMLAttributes<HTMLButtonElement>['type'] | string;
+} & HapticBaseProps;
 
-// REFACTOR TYPES FOR CLIENT HAPTICS
+type HapticAnchorProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'data-haptic-pattern'> & {
+    Component: 'a';
+} & HapticBaseProps;
 
-export type HapticProps = HapticBaseProps & HTMLAttributes<HTMLElement> & NativeInteractiveProps;
+type HapticInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'data-haptic-pattern'> & {
+    Component: 'input';
+} & HapticBaseProps;
+
+export type HapticProps = HapticButtonProps | HapticAnchorProps | HapticInputProps;
 
 export interface TriggerHapticOptions {
     enabled?: boolean;
