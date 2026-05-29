@@ -34,8 +34,8 @@ function main() {
                     demos,
                 },
                 null,
-                1,
-            ).replace(/^ +/gm, ''),
+                4,
+            ),
         );
     });
 
