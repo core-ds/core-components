@@ -14,7 +14,7 @@ export const parseInputIdx = (el: HTMLElement | null): number | null => {
 export const syncSelection = (target: HTMLInputElement) => {
     requestAnimationFrame(() => {
         if (document.activeElement === target) {
-            target.select();
+            target.setSelectionRange(0, target.value.length);
         }
     });
 };

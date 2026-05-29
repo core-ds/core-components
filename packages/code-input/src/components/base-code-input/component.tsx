@@ -1,4 +1,5 @@
 import React, {
+    type ChangeEvent,
     type FocusEventHandler,
     forwardRef,
     useEffect,
@@ -43,18 +44,18 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         ref,
     ) => {
         const inputRef = useRef<HTMLDivElement>(null);
-
-        const [values, setValues] = useState(initialValues.split(''));
-
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
+        const [values, setValues] = useState(initialValues.split(''));
 
         const getInputs = () =>
             inputRef.current?.querySelectorAll<HTMLInputElement>('input[data-code-input-index]');
 
-        const inputAt = (index: number) => getInputs()?.[index];
-
         const focus = (index = 0) => {
-            inputAt(index)?.focus();
+            const input = getInputs()?.[index];
+
+            if (input) {
+                input.focus();
+            }
         };
 
         const blur = () => {
@@ -117,7 +118,9 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             triggerChange(newValues);
         };
 
-        const handleChangeFromEvent: InputProps['onChange'] = (event) => {
+        const handleChangeFromEvent: InputProps['onChange'] = (
+            event: ChangeEvent<HTMLInputElement>,
+        ) => {
             const {
                 target: {
                     value,
@@ -172,7 +175,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 case 'ArrowLeft':
                     event.preventDefault();
 
-                    if (prevIndex) {
+                    if (prevIndex >= 0) {
                         focus(prevIndex);
                     }
 
@@ -199,9 +202,12 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
 
             const inputs = getInputs();
 
-            const target =
-                inputs &&
-                [...inputs].slice(0, index).find((input, i) => !input.value && (strictFocus || !i));
+            const target = Array.from(inputs ?? []).find((input, inputIndex) => {
+                const isPrev = inputIndex < index;
+                const canFocusEmpty = strictFocus || inputIndex === 0;
+
+                return isPrev && !input.value && canFocusEmpty;
+            });
 
             target?.focus();
 
@@ -215,7 +221,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
                 if (clearCodeOnError) {
                     focus();
                     /** Очищаем только в случае, если код не изменился */
-                    setValues((prevState) => (values === prevState ? [] : prevState));
+                    setValues((prevState: string[]) => (values === prevState ? [] : prevState));
                 }
 
                 onErrorAnimationEnd?.();

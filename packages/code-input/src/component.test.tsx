@@ -377,6 +377,18 @@ describe('CodeInput', () => {
                 expect(inputs[1]).not.toHaveFocus();
             });
 
+            it('ArrowLeft focuses first input when strictFocus is false and all values are filled', async () => {
+                ({ container } = render(<CodeInput />));
+                inputs = getInputs(container);
+
+                await fillByArray(container, ['1', '2', '3', '4']);
+
+                inputs[1].focus();
+                await userEvent.type(inputs[1], '{arrowleft}');
+
+                expect(inputs[0]).toHaveFocus();
+            });
+
             describe('click navigation cases', () => {
                 it.each([
                     {
