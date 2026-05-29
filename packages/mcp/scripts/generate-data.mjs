@@ -23,6 +23,8 @@ function main() {
 
         const demos = generateDemo(path.join(path.dirname(filePath), 'docs', 'description.mdx'));
 
+        // const changelog = path.resolve(filePath, '../../', 'CHANGELOG.md');
+
         writeFileSync(
             path.resolve(versionDir, `${packageName}.json`),
             JSON.stringify(
