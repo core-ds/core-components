@@ -858,6 +858,23 @@ describe('Select', () => {
                 ).length,
             ).toBe(0);
         });
+
+        it('should render content with custom Checkmark', () => {
+            const CustomCheckmark = () => <span data-test-id='custom-checkmark' />;
+
+            render(
+                <BaseOption
+                    option={{ key: '1', content: 'Neptunium' }}
+                    index={0}
+                    selected={true}
+                    Checkmark={CustomCheckmark}
+                    innerProps={{ id: 'option-id', role: 'option' }}
+                />,
+            );
+
+            expect(screen.getByTestId('custom-checkmark')).toBeInTheDocument();
+            expect(screen.getByText('Neptunium')).toBeInTheDocument();
+        });
     });
 
     describe('Callback tests', () => {
