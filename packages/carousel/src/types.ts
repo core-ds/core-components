@@ -20,10 +20,10 @@ export interface CarouselContextValue {
     onActiveIndexChange: (nextActiveElement: number) => void;
     count: number;
     colors?: 'default' | 'inverted';
-    loop?: boolean;
+    loop: boolean;
 }
 
-export interface LayoutProps<T = {}, U = {}, V = {}> {
+export interface LayoutProps<T, U, V> {
     layoutProps: T;
 
     children?: React.ReactNode;
@@ -106,6 +106,26 @@ export interface GeneralCarouselProps {
      * @default false
      */
     mouseWheel?: boolean;
+    /**
+     * Остановка всплытия событий при свайпе
+     * @default false
+     */
+    touchMoveStopPropagation?: boolean;
+    /**
+     * Захват события при свайпе
+     * @default false
+     */
+    captureEvent?: boolean;
+    /**
+     * Обработка короткого свайпа
+     * @default true
+     */
+    shortSwipe?: boolean;
+    /**
+     * Минимальная время длинного свайпа в миллисекундах
+     * @default 300
+     */
+    longSwipeTimeMs?: number;
 }
 
 export interface CarouselProps<T extends PaginationProps> extends GeneralCarouselProps {

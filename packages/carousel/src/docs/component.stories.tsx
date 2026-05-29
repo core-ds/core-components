@@ -103,6 +103,8 @@ export const carousel: Story = {
                 gap={number('gap', 8)}
                 loop={boolean('loop', false)}
                 mouseWheel={boolean('mouseWheel', false)}
+                longSwipeTimeMs={number('longSwipeTimeMs', 300)}
+                shortSwipe={boolean('shortSwipe', true)}
             />
         );
     },
