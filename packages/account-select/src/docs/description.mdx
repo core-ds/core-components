@@ -2,8 +2,6 @@
 
 ```jsx live
 render(() => {
-    const isDesktop = useIsDesktop();
-    const AccountSelect = isDesktop ? AccountSelectDesktop : AccountSelectMobile;
     const DATA = [
         { text: 'Основной счёт ··1234', amount: 100000099, id: '1' },
         { text: 'Экспресс-счёт ··0909', amount: 100000099, id: '2' },
@@ -56,8 +54,6 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const isDesktop = useIsDesktop();
-    const AccountSelect = isDesktop ? AccountSelectDesktop : AccountSelectMobile;
     const DATA = [
         { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
         { text: 'Карта с кредитным лимитом', amount: 999999, id: '2' },
@@ -118,8 +114,6 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const isDesktop = useIsDesktop();
-    const AccountSelect = isDesktop ? AccountSelectDesktop : AccountSelectMobile;
     const DATA = [
         { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
         { text: 'Карта с кредитным лимитом', amount: 2500000, id: '2' },
@@ -237,8 +231,6 @@ render(() => {
 
 ```jsx live
 render(() => {
-    const isDesktop = useIsDesktop();
-    const AccountSelect = isDesktop ? AccountSelectDesktop : AccountSelectMobile;
     const DATA = [
         { text: 'Карта с преимуществами', amount: 100000099, id: '1' },
         { text: 'Карта с кредитным лимитом', amount: 100099, id: '2' },

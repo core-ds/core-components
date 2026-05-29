@@ -69,12 +69,12 @@ __metadata:
   resolution: "@alfalab/core-components-account-select@workspace:packages/account-select"
   dependencies:
     "@alfalab/core-components-amount": "npm:^5.1.1"
-    "@alfalab/core-components-form-control": "npm:^14.0.4"
+    "@alfalab/core-components-form-control": "npm:^14.0.6"
     "@alfalab/core-components-generic-wrapper": "npm:^3.0.2"
-    "@alfalab/core-components-mq": "npm:^6.0.3"
-    "@alfalab/core-components-popover": "npm:^8.0.3"
-    "@alfalab/core-components-product-cover": "npm:^3.1.5"
-    "@alfalab/core-components-select": "npm:^19.1.4"
+    "@alfalab/core-components-mq": "npm:^6.0.4"
+    "@alfalab/core-components-popover": "npm:^8.0.4"
+    "@alfalab/core-components-product-cover": "npm:^3.1.7"
+    "@alfalab/core-components-select": "npm:^19.1.7"
     "@alfalab/core-components-typography": "npm:^6.0.5"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@maskito/core": "npm:^3.10.3"
@@ -753,7 +753,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-form-control@npm:^14.0.4, @alfalab/core-components-form-control@npm:^14.0.6, @alfalab/core-components-form-control@workspace:packages/form-control":
+"@alfalab/core-components-form-control@npm:^14.0.6, @alfalab/core-components-form-control@workspace:packages/form-control":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-form-control@workspace:packages/form-control"
   dependencies:
@@ -1105,7 +1105,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-mq@npm:^6.0.3, @alfalab/core-components-mq@npm:^6.0.4, @alfalab/core-components-mq@workspace:packages/mq":
+"@alfalab/core-components-mq@npm:^6.0.4, @alfalab/core-components-mq@workspace:packages/mq":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-mq@workspace:packages/mq"
   dependencies:
@@ -1372,7 +1372,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-popover@npm:^8.0.3, @alfalab/core-components-popover@npm:^8.0.4, @alfalab/core-components-popover@workspace:packages/popover":
+"@alfalab/core-components-popover@npm:^8.0.4, @alfalab/core-components-popover@workspace:packages/popover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-popover@workspace:packages/popover"
   dependencies:
@@ -1430,7 +1430,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-product-cover@npm:^3.1.5, @alfalab/core-components-product-cover@npm:^3.1.7, @alfalab/core-components-product-cover@workspace:packages/product-cover":
+"@alfalab/core-components-product-cover@npm:^3.1.7, @alfalab/core-components-product-cover@workspace:packages/product-cover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-product-cover@workspace:packages/product-cover"
   dependencies:
@@ -1685,7 +1685,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-select@npm:^19.1.4, @alfalab/core-components-select@npm:^19.1.7, @alfalab/core-components-select@workspace:packages/select":
+"@alfalab/core-components-select@npm:^19.1.7, @alfalab/core-components-select@workspace:packages/select":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-select@workspace:packages/select"
   dependencies:
