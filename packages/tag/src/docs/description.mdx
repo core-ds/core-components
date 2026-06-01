@@ -696,7 +696,7 @@ render(() => {
                     Списания
                 </TagDesktop>
                 <div>
-                    <FilterTag
+                    <FilterTagDesktop
                         ref={setPeriodAnchorEl}
                         client='desktop'
                         size={DESKTOP_TAG_SIZE}
@@ -720,7 +720,7 @@ render(() => {
                         ) : (
                             'Период'
                         )}
-                    </FilterTag>
+                    </FilterTagDesktop>
                     <Popover
                         anchorElement={periodAnchorEl}
                         open={periodOpen}
@@ -761,7 +761,7 @@ render(() => {
                     </Popover>
                 </div>
                 <div>
-                    <FilterTag
+                    <FilterTagDesktop
                         ref={setAccountsAnchorEl}
                         client='desktop'
                         size={DESKTOP_TAG_SIZE}
@@ -792,7 +792,7 @@ render(() => {
                                 </span>
                             </>
                         )}
-                    </FilterTag>
+                    </FilterTagDesktop>
                     <Popover
                         anchorElement={accountsAnchorEl}
                         open={accountsOpen}
@@ -1349,7 +1349,7 @@ render(() => {
                     </div>
 
                     <div>
-                        <FilterTag
+                        <FilterTagMobile
                             client='mobile'
                             size={MOBILE_ROW_TAG_SIZE}
                             view='filled'
@@ -1369,10 +1369,10 @@ render(() => {
                             ) : (
                                 'Период'
                             )}
-                        </FilterTag>
+                        </FilterTagMobile>
                     </div>
                     <div>
-                        <FilterTag
+                        <FilterTagMobile
                             client='mobile'
                             size={MOBILE_ROW_TAG_SIZE}
                             view='filled'
@@ -1399,7 +1399,7 @@ render(() => {
                                     </span>
                                 </>
                             )}
-                        </FilterTag>
+                        </FilterTagMobile>
                     </div>
                 </div>
 
