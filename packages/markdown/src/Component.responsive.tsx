@@ -5,7 +5,7 @@ import { useIsDesktop } from '@alfalab/core-components-mq';
 import { BaseMarkdown } from './components/base-markdown';
 import { type MarkdownResponsiveProps } from './typings';
 
-export const Markdown: React.FC<MarkdownResponsiveProps> = ({
+export const MarkdownResponsiveComponent: React.FC<MarkdownResponsiveProps> = ({
     breakpoint,
     client,
     defaultMatchMediaValue = client === undefined ? undefined : client === 'desktop',
