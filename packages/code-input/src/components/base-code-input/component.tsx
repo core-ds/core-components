@@ -9,6 +9,8 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+
 import {
     type BaseCodeInputProps,
     type CredentialOtp,
@@ -44,6 +46,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
         ref,
     ) => {
         const inputRef = useRef<HTMLDivElement>(null);
+        const nextFocusIndexRef = useRef<number | null>(null);
         const clearErrorTimerId = useRef<ReturnType<typeof setTimeout>>();
         const [values, setValues] = useState(initialValues.split(''));
 
@@ -112,7 +115,7 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             const nextIndex = Math.min(index + newValue.length, fields - 1);
 
             if (nextIndex !== index) {
-                focus(nextIndex);
+                nextFocusIndexRef.current = nextIndex;
             }
 
             triggerChange(newValues);
@@ -237,6 +240,15 @@ export const BaseCodeInput = forwardRef<CustomInputRef, BaseCodeInputProps>(
             },
             [error],
         );
+
+        useLayoutEffect_SAFE_FOR_SSR(() => {
+            if (nextFocusIndexRef.current === null) return;
+
+            const nextIndex = nextFocusIndexRef.current;
+
+            nextFocusIndexRef.current = null;
+            focus(nextIndex);
+        }, [focus, values]);
 
         useEffect(() => {
             let ac: AbortController | null = null;
