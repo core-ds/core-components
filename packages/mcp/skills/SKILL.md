@@ -306,14 +306,6 @@ vars.gap2xl === '32px'; // true
 | Typography         | `@alfalab/core-components/vars/typography.css`       |
 | Mixins             | `@alfalab/core-components/vars/mixins.css`           |
 
-### Product Bundles
-
-Pre-configured bundles for specific products:
-
-```css
-@import '@alfalab/core-components/vars/bundle/click.css';
-```
-
 ## Best Practices
 
 1. **Use semantic prop names** - prefer `view`, `size`, `status` over custom styling
