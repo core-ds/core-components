@@ -1,1 +1,1 @@
-export * from './Component.responsive';
+export { type TitleResponsiveProps, TitleResponsive } from './Component.responsive';

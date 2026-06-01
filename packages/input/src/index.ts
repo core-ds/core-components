@@ -1,1 +1,1 @@
-export * from './Component.responsive';
+export { type InputProps, Input } from './Component.responsive';

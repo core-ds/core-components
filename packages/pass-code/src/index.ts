@@ -1,2 +1,2 @@
-export * from './Component.responsive';
-export * from './components/KeyPadButton';
+export { PassCode } from './Component.responsive';
+export { KeyPadButton, type KeyPadButtonProps } from './components/KeyPadButton';

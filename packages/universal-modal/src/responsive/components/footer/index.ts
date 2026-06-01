@@ -1,1 +1,1 @@
-export * from './Component.responsive';
+export { type FooterResponsiveProps, FooterResponsive } from './Component.responsive';

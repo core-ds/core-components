@@ -1,1 +1,1 @@
-export * from './Component.responsive';
+export { Toast, type ToastProps } from './Component.responsive';
