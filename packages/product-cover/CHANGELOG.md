@@ -1,5 +1,23 @@
 # @alfalab/core-components-product-cover
 
+## 3.2.0
+
+### Minor Changes
+
+<sup><time>01.06.2026</time></sup>
+
+#### [#2224](https://github.com/core-ds/core-components/pull/2224)
+
+##### ProductCover
+
+Добавлены состояния для `hover` и `active`:
+
+- `darkening`
+- `lightening`
+- `static-darkening`
+- `static-lightening`
+- `false` (по умолчанию)
+
 ## 3.1.8
 
 ### Patch Changes
