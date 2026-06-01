@@ -4,4 +4,6 @@ import { Plate } from '@alfalab/core-components-plate';
 
 import { AlertBase, type AlertProps } from './Component';
 
-export const AlertResponsive = (props: AlertProps) => <AlertBase {...props} Plate={Plate} />;
+const AlertResponsive = (props: AlertProps) => <AlertBase {...props} Plate={Plate} />;
+
+export { AlertResponsive, AlertResponsive as Alert };
