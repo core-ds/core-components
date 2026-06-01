@@ -11,6 +11,13 @@ import pkg from '@alfalab/core-components-mcp/package.json' with { type: 'json' 
 
 import { DATA_VERSION } from './version.mjs';
 
+if (process.argv[2] === 'add-skill') {
+    const { addSkill } = await import('./add-skill.mjs');
+
+    addSkill();
+    process.exit(0);
+}
+
 const server = new McpServer({
     name: '@alfalab/core-components-mcp',
     version: pkg.version,
