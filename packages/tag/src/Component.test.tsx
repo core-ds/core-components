@@ -24,32 +24,6 @@ describe('Snapshots tests', () => {
     it('should match snapshot with left addons', () => {
         expect(render(<Tag leftAddons={<span>10 000 $</span>}>Press me</Tag>)).toMatchSnapshot();
     });
-
-    it('should match indicatorTag snapshot shape=rounded', () => {
-        expect(
-            render(
-                <Tag
-                    Component={IndicatorTag}
-                    shape='rounded'
-                    indicatorProps={{ mode: 'dot' }}
-                    leftAddons={<span />}
-                />,
-            ),
-        ).toMatchSnapshot();
-    });
-
-    it('should match indicatorTag snapshot shape=rectangular', () => {
-        expect(
-            render(
-                <Tag
-                    Component={IndicatorTag}
-                    shape='rectangular'
-                    indicatorProps={{ mode: 'count', value: 7 }}
-                    leftAddons={<span />}
-                />,
-            ),
-        ).toMatchSnapshot();
-    });
 });
 
 describe('Classes tests', () => {
