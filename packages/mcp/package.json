@@ -12,9 +12,8 @@
         "README.md"
     ],
     "scripts": {
-        "build": "npm run copy:data && npm run copy:skills",
-        "copy:data": "copyfiles -u 1 \"src/data/**/*\" dist/",
-        "copy:skills": "copyfiles -u 0 \"skills/**\" dist/",
+        "build": "yarn copy:assets",
+        "copy:assets": "copyfiles -u 1 \"src/{data,skills}/**/*\" dist/",
         "dev": "tsx src/index.mts",
         "generate-data": "node scripts/generate-data.mjs",
         "start": "node dist/index.mjs"
