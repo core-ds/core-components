@@ -17,6 +17,14 @@ const meta: Meta<typeof ProductCover.Single> = {
 
 type Story = StoryObj<typeof ProductCover>;
 
+const STATE_TYPES = [
+    'darkening',
+    'lightening',
+    'static-darkening',
+    'static-lightening',
+    false,
+] as const;
+
 export const product_cover_single: Story = {
     name: 'ProductCover.Single',
     render: () => {
@@ -47,6 +55,7 @@ export const product_cover_single: Story = {
                 borderColor={text('borderColor', undefined)}
                 backgroundColor={text('backgroundColor', undefined)}
                 textColor={textColor}
+                stateType={select('stateType', STATE_TYPES, false)}
             />
         );
     },
