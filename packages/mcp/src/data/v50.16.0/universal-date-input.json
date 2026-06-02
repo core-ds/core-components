@@ -342,21 +342,21 @@
                 "name": "((event: ChangeEvent<HTMLInputElement> | null, payload: { value: string; }) => void) | undefined"
             }
         },
-        "picker": {
-            "defaultValue": null,
-            "description": "Открыть календарь при клике",
-            "name": "picker",
-            "required": false,
-            "type": {
-                "name": "boolean | undefined"
-            }
-        },
         "autoCorrection": {
             "defaultValue": {
                 "value": "true"
             },
             "description": "Автоматическое исправление ввода",
             "name": "autoCorrection",
+            "required": false,
+            "type": {
+                "name": "boolean | undefined"
+            }
+        },
+        "picker": {
+            "defaultValue": null,
+            "description": "Открыть календарь при клике",
+            "name": "picker",
             "required": false,
             "type": {
                 "name": "boolean | undefined"

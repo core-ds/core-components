@@ -380,3 +380,40 @@ Never silently fall back to generic React patterns when a component is missing f
 - Checking what changed between component versions
 - Migrating from older versions of components to newer ones
 - Migrating from deprecated components to current ones
+
+
+## Deprecated Components Migration
+
+If the user references a deprecated component, inform them that it is no longer supported and no MCP data is available for it. Then offer to help migrate to the replacement:
+
+> **ComponentName** is deprecated and is not available in the current version of MCP. The recommended replacement is **ReplacementName**. Would you like me to help migrate to it?
+
+Do not attempt to use the deprecated component's API or guess its props — always redirect to the replacement.
+
+| Deprecated | Replacement | Notes |
+| ------------------- | ------------------------- | ----------------------------------------- |
+| `ConfirmationV1` | `Confirmation` | Drop-in replacement |
+| `FileUploadItemV1` | `FileUploadItem` | Drop-in replacement |
+| `PassCodeV1` | `PassCode` | Drop-in replacement |
+| `PatternLockV1` | `PatternLock` | Drop-in replacement |
+| `Alert` | `Plate` | Different API — check `component_info` |
+| `Badge` | `StatusBadge` | Different API — check `component_info` |
+| `CalendarInput` | `UniversalDateInput` | Unified date input for all date scenarios |
+| `DateInput` | `UniversalDateInput` | Unified date input for all date scenarios |
+| `DateRangeInput` | `UniversalDateInput` | Unified date input for all date scenarios |
+| `DateTimeInput` | `UniversalDateInput` | Unified date input for all date scenarios |
+| `TimeInput` | `UniversalDateInput` | Unified date input for all date scenarios |
+| `IntlPhoneInput` | `InternationalPhoneInput` | Different API — check `component_info` |
+| `Loader` | `Spinner` | Drop-in replacement |
+
+### Migration workflow
+
+When a user's code uses a deprecated component:
+
+```
+1. Identify the replacement from the table above
+2. component_info("ReplacementName")   → check the new API
+3. component_demo("ReplacementName")   → find a relevant demo
+4. Rewrite usage with the new component API
+```
+
