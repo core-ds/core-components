@@ -1,0 +1,86 @@
+{
+    "packageName": "stepped-progress-bar",
+    "displayName": "SteppedProgressBar",
+    "description": "",
+    "props": {
+        "maxStep": {
+            "defaultValue": null,
+            "description": "Общее количество шагов",
+            "name": "maxStep",
+            "required": true,
+            "type": {
+                "name": "number"
+            }
+        },
+        "description": {
+            "defaultValue": null,
+            "description": "Постфикс описание под прогрессбаром",
+            "name": "description",
+            "required": false,
+            "type": {
+                "name": "string | undefined"
+            }
+        },
+        "step": {
+            "defaultValue": {
+                "value": 0
+            },
+            "description": "Количество пройденных шагов",
+            "name": "step",
+            "required": false,
+            "type": {
+                "name": "number | undefined"
+            }
+        },
+        "view": {
+            "defaultValue": null,
+            "description": "Цвет заполнения",
+            "name": "view",
+            "required": false,
+            "type": {
+                "name": "SteppedProgressBarViewValue | SteppedProgressBarViewValue[] | undefined"
+            }
+        },
+        "dataTestId": {
+            "defaultValue": null,
+            "description": "Идентификатор для систем автоматизированного тестирования",
+            "name": "dataTestId",
+            "required": false,
+            "type": {
+                "name": "string | undefined"
+            }
+        },
+        "colors": {
+            "defaultValue": {
+                "value": "default"
+            },
+            "description": "Набор цветов для компонента",
+            "name": "colors",
+            "required": false,
+            "type": {
+                "name": "\"default\" | \"inverted\" | undefined"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "Дополнительный класс",
+            "name": "className",
+            "required": false,
+            "type": {
+                "name": "string | undefined"
+            }
+        }
+    },
+    "demos": [
+        {
+            "title": "Пошаговый прогрессбар с описанием под шкалой",
+            "description": "",
+            "desktop": "<SteppedProgressBar\nstep={5}\nmaxStep={10}\ndescription={\"Название шага\"}\n/>"
+        },
+        {
+            "title": "Пошаговый прогрессбар с выбором цветов отдельных сегментов",
+            "description": "",
+            "desktop": "<SteppedProgressBar\nstep={8}\nmaxStep={10}\nview={['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent']}\n/>"
+        }
+    ]
+}
