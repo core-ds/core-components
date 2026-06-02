@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-toast",
-    "version": "8.0.5",
+    "version": "8.0.8",
     "description": "Toast component",
     "keywords": [],
     "license": "MIT",
@@ -9,13 +9,16 @@
     ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "dependencies": {
-        "@alfalab/core-components-mq": "^6.0.3",
-        "@alfalab/core-components-popover": "^8.0.3",
+        "@alfalab/core-components-mq": "^6.0.4",
+        "@alfalab/core-components-popover": "^8.0.4",
         "@alfalab/core-components-portal": "^5.0.1",
-        "@alfalab/core-components-shared": "^2.1.1",
+        "@alfalab/core-components-shared": "^2.2.0",
         "@alfalab/core-components-stack": "^7.0.1",
-        "@alfalab/core-components-toast-plate": "^9.1.0",
+        "@alfalab/core-components-toast-plate": "^9.1.2",
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
@@ -31,6 +34,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.3",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.1.0",
+    "varsVersion": "11.1.0"
 }

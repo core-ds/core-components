@@ -6,6 +6,7 @@
     --side-panel-header-background: var(--color-light-modal-bg-primary);
     --side-panel-footer-background: var(--color-light-modal-bg-primary);
     --side-panel-footer-default-gap: var(--gap-16);
+    --side-panel-footer-mobile-default-gap: var(--gap-8);
 
     /* sizes */
     --side-panel-s-width: 500px;
@@ -29,6 +30,6 @@
 
     /* paddings */
     --side-panel-header-mobile-top-padding: var(--gap-4);
-    --side-panel-header-mobile-paddings: var(--side-panel-header-mobile-top-padding) var(--gap-8)
-        var(--gap-4) var(--gap-8);
+    --side-panel-header-mobile-paddings: var(--side-panel-header-mobile-top-padding) var(--gap-12)
+        var(--gap-4) var(--gap-12);
 }

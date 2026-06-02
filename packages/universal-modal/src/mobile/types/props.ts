@@ -17,7 +17,9 @@ export interface UniversalModalMobileProps
                 | 'wrapperClassName'
                 | 'onUnmount'
                 | 'transitionProps'
+                | 'backdropProps'
                 | 'onClose'
                 | 'disableFocusLock'
+                | 'container'
             >
         > {}

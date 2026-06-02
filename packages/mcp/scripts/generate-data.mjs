@@ -1,0 +1,45 @@
+import { writeFileSync } from 'node:fs';
+import path from 'node:path';
+
+import { createIndexDir } from './create-index-dir.mjs';
+import { extractComponentDescription } from './extract-component-description.mjs';
+import { generateDemo } from './generate-demo.mjs';
+import { generateDoc } from './generate-doc.mjs';
+import { getComponentEntryPoints } from './get-component-entry-points.mjs';
+
+function main() {
+    const files = getComponentEntryPoints();
+
+    const docs = generateDoc(files);
+
+    const versionDir = createIndexDir();
+
+    docs.forEach((doc) => {
+        const { packageName, displayName, props, filePath } = doc;
+
+        const description = extractComponentDescription(
+            path.join(path.dirname(filePath), 'docs', 'Component.docs.mdx'),
+        );
+
+        const demos = generateDemo(path.join(path.dirname(filePath), 'docs', 'description.mdx'));
+
+        writeFileSync(
+            path.resolve(versionDir, `${packageName}.json`),
+            JSON.stringify(
+                {
+                    packageName,
+                    displayName,
+                    description,
+                    props,
+                    demos,
+                },
+                null,
+                1,
+            ).replace(/^ +/gm, ''),
+        );
+    });
+
+    console.log('☑️  Data generation done');
+}
+
+main();

@@ -56,6 +56,10 @@ export function toValueAsString(value: number | string | null): string {
     return `${value ?? ''}`;
 }
 
+function getSelectionRange({ selectionStart, selectionEnd }: MaskitoElement): SelectionRange {
+    return [selectionStart ?? 0, selectionEnd ?? 0];
+}
+
 function getNotEmptySelection(
     value: string,
     [from, to]: SelectionRange,
@@ -283,13 +287,20 @@ export function processDecimalPart(
     numberParams: NumberParams,
     view: 'default' | 'withZeroMinorPart',
 ): string {
-    const { decimalPart, decimalSeparator, ...numberParts } = toNumberParts(value, numberParams);
-    const nextDecimalPart =
-        view === 'withZeroMinorPart' || /[1-9]/.test(decimalPart)
-            ? decimalPart.padEnd(numberParams.maximumFractionDigits, ZERO_AS_STRING)
-            : decimalPart.replace(/0+$/, '');
+    if (value) {
+        const { decimalPart, decimalSeparator, ...numberParts } = toNumberParts(
+            value,
+            numberParams,
+        );
+        const nextDecimalPart =
+            view === 'withZeroMinorPart' || /[1-9]/.test(decimalPart)
+                ? decimalPart.padEnd(numberParams.maximumFractionDigits, ZERO_AS_STRING)
+                : decimalPart.replace(/0+$/, '');
 
-    return fromNumberParts({ ...numberParts, decimalPart: nextDecimalPart }, numberParams);
+        return fromNumberParts({ ...numberParts, decimalPart: nextDecimalPart }, numberParams);
+    }
+
+    return value;
 }
 
 /**
@@ -563,8 +574,7 @@ function selectionChangeHandler(
         const onPointerUp = (): void => {
             isPointerDown = Math.max(--isPointerDown, 0);
         };
-        const { selectionStart, selectionEnd } = element;
-        const selection: SelectionRange = [selectionStart ?? 0, selectionEnd ?? 0];
+        const selection = getSelectionRange(element);
 
         const listener = (event: Event): void => {
             if (!element.matches(':focus')) {
@@ -726,9 +736,7 @@ const maskitoRejectEvent = (onReject: () => void = noop): MaskitoPlugin =>
                     (event) => {
                         if (
                             event.defaultPrevented &&
-                            (event.inputType.startsWith('delete')
-                                ? event.inputType !== 'deleteByDrag'
-                                : element.value) &&
+                            !event.inputType.startsWith('delete') &&
                             value === element.value
                         ) {
                             dispatchInputRejectEvent(element);
@@ -754,8 +762,7 @@ function preventDeletePlugin({
     return maskitoEventHandler(
         'beforeinput',
         (element, __, event) => {
-            const from = element.selectionStart ?? 0;
-            const to = element.selectionEnd ?? 0;
+            const [from, to] = getSelectionRange(element);
 
             if (
                 (from !== to &&
@@ -826,8 +833,7 @@ function selectionPlugin(numberParams: NumberParams): MaskitoPlugin {
                 const input = element as HTMLInputElement;
                 const { value } = input;
                 const direction = input.selectionDirection ?? undefined;
-                let from = input.selectionStart ?? 0;
-                let to = input.selectionEnd ?? 0;
+                let [from, to] = getSelectionRange(input);
                 const [prevFrom, prevTo] = selection;
 
                 Object.assign(selection, [from, to]);

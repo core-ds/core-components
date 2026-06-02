@@ -1,4 +1,4 @@
-import React, { useContext, ContextType, useEffect } from 'react';
+import React, { useContext, ContextType, useEffect, useRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { getUniversalModalTestIds } from './utils/getUniversalModalTestIds';
 import { UniversalModalDesktop } from './desktop';
@@ -360,63 +360,6 @@ describe('UniversalModal', () => {
         });
     });
 
-    describe('desktop content gap tests', () => {
-        const dti = 'modal-dti';
-        const testIds = getUniversalModalTestIds(dti);
-
-        it.each(['withHeader', 'withFooter'])('should not have class %s', (className) => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).not.toHaveClass(className);
-        });
-
-        it.each(['withHeader', 'withFooter'])('should have class %s', (className) => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} />
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                    <UniversalModalDesktop.Footer dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass(className);
-        });
-
-        it('should render with header gap', () => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Header dataTestId={dti} />
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass('withHeader');
-        });
-
-        it('should render with footer gap', () => {
-            render(
-                <UniversalModalDesktop dataTestId={dti} open={true}>
-                    <UniversalModalDesktop.Content dataTestId={dti} />
-                    <UniversalModalDesktop.Footer dataTestId={dti} />
-                </UniversalModalDesktop>,
-            );
-
-            const content = screen.queryByTestId(testIds.content);
-
-            expect(content).toHaveClass('withFooter');
-        });
-    });
-
     describe('desktop highlight tests', () => {
         const dti = 'modal-dti';
         const testIds = getUniversalModalTestIds(dti);
@@ -603,6 +546,79 @@ describe('UniversalModal', () => {
                 const backdrop = screen.queryByTestId(testId);
 
                 expect(backdrop).not.toBeInTheDocument();
+            });
+        });
+    });
+
+    describe('portal container tests', () => {
+        const textContent = 'Text content';
+        const customPortalContainer = 'custom-portal-container';
+
+        describe('desktop', () => {
+            it('should render default container', () => {
+                render(<UniversalModalDesktop open={true}>{textContent}</UniversalModalDesktop>);
+
+                const portalContainer = document.querySelector('[alfa-portal-container]');
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+
+            it('should render custom container', () => {
+                const TestWrapper = () => {
+                    const containerRef = useRef<HTMLDivElement>(null);
+                    const getPortalContainer = () => containerRef.current;
+
+                    return (
+                        <>
+                            <div ref={containerRef} data-test-id={customPortalContainer} />
+                            <UniversalModalDesktop container={getPortalContainer} open={true}>
+                                {textContent}
+                            </UniversalModalDesktop>
+                        </>
+                    );
+                };
+
+                render(<TestWrapper />);
+
+                const portalContainer = screen.queryByTestId(customPortalContainer);
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+        });
+
+        describe('mobile', () => {
+            it('should render default container', () => {
+                render(<UniversalModalMobile open={true}>{textContent}</UniversalModalMobile>);
+
+                const portalContainer = document.querySelector('[alfa-portal-container]');
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
+            });
+
+            it('should render custom container', () => {
+                const TestWrapper = () => {
+                    const containerRef = useRef<HTMLDivElement>(null);
+                    const getPortalContainer = () => containerRef.current;
+
+                    return (
+                        <>
+                            <div ref={containerRef} data-test-id={customPortalContainer} />
+                            <UniversalModalMobile container={getPortalContainer} open={true}>
+                                {textContent}
+                            </UniversalModalMobile>
+                        </>
+                    );
+                };
+
+                render(<TestWrapper />);
+
+                const portalContainer = screen.queryByTestId(customPortalContainer);
+                const portalChild = screen.queryByText(textContent);
+
+                expect(portalContainer).toContainElement(portalChild);
             });
         });
     });

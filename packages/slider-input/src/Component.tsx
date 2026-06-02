@@ -17,10 +17,11 @@ import { type OnChangeType, type OnInputChangeType } from './types/propTypes';
 
 import styles from './index.module.css';
 
-export type SliderInputProps = Omit<
-    InputProps,
-    'min' | 'max' | 'step' | 'value' | 'type' | 'onChange' | 'bottomAddons' | 'size'
-> & {
+export interface SliderInputProps
+    extends Omit<
+        InputProps,
+        'min' | 'max' | 'step' | 'value' | 'type' | 'onChange' | 'bottomAddons' | 'size'
+    > {
     /**
      * Размер компонента
      * @description s, m, l, xl deprecated, используйте вместо них 48, 56, 64, 72 соответственно
@@ -125,6 +126,39 @@ export type SliderInputProps = Omit<
     onSliderEnd?: SliderProps['onEnd'];
 
     /**
+     * Включение/отключение отображения точек на слайдере
+     * @default false
+     */
+    dots?: SliderProps['dots'];
+
+    /**
+     * Тип отображения точек на слайдере: 'step' - по шагу, 'custom' - произвольные
+     * @default 'step'
+     */
+    dotsSlider?: SliderProps['dotsSlider'];
+
+    /**
+     * Массив значений для произвольного размещения точек
+     */
+    customDots?: SliderProps['customDots'];
+
+    /**
+     * Показывать точки для pips-значений вместе с customDots в режиме dotsSlider='custom'
+     * @default false
+     */
+    showPipsDots?: SliderProps['showPipsDots'];
+
+    /**
+     * Отображение подписи под точками:
+     * - all: подпись для всех точек
+     * - pipsOnly: подпись только для pips-значений
+     * - customPipsOnly: подпись только для customDots
+     * - none: подписи отключены
+     * @default 'all'
+     */
+    pipsLabel?: SliderProps['pipsLabel'];
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -134,7 +168,7 @@ export type SliderInputProps = Omit<
      * @default true
      */
     bold?: boolean;
-};
+}
 
 const SIZE_TO_CLASSNAME_MAP = {
     s: 'size-48',
@@ -178,7 +212,12 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             customInputProps = {},
             error,
             hint,
+            dots,
+            dotsSlider,
+            customDots,
+            showPipsDots,
             pips,
+            pipsLabel,
             range,
             dataTestId,
             bold = true,
@@ -267,6 +306,11 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                                     sliderClassName,
                                 )}
                                 pips={pips}
+                                pipsLabel={pipsLabel}
+                                dots={dots}
+                                dotsSlider={dotsSlider}
+                                customDots={customDots}
+                                showPipsDots={showPipsDots}
                                 range={range}
                             />
                         )

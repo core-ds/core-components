@@ -1,5 +1,45 @@
 # @alfalab/core-components-input-autocomplete
 
+## 14.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.8
+
+## 14.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-form-control@14.0.6
+- @alfalab/core-components-input@17.1.6
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-popover@8.0.4
+- @alfalab/core-components-select@19.1.7
+
+## 14.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.6
+- @alfalab/core-components-input@17.1.5
+
+## 14.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.5
+- @alfalab/core-components-form-control@14.0.5
+- @alfalab/core-components-input@17.1.4
+
 ## 14.0.11
 
 ### Patch Changes

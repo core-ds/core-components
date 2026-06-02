@@ -1,5 +1,25 @@
 # @alfalab/core-components-sortable-list
 
+## 3.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+
+## 3.0.4
+
+### Patch Changes
+
+<sup><time>08.05.2026</time></sup>
+
+#### [#2207](https://github.com/core-ds/core-components/pull/2207)
+
+##### SortableList
+
+- Исправлено вертикальное выравнивание drag иконки
+
 ## 3.0.3
 
 ### Patch Changes
