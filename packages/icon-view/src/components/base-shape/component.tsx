@@ -1,16 +1,9 @@
-import React, {
-    type ElementType,
-    forwardRef,
-    Fragment,
-    type ReactNode,
-    useEffect,
-    useState,
-} from 'react';
+import React, { type ElementType, forwardRef, Fragment, type ReactNode } from 'react';
 import cn from 'classnames';
 
 import { useId, useImageLoadingState } from '@alfalab/hooks';
 
-import { checkImageIsBroken } from './check-image-is-broken';
+import { useCheckImageIsBroken } from './use-check-image-is-broken';
 import { getPath, getPathName, type PathsMap } from './utils';
 
 import styles from './index.module.css';
@@ -151,32 +144,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
     ) => {
         const [width, height] = typeof size === 'object' ? [size.width, size.height] : [size, size];
         const imageLoadingState = useImageLoadingState({ src: imageUrl || '' });
-        const [isBrokenImage, setIsBrokenImage] = useState(false);
-
-        useEffect(() => {
-            let isUnmounted = false;
-
-            setIsBrokenImage(false);
-            onImageBrokenChange?.(false);
-
-            if (!imageUrl) {
-                return;
-            }
-
-            checkImageIsBroken({
-                imageUrl,
-                onResolve: (isBroken) => {
-                    if (!isUnmounted) {
-                        setIsBrokenImage(isBroken);
-                        onImageBrokenChange?.(isBroken);
-                    }
-                },
-            });
-
-            return () => {
-                isUnmounted = true;
-            };
-        }, [imageUrl, onImageBrokenChange]);
+        const isBrokenImage = useCheckImageIsBroken({ imageUrl, onImageBrokenChange });
 
         const clipPathId = useId();
 

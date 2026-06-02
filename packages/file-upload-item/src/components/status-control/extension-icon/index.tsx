@@ -16,6 +16,38 @@ import { getExtension, isInitialStatus } from '../../../utils';
 
 import styles from './index.module.css';
 
+const getDefaultFileIcon = (title: string, isColoredIcon: boolean) => {
+    const fileType = getExtension(title);
+
+    switch (fileType) {
+        case 'pdf':
+        case 'ppt':
+        case 'pptx':
+            return <DocumentPdfMIcon className={cn({ [styles.iconPDFColored]: isColoredIcon })} />;
+        case 'doc':
+        case 'docx':
+            return <DocumentDocMIcon className={cn({ [styles.iconDOCColored]: isColoredIcon })} />;
+        case 'xls':
+        case 'xlsx':
+            return (
+                <DocumentExcelMIcon className={cn({ [styles.iconExcelColored]: isColoredIcon })} />
+            );
+        case '1c':
+            return <Document1CMIcon className={cn({ [styles.icon1CColored]: isColoredIcon })} />;
+        case 'png':
+        case 'jpg':
+        case 'jpeg':
+        case 'svg':
+        case 'tif':
+        case 'tiff':
+            return <DocumentImageMIcon />;
+        default:
+            return (
+                <DocumentMIcon className={cn({ [styles.iconDocumentColored]: isColoredIcon })} />
+            );
+    }
+};
+
 export const ExtensionIcon = () => {
     const {
         title = '',
@@ -48,33 +80,6 @@ export const ExtensionIcon = () => {
     }
 
     const isColoredIcon = iconStyle === 'colored';
-    const fileType = getExtension(title);
 
-    switch (fileType) {
-        case 'pdf':
-        case 'ppt':
-        case 'pptx':
-            return <DocumentPdfMIcon className={cn({ [styles.iconPDFColored]: isColoredIcon })} />;
-        case 'doc':
-        case 'docx':
-            return <DocumentDocMIcon className={cn({ [styles.iconDOCColored]: isColoredIcon })} />;
-        case 'xls':
-        case 'xlsx':
-            return (
-                <DocumentExcelMIcon className={cn({ [styles.iconExcelColored]: isColoredIcon })} />
-            );
-        case '1c':
-            return <Document1CMIcon className={cn({ [styles.icon1CColored]: isColoredIcon })} />;
-        case 'png':
-        case 'jpg':
-        case 'jpeg':
-        case 'svg':
-        case 'tif':
-        case 'tiff':
-            return <DocumentImageMIcon />;
-        default:
-            return (
-                <DocumentMIcon className={cn({ [styles.iconDocumentColored]: isColoredIcon })} />
-            );
-    }
+    return getDefaultFileIcon(title, isColoredIcon);
 };

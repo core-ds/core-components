@@ -28,6 +28,7 @@ export const StatusControl = () => {
     const strokeDashoffset = Math.max(measureDashoffset, 0);
 
     const hasFullStatus = isSuccessStatus(uploadStatus) || isErrorStatus(uploadStatus);
+
     return (
         <div
             className={cn(styles.container, {

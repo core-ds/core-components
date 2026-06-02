@@ -7,37 +7,26 @@ export const checkImageIsBroken = ({ imageUrl, onResolve }: CheckImageIsBrokenPa
     const image = new Image();
 
     const resolveWithDecode = () => {
-        if (typeof image.decode === 'function') {
-            image
-                .decode()
-                .then(() => {
-                    onResolve(false);
-                })
-                .catch(() => {
-                    onResolve(true);
-                });
-
-            return;
-        }
-
-        onResolve(false);
+        Promise.resolve()
+            .then(() => image.decode())
+            .then(() => {
+                onResolve(false);
+            })
+            .catch(() => {
+                onResolve(true);
+            });
     };
 
     image.onload = () => {
-        if (typeof createImageBitmap === 'function') {
-            createImageBitmap(image)
-                .then((imageBitmap) => {
-                    imageBitmap.close();
-                    onResolve(false);
-                })
-                .catch(() => {
-                    resolveWithDecode();
-                });
-
-            return;
-        }
-
-        resolveWithDecode();
+        Promise.resolve()
+            .then(() => createImageBitmap(image))
+            .then((imageBitmap) => {
+                imageBitmap.close();
+                onResolve(false);
+            })
+            .catch(() => {
+                resolveWithDecode();
+            });
     };
 
     image.onerror = () => {
