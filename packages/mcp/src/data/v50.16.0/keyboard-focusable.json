@@ -19,5 +19,15 @@
             "description": "Все интерактивные элементы должны иметь определенную обводку при фокусе, полученном при переходе к элементу при помощи клавиатуры.\nПри клике мышкой или тапе обводки быть не должно.\nВ примере ниже кликните на первую кнопку мышкой, а затем нажмите tab, чтобы выбрать правую кнопку.",
             "desktop": "<KeyboardFocusable>\n{(ref, focused) => {\nconst focusOutlineStyles = {\noutline: '2px solid var(--focus-color)',\noutlineOffset: '2px',\n};\n\nreturn (\n<Space size={16} direction='horizontal'>\n<Button size={56}>\nКликни мышкой\n</Button>\n<Button size={56} ref={ref} style={focused ? focusOutlineStyles : {}}>\nВыбери табом\n</Button>\n</Space>\n\n);\n}}\n</KeyboardFocusable>"
         }
+    ],
+    "changelog": [
+        {
+            "version": "6.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
+        },
+        {
+            "version": "6.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`"
+        }
     ]
 }

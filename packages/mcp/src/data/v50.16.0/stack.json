@@ -30,5 +30,15 @@
             "description": "Расположение модального окна и тултипа при помощи stack.",
             "desktop": "render(() => {\nconst [modalOpen, setModalOpen] = React.useState(false);\n\nreturn (\n<div>\n<Button onClick={() => setModalOpen(true)}>Показать модалку</Button>\n\n<Stack value={1000}>\n{(zIndex) => (\n<ModalDesktop\nzIndex={zIndex}\nopen={modalOpen}\nonClose={() => setModalOpen(false)}\n>\n<ModalDesktop.Content>\n<style>{`.target {width: 100%}`}</style>\n<Stack>\n{(nextZIndex) => (\n<Tooltip\nzIndex={nextZIndex}\ncontent={<div>Tooltip</div>}\ntrigger='click'\ntargetClassName='target'\n>\n<Button block={true}>Показать тултип</Button>\n</Tooltip>\n)}\n</Stack>\n</ModalDesktop.Content>\n</ModalDesktop>\n)}\n</Stack>\n</div>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "7.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
+        },
+        {
+            "version": "7.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-stack-context@1.0.1"
+        }
     ]
 }

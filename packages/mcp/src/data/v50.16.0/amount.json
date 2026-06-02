@@ -157,5 +157,23 @@
             "description": "Компонент наследует стиль текста родителя и имеет два модификатора.",
             "desktop": "render(() => {\nconst [textStyle, setTextStyle] = React.useState('headline');\nconst [fontWeight, setFontWeight] = React.useState('regular');\nconst [transparent, setTransparent] = React.useState('none');\n\nconst onTextStyleChange = React.useCallback((_, payload) => {\nsetTextStyle(payload.value);\n}, []);\n\nconst onFontWeightChange = React.useCallback((_, payload) => {\nsetFontWeight(payload.value);\n}, []);\n\nconst onTransparentChange = React.useCallback((_, payload) => {\nsetTransparent(payload.value);\n}, []);\n\nconst isHeadline = textStyle === 'headline';\nconst Component = isHeadline ? Typography.Title : Typography.Text;\n\nreturn (\n<Container>\n<Component\nfont='system'\ncolor={textStyle}\nview={isHeadline ? 'medium' : 'primary-large'}\nweight={isHeadline ? 'bold' : 'regular'}\n>\n<AmountComponent\nvalue={123456700}\nminority={100}\nfontWeight={\nisHeadline || fontWeight === 'regular'\n? undefined\n: fontWeight.startsWith('major-')\n? { major: fontWeight.replace('major-', '') }\n: fontWeight\n}\ncurrency='RUB'\nview='withZeroMinorPart'\ntransparentMinor={transparent === 'minor'}\n/>\n</Component>\n<Gap size={24} />\n<RadioGroup\nlabel='Стиль текста'\ndirection='vertical'\nname='radioGroup'\nonChange={onTextStyleChange}\nvalue={textStyle}\n>\n<Radio size={24} label='Заголовок' value='headline' />\n<Radio size={24} label='Обычный текст' value='defaultText' />\n<Radio size={24} label='Зелёный текст' value='positive' />\n<Radio size={24} label='Красный текст' value='accent' />\n</RadioGroup>\n<Gap size={24} />\n<RadioGroup\nlabel='Модификатор «fontWeight»'\ndirection='vertical'\nname='radioGroupFirst'\nonChange={onFontWeightChange}\nvalue={fontWeight}\n>\n<Radio size={24} label='Без модификатора' value='regular' />\n<Radio size={24} label='Для всей суммы (bold)' value='bold' />\n<Radio size={24} label='Только для мажорной части (bold)' value='major-bold' />\n<Radio size={24} label='Для всей суммы (medium)' value='medium' />\n<Radio size={24} label='Только для мажорной части (medium)' value='major-medium' />\n</RadioGroup>\n<Gap size={24} />\n<RadioGroup\nlabel='Модификатор «transparent»'\ndirection='vertical'\nname='radioGroupFirst'\nonChange={onTransparentChange}\nvalue={transparent}\n>\n<Radio size={24} label='Без модификатора' value='none' />\n<Radio size={24} label='Только для минорной и валютной части' value='minor' />\n</RadioGroup>\n</Container>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "5.1.1",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`"
+        },
+        {
+            "version": "5.1.0",
+            "description": "### Minor Changes\n\n<sup><time>20.02.2026</time></sup>\n\n#### [#2076](https://github.com/core-ds/core-components/pull/2076)\n\n##### Amount\n\n- Добавлен проп `fontWeight` для управления жирностью шрифта\n- Проп `bold` помечен как `deprecated`. Используйте проп `fontWeight`"
+        },
+        {
+            "version": "5.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
+        },
+        {
+            "version": "5.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`"
+        }
     ]
 }

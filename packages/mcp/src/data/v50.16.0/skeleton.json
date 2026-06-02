@@ -102,5 +102,23 @@
             "description": "Скелетон умеет подстраиваться под заданный фрагмент текста, для этого тексту должны быть заданы fontSize и lineHeight.",
             "desktop": "render(() => {\nconst [visible, setVisible] = React.useState(false);\n\nconst { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(visible, {});\nconst titleSkeleton = renderTitleSkeleton({});\n\nconst { renderSkeleton, textRef } = useSkeleton(visible, {});\nconst textSkeleton = renderSkeleton({});\n\nconst TitleComponent = isMobile() ? Typography.TitleMobile : Typography.Title;\n\nreturn (\n<>\n<Switch\nchecked={visible}\nlabel='Скелетонизация текста'\nonChange={() => setVisible((prev) => !prev)}\n/>\n<Gap size={24} />\n\n{titleSkeleton ? (\ntitleSkeleton\n) : (\n<TitleComponent view='small' font='system' ref={titleRef}>\nПочему банк проверяет мои операции?\n</TitleComponent>\n)}\n\n<Gap size={12} />\n\n{textSkeleton ? (\ntextSkeleton\n) : (\n<Typography.Text view='primary-medium' ref={textRef}>\nВ 2001 году в России начал действовать Федеральный закон №115\n<br /> «О противодействии легализации доходов, полученных преступным\n<br /> путём, и финансированию терроризма».\n<br /> В рамках закона банки могут блокировать карты, отказывать\n<br /> в проведении сомнительных операций, ограничить доступ\n<br /> в интернет-банк или запрашивать документы, если по операции\n<br /> клиента возникли подозрения.\n</Typography.Text>\n)}\n</>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "7.0.3",
+            "description": "### Patch Changes\n\n<sup><time>10.04.2026</time></sup>\n\n#### [#2121](https://github.com/core-ds/core-components/pull/2121)\n\n##### Skeleton\n\n- Изменена анимация с `background` на `opacity`, теперь производительность анимации выше"
+        },
+        {
+            "version": "7.0.2",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`"
+        },
+        {
+            "version": "7.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
+        },
+        {
+            "version": "7.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`"
+        }
     ]
 }

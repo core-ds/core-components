@@ -161,5 +161,19 @@
             "description": "С помощью свойства `loading` можно отобразить состояние загрузки. Минимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».",
             "desktop": "render(() => {\nconst [loading, setLoading] = React.useState({\nprimary: false,\nsecondary: false,\n});\n\nconst handleClick = (buttonName, timeout) => {\nsetLoading({ ...loading, [buttonName]: true });\nsetTimeout(() => {\nsetLoading({ ...loading, [buttonName]: false });\n}, timeout);\n};\n\nreturn (\n<Container>\n<Row>\n<Col>\n<IconButton\nview='primary'\nsize={32}\nicon={DiamondsMIcon}\nloading={loading.primary}\nonClick={() => handleClick('primary', 30)}\n/>\n</Col>\n<Col>\n<IconButton\nview='secondary'\nsize={32}\nicon={DiamondsMIcon}\nloading={loading.secondary}\nonClick={() => handleClick('secondary', 1500)}\n/>\n</Col>\n</Row>\n</Container>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "8.0.4",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.1.1\n    - @alfalab/core-components-mq@6.0.3"
+        },
+        {
+            "version": "8.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.0.1\n    - @alfalab/core-components-mq@6.0.1"
+        },
+        {
+            "version": "8.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.0.0\n    - @alfalab/core-components-mq@6.0.0"
+        }
     ]
 }

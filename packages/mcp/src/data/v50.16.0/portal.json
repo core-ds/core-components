@@ -37,5 +37,15 @@
             "description": "",
             "desktop": "render(() => {\nconst [show, setShow] = React.useState(false);\nconst containerRef = React.useRef();\n\nconst handleClick = () => setShow(!show);\n\nconst styles = {\ndisplay: 'flex',\nflexDirection: 'column',\nalignItems: 'center',\njustifyContent: 'center',\nwidth: 240,\nheight: 95,\nborder: '1px solid var(--color-light-neutral-300)',\nborderRadius: 8,\nmarginTop: 6,\n};\n\nconst styleText = {\ncolor: 'var(--color-light-text-secondary)',\nfontSize: '14px',\nlineHeight: '18px',\n}\n\nreturn (\n<Container>\n<Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>\n<div>\n{show && (\n<Portal getPortalContainer={() => containerRef.current}>\n<StarMIcon />\n</Portal>\n)}\n</div>\n<Gap size={24}/>\n<div style={styleText}>Контейнер для контента портала</div>\n<div ref={containerRef} style={styles}/>\n</Container>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "5.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
+        },
+        {
+            "version": "5.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1851](https://github.com/core-ds/core-components/pull/1851)\n\n##### PortalContext\n\n- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-config@1.1.0"
+        }
     ]
 }

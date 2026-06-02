@@ -199,5 +199,23 @@
             "description": "С помощью слота leftAddons можно кастомизировать фильтртэг.",
             "desktop": "render(() => {\nconst [leftAddons, setLeftAddons] = React.useState(true);\nconst [selected, setSelected] = React.useState(false);\n\nconst addon = () => {\nif (leftAddons) {\nreturn (\n<div\nstyle={{\nwidth: 16,\nheight: 16,\nbackgroundColor: 'var(--color-light-status-muted-alt-info)',\nborder: '1px dashed var(--color-light-status-info)',\nborderRadius: '4px',\n}}\n/>\n);\n}\n\nreturn null;\n};\n\nreturn (\n<Container>\n<FilterTag size={32} checked={selected} leftAddons={addon()}>\n{selected ? (\n<span>\nLabel:<b> Value</b>\n</span>\n) : (\n<span>Label</span>\n)}\n</FilterTag>\n<Gap size={24} />\n<Switch\nlabel='LeftAddon'\nchecked={leftAddons}\nonChange={() => setLeftAddons((prevState) => !prevState)}\n/>\n<Gap size={16} />\n<Switch\nlabel='Selected'\nchecked={selected}\nonChange={() => setSelected((prevState) => !prevState)}\n/>\n</Container>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "7.0.4",
+            "description": "### Patch Changes\n\n<sup><time>27.03.2026</time></sup>\n\n#### [#2137](https://github.com/core-ds/core-components/pull/2137)\n\n##### FilterTag\n\n- Для шеврона: размеры 32 и 40 — `ChevronDownSIcon`, 48 — `ChevronDownMIcon` (вместо `ChevronDownCompactSIcon`)."
+        },
+        {
+            "version": "7.0.3",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-mq@6.0.3"
+        },
+        {
+            "version": "7.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-mq@6.0.1"
+        },
+        {
+            "version": "7.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1854](https://github.com/core-ds/core-components/pull/1854)\n\n##### FilterTag\n\n- Удален пропс `variant`, который был объявлен как `deprecated` в `core-components@38.x.x`\n- Удалены буквенные варианты пропса `size`, которые были объявлены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s` на `32, 40, 48` соответственно)\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Обновление `@alfalab/icons-*` библиотек\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-mq@6.0.0"
+        }
     ]
 }

@@ -82,5 +82,19 @@
             "description": "",
             "desktop": "<SteppedProgressBar\nstep={8}\nmaxStep={10}\nview={['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent']}\n/>"
         }
+    ],
+    "changelog": [
+        {
+            "version": "4.0.3",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-typography@6.0.3"
+        },
+        {
+            "version": "4.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-typography@6.0.1"
+        },
+        {
+            "version": "4.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n##### Typography.{Text,Title,TitleMobile}\n\n- Проп `font` помечен как `deprecated`\n- Проп `font`, значения которого включает в себя `\"alfasans\"`, не имеет эффекта для шрифта `Alfa Interface Sans`, но для него сохраняется обратная совместимость по следующему принципу:\n    - для компонента `Text`:\n        1. для значения `font=\"alfasans\"` соотвествует системный шрифт\n    - для компонентов `Title` и `TitleMobile`:\n        1. для значения `font=\"alfasans\"` соотвествует шрифт `Styrene`\n        2. для значения `font={ font: 'alfasans', systemCompat: boolean }` в зависимости от значения параметра `systemCompat`: `true` - системный шрифт, `false` - шрифт `Styrene`\n- Для использования компонентов `Typography.{Text,Title,TitleMobile}` со шрифтом `Alfa Interface Sans` необходимо установить соответствующий пакет (пакеты)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1853](https://github.com/core-ds/core-components/pull/1853)\n\n##### Typography\n\n- Исправление атомарного экспорта Text => TypographyText\n- Исправление атомарного экспорта Title => TypographyTitle\n- Исправление атомарного экспорта TitleResponsive => TypographyTitleResponsive\n- Исправление атомарного экспорта TitleMobile => TypographyTitleMobile\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1575](https://github.com/core-ds/core-components/pull/1575)\n\n##### Typography\n\n- Удален тип пропса `view` - `component`. Используйте `component-primary`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-typography@6.0.0"
+        }
     ]
 }

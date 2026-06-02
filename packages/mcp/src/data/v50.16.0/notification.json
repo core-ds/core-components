@@ -247,5 +247,23 @@
             "description": "",
             "desktop": "render(() => {\nconst [isVisible, setIsVisible] = React.useState(false);\n\nconst toggleVisibility = React.useCallback(() => setIsVisible((prev) => !prev), []);\nconst hideNotification = React.useCallback(() => setIsVisible(false), []);\n\nreturn (\n<div>\n<Notification\nbadge='positive-checkmark'\ntitle='Пример уведомления'\nvisible={isVisible}\noffset={180}\nonClose={hideNotification}\nonCloseTimeout={hideNotification}\n>\nОписание уведомления\n</Notification>\n<Button onClick={toggleVisibility}>Показать уведомление</Button>\n</div>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "9.0.5",
+            "description": "### Patch Changes\n\n<sup><time>10.04.2026</time></sup>\n\n#### [#2156](https://github.com/core-ds/core-components/pull/2156)\n\n##### Notification\n\n- Исправлены внутренние отступы между элементами компонента\n- Убран разделить для кнопки \"закрыть\"\n\n- Обновлены зависимости\n    - @alfalab/core-components-toast-plate@9.1.0"
+        },
+        {
+            "version": "9.0.4",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-toast-plate@9.0.4\n    - @alfalab/core-components-shared@2.1.1"
+        },
+        {
+            "version": "9.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-portal@5.0.1\n    - @alfalab/core-components-shared@2.0.1\n    - @alfalab/core-components-stack@7.0.1\n    - @alfalab/core-components-toast-plate@9.0.1"
+        },
+        {
+            "version": "9.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1851](https://github.com/core-ds/core-components/pull/1851)\n\n##### PortalContext\n\n- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1643](https://github.com/core-ds/core-components/pull/1643)\n\n##### ToastPlate\n\n- Удалены параметры `negative | positive | attention` для пропса badge, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Исправление экспорта модификатора dataTestId\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Minor Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n##### Notification\n\n- Добавлен пропс `containerRef`, для получения ссылки на контейнер компонента\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-toast-plate@9.0.0\n    - @alfalab/core-components-portal@5.0.0\n    - @alfalab/core-components-stack-context@1.0.1\n    - @alfalab/core-components-shared@2.0.0\n    - @alfalab/core-components-stack@7.0.0"
+        }
     ]
 }

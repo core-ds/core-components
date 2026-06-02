@@ -144,5 +144,19 @@
             "description": "Для компонента можно настроить текст-плейсхолдер, размер и лейбл кнопки. Рекомендуем прикреплять для тестов тяжелый файл, иначе загрузка будет мгновенной.",
             "desktop": "render(() => {\nconst [multiple, setMultiple] = React.useState(false);\nconst [progress, setProgress] = React.useState(0);\n\nconst simulateProgress = () => {\nconst interval = setInterval(() => {\nsetProgress((prevProgress) => {\nif (prevProgress === 100) {\nclearInterval(interval);\nreturn 100;\n}\nreturn prevProgress + 1;\n});\n}, 100);\n};\n\nconst handleChange = () => {\nsimulateProgress()\n};\n\nreturn (\n<Space size={24} >\n<Attach \nsize={56} \nonChange={handleChange}\nmultiple={multiple} \nmaxFilenameLength={isMobile() ? 10 : undefined}\nprogressBarPercent={progress === 100 ? null : progress}\nbuttonProps={{\nbreakpoint: BREAKPOINT,\nnowrap: true,\n}}\n/>\n<Switch\nblock={true}\nchecked={multiple}\nlabel='Несколько файлов'\nonChange={() => setMultiple(!multiple)}\n/>\n</Space>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "8.0.4",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-progress-bar@5.0.2\n    - @alfalab/core-components-button@13.1.1"
+        },
+        {
+            "version": "8.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.0.1\n    - @alfalab/core-components-keyboard-focusable@6.0.1\n    - @alfalab/core-components-progress-bar@5.0.1"
+        },
+        {
+            "version": "8.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1690](https://github.com/core-ds/core-components/pull/1690)\n\n##### ProgressBar\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `4, 8` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Обновление `@alfalab/icons-*` библиотек\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-progress-bar@5.0.0\n    - @alfalab/core-components-button@13.0.0\n    - @alfalab/core-components-keyboard-focusable@6.0.0"
+        }
     ]
 }

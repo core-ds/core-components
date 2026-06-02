@@ -216,5 +216,27 @@
             "description": "Чекбокс может находиться в выбранном и невыбранном состоянии. В редких кейсах его значение может быть неопределённым.\nЕсли чекбокс заблокирован, используется состояние «недоступен».",
             "desktop": "render(() => {\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<Checkbox size={24} label='Неопределён' indeterminate={true} block={true} />\n<Gap size={20} />\n<Checkbox size={24} label='Выбран' checked={true} block={true} />\n<Gap size={20} />\n<Checkbox\nsize={24}\nlabel='Выбран и недоступен'\ndisabled={true}\nchecked={true}\nblock={true}\n/>\n<Gap size={20} />\n<Checkbox size={24} label='По умолчанию' checked={false} block={true} />\n<Gap size={20} />\n<Checkbox\nsize={24}\nlabel='По умолчанию и недоступен'\nchecked={false}\ndisabled={true}\nblock={true}\n/>\n</div>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "6.2.0",
+            "description": "### Minor Changes\n\n<sup><time>20.03.2026</time></sup>\n\n#### [#2119](https://github.com/core-ds/core-components/pull/2119)\n\n##### Checkbox\n\n- Добавлены пропсы `labelClassName`, `hintClassName`, `errorClassName`, `addonsClassName` для передачи дополнительных классов соответствующим элементам компонента"
+        },
+        {
+            "version": "6.1.1",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.1.1"
+        },
+        {
+            "version": "6.1.0",
+            "description": "### Minor Changes\n\n<sup><time>27.02.2026</time></sup>\n\n#### [#2071](https://github.com/core-ds/core-components/pull/2071)\n\n##### Checkbox\n\n- Добавлен prop `position` для управления положением чекбокса относительно контента ('before' | 'after'), теперь компонент сам контролирует порядок DOM-узлов (label/checkbox)."
+        },
+        {
+            "version": "6.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.1"
+        },
+        {
+            "version": "6.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1645](https://github.com/core-ds/core-components/pull/1645)\n\n##### Checkbox\n\n- Удален пропс `inactive`, который был помечен как `deprecated` в `core-components@43.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `20 и 24` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.0"
+        }
     ]
 }

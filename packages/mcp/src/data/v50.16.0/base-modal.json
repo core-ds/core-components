@@ -341,5 +341,31 @@
             "description": "",
             "desktop": "render(() => {\nconst [open, setOpen] = React.useState(false);\nconst handleModalOpen = () => setOpen(!open);\n\nreturn (\n<>\n<Button\nsize={56}\nonClick={handleModalOpen}\nblock={isMobile()}\nbreakpoint={BREAKPOINT}\n>\nПоказать BaseModal\n</Button>\n\n<BaseModal open={open} onClose={handleModalOpen}>\n<div style={{ padding: '100px' }}>BaseModal</div>\n</BaseModal>\n</>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "7.1.4",
+            "description": "### Patch Changes\n\n<sup><time>08.05.2026</time></sup>\n\n#### [#2200](https://github.com/core-ds/core-components/pull/2200)\n\n##### UniversalModal ,BaseModal\n\n- Исправлена обработка явного `scrollLock={false}` в `BaseModal`: legacy-блокировка скролла применяется только когда `scrollLock` не передан.\n- В `UniversalModal` блокировка скролла теперь управляется через `scrollLock={overlay}` вместо deprecated `disableBlockingScroll`."
+        },
+        {
+            "version": "7.1.3",
+            "description": "### Patch Changes\n\n<sup><time>15.04.2026</time></sup>\n\n#### [#2159](https://github.com/core-ds/core-components/pull/2159)\n\n##### BaseModal\n\n- Исправлен проброс пропсов для backdrop"
+        },
+        {
+            "version": "7.1.2",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-backdrop@5.0.2\n    - @alfalab/core-components-shared@2.1.1"
+        },
+        {
+            "version": "7.1.0",
+            "description": "### Minor Changes\n\n<sup><time>13.02.2026</time></sup>\n\n#### [#2067](https://github.com/core-ds/core-components/pull/2067)\n\n##### BaseModal\n\n- Расширено публичное api для методов `setHeaderHighlighted` и `setFooterHighlighted`"
+        },
+        {
+            "version": "7.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-backdrop@5.0.1\n    - @alfalab/core-components-global-store@4.0.1\n    - @alfalab/core-components-portal@5.0.1\n    - @alfalab/core-components-shared@2.0.1\n    - @alfalab/core-components-stack@7.0.1"
+        },
+        {
+            "version": "7.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1635](https://github.com/core-ds/core-components/pull/1635)\n\n##### BaseModal\n\n- Удалён matches полифил для поддержки работы focusLock в ie 11\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1851](https://github.com/core-ds/core-components/pull/1851)\n\n##### PortalContext\n\n- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Обновление типов `types/react-transition-group`\n\n- Обновлены зависимости\n    - @alfalab/core-components-portal@5.0.0\n    - @alfalab/core-components-stack-context@1.0.1\n    - @alfalab/core-components-backdrop@5.0.0\n    - @alfalab/core-components-shared@2.0.0\n    - @alfalab/core-components-stack@7.0.0\n    - @alfalab/core-components-global-store@4.0.0"
+        }
     ]
 }

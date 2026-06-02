@@ -241,5 +241,27 @@
             "desktop": "render(() => {\nconst [value, setValue] = React.useState(0);\nconst [slider, setSlider] = React.useState(0);\n\nconst handleChange = ({ value }) => setValue(value);\nconst handleChangeSlider = ({ value }) => setSlider(value);\n\nreturn (\n<>\n<Slider size={4} value={value} onChange={handleChange} />\n<br />\n<br />\n<Slider size={2} value={slider} onChange={handleChangeSlider} />\n</>\n);\n});",
             "mobile": "render(() => {\nconst [value, setValue] = React.useState(0);\nconst [slider, setSlider] = React.useState(0);\n\nconst handleChange = ({ value }) => setValue(value);\nconst handleChangeSlider = ({ value }) => setSlider(value);\n\nreturn (\n<>\n<div style={{ marginBottom: 80 }}>\n<Slider size={4} value={value} onChange={handleChange} />\n</div>\n<Slider size={2} value={slider} onChange={handleChangeSlider} />\n</>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "6.1.1",
+            "description": "### Patch Changes\n\n<sup><time>22.05.2026</time></sup>\n\n#### [#2219](https://github.com/core-ds/core-components/pull/2219)\n\n##### Slider ,SliderInput\n\n- Исправлен регресс выравниваний крайних подписей (`min`/`max`) под слайдером."
+        },
+        {
+            "version": "6.1.0",
+            "description": "### Minor Changes\n\n<sup><time>24.04.2026</time></sup>\n\n#### [#1770](https://github.com/core-ds/core-components/pull/1770)\n\n##### Slider\n\n- В `Slider` добавлены пропсы `dots`, `dotsSlider`, `customDots`, `showPipsDots` и `pipsLabel` для раздельного управления точками (`dots`) и подписями (`pips`).\n- В режиме `dotsSlider='custom'` `showPipsDots` управляет отображением точек для `pips`-значений, а `pipsLabel` управляет только подписями (`all`, `pipsOnly`, `customPipsOnly`, `none`)."
+        },
+        {
+            "version": "6.0.2",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`"
+        },
+        {
+            "version": "6.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
+        },
+        {
+            "version": "6.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1694](https://github.com/core-ds/core-components/pull/1694)\n\n##### Slider\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `2, 4` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`"
+        }
     ]
 }

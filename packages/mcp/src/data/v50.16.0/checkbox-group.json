@@ -162,5 +162,23 @@
             "desktop": "render(() => {\nconst [value, setValue] = React.useState({ one: true, two: false, three: false, four: false });\nconst [error, setError] = React.useState(false);\n\nconst onChange = (_, payload) => {\nsetValue({ ...value, [payload.name]: payload.checked });\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<CheckboxGroupDesktop\nlabel='Выберите один или несколько вариантов'\nonChange={onChange}\ndirection='horizontal'\ntype='tag'\nhint='Выберите один из вариантов'\nerror={error}\n>\n<Tag name='one' checked={value.one} view='filled' shape='rectangular'>\nВариант 1\n</Tag>\n<Tag name='two' checked={value.two} view='filled' shape='rectangular'>\nВариант 2\n</Tag>\n<Tag name='three' checked={value.three} view='filled' shape='rectangular'>\nВариант 3\n</Tag>\n<Tag name='four' checked={value.four} view='filled' shape='rectangular'>\nВариант 4\n</Tag>\n</CheckboxGroupDesktop>\n\n<Gap size={32} />\n\n<Space direction='horizontal' wrap={true}>\n<Button size={32} onClick={() => setError(false)}>\nПо умолчанию\n</Button>\n<Button size={32} onClick={() => setError('Error message')}>\nСостояние ошибки\n</Button>\n</Space>\n</div>\n);\n});",
             "mobile": "render(() => {\nconst [value, setValue] = React.useState({ one: true, two: false, three: false, four: false });\nconst [error, setError] = React.useState(false);\n\nconst onChange = (_, payload) => {\nsetValue({ ...value, [payload.name]: payload.checked });\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<CheckboxGroupMobile\nlabel='Выберите один или несколько вариантов'\nonChange={onChange}\ndirection='horizontal'\ntype='tag'\nhint='Выберите один из вариантов'\nerror={error}\n>\n<Tag name='one' checked={value.one} view='filled' shape='rectangular'>\nВариант 1\n</Tag>\n<Tag name='two' checked={value.two} view='filled' shape='rectangular'>\nВариант 2\n</Tag>\n<Tag name='three' checked={value.three} view='filled' shape='rectangular'>\nВариант 3\n</Tag>\n<Tag name='four' checked={value.four} view='filled' shape='rectangular'>\nВариант 4\n</Tag>\n</CheckboxGroupMobile>\n\n<Gap size={32} />\n\n<Space direction='horizontal' wrap={true}>\n<Button size={32} onClick={() => setError(false)}>\nПо умолчанию\n</Button>\n<Button size={32} onClick={() => setError('Error message')}>\nСостояние ошибки\n</Button>\n</Space>\n</div>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "6.0.4",
+            "description": "### Patch Changes\n\n<sup><time>08.05.2026</time></sup>\n\n#### [#2186](https://github.com/core-ds/core-components/pull/2186)\n\n##### CheckboxGroup\n\n- Удалены боковые отступы в мобильном компоненте для `label`, `hint`"
+        },
+        {
+            "version": "6.0.3",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.1.1\n    - @alfalab/core-components-mq@6.0.3"
+        },
+        {
+            "version": "6.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-mq@6.0.1\n    - @alfalab/core-components-shared@2.0.1"
+        },
+        {
+            "version": "6.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.0\n    - @alfalab/core-components-mq@6.0.0"
+        }
     ]
 }

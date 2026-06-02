@@ -123,5 +123,19 @@
             "description": "",
             "desktop": "<div style={{ width: isMobile() ? 320 : 200 }}>\n<TextComponent tag='div' align='center'>\nПо центру\n</TextComponent>\n<Gap size={12} />\n<TextComponent tag='div' align='left'>\nПо левому краю\n</TextComponent>\n<Gap size={12} />\n<TextComponent tag='div' align='right'>\nПо правому краю\n</TextComponent>\n</div>"
         }
+    ],
+    "changelog": [
+        {
+            "version": "3.0.2",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`"
+        },
+        {
+            "version": "3.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-types@2.0.1"
+        },
+        {
+            "version": "3.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Minor Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#2009](https://github.com/core-ds/core-components/pull/2009)\n\n##### Text\n\n- Добавлены недостающие текстовые стили `'accent-tagline'`, `'action-tagline'` и `'paragraph-tagline'`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n##### Text:\n\n- Добавлен технический экспорт `Text as TextComponent`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-types@2.0.0"
+        }
     ]
 }

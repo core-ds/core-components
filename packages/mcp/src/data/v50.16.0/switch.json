@@ -131,5 +131,23 @@
             "description": "Свитч может находиться в выбранном и невыбранном состоянии. В редких кейсах его значение может быть недоступным для редактирования.",
             "desktop": "render(() => {\nreturn (\n<>\n<Switch checked={true} label='Выбран' />\n<Gap size={16} />\n<Switch checked={true} label='Выбран и недоступен' disabled={true} />\n<Gap size={24} />\n<Switch checked={false} label='По умолчанию' />\n<Gap size={16} />\n<Switch checked={false} label='По умолчанию и недоступен' disabled={true} />\n</>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "6.1.0",
+            "description": "### Minor Changes\n\n<sup><time>03.04.2026</time></sup>\n\n#### [#2154](https://github.com/core-ds/core-components/pull/2154)\n\n##### Switch\n\n- Добавлен пропс `showSkeleton` с помощью которого можно отобразить скелетон компонента"
+        },
+        {
+            "version": "6.0.3",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.1.1"
+        },
+        {
+            "version": "6.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.1"
+        },
+        {
+            "version": "6.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1695](https://github.com/core-ds/core-components/pull/1695)\n\n##### Switch\n\n- Удалён пропс `inactive`, который был отмечен как `deprecated` в `core-components@43.x.x`. Вместо него используйте пропс `disabled`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.0"
+        }
     ]
 }

@@ -358,5 +358,15 @@
             "description": "",
             "desktop": "<div style={{ width: isMobile() ? '100%' : 320 }}>\n<PhoneInput\nplaceholder='+7 000 000 00 00'\nlabel='Телефонный номер'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\nblock={true}\n/>\n</div>"
         }
+    ],
+    "changelog": [
+        {
+            "version": "9.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-masked-input@8.0.1"
+        },
+        {
+            "version": "9.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1685](https://github.com/core-ds/core-components/pull/1685)\n\n##### FromControl\n\nУдалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1975](https://github.com/core-ds/core-components/pull/1975)\n\n##### Input\n\n- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-masked-input@8.0.0"
+        }
     ]
 }

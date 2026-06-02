@@ -59,5 +59,19 @@
             "description": "",
             "desktop": "render(() => {\nconst [direction, setDirection] = React.useState('horizontal');\n\nconst stylesAddon={\nwidth: '64px',\nheight: '64px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(38, 55, 88, 0.06)',\nboxSizing: 'border-box',\n}\n\nconst stylesWrapper = {\ndisplay: 'flex',\nflexDirection: direction === 'vertical' ? 'column' : 'row',\n}\n\nreturn (\n<div>\n<div style={stylesWrapper}>\n<div style={stylesAddon}/>\n<Gap size={16} direction={direction} />\n<div style={stylesAddon}/>\n<Gap size={16} direction={direction} />\n<div style={stylesAddon}/>\n</div>\n<Gap size={24} />\n<RadioGroup\nlabel='Лейаут'\ndirection='vertical'\nname='radioGroupFirst'\nonChange={(_, { value }) => setDirection(value)}\nvalue={direction}\n>\n<Radio label='Горизонтальный' value='horizontal' />\n<Radio label='Вертикальный' value='vertical' />\n</RadioGroup>\n</div>\n);\n});"
         }
+    ],
+    "changelog": [
+        {
+            "version": "3.0.2",
+            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`"
+        },
+        {
+            "version": "3.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
+        },
+        {
+            "version": "3.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1687](https://github.com/core-ds/core-components/pull/1687)\n\n##### Gap\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl` на `2, 4, 8, 12, 16, 20, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256` соответственно)\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`"
+        }
     ]
 }

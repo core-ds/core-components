@@ -57,5 +57,15 @@
             "description": "Заливкой обозначается текущий прогресс. \nШтриховкой обозначается прогресс, который будет достигнут при выполнении какого-либо условия.",
             "desktop": "<HatchingProgressBar value={40} hatchValue={60} />"
         }
+    ],
+    "changelog": [
+        {
+            "version": "4.0.1",
+            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
+        },
+        {
+            "version": "4.0.0",
+            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`"
+        }
     ]
 }
