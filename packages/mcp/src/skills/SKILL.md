@@ -378,3 +378,5 @@ Never silently fall back to generic React patterns when a component is missing f
 - Looking up demo examples
 - Migrating from legacy components
 - Checking what changed between component versions
+- Migrating from older versions of components to newer ones
+- Migrating from deprecated components to current ones
