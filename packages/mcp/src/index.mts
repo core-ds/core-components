@@ -129,23 +129,23 @@ server.registerTool(
     {
         /*
          * Три режима работы:
-         *   1. full   — только component: весь changelog текущего мажора
+         *   1. full   — только component: changelog текущего и предыдущего мажора
          *   2. single — component + version: запись одной конкретной версии
          *   3. diff   — component + v1 + v2: все изменения между двумя версиями
          */
         description:
-            'Get changelog for a core-component. Three modes: omit version params to get the full current-major changelog; pass version for a single entry; pass v1 and v2 to see everything that changed between those releases.',
+            'Get changelog for a core-component. Three modes: omit version params to get the full changelog for the current and previous major versions; pass version for a single entry; pass v1 and v2 to see everything that changed between those releases.',
         inputSchema: {
             component: z.string().describe('Component name (e.g. Button, Input, ActionButton)'),
-            version: z.string().optional().describe('Single version to look up, e.g. "1.1.0"'),
+            version: z.string().optional().describe('Single version to look up, e.g. "50.13.0"'),
             v1: z
                 .string()
                 .optional()
-                .describe('Older version boundary for diff mode, e.g. "1.0.0"'),
+                .describe('Older version boundary for diff mode, e.g. "50.0.0"'),
             v2: z
                 .string()
                 .optional()
-                .describe('Newer version boundary for diff mode, e.g. "1.1.2"'),
+                .describe('Newer version boundary for diff mode, e.g. "50.13.0"'),
         },
     },
     async ({ component, version, v1, v2 }) => {

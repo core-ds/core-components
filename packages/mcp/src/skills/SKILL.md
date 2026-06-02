@@ -33,17 +33,6 @@ Use these tools when working with components:
 
 ## MCP Tool Workflow
 
-### Recommended sequence
-
-Always follow this order when working with components:
-
-```
-1. component_list          → find the right component (when unsure)
-2. component_info(name)    → get props, types, and defaults
-3. component_demo(name)    → list available demos
-4. component_demo(name, title) → get specific demo code
-```
-
 ### When to call each tool
 
 **`component_list`** — call when:
@@ -71,38 +60,27 @@ Always follow this order when working with components:
 
 **`component_changelog`** — supports three modes:
 
-- Call **without version params** to get the full changelog for the current major version:
+- Call **without version params** to get the full changelog for the current and previous major versions (e.g. 50.x.x and 49.x.x):
     ```
     component_changelog("Button")
     ```
 - Call **with `version`** to get the entry for a specific release:
     ```
-    component_changelog("Button", version: "1.1.0")
+    component_changelog("Button", version: "50.13.0")
     ```
 - Call **with `v1` and `v2`** to see all changes between two versions (diff mode):
     ```
-    component_changelog("Button", v1: "1.0.0", v2: "1.1.2")
+    component_changelog("Button", v1: "50.0.0", v2: "50.13.0")
     ```
 
 Use changelog when: user asks what changed in a version, needs to understand breaking changes, or is upgrading from one version to another.
 
-### Example: building a feature
-
-User asks: _"Add a date picker to this form"_
-
-```
-1. component_list()                          → find: UniversalDateInput, DateInput, CalendarInput
-2. component_info("UniversalDateInput")      → check props: value, onChange, view, etc.
-3. component_demo("UniversalDateInput")      → list demos: "Basic", "Range", "With label"
-4. component_demo("UniversalDateInput", "Basic") → get code to use as reference
-```
-
 ### Example: upgrading a component
 
-User asks: _"What changed in Button between 13.0.0 and 13.1.2?"_
+User asks: _"What changed in Button between 50.0.0 and 50.13.0?"_
 
 ```
-1. component_changelog("Button", v1: "13.0.0", v2: "13.1.2") → get all changes between versions
+1. component_changelog("Button", v1: "50.0.0", v2: "50.13.0") → get all changes between versions
 ```
 
 ## Import Patterns
@@ -402,21 +380,21 @@ If the user references a deprecated component, inform them that it is no longer 
 
 Do not attempt to use the deprecated component's API or guess its props — always redirect to the replacement.
 
-| Deprecated         | Replacement               | Notes                                     |
-| ------------------ | ------------------------- | ----------------------------------------- |
-| `ConfirmationV1`   | `Confirmation`            | Drop-in replacement                       |
-| `FileUploadItemV1` | `FileUploadItem`          | Drop-in replacement                       |
-| `PassCodeV1`       | `PassCode`                | Drop-in replacement                       |
-| `PatternLockV1`    | `PatternLock`             | Drop-in replacement                       |
-| `Alert`            | `Plate`                   | Different API — check `component_info`    |
-| `Badge`            | `StatusBadge`             | Different API — check `component_info`    |
-| `CalendarInput`    | `UniversalDateInput`      | Unified date input for all date scenarios |
-| `DateInput`        | `UniversalDateInput`      | Unified date input for all date scenarios |
-| `DateRangeInput`   | `UniversalDateInput`      | Unified date input for all date scenarios |
-| `DateTimeInput`    | `UniversalDateInput`      | Unified date input for all date scenarios |
-| `TimeInput`        | `UniversalDateInput`      | Unified date input for all date scenarios |
-| `IntlPhoneInput`   | `InternationalPhoneInput` | Different API — check `component_info`    |
-| `Loader`           | `Spinner`                 | Drop-in replacement                       |
+| Deprecated         | Replacement               |
+| ------------------ | ------------------------- |
+| `ConfirmationV1`   | `Confirmation`            |
+| `FileUploadItemV1` | `FileUploadItem`          |
+| `PassCodeV1`       | `PassCode`                |
+| `PatternLockV1`    | `PatternLock`             |
+| `Alert`            | `Plate`                   |
+| `Badge`            | `StatusBadge`             |
+| `CalendarInput`    | `UniversalDateInput`      |
+| `DateInput`        | `UniversalDateInput`      |
+| `DateRangeInput`   | `UniversalDateInput`      |
+| `DateTimeInput`    | `UniversalDateInput`      |
+| `TimeInput`        | `UniversalDateInput`      |
+| `IntlPhoneInput`   | `InternationalPhoneInput` |
+| `Loader`           | `Spinner`                 |
 
 ### Migration workflow
 

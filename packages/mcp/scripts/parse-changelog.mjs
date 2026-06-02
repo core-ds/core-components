@@ -1,83 +1,124 @@
 import { existsSync, readFileSync } from 'node:fs';
 
 /**
- * Определяет, содержит ли секция только обновление зависимостей без реальных изменений компонента.
+ * Извлекает из секции версии все блоки изменений, относящихся к указанному компоненту.
  *
- * В CHANGELOG встречаются два варианта записи косвенных обновлений:
- *   1. Через заголовок:  #### Обновлены зависимости
- *   2. Через список:     - Обновлены зависимости
+ * Структура секции:
+ *   ### Minor/Patch Changes
+ *     #### [#PR](url)          ← ссылка на PR
+ *       ##### ComponentName    ← имя компонента (может быть списком: "Slider, SliderInput")
+ *         - описание изменений
  *
- * Запись считается «только зависимости», если:
- *   - присутствует текст «Обновлены зависимости»
- *   - И нет ни одной ссылки на PR вида [#1234]
- *
- * Наличие PR-ссылки означает, что в версии было реальное изменение компонента
- * (даже если рядом есть секция обновлений зависимостей).
+ * @param {string} versionSection  Текст одной секции версии (## 50.X.X ...)
+ * @param {string} componentName   Имя компонента (например "Button")
+ * @returns {string[]}             Массив текстовых блоков с изменениями
  */
-function isOnlyDependencyUpdate(description) {
-    const hasDepsNote = /Обновлены зависимости/.test(description);
-    const hasPRReference = /\[#\d+\]/.test(description);
+function extractComponentBlocks(versionSection, componentName) {
+    const lines = versionSection.split('\n');
 
-    return hasDepsNote && !hasPRReference;
+    let prRef = null;
+    let collecting = false;
+    let buffer = [];
+    const blocks = [];
+
+    const flush = () => {
+        const content = buffer.join('\n').trim();
+
+        if (collecting && content) {
+            blocks.push(prRef ? `#### ${prRef}\n\n${content}` : content);
+        }
+
+        buffer = [];
+        collecting = false;
+    };
+
+    for (const line of lines) {
+        if (line.startsWith('#### ')) {
+            flush();
+            prRef = /^#### \[#\d+\]/.test(line) ? line.slice('#### '.length) : null;
+            continue;
+        }
+
+        if (line.startsWith('##### ')) {
+            flush();
+            const heading = line.slice('##### '.length).trim();
+
+            collecting = heading.split(/\s*,\s*/).some((n) => n.trim() === componentName);
+
+            continue;
+        }
+
+        if (/^#{2,3} /.test(line)) {
+            flush();
+            prRef = null;
+            continue;
+        }
+
+        if (collecting && !/^<sup>/.test(line)) {
+            buffer.push(line);
+        }
+    }
+
+    flush();
+
+    return blocks;
 }
 
 /**
- * Парсит CHANGELOG.md компонента и возвращает записи только для текущего мажора.
+ * Парсит корневой CHANGELOG.md монорепозитория и возвращает записи изменений
+ * для указанного компонента в рамках текущей мажорной версии.
  *
  * Алгоритм:
- *   1. Читаем файл и делим его на секции по заголовкам вида "## X.Y.Z".
- *   2. Из currentVersion извлекаем мажорную версию (например "3.2.1" → 3).
- *   3. Оставляем только секции, чей мажор совпадает с текущим.
- *   4. Отбрасываем секции, которые содержат лишь обновление зависимостей —
- *      они не несут информации об изменениях самого компонента.
+ *   1. Читаем файл и определяем текущую мажорную версию по первому вхождению ## X.Y.Z.
+ *   2. Делим файл на секции по заголовкам вида "## X.Y.Z".
+ *   3. Оставляем только секции текущего и предыдущего мажоров (например 50 и 49).
+ *   4. В каждой секции ищем все блоки `##### ComponentName` и собираем их содержимое.
  *   5. Возвращаем массив { version, description }.
  *
- * @param {string} changelogPath  Абсолютный путь до CHANGELOG.md компонента
- * @param {string} currentVersion Текущая версия из package.json (например "3.2.1")
+ * @param {string} changelogPath   Путь до корневого CHANGELOG.md
+ * @param {string} componentName   Отображаемое имя компонента (например "Button")
  * @returns {{ version: string, description: string }[]}
  */
-export function parseChangelog(changelogPath, currentVersion) {
+export function parseChangelog(changelogPath, componentName) {
     if (!existsSync(changelogPath)) {
         return [];
     }
 
     const content = readFileSync(changelogPath, 'utf-8');
 
-    // Мажорная версия: "3.2.1" → 3
-    const majorVersion = parseInt(currentVersion.split('.')[0], 10);
+    const firstMatch = /^## (\d+)\.\d+\.\d+/m.exec(content);
 
-    /*
-     * Разбиваем файл на секции по строкам вида "## X.Y.Z".
-     * Lookahead (?=...) оставляет заголовок в начале каждой секции.
-     */
+    if (!firstMatch) {
+        return [];
+    }
+
+    const currentMajor = parseInt(firstMatch[1], 10);
+    const prevMajor = currentMajor - 1;
+
     const sections = content.split(/\n(?=## \d+\.\d+\.\d+)/);
-
     const result = [];
 
     for (const section of sections) {
-        // Извлекаем версию из заголовка секции
-        const match = /^## (\d+\.\d+\.\d+)/.exec(section);
+        const versionMatch = /^## (\d+\.\d+\.\d+)/.exec(section);
 
-        if (!match) {
+        if (!versionMatch) {
             continue;
         }
 
-        const version = match[1];
+        const version = versionMatch[1];
+        const major = parseInt(version.split('.')[0], 10);
 
-        // Пропускаем версии из других мажорных серий (например 2.x.x или 1.x.x)
-        if (parseInt(version.split('.')[0], 10) !== majorVersion) {
+        if (major !== currentMajor && major !== prevMajor) {
             continue;
         }
 
-        // Тело секции — всё, что идёт после строки с версией
-        const description = section.slice(match[0].length).trim();
+        const blocks = extractComponentBlocks(section, componentName);
 
-        // Пропускаем записи, в которых нет ничего, кроме обновления зависимостей
-        if (isOnlyDependencyUpdate(description)) {
+        if (blocks.length === 0) {
             continue;
         }
 
-        result.push({ version, description });
+        result.push({ version, description: blocks.join('\n\n') });
     }
 
     return result;

@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { createIndexDir } from './create-index-dir.mjs';
@@ -7,6 +7,9 @@ import { generateDemo } from './generate-demo.mjs';
 import { generateDoc } from './generate-doc.mjs';
 import { getComponentEntryPoints } from './get-component-entry-points.mjs';
 import { parseChangelog } from './parse-changelog.mjs';
+
+const { dirname } = import.meta;
+const rootChangelogPath = path.resolve(dirname, '../../..', 'CHANGELOG.md');
 
 function main() {
     const files = getComponentEntryPoints();
@@ -24,9 +27,7 @@ function main() {
 
         const demos = generateDemo(path.join(path.dirname(filePath), 'docs', 'description.mdx'));
 
-        const componentDir = path.resolve(filePath, '../..');
-        const { version } = JSON.parse(readFileSync(path.join(componentDir, 'package.json'), 'utf-8'));
-        const changelog = parseChangelog(path.join(componentDir, 'CHANGELOG.md'), version);
+        const changelog = parseChangelog(rootChangelogPath, displayName);
 
         writeFileSync(
             path.resolve(versionDir, `${packageName}.json`),
