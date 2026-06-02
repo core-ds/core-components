@@ -22,3 +22,5 @@
 - Добавлен сценарий «upgrading a component» в раздел workflow
 - Добавлено правило: если компонент не найден в MCP — агент сообщает об этом явно, не fallback на общие React-паттерны
 - Добавлена таблица deprecated-компонентов с заменами и инструкция по миграции: агент сообщает о deprecated-статусе и предлагает перейти на актуальный компонент
+- Добавлено явное правило: для получения любых данных о компонентах всегда использовать MCP-инструменты — прямое чтение `CHANGELOG.md`, `package.json` и исходных файлов запрещено
+- Добавлена заметка о переименовании peer-зависимостей в `@alfalab/core-components@49`: `@alfalab/core-config` → `@alfalab/core-components-config`, `@alfalab/stack-context` → `@alfalab/core-components-stack-context`

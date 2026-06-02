@@ -25,6 +25,12 @@ Use these tools when working with components:
 - `core-components-mcp_component_demo` - Get demo examples
 - `core-components-mcp_component_changelog` - Get changelog for a component
 
+## Rules
+
+- **Always use MCP tools** to get component data — never read source files, `CHANGELOG.md`, `package.json`, or `*.mdx` docs directly from the filesystem.
+- MCP data is pre-processed, filtered, and structured for agent consumption. Raw files may contain noise, outdated content, or formats not suitable for direct use.
+- If a tool returns no data — report it to the user; do not fall back to reading files manually.
+
 ## MCP Tool Workflow
 
 ### Recommended sequence
@@ -93,7 +99,7 @@ User asks: _"Add a date picker to this form"_
 
 ### Example: upgrading a component
 
-User asks: _"What changed in Button between 1.0.0 and 1.1.2?"_
+User asks: _"What changed in Button between 13.0.0 and 13.1.2?"_
 
 ```
 1. component_changelog("Button", v1: "13.0.0", v2: "13.1.2") → get all changes between versions
@@ -111,7 +117,14 @@ yarn add @alfalab/core-components
 yarn add @alfalab/core-components-config @alfalab/core-components-stack-context
 ```
 
-Both peer packages are mandatory for the library to function correctly:
+Both peer packages are mandatory for the library to function correctly.
+
+> **Note:** Starting from `@alfalab/core-components@49` the peer package names changed:
+>
+> - `@alfalab/core-config` → `@alfalab/core-components-config`
+> - `@alfalab/stack-context` → `@alfalab/core-components-stack-context`
+>
+> If the project uses `@alfalab/core-components` below v49, install the old package names instead.
 
 - **`@alfalab/core-components-config`** — provides `CoreConfigContext` and `useCoreConfig` for global configuration of responsive components (breakpoint, client type, portal container). See [CoreConfig](#coreconfig) section.
 - **`@alfalab/core-components-stack-context`** — provides `StackingContext` and `stackingOrder` constants for z-index management. Used internally by overlay components (Modal, Popover, Toast, etc.). Rarely used directly.
@@ -381,7 +394,6 @@ Never silently fall back to generic React patterns when a component is missing f
 - Migrating from older versions of components to newer ones
 - Migrating from deprecated components to current ones
 
-
 ## Deprecated Components Migration
 
 If the user references a deprecated component, inform them that it is no longer supported and no MCP data is available for it. Then offer to help migrate to the replacement:
@@ -390,21 +402,21 @@ If the user references a deprecated component, inform them that it is no longer 
 
 Do not attempt to use the deprecated component's API or guess its props — always redirect to the replacement.
 
-| Deprecated | Replacement | Notes |
-| ------------------- | ------------------------- | ----------------------------------------- |
-| `ConfirmationV1` | `Confirmation` | Drop-in replacement |
-| `FileUploadItemV1` | `FileUploadItem` | Drop-in replacement |
-| `PassCodeV1` | `PassCode` | Drop-in replacement |
-| `PatternLockV1` | `PatternLock` | Drop-in replacement |
-| `Alert` | `Plate` | Different API — check `component_info` |
-| `Badge` | `StatusBadge` | Different API — check `component_info` |
-| `CalendarInput` | `UniversalDateInput` | Unified date input for all date scenarios |
-| `DateInput` | `UniversalDateInput` | Unified date input for all date scenarios |
-| `DateRangeInput` | `UniversalDateInput` | Unified date input for all date scenarios |
-| `DateTimeInput` | `UniversalDateInput` | Unified date input for all date scenarios |
-| `TimeInput` | `UniversalDateInput` | Unified date input for all date scenarios |
-| `IntlPhoneInput` | `InternationalPhoneInput` | Different API — check `component_info` |
-| `Loader` | `Spinner` | Drop-in replacement |
+| Deprecated         | Replacement               | Notes                                     |
+| ------------------ | ------------------------- | ----------------------------------------- |
+| `ConfirmationV1`   | `Confirmation`            | Drop-in replacement                       |
+| `FileUploadItemV1` | `FileUploadItem`          | Drop-in replacement                       |
+| `PassCodeV1`       | `PassCode`                | Drop-in replacement                       |
+| `PatternLockV1`    | `PatternLock`             | Drop-in replacement                       |
+| `Alert`            | `Plate`                   | Different API — check `component_info`    |
+| `Badge`            | `StatusBadge`             | Different API — check `component_info`    |
+| `CalendarInput`    | `UniversalDateInput`      | Unified date input for all date scenarios |
+| `DateInput`        | `UniversalDateInput`      | Unified date input for all date scenarios |
+| `DateRangeInput`   | `UniversalDateInput`      | Unified date input for all date scenarios |
+| `DateTimeInput`    | `UniversalDateInput`      | Unified date input for all date scenarios |
+| `TimeInput`        | `UniversalDateInput`      | Unified date input for all date scenarios |
+| `IntlPhoneInput`   | `InternationalPhoneInput` | Different API — check `component_info`    |
+| `Loader`           | `Spinner`                 | Drop-in replacement                       |
 
 ### Migration workflow
 
@@ -416,4 +428,3 @@ When a user's code uses a deprecated component:
 3. component_demo("ReplacementName")   → find a relevant demo
 4. Rewrite usage with the new component API
 ```
-
