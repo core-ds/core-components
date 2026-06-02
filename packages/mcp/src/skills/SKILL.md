@@ -23,6 +23,7 @@ Use these tools when working with components:
 - `core-components-mcp_component_list` - List all available components
 - `core-components-mcp_component_info` - Get component API (props, types, defaults)
 - `core-components-mcp_component_demo` - Get demo examples
+- `core-components-mcp_component_changelog` - Get changelog for a component
 
 ## MCP Tool Workflow
 
@@ -62,6 +63,23 @@ Always follow this order when working with components:
     component_demo("Button", "Loading")
     ```
 
+**`component_changelog`** — supports three modes:
+
+- Call **without version params** to get the full changelog for the current major version:
+    ```
+    component_changelog("Button")
+    ```
+- Call **with `version`** to get the entry for a specific release:
+    ```
+    component_changelog("Button", version: "1.1.0")
+    ```
+- Call **with `v1` and `v2`** to see all changes between two versions (diff mode):
+    ```
+    component_changelog("Button", v1: "1.0.0", v2: "1.1.2")
+    ```
+
+Use changelog when: user asks what changed in a version, needs to understand breaking changes, or is upgrading from one version to another.
+
 ### Example: building a feature
 
 User asks: _"Add a date picker to this form"_
@@ -71,6 +89,14 @@ User asks: _"Add a date picker to this form"_
 2. component_info("UniversalDateInput")      → check props: value, onChange, view, etc.
 3. component_demo("UniversalDateInput")      → list demos: "Basic", "Range", "With label"
 4. component_demo("UniversalDateInput", "Basic") → get code to use as reference
+```
+
+### Example: upgrading a component
+
+User asks: _"What changed in Button between 1.0.0 and 1.1.2?"_
+
+```
+1. component_changelog("Button", v1: "13.0.0", v2: "13.1.2") → get all changes between versions
 ```
 
 ## Import Patterns
@@ -329,6 +355,14 @@ vars.gap2xl === '32px'; // true
 | Modals       | Modal, Drawer, BottomSheet, Popover                           |
 | Forms        | FormControl, Slider, DateInput, FileUploadItem                |
 
+## Component Not Found
+
+If any MCP tool returns "not found" for a component, do not guess or invent API — instead inform the user explicitly:
+
+> In the current version of MCP there is no information about the component **ComponentName**. Check the component name or use `component_list` to see all available components.
+
+Never silently fall back to generic React patterns when a component is missing from MCP data.
+
 ## Troubleshooting
 
 - **Component not found**: Check if desktop/mobile variant is exported
@@ -343,3 +377,4 @@ vars.gap2xl === '32px'; // true
 - Understanding component API and props
 - Looking up demo examples
 - Migrating from legacy components
+- Checking what changed between component versions
