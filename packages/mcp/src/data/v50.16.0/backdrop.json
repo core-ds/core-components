@@ -80,18 +80,5 @@
             "desktop": "render(() => {\nconst [open, setOpen] = React.useState(false);\n\nreturn (\n<div style={{ zIndex: 1, position: 'relative' }}>\n<Button\nonClick={() => setOpen(!open)}\nsize={56}\nblock={isMobile()}\nbreakpoint={BREAKPOINT}\n>\n{open ? 'Закрыть Backdrop' : 'Показать Backdrop'}\n</Button>\n<Backdrop open={open} onClick={() => setOpen(false)} />\n</div>\n);\n});"
         }
     ],
-    "changelog": [
-        {
-            "version": "5.0.2",
-            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`"
-        },
-        {
-            "version": "5.0.1",
-            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
-        },
-        {
-            "version": "5.0.0",
-            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Обновление типов `types/react-transition-group`"
-        }
-    ]
+    "changelog": []
 }

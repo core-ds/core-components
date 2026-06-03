@@ -165,20 +165,12 @@
     ],
     "changelog": [
         {
-            "version": "6.0.4",
-            "description": "### Patch Changes\n\n<sup><time>08.05.2026</time></sup>\n\n#### [#2186](https://github.com/core-ds/core-components/pull/2186)\n\n##### CheckboxGroup\n\n- Удалены боковые отступы в мобильном компоненте для `label`, `hint`"
+            "version": "50.12.2",
+            "description": "#### [#2186](https://github.com/core-ds/core-components/pull/2186)\n\n- Удалены боковые отступы в мобильном компоненте для `label`, `hint`"
         },
         {
-            "version": "6.0.3",
-            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.1.1\n    - @alfalab/core-components-mq@6.0.3"
-        },
-        {
-            "version": "6.0.1",
-            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-mq@6.0.1\n    - @alfalab/core-components-shared@2.0.1"
-        },
-        {
-            "version": "6.0.0",
-            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.0\n    - @alfalab/core-components-mq@6.0.0"
+            "version": "49.1.0",
+            "description": "#### [#1731](https://github.com/core-ds/core-components/pull/1731)\n\n- Убрана красная линия и отступ слева в состоянии ошибки:\n    - Для мобильных компонентов во всех темах\n    - Для десктопных компонентов в теме `click`\n\n- Изменены отступы для групп с `type=\"tag\"`:\n    - Между label и группой: с 12px до 8px\n    - Между группой и hint/error: с 12px до 8px"
         }
     ]
 }

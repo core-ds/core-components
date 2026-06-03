@@ -307,16 +307,16 @@
     ],
     "changelog": [
         {
-            "version": "9.0.4",
-            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-icon-button@8.0.4\n    - @alfalab/core-components-button@13.1.1\n    - @alfalab/core-components-shared@2.1.1\n    - @alfalab/core-components-mq@6.0.3"
+            "version": "50.0.0",
+            "description": "#### [#1314](https://github.com/core-ds/core-components/pull/1314)\n\n- Добавлено новое свойство `buttonsContainerClassName`, отвечающее за дополнительный класс для контейнера кнопок. Ранее класс контейнера кнопок и самим кнопкам передавался через свойство `buttonsClassName`. Теперь `buttonsClassName` отвечает только за дополнительный класс кнопок"
         },
         {
-            "version": "9.0.1",
-            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.0.1\n    - @alfalab/core-components-icon-button@8.0.1\n    - @alfalab/core-components-mq@6.0.1\n    - @alfalab/core-components-shared@2.0.1"
+            "version": "49.14.0",
+            "description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Обновлены скругления для Plate компонента и добавлен prop `borderRadius` для задания произвольного радиуса (desktop/mobile)"
         },
         {
-            "version": "9.0.0",
-            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1314](https://github.com/core-ds/core-components/pull/1314)\n\n##### Plate\n\n- Добавлено новое свойство `buttonsContainerClassName`, отвечающее за дополнительный класс для контейнера кнопок. Ранее класс контейнера кнопок и самим кнопкам передавался через свойство `buttonsClassName`. Теперь `buttonsClassName` отвечает только за дополнительный класс кнопок\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Обновление `@alfalab/icons-*` библиотек\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.0.0\n    - @alfalab/core-components-icon-button@8.0.0\n    - @alfalab/core-components-shared@2.0.0\n    - @alfalab/core-components-mq@6.0.0"
+            "version": "49.7.0",
+            "description": "#### [#1893](https://github.com/core-ds/core-components/pull/1893)\n\n- Добавлена поддержка aria-label для улучшения доступности в компоненте Plate"
         }
     ]
 }

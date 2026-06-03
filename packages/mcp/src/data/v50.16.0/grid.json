@@ -94,18 +94,5 @@
             "desktop": "render(() => {\nconst styleCol = {\nlineHeight: '24px',\ncolor: 'var(--color-light-text-secondary)',\nbackground: 'var(--color-light-neutral-translucent-200)',\nborderRadius: '8px',\ntextAlign: 'center',\n};\n\nconst styleRow = { \nbackground: 'var(--color-light-base-bg-primary)', \npadding: '8px 20px',\n};\n\nconst styleWrapper = { \nbackground: 'var(--color-light-neutral-400)', \nmargin: 'var(--gap-20-neg)',\n};\n\nreturn (\n<div style={styleWrapper}>\n<div style={styleRow}>\n<Grid.Row gutter={{mobile: 8, desktop: 16 }}>\n<Grid.Col width='4' order='1'>\n<div style={styleCol}>order = 1</div>\n</Grid.Col>\n<Grid.Col width='4' order='3'>\n<div style={styleCol}>order = 3</div>\n</Grid.Col>\n<Grid.Col width='4' order='2'>\n<div style={styleCol}>order = 2</div>\n</Grid.Col>\n</Grid.Row>\n</div>\n</div>\n);\n});"
         }
     ],
-    "changelog": [
-        {
-            "version": "5.0.2",
-            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`"
-        },
-        {
-            "version": "5.0.1",
-            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`"
-        },
-        {
-            "version": "5.0.0",
-            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`"
-        }
-    ]
+    "changelog": []
 }

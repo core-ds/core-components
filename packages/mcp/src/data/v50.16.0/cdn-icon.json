@@ -78,20 +78,8 @@
     ],
     "changelog": [
         {
-            "version": "7.1.2",
-            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.1.1"
-        },
-        {
-            "version": "7.1.0",
-            "description": "### Minor Changes\n\n<sup><time>13.02.2026</time></sup>\n\n#### [#2022](https://github.com/core-ds/core-components/pull/2022)\n\n##### CDNIcon\n\n- Добавлена валидация имени иконки для предотвращения загрузки невалидных значений"
-        },
-        {
-            "version": "7.0.1",
-            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.1"
-        },
-        {
-            "version": "7.0.0",
-            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.0"
+            "version": "50.2.0",
+            "description": "#### [#2022](https://github.com/core-ds/core-components/pull/2022)\n\n- Добавлена валидация имени иконки для предотвращения загрузки невалидных значений"
         }
     ]
 }

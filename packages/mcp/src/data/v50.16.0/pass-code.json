@@ -154,20 +154,12 @@
     ],
     "changelog": [
         {
-            "version": "4.0.7",
-            "description": "### Patch Changes\n\n<sup><time>29.05.2026</time></sup>\n\n#### [#2164](https://github.com/core-ds/core-components/pull/2164)\n\n##### PassCode\n\n- Добавлена озвучка прогресса ввода для screen reader после локального ввода и удаления символов через keypad"
+            "version": "50.15.0",
+            "description": "#### [#2164](https://github.com/core-ds/core-components/pull/2164)\n\n- Добавлена озвучка прогресса ввода для screen reader после локального ввода и удаления символов через keypad"
         },
         {
-            "version": "4.0.4",
-            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.1.1\n    - @alfalab/core-components-shared@2.1.1\n    - @alfalab/core-components-gap@3.0.2\n    - @alfalab/core-components-mq@6.0.3"
-        },
-        {
-            "version": "4.0.1",
-            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.0.1\n    - @alfalab/core-components-gap@3.0.1\n    - @alfalab/core-components-mq@6.0.1\n    - @alfalab/core-components-shared@2.0.1"
-        },
-        {
-            "version": "4.0.0",
-            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1687](https://github.com/core-ds/core-components/pull/1687)\n\n##### Gap\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl` на `2, 4, 8, 12, 16, 20, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256` соответственно)\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Обновление `@alfalab/icons-*` библиотек\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n##### PassCode\n\n- Исправлена ошибка `findDOMNode`\n- Исправлена ошибка `React key`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-button@13.0.0\n    - @alfalab/core-components-shared@2.0.0\n    - @alfalab/core-components-gap@3.0.0\n    - @alfalab/core-components-mq@6.0.0"
+            "version": "50.0.0",
+            "description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправлена ошибка `findDOMNode`\n- Исправлена ошибка `React key`"
         }
     ]
 }

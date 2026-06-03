@@ -235,12 +235,12 @@
     ],
     "changelog": [
         {
-            "version": "1.1.0",
-            "description": "### Minor Changes\n\n<sup><time>29.05.2026</time></sup>\n\n#### [#2229](https://github.com/core-ds/core-components/pull/2229)\n\n##### Carousel\n\n- Добавлена поддержка короткого свайпа - проп `shortSwipe`\n- Добавлены пропсы для более тонкой обработки жестов, для случаев использования `Carousel` внутри компонентов с поддержкой свайпов, например `BottomSheet`:\n    - `touchMoveStopPropagation` для остановки всплытия событий при свайпе\n    - `captureEvent` для захвата события при свайпе\n\n### Patch Changes\n\n<sup><time>29.05.2026</time></sup>\n\n#### [#2229](https://github.com/core-ds/core-components/pull/2229)\n\n##### Carousel\n\n- Исключены непредвиденные скроллы при свайпе `Carousel` внутри скроллящихся контейнеров\n- Уточнена типизация"
+            "version": "50.15.0",
+            "description": "#### [#2229](https://github.com/core-ds/core-components/pull/2229)\n\n- Добавлена поддержка короткого свайпа - проп `shortSwipe`\n- Добавлены пропсы для более тонкой обработки жестов, для случаев использования `Carousel` внутри компонентов с поддержкой свайпов, например `BottomSheet`:\n    - `touchMoveStopPropagation` для остановки всплытия событий при свайпе\n    - `captureEvent` для захвата события при свайпе\n\n#### [#2229](https://github.com/core-ds/core-components/pull/2229)\n\n- Исключены непредвиденные скроллы при свайпе `Carousel` внутри скроллящихся контейнеров\n- Уточнена типизация"
         },
         {
-            "version": "1.0.0",
-            "description": "### Major Changes\n\n<sup><time>25.05.2026</time></sup>\n\n#### [#2173](https://github.com/core-ds/core-components/pull/2173)\n\n##### Carousel\n\n- Добавлен новый компонент `Carousel`\n\n### Patch Changes\n\n#### Обновлены зависимости\n\n- @alfalab/core-components-shared@2.2.0"
+            "version": "50.14.0",
+            "description": "#### [#2173](https://github.com/core-ds/core-components/pull/2173)\n\n- Добавлен новый компонент `Carousel`"
         }
     ]
 }

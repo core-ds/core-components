@@ -207,24 +207,12 @@
     ],
     "changelog": [
         {
-            "version": "3.0.5",
-            "description": "### Patch Changes\n\n<sup><time>15.04.2026</time></sup>\n\n#### [#2172](https://github.com/core-ds/core-components/pull/2172)\n\n##### Steps\n\n- Исправлено свойство `fullWidth`, которое было сломано в версии `48.19.0`"
+            "version": "50.11.0",
+            "description": "#### [#2172](https://github.com/core-ds/core-components/pull/2172)\n\n- Исправлено свойство `fullWidth`, которое было сломано в версии `48.19.0`"
         },
         {
-            "version": "3.0.4",
-            "description": "### Patch Changes\n\n<sup><time>03.04.2026</time></sup>\n\n#### [#2158](https://github.com/core-ds/core-components/pull/2158)\n\n##### Steps\n\n- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.\n- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`."
-        },
-        {
-            "version": "3.0.3",
-            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.1.1\n    - @alfalab/core-components-badge@7.0.2"
-        },
-        {
-            "version": "3.0.1",
-            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-badge@7.0.1\n    - @alfalab/core-components-shared@2.0.1"
-        },
-        {
-            "version": "3.0.0",
-            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Обновление `@alfalab/icons-*` библиотек\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.0.0\n    - @alfalab/core-components-badge@7.0.0"
+            "version": "50.9.0",
+            "description": "#### [#2158](https://github.com/core-ds/core-components/pull/2158)\n\n- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.\n- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`.\n\n- Обновлены зависимости\n    - @alfalab/core-components-tab-bar@4.0.4\n    - @alfalab/core-components-steps@3.0.4\n    - @alfalab/core-components-switch@6.1.0"
         }
     ]
 }

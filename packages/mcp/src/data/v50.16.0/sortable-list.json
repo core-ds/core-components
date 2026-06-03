@@ -190,20 +190,8 @@
     ],
     "changelog": [
         {
-            "version": "3.0.4",
-            "description": "### Patch Changes\n\n<sup><time>08.05.2026</time></sup>\n\n#### [#2207](https://github.com/core-ds/core-components/pull/2207)\n\n##### SortableList\n\n- Исправлено вертикальное выравнивание drag иконки"
-        },
-        {
-            "version": "3.0.3",
-            "description": "### Patch Changes\n\n<sup><time>06.03.2026</time></sup>\n\n#### [#2102](https://github.com/core-ds/core-components/pull/2102)\n\n##### Vars\n\n- Удален файл `no-typography-index.css`\n\n- Обновлены зависимости\n    - @alfalab/core-components-shared@2.1.1"
-        },
-        {
-            "version": "3.0.1",
-            "description": "### Patch Changes\n\n<sup><time>05.02.2026</time></sup>\n\n#### [#2047](https://github.com/core-ds/core-components/pull/2047)\n\n- Корректная версия `alfasans`-пакетов в `package.json`\n\n- Обновлены зависимости\n    - @alfalab/core-components-portal@5.0.1\n    - @alfalab/core-components-shared@2.0.1"
-        },
-        {
-            "version": "3.0.0",
-            "description": "### Major Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n##### Button\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1851](https://github.com/core-ds/core-components/pull/1851)\n\n##### PortalContext\n\n- Удалён глобальный провайдер `PortalContext`, используйте вместо него актуальный пакет `@alfalab/core-components-config` ([инструкция](?path=/docs/portal--docs))\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1620](https://github.com/core-ds/core-components/pull/1620)\n\n##### Shared\n\n- Импорты browser и os утилит заменены с компаунд на атомарные\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1989](https://github.com/core-ds/core-components/pull/1989)\n\n- Добавлен вариант пакета со шрифтом `Alfa Interface Sans`\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#2009](https://github.com/core-ds/core-components/pull/2009)\n\n###### SortableList\n\n- Проп `padding` переведен на числовые значения\n    - `'3xs'` -> `2`\n    - `'2xs'` -> `4`\n    - `'xs'` -> `8`\n    - `'s'` -> `12`\n    - `'m'` -> `16`\n    - `'l'` -> `20`\n- Проп `borderRadius` переведен на числовые значения\n    - `'m'` -> `8`\n    - `'l'` -> `12`\n    - `'xl'` -> `16`\n\n### Patch Changes\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Обновление `@alfalab/icons-*` библиотек\n\n<sup><time>04.02.2026</time></sup>\n\n#### [#1898](https://github.com/core-ds/core-components/pull/1898)\n\n- Добавлена поддержка `React@19.0.0`\n\n- Обновлены зависимости\n    - @alfalab/core-components-portal@5.0.0\n    - @alfalab/core-components-shared@2.0.0"
+            "version": "50.12.2",
+            "description": "#### [#2207](https://github.com/core-ds/core-components/pull/2207)\n\n- Исправлено вертикальное выравнивание drag иконки"
         }
     ]
 }
