@@ -73,9 +73,9 @@ __metadata:
     "@alfalab/core-components-generic-wrapper": "npm:^3.0.2"
     "@alfalab/core-components-mq": "npm:^6.0.4"
     "@alfalab/core-components-popover": "npm:^8.0.4"
-    "@alfalab/core-components-product-cover": "npm:^3.1.7"
-    "@alfalab/core-components-select": "npm:^19.1.7"
-    "@alfalab/core-components-typography": "npm:^6.0.5"
+    "@alfalab/core-components-product-cover": "npm:^3.1.8"
+    "@alfalab/core-components-select": "npm:^19.1.8"
+    "@alfalab/core-components-typography": "npm:^6.0.6"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@maskito/core": "npm:^3.10.3"
     "@maskito/react": "npm:^3.10.3"
@@ -1430,7 +1430,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-product-cover@npm:^3.1.7, @alfalab/core-components-product-cover@npm:^3.1.8, @alfalab/core-components-product-cover@workspace:packages/product-cover":
+"@alfalab/core-components-product-cover@npm:^3.1.8, @alfalab/core-components-product-cover@workspace:packages/product-cover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-product-cover@workspace:packages/product-cover"
   dependencies:
@@ -1686,7 +1686,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-select@npm:^19.1.7, @alfalab/core-components-select@npm:^19.1.8, @alfalab/core-components-select@workspace:packages/select":
+"@alfalab/core-components-select@npm:^19.1.8, @alfalab/core-components-select@workspace:packages/select":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-select@workspace:packages/select"
   dependencies:
@@ -2141,7 +2141,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-typography@npm:^6.0.5, @alfalab/core-components-typography@npm:^6.0.6, @alfalab/core-components-typography@workspace:packages/typography":
+"@alfalab/core-components-typography@npm:^6.0.6, @alfalab/core-components-typography@workspace:packages/typography":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-typography@workspace:packages/typography"
   dependencies:

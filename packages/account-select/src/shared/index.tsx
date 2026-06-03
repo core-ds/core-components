@@ -36,7 +36,11 @@ export const renderAccountSelectCardContent = ({
 }: AccountSelectCardContentProps) => (
     <GenericWrapper alignItems='center' gap={16} padding={padding}>
         <GenericWrapper>
-            <ProductCover.Single {...productCoverProps} size={coverSize} />
+            <ProductCover.Single
+                borderColor='var(--color-light-neutral-translucent-300)'
+                {...productCoverProps}
+                size={coverSize}
+            />
         </GenericWrapper>
         <GenericWrapper column={true} grow={true}>
             <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
@@ -70,6 +74,7 @@ export const renderAccountSelectAddCardContent = ({
     <GenericWrapper alignItems='center' gap={16} padding={padding}>
         <GenericWrapper>
             <ProductCover.Single
+                borderColor='var(--color-light-neutral-translucent-300)'
                 iconColor='var(--color-light-neutral-700)'
                 backgroundColor='var(--color-light-neutral-200)'
                 {...productCoverProps}

@@ -46,6 +46,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             cvc: false,
         });
         const [activeField, setActiveField] = useState<'cardNumber' | 'expiry' | 'cvv' | ''>('');
+        const lastActiveFieldRef = useRef<typeof activeField>('');
         const onlyCard = !needCVC && !needExpiryDate;
         const valuesEmpty = !cardNumber && !cardExpiry && !cardCvc;
 
@@ -96,6 +97,18 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             if (step === 2) expiryRef.current?.focus();
             if (step === 3) cvvRef.current?.focus();
         }, [step]);
+
+        useEffect(() => {
+            if (!open || !lastActiveFieldRef.current) return;
+
+            setTimeout(() => {
+                const fieldToFocus = lastActiveFieldRef.current;
+
+                if (fieldToFocus === 'cardNumber') numberRef.current?.focus();
+                if (fieldToFocus === 'expiry') expiryRef.current?.focus();
+                if (fieldToFocus === 'cvv') cvvRef.current?.focus();
+            }, 0);
+        }, [open]);
 
         useValidationError({
             cardNumber,
@@ -163,6 +176,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         );
 
         const handleCardNumberFocus = () => {
+            lastActiveFieldRef.current = 'cardNumber';
             setActiveField('cardNumber');
             setTimeout(() => {
                 const { current } = numberRef;
@@ -174,10 +188,12 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         };
 
         const handleExpiryFocus = () => {
+            lastActiveFieldRef.current = 'expiry';
             setActiveField('expiry');
         };
 
         const handleCVVFocus = () => {
+            lastActiveFieldRef.current = 'cvv';
             setActiveField('cvv');
         };
 

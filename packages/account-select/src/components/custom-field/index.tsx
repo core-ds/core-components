@@ -42,6 +42,10 @@ export const CustomField = ({
     const rightAddonsPropsWithToggle = React.useMemo(
         () => ({
             ...rightAddonsProps,
+            onMouseDown: (event: React.MouseEvent<HTMLDivElement>) => {
+                event.preventDefault();
+                rightAddonsProps?.onMouseDown?.(event);
+            },
             onClick: (event: React.MouseEvent<HTMLDivElement>) => {
                 if (disabled) return;
 
