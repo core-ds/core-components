@@ -1,8 +1,8 @@
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
 
-import { type ButtonProps } from '@alfalab/core-components-button';
+import { type ButtonLayoutOwnProps } from '@alfalab/core-components-button/typings';
 
-export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
+export interface ComponentProps extends Omit<ButtonLayoutOwnProps, 'layout'> {
     /**
      * Цвет кнопки
      */
@@ -28,9 +28,28 @@ export type ComponentProps = Omit<ButtonProps, 'view' | 'colors'> & {
      * @default default
      */
     disableType?: 'default' | 'static' | 'inverted' | 'static-inverted';
-};
+}
 
-type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
+interface ResponsiveProps {
+    /**
+     * Контрольная точка, с нее начинается desktop версия
+     * @default 1024
+     */
+    breakpoint?: number;
 
-export type CustomButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
+    /**
+     * Версия, которая будет использоваться при серверном рендеринге
+     */
+    client?: 'desktop' | 'mobile';
+
+    /**
+     * Значение по-умолчанию для хука useMatchMedia
+     * @deprecated Используйте client
+     */
+    defaultMatchMediaValue?: boolean | (() => boolean);
+}
+
+export type CommonCustomButtonProps = ComponentProps &
+    (AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>);
+
+export type CustomButtonProps = CommonCustomButtonProps & ResponsiveProps;

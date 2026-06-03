@@ -33,57 +33,65 @@
     --action-button-inverted-disabled-bg-color: var(--color-light-neutral-100-inverted);
 }
 
-.primary {
-    color: var(--action-button-inverted-primary-base-color);
+.component {
+    &.primary {
+        color: var(--action-button-inverted-primary-base-color);
 
-    & .iconWrapper {
-        color: var(--action-button-inverted-primary-base-icon-color);
-        background-color: var(--action-button-inverted-primary-base-bg-color);
-    }
+        .iconWrapper {
+            color: var(--action-button-inverted-primary-base-icon-color);
+            background-color: var(--action-button-inverted-primary-base-bg-color);
+        }
 
-    @media (hover: hover) {
-        &:hover .iconWrapper {
-            background-color: var(--action-button-inverted-primary-hover-color);
+        @mixin not-disabled {
+            @mixin hover {
+                .iconWrapper {
+                    background-color: var(--action-button-inverted-primary-hover-color);
+                }
+            }
+
+            &:active .iconWrapper {
+                background-color: var(--action-button-inverted-primary-active-color);
+            }
+        }
+
+        .loader {
+            color: var(--action-button-spinner-inverted-primary-color);
         }
     }
 
-    &:active .iconWrapper {
-        background-color: var(--action-button-inverted-primary-active-color);
-    }
+    &.secondary {
+        color: var(--action-button-inverted-secondary-base-color);
 
-    & .loader {
-        color: var(--action-button-spinner-inverted-primary-color);
-    }
-}
+        .iconWrapper {
+            color: var(--action-button-inverted-secondary-base-icon-color);
+            background-color: var(--action-button-inverted-secondary-base-bg-color);
+        }
 
-.secondary {
-    color: var(--action-button-inverted-secondary-base-color);
+        @mixin not-disabled {
+            @mixin hover {
+                .iconWrapper {
+                    background-color: var(--action-button-inverted-secondary-hover-color);
+                }
+            }
 
-    & .iconWrapper {
-        color: var(--action-button-inverted-secondary-base-icon-color);
-        background-color: var(--action-button-inverted-secondary-base-bg-color);
-    }
+            &:active .iconWrapper {
+                background-color: var(--action-button-inverted-secondary-active-color);
+            }
+        }
 
-    @media (hover: hover) {
-        &:hover .iconWrapper {
-            background-color: var(--action-button-inverted-secondary-hover-color);
+        .loader {
+            color: var(--action-button-spinner-inverted-default-color);
         }
     }
 
-    &:active .iconWrapper {
-        background-color: var(--action-button-inverted-secondary-active-color);
-    }
+    @mixin disabled {
+        &:not(.loading) {
+            color: var(--action-button-inverted-disabled-color);
 
-    & .loader {
-        color: var(--action-button-spinner-inverted-default-color);
-    }
-}
-
-.disabled {
-    color: var(--action-button-inverted-disabled-color);
-
-    & .iconWrapper {
-        color: var(--action-button-inverted-disabled-icon-color);
-        background-color: var(--action-button-inverted-disabled-bg-color);
+            .iconWrapper {
+                color: var(--action-button-inverted-disabled-icon-color);
+                background-color: var(--action-button-inverted-disabled-bg-color);
+            }
+        }
     }
 }

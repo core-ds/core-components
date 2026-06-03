@@ -1,25 +1,25 @@
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ReactNode } from 'react';
+
 import {
-    type AnchorHTMLAttributes,
-    type ButtonHTMLAttributes,
-    type ElementType,
-    type ReactNode,
-} from 'react';
+    type BaseButtonCandidateOwnProps,
+    type ButtonPropsFactory,
+} from './components/base-button-candidate';
 
-export type StyleColors = {
-    default: {
-        [key: string]: string;
-    };
-    inverted: {
-        [key: string]: string;
-    };
-};
+export interface StylesMap {
+    [key: string]: string;
+}
 
-type ComponentProps = {
+export interface StyleColors {
+    default: StylesMap;
+    inverted: StylesMap;
+}
+
+export interface ButtonLayoutOwnProps
+    extends Omit<BaseButtonCandidateOwnProps, 'disabledClassName' | 'Content'> {
     /**
-     * Тип кнопки
-     * @default secondary
+     * Лэйаут кнопки
      */
-    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text';
+    layout: 'button' | 'text';
 
     /**
      * Форма кнопки
@@ -34,7 +34,7 @@ type ComponentProps = {
     textResizing?: 'fill' | 'hug';
 
     /**
-     *  Подпись под лейблом (видна только в размерах >= m)
+     *  Подпись под лейблом. Видна только при размерах `>=56`
      */
     hint?: ReactNode;
 
@@ -55,48 +55,28 @@ type ComponentProps = {
     size?: 32 | 40 | 48 | 56 | 64 | 72;
 
     /**
-     * Растягивает компонент на ширину контейнера
-     * @default false
-     */
-    block?: boolean;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для спиннера
-     */
-    spinnerClassName?: string;
-
-    /**
-     * Выводит ссылку в виде кнопки
-     */
-    href?: string;
-
-    /**
-     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
-     */
-    Component?: ElementType;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования.
-     * Для спиннера используется модификатор -loader
-     */
-    dataTestId?: string;
-
-    /**
-     * Показать лоадер
-     * @default false
-     */
-    loading?: boolean;
-
-    /**
      * Не переносить текст кнопки на новую строку
      * @default false
      */
     nowrap?: boolean;
+}
+
+export type ButtonLayoutProps = ButtonPropsFactory<ButtonLayoutOwnProps> & {
+    styles?: StylesMap[];
+};
+
+export interface ComponentProps extends Omit<ButtonLayoutOwnProps, 'layout'> {
+    /**
+     * Тип кнопки
+     * @default secondary
+     */
+    view?: 'accent' | 'primary' | 'secondary' | 'outlined' | 'transparent' | 'text';
+
+    /**
+     * Дополнительный класс для спиннера
+     * @deprecated Используйте `loaderClassName`
+     */
+    spinnerClassName?: string;
 
     /**
      * Набор цветов для компонента
@@ -108,29 +88,26 @@ type ComponentProps = {
      * @description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.
      */
     allowBackdropBlur?: boolean;
+}
 
-    /**
-     * Дочерние элементы.
-     */
-    children?: ReactNode;
-};
-
-export type PrivateButtonProps = {
+export interface PrivateButtonProps {
     /**
      * Основные стили компонента.
      */
-    styles: { [key: string]: string };
+    styles: StylesMap;
 
     /**
      * Стили компонента для default и inverted режима.
      */
     colorStylesMap: StyleColors;
-};
+}
+
+export type ButtonRef = HTMLAnchorElement | HTMLButtonElement;
 
 export type CommonButtonProps = ComponentProps &
     Partial<AnchorHTMLAttributes<HTMLAnchorElement> | ButtonHTMLAttributes<HTMLButtonElement>>;
 
-export type ButtonProps = CommonButtonProps & {
+export interface ResponsiveProps {
     /**
      * Контрольная точка, с нее начинается desktop версия
      * @default 1024
@@ -147,4 +124,6 @@ export type ButtonProps = CommonButtonProps & {
      * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
-};
+}
+
+export type ButtonProps = CommonButtonProps & ResponsiveProps;

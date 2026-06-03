@@ -5,11 +5,11 @@ import {
     type ReactElement,
 } from 'react';
 
-import { type ButtonProps } from '@alfalab/core-components-button';
+import { type BaseButtonCandidateProps } from '@alfalab/core-components-button/components/base-button-candidate';
 
 export interface IconButtonProps
     extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>,
-        Pick<ButtonProps, 'Component' | 'href' | 'loading' | 'breakpoint'>,
+        Pick<BaseButtonCandidateProps, 'Component' | 'as' | 'href' | 'loading'>,
         Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'> {
     /**
      * Компонент иконки

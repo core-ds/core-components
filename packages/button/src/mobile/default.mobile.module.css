@@ -1,74 +1,81 @@
 @import '../vars.css';
 
-.accent {
-    &:not([disabled]) .hint {
-        color: var(--button-mobile-accent-hint-color);
-    }
-}
-
-.primary {
-    color: var(--button-primary-mobile-color);
-    background-color: var(--button-primary-mobile-base-bg-color);
-
-    &:not([disabled]) .hint {
-        color: var(--button-mobile-primary-hint-color);
-    }
-
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--button-primary-mobile-hover-bg-color);
+.component {
+    &.accent {
+        @mixin not-disabled {
+            .hint {
+                color: var(--button-mobile-accent-hint-color);
+            }
         }
     }
 
-    &:active {
-        background-color: var(--button-primary-mobile-active-bg-color);
-    }
-
-    & > .loader {
-        color: var(--button-spinner-primary-mobile-color);
-    }
-}
-
-.secondary {
-    background-color: var(--button-secondary-mobile-base-bg-color);
-
-    &:active {
-        background-color: var(--button-secondary-mobile-active-bg-color);
-    }
-}
-
-.text {
-    &:active {
-        color: var(--button-text-mobile-active-color);
-    }
-}
-
-.component[disabled] {
     &.primary {
-        color: var(--button-primary-mobile-disabled-color);
-        background-color: var(--button-primary-mobile-disabled-bg-color);
+        color: var(--button-primary-mobile-color);
+        background-color: var(--button-primary-mobile-base-bg-color);
 
-        &.loading {
-            color: var(--button-primary-mobile-color);
-            background-color: var(--button-primary-mobile-base-bg-color);
+        @mixin not-disabled {
+            @mixin hover {
+                background-color: var(--button-primary-mobile-hover-bg-color);
+            }
+
+            &:active {
+                background-color: var(--button-primary-mobile-active-bg-color);
+            }
+        }
+
+        & .loader {
+            color: var(--button-spinner-primary-mobile-color);
+        }
+
+        @mixin not-disabled {
+            .hint {
+                color: var(--button-mobile-primary-hint-color);
+            }
         }
     }
 
     &.secondary {
-        color: var(--button-secondary-mobile-disabled-color);
-        background-color: var(--button-secondary-mobile-disabled-bg-color);
-    }
+        background-color: var(--button-secondary-mobile-base-bg-color);
 
-    &.outlined {
-        color: var(--button-outlined-mobile-disabled-color);
-        border-color: var(--button-outlined-mobile-disabled-border-color);
-    }
-
-    &.transparent {
-        color: var(--button-transparent-mobile-disabled-color);
+        @mixin not-disabled {
+            &:active {
+                background-color: var(--button-secondary-mobile-active-bg-color);
+            }
+        }
     }
 
     &.text {
-        color: var(--button-text-mobile-disabled-color);
+        @mixin not-disabled {
+            &:active {
+                color: var(--button-text-mobile-active-color);
+            }
+        }
+    }
+
+    @mixin disabled {
+        &:not(.loading) {
+            &.primary {
+                color: var(--button-primary-mobile-disabled-color);
+                background-color: var(--button-primary-mobile-disabled-bg-color);
+            }
+
+            &.secondary {
+                color: var(--button-secondary-mobile-disabled-color);
+                background-color: var(--button-secondary-mobile-disabled-bg-color);
+            }
+
+            &.outlined {
+                color: var(--button-outlined-mobile-disabled-color);
+                border-color: var(--button-outlined-mobile-disabled-border-color);
+            }
+
+            &.transparent {
+                color: var(--button-transparent-mobile-disabled-color);
+            }
+
+            &.text {
+                color: var(--button-text-mobile-disabled-color);
+            }
+        }
     }
 }
