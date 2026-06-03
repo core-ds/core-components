@@ -2,15 +2,12 @@ import { useEffect, useState } from 'react';
 
 import { checkImageIsBroken } from './check-image-is-broken';
 
-type UseCheckImageIsBrokenParams = {
+type Params = {
     imageUrl?: string;
     onImageBrokenChange?: (isBrokenImage: boolean) => void;
 };
 
-export const useCheckImageIsBroken = ({
-    imageUrl,
-    onImageBrokenChange,
-}: UseCheckImageIsBrokenParams) => {
+export const useCheckImageIsBroken = ({ imageUrl, onImageBrokenChange }: Params) => {
     const [isBrokenImage, setIsBrokenImage] = useState(false);
 
     useEffect(() => {
