@@ -201,6 +201,12 @@ export const Gallery: FC<GalleryProps> = ({
     }, [uncontrolled, currentSlideIndex, swiper]);
 
     useEffect(() => {
+        if (!open) {
+            setSwipeY(0);
+        }
+    }, [open]);
+
+    useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
 
         return () => {
@@ -209,6 +215,10 @@ export const Gallery: FC<GalleryProps> = ({
     }, [handleKeyDown]);
 
     useEffect(() => {
+        if (!open) {
+            return undefined;
+        }
+
         let startX = 0;
         let startY = 0;
         let lockedDirection: 'horizontal' | 'vertical' | null = null;
@@ -252,9 +262,16 @@ export const Gallery: FC<GalleryProps> = ({
                     return;
                 }
 
-                // vertical lock
+                if (deltaY <= 0) {
+                    setSwipeY(0);
+
+                    return;
+                }
+
                 setSwipeY(deltaY);
-                if (deltaY < SWIPE_THRESHOLD || deltaY > -SWIPE_THRESHOLD) {
+
+                if (deltaY > SWIPE_THRESHOLD) {
+                    setSwipeY(0);
                     onClose();
                 }
             },
@@ -273,7 +290,7 @@ export const Gallery: FC<GalleryProps> = ({
         return () => {
             abortController.abort();
         };
-    }, [onClose]);
+    }, [onClose, open]);
 
     const singleSlide = images.length === 1;
 

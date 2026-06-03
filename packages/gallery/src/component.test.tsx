@@ -181,6 +181,58 @@ describe('Gallery desktop', () => {
 
             await waitFor(() => expect(modal).not.toBeInTheDocument());
         });
+
+        it('should close only by downward swipe', () => {
+            const onClose = jest.fn();
+
+            render(<Gallery open={true} images={images} onClose={onClose} />);
+
+            fireEvent.touchStart(document, {
+                touches: [{ clientX: 0, clientY: 300 }],
+            });
+            fireEvent.touchMove(document, {
+                touches: [{ clientX: 0, clientY: 0 }],
+            });
+            fireEvent.touchEnd(document);
+
+            expect(onClose).not.toHaveBeenCalled();
+
+            fireEvent.touchStart(document, {
+                touches: [{ clientX: 0, clientY: 0 }],
+            });
+            fireEvent.touchMove(document, {
+                touches: [{ clientX: 0, clientY: 300 }],
+            });
+
+            expect(onClose).toHaveBeenCalledTimes(1);
+        });
+
+        it('should reset swipe offset after close', () => {
+            const { baseElement, rerender } = render(
+                <Gallery open={true} images={images} onClose={() => null} />,
+            );
+
+            const container = baseElement.querySelector('[data-content-area="true"]');
+
+            fireEvent.touchStart(document, {
+                touches: [{ clientX: 0, clientY: 0 }],
+            });
+            fireEvent.touchMove(document, {
+                touches: [{ clientX: 0, clientY: 100 }],
+            });
+
+            expect(container).toHaveStyle({ transform: 'translateY(100px)' });
+
+            rerender(<Gallery open={false} images={images} onClose={() => null} />);
+
+            expect(container).toHaveStyle({ transform: 'translateY(0px)' });
+
+            rerender(<Gallery open={true} images={images} onClose={() => null} />);
+
+            expect(baseElement.querySelector('[data-content-area="true"]')).toHaveStyle({
+                transform: 'translateY(0px)',
+            });
+        });
     });
 
     describe('Fullscreen tests', () => {
