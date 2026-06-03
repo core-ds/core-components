@@ -20,7 +20,7 @@
         "@alfalab/core-components-select": "^19.1.8",
         "@alfalab/core-components-shared": "^2.2.0",
         "@alfalab/core-components-status-badge": "^3.0.2",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "@maskito/core": "^1.7.0",
         "classnames": "^2.5.1",
         "lodash": "^4.17.21",

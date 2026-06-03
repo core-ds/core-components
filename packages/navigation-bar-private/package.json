@@ -17,7 +17,7 @@
         "@alfalab/core-components-icon-button": "^8.0.6",
         "@alfalab/core-components-shared": "^2.2.0",
         "@alfalab/core-components-typography": "^6.0.6",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",

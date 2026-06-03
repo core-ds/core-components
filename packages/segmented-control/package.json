@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-skeleton": "^7.0.3",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
