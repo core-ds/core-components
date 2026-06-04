@@ -4,11 +4,13 @@ import React, {
     type ButtonHTMLAttributes,
     forwardRef,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
+import { motion } from 'motion/react';
 
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
@@ -53,11 +55,18 @@ export const BaseButton = forwardRef<
             onClick,
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
+            motionProps,
             ...restProps
         },
         ref,
     ) => {
         const buttonRef = useRef<HTMLElement>(null);
+
+        const MotionComponent = useMemo(
+            () => motion.create(Component as Parameters<typeof motion.create>[0]),
+            [Component],
+        );
+        const Tag = motionProps ? MotionComponent : Component;
 
         const [focused] = useFocus(buttonRef, 'keyboard');
 
@@ -188,31 +197,33 @@ export const BaseButton = forwardRef<
             const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
 
             return (
-                <Component
+                <Tag
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     {...hrefProps}
+                    {...(motionProps as object)}
                     onClick={handleClick}
                     disabled={disabled || showLoader}
                     ref={mergeRefs([buttonRef, ref])}
                 >
                     {buttonChildren}
-                </Component>
+                </Tag>
             );
         }
 
         return (
-            <Component
+            <Tag
                 {...componentProps}
                 {...restButtonProps}
+                {...(motionProps as object)}
                 onClick={handleClick}
                 type={type}
                 disabled={disabled || showLoader}
                 ref={mergeRefs([buttonRef, ref])}
             >
                 {buttonChildren}
-            </Component>
+            </Tag>
         );
     },
 );

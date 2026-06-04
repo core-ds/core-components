@@ -4,6 +4,7 @@ import {
     type ElementType,
     type ReactNode,
 } from 'react';
+import { type MotionProps } from 'motion/react';
 
 export type StyleColors = {
     default: {
@@ -113,6 +114,12 @@ type ComponentProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Пропсы для анимации через библиотеку motion (framer-motion).
+     * Позволяют добавить анимации при hover, tap, focus и другие.
+     */
+    motionProps?: MotionProps;
 };
 
 export type PrivateButtonProps = {
