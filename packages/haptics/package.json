@@ -11,7 +11,6 @@
     "module": "./esm/index.js",
     "dependencies": {
         "@alfalab/core-components-config": "^1.1.0",
-        "@alfalab/core-components-shared": "^2.1.1",
         "tslib": "^2.4.0",
         "web-haptics": "^0.0.6"
     },

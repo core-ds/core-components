@@ -7,10 +7,10 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
-            "@alfalab/core-components-radio": ["./src"],
-            "@alfalab/core-components-radio/*": ["./src/*"],
             "@alfalab/core-components-haptics": ["../haptics/src"],
             "@alfalab/core-components-haptics/*": ["../haptics/src/*"],
+            "@alfalab/core-components-radio": ["./src"],
+            "@alfalab/core-components-radio/*": ["./src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }

@@ -197,7 +197,10 @@ export const BaseButton = forwardRef<
 
             return (
                 <LinkComponent
-                    {...(isNativeAnchor && { Component: 'a', 'data-haptic-preset': dataHapticPreset })}
+                    {...(isNativeAnchor && {
+                        Component: 'a',
+                        'data-haptic-preset': dataHapticPreset,
+                    })}
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}

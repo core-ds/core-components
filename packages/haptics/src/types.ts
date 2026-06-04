@@ -1,4 +1,3 @@
-
 import { type useWebHaptics } from 'web-haptics/react';
 
 export type HapticPreset =

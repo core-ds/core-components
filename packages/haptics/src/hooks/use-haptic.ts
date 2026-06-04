@@ -3,11 +3,7 @@ import { useWebHaptics } from 'web-haptics/react';
 
 import { useCoreConfig } from '@alfalab/core-components-config';
 
-import {
-    type HapticInput,
-    type HapticPresetValue,
-    type TriggerOptions,
-} from '../types';
+import { type HapticInput, type HapticPresetValue, type TriggerOptions } from '../types';
 import { resolveHapticConfig } from '../utils';
 
 type WebHapticsOptions = NonNullable<Parameters<typeof useWebHaptics>[0]>;
@@ -39,7 +35,7 @@ interface UseHapticResponse {
      * Отменяет текущий haptic feedback, если `web-haptics` уже начал проигрывать паттерн.
      */
     cancel: () => void;
-};
+}
 
 /**
  * Хук для ручного запуска haptic feedback.

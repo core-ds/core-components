@@ -13,7 +13,7 @@ import mergeRefs from 'react-merge-refs';
 import { type MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
-import { type HapticConfig } from '@alfalab/core-components-haptics';
+import { type HapticPresetValue } from '@alfalab/core-components-haptics';
 import { type InputProps } from '@alfalab/core-components-input';
 import { fnUtils, isIOS } from '@alfalab/core-components-shared';
 
@@ -89,10 +89,10 @@ export interface NumberInputProps
     dataTestId?: string;
 
     /**
-     * Haptic-паттерн для кнопок increment/decrement. `false` отключает haptic для конкретного number input
+     * Haptic-пресет или кастомный vibration-конфиг для кнопок increment/decrement.
      * @default selection
      */
-    haptic?: HapticConfig;
+    'data-haptic-preset'?: HapticPresetValue;
 }
 
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
@@ -117,7 +117,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             disableUserInput,
             clear: clearProp,
             colors = 'default',
-            haptic,
+            'data-haptic-preset': dataHapticPreset,
             ...restProps
         },
         ref,
@@ -250,7 +250,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                         onIncrement={handleIncrement}
                         onDecrement={handleDecrement}
                         size={size}
-                        haptic={haptic}
+                        data-haptic-preset={dataHapticPreset}
                     />
                 )}
             </Fragment>

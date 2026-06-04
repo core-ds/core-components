@@ -409,6 +409,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-checkbox@workspace:packages/checkbox"
   dependencies:
+    "@alfalab/core-components-haptics": "npm:^0.0.1"
     "@alfalab/core-components-shared": "npm:^2.2.0"
     "@alfalab/hooks": "npm:^1.13.1"
     classnames: "npm:^2.5.1"
@@ -822,7 +823,6 @@ __metadata:
   resolution: "@alfalab/core-components-haptics@workspace:packages/haptics"
   dependencies:
     "@alfalab/core-components-config": "npm:^1.1.0"
-    "@alfalab/core-components-shared": "npm:^2.1.1"
     tslib: "npm:^2.4.0"
     web-haptics: "npm:^0.0.6"
   peerDependencies:
@@ -1714,7 +1714,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-shared@npm:^2.1.1, @alfalab/core-components-shared@npm:^2.2.0, @alfalab/core-components-shared@workspace:packages/shared":
+"@alfalab/core-components-shared@npm:^2.2.0, @alfalab/core-components-shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-shared@workspace:packages/shared"
   dependencies:

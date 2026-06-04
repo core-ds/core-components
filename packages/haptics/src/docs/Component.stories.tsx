@@ -33,10 +33,7 @@ export const haptic: Story = {
         const selectedPreset = select('data-haptic-pattern', PRESETS, 'selection') as HapticPreset;
 
         return (
-            <Haptic
-                disabled={!enabled}
-                data-haptic-preset={selectedPreset}
-            >
+            <Haptic disabled={!enabled} data-haptic-preset={selectedPreset}>
                 Запустить {selectedPreset}
             </Haptic>
         );
