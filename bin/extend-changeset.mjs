@@ -42,7 +42,7 @@ async function main() {
 ${releases.map((release) => `'${release.name}': ${release.type}`).join('\n')}
 ---
 
-${names.length ? `${'#'.repeat(headingLevel)} ${names.join(' ,')}` : ''}
+${names.length ? `${'#'.repeat(headingLevel)} ${names.join(', ')}` : ''}
 
 ${nextSummary}
 `.trimStart();
