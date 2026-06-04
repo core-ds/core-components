@@ -16,17 +16,17 @@
 }
 
 .h2 {
-    padding-top: var(--gap-32);
+    margin-top: var(--gap-32);
     margin-bottom: var(--gap-16);
 }
 
 .h3 {
-    padding-top: var(--gap-16);
+    margin-top: var(--gap-16);
     margin-bottom: var(--gap-16);
 }
 
 .h4 {
-    padding-top: var(--gap-8);
+    margin-top: var(--gap-8);
     margin-bottom: var(--gap-4);
 }
 
