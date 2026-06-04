@@ -1,5 +1,21 @@
 # @alfalab/core-components-shared
 
+## 2.2.0
+
+### Minor Changes
+
+<sup><time>25.05.2026</time></sup>
+
+#### [#2173](https://github.com/core-ds/core-components/pull/2173)
+
+##### Shared
+
+- Добавлены `utility` компоненты:
+    - `NoopComponent`
+    - `PassThroughComponent`
+- Добавлен хук `useForceUpdate`
+- Добавлен хук `useRefAsState`
+
 ## 2.1.1
 
 ### Patch Changes

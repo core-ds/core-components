@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-table",
-    "version": "4.0.12",
+    "version": "4.0.15",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -9,10 +9,13 @@
     ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "dependencies": {
-        "@alfalab/core-components-button": "^13.1.1",
-        "@alfalab/core-components-pagination": "^4.0.3",
-        "@alfalab/core-components-select": "^19.1.5",
+        "@alfalab/core-components-button": "^13.1.3",
+        "@alfalab/core-components-pagination": "^4.0.4",
+        "@alfalab/core-components-select": "^19.1.8",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -24,6 +27,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.4",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.1.0",
+    "varsVersion": "11.1.0"
 }

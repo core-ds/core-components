@@ -1,18 +1,25 @@
-export interface PageIndicatorDynamicProps {
+interface BasePageIndicatorProps {
     /**
-     * Индекс выбранного элемента по-умолчанию
-     * @default 0
+     * Имя класса
      */
-    defaultActiveElement?: number;
+    className?: string;
     /**
      * Индекс выбранного элемента
      */
-    activeElement?: number;
+    activeElement: number;
     /**
      * Количество элементов (минимум 2)
      * @default 10
      */
     elements?: number;
+}
+
+export interface PageIndicatorDynamicProps extends BasePageIndicatorProps {
+    /**
+     * Индекс выбранного элемента по-умолчанию
+     * @default 0
+     */
+    defaultActiveElement?: number;
     /**
      * Высота компонента
      * @default 8
@@ -54,16 +61,7 @@ export interface PageIndicatorDynamicProps {
     colors?: 'default' | 'inverted' | 'static' | 'static-inverted';
 }
 
-export interface PageIndicatorBulletProps {
-    /**
-     * Индекс выбранного элемента
-     */
-    activeElement: number;
-    /**
-     * Количество элементов (минимум 2)
-     * @default 10
-     */
-    elements?: number;
+export interface PageIndicatorBulletProps extends BasePageIndicatorProps {
     /**
      * Высота компонента
      * @default 8
@@ -81,16 +79,7 @@ export interface PageIndicatorBulletProps {
     colors?: 'default' | 'inverted' | 'static' | 'static-inverted';
 }
 
-export interface PageIndicatorStepProps {
-    /**
-     * Индекс выбранного элемента
-     */
-    activeElement: number;
-    /**
-     * Количество элементов (минимум 2)
-     * @default 10
-     */
-    elements?: number;
+export interface PageIndicatorStepProps extends BasePageIndicatorProps {
     /**
      * Высота компонента
      * @default 4
@@ -108,16 +97,7 @@ export interface PageIndicatorStepProps {
     colors?: 'default' | 'inverted' | 'static' | 'static-inverted';
 }
 
-export interface PageIndicatorRunnerProps {
-    /**
-     * Индекс выбранного элемента
-     */
-    activeElement: number;
-    /**
-     * Количество элементов (минимум 2)
-     * @default 10
-     */
-    elements?: number;
+export interface PageIndicatorRunnerProps extends BasePageIndicatorProps {
     /**
      * Высота компонента
      * @default 4

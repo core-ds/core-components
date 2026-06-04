@@ -320,6 +320,13 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     case useCombobox.stateChangeTypes.ItemClick: {
                         const { selectedItem } = changes;
 
+                        if (
+                            type === useCombobox.stateChangeTypes.InputKeyDownEnter &&
+                            state.highlightedIndex === -1
+                        ) {
+                            return state;
+                        }
+
                         initiatorRef.current = selectedItem || null;
 
                         return {

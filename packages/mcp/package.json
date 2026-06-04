@@ -1,0 +1,37 @@
+{
+    "name": "@alfalab/core-components-mcp",
+    "version": "0.1.0",
+    "description": "MCP server providing component information for core UI components.",
+    "type": "module",
+    "exports": {
+        "./package.json": "./package.json"
+    },
+    "bin": "dist/index.mjs",
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "yarn copy:assets",
+        "copy:assets": "copyfiles -u 1 \"src/{data,skills}/**/*\" dist/",
+        "dev": "tsx src/index.mts",
+        "generate-data": "node scripts/generate-data.mjs",
+        "start": "node dist/index.mjs"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.18.0",
+        "zod": "^4.1.11"
+    },
+    "devDependencies": {
+        "copyfiles": "^2.4.1",
+        "react-docgen-typescript": "^2.4.0",
+        "tsx": "^4.20.6",
+        "typescript": "^5.9.3"
+    },
+    "engines": {
+        "node": ">=24"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

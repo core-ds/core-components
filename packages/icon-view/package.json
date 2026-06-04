@@ -9,6 +9,9 @@
     ],
     "main": "index.js",
     "module": "./esm/index.js",
+    "scripts": {
+        "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
+    },
     "dependencies": {
         "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
@@ -25,6 +28,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.4",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.1.0",
+    "varsVersion": "11.1.0"
 }
