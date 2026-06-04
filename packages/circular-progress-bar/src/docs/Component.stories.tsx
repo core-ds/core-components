@@ -51,7 +51,7 @@ export const circular_progress_bar: Story = {
                     fillComplete={boolean('fillComplete', false)}
                     completeTextColor={completeTextColor}
                     height={number('height', 0)}
-                    size={select('size', [24, 48, 64, 80, 128, 144], 80)}
+                    size={select('size', [16, 24, 48, 64, 80, 128, 144], 80)}
                 />
                 <p>Без атрибута title значение для title берётся из value</p>
                 <CircularProgressBar value={value} view={view} subtitle={subtitle} size={80} />
