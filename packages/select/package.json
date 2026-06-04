@@ -25,7 +25,7 @@
         "@alfalab/core-components-scrollbar": "^5.0.3",
         "@alfalab/core-components-shared": "^2.2.0",
         "@alfalab/core-components-skeleton": "^7.0.3",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",

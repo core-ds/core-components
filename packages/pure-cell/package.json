@@ -19,7 +19,7 @@
         "@alfalab/core-components-shared": "^2.2.0",
         "@alfalab/core-components-typography": "^6.0.6",
         "@alfalab/data": "^1.9.2",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"

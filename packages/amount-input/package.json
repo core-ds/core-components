@@ -18,7 +18,7 @@
         "@alfalab/core-components-shared": "^2.2.0",
         "@alfalab/core-components-with-suffix": "^6.0.8",
         "@alfalab/data": "^1.9.2",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "@alfalab/utils": "^1.18.0",
         "@maskito/core": "^4.0.1",
         "@maskito/kit": "^4.0.1",

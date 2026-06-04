@@ -16,7 +16,7 @@
         "@alfalab/core-components-portal": "^5.0.1",
         "@alfalab/core-components-shared": "^2.2.0",
         "@alfalab/core-components-stack": "^7.0.1",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "@juggle/resize-observer": "^3.3.1",
         "@popperjs/core": "^2.11.8",
         "@types/react-transition-group": "^4.4.12",

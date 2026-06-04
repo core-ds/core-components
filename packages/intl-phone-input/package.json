@@ -15,7 +15,7 @@
     "dependencies": {
         "@alfalab/core-components-input-autocomplete": "^14.0.15",
         "@alfalab/core-components-select": "^19.1.8",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "@alfalab/utils": "^1.18.0",
         "classnames": "^2.5.1",
