@@ -43,4 +43,4 @@
 '@alfalab/core-components-mq': patch
 ---
 
-Апдейт версий пакета @alfalab/hooks
+- Апдейт версий пакета @alfalab/hooks
