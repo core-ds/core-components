@@ -10,6 +10,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
+import { Haptic } from '@alfalab/core-components-haptics';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
@@ -50,6 +51,7 @@ export const BaseButton = forwardRef<
             nowrap = false,
             colors = 'default',
             Component = href ? 'a' : 'button',
+            'data-haptic-preset': dataHapticPreset,
             onClick,
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
@@ -70,6 +72,9 @@ export const BaseButton = forwardRef<
         const showHint = hint && [56, 64, 72].includes(size);
 
         const iconOnly = !children;
+
+        const isNativeButton = Component === 'button';
+        const isNativeAnchor = Component === 'a';
 
         const sizeStyle = `size-${size}`;
 
@@ -183,12 +188,16 @@ export const BaseButton = forwardRef<
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
+            const LinkComponent = isNativeAnchor ? Haptic : Component;
 
             // Для совместимости с react-router-dom, меняем href на to
-            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
+            const hrefProps = {
+                [Component && typeof Component !== 'string' ? 'to' : 'href']: href,
+            };
 
             return (
-                <Component
+                <LinkComponent
+                    {...(isNativeAnchor && { Component: 'a', 'data-haptic-preset': dataHapticPreset })}
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
@@ -198,12 +207,18 @@ export const BaseButton = forwardRef<
                     ref={mergeRefs([buttonRef, ref])}
                 >
                     {buttonChildren}
-                </Component>
+                </LinkComponent>
             );
         }
 
+        const ButtonComponent = isNativeButton ? Haptic : Component;
+
         return (
-            <Component
+            <ButtonComponent
+                {...(isNativeButton && {
+                    Component: 'button',
+                    'data-haptic-preset': dataHapticPreset,
+                })}
                 {...componentProps}
                 {...restButtonProps}
                 onClick={handleClick}
@@ -212,7 +227,7 @@ export const BaseButton = forwardRef<
                 ref={mergeRefs([buttonRef, ref])}
             >
                 {buttonChildren}
-            </Component>
+            </ButtonComponent>
         );
     },
 );

@@ -9,9 +9,14 @@
         "paths": {
             "@alfalab/core-components-radio": ["./src"],
             "@alfalab/core-components-radio/*": ["./src/*"],
+            "@alfalab/core-components-haptics": ["../haptics/src"],
+            "@alfalab/core-components-haptics/*": ["../haptics/src/*"],
             "@alfalab/core-components-shared": ["../shared/src"],
             "@alfalab/core-components-shared/*": ["../shared/src/*"]
         }
     },
-    "references": [{ "path": "../shared/tsconfig.build.json" }]
+    "references": [
+        { "path": "../haptics/tsconfig.build.json" },
+        { "path": "../shared/tsconfig.build.json" }
+    ]
 }

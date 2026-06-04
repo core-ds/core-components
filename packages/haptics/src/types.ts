@@ -1,57 +1,62 @@
-import {
-    type AnchorHTMLAttributes,
-    type ButtonHTMLAttributes,
-    type InputHTMLAttributes,
-} from 'react';
-import { type HapticPreset as WebHapticPreset } from 'web-haptics';
 
-// todo: add more haptic presets
-export type HapticPreset = WebHapticPreset;
-export type HapticComponent = 'button' | 'a' | 'input';
+import { type useWebHaptics } from 'web-haptics/react';
 
-export interface HapticBaseProps {
+export type HapticPreset =
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'light'
+    | 'medium'
+    | 'heavy'
+    | 'soft'
+    | 'rigid'
+    | 'selection'
+    | 'nudge'
+    | 'buzz';
+
+type WebHaptics = ReturnType<typeof useWebHaptics>;
+type WebHapticsTrigger = WebHaptics['trigger'];
+
+export type HapticInput = Parameters<WebHapticsTrigger>[0];
+export type TriggerOptions = Parameters<WebHapticsTrigger>[1];
+
+type HapticInputPattern = Extract<NonNullable<HapticInput>, Array<{ duration: number }>>;
+
+type Vibration = HapticInputPattern[number];
+export type HapticPattern = Vibration[];
+export type HapticPresetValue = HapticPreset | (Partial<Vibration> & { repeat?: number });
+
+export interface HapticTriggerConfig {
+    enabled?: boolean;
+
     /**
-     * Интерактивный элемент, на который навешивается haptic-поведение
-     * @default button
+     * Payload, который будет передан напрямую в `web-haptics.trigger`.
      */
-    Component?: HapticComponent;
+    input?: HapticInput;
 
     /**
-     * Паттерн хаптика, который будет запущен по клику
+     * Паттерн в формате `web-haptics` preset object.
+     */
+    pattern?: HapticPattern;
+
+    /**
+     * Опции, которые будут переданы напрямую в `web-haptics.trigger`.
+     */
+    options?: TriggerOptions;
+}
+
+export interface HapticConfig extends HapticTriggerConfig, Partial<Vibration> {
+    enabled?: boolean;
+
+    /**
+     * Haptic-паттерн
      * @default selection
      */
     'data-haptic-pattern'?: HapticPreset;
-}
 
-type HapticButtonProps = Omit<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    'type' | 'data-haptic-pattern'
-> & {
-    Component?: 'button';
-    type?: ButtonHTMLAttributes<HTMLButtonElement>['type'] | string;
-} & HapticBaseProps;
-
-type HapticAnchorProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'data-haptic-pattern'> & {
-    Component: 'a';
-} & HapticBaseProps;
-
-type HapticInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'data-haptic-pattern'> & {
-    Component: 'input';
-} & HapticBaseProps;
-
-export type HapticProps = HapticButtonProps | HapticAnchorProps | HapticInputProps;
-
-export interface TriggerHapticOptions {
-    enabled?: boolean;
-}
-
-export type TriggerHaptic = (preset: HapticPreset, options?: TriggerHapticOptions) => void;
-
-export interface ClientHapticsApi {
-    enabled: boolean;
-    triggerHaptic: TriggerHaptic;
-}
-
-export interface UseClientHapticsParams {
-    enabled?: boolean;
+    /**
+     * Повтор всего паттерна
+     * @default 1
+     */
+    repeat?: number;
 }

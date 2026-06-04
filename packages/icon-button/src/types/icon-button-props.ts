@@ -9,7 +9,10 @@ import { type ButtonProps } from '@alfalab/core-components-button';
 
 export interface IconButtonProps
     extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>,
-        Pick<ButtonProps, 'Component' | 'href' | 'loading' | 'breakpoint'>,
+        Pick<
+            ButtonProps,
+            'Component' | 'href' | 'loading' | 'breakpoint' | 'data-haptic-preset'
+        >,
         Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'download'> {
     /**
      * Компонент иконки

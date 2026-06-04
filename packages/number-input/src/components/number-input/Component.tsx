@@ -13,6 +13,7 @@ import mergeRefs from 'react-merge-refs';
 import { type MaskitoOptions, maskitoTransform } from '@maskito/core';
 import { useMaskito } from '@maskito/react';
 
+import { type HapticConfig } from '@alfalab/core-components-haptics';
 import { type InputProps } from '@alfalab/core-components-input';
 import { fnUtils, isIOS } from '@alfalab/core-components-shared';
 
@@ -86,6 +87,12 @@ export interface NumberInputProps
      * Для кнопки инкремента используется модификатор -increment-button, декремента -decrement-button
      */
     dataTestId?: string;
+
+    /**
+     * Haptic-паттерн для кнопок increment/decrement. `false` отключает haptic для конкретного number input
+     * @default selection
+     */
+    haptic?: HapticConfig;
 }
 
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
@@ -110,6 +117,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             disableUserInput,
             clear: clearProp,
             colors = 'default',
+            haptic,
             ...restProps
         },
         ref,
@@ -242,6 +250,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                         onIncrement={handleIncrement}
                         onDecrement={handleDecrement}
                         size={size}
+                        haptic={haptic}
                     />
                 )}
             </Fragment>

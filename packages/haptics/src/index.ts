@@ -1,2 +1,12 @@
 export { Haptic } from './component';
-export { useHaptic } from './hooks/use-client-haptics';
+export { HapticA, HapticButton, HapticInput } from './components';
+export { useHaptic } from './hooks/use-haptic';
+
+export type {
+    HapticConfig,
+    HapticPattern,
+    HapticPreset,
+    HapticPresetValue,
+    HapticTriggerConfig,
+    TriggerOptions,
+} from './types';

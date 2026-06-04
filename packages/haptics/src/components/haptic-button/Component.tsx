@@ -1,35 +1,29 @@
-/* eslint-disable react/button-has-type */
 import React, { type ButtonHTMLAttributes, forwardRef, type MouseEvent } from 'react';
-// import { type HapticPreset } from '../../types';
-import { type HapticPreset } from 'web-haptics';
 
-import { useCoreConfig } from '@alfalab/core-components-config';
+import { type HapticBaseProps } from '../../component';
+import { useHaptic } from '../../hooks/use-haptic';
 
-import { triggerHaptic } from '../../utils';
-
-export type HapticButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    'data-haptic-pattern'?: HapticPreset;
-};
+type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
+    type?: 'button' | 'submit';
+} & HapticBaseProps;
 
 export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
-    ({ 'data-haptic-pattern': hapticPattern = 'selection', onClick, ...restProps }, ref) => {
-        const { haptics } = useCoreConfig();
+    ({ 'data-haptic-preset': dataHapticPreset, onClick, type = 'button', ...restProps }, ref) => {
+        const { trigger } = useHaptic({ dataHapticPreset });
 
-        const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-            onClick?.(event);
+        const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+            onClick?.(e);
 
-            if (event.defaultPrevented) return;
+            if (e.defaultPrevented) return;
 
-            triggerHaptic(hapticPattern as HapticPreset, { enabled: haptics?.enabled });
+            trigger();
         };
 
         return (
-            // eslint-disable-next-line react/button-has-type
             <button
                 {...restProps}
-                data-haptic='false'
-                data-haptic-pattern={hapticPattern}
                 ref={ref}
+                type={type === 'submit' ? 'submit' : 'button'}
                 onClick={handleClick}
             />
         );

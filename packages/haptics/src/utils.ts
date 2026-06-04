@@ -1,93 +1,98 @@
-import { defaultPatterns, type HapticPattern, WebHaptics } from 'web-haptics';
-
-import { isIOS } from '@alfalab/core-components-shared';
+import { defaultPatterns } from 'web-haptics';
 
 import {
+    type HapticConfig,
+    type HapticPattern,
     type HapticPreset,
-    type TriggerHapticOptions,
+    type HapticPresetValue,
+    type HapticTriggerConfig,
 } from './types';
 
-// todo: add more haptic patterns
-const hapticPatterns: Record<HapticPreset, HapticPattern> = {
-    ...defaultPatterns,
-    selection: [{ duration: 500, intensity: 1 }],
+const DEFAULT_REPEAT = 1;
+const DEFAULT_PRESET: HapticPreset = 'selection';
+
+const normalizeRepeat = (repeat = DEFAULT_REPEAT) => Math.max(1, Math.floor(repeat));
+
+/**
+ * Повторяет весь haptic-паттерн целиком.
+ *
+ * `repeat=2` для `[A, B]` вернёт `[A, B, A, B]`.
+ */
+export const repeatHapticPattern = (pattern: HapticPattern, repeat = DEFAULT_REPEAT) =>
+    Array.from({ length: normalizeRepeat(repeat) }).flatMap(() => pattern);
+
+export type ResolveHapticConfigParams = {
+    /**
+     * Локальный haptic-пресет, переданный в компонент.
+     */
+    dataHapticPreset?: HapticPresetValue;
+
+    /**
+     * Глобальный haptic-конфиг из `CoreConfig`.
+     */
+    global?: HapticConfig;
 };
 
-// todo: add more native haptic patterns
-const nativeHapticPatterns: Record<HapticPreset, number> = {
-    selection: 50,
-};
+/**
+ * Собирает итоговый haptic-конфиг из локального `haptic` и глобального `CoreConfig.haptics`.
+ *
+ * Правила приоритета:
+ * - если `data-haptic-preset` не передан, используется только `global.enabled=true`
+ * - если `data-haptic-preset` передан, он включает haptic даже при `global.enabled=false`
+ * - строковый `data-haptic-preset` запускает только выбранный preset
+ * - объектный `data-haptic-preset` считается кастомным vibration-конфигом
+ */
+export const resolveHapticConfig = ({
+    dataHapticPreset,
+    global,
+}: ResolveHapticConfigParams): Omit<HapticTriggerConfig, 'pattern'> | null => {
+    const hasLocalPreset = dataHapticPreset !== undefined;
 
-let haptics: WebHaptics | null = null;
-let iosHapticInput: HTMLInputElement | null = null;
+    if (!hasLocalPreset && global?.enabled !== true) return null;
 
-const isClient = () => typeof window !== 'undefined';
-
-const isTouchEnvironment = () => {
-    if (!isClient()) return false;
-
-    return (
-        window.navigator.maxTouchPoints > 0 ||
-        window.matchMedia?.('(pointer: coarse)').matches === true
-    );
-};
-
-export const isHapticsSupported = () =>
-    isClient() && (typeof window.navigator.vibrate === 'function' || isTouchEnvironment());
-
-const getHaptics = () => {
-    if (!haptics) {
-        haptics = new WebHaptics({ showSwitch: false });
+    if (typeof dataHapticPreset === 'string') {
+        return {
+            input: defaultPatterns[dataHapticPreset].pattern as HapticPattern,
+            enabled: true,
+        };
     }
 
-    return haptics;
-};
+    if (dataHapticPreset) {
+        const { repeat = DEFAULT_REPEAT, ...vibration } = dataHapticPreset;
 
-const getIOSHapticInput = () => {
-    if (iosHapticInput?.isConnected) return iosHapticInput;
-
-    const input = document.createElement('input');
-
-    input.type = 'checkbox';
-    input.setAttribute('switch', '');
-    input.setAttribute('aria-hidden', 'true');
-    input.tabIndex = -1;
-    input.style.cssText = [
-        'position:fixed',
-        'top:0',
-        'left:0',
-        'width:1px',
-        'height:1px',
-        'opacity:0',
-        'pointer-events:none',
-    ].join(';');
-
-    document.body.appendChild(input);
-    iosHapticInput = input;
-
-    return iosHapticInput;
-};
-
-export const triggerHaptic = (preset: HapticPreset, options: TriggerHapticOptions = {}) => {
-    if (options.enabled === false) return;
-    if (!isHapticsSupported()) return;
-
-    if (typeof window.navigator.vibrate === 'function') {
-        window.navigator.vibrate(nativeHapticPatterns[preset]);
-
-        return;
+        return {
+            input: repeatHapticPattern([vibration] as HapticPattern, repeat),
+            enabled: true,
+        };
     }
 
-    if (isIOS()) {
-        const input = getIOSHapticInput();
+    const {
+        input,
+        pattern,
+        options,
+        intensity,
+        repeat = DEFAULT_REPEAT,
+        'data-haptic-pattern': preset = DEFAULT_PRESET,
+        enabled: resolvedEnabled,
+    } = global ?? {};
 
-        input.checked = !input.checked;
-        input.click();
+    if (resolvedEnabled === false) return null;
 
-        return;
-    }
+    const inputFromGlobal =
+        input ??
+        pattern ??
+        repeatHapticPattern(defaultPatterns[preset].pattern as HapticPattern, repeat);
+    const optionsFromGlobal =
+        options || intensity !== undefined
+            ? {
+                  ...(intensity !== undefined && { intensity }),
+                  ...options,
+              }
+            : undefined;
 
-    getHaptics()
-        .trigger(hapticPatterns[preset])
-        .catch(() => {});
+    return {
+        input: inputFromGlobal,
+        options: optionsFromGlobal,
+        enabled: resolvedEnabled === true,
+    };
 };
