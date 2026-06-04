@@ -16,72 +16,14 @@ This skill provides guidance for working with the `@alfalab/core-components` Rea
 - **Components**: ~100 components available
 - **Structure**: Desktop/Mobile responsive variants, theme support, TypeScript
 
-## Available MCP Tools
-
-Use these tools when working with components:
-
-- `core-components-mcp_component_list` - List all available components
-- `core-components-mcp_component_info` - Get component API (props, types, defaults)
-- `core-components-mcp_component_demo` - Get demo examples
-- `core-components-mcp_component_changelog` - Get changelog for a component
-
-## Rules
+## MCP Tools
 
 - **Always use MCP tools** to get component data — never read source files, `CHANGELOG.md`, `package.json`, or `*.mdx` docs directly from the filesystem.
-- MCP data is pre-processed, filtered, and structured for agent consumption. Raw files may contain noise, outdated content, or formats not suitable for direct use.
-- If a tool returns no data — report it to the user; do not fall back to reading files manually.
+- If a tool returns "not found" — do not guess or invent the component API.
 
-## MCP Tool Workflow
+For tool reference and workflow: **read [MCP.md](./MCP.md)**.
 
-### When to call each tool
-
-**`component_list`** — call when:
-
-- User asks to build UI but doesn't specify which component to use
-- You need to check whether a specific component exists
-- You want to discover related components (e.g., all date-related inputs)
-
-**`component_info`** — call when:
-
-- You need to know available props and their types
-- User asks how a specific component works
-- You need to check a prop's default value or allowed values
-
-**`component_demo`** — is a two-step tool:
-
-- First call **without `name`** to list available demos (titles and descriptions only, no code):
-    ```
-    component_demo("Button")
-    ```
-- Then call **with `name`** to get the actual demo source code:
-    ```
-    component_demo("Button", "Loading")
-    ```
-
-**`component_changelog`** — supports three modes:
-
-- Call **without version params** to get the full changelog for the current and previous major versions (e.g. 50.x.x and 49.x.x):
-    ```
-    component_changelog("Button")
-    ```
-- Call **with `version`** to get the entry for a specific release:
-    ```
-    component_changelog("Button", version: "50.13.0")
-    ```
-- Call **with `v1` and `v2`** to see all changes between two versions (diff mode):
-    ```
-    component_changelog("Button", v1: "50.0.0", v2: "50.13.0")
-    ```
-
-Use changelog when: user asks what changed in a version, needs to understand breaking changes, or is upgrading from one version to another.
-
-### Example: upgrading a component
-
-User asks: _"What changed in Button between 50.0.0 and 50.13.0?"_
-
-```
-1. component_changelog("Button", v1: "50.0.0", v2: "50.13.0") → get all changes between versions
-```
+Available tools: `component_list`, `component_info`, `component_demo`, `component_changelog`.
 
 ## Import Patterns
 
@@ -345,14 +287,6 @@ vars.gap2xl === '32px'; // true
 | Data Display | Badge, Tag, Amount, Skeleton, Status                          |
 | Modals       | Modal, Drawer, BottomSheet, Popover                           |
 | Forms        | FormControl, Slider, DateInput, FileUploadItem                |
-
-## Component Not Found
-
-If any MCP tool returns "not found" for a component, do not guess or invent API — instead inform the user explicitly:
-
-> In the current version of MCP there is no information about the component **ComponentName**. Check the component name or use `component_list` to see all available components.
-
-Never silently fall back to generic React patterns when a component is missing from MCP data.
 
 ## Troubleshooting
 
