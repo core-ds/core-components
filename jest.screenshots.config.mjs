@@ -1,15 +1,10 @@
 // @ts-check
 
 /* eslint-disable import/no-extraneous-dependencies */
-import fse from 'fs-extra';
 import { defineConfig } from 'jest';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { createJsWithTsLegacyPreset, pathsToModuleNameMapper } from 'ts-jest';
 
-const dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { encoding: 'utf8' });
+import tsconfig from './tsconfig.test.json';
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
 
