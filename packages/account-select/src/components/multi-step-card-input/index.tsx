@@ -190,11 +190,13 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const handleExpiryFocus = () => {
             lastActiveFieldRef.current = 'expiry';
             setActiveField('expiry');
+            setTouchedFields((prev) => ({ ...prev, expiry: false }));
         };
 
         const handleCVVFocus = () => {
             lastActiveFieldRef.current = 'cvv';
             setActiveField('cvv');
+            setTouchedFields((prev) => ({ ...prev, cvc: false }));
         };
 
         const handleWrapperBlur = (e: React.FocusEvent<HTMLDivElement>) => {

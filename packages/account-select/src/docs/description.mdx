@@ -167,7 +167,7 @@ render(() => {
     const renderCardOption = ({ text, amount, coverSize, padding }) => (
         <GenericWrapper alignItems='center' gap={16} padding={padding}>
             <GenericWrapper>
-                <ProductCover.Single size={coverSize} />
+                <ProductCover.Single borderColor='var(--color-light-neutral-translucent-300)' size={coverSize} />
             </GenericWrapper>
             <GenericWrapper column grow>
                 <Typography.Text rowLimit={1} color='secondary' view='primary-small'>
@@ -253,6 +253,7 @@ render(() => {
                 <ProductCover.Single
                     size={48}
                     iconColor='var(--color-light-neutral-700)'
+                    borderColor='var(--color-light-neutral-translucent-300)'
                     backgroundColor='var(--color-light-neutral-200)'
                     icon={PlusMIcon}
                 />
@@ -366,6 +367,7 @@ render(() => {
                 <ProductCover.Single
                     size={40}
                     iconColor='var(--color-light-neutral-700)'
+                    borderColor='var(--color-light-neutral-translucent-300)'
                     backgroundColor='var(--color-light-neutral-200)'
                     icon={PlusMIcon}
                 />
@@ -482,6 +484,7 @@ render(() => {
             <GenericWrapper>
                 <ProductCover.Single
                     size={48}
+                    borderColor='var(--color-light-neutral-translucent-300)'
                     iconColor='var(--color-light-neutral-700)'
                     backgroundColor='var(--color-light-neutral-200)'
                     icon={PlusMIcon}
@@ -579,6 +582,7 @@ render(() => {
                 <ProductCover.Single
                     size={40}
                     iconColor='var(--color-light-neutral-700)'
+                    borderColor='var(--color-light-neutral-translucent-300)'
                     backgroundColor='var(--color-light-neutral-200)'
                     icon={PlusMIcon}
                 />
