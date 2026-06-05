@@ -6,10 +6,10 @@ import { CARD_MASK, CVV_MASK, EXPIRY_MASK } from '../../constants';
 import { useAccountSelect } from '../../context';
 import { type CardAddingProps } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
-import { parseDate } from '../../utils/parse-date';
 import { validateCardNumber, validateCVC, validateExpiry } from '../../utils/validate';
 
 import { useValidationError } from './hooks/useValidationError';
+import { getCardData } from './utils/getCardData';
 
 import styles from './index.module.css';
 
@@ -83,14 +83,19 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         );
 
         useEffect(() => {
-            onInput?.({
-                number: cardNumber,
-                ...(needExpiryDate && { expiryDate: cardExpiry }),
-                ...(needCVC && cardCvc && { cvc: cardCvc }),
-            });
+            onInput?.(
+                getCardData({
+                    cardNumber,
+                    cardExpiry,
+                    cardCvc,
+                    needExpiryDate,
+                    needCVC,
+                    expiryAsDate,
+                }),
+            );
 
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [cardNumber, cardExpiry, cardCvc, needExpiryDate, needCVC]);
+        }, [cardNumber, cardExpiry, cardCvc, needExpiryDate, needCVC, expiryAsDate]);
 
         useEffect(() => {
             if (step === 1) numberRef.current?.focus();
@@ -153,15 +158,16 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 expiryRef.current?.blur();
                 cvvRef.current?.blur();
 
-                onSubmit?.({
-                    number: cardNumberValue,
-                    ...(needExpiryDate && {
-                        expiryDate: expiryAsDate
-                            ? parseDate(cardExpiryValue as string)
-                            : cardExpiryValue,
+                onSubmit?.(
+                    getCardData({
+                        cardNumber: cardNumberValue,
+                        cardExpiry: cardExpiryValue,
+                        cardCvc: cardCvcValue,
+                        needExpiryDate,
+                        needCVC,
+                        expiryAsDate,
                     }),
-                    ...(needCVC && { CVC: cardCvcValue }),
-                });
+                );
             },
             [
                 cardNumber,
@@ -209,7 +215,9 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const handleCardNumberChange = ({
             target: { value },
         }: React.ChangeEvent<HTMLInputElement>) => {
-            const cleanValue = value.replace(/\s/g, '');
+            if (value.includes('·')) return;
+
+            const cleanValue = value.replace(/\D/g, '');
 
             setCardNumber(cleanValue);
 

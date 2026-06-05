@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import cn from 'classnames';
 
 import { FormControlDesktop } from '@alfalab/core-components-form-control/desktop';
@@ -7,7 +7,7 @@ import { ProductCover } from '@alfalab/core-components-product-cover';
 import { Field, type FieldProps, type OptionShape } from '@alfalab/core-components-select/shared';
 
 import { ADD_CARD_KEY, PRODUCT_COVER_SIZE_MAPPER } from '../../constants';
-import { useAccountSelect } from '../../context';
+import { useAccountSelect, useError } from '../../context';
 import { MultiStepCardInput } from '../multi-step-card-input';
 
 import styles from './index.module.css';
@@ -36,10 +36,18 @@ export const CustomField = ({
     disabled,
     ...restProps
 }: CustomFieldProps) => {
-    const { cardNumber } = useAccountSelect();
+    const { cardNumber, resetCardData } = useAccountSelect();
+    const { setError } = useError();
     const isAddCardSelected = selected?.key === ADD_CARD_KEY;
 
-    const rightAddonsPropsWithToggle = React.useMemo(
+    useEffect(() => {
+        if (!isAddCardSelected) {
+            resetCardData();
+            setError(null);
+        }
+    }, [isAddCardSelected, resetCardData, setError]);
+
+    const rightAddonsPropsWithToggle = useMemo(
         () => ({
             ...rightAddonsProps,
             onMouseDown: (event: React.MouseEvent<HTMLDivElement>) => {
@@ -57,7 +65,7 @@ export const CustomField = ({
         [disabled, rightAddonsProps, toggleMenu],
     );
 
-    const innerPropsWithRestrictedOpen = React.useMemo(() => {
+    const innerPropsWithRestrictedOpen = useMemo(() => {
         if (!isAddCardSelected || !cardNumber) return innerProps;
 
         return {

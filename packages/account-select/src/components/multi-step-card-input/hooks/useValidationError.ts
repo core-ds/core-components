@@ -10,7 +10,6 @@ function getValidationErrors(
     cardNumber: string,
     cardExpiry: string | Date | undefined,
     cardCvc: string | undefined,
-    activeField: string,
     touchedFields: TouchedFields,
     needExpiryDate: boolean,
     needCVC: boolean,
@@ -18,11 +17,11 @@ function getValidationErrors(
     const errors: string[] = [];
     const isCardNumberValid = validateCardNumber(cardNumber);
 
-    if (activeField !== 'cardNumber' && touchedFields.cardNumber && !isCardNumberValid) {
+    if (touchedFields.cardNumber && !isCardNumberValid) {
         errors.push(ERRORS.CARD_NUMBER_ERROR);
     }
 
-    if (isCardNumberValid && needExpiryDate && activeField !== 'expiry') {
+    if (isCardNumberValid && needExpiryDate) {
         if (!cardExpiry && touchedFields.expiry) {
             errors.push(ERRORS.EXPIRY_EMPTY);
         } else if (cardExpiry) {
@@ -35,7 +34,7 @@ function getValidationErrors(
         }
     }
 
-    if (isCardNumberValid && needCVC && activeField !== 'cvv' && touchedFields.cvc) {
+    if (isCardNumberValid && needCVC && touchedFields.cvc) {
         if (!cardCvc || !validateCVC(cardCvc)) {
             errors.push(ERRORS.CVV_EMPTY);
         }
@@ -68,7 +67,7 @@ export function useValidationError({
     const { setError } = useError();
 
     useEffect(() => {
-        if (valuesEmpty) {
+        if (valuesEmpty || activeField) {
             setError(null);
 
             return;
@@ -79,7 +78,6 @@ export function useValidationError({
                 cardNumber,
                 cardExpiry,
                 cardCvc,
-                activeField,
                 touchedFields,
                 needExpiryDate,
                 needCVC,

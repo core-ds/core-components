@@ -2,6 +2,7 @@ import React, {
     createContext,
     type Dispatch,
     type ReactNode,
+    useCallback,
     useContext,
     useMemo,
     useState,
@@ -18,6 +19,7 @@ interface AccountSelectContextValue {
     setCardExpiry: Dispatch<React.SetStateAction<CardData['expiryDate']>>;
     cardCvc: string;
     setCardCvc: Dispatch<React.SetStateAction<string>>;
+    resetCardData: () => void;
 }
 
 interface ErrorContextValue {
@@ -35,6 +37,13 @@ export const AccountSelectContextProvider = ({ children }: { children: ReactNode
     const [cardExpiry, setCardExpiry] = useState<CardData['expiryDate']>('');
     const [cardCvc, setCardCvc] = useState<string>('');
 
+    const resetCardData = useCallback(() => {
+        setStep(1);
+        setCardNumber('');
+        setCardExpiry('');
+        setCardCvc('');
+    }, []);
+
     const ctx = useMemo(
         () => ({
             step,
@@ -45,8 +54,9 @@ export const AccountSelectContextProvider = ({ children }: { children: ReactNode
             setCardExpiry,
             cardCvc,
             setCardCvc,
+            resetCardData,
         }),
-        [cardCvc, cardExpiry, cardNumber, step],
+        [cardCvc, cardExpiry, cardNumber, resetCardData, step],
     );
 
     return <AccountSelectContext.Provider value={ctx}>{children}</AccountSelectContext.Provider>;
