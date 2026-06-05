@@ -15,8 +15,6 @@
 '@alfalab/core-components-toast': patch
 '@alfalab/core-components-typography': patch
 '@alfalab/core-components-universal-modal': patch
-'@alfalab/core-components-product-cover': patch
-'@alfalab/core-components-amount-input': patch
 '@alfalab/core-components': patch
 ---
 
