@@ -1,5 +1,14 @@
 # @alfalab/core-components-with-suffix
 
+## 6.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-portal@5.0.2
+- @alfalab/core-components-input@17.1.7
+
 ## 6.0.8
 
 ### Patch Changes

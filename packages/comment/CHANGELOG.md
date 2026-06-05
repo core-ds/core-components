@@ -1,5 +1,13 @@
 # @alfalab/core-components-comment
 
+## 4.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.7
+
 ## 4.0.6
 
 ### Patch Changes
