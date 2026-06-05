@@ -191,9 +191,7 @@ export const BaseButton = forwardRef<
             const LinkComponent = isNativeAnchor ? Haptic : Component;
 
             // Для совместимости с react-router-dom, меняем href на to
-            const hrefProps = {
-                [Component && typeof Component !== 'string' ? 'to' : 'href']: href,
-            };
+            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
 
             return (
                 <LinkComponent
