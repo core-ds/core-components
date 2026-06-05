@@ -1,6 +1,5 @@
 import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import throttle from 'lodash/throttle';
 
 import { GalleryContext } from '../../context';
 import { getImageKey, TestIds } from '../../utils';
@@ -9,11 +8,14 @@ import { ImagePreview } from '../image-preview';
 import styles from './index.module.css';
 
 const MIN_SCROLL_STEP = 24;
-const SCROLL_SPEED = 2; // Коэффициент скорости прокрутки (можно настроить)
-const SCROLL_THRESHOLD = 150; // Расстояние от границы, при котором начинается прокрутка
+const SCROLL_SPEED = 0.05;
+const SCROLL_THRESHOLD = 150;
 
 export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const mousePositionRef = useRef<number>(0);
+    const animationFrameRef = useRef<number | undefined>(undefined);
+    const previousFrameTimeRef = useRef<number | undefined>(undefined);
 
     const [isNavMouseDowned, setIsNavMouseDowned] = useState<boolean>(false);
 
@@ -41,38 +43,71 @@ export const NavigationBar: FC = () => {
         }
     }, []);
 
-    const handlePreviewMouseDown = () => {
+    const stopAutoScroll = useCallback(() => {
+        if (animationFrameRef.current !== undefined) {
+            cancelAnimationFrame(animationFrameRef.current);
+            animationFrameRef.current = undefined;
+        }
+
+        previousFrameTimeRef.current = undefined;
+    }, []);
+
+    const startAutoScroll = useCallback(() => {
+        if (animationFrameRef.current !== undefined) {
+            return;
+        }
+
+        const scrollToMousePosition = (time: number) => {
+            const container = containerRef.current;
+
+            if (!container) {
+                stopAutoScroll();
+
+                return;
+            }
+
+            const { width: containerWidth, left: containerLeft } =
+                container.getBoundingClientRect();
+            const rightThreshold = containerLeft + containerWidth - SCROLL_THRESHOLD;
+            const leftThreshold = containerLeft + SCROLL_THRESHOLD;
+            const mouseX = mousePositionRef.current;
+            const previousFrameTime = previousFrameTimeRef.current ?? time;
+            const frameDuration = time - previousFrameTime;
+
+            previousFrameTimeRef.current = time;
+
+            if (mouseX > rightThreshold) {
+                container.scrollLeft += (mouseX - rightThreshold) * SCROLL_SPEED * frameDuration;
+            } else if (mouseX < leftThreshold) {
+                container.scrollLeft += (mouseX - leftThreshold) * SCROLL_SPEED * frameDuration;
+            }
+
+            animationFrameRef.current = requestAnimationFrame(scrollToMousePosition);
+        };
+
+        animationFrameRef.current = requestAnimationFrame(scrollToMousePosition);
+    }, [stopAutoScroll]);
+
+    const handlePreviewMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        mousePositionRef.current = e.clientX;
         setIsNavMouseDowned(true);
+        startAutoScroll();
     };
 
     const handlePreviewMouseUp = () => {
         setIsNavMouseDowned(false);
-        if (containerRef.current) {
-            containerRef.current.style.scrollBehavior = 'auto'; // Отключаем плавность для резкой остановки
+        stopAutoScroll();
+    };
+
+    const handleMouseNavigationMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        mousePositionRef.current = e.clientX;
+
+        if (isNavMouseDowned) {
+            startAutoScroll();
         }
     };
 
-    const handleMouseNavigationMove = throttle((e: React.MouseEvent<HTMLDivElement>) => {
-        if (!containerRef.current || !isNavMouseDowned) return;
-
-        const container = containerRef.current;
-        const { width: containerWidth, left: containerLeft } = container.getBoundingClientRect();
-        const mouseX = e.clientX;
-
-        // Если курсор близко к правой границе
-        if (mouseX > containerWidth + containerLeft - SCROLL_THRESHOLD) {
-            const scrollValue =
-                (mouseX - (containerWidth + containerLeft - SCROLL_THRESHOLD)) * SCROLL_SPEED;
-
-            container.scrollBy({ left: scrollValue, behavior: 'smooth' });
-        }
-        // Если курсор близко к левой границе
-        else if (mouseX < containerLeft + SCROLL_THRESHOLD) {
-            const scrollValue = (mouseX - (containerLeft + SCROLL_THRESHOLD)) * SCROLL_SPEED;
-
-            container.scrollBy({ left: scrollValue, behavior: 'smooth' });
-        }
-    }, 150);
+    useEffect(() => stopAutoScroll, [stopAutoScroll]);
 
     const handlePreviewPosition = useCallback(
         (preview: Element, containerWidth: number) => {
