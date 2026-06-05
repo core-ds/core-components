@@ -1,6 +1,6 @@
-import { type CardData } from '@alfalab/core-components-account-select/types';
-import { parseDate } from '@alfalab/core-components-account-select/utils/parse-date';
-import { validateExpiry } from '@alfalab/core-components-account-select/utils/validate';
+import { type CardData } from '../../../types';
+import { parseDate } from '../../../utils/parse-date';
+import { validateExpiry } from '../../../utils/validate';
 
 type CardParams = {
     cardNumber: string;
