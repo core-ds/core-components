@@ -2,16 +2,14 @@
 
 /* eslint-disable import/no-extraneous-dependencies */
 
-import fse from 'fs-extra';
+import { defineConfig } from 'jest';
 import path from 'node:path';
+import * as process from 'node:process';
 import slash from 'slash';
 import { createJsWithTsEsmPreset, pathsToModuleNameMapper } from 'ts-jest';
 
 import { resolveInternal } from './tools/resolve-internal.cjs';
-
-const tsconfig = await fse.readJson(path.join(import.meta.dirname, 'tsconfig.test.json'), {
-    encoding: 'utf8',
-});
+import tsconfig from './tsconfig.test.json' with { type: 'json' };
 
 const IGNORED_PACKAGES = ['@alfalab/core-components-codemod'];
 
@@ -72,10 +70,7 @@ const [initialProjectOptions] = [
     },
 ];
 
-/**
- * @type {import('ts-jest').JestConfigWithTsJest}
- */
-const config = {
+export default defineConfig({
     projects: [
         {
             ...initialProjectOptions,
@@ -96,6 +91,8 @@ const config = {
         },
     ],
     coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
-};
-
-export default config;
+    reporters:
+        process.env.CI === 'true'
+            ? [['github-actions', { silent: false }], 'summary']
+            : ['default'],
+});
