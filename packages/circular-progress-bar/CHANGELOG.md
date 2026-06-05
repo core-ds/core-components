@@ -1,5 +1,22 @@
 # @alfalab/core-components-circular-progress-bar
 
+## 5.0.7
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2243](https://github.com/core-ds/core-components/pull/2243)
+
+##### CircularProgressBar
+
+- Добавлен размер 16
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-typography@6.0.7
+
 ## 5.0.6
 
 ### Patch Changes

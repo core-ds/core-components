@@ -1,5 +1,13 @@
 # @alfalab/core-components-page-indicator
 
+## 3.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+
 ## 3.0.4
 
 ### Patch Changes

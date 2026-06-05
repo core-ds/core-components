@@ -1,5 +1,15 @@
 # @alfalab/core-components-typography
 
+## 6.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+
 ## 6.0.6
 
 ### Patch Changes

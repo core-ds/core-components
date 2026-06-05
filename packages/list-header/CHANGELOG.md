@@ -1,5 +1,13 @@
 # @alfalab/core-components-list-header
 
+## 5.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.7
+
 ## 5.0.6
 
 ### Patch Changes

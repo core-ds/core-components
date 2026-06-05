@@ -1,5 +1,14 @@
 # @alfalab/core-components-attach
 
+## 8.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-keyboard-focusable@6.0.2
+- @alfalab/core-components-button@13.1.4
+
 ## 8.0.6
 
 ### Patch Changes
