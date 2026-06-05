@@ -1,4 +1,4 @@
-import  { type CardData } from '@alfalab/core-components-account-select/types';
+import { type CardData } from '@alfalab/core-components-account-select/types';
 import { parseDate } from '@alfalab/core-components-account-select/utils/parse-date';
 import { validateExpiry } from '@alfalab/core-components-account-select/utils/validate';
 

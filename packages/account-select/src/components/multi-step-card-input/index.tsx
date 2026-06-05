@@ -219,6 +219,14 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
             const cleanValue = value.replace(/\D/g, '');
 
+            if (
+                validateCardNumber(cardNumber) &&
+                cleanValue === cardNumber.slice(-4) &&
+                getMaskedCardNumber(cardNumber).replace(/\D/g, '') === cleanValue
+            ) {
+                return;
+            }
+
             setCardNumber(cleanValue);
 
             if (open && cleanValue) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { AccountSelectDesktop } from './desktop';
 import { ADD_CARD_KEY, ERRORS } from './constants';
@@ -242,9 +243,7 @@ describe('AccountSelectDesktop', () => {
             />,
         );
 
-        fireEvent.input(getByPlaceholderText('Карта'), {
-            target: { value: '4111111111111111' },
-        });
+        await userEvent.type(getByPlaceholderText('Карта'), '4111111111111111');
         fireEvent.input(getByPlaceholderText('ММ/ГГ'), { target: { value: '12/99' } });
         fireEvent.input(getByPlaceholderText('CVC'), { target: { value: '123' } });
 
