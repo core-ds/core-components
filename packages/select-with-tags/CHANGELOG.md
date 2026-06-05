@@ -1,5 +1,27 @@
 # @alfalab/core-components-select-with-tags
 
+## 10.1.10
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.1.0
+- @alfalab/core-components-popover@8.0.5
+- @alfalab/core-components-select@19.1.9
+- @alfalab/core-components-input@17.1.7
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-bottom-sheet@8.1.9
+- @alfalab/core-components-form-control@14.0.7
+
 ## 10.1.9
 
 ### Patch Changes
