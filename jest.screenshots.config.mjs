@@ -4,7 +4,7 @@
 import { defineConfig } from 'jest';
 import { createJsWithTsLegacyPreset, pathsToModuleNameMapper } from 'ts-jest';
 
-import tsconfig from './tsconfig.test.json';
+import tsconfig from './tsconfig.test.json' with { type: 'json' };
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
 
