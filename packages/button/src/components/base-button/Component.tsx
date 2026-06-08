@@ -53,6 +53,8 @@ export const BaseButton = forwardRef<
             onClick,
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
+            labelClassName,
+            hintClassName,
             ...restProps
         },
         ref,
@@ -112,7 +114,7 @@ export const BaseButton = forwardRef<
                 {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
                 {children && (
                     <span
-                        className={cn(commonStyles.label, {
+                        className={cn(commonStyles.label, labelClassName, {
                             [commonStyles.nowrap]: nowrap,
                             [commonStyles.stretchText]:
                                 !(leftAddons || rightAddons) || textResizing === 'fill',
@@ -125,6 +127,7 @@ export const BaseButton = forwardRef<
                                     commonStyles.hint,
                                     colorStylesMap[colors].hint,
                                     colorStyles[colors].hint,
+                                    hintClassName,
                                 )}
                             >
                                 {hint}
