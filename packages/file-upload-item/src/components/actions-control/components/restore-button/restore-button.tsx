@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import ArrowsCwCompactMIcon from '@alfalab/icons-glyph/ArrowsCwCompactMIcon';
 
 import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
@@ -8,7 +9,7 @@ import { FileUploadItemContext } from '../../../../context/file-upload-item-cont
 import styles from '../../actions-control.module.css';
 
 export const RestoreButton = () => {
-    const { id = '0', disableButtons, onRestore } = useContext(FileUploadItemContext);
+    const { id = '0', dataTestId, disableButtons, onRestore } = useContext(FileUploadItemContext);
 
     const handleRestore = () => {
         if (onRestore) {
@@ -24,6 +25,7 @@ export const RestoreButton = () => {
             icon={<ArrowsCwCompactMIcon className={styles.restoreIconColor} />}
             disabled={disableButtons}
             onClick={handleRestore}
+            dataTestId={getDataTestId(dataTestId, 'restore-button')}
         />
     );
 };

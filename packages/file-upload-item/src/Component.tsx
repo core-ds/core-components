@@ -80,6 +80,7 @@ export const FileUploadItemComponent: React.FC<FileUploadItemProps> = ({
                     backgroundColor,
                     actionsPresent,
                     setActionsPresent,
+                    dataTestId,
                 }}
             >
                 {children}
