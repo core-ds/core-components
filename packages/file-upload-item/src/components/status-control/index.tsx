@@ -17,6 +17,7 @@ export const StatusControl = () => {
         progressBar = 0,
         progressBarAvailable = true,
         imageUrl,
+        setIsBrokenImage,
         backgroundColor,
         actionsPresent,
         isClickable,
@@ -37,6 +38,7 @@ export const StatusControl = () => {
             <SuperEllipse
                 backgroundColor={backgroundColor}
                 size={48}
+                onImageBrokenChange={setIsBrokenImage}
                 {...(imageUrl && { imageUrl })}
             >
                 <ExtensionIcon />

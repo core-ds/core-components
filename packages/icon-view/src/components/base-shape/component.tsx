@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { useId, useImageLoadingState } from '@alfalab/hooks';
 
+import { useCheckImageIsBroken } from './use-check-image-is-broken';
 import { getPath, getPathName, type PathsMap } from './utils';
 
 import styles from './index.module.css';
@@ -46,6 +47,12 @@ export type BaseShapeProps = {
      * Фоновое изображение. Имеет приоритет над иконкой и заливкой
      */
     imageUrl?: string;
+
+    /**
+     * Колбек изменения статуса изображения.
+     * Возвращает true, если изображение не удалось загрузить/декодировать.
+     */
+    onImageBrokenChange?: (isBrokenImage: boolean) => void;
 
     /**
      * Режим масштабирования изображения
@@ -118,6 +125,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
             border = false,
             backgroundColor,
             imageUrl,
+            onImageBrokenChange,
             scale = 'fill',
             backgroundIcon: Icon,
             className,
@@ -136,6 +144,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
     ) => {
         const [width, height] = typeof size === 'object' ? [size.width, size.height] : [size, size];
         const imageLoadingState = useImageLoadingState({ src: imageUrl || '' });
+        const isBrokenImage = useCheckImageIsBroken({ imageUrl, onImageBrokenChange });
 
         const clipPathId = useId();
 
@@ -188,7 +197,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                             d={shapeDPath}
                         />
 
-                        {imageUrl && imageLoadingState !== 'error' && (
+                        {imageUrl && imageLoadingState !== 'error' && !isBrokenImage && (
                             <Fragment>
                                 <defs>
                                     <clipPath id={clipPathId}>
