@@ -113,6 +113,16 @@ type ComponentProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
+
+    /**
+     * Дополнительный класс для label
+     */
+    labelClassName?: string;
+
+    /**
+     * Дополнительный класс для hint
+     */
+    hintClassName?: string;
 };
 
 export type PrivateButtonProps = {
