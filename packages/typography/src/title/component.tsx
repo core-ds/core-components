@@ -37,8 +37,6 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
 
     /**
      * Шрифт текста
-     *
-     * @deprecated
      */
     font?: 'styrene' | 'system' | 'alfasans' | { font: 'alfasans'; systemCompat: boolean };
 
