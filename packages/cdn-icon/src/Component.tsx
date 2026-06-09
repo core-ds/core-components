@@ -1,6 +1,8 @@
 import React, { type ReactNode, useEffect } from 'react';
 import cn from 'classnames';
 
+import { getCDNIcons } from '@alfalab/core-components-shared';
+
 import { LoadingStatus, useIcon } from './hooks/use-icon';
 
 import styles from './index.module.css';
@@ -20,7 +22,6 @@ interface CDNIconProps {
     className?: string;
     /**
      * Базовый адрес cdn хранилища c иконками
-     * @default https://alfabank.servicecdn.ru/icons
      */
     baseUrl?: string;
     /**
@@ -42,7 +43,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     color,
     dataTestId,
     className,
-    baseUrl = 'https://alfabank.servicecdn.ru/icons',
+    baseUrl = getCDNIcons(),
     fallback,
     onError,
 }) => {

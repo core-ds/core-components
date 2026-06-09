@@ -337,6 +337,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-card-image@workspace:packages/card-image"
   dependencies:
+    "@alfalab/core-components-shared": "npm:^2.2.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:

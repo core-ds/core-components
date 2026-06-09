@@ -1,11 +1,13 @@
 import React, { type FC, type ReactEventHandler, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
+import { getCardImages } from '@alfalab/core-components-shared';
+
 import styles from './index.module.css';
 
 export const ASPECT_RATIO = 0.63;
 export const DEFAULT_WIDTH = 280;
-export const DEFAULT_BASE_URL = 'https://online.alfabank.ru/cards-images/cards/';
+export const DEFAULT_BASE_URL = getCardImages();
 
 export type CardImageProps = {
     /**

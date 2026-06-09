@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { text, boolean, number } from '@storybook/addon-knobs';
 import { CardImage } from '@alfalab/core-components-card-image';
+import { getCardImages } from '@alfalab/core-components-shared';
 
 const meta: Meta<typeof CardImage> = {
     title: 'Components/CardImage',
@@ -23,7 +24,7 @@ export const card_image: Story = {
                 )}
                 width={number('width', 280)}
                 rounded={boolean('rounded', false)}
-                baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
+                baseUrl={text('baseUrl', getCardImages())}
             />
         );
     },
