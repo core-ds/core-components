@@ -7,12 +7,12 @@ import { useFileUploadItemContext } from '../../../../context/file-upload-item-c
 
 import styles from '../../actions-control.module.css';
 
-export const RestoreButton = () => {
-    const { id = '0', disableButtons, onRestore } = useFileUploadItemContext();
+export const ReuploadButton = () => {
+    const { id = '0', disableButtons, reupload } = useFileUploadItemContext();
 
-    const handleRestore = () => {
-        if (onRestore) {
-            onRestore(id);
+    const handleClick = () => {
+        if (typeof reupload === 'object') {
+            reupload.onClick?.(id);
         }
     };
 
@@ -20,10 +20,10 @@ export const RestoreButton = () => {
         <IconButton
             className={styles.icon}
             size={24}
-            aria-label='восстановить'
+            aria-label='Повторная загрузка'
             icon={<ArrowsCwCompactMIcon className={styles.restoreIconColor} />}
             disabled={disableButtons}
-            onClick={handleRestore}
+            onClick={handleClick}
         />
     );
 };
