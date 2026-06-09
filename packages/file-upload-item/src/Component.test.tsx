@@ -302,7 +302,7 @@ describe('FileUploadItem', () => {
                 </FileUploadItem>,
             );
 
-            const element = screen.getByLabelText('повторная загрузка');
+            const element = screen.getByLabelText('Повторная загрузка');
 
             expect(element).toBeInTheDocument();
         });
@@ -373,7 +373,7 @@ describe('FileUploadItem', () => {
                 </FileUploadItem>,
             );
 
-            fireEvent.click(getByLabelText('повторная загрузка'));
+            fireEvent.click(getByLabelText('Повторная загрузка'));
 
             expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);
@@ -503,21 +503,5 @@ describe('FileUploadItem', () => {
         );
 
         expect(unmount).not.toThrow();
-    });
-
-    describe('Outside provider', () => {
-        const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-        afterAll(() => {
-            consoleError.mockRestore();
-        });
-
-        it.each([
-            ['StatusControl', <FileUploadItem.StatusControl />],
-            ['Content', <FileUploadItem.Content />],
-            ['Actions', <FileUploadItem.Actions />],
-        ])('%s should throw when rendered outside FileUploadItem', (_, element) => {
-            expect(() => render(element)).toThrow('Used outside of FileUploadItem');
-        });
     });
 });

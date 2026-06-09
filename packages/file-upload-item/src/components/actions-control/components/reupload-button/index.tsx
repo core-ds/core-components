@@ -20,7 +20,7 @@ export const ReuploadButton = () => {
         <IconButton
             className={styles.icon}
             size={24}
-            aria-label='повторная загрузка'
+            aria-label='Повторная загрузка'
             icon={<ArrowsCwCompactMIcon className={styles.restoreIconColor} />}
             disabled={disableButtons}
             onClick={handleClick}

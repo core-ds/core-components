@@ -35,14 +35,6 @@ interface ContextType
     actionsPresent?: boolean;
 }
 
-export const FileUploadItemContext = createContext<ContextType | null>(null);
+export const FileUploadItemContext = createContext<ContextType>({});
 
-export const useFileUploadItemContext = (): ContextType => {
-    const ctx = useContext(FileUploadItemContext);
-
-    if (!ctx) {
-        throw new Error('Used outside of FileUploadItem');
-    }
-
-    return ctx;
-};
+export const useFileUploadItemContext = (): ContextType => useContext(FileUploadItemContext);
