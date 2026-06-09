@@ -21,6 +21,24 @@ const normalizeRepeat = (repeat = DEFAULT_REPEAT) => Math.max(1, Math.floor(repe
 export const repeatHapticPattern = (pattern: HapticPattern, repeat = DEFAULT_REPEAT) =>
     Array.from({ length: normalizeRepeat(repeat) }).flatMap(() => pattern);
 
+const resolvePresetValue = (
+    presetValue: HapticPresetValue,
+): Omit<HapticTriggerConfig, 'pattern'> => {
+    if (typeof presetValue === 'string') {
+        return {
+            input: defaultPatterns[presetValue].pattern as HapticPattern,
+            enabled: true,
+        };
+    }
+
+    const { repeat = DEFAULT_REPEAT, ...vibration } = presetValue;
+
+    return {
+        input: repeatHapticPattern([vibration] as HapticPattern, repeat),
+        enabled: true,
+    };
+};
+
 export type ResolveHapticConfigParams = {
     /**
      * Локальный haptic-пресет, переданный в компонент.
@@ -50,38 +68,22 @@ export const resolveHapticConfig = ({
 
     if (!hasLocalPreset && global?.enabled !== true) return null;
 
-    if (typeof dataHapticPreset === 'string') {
-        return {
-            input: defaultPatterns[dataHapticPreset].pattern as HapticPattern,
-            enabled: true,
-        };
+    if (dataHapticPreset !== undefined) {
+        return resolvePresetValue(dataHapticPreset);
     }
 
-    if (dataHapticPreset) {
-        const { repeat = DEFAULT_REPEAT, ...vibration } = dataHapticPreset;
+    if (global?.enabled === false) return null;
 
-        return {
-            input: repeatHapticPattern([vibration] as HapticPattern, repeat),
-            enabled: true,
-        };
+    if (global?.['data-haptic-preset'] !== undefined) {
+        return resolvePresetValue(global['data-haptic-preset']);
     }
 
-    const {
-        input,
-        pattern,
-        options,
-        intensity,
-        repeat = DEFAULT_REPEAT,
-        'data-haptic-pattern': preset = DEFAULT_PRESET,
-        enabled: resolvedEnabled,
-    } = global ?? {};
-
-    if (resolvedEnabled === false) return null;
+    const { input, pattern, options, intensity, repeat = DEFAULT_REPEAT } = global ?? {};
 
     const inputFromGlobal =
         input ??
         pattern ??
-        repeatHapticPattern(defaultPatterns[preset].pattern as HapticPattern, repeat);
+        repeatHapticPattern(defaultPatterns[DEFAULT_PRESET].pattern as HapticPattern, repeat);
     const optionsFromGlobal =
         options || intensity !== undefined
             ? {
@@ -93,6 +95,6 @@ export const resolveHapticConfig = ({
     return {
         input: inputFromGlobal,
         options: optionsFromGlobal,
-        enabled: resolvedEnabled === true,
+        enabled: global?.enabled === true,
     };
 };

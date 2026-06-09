@@ -12,7 +12,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Haptic, type HapticPresetValue } from '@alfalab/core-components-haptics';
+import { type HapticConfig, HapticInput } from '@alfalab/core-components-haptics';
 import { dom, getDataTestId } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
@@ -160,7 +160,7 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange' | 'enterKeyHin
      * Haptic-пресет или кастомный vibration-конфиг для переключения чекбокса.
      * @default selection
      */
-    'data-haptic-preset'?: HapticPresetValue;
+    'data-haptic-preset'?: HapticConfig['data-haptic-preset'];
 };
 
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
@@ -245,8 +245,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 ref={mergeRefs([labelRef, ref, labelProps?.ref as Ref<HTMLLabelElement>])}
             >
                 {!hiddenInput && (
-                    <Haptic
-                        Component='input'
+                    <HapticInput
                         data-haptic-preset={dataHapticPreset}
                         type='checkbox'
                         onChange={handleChange}
@@ -254,7 +253,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         disabled={disabled}
                         checked={checked}
                         data-test-id={dataTestId}
-                        ref={inputRef as unknown as Ref<HTMLElement>}
+                        ref={inputRef}
                         {...restProps}
                     />
                 )}

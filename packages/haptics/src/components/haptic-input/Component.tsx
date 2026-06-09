@@ -1,7 +1,7 @@
 import React, { forwardRef, type InputHTMLAttributes, type MouseEvent } from 'react';
 
-import { type HapticBaseProps } from '../../component';
 import { useHaptic } from '../../hooks/use-haptic';
+import { type HapticBaseProps } from '../../types';
 
 type HapticInputProps = InputHTMLAttributes<HTMLInputElement> & HapticBaseProps;
 

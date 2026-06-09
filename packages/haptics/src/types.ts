@@ -25,6 +25,8 @@ type Vibration = HapticInputPattern[number];
 export type HapticPattern = Vibration[];
 export type HapticPresetValue = HapticPreset | (Partial<Vibration> & { repeat?: number });
 
+export type HapticBaseProps = Pick<HapticConfig, 'data-haptic-preset'>
+
 export interface HapticTriggerConfig {
     enabled?: boolean;
 
@@ -48,10 +50,10 @@ export interface HapticConfig extends HapticTriggerConfig, Partial<Vibration> {
     enabled?: boolean;
 
     /**
-     * Haptic-паттерн
+     * Haptic-пресет или кастомный vibration-конфиг
      * @default selection
      */
-    'data-haptic-pattern'?: HapticPreset;
+    'data-haptic-preset'?: HapticPresetValue;
 
     /**
      * Повтор всего паттерна

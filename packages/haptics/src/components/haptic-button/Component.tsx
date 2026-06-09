@@ -1,7 +1,7 @@
 import React, { type ButtonHTMLAttributes, forwardRef, type MouseEvent } from 'react';
 
-import { type HapticBaseProps } from '../../component';
 import { useHaptic } from '../../hooks/use-haptic';
+import { type HapticBaseProps } from '../../types';
 
 type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
     type?: 'button' | 'submit';

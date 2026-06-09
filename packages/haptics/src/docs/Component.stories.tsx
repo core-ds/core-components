@@ -2,17 +2,17 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
 
-import { Haptic } from '@alfalab/core-components-haptics';
+import { HapticButton } from '@alfalab/core-components-haptics';
 
 import type { HapticPreset } from '../types';
 
-const meta: Meta<typeof Haptic> = {
+const meta: Meta<typeof HapticButton> = {
     title: 'Components/Haptic',
-    component: Haptic,
+    component: HapticButton,
     id: 'Haptic',
 };
 
-type Story = StoryObj<typeof Haptic>;
+type Story = StoryObj<typeof HapticButton>;
 
 const PRESETS = [
     'success',
@@ -30,12 +30,12 @@ export const haptic: Story = {
     name: 'Haptic',
     render: () => {
         const enabled = boolean('enabled', true);
-        const selectedPreset = select('data-haptic-pattern', PRESETS, 'selection') as HapticPreset;
+        const selectedPreset = select('data-haptic-preset', PRESETS, 'selection') as HapticPreset;
 
         return (
-            <Haptic disabled={!enabled} data-haptic-preset={selectedPreset}>
+            <HapticButton disabled={!enabled} data-haptic-preset={selectedPreset}>
                 Запустить {selectedPreset}
-            </Haptic>
+            </HapticButton>
         );
     },
 };

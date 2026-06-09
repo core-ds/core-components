@@ -5,7 +5,7 @@ import {
     type ReactNode,
 } from 'react';
 
-import { type HapticPresetValue } from '@alfalab/core-components-haptics';
+import { type HapticConfig } from '@alfalab/core-components-haptics';
 
 export type StyleColors = {
     default: {
@@ -120,7 +120,7 @@ type ComponentProps = {
      * Haptic-пресет или кастомный vibration-конфиг для клика по кнопке.
      * @default selection
      */
-    'data-haptic-preset'?: HapticPresetValue;
+    'data-haptic-preset'?: HapticConfig['data-haptic-preset'];
 };
 
 export type PrivateButtonProps = {

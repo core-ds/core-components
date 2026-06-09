@@ -1,7 +1,7 @@
 import React, { type AnchorHTMLAttributes, forwardRef, type MouseEvent } from 'react';
 
-import { type HapticBaseProps } from '../../component';
 import { useHaptic } from '../../hooks/use-haptic';
+import { type HapticBaseProps } from '../../types';
 
 type HapticAProps = AnchorHTMLAttributes<HTMLAnchorElement> & HapticBaseProps;
 

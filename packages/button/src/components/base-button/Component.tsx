@@ -10,7 +10,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Haptic } from '@alfalab/core-components-haptics';
+import { HapticA, HapticButton } from '@alfalab/core-components-haptics';
 import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
@@ -188,7 +188,7 @@ export const BaseButton = forwardRef<
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
-            const LinkComponent = isNativeAnchor ? Haptic : Component;
+            const LinkComponent = isNativeAnchor ? HapticA : Component;
 
             // Для совместимости с react-router-dom, меняем href на to
             const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
@@ -196,7 +196,6 @@ export const BaseButton = forwardRef<
             return (
                 <LinkComponent
                     {...(isNativeAnchor && {
-                        Component: 'a',
                         'data-haptic-preset': dataHapticPreset,
                     })}
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
@@ -212,12 +211,11 @@ export const BaseButton = forwardRef<
             );
         }
 
-        const ButtonComponent = isNativeButton ? Haptic : Component;
+        const ButtonComponent = isNativeButton ? HapticButton : Component;
 
         return (
             <ButtonComponent
                 {...(isNativeButton && {
-                    Component: 'button',
                     'data-haptic-preset': dataHapticPreset,
                 })}
                 {...componentProps}

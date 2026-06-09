@@ -8,7 +8,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Haptic, type HapticPresetValue } from '@alfalab/core-components-haptics';
+import { type HapticConfig, HapticInput } from '@alfalab/core-components-haptics';
 import { dom } from '@alfalab/core-components-shared';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { useFocus } from '@alfalab/hooks';
@@ -107,7 +107,7 @@ export type SwitchProps = Omit<
      * Haptic-пресет или кастомный vibration-конфиг для переключения switch.
      * @default selection
      */
-    'data-haptic-preset'?: HapticPresetValue;
+    'data-haptic-preset'?: HapticConfig['data-haptic-preset'];
 };
 
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
@@ -161,8 +161,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
-                <Haptic
-                    Component='input'
+                <HapticInput
                     type='checkbox'
                     onChange={handleChange}
                     disabled={disabled}

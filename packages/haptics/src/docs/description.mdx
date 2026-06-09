@@ -38,11 +38,7 @@ render(() => {
                                 key={preset}
                                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
                             >
-                                <Button
-                                    block={true}
-                                    haptic={{ 'data-haptic-pattern': preset }}
-                                    view='secondary'
-                                >
+                                <Button block={true} data-haptic-preset={preset} view='secondary'>
                                     {label}
                                 </Button>
 
@@ -109,11 +105,7 @@ render(() => {
                                 key={preset}
                                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
                             >
-                                <Button
-                                    block={true}
-                                    haptic={{ 'data-haptic-pattern': preset }}
-                                    view='secondary'
-                                >
+                                <Button block={true} data-haptic-preset={preset} view='secondary'>
                                     {label}
                                 </Button>
 
@@ -159,11 +151,7 @@ render(() => {
                                 key={preset}
                                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
                             >
-                                <Button
-                                    block={true}
-                                    haptic={{ 'data-haptic-pattern': preset }}
-                                    view='secondary'
-                                >
+                                <Button block={true} data-haptic-preset={preset} view='secondary'>
                                     {label}
                                 </Button>
                             </div>

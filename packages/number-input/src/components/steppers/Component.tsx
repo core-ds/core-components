@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import cn from 'classnames';
 
-import { type HapticPresetValue } from '@alfalab/core-components-haptics';
+import { type HapticConfig } from '@alfalab/core-components-haptics';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { type InputProps } from '@alfalab/core-components-input';
 import { getDataTestId } from '@alfalab/core-components-shared';
@@ -26,7 +26,7 @@ export type SteppersProps = {
     dataTestId?: string;
     colors: 'default' | 'inverted';
     size: InputProps['size'];
-    'data-haptic-preset'?: HapticPresetValue;
+    'data-haptic-preset'?: HapticConfig['data-haptic-preset'];
 };
 
 const colorStyles = {
