@@ -1,8 +1,6 @@
 import React, { type ReactNode, useEffect } from 'react';
 import cn from 'classnames';
 
-import { getCDNIcons } from '@alfalab/core-components-shared';
-
 import { LoadingStatus, useIcon } from './hooks/use-icon';
 
 import styles from './index.module.css';
@@ -43,7 +41,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     color,
     dataTestId,
     className,
-    baseUrl = getCDNIcons(),
+    baseUrl = process.env.SERVICE_CDN_ICONS_ENV,
     fallback,
     onError,
 }) => {

@@ -10,8 +10,8 @@ const { getPackages } = require('../tools/monorepo.cjs');
 const { isSamePath } = require('../tools/path.cjs');
 const { resolveInternal } = require('../tools/resolve-internal.cjs');
 const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
-const { globSync } = require('tinyglobby');
 const { existsSync } = require('node:fs');
+const { decodeBase64 } = require('../tools/decode-base-64');
 
 const INTERNAL_PACKAGES = readPackagesFileSync(
     path.resolve(__dirname, '../tools/.internal-packages'),
@@ -299,6 +299,14 @@ module.exports = {
                 ),
                 'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(
                     process.env.CORE_COMPONENTS_VARIANT,
+                ),
+                'process.env.CARD_IMAGES_ENV': JSON.stringify(
+                    decodeBase64(
+                        'aHR0cHM6Ly9vbmxpbmUuYWxmYWJhbmsucnUvY2FyZHMtaW1hZ2VzL2NhcmRzLw==',
+                    ),
+                ),
+                'process.env.SERVICE_CDN_ICONS_ENV': JSON.stringify(
+                    decodeBase64('aHR0cHM6Ly9hbGZhYmFuay5zZXJ2aWNlY2RuLnJ1L2ljb25z'),
                 ),
             }),
         );

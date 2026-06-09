@@ -8,10 +8,7 @@
         "outDir": "ts-dist",
         "paths": {
             "@alfalab/core-components-card-image": ["./src"],
-            "@alfalab/core-components-card-image/*": ["./src/*"],
-            "@alfalab/core-components-shared": ["../shared/src"],
-            "@alfalab/core-components-shared/*": ["../shared/src/*"]
+            "@alfalab/core-components-card-image/*": ["./src/*"]
         }
-    },
-    "references": [{ "path": "../shared/tsconfig.build.json" }]
+    }
 }

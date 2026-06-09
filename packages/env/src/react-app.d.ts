@@ -8,6 +8,8 @@ declare namespace NodeJS {
         readonly NODE_ENV: 'development' | 'production' | 'test';
         readonly CORE_COMPONENTS_ENV: 'development' | 'production' | 'test';
         readonly CORE_COMPONENTS_VARIANT?: 'default' | 'alfasans';
+        readonly CARD_IMAGES_ENV: string;
+        readonly SERVICE_CDN_ICONS_ENV: string;
     }
 }
 

@@ -19,8 +19,8 @@ exports[`Space Display tests should display radio group with one child correctly
               class="image"
               height="176.4"
               role="presentation"
-              src="https://online.alfabank.ru/cards-images/cards/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
-              srcset="https://online.alfabank.ru/cards-images/cards/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
+              src="https://example.com/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
+              srcset="https://example.com/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
               width="280"
             />
           </div>
@@ -43,8 +43,8 @@ exports[`Space Display tests should display radio group with one child correctly
             class="image"
             height="176.4"
             role="presentation"
-            src="https://online.alfabank.ru/cards-images/cards/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
-            srcset="https://online.alfabank.ru/cards-images/cards/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
+            src="https://example.com/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
+            srcset="https://example.com/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
             width="280"
           />
         </div>

@@ -1,4 +1,4 @@
-import { decodeBase64 } from './decode-base64';
+import { decodeBase64 } from './decode-base-64';
 
 describe('decodeBase64', () => {
     const cases: [string, string][] = [

@@ -8,7 +8,6 @@ import {
 
 import { DiamondsXxlIcon } from '@alfalab/icons-glyph/DiamondsXxlIcon';
 import { ProductCover } from '@alfalab/core-components-product-cover';
-import { getCardImages } from '@alfalab/core-components-shared';
 
 const meta: Meta<typeof ProductCover.Single> = {
     title: 'Components/ProductCover',
@@ -42,7 +41,7 @@ export const product_cover_single: Story = {
 
         return (
             <ProductCover.Single
-                baseUrl={text('baseUrl', getCardImages())}
+                baseUrl={text('baseUrl', process.env.CARD_IMAGES_ENV)}
                 layers={text('layers', 'BACKGROUND,LOGO,PAYMENT_SYSTEM')}
                 cardId={text('cardId', 'RM')}
                 icon={Icon}
@@ -77,13 +76,13 @@ export const product_cover_stack: Story = {
             cardNumber: 1234000000001234,
             cardholderName: 'Cardholder Name',
             shadow: shadow,
-            baseUrl: getCardImages(),
+            baseUrl: process.env.CARD_IMAGES_ENV,
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
             textColor,
         };
         const secondCard = {
-            baseUrl: getCardImages(),
+            baseUrl: process.env.CARD_IMAGES_ENV,
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
             textColor,

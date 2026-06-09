@@ -42,7 +42,13 @@ const baseConfig = () =>
         plugins: [
             json(),
             replace({
-                values: { 'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production') },
+                values: {
+                    'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production'),
+                    'process.env.CARD_IMAGES_ENV': JSON.stringify(process.env.CARD_IMAGES_ENV),
+                    'process.env.SERVICE_CDN_ICONS_ENV': JSON.stringify(
+                        process.env.SERVICE_CDN_ICONS_ENV,
+                    ),
+                },
                 preventAssignment: true,
             }),
         ],

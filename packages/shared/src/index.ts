@@ -17,5 +17,3 @@ export * from './mask';
 export * from './human-file-size';
 export * from './icon-20-adapter';
 export * from './util-components';
-export * from './base64';
-export * from './get-resource';
