@@ -11,9 +11,9 @@ on:
                 description: Variant of core components
                 required: false
                 type: choice
-                default: default
+                default: alfasans
                 options:
-                    - default
+                    - alfasans
 
 concurrency:
     group: ${{ github.workflow }}-${{ inputs.pull-request }}-${{ inputs.variant }}
@@ -79,6 +79,11 @@ jobs:
                   ref: ${{ needs.sha.outputs.result }}
                   token: ${{ steps.generate-token.outputs.token }}
                   lfs: true
+
+            - name: Setup variant
+              uses: ./.github/actions/setup-variant
+              with:
+                  variant: ${{ inputs.variant }}
 
             - name: Setup CI
               uses: ./.github/actions/ci-setup
