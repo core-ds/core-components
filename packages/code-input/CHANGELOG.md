@@ -590,8 +590,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [1.5.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-code-input@1.5.0...@alfalab/core-components-code-input@1.5.1) (2022-08-17)
 
 ### Bug Fixes

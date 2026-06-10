@@ -1213,8 +1213,6 @@ Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [3.9.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-file-upload-item@3.9.1...@alfalab/core-components-file-upload-item@3.9.2) (2022-08-17)
 
 ### Bug Fixes

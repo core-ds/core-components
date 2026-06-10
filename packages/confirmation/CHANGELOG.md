@@ -1475,8 +1475,6 @@ Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [10.4.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@10.4.1...@alfalab/core-components-confirmation@10.4.2) (2022-08-17)
 
 ### Bug Fixes
@@ -1579,8 +1577,6 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 - test(confirmation): update snapshot
 - **confirmation:** Удалена пропса code
-
-Co-authored-by: reme3d2y <AYatsenko@alfabank.ru>
 
 ## [9.0.7](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@9.0.6...@alfalab/core-components-confirmation@9.0.7) (2022-02-15)
 
@@ -1718,8 +1714,6 @@ Co-authored-by: reme3d2y <AYatsenko@alfabank.ru>
 ### BREAKING CHANGES
 
 - **confirmation:** buttonRetryText renamed to buttonReturnText
-
-Co-authored-by: Alexander Soldatov <aesoldatov@alfabank.ru>
 
 # [6.1.0](https://github.com/core-ds/core-components/compare/@alfalab/core-components-confirmation@6.0.0...@alfalab/core-components-confirmation@6.1.0) (2021-05-31)
 

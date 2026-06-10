@@ -822,11 +822,11 @@
 
 ### [#346](https://github.com/core-ds/core-components/pull/346)
 
-- В компоненте Select иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компоненте Select иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ## 9.5.2
 
@@ -910,11 +910,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+- Новый cdn ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.ru data: 'self'`
 
 - chore(screenshot-utils): change cdn
 
@@ -1060,7 +1060,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-- Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+- Добавьте новый домен в список разрешенных 'img-src': `'self' {ваш-ресурс}.co data: 'self'`
 
 This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 

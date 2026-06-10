@@ -791,7 +791,7 @@
 
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 ### Patch Changes
 
@@ -894,8 +894,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
-
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ## [4.5.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-masked-input@4.5.1...@alfalab/core-components-masked-input@4.5.2) (2022-08-17)
 

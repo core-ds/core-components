@@ -354,8 +354,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [2.3.1](https://github.com/core-ds/core-components/compare/@alfalab/core-components-spinner@2.3.0...@alfalab/core-components-spinner@2.3.1) (2022-08-17)
 
 ### Bug Fixes
