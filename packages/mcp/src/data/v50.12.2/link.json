@@ -90,7 +90,7 @@
 {
 "title": "Обычная ссылка",
 "description": "Нестареющая классика. Ссылка может вести как на страницу внутри системы, так и на внешний ресурс.",
-"desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link\nview='default'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nDefault\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link\nview='primary'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nPrimary\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link\nview='secondary'\nrel='noopener'\ntarget='_blank'\nhref='https://alfabank.ru/get-money/credit-cards/100-days/'\n>\nSecondary\n</Link>\n</Typography.Text>\n</Space>"
+"desktop": "<Space>\n<Typography.Text view='primary-medium'>\n<Link\nview='default'\nrel='noopener'\ntarget='_blank'\nhref='https://example.ru/get-money/credit-cards/100-days/'\n>\nDefault\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link\nview='primary'\nrel='noopener'\ntarget='_blank'\nhref='https://example.ru/get-money/credit-cards/100-days/'\n>\nPrimary\n</Link>\n</Typography.Text>\n<Typography.Text view='primary-medium'>\n<Link\nview='secondary'\nrel='noopener'\ntarget='_blank'\nhref='https://example.ru/get-money/credit-cards/100-days/'\n>\nSecondary\n</Link>\n</Typography.Text>\n</Space>"
 },
 {
 "title": "Псевдоссылка",
