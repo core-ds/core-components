@@ -308,6 +308,10 @@ module.exports = {
                 'process.env.SERVICE_CDN_ICONS_ENV': JSON.stringify(
                     decodeBase64('aHR0cHM6Ly9hbGZhYmFuay5zZXJ2aWNlY2RuLnJ1L2ljb25z'),
                 ),
+                'process.env.SERVICE_CDN_HOST_ENV': JSON.stringify(
+                    decodeBase64('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ=='),
+                ),
+                'process.env.AO_ENV': JSON.stringify(decodeBase64('b25saW5lLmFsZmFiYW5rLnJ1')),
             }),
         );
         return config;
