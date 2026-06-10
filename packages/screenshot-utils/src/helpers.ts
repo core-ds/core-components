@@ -102,7 +102,7 @@ export const matchHtml = async ({
             `,
         }),
         page.setViewportSize(viewport),
-        page.route(/alfabank\.servicecdn\.ru/, proxyAssets),
+        page.route(new RegExp(process.env.SERVICE_CDN_HOST_ENV), proxyAssets),
     ]);
 
     await waitForPreviewShowed(page);

@@ -10,6 +10,7 @@ declare namespace NodeJS {
         readonly CORE_COMPONENTS_VARIANT?: 'default' | 'alfasans';
         readonly CARD_IMAGES_ENV: string;
         readonly SERVICE_CDN_ICONS_ENV: string;
+        SERVICE_CDN_HOST_ENV: string;
     }
 }
 

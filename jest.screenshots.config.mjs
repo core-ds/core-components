@@ -6,11 +6,16 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createJsWithTsLegacyPreset, pathsToModuleNameMapper } from 'ts-jest';
 
+import decodePkg from './tools/decode-base-64.js';
+
+const { decodeBase64 } = decodePkg;
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { encoding: 'utf8' });
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
+
+process.env.SERVICE_CDN_HOST_ENV = decodeBase64('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ==');
 
 /**
  * @type {import('ts-jest').JestConfigWithTsJest}

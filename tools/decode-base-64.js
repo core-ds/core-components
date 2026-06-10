@@ -16,7 +16,7 @@
  * decodeBase64('SGVsbG8=')         // 'Hello'
  * decodeBase64('0J/RgNC40LLQtdGC') // 'Привет'
  */
-export function decodeBase64(value) {
+function decodeBase64(value) {
     /*
      * В Node.js глобальный Buffer всегда доступен; в браузере его нет.
      * Проверяем typeof, чтобы не получить ReferenceError в браузере.
@@ -50,3 +50,5 @@ export function decodeBase64(value) {
         // decodeURIComponent читает percent-encoding и собирает из байт правильные UTF-8 символы.
     );
 }
+
+module.exports = { decodeBase64 };
