@@ -44,10 +44,8 @@ const baseConfig = () =>
             replace({
                 values: {
                     'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production'),
-                    'process.env.CARD_IMAGES_ENV': JSON.stringify(process.env.CARD_IMAGES_ENV),
-                    'process.env.SERVICE_CDN_ICONS_ENV': JSON.stringify(
-                        process.env.SERVICE_CDN_ICONS_ENV,
-                    ),
+                    'process.env.CDN_ENV': JSON.stringify(process.env.CDN_ENV),
+                    'process.env.AO_ENV': JSON.stringify(process.env.AO_ENV),
                 },
                 preventAssignment: true,
             }),

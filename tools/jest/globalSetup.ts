@@ -3,6 +3,6 @@ module.exports = async () => {
     // need to assign readonly CORE_COMPONENTS_ENV
     Object.assign(process.env, {
         CORE_COMPONENTS_ENV: process.env.NODE_ENV,
-        CARD_IMAGES_ENV: 'https://example.com/',
+        AO_ENV: 'example.com',
     });
 };

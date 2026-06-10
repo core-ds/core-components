@@ -15,7 +15,7 @@ const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { en
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
 
-process.env.SERVICE_CDN_HOST_ENV = decodeBase64('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ==');
+process.env.CDN_ENV = decodeBase64('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ==');
 
 /**
  * @type {import('ts-jest').JestConfigWithTsJest}

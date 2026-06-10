@@ -41,7 +41,7 @@ export const product_cover_single: Story = {
 
         return (
             <ProductCover.Single
-                baseUrl={text('baseUrl', process.env.CARD_IMAGES_ENV)}
+                baseUrl={text('baseUrl', `https://${process.env.AO_ENV}/cards-images/cards/`)}
                 layers={text('layers', 'BACKGROUND,LOGO,PAYMENT_SYSTEM')}
                 cardId={text('cardId', 'RM')}
                 icon={Icon}
@@ -76,13 +76,13 @@ export const product_cover_stack: Story = {
             cardNumber: 1234000000001234,
             cardholderName: 'Cardholder Name',
             shadow: shadow,
-            baseUrl: process.env.CARD_IMAGES_ENV,
+            baseUrl: `https://${process.env.AO_ENV}/cards-images/cards/`,
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
             textColor,
         };
         const secondCard = {
-            baseUrl: process.env.CARD_IMAGES_ENV,
+            baseUrl: `https://${process.env.AO_ENV}/cards-images/cards/`,
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
             textColor,
