@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-steps",
-    "version": "3.0.6",
+    "version": "3.0.7",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,9 +14,9 @@
     },
     "dependencies": {
         "@alfalab/core-components-badge": "^7.0.2",
-        "@alfalab/core-components-shared": "^2.2.0",
+        "@alfalab/core-components-shared": "^2.2.1",
         "@alfalab/core-components-status-badge": "^3.0.2",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

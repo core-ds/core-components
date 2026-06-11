@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-custom-picker-button",
-    "version": "4.1.8",
+    "version": "4.1.9",
     "description": "Custom picker button component",
     "keywords": [],
     "license": "MIT",
@@ -13,10 +13,10 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-custom-button": "^5.0.6",
-        "@alfalab/core-components-mq": "^6.0.4",
-        "@alfalab/core-components-picker-button": "^13.0.15",
-        "@alfalab/core-components-select": "^19.1.8",
+        "@alfalab/core-components-custom-button": "^5.0.7",
+        "@alfalab/core-components-mq": "^6.0.5",
+        "@alfalab/core-components-picker-button": "^13.0.16",
+        "@alfalab/core-components-select": "^19.1.9",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

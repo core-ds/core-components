@@ -1,5 +1,13 @@
 # @alfalab/core-components-bank-card
 
+## 7.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-masked-input@8.0.9
+
 ## 7.0.8
 
 ### Patch Changes

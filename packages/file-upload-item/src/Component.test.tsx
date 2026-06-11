@@ -295,6 +295,18 @@ describe('FileUploadItem', () => {
             expect(element).toBeInTheDocument();
         });
 
+        it('should set `reupload` element', () => {
+            render(
+                <FileUploadItem reupload={true}>
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            const element = screen.getByLabelText('Повторная загрузка');
+
+            expect(element).toBeInTheDocument();
+        });
+
         it('should set `download` element', () => {
             render(
                 <FileUploadItem showRestore={false} downloadLink='/link'>
@@ -354,6 +366,19 @@ describe('FileUploadItem', () => {
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
 
+        it('should call `onReupload` prop', () => {
+            const { getByLabelText } = render(
+                <FileUploadItem reupload={{ onClick: cb }} id={fileId}>
+                    <FileUploadItem.Actions />
+                </FileUploadItem>,
+            );
+
+            fireEvent.click(getByLabelText('Повторная загрузка'));
+
+            expect(cb).toHaveBeenCalledTimes(1);
+            expect(cb.mock.calls[0][0]).toBe(fileId);
+        });
+
         it('should call `onDownload` prop', async () => {
             const { baseElement } = render(
                 <FileUploadItem {...fileProps} downloadLink='/link' onDownload={cb} id={fileId}>
@@ -367,6 +392,104 @@ describe('FileUploadItem', () => {
 
             expect(cb).toHaveBeenCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);
+        });
+    });
+
+    describe('Pointer tests', () => {
+        describe.each([
+            ['content tests', FileUploadItem.Content],
+            ['status control tests', FileUploadItem.StatusControl],
+        ] as const)('%s', (_, SlotComponent) => {
+            it('should have clickable class', () => {
+                const { container } = render(
+                    <FileUploadItem>
+                        <SlotComponent />
+                        <FileUploadItem.Actions />
+                    </FileUploadItem>,
+                );
+
+                const content = container.firstElementChild?.firstElementChild;
+
+                expect(content).toHaveClass('clickable');
+            });
+
+            it('should not have clickable class', () => {
+                const { container } = render(
+                    <FileUploadItem showDelete={true}>
+                        <SlotComponent />
+                        <FileUploadItem.Actions />
+                    </FileUploadItem>,
+                );
+
+                const content = container.firstElementChild?.firstElementChild;
+
+                expect(content).not.toHaveClass('clickable');
+            });
+
+            it('should have clickable class by isClickable prop', () => {
+                const { container } = render(
+                    <FileUploadItem showDelete={true} isClickable={false}>
+                        <SlotComponent />
+                        <FileUploadItem.Actions />
+                    </FileUploadItem>,
+                );
+
+                const content = container.firstElementChild?.firstElementChild;
+
+                expect(content).not.toHaveClass('clickable');
+            });
+
+            it('should have clickable class by showDelete', () => {
+                const { container } = render(
+                    <FileUploadItem showDelete={true}>
+                        <SlotComponent />
+                        <FileUploadItem.Actions />
+                    </FileUploadItem>,
+                );
+
+                const content = container.firstElementChild?.firstElementChild;
+
+                expect(content).not.toHaveClass('clickable');
+            });
+
+            it('should have clickable class by showRestore', () => {
+                const { container } = render(
+                    <FileUploadItem showRestore={true}>
+                        <SlotComponent />
+                        <FileUploadItem.Actions />
+                    </FileUploadItem>,
+                );
+
+                const content = container.firstElementChild?.firstElementChild;
+
+                expect(content).not.toHaveClass('clickable');
+            });
+
+            it('should have clickable class by downloadLink', () => {
+                const { container } = render(
+                    <FileUploadItem downloadLink='#'>
+                        <SlotComponent />
+                        <FileUploadItem.Actions />
+                    </FileUploadItem>,
+                );
+
+                const content = container.firstElementChild?.firstElementChild;
+
+                expect(content).not.toHaveClass('clickable');
+            });
+
+            it('should have clickable class by reupload', () => {
+                const { container } = render(
+                    <FileUploadItem reupload={true}>
+                        <SlotComponent />
+                        <FileUploadItem.Actions />
+                    </FileUploadItem>,
+                );
+
+                const content = container.firstElementChild?.firstElementChild;
+
+                expect(content).not.toHaveClass('clickable');
+            });
         });
     });
 
