@@ -181,7 +181,6 @@ __metadata:
   dependencies:
     "@alfalab/core-components-masked-input": "npm:^8.0.9"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@alfalab/icons-logo": "npm:^1.53.0"
     "@alfalab/icons-logotype": "npm:^2.37.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -2400,16 +2399,6 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: 10c0/792091eda55365565443cd975546ef31e49723b531ccf5b375581206a4c68148817e70fedfcfd6723a9536dd39c2c9d60f05704ca7e1bdf526d2a288a4843e94
-  languageName: node
-  linkType: hard
-
-"@alfalab/icons-logo@npm:^1.53.0":
-  version: 1.53.0
-  resolution: "@alfalab/icons-logo@npm:1.53.0"
-  peerDependencies:
-    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/162f1b7dfd6af0393db91c7b3fa14866614c9f3face8a9739c27da477a2c2d09a9d9098c8d9b3096d1a43710f4e6e0f066687a3e311256a87479971d65f3d47e
   languageName: node
   linkType: hard
 
