@@ -1,5 +1,17 @@
 # @alfalab/core-components-typography
 
+## 6.0.8
+
+### Patch Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2253](https://github.com/core-ds/core-components/pull/2253)
+
+##### Typography
+
+- У пропа `font` удалена пометка `deprecated`
+
 ## 6.0.7
 
 ### Patch Changes

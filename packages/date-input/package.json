@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-date-input",
-    "version": "6.0.9",
+    "version": "6.0.10",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,7 +13,7 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^17.1.7",
+        "@alfalab/core-components-input": "^17.1.8",
         "date-fns": "^4.1.0",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
