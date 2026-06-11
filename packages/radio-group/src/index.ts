@@ -1,1 +1,1 @@
-export { type RadioGroupProps, RadioGroup } from './Component.responsive';
+export * from './Component.responsive';

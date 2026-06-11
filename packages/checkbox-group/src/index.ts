@@ -1,1 +1,1 @@
-export { CheckboxGroup, type CheckboxGroupProps } from './Component.responsive';
+export * from './Component.responsive';

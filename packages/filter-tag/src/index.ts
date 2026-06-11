@@ -1,1 +1,1 @@
-export { type FilterTagProps, FilterTag } from './Component.responsive';
+export * from './Component.responsive';

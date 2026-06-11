@@ -1,1 +1,1 @@
-export { type FormControlProps, FormControl } from './Component.responsive';
+export * from './Component.responsive';
