@@ -1,1 +1,1 @@
-export { ContentResponsive, type ContentResponsiveProps } from './Component.responsive';
+export * from './Component.responsive';

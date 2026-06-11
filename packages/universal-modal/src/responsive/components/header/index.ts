@@ -1,1 +1,1 @@
-export { type HeaderResponsiveProps, HeaderResponsive } from './Component.responsive';
+export * from './Component.responsive';
