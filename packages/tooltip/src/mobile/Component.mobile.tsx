@@ -22,6 +22,7 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
     targetTag: TargetTag = 'div',
     open: openProp,
     dataTestId,
+    colors = 'default',
     ...restProps
 }) => {
     const [visible, setVisible] = useState(!!openProp);
@@ -51,8 +52,15 @@ export const TooltipMobile: React.FC<TooltipMobileProps> = ({
         <Fragment>
             <BottomSheet
                 open={show}
+                colors={colors}
                 actionButton={
-                    <ButtonMobile view='secondary' block={true} size={56} onClick={handleClose}>
+                    <ButtonMobile
+                        view='secondary'
+                        colors={colors}
+                        block={true}
+                        size={56}
+                        onClick={handleClose}
+                    >
                         {actionButtonTitle}
                     </ButtonMobile>
                 }
