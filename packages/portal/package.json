@@ -18,7 +18,7 @@
         "tslib": "^2.4.0"
     },
     "devDependencies": {
-        "@alfalab/core-components-button": "^13.1.4",
+        "@alfalab/core-components-button": "^13.2.0",
         "@alfalab/core-components-space": "^5.0.2"
     },
     "peerDependencies": {

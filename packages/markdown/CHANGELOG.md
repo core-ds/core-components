@@ -1,5 +1,22 @@
 # @alfalab/core-components-markdown
 
+## 3.0.12
+
+### Patch Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2255](https://github.com/core-ds/core-components/pull/2255)
+
+##### Markdown
+
+- Исправлена специфичность селекторов
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.8
+- @alfalab/core-components-list@5.0.8
+
 ## 3.0.11
 
 ### Patch Changes

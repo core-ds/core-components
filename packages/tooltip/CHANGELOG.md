@@ -1,5 +1,22 @@
 # @alfalab/core-components-tooltip
 
+## 9.0.15
+
+### Patch Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2251](https://github.com/core-ds/core-components/pull/2251)
+
+##### Tooltip
+
+- Исправлен контраст кнопки в мобильной версии Tooltip при `colors="inverted"`: проп `colors` теперь передаётся в `BottomSheet` и `ButtonMobile`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.0
+- @alfalab/core-components-bottom-sheet@8.1.10
+
 ## 9.0.14
 
 ### Patch Changes

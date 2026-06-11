@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-bank-card",
-    "version": "7.0.9",
+    "version": "7.0.10",
     "description": "Bank card component",
     "keywords": [],
     "license": "MIT",
@@ -13,7 +13,7 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^8.0.9",
+        "@alfalab/core-components-masked-input": "^8.0.10",
         "@alfalab/icons-glyph": "^2.260.0",
         "@alfalab/icons-logo": "^1.53.0",
         "@alfalab/icons-logotype": "^2.37.0",
