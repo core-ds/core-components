@@ -101,8 +101,6 @@ jobs:
             - name: Build demo
               env:
                   BUILD_CONCURRENCY: 4
-                  CDN_ENV: ${{ vars.CDN_ENV }}
-                  AO_ENV: ${{ vars.AO_ENV }}
               run: |
                   yarn build-storybook
 
