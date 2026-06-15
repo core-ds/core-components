@@ -67,6 +67,8 @@ jobs:
                   # `secrets.GITHUB_TOKEN` doesn't trigger any action https://github.com/orgs/community/discussions/55906
                   GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  CDN_ENV: ${{ vars.CDN_ENV }}
+                  AO_ENV: ${{ vars.AO_ENV }}
 
     variants:
         needs: release
@@ -104,6 +106,8 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  CDN_ENV: ${{ vars.CDN_ENV }}
+                  AO_ENV: ${{ vars.AO_ENV }}
 
     snapshot-release:
         if: ${{ github.event_name == 'workflow_dispatch' && github.repository == 'core-ds/core-components' }}
@@ -156,6 +160,8 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  CDN_ENV: ${{ vars.CDN_ENV }}
+                  AO_ENV: ${{ vars.AO_ENV }}
 
     comment:
         needs: snapshot-release
