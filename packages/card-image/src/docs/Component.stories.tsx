@@ -23,7 +23,7 @@ export const card_image: Story = {
                 )}
                 width={number('width', 280)}
                 rounded={boolean('rounded', false)}
-                baseUrl={text('baseUrl', `https://${process.env.AO_ENV}/cards-images/cards/`)}
+                baseUrl={text('baseUrl', process.env.AO_CARDS)}
             />
         );
     },

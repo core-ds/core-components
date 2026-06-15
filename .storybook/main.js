@@ -12,6 +12,7 @@ const { resolveInternal } = require('../tools/resolve-internal.cjs');
 const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
 const { existsSync } = require('node:fs');
 const { decodeBase64 } = require('../tools/decode-base-64');
+const { envManager } = require('../tools/env-manager');
 
 const INTERNAL_PACKAGES = readPackagesFileSync(
     path.resolve(__dirname, '../tools/.internal-packages'),
@@ -300,10 +301,8 @@ module.exports = {
                 'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(
                     process.env.CORE_COMPONENTS_VARIANT,
                 ),
-                'process.env.CDN_ENV': JSON.stringify(
-                    decodeBase64('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ=='),
-                ),
-                'process.env.AO_ENV': JSON.stringify(decodeBase64('b25saW5lLmFsZmFiYW5rLnJ1')),
+                'process.env.CDN_ICONS': JSON.stringify(envManager.CDN_ICONS),
+                'process.env.AO_CARDS': JSON.stringify(envManager.AO_CARDS),
             }),
         );
         return config;

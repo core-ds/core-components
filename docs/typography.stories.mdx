@@ -3,7 +3,7 @@ import { Plate } from '@alfalab/core-components-plate';
 import { StatusBadge } from '@alfalab/core-components-status-badge';
 import { Typography } from '@alfalab/core-components-typography';
 
-export const CDN_ENV = process.env.CDN_ENV;
+import {envManager} from '../tools/env-manager'
 
 <Meta
     title='Tokens & assets/Типографика'
@@ -68,22 +68,22 @@ export const CDN_ENV = process.env.CDN_ENV;
     language='css'
     code={`@font-face {
     font-family: 'Styrene UI';
-    src: url('https://${CDN_ENV}/media/fonts/styrene-ui/styrene-ui_regular.woff2') format('woff2'),
-         url('https://${CDN_ENV}/media/fonts/styrene-ui/styrene-ui_regular.woff') format('woff');
+    src: url('https://${envManager.CDN_DOMAIN}/media/fonts/styrene-ui/styrene-ui_regular.woff2') format('woff2'),
+         url('https://${envManager.CDN_DOMAIN}/media/fonts/styrene-ui/styrene-ui_regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: 'Styrene UI';
-    src: url('https://${CDN_ENV}/media/fonts/styrene-ui/styrene-ui_medium.woff2') format('woff2'),
-         url('https://${CDN_ENV}/media/fonts/styrene-ui/styrene-ui_medium.woff') format('woff');
+    src: url('https://${envManager.CDN_DOMAIN}/media/fonts/styrene-ui/styrene-ui_medium.woff2') format('woff2'),
+         url('https://${envManager.CDN_DOMAIN}/media/fonts/styrene-ui/styrene-ui_medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: 'Styrene UI';
-    src: url('https://${CDN_ENV}/media/fonts/styrene-ui/styrene-ui_bold.woff2') format('woff2'),
-         url('https://${CDN_ENV}/media/fonts/styrene-ui/styrene-ui_bold.woff') format('woff');
+    src: url('https://${envManager.CDN_DOMAIN}/media/fonts/styrene-ui/styrene-ui_bold.woff2') format('woff2'),
+         url('https://${envManager.CDN_DOMAIN}/media/fonts/styrene-ui/styrene-ui_bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
 }`}
@@ -105,19 +105,19 @@ export const CDN_ENV = process.env.CDN_ENV;
     language='css'
     code={`@font-face {
     font-family: 'Alfa Interface Sans';
-    src: url('https://${CDN_ENV}/media/fonts/alfa-interface-sans_regular.woff2') format('woff2');
+    src: url('https://${envManager.CDN_DOMAIN}/media/fonts/alfa-interface-sans_regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: 'Alfa Interface Sans';
-    src: url('https://${CDN_ENV}/media/fonts/alfa-interface-sans_medium.woff2') format('woff2');
+    src: url('https://${envManager.CDN_DOMAIN}/media/fonts/alfa-interface-sans_medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: 'Alfa Interface Sans';
-    src: url('https://${CDN_ENV}/media/fonts/alfa-interface-sans_bold.woff2') format('woff2');
+    src: url('https://${envManager.CDN_DOMAIN}/media/fonts/alfa-interface-sans_bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }`}

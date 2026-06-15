@@ -6,16 +6,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createJsWithTsLegacyPreset, pathsToModuleNameMapper } from 'ts-jest';
 
-import decodePkg from './tools/decode-base-64.js';
+import { envManager } from './tools/env-manager.js';
 
-const { decodeBase64 } = decodePkg;
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { encoding: 'utf8' });
 
 const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.test.json' });
-
-process.env.CDN_ENV = decodeBase64('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ==');
 
 /**
  * @type {import('ts-jest').JestConfigWithTsJest}
@@ -32,6 +29,9 @@ const config = {
     testMatch: ['**/*.screenshots.test.ts?(x)'],
     maxWorkers: 5,
     testTimeout: 200000,
+    globals: {
+        CDN_DOMAIN: envManager.CDN_DOMAIN,
+    },
 };
 
 export default config;

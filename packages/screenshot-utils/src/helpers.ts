@@ -102,7 +102,7 @@ export const matchHtml = async ({
             `,
         }),
         page.setViewportSize(viewport),
-        page.route(new RegExp(process.env.CDN_ENV), proxyAssets),
+        page.route(new RegExp(globalThis.CDN_DOMAIN), proxyAssets),
     ]);
 
     await waitForPreviewShowed(page);

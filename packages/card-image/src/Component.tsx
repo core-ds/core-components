@@ -5,7 +5,7 @@ import styles from './index.module.css';
 
 export const ASPECT_RATIO = 0.63;
 export const DEFAULT_WIDTH = 280;
-export const DEFAULT_BASE_URL = `https://${process.env.AO_ENV}/cards-images/cards/`;
+export const DEFAULT_BASE_URL = process.env.AO_CARDS;
 
 export type CardImageProps = {
     /**

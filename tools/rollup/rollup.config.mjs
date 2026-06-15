@@ -12,6 +12,7 @@ import copy from 'rollup-plugin-copy';
 import { globSync } from 'tinyglobby';
 import ts from 'typescript';
 
+import { envManager } from '../env-manager.js';
 import { readPackagesFileSync } from '../read-packages-file.cjs';
 
 import { coreComponentsResolver, externalsResolver } from './core-components-resolver.mjs';
@@ -44,8 +45,8 @@ const baseConfig = () =>
             replace({
                 values: {
                     'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production'),
-                    'process.env.CDN_ENV': JSON.stringify(process.env.CDN_ENV),
-                    'process.env.AO_ENV': JSON.stringify(process.env.AO_ENV),
+                    'process.env.CDN_ICONS': JSON.stringify(envManager.CDN_ICONS),
+                    'process.env.AO_CARDS': JSON.stringify(envManager.AO_CARDS),
                 },
                 preventAssignment: true,
             }),
