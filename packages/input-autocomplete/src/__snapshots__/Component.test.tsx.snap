@@ -218,70 +218,79 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           class="optionsList size-48 optionsList"
                         >
                           <div
-                            class="scrollable scrollbar"
+                            class="nativeScrollbar scrollbar nativeScrollbar scrollable"
+                            data-scrollbar-native="true"
                           >
                             <div
-                              aria-disabled="false"
-                              aria-selected="false"
-                              class="option size-56 option"
-                              id="downshift-:r1:-item-0"
-                              role="option"
+                              class="content matchContent"
                             >
                               <div
-                                class="content textContent"
+                                class="list"
                               >
-                                Neptunium
-                              </div>
-                              <div
-                                class="checkmark after"
-                              >
-                                <svg
-                                  class="displayIcon"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
+                                <div
+                                  aria-disabled="false"
+                                  aria-selected="false"
+                                  class="option size-56 option"
+                                  id="downshift-:r1:-item-0"
+                                  role="option"
                                 >
-                                  <path
-                                    clip-rule="evenodd"
-                                    d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                    fill-rule="evenodd"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div
-                              aria-disabled="false"
-                              aria-selected="false"
-                              class="option size-56 option"
-                              id="downshift-:r1:-item-1"
-                              role="option"
-                            >
-                              <div
-                                class="content textContent"
-                              >
-                                Plutonium
-                              </div>
-                              <div
-                                class="checkmark after"
-                              >
-                                <svg
-                                  class="displayIcon"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="24"
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width="24"
+                                  <div
+                                    class="content textContent"
+                                  >
+                                    Neptunium
+                                  </div>
+                                  <div
+                                    class="checkmark after"
+                                  >
+                                    <svg
+                                      class="displayIcon"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="24"
+                                      role="img"
+                                      viewBox="0 0 24 24"
+                                      width="24"
+                                    >
+                                      <path
+                                        clip-rule="evenodd"
+                                        d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                        fill-rule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <div
+                                  aria-disabled="false"
+                                  aria-selected="false"
+                                  class="option size-56 option"
+                                  id="downshift-:r1:-item-1"
+                                  role="option"
                                 >
-                                  <path
-                                    clip-rule="evenodd"
-                                    d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
-                                    fill-rule="evenodd"
-                                  />
-                                </svg>
+                                  <div
+                                    class="content textContent"
+                                  >
+                                    Plutonium
+                                  </div>
+                                  <div
+                                    class="checkmark after"
+                                  >
+                                    <svg
+                                      class="displayIcon"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="24"
+                                      role="img"
+                                      viewBox="0 0 24 24"
+                                      width="24"
+                                    >
+                                      <path
+                                        clip-rule="evenodd"
+                                        d="M20 7.519L9.903 17 5 12.327l1.448-1.503 3.47 3.308L18.569 6 20 7.519z"
+                                        fill-rule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>

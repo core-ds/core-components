@@ -691,6 +691,21 @@ export type OptionsListProps = Pick<SelectProps, 'client'> & {
      * Ограничение динамического размера группы вариантов выбора
      */
     limitDynamicOptionGroupSize?: BaseSelectProps['limitDynamicOptionGroupSize'];
+
+    /**
+     *
+     */
+    scrollableNodeClassName?: string;
+
+    /**
+     *
+     */
+    fieldWidth?: number;
+
+    /**
+     *
+     */
+    listNodeClassName?: string;
 };
 
 export type OptgroupProps = {

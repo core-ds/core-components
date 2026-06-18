@@ -67,14 +67,40 @@
 }
 
 .search {
-    margin: var(--gap-12) var(--gap-12) var(--gap-0);
-
-    &.size-72 {
-        margin-left: var(--gap-16);
-        margin-right: var(--gap-16);
-    }
+    margin: var(--gap-6) var(--gap-12);
 
     &:last-child {
         margin-bottom: var(--gap-12);
+    }
+}
+
+.option {
+    border-radius: var(--select-option-border-radius);
+}
+
+.scrollable {
+    &[data-scrollbar-native='false'] {
+        margin: 0 var(--gap-6);
+    }
+
+    &[data-scrollbar-native='true'] .list {
+        padding: 0 var(--gap-6);
+    }
+}
+
+.scrollbar {
+    &:first-child {
+        &,
+        .scrollable {
+            border-top-left-radius: var(--select-option-border-radius);
+            border-top-right-radius: var(--select-option-border-radius);
+        }
+    }
+    &:last-child {
+        &,
+        .scrollable {
+            border-bottom-left-radius: var(--select-option-border-radius);
+            border-bottom-right-radius: var(--select-option-border-radius);
+        }
     }
 }

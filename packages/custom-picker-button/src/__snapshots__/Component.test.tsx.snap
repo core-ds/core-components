@@ -228,356 +228,357 @@ exports[`Snapshots tests should display opened correctly 2`] = `
           class="optionsListWrapper"
           id="downshift-:r3:-menu"
           role="listbox"
-          style="min-width: 0px;"
+          style="min-width: 0;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="component component scrollable"
+              class="component scrollbar"
               data-simplebar="init"
-              style="max-height: 0; min-width: 0;"
+              style="max-height: 0;"
             >
               <div
-                class="wrapper"
+                class="simplebar-wrapper"
               >
                 <div
-                  class="heightAutoObserverWrapper"
+                  class="simplebar-height-auto-observer-wrapper"
                 >
                   <div
-                    class="heightAutoObserver"
+                    class="simplebar-height-auto-observer"
                   />
                 </div>
                 <div
-                  class="mask"
-                  style=""
+                  class="simplebar-mask"
                 >
                   <div
-                    class="offset"
+                    class="simplebar-offset"
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      aria-label="scrollable content"
-                      class="contentWrapper"
-                      role="region"
+                      class="simplebar-content-wrapper scrollable scrollable"
+                      data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
-                      tabindex="0"
                     >
                       <div
-                        class="content"
-                        style=""
+                        class="simplebar-content content matchContent"
                       >
                         <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-0"
-                          role="option"
+                          class="list list"
+                          style="min-width: min(NaNpx, 100%);"
                         >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-0"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Neptunium
+                                <div
+                                  class="content"
+                                >
+                                  Neptunium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-1"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-1"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Plutonium
+                                <div
+                                  class="content"
+                                >
+                                  Plutonium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-2"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-2"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Americium
+                                <div
+                                  class="content"
+                                >
+                                  Americium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-3"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-3"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Curium
+                                <div
+                                  class="content"
+                                >
+                                  Curium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-4"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-4"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Berkelium
+                                <div
+                                  class="content"
+                                >
+                                  Berkelium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-5"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-5"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Californium
+                                <div
+                                  class="content"
+                                >
+                                  Californium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-6"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-6"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Einsteinium
+                                <div
+                                  class="content"
+                                >
+                                  Einsteinium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-7"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-7"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Fermium
+                                <div
+                                  class="content"
+                                >
+                                  Fermium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-8"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-8"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Mendelevium
+                                <div
+                                  class="content"
+                                >
+                                  Mendelevium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-9"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-9"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Nobelium
+                                <div
+                                  class="content"
+                                >
+                                  Nobelium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-10"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-10"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Lawrencium
+                                <div
+                                  class="content"
+                                >
+                                  Lawrencium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-11"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-11"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Rutherfordium
+                                <div
+                                  class="content"
+                                >
+                                  Rutherfordium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-12"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-12"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Dubnium
+                                <div
+                                  class="content"
+                                >
+                                  Dubnium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-13"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-13"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Seaborgium
+                                <div
+                                  class="content"
+                                >
+                                  Seaborgium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r3:-item-14"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r3:-item-14"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Bohrium
+                                <div
+                                  class="content"
+                                >
+                                  Bohrium
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -587,25 +588,25 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                   </div>
                 </div>
                 <div
-                  class="placeholder"
+                  class="simplebar-placeholder"
                   style="width: 0px; height: 0px;"
                 />
               </div>
               <div
-                class="track horizontal"
+                class="simplebar-track simplebar-horizontal"
                 style="visibility: hidden;"
               >
                 <div
-                  class="scrollbar"
+                  class="simplebar-scrollbar"
                   style="width: 0px; display: none;"
                 />
               </div>
               <div
-                class="track vertical verticalBar"
+                class="simplebar-track simplebar-vertical"
                 style="visibility: hidden;"
               >
                 <div
-                  class="scrollbar"
+                  class="simplebar-scrollbar"
                   style="height: 0px; display: none;"
                 />
               </div>
@@ -687,356 +688,357 @@ exports[`Snapshots tests should display opened correctly 4`] = `
           class="optionsListWrapper"
           id="downshift-:r7:-menu"
           role="listbox"
-          style="min-width: 0px;"
+          style="min-width: 0;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="component component scrollable"
+              class="component scrollbar"
               data-simplebar="init"
-              style="max-height: 0; min-width: 0;"
+              style="max-height: 0;"
             >
               <div
-                class="wrapper"
+                class="simplebar-wrapper"
               >
                 <div
-                  class="heightAutoObserverWrapper"
+                  class="simplebar-height-auto-observer-wrapper"
                 >
                   <div
-                    class="heightAutoObserver"
+                    class="simplebar-height-auto-observer"
                   />
                 </div>
                 <div
-                  class="mask"
-                  style=""
+                  class="simplebar-mask"
                 >
                   <div
-                    class="offset"
+                    class="simplebar-offset"
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      aria-label="scrollable content"
-                      class="contentWrapper"
-                      role="region"
+                      class="simplebar-content-wrapper scrollable scrollable"
+                      data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
-                      tabindex="0"
                     >
                       <div
-                        class="content"
-                        style=""
+                        class="simplebar-content content matchContent"
                       >
                         <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-0"
-                          role="option"
+                          class="list list"
+                          style="min-width: min(NaNpx, 100%);"
                         >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-0"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Neptunium
+                                <div
+                                  class="content"
+                                >
+                                  Neptunium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-1"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-1"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Plutonium
+                                <div
+                                  class="content"
+                                >
+                                  Plutonium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-2"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-2"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Americium
+                                <div
+                                  class="content"
+                                >
+                                  Americium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-3"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-3"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Curium
+                                <div
+                                  class="content"
+                                >
+                                  Curium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-4"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-4"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Berkelium
+                                <div
+                                  class="content"
+                                >
+                                  Berkelium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-5"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-5"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Californium
+                                <div
+                                  class="content"
+                                >
+                                  Californium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-6"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-6"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Einsteinium
+                                <div
+                                  class="content"
+                                >
+                                  Einsteinium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-7"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-7"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Fermium
+                                <div
+                                  class="content"
+                                >
+                                  Fermium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-8"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-8"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Mendelevium
+                                <div
+                                  class="content"
+                                >
+                                  Mendelevium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-9"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-9"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Nobelium
+                                <div
+                                  class="content"
+                                >
+                                  Nobelium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-10"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-10"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Lawrencium
+                                <div
+                                  class="content"
+                                >
+                                  Lawrencium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-11"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-11"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Rutherfordium
+                                <div
+                                  class="content"
+                                >
+                                  Rutherfordium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-12"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-12"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Dubnium
+                                <div
+                                  class="content"
+                                >
+                                  Dubnium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-13"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-13"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Seaborgium
+                                <div
+                                  class="content"
+                                >
+                                  Seaborgium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:r7:-item-14"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:r7:-item-14"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Bohrium
+                                <div
+                                  class="content"
+                                >
+                                  Bohrium
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1046,25 +1048,25 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                   </div>
                 </div>
                 <div
-                  class="placeholder"
+                  class="simplebar-placeholder"
                   style="width: 0px; height: 0px;"
                 />
               </div>
               <div
-                class="track horizontal"
+                class="simplebar-track simplebar-horizontal"
                 style="visibility: hidden;"
               >
                 <div
-                  class="scrollbar"
+                  class="simplebar-scrollbar"
                   style="width: 0px; display: none;"
                 />
               </div>
               <div
-                class="track vertical verticalBar"
+                class="simplebar-track simplebar-vertical"
                 style="visibility: hidden;"
               >
                 <div
-                  class="scrollbar"
+                  class="simplebar-scrollbar"
                   style="height: 0px; display: none;"
                 />
               </div>
@@ -1146,356 +1148,357 @@ exports[`Snapshots tests should display opened correctly 6`] = `
           class="optionsListWrapper"
           id="downshift-:rb:-menu"
           role="listbox"
-          style="min-width: 0px;"
+          style="min-width: 0;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="component component scrollable"
+              class="component scrollbar"
               data-simplebar="init"
-              style="max-height: 0; min-width: 0;"
+              style="max-height: 0;"
             >
               <div
-                class="wrapper"
+                class="simplebar-wrapper"
               >
                 <div
-                  class="heightAutoObserverWrapper"
+                  class="simplebar-height-auto-observer-wrapper"
                 >
                   <div
-                    class="heightAutoObserver"
+                    class="simplebar-height-auto-observer"
                   />
                 </div>
                 <div
-                  class="mask"
-                  style=""
+                  class="simplebar-mask"
                 >
                   <div
-                    class="offset"
+                    class="simplebar-offset"
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      aria-label="scrollable content"
-                      class="contentWrapper"
-                      role="region"
+                      class="simplebar-content-wrapper scrollable scrollable"
+                      data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
-                      tabindex="0"
                     >
                       <div
-                        class="content"
-                        style=""
+                        class="simplebar-content content matchContent"
                       >
                         <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-0"
-                          role="option"
+                          class="list list"
+                          style="min-width: min(NaNpx, 100%);"
                         >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-0"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Neptunium
+                                <div
+                                  class="content"
+                                >
+                                  Neptunium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-1"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-1"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Plutonium
+                                <div
+                                  class="content"
+                                >
+                                  Plutonium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-2"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-2"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Americium
+                                <div
+                                  class="content"
+                                >
+                                  Americium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-3"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-3"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Curium
+                                <div
+                                  class="content"
+                                >
+                                  Curium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-4"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-4"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Berkelium
+                                <div
+                                  class="content"
+                                >
+                                  Berkelium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-5"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-5"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Californium
+                                <div
+                                  class="content"
+                                >
+                                  Californium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-6"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-6"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Einsteinium
+                                <div
+                                  class="content"
+                                >
+                                  Einsteinium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-7"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-7"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Fermium
+                                <div
+                                  class="content"
+                                >
+                                  Fermium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-8"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-8"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Mendelevium
+                                <div
+                                  class="content"
+                                >
+                                  Mendelevium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-9"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-9"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Nobelium
+                                <div
+                                  class="content"
+                                >
+                                  Nobelium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-10"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-10"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Lawrencium
+                                <div
+                                  class="content"
+                                >
+                                  Lawrencium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-11"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-11"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Rutherfordium
+                                <div
+                                  class="content"
+                                >
+                                  Rutherfordium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-12"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-12"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Dubnium
+                                <div
+                                  class="content"
+                                >
+                                  Dubnium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-13"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-13"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Seaborgium
+                                <div
+                                  class="content"
+                                >
+                                  Seaborgium
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="option size-56 option"
-                          id="downshift-:rb:-item-14"
-                          role="option"
-                        >
                           <div
-                            class="content"
+                            aria-disabled="false"
+                            aria-selected="false"
+                            class="option size-56 option"
+                            id="downshift-:rb:-item-14"
+                            role="option"
                           >
                             <div
-                              class="container"
+                              class="content"
                             >
                               <div
-                                class="content"
+                                class="container"
                               >
-                                Bohrium
+                                <div
+                                  class="content"
+                                >
+                                  Bohrium
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1505,25 +1508,25 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                   </div>
                 </div>
                 <div
-                  class="placeholder"
+                  class="simplebar-placeholder"
                   style="width: 0px; height: 0px;"
                 />
               </div>
               <div
-                class="track horizontal"
+                class="simplebar-track simplebar-horizontal"
                 style="visibility: hidden;"
               >
                 <div
-                  class="scrollbar"
+                  class="simplebar-scrollbar"
                   style="width: 0px; display: none;"
                 />
               </div>
               <div
-                class="track vertical verticalBar"
+                class="simplebar-track simplebar-vertical"
                 style="visibility: hidden;"
               >
                 <div
-                  class="scrollbar"
+                  class="simplebar-scrollbar"
                   style="height: 0px; display: none;"
                 />
               </div>

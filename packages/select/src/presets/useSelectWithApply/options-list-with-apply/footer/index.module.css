@@ -3,12 +3,8 @@
 
 .footer {
     background-color: var(--color-light-base-bg-primary);
-    padding: var(--gap-12);
+    padding: var(--gap-12) var(--gap-12) var(--gap-6);
     outline: none;
-
-    &.size-72 {
-        padding: var(--gap-12) var(--gap-16);
-    }
 
     & > .button + .button {
         margin-left: var(--select-option-list-footer-button-gap);
