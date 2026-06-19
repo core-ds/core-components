@@ -30,7 +30,7 @@ const config = {
     maxWorkers: 5,
     testTimeout: 200000,
     globals: {
-        CDN_DOMAIN: envManager.CDN_DOMAIN,
+        SERVICE_CDN: envManager.SERVICE_CDN,
     },
 };
 
