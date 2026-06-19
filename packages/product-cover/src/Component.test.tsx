@@ -12,7 +12,7 @@ describe('ProductCover', () => {
                     <ProductCover.Single
                         cardNumber={1234000000001234}
                         cardholderName='Cardholder Name'
-                        baseUrl={process.env.AO_CARDS}
+                        baseUrl={process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL}
                         layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                         cardId='RM'
                     />,
@@ -155,7 +155,7 @@ describe('ProductCover', () => {
         it('renders ProductCover component with image', () => {
             const { container } = render(
                 <ProductCover.Single
-                    baseUrl={process.env.AO_CARDS}
+                    baseUrl={process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL}
                     layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                     cardId='RM'
                 />,

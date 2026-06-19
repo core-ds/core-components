@@ -20,7 +20,7 @@ render(() => {
                         size={size}
                         cardholderName='Cardholder Name'
                         cardNumber={1234000000001234}
-                        baseUrl={AO_CARDS}
+                        baseUrl={CORE_COMPONENTS_CARD_IMAGE_BASE_URL}
                         layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                         cardId='RM'
                         eyeButton={true}
@@ -35,7 +35,7 @@ render(() => {
                         size={size}
                         cardholderName='Cardholder Name'
                         cardNumber={1234000000001234}
-                        baseUrl={AO_CARDS}
+                        baseUrl={CORE_COMPONENTS_CARD_IMAGE_BASE_URL}
                         layers='BACKGROUND,LOGO,PAYMENT_SYSTEM'
                         cardId='RM'
                     />
@@ -67,7 +67,7 @@ render(() => {
 
     const baseCard = {
         cardNumber: 1234000000001234,
-        baseUrl: AO_CARDS,
+        baseUrl: CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
         layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
         cardId: 'RM',
     };
@@ -178,7 +178,7 @@ render(() => {
     const firstCard = {
         cardNumber: 1234000000001234,
         shadow: '2px 2px 2px 0px rgba(0, 0, 0, 0.20)',
-        baseUrl: AO_CARDS,
+        baseUrl: CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
         layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
         cardId: 'RM',
         shadow,
@@ -186,7 +186,7 @@ render(() => {
 
     const secondCard = {
         ...(numberOfCards === '2' && {
-            baseUrl: AO_CARDS,
+            baseUrl: CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
             layers: 'BACKGROUND,LOGO,PAYMENT_SYSTEM',
             cardId: 'RM',
         }),

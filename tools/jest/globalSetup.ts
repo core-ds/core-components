@@ -5,6 +5,6 @@ module.exports = async () => {
     // need to assign readonly CORE_COMPONENTS_ENV
     Object.assign(process.env, {
         CORE_COMPONENTS_ENV: process.env.NODE_ENV,
-        AO_CARDS: envManager.AO_CARDS_JEST,
+        CORE_COMPONENTS_CARD_IMAGE_BASE_URL: envManager.CORE_COMPONENTS_CARD_IMAGE_BASE_URL_JEST,
     });
 };

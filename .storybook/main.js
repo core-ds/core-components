@@ -304,7 +304,9 @@ module.exports = {
                 'process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL': JSON.stringify(
                     envManager.CORE_COMPONENTS_CDN_ICON_BASE_URL,
                 ),
-                'process.env.AO_CARDS': JSON.stringify(envManager.AO_CARDS),
+                'process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL': JSON.stringify(
+                    envManager.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
+                ),
             }),
         );
         return config;

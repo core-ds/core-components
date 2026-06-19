@@ -41,5 +41,9 @@ export default {
     ...grid,
     ...dateUtils,
     ...knobs,
-    AO_CARDS: process.env.AO_CARDS,
+    process: {
+        env: {
+            ...process.env,
+        },
+    },
 };
