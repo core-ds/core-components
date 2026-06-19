@@ -162,7 +162,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         }}
                         contentNodeProps={{ className: contentNodeClassName }}
                     >
-                        <div className={cn(listNodeClassName)} ref={listRef}>
+                        <div className={listNodeClassName} ref={listRef}>
                             {options.map((option) =>
                                 isGroup(option)
                                     ? renderGroup(option)

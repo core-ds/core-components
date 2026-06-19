@@ -330,15 +330,6 @@ export function usePrevious<T>(value: T) {
     return ref.current;
 }
 
-// TODO: перенести
-export const lastIndexOf = <T>(array: T[], predicate: (item: T) => boolean) => {
-    for (let i = array.length - 1; i >= 0; i--) {
-        if (predicate(array[i])) return i;
-    }
-
-    return -1;
-};
-
 export function getSelectTestIds(dataTestId: string) {
     return {
         select: dataTestId,

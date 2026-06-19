@@ -1,5 +1,4 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
-import mergeRefs from 'react-merge-refs';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
@@ -8,7 +7,7 @@ import { PrivateScrollbar } from '@alfalab/core-components-scrollbar';
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
 import { type GroupShape, type OptionShape, type OptionsListProps } from '../../typings';
-import { isGroup, lastIndexOf, usePrevious, useVirtualVisibleOptions } from '../../utils';
+import { isGroup, usePrevious, useVirtualVisibleOptions } from '../../utils';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from '../options-list/index.module.css';
@@ -90,7 +89,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         useEffect(() => {
             const notDisabled = (option: OptionShape) => !option.disabled;
             const firstNonDisabled = flatOptions.findIndex(notDisabled);
-            const lastNonDisabled = lastIndexOf(flatOptions, notDisabled);
+            const lastNonDisabled = flatOptions.findLastIndex(notDisabled);
 
             if (
                 prevHighlightedIndex <= firstNonDisabled &&
@@ -236,7 +235,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         className={scrollbarClassName}
                         style={{ maxHeight }}
                         scrollableNodeProps={{
-                            ref: mergeRefs([scrollableNodeRef]),
+                            ref: scrollableNodeRef,
                             onScroll: handleScroll,
                             className: scrollableNodeClassName,
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -249,7 +248,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         }}
                     >
                         <div
-                            className={cn(styles.list, listNodeClassName)}
+                            className={listNodeClassName}
                             ref={listRef}
                             style={{ transform: `translateY(${firstVirualRow?.start ?? 0}px)` }}
                         >
