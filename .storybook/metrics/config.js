@@ -1,6 +1,4 @@
-import { decodeBase64 } from '../../tools/decode-base-64';
-
-const domain = decodeBase64('bWV0cmljcy5hbGZhYmFuay5ydQ==');
+const domain = atob('bWV0cmljcy5hbGZhYmFuay5ydQ==');
 
 export const setMetricConfig = () => {
     (function (p, l, o, w, i, n, g) {
