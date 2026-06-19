@@ -671,6 +671,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         update={updatePopover}
                         zIndex={zIndexPopover}
                         useAnchorWidth={true}
+                        widthProp={optionsListWidth === 'field' ? 'width' : 'minWidth'}
                     >
                         {renderOptionsList()}
                     </Popover>
