@@ -1,5 +1,3 @@
-const domain = atob('bWV0cmljcy5hbGZhYmFuay5ydQ==');
-
 export const setMetricConfig = () => {
     (function (p, l, o, w, i, n, g) {
         if (!p[i]) {
@@ -15,14 +13,20 @@ export const setMetricConfig = () => {
             n.src = w;
             g.parentNode.insertBefore(n, g);
         }
-    })(window, document, 'script', `https://${domain}/metrica/sp.js`, 'sp');
+    })(
+        window,
+        document,
+        'script',
+        `https://${process.env.CORE_COMPONENTS_METRICS}/metrica/sp.js`,
+        'sp',
+    );
 
     function getMetricUrl() {
         const { hostname } = window.location;
 
         switch (hostname) {
             case 'core-ds.github.io': {
-                return `${domain}/metrica/intra`;
+                return `${process.env.CORE_COMPONENTS_METRICS}/metrica/intra`;
             }
             default: {
                 return '';

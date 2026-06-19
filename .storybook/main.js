@@ -120,6 +120,10 @@ function disableReactRefreshOverlay(config) {
  * @type {import('@storybook/react-webpack5').StorybookConfig}
  */
 module.exports = {
+    env: (config) => ({
+        ...config,
+        CORE_COMPONENTS_METRICS: envManager.CORE_COMPONENTS_METRICS,
+    }),
     stories: [
         '../packages/**/*.docs.@(ts|md)x',
         '../packages/**/*.stories.@(ts|md)x',
