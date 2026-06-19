@@ -406,14 +406,14 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                         class="optionsList size-48 optionsList"
                       >
                         <div
-                          class="nativeScrollbar scrollbar nativeScrollbar scrollable"
+                          class="nativeScrollbar scrollbar"
                           data-scrollbar-native="true"
                         >
                           <div
-                            class="content matchContent"
+                            class=""
                           >
                             <div
-                              class="list"
+                              class=""
                             >
                               <div
                                 aria-disabled="false"
@@ -906,14 +906,14 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                         class="optionsList size-48 optionsList"
                       >
                         <div
-                          class="nativeScrollbar scrollbar nativeScrollbar scrollable"
+                          class="nativeScrollbar scrollbar"
                           data-scrollbar-native="true"
                         >
                           <div
-                            class="content matchContent"
+                            class=""
                           >
                             <div
-                              class="list"
+                              class=""
                             >
                               <div
                                 aria-disabled="false"

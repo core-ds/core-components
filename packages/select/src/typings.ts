@@ -700,7 +700,7 @@ export type OptionsListProps = Pick<SelectProps, 'client'> & {
     /**
      *
      */
-    fieldWidth?: number;
+    contentNodeClassName?: string;
 
     /**
      *

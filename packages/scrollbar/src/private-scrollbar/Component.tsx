@@ -20,7 +20,8 @@ const colorStyles = {
     inverted: invertedColors,
 } as const;
 
-export interface PrivateScrollbarProps extends Pick<SimpleBarProps, 'tabIndex'> {
+export interface PrivateScrollbarProps
+    extends Omit<SimpleBarProps, 'children' | 'scrollableNodeProps'> {
     children?: React.ReactNode;
     style?: React.CSSProperties;
     /**
@@ -31,7 +32,6 @@ export interface PrivateScrollbarProps extends Pick<SimpleBarProps, 'tabIndex'> 
      * @default default
      */
     colors?: 'default' | 'inverted';
-    className?: string | undefined;
     scrollableNodeProps?: React.ComponentProps<'div'>;
     contentNodeProps?: React.ComponentProps<'div'>;
 }
@@ -43,10 +43,11 @@ export const PrivateScrollbar = forwardRef<PrivateScrollbarRef, PrivateScrollbar
             native = false,
             style,
             colors = 'default',
-            tabIndex,
+            tabIndex = -1,
             className,
             scrollableNodeProps: scrollableNodePropsFromProps,
             contentNodeProps: contentNodePropsFromProps,
+            ...restProps
         },
         ref,
     ) => {
@@ -98,6 +99,7 @@ export const PrivateScrollbar = forwardRef<PrivateScrollbarRef, PrivateScrollbar
             </Fragment>
         ) : (
             <SimpleBar
+                {...restProps}
                 ref={ref}
                 style={style}
                 className={cn(styles.component, colorStyles[colors].component, className)}

@@ -10,10 +10,8 @@ import React, {
     useEffect,
     useMemo,
     useRef,
-    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 import { compute } from 'compute-scroll-into-view';
 import {
@@ -23,8 +21,7 @@ import {
     type UseMultipleSelectionState,
 } from 'downshift';
 
-import { getDataTestId, isClient, noop, useRefAsState } from '@alfalab/core-components-shared';
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+import { getDataTestId, isClient } from '@alfalab/core-components-shared';
 
 import {
     type AnyObject,
@@ -126,8 +123,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             environment = isClient() ? window : undefined,
         } = props;
         const shouldSearchBlurRef = useRef(true);
-        const [rootRef, rootNode] = useRefAsState<HTMLDivElement>(null);
-        const [fieldWidth, setFieldWidth] = useState<number>();
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
@@ -497,28 +492,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
-        useLayoutEffect_SAFE_FOR_SSR(() => {
-            if (view === 'desktop' && rootNode) {
-                const handler = () => {
-                    setFieldWidth(rootNode.offsetWidth);
-                };
-
-                const observer = new (window.ResizeObserver || ResizeObserverPolyfill)(handler);
-
-                handler();
-
-                observer.observe(rootNode);
-
-                return () => {
-                    observer.disconnect();
-                };
-            }
-
-            setFieldWidth(undefined);
-
-            return noop;
-        }, [rootNode, view]);
-
         const renderValue = () =>
             selectedItems.map((option) => (
                 <input type='hidden' name={name} value={option.key} key={option.key} />
@@ -621,17 +594,18 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
 
             const listProps = optionsListProps as OptionsListProps & RefAttributes<HTMLDivElement>;
 
-            const widthProp = optionsListWidth === 'field' ? 'width' : 'minWidth';
-
             return (
                 <div
                     {...menuProps}
                     ref={view === 'desktop' ? menuRef : undefined}
-                    style={{ [widthProp]: fieldWidth }}
                     className={cn(
                         optionsListClassName,
                         view === 'mobile' && mobileStyles.optionsListWrapper,
                         view === 'desktop' && styles.optionsListWrapper,
+                        {
+                            [styles.matchContent]:
+                                view === 'desktop' && optionsListWidth === 'content',
+                        },
                     )}
                 >
                     <OptionsList
@@ -649,7 +623,9 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                             },
                             listProps.scrollbarClassName,
                         )}
-                        scrollableNodeClassName={cn(view === 'desktop' && styles.scrollable)}
+                        scrollableNodeClassName={cn({ [styles.scrollable]: view === 'desktop' })}
+                        contentNodeClassName={cn({ [styles.content]: view === 'desktop' })}
+                        listNodeClassName={cn({ [styles.list]: view === 'desktop' })}
                         optionsListWidth={optionsListWidth}
                         flatOptions={flatOptions}
                         highlightedIndex={highlightedIndex}
@@ -675,8 +651,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         multiple={multiple}
                         limitDynamicOptionGroupSize={limitDynamicOptionGroupSize}
                         client={view}
-                        fieldWidth={fieldWidth}
-                        listNodeClassName={cn({ [styles.list]: view === 'desktop' })}
                     />
                     {view === 'desktop' && <div className={styles.optionsListBorder} />}
                 </div>
@@ -696,6 +670,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         popperClassName={cn(styles.popoverInner, popperClassName)}
                         update={updatePopover}
                         zIndex={zIndexPopover}
+                        useAnchorWidth={true}
                     >
                         {renderOptionsList()}
                     </Popover>
@@ -822,7 +797,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 aria-haspopup='listbox'
                 role={inputProps.role}
                 className={cn(styles.component, { [styles.block]: block }, className)}
-                ref={rootRef}
                 onKeyDown={disabled ? undefined : handleFieldKeyDown}
                 tabIndex={-1}
                 data-test-id={getDataTestId(dataTestId)}

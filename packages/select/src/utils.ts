@@ -131,11 +131,6 @@ type useVisibleOptionsArgs = {
     listRef: RefObject<HTMLElement>;
 
     /**
-     * Реф на контейнер, которому нужно установить высоту
-     */
-    styleTargetRef?: RefObject<HTMLElement>;
-
-    /**
      * Флаг открытия меню
      */
     open?: boolean;
@@ -165,21 +160,21 @@ type useVisibleOptionsArgs = {
 export function useVirtualVisibleOptions({
     visibleOptions,
     listRef,
-    styleTargetRef = listRef,
     open,
     invalidate,
     options,
     size,
     actualOptionsCount,
 }: useVisibleOptionsArgs) {
-    useEffect(() => {
+    const [height, setHeight] = useState<number>();
+
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const measureOptionHeight = (element: HTMLElement) =>
             typeof size === 'number' ? Math.min(element.clientHeight, size) : element.clientHeight;
 
         const list = listRef.current;
-        const styleTarget = styleTargetRef.current;
 
-        if (open && list && styleTarget && visibleOptions > 0) {
+        if (open && list && visibleOptions > 0) {
             const childCount = list.children.length;
             const optionsNodes = ([] as HTMLElement[]).slice.call(
                 list.children,
@@ -187,7 +182,7 @@ export function useVirtualVisibleOptions({
                 visibleOptions + 1,
             );
 
-            let height = optionsNodes
+            let nextHeight = optionsNodes
                 .slice(0, visibleOptions)
                 .reduce((acc, child) => acc + measureOptionHeight(child), 0);
 
@@ -197,7 +192,7 @@ export function useVirtualVisibleOptions({
                 );
 
                 // Если кол-во опций больше visibleOptions на 1, то показываем все опции, иначе добавляем половинку
-                height += Math.round(
+                nextHeight += Math.round(
                     childCount - visibleOptions === 1
                         ? lastVisibleOptionHeight
                         : lastVisibleOptionHeight / 2,
@@ -212,29 +207,22 @@ export function useVirtualVisibleOptions({
                     0,
                 );
 
-                height =
+                nextHeight =
                     Math.min(
                         actualCount === 0 ? /** empty placeholder */ 1 : actualCount,
                         visibleOptions,
                     ) * size;
 
                 if (visibleOptions < actualCount) {
-                    height += size / 2;
+                    nextHeight += size / 2;
                 }
             }
 
-            styleTarget.style.height = `${height}px`;
+            setHeight(nextHeight);
         }
-    }, [
-        actualOptionsCount,
-        listRef,
-        open,
-        options,
-        size,
-        styleTargetRef,
-        visibleOptions,
-        invalidate,
-    ]);
+    }, [actualOptionsCount, listRef, open, options, size, visibleOptions, invalidate]);
+
+    return height;
 }
 
 export function useVisibleOptions({

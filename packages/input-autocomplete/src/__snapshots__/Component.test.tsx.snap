@@ -218,14 +218,14 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                           class="optionsList size-48 optionsList"
                         >
                           <div
-                            class="nativeScrollbar scrollbar nativeScrollbar scrollable"
+                            class="nativeScrollbar scrollbar"
                             data-scrollbar-native="true"
                           >
                             <div
-                              class="content matchContent"
+                              class=""
                             >
                               <div
-                                class="list"
+                                class=""
                               >
                                 <div
                                   aria-disabled="false"

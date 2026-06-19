@@ -215,7 +215,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
     data-popper-escaped="true"
     data-popper-placement="bottom-start"
     data-popper-reference-hidden="true"
-    style="z-index: 50; position: absolute; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
+    style="z-index: 50; position: absolute; left: 0px; top: 0px; width: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
   >
     <div
       class="inner popoverInner cc-picker-button optionsPopover"
@@ -225,16 +225,15 @@ exports[`Snapshots tests should display opened correctly 2`] = `
       >
         <div
           aria-labelledby="downshift-:r3:-label"
-          class="optionsListWrapper"
+          class="optionsListWrapper matchContent"
           id="downshift-:r3:-menu"
           role="listbox"
-          style="min-width: 0;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="component scrollbar"
+              class="component"
               data-simplebar="init"
               style="max-height: 0;"
             >
@@ -256,16 +255,15 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="simplebar-content-wrapper scrollable scrollable"
+                      class="simplebar-content-wrapper scrollable"
                       data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
                       <div
-                        class="simplebar-content content matchContent"
+                        class="simplebar-content content"
                       >
                         <div
-                          class="list list"
-                          style="min-width: min(NaNpx, 100%);"
+                          class="list"
                         >
                           <div
                             aria-disabled="false"
@@ -675,7 +673,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
     data-popper-escaped="true"
     data-popper-placement="bottom-start"
     data-popper-reference-hidden="true"
-    style="z-index: 50; position: absolute; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
+    style="z-index: 50; position: absolute; left: 0px; top: 0px; width: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
   >
     <div
       class="inner popoverInner cc-picker-button optionsPopover"
@@ -685,16 +683,15 @@ exports[`Snapshots tests should display opened correctly 4`] = `
       >
         <div
           aria-labelledby="downshift-:r7:-label"
-          class="optionsListWrapper"
+          class="optionsListWrapper matchContent"
           id="downshift-:r7:-menu"
           role="listbox"
-          style="min-width: 0;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="component scrollbar"
+              class="component"
               data-simplebar="init"
               style="max-height: 0;"
             >
@@ -716,16 +713,15 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="simplebar-content-wrapper scrollable scrollable"
+                      class="simplebar-content-wrapper scrollable"
                       data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
                       <div
-                        class="simplebar-content content matchContent"
+                        class="simplebar-content content"
                       >
                         <div
-                          class="list list"
-                          style="min-width: min(NaNpx, 100%);"
+                          class="list"
                         >
                           <div
                             aria-disabled="false"
@@ -1135,7 +1131,7 @@ exports[`Snapshots tests should display opened correctly 6`] = `
     data-popper-escaped="true"
     data-popper-placement="bottom-start"
     data-popper-reference-hidden="true"
-    style="z-index: 50; position: absolute; left: 0px; top: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
+    style="z-index: 50; position: absolute; left: 0px; top: 0px; width: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
   >
     <div
       class="inner popoverInner cc-picker-button optionsPopover"
@@ -1145,16 +1141,15 @@ exports[`Snapshots tests should display opened correctly 6`] = `
       >
         <div
           aria-labelledby="downshift-:rb:-label"
-          class="optionsListWrapper"
+          class="optionsListWrapper matchContent"
           id="downshift-:rb:-menu"
           role="listbox"
-          style="min-width: 0;"
         >
           <div
             class="optionsList size-56"
           >
             <div
-              class="component scrollbar"
+              class="component"
               data-simplebar="init"
               style="max-height: 0;"
             >
@@ -1176,16 +1171,15 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                     style="right: 0px; bottom: 0px;"
                   >
                     <div
-                      class="simplebar-content-wrapper scrollable scrollable"
+                      class="simplebar-content-wrapper scrollable"
                       data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
                       <div
-                        class="simplebar-content content matchContent"
+                        class="simplebar-content content"
                       >
                         <div
-                          class="list list"
-                          style="min-width: min(NaNpx, 100%);"
+                          class="list"
                         >
                           <div
                             aria-disabled="false"

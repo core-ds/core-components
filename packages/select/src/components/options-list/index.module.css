@@ -6,10 +6,6 @@
     outline: none;
     box-sizing: border-box;
     position: relative;
-
-    .nativeScrollbar {
-        overflow-x: hidden;
-    }
 }
 
 .optionsListHeader {
@@ -41,20 +37,4 @@
 .size-64 .emptyPlaceholder,
 .size-72 .emptyPlaceholder {
     padding: var(--gap-24) var(--gap-16);
-}
-
-.content {
-    position: relative;
-
-    &.matchContent {
-        min-width: 9999px; /* MAGIC NUMBER TO EXPAND CONTENT */
-    }
-}
-
-.scrollbar {
-    min-width: 100%;
-}
-
-.list {
-    display: inline-block;
 }

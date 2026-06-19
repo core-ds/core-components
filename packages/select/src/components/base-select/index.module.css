@@ -28,8 +28,15 @@
     box-shadow: var(--select-options-list-box-shadow);
     border-radius: var(--select-options-list-border-radius);
     background: var(--select-option-background);
-    overflow: hidden;
-    will-change: transform;
+
+    &.matchContent {
+        &,
+        .scrollbar,
+        .content {
+            display: inline-block;
+            min-width: 100%;
+        }
+    }
 }
 
 .optionsListBorder {
@@ -78,14 +85,10 @@
     border-radius: var(--select-option-border-radius);
 }
 
-.scrollable {
-    &[data-scrollbar-native='false'] {
-        margin: 0 var(--gap-6);
-    }
-
-    &[data-scrollbar-native='true'] .list {
-        padding: 0 var(--gap-6);
-    }
+.list {
+    display: inline-block;
+    padding: 0 var(--gap-6);
+    min-width: calc(100% - 2 * var(--gap-6));
 }
 
 .scrollbar {
