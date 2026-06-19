@@ -9,7 +9,9 @@ function getAOCards(domain) {
 
 const envManager = {
     SERVICE_CDN: decodeBase64('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ=='),
-    CDN_ICONS: decodeBase64('aHR0cHM6Ly9hbGZhYmFuay5zZXJ2aWNlY2RuLnJ1L2ljb25z'),
+    CORE_COMPONENTS_CDN_ICON_BASE_URL: decodeBase64(
+        'aHR0cHM6Ly9hbGZhYmFuay5zZXJ2aWNlY2RuLnJ1L2ljb25z',
+    ),
     AO_CARDS: getAOCards(AO_DOMAIN),
     AO_CARDS_JEST: getAOCards(AO_DOMAIN_JEST),
 };

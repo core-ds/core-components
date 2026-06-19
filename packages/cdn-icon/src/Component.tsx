@@ -41,7 +41,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({
     color,
     dataTestId,
     className,
-    baseUrl = process.env.CDN_ICONS,
+    baseUrl = process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL,
     fallback,
     onError,
 }) => {

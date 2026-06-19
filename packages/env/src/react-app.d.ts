@@ -13,7 +13,7 @@ declare namespace NodeJS {
         readonly CORE_COMPONENTS_ENV: 'development' | 'production' | 'test';
         readonly CORE_COMPONENTS_VARIANT?: 'default' | 'alfasans';
         readonly AO_CARDS: string;
-        readonly CDN_ICONS: string;
+        readonly CORE_COMPONENTS_CDN_ICON_BASE_URL: string;
     }
 }
 
