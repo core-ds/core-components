@@ -27,7 +27,6 @@
         "@alfalab/core-components-skeleton": "^7.0.4",
         "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
-        "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
         "downshift": "8.4.0",

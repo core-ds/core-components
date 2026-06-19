@@ -1684,7 +1684,6 @@ __metadata:
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
     compute-scroll-into-view: "npm:^3.1.0"
     downshift: "npm:8.4.0"
