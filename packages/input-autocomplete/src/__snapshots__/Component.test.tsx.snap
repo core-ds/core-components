@@ -219,7 +219,6 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                         >
                           <div
                             class="nativeScrollbar scrollbar"
-                            data-scrollbar-native="true"
                           >
                             <div
                               class=""

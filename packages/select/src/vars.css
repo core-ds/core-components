@@ -11,7 +11,9 @@
     --select-options-list-box-shadow: var(--shadow-m);
     --select-options-list-offset: var(--gap-4);
     --select-options-list-top-padding: var(--gap-6);
+    --select-options-list-right-padding: var(--gap-6);
     --select-options-list-bottom-padding: var(--gap-6);
+    --select-options-list-left-padding: var(--gap-6);
     --select-options-list-empty-placeholder-color: var(--color-light-text-secondary);
     --select-option-divider-display: none;
     --select-option-divider-background: var(--color-light-neutral-400);

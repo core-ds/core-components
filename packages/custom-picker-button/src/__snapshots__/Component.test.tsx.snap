@@ -256,7 +256,6 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                   >
                     <div
                       class="simplebar-content-wrapper scrollable"
-                      data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
                       <div
@@ -714,7 +713,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                   >
                     <div
                       class="simplebar-content-wrapper scrollable"
-                      data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
                       <div
@@ -1172,7 +1170,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                   >
                     <div
                       class="simplebar-content-wrapper scrollable"
-                      data-scrollbar-native="false"
                       style="height: auto; overflow-x: hidden; overflow-y: hidden;"
                     >
                       <div

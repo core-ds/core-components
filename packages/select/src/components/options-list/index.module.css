@@ -37,3 +37,7 @@
 .size-72 .emptyPlaceholder {
     padding: var(--gap-24) var(--gap-16);
 }
+
+.list {
+    will-change: transform;
+}

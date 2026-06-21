@@ -60,7 +60,6 @@ export const PrivateScrollbar = forwardRef<PrivateScrollbarRef, PrivateScrollbar
         }) => (
             <div
                 {...scrollableNodePropsFromProps}
-                data-scrollbar-native={native}
                 style={{ ...scrollableNodeProps?.style, ...scrollableNodePropsFromProps?.style }}
                 ref={mergeRefs([
                     scrollableNodeProps?.ref ?? null,

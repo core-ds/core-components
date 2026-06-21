@@ -248,7 +248,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         }}
                     >
                         <div
-                            className={listNodeClassName}
+                            className={cn(styles.list, listNodeClassName)}
                             ref={listRef}
                             style={{ transform: `translateY(${firstVirualRow?.start ?? 0}px)` }}
                         >

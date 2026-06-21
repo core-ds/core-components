@@ -407,7 +407,6 @@ exports[`Snapshots tests should display opened correctly 4`] = `
                       >
                         <div
                           class="nativeScrollbar scrollbar"
-                          data-scrollbar-native="true"
                         >
                           <div
                             class=""
@@ -907,7 +906,6 @@ exports[`Snapshots tests should display opened correctly 6`] = `
                       >
                         <div
                           class="nativeScrollbar scrollbar"
-                          data-scrollbar-native="true"
                         >
                           <div
                             class=""

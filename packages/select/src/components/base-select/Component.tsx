@@ -613,7 +613,9 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         ref={view === 'desktop' ? listProps.ref : scrollableContainerRef}
                         setHighlightedIndex={view === 'desktop' ? setHighlightedIndex : undefined}
                         className={cn(
-                            { [mobileStyles.optionsList]: view === 'mobile' },
+                            {
+                                [mobileStyles.optionsList]: view === 'mobile',
+                            },
                             listProps.className,
                         )}
                         scrollbarClassName={cn(
