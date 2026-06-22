@@ -60,4 +60,18 @@ const createRollupPlugin = () =>
         preventAssignment: true,
     });
 
-export { envManager, jestEnv, createWebpackPlugin, createManagerEnv, createRollupPlugin };
+const createGlobalSetupEnv = () =>
+    // need to assign readonly CORE_COMPONENTS_ENV
+    Object.assign(process.env, {
+        CORE_COMPONENTS_ENV: process.env.NODE_ENV,
+        CORE_COMPONENTS_CARD_IMAGE_BASE_URL: jestEnv.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
+    });
+
+export {
+    envManager,
+    jestEnv,
+    createWebpackPlugin,
+    createManagerEnv,
+    createRollupPlugin,
+    createGlobalSetupEnv,
+};
