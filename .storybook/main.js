@@ -11,7 +11,7 @@ const { isSamePath } = require('../tools/path.cjs');
 const { resolveInternal } = require('../tools/resolve-internal.cjs');
 const { readPackagesFileSync } = require('../tools/read-packages-file.cjs');
 const { existsSync } = require('node:fs');
-const { envManager, createWebpackPlugin } = require('../tools/env-manager');
+const { createWebpackPlugin, createManagerEnv } = require('../tools/env-manager');
 
 const INTERNAL_PACKAGES = readPackagesFileSync(
     path.resolve(__dirname, '../tools/.internal-packages'),
@@ -120,10 +120,10 @@ function disableReactRefreshOverlay(config) {
  * @type {import('@storybook/react-webpack5').StorybookConfig}
  */
 module.exports = {
-    env: (config) => ({
-        ...config,
-        CORE_COMPONENTS_METRICS: envManager.CORE_COMPONENTS_METRICS,
-    }),
+    // env прокидывает переменные в оба бандла Storybook: preview (iframe) и manager.
+    // DefinePlugin из createWebpackPlugin работает только в preview-бандле (через webpackFinal),
+    // поэтому переменные, нужные в manager.js, выносятся сюда отдельно.
+    env: createManagerEnv,
     stories: [
         '../packages/**/*.docs.@(ts|md)x',
         '../packages/**/*.stories.@(ts|md)x',

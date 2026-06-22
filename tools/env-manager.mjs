@@ -40,4 +40,9 @@ const createWebpackPlugin = (mode) =>
         ),
     });
 
-export { envManager, jestEnv, createWebpackPlugin };
+const createManagerEnv = (config) => ({
+    ...config,
+    CORE_COMPONENTS_METRICS: envManager.CORE_COMPONENTS_METRICS,
+});
+
+export { envManager, jestEnv, createWebpackPlugin, createManagerEnv };
