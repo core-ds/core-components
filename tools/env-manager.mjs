@@ -7,9 +7,12 @@ const envManager = {
     CORE_COMPONENTS_CARD_IMAGE_BASE_URL: decode(
         'aHR0cHM6Ly9vbmxpbmUuYWxmYWJhbmsucnUvY2FyZHMtaW1hZ2VzL2NhcmRzLw==',
     ),
-    CORE_COMPONENTS_CARD_IMAGE_BASE_URL_JEST: decode(
+};
+
+const jestEnv = {
+    CORE_COMPONENTS_CARD_IMAGE_BASE_URL: decode(
         'aHR0cHM6Ly9leGFtcGxlLmNvbS9jYXJkcy1pbWFnZXMvY2FyZHMv',
     ),
 };
 
-export { envManager };
+export { envManager, jestEnv };
