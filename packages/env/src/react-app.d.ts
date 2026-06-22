@@ -3,10 +3,6 @@
 /// <reference types="react" />
 /// <reference types="react-dom" />
 
-// Прокидывается через `globals` в jest.screenshots.config.mjs — особый случай только для скриншот-тестов.
-// eslint-disable-next-line no-var
-declare var CORE_COMPONENTS_SERVICE_CDN: string;
-
 declare namespace NodeJS {
     interface ProcessEnv {
         readonly NODE_ENV: 'development' | 'production' | 'test';
@@ -14,6 +10,7 @@ declare namespace NodeJS {
         readonly CORE_COMPONENTS_VARIANT?: 'default' | 'alfasans';
         readonly CORE_COMPONENTS_CARD_IMAGE_BASE_URL: string;
         readonly CORE_COMPONENTS_CDN_ICON_BASE_URL: string;
+        readonly CORE_COMPONENTS_SERVICE_CDN: string;
     }
 }
 

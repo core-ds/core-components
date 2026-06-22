@@ -6,8 +6,6 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createJsWithTsLegacyPreset, pathsToModuleNameMapper } from 'ts-jest';
 
-import { envManager } from './tools/env-manager.js';
-
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const tsconfig = fse.readJsonSync(path.join(dirname, 'tsconfig.test.json'), { encoding: 'utf8' });
@@ -20,6 +18,7 @@ const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.
 const config = {
     ...tsJestPreset,
     testEnvironment: 'node',
+    globalSetup: '<rootDir>/tools/jest/globalSetupScreenshots.mjs',
     setupFilesAfterEnv: ['<rootDir>/tools/jest/setupScreenshotsTests.ts'],
     modulePathIgnorePatterns: ['/dist/'],
     moduleNameMapper: {
@@ -29,9 +28,6 @@ const config = {
     testMatch: ['**/*.screenshots.test.ts?(x)'],
     maxWorkers: 5,
     testTimeout: 200000,
-    globals: {
-        CORE_COMPONENTS_SERVICE_CDN: envManager.CORE_COMPONENTS_SERVICE_CDN,
-    },
 };
 
 export default config;
