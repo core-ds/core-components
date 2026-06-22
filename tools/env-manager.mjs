@@ -12,4 +12,4 @@ const envManager = {
     ),
 };
 
-module.exports = { envManager };
+export { envManager };

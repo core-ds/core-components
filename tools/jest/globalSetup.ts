@@ -1,6 +1,6 @@
-import { envManager } from '../env-manager';
-
 module.exports = async () => {
+    const { envManager } = await import('../env-manager.mjs');
+
     process.env.TZ = 'UTC';
     // need to assign readonly CORE_COMPONENTS_ENV
     Object.assign(process.env, {

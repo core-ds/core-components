@@ -12,7 +12,7 @@ import copy from 'rollup-plugin-copy';
 import { globSync } from 'tinyglobby';
 import ts from 'typescript';
 
-import { envManager } from '../env-manager.js';
+import { envManager } from '../env-manager.mjs';
 import { readPackagesFileSync } from '../read-packages-file.cjs';
 
 import { coreComponentsResolver, externalsResolver } from './core-components-resolver.mjs';
