@@ -1,3 +1,7 @@
+import webpack from 'webpack';
+
+const { DefinePlugin } = webpack;
+
 const decode = (value) => Buffer.from(value, 'base64').toString('utf-8');
 
 const envManager = {
@@ -15,4 +19,25 @@ const jestEnv = {
     ),
 };
 
-export { envManager, jestEnv };
+const createWebpackPlugin = (mode) =>
+    new DefinePlugin({
+        'process.env.BUILD_STORYBOOK_FROM_DIST': JSON.stringify(
+            process.env.BUILD_STORYBOOK_FROM_DIST,
+        ),
+        'process.env.CORE_COMPONENTS_ENV': JSON.stringify(
+            mode /* 'DEVELOPMENT' | 'PRODUCTION' */
+                .toLowerCase(),
+        ),
+        'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(process.env.CORE_COMPONENTS_VARIANT),
+        'process.env.CORE_COMPONENTS_SERVICE_CDN': JSON.stringify(
+            envManager.CORE_COMPONENTS_SERVICE_CDN,
+        ),
+        'process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL': JSON.stringify(
+            envManager.CORE_COMPONENTS_CDN_ICON_BASE_URL,
+        ),
+        'process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL': JSON.stringify(
+            envManager.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
+        ),
+    });
+
+export { envManager, jestEnv, createWebpackPlugin };
