@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, no-nested-ternary */
 
 import json from '@rollup/plugin-json';
-import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 import fse from 'fs-extra';
 import path from 'node:path';
@@ -12,7 +11,7 @@ import copy from 'rollup-plugin-copy';
 import { globSync } from 'tinyglobby';
 import ts from 'typescript';
 
-import { envManager } from '../env-manager.mjs';
+import { createRollupPlugin } from '../env-manager.mjs';
 import { readPackagesFileSync } from '../read-packages-file.cjs';
 
 import { coreComponentsResolver, externalsResolver } from './core-components-resolver.mjs';
@@ -40,21 +39,7 @@ const baseConfig = () =>
         input: globSync('src/**/*.{ts,tsx}', {
             ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
         }),
-        plugins: [
-            json(),
-            replace({
-                values: {
-                    'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production'),
-                    'process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL': JSON.stringify(
-                        envManager.CORE_COMPONENTS_CDN_ICON_BASE_URL,
-                    ),
-                    'process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL': JSON.stringify(
-                        envManager.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
-                    ),
-                },
-                preventAssignment: true,
-            }),
-        ],
+        plugins: [json(), createRollupPlugin()],
     });
 
 const assetsCopyPlugin = (dest) =>

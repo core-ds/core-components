@@ -1,3 +1,4 @@
+import replace from '@rollup/plugin-replace';
 import webpack from 'webpack';
 
 const { DefinePlugin } = webpack;
@@ -45,4 +46,18 @@ const createManagerEnv = (config) => ({
     CORE_COMPONENTS_METRICS: envManager.CORE_COMPONENTS_METRICS,
 });
 
-export { envManager, jestEnv, createWebpackPlugin, createManagerEnv };
+const createRollupPlugin = () =>
+    replace({
+        values: {
+            'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production'),
+            'process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL': JSON.stringify(
+                envManager.CORE_COMPONENTS_CDN_ICON_BASE_URL,
+            ),
+            'process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL': JSON.stringify(
+                envManager.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
+            ),
+        },
+        preventAssignment: true,
+    });
+
+export { envManager, jestEnv, createWebpackPlugin, createManagerEnv, createRollupPlugin };
