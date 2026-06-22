@@ -67,6 +67,11 @@ const createGlobalSetupEnv = () =>
         CORE_COMPONENTS_CARD_IMAGE_BASE_URL: jestEnv.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
     });
 
+const createGlobalSetupScreenshotsEnv = () =>
+    Object.assign(process.env, {
+        CORE_COMPONENTS_SERVICE_CDN: envManager.CORE_COMPONENTS_SERVICE_CDN,
+    });
+
 export {
     envManager,
     jestEnv,
@@ -74,4 +79,5 @@ export {
     createManagerEnv,
     createRollupPlugin,
     createGlobalSetupEnv,
+    createGlobalSetupScreenshotsEnv,
 };
