@@ -5,7 +5,7 @@
 
 // Прокидывается через `globals` в jest.screenshots.config.mjs — особый случай только для скриншот-тестов.
 // eslint-disable-next-line no-var
-declare var SERVICE_CDN: string;
+declare var CORE_COMPONENTS_SERVICE_CDN: string;
 
 declare namespace NodeJS {
     interface ProcessEnv {

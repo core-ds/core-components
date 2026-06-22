@@ -304,7 +304,9 @@ module.exports = {
                 'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(
                     process.env.CORE_COMPONENTS_VARIANT,
                 ),
-                'process.env.SERVICE_CDN': JSON.stringify(envManager.SERVICE_CDN),
+                'process.env.CORE_COMPONENTS_SERVICE_CDN': JSON.stringify(
+                    envManager.CORE_COMPONENTS_SERVICE_CDN,
+                ),
                 'process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL': JSON.stringify(
                     envManager.CORE_COMPONENTS_CDN_ICON_BASE_URL,
                 ),

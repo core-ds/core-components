@@ -1,7 +1,7 @@
 const decode = (value) => Buffer.from(value, 'base64').toString('utf-8');
 
 const envManager = {
-    SERVICE_CDN: decode('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ=='),
+    CORE_COMPONENTS_SERVICE_CDN: decode('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ=='),
     CORE_COMPONENTS_METRICS: decode('bWV0cmljcy5hbGZhYmFuay5ydQ=='),
     CORE_COMPONENTS_CDN_ICON_BASE_URL: decode('aHR0cHM6Ly9hbGZhYmFuay5zZXJ2aWNlY2RuLnJ1L2ljb25z'),
     CORE_COMPONENTS_CARD_IMAGE_BASE_URL: decode(
