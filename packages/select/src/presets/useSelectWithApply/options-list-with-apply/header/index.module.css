@@ -1,7 +1,7 @@
 @import '@alfalab/core-components-vars/src/index.css';
 
 .desktop {
-    padding: var(--gap-12) 18px;
+    padding: var(--gap-12);
 }
 
 .mobile {
