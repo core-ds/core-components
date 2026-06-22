@@ -5,7 +5,7 @@ const { DefinePlugin } = webpack;
 
 const decode = (value) => Buffer.from(value, 'base64').toString('utf-8');
 
-const envManager = {
+const env = {
     CORE_COMPONENTS_SERVICE_CDN: decode('YWxmYWJhbmsuc2VydmljZWNkbi5ydQ=='),
     CORE_COMPONENTS_METRICS: decode('bWV0cmljcy5hbGZhYmFuay5ydQ=='),
     CORE_COMPONENTS_CDN_ICON_BASE_URL: decode('aHR0cHM6Ly9hbGZhYmFuay5zZXJ2aWNlY2RuLnJ1L2ljb25z'),
@@ -30,20 +30,18 @@ const createWebpackPlugin = (mode) =>
                 .toLowerCase(),
         ),
         'process.env.CORE_COMPONENTS_VARIANT': JSON.stringify(process.env.CORE_COMPONENTS_VARIANT),
-        'process.env.CORE_COMPONENTS_SERVICE_CDN': JSON.stringify(
-            envManager.CORE_COMPONENTS_SERVICE_CDN,
-        ),
+        'process.env.CORE_COMPONENTS_SERVICE_CDN': JSON.stringify(env.CORE_COMPONENTS_SERVICE_CDN),
         'process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL': JSON.stringify(
-            envManager.CORE_COMPONENTS_CDN_ICON_BASE_URL,
+            env.CORE_COMPONENTS_CDN_ICON_BASE_URL,
         ),
         'process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL': JSON.stringify(
-            envManager.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
+            env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
         ),
     });
 
 const createManagerEnv = (config) => ({
     ...config,
-    CORE_COMPONENTS_METRICS: envManager.CORE_COMPONENTS_METRICS,
+    CORE_COMPONENTS_METRICS: env.CORE_COMPONENTS_METRICS,
 });
 
 const createRollupPlugin = () =>
@@ -51,10 +49,10 @@ const createRollupPlugin = () =>
         values: {
             'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production'),
             'process.env.CORE_COMPONENTS_CDN_ICON_BASE_URL': JSON.stringify(
-                envManager.CORE_COMPONENTS_CDN_ICON_BASE_URL,
+                env.CORE_COMPONENTS_CDN_ICON_BASE_URL,
             ),
             'process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL': JSON.stringify(
-                envManager.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
+                env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL,
             ),
         },
         preventAssignment: true,
@@ -69,12 +67,10 @@ const createGlobalSetupEnv = () =>
 
 const createGlobalSetupScreenshotsEnv = () =>
     Object.assign(process.env, {
-        CORE_COMPONENTS_SERVICE_CDN: envManager.CORE_COMPONENTS_SERVICE_CDN,
+        CORE_COMPONENTS_SERVICE_CDN: env.CORE_COMPONENTS_SERVICE_CDN,
     });
 
 export {
-    envManager,
-    jestEnv,
     createWebpackPlugin,
     createManagerEnv,
     createRollupPlugin,
