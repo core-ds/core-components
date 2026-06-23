@@ -8,7 +8,7 @@ import { ChevronBackHeavyMIcon } from '@alfalab/icons-glyph/ChevronBackHeavyMIco
 import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHeavyMIcon';
 
 import { GalleryContext } from '../../context';
-import { getImageAlt, getImageKey, isVideo, TestIds } from '../../utils';
+import { getImageKey, isVideo, TestIds } from '../../utils';
 
 import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
@@ -128,18 +128,31 @@ export const ImageViewer: FC = () => {
                 </div>
             )}
 
-            {fullScreen && !isVideo(currentImage?.src) && (
-                <img
-                    src={currentImage?.src}
-                    alt={currentImage ? getImageAlt(currentImage, currentSlideIndex) : ''}
-                    className={styles.fullScreenImage}
-                />
+            {fullScreen && currentImage && !isVideo(currentImage.src) && (
+                <div className={styles.fullScreenFrame}>
+                    <Slide
+                        isActive={true}
+                        containerAspectRatio={swiperAspectRatio}
+                        image={currentImage}
+                        containerHeight={swiperHeight}
+                        meta={imagesMeta[currentSlideIndex]}
+                        index={currentSlideIndex}
+                        imageAspectRatio={
+                            (imagesMeta[currentSlideIndex]?.width || 1) /
+                            (imagesMeta[currentSlideIndex]?.height || 1)
+                        }
+                        slideVisible={false}
+                        fullScreen={true}
+                    />
+                </div>
             )}
 
             <div
                 className={cn(styles.swiperFrame, {
                     [styles.mobile]: isMobile,
                     [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
+                    [styles.fullScreenFrame]: fullScreen,
+                    [styles.hiddenFrame]: fullScreen && !isVideo(currentImage?.src),
                 })}
             >
                 <Swiper {...swiperProps}>
@@ -171,6 +184,7 @@ export const ImageViewer: FC = () => {
                                         index={index}
                                         imageAspectRatio={imageAspectRatio}
                                         slideVisible={slideVisible}
+                                        fullScreen={fullScreen && isVideo(image.src)}
                                     />
                                 )}
                             </SwiperSlide>
