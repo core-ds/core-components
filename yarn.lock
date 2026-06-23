@@ -281,6 +281,7 @@ __metadata:
     "@alfalab/core-components-calendar-input": "npm:^12.0.14"
     "@alfalab/core-components-date-input": "npm:^6.0.10"
     "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-universal-date-input": "npm:^4.0.14"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
