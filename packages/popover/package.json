@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-popover",
-    "version": "8.0.4",
+    "version": "8.0.5",
     "description": "Popover component",
     "keywords": [],
     "license": "MIT",
@@ -13,10 +13,10 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-portal": "^5.0.1",
-        "@alfalab/core-components-shared": "^2.2.0",
+        "@alfalab/core-components-portal": "^5.0.2",
+        "@alfalab/core-components-shared": "^2.2.1",
         "@alfalab/core-components-stack": "^7.0.1",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/hooks": "^1.17.0",
         "@juggle/resize-observer": "^3.3.1",
         "@popperjs/core": "^2.11.8",
         "@types/react-transition-group": "^4.4.12",
@@ -37,5 +37,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.1.0",
-    "varsVersion": "11.0.2"
+    "varsVersion": "11.1.0"
 }

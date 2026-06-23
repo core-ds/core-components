@@ -13,6 +13,23 @@ export interface Coords {
 }
 
 export type CoordsCallback = (coords: Coords) => void;
+export type SwipeCallback = (coords: Coords, data: SwipeData) => void;
+
+export interface SwipeData {
+    pointerId: number | null;
+    touchId: number | null;
+    isTouched: boolean;
+    isMoved: boolean;
+    isScrolling?: boolean;
+    startMoving?: boolean;
+    startTime: number | null;
+}
+
+interface SwipeListeners {
+    onStartSwipe?: SwipeCallback;
+    onSwiping?: SwipeCallback;
+    onStopSwipe?: SwipeCallback;
+}
 
 interface Listeners {
     onStartSwipe?: (coords: Coords) => void;
@@ -43,17 +60,24 @@ function isOutOfRect(
 
 export function useSwipe<T extends Element>(
     direction: 'x' | 'y',
-    listeners: Listeners,
+    listeners: SwipeListeners,
     options: {
         touchAngle?: number;
         threshold?: number;
         edgeThreshold?: Partial<XY>;
+        touchMoveStopPropagation?: boolean;
+        captureEvent?: boolean;
     } = {},
 ): [ref: React.Ref<T>, getStyle: () => React.CSSProperties] {
     const [ref, node] = useRefAsState<T>(null);
     const lastListeners = useRef(listeners);
-
-    const { threshold = 5, touchAngle = 45, edgeThreshold } = options;
+    const {
+        threshold = 5,
+        touchAngle = 45,
+        edgeThreshold,
+        touchMoveStopPropagation = false,
+        captureEvent = false,
+    } = options;
     const xEdgeThreshold = edgeThreshold?.x ?? 10;
     const yEdgeThreshold = edgeThreshold?.y ?? 0;
 
@@ -69,18 +93,12 @@ export function useSwipe<T extends Element>(
                 edgeThreshold: { x: xEdgeThreshold, y: yEdgeThreshold },
             };
 
-            const data: {
-                pointerId: number | null;
-                touchId: number | null;
-                isTouched: boolean;
-                isMoved: boolean;
-                isScrolling?: boolean;
-                startMoving?: boolean;
-            } = {
+            const data: SwipeData = {
                 pointerId: null,
                 touchId: null,
                 isTouched: false,
                 isMoved: false,
+                startTime: null,
             };
 
             const coords: Coords = {
@@ -142,11 +160,12 @@ export function useSwipe<T extends Element>(
                     isMoved: false,
                     isScrolling: undefined,
                     startMoving: undefined,
+                    startTime: Date.now(),
                 });
 
                 event.preventDefault();
 
-                lastListeners.current.onStartSwipe?.(coords);
+                lastListeners.current.onStartSwipe?.(coords, data);
             };
 
             const swipe = (event: PointerEvent | TouchEvent) => {
@@ -216,7 +235,19 @@ export function useSwipe<T extends Element>(
                     return;
                 }
 
-                lastListeners.current.onSwiping?.(coords);
+                if (!data.isMoved) {
+                    data.isMoved = true;
+                }
+
+                if (event.cancelable) {
+                    event.preventDefault();
+                }
+
+                if (touchMoveStopPropagation) {
+                    event.stopPropagation();
+                }
+
+                lastListeners.current.onSwiping?.(coords, data);
             };
 
             const swipeStop = (event: Event) => {
@@ -254,18 +285,26 @@ export function useSwipe<T extends Element>(
                     }
                 }
 
+                lastListeners.current.onStopSwipe?.(coords, data);
+
                 Object.assign(data, {
                     pointerId: null,
                     touchId: null,
+                    isTouched: false,
+                    isMoved: false,
                 });
-
-                lastListeners.current.onStopSwipe?.(coords);
             };
 
             node.addEventListener('touchstart', swipeStart, { passive: false });
             node.addEventListener('pointerdown', swipeStart, { passive: false });
-            document.addEventListener('touchmove', swipe, { passive: false }); // TODO capture
-            document.addEventListener('pointermove', swipe, { passive: false }); // TODO capture
+            document.addEventListener('touchmove', swipe, {
+                passive: false,
+                capture: captureEvent,
+            });
+            document.addEventListener('pointermove', swipe, {
+                passive: false,
+                capture: captureEvent,
+            });
             document.addEventListener('touchend', swipeStop, { passive: true });
             document.addEventListener('pointerup', swipeStop, { passive: true });
             document.addEventListener('pointercancel', swipeStop, { passive: true });
@@ -277,8 +316,8 @@ export function useSwipe<T extends Element>(
             return () => {
                 node.removeEventListener('touchstart', swipeStart);
                 node.removeEventListener('pointerdown', swipeStart);
-                document.removeEventListener('touchmove', swipe); // TODO capture
-                document.removeEventListener('pointermove', swipe); // TODO capture
+                document.removeEventListener('touchmove', swipe, { capture: captureEvent });
+                document.removeEventListener('pointermove', swipe, { capture: captureEvent });
                 document.removeEventListener('touchend', swipeStop);
                 document.removeEventListener('pointerup', swipeStop);
                 document.removeEventListener('pointercancel', swipeStop);
@@ -290,7 +329,16 @@ export function useSwipe<T extends Element>(
         }
 
         return noop;
-    }, [direction, node, threshold, touchAngle, xEdgeThreshold, yEdgeThreshold]);
+    }, [
+        captureEvent,
+        direction,
+        node,
+        threshold,
+        touchAngle,
+        touchMoveStopPropagation,
+        xEdgeThreshold,
+        yEdgeThreshold,
+    ]);
 
     const getStyle = (): React.CSSProperties => ({
         touchAction: { x: 'pan-y', y: 'pan-x' }[direction],

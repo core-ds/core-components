@@ -1,5 +1,33 @@
 # @alfalab/core-components-picker-button
 
+## 13.0.17
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.0
+- @alfalab/core-components-select@19.1.10
+
+## 13.0.16
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.0.5
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-select@19.1.9
+- @alfalab/core-components-mq@6.0.5
+
+## 13.0.15
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-select@19.1.8
+
 ## 13.0.14
 
 ### Patch Changes

@@ -1,5 +1,54 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.1.0
+
+### Minor Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2220](https://github.com/core-ds/core-components/pull/2220)
+
+##### FileUploadItem
+
+- Добавлен тип иконки "архив". Будет отображаться при загрузке расширения `zip`, `rar`, `7z`. Если пользуетесь менее популярными форматами, сообщите в команду поддержки для добавления.
+- Добавлен проп `reupload`. Позволяет отображать кнопку повторной загрузки.
+- Внесены исправления в работу внутреннего контекста.
+- Мелкие внутренние улучшения и оптимизации компонента (невидимые изменения, повышают стабильность и производительность).
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.8
+- @alfalab/core-components-icon-button@8.0.8
+
+## 8.0.10
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-view@5.0.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-typography@6.0.7
+- @alfalab/core-components-icon-button@8.0.7
+
+## 8.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.6
+
 ## 8.0.8
 
 ### Patch Changes

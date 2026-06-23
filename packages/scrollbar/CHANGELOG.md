@@ -1,5 +1,25 @@
 # @alfalab/core-components-scrollbar
 
+## 5.0.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+
+## 5.0.3
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2229](https://github.com/core-ds/core-components/pull/2229)
+
+##### Scrollbar
+
+- Работа с зависимостями
+
 ## 5.0.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-input",
-    "version": "12.0.11",
+    "version": "12.0.14",
     "description": "Calendar input component",
     "keywords": [],
     "license": "MIT",
@@ -13,10 +13,10 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^9.1.6",
-        "@alfalab/core-components-date-input": "^6.0.8",
-        "@alfalab/core-components-mq": "^6.0.4",
-        "@alfalab/core-components-popover": "^8.0.4",
+        "@alfalab/core-components-calendar": "^9.1.9",
+        "@alfalab/core-components-date-input": "^6.0.10",
+        "@alfalab/core-components-mq": "^6.0.5",
+        "@alfalab/core-components-popover": "^8.0.5",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "date-fns": "^4.1.0",
@@ -32,5 +32,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.1.0",
-    "varsVersion": "11.0.2"
+    "varsVersion": "11.1.0"
 }

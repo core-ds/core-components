@@ -1,5 +1,39 @@
 # @alfalab/core-components-typography
 
+## 6.0.8
+
+### Patch Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2253](https://github.com/core-ds/core-components/pull/2253)
+
+##### Typography
+
+- У пропа `font` удалена пометка `deprecated`
+
+## 6.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-skeleton@7.0.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+
+## 6.0.6
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2226](https://github.com/core-ds/core-components/pull/2226)
+
+##### Typography
+
+- Для `alfasans` версии пакета оставлен только один вариант шрифта, проп `font` игнорируется
+
 ## 6.0.5
 
 ### Patch Changes

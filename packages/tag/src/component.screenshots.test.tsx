@@ -243,3 +243,66 @@ describe('Tag | view variants', () => {
 
     availableThemes.map(testCase);
 });
+
+describe('IndicatorTag | main props', () => {
+    const indicatorTagThemes = ['default', 'mobile'];
+
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} | default`,
+                    createSpriteStorybookUrl({
+                        packageName: 'tag',
+                        componentName: 'IndicatorTag',
+                        knobs: {
+                            size: [32, 40],
+                            shape: ['rounded', 'rectangular'],
+                            colors: 'default',
+                            checked: false,
+                            disabled: false,
+                            leftAddons: true,
+                            dataTestId: 'indicator-ready-default',
+                            indicatorProps: [{ mode: 'dot' }, { mode: 'count', value: 7 }],
+                        },
+                        size: { width: 180, height: 90 },
+                    }),
+                ],
+                [
+                    `${theme} | inverted`,
+                    createSpriteStorybookUrl({
+                        packageName: 'tag',
+                        componentName: 'IndicatorTag',
+                        knobs: {
+                            size: [32, 40],
+                            shape: ['rounded', 'rectangular'],
+                            colors: 'inverted',
+                            checked: true,
+                            disabled: false,
+                            leftAddons: true,
+                            dataTestId: 'indicator-ready-inverted',
+                            indicatorProps: [{ mode: 'dot' }, { mode: 'count', value: 7 }],
+                        },
+                        size: { width: 180, height: 90 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (params) => {
+                    const normalizedParams = {
+                        ...params,
+                        currentTestName: params.currentTestName.replace(/^IndicatorTag \| /, ''),
+                    };
+
+                    return `indicator-tag-${theme}-${customSnapshotIdentifier(normalizedParams)}`;
+                },
+            },
+            viewport: { width: 1024, height: 100 },
+            theme,
+        })();
+
+    indicatorTagThemes.map(testCase);
+});

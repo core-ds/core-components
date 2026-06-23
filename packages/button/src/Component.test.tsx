@@ -126,6 +126,32 @@ describe('Button', () => {
             expect(spinner).toHaveClass(className);
         });
 
+        it('should set `labelClassName` class', () => {
+            const className = 'test-class';
+            const text = 'Label';
+
+            const { queryByText } = render(<Button labelClassName={className}>{text}</Button>);
+
+            const label = queryByText(text);
+
+            expect(label).toHaveClass(className);
+        });
+
+        it('should set `hintClassName` class', () => {
+            const className = 'test-class';
+            const text = 'Label';
+
+            const { getByText } = render(
+                <Button hintClassName={className} hint='hint'>
+                    {text}
+                </Button>,
+            );
+
+            const label = getByText(text);
+
+            expect(label.firstElementChild).toHaveClass(className);
+        });
+
         it('should set `size` class', () => {
             const size = 56;
             const { container } = render(<Button size={size} />);

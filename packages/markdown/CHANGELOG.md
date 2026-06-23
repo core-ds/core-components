@@ -1,5 +1,50 @@
 # @alfalab/core-components-markdown
 
+## 3.0.12
+
+### Patch Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2255](https://github.com/core-ds/core-components/pull/2255)
+
+##### Markdown
+
+- Исправлена специфичность селекторов
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.8
+- @alfalab/core-components-list@5.0.8
+
+## 3.0.11
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2245](https://github.com/core-ds/core-components/pull/2245)
+
+##### Markdown
+
+- Откат изменений, связанных со схлопыванием margin #2118. Работа отступов будет пересмотрена в будущих релизах.
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-link@7.0.3
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-typography@6.0.7
+- @alfalab/core-components-list@5.0.7
+
+## 3.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.6
+- @alfalab/core-components-list@5.0.6
+
 ## 3.0.9
 
 ### Patch Changes

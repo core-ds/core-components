@@ -1,5 +1,39 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.11
+
+## 8.1.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.10
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-base-modal@7.1.6
+
+## 8.1.8
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2226](https://github.com/core-ds/core-components/pull/2226)
+
+##### BottomSheet
+
+- Исправлены пути импорта css переменных
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-navigation-bar-private@2.0.9
+
 ## 8.1.7
 
 ### Patch Changes

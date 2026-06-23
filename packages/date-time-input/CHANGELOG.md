@@ -1,5 +1,43 @@
 # @alfalab/core-components-date-time-input
 
+## 6.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.9
+- @alfalab/core-components-icon-button@8.0.8
+- @alfalab/core-components-input@17.1.8
+
+## 6.0.13
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.8
+- @alfalab/core-components-popover@8.0.5
+- @alfalab/core-components-input@17.1.7
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-icon-button@8.0.7
+
+## 6.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-calendar@9.1.7
+
 ## 6.0.11
 
 ### Patch Changes

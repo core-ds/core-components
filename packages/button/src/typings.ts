@@ -224,6 +224,16 @@ type ComponentProps = {
      * Вызывается при завершении или отмене spring-анимации.
      */
     onSpringAnimationEnd?: () => void;
+
+    /**
+     * Дополнительный класс для label
+     */
+    labelClassName?: string;
+
+    /**
+     * Дополнительный класс для hint
+     */
+    hintClassName?: string;
 };
 
 export type PrivateButtonProps = {

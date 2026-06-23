@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-file-upload-item-v1",
-    "version": "3.0.6",
+    "version": "3.0.8",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,10 +13,10 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-icon-button": "^8.0.6",
-        "@alfalab/core-components-link": "^7.0.2",
-        "@alfalab/core-components-shared": "^2.2.0",
-        "@alfalab/core-components-spinner": "^6.0.4",
+        "@alfalab/core-components-icon-button": "^8.0.8",
+        "@alfalab/core-components-link": "^7.0.3",
+        "@alfalab/core-components-shared": "^2.2.1",
+        "@alfalab/core-components-spinner": "^6.0.5",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
@@ -30,5 +30,5 @@
         "directory": "dist"
     },
     "themesVersion": "15.1.0",
-    "varsVersion": "11.0.2"
+    "varsVersion": "11.1.0"
 }

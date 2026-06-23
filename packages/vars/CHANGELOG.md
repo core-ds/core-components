@@ -1,5 +1,17 @@
 # @alfalab/core-components-vars
 
+## 11.1.0
+
+### Minor Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2164](https://github.com/core-ds/core-components/pull/2164)
+
+##### Vars
+
+- Добавлен CSS-миксин `visually-hidden` для скрытия текста визуально с сохранением доступности для screen reader.
+
 ## 11.0.2
 
 ### Patch Changes
