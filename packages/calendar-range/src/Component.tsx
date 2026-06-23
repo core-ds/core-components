@@ -106,6 +106,11 @@ export type CalendarRangeProps = {
      * Дополнительный класс для контейнера календаря
      */
     calendarContainerClassName?: string;
+
+    /**
+     * Автоподмена дат
+     */
+    autoSwap?: boolean;
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
