@@ -136,41 +136,48 @@ export const ImageViewer: FC = () => {
                 />
             )}
 
-            <Swiper {...swiperProps}>
-                {images.map((image, index) => {
-                    const meta = imagesMeta[index];
-
-                    const imageWidth = meta?.width || 1;
-                    const imageHeight = meta?.height || 1;
-
-                    const imageAspectRatio = imageWidth / imageHeight;
-
-                    const slideVisible = index === currentSlideIndex;
-
-                    return (
-                        <SwiperSlide
-                            key={getImageKey(image, index)}
-                            style={{
-                                pointerEvents: slideVisible ? 'auto' : 'none',
-                                transitionProperty: 'opacity',
-                            }}
-                        >
-                            {({ isActive }) => (
-                                <Slide
-                                    isActive={isActive}
-                                    containerAspectRatio={swiperAspectRatio}
-                                    image={image}
-                                    containerHeight={swiperHeight}
-                                    meta={meta}
-                                    index={index}
-                                    imageAspectRatio={imageAspectRatio}
-                                    slideVisible={slideVisible}
-                                />
-                            )}
-                        </SwiperSlide>
-                    );
+            <div
+                className={cn(styles.swiperFrame, {
+                    [styles.mobile]: isMobile,
+                    [styles.mobileVideo]: isMobile && isVideo(currentImage?.src),
                 })}
-            </Swiper>
+            >
+                <Swiper {...swiperProps}>
+                    {images.map((image, index) => {
+                        const meta = imagesMeta[index];
+
+                        const imageWidth = meta?.width || 1;
+                        const imageHeight = meta?.height || 1;
+
+                        const imageAspectRatio = imageWidth / imageHeight;
+
+                        const slideVisible = index === currentSlideIndex;
+
+                        return (
+                            <SwiperSlide
+                                key={getImageKey(image, index)}
+                                style={{
+                                    pointerEvents: slideVisible ? 'auto' : 'none',
+                                    transitionProperty: 'opacity',
+                                }}
+                            >
+                                {({ isActive }) => (
+                                    <Slide
+                                        isActive={isActive}
+                                        containerAspectRatio={swiperAspectRatio}
+                                        image={image}
+                                        containerHeight={swiperHeight}
+                                        meta={meta}
+                                        index={index}
+                                        imageAspectRatio={imageAspectRatio}
+                                        slideVisible={slideVisible}
+                                    />
+                                )}
+                            </SwiperSlide>
+                        );
+                    })}
+                </Swiper>
+            </div>
 
             {showControls && (
                 <div
