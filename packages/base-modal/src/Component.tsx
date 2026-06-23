@@ -226,6 +226,9 @@ export type BaseModalProps = {
      * Хэндлер события прокрутки колесиком
      */
     onWheel?: (e: WheelEvent<HTMLElement>) => void;
+
+    onSpringStart?: () => void;
+    onSpringEnd?: () => void;
 };
 
 export type BaseModalContext = {
@@ -301,9 +304,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             usePortal = true,
             iOSLock = false,
             onWheel,
-            // @ts-ignore
             onSpringStart,
-            // @ts-ignore
             onSpringEnd,
         },
         ref,
@@ -524,10 +525,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             if (exited !== false) return;
             if (open) {
                 playEnter();
-                onSpringStart();
+                onSpringStart?.();
             } else {
                 playExit();
-                onSpringEnd();
+                onSpringEnd?.();
             }
         }, [open, exited, playEnter, playExit, onSpringStart, onSpringEnd]);
 

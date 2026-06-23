@@ -34,7 +34,8 @@ exports[`PopupSheet Snapshot tests should match snapshot 1`] = `
             tabindex="-1"
           >
             <div
-              class="component appear appearActive"
+              class="component component"
+              style="translate: 0px 0px;"
             >
               <div
                 class="content content"

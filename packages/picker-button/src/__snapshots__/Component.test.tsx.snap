@@ -328,7 +328,8 @@ exports[`Snapshots tests should display opened correctly 4`] = `
         tabindex="-1"
       >
         <div
-          class="component modal appear appearActive"
+          class="component modal"
+          style="translate: 0px 0px;"
         >
           <div
             class="content hasFooter hasHeader"
@@ -337,7 +338,7 @@ exports[`Snapshots tests should display opened correctly 4`] = `
               class="wrapper"
             >
               <div
-                class="component component sheet"
+                class="component component sheet withTransition"
                 style="height: unset; max-height: 744px;"
               >
                 <div
@@ -819,7 +820,8 @@ exports[`Snapshots tests should display opened correctly 6`] = `
         tabindex="-1"
       >
         <div
-          class="component modal appear appearActive"
+          class="component modal"
+          style="translate: 0px 0px;"
         >
           <div
             class="content hasFooter hasHeader"

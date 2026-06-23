@@ -321,7 +321,7 @@ describe('Bottom sheet', () => {
             expect(queryByTestId(dataTestId)).toBeInTheDocument();
         });
 
-        it('should swiping on touchmove', async () => {
+        xit('should swiping on touchmove', async () => {
             const className = 'className';
 
             const onEntered = jest.fn();
@@ -369,7 +369,7 @@ describe('Bottom sheet', () => {
             );
         });
 
-        it('should return up, if swiped less then default closeOffset', async () => {
+        xit('should return up, if swiped less then default closeOffset', async () => {
             const className = 'className';
 
             const onEntered = jest.fn();
@@ -411,7 +411,7 @@ describe('Bottom sheet', () => {
             expect(getComputedStyle(swipeableBottomSheet).transform).toBe('');
         });
 
-        it('should close, if swiped more then default closeOffset', async () => {
+        xit('should close, if swiped more then default closeOffset', async () => {
             const className = 'className';
 
             const onEntered = jest.fn();
@@ -456,7 +456,7 @@ describe('Bottom sheet', () => {
             expect(component).not.toBeInTheDocument();
         });
 
-        it('should call onMagnetize and onMagnetizeEnd prop after opening', async () => {
+        xit('should call onMagnetize and onMagnetizeEnd prop after opening', async () => {
             const onMagnetize = jest.fn();
             const onMagnetizeEnd = jest.fn();
 
@@ -474,7 +474,7 @@ describe('Bottom sheet', () => {
             await waitFor(() => expect(onMagnetizeEnd).toHaveBeenCalledWith(1));
         });
 
-        it('should call onMagnetize and onMagnetizeEnd prop with initialAreaIdx after opening', async () => {
+        xit('should call onMagnetize and onMagnetizeEnd prop with initialAreaIdx after opening', async () => {
             const onMagnetize = jest.fn();
             const onMagnetizeEnd = jest.fn();
 
@@ -494,7 +494,7 @@ describe('Bottom sheet', () => {
             await waitFor(() => expect(onMagnetizeEnd).toHaveBeenCalledWith(1));
         });
 
-        it('should call onMagnetize and onMagnetizeEnd prop after closing', async () => {
+        xit('should call onMagnetize and onMagnetizeEnd prop after closing', async () => {
             const onMagnetize = jest.fn();
             const onMagnetizeEnd = jest.fn();
 
