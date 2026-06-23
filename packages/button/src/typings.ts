@@ -5,11 +5,7 @@ import {
     type ReactNode,
 } from 'react';
 
-export type SpringOptions = {
-    stiffness?: number;
-    damping?: number;
-    mass?: number;
-};
+import { type SpringOptions } from '@alfalab/core-components-shared';
 
 export type StyleColors = {
     default: {

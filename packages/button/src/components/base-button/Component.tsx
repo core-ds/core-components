@@ -10,12 +10,11 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, useSpringAnimation } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
 import { LOADER_MIN_DISPLAY_INTERVAL } from '../../constants/loader-min-display-interval';
-import { useSpringAnimation } from '../../hooks';
 import { type CommonButtonProps, type PrivateButtonProps } from '../../typings';
 
 import defaultColors from './default.module.css';

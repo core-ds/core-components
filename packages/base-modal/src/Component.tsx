@@ -9,6 +9,7 @@ import React, {
     type Ref,
     useCallback,
     useEffect,
+    useLayoutEffect,
     useMemo,
     useRef,
     useState,
@@ -17,14 +18,14 @@ import React, {
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { RemoveScroll } from 'react-remove-scroll';
-import { CSSTransition } from 'react-transition-group';
+// import { CSSTransition } from 'react-transition-group';
 import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, type PortalProps } from '@alfalab/core-components-portal';
-import { getScrollbarSize, isIOS } from '@alfalab/core-components-shared';
+import { getScrollbarSize, isIOS, useSpringTransition } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
@@ -300,6 +301,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             usePortal = true,
             iOSLock = false,
             onWheel,
+            // @ts-ignore
+            onSpringStart,
+            // @ts-ignore
+            onSpringEnd,
         },
         ref,
     ) => {
@@ -499,6 +504,33 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             [handleScroll, onUnmount, removeResizeHandle, transitionProps],
         );
 
+        const { playEnter, playExit } = useSpringTransition(
+            componentNodeRef,
+            'slideFromRight',
+            undefined,
+            {
+                onEntered: () => handleEntered(componentNodeRef.current!, false),
+                onExited: () => handleExited(componentNodeRef.current!),
+            },
+        );
+
+        useLayoutEffect(() => {
+            if (open && isExited) {
+                setExited(false);
+            }
+        }, [open, isExited]);
+
+        useLayoutEffect(() => {
+            if (exited !== false) return;
+            if (open) {
+                playEnter();
+                onSpringStart();
+            } else {
+                playExit();
+                onSpringEnd();
+            }
+        }, [open, exited, playEnter, playExit, onSpringStart, onSpringEnd]);
+
         useEffect(() => {
             if (open && isExited) {
                 /*
@@ -524,8 +556,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                         restoreContainerStyles(el);
                     };
                 }
-
-                setExited(false);
             }
 
             if (!open) {
@@ -641,46 +671,46 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                             zIndex: computedZIndex,
                                         }}
                                     >
-                                        <CSSTransition
-                                            appear={true}
-                                            timeout={200}
-                                            classNames={styles}
-                                            nodeRef={componentNodeRef}
-                                            {...transitionProps}
-                                            in={open}
-                                            onEntered={handleEntered}
-                                            onExited={handleExited}
+                                        {/* <CSSTransition */}
+                                        {/*     appear={true} */}
+                                        {/*     timeout={200} */}
+                                        {/*     classNames={styles} */}
+                                        {/*     nodeRef={componentNodeRef} */}
+                                        {/*     {...transitionProps} */}
+                                        {/*     in={open} */}
+                                        {/*     onEntered={handleEntered} */}
+                                        {/*     onExited={handleExited} */}
+                                        {/* > */}
+                                        <div
+                                            {...componentDivProps}
+                                            className={cn(
+                                                styles.component,
+                                                className,
+                                                componentDivProps?.className,
+                                            )}
+                                            ref={mergeRefs([
+                                                componentRef,
+                                                componentNodeRef,
+                                                componentDivProps?.ref || null,
+                                            ])}
                                         >
                                             <div
-                                                {...componentDivProps}
+                                                {...contentProps}
                                                 className={cn(
-                                                    styles.component,
-                                                    className,
-                                                    componentDivProps?.className,
+                                                    styles.content,
+                                                    contentClassName,
+                                                    contentProps?.className,
+                                                    {
+                                                        [styles.hasFooter]: hasFooter,
+                                                        [styles.hasHeader]: hasHeader,
+                                                    },
                                                 )}
-                                                ref={mergeRefs([
-                                                    componentRef,
-                                                    componentNodeRef,
-                                                    componentDivProps?.ref || null,
-                                                ])}
+                                                ref={contentElementRef}
                                             >
-                                                <div
-                                                    {...contentProps}
-                                                    className={cn(
-                                                        styles.content,
-                                                        contentClassName,
-                                                        contentProps?.className,
-                                                        {
-                                                            [styles.hasFooter]: hasFooter,
-                                                            [styles.hasHeader]: hasHeader,
-                                                        },
-                                                    )}
-                                                    ref={contentElementRef}
-                                                >
-                                                    {children}
-                                                </div>
+                                                {children}
                                             </div>
-                                        </CSSTransition>
+                                        </div>
+                                        {/* </CSSTransition> */}
                                     </div>
                                 </React.Fragment>
                             </RemoveScroll>

@@ -2,9 +2,13 @@ import { type RefObject, useCallback, useEffect, useRef, useState } from 'react'
 import { spring } from 'motion';
 import { animate } from 'motion/mini';
 
-import { type SpringOptions } from '../typings';
+export type SpringOptions = {
+    stiffness?: number;
+    damping?: number;
+    mass?: number;
+};
 
-export type AnimationType =
+type AnimationType =
     | 'shake'
     | 'pulse'
     | 'bounce'
@@ -87,6 +91,84 @@ type UseSpringAnimationCallbacks = {
     onStart?: (cancel: () => void) => void;
     onEnd?: () => void;
 };
+
+type TransitionAnimationType = 'slideFromRight';
+
+type TransitionPreset = {
+    defaultSpring: Required<SpringOptions>;
+    enter: AnimationValues;
+    exit: AnimationValues;
+};
+
+const TRANSITION_PRESETS: Record<TransitionAnimationType, TransitionPreset> = {
+    slideFromRight: {
+        defaultSpring: { stiffness: 320, damping: 28, mass: 1.5 },
+        enter: { translate: ['100% 0px', '0px 0px'] },
+        exit: { translate: ['0px 0px', '100% 0px'] },
+    },
+};
+
+type UseSpringTransitionCallbacks = {
+    onEntered?: () => void;
+    onExited?: () => void;
+};
+
+export function useSpringTransition<T extends HTMLElement>(
+    ref: RefObject<T | null>,
+    type: TransitionAnimationType,
+    springOptions?: SpringOptions,
+    callbacks?: UseSpringTransitionCallbacks,
+): {
+    playEnter: () => void;
+    playExit: () => void;
+} {
+    const animationRef = useRef<ReturnType<typeof animate> | null>(null);
+    const callbacksRef = useRef(callbacks);
+    callbacksRef.current = callbacks;
+    const springOptionsRef = useRef(springOptions);
+    springOptionsRef.current = springOptions;
+
+    const playEnter = useCallback(() => {
+        if (!ref.current) return;
+        const preset = TRANSITION_PRESETS[type];
+        const merged = { ...preset.defaultSpring, ...springOptionsRef.current };
+
+        animationRef.current?.cancel();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        animationRef.current = animate(ref.current, preset.enter as any, {
+            type: spring,
+            ...merged,
+        });
+        animationRef.current.then(() => {
+            callbacksRef.current?.onEntered?.();
+        });
+    }, [ref, type]);
+
+    const playExit = useCallback(() => {
+        if (!ref.current) return;
+        const preset = TRANSITION_PRESETS[type];
+        const merged = { ...preset.defaultSpring, ...springOptionsRef.current };
+
+        animationRef.current?.cancel();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        animationRef.current = animate(ref.current, preset.exit as any, {
+            type: spring,
+            ...merged,
+        });
+        animationRef.current.then(() => {
+            callbacksRef.current?.onExited?.();
+        });
+    }, [ref, type]);
+
+    useEffect(
+        () => () => {
+            animationRef.current?.cancel();
+        },
+        [],
+    );
+
+    return { playEnter, playExit };
+}
 
 export function useSpringAnimation<T extends HTMLElement>(
     ref: RefObject<T | null>,

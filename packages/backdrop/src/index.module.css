@@ -8,30 +8,31 @@
     bottom: var(--gap-0);
     top: var(--gap-0);
     left: var(--gap-0);
+    background-color: var(--backdrop-visible-background);
     -webkit-tap-highlight-color: transparent; /* убирает хайлайт */
 }
 
 .appear,
 .enter {
-    background-color: var(--backdrop-hidden-background);
+    opacity: 0;
 }
 
 .appearActive,
 .enterActive,
 .appearDone,
 .enterDone {
-    background-color: var(--backdrop-visible-background);
-    transition: background-color 200ms ease-in;
+    opacity: 1;
+    transition: opacity 200ms ease-in;
 }
 
 .exit {
-    background-color: var(--backdrop-visible-background);
+    opacity: 1;
 }
 
 .exitActive,
 .exitDone {
-    background-color: var(--backdrop-hidden-background);
-    transition: background-color 200ms ease-out;
+    opacity: 0;
+    transition: opacity 200ms ease-out;
 }
 
 .transparent.transparent {
