@@ -8,7 +8,7 @@ exports[`SidePanelDesktop snapshots tests should match snapshot 1`] = `
   tabindex="-1"
 >
   <div
-    class="component component size-500 hidden rightPlacement"
+    class="component size-500 hidden rightPlacement enterRight enterActive"
   >
     <div
       class="content hasFooter hasHeader"
@@ -150,7 +150,7 @@ exports[`SidePanelMobile snapshots tests should match snapshot 1`] = `
   tabindex="-1"
 >
   <div
-    class="component component"
+    class="component appear appearActive"
   >
     <div
       class="content content hasFooter hasHeader"

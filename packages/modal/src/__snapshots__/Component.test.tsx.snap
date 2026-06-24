@@ -8,7 +8,7 @@ exports[`ModalDesktop snapshots tests should match snapshot 1`] = `
   tabindex="-1"
 >
   <div
-    class="component component size-500"
+    class="component size-500 appear appearActive"
   >
     <div
       class="content hasFooter hasHeader"
@@ -146,7 +146,7 @@ exports[`ModalMobile snapshots tests should match snapshot 1`] = `
   tabindex="-1"
 >
   <div
-    class="component component"
+    class="component appear appearActive"
   >
     <div
       class="content content hasFooter hasHeader"

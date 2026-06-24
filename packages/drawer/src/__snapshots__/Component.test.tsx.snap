@@ -9,7 +9,7 @@ exports[`Drawer should match snapshot 1`] = `
   tabindex="-1"
 >
   <div
-    class="component component rightPlacement"
+    class="component rightPlacement enterRight enterActive"
   >
     <div
       class="content"

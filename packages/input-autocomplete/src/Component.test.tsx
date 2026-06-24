@@ -249,7 +249,7 @@ describe('InputAutocompleteMobile', () => {
     });
 
     describe('Interactions tests', () => {
-        xit('should close on cancel button click', async () => {
+        it('should close on cancel button click', async () => {
             const closeButtonId = dataTestId + '-clear';
             const handleEnter = jest.fn();
 
@@ -317,7 +317,7 @@ describe('InputAutocompleteMobile', () => {
             expect(cb).toHaveBeenCalledTimes(1);
         });
 
-        xit('should call onBlur', async () => {
+        it('should call onBlur', async () => {
             const onBlur = jest.fn();
             const onExited = jest.fn();
             const { findByText } = render(
