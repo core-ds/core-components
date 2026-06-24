@@ -79,20 +79,16 @@
     border-radius: var(--select-option-border-radius);
 }
 
-.list {
-    display: inline-block;
-
-    *:not(.matchContent) & {
-        min-width: 100%;
-    }
-}
-
 .optionsList {
     margin-right: calc(-1 * var(--select-options-list-right-padding));
     margin-left: calc(-1 * var(--select-options-list-left-padding));
     min-width: calc(
         100% + var(--select-options-list-right-padding) + var(--select-options-list-left-padding)
     );
+}
+
+.list {
+    display: inline-block;
 }
 
 .matchContent {
@@ -107,8 +103,14 @@
         }
 
         .list {
+            display: inline-block;
             flex-grow: 1;
         }
+    }
+
+    *:not(&) .list {
+        min-width: 100%;
+        max-width: 100%;
     }
 }
 
@@ -134,10 +136,10 @@
 
     :global(.simplebar-track) {
         &:global(.simplebar-vertical) {
-            right: calc(-1 * var(--select-options-list-right-padding));
+            /* right: calc(-1 * var(--select-options-list-right-padding)); */
         }
         &:global(.simplebar-horizontal) {
-            bottom: calc(-1 * var(--select-options-list-bottom-padding));
+            /* bottom: calc(-1 * var(--select-options-list-bottom-padding)); */
         }
     }
 }
