@@ -31,6 +31,7 @@
 .emptyPlaceholder {
     padding: var(--gap-16) var(--gap-12);
     color: var(--select-options-list-empty-placeholder-color);
+    flex: 1; /* needed in mobile */
 }
 
 .size-64 .emptyPlaceholder,
