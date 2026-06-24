@@ -104,7 +104,7 @@ render(() => {
     const [contentButton, setContentButton] = React.useState(false);
 
     const [disabled, setDisabled] = React.useState(false);
-
+    const [spring, setSpring] = React.useState(false);
 
     const getButtonSize = () => {
         return 56;
@@ -112,7 +112,17 @@ render(() => {
 
     return (
         <React.Fragment>
-            <Button disabled={disabled} onClick={() => setOpen((prev) => !prev)}>Показать сайдпанель</Button>
+            <Button disabled={disabled} onClick={() => setOpen((prev) => !prev)}>
+                Показать сайдпанель
+            </Button>
+            <Gap size={12} />
+            <div>
+                <Switch
+                    label='Spring'
+                    checked={spring}
+                    onChange={() => setSpring((prev) => !prev)}
+                />
+            </div>
             <UniversalModalDesktop
                 open={open}
                 width={modalWidth}
@@ -122,6 +132,7 @@ render(() => {
                 onClose={() => setOpen(false)}
                 onSpringStart={() => setDisabled(true)}
                 onSpringEnd={() => setDisabled(false)}
+                springAnimation={spring}
             >
                 <UniversalModalDesktop.Header
                     sticky={true}
