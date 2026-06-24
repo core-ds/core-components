@@ -3,7 +3,7 @@
 
 .footer {
     background-color: var(--color-light-base-bg-primary);
-    padding: var(--gap-12) var(--gap-6) var(--gap-6);
+    padding: var(--gap-12);
     outline: none;
 
     & > .button + .button {

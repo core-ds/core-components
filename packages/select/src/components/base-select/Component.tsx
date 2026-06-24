@@ -614,6 +614,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         setHighlightedIndex={view === 'desktop' ? setHighlightedIndex : undefined}
                         className={cn(
                             {
+                                [styles.optionsList]: view === 'desktop',
                                 [mobileStyles.optionsList]: view === 'mobile',
                             },
                             listProps.className,

@@ -23,13 +23,12 @@
 
 .optionsListWrapper {
     position: relative;
-    padding-top: var(--select-options-list-top-padding);
-    padding-right: calc(1 * var(--select-options-list-right-padding));
-    padding-bottom: var(--select-options-list-bottom-padding);
+    padding-right: var(--select-options-list-right-padding);
     padding-left: var(--select-options-list-left-padding);
     box-shadow: var(--select-options-list-box-shadow);
     border-radius: var(--select-options-list-border-radius);
     background: var(--select-option-background);
+    overflow: hidden;
 }
 
 .optionsListBorder {
@@ -67,6 +66,8 @@
 }
 
 .search {
+    margin: var(--gap-6) var(--gap-6) var(--gap-0);
+
     &:last-child {
         margin-bottom: var(--gap-6);
     }
@@ -82,6 +83,12 @@
     *:not(.matchContent) & {
         min-width: 100%;
     }
+}
+
+.optionsList {
+    margin-right: calc(-1 * var(--gap-6));
+    margin-left: calc(-1 * var(--gap-6));
+    min-width: calc(100% + 2 * var(--gap-6));
 }
 
 .matchContent {
@@ -102,7 +109,10 @@
 }
 
 .scrollbar {
+    margin-right: var(--gap-6);
+    margin-left: var(--gap-6);
     &:first-child {
+        margin-top: var(--gap-6);
         &,
         .scrollable {
             border-top-left-radius: var(--select-option-border-radius);
@@ -110,10 +120,20 @@
         }
     }
     &:last-child {
+        margin-bottom: var(--gap-6);
         &,
         .scrollable {
             border-bottom-left-radius: var(--select-option-border-radius);
             border-bottom-right-radius: var(--select-option-border-radius);
+        }
+    }
+
+    :global(.simplebar-track) {
+        &:global(.simplebar-vertical) {
+            right: calc(-1 * var(--gap-6));
+        }
+        &:global(.simplebar-horizontal) {
+            bottom: calc(-1 * var(--gap-6));
         }
     }
 }
