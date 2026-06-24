@@ -18,7 +18,6 @@
         "@alfalab/core-components-spinner": "^6.0.5",
         "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
-        "motion": "^12.40.0",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"
     },
