@@ -52,6 +52,20 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
     return (
         <BaseModal
             {...restProps}
+            springAnimation={
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                restProps.springAnimation
+                    ? {
+                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                          // @ts-ignore
+                          ...restProps.springAnimation,
+                          springOptions: { stiffness: 350, damping: 30, mass: 1 },
+                          enter: { translate: ['0px 15px', '0px 0px'], opacity: [0, 1] },
+                          exit: { translate: ['0px 0px', '0px 15px'], opacity: [1, 0] },
+                      }
+                    : undefined
+            }
             open={open}
             dataTestId={dataTestId}
             ref={ref}

@@ -19,7 +19,7 @@ type AnimationType =
     | 'nod'
     | 'rubber';
 
-type AnimationValues = Record<string, [number | string, number | string]>;
+export type AnimationValues = Record<string, [number | string, number | string]>;
 
 type AnimationPreset = {
     defaultSpring: Required<SpringOptions>;
@@ -92,22 +92,6 @@ type UseSpringAnimationCallbacks = {
     onEnd?: () => void;
 };
 
-type TransitionAnimationType = 'slideFromRight';
-
-type TransitionPreset = {
-    defaultSpring: Required<SpringOptions>;
-    enter: AnimationValues;
-    exit: AnimationValues;
-};
-
-const TRANSITION_PRESETS: Record<TransitionAnimationType, TransitionPreset> = {
-    slideFromRight: {
-        defaultSpring: { stiffness: 320, damping: 28, mass: 1.5 },
-        enter: { translate: ['100% 0px', '0px 0px'] },
-        exit: { translate: ['0px 0px', '100% 0px'] },
-    },
-};
-
 type UseSpringTransitionCallbacks = {
     onEntered?: () => void;
     onExited?: () => void;
@@ -115,8 +99,9 @@ type UseSpringTransitionCallbacks = {
 
 export function useSpringTransition<T extends HTMLElement>(
     ref: RefObject<T | null>,
-    type: TransitionAnimationType,
-    springOptions?: SpringOptions,
+    springOptions: SpringOptions,
+    enter: AnimationValues,
+    exit: AnimationValues,
     callbacks?: UseSpringTransitionCallbacks,
 ): {
     playEnter: () => void;
@@ -124,41 +109,42 @@ export function useSpringTransition<T extends HTMLElement>(
 } {
     const animationRef = useRef<ReturnType<typeof animate> | null>(null);
     const callbacksRef = useRef(callbacks);
+
     callbacksRef.current = callbacks;
+
     const springOptionsRef = useRef(springOptions);
+
     springOptionsRef.current = springOptions;
 
     const playEnter = useCallback(() => {
         if (!ref.current) return;
-        const preset = TRANSITION_PRESETS[type];
-        const merged = { ...preset.defaultSpring, ...springOptionsRef.current };
+        const merged = { ...springOptionsRef.current };
 
         animationRef.current?.cancel();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        animationRef.current = animate(ref.current, preset.enter as any, {
+
+        animationRef.current = animate(ref.current, enter, {
             type: spring,
             ...merged,
         });
         animationRef.current.then(() => {
             callbacksRef.current?.onEntered?.();
         });
-    }, [ref, type]);
+    }, [enter, ref]);
 
     const playExit = useCallback(() => {
         if (!ref.current) return;
-        const preset = TRANSITION_PRESETS[type];
-        const merged = { ...preset.defaultSpring, ...springOptionsRef.current };
+        const merged = { ...springOptionsRef.current };
 
         animationRef.current?.cancel();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        animationRef.current = animate(ref.current, preset.exit as any, {
+
+        animationRef.current = animate(ref.current, exit, {
             type: spring,
             ...merged,
         });
         animationRef.current.then(() => {
             callbacksRef.current?.onExited?.();
         });
-    }, [ref, type]);
+    }, [exit, ref]);
 
     useEffect(
         () => () => {

@@ -18,7 +18,6 @@ import React, {
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { RemoveScroll } from 'react-remove-scroll';
-import { CSSTransition } from 'react-transition-group';
 import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
@@ -26,14 +25,15 @@ import cn from 'classnames';
 import { Backdrop as DefaultBackdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, type PortalProps } from '@alfalab/core-components-portal';
 import {
+    type AnimationValues,
     getScrollbarSize,
     isIOS,
     type SpringOptions,
-    useSpringTransition,
 } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
+import { AnimationWrapper, type AnimationWrapperConfig } from './components/animation-wrapper';
 import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {
     handleContainer,
@@ -232,12 +232,14 @@ export type BaseModalProps = {
      */
     onWheel?: (e: WheelEvent<HTMLElement>) => void;
 
-    onSpringStart?: () => void;
-    onSpringEnd?: () => void;
     springAnimation?:
         | boolean
         | {
-              springOptions?: SpringOptions;
+              springOptions: SpringOptions;
+              onSpringStart?: () => void;
+              onSpringEnd?: () => void;
+              enter: AnimationValues;
+              exit: AnimationValues;
           };
 };
 
@@ -278,84 +280,6 @@ export const BaseModalContext = React.createContext<BaseModalContext>({
     setFooterHighlighted: () => {},
 });
 
-type CSSAnimationProps = {
-    children: React.ReactNode;
-    useSpring?: false;
-    cssTransitionProps: CSSTransitionProps;
-};
-
-type SpringAnimationInnerProps = {
-    open: boolean;
-    exited: boolean | null;
-    nodeRef: React.RefObject<HTMLDivElement>;
-    springOptions?: SpringOptions;
-    onEntered: () => void;
-    onExited: () => void;
-    onSpringStart?: () => void;
-    onSpringEnd?: () => void;
-};
-
-type SpringAnimationProps = {
-    children: React.ReactNode;
-    useSpring: true;
-    springProps: SpringAnimationInnerProps;
-};
-
-type AnimationWrapperConfig =
-    | Omit<CSSAnimationProps, 'children'>
-    | Omit<SpringAnimationProps, 'children'>;
-
-const SpringAnimationInner = ({
-    children,
-    open,
-    exited,
-    nodeRef,
-    springOptions,
-    onEntered,
-    onExited,
-    onSpringStart,
-    onSpringEnd,
-}: SpringAnimationInnerProps & { children: React.ReactNode }) => {
-    const fallbackRef = useRef<HTMLDivElement>(null);
-
-    const { playEnter, playExit } = useSpringTransition(
-        nodeRef ?? fallbackRef,
-        'slideFromRight',
-        springOptions,
-        { onEntered, onExited },
-    );
-
-    useLayoutEffect(() => {
-        if (exited !== false) return;
-        if (open) {
-            playEnter();
-            onSpringStart?.();
-        } else {
-            playExit();
-            onSpringEnd?.();
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [open, exited]);
-
-    return children;
-};
-
-const AnimationWrapper = ({
-    config,
-    children,
-}: {
-    config: AnimationWrapperConfig;
-    children: React.ReactNode;
-}) => {
-    if (config.useSpring) {
-        return <SpringAnimationInner {...config.springProps}>{children}</SpringAnimationInner>;
-    }
-
-    const { cssTransitionProps } = config;
-
-    return <CSSTransition {...cssTransitionProps}>{children}</CSSTransition>;
-};
-
 export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
     (
         {
@@ -392,8 +316,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             usePortal = true,
             iOSLock = false,
             onWheel,
-            onSpringStart,
-            onSpringEnd,
             springAnimation,
         },
         ref,
@@ -699,13 +621,19 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                       exited,
                       nodeRef: componentNodeRef,
                       springOptions:
-                          typeof springAnimation === 'object'
-                              ? springAnimation.springOptions
-                              : undefined,
+                          typeof springAnimation === 'object' ? springAnimation.springOptions : {},
+                      enter: typeof springAnimation === 'object' ? springAnimation.enter : {},
+                      exit: typeof springAnimation === 'object' ? springAnimation.exit : {},
                       onEntered: () => handleEntered(componentNodeRef.current!, false),
                       onExited: () => handleExited(componentNodeRef.current!),
-                      onSpringStart,
-                      onSpringEnd,
+                      onSpringStart:
+                          typeof springAnimation === 'object'
+                              ? springAnimation.onSpringStart
+                              : undefined,
+                      onSpringEnd:
+                          typeof springAnimation === 'object'
+                              ? springAnimation.onSpringEnd
+                              : undefined,
                   },
               }
             : {

@@ -49,6 +49,20 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
     return (
         <BaseModal
             {...restProps}
+            springAnimation={
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                restProps.springAnimation
+                    ? {
+                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                          // @ts-ignore
+                          ...restProps.springAnimation,
+                          springOptions: { stiffness: 320, damping: 28, mass: 1.5 },
+                          enter: { translate: ['100% 0px', '0px 0px'] },
+                          exit: { translate: ['0px 0px', '100% 0px'] },
+                      }
+                    : undefined
+            }
             open={open}
             dataTestId={dataTestId}
             ref={ref}
