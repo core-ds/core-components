@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-range",
-    "version": "9.0.13",
+    "version": "9.1.0",
     "description": "Calendar range component",
     "keywords": [],
     "license": "MIT",
@@ -13,10 +13,11 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^9.1.8",
-        "@alfalab/core-components-calendar-input": "^12.0.13",
-        "@alfalab/core-components-date-input": "^6.0.9",
+        "@alfalab/core-components-calendar": "^9.1.9",
+        "@alfalab/core-components-calendar-input": "^12.0.14",
+        "@alfalab/core-components-date-input": "^6.0.10",
         "@alfalab/core-components-shared": "^2.2.1",
+        "@alfalab/core-components-universal-date-input": "^4.0.14",
         "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
         "date-fns": "^4.1.0",

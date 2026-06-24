@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-number-input",
-    "version": "4.0.9",
+    "version": "4.0.10",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,8 +14,8 @@
     },
     "dependencies": {
         "@alfalab/core-components-haptics": "^0.0.1",
-        "@alfalab/core-components-icon-button": "^8.0.7",
-        "@alfalab/core-components-input": "^17.1.7",
+        "@alfalab/core-components-icon-button": "^8.0.8",
+        "@alfalab/core-components-input": "^17.1.8",
         "@alfalab/core-components-mq": "^6.0.5",
         "@alfalab/core-components-shared": "^2.2.1",
         "@alfalab/icons-glyph": "^2.260.0",

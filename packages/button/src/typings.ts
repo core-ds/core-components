@@ -121,6 +121,16 @@ type ComponentProps = {
      * @default selection
      */
     'data-haptic-preset'?: HapticConfig['data-haptic-preset'];
+
+    /**
+     * Дополнительный класс для label
+     */
+    labelClassName?: string;
+
+    /**
+     * Дополнительный класс для hint
+     */
+    hintClassName?: string;
 };
 
 export type PrivateButtonProps = {
