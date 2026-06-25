@@ -9,11 +9,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import {
-    type AccordionAnimationVariant,
-    useAccordionContentAnimation,
-    useAccordionSpringAnimation,
-} from '@alfalab/core-components-shared';
+import { useAccordionSpringAnimation } from '@alfalab/core-components-shared';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
@@ -93,7 +89,7 @@ export type AccordionProps = {
      */
     dataTestId?: string;
 
-    animationVariant?: AccordionAnimationVariant;
+    animationVariant?: 'spring' | 'css';
 } & AnchorHTMLAttributes<HTMLDivElement>;
 
 export const Accordion: FC<AccordionProps> = ({
@@ -132,9 +128,6 @@ export const Accordion: FC<AccordionProps> = ({
         [measureRef],
     );
 
-    useAccordionSpringAnimation(bodyRef, Boolean(isExpanded), contentHeight, animationVariant);
-    useAccordionContentAnimation(contentAnimRef, Boolean(isExpanded), animationVariant);
-
     const controlContent =
         control === undefined ? (
             <DefaultControlIcon expanded={isExpanded} startPosition={isStartPosition} />
@@ -158,13 +151,21 @@ export const Accordion: FC<AccordionProps> = ({
             children
         );
 
+    const { playEnter, playExit } = useAccordionSpringAnimation(bodyRef, contentAnimRef);
+
     const handleExpandedChange = useCallback(() => {
         if (uncontrolled) {
             setExpanded(!isExpanded);
         }
 
+        if (isExpanded) {
+            playExit();
+        } else {
+            playEnter();
+        }
+
         onExpandedChange?.(!isExpanded);
-    }, [isExpanded, onExpandedChange, uncontrolled]);
+    }, [isExpanded, onExpandedChange, playEnter, playExit, uncontrolled]);
 
     const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
@@ -200,13 +201,8 @@ export const Accordion: FC<AccordionProps> = ({
             </div>
 
             {animationVariant === 'spring' ? (
-                <div ref={bodyRef} className={cn(styles.body2, bodyClassName)}>
-                    {/* paddingTop сброшен — отступ анимируется через marginTop на родителе */}
-                    <div
-                        className={cn(styles.bodyContent, bodyContentClassName)}
-                        ref={contentRef}
-                        style={{ paddingTop: 0 }}
-                    >
+                <div ref={bodyRef} className={cn(styles.spring, styles.container)}>
+                    <div className={cn(styles.content)} ref={contentRef}>
                         {bodyContent}
                     </div>
                 </div>

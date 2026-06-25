@@ -1,97 +1,77 @@
-import { type RefObject, useEffect, useRef } from 'react';
+import { type RefObject, useRef } from 'react';
 import { spring } from 'motion';
 import { animate } from 'motion/mini';
 
-import { ACCORDION_COLLAPSE_SPRING, ACCORDION_EXPAND_SPRING } from './spring-options';
-
-export type AccordionAnimationVariant = 'spring' | 'css';
-
-const BODY_MARGIN_TOP = 12;
-const CLOSE_DELAY = 0.075;
-
 export function useAccordionSpringAnimation<T extends HTMLElement>(
     ref: RefObject<T | null>,
-    isExpanded: boolean,
-    contentHeight: number,
-    variant: AccordionAnimationVariant = 'css',
-): void {
+    refContent: RefObject<T | null>,
+) {
     const animationRef = useRef<ReturnType<typeof animate> | null>(null);
-    const isInitialMount = useRef(true);
-    const prevIsExpanded = useRef(isExpanded);
-    const isExpandedRef = useRef(isExpanded);
 
-    isExpandedRef.current = isExpanded;
-
-    useEffect(() => {
-        if (variant !== 'spring' || !ref.current) return;
+    const playEnter = () => {
         const el = ref.current;
 
-        if (isInitialMount.current) {
-            isInitialMount.current = false;
-            prevIsExpanded.current = isExpanded;
-
-            if (isExpanded) {
-                el.style.visibility = 'visible';
-                el.style.height = 'auto';
-                el.style.marginTop = `${BODY_MARGIN_TOP}px`;
-            } else {
-                el.style.visibility = 'hidden';
-                el.style.height = '0px';
-                el.style.marginTop = '0px';
-            }
-
+        if (!el) {
             return;
         }
 
-        const expandedChanged = prevIsExpanded.current !== isExpanded;
+        animationRef.current?.stop();
 
-        prevIsExpanded.current = isExpanded;
+        const content = refContent.current;
 
-        if (!expandedChanged) {
-            if (isExpanded && !animationRef.current) {
-                el.style.height = `${contentHeight}px`;
-            }
+        if (content) {
+            animate(
+                content,
+                { filter: ['blur(2.5px)', 'blur(0px)'] },
+                { type: spring, stiffness: 315, damping: 30, mass: 0.74 },
+            );
+        }
 
+        // scrollHeight даёт реальную высоту контента даже когда элемент height:0
+        const targetHeight = el.scrollHeight;
+
+        animationRef.current = animate(
+            el,
+            { height: targetHeight },
+            { type: spring, stiffness: 315, damping: 30, mass: 1.74 },
+        );
+
+        // После завершения ставим auto, чтобы контент мог менять размер
+        animationRef.current.then(() => {
+            el.style.height = 'auto';
+        });
+    };
+
+    const playExit = () => {
+        const el = ref.current;
+
+        if (!el) {
             return;
         }
 
-        const currentHeight = el.offsetHeight;
-        const currentMarginTop = parseFloat(el.style.marginTop) || 0;
+        animationRef.current?.stop();
 
-        animationRef.current?.cancel();
-        el.style.height = `${currentHeight}px`;
-        el.style.marginTop = `${currentMarginTop}px`;
-        animationRef.current = null;
-
-        if (isExpanded) {
-            el.style.visibility = 'visible';
-            animationRef.current = animate(
-                el,
-                { height: contentHeight, marginTop: BODY_MARGIN_TOP },
-                { type: spring, ...ACCORDION_EXPAND_SPRING },
-            );
-            animationRef.current.then(() => {
-                animationRef.current = null;
-            });
-        } else {
-            animationRef.current = animate(
-                el,
-                { height: 0, marginTop: 0 },
-                { type: spring, ...ACCORDION_COLLAPSE_SPRING, delay: CLOSE_DELAY },
-            );
-            animationRef.current.then(() => {
-                animationRef.current = null;
-                if (!isExpandedRef.current && el) {
-                    el.style.visibility = 'hidden';
-                }
-            });
+        // Если высота auto — фиксируем пиксели перед анимацией
+        if (el.style.height === 'auto' || el.style.height === '') {
+            el.style.height = `${el.offsetHeight}px`;
         }
-    }, [isExpanded, contentHeight, variant, ref]);
 
-    useEffect(
-        () => () => {
-            animationRef.current?.cancel();
-        },
-        [],
-    );
+        const content = refContent.current;
+
+        if (content) {
+            animate(
+                content,
+                { filter: ['blur(0px)', 'blur(2.5px)'] },
+                { type: spring, stiffness: 315, damping: 30, mass: 0.74 },
+            );
+        }
+
+        animationRef.current = animate(
+            el,
+            { height: 0 },
+            { type: spring, stiffness: 315, damping: 30, mass: 0.74 },
+        );
+    };
+
+    return { playEnter, playExit };
 }
