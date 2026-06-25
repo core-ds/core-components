@@ -31,6 +31,13 @@
         visibility 0s linear 400ms;
 }
 
+.body2 {
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+}
+
 .expandedBody {
     visibility: visible;
     height: auto;

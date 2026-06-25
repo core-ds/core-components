@@ -2,11 +2,7 @@ import { type RefObject, useCallback, useEffect, useRef, useState } from 'react'
 import { spring } from 'motion';
 import { animate } from 'motion/mini';
 
-export type SpringOptions = {
-    stiffness?: number;
-    damping?: number;
-    mass?: number;
-};
+import { type SpringOptions } from './animation/spring-options';
 
 type AnimationType =
     | 'shake'

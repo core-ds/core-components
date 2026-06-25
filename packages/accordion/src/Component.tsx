@@ -4,10 +4,16 @@ import React, {
     type KeyboardEvent,
     type ReactNode,
     useCallback,
+    useRef,
     useState,
 } from 'react';
 import cn from 'classnames';
 
+import {
+    type AccordionAnimationVariant,
+    useAccordionContentAnimation,
+    useAccordionSpringAnimation,
+} from '@alfalab/core-components-shared';
 import { TypographyText } from '@alfalab/core-components-typography';
 
 import { DefaultControlIcon } from './components';
@@ -86,6 +92,8 @@ export type AccordionProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    animationVariant?: AccordionAnimationVariant;
 } & AnchorHTMLAttributes<HTMLDivElement>;
 
 export const Accordion: FC<AccordionProps> = ({
@@ -103,6 +111,7 @@ export const Accordion: FC<AccordionProps> = ({
     onExpandedChange,
     dataTestId,
     bodyContentClassName,
+    animationVariant = 'css',
     ...rest
 }) => {
     const uncontrolled = expanded === undefined;
@@ -111,7 +120,20 @@ export const Accordion: FC<AccordionProps> = ({
 
     const isStartPosition = controlPosition === 'start';
 
-    const [contentHeight, contentRef] = useMeasureHeight();
+    const [contentHeight, measureRef] = useMeasureHeight();
+    const bodyRef = useRef<HTMLDivElement>(null);
+    const contentAnimRef = useRef<HTMLDivElement | null>(null);
+
+    const contentRef = useCallback(
+        (el: HTMLDivElement | null) => {
+            contentAnimRef.current = el;
+            if (typeof measureRef === 'function') measureRef(el);
+        },
+        [measureRef],
+    );
+
+    useAccordionSpringAnimation(bodyRef, Boolean(isExpanded), contentHeight, animationVariant);
+    useAccordionContentAnimation(contentAnimRef, Boolean(isExpanded), animationVariant);
 
     const controlContent =
         control === undefined ? (
@@ -177,14 +199,29 @@ export const Accordion: FC<AccordionProps> = ({
                 </div>
             </div>
 
-            <div
-                className={cn(styles.body, bodyClassName, { [styles.expandedBody]: isExpanded })}
-                style={{ height: isExpanded ? contentHeight : 0 }}
-            >
-                <div className={cn(styles.bodyContent, bodyContentClassName)} ref={contentRef}>
-                    {bodyContent}
+            {animationVariant === 'spring' ? (
+                <div ref={bodyRef} className={cn(styles.body2, bodyClassName)}>
+                    {/* paddingTop сброшен — отступ анимируется через marginTop на родителе */}
+                    <div
+                        className={cn(styles.bodyContent, bodyContentClassName)}
+                        ref={contentRef}
+                        style={{ paddingTop: 0 }}
+                    >
+                        {bodyContent}
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <div
+                    className={cn(styles.body, bodyClassName, {
+                        [styles.expandedBody]: isExpanded,
+                    })}
+                    style={{ height: isExpanded ? contentHeight : 0 }}
+                >
+                    <div className={cn(styles.bodyContent, bodyContentClassName)} ref={contentRef}>
+                        {bodyContent}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
