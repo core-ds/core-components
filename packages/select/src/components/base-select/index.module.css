@@ -115,8 +115,8 @@
 }
 
 .scrollbar {
-    margin-right: var(--select-options-list-right-padding);
-    margin-left: var(--select-options-list-left-padding);
+    padding-left: var(--select-options-list-left-padding);
+    padding-right: var(--select-options-list-right-padding);
     &:first-child {
         margin-top: var(--select-options-list-top-padding);
         &,
@@ -131,15 +131,6 @@
         .scrollable {
             border-bottom-left-radius: var(--select-option-border-radius);
             border-bottom-right-radius: var(--select-option-border-radius);
-        }
-    }
-
-    :global(.simplebar-track) {
-        &:global(.simplebar-vertical) {
-            /* right: calc(-1 * var(--select-options-list-right-padding)); */
-        }
-        &:global(.simplebar-horizontal) {
-            /* bottom: calc(-1 * var(--select-options-list-bottom-padding)); */
         }
     }
 }

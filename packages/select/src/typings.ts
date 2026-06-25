@@ -706,11 +706,6 @@ export type OptionsListProps = Pick<SelectProps, 'client'> & {
      *
      */
     listNodeClassName?: string;
-
-    /**
-     *
-     */
-    scrollbarWrapperClassName?: string;
 };
 
 export type OptgroupProps = {
