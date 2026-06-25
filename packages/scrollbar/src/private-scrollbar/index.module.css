@@ -150,6 +150,8 @@
     }
     :global(.simplebar-scrollbar):global(.simplebar-visible):before {
         opacity: 1;
+        transition-delay: 0s;
+        transition-duration: 0s;
     }
     :global(.simplebar-track):global(.simplebar-vertical) {
         top: 0;
@@ -177,7 +179,7 @@
         right: 0;
         top: 0;
         bottom: 0;
-        transition: opacity 0.2s linear;
+        transition: opacity 0.2s var(--scrollbar-hime-timeout) linear;
     }
     :global(.simplebar-track):global(.simplebar-horizontal) {
         left: 0;
