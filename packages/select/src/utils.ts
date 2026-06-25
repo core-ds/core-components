@@ -8,7 +8,12 @@ import {
     useState,
 } from 'react';
 
-import { fnUtils, getDataTestId, useIsMounted } from '@alfalab/core-components-shared';
+import {
+    fnUtils,
+    getDataTestId,
+    getElementWindow,
+    useIsMounted,
+} from '@alfalab/core-components-shared';
 import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 import { DEFAULT_SEPARATOR } from './consts';
@@ -218,6 +223,11 @@ export function useVirtualVisibleOptions({
                 }
             }
 
+            const win = getElementWindow(list);
+            const { paddingTop } = win.getComputedStyle(list, '::before');
+
+            nextHeight += parseFloat(paddingTop || '0');
+
             setHeight(nextHeight);
         }
     }, [actualOptionsCount, listRef, open, options, size, visibleOptions, invalidate]);
@@ -286,6 +296,11 @@ export function useVisibleOptions({
                     measuredHeight += size / 2;
                 }
             }
+
+            const win = getElementWindow(list);
+            const { paddingTop } = win.getComputedStyle(list, '::before');
+
+            measuredHeight += parseFloat(paddingTop || '0');
 
             setHeight(measuredHeight);
 
