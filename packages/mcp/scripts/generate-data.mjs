@@ -41,8 +41,8 @@ function main() {
                     changelog,
                 },
                 null,
-                4,
-            ),
+                1,
+            ).replace(/^ +/gm, ''),
         );
     });
 
