@@ -32,8 +32,11 @@ const PRESETS: Record<AnimationType, AnimationPreset> = {
         ],
     },
     pulse: {
-        defaultSpring: { stiffness: 300, damping: 15, mass: 1 },
-        steps: [{ scale: [1, 1.08] }, { scale: [1.08, 1] }],
+        defaultSpring: { stiffness: 900, damping: 42, mass: 0.3 },
+        steps: [
+            { scale: [1, 0.93], filter: ['blur(0.5px)', 'blur(0.25px)'] },
+            { scale: [0.93, 1], filter: ['blur(0.25px)', 'blur(0px)'] },
+        ],
     },
     bounce: {
         defaultSpring: { stiffness: 200, damping: 12, mass: 1 },

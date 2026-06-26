@@ -1,8 +1,8 @@
-import React, { type FC, useRef } from 'react';
+import React, { type FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
-import { getDataTestId } from '@alfalab/core-components-shared';
+import { getDataTestId, useSpringAnimation } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { type CommonProps } from '../../types/common-props';
@@ -71,6 +71,8 @@ interface StepProps extends CommonProps {
      * @param stepNumber - номер шага
      */
     onClick: (stepNumber: number) => void;
+
+    animateSpring?: boolean;
 }
 
 export const Step: FC<StepProps> = ({
@@ -94,8 +96,12 @@ export const Step: FC<StepProps> = ({
     minSpaceBetweenSteps = 24,
     completedDashColor,
     dataTestId,
+    animateSpring,
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
+    const optionRef = useRef<HTMLDivElement>(null);
+    const prevOptionSelected = useRef(isSelected);
+    const prevIsStepCompleted = useRef(isStepCompleted);
 
     const [focused] = useFocus(stepRef, 'keyboard');
 
@@ -176,6 +182,23 @@ export const Step: FC<StepProps> = ({
         />
     );
 
+    const pulseAnim = useSpringAnimation(optionRef, 'pulse');
+
+    useEffect(() => {
+        if (animateSpring) {
+            if (!prevIsStepCompleted.current && isStepCompleted) {
+                pulseAnim.trigger();
+            }
+            if (!prevOptionSelected.current && isSelected) {
+                pulseAnim.trigger();
+            }
+            prevIsStepCompleted.current = isStepCompleted;
+            prevOptionSelected.current = isSelected;
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isStepCompleted, isSelected]);
+
     return (
         <div
             data-test-id={getDataTestId(dataTestId, 'step')}
@@ -208,6 +231,7 @@ export const Step: FC<StepProps> = ({
                         [styles.vertical]: isVerticalAlign,
                         [styles.error]: isError,
                     })}
+                    ref={optionRef}
                 >
                     {getStepIndicator()}
                 </div>
