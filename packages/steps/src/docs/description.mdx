@@ -1,227 +1,43 @@
-## Примеры
-
-Горизонтальный.
-
-```jsx live desktopOnly
-render(() => {
-    const [ordered, setOrdered] = React.useState(true);
-    const [error, setError] = React.useState(false);
-    const [step, setStep] = React.useState(2);
-
-    const handleStepsChange = (stepNumber) => setStep(stepNumber);
-
-    const handleOrderChange = () => setOrdered((prev) => !prev);
-
-    const handleErrorChange = () => {
-        setError((prev) => {
-            if (!prev && step > 3) {
-                setStep(3);
-            }
-
-            return !prev;
-        });
-    };
-
-    const handleStepDisable = (stepNumber) => {
-        if (error) {
-            return stepNumber === 4 || stepNumber === 5;
-        }
-
-        return stepNumber === 4;
-    };
-
-    const handleStepError = (stepNumber) => {
-        if (error) {
-            return stepNumber === 3;
-        }
-    };
-
-    return (
-        <Space size={24}>
-            <Steps
-                activeStep={step}
-                defaultActiveStep={2}
-                ordered={ordered}
-                onChange={handleStepsChange}
-                checkIsStepDisabled={handleStepDisable}
-                checkIsStepError={handleStepError}
-            >
-                {[1, 2, 3, 4, 5].map((item, key) => (
-                    <div key={key}>Шаг {item}</div>
-                ))}
-            </Steps>
-            <Typography.Text view='component-secondary' color='secondary'>
-                Выбран шаг {step}
-            </Typography.Text>
-            <>
-                <Switch checked={ordered} onChange={handleOrderChange} label='Номера шагов' />
-                <Gap size={16} />
-                <Switch
-                    checked={error}
-                    onChange={handleErrorChange}
-                    label='Есть некорректно заполненный шаг'
-                />
-            </>
-        </Space>
-    );
-});
-```
-
-Вертикальный.
+# Приведённый код и live-демо имеют демонстрационный характер и не являются финальной реализацией
 
 ```jsx live mobileHeight={560}
 render(() => {
-    const [ordered, setOrdered] = React.useState(true);
-    const [error, setError] = React.useState(false);
-    const [step, setStep] = React.useState(2);
+    const [step, setStep] = React.useState(1);
 
-    const handleReset = () => setStep(1);
-
-    const handleStepsChange = (stepNumber) => setStep(stepNumber);
-
-    const handleOrderChange = () => setOrdered((prev) => !prev);
-
-    const handleErrorChange = () => {
-        setError((prev) => {
-            if (!prev && step > 3) {
-                setStep(3);
+    const handleClick = () => {
+        setStep((prev) => {
+            if (prev === 5) {
+                return 1;
             }
-
-            return !prev;
+            return prev + 1;
         });
-    };
-
-    const handleStepDisable = (stepNumber) => {
-        if (error) {
-            return stepNumber === 4 || stepNumber === 5;
-        }
-
-        return stepNumber === 4;
-    };
-
-    const handleStepError = (stepNumber) => {
-        if (error) {
-            return stepNumber === 3;
-        }
     };
 
     return (
         <Space size={24}>
             <Steps
                 activeStep={step}
-                defaultActiveStep={2}
-                ordered={ordered}
-                onChange={handleStepsChange}
+                defaultActiveStep={1}
+                ordered={true}
                 isVerticalAlign={true}
                 interactive={false}
-                checkIsStepDisabled={handleStepDisable}
-                checkIsStepError={handleStepError}
+                animateSpring={true}
             >
-                {[1, 2, 3, 4, 5].map((item, key) => (
+                {[1, 2, 3, 4].map((item, key) => (
                     <PureCell key={key} verticalPadding='none' horizontalPadding='none'>
                         <PureCell.Content>
                             <PureCell.Main>
                                 <PureCell.Text titleColor='primary' view='component-primary'>
                                     Шаг {item}
                                 </PureCell.Text>
-                                <PureCell.Category categoryName='Subtitle' />
                             </PureCell.Main>
-                            {item === 2 && (
-                                <PureCell.Footer>
-                                    <div style={{ display: 'flex', gap: 12 }}>
-                                        <PureCell.FooterButton view='primary'>
-                                            Label
-                                        </PureCell.FooterButton>
-                                        <PureCell.FooterButton view='secondary'>
-                                            Label
-                                        </PureCell.FooterButton>
-                                    </div>
-                                </PureCell.Footer>
-                            )}
                         </PureCell.Content>
                     </PureCell>
                 ))}
             </Steps>
-            <Typography.Text view='component-secondary' color='secondary'>
-                Выбран шаг {step}
-            </Typography.Text>
-            <>
-                <Switch checked={ordered} onChange={handleOrderChange} label='Номера шагов' />
-                <Gap size={16} />
-                <Switch
-                    checked={error}
-                    onChange={handleErrorChange}
-                    label='Есть некорректно заполненный шаг'
-                />
-            </>
-        </Space>
-    );
-});
-```
-
-Виды индикаторов.
-
-```jsx live
-render(() => {
-    const styles = {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '12px',
-    };
-
-    const stylesCustom = {
-        width: 24,
-        height: 24,
-        background: 'rgba(55, 120, 251, 0.1)',
-        border: '1px dashed #3778FB',
-        borderRadius: 8,
-        boxSizing: 'border-box',
-    };
-
-    const viewIndicators = [
-        {
-            view: 'positive-checkmark',
-            content: 'Completed',
-        },
-        {
-            view: 'positive-checkmark',
-            content: 'Positive',
-        },
-        {
-            view: 'negative-alert',
-            content: 'Negative',
-        },
-        {
-            view: 'negative-cross',
-            content: 'CriticalError',
-        },
-        {
-            view: 'attention-alert',
-            content: 'Warning',
-        },
-        {
-            view: 'neutral-operation',
-            content: 'Warning',
-            icon: <ClockMIcon />,
-        },
-        {
-            content: 'Custom',
-        },
-    ];
-    return (
-        <Space size={20}>
-            {viewIndicators.map((indicator, key) => (
-                <div key={key} style={styles}>
-                    {indicator.view ? (
-                        <StatusBadge view={indicator.view} />
-                    ) : (
-                        <div style={stylesCustom} />
-                    )}
-                    <Typography.Text color='secondary' view='primary-small'>
-                        {indicator.content}
-                    </Typography.Text>
-                </div>
-            ))}
+            <Button view='secondary' onClick={() => handleClick()}>
+                Далее
+            </Button>
         </Space>
     );
 });

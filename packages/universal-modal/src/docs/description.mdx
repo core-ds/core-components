@@ -1,3 +1,5 @@
+# Приведённый код и live-демо имеют демонстрационный характер и не являются финальной реализацией
+
 ## Сайдпанель
 
 Выровненные по левому или правому краю модалки, занимающие всю доступную высоту, мы назывем сайд-панелями.
@@ -104,7 +106,7 @@ render(() => {
     const [contentButton, setContentButton] = React.useState(false);
 
     const [disabled, setDisabled] = React.useState(false);
-    const [spring, setSpring] = React.useState(false);
+    const [spring, setSpring] = React.useState(true);
 
     const getButtonSize = () => {
         return 56;
@@ -332,7 +334,7 @@ render(() => {
     const [contentButton, setContentButton] = React.useState(false);
 
     const [disabled, setDisabled] = React.useState(false);
-    const [spring, setSpring] = React.useState(false);
+    const [spring, setSpring] = React.useState(true);
 
     const getButtonSize = () => {
         if (modalWidth >= 800) {
