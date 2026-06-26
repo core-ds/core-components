@@ -22,7 +22,7 @@
         "@alfalab/core-components-modal": "^11.0.13",
         "@alfalab/core-components-mq": "^6.0.5",
         "@alfalab/core-components-popover": "^8.0.5",
-        "@alfalab/core-components-scrollbar": "^5.0.4",
+        "@alfalab/core-components-scrollbar-private": "^0.0.0",
         "@alfalab/core-components-shared": "^2.2.1",
         "@alfalab/core-components-skeleton": "^7.0.4",
         "@alfalab/hooks": "^1.17.0",

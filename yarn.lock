@@ -1607,6 +1607,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-scrollbar-private@npm:^0.0.0, @alfalab/core-components-scrollbar-private@workspace:packages/scrollbar-private":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-scrollbar-private@workspace:packages/scrollbar-private"
+  dependencies:
+    "@alfalab/core-components-scrollbar": "npm:^5.0.4"
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
+    simplebar-react: "npm:^3.3.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-scrollbar@npm:^5.0.4, @alfalab/core-components-scrollbar@workspace:packages/scrollbar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-scrollbar@workspace:packages/scrollbar"
@@ -1620,7 +1635,6 @@ __metadata:
     lodash.throttle: "npm:^4.1.1"
     react-merge-refs: "npm:^1.1.0"
     simplebar: "npm:^5.3.8"
-    simplebar-react: "npm:^3.3.2"
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
@@ -1679,7 +1693,7 @@ __metadata:
     "@alfalab/core-components-modal": "npm:^11.0.13"
     "@alfalab/core-components-mq": "npm:^6.0.5"
     "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-scrollbar": "npm:^5.0.4"
+    "@alfalab/core-components-scrollbar-private": "npm:^0.0.0"
     "@alfalab/core-components-shared": "npm:^2.2.1"
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
     "@alfalab/hooks": "npm:^1.17.0"

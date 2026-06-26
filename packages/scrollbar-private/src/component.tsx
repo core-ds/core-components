@@ -7,7 +7,7 @@ import defaultColors from './default.module.css';
 import styles from './index.module.css';
 import invertedColors from './inverted.module.css';
 
-type PrivateScrollbarRef = React.ComponentRef<typeof SimpleBar>;
+type ScrollbarPrivateRef = React.ComponentRef<typeof SimpleBar>;
 
 interface NodeProps {
     ref?: React.Ref<HTMLElement | undefined>;
@@ -20,7 +20,7 @@ const colorStyles = {
     inverted: invertedColors,
 } as const;
 
-export interface PrivateScrollbarProps
+export interface ScrollbarPrivateProps
     extends Omit<SimpleBarProps, 'children' | 'scrollableNodeProps'> {
     children?: React.ReactNode;
     style?: React.CSSProperties;
@@ -36,7 +36,7 @@ export interface PrivateScrollbarProps
     contentNodeProps?: React.ComponentProps<'div'>;
 }
 
-export const PrivateScrollbar = forwardRef<PrivateScrollbarRef, PrivateScrollbarProps>(
+export const ScrollbarPrivate = forwardRef<ScrollbarPrivateRef, ScrollbarPrivateProps>(
     (
         {
             children,

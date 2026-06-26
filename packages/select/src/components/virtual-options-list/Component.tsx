@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
-import { PrivateScrollbar } from '@alfalab/core-components-scrollbar';
+import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
@@ -230,7 +230,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 )}
 
                 {!noOptions && (
-                    <PrivateScrollbar
+                    <ScrollbarPrivate
                         native={nativeScrollbar}
                         className={scrollbarClassName}
                         style={{ maxHeight }}
@@ -254,7 +254,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         >
                             {renderList()}
                         </div>
-                    </PrivateScrollbar>
+                    </ScrollbarPrivate>
                 )}
 
                 {emptyPlaceholder && noOptions && (

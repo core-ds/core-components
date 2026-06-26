@@ -2,7 +2,7 @@ import React, { forwardRef, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { PrivateScrollbar } from '@alfalab/core-components-scrollbar';
+import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
@@ -148,7 +148,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 )}
 
                 {!noOptions && (
-                    <PrivateScrollbar
+                    <ScrollbarPrivate
                         native={nativeScrollbar}
                         className={scrollbarClassName}
                         style={{ maxHeight }}
@@ -169,7 +169,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                                     : renderOption(option, counter()),
                             )}
                         </div>
-                    </PrivateScrollbar>
+                    </ScrollbarPrivate>
                 )}
 
                 {emptyPlaceholder && noOptions && (
