@@ -154,11 +154,6 @@ export interface BaseSelectProps {
     size?: FormControlProps['size'];
 
     /**
-     * Размер пунктов меню
-     */
-    optionsSize?: 40 | 48 | 56 | 64 | 72;
-
-    /**
      * Растягивает компонент на ширину контейнера
      */
     block?: boolean;

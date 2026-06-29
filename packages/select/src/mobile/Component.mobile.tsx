@@ -31,7 +31,6 @@ export const SelectMobile = forwardRef(
             defaultOpen = false,
             open: openProp,
             size = 56,
-            optionsSize = 56,
             fieldProps = {},
             optionProps = {},
             optionsListProps = {},
@@ -93,7 +92,6 @@ export const SelectMobile = forwardRef(
                 defaultOpen={defaultOpen}
                 open={openProp}
                 size={size}
-                optionsSize={optionsSize}
                 fieldProps={{
                     FormControlComponent: FormControlMobile,
                     ...(fieldProps as object),
