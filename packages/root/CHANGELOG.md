@@ -3542,6 +3542,8 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1926](https://github.com/core-ds/core-components/pull/1926)
 
+##### SteppedProgressBar
+
 - Расширена поддержка кастомных цветов в пропсе `view`: теперь можно прокидывать любые CSS-строки (hex, rgba, токены `var(...)`)
 - Пресетные цвета (`positive`, `negative`, `attention` и т.д.) используют CSS классы как раньше
 - Кастомные цвета автоматически применяются через `style={{ background }}`
@@ -3550,17 +3552,23 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1921](https://github.com/core-ds/core-components/pull/1921)
 
+##### FileUploadItem
+
 - В компонент `FileUploadItem` добавлено свойство `backgroundColor`, позволяющее задать цвет фона для `StatusControl`
 
 <sup><time>13.11.2025</time></sup>
 
 #### [#1939](https://github.com/core-ds/core-components/pull/1939)
 
+##### Vars
+
 - Добавлены новые значения gaps: `--gap-6` и `--gap-10`
 
 <sup><time>13.11.2025</time></sup>
 
 #### [#1939](https://github.com/core-ds/core-components/pull/1939)
+
+##### Confirmation, CodeInput, Status
 
 - Исправлены расхождения в межбуквенном расстоянии и отступами вокруг текста
 
@@ -3578,6 +3586,8 @@ yarn add @alfalab/core-components@alfasans
 <sup><time>13.11.2025</time></sup>
 
 #### [#1930](https://github.com/core-ds/core-components/pull/1930)
+
+##### Tabs
 
 - Исправлен проброс параметров в DOM для компонента Tab
 
@@ -3609,11 +3619,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1922](https://github.com/core-ds/core-components/pull/1922)
 
+##### Tabs
+
 - В компоненте `Tabs` изменено отображение индикатора выбранного таба
 
 <sup><time>13.11.2025</time></sup>
 
 #### [#1927](https://github.com/core-ds/core-components/pull/1927)
+
+##### Toast
 
 - Разделены mouse/touch события по desktop/mobile платформам соответственно
 
@@ -3719,6 +3733,8 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1915](https://github.com/core-ds/core-components/pull/1915)
 
+##### BottomSheet
+
 - Добавлен опциональный проп headerContentClassName в BottomSheet для кастомизации хэдера
 
 ### Patch Changes
@@ -3745,17 +3761,23 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1923](https://github.com/core-ds/core-components/pull/1923)
 
+##### NavigationBarPrivate
+
 - Добавлена возможность пробрасывать colors в `NavigationBar` для того, чтобы динамически изменять инверсию элементов `hasCloser` и `hasBacker`
 
 <sup><time>05.11.2025</time></sup>
 
 #### [#1929](https://github.com/core-ds/core-components/pull/1929)
 
+##### SliderInput
+
 - Добавлен проп `bold` для управления жирностью текста
 
 <sup><time>05.11.2025</time></sup>
 
 #### [#1923](https://github.com/core-ds/core-components/pull/1923)
+
+##### Collapse, Link
 
 - Добавлен проброс prop `colors` через компонент `Collapse` в `Link`
 
@@ -3765,11 +3787,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1933](https://github.com/core-ds/core-components/pull/1933)
 
+##### SliderInput
+
 - Исправлено переопределние пропсов Input с помощью customInputProps
 
 <sup><time>05.11.2025</time></sup>
 
 #### [#1917](https://github.com/core-ds/core-components/pull/1917)
+
+##### IconView
 
 - Обновлены SVG paths SuperEllipse для всех вариантов (none, top, bottom, topBottom, indicator, indicatorBottom на размере 40
 
@@ -3777,17 +3803,23 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1918](https://github.com/core-ds/core-components/pull/1918)
 
+##### SystemMessage
+
 - Исправлена специфичность компонента, путем оптимизации вложенности элементов
 
 <sup><time>05.11.2025</time></sup>
 
 #### [#1916](https://github.com/core-ds/core-components/pull/1916)
 
+##### Tag
+
 - Отключено системное выделение при тапе на мобильных устройствах
 
 <sup><time>05.11.2025</time></sup>
 
 #### [#1923](https://github.com/core-ds/core-components/pull/1923)
+
+##### BottomSheet
 
 - Добавлена инверсия BottomSheet через props `colors`
 
@@ -3839,6 +3871,8 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1893](https://github.com/core-ds/core-components/pull/1893)
 
+##### Plate
+
 - Добавлена поддержка aria-label для улучшения доступности в компоненте Plate
 
 ### Patch Changes
@@ -3847,6 +3881,8 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1811](https://github.com/core-ds/core-components/pull/1811)
 
+##### AmountInput
+
 - Добавлена span обертка над значениями `amount-input`
 - Исправлен баг с некорректным отображением при выделении текста на os Windows
 
@@ -3854,11 +3890,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1907](https://github.com/core-ds/core-components/pull/1907)
 
+##### SliderInput
+
 - Исправлена типизация компонента `Input` для `SliderInput`
 
 <sup><time>03.10.2025</time></sup>
 
 #### [#1905](https://github.com/core-ds/core-components/pull/1905)
+
+##### AmountInput
 
 - Корректный `inputMode` для `AmountInput`
 
@@ -3876,6 +3916,8 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1861](https://github.com/core-ds/core-components/pull/1861)
 
+##### FileUploadItem
+
 - Реализована анимация прогресса загрузки для режима с неизвестным прогрессом
 - Добавлен новый props `progressBarAvailable` для возможности включения/отключения ProgressBar
 
@@ -3885,11 +3927,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1896](https://github.com/core-ds/core-components/pull/1896)
 
+##### AmountInput
+
 - Исправлен ввод цифр в начало инпута при уже введенном значении. Например, '2 000' -> '12 000'
 
 <sup><time>29.09.2025</time></sup>
 
 #### [#1894](https://github.com/core-ds/core-components/pull/1894)
+
+##### UniversalModal
 
 - Исправлена типизация для `disableFocusLock` пропса
 
@@ -3906,11 +3952,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1889](https://github.com/core-ds/core-components/pull/1889)
 
+##### AmountInput
+
 - Добавлен проп `defaultValue` для задания значения по-умолчанию
 
 <sup><time>19.09.2025</time></sup>
 
 #### [#1879](https://github.com/core-ds/core-components/pull/1879)
+
+##### Confirmation
 
 - Добавлен опциональный props `titleTag` для возможности управлять уровнем заголовка
 
@@ -3918,11 +3968,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1884](https://github.com/core-ds/core-components/pull/1884)
 
+##### Tabs
+
 - Добавлена возможность прокидывать aria- и data- атрибуты в titles компонента Tabs
 
 <sup><time>19.09.2025</time></sup>
 
 #### [#1885](https://github.com/core-ds/core-components/pull/1885)
+
+##### InternationalPhoneInput, Select
 
 - Добавлена поддержка aria-label для улучшения доступности в компонентах InternationalPhoneInput и Select
 
@@ -3932,11 +3986,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1888](https://github.com/core-ds/core-components/pull/1888)
 
+##### SidePanel
+
 - Исправлен баг, при котором hasFooter не сбрасывался в false при размонтировании компонента
 
 <sup><time>19.09.2025</time></sup>
 
 #### [#1887](https://github.com/core-ds/core-components/pull/1887)
+
+##### Skeleton
 
 - Исправлен расчет высоты элементов текстового скелетона. Теперь размер совпадает не с fontSize, а с размером начертания глифов от базовой линии.
 
@@ -3991,6 +4049,8 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1865](https://github.com/core-ds/core-components/pull/1865)
 
+##### Select
+
 - Добавлена поддержка `environment` для корректной работы Select внутри ShadowRoot
 
 ### Patch Changes
@@ -3999,11 +4059,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1857](https://github.com/core-ds/core-components/pull/1857)
 
+##### InputAutocomplete, Input, Select
+
 - Исправлен порядок отображение аддонов (Clear, Error, Success, Arrow, Custom)
 
 <sup><time>13.09.2025</time></sup>
 
 #### [#1875](https://github.com/core-ds/core-components/pull/1875)
+
+##### Select
 
 - При нажатии на `Backspace` в режиме мультивыбора при фокусе в поле поиска выбранные элементы не удаляются
 
@@ -4042,12 +4106,16 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1863](https://github.com/core-ds/core-components/pull/1863)
 
+##### CardImage
+
 - Добавлен обработчик ошибки загрузки изображения "onError"
 - Исправлено описание свойства "alt"
 
 <sup><time>05.09.2025</time></sup>
 
 #### [#1813](https://github.com/core-ds/core-components/pull/1813)
+
+##### RadioGroup, Space, Tabs
 
 - Добавлена возможность прокидывать restProps на root для компонентов RadioGroup, Space, Tab и Tabs
 
@@ -4057,17 +4125,23 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1831](https://github.com/core-ds/core-components/pull/1831)
 
+##### PopupSheet
+
 - Исправлена проблема со специфичностью в компоненте `PopupSheet`. Увеличена специфичность селектора `.component` для корректного применения стилей позиционирования.
 
 <sup><time>05.09.2025</time></sup>
 
 #### [#1805](https://github.com/core-ds/core-components/pull/1805)
 
+##### Themes
+
 - Переменные типографики вынесены в отдельный файл `typography-vars.css`
 
 <sup><time>05.09.2025</time></sup>
 
 #### [#1831](https://github.com/core-ds/core-components/pull/1831)
+
+##### Tooltip
 
 - Исправлена проблема со специфичностью в компоненте `Tooltip`
 
@@ -4089,6 +4163,8 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1833](https://github.com/core-ds/core-components/pull/1833)
 
+##### Markdown
+
 - Добавлен пропс `transformLinkUri` позволяющий отключить трансформацию для ссылок с неизвестными форматами
 
 ### Patch Changes
@@ -4097,17 +4173,23 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1838](https://github.com/core-ds/core-components/pull/1838)
 
+##### UniversalModal
+
 - Исправлена типизация. Типы переведены на интерфейсы.
 
 <sup><time>29.08.2025</time></sup>
 
 #### [#1842](https://github.com/core-ds/core-components/pull/1842)
 
+##### Themes
+
 - Исправлена темизация `site` для `FormControl` и `SliderInput`
 
 <sup><time>29.08.2025</time></sup>
 
 #### [#1842](https://github.com/core-ds/core-components/pull/1842)
+
+##### SliderInput
 
 - Исправлена специфичность слайдера
 
@@ -4126,11 +4208,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1829](https://github.com/core-ds/core-components/pull/1829)
 
+##### InternationalPhoneInput
+
 - Добавлен проп `autoFill` для включения/выключения автозаполнения номера
 
 <sup><time>26.08.2025</time></sup>
 
 #### [#1830](https://github.com/core-ds/core-components/pull/1830)
+
+##### Popover
 
 - Добавлен проп `arrowToEdgeMinDistance` для задания минимального расстояние стрелки до края поповера
 
@@ -4138,11 +4224,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1823](https://github.com/core-ds/core-components/pull/1823)
 
+##### Shared
+
 - Добавлена функция `humanFileSize`, с помощью которой можно переводить байты в человеко-читаемый вид
 
 <sup><time>26.08.2025</time></sup>
 
 #### [#1731](https://github.com/core-ds/core-components/pull/1731)
+
+##### CheckboxGroup, RadioGroup, Themes
 
 - Убрана красная линия и отступ слева в состоянии ошибки:
     - Для мобильных компонентов во всех темах
@@ -4164,11 +4254,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1818](https://github.com/core-ds/core-components/pull/1818)
 
+##### Tooltip
+
 - Исправлено всплытие событие клика в мобильной версии Tooltip. Теперь события корректно останавливаются, а обработчик onTargetClick вызывается в мобильной версии так же, как и в десктопной.
 
 <sup><time>26.08.2025</time></sup>
 
 #### [#1801](https://github.com/core-ds/core-components/pull/1801)
+
+##### ActionButton, CustomButton, IconButton
 
 - Исправлены `hover` стили на мобильных устройствах. Добавлен медиа-запрос `@media (hover: hover)` для ограничения hover эффектов только устройствами с поддержкой hover.
 
@@ -4176,11 +4270,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1821](https://github.com/core-ds/core-components/pull/1821)
 
+##### Popover
+
 - При использовании пропса `availableHeight` максимальная высота задается на корректный контейнер
 
 <sup><time>26.08.2025</time></sup>
 
 #### [#1823](https://github.com/core-ds/core-components/pull/1823)
+
+##### FileUploadItem
 
 - Рефакторинг шкалы прогресса, изменена работа с mask-image на обычное заполнение svg path
 - Функция `humanFileSize` вынесена в модуль `shared`
@@ -4189,11 +4287,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1816](https://github.com/core-ds/core-components/pull/1816)
 
+##### UniversalModal
+
 - Исправлено наследование пропса `onClose`. Теперь из аргументов callback функции можно получить event и reason без ts ошибки.
 
 <sup><time>26.08.2025</time></sup>
 
 #### [#1803](https://github.com/core-ds/core-components/pull/1803)
+
+##### SelectWithTags
 
 - Исправлено прокидывание fieldProps в SelectWithTags, ранее при передаче не прокидывались
 
@@ -4201,11 +4303,15 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1823](https://github.com/core-ds/core-components/pull/1823)
 
+##### Shared
+
 - Функция `humanFileSize` вынесена в модуль `shared`
 
 <sup><time>26.08.2025</time></sup>
 
 #### [#1750](https://github.com/core-ds/core-components/pull/1750)
+
+##### NavigationBarPrivate
 
 - Исправлено позиционирование анимированного заголовка в compact состоянии
 
@@ -4314,6 +4420,8 @@ yarn add @alfalab/core-components@alfasans
 
 #### [#1794](https://github.com/core-ds/core-components/pull/1794)
 
+##### Gallery
+
 - Добавлен fallback шаринга по ссылке для изображений из других источников
 
 - Обновлены зависимости
@@ -4326,6 +4434,8 @@ yarn add @alfalab/core-components@alfasans
 <sup><time>13.08.2025</time></sup>
 
 #### [#1809](https://github.com/core-ds/core-components/pull/1809)
+
+##### Themes
 
 - Исправлена сборка `css` файлов темизации
 
