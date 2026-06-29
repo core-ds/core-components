@@ -7,11 +7,8 @@
         "rootDir": "src",
         "outDir": "ts-dist",
         "paths": {
-            "@alfalab/core-components-scrollbar": ["../scrollbar/src"],
-            "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
             "@alfalab/core-components-scrollbar-private": ["./src"],
             "@alfalab/core-components-scrollbar-private/*": ["./src/*"]
         }
-    },
-    "references": [{ "path": "../scrollbar/tsconfig.build.json" }]
+    }
 }

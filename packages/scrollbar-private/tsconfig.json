@@ -8,8 +8,6 @@
         "paths": {
             "@alfalab/core-components-screenshot-utils": ["../screenshot-utils/src"],
             "@alfalab/core-components-screenshot-utils/*": ["../screenshot-utils/src/*"],
-            "@alfalab/core-components-scrollbar": ["../scrollbar/src"],
-            "@alfalab/core-components-scrollbar/*": ["../scrollbar/src/*"],
             "@alfalab/core-components-scrollbar-private": ["./src"],
             "@alfalab/core-components-scrollbar-private/*": ["./src/*"],
             "@alfalab/core-components-test-utils": ["../test-utils/src"],
@@ -18,7 +16,6 @@
     },
     "references": [
         { "path": "../screenshot-utils/tsconfig.build.json" },
-        { "path": "../scrollbar/tsconfig.build.json" },
         { "path": "../test-utils/tsconfig.build.json" }
     ]
 }
