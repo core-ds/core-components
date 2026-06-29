@@ -1,0 +1,108 @@
+{
+"packageName": "pagination",
+"displayName": "Pagination",
+"description": "Используется для переключения между страницами.",
+"props": {
+"currentPageIndex": {
+"defaultValue": {
+"value": 0
+},
+"description": "Текущая страница (с нуля)",
+"name": "currentPageIndex",
+"required": false,
+"type": {
+"name": "number"
+}
+},
+"pagesCount": {
+"defaultValue": null,
+"description": "Количество страниц",
+"name": "pagesCount",
+"required": true,
+"type": {
+"name": "number"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hideArrows": {
+"defaultValue": {
+"value": true
+},
+"description": "Скрывает стрелки, если выбрана первая или последняя страница",
+"name": "hideArrows",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"sidePadding": {
+"defaultValue": {
+"value": 1
+},
+"description": "Количество видимых страниц по бокам",
+"name": "sidePadding",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"activePadding": {
+"defaultValue": {
+"value": 2
+},
+"description": "Количество видимых страниц вокруг выбранной",
+"name": "activePadding",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Режим пагинации",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"default\" | \"per-page\" | undefined"
+}
+},
+"onPageChange": {
+"defaultValue": {
+"value": "() => null"
+},
+"description": "Обработчик переключения страницы",
+"name": "onPageChange",
+"required": false,
+"type": {
+"name": "((pageIndex: number) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Пагинация с возможностью быстрого доступа к крайним страницам.",
+"desktop": "render(() => {\nconst DATA_SIZE = isMobile() ? 5 : 20;\nconst PER_PAGE = 1;\n\nconst [page, setPage] = React.useState(0);\n\nconst handlePageChange = pageIndex => setPage(pageIndex);\n\nconst pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);\n\nreturn (\n<Container align='center'>\n<Pagination\ncurrentPageIndex={page}\npagesCount={pagesCount}\nonPageChange={handlePageChange}\n/>\n</Container>\n);\n});"
+}
+],
+"changelog": []
+}

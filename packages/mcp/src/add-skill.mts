@@ -1,15 +1,20 @@
-import { copyFileSync, existsSync, mkdirSync } from 'fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import path from 'path';
 
 export function addSkill(): void {
-    const sourcePath = path.join(import.meta.dirname, 'skills', 'SKILL.md');
+    const sourceDir = path.join(import.meta.dirname, 'skills');
     const targetDir = path.join(process.cwd(), '.agents', 'skills', 'core-components');
-    const targetPath = path.join(targetDir, 'SKILL.md');
-
-    const existed = existsSync(targetPath);
 
     mkdirSync(targetDir, { recursive: true });
-    copyFileSync(sourcePath, targetPath);
 
-    console.log(existed ? `Skill updated: ${targetPath}` : `Skill added: ${targetPath}`);
+    const files = readdirSync(sourceDir).filter((f) => f.endsWith('.md'));
+
+    for (const file of files) {
+        const targetPath = path.join(targetDir, file);
+        const existed = existsSync(targetPath);
+
+        copyFileSync(path.join(sourceDir, file), targetPath);
+
+        console.log(existed ? `Skill updated: ${targetPath}` : `Skill added: ${targetPath}`);
+    }
 }

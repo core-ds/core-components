@@ -1,0 +1,84 @@
+{
+"packageName": "backdrop",
+"displayName": "Backdrop",
+"description": "Используется для затемнения фона при вызове модального слоя.",
+"props": {
+"invisible": {
+"defaultValue": {
+"value": false
+},
+"description": "Прозрачный бэкдроп\n@deprecated данное свойство больше не используется, временно оставлено для обратной совместимости\nИспользуйте свойство transparent",
+"name": "invisible",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": {
+"value": false
+},
+"description": "Управляет видимостью компонента",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик клика по бэкдропу",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLElement, MouseEvent>) => void) | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"transitionClassNames": {
+"defaultValue": null,
+"description": "Классы анимации\n\nhttp://reactcommunity.org/react-transition-group/css-transition#CSSTransition-prop-classNames",
+"name": "transitionClassNames",
+"required": false,
+"type": {
+"name": "string | CSSTransitionClassNames | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"transparent": {
+"defaultValue": {
+"value": false
+},
+"description": "Управляет прозрачностью бэкдроп",
+"name": "transparent",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Компонент поддерживает все параметры из [CSSTransition](http://reactcommunity.org/react-transition-group/css-transition).",
+"desktop": "render(() => {\nconst [open, setOpen] = React.useState(false);\n\nreturn (\n<div style={{ zIndex: 1, position: 'relative' }}>\n<Button\nonClick={() => setOpen(!open)}\nsize={56}\nblock={isMobile()}\nbreakpoint={BREAKPOINT}\n>\n{open ? 'Закрыть Backdrop' : 'Показать Backdrop'}\n</Button>\n<Backdrop open={open} onClick={() => setOpen(false)} />\n</div>\n);\n});"
+}
+],
+"changelog": []
+}

@@ -1,0 +1,69 @@
+{
+"packageName": "gap",
+"displayName": "Gap",
+"description": "Используется для создания отступов между блоками.",
+"props": {
+"size": {
+"defaultValue": null,
+"description": "Размер отступа",
+"name": "size",
+"required": true,
+"type": {
+"name": "Size"
+}
+},
+"direction": {
+"defaultValue": {
+"value": "vertical"
+},
+"description": "Вид отступа (вертикальный или горизонтальный)",
+"name": "direction",
+"required": false,
+"type": {
+"name": "\"horizontal\" | \"vertical\" | undefined"
+}
+},
+"tag": {
+"defaultValue": {
+"value": "div"
+},
+"description": "HTML тег",
+"name": "tag",
+"required": false,
+"type": {
+"name": "\"div\" | \"span\" | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "render(() => {\nconst [direction, setDirection] = React.useState('horizontal');\n\nconst stylesAddon={\nwidth: '64px',\nheight: '64px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(38, 55, 88, 0.06)',\nboxSizing: 'border-box',\n}\n\nconst stylesWrapper = {\ndisplay: 'flex',\nflexDirection: direction === 'vertical' ? 'column' : 'row',\n}\n\nreturn (\n<div>\n<div style={stylesWrapper}>\n<div style={stylesAddon}/>\n<Gap size={16} direction={direction} />\n<div style={stylesAddon}/>\n<Gap size={16} direction={direction} />\n<div style={stylesAddon}/>\n</div>\n<Gap size={24} />\n<RadioGroup\nlabel='Лейаут'\ndirection='vertical'\nname='radioGroupFirst'\nonChange={(_, { value }) => setDirection(value)}\nvalue={direction}\n>\n<Radio label='Горизонтальный' value='horizontal' />\n<Radio label='Вертикальный' value='vertical' />\n</RadioGroup>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#1687](https://github.com/core-ds/core-components/pull/1687)\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl` на `2, 4, 8, 12, 16, 20, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256` соответственно)"
+}
+]
+}
