@@ -224,9 +224,10 @@ export function useVirtualVisibleOptions({
             }
 
             const win = getElementWindow(list);
-            const { paddingTop } = win.getComputedStyle(list, '::before');
 
-            nextHeight += parseFloat(paddingTop || '0');
+            nextHeight += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
+                .reduce((a, b) => a + b);
 
             setHeight(nextHeight);
         }
@@ -298,9 +299,10 @@ export function useVisibleOptions({
             }
 
             const win = getElementWindow(list);
-            const { paddingTop } = win.getComputedStyle(list, '::before');
 
-            measuredHeight += parseFloat(paddingTop || '0');
+            measuredHeight += ['::before', '::after']
+                .map((pseudo) => parseFloat(win.getComputedStyle(list, pseudo).paddingTop) || 0)
+                .reduce((a, b) => a + b);
 
             setHeight(measuredHeight);
 

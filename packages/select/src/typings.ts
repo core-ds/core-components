@@ -6,6 +6,7 @@ import {
     type MouseEvent,
     type ReactElement,
     type ReactNode,
+    type Ref,
     type RefAttributes,
     type SVGProps,
 } from 'react';
@@ -706,6 +707,11 @@ export type OptionsListProps = Pick<SelectProps, 'client'> & {
      *
      */
     listNodeClassName?: string;
+
+    /**
+     *
+     */
+    ctrlRef?: Ref<OptionsListController>;
 };
 
 export type OptgroupProps = {
@@ -1018,3 +1024,7 @@ export type ClearButtonProps = {
      */
     size?: FormControlProps['size'];
 };
+
+export interface OptionsListController {
+    scrollToIndex(index: number): void;
+}

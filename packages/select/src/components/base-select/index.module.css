@@ -88,13 +88,12 @@
         }
 
         .content {
-            display: inline-flex;
             flex-grow: 1;
         }
 
         .list {
             display: inline-block;
-            flex-grow: 1;
+            min-width: 100%;
         }
     }
 
@@ -118,7 +117,7 @@
         .list:after {
             content: '';
             display: block;
-            padding-bottom: var(--select-options-list-bottom-padding);
+            padding-top: var(--select-options-list-bottom-padding);
         }
     }
 }

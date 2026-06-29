@@ -26,6 +26,7 @@ import { getDataTestId, isClient } from '@alfalab/core-components-shared';
 import {
     type AnyObject,
     type OptionShape,
+    type OptionsListController,
     type OptionsListProps,
     type SearchProps,
 } from '../../typings';
@@ -129,7 +130,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
         const searchRef = useRef<HTMLInputElement>(null);
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
         const onOpenRef = useRef(onOpen);
-
+        const optionsListCtrlRef = useRef<OptionsListController>(null);
         const [searchState, setSearchState] = React.useState('');
 
         const [search, setSearch] =
@@ -166,20 +167,29 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
 
         const scrollIntoView = (node: HTMLElement) => {
             if (!node || view === 'mobile') return;
+            const optionsListCtrl = optionsListCtrlRef.current;
 
-            requestAnimationFrame(() => {
-                const actions = compute(node, {
-                    boundary: listRef.current,
-                    block: 'nearest',
-                    scrollMode: 'if-needed',
+            if (optionsListCtrl) {
+                const dataIndex = node.getAttribute('data-index');
+
+                if (dataIndex) {
+                    optionsListCtrl.scrollToIndex(Number(dataIndex));
+                }
+            } else {
+                requestAnimationFrame(() => {
+                    const actions = compute(node, {
+                        boundary: listRef.current,
+                        block: 'nearest',
+                        scrollMode: 'if-needed',
+                    });
+
+                    actions.forEach((action) => {
+                        const { el, top } = action;
+
+                        el.scrollTop = top;
+                    });
                 });
-
-                actions.forEach((action) => {
-                    const { el, top } = action;
-
-                    el.scrollTop = top;
-                });
-            });
+            }
         };
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
@@ -470,6 +480,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     shouldSearchBlurRef.current = true;
                     fieldRef.current?.focus();
                 },
+                'data-index': index,
             }),
             multiple,
             index,
@@ -610,6 +621,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 >
                     <OptionsList
                         {...listProps}
+                        ctrlRef={optionsListCtrlRef}
                         ref={view === 'desktop' ? listProps.ref : scrollableContainerRef}
                         setHighlightedIndex={view === 'desktop' ? setHighlightedIndex : undefined}
                         className={cn(

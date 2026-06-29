@@ -1,8 +1,16 @@
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+    forwardRef,
+    useEffect,
+    useImperativeHandle,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import { useVirtual } from 'react-virtual';
 import cn from 'classnames';
 
 import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
+import { getElementWindow } from '@alfalab/core-components-shared';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
@@ -45,6 +53,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             contentNodeClassName,
             listNodeClassName,
             footerClassName,
+            ctrlRef,
         },
         ref,
     ) => {
@@ -57,6 +66,24 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
         const rowVirtualizer = useVirtual({
+            scrollToFn(offset, defaultScrollToFn) {
+                let delta = 0;
+                const list = listRef.current;
+
+                if (list) {
+                    const win = getElementWindow(list);
+
+                    delta = ['::before', '::after']
+                        .map((pseudo) => {
+                            const { paddingTop } = win.getComputedStyle(list, pseudo);
+
+                            return parseFloat(paddingTop) || 0;
+                        })
+                        .reduce((a, b) => a + b);
+                }
+
+                defaultScrollToFn?.(offset === 0 ? offset : offset + delta);
+            },
             size: flatOptions.length,
             parentRef: (ref as React.RefObject<HTMLDivElement>) || scrollableNodeRef,
             overscan: 15,
@@ -75,15 +102,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [open]);
 
-        // Скролл к пункту, которого нет на экране
-        useEffect(() => {
-            if (highlightedIndex === -1) return;
-
-            if (!rowVirtualizer.virtualItems.some((option) => option.index === highlightedIndex)) {
-                rowVirtualizer.scrollToIndex(highlightedIndex, { align: 'end' });
-            }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [highlightedIndex]);
+        useImperativeHandle(ctrlRef, () => rowVirtualizer, [rowVirtualizer]);
 
         // Циклическая навигация
         useEffect(() => {
@@ -192,11 +211,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                 };
 
                 return (
-                    <div
-                        key={virtualRow.index}
-                        ref={virtualRow.measureRef}
-                        data-index={virtualRow.index}
-                    >
+                    <div key={virtualRow.index} ref={virtualRow.measureRef}>
                         {renderGroup()}
                         {!isGroup(option) && (
                             <Option {...getOptionProps(option, virtualRow.index)} />
@@ -244,7 +259,7 @@ export const VirtualOptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         }}
                         contentNodeProps={{
                             className: contentNodeClassName,
-                            style: { height: rowVirtualizer.totalSize },
+                            style: { minHeight: rowVirtualizer.totalSize },
                         }}
                     >
                         <div

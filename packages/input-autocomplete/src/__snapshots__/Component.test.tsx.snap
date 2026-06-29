@@ -230,6 +230,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                   aria-disabled="false"
                                   aria-selected="false"
                                   class="option size-56 option"
+                                  data-index="0"
                                   id="downshift-:r1:-item-0"
                                   role="option"
                                 >
@@ -262,6 +263,7 @@ exports[`InputAutocompleteMobile Snapshots tests should match snapshot in open s
                                   aria-disabled="false"
                                   aria-selected="false"
                                   class="option size-56 option"
+                                  data-index="1"
                                   id="downshift-:r1:-item-1"
                                   role="option"
                                 >
