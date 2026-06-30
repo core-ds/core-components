@@ -2,7 +2,7 @@ import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { isMacOS, isSafari } from '@alfalab/core-components-shared';
+import { isMacOS, isSafari, useModalSpringTransition } from '@alfalab/core-components-shared';
 
 import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
 import { type UniversalModalDesktopProps } from '../../types/props';
@@ -12,6 +12,7 @@ import { getMarginStyles } from '../../utils/get-margin-styles';
 import { getWidthStyle } from '../../utils/get-width-style';
 import { ModalContent } from '../modal-content/modal-content';
 
+import springStyles from '../../styles/transitions/spring.module.css';
 import styles from './index.module.css';
 import safariTransitions from './transitions/safari-transitions.module.css';
 import transitions from './transitions/transitions.module.css';
@@ -53,16 +54,17 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
         <BaseModal
             {...restProps}
             springAnimation={
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 restProps.springAnimation
                     ? {
-                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                          // @ts-ignore
-                          ...restProps.springAnimation,
-                          springOptions: { stiffness: 350, damping: 30, mass: 1 },
-                          enter: { translate: ['0px 15px', '0px 0px'], opacity: [0, 1] },
-                          exit: { translate: ['0px 0px', '0px 15px'], opacity: [1, 0] },
+                          enter: {
+                              translate: ['0px 24px', '0px 0px'],
+                              springOptions: { stiffness: 406, damping: 35, mass: 1 },
+                          },
+                          exit: {
+                              translate: ['0px 0px', '0px 24px'],
+                              springOptions: { stiffness: 235, damping: 31, mass: 1 },
+                          },
+                          hook: useModalSpringTransition,
                       }
                     : undefined
             }
@@ -90,6 +92,24 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
                 shouldRender: overlay,
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
+                ...(restProps.springAnimation && {
+                    timeout: {
+                        enter: 500,
+                        exit: 530,
+                    },
+                    className: springStyles.backdrop,
+                    transitionClassNames: {
+                        enter: springStyles.enter,
+                        appear: springStyles.appear,
+                        enterActive: springStyles.enterActive,
+                        appearActive: springStyles.appearActive,
+                        enterDone: springStyles.enterDone,
+                        appearDone: springStyles.appearDone,
+                        exit: springStyles.exit,
+                        exitActive: springStyles.exitActive,
+                        exitDone: springStyles.exitDone,
+                    },
+                }),
             }}
             componentDivProps={{
                 style: {

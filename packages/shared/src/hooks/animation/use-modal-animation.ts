@@ -14,11 +14,12 @@ export type AnimationParams = {
     springOptions: SpringOptions;
 };
 
-export function useSpringTransition<T extends HTMLElement>(
+export function useModalSpringTransition<T extends HTMLElement>(
     ref: RefObject<T | null>,
     enter: AnimationParams,
     exit: AnimationParams,
     callbacks?: UseSpringTransitionCallbacks,
+    contentRef?: RefObject<T | null>,
 ): {
     playEnter: () => void;
     playExit: () => void;
@@ -51,7 +52,14 @@ export function useSpringTransition<T extends HTMLElement>(
             {
                 duration: 0.2,
                 ease: [0.22, 1, 0.36, 1],
+                delay: 0.08,
             },
+        );
+
+        const scaleAnim = animate(
+            ref.current,
+            { scale: [0.98, 1] },
+            { stiffness: 406, damping: 35, mass: 1, delay: 0.08 },
         );
 
         const blurAnim = animate(
@@ -59,19 +67,34 @@ export function useSpringTransition<T extends HTMLElement>(
             { filter: ['blur(8px)', 'blur(0px)'] },
             {
                 duration: 0.2,
-                delay: 0.06,
+                delay: 0.08,
                 ease: [0.22, 1, 0.36, 1],
             },
         );
 
-        const group = new GroupAnimation([transformAnim, opacityAnim, blurAnim]);
+        const opacityContentAnim = animate(
+            contentRef?.current,
+            { opacity: [0, 1] },
+            {
+                duration: 0.26,
+                ease: [0.22, 1, 0.36, 1],
+            },
+        );
+
+        const group = new GroupAnimation([
+            transformAnim,
+            opacityAnim,
+            scaleAnim,
+            blurAnim,
+            opacityContentAnim,
+        ]);
 
         animationRef.current = group;
 
         group.finished.then(() => {
             callbacksRef.current?.onEntered?.();
         });
-    }, [enter.springOptions, enter.translate, ref]);
+    }, [contentRef, enter.springOptions, enter.translate, ref]);
 
     const playExit = useCallback(() => {
         if (!ref.current) {
@@ -95,28 +118,49 @@ export function useSpringTransition<T extends HTMLElement>(
             ref.current,
             { opacity: [1, 0] },
             {
-                duration: 0.25,
-                ease: [0.32, 0, 0.2, 1],
+                duration: 0.34,
+                ease: [0.22, 1, 0.36, 1],
             },
+        );
+
+        const scaleAnim = animate(
+            ref.current,
+            { scale: [1, 0.98] },
+            { stiffness: 235, damping: 31, mass: 1 },
         );
 
         const blurAnim = animate(
             ref.current,
             { filter: ['blur(0px)', 'blur(8px)'] },
             {
-                duration: 0.28,
-                ease: [0.32, 0, 0.2, 1],
+                duration: 0.2,
+                ease: [0.22, 1, 0.36, 1],
             },
         );
 
-        const group = new GroupAnimation([transformAnim, opacityAnim, blurAnim]);
+        const opacityContentAnim = animate(
+            contentRef?.current,
+            { opacity: [1, 0] },
+            {
+                duration: 0.26,
+                ease: [0.22, 1, 0.36, 1],
+            },
+        );
+
+        const group = new GroupAnimation([
+            transformAnim,
+            opacityAnim,
+            scaleAnim,
+            blurAnim,
+            opacityContentAnim,
+        ]);
 
         animationRef.current = group;
 
         group.finished.then(() => {
             callbacksRef.current?.onExited?.();
         });
-    }, [exit, ref]);
+    }, [contentRef, exit.springOptions, exit.translate, ref]);
 
     useEffect(
         () => () => {

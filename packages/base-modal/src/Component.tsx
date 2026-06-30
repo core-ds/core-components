@@ -24,7 +24,12 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, type PortalProps } from '@alfalab/core-components-portal';
-import { type AnimationParams, getScrollbarSize, isIOS } from '@alfalab/core-components-shared';
+import {
+    type AnimationParams,
+    getScrollbarSize,
+    isIOS,
+    type SpringHookType,
+} from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
@@ -232,6 +237,8 @@ export type BaseModalProps = {
         onSpringEnd?: () => void;
         enter: AnimationParams;
         exit: AnimationParams;
+        hook: SpringHookType;
+        contentRef?: MutableRefObject<HTMLDivElement | null>;
     };
 };
 
@@ -605,6 +612,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             ...restBackdropProps
         } = backdropProps;
 
+        const springContentRef = useRef<HTMLDivElement | null>(null);
+
         const animationConfig: AnimationWrapperConfig = springAnimation
             ? {
                   useSpring: true as const,
@@ -624,6 +633,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                           typeof springAnimation === 'object'
                               ? springAnimation.onSpringEnd
                               : undefined,
+                      hook: springAnimation.hook,
+                      contentRef: springContentRef,
                   },
               }
             : {
@@ -713,7 +724,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                                             [styles.hasHeader]: hasHeader,
                                                         },
                                                     )}
-                                                    ref={contentElementRef}
+                                                    ref={mergeRefs([
+                                                        contentElementRef,
+                                                        springContentRef,
+                                                    ])}
                                                 >
                                                     {children}
                                                 </div>

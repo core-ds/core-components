@@ -2,6 +2,7 @@ import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
+import { useSpringTransition } from '@alfalab/core-components-shared';
 
 import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
 import { type UniversalModalDesktopProps } from '../../types/props';
@@ -13,8 +14,8 @@ import { ModalContent } from '../modal-content/modal-content';
 
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
+import springStyles from '../../styles/transitions/spring.module.css';
 import styles from './index.module.css';
-import springStyles from './transitions/spring.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
@@ -61,6 +62,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                               translate: ['0px 0px', '80px 0px'],
                               springOptions: { stiffness: 153, damping: 25, mass: 1 },
                           },
+                          hook: useSpringTransition,
                       }
                     : undefined
             }
@@ -97,7 +99,7 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 ...(restProps.springAnimation && {
                     timeout: {
                         enter: 500,
-                        exit: 500,
+                        exit: 530,
                     },
                     className: springStyles.backdrop,
                     transitionClassNames: {
