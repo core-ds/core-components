@@ -9,11 +9,8 @@ export const hooks = {
 export * from './use-force-update';
 export * from './use-ref-as-state';
 
-export {
-    useSpringAnimation,
-    useSpringTransition,
-    type AnimationValues,
-} from './useSpringAnimation';
+export { useSpringAnimation } from './useSpringAnimation';
 
-export { type SpringOptions } from './animation/spring-options';
+export { type SpringOptions, type AnimationValues } from './animation/spring-options';
 export { useAccordionSpringAnimation } from './animation/use-accordion-spring-animation';
+export { useSpringTransition } from './animation/use-universal-modal-animation';
