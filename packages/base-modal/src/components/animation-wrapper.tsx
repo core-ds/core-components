@@ -2,11 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
 
-import {
-    type AnimationValues,
-    type SpringOptions,
-    useSpringTransition,
-} from '@alfalab/core-components-shared';
+import { type AnimationParams, useSpringTransition } from '@alfalab/core-components-shared';
 
 type CSSAnimationProps = {
     children: React.ReactNode;
@@ -18,9 +14,8 @@ type SpringAnimationInnerProps = {
     open: boolean;
     exited: boolean | null;
     nodeRef: React.RefObject<HTMLDivElement>;
-    springOptions: SpringOptions;
-    enter: AnimationValues;
-    exit: AnimationValues;
+    enter: AnimationParams;
+    exit: AnimationParams;
     onEntered: () => void;
     onExited: () => void;
     onSpringStart?: () => void;
@@ -42,7 +37,6 @@ const SpringAnimationInner = ({
     open,
     exited,
     nodeRef,
-    springOptions,
     onEntered,
     onExited,
     onSpringStart,
@@ -52,16 +46,10 @@ const SpringAnimationInner = ({
 }: SpringAnimationInnerProps & { children: React.ReactNode }) => {
     const fallbackRef = useRef<HTMLDivElement>(null);
 
-    const { playEnter, playExit } = useSpringTransition(
-        nodeRef ?? fallbackRef,
-        springOptions,
-        enter,
-        exit,
-        {
-            onEntered,
-            onExited,
-        },
-    );
+    const { playEnter, playExit } = useSpringTransition(nodeRef ?? fallbackRef, enter, exit, {
+        onEntered,
+        onExited,
+    });
 
     useLayoutEffect(() => {
         if (exited !== false) return;

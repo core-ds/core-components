@@ -68,4 +68,5 @@ export interface UniversalModalDesktopProps
      * Реф контейнера на котором происходит scroll
      */
     scrollableContainerRef?: RefObject<HTMLDivElement>;
+    springAnimation?: boolean;
 }

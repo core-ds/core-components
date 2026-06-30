@@ -24,12 +24,7 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, type PortalProps } from '@alfalab/core-components-portal';
-import {
-    type AnimationValues,
-    getScrollbarSize,
-    isIOS,
-    type SpringOptions,
-} from '@alfalab/core-components-shared';
+import { type AnimationParams, getScrollbarSize, isIOS } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
@@ -232,15 +227,12 @@ export type BaseModalProps = {
      */
     onWheel?: (e: WheelEvent<HTMLElement>) => void;
 
-    springAnimation?:
-        | boolean
-        | {
-              springOptions: SpringOptions;
-              onSpringStart?: () => void;
-              onSpringEnd?: () => void;
-              enter: AnimationValues;
-              exit: AnimationValues;
-          };
+    springAnimation?: {
+        onSpringStart?: () => void;
+        onSpringEnd?: () => void;
+        enter: AnimationParams;
+        exit: AnimationParams;
+    };
 };
 
 export type BaseModalContext = {
@@ -620,10 +612,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                       open,
                       exited,
                       nodeRef: componentNodeRef,
-                      springOptions:
-                          typeof springAnimation === 'object' ? springAnimation.springOptions : {},
-                      enter: typeof springAnimation === 'object' ? springAnimation.enter : {},
-                      exit: typeof springAnimation === 'object' ? springAnimation.exit : {},
+                      enter: springAnimation.enter,
+                      exit: springAnimation.exit,
                       onEntered: () => handleEntered(componentNodeRef.current!, false),
                       onExited: () => handleExited(componentNodeRef.current!),
                       onSpringStart:

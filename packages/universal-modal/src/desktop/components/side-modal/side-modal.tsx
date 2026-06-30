@@ -14,6 +14,7 @@ import { ModalContent } from '../modal-content/modal-content';
 import { getDefaultTransitionProps } from './get-default-transition-props';
 
 import styles from './index.module.css';
+import springStyles from './transitions/spring.module.css';
 
 export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>((props, ref) => {
     const {
@@ -50,16 +51,16 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
         <BaseModal
             {...restProps}
             springAnimation={
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 restProps.springAnimation
                     ? {
-                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                          // @ts-ignore
-                          ...restProps.springAnimation,
-                          springOptions: { stiffness: 320, damping: 28, mass: 1.5 },
-                          enter: { translate: ['100% 0px', '0px 0px'] },
-                          exit: { translate: ['0px 0px', '100% 0px'] },
+                          enter: {
+                              translate: ['110% 0px', '0px 0px'],
+                              springOptions: { stiffness: 260, damping: 32, mass: 1 },
+                          },
+                          exit: {
+                              translate: ['0px 0px', '80px 0px'],
+                              springOptions: { stiffness: 153, damping: 25, mass: 1 },
+                          },
                       }
                     : undefined
             }
@@ -93,6 +94,24 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
                 shouldRender: overlay,
                 ...(isFullSizeModal && fullSizeModalBackdropTransitions),
                 ...restProps.backdropProps,
+                ...(restProps.springAnimation && {
+                    timeout: {
+                        enter: 500,
+                        exit: 500,
+                    },
+                    className: springStyles.backdrop,
+                    transitionClassNames: {
+                        enter: springStyles.enter,
+                        appear: springStyles.appear,
+                        enterActive: springStyles.enterActive,
+                        appearActive: springStyles.appearActive,
+                        enterDone: springStyles.enterDone,
+                        appearDone: springStyles.appearDone,
+                        exit: springStyles.exit,
+                        exitActive: springStyles.exitActive,
+                        exitDone: springStyles.exitDone,
+                    },
+                }),
             }}
             componentDivProps={{
                 style: {

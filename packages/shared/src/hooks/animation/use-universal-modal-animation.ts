@@ -1,59 +1,120 @@
 import { type RefObject, useCallback, useEffect, useRef } from 'react';
-import { spring } from 'motion';
+import { GroupAnimation, spring } from 'motion';
 import { animate } from 'motion/mini';
 
-import { type AnimationValues, type SpringOptions } from './spring-options';
+import { type SpringOptions } from './spring-options';
 
 type UseSpringTransitionCallbacks = {
     onEntered?: () => void;
     onExited?: () => void;
 };
 
+export type AnimationParams = {
+    translate: [string, string];
+    springOptions: SpringOptions;
+};
+
 export function useSpringTransition<T extends HTMLElement>(
     ref: RefObject<T | null>,
-    springOptions: SpringOptions,
-    enter: AnimationValues,
-    exit: AnimationValues,
+    enter: AnimationParams,
+    exit: AnimationParams,
     callbacks?: UseSpringTransitionCallbacks,
 ): {
     playEnter: () => void;
     playExit: () => void;
 } {
-    const animationRef = useRef<ReturnType<typeof animate> | null>(null);
+    const animationRef = useRef<GroupAnimation | null>(null);
     const callbacksRef = useRef(callbacks);
 
     callbacksRef.current = callbacks;
 
-    const springOptionsRef = useRef(springOptions);
-
-    springOptionsRef.current = springOptions;
-
     const playEnter = useCallback(() => {
-        if (!ref.current) return;
-        const merged = { ...springOptionsRef.current };
+        if (!ref.current) {
+            return;
+        }
 
         animationRef.current?.cancel();
 
-        animationRef.current = animate(ref.current, enter, {
-            type: spring,
-            ...merged,
-        });
-        animationRef.current.then(() => {
+        const transformAnim = animate(
+            ref.current,
+            { translate: enter.translate },
+            {
+                type: spring,
+                ...enter.springOptions,
+                delay: 0.01,
+            },
+        );
+
+        const opacityAnim = animate(
+            ref.current,
+            { opacity: [0, 1] },
+            {
+                duration: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+            },
+        );
+
+        const blurAnim = animate(
+            ref.current,
+            { filter: ['blur(8px)', 'blur(0px)'] },
+            {
+                duration: 0.2,
+                delay: 0.06,
+                ease: [0.22, 1, 0.36, 1],
+            },
+        );
+
+        const group = new GroupAnimation([transformAnim, opacityAnim, blurAnim]);
+
+        animationRef.current = group;
+
+        group.finished.then(() => {
             callbacksRef.current?.onEntered?.();
         });
-    }, [enter, ref]);
+    }, [enter.springOptions, enter.translate, ref]);
 
     const playExit = useCallback(() => {
-        if (!ref.current) return;
-        const merged = { ...springOptionsRef.current };
+        if (!ref.current) {
+            return;
+        }
 
         animationRef.current?.cancel();
 
-        animationRef.current = animate(ref.current, exit, {
-            type: spring,
-            ...merged,
-        });
-        animationRef.current.then(() => {
+        const transformAnim = animate(
+            ref.current,
+            {
+                translate: exit.translate,
+            },
+            {
+                type: spring,
+                ...exit.springOptions,
+                delay: 0.03,
+            },
+        );
+
+        const opacityAnim = animate(
+            ref.current,
+            { opacity: [1, 0] },
+            {
+                duration: 0.25,
+                ease: [0.32, 0, 0.2, 1],
+            },
+        );
+
+        const blurAnim = animate(
+            ref.current,
+            { filter: ['blur(0px)', 'blur(8px)'] },
+            {
+                duration: 0.28,
+                ease: [0.32, 0, 0.2, 1],
+            },
+        );
+
+        const group = new GroupAnimation([transformAnim, opacityAnim, blurAnim]);
+
+        animationRef.current = group;
+
+        group.finished.then(() => {
             callbacksRef.current?.onExited?.();
         });
     }, [exit, ref]);
