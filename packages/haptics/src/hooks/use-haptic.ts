@@ -6,20 +6,33 @@ import { useCoreConfig } from '@alfalab/core-components-config';
 import { type HapticInput, type HapticPresetValue, type TriggerOptions } from '../types';
 import { resolveHapticConfig } from '../utils';
 
-type WebHapticsOptions = NonNullable<Parameters<typeof useWebHaptics>[0]>;
+export interface UseHapticParams {
+    /**
+     * Локальный haptic-пресет или кастомный vibration-конфиг.
+     * Перекрывает глобальный `CoreConfig.haptics`, кроме прямого вызова `trigger(input)`.
+     */
+    preset?: HapticPresetValue;
 
-interface UseHapticParams extends WebHapticsOptions {
-    dataHapticPreset?: HapticPresetValue;
+    /**
+     * Звуковой fallback вместо вибрации — для проверки паттернов на десктопе.
+     * Приоритет: аргумент хука → `CoreConfig.haptics.debug` → `false`.
+     *
+     * @default false
+     */
+    debug?: boolean;
 }
 
 interface UseHapticResponse {
     /**
-     * Можно ли запускать haptic с учётом итогового конфига и поддержки окружения.
+     * `true`, если окружение поддерживает haptic и есть resolved config
+     * для вызова `trigger()` без аргументов.
+     *
+     * Прямой `trigger(input)` работает независимо от этого флага.
      */
     enabled: boolean;
 
     /**
-     * Поддерживает ли текущее окружение запуск haptic feedback через `web-haptics`.
+     * Поддерживает ли текущее окружение нативную вибрацию через `navigator.vibrate`.
      */
     isSupported: boolean;
 
@@ -27,7 +40,7 @@ interface UseHapticResponse {
      * Запускает haptic feedback.
      *
      * Если передать `input`, он будет отправлен напрямую в `web-haptics.trigger`.
-     * Если `input` не передан, используется payload из локального `haptic` или `CoreConfig.haptics`.
+     * Если `input` не передан, используется payload из `preset` или `CoreConfig.haptics`.
      */
     trigger: (input?: HapticInput, options?: TriggerOptions) => void;
 
@@ -41,36 +54,35 @@ interface UseHapticResponse {
  * Хук для ручного запуска haptic feedback.
  *
  * Оборачивает `useWebHaptics` и добавляет поддержку конфигурации из `CoreConfig.haptics`
- * и локального `data-haptic-preset`-пропса компонента.
+ * и локального `preset`.
  *
  * Приоритет источников:
- * 1. `trigger(input, options)` — прямой вызов с payload для `web-haptics`, самый высокий приоритет.
- * 2. `useHaptic({ dataHapticPreset })` — локальный preset или кастомный vibration-конфиг.
+ * 1. `trigger(input, options)` — прямой вызов, самый высокий приоритет.
+ * 2. `useHaptic({ preset })` — локальный preset или кастомный vibration-конфиг.
  * 3. `CoreConfig.haptics` — глобальная конфигурация из провайдера.
- *
- * Если `input` передан в `trigger`, локальный и глобальный конфиг используются только для
- * проверки доступности hook-а, но не меняют payload. Если `input` не передан, hook запускает
- * заранее разрешённый payload из локального `data-haptic-preset` или глобального `CoreConfig.haptics`.
- *
- * `enabled` возвращает `true` только когда итоговый конфиг есть и `web-haptics` поддерживается
- * текущим окружением.
  */
-export const useHaptic = ({
-    dataHapticPreset,
-    debug,
-    showSwitch,
-}: UseHapticParams = {}): UseHapticResponse => {
+export const useHaptic = ({ preset, debug }: UseHapticParams = {}): UseHapticResponse => {
     const { haptics } = useCoreConfig();
-    const { cancel, isSupported, trigger: triggerHaptics } = useWebHaptics({ debug, showSwitch });
+
+    const isDebug = debug ?? haptics?.debug ?? false;
+    const {
+        cancel,
+        isSupported,
+        trigger: triggerHaptics,
+    } = useWebHaptics({
+        debug: isDebug,
+    });
 
     const config = resolveHapticConfig({
-        dataHapticPreset,
+        preset,
         global: haptics,
     });
 
+    const canTrigger = isSupported || isDebug;
+
     const trigger = useCallback(
         (input?: HapticInput, options?: TriggerOptions) => {
-            if (!isSupported) return;
+            if (!canTrigger) return;
 
             // Direct trigger has the highest priority and bypasses local/global config.
             if (input !== undefined) {
@@ -81,14 +93,14 @@ export const useHaptic = ({
 
             if (!config) return;
 
-            // No direct input: use resolved local `data-haptic-preset` prop or global CoreConfig.haptics.
+            // No direct input: use resolved local preset or global CoreConfig.haptics.
             triggerHaptics(config.input, options ?? config.options)?.catch(() => {});
         },
-        [config, isSupported, triggerHaptics],
+        [canTrigger, config, triggerHaptics],
     );
 
     return {
-        enabled: Boolean(config && isSupported),
+        enabled: canTrigger && Boolean(config),
         isSupported,
         trigger,
         cancel,

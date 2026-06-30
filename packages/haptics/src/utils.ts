@@ -41,9 +41,9 @@ const resolvePresetValue = (
 
 export type ResolveHapticConfigParams = {
     /**
-     * Локальный haptic-пресет, переданный в компонент.
+     * Локальный haptic-пресет, переданный в хук или компонент.
      */
-    dataHapticPreset?: HapticPresetValue;
+    preset?: HapticPresetValue;
 
     /**
      * Глобальный haptic-конфиг из `CoreConfig`.
@@ -52,24 +52,24 @@ export type ResolveHapticConfigParams = {
 };
 
 /**
- * Собирает итоговый haptic-конфиг из локального `haptic` и глобального `CoreConfig.haptics`.
+ * Собирает итоговый haptic-конфиг из локального `preset` и глобального `CoreConfig.haptics`.
  *
  * Правила приоритета:
- * - если `data-haptic-preset` не передан, используется только `global.enabled=true`
- * - если `data-haptic-preset` передан, он включает haptic даже при `global.enabled=false`
- * - строковый `data-haptic-preset` запускает только выбранный preset
- * - объектный `data-haptic-preset` считается кастомным vibration-конфигом
+ * - если `preset` не передан, используется только `global.enabled=true`
+ * - если `preset` передан, он включает haptic даже при `global.enabled=false`
+ * - строковый `preset` запускает только выбранный preset
+ * - объектный `preset` считается кастомным vibration-конфигом
  */
 export const resolveHapticConfig = ({
-    dataHapticPreset,
+    preset,
     global,
 }: ResolveHapticConfigParams): Omit<HapticTriggerConfig, 'pattern'> | null => {
-    const hasLocalPreset = dataHapticPreset !== undefined;
+    const hasLocalPreset = preset !== undefined;
 
     if (!hasLocalPreset && global?.enabled !== true) return null;
 
-    if (dataHapticPreset !== undefined) {
-        return resolvePresetValue(dataHapticPreset);
+    if (preset !== undefined) {
+        return resolvePresetValue(preset);
     }
 
     if (global?.enabled === false) return null;
@@ -84,6 +84,7 @@ export const resolveHapticConfig = ({
         input ??
         pattern ??
         repeatHapticPattern(defaultPatterns[DEFAULT_PRESET].pattern as HapticPattern, repeat);
+
     const optionsFromGlobal =
         options || intensity !== undefined
             ? {

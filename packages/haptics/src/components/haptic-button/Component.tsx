@@ -9,7 +9,7 @@ type HapticButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> &
 
 export const HapticButton = forwardRef<HTMLButtonElement, HapticButtonProps>(
     ({ 'data-haptic-preset': dataHapticPreset, onClick, type = 'button', ...restProps }, ref) => {
-        const { trigger } = useHaptic({ dataHapticPreset });
+        const { trigger } = useHaptic({ preset: dataHapticPreset });
 
         const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
             onClick?.(e);

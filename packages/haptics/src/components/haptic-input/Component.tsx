@@ -7,7 +7,7 @@ type HapticInputProps = InputHTMLAttributes<HTMLInputElement> & HapticBaseProps;
 
 export const HapticInput = forwardRef<HTMLInputElement, HapticInputProps>(
     ({ 'data-haptic-preset': dataHapticPreset, onClick, ...restProps }, ref) => {
-        const { trigger } = useHaptic({ dataHapticPreset });
+        const { trigger } = useHaptic({ preset: dataHapticPreset });
 
         const handleClick = (event: MouseEvent<HTMLInputElement>) => {
             onClick?.(event);

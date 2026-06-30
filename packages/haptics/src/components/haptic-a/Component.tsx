@@ -7,7 +7,7 @@ type HapticAProps = AnchorHTMLAttributes<HTMLAnchorElement> & HapticBaseProps;
 
 export const HapticA = forwardRef<HTMLAnchorElement, HapticAProps>(
     ({ 'data-haptic-preset': dataHapticPreset, onClick, ...restProps }, ref) => {
-        const { trigger } = useHaptic({ dataHapticPreset });
+        const { trigger } = useHaptic({ preset: dataHapticPreset });
 
         const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
             onClick?.(event);

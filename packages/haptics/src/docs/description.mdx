@@ -187,7 +187,7 @@ render(() => {
 
 В некоторые компоненты зашиты аналогичные iOS паттерны вибрации.
 
-```jsx live mobileHeight={658} mobileOnly
+```jsx live mobileHeight={658}
 render(() => {
     const [checkboxFirst, setCheckboxFirst] = React.useState(false);
     const [checkboxSecond, setCheckboxSecond] = React.useState(false);
@@ -198,79 +198,87 @@ render(() => {
     const [date, setDate] = React.useState(null);
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <Typography.Text view='primary-small' color='secondary'>
-                    Чекбоксы
-                </Typography.Text>
-                <Checkbox
-                    checked={checkboxFirst}
-                    label='Чекбокс 1'
-                    onChange={(_, { checked }) => setCheckboxFirst(checked)}
+        <CoreConfigContext.Provider
+            value={{
+                breakpoint: 1024,
+                client: 'mobile',
+                haptics: { enabled: true, debug: true },
+            }}
+        >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <Typography.Text view='primary-small' color='secondary'>
+                        Чекбоксы
+                    </Typography.Text>
+                    <Checkbox
+                        checked={checkboxFirst}
+                        label='Чекбокс 1'
+                        onChange={(_, { checked }) => setCheckboxFirst(checked)}
+                    />
+                    <Checkbox
+                        checked={checkboxSecond}
+                        label='Чекбокс 2'
+                        onChange={(_, { checked }) => setCheckboxSecond(checked)}
+                    />
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <Typography.Text view='primary-small' color='secondary'>
+                        Радио
+                    </Typography.Text>
+                    <Radio
+                        checked={radio === 'first'}
+                        label='Радио 1'
+                        name='haptic-radio'
+                        onChange={() => setRadio('first')}
+                    />
+                    <Radio
+                        checked={radio === 'second'}
+                        label='Радио 2'
+                        name='haptic-radio'
+                        onChange={() => setRadio('second')}
+                    />
+                </div>
+
+                <Switch
+                    checked={switchChecked}
+                    label='Свитч'
+                    onChange={(_, { checked }) => setSwitchChecked(checked)}
                 />
-                <Checkbox
-                    checked={checkboxSecond}
-                    label='Чекбокс 2'
-                    onChange={(_, { checked }) => setCheckboxSecond(checked)}
+
+                <Slider
+                    min={1}
+                    max={10}
+                    step={1}
+                    value={sliderValue}
+                    pips={{ mode: 'steps', values: 1 }}
+                    onChange={({ value }) => setSliderValue(value)}
+                />
+
+                <NumberInput
+                    block={true}
+                    label='Инпут со степпером'
+                    labelView='inner'
+                    min={1}
+                    max={10}
+                    step={1}
+                    value={numberValue}
+                    onChange={(_, { value }) => setNumberValue(value)}
+                />
+
+                <UniversalDateInput
+                    block={true}
+                    view='date'
+                    label='Календарь'
+                    labelView='inner'
+                    value={date}
+                    onChange={setDate}
+                    picker={true}
+                    Calendar={Calendar}
+                    disableUserInput={true}
                 />
             </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <Typography.Text view='primary-small' color='secondary'>
-                    Радио
-                </Typography.Text>
-                <Radio
-                    checked={radio === 'first'}
-                    label='Радио 1'
-                    name='haptic-radio'
-                    onChange={() => setRadio('first')}
-                />
-                <Radio
-                    checked={radio === 'second'}
-                    label='Радио 2'
-                    name='haptic-radio'
-                    onChange={() => setRadio('second')}
-                />
-            </div>
-
-            <Switch
-                checked={switchChecked}
-                label='Свитч'
-                onChange={(_, { checked }) => setSwitchChecked(checked)}
-            />
-
-            <Slider
-                min={1}
-                max={10}
-                step={1}
-                value={sliderValue}
-                pips={{ mode: 'steps', values: 1 }}
-                onChange={({ value }) => setSliderValue(value)}
-            />
-
-            <NumberInput
-                block={true}
-                label='Инпут со степпером'
-                labelView='inner'
-                min={1}
-                max={10}
-                step={1}
-                value={numberValue}
-                onChange={(_, { value }) => setNumberValue(value)}
-            />
-
-            <UniversalDateInput
-                block={true}
-                view='date'
-                label='Календарь'
-                labelView='inner'
-                value={date}
-                onChange={setDate}
-                picker={true}
-                Calendar={Calendar}
-                disableUserInput={true}
-            />
-        </div>
+        </CoreConfigContext.Provider>
     );
 });
 ```
