@@ -5,6 +5,20 @@
     &.filled {
         background-color: var(--tag-inverted-filled-background-color);
 
+        &.checked:not(.muted) {
+            background-color: var(--tag-inverted-background-color-checked);
+
+            @media (hover: hover) {
+                &:not(:disabled):hover {
+                    background-color: var(--tag-inverted-background-color-checked-hover);
+                }
+            }
+
+            &:not(:disabled):active {
+                background-color: var(--tag-inverted-background-color-checked-active);
+            }
+        }
+
         &:disabled {
             background-color: var(--tag-inverted-filled-background-color-disabled);
         }
@@ -17,6 +31,24 @@
 
         &:not(:disabled):active {
             background-color: var(--tag-inverted-filled-background-color-active);
+        }
+    }
+
+    &.muted {
+        background-color: var(--tag-inverted-muted-background-color);
+
+        &:disabled {
+            background-color: var(--tag-inverted-muted-background-color-disabled);
+        }
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                background-color: var(--tag-inverted-muted-background-color-hover);
+            }
+        }
+
+        &:not(:disabled):active {
+            background-color: var(--tag-inverted-muted-background-color-active);
         }
     }
 }

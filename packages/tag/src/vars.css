@@ -46,6 +46,17 @@
     --tag-filled-background-color-disabled: var(--color-light-neutral-translucent-100);
     --tag-filled-mask-positive-color: var(--color-static-neutral-0);
 
+    /* background-color muted */
+    --tag-muted-border-color: transparent;
+    --tag-muted-background-color: var(--color-light-neutral-translucent-0);
+    --tag-muted-background-color-hover: var(--color-light-neutral-translucent-0-hover);
+    --tag-muted-background-color-active: var(--color-light-neutral-translucent-0-press);
+    --tag-muted-background-color-disabled: var(--color-light-neutral-translucent-100);
+    --tag-muted-background-color-checked-disabled: var(--color-light-neutral-translucent-100);
+    --tag-muted-background-color-checked: var(--color-light-neutral-translucent-200);
+    --tag-muted-background-color-checked-hover: var(--color-light-neutral-translucent-200-hover);
+    --tag-muted-background-color-checked-active: var(--color-light-neutral-translucent-200-press);
+
     /* background-color checked */
     --tag-background-color-checked: var(--color-light-accent-secondary);
     --tag-background-color-checked-hover: var(--color-light-accent-secondary-hover);
@@ -57,6 +68,14 @@
     --tag-text-color-checked: var(--color-light-text-primary-inverted);
     --tag-text-color-disabled: var(--color-light-text-tertiary);
     --tag-text-color-checked-disabled: var(--color-light-text-tertiary);
+
+    /* clear */
+    --tag-clear-color: var(--color-light-neutral-translucent-500);
+    --tag-clear-color-hover: var(--color-light-neutral-translucent-500-hover);
+    --tag-clear-color-active: var(--color-light-neutral-translucent-500-press);
+    --tag-clear-color-checked: var(--color-light-neutral-translucent-500-inverted);
+    --tag-clear-color-checked-hover: var(--color-light-neutral-translucent-500-inverted-hover);
+    --tag-clear-color-checked-active: var(--color-light-neutral-translucent-500-inverted-press);
 
     /* inverted */
 
@@ -115,33 +134,110 @@
         --color-light-neutral-translucent-100-inverted
     );
 
+    /* background-color muted inverted */
+    --tag-inverted-muted-border-color: transparent;
+    --tag-inverted-muted-background-color: var(--color-light-neutral-translucent-0-inverted);
+    --tag-inverted-muted-background-color-hover: var(
+        --color-light-neutral-translucent-0-inverted-hover
+    );
+    --tag-inverted-muted-background-color-active: var(
+        --color-light-neutral-translucent-0-inverted-press
+    );
+    --tag-inverted-muted-background-color-disabled: var(
+        --color-light-neutral-translucent-100-inverted
+    );
+    --tag-inverted-muted-background-color-checked-disabled: var(
+        --color-light-neutral-translucent-100-inverted
+    );
+    --tag-inverted-muted-background-color-checked: var(
+        --color-light-neutral-translucent-200-inverted
+    );
+    --tag-inverted-muted-background-color-checked-hover: var(
+        --color-light-neutral-translucent-200-inverted-hover
+    );
+    --tag-inverted-muted-background-color-checked-active: var(
+        --color-light-neutral-translucent-200-inverted-press
+    );
+
     /* text color */
     --tag-inverted-text-color: var(--color-light-text-primary-inverted);
     --tag-inverted-text-color-checked: var(--color-light-text-primary);
     --tag-inverted-text-color-disabled: var(--color-light-text-tertiary-inverted);
     --tag-inverted-text-color-checked-disabled: var(--color-light-text-tertiary-inverted);
 
+    /* clear inverted */
+    --tag-clear-color-inverted: var(--color-light-neutral-translucent-500-inverted);
+    --tag-clear-color-hover-inverted: var(--color-light-neutral-translucent-500-inverted-hover);
+    --tag-clear-color-active-inverted: var(--color-light-neutral-translucent-500-inverted-press);
+    --tag-clear-color-checked-inverted: var(--color-light-neutral-translucent-500);
+    --tag-clear-color-checked-hover-inverted: var(--color-light-neutral-translucent-500-hover);
+    --tag-clear-color-checked-active-inverted: var(--color-light-neutral-translucent-500-press);
+
     /* mobile */
     --tag-alt-mobile-border-radius: var(--border-radius-16);
     --tag-rectangular-mobile-xxs-border-radius: var(--border-radius-8);
     --tag-rectangular-mobile-xs-border-radius: var(--border-radius-12);
     --tag-rectangular-mobile-s-border-radius: var(--border-radius-12);
-    --tag-filled-mobile-background-color: var(--color-light-neutral-translucent-100);
-    --tag-filled-mobile-background-color-hover: var(--color-light-neutral-translucent-100-hover);
-    --tag-filled-mobile-background-color-active: var(--color-light-neutral-translucent-100-press);
-    --tag-filled-mobile-background-color-disabled: var(--color-light-neutral-translucent-100);
+
+    /* background-color filled mobile */
+    --tag-mobile-filled-background-color: var(--color-light-neutral-translucent-100);
+    --tag-mobile-filled-background-color-hover: var(--color-light-neutral-translucent-100-hover);
+    --tag-mobile-filled-background-color-active: var(--color-light-neutral-translucent-100-press);
+    --tag-mobile-filled-background-color-disabled: var(--color-light-neutral-translucent-100);
+
+    /* background-color muted mobile */
+    --tag-mobile-muted-background-color: var(--color-light-neutral-translucent-0);
+    --tag-mobile-muted-background-color-hover: var(--color-light-neutral-translucent-0-hover);
+    --tag-mobile-muted-background-color-active: var(--color-light-neutral-translucent-0-press);
+    --tag-mobile-muted-background-color-disabled: var(--color-light-neutral-translucent-100);
+    --tag-mobile-muted-checked-background-color: var(--color-light-neutral-translucent-100);
+    --tag-mobile-muted-checked-background-color-hover: var(
+        --color-light-neutral-translucent-100-hover
+    );
+    --tag-mobile-muted-checked-background-color-active: var(
+        --color-light-neutral-translucent-100-press
+    );
+    --tag-mobile-muted-checked-background-color-disabled: var(
+        --color-light-neutral-translucent-100
+    );
 
     /* mobile inverted */
-    --tag-inverted-filled-mobile-background-color: var(
+
+    /* background-color filled mobile inverted */
+    --tag-mobile-filled-background-color-inverted: var(
         --color-light-neutral-translucent-100-inverted
     );
-    --tag-inverted-filled-mobile-background-color-hover: var(
+    --tag-mobile-filled-background-color-hover-inverted: var(
         --color-light-neutral-translucent-100-inverted-hover
     );
-    --tag-inverted-filled-mobile-background-color-active: var(
+    --tag-mobile-filled-background-color-active-inverted: var(
         --color-light-neutral-translucent-100-inverted-press
     );
-    --tag-inverted-filled-mobile-background-color-disabled: var(
+    --tag-mobile-filled-background-color-disabled-inverted: var(
         --color-light-neutral-translucent-100-inverted
+    );
+
+    /* background-color muted mobile inverted */
+    --tag-mobile-muted-background-color-inverted: var(--color-light-neutral-translucent-0-inverted);
+    --tag-mobile-muted-background-color-hover-inverted: var(
+        --color-light-neutral-translucent-0-inverted-hover
+    );
+    --tag-mobile-muted-background-color-active-inverted: var(
+        --color-light-neutral-translucent-0-inverted-press
+    );
+    --tag-mobile-muted-background-color-disabled-inverted: var(
+        --color-light-neutral-translucent-100-inverted
+    );
+    --tag-mobile-muted-checked-background-color-disabled-inverted: var(
+        --color-light-neutral-translucent-100-inverted
+    );
+    --tag-mobile-muted-checked-background-color-inverted: var(
+        --color-light-neutral-translucent-100-inverted
+    );
+    --tag-mobile-muted-checked-background-color-hover-inverted: var(
+        --color-light-neutral-translucent-100-inverted-hover
+    );
+    --tag-mobile-muted-checked-background-color-active-inverted: var(
+        --color-light-neutral-translucent-100-inverted-press
     );
 }
