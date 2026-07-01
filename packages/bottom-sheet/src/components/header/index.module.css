@@ -24,6 +24,7 @@
 .sticky {
     position: sticky;
     top: var(--gap-0);
+    left: var(--gap-0);
 }
 
 .justifyEnd {
