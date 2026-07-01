@@ -1,0 +1,55 @@
+@import '../../vars.css';
+
+.shapeInner {
+    color: inherit;
+
+    & svg {
+        fill: var(--color-light-text-primary-inverted);
+    }
+
+    &:active:not(:disabled) svg {
+        fill: var(--color-light-text-primary-inverted);
+    }
+}
+
+.shapePath {
+    fill: var(--tag-inverted-filled-background-color);
+}
+
+.checkedShapePath {
+    fill: var(--tag-inverted-background-color-checked);
+}
+
+.checkedInner {
+    & svg {
+        fill: var(--tag-inverted-text-color-checked);
+    }
+}
+
+.badgeIcon {
+    color: var(--tag-inverted-text-color);
+
+    &:active:not(:disabled) .shapePath {
+        fill: var(--tag-inverted-filled-background-color-active);
+    }
+
+    &.checked .shapePath {
+        fill: var(--tag-inverted-background-color-checked);
+    }
+
+    &.checked .shapeInner {
+        & svg {
+            fill: var(--tag-inverted-text-color-checked);
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover .shapePath {
+            fill: var(--tag-inverted-filled-background-color-hover);
+        }
+
+        &.checked:hover:not(:disabled) .shapePath {
+            fill: var(--tag-inverted-background-color-checked-hover);
+        }
+    }
+}

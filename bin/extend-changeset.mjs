@@ -1,7 +1,6 @@
 import getChangesets from '@changesets/read';
 import { getPackages } from '@manypkg/get-packages';
 import { pascalCase } from 'change-case';
-import dedent from 'dedent';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -38,15 +37,15 @@ async function main() {
                 : summary;
 
             const file = path.join(cwd, '.changeset', `${id}.md`);
-            const content = dedent`
-                ---
-                ${releases.map((release) => `'${release.name}': ${release.type}`).join('\n')}
-                ---
+            const content = `
+---
+${releases.map((release) => `'${release.name}': ${release.type}`).join('\n')}
+---
 
-                ${names.length ? `${'#'.repeat(headingLevel)} ${names.join(' ,')}` : ''}
+${names.length ? `${'#'.repeat(headingLevel)} ${names.join(', ')}` : ''}
 
-                ${nextSummary}
-                `;
+${nextSummary}
+`.trimStart();
 
             await fs.writeFile(file, content, { encoding: 'utf8' });
         }

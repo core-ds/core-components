@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-cdn-icon",
-    "version": "7.1.2",
+    "version": "7.1.4",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -13,7 +13,7 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-shared": "^2.1.1",
+        "@alfalab/core-components-shared": "^2.2.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0",
         "use-sync-external-store": "^1.4.0"
@@ -26,6 +26,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.4",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.1.0",
+    "varsVersion": "11.1.0"
 }

@@ -1,14 +1,129 @@
-From e6a87a90fe3709cfc347f1352a3b08cb863bcc80 Mon Sep 17 00:00:00 2001
+From ddba5738614fd8f9eb3fbe6b74e6240365724e8d Mon Sep 17 00:00:00 2001
 From: hextion <100ishundred@gmail.com>
-Date: Mon, 12 Jan 2026 14:21:59 +0300
-Subject: [PATCH] feat: added alfasans variant
+Date: Tue, 9 Jun 2026 11:51:02 +0300
+Subject: [PATCH] fix: only system alfasans
 
 ---
- packages/vars/src/typography.css | 282 ++++++++++++++++++-------------
- 1 file changed, 164 insertions(+), 118 deletions(-)
+ packages/typography/src/title/component.tsx   |  11 +-
+ .../typography/src/title/index.module.css     |   8 -
+ packages/typography/src/title/utils.test.ts   |  12 -
+ packages/typography/src/title/utils.ts        |  14 -
+ packages/vars/src/typography.css              | 282 ++++++++++--------
+ 5 files changed, 167 insertions(+), 160 deletions(-)
+ delete mode 100644 packages/typography/src/title/utils.test.ts
+ delete mode 100644 packages/typography/src/title/utils.ts
 
+diff --git a/packages/typography/src/title/component.tsx b/packages/typography/src/title/component.tsx
+index 8f1ff6ac59..420012c85b 100644
+--- a/packages/typography/src/title/component.tsx
++++ b/packages/typography/src/title/component.tsx
+@@ -2,13 +2,10 @@ import React, { forwardRef, type HTMLAttributes } from 'react';
+ import mergeRefs from 'react-merge-refs';
+ import cn from 'classnames';
+
+-import { isObject } from '@alfalab/core-components-shared';
+ import { type TextSkeletonProps, useSkeleton } from '@alfalab/core-components-skeleton';
+
+ import { type Color } from '../colors';
+
+-import { getDefaultWeight } from './utils';
+-
+ import colors from '../colors.module.css';
+ import commonStyles from './common.module.css';
+
+@@ -38,7 +35,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
+     /**
+      * Шрифт текста
+      */
+-    font?: 'styrene' | 'system' | 'alfasans' | { font: 'alfasans'; systemCompat: boolean };
++    font?: 'styrene' | 'system';
+
+     /**
+      * Добавляет отступы
+@@ -95,9 +92,9 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
+         {
+             tag: Component = 'div',
+             view = 'medium',
+-            font = 'styrene',
++            font,
+             platform,
+-            weight = getDefaultWeight(isObject(font) ? font.font : font, platform),
++            weight = 'bold',
+             defaultMargins = false,
+             color,
+             className,
+@@ -134,8 +131,6 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
+                     {
+                         [commonStyles[`rowLimit${rowLimit}`]]: rowLimit,
+                         [commonStyles.transparent]: showSkeleton,
+-                        [styles.font]:
+-                            (isObject(font) && !font.systemCompat) || !(font === 'system'),
+                     },
+                 )}
+                 data-test-id={dataTestId}
+diff --git a/packages/typography/src/title/index.module.css b/packages/typography/src/title/index.module.css
+index edef8eb6d3..50fd1d8ae7 100644
+--- a/packages/typography/src/title/index.module.css
++++ b/packages/typography/src/title/index.module.css
+@@ -4,18 +4,10 @@
+ @each $view in xlarge, large, medium, small, xsmall {
+     .$(view) {
+         @mixin headline-system_$(view);
+-
+-        &.font {
+-            @subtract-mixin headline_$(view), headline-system_$(view);
+-        }
+     }
+
+     .regular-$(view) {
+         @mixin promo-system_$(view);
+-
+-        &.font {
+-            @subtract-mixin promo_$(view), promo-system_$(view);
+-        }
+     }
+ }
+
+diff --git a/packages/typography/src/title/utils.test.ts b/packages/typography/src/title/utils.test.ts
+deleted file mode 100644
+index 1a6dc6065f..0000000000
+--- a/packages/typography/src/title/utils.test.ts
++++ /dev/null
+@@ -1,12 +0,0 @@
+-import { getDefaultWeight } from './utils';
+-
+-describe('utils tests', () => {
+-    describe('getDefaultWeight', () => {
+-        it('should return valid weight', () => {
+-            expect(getDefaultWeight('styrene', 'mobile')).toBe('medium');
+-            expect(getDefaultWeight('styrene', 'desktop')).toBe('medium');
+-            expect(getDefaultWeight('system', 'mobile')).toBe('semibold');
+-            expect(getDefaultWeight('system', 'desktop')).toBe('bold');
+-        });
+-    });
+-});
+diff --git a/packages/typography/src/title/utils.ts b/packages/typography/src/title/utils.ts
+deleted file mode 100644
+index 5961dc3577..0000000000
+--- a/packages/typography/src/title/utils.ts
++++ /dev/null
+@@ -1,14 +0,0 @@
+-export function getDefaultWeight(
+-    font: 'styrene' | 'system' | 'alfasans',
+-    platform: 'mobile' | 'desktop',
+-) {
+-    if (font === 'styrene' || font === 'alfasans') {
+-        return 'medium';
+-    }
+-
+-    if (platform === 'desktop') {
+-        return 'bold';
+-    }
+-
+-    return 'semibold';
+-}
 diff --git a/packages/vars/src/typography.css b/packages/vars/src/typography.css
-index f1eaec5c5..1aa4a7ba4 100644
+index f1eaec5c52..1aa4a7ba48 100644
 --- a/packages/vars/src/typography.css
 +++ b/packages/vars/src/typography.css
 @@ -6,63 +6,71 @@
@@ -751,5 +866,5 @@ index f1eaec5c5..1aa4a7ba4 100644
 +    font-family: var(--font-family-alfasans);
  } /* deprecated */
 --
-2.50.1
+2.50.1 (Apple Git-155)
 

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-textarea",
-    "version": "10.0.5",
+    "version": "10.0.7",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,10 +13,10 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^14.0.5",
-        "@alfalab/core-components-mq": "^6.0.3",
-        "@alfalab/core-components-shared": "^2.1.1",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/core-components-form-control": "^14.0.7",
+        "@alfalab/core-components-mq": "^6.0.5",
+        "@alfalab/core-components-shared": "^2.2.1",
+        "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "react-textarea-autosize": "^8.3.4",
@@ -30,6 +30,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.4",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.1.0",
+    "varsVersion": "11.1.0"
 }

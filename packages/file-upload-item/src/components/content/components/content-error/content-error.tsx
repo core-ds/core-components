@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { TypographyText } from '@alfalab/core-components-typography';
 
-import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../../../context/file-upload-item-context';
 
 import styles from './content-error.module.css';
 
 export const ContentError = () => {
-    const { error } = useContext(FileUploadItemContext);
+    const { error } = useFileUploadItemContext();
 
     if (typeof error === 'string' && error.length > 0) {
         return (

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-with-skeleton",
-    "version": "7.0.8",
+    "version": "7.0.13",
     "description": "CalendarWithSkeleton component",
     "keywords": [],
     "license": "MIT",
@@ -13,15 +13,15 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^9.1.4",
-        "@alfalab/core-components-skeleton": "^7.0.3",
+        "@alfalab/core-components-calendar": "^9.1.9",
+        "@alfalab/core-components-skeleton": "^7.0.4",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
     "devDependencies": {
-        "@alfalab/core-components-button": "^13.1.1"
+        "@alfalab/core-components-button": "^13.2.0"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
@@ -31,6 +31,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.4",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.1.0",
+    "varsVersion": "11.1.0"
 }

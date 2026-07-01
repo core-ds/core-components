@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-slider",
-    "version": "6.1.0",
+    "version": "6.1.1",
     "description": "Slider component",
     "keywords": [],
     "license": "MIT",
@@ -25,6 +25,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.4",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.1.0",
+    "varsVersion": "11.1.0"
 }

@@ -1,5 +1,63 @@
 # @alfalab/core-components-tooltip
 
+## 9.0.15
+
+### Patch Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2251](https://github.com/core-ds/core-components/pull/2251)
+
+##### Tooltip
+
+- Исправлен контраст кнопки в мобильной версии Tooltip при `colors="inverted"`: проп `colors` теперь передаётся в `BottomSheet` и `ButtonMobile`
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.0
+- @alfalab/core-components-bottom-sheet@8.1.10
+
+## 9.0.14
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-popover@8.0.5
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-bottom-sheet@8.1.9
+
+## 9.0.13
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-bottom-sheet@8.1.8
+
+## 9.0.12
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-bottom-sheet@8.1.7
+- @alfalab/core-components-button@13.1.3
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-popover@8.0.4
+
+## 9.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.2
+- @alfalab/core-components-bottom-sheet@8.1.6
+
 ## 9.0.10
 
 ### Patch Changes

@@ -60,6 +60,16 @@ export interface FileUploadItemProps {
     showRestore?: boolean;
 
     /**
+     * Отображает кнопку повторной загрузки.
+     * Принимает `true` или объект с обработчиком клика.
+     */
+    reupload?:
+        | boolean
+        | {
+              onClick?: (id: string) => void;
+          };
+
+    /**
      * Статус загрузки файла
      */
     uploadStatus?: FileUploadItemStatus;

@@ -1,5 +1,63 @@
 # @alfalab/core-components-amount-input
 
+## 9.2.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.8
+- @alfalab/core-components-number-input@4.0.10
+- @alfalab/core-components-with-suffix@6.0.10
+
+## 9.2.6
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2234](https://github.com/core-ds/core-components/pull/2234)
+
+##### AmountInput
+
+- Возвращена возможность добавить обработчик `onKeyDown`
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-input@17.1.7
+- @alfalab/core-components-with-suffix@6.0.9
+- @alfalab/core-components-number-input@4.0.9
+
+## 9.2.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-input@17.1.6
+- @alfalab/core-components-number-input@4.0.8
+- @alfalab/core-components-with-suffix@6.0.8
+
+## 9.2.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.5
+- @alfalab/core-components-number-input@4.0.7
+- @alfalab/core-components-with-suffix@6.0.7
+
 ## 9.2.3
 
 ### Patch Changes

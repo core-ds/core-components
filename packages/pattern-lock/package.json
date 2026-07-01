@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pattern-lock",
-    "version": "4.0.4",
+    "version": "4.0.8",
     "description": "Pattern lock",
     "keywords": [],
     "license": "MIT",
@@ -13,9 +13,9 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^13.1.1",
-        "@alfalab/core-components-mq": "^6.0.3",
-        "@alfalab/core-components-shared": "^2.1.1",
+        "@alfalab/core-components-button": "^13.2.0",
+        "@alfalab/core-components-mq": "^6.0.5",
+        "@alfalab/core-components-shared": "^2.2.1",
         "@alfalab/react-canvas-pattern-lock": "^2.0.7",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
@@ -28,6 +28,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.0.4",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.1.0",
+    "varsVersion": "11.1.0"
 }

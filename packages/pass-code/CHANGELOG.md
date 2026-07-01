@@ -1,5 +1,53 @@
 # @alfalab/core-components-pass-code
 
+## 4.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.0
+
+## 4.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-mq@6.0.5
+
+## 4.0.7
+
+### Patch Changes
+
+<sup><time>29.05.2026</time></sup>
+
+#### [#2164](https://github.com/core-ds/core-components/pull/2164)
+
+##### PassCode
+
+- Добавлена озвучка прогресса ввода для screen reader после локального ввода и удаления символов через keypad
+
+## 4.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.0
+- @alfalab/core-components-button@13.1.3
+- @alfalab/core-components-mq@6.0.4
+
+## 4.0.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.2
+
 ## 4.0.4
 
 ### Patch Changes

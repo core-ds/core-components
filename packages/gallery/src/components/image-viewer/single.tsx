@@ -2,7 +2,7 @@ import React, { type FC, useContext, useRef } from 'react';
 import cn from 'classnames';
 
 import { GalleryContext } from '../../context';
-import { getImageAlt, isVideo } from '../../utils';
+import { isVideo } from '../../utils';
 
 import { useHandleImageViewer } from './hooks';
 import { Slide } from './slide';
@@ -35,12 +35,19 @@ export const Single: FC = () => {
         /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
         <div className={styles.component} onClick={handleWrapperClick}>
             {fullScreen && !isVideo(currentImage?.src) ? (
-                <img
-                    src={currentImage?.src}
-                    alt={currentImage ? getImageAlt(currentImage, currentSlideIndex) : ''}
-                    className={styles.fullScreenImage}
-                    data-content-area='true'
-                />
+                <div className={styles.fullScreenFrame}>
+                    <Slide
+                        isActive={true}
+                        containerAspectRatio={wrapperAspectRatio}
+                        image={currentImage}
+                        containerHeight={wrapperRect?.height || 0}
+                        meta={currentImageMeta}
+                        index={currentSlideIndex}
+                        imageAspectRatio={imageAspectRatio}
+                        slideVisible={false}
+                        fullScreen={true}
+                    />
+                </div>
             ) : (
                 <div
                     className={cn(styles.singleSlideContainer, {
