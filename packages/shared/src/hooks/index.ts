@@ -8,5 +8,3 @@ export const hooks = {
 
 export * from './use-force-update';
 export * from './use-ref-as-state';
-
-export { useAccordionSpringAnimation } from './animation/use-accordion-spring-animation';

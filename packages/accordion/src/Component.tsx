@@ -9,9 +9,9 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { useAccordionSpringAnimation } from '@alfalab/core-components-shared';
 import { TypographyText } from '@alfalab/core-components-typography';
 
+import { useAccordionSpringAnimation } from './hooks/use-accordion-spring-animation';
 import { DefaultControlIcon } from './components';
 import { useMeasureHeight } from './hooks';
 import { type ControlPosition } from './typings';
