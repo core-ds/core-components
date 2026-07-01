@@ -147,4 +147,14 @@ export type ButtonProps = CommonButtonProps & {
      * @deprecated Используйте client
      */
     defaultMatchMediaValue?: boolean | (() => boolean);
+
+    /**
+     * Дополнительный класс для label
+     */
+    labelClassName?: string;
+
+    /**
+     * Дополнительный класс для hint
+     */
+    hintClassName?: string;
 };
