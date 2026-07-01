@@ -215,6 +215,8 @@
             "@alfalab/core-components-screenshot-utils/*": ["./packages/screenshot-utils/src/*"],
             "@alfalab/core-components-scrollbar": ["./packages/scrollbar/src"],
             "@alfalab/core-components-scrollbar/*": ["./packages/scrollbar/src/*"],
+            "@alfalab/core-components-scrollbar-private": ["./packages/scrollbar-private/src"],
+            "@alfalab/core-components-scrollbar-private/*": ["./packages/scrollbar-private/src/*"],
             "@alfalab/core-components-segmented-control": ["./packages/segmented-control/src"],
             "@alfalab/core-components-segmented-control/*": ["./packages/segmented-control/src/*"],
             "@alfalab/core-components-select": ["./packages/select/src"],
