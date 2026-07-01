@@ -185,24 +185,7 @@ export const Step: FC<StepProps> = ({
         />
     );
 
-    // const { playEnter } = useStepsAnimation(optionRef);
-    //
-    // useLayoutEffect(() => {
-    //     if (animateSpring) {
-    //         // selected => complete
-    //         if (!prevIsStepCompleted.current && isStepCompleted) {
-    //             // playExit();
-    //         }
-    //         // initial => selected
-    //         if (!prevOptionSelected.current && isSelected) {
-    //             playEnter();
-    //         }
-    //         prevIsStepCompleted.current = isStepCompleted;
-    //         prevOptionSelected.current = isSelected;
-    //     }
-    //
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [isStepCompleted, isSelected]);
+    const { playEnter, playExit } = useStepsAnimation(optionRef);
 
     useLayoutEffect(() => {
         const { isSelected: prevSel, isStepCompleted: prevComp } = prevPropsRef.current;
@@ -212,17 +195,17 @@ export const Step: FC<StepProps> = ({
 
         if (animateSpring) {
             if (prevSel && !isSelected && isStepCompleted) {
-                setTimeout(() => {
+                playExit().then(() => {
                     setVisualSelected(isSelected);
                     setVisualCompleted(isStepCompleted);
-                }, 100);
+                });
             }
             // Enter: не был выбран, стал выбран
             else if (!prevSel && isSelected) {
-                setTimeout(() => {
+                playEnter().then(() => {
                     setVisualSelected(isSelected);
                     setVisualCompleted(isStepCompleted);
-                }, 100);
+                });
             }
             // Остальные переходы без анимации — обновляем сразу
             else {
@@ -237,6 +220,7 @@ export const Step: FC<StepProps> = ({
 
         // Фиксируем текущие пропы как предыдущие
         prevPropsRef.current = { isSelected, isStepCompleted };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSelected, isStepCompleted, animateSpring]);
 
     return (

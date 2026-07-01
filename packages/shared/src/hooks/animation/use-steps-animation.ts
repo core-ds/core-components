@@ -5,7 +5,7 @@ import { animate } from 'motion/mini';
 export function useStepsAnimation<T extends HTMLElement>(ref: RefObject<T | null>) {
     const animationRef = useRef<GroupAnimation | null>(null);
 
-    const playEnter = () => {
+    const playEnter = async () => {
         const el = ref.current;
 
         if (!el) {
@@ -23,9 +23,11 @@ export function useStepsAnimation<T extends HTMLElement>(ref: RefObject<T | null
         const group = new GroupAnimation([containerAnim]);
 
         animationRef.current = group;
+
+        await group.finished;
     };
 
-    const playExit = () => {
+    const playExit = async () => {
         const el = ref.current;
 
         if (!el) {
@@ -43,6 +45,8 @@ export function useStepsAnimation<T extends HTMLElement>(ref: RefObject<T | null
         const group = new GroupAnimation([containerAnim]);
 
         animationRef.current = group;
+
+        await group.finished;
     };
 
     return { playEnter, playExit };
