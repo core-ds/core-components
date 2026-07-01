@@ -77,8 +77,9 @@ __metadata:
     "@alfalab/core-components-select": "npm:^19.1.8"
     "@alfalab/core-components-typography": "npm:^6.0.6"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@maskito/core": "npm:^3.10.3"
-    "@maskito/react": "npm:^3.10.3"
+    "@maskito/core": "npm:^4.0.1"
+    "@maskito/kit": "npm:^4.0.1"
+    "@maskito/react": "npm:^4.0.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -8467,13 +8468,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@maskito/core@npm:^3.10.3":
-  version: 3.11.1
-  resolution: "@maskito/core@npm:3.11.1"
-  checksum: 10c0/11bebdf2c3f5e6e7328bb9ba18c38831483c26f6cd0bfd0de223c868f9a3c967c68bdab1210ee26f1ab63464947757eb3304b18dd27726e65c649ae70f5eab86
-  languageName: node
-  linkType: hard
-
 "@maskito/core@npm:^4.0.1":
   version: 4.0.1
   resolution: "@maskito/core@npm:4.0.1"
@@ -8501,14 +8495,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@maskito/react@npm:^3.10.3":
-  version: 3.11.1
-  resolution: "@maskito/react@npm:3.11.1"
+"@maskito/react@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@maskito/react@npm:4.0.1"
   peerDependencies:
-    "@maskito/core": ^3.11.1
+    "@maskito/core": ^4.0.1
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 10c0/db07929db6a6e4301734e3df73d7a277e6fd9f355f385061ebb9317894e61bc4b1d7f98817a6c7554889471cf8a9313b72c72c239618e62f122f9a07080282cb
+  checksum: 10c0/ec02a907b4edeaabe94bcdd963f91227e100caaebdba3ab5a1276680609f828e271218aa186b3ca9cfb66cb83d976da3bd0efb51e5413851e9d89d7b6990a1d6
   languageName: node
   linkType: hard
 

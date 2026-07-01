@@ -19,9 +19,7 @@ export const ERRORS = {
     EXPIRY_ERROR: 'Срок действия введен неверно',
 };
 
-export const CARD_COMPLETE_REGEXP = /^\d{12,19}$/;
 export const EXPIRY_COMPLETE_REGEXP = /^\d{2}\/\d{2}$/;
-export const CVC_COMPLETE_REGEXP = /^\d{3,4}$/;
 
 export const CARD_MASK = (elementState: ElementState) => {
     const digits = elementState.value.replace(/\D/g, '');

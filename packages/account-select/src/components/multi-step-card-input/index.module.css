@@ -28,8 +28,15 @@
 }
 
 .inputs {
+    width: 100%;
     display: flex;
     gap: var(--gap-24);
+
+    & > .multistepInput:not(.hidden):last-child {
+        flex-grow: 1;
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 .hidden {

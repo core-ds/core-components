@@ -256,4 +256,71 @@ describe('AccountSelectDesktop', () => {
         await waitFor(() => expect(handleInput).toHaveBeenLastCalledWith(cardData));
         expect(handleSubmit).toHaveBeenCalledWith(cardData);
     });
+
+    it('should submit card data without blurring completed field', async () => {
+        const handleSubmit = jest.fn();
+
+        const { getByPlaceholderText } = render(
+            <AccountSelectDesktop
+                selected={ADD_CARD_KEY}
+                options={[{ key: 'card', content: 'Card', value: 'card' }]}
+                cardAddingProps={{
+                    content: 'Add card',
+                    expiryAsDate: false,
+                    onSubmit: handleSubmit,
+                }}
+                OptionsList={() => null}
+            />,
+        );
+
+        await userEvent.type(getByPlaceholderText('Карта'), '4111111111111111');
+        fireEvent.input(getByPlaceholderText('ММ/ГГ'), { target: { value: '12/99' } });
+
+        const cvcInput = getByPlaceholderText('CVC');
+
+        await userEvent.type(cvcInput, '123');
+
+        await waitFor(() =>
+            expect(handleSubmit).toHaveBeenCalledWith({
+                number: '4111111111111111',
+                expiryDate: '12/99',
+                CVC: '123',
+            }),
+        );
+        expect(cvcInput).toHaveFocus();
+    });
+
+    it('should delete digit before expiry slash on backspace', async () => {
+        const { getByPlaceholderText } = render(
+            <AccountSelectDesktop
+                selected={ADD_CARD_KEY}
+                options={[{ key: 'card', content: 'Card', value: 'card' }]}
+                cardAddingProps={{ content: 'Add card' }}
+                OptionsList={() => null}
+            />,
+        );
+
+        const cardInput = getByPlaceholderText('Карта');
+        const expiryInput = getByPlaceholderText('ММ/ГГ') as HTMLInputElement;
+
+        fireEvent.input(cardInput, { target: { value: '4111111111111111' } });
+        await userEvent.type(expiryInput, '1234');
+
+        expect(expiryInput).toHaveValue('12/34');
+
+        await userEvent.click(expiryInput);
+        expiryInput.setSelectionRange(4, 4);
+        await userEvent.keyboard('{Backspace}');
+
+        expect(expiryInput).toHaveValue('12/4');
+
+        expiryInput.setSelectionRange(3, 3);
+        await userEvent.keyboard('{Backspace}');
+
+        await waitFor(() => {
+            expect(expiryInput).toHaveValue('14');
+            expect(expiryInput.selectionStart).toBe(1);
+            expect(expiryInput.selectionEnd).toBe(1);
+        });
+    });
 });

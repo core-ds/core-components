@@ -22,8 +22,9 @@
         "@alfalab/core-components-select": "^19.1.8",
         "@alfalab/core-components-typography": "^6.0.6",
         "@alfalab/icons-glyph": "^2.260.0",
-        "@maskito/core": "^3.10.3",
-        "@maskito/react": "^3.10.3",
+        "@maskito/core": "^4.0.1",
+        "@maskito/kit": "^4.0.1",
+        "@maskito/react": "^4.0.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

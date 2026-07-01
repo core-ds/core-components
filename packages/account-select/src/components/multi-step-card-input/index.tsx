@@ -6,6 +6,7 @@ import { CARD_MASK, CVV_MASK, EXPIRY_MASK } from '../../constants';
 import { useAccountSelect } from '../../context';
 import { type CardAddingProps } from '../../types';
 import { formatCardNumber, getMaskedCardNumber } from '../../utils/formaters';
+import { expirySlashBackspacePreprocessor } from '../../utils/processors';
 import { validateCardNumber, validateCVC, validateExpiry } from '../../utils/validate';
 
 import { useValidationError } from './hooks/useValidationError';
@@ -55,7 +56,12 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const cvvRef = useRef<HTMLInputElement | null>(null);
 
         const numberMaskRef = useMaskito({ options: { mask: CARD_MASK } });
-        const expiryMaskRef = useMaskito({ options: { mask: EXPIRY_MASK } });
+        const expiryMaskRef = useMaskito({
+            options: {
+                mask: EXPIRY_MASK,
+                preprocessors: [expirySlashBackspacePreprocessor],
+            },
+        });
         const cvvMaskRef = useMaskito({ options: { mask: CVV_MASK } });
 
         const numberRefCallback = useCallback(
@@ -126,7 +132,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
             valuesEmpty,
         });
 
-        const proceedToNextStepOrSubmit = useCallback(
+        const submitIfComplete = useCallback(
             (
                 cardNumberValue = cardNumber,
                 cardExpiryValue = cardExpiry,
@@ -153,10 +159,6 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
 
                     return;
                 }
-
-                numberRef.current?.blur();
-                expiryRef.current?.blur();
-                cvvRef.current?.blur();
 
                 onSubmit?.(
                     getCardData({
@@ -233,18 +235,18 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                 toggleMenu();
             }
 
-            proceedToNextStepOrSubmit(cleanValue, cardExpiry, cardCvc);
+            submitIfComplete(cleanValue, cardExpiry, cardCvc);
         };
 
         const handleExpiryChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
             setCardExpiry(value);
-            proceedToNextStepOrSubmit(cardNumber, value, cardCvc);
+            submitIfComplete(cardNumber, value, cardCvc);
         };
 
         const handleCvcChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
             setCardCvc(value);
 
-            proceedToNextStepOrSubmit(cardNumber, cardExpiry, value);
+            submitIfComplete(cardNumber, cardExpiry, value);
         };
 
         const handleCardNumberBlur = () => {
