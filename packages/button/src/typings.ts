@@ -5,8 +5,6 @@ import {
     type ReactNode,
 } from 'react';
 
-import { type SpringOptions } from '@alfalab/core-components-shared';
-
 export type StyleColors = {
     default: {
         [key: string]: string;
@@ -115,125 +113,6 @@ type ComponentProps = {
      * Дочерние элементы.
      */
     children?: ReactNode;
-
-    /**
-     * Включить shake-анимацию по клику
-     * @default false
-     */
-    shake?: boolean;
-
-    /**
-     * Spring-параметры для shake-анимации
-     */
-    shakeSpring?: SpringOptions;
-
-    /**
-     * Включить pulse-анимацию по клику (масштабирование)
-     * @default false
-     */
-    pulse?: boolean;
-
-    /**
-     * Spring-параметры для pulse-анимации
-     */
-    pulseSpring?: SpringOptions;
-
-    /**
-     * Включить bounce-анимацию по клику (прыжок по Y)
-     * @default false
-     */
-    bounce?: boolean;
-
-    /**
-     * Spring-параметры для bounce-анимации
-     */
-    bounceSpring?: SpringOptions;
-
-    /**
-     * Включить wobble-анимацию по клику (вращение)
-     * @default false
-     */
-    wobble?: boolean;
-
-    /**
-     * Spring-параметры для wobble-анимации
-     */
-    wobbleSpring?: SpringOptions;
-
-    /**
-     * Включить jelly-анимацию по клику (деформация scaleX/scaleY)
-     * @default false
-     */
-    jelly?: boolean;
-
-    /**
-     * Spring-параметры для jelly-анимации
-     */
-    jellySpring?: SpringOptions;
-
-    /**
-     * Включить swing-анимацию по клику (маятниковое вращение)
-     * @default false
-     */
-    swing?: boolean;
-
-    /**
-     * Spring-параметры для swing-анимации
-     */
-    swingSpring?: SpringOptions;
-
-    /**
-     * Включить pop-анимацию по клику (резкий отклик масштабом)
-     * @default false
-     */
-    pop?: boolean;
-
-    /**
-     * Spring-параметры для pop-анимации
-     */
-    popSpring?: SpringOptions;
-
-    /**
-     * Включить nod-анимацию по клику (кивок вниз)
-     * @default false
-     */
-    nod?: boolean;
-
-    /**
-     * Spring-параметры для nod-анимации
-     */
-    nodSpring?: SpringOptions;
-
-    /**
-     * Включить rubber-анимацию по клику (растяжение по X)
-     * @default false
-     */
-    rubber?: boolean;
-
-    /**
-     * Spring-параметры для rubber-анимации
-     */
-    rubberSpring?: SpringOptions;
-
-    /**
-     * Вызывается при старте spring-анимации. Получает функцию отмены текущей анимации.
-     */
-    onSpringAnimationStart?: (cancel: () => void) => void;
-
-    /**
-     * Вызывается при завершении или отмене spring-анимации.
-     */
-    onSpringAnimationEnd?: () => void;
-
-    /**
-     * Дополнительный класс для label
-     */
-    labelClassName?: string;
-
-    /**
-     * Дополнительный класс для hint
-     */
-    hintClassName?: string;
 };
 
 export type PrivateButtonProps = {

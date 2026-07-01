@@ -10,7 +10,7 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { getDataTestId, useSpringAnimation } from '@alfalab/core-components-shared';
+import { getDataTestId } from '@alfalab/core-components-shared';
 import { Spinner } from '@alfalab/core-components-spinner';
 import { useFocus } from '@alfalab/hooks';
 
@@ -53,28 +53,6 @@ export const BaseButton = forwardRef<
             onClick,
             styles = {},
             colorStylesMap = { default: {}, inverted: {} },
-            shake = false,
-            shakeSpring,
-            pulse = false,
-            pulseSpring,
-            bounce = false,
-            bounceSpring,
-            wobble = false,
-            wobbleSpring,
-            jelly = false,
-            jellySpring,
-            swing = false,
-            swingSpring,
-            pop = false,
-            popSpring,
-            nod = false,
-            nodSpring,
-            rubber = false,
-            rubberSpring,
-            onSpringAnimationStart,
-            onSpringAnimationEnd,
-            labelClassName,
-            hintClassName,
             ...restProps
         },
         ref,
@@ -84,38 +62,15 @@ export const BaseButton = forwardRef<
         const [focused] = useFocus(buttonRef, 'keyboard');
 
         const [loaderTimePassed, setLoaderTimePassed] = useState(true);
+
         const timerId = useRef(0);
+
         const showLoader = loading || !loaderTimePassed;
 
-        const animationCallbacks = { onStart: onSpringAnimationStart, onEnd: onSpringAnimationEnd };
-
-        const shakeAnim = useSpringAnimation(buttonRef, 'shake', shakeSpring, animationCallbacks);
-        const pulseAnim = useSpringAnimation(buttonRef, 'pulse', pulseSpring, animationCallbacks);
-        const bounceAnim = useSpringAnimation(
-            buttonRef,
-            'bounce',
-            bounceSpring,
-            animationCallbacks,
-        );
-        const wobbleAnim = useSpringAnimation(
-            buttonRef,
-            'wobble',
-            wobbleSpring,
-            animationCallbacks,
-        );
-        const jellyAnim = useSpringAnimation(buttonRef, 'jelly', jellySpring, animationCallbacks);
-        const swingAnim = useSpringAnimation(buttonRef, 'swing', swingSpring, animationCallbacks);
-        const popAnim = useSpringAnimation(buttonRef, 'pop', popSpring, animationCallbacks);
-        const nodAnim = useSpringAnimation(buttonRef, 'nod', nodSpring, animationCallbacks);
-        const rubberAnim = useSpringAnimation(
-            buttonRef,
-            'rubber',
-            rubberSpring,
-            animationCallbacks,
-        );
-
         const showHint = hint && [56, 64, 72].includes(size);
+
         const iconOnly = !children;
+
         const sizeStyle = `size-${size}`;
 
         const componentProps = {
@@ -157,7 +112,7 @@ export const BaseButton = forwardRef<
                 {leftAddons && <span className={commonStyles.addons}>{leftAddons}</span>}
                 {children && (
                     <span
-                        className={cn(commonStyles.label, labelClassName, {
+                        className={cn(commonStyles.label, {
                             [commonStyles.nowrap]: nowrap,
                             [commonStyles.stretchText]:
                                 !(leftAddons || rightAddons) || textResizing === 'fill',
@@ -170,7 +125,6 @@ export const BaseButton = forwardRef<
                                     commonStyles.hint,
                                     colorStylesMap[colors].hint,
                                     colorStyles[colors].hint,
-                                    hintClassName,
                                 )}
                             >
                                 {hint}
@@ -225,15 +179,6 @@ export const BaseButton = forwardRef<
                 return;
             }
             onClick?.(e);
-            if (shake) shakeAnim.trigger();
-            else if (pulse) pulseAnim.trigger();
-            else if (bounce) bounceAnim.trigger();
-            else if (wobble) wobbleAnim.trigger();
-            else if (jelly) jellyAnim.trigger();
-            else if (swing) swingAnim.trigger();
-            else if (pop) popAnim.trigger();
-            else if (nod) nodAnim.trigger();
-            else if (rubber) rubberAnim.trigger();
         };
 
         if (href) {
