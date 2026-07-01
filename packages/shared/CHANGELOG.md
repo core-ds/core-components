@@ -1,5 +1,17 @@
 # @alfalab/core-components-shared
 
+## 2.2.2
+
+### Patch Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### Shared
+
+- Исправлена работа `useRefAsState` при ssr
+
 ## 2.2.1
 
 ### Patch Changes

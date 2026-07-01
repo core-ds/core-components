@@ -1,5 +1,43 @@
 # @alfalab/core-components-select
 
+## 19.2.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### Select
+
+- Добавлена возможность использования нового внешнего вида компонента `OptionsList`
+- Внутренние исправления и улучшения
+
+### Patch Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2232](https://github.com/core-ds/core-components/pull/2232)
+
+##### Select
+
+- Исправлена поддержка `size={40}` в `Select`
+- Проп `optionsSize` помечен как deprecated: размер пунктов списка определяется контентом
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-scrollbar-private@0.0.1
+- @alfalab/core-components-bottom-sheet@8.1.11
+- @alfalab/core-components-popover@8.1.0
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-checkbox@6.2.3
+- @alfalab/core-components-form-control@14.0.8
+- @alfalab/core-components-input@17.1.9
+- @alfalab/core-components-modal@11.0.14
+- @alfalab/core-components-mq@6.0.6
+
 ## 19.1.10
 
 ### Patch Changes

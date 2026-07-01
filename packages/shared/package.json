@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-shared",
-    "version": "2.2.1",
+    "version": "2.2.2",
     "description": "Shared package for core-components",
     "keywords": [],
     "license": "MIT",
@@ -28,6 +28,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.1.0",
+    "themesVersion": "15.2.0",
     "varsVersion": "11.1.0"
 }

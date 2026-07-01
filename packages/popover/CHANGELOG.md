@@ -1,5 +1,24 @@
 # @alfalab/core-components-popover
 
+## 8.1.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### Popover
+
+- Добавлен проп `widthProp` `('width' /* @default */ | 'minWidth')`, указывающий какое свойство задействуется при использовании размера родительского элемента `useAnchorWidth={true}`
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-portal@5.0.3
+
 ## 8.0.5
 
 ### Patch Changes
