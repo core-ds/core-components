@@ -1,14 +1,39 @@
-import React, { type MutableRefObject, useLayoutEffect, useRef } from 'react';
+import React, { type MutableRefObject, type RefObject, useLayoutEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
-
-import { type AnimationParams, type SpringHookType } from '@alfalab/core-components-shared';
 
 type CSSAnimationProps = {
     children: React.ReactNode;
     useSpring?: false;
     cssTransitionProps: CSSTransitionProps;
 };
+
+export type SpringOptions = {
+    stiffness?: number;
+    damping?: number;
+    mass?: number;
+};
+
+export type AnimationParams = {
+    translate: [string, string];
+    springOptions: SpringOptions;
+};
+
+type SpringHook = (
+    ref: RefObject<HTMLElement | null>,
+    enter: AnimationParams,
+    exit: AnimationParams,
+    callbacks?: {
+        onEntered?: () => void;
+        onExited?: () => void;
+    },
+    contentRef?: RefObject<HTMLElement | null>,
+) => {
+    playEnter: () => void;
+    playExit: () => void;
+};
+
+export type SpringHookType = SpringHook;
 
 type SpringAnimationInnerProps = {
     open: boolean;

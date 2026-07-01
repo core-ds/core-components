@@ -2,9 +2,9 @@ import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { useSpringTransition } from '@alfalab/core-components-shared';
 
 import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
+import { useSpringTransition } from '../../hooks/use-universal-modal-animation';
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
 import { getHeightStyle } from '../../utils/get-height-style';

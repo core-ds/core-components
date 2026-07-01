@@ -24,16 +24,16 @@ import cn from 'classnames';
 
 import { Backdrop as DefaultBackdrop, type BackdropProps } from '@alfalab/core-components-backdrop';
 import { Portal, type PortalProps } from '@alfalab/core-components-portal';
-import {
-    type AnimationParams,
-    getScrollbarSize,
-    isIOS,
-    type SpringHookType,
-} from '@alfalab/core-components-shared';
+import { getScrollbarSize, isIOS } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
-import { AnimationWrapper, type AnimationWrapperConfig } from './components/animation-wrapper';
+import {
+    type AnimationParams,
+    AnimationWrapper,
+    type AnimationWrapperConfig,
+    type SpringHookType,
+} from './components/animation-wrapper';
 import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {
     handleContainer,

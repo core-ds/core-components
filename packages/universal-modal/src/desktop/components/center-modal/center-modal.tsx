@@ -2,8 +2,9 @@ import React, { forwardRef, useRef } from 'react';
 import cn from 'classnames';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { isMacOS, isSafari, useModalSpringTransition } from '@alfalab/core-components-shared';
+import { isMacOS, isSafari } from '@alfalab/core-components-shared';
 
+import { useModalSpringTransition } from '../../hooks/use-modal-animation';
 import { useScrollableContainerRef } from '../../hooks/use-scrollable-container-ref';
 import { type UniversalModalDesktopProps } from '../../types/props';
 import { getFullSizeModalTransitions } from '../../utils/get-full-size-modal-transitions';
