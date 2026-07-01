@@ -85,7 +85,6 @@ export type StepsProps = {
      * @param stepNumber - номер активного шага
      */
     onChange?: (stepNumber: number) => void;
-    animateSpring?: boolean;
 } & CommonProps;
 
 export const Steps: React.FC<StepsProps> = ({
@@ -109,7 +108,6 @@ export const Steps: React.FC<StepsProps> = ({
     onChange,
     dataTestId,
     completedDashColor,
-    animateSpring,
 }) => {
     const uncontrolled = activeStepProp === undefined;
     const [activeStep, setActiveStep] = useState(defaultActiveStep);
@@ -175,7 +173,6 @@ export const Steps: React.FC<StepsProps> = ({
                         minSpaceBetweenSteps={minSpaceBetweenSteps}
                         completedDashColor={completedDashColor}
                         dataTestId={dataTestId}
-                        animateSpring={animateSpring}
                     >
                         {step}
                     </Step>
