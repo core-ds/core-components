@@ -1,6 +1,7 @@
 import React, { type FC } from 'react';
 import cn from 'classnames';
 
+import { type HapticConfig } from '@alfalab/core-components-haptics';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { type InputProps } from '@alfalab/core-components-input';
 import { getDataTestId } from '@alfalab/core-components-shared';
@@ -25,6 +26,7 @@ export type SteppersProps = {
     dataTestId?: string;
     colors: 'default' | 'inverted';
     size: InputProps['size'];
+    'data-haptic-preset'?: HapticConfig['data-haptic-preset'];
 };
 
 const colorStyles = {
@@ -60,6 +62,7 @@ export const Steppers: FC<SteppersProps> = ({
     dataTestId,
     colors,
     size = 48,
+    'data-haptic-preset': dataHapticPreset,
 }) => {
     const decButtonDisabled = disabled || value <= min;
     const incButtonDisabled = disabled || value >= max;
@@ -89,6 +92,7 @@ export const Steppers: FC<SteppersProps> = ({
                 onMouseDown={preventDefault}
                 onClick={onDecrement}
                 dataTestId={getDataTestId(dataTestId, 'decrement-button')}
+                data-haptic-preset={dataHapticPreset}
                 view='secondary'
             />
             <div className={cn(styles.separator, colorStyles[colors].separator)} />
@@ -101,6 +105,7 @@ export const Steppers: FC<SteppersProps> = ({
                 onMouseDown={preventDefault}
                 onClick={onIncrement}
                 dataTestId={getDataTestId(dataTestId, 'increment-button')}
+                data-haptic-preset={dataHapticPreset}
                 view='secondary'
             />
         </div>

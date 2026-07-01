@@ -1,0 +1,29 @@
+import { ArgTypes } from '@storybook/addon-docs';
+import { HapticButton } from '../index';
+
+## Подключение
+
+```jsx
+import { HapticButton, useHaptic } from '@alfalab/core-components/haptics';
+```
+
+## Ручной запуск
+
+```jsx
+const { trigger } = useHaptic();
+
+trigger('success');
+trigger(
+    [
+        { duration: 12, intensity: 0.4 },
+        { delay: 32, duration: 20, intensity: 1 },
+    ],
+    {
+        repeat: 2,
+    },
+);
+```
+
+## Свойства
+
+<ArgTypes of={HapticButton} />

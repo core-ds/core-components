@@ -241,6 +241,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-button@workspace:packages/button"
   dependencies:
+    "@alfalab/core-components-haptics": "npm:^0.0.1"
     "@alfalab/core-components-mq": "npm:^6.0.5"
     "@alfalab/core-components-shared": "npm:^2.2.1"
     "@alfalab/core-components-spinner": "npm:^6.0.5"
@@ -409,6 +410,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-checkbox@workspace:packages/checkbox"
   dependencies:
+    "@alfalab/core-components-haptics": "npm:^0.0.1"
     "@alfalab/core-components-shared": "npm:^2.2.1"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
@@ -500,7 +502,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-config@workspace:packages/config":
+"@alfalab/core-components-config@npm:^1.1.0, @alfalab/core-components-config@workspace:packages/config":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-config@workspace:packages/config"
   dependencies:
@@ -810,6 +812,19 @@ __metadata:
   dependencies:
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@alfalab/core-components-haptics@npm:^0.0.1, @alfalab/core-components-haptics@workspace:packages/haptics":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-haptics@workspace:packages/haptics"
+  dependencies:
+    "@alfalab/core-components-config": "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+    web-haptics: "npm:^0.0.6"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
     react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
@@ -1173,6 +1188,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-number-input@workspace:packages/number-input"
   dependencies:
+    "@alfalab/core-components-haptics": "npm:^0.0.1"
     "@alfalab/core-components-icon-button": "npm:^8.0.8"
     "@alfalab/core-components-input": "npm:^17.1.8"
     "@alfalab/core-components-mq": "npm:^6.0.5"
@@ -1478,6 +1494,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-radio@workspace:packages/radio"
   dependencies:
+    "@alfalab/core-components-haptics": "npm:^0.0.1"
     "@alfalab/core-components-shared": "npm:^2.2.1"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
@@ -1897,6 +1914,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-switch@workspace:packages/switch"
   dependencies:
+    "@alfalab/core-components-haptics": "npm:^0.0.1"
     "@alfalab/core-components-shared": "npm:^2.2.1"
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
     "@alfalab/hooks": "npm:^1.17.0"
@@ -2263,6 +2281,7 @@ __metadata:
     "@alfalab/core-components-generic-wrapper": "npm:^3.0.2"
     "@alfalab/core-components-global-store": "npm:^4.0.1"
     "@alfalab/core-components-grid": "npm:^5.0.2"
+    "@alfalab/core-components-haptics": "npm:^0.0.1"
     "@alfalab/core-components-hatching-progress-bar": "npm:^4.0.1"
     "@alfalab/core-components-icon-button": "npm:^8.0.8"
     "@alfalab/core-components-icon-view": "npm:^5.0.4"
@@ -33930,6 +33949,27 @@ __metadata:
   dependencies:
     defaults: "npm:^1.0.3"
   checksum: 10c0/5b61ca583a95e2dd85d7078400190efd452e05751a64accb8c06ce4db65d7e0b0cde9917d705e826a2e05cc2548f61efde115ffa374c3e436d04be45c889e5b4
+  languageName: node
+  linkType: hard
+
+"web-haptics@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "web-haptics@npm:0.0.6"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+    svelte: ">=4"
+    vue: ">=3"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    svelte:
+      optional: true
+    vue:
+      optional: true
+  checksum: 10c0/71d3bfb0299469362e23ef177337f2cf665ed66aa49b6d5e7afc9d97fc05af9a2056263c17766eb929eb86ec1f526fba21502e926ea3cc39175f251c5c9374db
   languageName: node
   linkType: hard
 

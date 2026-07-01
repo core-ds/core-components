@@ -1,0 +1,1 @@
+export { HapticButton } from './Component';
