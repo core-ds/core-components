@@ -1,12 +1,12 @@
 import { type RefObject, useRef } from 'react';
-import { spring } from 'motion';
+import { GroupAnimation, spring } from 'motion';
 import { animate } from 'motion/mini';
 
 export function useAccordionSpringAnimation<T extends HTMLElement>(
     ref: RefObject<T | null>,
     refContent: RefObject<T | null>,
 ) {
-    const animationRef = useRef<ReturnType<typeof animate> | null>(null);
+    const animationRef = useRef<GroupAnimation | null>(null);
 
     const playEnter = () => {
         const el = ref.current;
@@ -17,27 +17,42 @@ export function useAccordionSpringAnimation<T extends HTMLElement>(
 
         animationRef.current?.stop();
 
-        const content = refContent.current;
-
-        if (content) {
-            animate(
-                content,
-                { filter: ['blur(2.5px)', 'blur(0px)'] },
-                { type: spring, stiffness: 315, damping: 30, mass: 0.74 },
-            );
-        }
-
-        // scrollHeight даёт реальную высоту контента даже когда элемент height:0
-        const targetHeight = el.scrollHeight;
-
-        animationRef.current = animate(
+        const containerAnim = animate(
             el,
-            { height: targetHeight },
-            { type: spring, stiffness: 315, damping: 30, mass: 1.74 },
+            // scrollHeight даёт реальную высоту контента даже когда элемент height:0
+            { height: el.scrollHeight },
+            { type: spring, stiffness: 426, damping: 41, mass: 1 },
         );
 
+        const contentTranslateAnim = animate(
+            refContent.current,
+            { translate: ['0px -10px', '0px 0px'] },
+            { type: spring, stiffness: 426, damping: 41, mass: 1, delay: 0.075 },
+        );
+
+        const contentOpacityAnim = animate(
+            refContent.current,
+            { opacity: [0, 1] },
+            { type: spring, stiffness: 426, damping: 41, mass: 1, delay: 0.09 },
+        );
+
+        const contentBlurAnim = animate(
+            refContent.current,
+            { filter: ['blur(2.5px)', 'blur(0px)'] },
+            { type: spring, stiffness: 426, damping: 41, mass: 1, delay: 0.1 },
+        );
+
+        const group = new GroupAnimation([
+            containerAnim,
+            contentTranslateAnim,
+            contentOpacityAnim,
+            contentBlurAnim,
+        ]);
+
+        animationRef.current = group;
+
         // После завершения ставим auto, чтобы контент мог менять размер
-        animationRef.current.then(() => {
+        group.finished.then(() => {
             el.style.height = 'auto';
         });
     };
@@ -58,19 +73,44 @@ export function useAccordionSpringAnimation<T extends HTMLElement>(
 
         const content = refContent.current;
 
-        if (content) {
-            animate(
-                content,
-                { filter: ['blur(0px)', 'blur(2.5px)'] },
-                { type: spring, stiffness: 315, damping: 30, mass: 0.74 },
-            );
-        }
-
-        animationRef.current = animate(
+        const containerAnim = animate(
             el,
             { height: 0 },
-            { type: spring, stiffness: 315, damping: 30, mass: 0.74 },
+            { type: spring, stiffness: 743, damping: 49, mass: 1, delay: 0.075 },
         );
+
+        const contentTranslateAnim = animate(
+            refContent.current,
+            { translate: ['0px 0px', '0px -10px'] },
+            { type: spring, stiffness: 743, damping: 49, mass: 1 },
+        );
+
+        const contentOpacityAnim = animate(
+            refContent.current,
+            { opacity: [1, 0] },
+            { type: spring, stiffness: 743, damping: 49, mass: 1 },
+        );
+
+        const contentBlurAnim = animate(
+            content,
+            { filter: ['blur(0px)', 'blur(2.5px)'] },
+            { type: spring, stiffness: 743, damping: 49, mass: 1, delay: 0.012 },
+        );
+
+        const group = new GroupAnimation([
+            containerAnim,
+            contentTranslateAnim,
+            contentOpacityAnim,
+            contentBlurAnim,
+        ]);
+
+        animationRef.current = group;
+
+        group.finished.then(() => {
+            if (refContent.current) {
+                refContent.current.removeAttribute('style');
+            }
+        });
     };
 
     return { playEnter, playExit };
