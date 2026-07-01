@@ -2,7 +2,7 @@ import React, { type FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
-import { getDataTestId, useSpringAnimation } from '@alfalab/core-components-shared';
+import { getDataTestId, useStepsAnimation } from '@alfalab/core-components-shared';
 import { useFocus } from '@alfalab/hooks';
 
 import { type CommonProps } from '../../types/common-props';
@@ -182,15 +182,17 @@ export const Step: FC<StepProps> = ({
         />
     );
 
-    const pulseAnim = useSpringAnimation(optionRef, 'pulse');
+    const { playEnter } = useStepsAnimation(optionRef);
 
     useEffect(() => {
         if (animateSpring) {
+            // selected => complete
             if (!prevIsStepCompleted.current && isStepCompleted) {
-                pulseAnim.trigger();
+                // playExit();
             }
+            // initial => selected
             if (!prevOptionSelected.current && isSelected) {
-                pulseAnim.trigger();
+                playEnter();
             }
             prevIsStepCompleted.current = isStepCompleted;
             prevOptionSelected.current = isSelected;

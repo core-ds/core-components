@@ -16,8 +16,7 @@ export function useStepsAnimation<T extends HTMLElement>(ref: RefObject<T | null
 
         const containerAnim = animate(
             el,
-            // scrollHeight даёт реальную высоту контента даже когда элемент height:0
-            { height: el.scrollHeight },
+            { scale: [1, 0.93] },
             { type: spring, stiffness: 426, damping: 41, mass: 1 },
         );
 
@@ -37,7 +36,7 @@ export function useStepsAnimation<T extends HTMLElement>(ref: RefObject<T | null
 
         const containerAnim = animate(
             el,
-            { height: 0 },
+            { scale: [1, 0.93] },
             { type: spring, stiffness: 743, damping: 49, mass: 1, delay: 0.075 },
         );
 
