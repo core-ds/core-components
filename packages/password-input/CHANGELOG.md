@@ -1,5 +1,23 @@
 # @alfalab/core-components-password-input
 
+## 7.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.8
+- @alfalab/core-components-input@17.1.8
+
+## 7.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-input@17.1.7
+- @alfalab/core-components-icon-button@8.0.7
+
 ## 7.0.8
 
 ### Patch Changes

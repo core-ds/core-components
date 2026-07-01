@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-checkbox",
-    "version": "6.2.1",
+    "version": "6.2.2",
     "description": "Checkbox component",
     "keywords": [],
     "license": "MIT",
@@ -13,8 +13,8 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-shared": "^2.2.0",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/core-components-shared": "^2.2.1",
+        "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
         "tslib": "^2.4.0"

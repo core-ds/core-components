@@ -16,62 +16,14 @@ This skill provides guidance for working with the `@alfalab/core-components` Rea
 - **Components**: ~100 components available
 - **Structure**: Desktop/Mobile responsive variants, theme support, TypeScript
 
-## Available MCP Tools
+## MCP Tools
 
-Use these tools when working with components:
+- **Always use MCP tools** to get component data — never read source files, `CHANGELOG.md`, `package.json`, or `*.mdx` docs directly from the filesystem.
+- If a tool returns "not found" — do not guess or invent the component API.
 
-- `core-components-mcp_component_list` - List all available components
-- `core-components-mcp_component_info` - Get component API (props, types, defaults)
-- `core-components-mcp_component_demo` - Get demo examples
+For tool reference and workflow: **read [MCP.md](./MCP.md)**.
 
-## MCP Tool Workflow
-
-### Recommended sequence
-
-Always follow this order when working with components:
-
-```
-1. component_list          → find the right component (when unsure)
-2. component_info(name)    → get props, types, and defaults
-3. component_demo(name)    → list available demos
-4. component_demo(name, title) → get specific demo code
-```
-
-### When to call each tool
-
-**`component_list`** — call when:
-
-- User asks to build UI but doesn't specify which component to use
-- You need to check whether a specific component exists
-- You want to discover related components (e.g., all date-related inputs)
-
-**`component_info`** — call when:
-
-- You need to know available props and their types
-- User asks how a specific component works
-- You need to check a prop's default value or allowed values
-
-**`component_demo`** — is a two-step tool:
-
-- First call **without `name`** to list available demos (titles and descriptions only, no code):
-    ```
-    component_demo("Button")
-    ```
-- Then call **with `name`** to get the actual demo source code:
-    ```
-    component_demo("Button", "Loading")
-    ```
-
-### Example: building a feature
-
-User asks: _"Add a date picker to this form"_
-
-```
-1. component_list()                          → find: UniversalDateInput, DateInput, CalendarInput
-2. component_info("UniversalDateInput")      → check props: value, onChange, view, etc.
-3. component_demo("UniversalDateInput")      → list demos: "Basic", "Range", "With label"
-4. component_demo("UniversalDateInput", "Basic") → get code to use as reference
-```
+Available tools: `component_list`, `component_info`, `component_demo`, `component_changelog`.
 
 ## Import Patterns
 
@@ -85,7 +37,14 @@ yarn add @alfalab/core-components
 yarn add @alfalab/core-components-config @alfalab/core-components-stack-context
 ```
 
-Both peer packages are mandatory for the library to function correctly:
+Both peer packages are mandatory for the library to function correctly.
+
+> **Note:** Starting from `@alfalab/core-components@49` the peer package names changed:
+>
+> - `@alfalab/core-config` → `@alfalab/core-components-config`
+> - `@alfalab/stack-context` → `@alfalab/core-components-stack-context`
+>
+> If the project uses `@alfalab/core-components` below v49, install the old package names instead.
 
 - **`@alfalab/core-components-config`** — provides `CoreConfigContext` and `useCoreConfig` for global configuration of responsive components (breakpoint, client type, portal container). See [CoreConfig](#coreconfig) section.
 - **`@alfalab/core-components-stack-context`** — provides `StackingContext` and `stackingOrder` constants for z-index management. Used internally by overlay components (Modal, Popover, Toast, etc.). Rarely used directly.
@@ -343,3 +302,41 @@ vars.gap2xl === '32px'; // true
 - Understanding component API and props
 - Looking up demo examples
 - Migrating from legacy components
+- Checking what changed between component versions
+- Migrating from older versions of components to newer ones
+- Migrating from deprecated components to current ones
+
+## Deprecated Components Migration
+
+If the user references a deprecated component, inform them that it is no longer supported and no MCP data is available for it. Then offer to help migrate to the replacement:
+
+> **ComponentName** is deprecated and is not available in the current version of MCP. The recommended replacement is **ReplacementName**. Would you like me to help migrate to it?
+
+Do not attempt to use the deprecated component's API or guess its props — always redirect to the replacement.
+
+| Deprecated         | Replacement               |
+| ------------------ | ------------------------- |
+| `ConfirmationV1`   | `Confirmation`            |
+| `FileUploadItemV1` | `FileUploadItem`          |
+| `PassCodeV1`       | `PassCode`                |
+| `PatternLockV1`    | `PatternLock`             |
+| `Alert`            | `Plate`                   |
+| `Badge`            | `StatusBadge`             |
+| `CalendarInput`    | `UniversalDateInput`      |
+| `DateInput`        | `UniversalDateInput`      |
+| `DateRangeInput`   | `UniversalDateInput`      |
+| `DateTimeInput`    | `UniversalDateInput`      |
+| `TimeInput`        | `UniversalDateInput`      |
+| `IntlPhoneInput`   | `InternationalPhoneInput` |
+| `Loader`           | `Spinner`                 |
+
+### Migration workflow
+
+When a user's code uses a deprecated component:
+
+```
+1. Identify the replacement from the table above
+2. component_info("ReplacementName")   → check the new API
+3. component_demo("ReplacementName")   → find a relevant demo
+4. Rewrite usage with the new component API
+```

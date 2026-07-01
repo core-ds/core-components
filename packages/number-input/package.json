@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-number-input",
-    "version": "4.0.8",
+    "version": "4.0.10",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,10 +13,10 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-icon-button": "^8.0.6",
-        "@alfalab/core-components-input": "^17.1.6",
-        "@alfalab/core-components-mq": "^6.0.4",
-        "@alfalab/core-components-shared": "^2.2.0",
+        "@alfalab/core-components-icon-button": "^8.0.8",
+        "@alfalab/core-components-input": "^17.1.8",
+        "@alfalab/core-components-mq": "^6.0.5",
+        "@alfalab/core-components-shared": "^2.2.1",
         "@alfalab/icons-glyph": "^2.260.0",
         "@maskito/core": "^1.7.0",
         "@maskito/react": "^1.7.0",
