@@ -21,6 +21,7 @@
         "@alfalab/core-components-shared": "^2.2.1",
         "@types/react-transition-group": "^4.4.12",
         "classnames": "^2.5.1",
+        "motion": "12.40.0",
         "react-merge-refs": "^1.1.0",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"

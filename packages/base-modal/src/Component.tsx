@@ -9,6 +9,7 @@ import React, {
     type Ref,
     useCallback,
     useEffect,
+    useLayoutEffect,
     useMemo,
     useRef,
     useState,
@@ -17,7 +18,6 @@ import React, {
 import FocusLock from 'react-focus-lock';
 import mergeRefs from 'react-merge-refs';
 import { RemoveScroll } from 'react-remove-scroll';
-import { CSSTransition } from 'react-transition-group';
 import { type CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
@@ -28,6 +28,12 @@ import { getScrollbarSize, isIOS } from '@alfalab/core-components-shared';
 import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
+import {
+    type AnimationParams,
+    AnimationWrapper,
+    type AnimationWrapperConfig,
+    type SpringHookType,
+} from './components/animation-wrapper';
 import { lockScroll, syncHeight, unlockScroll } from './helpers/lockScroll';
 import {
     handleContainer,
@@ -225,6 +231,15 @@ export type BaseModalProps = {
      * Хэндлер события прокрутки колесиком
      */
     onWheel?: (e: WheelEvent<HTMLElement>) => void;
+
+    springAnimation?: {
+        onSpringStart?: () => void;
+        onSpringEnd?: () => void;
+        enter: AnimationParams;
+        exit: AnimationParams;
+        hook: SpringHookType;
+        contentRef?: MutableRefObject<HTMLDivElement | null>;
+    };
 };
 
 export type BaseModalContext = {
@@ -300,6 +315,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             usePortal = true,
             iOSLock = false,
             onWheel,
+            springAnimation,
         },
         ref,
     ) => {
@@ -499,6 +515,12 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             [handleScroll, onUnmount, removeResizeHandle, transitionProps],
         );
 
+        useLayoutEffect(() => {
+            if (open && isExited) {
+                setExited(false);
+            }
+        }, [open, isExited]);
+
         useEffect(() => {
             if (open && isExited) {
                 /*
@@ -524,8 +546,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                         restoreContainerStyles(el);
                     };
                 }
-
-                setExited(false);
             }
 
             if (!open) {
@@ -592,6 +612,44 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             ...restBackdropProps
         } = backdropProps;
 
+        const springContentRef = useRef<HTMLDivElement | null>(null);
+
+        const animationConfig: AnimationWrapperConfig = springAnimation
+            ? {
+                  useSpring: true as const,
+                  springProps: {
+                      open,
+                      exited,
+                      nodeRef: componentNodeRef,
+                      enter: springAnimation.enter,
+                      exit: springAnimation.exit,
+                      onEntered: () => handleEntered(componentNodeRef.current!, false),
+                      onExited: () => handleExited(componentNodeRef.current!),
+                      onSpringStart:
+                          typeof springAnimation === 'object'
+                              ? springAnimation.onSpringStart
+                              : undefined,
+                      onSpringEnd:
+                          typeof springAnimation === 'object'
+                              ? springAnimation.onSpringEnd
+                              : undefined,
+                      hook: springAnimation.hook,
+                      contentRef: springContentRef,
+                  },
+              }
+            : {
+                  cssTransitionProps: {
+                      appear: true,
+                      timeout: 200,
+                      classNames: styles,
+                      nodeRef: componentNodeRef,
+                      ...transitionProps,
+                      in: open,
+                      onEntered: handleEntered,
+                      onExited: handleExited,
+                  } as CSSTransitionProps,
+              };
+
         const renderContent = () => (
             <Stack value={zIndex}>
                 {(computedZIndex) => (
@@ -641,16 +699,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                             zIndex: computedZIndex,
                                         }}
                                     >
-                                        <CSSTransition
-                                            appear={true}
-                                            timeout={200}
-                                            classNames={styles}
-                                            nodeRef={componentNodeRef}
-                                            {...transitionProps}
-                                            in={open}
-                                            onEntered={handleEntered}
-                                            onExited={handleExited}
-                                        >
+                                        <AnimationWrapper config={animationConfig}>
                                             <div
                                                 {...componentDivProps}
                                                 className={cn(
@@ -675,12 +724,15 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                                             [styles.hasHeader]: hasHeader,
                                                         },
                                                     )}
-                                                    ref={contentElementRef}
+                                                    ref={mergeRefs([
+                                                        contentElementRef,
+                                                        springContentRef,
+                                                    ])}
                                                 >
                                                     {children}
                                                 </div>
                                             </div>
-                                        </CSSTransition>
+                                        </AnimationWrapper>
                                     </div>
                                 </React.Fragment>
                             </RemoveScroll>

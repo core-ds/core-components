@@ -31,6 +31,17 @@
         visibility 0s linear 400ms;
 }
 
+.spring {
+    &.container {
+        overflow: hidden;
+        height: 0;
+
+        & .content {
+            padding-top: var(--gap-12);
+        }
+    }
+}
+
 .expandedBody {
     visibility: visible;
     height: auto;
