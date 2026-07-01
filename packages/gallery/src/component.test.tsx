@@ -367,6 +367,26 @@ describe('Gallery desktop', () => {
 
             await waitForActiveImage(getByTestId, 2);
         });
+
+        it('should stop dragging after mouseup outside navigation bar', () => {
+            const { getByTestId } = render(
+                <Gallery open={true} images={images} onClose={() => null} />,
+            );
+
+            const navigationBar = getByTestId(TestIds.NAVIGATION_BAR);
+
+            navigationBar.scrollLeft = 100;
+
+            fireEvent.mouseDown(navigationBar, { button: 0, clientX: 200 });
+            fireEvent.mouseMove(document, { clientX: 150 });
+
+            expect(navigationBar.scrollLeft).toBe(150);
+
+            fireEvent.mouseUp(document);
+            fireEvent.mouseMove(document, { clientX: 100 });
+
+            expect(navigationBar.scrollLeft).toBe(150);
+        });
     });
 
     describe('Single image view tests', () => {

@@ -11,9 +11,19 @@
     padding: var(--gap-12) var(--gap-32);
     scrollbar-width: none;
     background-color: var(--color-static-neutral-0-inverted);
+    cursor: grab;
+    user-select: none;
 
     &.mobile {
         padding: var(--gap-8);
+    }
+
+    &.dragging {
+        cursor: grabbing;
+
+        & * {
+            cursor: grabbing;
+        }
     }
 
     &::-webkit-scrollbar {

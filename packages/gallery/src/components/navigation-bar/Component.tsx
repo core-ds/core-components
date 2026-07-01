@@ -8,16 +8,15 @@ import { ImagePreview } from '../image-preview';
 import styles from './index.module.css';
 
 const MIN_SCROLL_STEP = 24;
-const SCROLL_SPEED = 0.05;
-const SCROLL_THRESHOLD = 150;
+const DRAG_CLICK_THRESHOLD = 5;
 
 export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const mousePositionRef = useRef<number>(0);
-    const animationFrameRef = useRef<number | undefined>(undefined);
-    const previousFrameTimeRef = useRef<number | undefined>(undefined);
+    const dragStartXRef = useRef<number>(0);
+    const dragStartScrollLeftRef = useRef<number>(0);
+    const suppressClickRef = useRef<boolean>(false);
 
-    const [isNavMouseDowned, setIsNavMouseDowned] = useState<boolean>(false);
+    const [isDragging, setIsDragging] = useState<boolean>(false);
 
     const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper, setPlayingVideo, view } =
         useContext(GalleryContext);
@@ -43,71 +42,72 @@ export const NavigationBar: FC = () => {
         }
     }, []);
 
-    const stopAutoScroll = useCallback(() => {
-        if (animationFrameRef.current !== undefined) {
-            cancelAnimationFrame(animationFrameRef.current);
-            animationFrameRef.current = undefined;
-        }
-
-        previousFrameTimeRef.current = undefined;
-    }, []);
-
-    const startAutoScroll = useCallback(() => {
-        if (animationFrameRef.current !== undefined) {
+    const handlePreviewMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.button !== 0 || !containerRef.current) {
             return;
         }
 
-        const scrollToMousePosition = (time: number) => {
-            const container = containerRef.current;
-
-            if (!container) {
-                stopAutoScroll();
-
-                return;
-            }
-
-            const { width: containerWidth, left: containerLeft } =
-                container.getBoundingClientRect();
-            const rightThreshold = containerLeft + containerWidth - SCROLL_THRESHOLD;
-            const leftThreshold = containerLeft + SCROLL_THRESHOLD;
-            const mouseX = mousePositionRef.current;
-            const previousFrameTime = previousFrameTimeRef.current ?? time;
-            const frameDuration = time - previousFrameTime;
-
-            previousFrameTimeRef.current = time;
-
-            if (mouseX > rightThreshold) {
-                container.scrollLeft += (mouseX - rightThreshold) * SCROLL_SPEED * frameDuration;
-            } else if (mouseX < leftThreshold) {
-                container.scrollLeft += (mouseX - leftThreshold) * SCROLL_SPEED * frameDuration;
-            }
-
-            animationFrameRef.current = requestAnimationFrame(scrollToMousePosition);
-        };
-
-        animationFrameRef.current = requestAnimationFrame(scrollToMousePosition);
-    }, [stopAutoScroll]);
-
-    const handlePreviewMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-        mousePositionRef.current = e.clientX;
-        setIsNavMouseDowned(true);
-        startAutoScroll();
+        dragStartXRef.current = e.clientX;
+        dragStartScrollLeftRef.current = containerRef.current.scrollLeft;
+        suppressClickRef.current = false;
+        setIsDragging(true);
     };
 
-    const handlePreviewMouseUp = () => {
-        setIsNavMouseDowned(false);
-        stopAutoScroll();
-    };
+    const handlePreviewMouseUp = useCallback(() => {
+        setIsDragging(false);
+    }, []);
+
+    const dragTo = useCallback((clientX: number) => {
+        const container = containerRef.current;
+
+        if (!container) {
+            return;
+        }
+
+        const deltaX = clientX - dragStartXRef.current;
+
+        if (Math.abs(deltaX) > DRAG_CLICK_THRESHOLD) {
+            suppressClickRef.current = true;
+        }
+
+        container.scrollLeft = dragStartScrollLeftRef.current - deltaX;
+    }, []);
 
     const handleMouseNavigationMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        mousePositionRef.current = e.clientX;
-
-        if (isNavMouseDowned) {
-            startAutoScroll();
+        if (!isDragging) {
+            return;
         }
+
+        dragTo(e.clientX);
     };
 
-    useEffect(() => stopAutoScroll, [stopAutoScroll]);
+    const handleClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!suppressClickRef.current) {
+            return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+        suppressClickRef.current = false;
+    };
+
+    useEffect(() => {
+        if (!isDragging) {
+            return undefined;
+        }
+
+        const handleDocumentMouseMove = (event: MouseEvent) => {
+            dragTo(event.clientX);
+        };
+
+        document.addEventListener('mousemove', handleDocumentMouseMove);
+        document.addEventListener('mouseup', handlePreviewMouseUp);
+
+        return () => {
+            document.removeEventListener('mousemove', handleDocumentMouseMove);
+            document.removeEventListener('mouseup', handlePreviewMouseUp);
+        };
+    }, [dragTo, handlePreviewMouseUp, isDragging]);
 
     const handlePreviewPosition = useCallback(
         (preview: Element, containerWidth: number) => {
@@ -145,12 +145,16 @@ export const NavigationBar: FC = () => {
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
-            className={cn(styles.component, { [styles.mobile]: view === 'mobile' })}
+            className={cn(styles.component, {
+                [styles.mobile]: view === 'mobile',
+                [styles.dragging]: isDragging,
+            })}
             ref={containerRef}
             data-test-id={TestIds.NAVIGATION_BAR}
             onMouseDown={handlePreviewMouseDown}
             onMouseUp={handlePreviewMouseUp}
             onMouseMove={handleMouseNavigationMove}
+            onClickCapture={handleClickCapture}
         >
             {images.map((image, index) => {
                 const active = index === currentSlideIndex;
