@@ -1,4 +1,4 @@
-import React, { type FC, useEffect, useRef } from 'react';
+import React, { type FC, useLayoutEffect, useRef } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
@@ -184,7 +184,7 @@ export const Step: FC<StepProps> = ({
 
     const { playEnter } = useStepsAnimation(optionRef);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (animateSpring) {
             // selected => complete
             if (!prevIsStepCompleted.current && isStepCompleted) {

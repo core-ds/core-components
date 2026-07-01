@@ -16,8 +16,8 @@ export function useStepsAnimation<T extends HTMLElement>(ref: RefObject<T | null
 
         const containerAnim = animate(
             el,
-            { scale: [1, 0.93] },
-            { type: spring, stiffness: 426, damping: 41, mass: 1 },
+            { scale: [1, 0.95] },
+            { type: spring, stiffness: 571, damping: 45, mass: 1 },
         );
 
         const group = new GroupAnimation([containerAnim]);
