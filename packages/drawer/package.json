@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-drawer",
-    "version": "7.0.8",
+    "version": "7.0.9",
     "description": "Drawer component",
     "keywords": [],
     "license": "MIT",
@@ -13,13 +13,13 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^7.1.6",
+        "@alfalab/core-components-base-modal": "^7.1.7",
         "classnames": "^2.5.1",
         "react-transition-group": "^4.4.5",
         "tslib": "^2.4.0"
     },
     "devDependencies": {
-        "@alfalab/core-components-button": "^13.2.0"
+        "@alfalab/core-components-button": "^13.2.1"
     },
     "peerDependencies": {
         "react": "^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0",
@@ -29,6 +29,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.1.0",
+    "themesVersion": "15.2.0",
     "varsVersion": "11.1.0"
 }

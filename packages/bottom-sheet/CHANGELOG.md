@@ -1,5 +1,23 @@
 # @alfalab/core-components-bottom-sheet
 
+## 8.1.11
+
+### Patch Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### BottomSheet
+
+- Исправлена работа горизонтального скролла контента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-navigation-bar-private@2.0.12
+
 ## 8.1.10
 
 ### Patch Changes

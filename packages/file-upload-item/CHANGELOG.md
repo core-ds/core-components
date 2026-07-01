@@ -1,5 +1,15 @@
 # @alfalab/core-components-file-upload-item
 
+## 8.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-typography@6.0.9
+- @alfalab/core-components-icon-button@8.0.9
+
 ## 8.1.0
 
 ### Minor Changes

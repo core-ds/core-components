@@ -1,5 +1,13 @@
 # @alfalab/core-components-stepped-progress-bar
 
+## 4.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.9
+
 ## 4.0.8
 
 ### Patch Changes

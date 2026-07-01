@@ -1,5 +1,13 @@
 # @alfalab/core-components-switch
 
+## 6.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+
 ## 6.1.3
 
 ### Patch Changes
