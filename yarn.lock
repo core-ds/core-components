@@ -64,6 +64,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alfalab/core-components-account-select@workspace:packages/account-select":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-account-select@workspace:packages/account-select"
+  dependencies:
+    "@alfalab/core-components-amount": "npm:^5.1.1"
+    "@alfalab/core-components-form-control": "npm:^14.0.6"
+    "@alfalab/core-components-generic-wrapper": "npm:^3.0.2"
+    "@alfalab/core-components-mq": "npm:^6.0.4"
+    "@alfalab/core-components-popover": "npm:^8.0.4"
+    "@alfalab/core-components-product-cover": "npm:^3.2.0"
+    "@alfalab/core-components-select": "npm:^19.1.8"
+    "@alfalab/core-components-typography": "npm:^6.0.6"
+    "@alfalab/icons-glyph": "npm:^2.260.0"
+    "@maskito/core": "npm:^4.0.1"
+    "@maskito/kit": "npm:^4.0.1"
+    "@maskito/react": "npm:^4.0.1"
+    classnames: "npm:^2.5.1"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@alfalab/core-components-action-button@npm:^3.0.5, @alfalab/core-components-action-button@workspace:packages/action-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-action-button@workspace:packages/action-button"
@@ -731,7 +755,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-form-control@npm:^14.0.7, @alfalab/core-components-form-control@workspace:packages/form-control":
+"@alfalab/core-components-form-control@npm:^14.0.6, @alfalab/core-components-form-control@npm:^14.0.7, @alfalab/core-components-form-control@workspace:packages/form-control":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-form-control@workspace:packages/form-control"
   dependencies:
@@ -1083,7 +1107,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-mq@npm:^6.0.5, @alfalab/core-components-mq@workspace:packages/mq":
+"@alfalab/core-components-mq@npm:^6.0.4, @alfalab/core-components-mq@npm:^6.0.5, @alfalab/core-components-mq@workspace:packages/mq":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-mq@workspace:packages/mq"
   dependencies:
@@ -1350,7 +1374,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-popover@npm:^8.0.5, @alfalab/core-components-popover@workspace:packages/popover":
+"@alfalab/core-components-popover@npm:^8.0.4, @alfalab/core-components-popover@npm:^8.0.5, @alfalab/core-components-popover@workspace:packages/popover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-popover@workspace:packages/popover"
   dependencies:
@@ -1409,7 +1433,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-product-cover@npm:^3.2.2, @alfalab/core-components-product-cover@workspace:packages/product-cover":
+"@alfalab/core-components-product-cover@npm:^3.2.0, @alfalab/core-components-product-cover@npm:^3.2.2, @alfalab/core-components-product-cover@workspace:packages/product-cover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-product-cover@workspace:packages/product-cover"
   dependencies:
@@ -1665,7 +1689,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-select@npm:^19.1.10, @alfalab/core-components-select@workspace:packages/select":
+"@alfalab/core-components-select@npm:^19.1.10, @alfalab/core-components-select@npm:^19.1.8, @alfalab/core-components-select@workspace:packages/select":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-select@workspace:packages/select"
   dependencies:
@@ -2121,7 +2145,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-typography@npm:^6.0.8, @alfalab/core-components-typography@workspace:packages/typography":
+"@alfalab/core-components-typography@npm:^6.0.6, @alfalab/core-components-typography@npm:^6.0.8, @alfalab/core-components-typography@workspace:packages/typography":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-typography@workspace:packages/typography"
   dependencies:
@@ -8477,6 +8501,17 @@ __metadata:
     react: ">=16.8"
     react-dom: ">=16.8"
   checksum: 10c0/04367f7e1dcdb2a6fc3e4120c616cebf1ad114fafc530bdec8dc5196b947eba115fa1c4063bde4af320b777b106b6537f83898cb22d8b7c2c5834f9aee2300f8
+  languageName: node
+  linkType: hard
+
+"@maskito/react@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@maskito/react@npm:4.0.1"
+  peerDependencies:
+    "@maskito/core": ^4.0.1
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 10c0/ec02a907b4edeaabe94bcdd963f91227e100caaebdba3ab5a1276680609f828e271218aa186b3ca9cfb66cb83d976da3bd0efb51e5413851e9d89d7b6990a1d6
   languageName: node
   linkType: hard
 
