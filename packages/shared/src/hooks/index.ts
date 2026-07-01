@@ -23,3 +23,5 @@ export {
 } from './animation/use-universal-modal-animation';
 
 export { useModalSpringTransition } from './animation/use-modal-animation';
+
+export { useStepsAnimation } from './animation/use-steps-animation';
