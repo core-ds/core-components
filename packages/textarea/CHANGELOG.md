@@ -1,5 +1,15 @@
 # @alfalab/core-components-textarea
 
+## 10.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-form-control@14.0.8
+- @alfalab/core-components-mq@6.0.6
+
 ## 10.0.7
 
 ### Patch Changes

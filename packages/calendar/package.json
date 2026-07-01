@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar",
-    "version": "9.1.9",
+    "version": "9.1.10",
     "description": "Calendar component",
     "keywords": [],
     "license": "MIT",
@@ -13,12 +13,12 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^13.2.0",
-        "@alfalab/core-components-icon-button": "^8.0.8",
-        "@alfalab/core-components-modal": "^11.0.13",
-        "@alfalab/core-components-mq": "^6.0.5",
-        "@alfalab/core-components-shared": "^2.2.1",
-        "@alfalab/core-components-typography": "^6.0.8",
+        "@alfalab/core-components-button": "^13.2.1",
+        "@alfalab/core-components-icon-button": "^8.0.9",
+        "@alfalab/core-components-modal": "^11.0.14",
+        "@alfalab/core-components-mq": "^6.0.6",
+        "@alfalab/core-components-shared": "^2.2.2",
+        "@alfalab/core-components-typography": "^6.0.9",
         "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "@juggle/resize-observer": "^3.3.1",
@@ -37,6 +37,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.1.0",
+    "themesVersion": "15.2.0",
     "varsVersion": "11.1.0"
 }

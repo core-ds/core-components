@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-button",
-    "version": "13.2.0",
+    "version": "13.2.1",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,9 +13,9 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-mq": "^6.0.5",
-        "@alfalab/core-components-shared": "^2.2.1",
-        "@alfalab/core-components-spinner": "^6.0.5",
+        "@alfalab/core-components-mq": "^6.0.6",
+        "@alfalab/core-components-shared": "^2.2.2",
+        "@alfalab/core-components-spinner": "^6.0.6",
         "@alfalab/hooks": "^1.17.0",
         "classnames": "^2.5.1",
         "react-merge-refs": "^1.1.0",
@@ -33,6 +33,6 @@
         "site"
     ],
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
-    "themesVersion": "15.1.0",
+    "themesVersion": "15.2.0",
     "varsVersion": "11.1.0"
 }

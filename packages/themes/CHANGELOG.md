@@ -1,5 +1,17 @@
 # @alfalab/core-components-themes
 
+## 15.2.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2257](https://github.com/core-ds/core-components/pull/2257)
+
+##### Themes
+
+- Добавлена темизация компонента `Select` в теме `corp`
+
 ## 15.1.0
 
 ### Minor Changes
