@@ -1,4 +1,4 @@
-import React, { type FC, useLayoutEffect, useRef } from 'react';
+import React, { type FC, useLayoutEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { Badge } from '@alfalab/core-components-badge';
@@ -100,8 +100,11 @@ export const Step: FC<StepProps> = ({
 }) => {
     const stepRef = useRef<HTMLDivElement>(null);
     const optionRef = useRef<HTMLDivElement>(null);
-    const prevOptionSelected = useRef(isSelected);
-    const prevIsStepCompleted = useRef(isStepCompleted);
+
+    const [visualSelected, setVisualSelected] = useState(isSelected);
+    const [visualCompleted, setVisualCompleted] = useState(isStepCompleted);
+
+    const prevPropsRef = useRef({ isSelected, isStepCompleted });
 
     const [focused] = useFocus(stepRef, 'keyboard');
 
@@ -144,7 +147,7 @@ export const Step: FC<StepProps> = ({
         if (isPositive) {
             return <StepIndicator view='positive-checkmark' />;
         }
-        if (isStepCompleted) {
+        if (visualCompleted) {
             return (
                 <StepIndicator view='positive-checkmark' className={styles.completedIndicator} />
             );
@@ -161,7 +164,7 @@ export const Step: FC<StepProps> = ({
     };
 
     const getCustomDashColor = () => {
-        if (isStepCompleted && completedDashColor) {
+        if (visualCompleted && completedDashColor) {
             return {
                 borderColor: completedDashColor,
             };
@@ -174,7 +177,7 @@ export const Step: FC<StepProps> = ({
         <div
             className={cn(styles.dash, {
                 [styles.vertical]: isVerticalAlign,
-                [styles.completed]: isStepCompleted,
+                [styles.completed]: visualCompleted,
             })}
             style={{
                 ...getCustomDashColor(),
@@ -182,24 +185,59 @@ export const Step: FC<StepProps> = ({
         />
     );
 
-    const { playEnter } = useStepsAnimation(optionRef);
+    // const { playEnter } = useStepsAnimation(optionRef);
+    //
+    // useLayoutEffect(() => {
+    //     if (animateSpring) {
+    //         // selected => complete
+    //         if (!prevIsStepCompleted.current && isStepCompleted) {
+    //             // playExit();
+    //         }
+    //         // initial => selected
+    //         if (!prevOptionSelected.current && isSelected) {
+    //             playEnter();
+    //         }
+    //         prevIsStepCompleted.current = isStepCompleted;
+    //         prevOptionSelected.current = isSelected;
+    //     }
+    //
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [isStepCompleted, isSelected]);
 
     useLayoutEffect(() => {
+        const { isSelected: prevSel, isStepCompleted: prevComp } = prevPropsRef.current;
+        const propsChanged = prevSel !== isSelected || prevComp !== isStepCompleted;
+
+        if (!propsChanged) return;
+
         if (animateSpring) {
-            // selected => complete
-            if (!prevIsStepCompleted.current && isStepCompleted) {
-                // playExit();
+            if (prevSel && !isSelected && isStepCompleted) {
+                setTimeout(() => {
+                    setVisualSelected(isSelected);
+                    setVisualCompleted(isStepCompleted);
+                }, 100);
             }
-            // initial => selected
-            if (!prevOptionSelected.current && isSelected) {
-                playEnter();
+            // Enter: не был выбран, стал выбран
+            else if (!prevSel && isSelected) {
+                setTimeout(() => {
+                    setVisualSelected(isSelected);
+                    setVisualCompleted(isStepCompleted);
+                }, 100);
             }
-            prevIsStepCompleted.current = isStepCompleted;
-            prevOptionSelected.current = isSelected;
+            // Остальные переходы без анимации — обновляем сразу
+            else {
+                setVisualSelected(isSelected);
+                setVisualCompleted(isStepCompleted);
+            }
+        } else {
+            // Без анимации — мгновенный swap
+            setVisualSelected(isSelected);
+            setVisualCompleted(isStepCompleted);
         }
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isStepCompleted, isSelected]);
+        // Фиксируем текущие пропы как предыдущие
+        prevPropsRef.current = { isSelected, isStepCompleted };
+    }, [isSelected, isStepCompleted, animateSpring]);
 
     return (
         <div
@@ -208,9 +246,9 @@ export const Step: FC<StepProps> = ({
             tabIndex={0}
             ref={stepRef}
             className={cn(styles.step, {
-                [styles.completed]: isStepCompleted,
+                [styles.completed]: visualCompleted,
                 [styles.error]: isError,
-                [styles.selected]: isSelected,
+                [styles.selected]: visualSelected,
                 [styles.disabled]: disabled,
                 [styles.focused]: focused,
                 [styles.vertical]: isVerticalAlign,
