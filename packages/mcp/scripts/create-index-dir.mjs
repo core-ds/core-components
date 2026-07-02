@@ -21,7 +21,7 @@ export function createIndexDir() {
         `export const DATA_VERSION = 'v${version}';\n`,
     );
 
-    console.log(`📁  Created directory: ${indexDir}`);
+    console.log(`📁 Created directory: ${indexDir}`);
 
     return versionDir;
 }
