@@ -14,8 +14,6 @@ function toPascalCase(packageName) {
         .join('');
 }
 
-// import-спецификатор из `export { X } from './y'` не содержит расширения и может
-// указывать как на файл, так и на директорию с index.ts/index.tsx внутри
 function resolveModuleFile(baseDir, specifier) {
     const resolved = path.resolve(baseDir, specifier);
 
@@ -57,12 +55,6 @@ function isDirectExportNamed(statement, componentName) {
     return false;
 }
 
-// Ищет в index.ts именованный экспорт с именем componentName и возвращает файл,
-// в котором реально определён компонент (а не сам index.ts с кучей чужих экспортов —
-// иначе react-docgen-typescript мог случайно задокументировать не тот компонент).
-// `export * from ...` намеренно не разворачивается: не зная, что лежит в дочернем
-// модуле, пришлось бы рекурсивно парсить весь граф реэкспортов; если у пакета нет
-// явного именованного экспорта компонента — считаем, что энтрипоинта пока нет.
 function findComponentEntryFile(indexFilePath, componentName) {
     const sourceFile = ts.createSourceFile(
         indexFilePath,
@@ -73,14 +65,12 @@ function findComponentEntryFile(indexFilePath, componentName) {
     );
 
     for (const statement of sourceFile.statements) {
-        // `export const Foo = ...` — компонент объявлен прямо в index.ts
         if (isDirectExportNamed(statement, componentName)) {
             return indexFilePath;
         }
 
         if (!ts.isExportDeclaration(statement) || !statement.exportClause) {
-            // `export * from '...'` и `export * as X from '...'` — пропускаем,
-            // не разворачивая (см. комментарий к функции)
+            // `export * from '...'` (и `export * as X from '...'`) не разворачиваем
             continue;
         }
 
@@ -97,12 +87,9 @@ function findComponentEntryFile(indexFilePath, componentName) {
         }
 
         if (!statement.moduleSpecifier || !ts.isStringLiteral(statement.moduleSpecifier)) {
-            // `export { X as componentName };` без `from` — X переэкспортирован
-            // из локальной области видимости самого index.ts
             return indexFilePath;
         }
 
-        // `export { X as componentName } from './y'` — идём резолвить реальный файл
         return resolveModuleFile(path.dirname(indexFilePath), statement.moduleSpecifier.text);
     }
 
