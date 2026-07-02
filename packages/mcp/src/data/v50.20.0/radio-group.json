@@ -3,6 +3,33 @@
 "displayName": "RadioGroup",
 "description": "Используется для выбора одного значения из нескольких доступных.",
 "props": {
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик изменения значения 'checked' одного из дочерних компонентов",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<Element> | MouseEvent<Element, MouseEvent>, payload: { value: string; name?: string | undefined; }) => void) | undefined"
+}
+},
+"onBlur": {
+"defaultValue": null,
+"description": "Обработчик блюра.",
+"name": "onBlur",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
+}
+},
+"onFocus": {
+"defaultValue": null,
+"description": "Обработчик фокуса.",
+"name": "onFocus",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
+}
+},
 "children": {
 "defaultValue": null,
 "description": "Дочерние элементы. Ожидаются компоненты `Radio` или `Tag`",
@@ -19,96 +46,6 @@
 "required": false,
 "type": {
 "name": "string | undefined"
-}
-},
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования",
-"name": "dataTestId",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"type": {
-"defaultValue": null,
-"description": "Тип компонента",
-"name": "type",
-"required": false,
-"type": {
-"name": "RadioGroupType | undefined"
-}
-},
-"onFocus": {
-"defaultValue": null,
-"description": "Обработчик фокуса.",
-"name": "onFocus",
-"required": false,
-"type": {
-"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
-}
-},
-"onBlur": {
-"defaultValue": null,
-"description": "Обработчик блюра.",
-"name": "onBlur",
-"required": false,
-"type": {
-"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
-}
-},
-"onChange": {
-"defaultValue": null,
-"description": "Обработчик изменения значения 'checked' одного из дочерних компонентов",
-"name": "onChange",
-"required": false,
-"type": {
-"name": "((event: MouseEvent<Element, MouseEvent> | ChangeEvent<Element>, payload: { value: string; name?: string | undefined; }) => void) | undefined"
-}
-},
-"disabled": {
-"defaultValue": null,
-"description": "Управление возможностью изменения состояния 'checked' дочерних компонентов Radio | Tag",
-"name": "disabled",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"name": {
-"defaultValue": null,
-"description": "Атрибут name для всех дочерних компонентов",
-"name": "name",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"value": {
-"defaultValue": null,
-"description": "Value выбранного дочернего элемента",
-"name": "value",
-"required": false,
-"type": {
-"name": "string | null | undefined"
-}
-},
-"error": {
-"defaultValue": null,
-"description": "Отображение ошибки",
-"name": "error",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"hint": {
-"defaultValue": null,
-"description": "Текст подсказки снизу",
-"name": "hint",
-"required": false,
-"type": {
-"name": "ReactNode"
 }
 },
 "label": {
@@ -129,6 +66,15 @@
 "name": "Direction | undefined"
 }
 },
+"type": {
+"defaultValue": null,
+"description": "Тип компонента",
+"name": "type",
+"required": false,
+"type": {
+"name": "RadioGroupType | undefined"
+}
+},
 "radioListClassName": {
 "defaultValue": null,
 "description": "Дополнительный класс для списка радио элементов",
@@ -136,6 +82,60 @@
 "required": false,
 "type": {
 "name": "string | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки снизу",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление возможностью изменения состояния 'checked' дочерних компонентов Radio | Tag",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"name": {
+"defaultValue": null,
+"description": "Атрибут name для всех дочерних компонентов",
+"name": "name",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Value выбранного дочернего элемента",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | null | undefined"
 }
 },
 "breakpoint": {

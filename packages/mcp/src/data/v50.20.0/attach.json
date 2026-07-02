@@ -80,7 +80,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 32 | undefined"
+"name": "32 | 40 | 48 | 56 | 64 | undefined"
 }
 },
 "multiple": {

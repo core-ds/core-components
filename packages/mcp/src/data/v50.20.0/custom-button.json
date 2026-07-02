@@ -3,13 +3,13 @@
 "displayName": "CustomButton",
 "description": "",
 "props": {
-"children": {
+"href": {
 "defaultValue": null,
-"description": "Дочерние элементы.",
-"name": "children",
+"description": "Выводит ссылку в виде кнопки",
+"name": "href",
 "required": false,
 "type": {
-"name": "ReactNode"
+"name": "string | undefined"
 }
 },
 "className": {
@@ -21,64 +21,35 @@
 "name": "string | undefined"
 }
 },
-"dataTestId": {
+"children": {
 "defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader",
-"name": "dataTestId",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"href": {
-"defaultValue": null,
-"description": "Выводит ссылку в виде кнопки",
-"name": "href",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"size": {
-"defaultValue": {
-"value": "56"
-},
-"description": "Размер компонента",
-"name": "size",
-"required": false,
-"type": {
-"name": "48 | 40 | 56 | 64 | 72 | 32 | undefined"
-}
-},
-"loading": {
-"defaultValue": {
-"value": "false"
-},
-"description": "Показать лоадер",
-"name": "loading",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"rightAddons": {
-"defaultValue": null,
-"description": "Слот справа",
-"name": "rightAddons",
+"description": "Дочерние элементы.",
+"name": "children",
 "required": false,
 "type": {
 "name": "ReactNode"
 }
 },
-"block": {
+"shape": {
 "defaultValue": {
-"value": "false"
+"value": "rectangular"
 },
-"description": "Растягивает компонент на ширину контейнера",
-"name": "block",
+"description": "Форма кнопки",
+"name": "shape",
 "required": false,
 "type": {
-"name": "boolean | undefined"
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"textResizing": {
+"defaultValue": {
+"value": "hug"
+},
+"description": "Ширина текстового контента",
+"name": "textResizing",
+"required": false,
+"type": {
+"name": "\"fill\" | \"hug\" | undefined"
 }
 },
 "hint": {
@@ -99,10 +70,108 @@
 "name": "ReactNode"
 }
 },
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"size": {
+"defaultValue": {
+"value": "56"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "32 | 40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"block": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"spinnerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для спиннера",
+"name": "spinnerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"Component": {
+"defaultValue": null,
+"description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
+"name": "Component",
+"required": false,
+"type": {
+"name": "ElementType | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"loading": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Показать лоадер",
+"name": "loading",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"nowrap": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Не переносить текст кнопки на новую строку",
+"name": "nowrap",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"allowBackdropBlur": {
+"defaultValue": null,
+"description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
+"name": "allowBackdropBlur",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "labelClassName": {
 "defaultValue": null,
 "description": "Дополнительный класс для label",
 "name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hintClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для hint",
+"name": "hintClassName",
 "required": false,
 "type": {
 "name": "string | undefined"
@@ -135,75 +204,6 @@
 "required": false,
 "type": {
 "name": "boolean | (() => boolean) | undefined"
-}
-},
-"shape": {
-"defaultValue": {
-"value": "rectangular"
-},
-"description": "Форма кнопки",
-"name": "shape",
-"required": false,
-"type": {
-"name": "\"rounded\" | \"rectangular\" | undefined"
-}
-},
-"textResizing": {
-"defaultValue": {
-"value": "hug"
-},
-"description": "Ширина текстового контента",
-"name": "textResizing",
-"required": false,
-"type": {
-"name": "\"fill\" | \"hug\" | undefined"
-}
-},
-"spinnerClassName": {
-"defaultValue": null,
-"description": "Дополнительный класс для спиннера",
-"name": "spinnerClassName",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"Component": {
-"defaultValue": null,
-"description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
-"name": "Component",
-"required": false,
-"type": {
-"name": "ElementType | undefined"
-}
-},
-"nowrap": {
-"defaultValue": {
-"value": "false"
-},
-"description": "Не переносить текст кнопки на новую строку",
-"name": "nowrap",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"allowBackdropBlur": {
-"defaultValue": null,
-"description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
-"name": "allowBackdropBlur",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"hintClassName": {
-"defaultValue": null,
-"description": "Дополнительный класс для hint",
-"name": "hintClassName",
-"required": false,
-"type": {
-"name": "string | undefined"
 }
 },
 "backgroundColor": {
@@ -250,7 +250,7 @@
 "name": "disableType",
 "required": false,
 "type": {
-"name": "\"default\" | \"inverted\" | \"static\" | \"static-inverted\" | undefined"
+"name": "\"default\" | \"static\" | \"inverted\" | \"static-inverted\" | undefined"
 }
 }
 },

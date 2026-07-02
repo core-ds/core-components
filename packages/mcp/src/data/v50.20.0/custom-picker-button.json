@@ -1,71 +1,8 @@
 {
 "packageName": "custom-picker-button",
-"displayName": "CustomPickerButtonResponsive",
+"displayName": "CustomPickerButton",
 "description": "",
 "props": {
-"className": {
-"defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
-"name": "dataTestId",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"id": {
-"defaultValue": null,
-"description": "Атрибут id",
-"name": "id",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"onBlur": {
-"defaultValue": null,
-"description": "Обработчик блюра поля",
-"name": "onBlur",
-"required": false,
-"type": {
-"name": "((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) | undefined"
-}
-},
-"onChange": {
-"defaultValue": null,
-"description": "Обработчик выбора",
-"name": "onChange",
-"required": false,
-"type": {
-"name": "((payload: BaseSelectChangePayload) => void) | undefined"
-}
-},
-"onScroll": {
-"defaultValue": null,
-"description": "Обработчик скрола",
-"name": "onScroll",
-"required": false,
-"type": {
-"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
-}
-},
-"icon": {
-"defaultValue": null,
-"description": "Кастомная иконка при variant = compact",
-"name": "icon",
-"required": false,
-"type": {
-"name": "ComponentType<SVGProps<SVGSVGElement>> | undefined"
-}
-},
 "size": {
 "defaultValue": {
 "value": "56"
@@ -77,96 +14,31 @@
 "name": "PickerButtonSize | undefined"
 }
 },
-"disabled": {
+"options": {
 "defaultValue": null,
-"description": "Управление возможностью выбора значения",
-"name": "disabled",
-"required": false,
+"description": "",
+"name": "options",
+"required": true,
 "type": {
-"name": "boolean | undefined"
+"name": "((OptionShape | GroupShape) & { icon?: ComponentType<SVGProps<SVGSVGElement>> | undefined; })[]"
 }
 },
-"loading": {
-"defaultValue": {
-"value": "false"
-},
-"description": "Показать лоадер",
-"name": "loading",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"name": {
+"dataTestId": {
 "defaultValue": null,
-"description": "Атрибут name",
-"name": "name",
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
+"name": "dataTestId",
 "required": false,
 "type": {
 "name": "string | undefined"
 }
 },
-"rightAddons": {
+"className": {
 "defaultValue": null,
-"description": "Слот справа",
-"name": "rightAddons",
+"description": "Дополнительный класс",
+"name": "className",
 "required": false,
 "type": {
-"name": "ReactNode"
-}
-},
-"block": {
-"defaultValue": null,
-"description": "Растягивает компонент на ширину контейнера",
-"name": "block",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"clear": {
-"defaultValue": null,
-"description": "Флаг, показать крестик для очистки поля",
-"name": "clear",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"error": {
-"defaultValue": null,
-"description": "Отображение ошибки",
-"name": "error",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"label": {
-"defaultValue": null,
-"description": "Лейбл поля",
-"name": "label",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"labelView": {
-"defaultValue": null,
-"description": "Вид лейбла внутри / снаружи",
-"name": "labelView",
-"required": false,
-"type": {
-"name": "\"inner\" | \"outer\" | undefined"
-}
-},
-"leftAddons": {
-"defaultValue": null,
-"description": "Слот слева",
-"name": "leftAddons",
-"required": false,
-"type": {
-"name": "ReactNode"
+"name": "string | undefined"
 }
 },
 "fieldClassName": {
@@ -176,80 +48,6 @@
 "required": false,
 "type": {
 "name": "string | undefined"
-}
-},
-"onClear": {
-"defaultValue": null,
-"description": "Обработчик нажатия на крестик для очистки поля",
-"name": "onClear",
-"required": false,
-"type": {
-"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
-}
-},
-"environment": {
-"defaultValue": {
-"value": "window"
-},
-"description": "Контекст окружения для downshift.js",
-"name": "environment",
-"required": false,
-"type": {
-"name": "Environment | undefined"
-}
-},
-"open": {
-"defaultValue": null,
-"description": "Управление открытием",
-"name": "open",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"defaultOpen": {
-"defaultValue": null,
-"description": "Начальное состояние селекта",
-"name": "defaultOpen",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"preventFlip": {
-"defaultValue": null,
-"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
-"name": "preventFlip",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"popoverPosition": {
-"defaultValue": null,
-"description": "Позиционирование выпадающего списка",
-"name": "popoverPosition",
-"required": false,
-"type": {
-"name": "Position | undefined"
-}
-},
-"zIndexPopover": {
-"defaultValue": null,
-"description": "z-index поповера",
-"name": "zIndexPopover",
-"required": false,
-"type": {
-"name": "number | undefined"
-}
-},
-"options": {
-"defaultValue": null,
-"description": "",
-"name": "options",
-"required": true,
-"type": {
-"name": "((OptionShape | GroupShape) & { icon?: ComponentType<SVGProps<SVGSVGElement>> | undefined; })[]"
 }
 },
 "optionsListClassName": {
@@ -288,13 +86,67 @@
 "name": "string | undefined"
 }
 },
+"id": {
+"defaultValue": null,
+"description": "Атрибут id",
+"name": "id",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"name": {
+"defaultValue": null,
+"description": "Атрибут name",
+"name": "name",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление возможностью выбора значения",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"defaultOpen": {
+"defaultValue": null,
+"description": "Начальное состояние селекта",
+"name": "defaultOpen",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление открытием",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "optionsSize": {
 "defaultValue": null,
 "description": "Размер пунктов меню\n@deprecated Управление размером пунктов меню через отдельный проп не поддерживается дизайн-контрактом. Размер пункта должен определяться его контентом.",
 "name": "optionsSize",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
 }
 },
 "optionsListWidth": {
@@ -306,10 +158,46 @@
 "name": "\"content\" | \"field\" | undefined"
 }
 },
+"label": {
+"defaultValue": null,
+"description": "Лейбл поля",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
 "circularNavigation": {
 "defaultValue": null,
 "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот.",
 "name": "circularNavigation",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"preventFlip": {
+"defaultValue": null,
+"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
+"name": "preventFlip",
 "required": false,
 "type": {
 "name": "boolean | undefined"
@@ -322,6 +210,15 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"popoverPosition": {
+"defaultValue": null,
+"description": "Позиционирование выпадающего списка",
+"name": "popoverPosition",
+"required": false,
+"type": {
+"name": "Position | undefined"
 }
 },
 "visibleOptions": {
@@ -423,6 +320,15 @@
 "name": "ComponentType<OptionProps> | undefined"
 }
 },
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик выбора",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((payload: BaseSelectChangePayload) => void) | undefined"
+}
+},
 "onOpen": {
 "defaultValue": null,
 "description": "Обработчик открытия\\закрытия селекта",
@@ -432,6 +338,42 @@
 "name": "((payload: { open?: boolean | undefined; name?: string | undefined; }) => void) | undefined"
 }
 },
+"onBlur": {
+"defaultValue": null,
+"description": "Обработчик блюра поля",
+"name": "onBlur",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | undefined"
+}
+},
+"onScroll": {
+"defaultValue": null,
+"description": "Обработчик скрола",
+"name": "onScroll",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на крестик для очистки поля",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Флаг, показать крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "updatePopover": {
 "defaultValue": null,
 "description": "Хранит функцию, с помощью которой можно обновить положение поповера",
@@ -439,6 +381,15 @@
 "required": false,
 "type": {
 "name": "MutableRefObject<(() => void) | undefined> | undefined"
+}
+},
+"zIndexPopover": {
+"defaultValue": null,
+"description": "z-index поповера",
+"name": "zIndexPopover",
+"required": false,
+"type": {
+"name": "number | undefined"
 }
 },
 "showEmptyOptionsList": {
@@ -456,7 +407,7 @@
 "name": "popoverProps",
 "required": false,
 "type": {
-"name": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"zIndex\" | \"preventFlip\" | \"position\" | \"update\" | \"anchorElement\"> | undefined"
+"name": "Omit<PopoverProps, \"dataTestId\" | \"className\" | \"open\" | \"preventFlip\" | \"zIndex\" | \"position\" | \"update\" | \"anchorElement\"> | undefined"
 }
 },
 "limitDynamicOptionGroupSize": {
@@ -466,6 +417,46 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"environment": {
+"defaultValue": {
+"value": "window"
+},
+"description": "Контекст окружения для downshift.js",
+"name": "environment",
+"required": false,
+"type": {
+"name": "Environment | undefined"
+}
+},
+"loading": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Показать лоадер",
+"name": "loading",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
 }
 },
 "variant": {
@@ -486,6 +477,15 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"icon": {
+"defaultValue": null,
+"description": "Кастомная иконка при variant = compact",
+"name": "icon",
+"required": false,
+"type": {
+"name": "ComponentType<SVGProps<SVGSVGElement>> | undefined"
 }
 },
 "backgroundColor": {
@@ -629,5 +629,14 @@
 "mobile": "const options = [{ key: 'Car' }, { key: 'Star' }, { key: 'Flower' }, { key: 'Banknote' }];\n\nconst optionsWithIcons = [\n{ key: 'Car', icon: CarMIcon },\n{ key: 'Star', icon: StarMIcon },\n{ key: 'Flower', icon: FlowerMMIcon },\n{ key: 'Banknote', icon: BanknoteMIcon },\n];\n\nrender(\n<Space direction='horizontal'>\n<CustomPickerButtonMobile\nbackgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)'\noptions={optionsWithIcons}\nlabel='Picker button'\n/>\n<CustomPickerButtonMobile\nbackgroundColor='linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)'\noptions={options}\nvariant='compact'\n/>\n</Space>,\n);"
 }
 ],
-"changelog": []
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправление типизации внутреннего компонента `Field`"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Изменены border-radius во всех темах в desktop версии"
+}
+]
 }

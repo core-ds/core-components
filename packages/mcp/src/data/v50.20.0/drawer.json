@@ -3,51 +3,6 @@
 "displayName": "Drawer",
 "description": "Используется для десктопных модальных сущностей, появляющихся слева или справа.",
 "props": {
-"children": {
-"defaultValue": null,
-"description": "Контент",
-"name": "children",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"className": {
-"defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования",
-"name": "dataTestId",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"onWheel": {
-"defaultValue": null,
-"description": "Хэндлер события прокрутки колесиком",
-"name": "onWheel",
-"required": false,
-"type": {
-"name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
-}
-},
-"open": {
-"defaultValue": null,
-"description": "Управление видимостью модалки",
-"name": "open",
-"required": true,
-"type": {
-"name": "boolean"
-}
-},
 "onClose": {
 "defaultValue": null,
 "description": "Обработчик закрытия",
@@ -55,6 +10,15 @@
 "required": false,
 "type": {
 "name": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\" | undefined) => void) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
 }
 },
 "Backdrop": {
@@ -163,6 +127,24 @@
 "name": "boolean | undefined"
 }
 },
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью модалки",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "contentClassName": {
 "defaultValue": null,
 "description": "Дополнительный класс",
@@ -214,7 +196,7 @@
 "name": "scrollHandler",
 "required": false,
 "type": {
-"name": "\"content\" | \"wrapper\" | MutableRefObject<HTMLDivElement | null> | undefined"
+"name": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\" | undefined"
 }
 },
 "transitionProps": {
@@ -273,6 +255,15 @@
 "name": "(() => void) | undefined"
 }
 },
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "zIndex": {
 "defaultValue": null,
 "description": "z-index компонента",
@@ -307,6 +298,15 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"onWheel": {
+"defaultValue": null,
+"description": "Хэндлер события прокрутки колесиком",
+"name": "onWheel",
+"required": false,
+"type": {
+"name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
 }
 },
 "placement": {

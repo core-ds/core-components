@@ -202,7 +202,7 @@
 "name": "scrollHandler",
 "required": false,
 "type": {
-"name": "\"content\" | \"wrapper\" | MutableRefObject<HTMLDivElement | null> | undefined"
+"name": "\"wrapper\" | \"content\" | MutableRefObject<HTMLDivElement | null> | undefined"
 }
 },
 "transitionProps": {

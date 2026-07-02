@@ -29,7 +29,7 @@
 "name": "view",
 "required": false,
 "type": {
-"name": "\"link\" | \"primary\" | \"secondary\" | \"accent\" | \"tertiary\" | \"positive\" | \"negative\" | \"attention\" | undefined"
+"name": "\"positive\" | \"negative\" | \"attention\" | \"link\" | \"tertiary\" | \"secondary\" | \"primary\" | \"accent\" | undefined"
 }
 },
 "size": {

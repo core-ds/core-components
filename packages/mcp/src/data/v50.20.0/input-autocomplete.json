@@ -97,15 +97,6 @@
 "name": "((value: string, reason?: OnInputTypeReason | undefined) => void) | undefined"
 }
 },
-"className": {
-"defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
 "dataTestId": {
 "defaultValue": null,
 "description": "Идентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
@@ -115,150 +106,13 @@
 "name": "string | undefined"
 }
 },
-"id": {
+"className": {
 "defaultValue": null,
-"description": "Атрибут id",
-"name": "id",
+"description": "Дополнительный класс",
+"name": "className",
 "required": false,
 "type": {
 "name": "string | undefined"
-}
-},
-"onFocus": {
-"defaultValue": null,
-"description": "Обработчик фокуса поля",
-"name": "onFocus",
-"required": false,
-"type": {
-"name": "((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) | undefined"
-}
-},
-"onBlur": {
-"defaultValue": null,
-"description": "Обработчик блюра поля",
-"name": "onBlur",
-"required": false,
-"type": {
-"name": "((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) | undefined"
-}
-},
-"onChange": {
-"defaultValue": null,
-"description": "Обработчик выбора",
-"name": "onChange",
-"required": false,
-"type": {
-"name": "((payload: BaseSelectChangePayload) => void) | undefined"
-}
-},
-"onScroll": {
-"defaultValue": null,
-"description": "Обработчик скрола",
-"name": "onScroll",
-"required": false,
-"type": {
-"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
-}
-},
-"size": {
-"defaultValue": {
-"value": "48"
-},
-"description": "Размер компонента",
-"name": "size",
-"required": false,
-"type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
-}
-},
-"disabled": {
-"defaultValue": null,
-"description": "Управление возможностью выбора значения",
-"name": "disabled",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"name": {
-"defaultValue": null,
-"description": "Атрибут name",
-"name": "name",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"multiple": {
-"defaultValue": null,
-"description": "Возможность выбрать несколько значений",
-"name": "multiple",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"placeholder": {
-"defaultValue": null,
-"description": "Плейсхолдер поля",
-"name": "placeholder",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"block": {
-"defaultValue": null,
-"description": "Растягивает компонент на ширину контейнера",
-"name": "block",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"clear": {
-"defaultValue": null,
-"description": "Флаг, показать крестик для очистки поля",
-"name": "clear",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"error": {
-"defaultValue": null,
-"description": "Отображение ошибки",
-"name": "error",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"hint": {
-"defaultValue": null,
-"description": "Подсказка под полем",
-"name": "hint",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"label": {
-"defaultValue": null,
-"description": "Лейбл поля",
-"name": "label",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"labelView": {
-"defaultValue": null,
-"description": "Вид лейбла внутри / снаружи",
-"name": "labelView",
-"required": false,
-"type": {
-"name": "\"inner\" | \"outer\" | undefined"
 }
 },
 "fieldClassName": {
@@ -268,134 +122,6 @@
 "required": false,
 "type": {
 "name": "string | undefined"
-}
-},
-"onClear": {
-"defaultValue": null,
-"description": "Обработчик нажатия на крестик для очистки поля",
-"name": "onClear",
-"required": false,
-"type": {
-"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
-}
-},
-"environment": {
-"defaultValue": {
-"value": "window"
-},
-"description": "Контекст окружения для downshift.js",
-"name": "environment",
-"required": false,
-"type": {
-"name": "Environment | undefined"
-}
-},
-"open": {
-"defaultValue": null,
-"description": "Управление открытием",
-"name": "open",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"defaultOpen": {
-"defaultValue": null,
-"description": "Начальное состояние селекта",
-"name": "defaultOpen",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"preventFlip": {
-"defaultValue": null,
-"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
-"name": "preventFlip",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"popoverPosition": {
-"defaultValue": null,
-"description": "Позиционирование выпадающего списка",
-"name": "popoverPosition",
-"required": false,
-"type": {
-"name": "Position | undefined"
-}
-},
-"zIndexPopover": {
-"defaultValue": null,
-"description": "z-index поповера",
-"name": "zIndexPopover",
-"required": false,
-"type": {
-"name": "number | undefined"
-}
-},
-"Arrow": {
-"defaultValue": null,
-"description": "Компонент стрелки",
-"name": "Arrow",
-"required": false,
-"type": {
-"name": "false | ComponentType<ArrowProps> | null | undefined"
-}
-},
-"selected": {
-"defaultValue": null,
-"description": "Список value выбранных пунктов (controlled-селект)",
-"name": "selected",
-"required": false,
-"type": {
-"name": "string | OptionShape | (string | OptionShape)[] | null | undefined"
-}
-},
-"closeOnSelect": {
-"defaultValue": null,
-"description": "Закрывать меню после выбора?",
-"name": "closeOnSelect",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"allowUnselect": {
-"defaultValue": null,
-"description": "Позволяет снять выбранное значение",
-"name": "allowUnselect",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"options": {
-"defaultValue": null,
-"description": "Список вариантов выбора",
-"name": "options",
-"required": true,
-"type": {
-"name": "(OptionShape | GroupShape)[]"
-}
-},
-"searchProps": {
-"defaultValue": null,
-"description": "Настройки поиска",
-"name": "searchProps",
-"required": false,
-"type": {
-"name": "{ componentProps?: SearchProps | undefined; accessor?: ((option: OptionShape) => string) | undefined; filterFn?: ((optionText: string, search: string) => boolean) | undefined; value?: string | undefined; onChange?: ((value: string) => void) | undefined; filterGroup?: boolean | undefined; groupAccessor?: ((group: Gro..."
-}
-},
-"Search": {
-"defaultValue": null,
-"description": "Компонент поиска",
-"name": "Search",
-"required": false,
-"type": {
-"name": "ComponentType<SearchProps> | undefined"
 }
 },
 "optionsListClassName": {
@@ -434,13 +160,96 @@
 "name": "string | undefined"
 }
 },
+"options": {
+"defaultValue": null,
+"description": "Список вариантов выбора",
+"name": "options",
+"required": true,
+"type": {
+"name": "(OptionShape | GroupShape)[]"
+}
+},
+"id": {
+"defaultValue": null,
+"description": "Атрибут id",
+"name": "id",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"name": {
+"defaultValue": null,
+"description": "Атрибут name",
+"name": "name",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление возможностью выбора значения",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"defaultOpen": {
+"defaultValue": null,
+"description": "Начальное состояние селекта",
+"name": "defaultOpen",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление открытием",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"multiple": {
+"defaultValue": null,
+"description": "Возможность выбрать несколько значений",
+"name": "multiple",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": "48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
 "optionsSize": {
 "defaultValue": null,
 "description": "Размер пунктов меню\n@deprecated Управление размером пунктов меню через отдельный проп не поддерживается дизайн-контрактом. Размер пункта должен определяться его контентом.",
 "name": "optionsSize",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
 }
 },
 "optionsListWidth": {
@@ -452,6 +261,69 @@
 "name": "\"content\" | \"field\" | undefined"
 }
 },
+"label": {
+"defaultValue": null,
+"description": "Лейбл поля",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"placeholder": {
+"defaultValue": null,
+"description": "Плейсхолдер поля",
+"name": "placeholder",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Подсказка под полем",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"allowUnselect": {
+"defaultValue": null,
+"description": "Позволяет снять выбранное значение",
+"name": "allowUnselect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"closeOnSelect": {
+"defaultValue": null,
+"description": "Закрывать меню после выбора?",
+"name": "closeOnSelect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "circularNavigation": {
 "defaultValue": null,
 "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот.",
@@ -459,6 +331,33 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"preventFlip": {
+"defaultValue": null,
+"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
+"name": "preventFlip",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"selected": {
+"defaultValue": null,
+"description": "Список value выбранных пунктов (controlled-селект)",
+"name": "selected",
+"required": false,
+"type": {
+"name": "string | OptionShape | (string | OptionShape)[] | null | undefined"
+}
+},
+"popoverPosition": {
+"defaultValue": null,
+"description": "Позиционирование выпадающего списка",
+"name": "popoverPosition",
+"required": false,
+"type": {
+"name": "Position | undefined"
 }
 },
 "visibleOptions": {
@@ -477,6 +376,15 @@
 "required": false,
 "type": {
 "name": "string | undefined"
+}
+},
+"Arrow": {
+"defaultValue": null,
+"description": "Компонент стрелки",
+"name": "Arrow",
+"required": false,
+"type": {
+"name": "false | ComponentType<ArrowProps> | null | undefined"
 }
 },
 "Field": {
@@ -551,6 +459,33 @@
 "name": "ComponentType<OptionProps> | undefined"
 }
 },
+"Search": {
+"defaultValue": null,
+"description": "Компонент поиска",
+"name": "Search",
+"required": false,
+"type": {
+"name": "ComponentType<SearchProps> | undefined"
+}
+},
+"searchProps": {
+"defaultValue": null,
+"description": "Настройки поиска",
+"name": "searchProps",
+"required": false,
+"type": {
+"name": "{ componentProps?: SearchProps | undefined; accessor?: ((option: OptionShape) => string) | undefined; filterFn?: ((optionText: string, search: string) => boolean) | undefined; value?: string | undefined; onChange?: ((value: string) => void) | undefined; filterGroup?: boolean | undefined; groupAccessor?: ((group: Gro..."
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик выбора",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((payload: BaseSelectChangePayload) => void) | undefined"
+}
+},
 "onOpen": {
 "defaultValue": null,
 "description": "Обработчик открытия\\закрытия селекта",
@@ -560,6 +495,51 @@
 "name": "((payload: { open?: boolean | undefined; name?: string | undefined; }) => void) | undefined"
 }
 },
+"onBlur": {
+"defaultValue": null,
+"description": "Обработчик блюра поля",
+"name": "onBlur",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | undefined"
+}
+},
+"onFocus": {
+"defaultValue": null,
+"description": "Обработчик фокуса поля",
+"name": "onFocus",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | undefined"
+}
+},
+"onScroll": {
+"defaultValue": null,
+"description": "Обработчик скрола",
+"name": "onScroll",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на крестик для очистки поля",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Флаг, показать крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "updatePopover": {
 "defaultValue": null,
 "description": "Хранит функцию, с помощью которой можно обновить положение поповера",
@@ -567,6 +547,15 @@
 "required": false,
 "type": {
 "name": "MutableRefObject<(() => void) | undefined> | undefined"
+}
+},
+"zIndexPopover": {
+"defaultValue": null,
+"description": "z-index поповера",
+"name": "zIndexPopover",
+"required": false,
+"type": {
+"name": "number | undefined"
 }
 },
 "showEmptyOptionsList": {
@@ -584,7 +573,7 @@
 "name": "popoverProps",
 "required": false,
 "type": {
-"name": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"zIndex\" | \"preventFlip\" | \"position\" | \"update\" | \"anchorElement\"> | undefined"
+"name": "Omit<PopoverProps, \"dataTestId\" | \"className\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\"> | undefined"
 }
 },
 "limitDynamicOptionGroupSize": {
@@ -594,6 +583,17 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"environment": {
+"defaultValue": {
+"value": "window"
+},
+"description": "Контекст окружения для downshift.js",
+"name": "environment",
+"required": false,
+"type": {
+"name": "Environment | undefined"
 }
 }
 },

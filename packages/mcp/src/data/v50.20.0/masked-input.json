@@ -3,22 +3,15 @@
 "displayName": "MaskedInput",
 "description": "Используется для ввода текста по указанной маске.",
 "props": {
-"className": {
-"defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
+"size": {
+"defaultValue": {
+"value": "48"
 },
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control",
-"name": "dataTestId",
+"description": "Размер компонента",
+"name": "size",
 "required": false,
 "type": {
-"name": "string | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "type": {
@@ -27,7 +20,16 @@
 "name": "type",
 "required": false,
 "type": {
-"name": "\"number\" | \"text\" | \"tel\" | \"email\" | \"password\" | \"money\" | undefined"
+"name": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\" | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Значение поля ввода",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | undefined"
 }
 },
 "defaultValue": {
@@ -66,6 +68,15 @@
 "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
 }
 },
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "onMouseUp": {
 "defaultValue": null,
 "description": "Обработчик MouseUp по полю",
@@ -73,62 +84,6 @@
 "required": false,
 "type": {
 "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
-}
-},
-"size": {
-"defaultValue": {
-"value": "48"
-},
-"description": "Размер компонента",
-"name": "size",
-"required": false,
-"type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
-}
-},
-"colors": {
-"defaultValue": null,
-"description": "Набор цветов для компонента",
-"name": "colors",
-"required": false,
-"type": {
-"name": "\"default\" | \"inverted\" | undefined"
-}
-},
-"value": {
-"defaultValue": null,
-"description": "Значение поля ввода",
-"name": "value",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"rightAddons": {
-"defaultValue": null,
-"description": "Слот справа",
-"name": "rightAddons",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"bold": {
-"defaultValue": null,
-"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
-"name": "bold",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"fontWeight": {
-"defaultValue": null,
-"description": "Вес шрифта инпута, в том числе плейсхолдера",
-"name": "fontWeight",
-"required": false,
-"type": {
-"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
 }
 },
 "block": {
@@ -147,6 +102,15 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
 }
 },
 "error": {
@@ -207,6 +171,15 @@
 "defaultValue": null,
 "description": "Слот слева",
 "name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
 "required": false,
 "type": {
 "name": "ReactNode"
@@ -302,6 +275,15 @@
 "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
 }
 },
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "disableUserInput": {
 "defaultValue": null,
 "description": "Запрещает ввод с клавиатуры",
@@ -309,6 +291,24 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"bold": {
+"defaultValue": null,
+"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
+"name": "bold",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
 }
 },
 "breakpoint": {
@@ -328,7 +328,7 @@
 "name": "client",
 "required": false,
 "type": {
-"name": "\"desktop\" | \"mobile\" | undefined"
+"name": "\"mobile\" | \"desktop\" | undefined"
 }
 },
 "defaultMatchMediaValue": {

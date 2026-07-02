@@ -1,6 +1,6 @@
 {
 "packageName": "select",
-"displayName": "SelectResponsive",
+"displayName": "Select",
 "description": "Поле ввода с выпадающим списком.",
 "props": {
 "dataTestId": {
@@ -137,7 +137,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "optionsSize": {
@@ -146,7 +146,7 @@
 "name": "optionsSize",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "block": {
@@ -515,7 +515,7 @@
 "name": "popoverProps",
 "required": false,
 "type": {
-"name": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"zIndex\" | \"preventFlip\" | \"position\" | \"update\" | \"anchorElement\"> | undefined"
+"name": "Omit<PopoverProps, \"dataTestId\" | \"className\" | \"open\" | \"preventFlip\" | \"zIndex\" | \"position\" | \"update\" | \"anchorElement\"> | undefined"
 }
 },
 "limitDynamicOptionGroupSize": {
@@ -676,7 +676,7 @@
 "name": "modalProps",
 "required": false,
 "type": {
-"name": "Partial<BaseModalProps & { size?: 600 | \"fullscreen\" | 500 | 800 | 1140 | undefined; fixedPosition?: boolean | undefined; hasCloser?: boolean | undefined; iOSLock?: boolean | undefined; } & { ...; } & RefAttributes<...>> | undefined"
+"name": "Partial<BaseModalProps & { size?: \"fullscreen\" | 500 | 600 | 800 | 1140 | undefined; fixedPosition?: boolean | undefined; hasCloser?: boolean | undefined; iOSLock?: boolean | undefined; } & { ...; } & RefAttributes<...>> | undefined"
 }
 },
 "modalFooterProps": {
@@ -749,5 +749,58 @@
 "desktop": "render(() => {\nconst options = React.useMemo(\n() => [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n],\n[],\n);\n\nreturn (\n<div\nstyle={{\nwidth: document.body.clientWidth < 450 ? '100%' : 320,\npaddingTop: 'var(--select-options-list-top-padding)',\npaddingBottom: 'var(--select-options-list-bottom-padding)',\nboxShadow: 'var(--select-options-list-box-shadow)',\nborderRadius: 'var(--select-options-list-border-radius)',\nbackground: 'var(--select-option-background)',\noverflow: 'hidden',\n}}\n>\n<OptionsList\nOption={BaseOption}\ngetOptionProps={(option, index) => ({\nindex,\noption,\ninnerProps: {\nstyle: {\nbackground: 'var(--color-light-status-muted-positive)',\nborderBottom:\nindex + 1 !== options.length\n? '1px solid var(--color-light-status-info)'\n: 'none',\n},\n},\n})}\noptions={options}\nheader={\n<div\nstyle={{\nheight: 12,\nbackground: 'var(--color-light-status-muted-negative)',\n}}\n></div>\n}\nfooter={\n<div\nstyle={{\nheight: 12,\nbackground: 'var(--color-light-status-muted-negative)',\n}}\n></div>\n}\n/>\n</div>\n);\n});"
 }
 ],
-"changelog": []
+"changelog": [
+{
+"version": "50.20.0",
+"description": "#### [#2257](https://github.com/core-ds/core-components/pull/2257)\n\n- Добавлена возможность использования нового внешнего вида компонента `OptionsList`\n- Внутренние исправления и улучшения\n\n#### [#2232](https://github.com/core-ds/core-components/pull/2232)\n\n- Исправлена поддержка `size={40}` в `Select`\n- Проп `optionsSize` помечен как deprecated: размер пунктов списка определяется контентом"
+},
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.15.0",
+"description": "#### [#2231](https://github.com/core-ds/core-components/pull/2231)\n\n- Исправлено отображение `content`/`children` в `BaseOption` при передаче кастомного `Checkmark`"
+},
+{
+"version": "50.13.0",
+"description": "#### [#2221](https://github.com/core-ds/core-components/pull/2221)\n\n- После очистки значения кнопкой `clear` нажатие `Enter` больше не восстанавливает ранее удаленную опцию."
+},
+{
+"version": "50.12.2",
+"description": "#### [#2177](https://github.com/core-ds/core-components/pull/2177)\n\n- Изменён боковой отступ в option list mobile"
+},
+{
+"version": "50.6.1",
+"description": "#### [#2101](https://github.com/core-ds/core-components/pull/2101)\n\n- Исправлена расчитываемая высота `OptionsList`"
+},
+{
+"version": "50.5.0",
+"description": "#### [#2071](https://github.com/core-ds/core-components/pull/2071)\n\n- Добавлен проп `checkmarkPosition` для управления позицией чекмарка относительно контента ('before' | 'after')\n- Компонент `BaseCheckmark` теперь поддерживает проп `content` для передачи контента опции\n- Оптимизирована логика рендеринга чекбоксов и иконок в компонентах `OptionBase` и `BaseOption`\n\n#### [#2053](https://github.com/core-ds/core-components/pull/2053)\n\n- Небольшие улучшения кодовой базы компонентов\n\n- Обновлены зависимости\n    - @alfalab/core-components-themes@15.0.2\n    - @alfalab/core-components-button@13.1.0\n    - @alfalab/core-components-checkbox@6.1.0\n    - @alfalab/core-components-input@17.1.2\n    - @alfalab/core-components-select-with-tags@10.1.0\n    - @alfalab/core-components-select@19.1.0\n    - @alfalab/core-components-custom-picker-button@4.1.0\n    - @alfalab/core-components-amount-input@9.1.2\n    - @alfalab/core-components-input-autocomplete@14.0.7\n    - @alfalab/core-components-number-input@4.0.4\n    - @alfalab/core-components-form-control@14.0.3\n    - @alfalab/core-components-calendar@9.1.0\n    - @alfalab/core-components-attach@8.0.3\n    - @alfalab/core-components-calendar-with-skeleton@7.0.4\n    - @alfalab/core-components-confirmation@15.0.3\n    - @alfalab/core-components-confirmation-v1@3.0.3\n    - @alfalab/core-components-custom-button@5.0.3\n    - @alfalab/core-components-gallery@7.0.6\n    - @alfalab/core-components-icon-button@8.0.3\n    - @alfalab/core-components-navigation-bar@3.0.3\n    - @alfalab/core-components-navigation-bar-private@2.0.4\n    - @alfalab/core-components-pass-code@4.0.3\n    - @alfalab/core-components-pass-code-v1@3.0.3\n    - @alfalab/core-components-pattern-lock@4.0.3\n    - @alfalab/core-components-pattern-lock-v1@3.0.3\n    - @alfalab/core-components-picker-button@13.0.7\n    - @alfalab/core-components-plate@9.0.3\n    - @alfalab/core-components-product-cover@3.1.2\n    - @alfalab/core-components-pure-cell@6.0.3\n    - @alfalab/core-components-table@4.0.7\n    - @alfalab/core-components-tooltip@9.0.6\n    - @alfalab/core-components-date-input@6.0.4\n    - @alfalab/core-components-date-range-input@5.0.5\n    - @alfalab/core-components-date-time-input@6.0.5\n    - @alfalab/core-components-international-phone-input@4.0.7\n    - @alfalab/core-components-masked-input@8.0.4\n    - @alfalab/core-components-password-input@7.0.4\n    - @alfalab/core-components-slider-input@11.0.4\n    - @alfalab/core-components-time-input@4.0.4\n    - @alfalab/core-components-universal-date-input@4.0.5\n    - @alfalab/core-components-with-suffix@6.0.4\n    - @alfalab/core-components-intl-phone-input@11.0.7\n    - @alfalab/core-components-textarea@10.0.3\n    - @alfalab/core-components-calendar-input@12.0.5\n    - @alfalab/core-components-calendar-range@9.0.5\n    - @alfalab/core-components-file-upload-item@8.0.3\n    - @alfalab/core-components-file-upload-item-v1@3.0.3\n    - @alfalab/core-components-tabs@10.0.7\n    - @alfalab/core-components-toast-plate@9.0.3\n    - @alfalab/core-components-bottom-sheet@8.1.1\n    - @alfalab/core-components-modal@11.0.4\n    - @alfalab/core-components-popup-sheet@3.0.4\n    - @alfalab/core-components-side-panel@7.0.4\n    - @alfalab/core-components-universal-modal@3.0.5\n    - @alfalab/core-components-alert@6.0.3\n    - @alfalab/core-components-bank-card@7.0.4\n    - @alfalab/core-components-phone-input@9.0.4\n    - @alfalab/core-components-notification@9.0.3\n    - @alfalab/core-components-toast@8.0.3\n    - @alfalab/core-components-notification-manager@7.0.3"
+},
+{
+"version": "50.1.0",
+"description": "#### [#2055](https://github.com/core-ds/core-components/pull/2055)\n\n- Фикс мерцания высоты меню опций при открытии select"
+},
+{
+"version": "50.0.0",
+"description": "#### [#2009](https://github.com/core-ds/core-components/pull/2009)\n\n- Удалены `deprecated` значения пропа `size`. Для перехода используйте следующие соответствия:\n    - `'s'` -> `48`\n    - `'m'` -> `56`\n    - `'l'` -> `64`\n    - `'xl'` -> `72`\n\n#### [#1975](https://github.com/core-ds/core-components/pull/1975)\n\n- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1937](https://github.com/core-ds/core-components/pull/1937)\n\n- Изменено скругление OptionsList для desktop (не затрагивает тему site)"
+},
+{
+"version": "49.12.0",
+"description": "#### [#1997](https://github.com/core-ds/core-components/pull/1997)\n\n- Исправлено responsive поведение списка опций при использовании desktop/mobile компонента\n\n- Обновлены зависимости\n    - @alfalab/core-components-bottom-sheet@7.4.0\n    - @alfalab/core-components-base-modal@6.1.0\n    - @alfalab/core-components-confirmation@14.3.0\n    - @alfalab/core-components-universal-modal@2.0.9\n    - @alfalab/core-components-select@18.2.6\n    - @alfalab/core-components-select-with-tags@9.0.9\n    - @alfalab/core-components-tooltip@8.0.9\n    - @alfalab/core-components-drawer@6.0.3\n    - @alfalab/core-components-gallery@6.0.10\n    - @alfalab/core-components-modal@10.0.7\n    - @alfalab/core-components-popup-sheet@2.0.9\n    - @alfalab/core-components-side-panel@6.0.7\n    - @alfalab/core-components-custom-picker-button@3.0.9\n    - @alfalab/core-components-input-autocomplete@13.0.9\n    - @alfalab/core-components-international-phone-input@3.2.6\n    - @alfalab/core-components-intl-phone-input@10.0.9\n    - @alfalab/core-components-picker-button@12.0.9\n    - @alfalab/core-components-table@3.0.9\n    - @alfalab/core-components-calendar@8.0.7\n    - @alfalab/core-components-tabs@9.2.6\n    - @alfalab/core-components-calendar-input@11.0.8\n    - @alfalab/core-components-calendar-range@8.0.8\n    - @alfalab/core-components-calendar-with-skeleton@6.0.7\n    - @alfalab/core-components-date-range-input@4.0.8\n    - @alfalab/core-components-date-time-input@5.0.8\n    - @alfalab/core-components-universal-date-input@3.0.8"
+},
+{
+"version": "49.5.0",
+"description": "#### [#1885](https://github.com/core-ds/core-components/pull/1885)\n\n- Добавлена поддержка aria-label для улучшения доступности в компонентах InternationalPhoneInput и Select"
+},
+{
+"version": "49.4.0",
+"description": "#### [#1865](https://github.com/core-ds/core-components/pull/1865)\n\n- Добавлена поддержка `environment` для корректной работы Select внутри ShadowRoot\n\n#### [#1857](https://github.com/core-ds/core-components/pull/1857)\n\n- Исправлен порядок отображение аддонов (Clear, Error, Success, Arrow, Custom)\n\n#### [#1875](https://github.com/core-ds/core-components/pull/1875)\n\n- При нажатии на `Backspace` в режиме мультивыбора при фокусе в поле поиска выбранные элементы не удаляются\n\n- Обновлены зависимости\n    - @alfalab/core-components-input-autocomplete@13.0.2\n    - @alfalab/core-components-input@16.0.2\n    - @alfalab/core-components-select@18.1.0\n    - @alfalab/core-components-international-phone-input@3.1.1\n    - @alfalab/core-components-intl-phone-input@10.0.2\n    - @alfalab/core-components-amount-input@8.0.2\n    - @alfalab/core-components-date-input@5.0.2\n    - @alfalab/core-components-date-range-input@4.0.2\n    - @alfalab/core-components-date-time-input@5.0.2\n    - @alfalab/core-components-masked-input@7.0.2\n    - @alfalab/core-components-number-input@3.0.2\n    - @alfalab/core-components-password-input@6.0.2\n    - @alfalab/core-components-slider-input@10.0.3\n    - @alfalab/core-components-time-input@3.0.2\n    - @alfalab/core-components-universal-date-input@3.0.2\n    - @alfalab/core-components-with-suffix@5.0.2\n    - @alfalab/core-components-custom-picker-button@3.0.2\n    - @alfalab/core-components-picker-button@12.0.2\n    - @alfalab/core-components-select-with-tags@9.0.2\n    - @alfalab/core-components-table@3.0.2\n    - @alfalab/core-components-calendar-input@11.0.2\n    - @alfalab/core-components-calendar-range@8.0.2\n    - @alfalab/core-components-bank-card@6.0.2\n    - @alfalab/core-components-phone-input@8.0.2\n    - @alfalab/core-components-tabs@9.1.1"
+}
+]
 }

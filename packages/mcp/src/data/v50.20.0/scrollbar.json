@@ -51,7 +51,7 @@
 "name": "widthPropName",
 "required": false,
 "type": {
-"name": "\"width\" | \"maxWidth\" | \"minWidth\" | undefined"
+"name": "\"minWidth\" | \"width\" | \"maxWidth\" | undefined"
 }
 },
 "autoHide": {

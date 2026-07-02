@@ -38,7 +38,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "40 | 32 | undefined"
+"name": "32 | 40 | undefined"
 }
 },
 "shape": {

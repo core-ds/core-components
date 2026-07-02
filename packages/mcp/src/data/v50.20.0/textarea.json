@@ -40,7 +40,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "colors": {
@@ -183,7 +183,7 @@
 "name": "resize",
 "required": false,
 "type": {
-"name": "\"none\" | \"vertical\" | undefined"
+"name": "\"vertical\" | \"none\" | undefined"
 }
 },
 "onChange": {

@@ -124,7 +124,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "\"s\" | 2 | 4 | \"m\" | undefined"
+"name": "\"s\" | \"m\" | 2 | 4 | undefined"
 }
 },
 "dots": {

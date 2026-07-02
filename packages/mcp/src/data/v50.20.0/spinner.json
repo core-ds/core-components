@@ -85,7 +85,7 @@
 "name": "preset",
 "required": true,
 "type": {
-"name": "48 | 24 | 16"
+"name": "16 | 24 | 48"
 }
 }
 },

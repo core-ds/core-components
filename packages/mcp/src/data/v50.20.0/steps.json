@@ -185,7 +185,7 @@
 "name": "minSpaceBetweenSteps",
 "required": false,
 "type": {
-"name": "32 | 24 | 16 | 8 | undefined"
+"name": "8 | 16 | 24 | 32 | undefined"
 }
 },
 "completedDashColor": {
