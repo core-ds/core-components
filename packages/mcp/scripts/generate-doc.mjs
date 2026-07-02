@@ -5,6 +5,15 @@ import { isInheritedFromExternalTypes } from './is-inherited-from-external-types
 
 const { dirname } = import.meta;
 
+const PROGRESS_BAR_WIDTH = 30;
+
+function renderProgressBar(current, total) {
+    const filled = Math.round((current / total) * PROGRESS_BAR_WIDTH);
+    const bar = '='.repeat(Math.max(filled - 1, 0)) + '>' + ' '.repeat(Math.max(PROGRESS_BAR_WIDTH - filled, 0));
+
+    return `[${bar}]`;
+}
+
 export function generateDoc(entries) {
     const parser = withCustomConfig(
         path.resolve(dirname, '../../../tsconfig.react-docgen-typescript.json'),
@@ -23,8 +32,10 @@ export function generateDoc(entries) {
      * создаёт под него отдельный Program, и результат перестаёт зависеть от остальных
      * файлов в списке.
      */
-    entries.forEach(({ file, sourceName, componentName }) => {
+    entries.forEach(({ file, sourceName, componentName }, index) => {
         const docs = parser.parse([file]);
+
+        process.stdout.write(`\r${renderProgressBar(index + 1, entries.length)}`);
 
         /**
          * Один файл может экспортировать сразу несколько компонентов (например
@@ -75,6 +86,7 @@ export function generateDoc(entries) {
         });
     });
 
+    process.stdout.write('\n');
     console.log('⚙️  Props extraction completed');
 
     return docsMap;
