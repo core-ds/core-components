@@ -13,5 +13,5 @@ export {
     FooterButton,
     Comment,
     Category,
-} from './component';
-export type { PureCellProps } from './component';
+} from './Component';
+export type { PureCellProps } from './Component';
