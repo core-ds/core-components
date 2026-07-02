@@ -11,31 +11,46 @@ export function generateDoc(files) {
         {},
     );
 
-    const docs = parser.parse(files);
     const docsMap = new Map();
 
-    docs.forEach((doc) => {
-        const { filePath, displayName, props: componentProps } = doc;
-        const [packageName] = filePath.split('packages/')[1].split('/');
+    /**
+     * react-docgen-typescript строит один общий ts.Program на весь список файлов,
+     * переданных в parse(). Typechecker внутри такого общего Program резолвит символы
+     * с учётом всего батча, и данные по конкретному файлу (например defaultValue
+     * пропсов) начинают зависеть от состава остальных файлов — у неизменившегося
+     * компонента результат может "плыть" при любом изменении набора остальных пакетов.
+     * Поэтому парсим каждый файл отдельным вызовом parse(): react-docgen-typescript
+     * создаёт под него отдельный Program, и результат перестаёт зависеть от остальных
+     * файлов в списке.
+     */
+    files.forEach((file) => {
+        const docs = parser.parse([file]);
 
-        const props = Object.fromEntries(
-            Object.entries(componentProps)
-                .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
-                .map(([key, prop]) => {
-                    const { defaultValue, description, name, required, type } = prop;
+        console.log('parsed', file);
 
-                    return [key, { defaultValue, description, name, required, type }];
-                }),
-        );
+        docs.forEach((doc) => {
+            const { filePath, displayName, props: componentProps } = doc;
+            const [packageName] = filePath.split('packages/')[1].split('/');
 
-        if (!docsMap.has(packageName)) {
-            docsMap.set(packageName, {
-                displayName,
-                packageName,
-                props,
-                filePath,
-            });
-        }
+            const props = Object.fromEntries(
+                Object.entries(componentProps)
+                    .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
+                    .map(([key, prop]) => {
+                        const { defaultValue, description, name, required, type } = prop;
+
+                        return [key, { defaultValue, description, name, required, type }];
+                    }),
+            );
+
+            if (!docsMap.has(packageName)) {
+                docsMap.set(packageName, {
+                    displayName,
+                    packageName,
+                    props,
+                    filePath,
+                });
+            }
+        });
     });
 
     console.log('⚙️  Props extraction completed');
