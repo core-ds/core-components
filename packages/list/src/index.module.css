@@ -3,7 +3,7 @@
 .list {
     margin: var(--gap-0);
     padding: var(--gap-0);
-    color: var(--color-light-text-primary);
+    color: inherit;
 
     @mixin paragraph_primary_medium;
 }
