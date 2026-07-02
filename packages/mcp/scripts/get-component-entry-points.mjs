@@ -11,7 +11,6 @@ export function getComponentEntryPoints() {
         [
             'packages/*/src/Component.tsx',
             'packages/*/src/Component.ts',
-            'packages/*/src/component.tsx',
             'packages/*/src/Component.responsive.tsx',
         ],
         {
