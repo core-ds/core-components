@@ -13,7 +13,6 @@ export function getComponentEntryPoints() {
             'packages/*/src/Component.ts',
             'packages/*/src/component.tsx',
             'packages/*/src/Component.responsive.tsx',
-            'packages/*/src/component.responsive.tsx',
         ],
         {
             cwd: repoRoot,
