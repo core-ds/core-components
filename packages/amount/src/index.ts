@@ -1,4 +1,4 @@
-import { Amount as DefaultAmount } from './component';
+import { Amount as DefaultAmount } from './Component';
 import { PureAmount } from './pure';
 
 type AmountType = typeof DefaultAmount & { Pure: typeof PureAmount };
