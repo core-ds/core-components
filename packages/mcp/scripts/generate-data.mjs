@@ -36,10 +36,6 @@ function main() {
     const files = entryPoints.reduce((acc, curr, index) => {
         const { tsConfig, fullPath, folderName } = curr;
 
-        if (index > 4) {
-            return acc;
-        }
-
         const project = new Project({
             tsConfigFilePath: tsConfig,
         });

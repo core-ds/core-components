@@ -5,8 +5,6 @@ const { dirname } = import.meta;
 const repoRoot = path.resolve(dirname, '../../..');
 
 export function getComponentEntryPoints() {
-    console.log('🔍  Search for components...');
-
     const files = globSync(['packages/*/src/index.ts'], {
         cwd: repoRoot,
         ignore: [
@@ -24,7 +22,7 @@ export function getComponentEntryPoints() {
         ],
     });
 
-    console.log(`📦  Found ${files.length} components`);
+    console.log(`🔍  Found ${files.length} components`);
 
     return files.map((f) => ({
         fullPath: path.resolve(repoRoot, f),
