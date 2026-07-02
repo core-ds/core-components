@@ -14,9 +14,11 @@ const rootChangelogPath = path.resolve(dirname, '../../..', 'CHANGELOG.md');
 function main() {
     const files = getComponentEntryPoints();
 
+    console.warn(files);
+
     const docs = generateDoc(files);
 
-    const versionDir = createIndexDir();
+    // const versionDir = createIndexDir();
 
     docs.forEach((doc) => {
         const { packageName, displayName, props, filePath } = doc;
@@ -29,21 +31,21 @@ function main() {
 
         const changelog = parseChangelog(rootChangelogPath, displayName);
 
-        writeFileSync(
-            path.resolve(versionDir, `${packageName}.json`),
-            JSON.stringify(
-                {
-                    packageName,
-                    displayName,
-                    description: '',
-                    props,
-                    demos: '',
-                    changelog,
-                },
-                null,
-                1,
-            ).replace(/^ +/gm, ''),
-        );
+        // writeFileSync(
+        //     path.resolve(versionDir, `${packageName}.json`),
+        //     JSON.stringify(
+        //         {
+        //             packageName,
+        //             displayName,
+        //             description: '',
+        //             props,
+        //             demos: '',
+        //             changelog,
+        //         },
+        //         null,
+        //         1,
+        //     ).replace(/^ +/gm, ''),
+        // );
     });
 
     console.log('☑️  Data generation done');
