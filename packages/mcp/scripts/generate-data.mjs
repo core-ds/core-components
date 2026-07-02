@@ -33,8 +33,12 @@ function getSrcDir(filePath) {
 function main() {
     const entryPoints = getComponentEntryPoints();
 
-    const files = entryPoints.reduce((acc, curr) => {
+    const files = entryPoints.reduce((acc, curr, index) => {
         const { tsConfig, fullPath, folderName } = curr;
+
+        if (index > 4) {
+            return acc;
+        }
 
         const project = new Project({
             tsConfigFilePath: tsConfig,
@@ -47,7 +51,7 @@ function main() {
         if (declarations?.[0]) {
             const componentPath = declarations[0].getSourceFile().getFilePath();
 
-            console.warn('resolved', componentPath);
+            console.log('[+]', componentPath);
 
             acc.push(componentPath);
 
