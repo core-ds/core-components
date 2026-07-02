@@ -1,0 +1,154 @@
+{
+"packageName": "attach",
+"displayName": "Attach",
+"description": "Используется для прикрепления файлов.",
+"props": {
+"buttonContent": {
+"defaultValue": {
+"value": "Выберите файл"
+},
+"description": "Содержимое кнопки для выбора файла",
+"name": "buttonContent",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"buttonProps": {
+"defaultValue": {
+"value": "{}"
+},
+"description": "Свойства для кнопки",
+"name": "buttonProps",
+"required": false,
+"type": {
+"name": "(ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) | undefined"
+}
+},
+"fileClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для блока с файлами",
+"name": "fileClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"noFileClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для блока с подсказкой, когда файл не загружен",
+"name": "noFileClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"maxFilenameLength": {
+"defaultValue": null,
+"description": "Число символов, после которого имя файла будет обрезаться",
+"name": "maxFilenameLength",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"noFileText": {
+"defaultValue": {
+"value": "Нет файла"
+},
+"description": "Текст для случая, когда файл не загружен",
+"name": "noFileText",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"progressBarPercent": {
+"defaultValue": null,
+"description": "Процент выполнения загрузки файла",
+"name": "progressBarPercent",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": 48
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "32 | 40 | 48 | 56 | 64 | undefined"
+}
+},
+"multiple": {
+"defaultValue": null,
+"description": "Возможность прикрепления нескольких файлов",
+"name": "multiple",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Содержимое поля ввода. Принимает массив объектов типа File или null.",
+"name": "value",
+"required": false,
+"type": {
+"name": "File[] | null | undefined"
+}
+},
+"defaultValue": {
+"defaultValue": null,
+"description": "Содержимое поля ввода, указанное по умолчанию. Принимает массив объектов типа File или null.",
+"name": "defaultValue",
+"required": false,
+"type": {
+"name": "File[] | null | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик поля ввода",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLInputElement>, payload: { files: File[]; }) => void) | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку очистки",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Для компонента можно настроить текст-плейсхолдер, размер и лейбл кнопки. Рекомендуем прикреплять для тестов тяжелый файл, иначе загрузка будет мгновенной.",
+"desktop": "render(() => {\nconst [multiple, setMultiple] = React.useState(false);\nconst [progress, setProgress] = React.useState(0);\n\nconst simulateProgress = () => {\nconst interval = setInterval(() => {\nsetProgress((prevProgress) => {\nif (prevProgress === 100) {\nclearInterval(interval);\nreturn 100;\n}\nreturn prevProgress + 1;\n});\n}, 100);\n};\n\nconst handleChange = () => {\nsimulateProgress()\n};\n\nreturn (\n<Space size={24} >\n<Attach \nsize={56} \nonChange={handleChange}\nmultiple={multiple} \nmaxFilenameLength={isMobile() ? 10 : undefined}\nprogressBarPercent={progress === 100 ? null : progress}\nbuttonProps={{\nbreakpoint: BREAKPOINT,\nnowrap: true,\n}}\n/>\n<Switch\nblock={true}\nchecked={multiple}\nlabel='Несколько файлов'\nonChange={() => setMultiple(!multiple)}\n/>\n</Space>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "49.14.0",
+"description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Изменены border-radius во всех темах в desktop версии"
+}
+]
+}

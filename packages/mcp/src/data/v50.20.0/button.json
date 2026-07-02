@@ -1,0 +1,312 @@
+{
+"packageName": "button",
+"displayName": "Button",
+"description": "Используется как триггер для выполнения определённого действия. Лейбл кнопки должен однозначно сообщать пользователю, что произойдёт после нажатия на неё.",
+"props": {
+"view": {
+"defaultValue": {
+"value": "secondary"
+},
+"description": "Тип кнопки",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"text\" | \"accent\" | \"primary\" | \"secondary\" | \"outlined\" | \"transparent\" | undefined"
+}
+},
+"shape": {
+"defaultValue": {
+"value": "rectangular"
+},
+"description": "Форма кнопки",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"textResizing": {
+"defaultValue": {
+"value": "hug"
+},
+"description": "Ширина текстового контента",
+"name": "textResizing",
+"required": false,
+"type": {
+"name": "\"fill\" | \"hug\" | undefined"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Подпись под лейблом (видна только в размерах >= m)",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"size": {
+"defaultValue": {
+"value": "56"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "32 | 40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"block": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"spinnerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для спиннера",
+"name": "spinnerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"href": {
+"defaultValue": null,
+"description": "Выводит ссылку в виде кнопки",
+"name": "href",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"Component": {
+"defaultValue": null,
+"description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
+"name": "Component",
+"required": false,
+"type": {
+"name": "ElementType | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"loading": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Показать лоадер",
+"name": "loading",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"nowrap": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Не переносить текст кнопки на новую строку",
+"name": "nowrap",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"allowBackdropBlur": {
+"defaultValue": null,
+"description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
+"name": "allowBackdropBlur",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для label",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hintClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для hint",
+"name": "hintClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Виды кнопок",
+"description": "",
+"desktop": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nreturn (\n<>\n<Space direction='horizontal' align='center'>\n<ButtonDesktop disabled={disabled} view='accent'>\nAccent\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='primary'>\nPrimary\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='secondary'>\nSecondary\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='outlined'>\nOutlined\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='transparent'>\nTransparent\n</ButtonDesktop>\n<ButtonDesktop disabled={disabled} view='text'>\nText\n</ButtonDesktop>\n</Space>\n\n<Gap size={24} />\n\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Недоступна'\n/>\n</>\n);\n});",
+"mobile": "render(() => {\nconst [disabled, setDisabled] = React.useState(false);\n\nreturn (\n<>\n<ButtonMobile block={true} disabled={disabled} view='accent'>\nAccent\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='primary'>\nPrimary\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='secondary'>\nSecondary\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='outlined'>\nOutlined\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='transparent'>\nTransparent\n</ButtonMobile>\n<Gap size={20} />\n<ButtonMobile block={true} disabled={disabled} view='text'>\nText\n</ButtonMobile>\n<Gap size={24} />\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Недоступна'\n/>\n</>\n);\n});"
+},
+{
+"title": "Размеры",
+"description": "Кнопка доступна в размерах 72, 64, 56, 48, 40, 32.",
+"desktop": "const BIG_SIZES = [72, 64, 56];\nconst SMALL_SIZES = [48, 40, 32];\n\nrender(\n<>\n<Space direction='horizontal' align='center'>\n{BIG_SIZES.map((size) => (\n<ButtonDesktop key={size} size={size} view='primary'>\n{`${size}px`}\n</ButtonDesktop>\n))}\n</Space>\n<Gap size={20} />\n<Space direction='horizontal' align='center'>\n{SMALL_SIZES.map((size) => (\n<ButtonDesktop key={size} size={size} view='primary'>\n{`${size}px`}\n</ButtonDesktop>\n))}\n</Space>\n</>,\n);",
+"mobile": "const SIZES = [72, 64, 56, 48, 40, 32];\n\nrender(\n<Container>\n{SIZES.map((size, idx) => (\n<React.Fragment key={size}>\n<ButtonMobile block={true} size={size} view='primary'>\n{`${size}px`}\n</ButtonMobile>\n{SIZES.length - 1 !== idx && <Gap size={20} />}\n</React.Fragment>\n))}\n</Container>,\n);"
+},
+{
+"title": "Форма",
+"description": "Для кнопки доступно два варианта скругления углов.",
+"desktop": "render(() => {\nconst [shape, setShape] = React.useState('rectangular');\n\nreturn (\n<>\n<Button shape={shape} view='primary' breakpoint={BREAKPOINT}>\nLabel\n</Button>\n\n<Gap size={24} />\n\n<RadioGroup\nlabel='Shape'\nvalue={shape}\nonChange={(_, { value }) => setShape(value)}\nbreakpoint={BREAKPOINT}\n>\n<Radio value='rectangular' label='Rectangular' />\n<Radio value='rounded' label='Rounded' />\n</RadioGroup>\n</>\n);\n});"
+},
+{
+"title": "Ширина",
+"description": "Кнопка адаптируется под длину контента. Для каждого вертикального размера кнопки задан минимальный горизонтальный размер.\nС помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.\nЧерез доступ по classname можно задать кнопке ширину в рх.",
+"desktop": "<div style={{ textAlign: isMobile() ? 'center' : 'left' }}>\n<Button breakpoint={BREAKPOINT}>Мин.</Button>\n<Gap size={20} />\n<Button breakpoint={BREAKPOINT}>Ширина зависит от лейбла</Button>\n<Gap size={20} />\n<style>{'.button { width: 300px; }'}</style>\n<Button breakpoint={BREAKPOINT} className='button'>\nШирина задана вручную\n</Button>\n<Gap size={20} />\n<Button block={true} size={56} nowrap={true} breakpoint={BREAKPOINT}>\nЗанимает всю ширину контейнера\n</Button>\n</div>"
+},
+{
+"title": "Анатомия",
+"description": "С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.\nПереданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.\nВ 56, 64 и 72 размерах доступна подпись под лейблом.",
+"desktop": "render(() => {\nconst [label, setLabel] = React.useState(true);\nconst [hint, setHint] = React.useState();\nconst [leftAddons, setLeftAddons] = React.useState(false);\nconst [rightAddons, setRightAddons] = React.useState(false);\n\nconst handleLabelChange = () => setLabel(!label);\nconst handleHintChange = () => setHint((p) => (p ? undefined : 'Hint'));\nconst handleLeftAddonsChange = () => setLeftAddons(!leftAddons);\nconst handleRightAddonsChange = () => setRightAddons(!rightAddons);\n\nreturn (\n<div>\n<Button\nbreakpoint={BREAKPOINT}\nleftAddons={leftAddons && <StarMIcon />}\nrightAddons={rightAddons && <StarMIcon />}\nhint={hint}\nview='primary'\nblock={isMobile()}\n>\n{label && 'Label'}\n</Button>\n\n<Gap size={24} />\n\n<Switch label='Label' checked={label} onChange={handleLabelChange} />\n<Gap size={16} />\n<Switch label='Hint' checked={hint} onChange={handleHintChange} />\n<Gap size={16} />\n<Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />\n<Gap size={16} />\n<Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />\n</div>\n);\n});"
+},
+{
+"title": "Поведение лейбла",
+"description": "С помощью свойства `textResizing` можно сжать или растянуть текстовый контент внутри кнопки.",
+"desktop": "render(() => {\nconst [textResizing, setTextResizing] = React.useState('hug');\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 240 }}>\n<Button\nview='primary'\nbreakpoint={BREAKPOINT}\nblock={true}\nrightAddons={<StarMIcon />}\nleftAddons={<StarMIcon />}\nhint='Hint'\ntextResizing={textResizing}\n>\nLabel\n</Button>\n\n<Gap size={24} />\n\n<RadioGroup\nlabel='Поведение текста'\nvalue={textResizing}\nonChange={(_, { value }) => setTextResizing(value)}\nbreakpoint={BREAKPOINT}\n>\n<Radio value='hug' label='Hug' />\n<Radio value='fill' label='Fill' />\n</RadioGroup>\n</div>\n);\n});"
+},
+{
+"title": "Перенос текста внутри кнопки",
+"description": "С помощью свойства `nowrap` можно запретить перенос текста на новую строку.",
+"desktop": "render(() => {\nconst [checked, setChecked] = React.useState(true);\n\nconst handleChange = () => setChecked(!checked);\n\nreturn (\n<Container>\n<div style={{ display: 'flex', width: '180px' }}>\n<ButtonDesktop view='primary' nowrap={checked}>\nПример длинного текста\n</ButtonDesktop>\n</div>\n<Row align='middle'>\n<Switch\nlabel={<span>Запретить перенос строки</span>}\nchecked={checked}\nonChange={handleChange}\n/>\n</Row>\n</Container>\n);\n});",
+"mobile": "render(() => {\nconst [checked, setChecked] = React.useState(true);\n\nconst handleChange = () => setChecked(!checked);\n\nreturn (\n<Container>\n<div style={{ display: 'flex', width: '180px' }}>\n<ButtonMobile view='primary' nowrap={checked}>\nПример длинного текста\n</ButtonMobile>\n</div>\n<Row align='middle'>\n<Switch\nlabel={<span>Запретить перенос строки</span>}\nchecked={checked}\nonChange={handleChange}\n/>\n</Row>\n</Container>\n);\n});"
+},
+{
+"title": "Размытие фона",
+"description": "Для кнопок можно включить размытие фона, если она полупрозрачная, располагается поверх динамического контента или изображения.",
+"desktop": "render(() => {\nconst [checked, setChecked] = React.useState(true);\nconst handleChange = () => setChecked(!checked);\n\nconst wrapper = {\nposition: 'relative',\nborderRadius: '16px',\nwidth: '330px',\nheight: '100px',\n};\n\nconst image = {\nwidth: '100%',\nheight: '100%',\nborderRadius: 'inherit',\nobjectFit: 'cover',\n};\n\nconst wrapperButton = {\nposition: 'absolute',\ndisplay: 'flex',\ninset: '0px',\npadding: '20px',\njustifyContent: 'space-between',\n};\n\nreturn (\n<>\n<div style={wrapper}>\n<img style={image} src='./images/buttonBlur.png' />\n<div style={wrapperButton}>\n<Button\nview='primary'\ncolors='inverted'\ndisabled={true}\nallowBackdropBlur={checked}\n>\nDisabled\n</Button>\n<Button view='secondary' colors='inverted' allowBackdropBlur={checked}>\nSecondary\n</Button>\n</div>\n</div>\n\n<Row align='middle'>\n<Switch label='Включить размытие' checked={checked} onChange={handleChange} />\n</Row>\n</>\n);\n});"
+},
+{
+"title": "Обработка событий",
+"description": "С помощью свойства `loading` можно отобразить состояние загрузки.\nМинимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».",
+"desktop": "render(() => {\nconst [loading, setLoading] = React.useState(false);\nconst [loadTimeout, setLoadTimeout] = React.useState('30');\nconst timeoutId = React.useRef();\n\nconst handleClick = () => {\nsetLoading(true);\n\nclearTimeout(timeoutId.current);\n\ntimeoutId.current = setTimeout(() => {\nsetLoading(false);\n}, Number(loadTimeout));\n};\n\nconst handleTimeoutChange = (_, { value }) => {\nclearTimeout(timeoutId.current);\nsetLoading(false);\nsetLoadTimeout(value);\n};\n\nreturn (\n<>\n<Button\nview='primary'\nloading={loading}\nonClick={handleClick}\nbreakpoint={BREAKPOINT}\nblock={isMobile()}\n>\nОтправить запрос\n</Button>\n\n<Gap size={24} />\n\n<RadioGroup value={loadTimeout} onChange={handleTimeoutChange}>\n<Radio value='30' label='Быстрый запрос (30ms)' />\n<Radio value='1500' label='Долгий запрос (1500ms)' />\n</RadioGroup>\n</>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.18.0",
+"description": "#### [#2248](https://github.com/core-ds/core-components/pull/2248)\n\n- Добавлены пропсы дополнительных классов для `label` и `hint`"
+},
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.13.0",
+"description": "#### [#2218](https://github.com/core-ds/core-components/pull/2218)\n\n- Исправлена высота текста `hint`"
+},
+{
+"version": "50.5.0",
+"description": "#### [#2086](https://github.com/core-ds/core-components/pull/2086)\n\n- Добавлены `css` переменные для темизации подписи под лейблом (хинта):\n    - `--button-accent-hint-color`\n    - `--button-inverted-accent-hint-color`\n    - `--button-mobile-primary-hint-color`\n    - `--button-mobile-inverted-primary-hint-color`\n    - `--button-mobile-accent-hint-color`\n    - `--button-mobile-inverted-accent-hint-color`\n\n#### [#2086](https://github.com/core-ds/core-components/pull/2086)\n\n- Исправлено отображение подписи под лейблом (хинта) в заблокированном состоянии"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1638](https://github.com/core-ds/core-components/pull/1638)\n\n- Удален `view=link` и `view=ghost`, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Удален `view=filled`, который был помечен как `deprecated` в `core-components@21.x.x`\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xxs, xs, s, m, l, xl` на `32, 40, 48, 56, 64, 72` соответственно)\n\n#### [#2030](https://github.com/core-ds/core-components/pull/2030)\n\n- Удален `view='tertiary'` у компонента `Button`, используйте `view='outlined'`."
+},
+{
+"version": "49.15.0",
+"description": "#### [#2029](https://github.com/core-ds/core-components/pull/2029)\n\n- Помечен как deprecated `view='tertiary'`, использовать `view='outlined'`.\n\n- Обновлены зависимости\n    - @alfalab/core-components-navigation-bar-private@1.1.6\n    - @alfalab/core-components-button@12.1.1\n    - @alfalab/core-components-pure-cell@5.1.0\n    - @alfalab/core-components-bottom-sheet@7.4.3\n    - @alfalab/core-components-modal@10.0.10\n    - @alfalab/core-components-popup-sheet@2.0.12\n    - @alfalab/core-components-side-panel@6.1.1\n    - @alfalab/core-components-universal-modal@2.0.12\n    - @alfalab/core-components-attach@7.1.1\n    - @alfalab/core-components-calendar@8.0.10\n    - @alfalab/core-components-confirmation@14.3.2\n    - @alfalab/core-components-confirmation-v1@2.0.5\n    - @alfalab/core-components-custom-button@4.1.1\n    - @alfalab/core-components-gallery@6.0.13\n    - @alfalab/core-components-icon-button@7.0.5\n    - @alfalab/core-components-input@16.0.5\n    - @alfalab/core-components-navigation-bar@2.0.5\n    - @alfalab/core-components-pass-code@3.0.4\n    - @alfalab/core-components-pass-code-v1@2.0.4\n    - @alfalab/core-components-pattern-lock@3.0.4\n    - @alfalab/core-components-pattern-lock-v1@2.0.4\n    - @alfalab/core-components-picker-button@12.1.1\n    - @alfalab/core-components-plate@8.2.1\n    - @alfalab/core-components-product-cover@2.0.5\n    - @alfalab/core-components-select@18.2.9\n    - @alfalab/core-components-table@3.0.12\n    - @alfalab/core-components-tooltip@8.0.12\n    - @alfalab/core-components-select-with-tags@9.0.12\n    - @alfalab/core-components-calendar-input@11.0.11\n    - @alfalab/core-components-calendar-range@8.0.11\n    - @alfalab/core-components-calendar-with-skeleton@6.0.10\n    - @alfalab/core-components-date-range-input@4.0.11\n    - @alfalab/core-components-date-time-input@5.0.11\n    - @alfalab/core-components-universal-date-input@3.1.1\n    - @alfalab/core-components-custom-picker-button@3.1.1\n    - @alfalab/core-components-file-upload-item@7.3.1\n    - @alfalab/core-components-file-upload-item-v1@2.0.6\n    - @alfalab/core-components-number-input@3.0.6\n    - @alfalab/core-components-password-input@6.0.6\n    - @alfalab/core-components-tabs@9.2.9\n    - @alfalab/core-components-toast-plate@8.0.5\n    - @alfalab/core-components-amount-input@8.1.6\n    - @alfalab/core-components-date-input@5.0.5\n    - @alfalab/core-components-input-autocomplete@13.1.1\n    - @alfalab/core-components-international-phone-input@3.2.9\n    - @alfalab/core-components-masked-input@7.0.5\n    - @alfalab/core-components-slider-input@10.1.3\n    - @alfalab/core-components-time-input@3.0.5\n    - @alfalab/core-components-with-suffix@5.0.5\n    - @alfalab/core-components-alert@5.0.6\n    - @alfalab/core-components-intl-phone-input@10.0.12\n    - @alfalab/core-components-notification@8.0.5\n    - @alfalab/core-components-toast@7.0.5\n    - @alfalab/core-components-bank-card@6.0.5\n    - @alfalab/core-components-phone-input@8.0.5\n    - @alfalab/core-components-notification-manager@6.0.5"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Изменены border-radius во всех темах в desktop версии"
+}
+]
+}

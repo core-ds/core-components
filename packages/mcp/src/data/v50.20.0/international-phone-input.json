@@ -1,0 +1,847 @@
+{
+"packageName": "international-phone-input",
+"displayName": "InternationalPhoneInput",
+"description": "Используется для ввода телефонного номера в международном формате.",
+"props": {
+"country": {
+"defaultValue": null,
+"description": "Выбранная страна",
+"name": "country",
+"required": false,
+"type": {
+"name": "Country | undefined"
+}
+},
+"countries": {
+"defaultValue": null,
+"description": "Список необходимых iso2 стран",
+"name": "countries",
+"required": false,
+"type": {
+"name": "string[] | undefined"
+}
+},
+"defaultIso2": {
+"defaultValue": null,
+"description": "Дефолтный код страны",
+"name": "defaultIso2",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"customCountriesList": {
+"defaultValue": null,
+"description": "Список правил парсинга номеров телефонов по странам (для переопределения дефолтного)",
+"name": "customCountriesList",
+"required": false,
+"type": {
+"name": "CountriesData[] | undefined"
+}
+},
+"clearableCountryCode": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Возможность стереть код страны\n@description Используйте `'preserve'` для сохранения кода страны при автозаполнении (актуально для Safari). При этом код страны можно удалить в случае использования `true`",
+"name": "clearableCountryCode",
+"required": false,
+"type": {
+"name": "boolean | \"preserve\" | undefined"
+}
+},
+"countrySelectProps": {
+"defaultValue": null,
+"description": "Свойства селекта выбора стран",
+"name": "countrySelectProps",
+"required": false,
+"type": {
+"name": "SharedCountrySelectProps | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Показывать крестик очистки\nФлаг, показать крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"filterFn": {
+"defaultValue": null,
+"description": "Функция фильтрации номеров для автокомплита",
+"name": "filterFn",
+"required": false,
+"type": {
+"name": "((value: string | undefined, option: OptionShape) => boolean) | undefined"
+}
+},
+"onCountryChange": {
+"defaultValue": null,
+"description": "Обработчик события изменения страны",
+"name": "onCountryChange",
+"required": false,
+"type": {
+"name": "((country?: Country | undefined) => void) | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик изменения номера",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((phone: string) => void) | undefined"
+}
+},
+"onBlur": {
+"defaultValue": null,
+"description": "Обработчик блюра поля",
+"name": "onBlur",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void)) | undefined"
+}
+},
+"onFocus": {
+"defaultValue": null,
+"description": "Обработчик фокуса поля",
+"name": "onFocus",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void)) | undefined"
+}
+},
+"autoFill": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Включить автозаполнение номера\n@deprecated Автозаполнение активно всегда. Проп будет удален в следующей мажорной версии",
+"name": "autoFill",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": "48\n48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"type": {
+"defaultValue": null,
+"description": "Атрибут type",
+"name": "type",
+"required": false,
+"type": {
+"name": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\" | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Значение поля ввода",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultValue": {
+"defaultValue": null,
+"description": "Начальное значение поля",
+"name": "defaultValue",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик клика по полю",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onMouseDown": {
+"defaultValue": null,
+"description": "Обработчик MouseDown по полю",
+"name": "onMouseDown",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onMouseUp": {
+"defaultValue": null,
+"description": "Обработчик MouseUp по полю",
+"name": "onMouseUp",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"success": {
+"defaultValue": null,
+"description": "Отображение иконки успеха",
+"name": "success",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки\nПодсказка под полем",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл компонента\nЛейбл поля",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"wrapperRef": {
+"defaultValue": null,
+"description": "Ref для обертки input",
+"name": "wrapperRef",
+"required": false,
+"type": {
+"name": "Ref<HTMLDivElement> | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки левых аддонов",
+"name": "leftAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"rightAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки правых аддонов",
+"name": "rightAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"bottomAddons": {
+"defaultValue": null,
+"description": "Слот под инпутом",
+"name": "bottomAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"inputClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс инпута",
+"name": "inputClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для лейбла",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"addonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для аддонов",
+"name": "addonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"focusedClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен при фокусе",
+"name": "focusedClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"filledClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен, если в поле есть значение",
+"name": "filledClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control\nИдентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disableUserInput": {
+"defaultValue": null,
+"description": "Запрещает ввод с клавиатуры",
+"name": "disableUserInput",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"bold": {
+"defaultValue": null,
+"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
+"name": "bold",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"mobile\" | \"desktop\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"options": {
+"defaultValue": null,
+"description": "Список вариантов выбора",
+"name": "options",
+"required": true,
+"type": {
+"name": "(OptionShape | GroupShape)[]"
+}
+},
+"optionsListClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс выпадающего меню",
+"name": "optionsListClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"optionClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для пункта меню",
+"name": "optionClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"optionGroupClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для компонента группы пунктов",
+"name": "optionGroupClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"popperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поповера",
+"name": "popperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultOpen": {
+"defaultValue": null,
+"description": "Начальное состояние селекта",
+"name": "defaultOpen",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление открытием",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"optionsSize": {
+"defaultValue": null,
+"description": "Размер пунктов меню\n@deprecated Управление размером пунктов меню через отдельный проп не поддерживается дизайн-контрактом. Размер пункта должен определяться его контентом.",
+"name": "optionsSize",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"optionsListWidth": {
+"defaultValue": null,
+"description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля",
+"name": "optionsListWidth",
+"required": false,
+"type": {
+"name": "\"content\" | \"field\" | undefined"
+}
+},
+"allowUnselect": {
+"defaultValue": null,
+"description": "Позволяет снять выбранное значение",
+"name": "allowUnselect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"closeOnSelect": {
+"defaultValue": null,
+"description": "Закрывать меню после выбора?",
+"name": "closeOnSelect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"circularNavigation": {
+"defaultValue": null,
+"description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот.",
+"name": "circularNavigation",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"preventFlip": {
+"defaultValue": null,
+"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
+"name": "preventFlip",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"selected": {
+"defaultValue": null,
+"description": "Список value выбранных пунктов (controlled-селект)",
+"name": "selected",
+"required": false,
+"type": {
+"name": "string | OptionShape | (string | OptionShape)[] | null | undefined"
+}
+},
+"popoverPosition": {
+"defaultValue": null,
+"description": "Позиционирование выпадающего списка",
+"name": "popoverPosition",
+"required": false,
+"type": {
+"name": "Position | undefined"
+}
+},
+"visibleOptions": {
+"defaultValue": null,
+"description": "Количество видимых пунктов меню (5 = 5.5)",
+"name": "visibleOptions",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"valueSeparator": {
+"defaultValue": null,
+"description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)",
+"name": "valueSeparator",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"Arrow": {
+"defaultValue": null,
+"description": "Компонент стрелки",
+"name": "Arrow",
+"required": false,
+"type": {
+"name": "false | ComponentType<ArrowProps> | null | undefined"
+}
+},
+"Field": {
+"defaultValue": null,
+"description": "Компонент поля",
+"name": "Field",
+"required": false,
+"type": {
+"name": "ComponentType<FieldProps> | undefined"
+}
+},
+"fieldProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент поля",
+"name": "fieldProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"optionsListProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент списка",
+"name": "optionsListProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"optionProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент пункта меню",
+"name": "optionProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"groupOptionProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент группового пункта меню",
+"name": "groupOptionProps",
+"required": false,
+"type": {
+"name": "AnyObject | undefined"
+}
+},
+"OptionsList": {
+"defaultValue": null,
+"description": "Компонент выпадающего меню",
+"name": "OptionsList",
+"required": false,
+"type": {
+"name": "ComponentType<Pick<SelectProps, \"client\"> & { className?: string | undefined; optionGroupClassName?: string | undefined; scrollbarClassName?: string | undefined; ... 32 more ...; ctrlRef?: Ref<...> | undefined; } & RefAttributes<...>> | undefined"
+}
+},
+"Optgroup": {
+"defaultValue": null,
+"description": "Компонент группы",
+"name": "Optgroup",
+"required": false,
+"type": {
+"name": "ComponentType<OptgroupProps> | undefined"
+}
+},
+"Option": {
+"defaultValue": null,
+"description": "Компонент пункта меню",
+"name": "Option",
+"required": false,
+"type": {
+"name": "ComponentType<OptionProps> | undefined"
+}
+},
+"Search": {
+"defaultValue": null,
+"description": "Компонент поиска",
+"name": "Search",
+"required": false,
+"type": {
+"name": "ComponentType<SearchProps> | undefined"
+}
+},
+"searchProps": {
+"defaultValue": null,
+"description": "Настройки поиска",
+"name": "searchProps",
+"required": false,
+"type": {
+"name": "{ componentProps?: SearchProps | undefined; accessor?: ((option: OptionShape) => string) | undefined; filterFn?: ((optionText: string, search: string) => boolean) | undefined; value?: string | undefined; onChange?: ((value: string) => void) | undefined; filterGroup?: boolean | undefined; groupAccessor?: ((group: Gro..."
+}
+},
+"onOpen": {
+"defaultValue": null,
+"description": "Обработчик открытия\\закрытия селекта",
+"name": "onOpen",
+"required": false,
+"type": {
+"name": "((payload: { open?: boolean | undefined; name?: string | undefined; }) => void) | undefined"
+}
+},
+"updatePopover": {
+"defaultValue": null,
+"description": "Хранит функцию, с помощью которой можно обновить положение поповера",
+"name": "updatePopover",
+"required": false,
+"type": {
+"name": "MutableRefObject<(() => void) | undefined> | undefined"
+}
+},
+"zIndexPopover": {
+"defaultValue": null,
+"description": "z-index поповера",
+"name": "zIndexPopover",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"showEmptyOptionsList": {
+"defaultValue": null,
+"description": "Показывать OptionsList, если он пустой",
+"name": "showEmptyOptionsList",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"popoverProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы для Popover",
+"name": "popoverProps",
+"required": false,
+"type": {
+"name": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\"> | undefined"
+}
+},
+"limitDynamicOptionGroupSize": {
+"defaultValue": null,
+"description": "Ограничение динамического размера группы вариантов выбора",
+"name": "limitDynamicOptionGroupSize",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"environment": {
+"defaultValue": {
+"value": "window"
+},
+"description": "Контекст окружения для downshift.js",
+"name": "environment",
+"required": false,
+"type": {
+"name": "Environment | undefined"
+}
+},
+"Input": {
+"defaultValue": null,
+"description": "Компонент ввода значения",
+"name": "Input",
+"required": false,
+"type": {
+"name": "ComponentType<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number | undefined; client?: \"mobile\" | \"desktop\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined"
+}
+},
+"inputProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в инпут",
+"name": "inputProps",
+"required": false,
+"type": {
+"name": "(Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number | undefined; client?: \"mobile\" | \"desktop\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & Record<...>) | undefined"
+}
+},
+"isBottomSheet": {
+"defaultValue": null,
+"description": "Открывать в bottom-sheet",
+"name": "isBottomSheet",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"transitionProps": {
+"defaultValue": null,
+"description": "Пропсы анимации контента (CSSTransition)",
+"name": "transitionProps",
+"required": false,
+"type": {
+"name": "Partial<TransitionProps> | undefined"
+}
+},
+"onApply": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку «Продолжить» в BottomSheet или модальном окне",
+"name": "onApply",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onCancel": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку «Отмена» в BottomSheet или модальном окне",
+"name": "onCancel",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"virtualKeyboard": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Учитывать высоту виртуальной клавиатуры в BottomSheet",
+"name": "virtualKeyboard",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Стандартный вид компонента — поле с пикером страны и предопределённым кодом страны. При автозаполнении поля на iOS-устройствах номер вставляется без кода страны. Вставляемый номер можно обогатить заранее введённым кодом страны.",
+"desktop": "const OPTIONS = [\n{ key: '+7 921 681 53 98' },\n{ key: '+7 921 681 52 97' },\n{ key: '+7 921 681 52 96' },\n{ key: '+7 921 681 52 95' },\n{ key: '8 921 681 52 94' },\n];\n\nrender(() => {\nconst [value, setValue] = React.useState('');\nconst [selectedCountry, setSelectedCountry] = React.useState();\nconst [clearableCountryCode, setClearableCountryCode] = React.useState(true);\nconst [autocomplete, setAutocomplete] = React.useState(false);\n\nconst handleChange = (phone) => setValue(phone);\n\nreturn (\n<React.Fragment>\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<InternationalPhoneInput\nbreakpoint={BREAKPOINT}\nlabel='Номер телефона'\nplaceholder='Введите номер телефона'\nvalue={value}\nonChange={handleChange}\nonCountryChange={setSelectedCountry}\noptions={autocomplete ? OPTIONS : undefined}\nblock={true}\nclearableCountryCode={clearableCountryCode}\n/>\n</div>\n<Gap size={16} />\n<div>\n<Typography.Text color='secondary'>\nКод выбранной страны: {selectedCountry && selectedCountry.iso2}\n</Typography.Text>\n<Gap size={24} />\n<RadioGroup\nlabel='Код страны'\ndirection='vertical'\nname='radioGroup'\nonChange={(_, { value }) =>\nsetClearableCountryCode(value === 'preserve' ? value : value === 'true')\n}\nvalue={`${clearableCountryCode}`}\n>\n<Radio size={24} label='Разрешить удаление' value='true' />\n<Radio size={24} label='Запретить удаление' value='false' />\n<Radio size={24} label='Обогощать номер при автозаполнении' value='preserve' />\n</RadioGroup>\n<Gap size={16} />\n<Switch\nchecked={autocomplete}\nlabel='Режим автокомплита'\nonChange={() => {\nsetAutocomplete((prevState) => !prevState);\n}}\n/>\n</div>\n</React.Fragment>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.0.0",
+"description": "#### [#2009](https://github.com/core-ds/core-components/pull/2009)\n\n- Удалены `deprecated` значения пропа `size`. Для перехода используйте следующие соответствия:\n    - `'s'` -> `48`\n    - `'m'` -> `56`\n    - `'l'` -> `64`\n    - `'xl'` -> `72`\n\n#### [#1975](https://github.com/core-ds/core-components/pull/1975)\n\n- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка\n\n#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправлена `autoComplete` ошибка"
+},
+{
+"version": "49.5.0",
+"description": "#### [#1885](https://github.com/core-ds/core-components/pull/1885)\n\n- Добавлена поддержка aria-label для улучшения доступности в компонентах InternationalPhoneInput и Select"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1829](https://github.com/core-ds/core-components/pull/1829)\n\n- Добавлен проп `autoFill` для включения/выключения автозаполнения номера"
+}
+]
+}

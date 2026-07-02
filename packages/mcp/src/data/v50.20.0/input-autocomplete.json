@@ -1,0 +1,630 @@
+{
+"packageName": "input-autocomplete",
+"displayName": "InputAutocomplete",
+"description": "Дает возможность выбрать значение из списка доступных, либо ввести своё с помощью клавиатуры.",
+"props": {
+"mobileProps": {
+"defaultValue": null,
+"description": "Пропсы для мобильного компонента",
+"name": "mobileProps",
+"required": false,
+"type": {
+"name": "MobileProps | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"Input": {
+"defaultValue": null,
+"description": "Компонент ввода значения",
+"name": "Input",
+"required": false,
+"type": {
+"name": "ComponentType<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number | undefined; client?: \"desktop\" | \"mobile\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined"
+}
+},
+"inputProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в инпут",
+"name": "inputProps",
+"required": false,
+"type": {
+"name": "(Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number | undefined; client?: \"desktop\" | \"mobile\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & Record<...>) | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Значение поля ввода",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"readOnly": {
+"defaultValue": null,
+"description": "Поле доступно только для чтения",
+"name": "readOnly",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"success": {
+"defaultValue": null,
+"description": "Отображение иконки успеха",
+"name": "success",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onInput": {
+"defaultValue": null,
+"description": "Обработчик ввода",
+"name": "onInput",
+"required": false,
+"type": {
+"name": "((value: string, reason?: OnInputTypeReason | undefined) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"optionsListClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс выпадающего меню",
+"name": "optionsListClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"optionClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для пункта меню",
+"name": "optionClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"optionGroupClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для компонента группы пунктов",
+"name": "optionGroupClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"popperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поповера",
+"name": "popperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"options": {
+"defaultValue": null,
+"description": "Список вариантов выбора",
+"name": "options",
+"required": true,
+"type": {
+"name": "(OptionShape | GroupShape)[]"
+}
+},
+"id": {
+"defaultValue": null,
+"description": "Атрибут id",
+"name": "id",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"name": {
+"defaultValue": null,
+"description": "Атрибут name",
+"name": "name",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление возможностью выбора значения",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"defaultOpen": {
+"defaultValue": null,
+"description": "Начальное состояние селекта",
+"name": "defaultOpen",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление открытием",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"multiple": {
+"defaultValue": null,
+"description": "Возможность выбрать несколько значений",
+"name": "multiple",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": "48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"optionsSize": {
+"defaultValue": null,
+"description": "Размер пунктов меню\n@deprecated Управление размером пунктов меню через отдельный проп не поддерживается дизайн-контрактом. Размер пункта должен определяться его контентом.",
+"name": "optionsSize",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"optionsListWidth": {
+"defaultValue": null,
+"description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля",
+"name": "optionsListWidth",
+"required": false,
+"type": {
+"name": "\"content\" | \"field\" | undefined"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл поля",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"placeholder": {
+"defaultValue": null,
+"description": "Плейсхолдер поля",
+"name": "placeholder",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Подсказка под полем",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"allowUnselect": {
+"defaultValue": null,
+"description": "Позволяет снять выбранное значение",
+"name": "allowUnselect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"closeOnSelect": {
+"defaultValue": null,
+"description": "Закрывать меню после выбора?",
+"name": "closeOnSelect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"circularNavigation": {
+"defaultValue": null,
+"description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот.",
+"name": "circularNavigation",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"preventFlip": {
+"defaultValue": null,
+"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
+"name": "preventFlip",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"selected": {
+"defaultValue": null,
+"description": "Список value выбранных пунктов (controlled-селект)",
+"name": "selected",
+"required": false,
+"type": {
+"name": "string | OptionShape | (string | OptionShape)[] | null | undefined"
+}
+},
+"popoverPosition": {
+"defaultValue": null,
+"description": "Позиционирование выпадающего списка",
+"name": "popoverPosition",
+"required": false,
+"type": {
+"name": "Position | undefined"
+}
+},
+"visibleOptions": {
+"defaultValue": null,
+"description": "Количество видимых пунктов меню (5 = 5.5)",
+"name": "visibleOptions",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"valueSeparator": {
+"defaultValue": null,
+"description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)",
+"name": "valueSeparator",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"Arrow": {
+"defaultValue": null,
+"description": "Компонент стрелки",
+"name": "Arrow",
+"required": false,
+"type": {
+"name": "false | ComponentType<ArrowProps> | null | undefined"
+}
+},
+"Field": {
+"defaultValue": null,
+"description": "Компонент поля",
+"name": "Field",
+"required": false,
+"type": {
+"name": "ComponentType<FieldProps> | undefined"
+}
+},
+"fieldProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент поля",
+"name": "fieldProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"optionsListProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент списка",
+"name": "optionsListProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"optionProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент пункта меню",
+"name": "optionProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"groupOptionProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент группового пункта меню",
+"name": "groupOptionProps",
+"required": false,
+"type": {
+"name": "AnyObject | undefined"
+}
+},
+"OptionsList": {
+"defaultValue": null,
+"description": "Компонент выпадающего меню",
+"name": "OptionsList",
+"required": false,
+"type": {
+"name": "ComponentType<Pick<SelectProps, \"client\"> & { className?: string | undefined; optionGroupClassName?: string | undefined; scrollbarClassName?: string | undefined; ... 32 more ...; ctrlRef?: Ref<...> | undefined; } & RefAttributes<...>> | undefined"
+}
+},
+"Optgroup": {
+"defaultValue": null,
+"description": "Компонент группы",
+"name": "Optgroup",
+"required": false,
+"type": {
+"name": "ComponentType<OptgroupProps> | undefined"
+}
+},
+"Option": {
+"defaultValue": null,
+"description": "Компонент пункта меню",
+"name": "Option",
+"required": false,
+"type": {
+"name": "ComponentType<OptionProps> | undefined"
+}
+},
+"Search": {
+"defaultValue": null,
+"description": "Компонент поиска",
+"name": "Search",
+"required": false,
+"type": {
+"name": "ComponentType<SearchProps> | undefined"
+}
+},
+"searchProps": {
+"defaultValue": null,
+"description": "Настройки поиска",
+"name": "searchProps",
+"required": false,
+"type": {
+"name": "{ componentProps?: SearchProps | undefined; accessor?: ((option: OptionShape) => string) | undefined; filterFn?: ((optionText: string, search: string) => boolean) | undefined; value?: string | undefined; onChange?: ((value: string) => void) | undefined; filterGroup?: boolean | undefined; groupAccessor?: ((group: Gro..."
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик выбора",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((payload: BaseSelectChangePayload) => void) | undefined"
+}
+},
+"onOpen": {
+"defaultValue": null,
+"description": "Обработчик открытия\\закрытия селекта",
+"name": "onOpen",
+"required": false,
+"type": {
+"name": "((payload: { open?: boolean | undefined; name?: string | undefined; }) => void) | undefined"
+}
+},
+"onBlur": {
+"defaultValue": null,
+"description": "Обработчик блюра поля",
+"name": "onBlur",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | undefined"
+}
+},
+"onFocus": {
+"defaultValue": null,
+"description": "Обработчик фокуса поля",
+"name": "onFocus",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | undefined"
+}
+},
+"onScroll": {
+"defaultValue": null,
+"description": "Обработчик скрола",
+"name": "onScroll",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на крестик для очистки поля",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Флаг, показать крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"updatePopover": {
+"defaultValue": null,
+"description": "Хранит функцию, с помощью которой можно обновить положение поповера",
+"name": "updatePopover",
+"required": false,
+"type": {
+"name": "MutableRefObject<(() => void) | undefined> | undefined"
+}
+},
+"zIndexPopover": {
+"defaultValue": null,
+"description": "z-index поповера",
+"name": "zIndexPopover",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"showEmptyOptionsList": {
+"defaultValue": null,
+"description": "Показывать OptionsList, если он пустой",
+"name": "showEmptyOptionsList",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"popoverProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы для Popover",
+"name": "popoverProps",
+"required": false,
+"type": {
+"name": "Omit<PopoverProps, \"dataTestId\" | \"className\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\"> | undefined"
+}
+},
+"limitDynamicOptionGroupSize": {
+"defaultValue": null,
+"description": "Ограничение динамического размера группы вариантов выбора",
+"name": "limitDynamicOptionGroupSize",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"environment": {
+"defaultValue": {
+"value": "window"
+},
+"description": "Контекст окружения для downshift.js",
+"name": "environment",
+"required": false,
+"type": {
+"name": "Environment | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Шеврон",
+"description": "Добавляйте шеврон, если пользователю будет удобней выбирать значение, просматривая список, не вводя первые символы.\nЕсли список длинный и вы предполагаете, что пользователь будет вводить значение с клавиатуры, шеврон можно скрыть.",
+"desktop": "const options = [\n{ key: 'Neptunium' },\n{ key: 'Plutonium' },\n{ key: 'Americium' },\n{ key: 'Curium' },\n{ key: 'Berkelium' },\n{ key: 'Californium' },\n{ key: 'Einsteinium' },\n{ key: 'Fermium' },\n{ key: 'Mendelevium' },\n{ key: 'Nobelium' },\n{ key: 'Lawrencium' },\n{ key: 'Rutherfordium' },\n{ key: 'Dubnium' },\n{ key: 'Seaborgium' },\n{ key: 'Bohrium' },\n];\n\nrender(() => {\nconst [shownChevron, setShownChevron] = React.useState(false);\nconst [multiple, setMultiple] = React.useState(false);\nconst [showInModal, setShowInModal] = React.useState(false);\nconst [value, setValue] = React.useState('');\n\nconst matchOption = (option, inputValue) =>\noption.key.toLowerCase().includes((inputValue || '').toLowerCase());\n\nconst handleInput = (newValue) => setValue(newValue);\n\nconst handleChange = ({ selected, selectedMultiple }) => {\nif (multiple) {\nconst value = selectedMultiple.length\n? selectedMultiple.map((option) => option.key).join(', ') + ', '\n: '';\nsetValue(value);\n\nreturn;\n}\n\nsetValue(selected ? selected.key : '');\n};\n\nconst inputValues = value.replace(/ /g, '').split(',');\n\nconst selectedOptions = options.filter((option) => inputValues.includes(option.key.trim()));\n\nconst selected = multiple\n? selectedOptions.map((option) => option.key)\n: options.find((o) => o.key === inputValues[0]) || [];\n\nconst getFilteredOptions = () => {\nif (multiple) {\nreturn inputValues.length === selected.length\n// отображаем весь список, если значения в поле ввода совпадают с выбранными значениями в списке\n? options\n// отображаем только совпадения с новым введенным значением, включая уже выбранные элементы\n: options.filter((option) => matchOption(option, inputValues[inputValues.length - 1]));\n}\n\nreturn options.some(({ key }) => key === value)\n? options\n: options.filter((option) => matchOption(option, value));\n};\n\nreturn (\n<div style={{ width: 320 }}>\n<InputAutocomplete\nbreakpoint={BREAKPOINT}\nsize='56'\nselected={selected}\nblock={true}\noptions={getFilteredOptions()}\nlabel='Инпут с автокомплитом'\nplaceholder='Начните вводить название'\nonChange={handleChange}\nonInput={handleInput}\nvalue={value}\nArrow={shownChevron ? Arrow : undefined}\nmultiple={multiple}\nallowUnselect={true}\nOption={BaseOption}\nshowEmptyOptionsList={true}\nisBottomSheet={!showInModal}\ninputProps={{\nonClear: () => setValue(''),\nclear: true,\n}}\noptionsListProps={{\nemptyPlaceholder: (\n<div style={{ display: 'flex', justifyContent: 'center' }}>\n<Typography.Text view='component-primary'>\nНичего не нашлось\n</Typography.Text>\n</div>\n),\n}}\n/>\n<Gap size={24} />\n<Switch\nchecked={shownChevron}\nlabel='Шеврон'\nonChange={() => setShownChevron((prevState) => !prevState)}\n/>\n<Gap size={16} />\n<Switch\nchecked={multiple}\nlabel='Мультивыбор'\nonChange={() => {\nsetMultiple((prevState) => !prevState);\nsetValue('');\n}}\n/>\n{isMobile() && (\n<>\n<Gap size={16} />\n<Switch\nchecked={showInModal}\nlabel='Открывать в модалке'\nonChange={() => setShowInModal((prevState) => !prevState)}\n/>\n</>\n)}\n</div>\n);\n});"
+},
+{
+"title": "Кастомизация инпута",
+"description": "При необходимости можно кастомизировать инпут и выпадающий список.",
+"desktop": "render(() => {\nconst matchOption = (option, inputValue) =>\noption.content.toLowerCase().includes((inputValue || '').toLowerCase());\n\nconst mask = [\n/\\d/,\n/\\d/,\n/\\d/,\n/\\d/,\n' ',\n/\\d/,\n/\\d/,\n/\\d/,\n/\\d/,\n' ',\n/\\d/,\n/\\d/,\n/\\d/,\n/\\d/,\n' ',\n/\\d/,\n/\\d/,\n/\\d/,\n/\\d/,\n];\n\nconst cards = [\n{\nkey: 'Карта 1',\ncontent: '4035 5010 0000 0008',\n},\n{\nkey: 'Карта 2',\ncontent: '4360 0000 0100 0005',\n},\n{\nkey: 'Карта 3',\ncontent: '8171 9999 2766 0000',\n},\n{\nkey: 'Карта 4',\ncontent: '5204 2477 5000 1471',\n},\n{\nkey: 'Карта 5',\ncontent: '4111 1111 1111 1111',\n},\n];\n\nconst CardOption = (props) => (\n<BaseOption {...props}>\n<div style={{ padding: 'var(--gap-12)' }}>\n<Typography.Text view='component-primary'>{props.option.content}</Typography.Text>\n<Gap size={4} />\n<Typography.Text view='primary-small' color='secondary'>\n{props.option.key}\n</Typography.Text>\n</div>\n</BaseOption>\n);\n\nconst [value, setValue] = React.useState('');\nconst inputRef = React.useRef();\n\nconst handleInput = (newValue) => setValue(newValue);\n\nconst handleChange = ({ selected }) => {\nconst value = selected ? selected.content : null;\nsetValue(value);\nif (value && inputRef.current) {\nrequestAnimationFrame(() =>\ninputRef.current.setSelectionRange(value.length, value.length),\n);\n}\n};\n\nconst filteredOptions = cards.filter((option) => matchOption(option, value));\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 320 }}>\n<InputAutocomplete\nbreakpoint={BREAKPOINT}\nsize='56'\noptions={filteredOptions}\nselected={[]}\nlabel='Маскированный ввод счёта'\nplaceholder='Счёт'\nonInput={handleInput}\nonChange={handleChange}\nvalue={value}\nOption={CardOption}\nInput={MaskedInput}\nblock={true}\ninputProps={{\nref: inputRef,\nmask,\nclear: isMobile(),\nonClear: () => setValue(''),\n}}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.5.0",
+"description": "#### [#2053](https://github.com/core-ds/core-components/pull/2053)\n\n- Небольшие улучшения кодовой базы компонентов\n\n- Обновлены зависимости\n    - @alfalab/core-components-themes@15.0.2\n    - @alfalab/core-components-button@13.1.0\n    - @alfalab/core-components-checkbox@6.1.0\n    - @alfalab/core-components-input@17.1.2\n    - @alfalab/core-components-select-with-tags@10.1.0\n    - @alfalab/core-components-select@19.1.0\n    - @alfalab/core-components-custom-picker-button@4.1.0\n    - @alfalab/core-components-amount-input@9.1.2\n    - @alfalab/core-components-input-autocomplete@14.0.7\n    - @alfalab/core-components-number-input@4.0.4\n    - @alfalab/core-components-form-control@14.0.3\n    - @alfalab/core-components-calendar@9.1.0\n    - @alfalab/core-components-attach@8.0.3\n    - @alfalab/core-components-calendar-with-skeleton@7.0.4\n    - @alfalab/core-components-confirmation@15.0.3\n    - @alfalab/core-components-confirmation-v1@3.0.3\n    - @alfalab/core-components-custom-button@5.0.3\n    - @alfalab/core-components-gallery@7.0.6\n    - @alfalab/core-components-icon-button@8.0.3\n    - @alfalab/core-components-navigation-bar@3.0.3\n    - @alfalab/core-components-navigation-bar-private@2.0.4\n    - @alfalab/core-components-pass-code@4.0.3\n    - @alfalab/core-components-pass-code-v1@3.0.3\n    - @alfalab/core-components-pattern-lock@4.0.3\n    - @alfalab/core-components-pattern-lock-v1@3.0.3\n    - @alfalab/core-components-picker-button@13.0.7\n    - @alfalab/core-components-plate@9.0.3\n    - @alfalab/core-components-product-cover@3.1.2\n    - @alfalab/core-components-pure-cell@6.0.3\n    - @alfalab/core-components-table@4.0.7\n    - @alfalab/core-components-tooltip@9.0.6\n    - @alfalab/core-components-date-input@6.0.4\n    - @alfalab/core-components-date-range-input@5.0.5\n    - @alfalab/core-components-date-time-input@6.0.5\n    - @alfalab/core-components-international-phone-input@4.0.7\n    - @alfalab/core-components-masked-input@8.0.4\n    - @alfalab/core-components-password-input@7.0.4\n    - @alfalab/core-components-slider-input@11.0.4\n    - @alfalab/core-components-time-input@4.0.4\n    - @alfalab/core-components-universal-date-input@4.0.5\n    - @alfalab/core-components-with-suffix@6.0.4\n    - @alfalab/core-components-intl-phone-input@11.0.7\n    - @alfalab/core-components-textarea@10.0.3\n    - @alfalab/core-components-calendar-input@12.0.5\n    - @alfalab/core-components-calendar-range@9.0.5\n    - @alfalab/core-components-file-upload-item@8.0.3\n    - @alfalab/core-components-file-upload-item-v1@3.0.3\n    - @alfalab/core-components-tabs@10.0.7\n    - @alfalab/core-components-toast-plate@9.0.3\n    - @alfalab/core-components-bottom-sheet@8.1.1\n    - @alfalab/core-components-modal@11.0.4\n    - @alfalab/core-components-popup-sheet@3.0.4\n    - @alfalab/core-components-side-panel@7.0.4\n    - @alfalab/core-components-universal-modal@3.0.5\n    - @alfalab/core-components-alert@6.0.3\n    - @alfalab/core-components-bank-card@7.0.4\n    - @alfalab/core-components-phone-input@9.0.4\n    - @alfalab/core-components-notification@9.0.3\n    - @alfalab/core-components-toast@8.0.3\n    - @alfalab/core-components-notification-manager@7.0.3"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1975](https://github.com/core-ds/core-components/pull/1975)\n\n- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка"
+},
+{
+"version": "49.4.0",
+"description": "#### [#1857](https://github.com/core-ds/core-components/pull/1857)\n\n- Исправлен порядок отображение аддонов (Clear, Error, Success, Arrow, Custom)"
+}
+]
+}

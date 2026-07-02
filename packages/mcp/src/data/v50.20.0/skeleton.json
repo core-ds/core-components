@@ -1,0 +1,120 @@
+{
+"packageName": "skeleton",
+"displayName": "Skeleton",
+"description": "Используется как индикатор загрузки контента.",
+"props": {
+"visible": {
+"defaultValue": null,
+"description": "Флаг, явно задающий состояние, при котором контент закрывается прелоадером",
+"name": "visible",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"animate": {
+"defaultValue": {
+"value": true
+},
+"description": "Флаг явного включения анимации скелета",
+"name": "animate",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"style": {
+"defaultValue": null,
+"description": "Дополнительные инлайн стили",
+"name": "style",
+"required": false,
+"type": {
+"name": "CSSProperties | undefined"
+}
+},
+"allowBackdropBlur": {
+"defaultValue": null,
+"description": "Включает размытие фона",
+"name": "allowBackdropBlur",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"borderRadius": {
+"defaultValue": {
+"value": 8
+},
+"description": "Скругление углов",
+"name": "borderRadius",
+"required": false,
+"type": {
+"name": "BorderRadiusSize | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Скелетон должен максимально точно повторять форму ожидаемого контента.",
+"desktop": "const SHAPRE_STYLE = {\nwidth: 40,\nheight: 40,\nborderRadius: 8,\nbackgroundImage: 'url(./images/imgBg.png)',\nbackgroundSize: 'cover',\n};\n\nrender(() => {\nconst [visible, setVisible] = React.useState(false);\n\nreturn (\n<>\n<Switch\nchecked={visible}\nlabel='Скелетонизация контента'\nonChange={() => setVisible((p) => !p)}\n/>\n\n<Gap size={20} />\n\n<div style={{ display: 'flex', alignItems: 'center' }}>\n<Skeleton visible={visible}>\n<div style={SHAPRE_STYLE} />\n</Skeleton>\n\n<Gap size={12} direction='horizontal' />\n\n<Skeleton visible={visible} style={{ borderRadius: 'var(--border-radius-4)' }}>\n<Status view='contrast'>This is fine</Status>\n</Skeleton>\n</div>\n</>\n);\n});"
+},
+{
+"title": "Скелетонизация текста",
+"description": "Скелетон умеет подстраиваться под заданный фрагмент текста, для этого тексту должны быть заданы fontSize и lineHeight.",
+"desktop": "render(() => {\nconst [visible, setVisible] = React.useState(false);\n\nconst { renderSkeleton: renderTitleSkeleton, textRef: titleRef } = useSkeleton(visible, {});\nconst titleSkeleton = renderTitleSkeleton({});\n\nconst { renderSkeleton, textRef } = useSkeleton(visible, {});\nconst textSkeleton = renderSkeleton({});\n\nconst TitleComponent = isMobile() ? Typography.TitleMobile : Typography.Title;\n\nreturn (\n<>\n<Switch\nchecked={visible}\nlabel='Скелетонизация текста'\nonChange={() => setVisible((prev) => !prev)}\n/>\n<Gap size={24} />\n\n{titleSkeleton ? (\ntitleSkeleton\n) : (\n<TitleComponent view='small' font='system' ref={titleRef}>\nПочему банк проверяет мои операции?\n</TitleComponent>\n)}\n\n<Gap size={12} />\n\n{textSkeleton ? (\ntextSkeleton\n) : (\n<Typography.Text view='primary-medium' ref={textRef}>\nВ 2001 году в России начал действовать Федеральный закон №115\n<br /> «О противодействии легализации доходов, полученных преступным\n<br /> путём, и финансированию терроризма».\n<br /> В рамках закона банки могут блокировать карты, отказывать\n<br /> в проведении сомнительных операций, ограничить доступ\n<br /> в интернет-банк или запрашивать документы, если по операции\n<br /> клиента возникли подозрения.\n</Typography.Text>\n)}\n</>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.10.0",
+"description": "#### [#2121](https://github.com/core-ds/core-components/pull/2121)\n\n- Изменена анимация с `background` на `opacity`, теперь производительность анимации выше"
+},
+{
+"version": "49.5.0",
+"description": "#### [#1887](https://github.com/core-ds/core-components/pull/1887)\n\n- Исправлен расчет высоты элементов текстового скелетона. Теперь размер совпадает не с fontSize, а с размером начертания глифов от базовой линии.\n\n- Обновлены зависимости\n    - @alfalab/core-components-amount-input@8.1.0\n    - @alfalab/core-components-confirmation@14.1.0\n    - @alfalab/core-components-tabs@9.2.0\n    - @alfalab/core-components-side-panel@6.0.2\n    - @alfalab/core-components-skeleton@6.0.1\n    - @alfalab/core-components-international-phone-input@3.2.0\n    - @alfalab/core-components-select@18.2.0\n    - @alfalab/core-components-calendar-with-skeleton@6.0.2\n    - @alfalab/core-components-typography@5.0.2\n    - @alfalab/core-components-custom-picker-button@3.0.3\n    - @alfalab/core-components-input-autocomplete@13.0.3\n    - @alfalab/core-components-intl-phone-input@10.0.3\n    - @alfalab/core-components-picker-button@12.0.3\n    - @alfalab/core-components-select-with-tags@9.0.3\n    - @alfalab/core-components-table@3.0.3\n    - @alfalab/core-components-accordion@2.0.2\n    - @alfalab/core-components-calendar@8.0.2\n    - @alfalab/core-components-chart@4.0.2\n    - @alfalab/core-components-circular-progress-bar@4.0.2\n    - @alfalab/core-components-comment@3.0.2\n    - @alfalab/core-components-file-upload-item@7.0.2\n    - @alfalab/core-components-gallery@6.0.4\n    - @alfalab/core-components-list@4.0.2\n    - @alfalab/core-components-list-header@4.0.2\n    - @alfalab/core-components-markdown@2.1.1\n    - @alfalab/core-components-navigation-bar@2.0.2\n    - @alfalab/core-components-navigation-bar-private@1.0.2\n    - @alfalab/core-components-product-cover@2.0.2\n    - @alfalab/core-components-pure-cell@5.0.2\n    - @alfalab/core-components-stepped-progress-bar@3.0.2\n    - @alfalab/core-components-tab-bar@3.0.2\n    - @alfalab/core-components-universal-modal@2.0.3\n    - @alfalab/core-components-calendar-input@11.0.3\n    - @alfalab/core-components-calendar-range@8.0.3\n    - @alfalab/core-components-date-range-input@4.0.3\n    - @alfalab/core-components-date-time-input@5.0.3\n    - @alfalab/core-components-universal-date-input@3.0.3\n    - @alfalab/core-components-bottom-sheet@7.0.2\n    - @alfalab/core-components-modal@10.0.2\n    - @alfalab/core-components-popup-sheet@2.0.4\n    - @alfalab/core-components-tooltip@8.0.3"
+}
+]
+}

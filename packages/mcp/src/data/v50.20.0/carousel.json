@@ -1,0 +1,250 @@
+{
+"packageName": "carousel",
+"displayName": "Carousel",
+"description": "Используется для отображения массива элементов с возможностью скролла контейнера.",
+"props": {
+"navigation": {
+"defaultValue": {
+"value": "never"
+},
+"description": "Управление каруселью через кнопки навигации",
+"name": "navigation",
+"required": false,
+"type": {
+"name": "\"hover\" | \"always\" | \"never\" | undefined"
+}
+},
+"navigationPosition": {
+"defaultValue": {
+"value": "center"
+},
+"description": "Положение кнопок навигации",
+"name": "navigationPosition",
+"required": false,
+"type": {
+"name": "\"start\" | \"center\" | undefined"
+}
+},
+"Pagination": {
+"defaultValue": {
+"value": "(): undefined => {}"
+},
+"description": "Компонент для рендера пагинации",
+"name": "Pagination",
+"required": false,
+"type": {
+"name": "ComponentType<T> | undefined"
+}
+},
+"paginationProps": {
+"defaultValue": {
+"value": "{} as T"
+},
+"description": "Дополнительные пропс для компонента пагинации",
+"name": "paginationProps",
+"required": false,
+"type": {
+"name": "Omit<T, keyof PaginationProps> | undefined"
+}
+},
+"minHeight": {
+"defaultValue": null,
+"description": "Минимальная высота карусели",
+"name": "minHeight",
+"required": false,
+"type": {
+"name": "string | number | undefined"
+}
+},
+"height": {
+"defaultValue": {
+"value": "auto"
+},
+"description": "Высота карусели",
+"name": "height",
+"required": false,
+"type": {
+"name": "string | number | undefined"
+}
+},
+"activeIndex": {
+"defaultValue": null,
+"description": "Индекс активного элемента карусели",
+"name": "activeIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"defaultActiveIndex": {
+"defaultValue": null,
+"description": "Индекс активного элемента карусели по-умолчанию",
+"name": "defaultActiveIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"onActiveIndexChange": {
+"defaultValue": null,
+"description": "Обработчик изменения индекса активного элемента карусели",
+"name": "onActiveIndexChange",
+"required": false,
+"type": {
+"name": "((nextActiveIndex: number) => void) | undefined"
+}
+},
+"gap": {
+"defaultValue": {
+"value": "8"
+},
+"description": "Отступ между элементами карусели",
+"name": "gap",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"visibleItems": {
+"defaultValue": {
+"value": "auto"
+},
+"description": "Количество видимых элементов карусели",
+"name": "visibleItems",
+"required": false,
+"type": {
+"name": "number | \"auto\" | undefined"
+}
+},
+"items": {
+"defaultValue": {
+"value": "auto"
+},
+"description": "Массив элементов карусели",
+"name": "items",
+"required": false,
+"type": {
+"name": "ItemProps[] | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для карусели",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"loop": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Зациклена ли карусель",
+"name": "loop",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"overflow": {
+"defaultValue": {
+"value": "hidden"
+},
+"description": "Поведение при переполнении контента элементов карусели",
+"name": "overflow",
+"required": false,
+"type": {
+"name": "\"hidden\" | \"visible\" | undefined"
+}
+},
+"mouseWheel": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Управление каруселью через колесо мыши",
+"name": "mouseWheel",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"touchMoveStopPropagation": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Остановка всплытия событий при свайпе",
+"name": "touchMoveStopPropagation",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"captureEvent": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Захват события при свайпе",
+"name": "captureEvent",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"shortSwipe": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Обработка короткого свайпа",
+"name": "shortSwipe",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"longSwipeTimeMs": {
+"defaultValue": {
+"value": "300"
+},
+"description": "Минимальная время длинного свайпа в миллисекундах",
+"name": "longSwipeTimeMs",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "const CarouselItem = ({ bgColor, itemColor }) => {\nreturn (\n<div\nstyle={{\nbackground: bgColor,\npadding: 'var(--gap-16)',\ndisplay: 'flex',\nflexDirection: 'column',\nborderRadius: 'var(--border-radius-20)',\nheight: 'calc(100% - var(--gap-16) * 2)',\n}}\n>\n<SuperEllipse backgroundColor={itemColor} />\n<div\nstyle={{\nheight: 12,\nbackground: itemColor,\nmargin: 'auto 0 var(--gap-6)',\nborderRadius: 'var(--border-radius-pill)',\n}}\n/>\n<div\nstyle={{\nheight: 12,\nbackground: itemColor,\nmargin: 'var(--gap-6) 0',\nborderRadius: 'var(--border-radius-pill)',\n}}\n/>\n</div>\n);\n};\n\nconst VISIBLE_ITEMS = isMobile() ? 2.2 : 4.2;\n\nrender(() => {\nconst [height, setHeight] = React.useState('fixed');\nconst handleHeightChange = (_, payload) => {\nsetHeight(payload.value);\n};\nconst [visibleItems, setVisibleItems] = React.useState('fixed');\nconst handleVisibleItemsChange = (_, payload) => {\nsetVisibleItems(payload.value);\n};\nconst [loop, setLoop] = React.useState(false);\nconst handleLoopChange = (_, payload) => {\nsetLoop(payload.value === 'true');\n};\nconst [navigationState, setNavigation] = React.useState(isMobile() ? 'never' : 'always');\nconst handleNavigationChange = (_, payload) => {\nsetNavigation(payload.value);\n};\n\nreturn (\n<div style={{ display: 'flex', flexDirection: 'column' }}>\n<Carousel\nitems={[\n{\nbgColor: 'var(--color-light-decorative-muted-blue)',\nitemColor: 'var(--color-light-decorative-muted-alt-blue)',\nheight: 200,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-red)',\nitemColor: 'var(--color-light-decorative-muted-alt-red)',\nheight: 280,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-orange)',\nitemColor: 'var(--color-light-decorative-muted-alt-orange)',\nheight: 160,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-green)',\nitemColor: 'var(--color-light-decorative-muted-alt-green)',\nheight: 240,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-indigo)',\nitemColor: 'var(--color-light-decorative-muted-alt-indigo)',\nheight: 200,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-cyan)',\nitemColor: 'var(--color-light-decorative-muted-alt-cyan)',\nheight: 160,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-pistachio)',\nitemColor: 'var(--color-light-decorative-muted-alt-pistachio)',\nheight: 240,\n},\n].map((itemProps, i) => ({\nkey: i,\nheight: itemProps.height,\nwidth: 256,\nchildren: <CarouselItem {...itemProps} />,\n}))}\nvisibleItems={visibleItems === 'fixed' ? VISIBLE_ITEMS : 'auto'}\nnavigation={navigationState}\ngap={8}\nloop={loop}\nheight={height === 'fixed' ? 280 : undefined}\nmouseWheel={!isMobile()}\n/>\n<Gap size={24} />\n<RadioGroup\nlabel='Высота компонента'\ndirection='vertical'\nname='height'\nonChange={handleHeightChange}\nvalue={height}\n>\n<Radio size={24} label='Фиксированная' value='fixed' />\n<Radio size={24} label='По самому высокому элементу' value='auto' />\n</RadioGroup>\n<Gap size={24} />\n<RadioGroup\nlabel='Количество видимых элементов'\ndirection='vertical'\nname='height'\nonChange={handleVisibleItemsChange}\nvalue={visibleItems}\n>\n<Radio size={24} label='Фиксированное' value='fixed' />\n<Radio size={24} label='Зависит от ширины элементов' value='auto' />\n</RadioGroup>\n\n{!isMobile() && (\n<React.Fragment>\n<Gap size={24} />\n<RadioGroup\nlabel='Кнопки'\ndirection='vertical'\nname='height'\nonChange={handleNavigationChange}\nvalue={navigationState}\n>\n<Radio size={24} label='Доступны всегда' value='always' />\n<Radio size={24} label='Доступны по ховеру' value='hover' />\n<Radio size={24} label='Без кнопок' value='never' />\n</RadioGroup>\n</React.Fragment>\n)}\n<Gap size={24} />\n<RadioGroup\nlabel='Поведение'\ndirection='vertical'\nname='height'\nonChange={handleLoopChange}\nvalue={`${loop}`}\n>\n<Radio size={24} label='Без зацикливания' value='false' />\n<Radio size={24} label='Зациклить слайды' value='true' />\n</RadioGroup>\n</div>\n);\n});"
+},
+{
+"title": "Удаление контента",
+"description": "Элементами карусели могут быть карточки счетов на оплату, подписки или другие сущности, которые пользователь должен иметь возможность удалить.",
+"desktop": "const CarouselItem = ({ children, bgColor, itemColor }) => {\nreturn (\n<div\nstyle={{\nbackground: bgColor,\npadding: 'var(--gap-16)',\ndisplay: 'flex',\nflexDirection: 'column',\nborderRadius: 'var(--border-radius-20)',\nheight: 'calc(100% - var(--gap-16) * 2)',\nposition: 'relative',\n}}\n>\n<SuperEllipse backgroundColor={itemColor} />\n<div\nstyle={{\nheight: 12,\nbackground: itemColor,\nmargin: 'auto 0 var(--gap-6)',\nborderRadius: 'var(--border-radius-pill)',\n}}\n/>\n<div\nstyle={{\nheight: 12,\nbackground: itemColor,\nmargin: 'var(--gap-6) 0',\nborderRadius: 'var(--border-radius-pill)',\n}}\n/>\n{children}\n</div>\n);\n};\n\nrender(() => {\nconst [slides, setSlides] = React.useState(() =>\n[\n{\nbgColor: 'var(--color-light-decorative-muted-blue)',\nitemColor: 'var(--color-light-decorative-muted-alt-blue)',\nheight: 200,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-red)',\nitemColor: 'var(--color-light-decorative-muted-alt-red)',\nheight: 280,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-orange)',\nitemColor: 'var(--color-light-decorative-muted-alt-orange)',\nheight: 160,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-green)',\nitemColor: 'var(--color-light-decorative-muted-alt-green)',\nheight: 240,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-indigo)',\nitemColor: 'var(--color-light-decorative-muted-alt-indigo)',\nheight: 200,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-cyan)',\nitemColor: 'var(--color-light-decorative-muted-alt-cyan)',\nheight: 160,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-pistachio)',\nitemColor: 'var(--color-light-decorative-muted-alt-pistachio)',\nheight: 240,\n},\n].map((slide, index) => ({ ...slide, key: index, order: index })),\n);\n\nconst handleRemove = (key) => {\nconst slide = slides.find((slide) => slide.key === key);\n\nsetSlides(slides.filter((slide) => slide.key !== key));\n\nsetTimeout(() => {\nsetSlides((prevSlides) => [...prevSlides, slide].sort((a, b) => a.order - b.order));\n}, 5000);\n};\nreturn (\n<Carousel\nitems={slides.map(({ key, ...itemProps }) => ({\nkey,\nheight: itemProps.height,\nwidth: 256,\nchildren: (\n<CarouselItem {...itemProps}>\n{itemProps.order < 2 && (\n<div\nrole='button'\ntitle='Удалить'\nonClick={() => {\nhandleRemove(key);\n}}\nstyle={{\nposition: 'absolute',\ntop: '50%',\nleft: '50%',\ntranslate: '-50% -50%',\nbackground: 'var(--color-light-neutral-translucent-100)',\nborderRadius: '50%',\nwidth: 32,\nheight: 32,\ndisplay: 'flex',\njustifyContent: 'center',\nalignItems: 'center',\nzIndex: 1,\n}}\n>\n<CrossMIcon />\n</div>\n)}\n</CarouselItem>\n),\n}))}\nvisibleItems={'auto'}\ngap={8}\nheight={200}\nmouseWheel={!isMobile()}\n/>\n);\n});"
+},
+{
+"title": "Дополнительные слоты",
+"description": "Компонент может принимать события извне. Поэтому при необходимости, можно отключить контролы навигации в самой карусели и расположить их в верхнем аддоне, а в нижний передать [PageIndicator](?path=/docs/pageindicator--docs).",
+"desktop": "const CarouselItem = ({ bgColor, itemColor }) => {\nreturn (\n<div\nstyle={{\nbackground: bgColor,\npadding: 'var(--gap-16)',\ndisplay: 'flex',\nflexDirection: 'column',\nborderRadius: 'var(--border-radius-20)',\nheight: 'calc(100% - var(--gap-16) * 2)',\n}}\n>\n<SuperEllipse backgroundColor={itemColor} />\n<div\nstyle={{\nheight: 12,\nbackground: itemColor,\nmargin: 'auto 0 var(--gap-6)',\nborderRadius: 'var(--border-radius-pill)',\n}}\n/>\n<div\nstyle={{\nheight: 12,\nbackground: itemColor,\nmargin: 'var(--gap-6) 0',\nborderRadius: 'var(--border-radius-pill)',\n}}\n/>\n</div>\n);\n};\n\nconst VISIBLE_ITEMS = isMobile() ? 2.2 : 4.2;\n\nrender(() => {\nconst [activeIndex, setActiveIndex] = React.useState(0);\n\nreturn (\n<div style={{ display: 'flex', flexDirection: 'column' }}>\n<Carousel\nactiveIndex={activeIndex}\nonActiveIndexChange={setActiveIndex}\nitems={[\n{\nbgColor: 'var(--color-light-decorative-muted-blue)',\nitemColor: 'var(--color-light-decorative-muted-alt-blue)',\nheight: 200,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-red)',\nitemColor: 'var(--color-light-decorative-muted-alt-red)',\nheight: 280,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-orange)',\nitemColor: 'var(--color-light-decorative-muted-alt-orange)',\nheight: 160,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-green)',\nitemColor: 'var(--color-light-decorative-muted-alt-green)',\nheight: 240,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-indigo)',\nitemColor: 'var(--color-light-decorative-muted-alt-indigo)',\nheight: 200,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-cyan)',\nitemColor: 'var(--color-light-decorative-muted-alt-cyan)',\nheight: 160,\n},\n{\nbgColor: 'var(--color-light-decorative-muted-pistachio)',\nitemColor: 'var(--color-light-decorative-muted-alt-pistachio)',\nheight: 240,\n},\n].map((itemProps, i) => ({\nkey: i,\nheight: itemProps.height,\nwidth: 256,\nchildren: <CarouselItem {...itemProps} />,\n}))}\nvisibleItems={VISIBLE_ITEMS}\ngap={8}\nnavigation='always'\nmouseWheel={!isMobile()}\nnavigationPosition='start'\nPagination={PageIndicatorBullet}\npaginationProps={{ size: 6 }}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.15.0",
+"description": "#### [#2229](https://github.com/core-ds/core-components/pull/2229)\n\n- Добавлена поддержка короткого свайпа - проп `shortSwipe`\n- Добавлены пропсы для более тонкой обработки жестов, для случаев использования `Carousel` внутри компонентов с поддержкой свайпов, например `BottomSheet`:\n    - `touchMoveStopPropagation` для остановки всплытия событий при свайпе\n    - `captureEvent` для захвата события при свайпе\n\n#### [#2229](https://github.com/core-ds/core-components/pull/2229)\n\n- Исключены непредвиденные скроллы при свайпе `Carousel` внутри скроллящихся контейнеров\n- Уточнена типизация"
+},
+{
+"version": "50.14.0",
+"description": "#### [#2173](https://github.com/core-ds/core-components/pull/2173)\n\n- Добавлен новый компонент `Carousel`"
+}
+]
+}

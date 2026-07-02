@@ -1,0 +1,528 @@
+{
+"packageName": "calendar",
+"displayName": "Calendar",
+"description": "",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"headerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс шапки десктопного календаря",
+"name": "headerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс контента десктопного календаря",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultView": {
+"defaultValue": null,
+"description": "Вид по умолчанию (выбор дней, месяцев, лет)",
+"name": "defaultView",
+"required": false,
+"type": {
+"name": "View | undefined"
+}
+},
+"selectorView": {
+"defaultValue": null,
+"description": "Вид шапки — месяц и год или только месяц",
+"name": "selectorView",
+"required": false,
+"type": {
+"name": "SelectorView | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Выбранная дата (timestamp)",
+"name": "value",
+"required": false,
+"type": {
+"name": "number | { dateFrom?: number | undefined; dateTo?: number | undefined; } | undefined"
+}
+},
+"mode": {
+"defaultValue": {
+"value": "single"
+},
+"description": "Режим выбора дат",
+"name": "mode",
+"required": false,
+"type": {
+"name": "\"single\" | \"range\" | undefined"
+}
+},
+"rangeBehavior": {
+"defaultValue": {
+"value": "clarification"
+},
+"description": "Тип выбора границ в календаре",
+"name": "rangeBehavior",
+"required": false,
+"type": {
+"name": "\"clarification\" | \"reset\" | undefined"
+}
+},
+"month": {
+"defaultValue": null,
+"description": "Открытый месяц (timestamp)",
+"name": "month",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"defaultMonth": {
+"defaultValue": null,
+"description": "Месяц, открытый по умолчанию (timestamp)",
+"name": "defaultMonth",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"minDate": {
+"defaultValue": null,
+"description": "Минимальная дата, доступная для выбора (timestamp)",
+"name": "minDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"maxDate": {
+"defaultValue": null,
+"description": "Максимальная дата, доступная для выбора (timestamp)",
+"name": "maxDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"selectedFrom": {
+"defaultValue": null,
+"description": "Начало выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'",
+"name": "selectedFrom",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"selectedTo": {
+"defaultValue": null,
+"description": "Конец выделенного периода (timestamp)\n@deprecated используйте value вместе с mode='range'",
+"name": "selectedTo",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"rangeComplete": {
+"defaultValue": null,
+"description": "Индикатор, что выбран полный период",
+"name": "rangeComplete",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"events": {
+"defaultValue": null,
+"description": "Список событий",
+"name": "events",
+"required": false,
+"type": {
+"name": "(number | Date)[] | undefined"
+}
+},
+"offDays": {
+"defaultValue": null,
+"description": "Список отключенных для выбора дней.",
+"name": "offDays",
+"required": false,
+"type": {
+"name": "(number | Date)[] | undefined"
+}
+},
+"holidays": {
+"defaultValue": null,
+"description": "Список выходных",
+"name": "holidays",
+"required": false,
+"type": {
+"name": "(number | Date)[] | undefined"
+}
+},
+"onMonthChange": {
+"defaultValue": null,
+"description": "Обработчик изменения месяца (или года)",
+"name": "onMonthChange",
+"required": false,
+"type": {
+"name": "((month: number) => void) | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик выбора даты",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((date?: number | undefined, dateTo?: number | undefined) => void) | undefined"
+}
+},
+"onMonthClick": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку месяца",
+"name": "onMonthClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"onYearClick": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку года",
+"name": "onYearClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"onPeriodClick": {
+"defaultValue": null,
+"description": "Обработчик нажатия на период",
+"name": "onPeriodClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLAnchorElement, MouseEvent>) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hasHeader": {
+"defaultValue": null,
+"description": "Нужно ли рендерить шапку календаря\nНужно ли рендерить шапку",
+"name": "hasHeader",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"responsive": {
+"defaultValue": null,
+"description": "Должен ли календарь подстраиваться под ширину родителя.",
+"name": "responsive",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dayAddons": {
+"defaultValue": null,
+"description": "Дополнительный контент под числом",
+"name": "dayAddons",
+"required": false,
+"type": {
+"name": "DayAddons[] | undefined"
+}
+},
+"shape": {
+"defaultValue": null,
+"description": "Форма ячейки дня",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"showCurrentYearSelector": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отображать ли текущий год, если selectorView 'month-only'",
+"name": "showCurrentYearSelector",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hideDisabledArrows": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Скрывает заблокированные кнопки в периоде, если selectorView 'month-only'",
+"name": "hideDisabledArrows",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"mobile": {
+"defaultValue": null,
+"description": "CalendarDesktop используется в мобильной и десктопной версии\nПропс позволяет определить платформу",
+"name": "mobile",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"title": {
+"defaultValue": null,
+"description": "Заголовок календаря",
+"name": "title",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью модалки",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия модалки",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"allowSelectionFromEmptyRange": {
+"defaultValue": null,
+"description": "Разрешить выбор из недозаполненного диапазона дат.",
+"name": "allowSelectionFromEmptyRange",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onApply": {
+"defaultValue": null,
+"description": "Обработчик клика на кнопку выбрать",
+"name": "onApply",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"clickableMonth": {
+"defaultValue": null,
+"description": "При клике на месяц будут выбраны все доступные дни месяца",
+"name": "clickableMonth",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"cancelButtonContent": {
+"defaultValue": {
+"value": "Отмена"
+},
+"description": "Контент кнопки \"Отмена\"",
+"name": "cancelButtonContent",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"selectButtonContent": {
+"defaultValue": {
+"value": "Выбрать"
+},
+"description": "Контент кнопки \"Выбрать\"",
+"name": "selectButtonContent",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"resetButtonContent": {
+"defaultValue": {
+"value": "Сбросить"
+},
+"description": "Контент кнопки \"Сбросить\"",
+"name": "resetButtonContent",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onMonthTitleClick": {
+"defaultValue": null,
+"description": "Обработчик клика на название месяца в мобильном календаре",
+"name": "onMonthTitleClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLSpanElement, MouseEvent>) => void) | undefined"
+}
+},
+"yearsAmount": {
+"defaultValue": null,
+"description": "Количество лет для генерации в обе стороны от текущего года",
+"name": "yearsAmount",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"scrollableContainer": {
+"defaultValue": null,
+"description": "Родительский контейнер для отслеживания скролла",
+"name": "scrollableContainer",
+"required": false,
+"type": {
+"name": "HTMLElement | undefined"
+}
+},
+"hasBackButton": {
+"defaultValue": null,
+"description": "Наличие кнопки \"Назад\"",
+"name": "hasBackButton",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onBack": {
+"defaultValue": null,
+"description": "обработчик клика по кнопке \"назад\"",
+"name": "onBack",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"mobile\" | \"desktop\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Выбор даты",
+"description": "В зависимости от контекста рекомендуется использовать одну из двух конфигураций шапки календаря.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState();\n\nconst [firstRadioValue, setFirstRadioValue] = React.useState('single');\n\nReact.useEffect(() => {\nsetValue();\n}, [firstRadioValue]);\n\nconst format = React.useCallback((timestamp) => {\nif (!timestamp) return '';\n\nreturn new Intl.DateTimeFormat('ru-RU', {\nyear: 'numeric',\nmonth: '2-digit',\nday: '2-digit',\n}).format(new Date(timestamp));\n}, []);\n\nconst selectedDate = React.useMemo(() => {\nreturn format(value);\n}, [value]);\n\nconst onFirstRadioChange = React.useCallback((_, payload) => {\nsetFirstRadioValue(payload.value);\n}, []);\n\nconst calendarStyles = {\nborder: '1px solid rgba(233, 233, 235, 1)',\nborderRadius: 'var(--calendar-popover-border-radius, var(--border-radius-16))',\nboxShadow: 'var(--shadow-m)',\n};\n\nreturn (\n<div style={{ width: 344 }}>\n<div style={calendarStyles}>\n<CalendarDesktop\nvalue={value}\nresponsive={true}\nonChange={setValue}\nselectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}\nshowCurrentYearSelector={true}\n/>\n</div>\n<p style={{ marginTop: 32, marginBottom: 32 }}>\nВыбранная дата: {value && selectedDate}\n</p>\n<div>\n<RadioGroup\nlabel='Контрол для выбора месяца и года'\ndirection='vertical'\nname='radioGroup'\nonChange={onFirstRadioChange}\nvalue={firstRadioValue}\n>\n<Radio size={24} label='Слайдер месяцев' value='single' />\n<Radio size={24} label='Пикеры месяца и года' value='multiple' />\n</RadioGroup>\n</div>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [open, setOpen] = React.useState(false);\nconst [value, setValue] = React.useState();\n\nconst [firstRadioValue, setFirstRadioValue] = React.useState('single');\n\nReact.useEffect(() => {\nsetValue();\n}, [firstRadioValue]);\n\nconst format = React.useCallback((timestamp) => {\nif (!timestamp) return '';\n\nreturn new Intl.DateTimeFormat('ru-RU', {\nyear: 'numeric',\nmonth: '2-digit',\nday: '2-digit',\n}).format(new Date(timestamp));\n}, []);\n\nconst selectedDate = React.useMemo(() => {\nreturn format(value);\n}, [value]);\n\nconst onFirstRadioChange = React.useCallback((_, payload) => {\nsetFirstRadioValue(payload.value);\n}, []);\n\nreturn (\n<Container>\n<Button block={true} onClick={() => setOpen(true)}>\nОткрыть календарь\n</Button>\n<CalendarMobile\nvalue={value}\nonChange={setValue}\nselectorView={firstRadioValue === 'single' ? 'month-only' : 'full'}\nyearsAmount={firstRadioValue === 'single' ? 0 : 20}\nonClose={() => setOpen(false)}\nopen={open}\n/>\n<div style={{ marginTop: '32px' }}>\n<RadioGroup\nlabel='Контрол для выбора месяца и года'\ndirection='vertical'\nname='radioGroup'\nonChange={onFirstRadioChange}\nvalue={firstRadioValue}\n>\n<Radio size={24} label='Слайдер месяцев' value='single' />\n<Radio size={24} label='Пикеры месяца и года' value='multiple' />\n</RadioGroup>\n</div>\n</Container>\n);\n});"
+},
+{
+"title": "Указание диапазона",
+"description": "Для указания диапазона есть несколько режимов работы пикера.",
+"desktop": "render(() => {\nconst [rangeBehavior, setRangeBehavior] = React.useState('clarification');\nconst [value, setValue] = React.useState();\n\nconst format = React.useCallback((timestamp) => {\nif (!timestamp) return '';\n\nreturn new Intl.DateTimeFormat('ru-RU', {\nyear: 'numeric',\nmonth: '2-digit',\nday: '2-digit',\n}).format(new Date(timestamp));\n}, []);\n\nReact.useEffect(() => {\nsetValue([]);\n}, [rangeBehavior]);\n\nconst selectedRange = React.useMemo(() => {\nreturn `${format(value ? value.dateFrom : undefined)} - ${format(\nvalue ? value.dateTo : undefined,\n)}`;\n}, [value]);\n\nconst calendarStyles = {\nborder: '1px solid rgba(233, 233, 235, 1)',\nborderRadius: 'var(--calendar-popover-border-radius, var(--border-radius-16))',\nboxShadow: 'var(--shadow-m)',\n};\n\nreturn (\n<div style={{ width: 344 }}>\n<div style={calendarStyles}>\n<CalendarDesktop\nmode='range'\nrangeBehavior={rangeBehavior}\nvalue={value}\nonChange={(dateFrom, dateTo) => setValue({ dateFrom, dateTo })}\nselectorView='month-only'\nshowCurrentYearSelector={true}\nresponsive={true}\n/>\n</div>\n<p style={{ marginTop: 32, marginBottom: 32 }}>Values: {selectedRange}</p>\n<div>\n<RadioGroup\nlabel='Тип выбора границ'\ndirection='vertical'\nname='rangeBehavior'\nonChange={(_, payload) => setRangeBehavior(payload.value)}\nvalue={rangeBehavior}\n>\n<Radio size={24} label='Уточнение' value='clarification' />\n<Radio size={24} label='Сброс' value='reset' />\n</RadioGroup>\n</div>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [open, setOpen] = React.useState(false);\n\nconst [rangeBehavior, setRangeBehavior] = React.useState('clarification');\nconst [selectionMode, setSelectionMode] = React.useState('range');\nconst [value, setValue] = React.useState();\n\nconst format = React.useCallback((timestamp) => {\nif (!timestamp) return '';\n\nreturn new Intl.DateTimeFormat('ru-RU', {\nyear: 'numeric',\nmonth: '2-digit',\nday: '2-digit',\n}).format(new Date(timestamp));\n}, []);\n\nReact.useEffect(() => {\nsetValue([]);\n}, [rangeBehavior]);\n\nconst selectedRange = React.useMemo(() => {\nreturn `${format(value ? value.dateFrom : undefined)} - ${format(\nvalue ? value.dateTo : undefined,\n)}`;\n}, [value]);\n\nconst allowSelectionFromEmptyRange = selectionMode === 'singleAndRange';\n\nreturn (\n<Container>\n<Button onClick={() => setOpen(true)} block={true}>\nОткрыть календарь\n</Button>\n<CalendarMobile\nmode='range'\nrangeBehavior={rangeBehavior}\nvalue={value}\nonChange={(dateFrom, dateTo) => setValue({ dateFrom, dateTo })}\nonClose={() => setOpen(false)}\nopen={open}\nselectorView='month-only'\nallowSelectionFromEmptyRange={allowSelectionFromEmptyRange}\n/>\n<p style={{ marginTop: 32, marginBottom: 0 }}>Values: {selectedRange}</p>\n<div style={{ marginTop: '32px' }}>\n<RadioGroup\nlabel='Режим'\ndirection='vertical'\nname='selectionMode'\nonChange={(_, payload) => setSelectionMode(payload.value)}\nvalue={selectionMode}\n>\n<Radio size={24} label='Принимает диапазон значений' value='range' />\n<Radio\nsize={24}\nlabel='Может принимать и диапазон и дату'\nvalue='singleAndRange'\n/>\n</RadioGroup>\n</div>\n<div style={{ marginTop: '32px' }}>\n<RadioGroup\nlabel='Тип выбора границ'\ndirection='vertical'\nname='rangeBehavior'\nonChange={(_, payload) => setRangeBehavior(payload.value)}\nvalue={rangeBehavior}\n>\n<Radio size={24} label='Уточнение' value='clarification' />\n<Radio size={24} label='Сброс' value='reset' />\n</RadioGroup>\n</div>\n</Container>\n);\n});"
+},
+{
+"title": "События и недоступные даты",
+"description": "В данном примере субботы и воскресенья помечены как выходные.\nВсе понедельники отмечены как недоступные для выбора даты. 4, 10 и 14 числа отмечены как события.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState();\nconst defaultDate = new Date('May 01, 2023 00:00:00');\nconst events = [defaultDate.setDate(4), defaultDate.setDate(10), defaultDate.setDate(14)];\n\nconst offDays = [\ndefaultDate.setDate(1),\ndefaultDate.setDate(8),\ndefaultDate.setDate(15),\ndefaultDate.setDate(22),\ndefaultDate.setDate(29),\n];\n\nconst holidays = [\ndefaultDate.setDate(6),\ndefaultDate.setDate(7),\ndefaultDate.setDate(13),\ndefaultDate.setDate(14),\ndefaultDate.setDate(20),\ndefaultDate.setDate(21),\ndefaultDate.setDate(27),\ndefaultDate.setDate(28),\n];\n\nconst calendarStyles = {\nborder: '1px solid rgba(233, 233, 235, 1)',\nborderRadius: 'var(--calendar-popover-border-radius, var(--border-radius-16))',\nboxSizing: 'border-box',\nboxShadow: 'var(--shadow-m)',\n};\n\nreturn (\n<div style={{ width: '344px', ...calendarStyles }}>\n<CalendarDesktop\ndefaultMonth={defaultDate.getTime()}\nvalue={value}\nonChange={setValue}\nresponsive={true}\nselectorView='month-only'\nevents={events}\noffDays={offDays}\nholidays={holidays}\nshowCurrentYearSelector={true}\n/>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [value, setValue] = React.useState();\nconst [open, setOpen] = React.useState(false);\nconst defaultDate = new Date('May 01, 2023 00:00:00');\nconst events = [defaultDate.setDate(4), defaultDate.setDate(10), defaultDate.setDate(14)];\n\nconst offDays = [\ndefaultDate.setDate(1),\ndefaultDate.setDate(8),\ndefaultDate.setDate(15),\ndefaultDate.setDate(22),\ndefaultDate.setDate(29),\n];\n\nconst holidays = [\ndefaultDate.setDate(6),\ndefaultDate.setDate(7),\ndefaultDate.setDate(13),\ndefaultDate.setDate(14),\ndefaultDate.setDate(20),\ndefaultDate.setDate(21),\ndefaultDate.setDate(27),\ndefaultDate.setDate(28),\n];\n\nreturn (\n<Container>\n<Button onClick={() => setOpen(true)} block={true}>\nОткрыть календарь\n</Button>\n<CalendarMobile\nvalue={value}\nonChange={setValue}\nonClose={() => setOpen(false)}\nopen={open}\nselectorView='month-only'\nevents={events}\noffDays={offDays}\nholidays={holidays}\n/>\n</Container>\n);\n});"
+},
+{
+"title": "Форма",
+"description": "Для ячейки дня доступны две формы: круглая и прямоугольная.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState();\n\nconst [firstRadioValue, setFirstRadioValue] = React.useState('rounded');\n\nReact.useEffect(() => {\nsetValue();\n}, [firstRadioValue]);\n\nconst onFirstRadioChange = React.useCallback((_, payload) => {\nsetFirstRadioValue(payload.value);\n}, []);\n\nconst calendarStyles = {\nborder: '1px solid rgba(233, 233, 235, 1)',\nborderRadius: 'var(--calendar-popover-border-radius, var(--border-radius-16))',\nboxSizing: 'border-box',\nboxShadow: 'var(--shadow-m)',\n};\n\nreturn (\n<>\n<div style={{ width: '344px', ...calendarStyles }}>\n<CalendarDesktop\nresponsive={true}\nselectorView='month-only'\nvalue={value}\nonChange={setValue}\nshape={firstRadioValue}\nshowCurrentYearSelector={true}\n/>\n</div>\n<Gap size={32} />\n<RadioGroup\nlabel='Форма'\ndirection='vertical'\nname='radioGroup'\nonChange={onFirstRadioChange}\nvalue={firstRadioValue}\n>\n<Radio size={24} label='Круглая' value='rounded' />\n<Radio size={24} label='Прямоугольная' value='rectangular' />\n</RadioGroup>\n</>\n);\n});",
+"mobile": "render(() => {\nconst [value, setValue] = React.useState();\nconst [open, setOpen] = React.useState(false);\n\nconst [firstRadioValue, setFirstRadioValue] = React.useState('rounded');\n\nReact.useEffect(() => {\nsetValue();\n}, [firstRadioValue]);\n\nconst onFirstRadioChange = React.useCallback((_, payload) => {\nsetFirstRadioValue(payload.value);\n}, []);\n\nreturn (\n<Container>\n<Button onClick={() => setOpen(true)} block={true}>\nОткрыть календарь\n</Button>\n<CalendarMobile\nonClose={() => setOpen(false)}\nopen={open}\nselectorView='month-only'\nvalue={value}\nonChange={setValue}\nshape={firstRadioValue}\n/>\n<Gap size={32} />\n<RadioGroup\nlabel='Форма'\ndirection='vertical'\nname='radioGroup'\nonChange={onFirstRadioChange}\nvalue={firstRadioValue}\n>\n<Radio size={24} label='Круглая' value='rounded' />\n<Radio size={24} label='Прямоугольная' value='rectangular' />\n</RadioGroup>\n</Container>\n);\n});"
+},
+{
+"title": "Слоты",
+"description": "В каждую дату можно передать дополнительный контент, расположив его под числом.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState();\n\nconst firstAddonStyles = {\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\nborderRadius: '2px',\nheight: '8px',\nwidth: '40px',\n};\n\nconst secondAddonStyles = {\n...firstAddonStyles,\nheight: '16px',\n};\n\nconst thirdAddonStyles = {\n...firstAddonStyles,\nheight: '10px',\n};\n\nconst dayAddons = [\n{ date: new Date().setDate(5), addon: <div style={firstAddonStyles} /> },\n{ date: new Date().setDate(6), addon: <div style={secondAddonStyles} /> },\n{ date: new Date().setDate(7), addon: <div style={thirdAddonStyles} /> },\n];\n\nconst calendarStyles = {\nborder: '1px solid rgba(233, 233, 235, 1)',\nborderRadius: 'var(--calendar-popover-border-radius, var(--border-radius-16))',\nboxSizing: 'border-box',\nboxShadow: 'var(--shadow-m)',\n};\n\nreturn (\n<div style={{ width: '344px', ...calendarStyles }}>\n<CalendarDesktop\nresponsive={true}\nvalue={value}\nselectorView='month-only'\ndayAddons={dayAddons}\nonChange={setValue}\nshape='rectangular'\nshowCurrentYearSelector={true}\n/>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [value, setValue] = React.useState();\nconst [open, setOpen] = React.useState(false);\n\nconst firstAddonStyles = {\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\nborderRadius: '2px',\nheight: '8px',\nwidth: '40px',\n};\n\nconst secondAddonStyles = {\n...firstAddonStyles,\nheight: '16px',\n};\n\nconst thirdAddonStyles = {\n...firstAddonStyles,\nheight: '10px',\n};\n\nconst dayAddons = [\n{ date: new Date().setDate(5), addon: <div style={firstAddonStyles} /> },\n{ date: new Date().setDate(6), addon: <div style={secondAddonStyles} /> },\n{ date: new Date().setDate(7), addon: <div style={thirdAddonStyles} /> },\n];\n\nreturn (\n<Container>\n<Button onClick={() => setOpen(true)} block={true}>\nОткрыть календарь\n</Button>\n<CalendarMobile\nonClose={() => setOpen(false)}\nvalue={value}\nonChange={setValue}\nopen={open}\nselectorView='month-only'\ndayAddons={dayAddons}\nshape='rectangular'\n/>\n</Container>\n);\n});"
+},
+{
+"title": "Границы",
+"description": "Можно ограничить выбор дат, задав допустимый диапазон с помощью свойств `minDate` и `maxDate`.\nДопустимый диапазон в примере: 06.02.23 — 06.07.23.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState(() => new Date().setMonth(1));\nconst minDate = startOfDay(new Date());\nminDate.setDate(6);\nminDate.setMonth(1);\n\nconst maxDate = startOfDay(new Date());\nmaxDate.setDate(6);\nmaxDate.setMonth(6);\n\nconst calendarStyles = {\nborder: '1px solid rgba(233, 233, 235, 1)',\nborderRadius: 'var(--calendar-popover-border-radius, var(--border-radius-16))',\nboxSizing: 'border-box',\nboxShadow: 'var(--shadow-m)',\n};\n\nreturn (\n<div style={{ width: '344px', ...calendarStyles }}>\n<CalendarDesktop\nresponsive={true}\nvalue={value}\nonChange={setValue}\nselectorView='month-only'\nminDate={minDate.getTime()}\nmaxDate={maxDate.getTime()}\nshowCurrentYearSelector={true}\n/>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [value, setValue] = React.useState(() => new Date().setMonth(1));\nconst [open, setOpen] = React.useState(false);\nconst minDate = startOfDay(new Date());\nminDate.setDate(6);\nminDate.setMonth(1);\n\nconst maxDate = startOfDay(new Date());\nmaxDate.setDate(6);\nmaxDate.setMonth(6);\n\nreturn (\n<Container>\n<Button onClick={() => setOpen(true)} block={true}>\nОткрыть календарь\n</Button>\n<CalendarMobile\nvalue={value}\nonChange={setValue}\nonClose={() => setOpen(false)}\nopen={open}\nresponsive={true}\nselectorView='month-only'\nminDate={minDate.getTime()}\nmaxDate={maxDate.getTime()}\n/>\n</Container>\n);\n});"
+},
+{
+"title": "Скелетная загрузка",
+"description": "На время подгрузки можно использовать скелетон.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState(() => new Date().setMonth(1));\nconst [visible, setVisible] = React.useState(true);\n\nconst calendarStyles = {\nborder: '1px solid rgba(233, 233, 235, 1)',\nborderRadius: 'var(--calendar-popover-border-radius, var(--border-radius-16))',\nboxSizing: 'border-box',\nboxShadow: 'var(--shadow-m)',\n};\n\nreturn (\n<>\n<div style={{ width: '344px', ...calendarStyles }}>\n<CalendarWithSkeleton\nvalue={value}\nonChange={setValue}\ncalendarVisible={visible}\nselectorView='month-only'\nresponsive={true}\nshowCurrentYearSelector={true}\n/>\n</div>\n<div style={{ marginTop: '32px' }}></div>\n<Button size={40} onClick={() => setVisible(!visible)}>\nПоказать скелетон\n</Button>\n</>\n);\n});"
+},
+{
+"title": "Выбор месяцев",
+"description": "Для быстрого выбора месяцев можно использовать опцию `clickableMonth`.",
+"desktop": "render(() => {\nconst [open, setOpen] = React.useState(false);\nconst [value, setValue] = React.useState();\n\nconst [firstRadioValue, setFirstRadioValue] = React.useState('rounded');\n\nReact.useEffect(() => {\nsetValue();\n}, [firstRadioValue]);\n\nconst onFirstRadioChange = React.useCallback((_, payload) => {\nsetFirstRadioValue(payload.value);\n}, []);\n\nreturn (\n<Container>\n<Button block={true} onClick={() => setOpen(true)}>\nОткрыть календарь\n</Button>\n<CalendarMobile\nmode={'range'}\nselectorView={'month-only'}\nshape={firstRadioValue}\nclickableMonth={true}\nvalue={value}\nonChange={(dateFrom, dateTo) => setValue({ dateFrom, dateTo })}\nonClose={() => setOpen(false)}\nopen={open}\n/>\n<div style={{ marginTop: '32px' }}>\n<RadioGroup\nlabel='Форма'\ndirection='vertical'\nname='radioGroup'\nonChange={onFirstRadioChange}\nvalue={firstRadioValue}\n>\n<Radio size={24} label='Круглая' value='rounded' />\n<Radio size={24} label='Прямоугольная' value='rectangular' />\n</RadioGroup>\n</div>\n</Container>\n);\n});"
+},
+{
+"title": "PeriodSlider",
+"description": "Представляет из себя шапку календаря, которую можно использовать отдельно.\nС помощью компонента можно смещать выбранный период назад и вперед.",
+"desktop": "render(() => {\nconst [values, setValues] = React.useState({\nvalue: new Date(),\nvalueFrom: new Date(),\nvalueTo: new Date(),\n});\n\nconst handler = (event, newValues) => setValues(newValues);\n\nreturn (\n<div style={{ width: 500 }}>\n<p style={{ margin: 0 }}>Дата начала: {format(values.valueFrom, DATE_FORMAT)}</p>\n<p style={{ marginTop: 10, marginBottom: 20 }}>\nДата конца: {format(values.valueTo, DATE_FORMAT)}\n</p>\n\n<PeriodSlider\nvalue={values.value}\nperiodType='year'\nonPrevArrowClick={handler}\nonNextArrowClick={handler}\n/>\n\n<br />\n\n<PeriodSlider\nvalue={values.value}\nperiodType='quarter'\nonPrevArrowClick={handler}\nonNextArrowClick={handler}\n/>\n\n<br />\n\n<PeriodSlider\nvalue={values.value}\nperiodType='month'\nonPrevArrowClick={handler}\nonNextArrowClick={handler}\n/>\n\n<br />\n\n<PeriodSlider\nvalue={values.value}\nperiodType='month'\nonPrevArrowClick={handler}\nonNextArrowClick={handler}\nshowCurrentYearSelector={true}\n/>\n\n<br />\n\n<PeriodSlider\nvalue={values.value}\nperiodType='day'\nonPrevArrowClick={handler}\nonNextArrowClick={handler}\n/>\n\n<br />\n\n<PeriodSlider periodType='day' onPrevArrowClick={handler} onNextArrowClick={handler} />\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.12.2",
+"description": "#### [#2190](https://github.com/core-ds/core-components/pull/2190)\n\n- Исправлен `border-radius` кнопок выбора месяца и года"
+},
+{
+"version": "50.5.0",
+"description": "#### [#2041](https://github.com/core-ds/core-components/pull/2041)\n\n- В пикере месяцев (selectorView=\"full\") месяцы автоматически дизейблятся, если все дни месяца в offDays."
+},
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправлена ошибка `findDOMNode`"
+}
+]
+}

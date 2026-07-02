@@ -1,0 +1,148 @@
+{
+"packageName": "segmented-control",
+"displayName": "SegmentedControl",
+"description": "Используется для переключения или фильтрации контента.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный className",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик смены выбранного сегмента",
+"name": "onChange",
+"required": true,
+"type": {
+"name": "(id: IDType) => void"
+}
+},
+"selectedId": {
+"defaultValue": null,
+"description": "ID выбранного сегмента",
+"name": "selectedId",
+"required": true,
+"type": {
+"name": "IDType"
+}
+},
+"size": {
+"defaultValue": {
+"value": 32
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "32 | 40 | undefined"
+}
+},
+"shape": {
+"defaultValue": {
+"value": "rectangular"
+},
+"description": "Форма компонента",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": true,
+"type": {
+"name": "ReactElement<SegmentProps, string | JSXElementConstructor<any>>[]"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"style": {
+"defaultValue": null,
+"description": "Дополнительные инлайн стили для враппера",
+"name": "style",
+"required": false,
+"type": {
+"name": "CSSProperties | undefined"
+}
+},
+"disabled": {
+"defaultValue": {
+"value": false
+},
+"description": "Отключает пользовательский ввод",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"skeleton": {
+"defaultValue": null,
+"description": "Настройки скелетона",
+"name": "skeleton",
+"required": false,
+"type": {
+"name": "SkeletonProps | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Размеры и стили",
+"description": "Для контрола доступно два размера и два вида скруглений.",
+"desktop": "render(() => {\nconst [selectedId, setSelectedId] = React.useState({\n'1': 1,\n'2': 1,\n'3': 1,\n'4': 1,\n});\nconst handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });\nreturn (\n<div style={{ width: 360 }}>\n<Space fullWidth size={24}>\n<SegmentedControl size={40} onChange={(id) => handleChange('1', id)} selectedId={selectedId[\"1\"]}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl onChange={(id) => handleChange('2', id)} selectedId={selectedId[\"2\"]}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl size={40} shape='rounded' onChange={(id) => handleChange('3', id)} selectedId={selectedId[\"3\"]}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl shape='rounded' onChange={(id) => handleChange('4', id)} selectedId={selectedId[\"4\"]}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n</Space>\n</div>\n)\n})",
+"mobile": "render(() => {\nconst [selectedId, setSelectedId] = React.useState({\n'1': 1,\n'2': 1,\n'3': 1,\n'4': 1,\n});\nconst handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });\nreturn (\n<Space fullWidth size={24}>\n<SegmentedControl size={40} onChange={(id) => handleChange('1', id)} selectedId={selectedId[\"1\"]}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl onChange={(id) => handleChange('2', id)} selectedId={selectedId[\"2\"]}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl size={40} shape='rounded' onChange={(id) => handleChange('3', id)} selectedId={selectedId[\"3\"]}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl shape='rounded' onChange={(id) => handleChange('4', id)} selectedId={selectedId[\"4\"]}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n</Space>\n)\n})"
+},
+{
+"title": "Количество сегментов",
+"description": "Контрол может содержать от двух до пяти сегментов.",
+"desktop": "render(() => {\nconst [selectedId, setSelectedId] = React.useState({\n'1': 1,\n'2': 1,\n'3': 1,\n'4': 1,\n'5': 1,\n});\nconst handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });\nreturn (\n<div style={{ width: 360 }}>\n<Space fullWidth size={24}>\n<SegmentedControl selectedId={selectedId[\"1\"]} onChange={(id) => handleChange('1', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl selectedId={selectedId[\"2\"]} onChange={(id) => handleChange('2', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n<Segment id={3} title='Таб 3' />\n</SegmentedControl>\n<SegmentedControl selectedId={selectedId[\"3\"]} onChange={(id) => handleChange('3', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n<Segment id={3} title='Таб 3' />\n<Segment id={4} title='Таб 4' />\n</SegmentedControl>\n<SegmentedControl selectedId={selectedId[\"4\"]} onChange={(id) => handleChange('4', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n<Segment id={3} title='Таб 3' />\n<Segment id={4} title='Таб 4' />\n<Segment id={5} title='Таб 5' />\n</SegmentedControl>\n</Space>\n</div>\n)\n})",
+"mobile": "render(() => {\nconst [selectedId, setSelectedId] = React.useState({\n'1': 1,\n'2': 1,\n'3': 1,\n'4': 1,\n'5': 1,\n});\nconst handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });\nreturn (\n<Space fullWidth size={24}>\n<SegmentedControl selectedId={selectedId[\"1\"]} onChange={(id) => handleChange('1', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl selectedId={selectedId[\"2\"]} onChange={(id) => handleChange('2', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n<Segment id={3} title='Таб 3' />\n</SegmentedControl>\n<SegmentedControl selectedId={selectedId[\"3\"]} onChange={(id) => handleChange('3', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n<Segment id={3} title='Таб 3' />\n<Segment id={4} title='Таб 4' />\n</SegmentedControl>\n<SegmentedControl selectedId={selectedId[\"4\"]} onChange={(id) => handleChange('4', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n<Segment id={3} title='Таб 3' />\n<Segment id={4} title='Таб 4' />\n<Segment id={5} title='Таб 5' />\n</SegmentedControl>\n</Space>\n)\n})"
+},
+{
+"title": "Заголовки сегментов",
+"description": "Сегменты могут содержать как строковые значения, так и React компоненты",
+"desktop": "render(() => {\nconst [selectedId, setSelectedId] = React.useState({\n'1': 1,\n'2': 1,\n});\nconst handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });\nreturn (\n<div style={{ width: 360 }}>\n<Space fullWidth size={24}>\n<SegmentedControl selectedId={selectedId[\"1\"]} onChange={(id) => handleChange('1', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl selectedId={selectedId[\"2\"]} onChange={(id) => handleChange('2', id)}>\n<Segment id={1} title={<AScoresCircleMIcon />} />\n<Segment id={2} title={<AScoresCircleMIcon />} />\n</SegmentedControl>\n</Space>\n</div>\n)\n})",
+"mobile": "render(() => {\nconst [selectedId, setSelectedId] = React.useState({\n'1': 1,\n'2': 1,\n});\nconst handleChange = (pos, id) => setSelectedId({ ...selectedId, [pos]: id });\nreturn (\n<Space fullWidth size={24}>\n<SegmentedControl selectedId={selectedId[\"1\"]} onChange={(id) => handleChange('1', id)}>\n<Segment id={1} title='Таб 1' />\n<Segment id={2} title='Таб 2' />\n</SegmentedControl>\n<SegmentedControl selectedId={selectedId[\"2\"]} onChange={(id) => handleChange('2', id)}>\n<Segment id={1} title={<AScoresCircleMIcon />} />\n<Segment id={2} title={<AScoresCircleMIcon />} />\n</SegmentedControl>\n</Space>\n)\n})"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.1.0",
+"description": "#### [#2028](https://github.com/core-ds/core-components/pull/2028)\n\n- Добавлен view `skeleton` для компонента `SegmentedControl`."
+},
+{
+"version": "50.0.0",
+"description": "#### [#1693](https://github.com/core-ds/core-components/pull/1693)\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `xs, xxs` на `40, 32` соответственно)"
+}
+]
+}

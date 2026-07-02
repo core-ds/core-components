@@ -1,0 +1,407 @@
+{
+"packageName": "number-input",
+"displayName": "NumberInput",
+"description": "Поле для ввода чисел.",
+"props": {
+"size": {
+"defaultValue": {
+"value": "48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Значение поля ввода",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | number | null | undefined"
+}
+},
+"defaultValue": {
+"defaultValue": null,
+"description": "Значение по-умолчанию",
+"name": "defaultValue",
+"required": false,
+"type": {
+"name": "string | number | null | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик события изменения значения",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((e: ChangeEvent<HTMLInputElement> | null, payload: { value: number | null; }) => void) | undefined"
+}
+},
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик клика по полю",
+"name": "onClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onMouseDown": {
+"defaultValue": null,
+"description": "Обработчик MouseDown по полю",
+"name": "onMouseDown",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"max": {
+"defaultValue": {
+"value": "Number.MAX_SAFE_INTEGER"
+},
+"description": "Максимальное значение",
+"name": "max",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"min": {
+"defaultValue": {
+"value": "Number.MIN_SAFE_INTEGER"
+},
+"description": "Минимальное значение",
+"name": "min",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"step": {
+"defaultValue": null,
+"description": "Шаг инкремента/декремента. Используйте только целочисленные значения",
+"name": "step",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onMouseUp": {
+"defaultValue": null,
+"description": "Обработчик MouseUp по полю",
+"name": "onMouseUp",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"success": {
+"defaultValue": null,
+"description": "Отображение иконки успеха",
+"name": "success",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл компонента",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"wrapperRef": {
+"defaultValue": null,
+"description": "Ref для обертки input",
+"name": "wrapperRef",
+"required": false,
+"type": {
+"name": "Ref<HTMLDivElement> | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки левых аддонов",
+"name": "leftAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"rightAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки правых аддонов",
+"name": "rightAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"bottomAddons": {
+"defaultValue": null,
+"description": "Слот под инпутом",
+"name": "bottomAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"inputClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс инпута",
+"name": "inputClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для лейбла",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"addonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для аддонов",
+"name": "addonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"focusedClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен при фокусе",
+"name": "focusedClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"filledClassName": {
+"defaultValue": null,
+"description": "Класс, который будет установлен, если в поле есть значение",
+"name": "filledClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку очистки",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля кнопки инкремента используется модификатор -increment-button, декремента -decrement-button",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disableUserInput": {
+"defaultValue": null,
+"description": "Запрещает ввод с клавиатуры",
+"name": "disableUserInput",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"bold": {
+"defaultValue": null,
+"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
+"name": "bold",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"separator": {
+"defaultValue": null,
+"description": "Разделитель ',' или '.'",
+"name": "separator",
+"required": false,
+"type": {
+"name": "\".\" | \",\" | undefined"
+}
+},
+"fractionLength": {
+"defaultValue": null,
+"description": "Количество символов после разделителя\nЕсли указан проп step, то всегда 0",
+"name": "fractionLength",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Стандартный вид компонента",
+"description": "Компонент умеет принимать только целые и дробные числа с разным знаком.\nВид разделителя и количество знаков в дробной части можно настраивать.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState(null);\n\nconst [separator, setSeparator] = React.useState(',');\nconst [fractionLengthRadioValue, setFractionLengthRadioValue] = React.useState('notLimited');\n\nconst handleChange = (_, payload) => {\nsetValue(payload.value);\n};\n\nconst handleSeparatorChange = (_, payload) => {\nsetSeparator(payload.value);\nsetValue(null);\n};\n\nconst handleFractionLengthRadioChange = (_, payload) => {\nsetFractionLengthRadioValue(payload.value);\nsetValue(null);\n};\n\nreturn (\n<div style={{ width: isMobile() ? '100%' : 320 }}>\n<NumberInput\nvalue={value}\nblock={true}\nonChange={handleChange}\nplaceholder='Введите число'\nlabel='Число'\nlabelView={isMobile() ? 'outer' : 'inner'}\nseparator={separator}\nfractionLength={fractionLengthRadioValue === 'limited' ? 2 : undefined}\nsize={isMobile() ? 48 : 56}\nclear={true}\nonClear={() => setValue(null)}\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={24} />\n<RadioGroup\nlabel='Отделять дробную часть'\ndirection='vertical'\nname='radioGroupFirst'\nonChange={handleSeparatorChange}\nvalue={separator}\n>\n<Radio label='Запятой' value=',' />\n<Radio label='Точкой' value='.' />\n</RadioGroup>\n<Gap size={24} />\n<RadioGroup\nlabel='Длина дробной части'\ndirection='vertical'\nname='radioGroupSecond'\nonChange={handleFractionLengthRadioChange}\nvalue={fractionLengthRadioValue}\n>\n<Radio label='Не ограничена' value='notLimited' />\n<Radio label='2 знака' value='limited' />\n</RadioGroup>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.5.0",
+"description": "#### [#2053](https://github.com/core-ds/core-components/pull/2053)\n\n- Небольшие улучшения кодовой базы компонентов\n\n- Обновлены зависимости\n    - @alfalab/core-components-themes@15.0.2\n    - @alfalab/core-components-button@13.1.0\n    - @alfalab/core-components-checkbox@6.1.0\n    - @alfalab/core-components-input@17.1.2\n    - @alfalab/core-components-select-with-tags@10.1.0\n    - @alfalab/core-components-select@19.1.0\n    - @alfalab/core-components-custom-picker-button@4.1.0\n    - @alfalab/core-components-amount-input@9.1.2\n    - @alfalab/core-components-input-autocomplete@14.0.7\n    - @alfalab/core-components-number-input@4.0.4\n    - @alfalab/core-components-form-control@14.0.3\n    - @alfalab/core-components-calendar@9.1.0\n    - @alfalab/core-components-attach@8.0.3\n    - @alfalab/core-components-calendar-with-skeleton@7.0.4\n    - @alfalab/core-components-confirmation@15.0.3\n    - @alfalab/core-components-confirmation-v1@3.0.3\n    - @alfalab/core-components-custom-button@5.0.3\n    - @alfalab/core-components-gallery@7.0.6\n    - @alfalab/core-components-icon-button@8.0.3\n    - @alfalab/core-components-navigation-bar@3.0.3\n    - @alfalab/core-components-navigation-bar-private@2.0.4\n    - @alfalab/core-components-pass-code@4.0.3\n    - @alfalab/core-components-pass-code-v1@3.0.3\n    - @alfalab/core-components-pattern-lock@4.0.3\n    - @alfalab/core-components-pattern-lock-v1@3.0.3\n    - @alfalab/core-components-picker-button@13.0.7\n    - @alfalab/core-components-plate@9.0.3\n    - @alfalab/core-components-product-cover@3.1.2\n    - @alfalab/core-components-pure-cell@6.0.3\n    - @alfalab/core-components-table@4.0.7\n    - @alfalab/core-components-tooltip@9.0.6\n    - @alfalab/core-components-date-input@6.0.4\n    - @alfalab/core-components-date-range-input@5.0.5\n    - @alfalab/core-components-date-time-input@6.0.5\n    - @alfalab/core-components-international-phone-input@4.0.7\n    - @alfalab/core-components-masked-input@8.0.4\n    - @alfalab/core-components-password-input@7.0.4\n    - @alfalab/core-components-slider-input@11.0.4\n    - @alfalab/core-components-time-input@4.0.4\n    - @alfalab/core-components-universal-date-input@4.0.5\n    - @alfalab/core-components-with-suffix@6.0.4\n    - @alfalab/core-components-intl-phone-input@11.0.7\n    - @alfalab/core-components-textarea@10.0.3\n    - @alfalab/core-components-calendar-input@12.0.5\n    - @alfalab/core-components-calendar-range@9.0.5\n    - @alfalab/core-components-file-upload-item@8.0.3\n    - @alfalab/core-components-file-upload-item-v1@3.0.3\n    - @alfalab/core-components-tabs@10.0.7\n    - @alfalab/core-components-toast-plate@9.0.3\n    - @alfalab/core-components-bottom-sheet@8.1.1\n    - @alfalab/core-components-modal@11.0.4\n    - @alfalab/core-components-popup-sheet@3.0.4\n    - @alfalab/core-components-side-panel@7.0.4\n    - @alfalab/core-components-universal-modal@3.0.5\n    - @alfalab/core-components-alert@6.0.3\n    - @alfalab/core-components-bank-card@7.0.4\n    - @alfalab/core-components-phone-input@9.0.4\n    - @alfalab/core-components-notification@9.0.3\n    - @alfalab/core-components-toast@8.0.3\n    - @alfalab/core-components-notification-manager@7.0.3"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1975](https://github.com/core-ds/core-components/pull/1975)\n\n- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка\n\n#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправление типизации пропса `Input`"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1935](https://github.com/core-ds/core-components/pull/1935)\n\n- Изменено скругление степпера\n\n- Обновлены зависимости\n    - @alfalab/core-components-code-input@4.1.1\n    - @alfalab/core-components-select@18.2.8\n    - @alfalab/core-components-themes@14.2.0\n    - @alfalab/core-components-universal-date-input@3.1.0\n    - @alfalab/core-components-file-upload-item@7.3.0\n    - @alfalab/core-components-input@16.0.4\n    - @alfalab/core-components-input-autocomplete@13.1.0\n    - @alfalab/core-components-select-with-tags@9.0.11\n    - @alfalab/core-components-filter-tag@6.0.3\n    - @alfalab/core-components-tag@9.0.4\n    - @alfalab/core-components-attach@7.1.0\n    - @alfalab/core-components-button@12.1.0\n    - @alfalab/core-components-custom-button@4.1.0\n    - @alfalab/core-components-custom-picker-button@3.1.0\n    - @alfalab/core-components-picker-button@12.1.0\n    - @alfalab/core-components-side-panel@6.1.0\n    - @alfalab/core-components-plate@8.2.0\n    - @alfalab/core-components-number-input@3.0.5\n    - @alfalab/core-components-confirmation@14.3.1\n    - @alfalab/core-components-international-phone-input@3.2.8\n    - @alfalab/core-components-intl-phone-input@10.0.11\n    - @alfalab/core-components-table@3.0.11\n    - @alfalab/core-components-amount-input@8.1.5\n    - @alfalab/core-components-date-input@5.0.4\n    - @alfalab/core-components-date-range-input@4.0.10\n    - @alfalab/core-components-date-time-input@5.0.10\n    - @alfalab/core-components-masked-input@7.0.4\n    - @alfalab/core-components-password-input@6.0.5\n    - @alfalab/core-components-slider-input@10.1.2\n    - @alfalab/core-components-time-input@3.0.4\n    - @alfalab/core-components-with-suffix@5.0.4\n    - @alfalab/core-components-pagination@3.0.4\n    - @alfalab/core-components-tabs@9.2.8\n    - @alfalab/core-components-calendar@8.0.9\n    - @alfalab/core-components-confirmation-v1@2.0.4\n    - @alfalab/core-components-gallery@6.0.12\n    - @alfalab/core-components-icon-button@7.0.4\n    - @alfalab/core-components-navigation-bar@2.0.4\n    - @alfalab/core-components-navigation-bar-private@1.1.5\n    - @alfalab/core-components-pass-code@3.0.3\n    - @alfalab/core-components-pass-code-v1@2.0.3\n    - @alfalab/core-components-pattern-lock@3.0.3\n    - @alfalab/core-components-pattern-lock-v1@2.0.3\n    - @alfalab/core-components-product-cover@2.0.4\n    - @alfalab/core-components-pure-cell@5.0.4\n    - @alfalab/core-components-tooltip@8.0.11\n    - @alfalab/core-components-universal-modal@2.0.11\n    - @alfalab/core-components-alert@5.0.5\n    - @alfalab/core-components-calendar-input@11.0.10\n    - @alfalab/core-components-calendar-range@8.0.10\n    - @alfalab/core-components-bank-card@6.0.4\n    - @alfalab/core-components-phone-input@8.0.4\n    - @alfalab/core-components-calendar-with-skeleton@6.0.9\n    - @alfalab/core-components-file-upload-item-v1@2.0.5\n    - @alfalab/core-components-toast-plate@8.0.4\n    - @alfalab/core-components-bottom-sheet@7.4.2\n    - @alfalab/core-components-modal@10.0.9\n    - @alfalab/core-components-popup-sheet@2.0.11\n    - @alfalab/core-components-notification@8.0.4\n    - @alfalab/core-components-toast@7.0.4\n    - @alfalab/core-components-notification-manager@6.0.4"
+}
+]
+}

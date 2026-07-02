@@ -1,0 +1,210 @@
+{
+"packageName": "toast-plate",
+"displayName": "ToastPlate",
+"description": "",
+"props": {
+"titleClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для заголовка",
+"name": "titleClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контентной области",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"actionSectionClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для области с кнопкой действия",
+"name": "actionSectionClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"boldTitle": {
+"defaultValue": null,
+"description": "Жирный заголовок",
+"name": "boldTitle",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"badge": {
+"defaultValue": null,
+"description": "Вид бэйджа",
+"name": "badge",
+"required": false,
+"type": {
+"name": "StatusBadgeViews | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева, заменяет стандартную иконку",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"actionButton": {
+"defaultValue": null,
+"description": "Кнопка действия",
+"name": "actionButton",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hasCloser": {
+"defaultValue": null,
+"description": "Управляет отображением кнопки закрытия уведомления\n@deprecated Используйте пропс `closerProps`",
+"name": "hasCloser",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"closerWrapperClassName": {
+"defaultValue": null,
+"description": "Доп. класс враппера кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
+"name": "closerWrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"closerClassName": {
+"defaultValue": null,
+"description": "Доп. класс кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
+"name": "closerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"closerProps": {
+"defaultValue": {
+"value": "{{ hasCloser: false, closerWrapperClassName: undefined, closerClassName: undefined, divider: true, view: 'primary' }}"
+},
+"description": "Параметры кнопки закрытия\n@property {boolean} [hasCloser] - Управляет отображением кнопки закрытия уведомления\n@property {string} [closerWrapperClassName] - Дополнительный класс враппера кнопки \"закрыть\"\n@property {string} [closerClassName] - Дополнительный класс кнопки \"закрыть\"\n@property {boolean} [divider] - Показывать разделитель\n@property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия",
+"name": "closerProps",
+"required": false,
+"type": {
+"name": "{Object}"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик клика по крестику",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event?: MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => void) | undefined"
+}
+},
+"getBadgeIcons": {
+"defaultValue": null,
+"description": "Функция, с помощью которой можно переопределить иконки в StatusBadge",
+"name": "getBadgeIcons",
+"required": false,
+"type": {
+"name": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>> | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"bottomButtonPosition": {
+"defaultValue": null,
+"description": "Положение кнопки под заголовком компонента",
+"name": "bottomButtonPosition",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Кастомные иконки",
+"description": "Компонент может принимать кастомные иконки",
+"desktop": "render(() => {\nconst isMobile = document.body.clientWidth < 450;\n\nconst customIcons = {\n'positive-checkmark': {\n24: AScoresCircleMIcon,\n},\n};\n\nreturn (\n<ToastPlate\nbadge='positive-checkmark'\ntitle='Поздравляем, полный успех'\nhasCloser={true}\nblock={true}\nbottomButtonPosition={isMobile}\nonClose={Function.prototype}\nactionButton={\n<Button colors='inverted' view='text' size={isMobile ? 40 : 48}>\nВосстановить\n</Button>\n}\ngetBadgeIcons={customIcons}\n/>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.10.0",
+"description": "#### [#2156](https://github.com/core-ds/core-components/pull/2156)\n\n- Добавлен пропс `closerProps`, с помощью которого можно управлять параметрами кнопки \"закрыть\" (как новыми так и старыми)\n\nЗначения по умолчанию\n\n```\ncloserProps = {\n    hasCloser: false,\n    closerWrapperClassName: undefined,\n    closerClassName: undefined,\n    divider: true,\n    view: 'primary'\n}\n```\n\nПропсы `hasCloser`, `closerWrapperClassName`, `closerClassName` - отмечены как `deprecated` и будут удалены в будущих версиях. Используйте их в составе `closerProps`"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1643](https://github.com/core-ds/core-components/pull/1643)\n\n- Удалены параметры `negative | positive | attention` для пропса badge, которые были помечены как `deprecated` в `core-components@45.x.x`\n- Исправление экспорта модификатора dataTestId\n\n#### [#2009](https://github.com/core-ds/core-components/pull/2009)\n\n- Добавлен проп `boldTitle` для управления жирностью заголовка"
+}
+]
+}

@@ -1,0 +1,109 @@
+{
+"packageName": "tab-bar",
+"displayName": "TabBar",
+"description": "Используется для навигации между разделами.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля таба используется модификатор -tab",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"tabClassNames": {
+"defaultValue": null,
+"description": "Дополнительные классы для таба.",
+"name": "tabClassNames",
+"required": false,
+"type": {
+"name": "{ className?: string | undefined; selectedClassName?: string | undefined; labelClassName?: string | undefined; iconClassName?: string | undefined; } | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Список табов",
+"name": "children",
+"required": true,
+"type": {
+"name": "TabElementType[]"
+}
+},
+"selectedId": {
+"defaultValue": null,
+"description": "Идентификатор выбранного таба",
+"name": "selectedId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"border": {
+"defaultValue": null,
+"description": "Включает верхний бордер",
+"name": "border",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик изменения выбранного таба",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((id: string) => void) | undefined"
+}
+},
+"accentColor": {
+"defaultValue": {
+"value": "primary"
+},
+"description": "Цвет активного таба",
+"name": "accentColor",
+"required": false,
+"type": {
+"name": "\"primary\" | \"secondary\" | undefined"
+}
+},
+"bgColor": {
+"defaultValue": {
+"value": "modal-bg-primary"
+},
+"description": "Цвет фона",
+"name": "bgColor",
+"required": false,
+"type": {
+"name": "\"modal-bg-primary\" | \"modal-bg-alt-primary\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Компонент может отобразить от двух до пяти табов.",
+"desktop": "render(() => {\nconst [border, setBorder] = React.useState(false);\nconst [selectedId, setSelectedId] = React.useState('1');\n\nreturn (\n<div\nstyle={{\nminHeight: 105,\ndisplay: 'flex',\nflexDirection: 'column',\njustifyContent: 'space-between',\n}}\n>\n<Switch label='Бордер' checked={border} onChange={() => setBorder((p) => !p)} />\n\n<div style={{ margin: '0 -20px -20px' }}>\n<TabBar selectedId={selectedId} onChange={setSelectedId} border={border}>\n<TabBar.Tab id='1' label='TabName1' icon={<DiamondsMIcon />} />\n<TabBar.Tab id='2' label='TabName2' icon={<DiamondsMIcon />} />\n</TabBar>\n</div>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.9.0",
+"description": "#### [#2151](https://github.com/core-ds/core-components/pull/2151)\n\n- Изменена высота компонента\n- Верхний и нижний отступы изменены в соответствии с дизайном"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправление типизации компонента"
+}
+]
+}

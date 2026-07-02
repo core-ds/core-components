@@ -1,0 +1,96 @@
+{
+"packageName": "list",
+"displayName": "List",
+"description": "",
+"props": {
+"tag": {
+"defaultValue": {
+"value": "ul"
+},
+"description": "HTML тег",
+"name": "tag",
+"required": false,
+"type": {
+"name": "\"ul\" | \"ol\" | undefined"
+}
+},
+"marker": {
+"defaultValue": {
+"value": "'–' for ul and 'decimal' for ol"
+},
+"description": "Маркер",
+"name": "marker",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Css-класс для стилизации",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colorMarker": {
+"defaultValue": null,
+"description": "Цвет маркера",
+"name": "colorMarker",
+"required": false,
+"type": {
+"name": "ColorMarkerType | undefined"
+}
+},
+"reversed": {
+"defaultValue": null,
+"description": "Список обратного счета",
+"name": "reversed",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"start": {
+"defaultValue": null,
+"description": "Начало отсчета элементов списка",
+"name": "start",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Id компонента для тестов",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+}
+},
+"demos": [
+{
+"title": "Анатомия",
+"description": "Компонент состоит из кастомизируемого слота под маркер и текстовой части.",
+"desktop": "render(() => {\nconst styleContent = {\nwidth: '24px',\nheight: '24px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nreturn (\n<Container>\n<Row align='middle'>\n<div style={styleContent}></div>\n<Typography.Text view='primary-medium'>Пример текстовой части</Typography.Text>\n</Row>\n</Container>\n);\n});"
+},
+{
+"title": "Примеры",
+"description": "Доступны нумерованные и маркированные виды списков.\nПри необходимости, цвет маркера можно изменить. Каждому пункту можно добавить подпись.",
+"desktop": "<Space>\n<Typography.Text view='primary-medium'>Пример маркированного списка:</Typography.Text>\n<List tag='ul' marker='–'>\n<List.Item>Пример элемента списка</List.Item>\n<List.Item>Пример элемента списка</List.Item>\n<List.Item>Пример элемента списка</List.Item>\n<List.Item>Пример элемента списка</List.Item>\n<List.Item>Пример элемента списка</List.Item>\n</List>\n<Typography.Text view='primary-medium'>Пример нумерованного списка:</Typography.Text>\n\n<List tag='ol' colorMarker='tertiary'>\n<List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n<List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n<List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n<List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n<List.Item caption='Пример подписи'>Пример элемента списка</List.Item>\n</List>\n</Space>"
+}
+],
+"changelog": []
+}

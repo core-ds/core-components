@@ -1,0 +1,275 @@
+{
+"packageName": "circular-progress-bar",
+"displayName": "CircularProgressBar",
+"description": "Используется для отображения прогресса.",
+"props": {
+"value": {
+"defaultValue": null,
+"description": "Уровень прогресса, %",
+"name": "value",
+"required": true,
+"type": {
+"name": "number | { timer: number; counting?: \"forward\" | \"backward\" | undefined; onFinish?: (() => void) | undefined; }"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"title": {
+"defaultValue": {
+"value": "isObject(valueFromProps) ? null : `${valueFromProps}`"
+},
+"description": "Основной текст",
+"name": "title",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"contentColor": {
+"defaultValue": {
+"value": "secondary"
+},
+"description": "Цвет контента",
+"name": "contentColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"titleColor": {
+"defaultValue": null,
+"description": "Цвет заголовка\nПриоритет выше чем у `contentColor`",
+"name": "titleColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"subtitleColor": {
+"defaultValue": null,
+"description": "Цвет подзаголовка\nПриоритет выше чем у `contentColor`",
+"name": "subtitleColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"subtitle": {
+"defaultValue": null,
+"description": "Дополнительный текст",
+"name": "subtitle",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"titleComplete": {
+"defaultValue": null,
+"description": "Основной текст при 100%",
+"name": "titleComplete",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"subtitleComplete": {
+"defaultValue": null,
+"description": "Дополнительный текст при 100%",
+"name": "subtitleComplete",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"view": {
+"defaultValue": {
+"value": "positive"
+},
+"description": "Цвет заполнения",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"positive\" | \"negative\" | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": 64
+},
+"description": "Размер (144 — 144×144px, 128 — 128×128px, 80 — 80×80px, 64 — 64×64px, 48 — 48×48px, 24 — 24×24px, 16 — 16×16px)",
+"name": "size",
+"required": false,
+"type": {
+"name": "ComponentSize | undefined"
+}
+},
+"stroke": {
+"defaultValue": {
+"value": true
+},
+"description": "Наличие желоба",
+"name": "stroke",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fillComplete": {
+"defaultValue": null,
+"description": "Заливка при 100%",
+"name": "fillComplete",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"completeTextColor": {
+"defaultValue": null,
+"description": "Цвет текста при 100%",
+"name": "completeTextColor",
+"required": false,
+"type": {
+"name": "\"primary\" | \"positive\" | \"negative\" | \"primary-inverted\" | undefined"
+}
+},
+"completeIconColor": {
+"defaultValue": {
+"value": "tertiary"
+},
+"description": "Цвет иконки при 100%",
+"name": "completeIconColor",
+"required": false,
+"type": {
+"name": "\"tertiary\" | \"positive\" | \"negative\" | \"primary-inverted\" | undefined"
+}
+},
+"icon": {
+"defaultValue": null,
+"description": "Компонент иконки",
+"name": "icon",
+"required": false,
+"type": {
+"name": "ElementType<{ className?: string | undefined; }> | undefined"
+}
+},
+"iconComplete": {
+"defaultValue": null,
+"description": "Компонент иконки при 100%",
+"name": "iconComplete",
+"required": false,
+"type": {
+"name": "ElementType<{ className?: string | undefined; }> | undefined"
+}
+},
+"direction": {
+"defaultValue": {
+"value": "clockwise"
+},
+"description": "Направление прогресса (clockwise - по часовой стрелке, counter-clockwise - против часовой стрелки)",
+"name": "direction",
+"required": false,
+"type": {
+"name": "\"clockwise\" | \"counter-clockwise\" | undefined"
+}
+},
+"height": {
+"defaultValue": null,
+"description": "Высота компонента, min = 16; max = 144\nиспользовать совместно с size:\n144 от 144\n128 от 128 до 143\n80 от 80 до 127\n64 от 64 до 79\n48 от 48 до 63\n24 от 24 до 47\n16 от 16 до 23",
+"name": "height",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Id компонента для тестов",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"progressStrokeColor": {
+"defaultValue": null,
+"description": "Цвет прогресса",
+"name": "progressStrokeColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"circleColor": {
+"defaultValue": null,
+"description": "Цвет заливки внутри круга",
+"name": "circleColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"strokeColor": {
+"defaultValue": null,
+"description": "Цвет желоба",
+"name": "strokeColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"directionType": {
+"defaultValue": {
+"value": "asc"
+},
+"description": "Направление заполнения круга",
+"name": "directionType",
+"required": false,
+"type": {
+"name": "\"desc\" | \"asc\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Доступны 144, 128, 96, 80, 64, 48, 24, 16 и произвольный размер компонента.",
+"desktop": "<Container align={isMobile() ? 'center' : 'left'}>\n<Space direction={isMobile() ? 'vertical' : 'horizontal'} align='center' size={24}>\n<CircularProgressBar value={25} size={144} contentColor='primary' />\n<CircularProgressBar value={25} size={128} contentColor='primary' />\n<CircularProgressBar value={25} size={96} contentColor='primary' />\n<CircularProgressBar value={25} size={80} contentColor='primary' />\n<CircularProgressBar value={25} size={64} contentColor='primary' />\n<CircularProgressBar value={25} size={48} contentColor='primary' />\n<CircularProgressBar value={25} size={24} contentColor='primary' />\n<CircularProgressBar value={25} size={16} contentColor='primary' />\n</Space>\n</Container>"
+},
+{
+"title": "Атрибуты",
+"description": "У компонента есть два состояния — в процессе заполнения и полностью заполненный.\nМожно задать направление заполнения, цвет прогрессбара, наличие желоба и контент для обоих состояний.",
+"desktop": "<Container align={isMobile() ? 'center' : 'left'}>\n<Space direction='horizontal'>\n<CircularProgressBar\nvalue={0}\ntitle='0%'\nsize={80}\nsubtitle='Caption'\ncontentColor='primary'\n/>\n<CircularProgressBar\nvalue={50}\ntitle='50%'\nsize={80}\nsubtitle='Caption'\ncontentColor='primary'\n/>\n<CircularProgressBar\nvalue={100}\nsize={80}\nicon={CheckmarkMIcon}\ncontentColor='tertiary'\ncompleteIconColor='positive'\n/>\n</Space>\n<Gap size={16} />\n<Space direction='horizontal'>\n<CircularProgressBar value={0} size={80} icon={CheckmarkMIcon} contentColor='tertiary' />\n<CircularProgressBar value={50} size={80} icon={CheckmarkMIcon} contentColor='tertiary' />\n<CircularProgressBar\nvalue={100}\nsize={80}\nicon={CheckmarkMIcon}\ncontentColor='tertiary'\ncompleteIconColor='primary-inverted'\nfillComplete={true}\n/>\n</Space>\n<Gap size={16} />\n<Space direction='horizontal'>\n<CircularProgressBar value={0} title='0%' size={80} contentColor='primary' />\n<CircularProgressBar\nvalue={50}\ntitle='50%'\nsize={80}\nview='negative'\ncontentColor='primary'\n/>\n<CircularProgressBar\nvalue={100}\nsize={80}\ntitleComplete='100%'\nview='negative'\ncompleteTextColor='negative'\n/>\n</Space>\n</Container>"
+},
+{
+"title": "Таймер",
+"description": "Компонент можно превратить в таймер, передав соответствующие параметры.",
+"desktop": "<Container align={isMobile() ? 'center' : 'left'}>\n<Space direction='horizontal'>\n<CircularProgressBar\nvalue={{ timer: 60 }}\nsize={80}\ndirectionType='desc'\ncontentColor='primary'\n/>\n<CircularProgressBar\nvalue={{ timer: 60, counting: 'forward' }}\nsize={80}\ndirectionType='asc'\ncontentColor='primary'\n/>\n</Space>\n<Gap size={16} />\n<Space direction='horizontal'>\n<CircularProgressBar\nvalue={{ timer: 60, counting: 'forward' }}\nsize={80}\ndirectionType='desc'\ncontentColor='primary'\n/>\n<CircularProgressBar\nvalue={{ timer: 60 }}\nsize={80}\ndirectionType='asc'\ncontentColor='primary'\n/>\n</Space>\n</Container>"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2243](https://github.com/core-ds/core-components/pull/2243)\n\n- Добавлен размер 16"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1648](https://github.com/core-ds/core-components/pull/1648)\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x`"
+}
+]
+}

@@ -1,0 +1,790 @@
+{
+"packageName": "bottom-sheet",
+"displayName": "BottomSheet",
+"description": "Используется для отображения контента в модальном слое.",
+"props": {
+"adjustContainerHeight": {
+"defaultValue": {
+"value": "(value: number) => value"
+},
+"description": "Метод, позволяющий донастраивать высоту контейнера для BottomSheet, например с учётом safe-area",
+"name": "adjustContainerHeight",
+"required": false,
+"type": {
+"name": "((height: number) => number) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"title": {
+"defaultValue": null,
+"description": "Заголовок",
+"name": "title",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"titleSize": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Размер заголовка",
+"name": "titleSize",
+"required": false,
+"type": {
+"name": "\"default\" | \"compact\" | undefined"
+}
+},
+"subtitle": {
+"defaultValue": null,
+"description": "Подзаголовок.",
+"name": "subtitle",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"actionButton": {
+"defaultValue": null,
+"description": "Кнопка действия (обычно, это кнопка закрытия)",
+"name": "actionButton",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"container": {
+"defaultValue": null,
+"description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы",
+"name": "container",
+"required": false,
+"type": {
+"name": "(() => Element | null | undefined) | undefined"
+}
+},
+"usePortal": {
+"defaultValue": null,
+"description": "Рендерить ли в контейнер через портал.",
+"name": "usePortal",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"bottomSheetWrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки контейнера",
+"name": "bottomSheetWrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"containerProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на контейнер.",
+"name": "containerProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"containerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "containerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"backgroundColor": {
+"defaultValue": null,
+"description": "Цвет фона",
+"name": "backgroundColor",
+"required": false,
+"type": {
+"name": "\"primary\" | \"secondary\" | undefined"
+}
+},
+"headerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс шапки",
+"name": "headerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"headerContentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контента шапки",
+"name": "headerContentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"footerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс футера",
+"name": "footerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"addonClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для аддонов",
+"name": "addonClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"closerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для компонента крестика",
+"name": "closerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"backerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для компонента стрелки назад",
+"name": "backerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"modalClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для компонента модального окна",
+"name": "modalClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"modalWrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки модального окна",
+"name": "modalWrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"showSwipeMarker": {
+"defaultValue": {
+"value": true
+},
+"description": "Дефолтный маркер",
+"name": "showSwipeMarker",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"swipeableMarkerClassName": {
+"defaultValue": null,
+"description": "",
+"name": "swipeableMarkerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"swipeableMarker": {
+"defaultValue": null,
+"description": "Кастомный маркер",
+"name": "swipeableMarker",
+"required": false,
+"type": {
+"name": "ReactElement<any, string | JSXElementConstructor<any>> | undefined"
+}
+},
+"transitionProps": {
+"defaultValue": {
+"value": "{}"
+},
+"description": "TransitionProps, прокидываются в компонент CSSTransitionProps.",
+"name": "transitionProps",
+"required": false,
+"type": {
+"name": "Partial<TransitionProps> | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля заголовка используется модификатор -header",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"zIndex": {
+"defaultValue": null,
+"description": "z-index компонента",
+"name": "zIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"swipeable": {
+"defaultValue": {
+"value": true
+},
+"description": "Будет ли свайпаться шторка",
+"name": "swipeable",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"swipeableContent": {
+"defaultValue": {
+"value": true
+},
+"description": "Будет ли свайпаться контент",
+"name": "swipeableContent",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"swipeThreshold": {
+"defaultValue": {
+"value": 5
+},
+"description": "Порог свайпа",
+"name": "swipeThreshold",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"outerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для слота над шторкой",
+"name": "outerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"outerAddons": {
+"defaultValue": null,
+"description": "Слот над шторкой",
+"name": "outerAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"bottomAddons": {
+"defaultValue": null,
+"description": "Слот снизу",
+"name": "bottomAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hasCloser": {
+"defaultValue": null,
+"description": "Наличие компонента крестика",
+"name": "hasCloser",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hasBacker": {
+"defaultValue": null,
+"description": "Наличие компонента стрелки назад",
+"name": "hasBacker",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"backButtonProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы для кнопки \"Назад\"",
+"name": "backButtonProps",
+"required": false,
+"type": {
+"name": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\"> | undefined"
+}
+},
+"titleAlign": {
+"defaultValue": {
+"value": "left"
+},
+"description": "Выравнивание заголовка",
+"name": "titleAlign",
+"required": false,
+"type": {
+"name": "BottomSheetTitleAlign | undefined"
+}
+},
+"stickyHeader": {
+"defaultValue": null,
+"description": "Фиксирует шапку",
+"name": "stickyHeader",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"stickyFooter": {
+"defaultValue": {
+"value": true
+},
+"description": "Фиксирует футер",
+"name": "stickyFooter",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"initialHeight": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Высота шторки",
+"name": "initialHeight",
+"required": false,
+"type": {
+"name": "\"default\" | \"full\" | undefined"
+}
+},
+"hideOverlay": {
+"defaultValue": null,
+"description": "Будет ли виден оверлэй",
+"name": "hideOverlay",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hideHeader": {
+"defaultValue": null,
+"description": "Будет ли видна шапка",
+"name": "hideHeader",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"trimTitle": {
+"defaultValue": null,
+"description": "Будет ли обрезан заголовок",
+"name": "trimTitle",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableOverlayClick": {
+"defaultValue": null,
+"description": "Запретить закрытие шторки кликом на оверлэй",
+"name": "disableOverlayClick",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBlockingScroll": {
+"defaultValue": null,
+"description": "Отключает блокировку скролла при открытии модального окна\n@deprecated Используйте `scrollLock={true}`.",
+"name": "disableBlockingScroll",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"scrollLock": {
+"defaultValue": {
+"value": true
+},
+"description": "Управляет блокировкой скролла/overscroll фона при открытой шторке.",
+"name": "scrollLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableFocusLock": {
+"defaultValue": null,
+"description": "Отключает ловушку фокуса",
+"name": "disableFocusLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"backdropProps": {
+"defaultValue": null,
+"description": "Свойства для Бэкдропа",
+"name": "backdropProps",
+"required": false,
+"type": {
+"name": "(Partial<BackdropProps> & Record<string, unknown>) | undefined"
+}
+},
+"scrollableContainerRef": {
+"defaultValue": {
+"value": "() => null"
+},
+"description": "Реф на контейнер, в котором происходит скролл",
+"name": "scrollableContainerRef",
+"required": false,
+"type": {
+"name": "RefObject<HTMLElement> | undefined"
+}
+},
+"bottomSheetInstanceRef": {
+"defaultValue": null,
+"description": "Реф для управления компонентом.",
+"name": "bottomSheetInstanceRef",
+"required": false,
+"type": {
+"name": "RefObject<{ scrollToArea: (idx: number) => void; }> | undefined"
+}
+},
+"sheetContainerRef": {
+"defaultValue": {
+"value": "() => null"
+},
+"description": "Реф на контейнер, в котором находится шторка",
+"name": "sheetContainerRef",
+"required": false,
+"type": {
+"name": "RefObject<HTMLElement> | undefined"
+}
+},
+"magneticAreas": {
+"defaultValue": null,
+"description": "Магнитные области видимой высоты шторки.\nМожно использовать значения в пикселях - 10(число), либо в процентах - 10%(строка).\nПо-умолчанию -[0, window.innerHeight - '24px']\nмассив должен состоять минимум из 2 элементов",
+"name": "magneticAreas",
+"required": false,
+"type": {
+"name": "(string | number)[] | undefined"
+}
+},
+"initialActiveAreaIndex": {
+"defaultValue": null,
+"description": "Индекс точки из magneticAreas, к которому нужно примагнититься при первом открытии шторки.",
+"name": "initialActiveAreaIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"scrollLocked": {
+"defaultValue": null,
+"description": "Отключает скролл контентной области.",
+"name": "scrollLocked",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hideScrollbar": {
+"defaultValue": null,
+"description": "Скрыть скроллбар внутри шторки",
+"name": "hideScrollbar",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"headerOffset": {
+"defaultValue": {
+"value": 24
+},
+"description": "Верхний отступ шторки, если она открыта на максимальную высоту",
+"name": "headerOffset",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"keepMounted": {
+"defaultValue": null,
+"description": "Содержимое bottom-sheet всегда в DOM",
+"name": "keepMounted",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableAutoFocus": {
+"defaultValue": null,
+"description": "Отключает автоматический перевод фокуса на bottom-sheet при открытии",
+"name": "disableAutoFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableRestoreFocus": {
+"defaultValue": null,
+"description": "Отключает восстановление фокуса на предыдущем элементе после закрытия bottom-sheet",
+"name": "disableRestoreFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableEscapeKeyDown": {
+"defaultValue": null,
+"description": "Отключает вызов `onClose` при нажатии Escape",
+"name": "disableEscapeKeyDown",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия",
+"name": "onClose",
+"required": true,
+"type": {
+"name": "() => void"
+}
+},
+"onBack": {
+"defaultValue": null,
+"description": "Обработчик нажатия на стрелку назад",
+"name": "onBack",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onMagnetize": {
+"defaultValue": null,
+"description": "Вызывается в начале анимации притягивания к одной из `magneticAreas`",
+"name": "onMagnetize",
+"required": false,
+"type": {
+"name": "((index: number) => void) | undefined"
+}
+},
+"onMagnetizeEnd": {
+"defaultValue": null,
+"description": "Вызывается после окончания анимации притягивания",
+"name": "onMagnetizeEnd",
+"required": false,
+"type": {
+"name": "((index: number) => void) | undefined"
+}
+},
+"onOffsetChange": {
+"defaultValue": null,
+"description": "Вызывается при изменении положения шторки",
+"name": "onOffsetChange",
+"required": false,
+"type": {
+"name": "((offset: number, percent: number) => void) | undefined"
+}
+},
+"onSwipeStart": {
+"defaultValue": null,
+"description": "Вызывается в начале свайпа",
+"name": "onSwipeStart",
+"required": false,
+"type": {
+"name": "((event: HandledEvents) => void) | undefined"
+}
+},
+"onSwipeEnd": {
+"defaultValue": null,
+"description": "Вызывается после окончания свайпа",
+"name": "onSwipeEnd",
+"required": false,
+"type": {
+"name": "((event: HandledEvents | null) => void) | undefined"
+}
+},
+"iOSLock": {
+"defaultValue": {
+"value": false
+},
+"description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS\n@deprecated Используйте `scrollLock={true}`.",
+"name": "iOSLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"virtualKeyboard": {
+"defaultValue": {
+"value": false
+},
+"description": "Учитывать высоту виртуальной клавиатуры",
+"name": "virtualKeyboard",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"preventScrollOnSwipe": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Предотвращать скролл во время свайпа",
+"name": "preventScrollOnSwipe",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Анатомия",
+"description": "Компонент состоит из Header, Content, Footer, содержащих в себе кастомизируемые слоты.\nЧтобы во время скролла заголовок и кнопки оставались неподвижны,\nих нужно расположить в `header` и `footer`.\nТекст и изображения всегда располагаются в `content` части.",
+"desktop": "const Header = () => {\nconst { setHasHeader, onClose } = React.useContext(ModalContext);\n\nReact.useEffect(() => setHasHeader(true), [setHasHeader]);\n\nconst commonStyles = {\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\nborderRadius: '8px',\nheight: '48px',\n};\n\nconst addonsStyles = {\n...commonStyles,\nwidth: '48px',\n};\n\nconst innerAddonsStyles = {\n...addonsStyles,\nbackgroundColor: 'rgba(207, 112, 255, 0.1)',\n};\n\nconst bottomAddonsStyles = {\n...commonStyles,\nwidth: '100%',\n};\n\nconst wrapperStyles = {\ndisplay: 'flex',\njustifyContent: 'center',\n};\n\nconst titleStyles = {\n...commonStyles,\nflexGrow: 1,\n};\n\nreturn (\n<div style={{ margin: 'var(--gap-12-neg) var(--gap-8-neg)' }}>\n<div style={wrapperStyles}>\n<div style={innerAddonsStyles} />\n<div style={addonsStyles} />\n<div style={titleStyles} />\n<div style={addonsStyles} />\n<div style={innerAddonsStyles} onClick={onClose} />\n</div>\n<div style={bottomAddonsStyles} />\n</div>\n);\n};\n\nrender(() => {\nconst [open, setOpen] = React.useState(false);\nconst handleOpen = () => setOpen(true);\nconst handleClose = () => setOpen(false);\n\nconst commonStyle = {\nwidth: '100%',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nconst contentStyle = {\n...commonStyle,\nheight: '380px',\n};\n\nconst footerStyle = {\n...commonStyle,\nheight: '48px',\n};\n\nreturn (\n<Container>\n<ButtonMobile type='button' size='48' onClick={handleOpen} block={true}>\nПоказать анатомию\n</ButtonMobile>\n<BottomSheet\ntrimTitle={false}\nopen={open}\nonClose={handleClose}\ntitle={<Header />}\nactionButton={<div style={footerStyle} />}\nshowSwipeMarker={false}\n>\n<div style={contentStyle} />\n</BottomSheet>\n</Container>\n);\n});"
+},
+{
+"title": "Пресеты",
+"description": "Ниже представлены самые популярные кейсы настройки шторки.",
+"desktop": "const Text = ({ colors, onClose }) => (\n<>\n<Typography.Text tag='p'>\nВ 2001 году в России начал действовать Федеральный закон №115 «О противодействии\nлегализации доходов, полученных преступным путём, и финансированию терроризма». В рамках\nзакона банки могут блокировать карты, отказывать в проведении сомнительных операций,\nограничить доступ в интернет-банк или запрашивать документы, если по операции клиента\nвозникли подозрения.{' '}\n<Link colors={colors} onClick={onClose}>\nНажмите сюда, чтобы закрыть шторку без крестика\n</Link>\n</Typography.Text>\n<Collapse colors={colors} collapsedLabel='Подробнее' expandedLabel='Скрыть'>\n<Typography.Text tag='p'>\nТребования 115-ФЗ и связанных с ним документов Банка России часто меняются,\nпредприниматели не всегда успевают за ними следить. Последствия нарушений\n«антиотмывочного» законодательства всегда неприятны: приходится остановить\nбизнес-процессы и доказать банку законность операций. Специалисты «Альфа-банка»\nсобрали понятные рекомендации, как сэкономить время на объяснения и предотвратить\nблокировки\n</Typography.Text>\n<Typography.Text tag='p'>\n115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто пользуется\nбанковским счётом для бизнеса, крупных денежных переводов или личных расчётов.\nОграничения интернет-банка, блокировка карт добросовестных компаний могут произойти\nиз-за неправильно оформленных документов, ошибок в платёжке или попыток снизить\nналоги.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nКлиенты воспринимают ограничения как атаку со стороны банка, но чаще всего сами\nдопускают ошибки или нарушения, которых можно избежать. Банки не преследуют цели\nдоставить неудобства клиентам — они обязаны соблюдать законодательство и следовать\nинструкциям и рекомендациям ЦБ, а в противном случае рискуют лишиться лицензии.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nОбналичивание — сомнительные операции, когда юрлицо или предприниматель снимает со\nсчёта более 80% от оборота или переводит деньги на счета физлиц, которые затем\nснимают в наличной форме.\n</Typography.Text>\n</Collapse>\n</>\n);\n\nconst HEADER_SELECT_OPTIONS = [\n{ key: 'withoutTitle', content: 'Нет заголовка' },\n{ key: 'defaultTitle', content: 'Стандартный' },\n{ key: 'compactTitle', content: 'Компактный' },\n{ key: 'compactTitleWithSubtitle', content: 'Компактный с подписью' },\n{ key: 'compactTitleWithCenterAlign', content: 'Компактный центрированный' },\n{\nkey: 'compactTitleWithSubtitleAndCenterAlign',\ncontent: 'Компактный центрированный с подписью',\n},\n];\n\nconst FOOTER_SELECT_OPTIONS = [\n{ key: 'vertical', content: 'Вертикальный' },\n{ key: 'horizontal', content: 'Горизонтальный' },\n];\n\nconst HEADER_SETTINGS = [\n{ label: 'Крестик', name: 'hasCloser' },\n{ label: 'Стрелка назад', name: 'hasBackButton' },\n{ label: 'Фиксация шапки при скролле', name: 'sticky' },\n];\n\nconst FOOTER_SETTINGS = [\n{ label: 'Primary Button', name: 'hasPrimaryButton' },\n{ label: 'Secondary Button', name: 'hasSecondaryButton' },\n{ label: 'Фиксация футера при скролле', name: 'sticky' },\n];\n\nconst MECHANICS_SETTINGS = [\n{ label: 'Высота подстраивается под размер контента', name: 'adaptive' },\n{ label: 'Разрешить закрывать свайпом', name: 'swipeable' },\n];\n\nrender(() => {\nconst [open, setOpen] = React.useState(false);\nconst [headerViewSelected, setHeaderView] = React.useState(HEADER_SELECT_OPTIONS[0].key);\nconst [footerViewSelected, setFooterView] = React.useState(FOOTER_SELECT_OPTIONS[0].key);\nconst [headerSettings, setHeaderSettings] = React.useState(() => ({\n...HEADER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),\ntitleInContent: false,\n}));\nconst [footerSettings, setFooterSettings] = React.useState(() =>\nFOOTER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),\n);\nconst [mechanics, setMechanics] = React.useState(() =>\nMECHANICS_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),\n);\n\nconst [themeSettings, setThemeSettings] = React.useState(() => ({\ninverted: false,\n}));\n\nconst colors = themeSettings.inverted ? 'inverted' : 'default';\n\nconst [backgroundColorSelected, setBackgroundColor] = React.useState('primary');\n\nconst showHeader =\nheaderViewSelected !== HEADER_SELECT_OPTIONS[0].key ||\nheaderSettings.hasCloser ||\nheaderSettings.hasBackButton;\n\nconst showFooter = footerSettings.hasPrimaryButton || footerSettings.hasSecondaryButton;\n\nconst getKey = () =>\n`${JSON.stringify({\n...headerSettings,\n...mechanics,\n...footerSettings,\n...themeSettings,\nbackgroundColor: backgroundColorSelected,\n})}-${headerViewSelected}-${footerViewSelected}`;\n\nconst handleOpen = () => setOpen(true);\n\nconst handleClose = () => setOpen(false);\n\nconst handleHeaderSettingsChange = (_, { name, checked }) => {\nsetHeaderSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nconst handleFooterSettingsChange = (_, { name, checked }) => {\nsetFooterSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nconst handleMechanicsChange = (_, { name, checked }) => {\nsetMechanics((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nconst handleThemeChange = (_, { name, checked }) => {\nsetThemeSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nreturn (\n<Container>\n<ButtonMobile size='48' onClick={handleOpen} block={true}>\nПоказать шторку\n</ButtonMobile>\n\n<Gap size={32} />\n\n<p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки шапки</p>\n\n<SelectMobile\nblock={true}\noptions={HEADER_SELECT_OPTIONS}\nlabel='Заголовок'\nselected={headerViewSelected}\nonChange={({ selected }) => setHeaderView(selected.key)}\nOption={BaseOption}\n/>\n\n<Gap size={16} />\n\n<CheckboxGroup onChange={handleHeaderSettingsChange}>\n{HEADER_SETTINGS.map((item) => (\n<Switch\nkey={item.name}\nlabel={item.label}\nname={item.name}\nchecked={headerSettings[item.name]}\n/>\n))}\n</CheckboxGroup>\n\n<Gap size={32} />\n\n<CheckboxGroup\nlabel='Примеры наполнения контентной части'\nonChange={handleHeaderSettingsChange}\n>\n<Switch\nlabel='Заголовок в контентной области'\nname='titleInContent'\nchecked={headerSettings.titleInContent}\n/>\n</CheckboxGroup>\n\n<Gap size={32} />\n\n<p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки футера</p>\n\n<SelectMobile\nblock={true}\noptions={FOOTER_SELECT_OPTIONS}\nlabel='Лейаут'\nselected={footerViewSelected}\nonChange={({ selected }) => setFooterView(selected.key)}\nOption={BaseOption}\n/>\n\n<Gap size={16} />\n\n<CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>\n{FOOTER_SETTINGS.map((item) => (\n<Switch\nkey={item.name}\nlabel={item.label}\nname={item.name}\nchecked={footerSettings[item.name]}\n/>\n))}\n</CheckboxGroup>\n\n<Gap size={32} />\n\n<CheckboxGroup label='Механики' onChange={handleMechanicsChange}>\n{MECHANICS_SETTINGS.map((item) => (\n<Switch\nkey={item.name}\nlabel={item.label}\nname={item.name}\nchecked={mechanics[item.name]}\n/>\n))}\n</CheckboxGroup>\n\n<Gap size='32' />\n\n<CheckboxGroup label='Инверсия' onChange={handleThemeChange}>\n<Switch\nlabel='Инвертировать цвета'\nname='inverted'\nchecked={themeSettings.inverted}\n/>\n</CheckboxGroup>\n\n<Gap size='16' />\n\n<RadioGroup\nlabel='Цвет шторки'\nvalue={backgroundColorSelected}\nonChange={(_, { value }) => setBackgroundColor(value)}\n>\n<Radio size='24' label='Primary' value='primary' />\n<Radio size='24' label='Alt-primary' value='secondary' />\n</RadioGroup>\n\n<BottomSheet\nopen={open}\nonClose={handleClose}\nkey={getKey()}\ntitle={\nshowHeader\n? [\n'defaultTitle',\n'compactTitle',\n'compactTitleWithSubtitle',\n'compactTitleWithCenterAlign',\n'compactTitleWithSubtitleAndCenterAlign',\n].includes(headerViewSelected)\n? 'Почему банк проверяет мои операции?'\n: undefined\n: undefined\n}\nhasCloser={headerSettings.hasCloser}\nhasBacker={headerSettings.hasBackButton}\nstickyHeader={headerSettings.sticky}\ntitleAlign={\n[\n'compactTitleWithCenterAlign',\n'compactTitleWithSubtitleAndCenterAlign',\n].includes(headerViewSelected)\n? 'center'\n: undefined\n}\ntitleSize={\n[\n'compactTitle',\n'compactTitleWithSubtitle',\n'compactTitleWithCenterAlign',\n'compactTitleWithSubtitleAndCenterAlign',\n].includes(headerViewSelected)\n? 'compact'\n: undefined\n}\nsubtitle={\n['compactTitleWithSubtitle', 'compactTitleWithSubtitleAndCenterAlign'].includes(\nheaderViewSelected,\n)\n? 'Почему банк проверяет мои операции?'\n: undefined\n}\nstickyFooter={footerSettings.sticky}\nswipeable={mechanics.swipeable}\nshowSwipeMarker={false}\ninitialHeight={mechanics.adaptive ? 'default' : 'full'}\ncolors={colors}\nbackgroundColor={backgroundColorSelected}\nactionButton={\nshowFooter ? (\n<div\nstyle={{\ndisplay: 'flex',\nflexDirection:\nfooterViewSelected === 'vertical' ? 'column-reverse' : 'row',\n}}\n>\n{footerSettings.hasSecondaryButton && (\n<ButtonMobile\nview='secondary'\ncolors={colors}\nsize='56'\nonClick={handleClose}\nblock={true}\n>\nSecondary\n</ButtonMobile>\n)}\n\n{footerSettings.hasPrimaryButton &&\nfooterSettings.hasSecondaryButton ? (\n<Gap size={8} direction={footerViewSelected} />\n) : null}\n\n{footerSettings.hasPrimaryButton && (\n<ButtonMobile\nview='primary'\ncolors={colors}\nsize='56'\nonClick={handleClose}\nblock={true}\n>\nPrimary\n</ButtonMobile>\n)}\n</div>\n) : undefined\n}\n>\n{headerSettings.titleInContent ? (\n<>\n<Typography.Title view='xsmall' tag='div' font='system'>\n{`Почему банк проверяет мои операции?`}\n</Typography.Title>\n<Gap size={16} />\n</>\n) : undefined}\n\n<Text onClose={handleClose} colors={colors} />\n</BottomSheet>\n</Container>\n);\n});"
+},
+{
+"title": "Последовательность шагов",
+"description": "Компонент можно настроить для реализации многошаговых сценариев. Высота всех шторок в рамках сценария должны быть одинаковой.",
+"desktop": "const DATA = {\n1: {\ntitle: 'Первый уровень',\nbtnText: 'Дальше',\nbg: 'rgba(55, 120, 251, 0.1)',\ncolor: '#3778FB',\n},\n2: {\ntitle: 'Второй уровень',\nbtnText: 'Дальше',\nbg: 'rgba(207, 112, 255, 0.1)',\ncolor: '#CF70FF',\n},\n3: {\ntitle: 'Третий уровень',\nbtnText: 'Готово',\nbg: 'rgba(112, 255, 126, 0.1)',\ncolor: '#058102',\n},\n};\n\nrender(() => {\nconst [step, setStep] = React.useState(1);\nconst [open, setOpen] = React.useState(false);\n\nconst handleOpen = () => {\nsetOpen(true);\nsetStep(1);\n};\nconst handleClose = () => setOpen(false);\n\nconst item = DATA[step];\n\nconst commonStyles = {\ndisplay: 'flex',\nalignItems: 'center',\njustifyContent: 'center',\ntransition: 'background 0.2s ease-in, border 0.2s ease-in',\nborderRadius: '8px',\nbackground: item.bg,\nborder: `1px dashed ${item.color}`,\ncolor: item.color,\nwidth: '100%',\nboxSizing: 'border-box',\n};\n\nreturn (\n<Container>\n<ButtonMobile size='48' onClick={handleOpen} block={true}>\nПоказать шторку\n</ButtonMobile>\n\n<BottomSheet\nopen={open}\nonClose={handleClose}\ninitialHeight='full'\nstickyHeader={true}\nstickyFooter={true}\nhasCloser={true}\nhasBacker={step !== 1}\ntitle={item.title}\nonBack={() => setStep(step - 1)}\nshowSwipeMarker={false}\nactionButton={\n<ButtonMobile\nsize='56'\nview='primary'\nonClick={\nitem.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose\n}\n>\n{item.btnText}\n</ButtonMobile>\n}\n>\n<div style={{ ...commonStyles, height: '100%' }}>\n<span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>\n</div>\n</BottomSheet>\n</Container>\n);\n});"
+},
+{
+"title": "Управление высотой",
+"description": "В шторку можно передать список магнитных точек.\nПервый элемент списка обозначает минимальную высоту шторки, последний, соответственно, максимальную.\nЕсли шторка не достигла своей максимальной высоты, рекомендуется блокировать скролл внутри неё, чтобы получить предсказуемое поведение.",
+"desktop": "const VARIANTS = {\nMIN_MAX: 'min_max',\nEXTRA_AREA: 'extra_area',\nEXT_TRIGGER: 'ext_trigger',\n};\n\nconst SETTINGS = [\n{\nlabel: 'Минимальная и максимальная высота',\ndesc: 'Шторка откроется на 200рх, её можно будет растянуть на кастомную максимальную высоту, ограниченную 100рх до верха экрана. Свайп вниз от минимальной высоты закроет шторку.',\nvalue: VARIANTS.MIN_MAX,\n},\n{\nlabel: 'Промежуточная магнитная область',\ndesc: 'У шторки будет минимальная и максимальная высота, а между ними промежуточная магнитная область.',\nvalue: VARIANTS.EXTRA_AREA,\n},\n{\nlabel: 'Внешний триггер',\ndesc: 'Изначально шторка будет открыта на свою минимальную высоту, но по тапу на кнопку шторку можно будет открыть полностью.',\nvalue: VARIANTS.EXT_TRIGGER,\n},\n];\n\nconst VARIANT_PROPS_MAP = {\n[VARIANTS.MIN_MAX]: { magneticAreas: [0, 200, -100], initialActiveAreaIndex: 1 },\n[VARIANTS.EXTRA_AREA]: { magneticAreas: [0, 100, '50%', -100] },\n[VARIANTS.EXT_TRIGGER]: {\nmagneticAreas: [0, 200, -100],\nhideOverlay: true,\ninitialActiveAreaIndex: 1,\n},\n};\n\nconst ITEM_STYLES = {\ndisplay: 'flex',\nalignItems: 'center',\njustifyContent: 'center',\ntransition: 'background 0.2s ease-in, border 0.2s ease-in',\nborderRadius: '8px',\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: `1px dashed #3778FB`,\ncolor: '#3778FB',\nwidth: '100%',\nboxSizing: 'border-box',\nheight: 170,\n};\n\nconst WRAPPER_STYLES = {\npadding: 20,\nmargin: -20,\nheight: 600,\ntransition: 'background-color 0.3s ease',\n};\n\nrender(() => {\nconst [checked, setChecked] = React.useState(VARIANTS.MIN_MAX);\nconst [open, setOpen] = React.useState(false);\nconst [activeAreaIdx, setActiveAreaIdx] = React.useState(0);\nconst bottomSheetRef = React.useRef(null);\n\nconst variantProps = VARIANT_PROPS_MAP[checked];\nconst isExternalTrigger = checked === VARIANTS.EXT_TRIGGER && open;\nconst scrollLocked = activeAreaIdx !== variantProps.magneticAreas.length - 1;\nconst openWithExternalTrigger = isExternalTrigger && open;\nconst isNotLastAreaWithExtTrigger = openWithExternalTrigger && scrollLocked;\n\nconst handleOpen = () => {\nsetOpen(true);\n};\n\nconst handleClose = () => setOpen(false);\n\nconst handleAreaChange = (idx) => setActiveAreaIdx(idx);\n\nconst magnetizeToLastArea = () =>\nbottomSheetRef.current.scrollToArea(variantProps.magneticAreas.length - 1);\n\nreturn (\n<div\nstyle={{\n...WRAPPER_STYLES,\nbackgroundColor: openWithExternalTrigger\n? 'var(--color-light-base-bg-secondary)'\n: 'var(--color-light-base-bg-primary)',\n}}\n>\n<ButtonMobile\nview={isNotLastAreaWithExtTrigger ? 'accent' : 'secondary'}\nsize='48'\nonClick={openWithExternalTrigger ? magnetizeToLastArea : handleOpen}\nblock={true}\n>\n{isExternalTrigger ? 'Открыть полностью' : 'Показать шторку'}\n</ButtonMobile>\n\n<Gap size={32} />\n\n<RadioGroup\nlabel='Конфигурация шторки'\nvalue={checked}\nonChange={(_, payload) => setChecked(payload.value)}\n>\n{SETTINGS.map((item) => (\n<Radio\ndisabled={open}\nlabel={item.label}\nvalue={item.value}\nkey={item.value}\nhint={item.desc}\nsize={24}\n/>\n))}\n</RadioGroup>\n\n<BottomSheet\nbottomSheetInstanceRef={bottomSheetRef}\nopen={open}\nonClose={handleClose}\nkey={checked}\nscrollLocked={scrollLocked}\nhideScrollbar={true}\nonMagnetize={handleAreaChange}\n{...variantProps}\n{...(!isNotLastAreaWithExtTrigger ? { hideOverlay: false } : null)}\n>\n<div style={{ display: 'flex', flexFlow: 'column', gap: 16 }}>\n{[1, 2, 3, 4, 5].map((item) => (\n<div key={item} style={ITEM_STYLES}>\n<span style={{ fontWeight: 700, fontSize: '72px' }}>{item}</span>\n</div>\n))}\n</div>\n</BottomSheet>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.20.0",
+"description": "#### [#2257](https://github.com/core-ds/core-components/pull/2257)\n\n- Исправлена работа горизонтального скролла контента"
+},
+{
+"version": "50.15.0",
+"description": "#### [#2226](https://github.com/core-ds/core-components/pull/2226)\n\n- Исправлены пути импорта css переменных"
+},
+{
+"version": "50.12.2",
+"description": "#### [#2177](https://github.com/core-ds/core-components/pull/2177)\n\n- Изменение внутренних отступов компонента\n- Исправлен нижний отступ контентой части, когда он складывался с оступом футера"
+},
+{
+"version": "50.4.0",
+"description": "#### [#2073](https://github.com/core-ds/core-components/pull/2073)\n\n- Добавлен нижний отступ в `16px`, когда не задан футер (проп `actionButton` не указан или задан как `actionButton={undefined}`)\n- Чтобы убрать появившийся отступ необходимо задать `actionButton={null}`"
+},
+{
+"version": "50.2.0",
+"description": "#### [#2058](https://github.com/core-ds/core-components/pull/2058)\n\n- Исправлен визуальный скачок шторки при динамической смене `magneticAreasProp` (например, skeleton → content).\n- При изменении пропа временно отключается CSS transition для мгновенного перехода на новую позицию.\n\n- Обновлены зависимости\n    - @alfalab/core-components-cdn-icon@7.1.0\n    - @alfalab/core-components-universal-modal@3.0.2\n    - @alfalab/core-components-product-cover@3.1.0\n    - @alfalab/core-components-markdown@3.0.2\n    - @alfalab/core-components-bottom-sheet@8.0.3\n    - @alfalab/core-components-select@19.0.3\n    - @alfalab/core-components-select-with-tags@10.0.3\n    - @alfalab/core-components-tooltip@9.0.3\n    - @alfalab/core-components-custom-picker-button@4.0.3\n    - @alfalab/core-components-input-autocomplete@14.0.3\n    - @alfalab/core-components-international-phone-input@4.0.3\n    - @alfalab/core-components-intl-phone-input@11.0.3\n    - @alfalab/core-components-picker-button@13.0.3\n    - @alfalab/core-components-table@4.0.3\n    - @alfalab/core-components-gallery@7.0.3\n    - @alfalab/core-components-tabs@10.0.3"
+},
+{
+"version": "50.1.0",
+"description": "#### [#2050](https://github.com/core-ds/core-components/pull/2050)\n\n- Учитываем `bottomAddons` как контент хедера и прокидываем в `NavigationBarPrivate`.\n\n- Обновлены зависимости\n    - @alfalab/core-components-segmented-control@3.1.0\n    - @alfalab/core-components-select@19.0.2\n    - @alfalab/core-components-bottom-sheet@8.0.2\n    - @alfalab/core-components-custom-picker-button@4.0.2\n    - @alfalab/core-components-input-autocomplete@14.0.2\n    - @alfalab/core-components-international-phone-input@4.0.2\n    - @alfalab/core-components-intl-phone-input@11.0.2\n    - @alfalab/core-components-picker-button@13.0.2\n    - @alfalab/core-components-select-with-tags@10.0.2\n    - @alfalab/core-components-table@4.0.2\n    - @alfalab/core-components-tooltip@9.0.2\n    - @alfalab/core-components-tabs@10.0.2\n    - @alfalab/core-components-gallery@7.0.2"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1636](https://github.com/core-ds/core-components/pull/1636)\n\n- Удален пропс `ignoreScreenChange`, который был объявлен как `deprecated` в `core-components@29.x.x`"
+},
+{
+"version": "49.13.0",
+"description": "#### [#2011](https://github.com/core-ds/core-components/pull/2011)\n\n- Исправлена специфичность подзаголовка. Теперь он принимает корректный цвет из default/inverted мода\n\n- Обновлены зависимости\n    - @alfalab/core-components-navigation-bar-private@1.1.4\n    - @alfalab/core-components-bottom-sheet@7.4.1\n    - @alfalab/core-components-chart@4.1.0\n    - @alfalab/core-components-modal@10.0.8\n    - @alfalab/core-components-popup-sheet@2.0.10\n    - @alfalab/core-components-side-panel@6.0.8\n    - @alfalab/core-components-universal-modal@2.0.10\n    - @alfalab/core-components-select@18.2.7\n    - @alfalab/core-components-select-with-tags@9.0.10\n    - @alfalab/core-components-tooltip@8.0.10\n    - @alfalab/core-components-calendar@8.0.8\n    - @alfalab/core-components-custom-picker-button@3.0.10\n    - @alfalab/core-components-input-autocomplete@13.0.10\n    - @alfalab/core-components-international-phone-input@3.2.7\n    - @alfalab/core-components-intl-phone-input@10.0.10\n    - @alfalab/core-components-picker-button@12.0.10\n    - @alfalab/core-components-table@3.0.10\n    - @alfalab/core-components-gallery@6.0.11\n    - @alfalab/core-components-calendar-input@11.0.9\n    - @alfalab/core-components-calendar-range@8.0.9\n    - @alfalab/core-components-calendar-with-skeleton@6.0.8\n    - @alfalab/core-components-date-range-input@4.0.9\n    - @alfalab/core-components-date-time-input@5.0.9\n    - @alfalab/core-components-universal-date-input@3.0.9\n    - @alfalab/core-components-tabs@9.2.7"
+},
+{
+"version": "49.12.0",
+"description": "#### [#2002](https://github.com/core-ds/core-components/pull/2002)\n\n- Добавлен слот `outerAddons` (контент над шторкой), пропы `bottomSheetWrapperClassName` и `outerClassName` для стилизации.\n\n#### [#1983](https://github.com/core-ds/core-components/pull/1983)\n\n- Подключили блокировку фонового скролла (через `BaseModal` / `react-remove-scroll`).\n- Добавили проп `scrollLock?: boolean` (по умолчанию включён), `disableBlockingScroll` и `iOSLock` помечены как deprecated."
+},
+{
+"version": "49.11.0",
+"description": "#### [#1968](https://github.com/core-ds/core-components/pull/1968)\n\n- Добавлен пропс `preventScrollOnSwipe`, который передается в библиотеку `react-swipeable`. Позволяет предотвращать прокрутку во время свайпа."
+},
+{
+"version": "49.9.0",
+"description": "#### [#1915](https://github.com/core-ds/core-components/pull/1915)\n\n- Добавлен опциональный проп headerContentClassName в BottomSheet для кастомизации хэдера"
+},
+{
+"version": "49.8.0",
+"description": "#### [#1923](https://github.com/core-ds/core-components/pull/1923)\n\n- Добавлена инверсия BottomSheet через props `colors`\n\n- Обновлены зависимости\n    - @alfalab/core-components-slider-input@10.1.0\n    - @alfalab/core-components-icon-view@4.0.1\n    - @alfalab/core-components-system-message@3.0.2\n    - @alfalab/core-components-navigation-bar-private@1.1.0\n    - @alfalab/core-components-tag@9.0.2\n    - @alfalab/core-components-collapse@5.1.0\n    - @alfalab/core-components-link@6.1.0\n    - @alfalab/core-components-bottom-sheet@7.1.0\n    - @alfalab/core-components-input-autocomplete@13.0.4\n    - @alfalab/core-components-modal@10.0.3\n    - @alfalab/core-components-picker-button@12.0.4\n    - @alfalab/core-components-side-panel@6.0.3\n    - @alfalab/core-components-themes@14.1.3\n    - @alfalab/core-components-vars@10.1.1\n    - @alfalab/core-components-file-upload-item@7.1.1\n    - @alfalab/core-components-gallery@6.0.5\n    - @alfalab/core-components-popup-sheet@2.0.5\n    - @alfalab/core-components-universal-modal@2.0.5\n    - @alfalab/core-components-pagination@3.0.2\n    - @alfalab/core-components-select-with-tags@9.0.4\n    - @alfalab/core-components-tabs@9.2.1\n    - @alfalab/core-components-confirmation@14.1.1\n    - @alfalab/core-components-confirmation-v1@2.0.2\n    - @alfalab/core-components-file-upload-item-v1@2.0.2\n    - @alfalab/core-components-markdown@2.1.2\n    - @alfalab/core-components-select@18.2.1\n    - @alfalab/core-components-tooltip@8.0.4\n    - @alfalab/core-components-international-phone-input@3.2.1\n    - @alfalab/core-components-intl-phone-input@10.0.4\n    - @alfalab/core-components-calendar@8.0.3\n    - @alfalab/core-components-custom-picker-button@3.0.4\n    - @alfalab/core-components-table@3.0.4\n    - @alfalab/core-components-calendar-input@11.0.4\n    - @alfalab/core-components-calendar-range@8.0.4\n    - @alfalab/core-components-calendar-with-skeleton@6.0.3\n    - @alfalab/core-components-date-range-input@4.0.4\n    - @alfalab/core-components-date-time-input@5.0.4\n    - @alfalab/core-components-universal-date-input@3.0.4"
+}
+]
+}

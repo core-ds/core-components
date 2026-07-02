@@ -1,0 +1,259 @@
+{
+"packageName": "slider",
+"displayName": "Slider",
+"description": "",
+"props": {
+"min": {
+"defaultValue": {
+"value": 0
+},
+"description": "Мин. допустимое число",
+"name": "min",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"max": {
+"defaultValue": {
+"value": 100
+},
+"description": "Макс. допустимое число",
+"name": "max",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"step": {
+"defaultValue": {
+"value": 1
+},
+"description": "Шаг (должен нацело делить отрезок между мин и макс)",
+"name": "step",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"pips": {
+"defaultValue": null,
+"description": "Отображение подписей\nhttps://refreshless.com/nouislider/pips/",
+"name": "pips",
+"required": false,
+"type": {
+"name": "Pips | undefined"
+}
+},
+"range": {
+"defaultValue": {
+"value": "{ min, max }"
+},
+"description": "Настройка шагов\nhttps://refreshless.com/nouislider/pips/#section-range",
+"name": "range",
+"required": false,
+"type": {
+"name": "RangeOptions | undefined"
+}
+},
+"snap": {
+"defaultValue": {
+"value": false
+},
+"description": "Флаг точной привязки к range\nhttps://refreshless.com/nouislider/examples/#section-skipping",
+"name": "snap",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"value": {
+"defaultValue": {
+"value": 0
+},
+"description": "Значение слайдера",
+"name": "value",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"valueTo": {
+"defaultValue": null,
+"description": "Второе значение слайдера (значение второго ползунка)\nесли передать ValueTo, то слайдер будет работать как range",
+"name": "valueTo",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Заблокированное состояние",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"behaviour": {
+"defaultValue": {
+"value": "tap"
+},
+"description": "Поведение ползунка",
+"name": "behaviour",
+"required": false,
+"type": {
+"name": "\"unconstrained-tap\" | \"tap\" | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": 2
+},
+"description": "Размер\n@description s, m deprecated, используйте вместо них 2, 4 соответственно",
+"name": "size",
+"required": false,
+"type": {
+"name": "\"s\" | \"m\" | 2 | 4 | undefined"
+}
+},
+"dots": {
+"defaultValue": {
+"value": false
+},
+"description": "Включение/отключение отображения точек на слайдере",
+"name": "dots",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dotsSlider": {
+"defaultValue": {
+"value": "step"
+},
+"description": "Тип отображения точек на слайдере: 'step' - по шагу, 'custom' - произвольные",
+"name": "dotsSlider",
+"required": false,
+"type": {
+"name": "\"step\" | \"custom\" | undefined"
+}
+},
+"showPipsDots": {
+"defaultValue": {
+"value": false
+},
+"description": "Показывать точки для pips-значений вместе с customDots в режиме dotsSlider='custom'",
+"name": "showPipsDots",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"customDots": {
+"defaultValue": {
+"value": "[]"
+},
+"description": "Массив значений для произвольного размещения точек",
+"name": "customDots",
+"required": false,
+"type": {
+"name": "number[] | undefined"
+}
+},
+"pipsLabel": {
+"defaultValue": {
+"value": "all"
+},
+"description": "Отображение подписи под точками:\n- all: подпись для всех точек\n- pipsOnly: подпись только для pips-значений\n- customPipsOnly: подпись только для customDots\n- none: подписи отключены",
+"name": "pipsLabel",
+"required": false,
+"type": {
+"name": "PipsLabelMode | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик поля ввода",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((payload: { value: number; valueTo?: number | undefined; }) => void) | undefined"
+}
+},
+"onStart": {
+"defaultValue": null,
+"description": "@deprecated Обработчик начала перетаскивания ползунка",
+"name": "onStart",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onEnd": {
+"defaultValue": null,
+"description": "Обработчик окончания перетаскивания ползунка\n@description https://refreshless.com/nouislider/events-callbacks/#section-change",
+"name": "onEnd",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Сегменты и шаг слайдера",
+"description": "Можно настроить количество сегментов и шаг внутри сегмента.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState(0);\nconst [slider, setSlider] = React.useState(1);\n\nconst handleChange = ({ value }) => setValue(value);\nconst handleChangeSlider = ({ value }) => setSlider(value);\n\nreturn (\n<>\n<div>Value:{value}</div>\n<br />\n<Slider\nsize={4}\nvalue={value}\nonChange={handleChange}\npips={{\nmode: 'values',\nvalues: [0, 10, 100],\n}}\nrange={{\nmin: [0],\n'50%': [10, 10],\nmax: [100],\n}}\n/>\n<br />\n<br />\n<div>Value:{slider}</div>\n<br />\n<Slider\nsize={4}\nvalue={slider}\nonChange={handleChangeSlider}\nmin={1}\nmax={8}\npips={{\nmode: 'steps',\n}}\n/>\n</>\n);\n});"
+},
+{
+"title": "Диапазон",
+"description": "С помощью слайдера можно указывать диапазон значений. Чтобы позволить ползункам пересекать друг друга установите `behaviour=unconstrained-tap`.",
+"desktop": "render(() => {\nconst [sliderTap, setSliderTap] = React.useState({\nvalue: 4,\nvalueTo: 6,\n});\n\nconst [slider, setSlider] = React.useState({\nvalue: 4,\nvalueTo: 6,\n});\n\nconst handleChangeSliderTap = (payload) => {\nsetSliderTap(payload);\n};\n\nconst handleChangeSlider = (payload) => {\nsetSlider(payload);\n};\n\nreturn (\n<>\n<div style={{ display: 'flex', justifyContent: 'space-between' }}>\n<span>min: {sliderTap.value}</span>\n<span>max: {sliderTap.valueTo}</span>\n</div>\n<Gap size={12} />\n<Slider\nsize={4}\nvalue={sliderTap.value}\nvalueTo={sliderTap.valueTo}\nonChange={handleChangeSliderTap}\nmin={1}\nmax={8}\npips={{\nmode: 'steps',\n}}\n/>\n<Gap size={40} />\n<div style={{ display: 'flex', justifyContent: 'space-between' }}>\n<span>min: {slider.value}</span>\n<span>max: {slider.valueTo}</span>\n</div>\n<Gap size={12} />\n<Slider\nsize={4}\nvalue={slider.value}\nvalueTo={slider.valueTo}\nbehaviour='unconstrained-tap'\nonChange={handleChangeSlider}\nmin={1}\nmax={8}\npips={{\nmode: 'steps',\n}}\n/>\n</>\n);\n});"
+},
+{
+"title": "Подписи",
+"description": "Слайдер может использоваться с подписями и без.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState(0);\nconst [slider, setSlider] = React.useState(0);\n\nconst handleChange = ({ value }) => setValue(value);\nconst handleChangeSlider = ({ value }) => setSlider(value);\n\nreturn (\n<>\n<div>Value: {value}</div>\n<br />\n<Slider\nsize={4}\nvalue={value}\nonChange={handleChange}\npips={{\nmode: 'values',\nvalues: [0, 10, 100],\n}}\nrange={{\nmin: [0],\n'50%': [10, 10],\nmax: [100],\n}}\n/>\n<br />\n<br />\n<div>Value: {slider}</div>\n<br />\n<Slider size={4} value={slider} onChange={handleChangeSlider} />\n</>\n);\n});"
+},
+{
+"title": "Размеры",
+"description": "Доступны две высоты желоба: 2 и 4рх.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState(0);\nconst [slider, setSlider] = React.useState(0);\n\nconst handleChange = ({ value }) => setValue(value);\nconst handleChangeSlider = ({ value }) => setSlider(value);\n\nreturn (\n<>\n<Slider size={4} value={value} onChange={handleChange} />\n<br />\n<br />\n<Slider size={2} value={slider} onChange={handleChangeSlider} />\n</>\n);\n});",
+"mobile": "render(() => {\nconst [value, setValue] = React.useState(0);\nconst [slider, setSlider] = React.useState(0);\n\nconst handleChange = ({ value }) => setValue(value);\nconst handleChangeSlider = ({ value }) => setSlider(value);\n\nreturn (\n<>\n<div style={{ marginBottom: 80 }}>\n<Slider size={4} value={value} onChange={handleChange} />\n</div>\n<Slider size={2} value={slider} onChange={handleChangeSlider} />\n</>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.13.0",
+"description": "#### [#2219](https://github.com/core-ds/core-components/pull/2219)\n\n- Исправлен регресс выравниваний крайних подписей (`min`/`max`) под слайдером."
+},
+{
+"version": "50.12.0",
+"description": "#### [#1770](https://github.com/core-ds/core-components/pull/1770)\n\n- В `Slider` добавлены пропсы `dots`, `dotsSlider`, `customDots`, `showPipsDots` и `pipsLabel` для раздельного управления точками (`dots`) и подписями (`pips`).\n- В режиме `dotsSlider='custom'` `showPipsDots` управляет отображением точек для `pips`-значений, а `pipsLabel` управляет только подписями (`all`, `pipsOnly`, `customPipsOnly`, `none`)."
+},
+{
+"version": "50.0.0",
+"description": "#### [#1694](https://github.com/core-ds/core-components/pull/1694)\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m` на `2, 4` соответственно)"
+}
+]
+}
