@@ -41,4 +41,9 @@ export default {
     ...grid,
     ...dateUtils,
     ...knobs,
+    process: {
+        env: {
+            ...process.env,
+        },
+    },
 };

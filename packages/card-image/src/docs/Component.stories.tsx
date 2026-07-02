@@ -23,7 +23,7 @@ export const card_image: Story = {
                 )}
                 width={number('width', 280)}
                 rounded={boolean('rounded', false)}
-                baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
+                baseUrl={text('baseUrl', process.env.CORE_COMPONENTS_CARD_IMAGE_BASE_URL)}
             />
         );
     },

@@ -81,8 +81,8 @@ exports[`CardImage Display tests should display with cardId and layers 1`] = `
       class="image"
       height="176.4"
       role="presentation"
-      src="https://online.alfabank.ru/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER&width=280"
-      srcset="https://online.alfabank.ru/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER&width=560 2x"
+      src="https://example.com/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER&width=280"
+      srcset="https://example.com/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER&width=560 2x"
       width="280"
     />
   </div>
@@ -102,8 +102,8 @@ exports[`CardImage Display tests should display with cardId correctly 1`] = `
           class="image"
           height="176.4"
           role="presentation"
-          src="https://online.alfabank.ru/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
-          srcset="https://online.alfabank.ru/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
+          src="https://example.com/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
+          srcset="https://example.com/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
           width="280"
         />
       </div>
@@ -118,8 +118,8 @@ exports[`CardImage Display tests should display with cardId correctly 1`] = `
         class="image"
         height="176.4"
         role="presentation"
-        src="https://online.alfabank.ru/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
-        srcset="https://online.alfabank.ru/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
+        src="https://example.com/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
+        srcset="https://example.com/cards-images/cards/ER/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
         width="280"
       />
     </div>

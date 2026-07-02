@@ -508,7 +508,7 @@
 ### [#346](https://github.com/core-ds/core-components/pull/346)
 
 #### Что изменилось
-- В компоненте Select иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компоненте Select иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 #### Влияние на компоненты
 - Минорное<br />`select` `themes`
@@ -538,7 +538,7 @@
 ### [#342](https://github.com/core-ds/core-components/pull/342)
 
 #### Что изменилось
-- В компонентах Gallery и Input иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компонентах Gallery и Input иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 #### Влияние на компоненты
 - Минорное<br />`gallery` `input` `themes` `amount-input` `date-input`<br /> `date-range-input` `date-time-input` `input-autocomplete` `intl-phone-input` `masked-input`<br /> `password-input` `slider-input` `time-input` `calendar-input` `phone-input`<br />
@@ -643,7 +643,7 @@
 ### [#340](https://github.com/core-ds/core-components/pull/340)
 
 #### Что изменилось
-- В компоненте Plate иконки подгружаемые с 'alfabank.servicecdn.ru' были заменены на иконки из icons-glyph
+- В компоненте Plate иконки подгружаемые с cdn были заменены на иконки из icons-glyph
 
 #### Влияние на компоненты
 - Минорное<br />`plate`
@@ -1497,8 +1497,6 @@ Co-authored-by: crybabydanchan <crysiscaramel@gmal.com>
 * Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 # [29.4.0](https://github.com/core-ds/core-components/compare/v29.3.0...v29.4.0) (2022-08-12)
 
 
@@ -1550,12 +1548,12 @@ Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
 
 ### Features
 
-* Новый cdn alfabank.servicecdn.ru ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
+* Новый cdn ([#166](https://github.com/core-ds/core-components/issues/166)) ([e29c89e](https://github.com/core-ds/core-components/commit/e29c89edc8cf60ac23df9570eece9e7811eb11f0))
 
 
 ### BREAKING CHANGES
 
-* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.servicecdn.ru
+* Добавьте новый домен в список разрешенных 'img-src': `'self' your-domain.ru
   data: 'self'`
 
 * chore(screenshot-utils): change cdn
@@ -2144,8 +2142,7 @@ Co-authored-by: dmitrsavk <dmitrsavk@yandex.ru>
 * test(confirmation): update snapshot
 * **confirmation:** Удалена пропса code
 
-Co-authored-by: reme3d2y <AYatsenko@alfabank.ru>
-* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+* Добавьте новый домен в список разрешенных 'img-src': `'self' your-domain.co data: 'self'`
 
 This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 * **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
@@ -2178,7 +2175,6 @@ This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
 * remove dark-theme-injector. remove vars duplications
 * buttonRetryText renamed to buttonReturnText
 
-Co-authored-by: Alexander Soldatov <aesoldatov@alfabank.ru>
 * inline-block changes to block
 
 * chore(release): 18.0.0 [skip ci]
@@ -2189,7 +2185,6 @@ Co-authored-by: Alexander Soldatov <aesoldatov@alfabank.ru>
 * **skeleton:** inline-block changes to block
 * **confirmation:** buttonRetryText renamed to buttonReturnText
 
-Co-authored-by: Alexander Soldatov <aesoldatov@alfabank.ru>
 * **button:** remove inverted themes
 * **stack:** remove z-index, add stack component
 
@@ -3380,8 +3375,6 @@ Co-authored-by: dmitrsavk <dmitrsavk@yandex.ru>
 
 * test(confirmation): update snapshot
 * **confirmation:** Удалена пропса code
-
-Co-authored-by: reme3d2y <AYatsenko@alfabank.ru>
 
 # [23.13.0](https://github.com/core-ds/core-components/compare/v23.12.0...v23.13.0) (2022-02-15)
 

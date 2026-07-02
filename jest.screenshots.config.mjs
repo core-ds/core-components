@@ -18,6 +18,7 @@ const tsJestPreset = createJsWithTsLegacyPreset({ tsconfig: '<rootDir>/tsconfig.
 const config = {
     ...tsJestPreset,
     testEnvironment: 'node',
+    globalSetup: '<rootDir>/tools/jest/globalSetupScreenshots.mjs',
     setupFilesAfterEnv: ['<rootDir>/tools/jest/setupScreenshotsTests.ts'],
     modulePathIgnorePatterns: ['/dist/'],
     moduleNameMapper: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { AlfaBankLIcon } from '@alfalab/icons-logotype/AlfaBankLIcon';
+import { DiamondsMIcon } from '@alfalab/icons-glyph/DiamondsMIcon';
 
 import { BankCard } from './index';
 
@@ -124,7 +124,7 @@ describe('BankCard', () => {
         const dataTestId = 'test-id';
         const logo = (
             <div data-test-id={dataTestId}>
-                <AlfaBankLIcon />
+                <DiamondsMIcon />
             </div>
         );
         const { getByTestId } = render(<BankCard bankLogo={logo} />);

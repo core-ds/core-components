@@ -32,7 +32,7 @@
 },
 "baseUrl": {
 "defaultValue": {
-"value": "https://alfabank.servicecdn.ru/icons"
+"value": "https://example.servicecdn.ru/icons"
 },
 "description": "Базовый адрес cdn хранилища c иконками",
 "name": "baseUrl",

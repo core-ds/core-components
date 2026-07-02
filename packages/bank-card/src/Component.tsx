@@ -10,12 +10,12 @@ import cn from 'classnames';
 
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { CameraMIcon } from '@alfalab/icons-glyph/CameraMIcon';
-import { AlfaBankSignMIcon } from '@alfalab/icons-logo/AlfaBankSignMIcon';
 import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
 import { MirXxlIcon } from '@alfalab/icons-logotype/MirXxlIcon';
 import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
 
 import { getDefaultInputLabel } from './helpers/getDefaultInputLabel';
+import { DefaultLogo } from './default-logo';
 import { MaskTypeEnum } from './enums';
 import { type MaskType } from './types';
 import { validateCardNumber } from './utils';
@@ -90,7 +90,7 @@ const getBrandIcon = (value = '') => {
 export const BankCard = forwardRef<HTMLInputElement, BankCardProps>(
     (
         {
-            bankLogo = <AlfaBankSignMIcon width={30} height={40} />,
+            bankLogo = <DefaultLogo width={30} height={40} />,
             backgroundColor = '#EF3124',
             value: valueFromProps,
             className,

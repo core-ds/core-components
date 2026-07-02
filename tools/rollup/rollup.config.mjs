@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, no-nested-ternary */
 
 import json from '@rollup/plugin-json';
-import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 import fse from 'fs-extra';
 import path from 'node:path';
@@ -12,6 +11,7 @@ import copy from 'rollup-plugin-copy';
 import { globSync } from 'tinyglobby';
 import ts from 'typescript';
 
+import { createRollupPlugin } from '../env-manager.mjs';
 import { readPackagesFileSync } from '../read-packages-file.cjs';
 
 import { coreComponentsResolver, externalsResolver } from './core-components-resolver.mjs';
@@ -39,13 +39,7 @@ const baseConfig = () =>
         input: globSync('src/**/*.{ts,tsx}', {
             ignore: ['src/**/*.{test,stories}.{ts,tsx}', 'src/**/*.mdx', 'src/**/*.d.ts'],
         }),
-        plugins: [
-            json(),
-            replace({
-                values: { 'process.env.CORE_COMPONENTS_ENV': JSON.stringify('production') },
-                preventAssignment: true,
-            }),
-        ],
+        plugins: [json(), createRollupPlugin()],
     });
 
 const assetsCopyPlugin = (dest) =>

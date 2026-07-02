@@ -1622,8 +1622,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Изменена директория расположения индексных файлов в опубликованных пакетах (удалена
   директория dist)
 
-Co-authored-by: Vladimir Gevak <VGevak@alfabank.ru>
-
 ## [1.2.2](https://github.com/core-ds/core-components/compare/@alfalab/core-components-side-panel@1.2.1...@alfalab/core-components-side-panel@1.2.2) (2022-08-17)
 
 ### Bug Fixes
