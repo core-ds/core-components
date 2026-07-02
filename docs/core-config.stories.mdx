@@ -11,8 +11,9 @@ import { Meta } from '@storybook/addon-docs';
 Для того чтобы не переопределять компоненты по отдельности, можно воспользоваться контекстом — компоненты автоматически получат значение из него (доступно в core-components с 48 версии).
 
 ### Установка:
+
 ```bash
-npm install @alfalab/core-config
+npm install @alfalab/core-components-config
 ```
 
 ### Использование:
@@ -22,12 +23,13 @@ npm install @alfalab/core-config
 - `breakpoint` — точка перехода между мобильной и десктопной версией компонентов
 - `client` — используется для того, чтобы указать, какую версию компонентов нужно использовать при Server-Side Rendering. Это позволяет избежать рендеринга компонентов на стороне клиента
 
-```jsx
+```tsx
 const coreConfig = React.useMemo<CoreConfigContext>(
-    () => ({ breakpoint: 1024, client: 'desktop' }), []
+    () => ({ breakpoint: 1024, client: 'desktop' }),
+    [],
 );
 
 <CoreConfigContext.Provider>
     <App />
-</CoreConfigContext.Provider>
+</CoreConfigContext.Provider>;
 ```
