@@ -48,13 +48,35 @@
 "name": "PaddingType | undefined"
 }
 },
-"view": {
-"defaultValue": null,
-"description": "",
-"name": "view",
-"required": true,
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
 "type": {
-"name": "\"desktop\" | \"mobile\""
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
 }
 }
 },

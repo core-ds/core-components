@@ -38,7 +38,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "24 | 20 | undefined"
+"name": "20 | 24 | undefined"
 }
 },
 "boxClassName": {

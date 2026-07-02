@@ -34,24 +34,6 @@
 "name": "boolean | (() => boolean) | undefined"
 }
 },
-"children": {
-"defaultValue": null,
-"description": "Дочерние элементы.\n@description Отображение зависит от переданного `Component` (например, вариант с `IndicatorTag` может не показывать текст, если так заложено в компоненте).",
-"name": "children",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования",
-"name": "dataTestId",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
 "onClick": {
 "defaultValue": null,
 "description": "Обработчик нажатия",
@@ -61,39 +43,10 @@
 "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
 }
 },
-"size": {
+"children": {
 "defaultValue": null,
-"description": "Размер компонента",
-"name": "size",
-"required": false,
-"type": {
-"name": "48 | 40 | 56 | 64 | 72 | 32 | undefined"
-}
-},
-"view": {
-"defaultValue": {
-"value": "outlined"
-},
-"description": "Стиль тега",
-"name": "view",
-"required": false,
-"type": {
-"name": "\"filled\" | \"outlined\" | \"transparent\" | undefined"
-}
-},
-"colors": {
-"defaultValue": null,
-"description": "Набор цветов для компонента",
-"name": "colors",
-"required": false,
-"type": {
-"name": "\"default\" | \"inverted\" | undefined"
-}
-},
-"rightAddons": {
-"defaultValue": null,
-"description": "Слот справа",
-"name": "rightAddons",
+"description": "Дочерние элементы.\n@description Отображение зависит от переданного `Component` (например, вариант с `IndicatorTag` может не показывать текст, если так заложено в компоненте).",
+"name": "children",
 "required": false,
 "type": {
 "name": "ReactNode"
@@ -108,22 +61,13 @@
 "name": "boolean | undefined"
 }
 },
-"leftAddons": {
+"size": {
 "defaultValue": null,
-"description": "Слот слева\n@description При кастомном `Component` (например, `IndicatorTag`) прокидывается в его разметку.",
-"name": "leftAddons",
+"description": "Размер компонента",
+"name": "size",
 "required": false,
 "type": {
-"name": "ReactNode"
-}
-},
-"shape": {
-"defaultValue": null,
-"description": "Форма тега",
-"name": "shape",
-"required": false,
-"type": {
-"name": "\"rounded\" | \"rectangular\" | undefined"
+"name": "32 | 40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "Component": {
@@ -135,28 +79,37 @@
 "name": "ComponentType | undefined"
 }
 },
-"allowBackdropBlur": {
-"defaultValue": null,
-"description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
-"name": "allowBackdropBlur",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"variant": {
-"defaultValue": null,
-"description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега",
-"name": "variant",
-"required": false,
-"type": {
-"name": "\"default\" | \"alt\" | undefined"
-}
-},
 "childrenClassName": {
 "defaultValue": null,
 "description": "Дополнительный класс для обёртки children",
 "name": "childrenClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева\n@description При кастомном `Component` (например, `IndicatorTag`) прокидывается в его разметку.",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
 "required": false,
 "type": {
 "name": "string | undefined"
@@ -169,6 +122,53 @@
 "required": false,
 "type": {
 "name": "RefObject<HTMLSpanElement> | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"variant": {
+"defaultValue": null,
+"description": "@deprecated данный проп больше не используется, временно оставлен для обратной совместимости\nИспользуйте props shape и view\nВариант тега",
+"name": "variant",
+"required": false,
+"type": {
+"name": "\"default\" | \"alt\" | undefined"
+}
+},
+"shape": {
+"defaultValue": null,
+"description": "Форма тега",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "outlined"
+},
+"description": "Стиль тега",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"outlined\" | \"filled\" | \"transparent\" | undefined"
+}
+},
+"allowBackdropBlur": {
+"defaultValue": null,
+"description": "Включает размытие фона для некоторых вариантов тега\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
+"name": "allowBackdropBlur",
+"required": false,
+"type": {
+"name": "boolean | undefined"
 }
 },
 "indicatorProps": {

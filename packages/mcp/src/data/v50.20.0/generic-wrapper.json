@@ -29,7 +29,7 @@
 "name": "alignItems",
 "required": false,
 "type": {
-"name": "\"start\" | \"end\" | \"center\" | \"stretch\" | \"baseline\" | undefined"
+"name": "\"stretch\" | \"end\" | \"start\" | \"center\" | \"baseline\" | undefined"
 }
 },
 "justifyContent": {
@@ -38,7 +38,7 @@
 "name": "justifyContent",
 "required": false,
 "type": {
-"name": "\"start\" | \"end\" | \"center\" | \"between\" | \"around\" | \"evenly\" | undefined"
+"name": "\"end\" | \"start\" | \"center\" | \"between\" | \"around\" | \"evenly\" | undefined"
 }
 },
 "dataTestId": {

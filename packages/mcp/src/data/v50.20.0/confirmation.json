@@ -1,73 +1,8 @@
 {
 "packageName": "confirmation",
-"displayName": "ConfirmationResponsive",
+"displayName": "Confirmation",
 "description": "",
 "props": {
-"children": {
-"defaultValue": null,
-"description": "Дочерние элементы",
-"name": "children",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"className": {
-"defaultValue": null,
-"description": "Сss класс для стилизации общей обёртки",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования",
-"name": "dataTestId",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"client": {
-"defaultValue": null,
-"description": "Версия, которая будет использоваться при серверном рендеринге",
-"name": "client",
-"required": false,
-"type": {
-"name": "\"desktop\" | \"mobile\" | undefined"
-}
-},
-"mobile": {
-"defaultValue": null,
-"description": "Мобильная версия компонента для экрана",
-"name": "mobile",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"clearCodeOnError": {
-"defaultValue": null,
-"description": "Флаг - нужно ли очищать код при возникновении ошибки",
-"name": "clearCodeOnError",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"errorVisibleDuration": {
-"defaultValue": {
-"value": "1300"
-},
-"description": "Продолжительность отображения ошибки",
-"name": "errorVisibleDuration",
-"required": false,
-"type": {
-"name": "number | undefined"
-}
-},
 "screen": {
 "defaultValue": null,
 "description": "Экран компонента",
@@ -86,13 +21,22 @@
 "name": "string"
 }
 },
+"mobile": {
+"defaultValue": null,
+"description": "Мобильная версия компонента для экрана",
+"name": "mobile",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "alignContent": {
 "defaultValue": null,
 "description": "Позиционирование контента",
 "name": "alignContent",
 "required": false,
 "type": {
-"name": "\"center\" | \"left\" | undefined"
+"name": "\"left\" | \"center\" | undefined"
 }
 },
 "titleTag": {
@@ -160,6 +104,24 @@
 "name": "boolean | undefined"
 }
 },
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Сss класс для стилизации общей обёртки",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "maxWidth": {
 "defaultValue": null,
 "description": "Максимальная ширина контейнера компонента.\nДля mobile по умолчанию используется 288px, если не передано значение.",
@@ -167,6 +129,15 @@
 "required": false,
 "type": {
 "name": "MaxWidth<string | number> | undefined"
+}
+},
+"clearCodeOnError": {
+"defaultValue": null,
+"description": "Флаг - нужно ли очищать код при возникновении ошибки",
+"name": "clearCodeOnError",
+"required": false,
+"type": {
+"name": "boolean | undefined"
 }
 },
 "onChangeState": {
@@ -232,6 +203,15 @@
 "name": "((defaultScreensMap: ScreensMap) => ScreensMap) | undefined"
 }
 },
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
 "hideCountdownSection": {
 "defaultValue": {
 "value": "false"
@@ -250,6 +230,26 @@
 "required": false,
 "type": {
 "name": "ReactNode"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"mobile\" | \"desktop\" | undefined"
+}
+},
+"errorVisibleDuration": {
+"defaultValue": {
+"value": "1300"
+},
+"description": "Продолжительность отображения ошибки",
+"name": "errorVisibleDuration",
+"required": false,
+"type": {
+"name": "number | undefined"
 }
 },
 "breakpoint": {
@@ -282,5 +282,18 @@
 "desktop": "render(() => {\nconst isMobileFrame = document.body.clientWidth < 450;\nconst variants = [\n{ key: 'success', content: 'Корректный код' },\n{ key: 'error', content: 'Некорректный код' },\n{ key: 'expired', content: 'Код устарел' },\n{ key: 'fatal', content: 'Закончились попытки ввода кода, вводимый код некорректен' },\n{\nkey: 'sms-requests-ended',\ncontent: 'Закончились попытки запроса кода, вводимый код устарел',\n},\n{ key: 'temp-block-over', content: 'Сценарий, когда форма временно заблокирована' },\n];\n\nconst [variant, setVariant] = React.useState(variants[0]);\nconst [shownSuccessScreen, setShownSuccessScreen] = React.useState(false);\n\nconst {\nconfirmationState,\nconfirmationScreen,\nconfirmationBlockSmsRetry,\nsetConfirmationState,\nsetConfirmationScreen,\nsetConfirmationBlockSmsRetry,\n} = useConfirmation();\n\nconst handleInputFinished = () => {\nsetTimeout(() => {\nswitch (variant.key) {\ncase 'success':\nsetShownSuccessScreen(true);\nsetConfirmationState('INITIAL');\nbreak;\ncase 'error':\nsetConfirmationState('CODE_ERROR');\nbreak;\ncase 'expired':\nsetConfirmationState('CODE_EXPIRED');\nbreak;\ncase 'fatal':\nsetConfirmationScreen('FATAL_ERROR');\nbreak;\ncase 'sms-requests-ended':\nsetConfirmationState('CODE_EXPIRED_ENDED');\nbreak;\ncase 'temp-block-over':\nsetConfirmationScreen('TEMP_BLOCK');\nbreak;\ndefault:\nbreak;\n}\n}, 1000);\n};\n\nconst durations = {\n'temp-block': 24 * 60 * 60 * 1000,\n'temp-block-over': 10000,\n};\n\nconst currentTempBlockDuration = durations[variant.key] || 10000;\n\nconst handleSmsRetryClick = () => {\nsetTimeout(() => {\nif (variant.key === 'sms-requests-ended') {\nsetConfirmationBlockSmsRetry(true);\n}\nsetConfirmationState('INITIAL');\n}, 1000);\n};\n\nconst handleTempBlockFinished = () => {\nif (variant.key === 'temp-block-over') {\nsetConfirmationScreen('TEMP_BLOCK_OVER');\n} else {\nsetConfirmationScreen('INITIAL');\nsetConfirmationState('CODE_SENDING');\n}\n};\n\nconst Component = isMobileFrame ? ConfirmationMobile : Confirmation;\n\nreturn (\n<div style={{ margin: '0 auto', width: isMobileFrame ? '100%' : 388 }}>\n<SelectDesktop\nblock={true}\noptions={variants}\nonChange={({ selected }) => {\nsetShownSuccessScreen(false);\nsetConfirmationState('INITIAL');\nsetConfirmationScreen('INITIAL');\nsetConfirmationBlockSmsRetry(false);\nsetVariant(selected);\n}}\nselected={variant.key}\nOption={BaseOption}\noptionsListWidth='field'\n/>\n<div\nkey={variant.key}\nstyle={{\nmargin: '16px 0 0',\npadding: '16px',\nboxShadow: '0 0 0 1px #eeeff1',\nboxSizing: 'border-box',\n}}\n>\n{shownSuccessScreen ? (\n<div style={{ display: 'flex', flexFlow: 'column nowrap', height: 266 }}>\n<Gap size={32} />\n<div\nstyle={{\ndisplay: 'flex',\nflexFlow: 'column nowrap',\nalignItems: 'center',\nflex: 1,\n}}\n>\n<div style={{ textAlign: 'center' }}>\n<SuperEllipse\nsize={80}\nbackgroundColor='var(--color-light-status-positive)'\n>\n<CheckmarkMIcon style={{ fill: '#fff' }} />\n</SuperEllipse>\n\n<Gap size={16} />\n\n<Typography.Text view='primary-medium' weight='bold'>\nВведён корректный код\n</Typography.Text>\n</div>\n\n<Gap size={isMobileFrame ? 32 : 48} />\n\n<Button onClick={() => setShownSuccessScreen(false)} size={40}>\nПопробовать ещё раз\n</Button>\n</div>\n</div>\n) : (\n<Component\nscreen={confirmationScreen}\nstate={confirmationState}\nalignContent='center'\nblockSmsRetry={confirmationBlockSmsRetry}\ncountdownDuration={10000}\ntempBlockDuration={currentTempBlockDuration}\nonChangeState={setConfirmationState}\nonChangeScreen={setConfirmationScreen}\nonInputFinished={handleInputFinished}\nonSmsRetryClick={handleSmsRetryClick}\nonTempBlockFinished={handleTempBlockFinished}\nphone='+7 ··· ··· 07 24'\n/>\n)}\n</div>\n</div>\n);\n});"
 }
 ],
-"changelog": []
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "49.10.0",
+"description": "#### [#1939](https://github.com/core-ds/core-components/pull/1939)\n\n- Исправлены расхождения в межбуквенном расстоянии и отступами вокруг текста"
+},
+{
+"version": "49.5.0",
+"description": "#### [#1879](https://github.com/core-ds/core-components/pull/1879)\n\n- Добавлен опциональный props `titleTag` для возможности управлять уровнем заголовка"
+}
+]
 }

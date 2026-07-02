@@ -3,102 +3,19 @@
 "displayName": "Notification",
 "description": "Информирует пользователя о текущем состоянии операций или сообщает пользователю о результате выполнения его команды. Не имеет мобильной версии.",
 "props": {
-"dataTestId": {
+"titleClassName": {
 "defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования",
-"name": "dataTestId",
+"description": "Дополнительный класс для заголовка",
+"name": "titleClassName",
 "required": false,
 "type": {
 "name": "string | undefined"
-}
-},
-"colors": {
-"defaultValue": null,
-"description": "Набор цветов для компонента",
-"name": "colors",
-"required": false,
-"type": {
-"name": "\"default\" | \"inverted\" | undefined"
-}
-},
-"block": {
-"defaultValue": null,
-"description": "Растягивает компонент на ширину контейнера",
-"name": "block",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"leftAddons": {
-"defaultValue": null,
-"description": "Слот слева, заменяет стандартную иконку",
-"name": "leftAddons",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"onClose": {
-"defaultValue": null,
-"description": "Обработчик клика по крестику",
-"name": "onClose",
-"required": false,
-"type": {
-"name": "((event?: MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => void) | undefined"
 }
 },
 "contentClassName": {
 "defaultValue": null,
 "description": "Дополнительный класс для контентной области",
 "name": "contentClassName",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"actionButton": {
-"defaultValue": null,
-"description": "Кнопка действия",
-"name": "actionButton",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"closerClassName": {
-"defaultValue": null,
-"description": "Доп. класс кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
-"name": "closerClassName",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"hasCloser": {
-"defaultValue": null,
-"description": "Управляет отображением кнопки закрытия уведомления\n@deprecated Используйте пропс `closerProps`",
-"name": "hasCloser",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"closerProps": {
-"defaultValue": {
-"value": "{ hasCloser: true }"
-},
-"description": "Параметры кнопки закрытия\n@property {boolean} [hasCloser] - Управляет отображением кнопки закрытия уведомления\n@property {string} [closerWrapperClassName] - Дополнительный класс враппера кнопки \"закрыть\"\n@property {string} [closerClassName] - Дополнительный класс кнопки \"закрыть\"\n@property {boolean} [divider] - Показывать разделитель\n@property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия",
-"name": "closerProps",
-"required": false,
-"type": {
-"name": "{Object}"
-}
-},
-"titleClassName": {
-"defaultValue": null,
-"description": "Дополнительный класс для заголовка",
-"name": "titleClassName",
 "required": false,
 "type": {
 "name": "string | undefined"
@@ -131,6 +48,42 @@
 "name": "StatusBadgeViews | undefined"
 }
 },
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева, заменяет стандартную иконку",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"actionButton": {
+"defaultValue": null,
+"description": "Кнопка действия",
+"name": "actionButton",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hasCloser": {
+"defaultValue": null,
+"description": "Управляет отображением кнопки закрытия уведомления\n@deprecated Используйте пропс `closerProps`",
+"name": "hasCloser",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "closerWrapperClassName": {
 "defaultValue": null,
 "description": "Доп. класс враппера кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
@@ -140,6 +93,44 @@
 "name": "string | undefined"
 }
 },
+"closerClassName": {
+"defaultValue": null,
+"description": "Доп. класс кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
+"name": "closerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"closerProps": {
+"defaultValue": {
+"value": "{ hasCloser: true }"
+},
+"description": "Параметры кнопки закрытия\n@property {boolean} [hasCloser] - Управляет отображением кнопки закрытия уведомления\n@property {string} [closerWrapperClassName] - Дополнительный класс враппера кнопки \"закрыть\"\n@property {string} [closerClassName] - Дополнительный класс кнопки \"закрыть\"\n@property {boolean} [divider] - Показывать разделитель\n@property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия",
+"name": "closerProps",
+"required": false,
+"type": {
+"name": "{Object}"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик клика по крестику",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event?: MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => void) | undefined"
+}
+},
 "getBadgeIcons": {
 "defaultValue": null,
 "description": "Функция, с помощью которой можно переопределить иконки в StatusBadge",
@@ -147,6 +138,15 @@
 "required": false,
 "type": {
 "name": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>> | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
 }
 },
 "visible": {

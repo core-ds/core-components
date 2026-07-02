@@ -374,7 +374,7 @@
 "name": "backButtonProps",
 "required": false,
 "type": {
-"name": "Omit<BackArrowAddonProps, \"onClick\" | \"view\" | \"textOpacity\"> | undefined"
+"name": "Omit<BackArrowAddonProps, \"view\" | \"textOpacity\" | \"onClick\"> | undefined"
 }
 },
 "titleAlign": {

@@ -3,22 +3,15 @@
 "displayName": "UniversalDateInput",
 "description": "Используется для указания даты и времени.",
 "props": {
-"className": {
-"defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
+"size": {
+"defaultValue": {
+"value": "48"
 },
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, календаря -calendar, поповера -popover",
-"name": "dataTestId",
+"description": "Размер компонента",
+"name": "size",
 "required": false,
 "type": {
-"name": "string | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "type": {
@@ -27,7 +20,7 @@
 "name": "type",
 "required": false,
 "type": {
-"name": "\"number\" | \"text\" | \"tel\" | \"email\" | \"password\" | \"money\" | undefined"
+"name": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\" | undefined"
 }
 },
 "onClick": {
@@ -48,6 +41,15 @@
 "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
 }
 },
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "onMouseUp": {
 "defaultValue": null,
 "description": "Обработчик MouseUp по полю",
@@ -55,62 +57,6 @@
 "required": false,
 "type": {
 "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
-}
-},
-"size": {
-"defaultValue": {
-"value": "48"
-},
-"description": "Размер компонента",
-"name": "size",
-"required": false,
-"type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
-}
-},
-"view": {
-"defaultValue": null,
-"description": "Вид компонента",
-"name": "view",
-"required": true,
-"type": {
-"name": "\"date\" | \"time\" | \"date-time\" | \"date-range\""
-}
-},
-"colors": {
-"defaultValue": null,
-"description": "Набор цветов для компонента",
-"name": "colors",
-"required": false,
-"type": {
-"name": "\"default\" | \"inverted\" | undefined"
-}
-},
-"rightAddons": {
-"defaultValue": null,
-"description": "Слот справа",
-"name": "rightAddons",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"bold": {
-"defaultValue": null,
-"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
-"name": "bold",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"fontWeight": {
-"defaultValue": null,
-"description": "Вес шрифта инпута, в том числе плейсхолдера",
-"name": "fontWeight",
-"required": false,
-"type": {
-"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
 }
 },
 "block": {
@@ -129,6 +75,15 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
 }
 },
 "error": {
@@ -180,6 +135,15 @@
 "defaultValue": null,
 "description": "Слот слева",
 "name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
 "required": false,
 "type": {
 "name": "ReactNode"
@@ -275,6 +239,15 @@
 "name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
 }
 },
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, календаря -calendar, поповера -popover",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "disableUserInput": {
 "defaultValue": null,
 "description": "Запрещает ввод с клавиатуры",
@@ -282,6 +255,24 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"bold": {
+"defaultValue": null,
+"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
+"name": "bold",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
 }
 },
 "breakpoint": {
@@ -315,33 +306,6 @@
 "name": "boolean | (() => boolean) | undefined"
 }
 },
-"minDate": {
-"defaultValue": null,
-"description": "Минимальная дата, доступная для выбора (timestamp)",
-"name": "minDate",
-"required": false,
-"type": {
-"name": "number | undefined"
-}
-},
-"maxDate": {
-"defaultValue": null,
-"description": "Максимальная дата, доступная для выбора (timestamp)",
-"name": "maxDate",
-"required": false,
-"type": {
-"name": "number | undefined"
-}
-},
-"onInputChange": {
-"defaultValue": null,
-"description": "Обработчик изменения значения в инпуте",
-"name": "onInputChange",
-"required": false,
-"type": {
-"name": "((event: ChangeEvent<HTMLInputElement> | null, payload: { value: string; }) => void) | undefined"
-}
-},
 "autoCorrection": {
 "defaultValue": {
 "value": "true"
@@ -362,6 +326,33 @@
 "name": "RefObject<{ handleCorrection: () => void; }> | undefined"
 }
 },
+"minDate": {
+"defaultValue": null,
+"description": "Минимальная дата, доступная для выбора (timestamp)",
+"name": "minDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"maxDate": {
+"defaultValue": null,
+"description": "Максимальная дата, доступная для выбора (timestamp)",
+"name": "maxDate",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"view": {
+"defaultValue": null,
+"description": "Вид компонента",
+"name": "view",
+"required": true,
+"type": {
+"name": "\"date\" | \"date-time\" | \"date-range\" | \"time\""
+}
+},
 "picker": {
 "defaultValue": null,
 "description": "Открыть календарь при клике",
@@ -369,6 +360,15 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"onInputChange": {
+"defaultValue": null,
+"description": "Обработчик изменения значения в инпуте",
+"name": "onInputChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLInputElement> | null, payload: { value: string; }) => void) | undefined"
 }
 },
 "Calendar": {
@@ -386,7 +386,16 @@
 "name": "calendarProps",
 "required": false,
 "type": {
-"name": "Omit<ResponsiveCalendarProps, \"open\" | \"onClose\" | \"minDate\" | \"maxDate\"> | undefined"
+"name": "Omit<ResponsiveCalendarProps, \"open\" | \"minDate\" | \"maxDate\" | \"onClose\"> | undefined"
+}
+},
+"popoverProps": {
+"defaultValue": null,
+"description": "Пропсы поповера",
+"name": "popoverProps",
+"required": false,
+"type": {
+"name": "PopoverProps | undefined"
 }
 },
 "onCalendarOpen": {
@@ -407,15 +416,6 @@
 "name": "(() => void) | undefined"
 }
 },
-"popoverProps": {
-"defaultValue": null,
-"description": "Пропсы поповера",
-"name": "popoverProps",
-"required": false,
-"type": {
-"name": "PopoverProps | undefined"
-}
-},
 "calendarOpen": {
 "defaultValue": null,
 "description": "Флаг, открыт ли календарь",
@@ -432,6 +432,15 @@
 "required": false,
 "type": {
 "name": "((open: boolean) => void) | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Дата\nДиапазон дат\nВремя",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | number | Date | { dateFrom: number | Date | null; dateTo: number | Date | null; } | null | undefined"
 }
 },
 "defaultValue": {
@@ -452,15 +461,6 @@
 "name": "((date: Date | null, value: string) => void) | ((range: { dateFrom: Date | null; dateTo: Date | null; }, value: string) => void) | ((value: string) => void) | undefined"
 }
 },
-"value": {
-"defaultValue": null,
-"description": "Дата\nДиапазон дат\nВремя",
-"name": "value",
-"required": false,
-"type": {
-"name": "string | number | Date | { dateFrom: number | Date | null; dateTo: number | Date | null; } | null | undefined"
-}
-},
 "wrapperClassName": {
 "defaultValue": null,
 "description": "Дополнительный класс обертки",
@@ -478,7 +478,7 @@
 "name": "rangeBehavior",
 "required": false,
 "type": {
-"name": "\"reset\" | \"clarification\" | undefined"
+"name": "\"clarification\" | \"reset\" | undefined"
 }
 }
 },

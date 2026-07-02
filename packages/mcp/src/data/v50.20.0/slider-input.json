@@ -115,7 +115,7 @@
 "name": "Input",
 "required": false,
 "type": {
-"name": "ComponentType<Omit<InputProps, \"defaultValue\" | \"onChange\" | \"value\">> | undefined"
+"name": "ComponentType<Omit<InputProps, \"value\" | \"defaultValue\" | \"onChange\">> | undefined"
 }
 },
 "customInputProps": {
@@ -274,15 +274,6 @@
 "name": "boolean | undefined"
 }
 },
-"className": {
-"defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
 "defaultValue": {
 "defaultValue": null,
 "description": "Начальное значение поля",
@@ -310,6 +301,15 @@
 "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
 }
 },
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "onMouseUp": {
 "defaultValue": null,
 "description": "Обработчик MouseUp по полю",
@@ -317,33 +317,6 @@
 "required": false,
 "type": {
 "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
-}
-},
-"colors": {
-"defaultValue": null,
-"description": "Набор цветов для компонента",
-"name": "colors",
-"required": false,
-"type": {
-"name": "\"default\" | \"inverted\" | undefined"
-}
-},
-"rightAddons": {
-"defaultValue": null,
-"description": "Слот справа",
-"name": "rightAddons",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"fontWeight": {
-"defaultValue": null,
-"description": "Вес шрифта инпута, в том числе плейсхолдера",
-"name": "fontWeight",
-"required": false,
-"type": {
-"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
 }
 },
 "block": {
@@ -362,6 +335,15 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
 }
 },
 "error": {
@@ -422,6 +404,15 @@
 "defaultValue": null,
 "description": "Слот слева",
 "name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
 "required": false,
 "type": {
 "name": "ReactNode"
@@ -506,6 +497,15 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
 }
 },
 "breakpoint": {

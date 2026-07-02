@@ -38,7 +38,7 @@
 "name": "align",
 "required": false,
 "type": {
-"name": "\"center\" | \"left\" | undefined"
+"name": "\"left\" | \"center\" | undefined"
 }
 },
 "backgroundColor": {

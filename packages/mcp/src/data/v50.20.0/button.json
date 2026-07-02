@@ -11,7 +11,7 @@
 "name": "view",
 "required": false,
 "type": {
-"name": "\"text\" | \"primary\" | \"secondary\" | \"accent\" | \"outlined\" | \"transparent\" | undefined"
+"name": "\"text\" | \"accent\" | \"primary\" | \"secondary\" | \"outlined\" | \"transparent\" | undefined"
 }
 },
 "shape": {
@@ -71,7 +71,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | 32 | undefined"
+"name": "32 | 40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "block": {

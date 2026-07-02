@@ -136,7 +136,7 @@
 "name": "completeTextColor",
 "required": false,
 "type": {
-"name": "\"primary\" | \"primary-inverted\" | \"positive\" | \"negative\" | undefined"
+"name": "\"primary\" | \"positive\" | \"negative\" | \"primary-inverted\" | undefined"
 }
 },
 "completeIconColor": {
@@ -147,7 +147,7 @@
 "name": "completeIconColor",
 "required": false,
 "type": {
-"name": "\"primary-inverted\" | \"tertiary\" | \"positive\" | \"negative\" | undefined"
+"name": "\"tertiary\" | \"positive\" | \"negative\" | \"primary-inverted\" | undefined"
 }
 },
 "icon": {

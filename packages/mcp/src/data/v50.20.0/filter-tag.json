@@ -3,58 +3,22 @@
 "displayName": "FilterTag",
 "description": "Используется чтобы вывести параметры фильтрации и отобразить примененное значение.",
 "props": {
-"children": {
+"checked": {
 "defaultValue": null,
-"description": "Контент",
-"name": "children",
+"description": "Состояние выбора",
+"name": "checked",
 "required": false,
 "type": {
-"name": "ReactNode"
+"name": "boolean | undefined"
 }
 },
-"className": {
+"open": {
 "defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
+"description": "Состояние открытия",
+"name": "open",
 "required": false,
 "type": {
-"name": "string | undefined"
-}
-},
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования",
-"name": "dataTestId",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"onClick": {
-"defaultValue": null,
-"description": "Обработчик клика",
-"name": "onClick",
-"required": false,
-"type": {
-"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
-}
-},
-"size": {
-"defaultValue": null,
-"description": "Размер компонента",
-"name": "size",
-"required": false,
-"type": {
-"name": "48 | 40 | 32 | undefined"
-}
-},
-"view": {
-"defaultValue": null,
-"description": "Стиль тега",
-"name": "view",
-"required": false,
-"type": {
-"name": "\"filled\" | \"outlined\" | undefined"
+"name": "boolean | undefined"
 }
 },
 "disabled": {
@@ -66,21 +30,64 @@
 "name": "boolean | undefined"
 }
 },
-"colors": {
-"defaultValue": {
-"value": "default"
-},
-"description": "Набор цветов для компонента",
-"name": "colors",
+"onClick": {
+"defaultValue": null,
+"description": "Обработчик клика",
+"name": "onClick",
 "required": false,
 "type": {
-"name": "\"default\" | \"inverted\" | undefined"
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
 }
 },
-"checked": {
+"onClear": {
 "defaultValue": null,
-"description": "Состояние выбора",
-"name": "checked",
+"description": "Обработчик очистки",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"size": {
+"defaultValue": null,
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "32 | 40 | 48 | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"showClear": {
+"defaultValue": null,
+"description": "Показывать крестик для очистки выбора",
+"name": "showClear",
 "required": false,
 "type": {
 "name": "boolean | undefined"
@@ -97,24 +104,6 @@
 "name": "boolean | undefined"
 }
 },
-"leftAddons": {
-"defaultValue": null,
-"description": "Слот слева",
-"name": "leftAddons",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"onClear": {
-"defaultValue": null,
-"description": "Обработчик очистки",
-"name": "onClear",
-"required": false,
-"type": {
-"name": "(() => void) | undefined"
-}
-},
 "shape": {
 "defaultValue": {
 "value": "rounded"
@@ -126,22 +115,33 @@
 "name": "\"rounded\" | \"rectangular\" | undefined"
 }
 },
-"open": {
+"view": {
 "defaultValue": null,
-"description": "Состояние открытия",
-"name": "open",
+"description": "Стиль тега",
+"name": "view",
 "required": false,
 "type": {
-"name": "boolean | undefined"
+"name": "\"outlined\" | \"filled\" | undefined"
 }
 },
-"showClear": {
-"defaultValue": null,
-"description": "Показывать крестик для очистки выбора",
-"name": "showClear",
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
 "required": false,
 "type": {
-"name": "boolean | undefined"
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
 }
 },
 "breakpoint": {

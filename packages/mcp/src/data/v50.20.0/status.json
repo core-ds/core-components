@@ -31,7 +31,7 @@
 "name": "color",
 "required": false,
 "type": {
-"name": "\"red\" | \"grey\" | \"blue\" | \"green\" | \"orange\" | \"purple\" | \"teal\" | undefined"
+"name": "\"green\" | \"orange\" | \"red\" | \"blue\" | \"grey\" | \"teal\" | \"purple\" | undefined"
 }
 },
 "dataTestId": {
@@ -60,7 +60,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "40 | 32 | 24 | 20 | undefined"
+"name": "20 | 24 | 32 | 40 | undefined"
 }
 },
 "shape": {

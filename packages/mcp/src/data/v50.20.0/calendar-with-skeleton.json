@@ -76,7 +76,7 @@
 "name": "rangeBehavior",
 "required": false,
 "type": {
-"name": "\"reset\" | \"clarification\" | undefined"
+"name": "\"clarification\" | \"reset\" | undefined"
 }
 },
 "month": {

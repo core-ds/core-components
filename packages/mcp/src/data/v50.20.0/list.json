@@ -1,8 +1,85 @@
 {
 "packageName": "list",
-"displayName": "Context",
+"displayName": "List",
 "description": "",
-"props": {},
+"props": {
+"tag": {
+"defaultValue": {
+"value": "ul"
+},
+"description": "HTML тег",
+"name": "tag",
+"required": false,
+"type": {
+"name": "\"ul\" | \"ol\" | undefined"
+}
+},
+"marker": {
+"defaultValue": {
+"value": "'–' for ul and 'decimal' for ol"
+},
+"description": "Маркер",
+"name": "marker",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Css-класс для стилизации",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colorMarker": {
+"defaultValue": null,
+"description": "Цвет маркера",
+"name": "colorMarker",
+"required": false,
+"type": {
+"name": "ColorMarkerType | undefined"
+}
+},
+"reversed": {
+"defaultValue": null,
+"description": "Список обратного счета",
+"name": "reversed",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"start": {
+"defaultValue": null,
+"description": "Начало отсчета элементов списка",
+"name": "start",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Id компонента для тестов",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+}
+},
 "demos": [
 {
 "title": "Анатомия",

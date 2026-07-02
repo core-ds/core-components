@@ -3,31 +3,22 @@
 "displayName": "CheckboxGroup",
 "description": "Используется для выбора одного или нескольких доступных значений.",
 "props": {
-"children": {
+"label": {
 "defaultValue": null,
-"description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`",
-"name": "children",
-"required": true,
+"description": "Заголовок группы",
+"name": "label",
+"required": false,
 "type": {
 "name": "ReactNode"
 }
 },
-"className": {
+"direction": {
 "defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
+"description": "Направление",
+"name": "direction",
 "required": false,
 "type": {
-"name": "string | undefined"
-}
-},
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования",
-"name": "dataTestId",
-"required": false,
-"type": {
-"name": "string | undefined"
+"name": "Direction | undefined"
 }
 },
 "type": {
@@ -39,40 +30,13 @@
 "name": "CheckboxGroupType | undefined"
 }
 },
-"onFocus": {
+"className": {
 "defaultValue": null,
-"description": "Обработчик фокуса.",
-"name": "onFocus",
+"description": "Дополнительный класс",
+"name": "className",
 "required": false,
 "type": {
-"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
-}
-},
-"onBlur": {
-"defaultValue": null,
-"description": "Обработчик блюра.",
-"name": "onBlur",
-"required": false,
-"type": {
-"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
-}
-},
-"onChange": {
-"defaultValue": null,
-"description": "Обработчик изменения значения 'checked' одного из дочерних компонентов",
-"name": "onChange",
-"required": false,
-"type": {
-"name": "((event: MouseEvent<Element, MouseEvent> | ChangeEvent<Element>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
-}
-},
-"disabled": {
-"defaultValue": null,
-"description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox",
-"name": "disabled",
-"required": false,
-"type": {
-"name": "boolean | undefined"
+"name": "string | undefined"
 }
 },
 "error": {
@@ -93,22 +57,58 @@
 "name": "ReactNode"
 }
 },
-"label": {
+"children": {
 "defaultValue": null,
-"description": "Заголовок группы",
-"name": "label",
-"required": false,
+"description": "Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`",
+"name": "children",
+"required": true,
 "type": {
 "name": "ReactNode"
 }
 },
-"direction": {
+"onChange": {
 "defaultValue": null,
-"description": "Направление",
-"name": "direction",
+"description": "Обработчик изменения значения 'checked' одного из дочерних компонентов",
+"name": "onChange",
 "required": false,
 "type": {
-"name": "Direction | undefined"
+"name": "((event: ChangeEvent<Element> | MouseEvent<Element, MouseEvent>, payload: { checked: boolean; name?: string | undefined; }) => void) | undefined"
+}
+},
+"onBlur": {
+"defaultValue": null,
+"description": "Обработчик блюра.",
+"name": "onBlur",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
+}
+},
+"onFocus": {
+"defaultValue": null,
+"description": "Обработчик фокуса.",
+"name": "onFocus",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLInputElement, Element>) => void) | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
 }
 },
 "breakpoint": {

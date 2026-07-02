@@ -38,7 +38,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "40 | 32 | 24 | 20 | 16 | 8 | undefined"
+"name": "8 | 16 | 20 | 24 | 32 | 40 | undefined"
 }
 },
 "border": {
@@ -56,7 +56,7 @@
 "name": "view",
 "required": false,
 "type": {
-"name": "\"white\" | \"red\" | \"grey\" | undefined"
+"name": "\"red\" | \"grey\" | \"white\" | undefined"
 }
 },
 "dataTestId": {

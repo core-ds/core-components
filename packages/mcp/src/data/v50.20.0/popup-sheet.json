@@ -12,33 +12,6 @@
 "name": "ReactNode"
 }
 },
-"className": {
-"defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"onWheel": {
-"defaultValue": null,
-"description": "Хэндлер события прокрутки колесиком",
-"name": "onWheel",
-"required": false,
-"type": {
-"name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
-}
-},
-"open": {
-"defaultValue": null,
-"description": "Управление видимостью модалки",
-"name": "open",
-"required": true,
-"type": {
-"name": "boolean"
-}
-},
 "Backdrop": {
 "defaultValue": null,
 "description": "Компонент бэкдропа",
@@ -154,6 +127,24 @@
 "name": "boolean | undefined"
 }
 },
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью модалки",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "contentClassName": {
 "defaultValue": null,
 "description": "Дополнительный класс",
@@ -205,7 +196,7 @@
 "name": "scrollHandler",
 "required": false,
 "type": {
-"name": "\"content\" | \"wrapper\" | MutableRefObject<HTMLDivElement | null> | undefined"
+"name": "\"content\" | MutableRefObject<HTMLDivElement | null> | \"wrapper\" | undefined"
 }
 },
 "transitionProps": {
@@ -300,6 +291,15 @@
 "name": "boolean | undefined"
 }
 },
+"onWheel": {
+"defaultValue": null,
+"description": "Хэндлер события прокрутки колесиком",
+"name": "onWheel",
+"required": false,
+"type": {
+"name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
+}
+},
 "hasCloser": {
 "defaultValue": null,
 "description": "Наличие кнопки закрытия",
@@ -355,7 +355,7 @@
 "name": "closerProps",
 "required": false,
 "type": {
-"name": "Omit<CloserProps, \"view\" | \"onClose\"> | undefined"
+"name": "Omit<CloserProps, \"onClose\" | \"view\"> | undefined"
 }
 }
 },

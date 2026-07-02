@@ -3,13 +3,13 @@
 "displayName": "FormControl",
 "description": "Базовый компонент для построения полей ввода. Не может быть использован в чистом виде.",
 "props": {
-"dataTestId": {
+"block": {
 "defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования.\nДля слота слева используется модификатор -left-addons, слота справа -right-addons,\nошибки -error-message, текста подсказки -hint, внутренней части компонента -inner",
-"name": "dataTestId",
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
 "required": false,
 "type": {
-"name": "string | undefined"
+"name": "boolean | undefined"
 }
 },
 "size": {
@@ -20,16 +20,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
-}
-},
-"disabled": {
-"defaultValue": null,
-"description": "Заблокированное состояние",
-"name": "disabled",
-"required": false,
-"type": {
-"name": "boolean | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "colors": {
@@ -41,13 +32,13 @@
 "name": "\"default\" | \"inverted\" | undefined"
 }
 },
-"rightAddons": {
+"disabled": {
 "defaultValue": null,
-"description": "Слот справа",
-"name": "rightAddons",
+"description": "Заблокированное состояние",
+"name": "disabled",
 "required": false,
 "type": {
-"name": "ReactNode"
+"name": "boolean | undefined"
 }
 },
 "readOnly": {
@@ -59,10 +50,19 @@
 "name": "boolean | undefined"
 }
 },
-"block": {
+"filled": {
 "defaultValue": null,
-"description": "Растягивает компонент на ширину контейнера",
-"name": "block",
+"description": "Заполненное состояние",
+"name": "filled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"focused": {
+"defaultValue": null,
+"description": "Выбранное (фокус) состояние",
+"name": "focused",
 "required": false,
 "type": {
 "name": "boolean | undefined"
@@ -113,22 +113,13 @@
 "name": "ReactNode"
 }
 },
-"leftAddonsProps": {
+"rightAddons": {
 "defaultValue": null,
-"description": "Свойства для обертки левых аддонов",
-"name": "leftAddonsProps",
+"description": "Слот справа",
+"name": "rightAddons",
 "required": false,
 "type": {
-"name": "HTMLAttributes<HTMLDivElement> | undefined"
-}
-},
-"rightAddonsProps": {
-"defaultValue": null,
-"description": "Свойства для обертки правых аддонов",
-"name": "rightAddonsProps",
-"required": false,
-"type": {
-"name": "HTMLAttributes<HTMLDivElement> | undefined"
+"name": "ReactNode"
 }
 },
 "bottomAddons": {
@@ -144,6 +135,15 @@
 "defaultValue": null,
 "description": "Дополнительный класс для поля",
 "name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"inputWrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "inputWrapperClassName",
 "required": false,
 "type": {
 "name": "string | undefined"
@@ -167,28 +167,28 @@
 "name": "string | undefined"
 }
 },
-"filled": {
+"leftAddonsProps": {
 "defaultValue": null,
-"description": "Заполненное состояние",
-"name": "filled",
+"description": "Свойства для обертки левых аддонов",
+"name": "leftAddonsProps",
 "required": false,
 "type": {
-"name": "boolean | undefined"
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
 }
 },
-"focused": {
+"rightAddonsProps": {
 "defaultValue": null,
-"description": "Выбранное (фокус) состояние",
-"name": "focused",
+"description": "Свойства для обертки правых аддонов",
+"name": "rightAddonsProps",
 "required": false,
 "type": {
-"name": "boolean | undefined"
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
 }
 },
-"inputWrapperClassName": {
+"dataTestId": {
 "defaultValue": null,
-"description": "Дополнительный класс для поля",
-"name": "inputWrapperClassName",
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля слота слева используется модификатор -left-addons, слота справа -right-addons,\nошибки -error-message, текста подсказки -hint, внутренней части компонента -inner",
+"name": "dataTestId",
 "required": false,
 "type": {
 "name": "string | undefined"

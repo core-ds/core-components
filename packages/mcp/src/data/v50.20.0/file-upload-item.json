@@ -1,6 +1,6 @@
 {
 "packageName": "file-upload-item",
-"displayName": "FileUploadItemComponent",
+"displayName": "FileUploadItem",
 "description": "Используется для отображения загружаемого файла.",
 "props": {
 "className": {
@@ -300,5 +300,30 @@
 "desktop": "render(() => {\nconst commonStyles = {\nheight: 48,\nborder: '1px dashed var(--color-light-status-info)',\nborderRadius: '8px',\nbackgroundColor: 'var(--color-light-status-muted-alt-info)',\n};\n\nconst leftAddonStyles = {\nwidth: 48,\n...commonStyles,\n};\n\nconst contentStyles = {\nwidth: 232,\n...commonStyles,\n};\n\nconst rightAddonStyles = {\nwidth: 80,\n...commonStyles,\n};\n\nreturn (\n<FileUploadItem>\n<div style={leftAddonStyles}></div>\n<div style={contentStyles}></div>\n<div style={rightAddonStyles}></div>\n</FileUploadItem>\n);\n});"
 }
 ],
-"changelog": []
+"changelog": [
+{
+"version": "50.18.0",
+"description": "#### [#2220](https://github.com/core-ds/core-components/pull/2220)\n\n- Добавлен тип иконки \"архив\". Будет отображаться при загрузке расширения `zip`, `rar`, `7z`. Если пользуетесь менее популярными форматами, сообщите в команду поддержки для добавления.\n- Добавлен проп `reupload`. Позволяет отображать кнопку повторной загрузки.\n- Внесены исправления в работу внутреннего контекста.\n- Мелкие внутренние улучшения и оптимизации компонента (невидимые изменения, повышают стабильность и производительность)."
+},
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "49.14.0",
+"description": "#### [#2021](https://github.com/core-ds/core-components/pull/2021)\n\n- Показываем иконку загрузки, когда есть пропс `onDownload`"
+},
+{
+"version": "49.10.0",
+"description": "#### [#1921](https://github.com/core-ds/core-components/pull/1921)\n\n- В компонент `FileUploadItem` добавлено свойство `backgroundColor`, позволяющее задать цвет фона для `StatusControl`"
+},
+{
+"version": "49.6.0",
+"description": "#### [#1861](https://github.com/core-ds/core-components/pull/1861)\n\n- Реализована анимация прогресса загрузки для режима с неизвестным прогрессом\n- Добавлен новый props `progressBarAvailable` для возможности включения/отключения ProgressBar"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1823](https://github.com/core-ds/core-components/pull/1823)\n\n- Рефакторинг шкалы прогресса, изменена работа с mask-image на обычное заполнение svg path\n- Функция `humanFileSize` вынесена в модуль `shared`"
+}
+]
 }

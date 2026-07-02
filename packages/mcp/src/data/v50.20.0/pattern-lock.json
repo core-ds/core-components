@@ -61,15 +61,6 @@
 "name": "boolean | undefined"
 }
 },
-"onDragStart": {
-"defaultValue": null,
-"description": "Коллбек, вызываемый при начале ввода кода.",
-"name": "onDragStart",
-"required": false,
-"type": {
-"name": "(() => void) | undefined"
-}
-},
 "onComplete": {
 "defaultValue": null,
 "description": "Коллбек, вызываемый после завершения ввода кода.",
@@ -77,6 +68,15 @@
 "required": false,
 "type": {
 "name": "((code: number[], nodes: TNodes) => void) | undefined"
+}
+},
+"onDragStart": {
+"defaultValue": null,
+"description": "Коллбек, вызываемый при начале ввода кода.",
+"name": "onDragStart",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
 }
 },
 "themeState": {

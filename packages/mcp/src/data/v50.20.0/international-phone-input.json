@@ -101,7 +101,7 @@
 "name": "onBlur",
 "required": false,
 "type": {
-"name": "((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) | (((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) & ((event: FocusEvent<...>) => void)) | undefined"
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void)) | undefined"
 }
 },
 "onFocus": {
@@ -110,7 +110,7 @@
 "name": "onFocus",
 "required": false,
 "type": {
-"name": "((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) | (((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) & ((event: FocusEvent<...>) => void)) | undefined"
+"name": "((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) | (((event: FocusEvent<HTMLInputElement | HTMLDivElement, Element>) => void) & ((event: FocusEvent<...>) => void)) | undefined"
 }
 },
 "autoFill": {
@@ -124,22 +124,15 @@
 "name": "boolean | undefined"
 }
 },
-"className": {
-"defaultValue": null,
-"description": "Дополнительный класс",
-"name": "className",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
+"size": {
+"defaultValue": {
+"value": "48\n48"
 },
-"dataTestId": {
-"defaultValue": null,
-"description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control\nИдентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
-"name": "dataTestId",
+"description": "Размер компонента",
+"name": "size",
 "required": false,
 "type": {
-"name": "string | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "type": {
@@ -148,7 +141,16 @@
 "name": "type",
 "required": false,
 "type": {
-"name": "\"number\" | \"text\" | \"tel\" | \"email\" | \"password\" | \"money\" | undefined"
+"name": "\"number\" | \"email\" | \"money\" | \"password\" | \"tel\" | \"text\" | undefined"
+}
+},
+"value": {
+"defaultValue": null,
+"description": "Значение поля ввода",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | undefined"
 }
 },
 "defaultValue": {
@@ -178,6 +180,15 @@
 "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
 }
 },
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "onMouseUp": {
 "defaultValue": null,
 "description": "Обработчик MouseUp по полю",
@@ -187,15 +198,13 @@
 "name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
 }
 },
-"size": {
-"defaultValue": {
-"value": "48\n48"
-},
-"description": "Размер компонента",
-"name": "size",
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
+"name": "boolean | undefined"
 }
 },
 "colors": {
@@ -205,51 +214,6 @@
 "required": false,
 "type": {
 "name": "\"default\" | \"inverted\" | undefined"
-}
-},
-"value": {
-"defaultValue": null,
-"description": "Значение поля ввода",
-"name": "value",
-"required": false,
-"type": {
-"name": "string | undefined"
-}
-},
-"rightAddons": {
-"defaultValue": null,
-"description": "Слот справа",
-"name": "rightAddons",
-"required": false,
-"type": {
-"name": "ReactNode"
-}
-},
-"bold": {
-"defaultValue": null,
-"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
-"name": "bold",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"fontWeight": {
-"defaultValue": null,
-"description": "Вес шрифта инпута, в том числе плейсхолдера",
-"name": "fontWeight",
-"required": false,
-"type": {
-"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
-}
-},
-"block": {
-"defaultValue": null,
-"description": "Растягивает компонент на ширину контейнера",
-"name": "block",
-"required": false,
-"type": {
-"name": "boolean | undefined"
 }
 },
 "error": {
@@ -310,6 +274,15 @@
 "defaultValue": null,
 "description": "Слот слева",
 "name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
 "required": false,
 "type": {
 "name": "ReactNode"
@@ -396,6 +369,15 @@
 "name": "string | undefined"
 }
 },
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control\nИдентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
 "disableUserInput": {
 "defaultValue": null,
 "description": "Запрещает ввод с клавиатуры",
@@ -403,6 +385,24 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"bold": {
+"defaultValue": null,
+"description": "Жирный текст\n@deprecated Используйте {@link BaseInputProps.fontWeight }",
+"name": "bold",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fontWeight": {
+"defaultValue": null,
+"description": "Вес шрифта инпута, в том числе плейсхолдера",
+"name": "fontWeight",
+"required": false,
+"type": {
+"name": "\"bold\" | \"medium\" | \"regular\" | undefined"
 }
 },
 "breakpoint": {
@@ -422,7 +422,7 @@
 "name": "client",
 "required": false,
 "type": {
-"name": "\"desktop\" | \"mobile\" | undefined"
+"name": "\"mobile\" | \"desktop\" | undefined"
 }
 },
 "defaultMatchMediaValue": {
@@ -443,145 +443,6 @@
 "required": true,
 "type": {
 "name": "(OptionShape | GroupShape)[]"
-}
-},
-"environment": {
-"defaultValue": {
-"value": "window"
-},
-"description": "Контекст окружения для downshift.js",
-"name": "environment",
-"required": false,
-"type": {
-"name": "Environment | undefined"
-}
-},
-"open": {
-"defaultValue": null,
-"description": "Управление открытием",
-"name": "open",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"transitionProps": {
-"defaultValue": null,
-"description": "Пропсы анимации контента (CSSTransition)",
-"name": "transitionProps",
-"required": false,
-"type": {
-"name": "Partial<TransitionProps> | undefined"
-}
-},
-"virtualKeyboard": {
-"defaultValue": {
-"value": "false"
-},
-"description": "Учитывать высоту виртуальной клавиатуры в BottomSheet",
-"name": "virtualKeyboard",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"onApply": {
-"defaultValue": null,
-"description": "Обработчик нажатия на кнопку «Продолжить» в BottomSheet или модальном окне",
-"name": "onApply",
-"required": false,
-"type": {
-"name": "(() => void) | undefined"
-}
-},
-"defaultOpen": {
-"defaultValue": null,
-"description": "Начальное состояние селекта",
-"name": "defaultOpen",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"preventFlip": {
-"defaultValue": null,
-"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
-"name": "preventFlip",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"popoverPosition": {
-"defaultValue": null,
-"description": "Позиционирование выпадающего списка",
-"name": "popoverPosition",
-"required": false,
-"type": {
-"name": "Position | undefined"
-}
-},
-"zIndexPopover": {
-"defaultValue": null,
-"description": "z-index поповера",
-"name": "zIndexPopover",
-"required": false,
-"type": {
-"name": "number | undefined"
-}
-},
-"Arrow": {
-"defaultValue": null,
-"description": "Компонент стрелки",
-"name": "Arrow",
-"required": false,
-"type": {
-"name": "false | ComponentType<ArrowProps> | null | undefined"
-}
-},
-"selected": {
-"defaultValue": null,
-"description": "Список value выбранных пунктов (controlled-селект)",
-"name": "selected",
-"required": false,
-"type": {
-"name": "string | OptionShape | (string | OptionShape)[] | null | undefined"
-}
-},
-"closeOnSelect": {
-"defaultValue": null,
-"description": "Закрывать меню после выбора?",
-"name": "closeOnSelect",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"allowUnselect": {
-"defaultValue": null,
-"description": "Позволяет снять выбранное значение",
-"name": "allowUnselect",
-"required": false,
-"type": {
-"name": "boolean | undefined"
-}
-},
-"searchProps": {
-"defaultValue": null,
-"description": "Настройки поиска",
-"name": "searchProps",
-"required": false,
-"type": {
-"name": "{ componentProps?: SearchProps | undefined; accessor?: ((option: OptionShape) => string) | undefined; filterFn?: ((optionText: string, search: string) => boolean) | undefined; value?: string | undefined; onChange?: ((value: string) => void) | undefined; filterGroup?: boolean | undefined; groupAccessor?: ((group: Gro..."
-}
-},
-"Search": {
-"defaultValue": null,
-"description": "Компонент поиска",
-"name": "Search",
-"required": false,
-"type": {
-"name": "ComponentType<SearchProps> | undefined"
 }
 },
 "optionsListClassName": {
@@ -620,13 +481,31 @@
 "name": "string | undefined"
 }
 },
+"defaultOpen": {
+"defaultValue": null,
+"description": "Начальное состояние селекта",
+"name": "defaultOpen",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление открытием",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "optionsSize": {
 "defaultValue": null,
 "description": "Размер пунктов меню\n@deprecated Управление размером пунктов меню через отдельный проп не поддерживается дизайн-контрактом. Размер пункта должен определяться его контентом.",
 "name": "optionsSize",
 "required": false,
 "type": {
-"name": "48 | 40 | 56 | 64 | 72 | undefined"
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
 }
 },
 "optionsListWidth": {
@@ -638,6 +517,24 @@
 "name": "\"content\" | \"field\" | undefined"
 }
 },
+"allowUnselect": {
+"defaultValue": null,
+"description": "Позволяет снять выбранное значение",
+"name": "allowUnselect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"closeOnSelect": {
+"defaultValue": null,
+"description": "Закрывать меню после выбора?",
+"name": "closeOnSelect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
 "circularNavigation": {
 "defaultValue": null,
 "description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот.",
@@ -645,6 +542,33 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
+}
+},
+"preventFlip": {
+"defaultValue": null,
+"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
+"name": "preventFlip",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"selected": {
+"defaultValue": null,
+"description": "Список value выбранных пунктов (controlled-селект)",
+"name": "selected",
+"required": false,
+"type": {
+"name": "string | OptionShape | (string | OptionShape)[] | null | undefined"
+}
+},
+"popoverPosition": {
+"defaultValue": null,
+"description": "Позиционирование выпадающего списка",
+"name": "popoverPosition",
+"required": false,
+"type": {
+"name": "Position | undefined"
 }
 },
 "visibleOptions": {
@@ -663,6 +587,15 @@
 "required": false,
 "type": {
 "name": "string | undefined"
+}
+},
+"Arrow": {
+"defaultValue": null,
+"description": "Компонент стрелки",
+"name": "Arrow",
+"required": false,
+"type": {
+"name": "false | ComponentType<ArrowProps> | null | undefined"
 }
 },
 "Field": {
@@ -737,6 +670,24 @@
 "name": "ComponentType<OptionProps> | undefined"
 }
 },
+"Search": {
+"defaultValue": null,
+"description": "Компонент поиска",
+"name": "Search",
+"required": false,
+"type": {
+"name": "ComponentType<SearchProps> | undefined"
+}
+},
+"searchProps": {
+"defaultValue": null,
+"description": "Настройки поиска",
+"name": "searchProps",
+"required": false,
+"type": {
+"name": "{ componentProps?: SearchProps | undefined; accessor?: ((option: OptionShape) => string) | undefined; filterFn?: ((optionText: string, search: string) => boolean) | undefined; value?: string | undefined; onChange?: ((value: string) => void) | undefined; filterGroup?: boolean | undefined; groupAccessor?: ((group: Gro..."
+}
+},
 "onOpen": {
 "defaultValue": null,
 "description": "Обработчик открытия\\закрытия селекта",
@@ -755,6 +706,15 @@
 "name": "MutableRefObject<(() => void) | undefined> | undefined"
 }
 },
+"zIndexPopover": {
+"defaultValue": null,
+"description": "z-index поповера",
+"name": "zIndexPopover",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
 "showEmptyOptionsList": {
 "defaultValue": null,
 "description": "Показывать OptionsList, если он пустой",
@@ -770,7 +730,7 @@
 "name": "popoverProps",
 "required": false,
 "type": {
-"name": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"zIndex\" | \"preventFlip\" | \"position\" | \"update\" | \"anchorElement\"> | undefined"
+"name": "Omit<PopoverProps, \"className\" | \"dataTestId\" | \"open\" | \"preventFlip\" | \"position\" | \"update\" | \"zIndex\" | \"anchorElement\"> | undefined"
 }
 },
 "limitDynamicOptionGroupSize": {
@@ -782,13 +742,24 @@
 "name": "boolean | undefined"
 }
 },
+"environment": {
+"defaultValue": {
+"value": "window"
+},
+"description": "Контекст окружения для downshift.js",
+"name": "environment",
+"required": false,
+"type": {
+"name": "Environment | undefined"
+}
+},
 "Input": {
 "defaultValue": null,
 "description": "Компонент ввода значения",
 "name": "Input",
 "required": false,
 "type": {
-"name": "ComponentType<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number | undefined; client?: \"desktop\" | \"mobile\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined"
+"name": "ComponentType<Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number | undefined; client?: \"mobile\" | \"desktop\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined"
 }
 },
 "inputProps": {
@@ -797,7 +768,7 @@
 "name": "inputProps",
 "required": false,
 "type": {
-"name": "(Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number | undefined; client?: \"desktop\" | \"mobile\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & Record<...>) | undefined"
+"name": "(Omit<BaseInputProps, \"FormControlComponent\"> & { breakpoint?: number | undefined; client?: \"mobile\" | \"desktop\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & Record<...>) | undefined"
 }
 },
 "isBottomSheet": {
@@ -809,6 +780,24 @@
 "name": "boolean | undefined"
 }
 },
+"transitionProps": {
+"defaultValue": null,
+"description": "Пропсы анимации контента (CSSTransition)",
+"name": "transitionProps",
+"required": false,
+"type": {
+"name": "Partial<TransitionProps> | undefined"
+}
+},
+"onApply": {
+"defaultValue": null,
+"description": "Обработчик нажатия на кнопку «Продолжить» в BottomSheet или модальном окне",
+"name": "onApply",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
 "onCancel": {
 "defaultValue": null,
 "description": "Обработчик нажатия на кнопку «Отмена» в BottomSheet или модальном окне",
@@ -816,6 +805,17 @@
 "required": false,
 "type": {
 "name": "(() => void) | undefined"
+}
+},
+"virtualKeyboard": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Учитывать высоту виртуальной клавиатуры в BottomSheet",
+"name": "virtualKeyboard",
+"required": false,
+"type": {
+"name": "boolean | undefined"
 }
 }
 },
