@@ -9,7 +9,7 @@ const PROGRESS_BAR_WIDTH = 30;
 
 function renderProgressBar(current, total) {
     const filled = Math.round((current / total) * PROGRESS_BAR_WIDTH);
-    const bar = '='.repeat(Math.max(filled - 1, 0)) + '>' + ' '.repeat(Math.max(PROGRESS_BAR_WIDTH - filled, 0));
+    const bar = `${'='.repeat(Math.max(filled - 1, 0))}>${' '.repeat(Math.max(PROGRESS_BAR_WIDTH - filled, 0))}`;
 
     return `[${bar}]`;
 }
@@ -35,7 +35,16 @@ export function generateDoc(entries) {
     entries.forEach(({ file, sourceName, componentName }, index) => {
         const docs = parser.parse([file]);
 
-        process.stdout.write(`\r${renderProgressBar(index + 1, entries.length)}`);
+        /**
+         * `\x1b[0K` стирает остаток строки после курсора — без этого при переходе на
+         * более короткий кадр (например короче имя файла) хвост предыдущего кадра
+         * остаётся на экране
+         */
+        const relativeFile = `packages/${file.split('packages/')[1]}`;
+
+        process.stdout.write(
+            `\r${renderProgressBar(index + 1, entries.length)} ${relativeFile}\x1b[0K`,
+        );
 
         /**
          * Один файл может экспортировать сразу несколько компонентов (например
