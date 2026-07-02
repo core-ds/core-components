@@ -74,7 +74,7 @@ function main() {
             path.join(srcDir, 'docs', 'Component.docs.mdx'),
         );
 
-        const demos = generateDemo(srcDir, 'docs', 'description.mdx');
+        const demos = generateDemo(path.join(srcDir, 'docs', 'description.mdx'));
 
         const changelog = parseChangelog(rootChangelogPath, displayName);
 
