@@ -31,9 +31,20 @@ export function generateDoc(entries) {
          * Component.responsive.tsx с подкомпонентами вроде Header/Controls), и
          * react-docgen-typescript возвращает их в произвольном порядке — поэтому
          * явно ищем doc с именем, под которым компонент реально объявлен в файле
-         * (sourceName), а не берём первый попавшийся из массива
+         * (sourceName), а не берём первый попавшийся из массива.
+         *
+         * Два фолбэка на случай, если docgen репортит другое имя, чем в AST:
+         * 1. `${sourceName}Component` — паттерн компаунд-компонентов вида
+         *    `const XComponent = forwardRef(...); XComponent.displayName = 'XComponent';
+         *    export const X = Object.assign(XComponent, {...})` — docgen идёт по
+         *    forwardRef и берёт displayName внутренней XComponent, а не обёртки X.
+         * 2. Если в файле всего один doc — берём его, даже если имя не совпало
+         *    (например явный `Component.displayName = '...'`, отличающийся от AST-имени)
          */
-        const doc = docs.find(({ displayName }) => displayName === sourceName);
+        const doc =
+            docs.find(({ displayName }) => displayName === sourceName) ??
+            docs.find(({ displayName }) => displayName === `${sourceName}Component`) ??
+            (docs.length === 1 ? docs[0] : undefined);
 
         if (!doc) {
             return;
