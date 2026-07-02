@@ -1,6 +1,5 @@
 import { writeFileSync } from 'node:fs';
 import path from 'node:path';
-
 import { Project } from 'ts-morph';
 
 import { createIndexDir } from './create-index-dir.mjs';
@@ -49,34 +48,34 @@ function main() {
 
     const docs = generateDoc(files);
 
-    // const versionDir = createIndexDir();
+    const versionDir = createIndexDir();
 
     docs.forEach((doc) => {
         const { packageName, displayName, props, filePath } = doc;
 
-        // const description = extractComponentDescription(
-        //     path.join(path.dirname(filePath), 'docs', 'Component.docs.mdx'),
-        // );
+        const description = extractComponentDescription(
+            path.join(path.dirname(filePath), 'docs', 'Component.docs.mdx'),
+        );
 
-        // const demos = generateDemo(path.join(path.dirname(filePath), 'docs', 'description.mdx'));
+        const demos = generateDemo(path.join(path.dirname(filePath), 'docs', 'description.mdx'));
 
         const changelog = parseChangelog(rootChangelogPath, displayName);
 
-        // writeFileSync(
-        //     path.resolve(versionDir, `${packageName}.json`),
-        //     JSON.stringify(
-        //         {
-        //             packageName,
-        //             displayName,
-        //             description: '',
-        //             props,
-        //             demos: '',
-        //             changelog,
-        //         },
-        //         null,
-        //         1,
-        //     ).replace(/^ +/gm, ''),
-        // );
+        writeFileSync(
+            path.resolve(versionDir, `${packageName}.json`),
+            JSON.stringify(
+                {
+                    packageName,
+                    displayName,
+                    description,
+                    props,
+                    demos,
+                    changelog,
+                },
+                null,
+                1,
+            ).replace(/^ +/gm, ''),
+        );
     });
 
     console.log('☑️  Data generation done');
