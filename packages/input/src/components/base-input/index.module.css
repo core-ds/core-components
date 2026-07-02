@@ -139,6 +139,16 @@
     display: var(--input-success-icon-display);
 }
 
+.errorIcon,
+.successIcon {
+    &:not(.size_40) {
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+    }
+}
+
 /* DISABLED STATE */
 
 .input:disabled {

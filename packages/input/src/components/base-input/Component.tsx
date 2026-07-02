@@ -4,6 +4,7 @@ import React, {
     Fragment,
     type KeyboardEvent,
     type MouseEvent,
+    type MouseEventHandler,
     useCallback,
     useRef,
     useState,
@@ -38,6 +39,7 @@ export const BaseInput = forwardRef<
         platformStyles?: Record<string, string>;
     }
 >(
+    // eslint-disable-next-line complexity
     (
         {
             size = 48,
@@ -85,7 +87,7 @@ export const BaseInput = forwardRef<
         },
         ref,
     ) => {
-        const { onKeyDown } = restProps;
+        const { onKeyDown, onMouseEnter, onMouseLeave } = restProps;
         const uncontrolled = value === undefined;
         const readOnly = readOnlyProp || disableUserInput;
 
@@ -94,13 +96,55 @@ export const BaseInput = forwardRef<
         const [focusVisible] = useFocus(inputRef, 'keyboard');
 
         const [focused, setFocused] = useState(restProps.autoFocus);
+        const [hovered, setHovered] = useState<boolean>(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         const [autofilled, setAutofilled] = useState(false);
 
-        // отображаем крестик только для заполненного и активного инпута
-        const clearButtonVisible = clear && filled && !disabled && !readOnlyProp;
+        const resolveClearVisible = () => {
+            if (Boolean(clear) && filled && !disabled && !readOnlyProp) {
+                if ([true, 'always'].includes(clear)) {
+                    return true;
+                }
+
+                if (clear === 'auto' && (focused || hovered)) {
+                    return true;
+                }
+
+                return false;
+            }
+
+            return false;
+        };
+
+        const clearButtonVisible = resolveClearVisible();
+
+        const handleMouseEnter: MouseEventHandler<HTMLInputElement> = useCallback(
+            (e) => {
+                setHovered(true);
+
+                if (onMouseEnter) {
+                    onMouseEnter(e);
+                }
+            },
+            [onMouseEnter],
+        );
+
+        const handleMouseLeave: MouseEventHandler<HTMLInputElement> = useCallback(
+            (e) => {
+                setHovered(false);
+
+                if (onMouseLeave) {
+                    onMouseLeave(e);
+                }
+            },
+            [onMouseLeave],
+        );
+
+        const shouldRenderErrorIcon = error && !clearButtonVisible;
+        const shouldRenderSuccessIcon = success && !error && !clearButtonVisible;
+
         const hasInnerLabel = label && labelView === 'inner';
 
         useLayoutEffect_SAFE_FOR_SSR(() => {
@@ -227,9 +271,9 @@ export const BaseInput = forwardRef<
         );
 
         /**
-         * Right addons priority [4] <= [3] <= [2] <= [1] or [0]
-         * [4] - Clear
-         * [3] - Status (error, success)
+         * Right addons priority [4] or [3] <= [2] <= [1] or [0]
+         * [4] - Status (error, success)
+         * [3] - Clear
          * [2] - Common (info, e.g.)
          * [1] - Indicators (eye, calendar, chevron, stepper e.g.)
          * [0] - Lock
@@ -248,8 +292,13 @@ export const BaseInput = forwardRef<
                             size={size}
                         />
                     )}
-                    {error && (
-                        <div className={cn(styles.errorIcon)} data-addon='error-icon'>
+                    {shouldRenderErrorIcon && (
+                        <div
+                            className={cn(styles.errorIcon, {
+                                [styles.size_40]: size === 40,
+                            })}
+                            data-addon='error-icon'
+                        >
                             <StatusBadge
                                 view='negative-alert'
                                 size={statusBadgeSize}
@@ -257,8 +306,12 @@ export const BaseInput = forwardRef<
                             />
                         </div>
                     )}
-                    {success && !error && (
-                        <div className={cn(styles.successIcon)}>
+                    {shouldRenderSuccessIcon && (
+                        <div
+                            className={cn(styles.successIcon, {
+                                [styles.size_40]: size === 40,
+                            })}
+                        >
                             <StatusBadge
                                 view='positive-checkmark'
                                 size={statusBadgeSize}
@@ -304,6 +357,8 @@ export const BaseInput = forwardRef<
                 onClick={onClick}
                 onMouseDown={onMouseDown}
                 onMouseUp={onMouseUp}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 dataTestId={getDataTestId(dataTestId, 'form-control')}
                 rightAddonsProps={rightAddonsProps}
                 leftAddonsProps={leftAddonsProps}

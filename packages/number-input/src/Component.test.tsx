@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getNumberInputTestIds } from './utils';
 
-import { NumberInput, NumberInputProps } from '.';
+import { NumberInputResponsive as NumberInput } from './Component.responsive';
 
 describe('NumberInput', () => {
     Object.defineProperty(window, 'matchMedia', {
