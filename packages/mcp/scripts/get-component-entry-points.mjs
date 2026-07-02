@@ -8,7 +8,12 @@ export function getComponentEntryPoints() {
     console.log('🔍  Search for components...');
 
     const files = globSync(
-        ['packages/*/src/Component.{ts,tsx}', 'packages/*/src/Component.responsive.tsx'],
+        [
+            'packages/*/src/Component.{ts,tsx}',
+            'packages/*/src/Component.responsive.tsx',
+            // entry-файл universal-modal лежит во вложенной папке, а не прямо в src
+            'packages/universal-modal/src/responsive/Component.responsive.tsx',
+        ],
         {
             cwd: repoRoot,
             ignore: [
