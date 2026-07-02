@@ -84,6 +84,7 @@ export const gallery: Story = {
                         {
                             name: 'Горизонтальное изображение.jpg',
                             src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI1MDAiIHZpZXdCb3g9IjAgMCAxMDAwIDUwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjNDU0Nzc4Ii8+Cjwvc3ZnPgo=',
+                            createdAt: '2026-01-22T11:47:30.189083270+0000',
                         },
                         {
                             name: 'Вертикальное изображение.jpg',
@@ -105,6 +106,7 @@ export const gallery: Story = {
                                 onClick: () => {},
                                 timeout: 2,
                             },
+                            createdAt: '2026-01-22T11:47:30.189083270+0000',
                         },
                         {
                             name: 'Битое изображение.jpg',
