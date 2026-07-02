@@ -8,11 +8,7 @@ export function getComponentEntryPoints() {
     console.log('🔍  Search for components...');
 
     const files = globSync(
-        [
-            'packages/*/src/Component.tsx',
-            'packages/*/src/Component.ts',
-            'packages/*/src/Component.responsive.tsx',
-        ],
+        ['packages/*/src/Component.{ts,tsx}', 'packages/*/src/Component.responsive.tsx'],
         {
             cwd: repoRoot,
             ignore: [
