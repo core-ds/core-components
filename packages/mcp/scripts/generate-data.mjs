@@ -21,11 +21,11 @@ function main() {
     docs.forEach((doc) => {
         const { packageName, displayName, props, filePath } = doc;
 
-        const description = extractComponentDescription(
-            path.join(path.dirname(filePath), 'docs', 'Component.docs.mdx'),
-        );
+        // const description = extractComponentDescription(
+        //     path.join(path.dirname(filePath), 'docs', 'Component.docs.mdx'),
+        // );
 
-        const demos = generateDemo(path.join(path.dirname(filePath), 'docs', 'description.mdx'));
+        // const demos = generateDemo(path.join(path.dirname(filePath), 'docs', 'description.mdx'));
 
         const changelog = parseChangelog(rootChangelogPath, displayName);
 
@@ -35,9 +35,9 @@ function main() {
                 {
                     packageName,
                     displayName,
-                    description,
+                    description: '',
                     props,
-                    demos,
+                    demos: '',
                     changelog,
                 },
                 null,
