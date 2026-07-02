@@ -11,8 +11,10 @@ import { parseChangelog } from './parse-changelog.mjs';
 const { dirname } = import.meta;
 const rootChangelogPath = path.resolve(dirname, '../../..', 'CHANGELOG.md');
 
-// entry-файл может лежать не прямо в src (например src/responsive/Component.responsive.tsx),
-// поэтому docs всегда ищем от корня src, а не от папки, где лежит сам entry-файл
+/**
+ * entry-файл может лежать не прямо в src (например src/responsive/Component.responsive.tsx),
+ * поэтому docs всегда ищем от корня src, а не от папки, где лежит сам entry-файл
+ */
 function getSrcDir(filePath) {
     const segments = filePath.split(path.sep);
     const srcIndex = segments.lastIndexOf('src');
