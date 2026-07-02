@@ -5,6 +5,7 @@
 '@alfalab/core-components-carousel': patch
 '@alfalab/core-components-notification-manager': patch
 '@alfalab/core-components-password-input': patch
+'@alfalab/core-components-pure-cell': patch
 ---
 
 - Внутренние исправления, не влияющие на функционал компонента
