@@ -5,7 +5,7 @@ import { isInheritedFromExternalTypes } from './is-inherited-from-external-types
 
 const { dirname } = import.meta;
 
-export function generateDoc(files) {
+export function generateDoc(entries) {
     const parser = withCustomConfig(
         path.resolve(dirname, '../../../tsconfig.react-docgen-typescript.json'),
         {},
@@ -23,33 +23,44 @@ export function generateDoc(files) {
      * создаёт под него отдельный Program, и результат перестаёт зависеть от остальных
      * файлов в списке.
      */
-    files.forEach((file) => {
+    entries.forEach(({ file, sourceName, componentName }) => {
         const docs = parser.parse([file]);
 
-        console.log('parsed', file);
+        /**
+         * Один файл может экспортировать сразу несколько компонентов (например
+         * Component.responsive.tsx с подкомпонентами вроде Header/Controls), и
+         * react-docgen-typescript возвращает их в произвольном порядке — поэтому
+         * явно ищем doc с именем, под которым компонент реально объявлен в файле
+         * (sourceName), а не берём первый попавшийся из массива
+         */
+        const doc = docs.find(({ displayName }) => displayName === sourceName);
 
-        docs.forEach((doc) => {
-            const { filePath, displayName, props: componentProps } = doc;
-            const [packageName] = filePath.split('packages/')[1].split('/');
+        if (!doc) {
+            return;
+        }
 
-            const props = Object.fromEntries(
-                Object.entries(componentProps)
-                    .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
-                    .map(([key, prop]) => {
-                        const { defaultValue, description, name, required, type } = prop;
+        const { filePath, props: componentProps } = doc;
+        const [packageName] = filePath.split('packages/')[1].split('/');
 
-                        return [key, { defaultValue, description, name, required, type }];
-                    }),
-            );
+        const props = Object.fromEntries(
+            Object.entries(componentProps)
+                .filter(([, prop]) => !isInheritedFromExternalTypes(prop))
+                .map(([key, prop]) => {
+                    const { defaultValue, description, name, required, type } = prop;
 
-            if (!docsMap.has(packageName)) {
-                docsMap.set(packageName, {
-                    displayName,
-                    packageName,
-                    props,
-                    filePath,
-                });
-            }
+                    return [key, { defaultValue, description, name, required, type }];
+                }),
+        );
+
+        docsMap.set(packageName, {
+            /**
+             * публичное имя компонента (из имени папки пакета), а не sourceName —
+             * внутреннее имя объявления часто отличается суффиксом Responsive/Component
+             */
+            displayName: componentName,
+            packageName,
+            props,
+            filePath,
         });
     });
 

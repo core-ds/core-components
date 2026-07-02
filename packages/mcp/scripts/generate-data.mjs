@@ -33,8 +33,9 @@ function getSrcDir(filePath) {
 function main() {
     const entryPoints = getComponentEntryPoints();
 
-    const files = entryPoints.reduce((acc, curr, index) => {
+    const entries = entryPoints.reduce((acc, curr) => {
         const { tsConfig, fullPath, folderName } = curr;
+        const componentName = toPascalCase(folderName);
 
         const project = new Project({
             tsConfigFilePath: tsConfig,
@@ -42,22 +43,31 @@ function main() {
 
         const sourceFile = project.addSourceFileAtPath(fullPath);
 
-        const declarations = sourceFile.getExportedDeclarations().get(toPascalCase(folderName));
+        const declarations = sourceFile.getExportedDeclarations().get(componentName);
+        const declaration = declarations?.[0];
 
-        if (declarations?.[0]) {
-            const componentPath = declarations[0].getSourceFile().getFilePath();
-
-            console.log('[+]', componentPath);
-
-            acc.push(componentPath);
-
+        if (!declaration) {
             return acc;
         }
+
+        const file = declaration.getSourceFile().getFilePath();
+
+        /**
+         * Компонент внутри пакета часто объявлен под другим именем, чем публичный
+         * экспорт из index.ts (например `export { XResponsive as X } from ...`).
+         * react-docgen-typescript репортит именно это внутреннее имя, поэтому нужно
+         * знать его заранее, чтобы затем найти нужный doc среди всех экспортов файла
+         */
+        const sourceName = declaration.getSymbol()?.getName() ?? componentName;
+
+        console.log('[+]', file);
+
+        acc.push({ file, sourceName, componentName });
 
         return acc;
     }, []);
 
-    const docs = generateDoc(files);
+    const docs = generateDoc(entries);
 
     const versionDir = createIndexDir();
 
