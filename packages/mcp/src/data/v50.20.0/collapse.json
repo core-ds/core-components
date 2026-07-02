@@ -1,0 +1,132 @@
+{
+"packageName": "collapse",
+"displayName": "Collapse",
+"description": "Используется для скрытия части объемного текста.",
+"props": {
+"expanded": {
+"defaultValue": null,
+"description": "Состояние компонента",
+"name": "expanded",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"collapsedLabel": {
+"defaultValue": null,
+"description": "Текст ссылки в `expanded` состоянии",
+"name": "collapsedLabel",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"expandedLabel": {
+"defaultValue": null,
+"description": "Текст ссылки в `collapsed` состоянии",
+"name": "expandedLabel",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы `Collapse`",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс обертки",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"expandedContentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для скрываемого контента",
+"name": "expandedContentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"id": {
+"defaultValue": null,
+"description": "Идентификатор компонента в DOM",
+"name": "id",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultExpanded": {
+"defaultValue": {
+"value": false
+},
+"description": "Начальное состояние uncontrolled компонента",
+"name": "defaultExpanded",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onExpandedChange": {
+"defaultValue": null,
+"description": "Обработчик смены состояний `expanded/collapsed`",
+"name": "onExpandedChange",
+"required": false,
+"type": {
+"name": "((expanded: boolean) => void) | undefined"
+}
+},
+"onTransitionEnd": {
+"defaultValue": null,
+"description": "Обработчик события завершения анимации",
+"name": "onTransitionEnd",
+"required": false,
+"type": {
+"name": "((expanded: boolean) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Стандартный вид компонента.",
+"desktop": "<div style={{ width: isMobile() ? 320 : 460 }}>\n<Typography.TitleResponsive font='system' view='medium'>\nПочему банк проверяет мои операции?\n</Typography.TitleResponsive>\n<Gap size={16} />\n<Typography.Text font='system' view='primary-medium'>\nВ 2001 году в России начал действовать Федеральный закон №115 «О противодействии легализации\nдоходов, полученных преступным путём, и финансированию терроризма». В рамках закона банки\nмогут блокировать карты, отказывать в проведении сомнительных операций, ограничить доступ в\nинтернет-банк или запрашивать документы, если по операции клиента возникли подозрения.\n</Typography.Text>\n<Gap size={16} />\n<Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>\n<Typography.Text font='system' view='primary-medium'>\nТребования 115-ФЗ и связанных с ним документов Банка России часто меняются,\nпредприниматели не всегда успевают за ними следить. Последствия нарушений\n«антиотмывочного» законодательства всегда неприятны: приходится остановить\nбизнес-процессы и доказать банку законность операций. Специалисты «Альфа-банка» собрали\nпонятные рекомендации, как сэкономить время на объяснения и предотвратить блокировки.\n</Typography.Text>\n</Collapse>\n</div>"
+}
+],
+"changelog": [
+{
+"version": "49.8.0",
+"description": "#### [#1923](https://github.com/core-ds/core-components/pull/1923)\n\n- Добавлен проброс prop `colors` через компонент `Collapse` в `Link`"
+}
+]
+}

@@ -1,0 +1,110 @@
+{
+"packageName": "space",
+"displayName": "Space",
+"description": "Используется для создания отступов между блоками.",
+"props": {
+"align": {
+"defaultValue": null,
+"description": "Выравнивание",
+"name": "align",
+"required": false,
+"type": {
+"name": "Align | undefined"
+}
+},
+"direction": {
+"defaultValue": null,
+"description": "Направление",
+"name": "direction",
+"required": false,
+"type": {
+"name": "Direction | undefined"
+}
+},
+"size": {
+"defaultValue": null,
+"description": "Размер отступов",
+"name": "size",
+"required": false,
+"type": {
+"name": "Size | [Size, Size] | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние компоненты",
+"name": "children",
+"required": true,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"wrap": {
+"defaultValue": null,
+"description": "Автоматический перенос строк, полезно при direction = 'horizontal'",
+"name": "wrap",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"divider": {
+"defaultValue": null,
+"description": "Компонент разделителя",
+"name": "divider",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"fullWidth": {
+"defaultValue": null,
+"description": "Растягивать ли компонент на всю ширину",
+"name": "fullWidth",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"useCssGaps": {
+"defaultValue": null,
+"description": "Использовать css gap\n@description Поддержка ограничена. см https://caniuse.com/?search=gap",
+"name": "useCssGaps",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Фиксированное расстояние между блоками.",
+"desktop": "render(() => {\nconst styleBlock = {\nwidth: '64px',\nheight: '64px',\nborderRadius: '8px',\nbackgroundColor: 'var(--color-light-neutral-translucent-200)',\n};\nreturn (\n<Space useCssGaps={true} direction='horizontal' align={isMobile() ? 'center' : 'start'}>\n{new Array(3).fill(null).map((_, idx) => (\n<div key={idx} style={styleBlock} />\n))}\n</Space>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "49.3.0",
+"description": "#### [#1813](https://github.com/core-ds/core-components/pull/1813)\n\n- Добавлена возможность прокидывать restProps на root для компонентов RadioGroup, Space, Tab и Tabs"
+}
+]
+}
