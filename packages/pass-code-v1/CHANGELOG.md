@@ -1,5 +1,31 @@
 # @alfalab/core-components-pass-code-v1
 
+## 3.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-button@13.2.1
+
+## 3.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.0
+
+## 3.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-shared@2.2.1
+
 ## 3.0.6
 
 ### Patch Changes

@@ -1,5 +1,34 @@
 # @alfalab/core-components-file-upload-item-v1
 
+## 3.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-spinner@6.0.6
+- @alfalab/core-components-icon-button@8.0.9
+
+## 3.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-button@8.0.8
+
+## 3.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-spinner@6.0.5
+- @alfalab/core-components-shared@2.2.1
+- @alfalab/core-components-link@7.0.3
+- @alfalab/core-components-icon-button@8.0.7
+
 ## 3.0.6
 
 ### Patch Changes

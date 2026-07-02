@@ -1,5 +1,81 @@
 # @alfalab/core-components-gallery
 
+## 7.2.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2259](https://github.com/core-ds/core-components/pull/2259)
+
+##### Gallery
+
+- Исправлены паддинги у swiper
+- Переработано отображение в full screen режиме
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-spinner@6.0.6
+- @alfalab/core-components-tooltip@9.0.16
+- @alfalab/core-components-typography@6.0.9
+- @alfalab/core-components-icon-button@8.0.9
+
+## 7.1.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.8
+- @alfalab/core-components-button@13.2.0
+- @alfalab/core-components-tooltip@9.0.15
+- @alfalab/core-components-icon-button@8.0.8
+
+## 7.1.9
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2246](https://github.com/core-ds/core-components/pull/2246)
+
+##### Gallery
+
+Исправлены веса селектров после обновление `swiper`
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-icon-view@5.0.4
+- @alfalab/core-components-spinner@6.0.5
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-typography@6.0.7
+- @alfalab/core-components-tooltip@9.0.14
+- @alfalab/core-components-icon-button@8.0.7
+- @alfalab/core-components-base-modal@7.1.6
+
+## 7.1.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.6
+- @alfalab/core-components-tooltip@9.0.13
+
 ## 7.1.7
 
 ### Patch Changes

@@ -133,14 +133,15 @@ export const Gallery: FC<GalleryProps> = ({
         slideTo(nextIndex);
     }, [images.length, loop, currentSlideIndex, slideTo]);
 
-    const setImageMeta = useCallback(
-        (meta: ImageMeta, index: number) => {
-            imagesMeta[index] = meta;
+    const setImageMeta = useCallback((meta: ImageMeta, index: number) => {
+        setImagesMeta((prevImagesMeta) => {
+            const nextImagesMeta = prevImagesMeta.slice();
 
-            setImagesMeta(imagesMeta.slice());
-        },
-        [imagesMeta],
-    );
+            nextImagesMeta[index] = meta;
+
+            return nextImagesMeta;
+        });
+    }, []);
 
     const handleBottomButtonClick = useCallback(
         (e: MouseEvent) => {

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-date-range-input",
-    "version": "5.0.11",
+    "version": "5.0.15",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,12 +13,12 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^9.1.6",
-        "@alfalab/core-components-icon-button": "^8.0.6",
-        "@alfalab/core-components-input": "^17.1.6",
-        "@alfalab/core-components-mq": "^6.0.4",
-        "@alfalab/core-components-popover": "^8.0.4",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/core-components-calendar": "^9.1.10",
+        "@alfalab/core-components-icon-button": "^8.0.9",
+        "@alfalab/core-components-input": "^17.1.9",
+        "@alfalab/core-components-mq": "^6.0.6",
+        "@alfalab/core-components-popover": "^8.1.0",
+        "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "date-fns": "^4.1.0",
@@ -33,6 +33,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.1.0",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.2.0",
+    "varsVersion": "11.1.0"
 }

@@ -1,6 +1,6 @@
-From 688c378e949f0077b4c9cfcc5f4a9abadb45f00a Mon Sep 17 00:00:00 2001
+From ddba5738614fd8f9eb3fbe6b74e6240365724e8d Mon Sep 17 00:00:00 2001
 From: hextion <100ishundred@gmail.com>
-Date: Mon, 25 May 2026 12:53:57 +0300
+Date: Tue, 9 Jun 2026 11:51:02 +0300
 Subject: [PATCH] fix: only system alfasans
 
 ---
@@ -14,7 +14,7 @@ Subject: [PATCH] fix: only system alfasans
  delete mode 100644 packages/typography/src/title/utils.ts
 
 diff --git a/packages/typography/src/title/component.tsx b/packages/typography/src/title/component.tsx
-index c73e5fdcc8..c286c51b0b 100644
+index 8f1ff6ac59..420012c85b 100644
 --- a/packages/typography/src/title/component.tsx
 +++ b/packages/typography/src/title/component.tsx
 @@ -2,13 +2,10 @@ import React, { forwardRef, type HTMLAttributes } from 'react';
@@ -31,16 +31,16 @@ index c73e5fdcc8..c286c51b0b 100644
  import colors from '../colors.module.css';
  import commonStyles from './common.module.css';
 
-@@ -40,7 +37,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
-      *
-      * @deprecated
+@@ -38,7 +35,7 @@ export type TitleProps = Omit<NativeProps, 'color'> & {
+     /**
+      * Шрифт текста
       */
 -    font?: 'styrene' | 'system' | 'alfasans' | { font: 'alfasans'; systemCompat: boolean };
 +    font?: 'styrene' | 'system';
 
      /**
       * Добавляет отступы
-@@ -97,9 +94,9 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
+@@ -95,9 +92,9 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
          {
              tag: Component = 'div',
              view = 'medium',
@@ -52,7 +52,7 @@ index c73e5fdcc8..c286c51b0b 100644
              defaultMargins = false,
              color,
              className,
-@@ -136,8 +133,6 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
+@@ -134,8 +131,6 @@ export const TitleBase = forwardRef<TitleElementType, TitleProps & PrivateProps>
                      {
                          [commonStyles[`rowLimit${rowLimit}`]]: rowLimit,
                          [commonStyles.transparent]: showSkeleton,

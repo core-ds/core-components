@@ -1,4 +1,6 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+
+import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
 
 export function useRefAsState<T>(
     initialValue: T,
@@ -11,7 +13,7 @@ export function useRefAsState<T>(initialValue: T | null) {
     const [value, setValue] = useState<T | null>(null);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useLayoutEffect(() => {
+    useLayoutEffect_SAFE_FOR_SSR(() => {
         const nextValue = ref.current;
 
         if (nextValue) {

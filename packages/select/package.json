@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "19.1.7",
+    "version": "19.2.0",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -13,21 +13,20 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-base-modal": "^7.1.5",
-        "@alfalab/core-components-bottom-sheet": "^8.1.7",
-        "@alfalab/core-components-button": "^13.1.3",
-        "@alfalab/core-components-checkbox": "^6.2.1",
-        "@alfalab/core-components-form-control": "^14.0.6",
-        "@alfalab/core-components-input": "^17.1.6",
-        "@alfalab/core-components-modal": "^11.0.10",
-        "@alfalab/core-components-mq": "^6.0.4",
-        "@alfalab/core-components-popover": "^8.0.4",
-        "@alfalab/core-components-scrollbar": "^5.0.2",
-        "@alfalab/core-components-shared": "^2.2.0",
-        "@alfalab/core-components-skeleton": "^7.0.3",
-        "@alfalab/hooks": "^1.13.1",
+        "@alfalab/core-components-base-modal": "^7.1.7",
+        "@alfalab/core-components-bottom-sheet": "^8.1.11",
+        "@alfalab/core-components-button": "^13.2.1",
+        "@alfalab/core-components-checkbox": "^6.2.3",
+        "@alfalab/core-components-form-control": "^14.0.8",
+        "@alfalab/core-components-input": "^17.1.9",
+        "@alfalab/core-components-modal": "^11.0.14",
+        "@alfalab/core-components-mq": "^6.0.6",
+        "@alfalab/core-components-popover": "^8.1.0",
+        "@alfalab/core-components-scrollbar-private": "^0.0.1",
+        "@alfalab/core-components-shared": "^2.2.2",
+        "@alfalab/core-components-skeleton": "^7.0.4",
+        "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
-        "@juggle/resize-observer": "^3.3.1",
         "classnames": "^2.5.1",
         "compute-scroll-into-view": "^3.1.0",
         "downshift": "8.4.0",
@@ -45,6 +44,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.1.0",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.2.0",
+    "varsVersion": "11.1.0"
 }

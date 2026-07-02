@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tab-bar",
-    "version": "4.0.6",
+    "version": "4.0.10",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -14,8 +14,8 @@
     },
     "dependencies": {
         "@alfalab/core-components-indicator": "^4.0.2",
-        "@alfalab/core-components-shared": "^2.2.0",
-        "@alfalab/core-components-typography": "^6.0.5",
+        "@alfalab/core-components-shared": "^2.2.2",
+        "@alfalab/core-components-typography": "^6.0.9",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },
@@ -27,6 +27,6 @@
         "access": "public",
         "directory": "dist"
     },
-    "themesVersion": "15.1.0",
-    "varsVersion": "11.0.2"
+    "themesVersion": "15.2.0",
+    "varsVersion": "11.1.0"
 }

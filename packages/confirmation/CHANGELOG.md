@@ -1,5 +1,55 @@
 # @alfalab/core-components-confirmation
 
+## 15.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-spinner@6.0.6
+- @alfalab/core-components-typography@6.0.9
+- @alfalab/core-components-code-input@5.0.6
+
+## 15.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.8
+- @alfalab/core-components-button@13.2.0
+
+## 15.0.9
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-spinner@6.0.5
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-link@7.0.3
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-typography@6.0.7
+- @alfalab/core-components-code-input@5.0.5
+
+## 15.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.6
+
 ## 15.0.7
 
 ### Patch Changes

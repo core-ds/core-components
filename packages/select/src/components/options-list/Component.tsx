@@ -1,8 +1,8 @@
-import React, { forwardRef, useCallback, useRef, useState } from 'react';
+import React, { forwardRef, useRef, useState } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 
-import { Scrollbar } from '@alfalab/core-components-scrollbar';
+import { ScrollbarPrivate } from '@alfalab/core-components-scrollbar-private';
 
 import { DEFAULT_VISIBLE_OPTIONS } from '../../consts';
 import { useNativeScrollbar } from '../../hooks/use-native-scrollbar';
@@ -40,7 +40,6 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             header,
             footer,
             showFooter = true,
-            optionsListWidth,
             nativeScrollbar: nativeScrollbarProp,
             flatOptions = [],
             setHighlightedIndex,
@@ -50,9 +49,24 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             multiple,
             limitDynamicOptionGroupSize = false,
             client,
+            scrollableNodeClassName,
+            contentNodeClassName,
+            listNodeClassName,
         },
         ref,
     ) => {
+        const actualOptionsCount = limitDynamicOptionGroupSize && options.length > 0;
+        const listRef = useRef<HTMLDivElement>(null);
+        const scrollableNodeRef = useRef<HTMLDivElement>(null);
+        const [, maxHeight] = useVisibleOptions({
+            visibleOptions,
+            listRef,
+            open,
+            options,
+            actualOptionsCount,
+            size: actualOptionsCount ? size : undefined,
+        });
+        const noOptions = options.length === 0;
         const [scrollTop, setScrollTop] = useState(true);
         const [scrollBottom, setScrollBottom] = useState(false);
 
@@ -61,27 +75,22 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             client,
         });
 
-        const handleScroll = useCallback(
-            (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-                const scrolledToHeader = event.currentTarget.scrollTop <= 0;
-                const scrolledToFooter =
-                    event.currentTarget.scrollHeight - event.currentTarget.offsetHeight <=
-                    event.currentTarget.scrollTop;
+        const handleScroll: React.MouseEventHandler<HTMLDivElement> = (event) => {
+            const scrolledToHeader = event.currentTarget.scrollTop <= 0;
+            const scrolledToFooter =
+                event.currentTarget.scrollHeight - event.currentTarget.offsetHeight <=
+                event.currentTarget.scrollTop;
 
-                setScrollTop(scrolledToHeader);
-                setScrollBottom(scrolledToFooter);
+            setScrollTop(scrolledToHeader);
+            setScrollBottom(scrolledToFooter);
 
-                onScroll?.(event);
-            },
-            [onScroll],
-        );
+            onScroll?.(event);
+        };
 
         const renderOption = (option: OptionShape, index: number) => (
             <Option key={option.key} {...getOptionProps(option, index)} />
         );
 
-        const listRef = useRef<HTMLDivElement>(null);
-        const scrollbarRef = useRef<HTMLDivElement>(null);
         const counter = createCounter();
         const renderGroup = (group: GroupShape) => {
             const groupSelectedItems = selectedItems?.filter(({ key: selectedItemKey }) =>
@@ -116,88 +125,9 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
             );
         };
 
-        const actualOptionsCount = limitDynamicOptionGroupSize && options.length > 0;
-
-        const [measured, maxHeight] = useVisibleOptions({
-            visibleOptions,
-            listRef,
-            open,
-            options,
-            actualOptionsCount,
-            size: actualOptionsCount
-                ? (() => {
-                      switch (typeof size) {
-                          case 'string':
-                              throw new Error(
-                                  'OptionsList with `limitDynamicOptionGroupSize` enabled needs a `size` with number type',
-                              );
-                          default:
-                              return size;
-                      }
-                  })()
-                : undefined,
-        });
-
         if (options.length === 0 && !emptyPlaceholder && !header && !footer) {
             return null;
         }
-
-        const renderListItems = () => (
-            <React.Fragment>
-                {options.map((option) =>
-                    isGroup(option) ? renderGroup(option) : renderOption(option, counter()),
-                )}
-
-                {emptyPlaceholder && options.length === 0 && (
-                    <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
-                )}
-            </React.Fragment>
-        );
-
-        const renderWithCustomScrollbar = () => {
-            const scrollableNodeProps = {
-                onScroll: handleScroll,
-                'data-test-id': dataTestId,
-                ref: ref as React.RefObject<HTMLDivElement>,
-            };
-
-            return (
-                <Scrollbar
-                    className={cn(styles.scrollable, scrollbarClassName)}
-                    verticalBarClassName={cn(styles.verticalBar, {
-                        [styles.verticalBarWithHeader]: Boolean(header),
-                        [styles.verticalBarWithFooter]: Boolean(footer),
-                    })}
-                    ref={scrollbarRef}
-                    style={{ maxHeight }}
-                    horizontalAutoStretch={optionsListWidth === 'content'}
-                    scrollableNodeProps={scrollableNodeProps}
-                    contentNodeProps={{ ref: listRef }}
-                    maskProps={{
-                        /*
-                         * Для корректного подсчета высоты опций(иначе для optionsListWidth: 'field'
-                         * высота опции всегда будет равна высоте одной строчки)
-                         */
-                        className: cn({
-                            [styles.mask]: optionsListWidth === 'content' && !measured,
-                        }),
-                    }}
-                >
-                    {renderListItems()}
-                </Scrollbar>
-            );
-        };
-
-        const renderWithNativeScrollbar = () => (
-            <div
-                className={cn(styles.scrollable, scrollbarClassName)}
-                ref={mergeRefs([listRef, ref])}
-                onScroll={handleScroll}
-                style={{ maxHeight }}
-            >
-                {renderListItems()}
-            </div>
-        );
 
         const resetHighlightedIndex = () => setHighlightedIndex?.(-1);
 
@@ -217,7 +147,34 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                     </div>
                 )}
 
-                {nativeScrollbar ? renderWithNativeScrollbar() : renderWithCustomScrollbar()}
+                {!noOptions && (
+                    <ScrollbarPrivate
+                        native={nativeScrollbar}
+                        className={scrollbarClassName}
+                        style={{ maxHeight }}
+                        scrollableNodeProps={{
+                            ref: mergeRefs([scrollableNodeRef, ref]),
+                            onScroll: handleScroll,
+                            className: scrollableNodeClassName,
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-expect-error
+                            'data-test-id': nativeScrollbar ? undefined : dataTestId,
+                        }}
+                        contentNodeProps={{ className: contentNodeClassName }}
+                    >
+                        <div className={listNodeClassName} ref={listRef}>
+                            {options.map((option) =>
+                                isGroup(option)
+                                    ? renderGroup(option)
+                                    : renderOption(option, counter()),
+                            )}
+                        </div>
+                    </ScrollbarPrivate>
+                )}
+
+                {emptyPlaceholder && noOptions && (
+                    <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+                )}
 
                 {showFooter && footer && (
                     <div

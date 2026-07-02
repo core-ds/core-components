@@ -1,0 +1,127 @@
+{
+"packageName": "card-image",
+"displayName": "CardImage",
+"description": "Компонент изображения карты.",
+"props": {
+"cardId": {
+"defaultValue": null,
+"description": "Идентификатор карты\n(например: ER, GQ, SU)",
+"name": "cardId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"layers": {
+"defaultValue": {
+"value": "BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE"
+},
+"description": "Какие слои показывать, через запятую без пробелов\n(полный набор: BACKGROUND,CARD_NUMBER,CARD_HOLDER,\nPAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE)",
+"name": "layers",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"width": {
+"defaultValue": {
+"value": 280
+},
+"description": "Ширина изображения",
+"name": "width",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"rounded": {
+"defaultValue": {
+"value": true
+},
+"description": "Скругление углов",
+"name": "rounded",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"baseUrl": {
+"defaultValue": {
+"value": "https://online.alfabank.ru/cards-images/cards/"
+},
+"description": "Базовый URL сервиса с изображениями",
+"name": "baseUrl",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onLoad": {
+"defaultValue": null,
+"description": "Колбек, вызываемый при загрузке изображения",
+"name": "onLoad",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onError": {
+"defaultValue": null,
+"description": "Колбек, вызываемый при ошибке загрузки изображения",
+"name": "onError",
+"required": false,
+"type": {
+"name": "ReactEventHandler<HTMLImageElement> | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"alt": {
+"defaultValue": null,
+"description": "Текстовое описание изображения",
+"name": "alt",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"id": {
+"defaultValue": null,
+"description": "Уникальный идентификатор блока",
+"name": "id",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "<CardImage\ncardId='EG'\nwidth={isMobile() ? 320 : 380}\nbaseUrl='https://online.alfabank.ru/cards-images/cards/'\nclassName='some name'\nid='some id'\ndataTestId='test id'\n/>"
+}
+],
+"changelog": [
+{
+"version": "49.3.0",
+"description": "#### [#1863](https://github.com/core-ds/core-components/pull/1863)\n\n- Добавлен обработчик ошибки загрузки изображения \"onError\"\n- Исправлено описание свойства \"alt\""
+}
+]
+}

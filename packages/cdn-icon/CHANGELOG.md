@@ -1,5 +1,21 @@
 # @alfalab/core-components-cdn-icon
 
+## 7.1.5
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+
+## 7.1.4
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.1
+
 ## 7.1.3
 
 ### Patch Changes
