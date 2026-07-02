@@ -1,6 +1,6 @@
 {
 "packageName": "modal",
-"displayName": "ModalResponsiveComponent",
+"displayName": "Modal",
 "description": "",
 "props": {
 "children": {
@@ -196,7 +196,7 @@
 "name": "scrollHandler",
 "required": false,
 "type": {
-"name": "\"content\" | \"wrapper\" | MutableRefObject<HTMLDivElement | null> | undefined"
+"name": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\" | undefined"
 }
 },
 "transitionProps": {
@@ -326,7 +326,7 @@
 "name": "size",
 "required": false,
 "type": {
-"name": "600 | \"fullscreen\" | 500 | 800 | 1140 | undefined"
+"name": "\"fullscreen\" | 500 | 600 | 800 | 1140 | undefined"
 }
 },
 "fixedPosition": {
@@ -400,5 +400,14 @@
 "desktop": "const DATA = {\n1: {\ntitle: 'Первый уровень',\nbtnText: 'Дальше',\nbg: 'rgba(55, 120, 251, 0.1)',\ncolor: '#3778FB',\n},\n2: {\ntitle: 'Второй уровень',\nbtnText: 'Дальше',\nbg: 'rgba(207, 112, 255, 0.1)',\ncolor: '#CF70FF',\n},\n3: {\ntitle: 'Третий уровень',\nbtnText: 'Готово',\nbg: 'rgba(112, 255, 126, 0.1)',\ncolor: '#058102',\n},\n};\n\nrender(() => {\nconst [step, setStep] = React.useState(1);\nconst [open, setOpen] = React.useState(false);\n\nconst handleOpen = () => {\nsetOpen(true);\nsetStep(1);\n};\nconst handleClose = () => setOpen(false);\n\nconst item = DATA[step];\n\nconst commonStyles = {\ndisplay: 'flex',\nalignItems: 'center',\njustifyContent: 'center',\ntransition: 'background 0.2s ease-in, border 0.2s ease-in',\nborderRadius: '8px',\nbackground: item.bg,\nborder: `1px dashed ${item.color}`,\ncolor: item.color,\nwidth: '100%',\nboxSizing: 'border-box',\n};\n\nreturn (\n<Container>\n<Button size={document.body.clientWidth < 450 ? 56 : 48} onClick={handleOpen}>\nПоказать модалку\n</Button>\n\n<Modal open={open} onClose={handleClose} fixedPosition={true}>\n<Modal.Header\nsticky={true}\nhasCloser={true}\nhasBackButton={step !== 1}\ntitle={item.title}\nonBack={() => setStep(step - 1)}\n/>\n<Modal.Content flex={true}>\n<div\nstyle={{\n...commonStyles,\nheight: document.body.clientWidth < 450 ? '100%' : '550px',\n}}\n>\n<span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>\n</div>\n</Modal.Content>\n<Modal.Footer sticky={true}>\n<Button\nsize={document.body.clientWidth < 450 ? 56 : 48}\nview='primary'\nonClick={\nitem.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose\n}\n>\n{item.btnText}\n</Button>\n</Modal.Footer>\n</Modal>\n</Container>\n);\n});"
 }
 ],
-"changelog": []
+"changelog": [
+{
+"version": "50.12.2",
+"description": "#### [#2177](https://github.com/core-ds/core-components/pull/2177)\n\n- Изменение внутренних отступов для `mobile` версии компонента"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1689](https://github.com/core-ds/core-components/pull/1689)\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `500, 600, 800, 1140` соответственно)\n- Удален пропс `fullscreen`, который был отмечен как `deprecated` в `core-components@25.x.x`. Вместо него передавайте `fullscreen` в пропс `size`"
+}
+]
 }

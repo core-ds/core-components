@@ -1,8 +1,89 @@
 {
 "packageName": "pure-cell",
-"displayName": "Context",
+"displayName": "PureCell",
 "description": "",
-"props": {},
+"props": {
+"direction": {
+"defaultValue": {
+"value": "horizontal"
+},
+"description": "Направление",
+"name": "direction",
+"required": false,
+"type": {
+"name": "\"horizontal\" | \"vertical\" | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Сss класс для стилизации общей обёртки",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"href": {
+"defaultValue": null,
+"description": "Выводит ссылку в виде ячейки",
+"name": "href",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"verticalPadding": {
+"defaultValue": {
+"value": "none"
+},
+"description": "Вертикальные отступы",
+"name": "verticalPadding",
+"required": false,
+"type": {
+"name": "\"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\" | { top?: \"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\" | undefined; bottom?: \"none\" | \"airy\" | \"default\" | \"compact\" | \"tiny\" | undefined; } | undefined"
+}
+},
+"horizontalPadding": {
+"defaultValue": {
+"value": "none"
+},
+"description": "Горизонтальные отступы",
+"name": "horizontalPadding",
+"required": false,
+"type": {
+"name": "\"left\" | \"right\" | \"both\" | \"none\" | undefined"
+}
+},
+"tag": {
+"defaultValue": {
+"value": "(href && 'a') || (onClick && 'button') || 'section'"
+},
+"description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
+"name": "tag",
+"required": false,
+"type": {
+"name": "ElementType | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Компоненты",
+"name": "children",
+"required": false,
+"type": {
+"name": "((boolean | (boolean | (string | number | boolean | (boolean | \"\" | TextElement | AmountElement | AmountTitleElement | null | undefined)[] | ... 10 more ... | undefined)[] | ... 5 more ... | null)[] | ... 4 more ... | AmountTitleElement) & (string | ... 5 more ... | undefined)) | null | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
 "demos": [
 {
 "title": "Лейаут",
@@ -35,5 +116,18 @@
 "desktop": "render(() => (\n<Space size={25}>\n<PureCell direction='horizontal'>\n<PureCell.Content>\n<PureCell.Footer>\n<PureCell.FooterButton>Button Text</PureCell.FooterButton>\n</PureCell.Footer>\n</PureCell.Content>\n</PureCell>\n\n<PureCell direction='horizontal'>\n<PureCell.Content>\n<PureCell.Footer>\n<Typography.Text color='secondary' view='primary-small'>\nNeutral Status\n</Typography.Text>\n<PureCell.FooterButton>Button Text</PureCell.FooterButton>\n</PureCell.Footer>\n</PureCell.Content>\n</PureCell>\n</Space>\n));"
 }
 ],
-"changelog": []
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.12.2",
+"description": "#### [#2208](https://github.com/core-ds/core-components/pull/2208)\n\n- Добавлен проп `className` для футера в `PureCell`"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1691](https://github.com/core-ds/core-components/pull/1691)\n\n- Удален пропс `color` для `amount-title` который был отмечен как `deprecated` в `core-components@42.x.x`. Вместо него используйте `titleProps.color`"
+}
+]
 }
