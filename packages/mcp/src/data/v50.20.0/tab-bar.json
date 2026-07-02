@@ -1,6 +1,6 @@
 {
 "packageName": "tab-bar",
-"displayName": "TabBarComponent",
+"displayName": "TabBar",
 "description": "Используется для навигации между разделами.",
 "props": {
 "className": {
@@ -96,5 +96,14 @@
 "desktop": "render(() => {\nconst [border, setBorder] = React.useState(false);\nconst [selectedId, setSelectedId] = React.useState('1');\n\nreturn (\n<div\nstyle={{\nminHeight: 105,\ndisplay: 'flex',\nflexDirection: 'column',\njustifyContent: 'space-between',\n}}\n>\n<Switch label='Бордер' checked={border} onChange={() => setBorder((p) => !p)} />\n\n<div style={{ margin: '0 -20px -20px' }}>\n<TabBar selectedId={selectedId} onChange={setSelectedId} border={border}>\n<TabBar.Tab id='1' label='TabName1' icon={<DiamondsMIcon />} />\n<TabBar.Tab id='2' label='TabName2' icon={<DiamondsMIcon />} />\n</TabBar>\n</div>\n</div>\n);\n});"
 }
 ],
-"changelog": []
+"changelog": [
+{
+"version": "50.9.0",
+"description": "#### [#2151](https://github.com/core-ds/core-components/pull/2151)\n\n- Изменена высота компонента\n- Верхний и нижний отступы изменены в соответствии с дизайном"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправление типизации компонента"
+}
+]
 }

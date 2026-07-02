@@ -1,6 +1,6 @@
 {
 "packageName": "side-panel",
-"displayName": "SidePanelResponsiveComponent",
+"displayName": "SidePanel",
 "description": "",
 "props": {
 "children": {
@@ -196,7 +196,7 @@
 "name": "scrollHandler",
 "required": false,
 "type": {
-"name": "\"content\" | \"wrapper\" | MutableRefObject<HTMLDivElement | null> | undefined"
+"name": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\" | undefined"
 }
 },
 "transitionProps": {
@@ -318,6 +318,15 @@
 "name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
 }
 },
+"contentTransitionProps": {
+"defaultValue": null,
+"description": "Пропсы для анимации контента (CSSTransition)",
+"name": "contentTransitionProps",
+"required": false,
+"type": {
+"name": "Partial<TransitionProps> | undefined"
+}
+},
 "placement": {
 "defaultValue": {
 "value": "\"right\""
@@ -338,15 +347,6 @@
 "required": false,
 "type": {
 "name": "boolean | undefined"
-}
-},
-"contentTransitionProps": {
-"defaultValue": null,
-"description": "Пропсы для анимации контента (CSSTransition)",
-"name": "contentTransitionProps",
-"required": false,
-"type": {
-"name": "Partial<TransitionProps> | undefined"
 }
 },
 "size": {
@@ -422,5 +422,18 @@
 "desktop": "const DATA = {\n1: {\ntitle: 'Первый уровень',\nbtnText: 'Дальше',\nbg: 'rgba(55, 120, 251, 0.1)',\ncolor: '#3778FB',\n},\n2: {\ntitle: 'Второй уровень',\nbtnText: 'Дальше',\nbg: 'rgba(207, 112, 255, 0.1)',\ncolor: '#CF70FF',\n},\n3: {\ntitle: 'Третий уровень',\nbtnText: 'Готово',\nbg: 'rgba(112, 255, 126, 0.1)',\ncolor: '#058102',\n},\n};\n\nrender(() => {\nconst [step, setStep] = React.useState(1);\nconst [open, setOpen] = React.useState(false);\n\nconst handleOpen = () => {\nsetOpen(true);\nsetStep(1);\n};\nconst handleClose = () => setOpen(false);\n\nconst item = DATA[step];\n\nconst commonStyles = {\ndisplay: 'flex',\nalignItems: 'center',\njustifyContent: 'center',\ntransition: 'background 0.2s ease-in, border 0.2s ease-in',\nborderRadius: '8px',\nbackground: item.bg,\nborder: `1px dashed ${item.color}`,\ncolor: item.color,\nwidth: '100%',\nboxSizing: 'border-box',\n};\n\nreturn (\n<Container>\n<Button size={document.body.clientWidth < 450 ? 56 : 48} onClick={handleOpen}>\nОткрыть сайд панель\n</Button>\n\n<SidePanel open={open} onClose={handleClose}>\n<SidePanel.Header\nsticky={true}\nhasCloser={true}\nhasBackButton={step !== 1}\ntitle={item.title}\nonBack={() => setStep(step - 1)}\n/>\n<SidePanel.Content flex={true}>\n<div\nstyle={{\n...commonStyles,\nheight: '100%',\n}}\n>\n<span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>\n</div>\n</SidePanel.Content>\n<SidePanel.Footer sticky={true}>\n<Button\nsize={document.body.clientWidth < 450 ? 56 : 48}\nview='primary'\nonClick={\nitem.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose\n}\n>\n{item.btnText}\n</Button>\n</SidePanel.Footer>\n</SidePanel>\n</Container>\n);\n});"
 }
 ],
-"changelog": []
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#1623](https://github.com/core-ds/core-components/pull/1623)\n\n- Удалены десктоп, мобайл импорты из корневого пути импорта. Они доступы по стандартным /desktop и /mobile путям импорта"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Изменены border-radius во всех темах в desktop версии"
+},
+{
+"version": "49.5.0",
+"description": "#### [#1888](https://github.com/core-ds/core-components/pull/1888)\n\n- Исправлен баг, при котором hasFooter не сбрасывался в false при размонтировании компонента"
+}
+]
 }
