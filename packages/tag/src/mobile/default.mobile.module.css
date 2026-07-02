@@ -4,6 +4,7 @@
     --tag-filled-background-color: var(--tag-mobile-filled-background-color);
     --tag-filled-background-color-hover: var(--tag-mobile-filled-background-color-hover);
     --tag-filled-background-color-active: var(--tag-mobile-filled-background-color-active);
+    --tag-filled-background-color-disabled: var(--tag-mobile-filled-background-color-disabled);
 
     background-color: var(--tag-mobile-filled-background-color);
 
@@ -23,6 +24,10 @@
 }
 
 .muted {
+    --tag-muted-background-color: var(--tag-mobile-muted-background-color);
+    --tag-muted-background-color-hover: var(--tag-mobile-muted-background-color-hover);
+    --tag-muted-background-color-active: var(--tag-mobile-muted-background-color-active);
+    --tag-muted-background-color-disabled: var(--tag-mobile-muted-background-color-disabled);
     --tag-muted-background-color-checked: var(--tag-mobile-muted-checked-background-color);
     --tag-muted-background-color-checked-hover: var(
         --tag-mobile-muted-checked-background-color-hover
@@ -34,19 +39,19 @@
         --tag-mobile-muted-checked-background-color-disabled
     );
 
-    background-color: var(--tag-muted-background-color);
+    background-color: var(--tag-mobile-muted-background-color);
 
     &:disabled {
-        background-color: var(--tag-muted-background-color-disabled);
+        background-color: var(--tag-mobile-muted-background-color-disabled);
     }
 
     @media (hover: hover) {
         &:hover:not(:disabled) {
-            background-color: var(--tag-muted-background-color-hover);
+            background-color: var(--tag-mobile-muted-background-color-hover);
         }
     }
 
     &:active:not(:disabled) {
-        background-color: var(--tag-muted-background-color-active);
+        background-color: var(--tag-mobile-muted-background-color-active);
     }
 }

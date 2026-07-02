@@ -878,7 +878,7 @@ render(() => {
                             ? 'Счета'
                             : accountsSelectedOpts.length === 1
                               ? `Счета: ${accountsSelectedOpts[0].content}`
-                              : `Счета: Выбрано (${accountsSelectedOpts.length}`)}
+                              : `Счета: Выбрано (${accountsSelectedOpts.length})`}
                     </FilterTagDesktop>
                     <Popover
                         anchorElement={accountsAnchorEl}
@@ -1016,7 +1016,9 @@ render(() => {
                                     onClick={() =>
                                         setDraft((p) => ({ ...p, replenishment: !p.replenishment }))
                                     }
-                                    onClear={() => setDraft((p) => ({ ...p, replenishment: false }))}
+                                    onClear={() =>
+                                        setDraft((p) => ({ ...p, replenishment: false }))
+                                    }
                                 >
                                     Пополнение
                                 </TagDesktop>
@@ -1244,7 +1246,14 @@ const DYNAMIC_GROUPS = [
     },
 ];
 
-const FilterTagItem = ({ checked, onClick, onClear, showClear = false, size = MOBILE_ROW_TAG_SIZE, children }) => (
+const FilterTagItem = ({
+    checked,
+    onClick,
+    onClear,
+    showClear = false,
+    size = MOBILE_ROW_TAG_SIZE,
+    children,
+}) => (
     <TagMobile
         size={size}
         view='filled'
@@ -1471,7 +1480,9 @@ render(() => {
                             open={filterSheet === 'period'}
                             onClick={() => toggleFilterSheet('period')}
                         >
-                            {appliedPeriodOption ? `Период: ${appliedPeriodOption.content}` : 'Период'}
+                            {appliedPeriodOption
+                                ? `Период: ${appliedPeriodOption.content}`
+                                : 'Период'}
                         </FilterTagMobile>
                     </div>
                     <div>
@@ -1489,7 +1500,7 @@ render(() => {
                                 ? 'Счета'
                                 : accountsSelectedOpts.length === 1
                                   ? `Счета: ${accountsSelectedOpts[0].content}`
-                                  : `Счета: Выбрано (${accountsSelectedOpts.length}`)}
+                                  : `Счета: Выбрано (${accountsSelectedOpts.length})`}
                         </FilterTagMobile>
                     </div>
                 </div>

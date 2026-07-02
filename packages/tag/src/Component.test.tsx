@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { IndicatorTag } from './components/indicator-tag';
 import { TagDesktop as Tag } from './desktop';
+import { TagMobile } from './mobile';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {
@@ -429,6 +430,39 @@ describe('Indicator tag', () => {
             );
 
             expect(container.firstElementChild).toHaveAttribute('data-test-id', dataTestId);
+        });
+
+        it.each(['transparent', 'outlined'] as const)(
+            'should fallback to filled view when view is %s',
+            (view) => {
+                const { container } = render(
+                    <Tag Component={IndicatorTag} view={view} leftAddons={<span />} />,
+                );
+
+                expect(container.firstElementChild).toHaveClass('filled');
+            },
+        );
+
+        it('should apply filled view styles for TagMobile with IndicatorTag', () => {
+            const tagProps = {
+                view: 'filled' as const,
+                shape: 'rectangular' as const,
+                size: 40 as const,
+            };
+
+            const { container: nativeContainer } = render(
+                <TagMobile {...tagProps}>Label</TagMobile>,
+            );
+            const { container: indicatorContainer } = render(
+                <TagMobile {...tagProps} Component={IndicatorTag} leftAddons={<span />} />,
+            );
+
+            const nativeButton = nativeContainer.firstElementChild;
+            const indicatorButton = indicatorContainer.firstElementChild;
+
+            expect(nativeButton).toHaveClass('filled');
+            expect(indicatorButton).toHaveClass('filled');
+            expect(indicatorContainer.querySelector('.shapePath')).toBeInTheDocument();
         });
     });
 

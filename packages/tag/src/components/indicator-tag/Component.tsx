@@ -18,6 +18,7 @@ const colorCommonStyles = {
 } as const;
 
 const INDICATOR_TAG_SIZES = [32, 40, 48] as const;
+const INDICATOR_TAG_VIEWS = ['filled', 'muted'] as const;
 
 export interface IndicatorTagProps
     extends Omit<
@@ -75,6 +76,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
         const pathMode = hasIndicator ? mode : 'none';
 
         const colorStyle = colorCommonStyles?.[colors];
+        const indicatorView = INDICATOR_TAG_VIEWS.includes(view) ? view : 'filled';
 
         const { width, height, indicatorX, indicatorY } =
             indicatorTagGeometry[shape][mode][indicatorTagSize];
@@ -86,11 +88,11 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                 commonStyles.badgeIcon,
                 commonStyles[`size-${indicatorTagSize}`],
                 colorStyle.badgeIcon,
-                colorStyle[view],
+                colorStyle[indicatorView],
                 styles[shape],
+                colorStyles?.[indicatorView],
                 className,
                 {
-                    [colorStyles?.[view]]: Boolean(colorStyles?.[view]),
                     [commonStyles.focused]: focused,
                     [colorStyle.checked]: Boolean(checked),
                 },

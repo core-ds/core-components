@@ -8,6 +8,9 @@
     --tag-inverted-filled-background-color-active: var(
         --tag-mobile-filled-background-color-active-inverted
     );
+    --tag-inverted-filled-background-color-disabled: var(
+        --tag-mobile-filled-background-color-disabled-inverted
+    );
 
     background-color: var(--tag-mobile-filled-background-color-inverted);
 
@@ -27,6 +30,16 @@
 }
 
 .muted {
+    --tag-inverted-muted-background-color: var(--tag-mobile-muted-background-color-inverted);
+    --tag-inverted-muted-background-color-hover: var(
+        --tag-mobile-muted-background-color-hover-inverted
+    );
+    --tag-inverted-muted-background-color-active: var(
+        --tag-mobile-muted-background-color-active-inverted
+    );
+    --tag-inverted-muted-background-color-disabled: var(
+        --tag-mobile-muted-background-color-disabled-inverted
+    );
     --tag-inverted-muted-background-color-checked: var(
         --tag-mobile-muted-checked-background-color-inverted
     );
@@ -40,19 +53,19 @@
         --tag-mobile-muted-checked-background-color-disabled-inverted
     );
 
-    background-color: var(--tag-inverted-muted-background-color);
+    background-color: var(--tag-mobile-muted-background-color-inverted);
 
     &:disabled {
-        background-color: var(--tag-inverted-muted-background-color-disabled);
+        background-color: var(--tag-mobile-muted-background-color-disabled-inverted);
     }
 
     @media (hover: hover) {
         &:hover:not(:disabled) {
-            background-color: var(--tag-inverted-muted-background-color-hover);
+            background-color: var(--tag-mobile-muted-background-color-hover-inverted);
         }
     }
 
     &:active:not(:disabled) {
-        background-color: var(--tag-inverted-muted-background-color-active);
+        background-color: var(--tag-mobile-muted-background-color-active-inverted);
     }
 }
