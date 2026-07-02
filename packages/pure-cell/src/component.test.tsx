@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { PureCell, PureCellProps } from './Component';
+import { PureCell, PureCellProps } from './component';
 import { getPureCellTestIds } from './utils';
 
 const PureCellWrapper = (props: Partial<PureCellProps>) => {
