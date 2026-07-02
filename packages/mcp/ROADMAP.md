@@ -1,16 +1,5 @@
 # ROADMAP
 
-## Компоненты, которые не резолвятся
-
-Эти пакеты сейчас не попадают в генерируемые данные. Причины разные, ниже — что чинить в коде, а что является ожидаемым поведением.
-
-- **`cdn-icon`** — баг в `toPascalCase`. Реальный компонент называется `CDNIcon` (аббревиатура капсом), а `toPascalCase('cdn-icon')` даёт `CdnIcon`. Строки не совпадают, экспорт не резолвится. Единственный случай из списка, который стоит починить в коде — например, искать экспорт без учёта регистра.
-- **`with-suffix`** — `index.ts` экспортирует `withSuffix`, это HOC (функция-обёртка над компонентом), а не сам React-компонент. Компонента `WithSuffix` не существует, отсеивание корректно.
-- **`page-indicator`** — нет единого компонента `PageIndicator`, есть только варианты `PageIndicatorBullet`, `PageIndicatorDynamic`, `PageIndicatorRunner`, `PageIndicatorStep`. Отсеивание корректно.
-- **`grid`** — `Grid` не компонент, а объект-неймспейс `{ Row, Col }` над двумя реальными компонентами. Отсеивание корректно.
-- **`product-cover`** — аналогично `grid`: `ProductCover` — объект-неймспейс `{ Single, Stack }` над реальными компонентами `Single` и `Stack`. Отсеивание корректно.
-- **`icon-view`** — в пакете вообще нет `src/index.ts` (есть только `circle/index.ts`, `rectangle/index.ts`, `no-shape/index.ts`, `super-ellipse/index.ts`, `components/index.ts`), поэтому пакет не находится уже на этапе поиска entry point (`get-component-entry-points.mjs` ищет `packages/*/src/index.ts`).
-
 ## Проработать генерацию пропсов
 
 Сейчас пропсы берутся из компонента, который находится в entry point пакета. Необходимо брать пропсы всех подкомпонентов, так как это тоже API, и агент должен о них знать.
@@ -85,3 +74,14 @@ src/data/
 ## Scenario
 
 Для каждой демки нужен сценарий использования (`success`, `error` и т. д.). По факту сценарии уже могут быть описаны, но само демо может быть комбайном из разных сценариев. Необходимо делать примеры более атомарными.
+
+## Компоненты, которые не резолвятся
+
+Эти пакеты сейчас не попадают в генерируемые данные:
+
+- **`cdn-icon`** — реальный компонент называется `CDNIcon` (аббревиатура капсом), а `toPascalCase('cdn-icon')` даёт `CdnIcon`. Строки не совпадают, экспорт не резолвится.
+- **`with-suffix`** — `index.ts` экспортирует `withSuffix`, это HOC (функция-обёртка над компонентом), а не React-компонент с именем `WithSuffix`.
+- **`page-indicator`** — нет единого компонента `PageIndicator`, есть только варианты `PageIndicatorBullet`, `PageIndicatorDynamic`, `PageIndicatorRunner`, `PageIndicatorStep`.
+- **`grid`** — `Grid` — объект-неймспейс `{ Row, Col }` над двумя реальными компонентами, а не компонент сам по себе.
+- **`product-cover`** — аналогично `grid`: `ProductCover` — объект-неймспейс `{ Single, Stack }` над реальными компонентами `Single` и `Stack`.
+- **`icon-view`** — в пакете нет `src/index.ts` (есть только `circle/index.ts`, `rectangle/index.ts`, `no-shape/index.ts`, `super-ellipse/index.ts`, `components/index.ts`), поэтому пакет не находится уже на этапе поиска entry point (`get-component-entry-points.mjs` ищет `packages/*/src/index.ts`).
