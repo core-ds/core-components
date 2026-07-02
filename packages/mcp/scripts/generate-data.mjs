@@ -19,6 +19,17 @@ function toPascalCase(packageName) {
         .join('');
 }
 
+/**
+ * entry-файл может лежать не прямо в src (например src/responsive/Component.responsive.tsx),
+ * поэтому docs всегда ищем от корня src, а не от папки, где лежит сам entry-файл
+ */
+function getSrcDir(filePath) {
+    const segments = filePath.split(path.sep);
+    const srcIndex = segments.lastIndexOf('src');
+
+    return segments.slice(0, srcIndex + 1).join(path.sep);
+}
+
 function main() {
     const entryPoints = getComponentEntryPoints();
 
@@ -53,11 +64,13 @@ function main() {
     docs.forEach((doc) => {
         const { packageName, displayName, props, filePath } = doc;
 
+        const srcDir = getSrcDir(filePath);
+
         const description = extractComponentDescription(
-            path.join(path.dirname(filePath), 'docs', 'Component.docs.mdx'),
+            path.join(srcDir, 'docs', 'Component.docs.mdx'),
         );
 
-        const demos = generateDemo(path.join(path.dirname(filePath), 'docs', 'description.mdx'));
+        const demos = generateDemo(srcDir, 'docs', 'description.mdx');
 
         const changelog = parseChangelog(rootChangelogPath, displayName);
 
