@@ -26,5 +26,9 @@ export function getComponentEntryPoints() {
 
     console.log(`📦  Found ${files.length} components`);
 
-    return files.map((f) => path.resolve(repoRoot, f));
+    return files.map((f) => ({
+        fullPath: path.resolve(repoRoot, f),
+        folderName: f.split('/')[1],
+        tsConfig: path.resolve(repoRoot, `${f.split('/src')[0]}/tsconfig.json`),
+    }));
 }
