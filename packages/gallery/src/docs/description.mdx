@@ -149,3 +149,41 @@ render(() => {
     );
 });
 ```
+
+## Галерея с большим количеством изображений
+
+```jsx live mobileHeight={875}
+const images = Array.from({ length: 36 }, (_, index) => {
+    const baseImages = [
+        './images/gallery_1.jpg',
+        './images/gallery_2.jpg',
+        './images/gallery_3.jpg',
+        './images/gallery_4.jpg',
+    ];
+
+    return {
+        name: `Изображение ${index + 1}`,
+        src: baseImages[index % baseImages.length],
+    };
+});
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <div style={{ width: 320 }}>
+            <Button view='secondary' block={true} onClick={() => setOpen(true)}>
+                Открыть галерею
+            </Button>
+
+            <Gallery
+                open={open}
+                onClose={() => {
+                    setOpen(false);
+                }}
+                images={images}
+            />
+        </div>
+    );
+});
+```

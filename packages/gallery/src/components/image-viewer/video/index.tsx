@@ -27,9 +27,12 @@ type Props = {
 };
 
 export const Video = ({ url, index, className, isActive }: Props) => {
+    const [videoLoaded, setVideoLoaded] = useState(false);
     const playerRef = useRef<HTMLVideoElement>(null);
     const timer = useRef<ReturnType<typeof setTimeout>>();
     const [hlsSupported, setHlsSupported] = useState<boolean>(true);
+    const abortController = useRef(new AbortController());
+    const [videoError, setVideoError] = useState(false);
 
     const {
         setImageMeta,
@@ -82,6 +85,47 @@ export const Video = ({ url, index, className, isActive }: Props) => {
         },
         [setImageMeta, index],
     );
+
+    useEffect(() => () => abortController.current.abort(), []);
+
+    useEffect(() => {
+        const video = playerRef.current;
+
+        if (!video) {
+            return;
+        }
+
+        const { signal } = abortController.current;
+
+        const handleCanPlay = () => {
+            setVideoLoaded(true);
+            setVideoError(false);
+            setImageMeta(
+                {
+                    player: playerRef,
+                    width: video.videoWidth || 1920,
+                    height: video.videoHeight || 1080,
+                    loaded: true,
+                },
+                index,
+            );
+        };
+
+        const handleError = () => {
+            setVideoError(true);
+            setVideoLoaded(false);
+            setImageMeta({ player: { current: null }, broken: true, loaded: true }, index);
+        };
+
+        const handleLoadStart = () => {
+            setVideoLoaded(false);
+            setVideoError(false);
+        };
+
+        video.addEventListener('canplay', handleCanPlay, { signal });
+        video.addEventListener('error', handleError, { signal });
+        video.addEventListener('loadstart', handleLoadStart, { signal });
+    }, [setImageMeta, index]);
 
     useEffect(() => {
         let hls: Hls | null = null;
@@ -158,8 +202,12 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     }, [isActive, playingVideo]);
 
     useEffect(() => {
+        const { signal } = abortController.current;
+
         const handleSpacePress = (e: KeyboardEvent) => {
             if ((e.key === ' ' || e.code === 'Space') && isActive) {
+                e.preventDefault();
+                e.stopPropagation();
                 if (playingVideo) {
                     setPlayingVideo(false);
                 } else {
@@ -168,11 +216,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             }
         };
 
-        document.addEventListener('keyup', handleSpacePress);
-
-        return () => {
-            document.removeEventListener('keyup', handleSpacePress);
-        };
+        document.addEventListener('keydown', handleSpacePress, { signal });
     }, [isActive, playingVideo, setPlayingVideo]);
 
     const handleWrapperClick = (e: MouseEvent) => {
@@ -189,11 +233,9 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                     setHideNavigation(true);
                 }, 3000);
             }
-
-            return;
+        } else {
+            setPlayingVideo(!playingVideo);
         }
-
-        setPlayingVideo(!playingVideo);
     };
 
     const handleBottomButtonClick = useCallback(
@@ -230,8 +272,14 @@ export const Video = ({ url, index, className, isActive }: Props) => {
     };
 
     return (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-        <div onClick={handleWrapperClick} className={styles.videoWrapper}>
+        <div
+            aria-hidden={true}
+            onClick={handleWrapperClick}
+            data-content-area='true'
+            className={cn(styles.videoWrapper, {
+                [styles.loading]: !videoLoaded && !videoError,
+            })}
+        >
             <video
                 onPlay={onPlay}
                 onPause={onPause}
@@ -244,7 +292,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
             >
                 <track kind='captions' />
             </video>
-            {isDesktop && !playingVideo && (
+            {isDesktop && !playingVideo && videoLoaded && (
                 <div className={styles.videoButton}>
                     <Circle size={64} shapeClassName={styles.iconShape}>
                         <PlayCompactMIcon className={styles.icon} />
@@ -252,7 +300,7 @@ export const Video = ({ url, index, className, isActive }: Props) => {
                 </div>
             )}
             {isDesktop && <Subtitles />}
-            {isDesktop && image?.bottomButton && (
+            {isDesktop && image?.bottomButton && videoLoaded && (
                 <BottomButton
                     bottomButton={image.bottomButton}
                     onClick={handleBottomButtonClick}

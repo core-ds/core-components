@@ -1,6 +1,5 @@
 import React, { type FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import throttle from 'lodash/throttle';
 
 import { GalleryContext } from '../../context';
 import { getImageKey, TestIds } from '../../utils';
@@ -9,13 +8,15 @@ import { ImagePreview } from '../image-preview';
 import styles from './index.module.css';
 
 const MIN_SCROLL_STEP = 24;
-const SCROLL_SPEED = 2; // Коэффициент скорости прокрутки (можно настроить)
-const SCROLL_THRESHOLD = 150; // Расстояние от границы, при котором начинается прокрутка
+const DRAG_CLICK_THRESHOLD = 5;
 
 export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const dragStartXRef = useRef<number>(0);
+    const dragStartScrollLeftRef = useRef<number>(0);
+    const suppressClickRef = useRef<boolean>(false);
 
-    const [isNavMouseDowned, setIsNavMouseDowned] = useState<boolean>(false);
+    const [isDragging, setIsDragging] = useState<boolean>(false);
 
     const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper, setPlayingVideo, view } =
         useContext(GalleryContext);
@@ -41,38 +42,72 @@ export const NavigationBar: FC = () => {
         }
     }, []);
 
-    const handlePreviewMouseDown = () => {
-        setIsNavMouseDowned(true);
-    };
-
-    const handlePreviewMouseUp = () => {
-        setIsNavMouseDowned(false);
-        if (containerRef.current) {
-            containerRef.current.style.scrollBehavior = 'auto'; // Отключаем плавность для резкой остановки
+    const handlePreviewMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.button !== 0 || !containerRef.current) {
+            return;
         }
+
+        dragStartXRef.current = e.clientX;
+        dragStartScrollLeftRef.current = containerRef.current.scrollLeft;
+        suppressClickRef.current = false;
+        setIsDragging(true);
     };
 
-    const handleMouseNavigationMove = throttle((e: React.MouseEvent<HTMLDivElement>) => {
-        if (!containerRef.current || !isNavMouseDowned) return;
+    const handlePreviewMouseUp = useCallback(() => {
+        setIsDragging(false);
+    }, []);
 
+    const dragTo = useCallback((clientX: number) => {
         const container = containerRef.current;
-        const { width: containerWidth, left: containerLeft } = container.getBoundingClientRect();
-        const mouseX = e.clientX;
 
-        // Если курсор близко к правой границе
-        if (mouseX > containerWidth + containerLeft - SCROLL_THRESHOLD) {
-            const scrollValue =
-                (mouseX - (containerWidth + containerLeft - SCROLL_THRESHOLD)) * SCROLL_SPEED;
-
-            container.scrollBy({ left: scrollValue, behavior: 'smooth' });
+        if (!container) {
+            return;
         }
-        // Если курсор близко к левой границе
-        else if (mouseX < containerLeft + SCROLL_THRESHOLD) {
-            const scrollValue = (mouseX - (containerLeft + SCROLL_THRESHOLD)) * SCROLL_SPEED;
 
-            container.scrollBy({ left: scrollValue, behavior: 'smooth' });
+        const deltaX = clientX - dragStartXRef.current;
+
+        if (Math.abs(deltaX) > DRAG_CLICK_THRESHOLD) {
+            suppressClickRef.current = true;
         }
-    }, 150);
+
+        container.scrollLeft = dragStartScrollLeftRef.current - deltaX;
+    }, []);
+
+    const handleMouseNavigationMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!isDragging) {
+            return;
+        }
+
+        dragTo(e.clientX);
+    };
+
+    const handleClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!suppressClickRef.current) {
+            return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+        suppressClickRef.current = false;
+    };
+
+    useEffect(() => {
+        if (!isDragging) {
+            return undefined;
+        }
+
+        const handleDocumentMouseMove = (event: MouseEvent) => {
+            dragTo(event.clientX);
+        };
+
+        document.addEventListener('mousemove', handleDocumentMouseMove);
+        document.addEventListener('mouseup', handlePreviewMouseUp);
+
+        return () => {
+            document.removeEventListener('mousemove', handleDocumentMouseMove);
+            document.removeEventListener('mouseup', handlePreviewMouseUp);
+        };
+    }, [dragTo, handlePreviewMouseUp, isDragging]);
 
     const handlePreviewPosition = useCallback(
         (preview: Element, containerWidth: number) => {
@@ -110,12 +145,16 @@ export const NavigationBar: FC = () => {
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
-            className={cn(styles.component, { [styles.mobile]: view === 'mobile' })}
+            className={cn(styles.component, {
+                [styles.mobile]: view === 'mobile',
+                [styles.dragging]: isDragging,
+            })}
             ref={containerRef}
             data-test-id={TestIds.NAVIGATION_BAR}
             onMouseDown={handlePreviewMouseDown}
             onMouseUp={handlePreviewMouseUp}
             onMouseMove={handleMouseNavigationMove}
+            onClickCapture={handleClickCapture}
         >
             {images.map((image, index) => {
                 const active = index === currentSlideIndex;

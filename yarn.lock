@@ -762,7 +762,6 @@ __metadata:
     classnames: "npm:^2.5.1"
     element-closest: "npm:^3.0.2"
     hls.js: "npm:^1.5.13"
-    lodash: "npm:^4.17.21"
     swiper: "npm:^12.1.3"
     tslib: "npm:^2.4.0"
   peerDependencies:
