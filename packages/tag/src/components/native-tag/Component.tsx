@@ -1,5 +1,13 @@
-import React, { forwardRef, type MouseEventHandler } from 'react';
+import React, {
+    forwardRef,
+    type KeyboardEvent,
+    type MouseEvent,
+    type MouseEventHandler,
+} from 'react';
 import cn from 'classnames';
+
+import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
+import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
 import { type BaseTagProps, type StyleColors } from '../../typings';
 import { Button as BaseButton } from '../button';
@@ -29,12 +37,14 @@ export const NativeTag = forwardRef<HTMLButtonElement, NativeTagProps>(
             leftAddons,
             indicatorProps,
             children,
-            size,
+            size = 48,
             checked,
             className,
             dataTestId,
             colors = 'default',
             onClick,
+            onClear = () => null,
+            showClear = false,
             colorStyles,
             childrenClassName,
             childrenRef,
@@ -48,6 +58,22 @@ export const NativeTag = forwardRef<HTMLButtonElement, NativeTagProps>(
         ref,
     ) => {
         const sizeClassName = `size-${size}`;
+
+        const showClearButton = Boolean(checked && showClear && children && !disabled);
+        const showRightAddons = Boolean(rightAddons) && !showClearButton;
+
+        const hasRightSlot = showRightAddons || showClearButton;
+
+        const handleClearClick = (event: MouseEvent<HTMLDivElement>) => {
+            event.stopPropagation();
+            onClear();
+        };
+
+        const handleClearKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+            event.stopPropagation();
+
+            if (event.key === 'Enter') onClear();
+        };
 
         const buttonProps = {
             className: cn(
@@ -66,9 +92,9 @@ export const NativeTag = forwardRef<HTMLButtonElement, NativeTagProps>(
                     [colorCommonStyles[colors].checked]: checked,
                     [colorStyles[view]]: Boolean(colorStyles[view]),
                     [commonStyles.focused]: focused,
-                    [commonStyles.withRightAddons]: Boolean(rightAddons),
+                    [commonStyles.withRightAddons]: showRightAddons,
                     [commonStyles.withLeftAddons]: Boolean(leftAddons),
-                    [commonStyles.noContent]: Boolean((leftAddons || rightAddons) && !children),
+                    [commonStyles.noContent]: Boolean((leftAddons || hasRightSlot) && !children),
                 },
                 className,
             ),
@@ -81,12 +107,28 @@ export const NativeTag = forwardRef<HTMLButtonElement, NativeTagProps>(
                 {leftAddons ? <span className={commonStyles.addons}>{leftAddons}</span> : null}
 
                 {children ? (
-                    <span ref={childrenRef} className={childrenClassName}>
+                    <span ref={childrenRef} className={cn(commonStyles.content, childrenClassName)}>
                         {children}
                     </span>
                 ) : null}
 
-                {rightAddons ? <span className={commonStyles.addons}>{rightAddons}</span> : null}
+                {showRightAddons && <span className={commonStyles.addons}>{rightAddons}</span>}
+
+                {hasRightSlot && !showRightAddons && (
+                    <div
+                        role='button'
+                        className={cn(
+                            commonStyles.addons,
+                            commonStyles.clear,
+                            colorCommonStyles[colors].clear,
+                        )}
+                        onClick={handleClearClick}
+                        onKeyDown={handleClearKeyDown}
+                        tabIndex={0}
+                    >
+                        {[32, 40].includes(size) ? <CrossCircleSIcon /> : <CrossCircleMIcon />}
+                    </div>
+                )}
             </BaseButton>
         );
     },

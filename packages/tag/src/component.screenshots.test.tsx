@@ -16,6 +16,25 @@ const screenshotTesting = setupScreenshotTesting({
 
 const availableThemes = ['default', 'click', 'mobile'];
 
+const pageDefaultEvaluateScript = (page: Page) =>
+    page.evaluate((backgroundColor) => {
+        const style = document.createElement('style');
+        style.textContent = `
+            html, body {
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: ${backgroundColor} !important;
+            }
+            #storybook-root,
+            #storybook-root > .sb-unstyled {
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: ${backgroundColor} !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }, 'var(--color-light-base-bg-secondary)');
+
 const clip = { x: 0, y: 0, width: 200, height: 100 };
 
 describe('Tag', () => {
@@ -164,6 +183,65 @@ describe(
     }),
 );
 
+describe('Tag | clear button', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Тег',
+                            size: 48,
+                            showClear: true,
+                            checked: true,
+                            view: ['outlined', 'filled', 'transparent', 'muted'],
+                        },
+                        size: { width: 180, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Тег',
+                            size: 48,
+                            showClear: true,
+                            checked: true,
+                            disabled: true,
+                            view: ['outlined', 'filled', 'transparent', 'muted'],
+                        },
+                        size: { width: 180, height: 90 },
+                    }),
+                ],
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Тег',
+                            size: 48,
+                            showClear: true,
+                            checked: true,
+                            colors: 'inverted',
+                            view: ['outlined', 'filled', 'transparent', 'muted'],
+                        },
+                        size: { width: 180, height: 90 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: { width: 1024, height: 100 },
+            theme,
+        })();
+
+    availableThemes.map(testCase);
+});
+
 describe(
     'Button | screenshots pressed state',
     screenshotTesting({
@@ -199,7 +277,7 @@ describe('Tag | view variants', () => {
                         knobs: {
                             children: 'Тег',
                             size: 48,
-                            view: ['outlined', 'filled', 'transparent'],
+                            view: ['outlined', 'filled', 'transparent', 'muted'],
                             checked: [false, true],
                         },
                         size: { width: 160, height: 90 },
@@ -212,7 +290,7 @@ describe('Tag | view variants', () => {
                         knobs: {
                             children: 'Тег',
                             size: 48,
-                            view: ['outlined', 'filled', 'transparent'],
+                            view: ['outlined', 'filled', 'transparent', 'muted'],
                             disabled: true,
                             checked: [false, true],
                         },
@@ -226,7 +304,7 @@ describe('Tag | view variants', () => {
                         knobs: {
                             children: 'Тег',
                             size: 48,
-                            view: ['outlined', 'filled', 'transparent'],
+                            view: ['outlined', 'filled', 'transparent', 'muted'],
                             colors: 'inverted',
                             checked: [false, true],
                         },
@@ -247,62 +325,93 @@ describe('Tag | view variants', () => {
 describe('IndicatorTag | main props', () => {
     const indicatorTagThemes = ['default', 'mobile'];
 
-    const testCase = (theme: string) =>
-        screenshotTesting({
-            cases: [
-                [
-                    `${theme} | default`,
-                    createSpriteStorybookUrl({
-                        packageName: 'tag',
-                        componentName: 'IndicatorTag',
-                        knobs: {
-                            size: [32, 40],
-                            shape: ['rounded', 'rectangular'],
-                            colors: 'default',
-                            checked: false,
-                            disabled: false,
-                            leftAddons: true,
-                            dataTestId: 'indicator-ready-default',
-                            indicatorProps: [{ mode: 'dot' }, { mode: 'count', value: 7 }],
-                        },
-                        size: { width: 180, height: 90 },
-                    }),
-                ],
-                [
-                    `${theme} | inverted`,
-                    createSpriteStorybookUrl({
-                        packageName: 'tag',
-                        componentName: 'IndicatorTag',
-                        knobs: {
-                            size: [32, 40],
-                            shape: ['rounded', 'rectangular'],
-                            colors: 'inverted',
-                            checked: true,
-                            disabled: false,
-                            leftAddons: true,
-                            dataTestId: 'indicator-ready-inverted',
-                            indicatorProps: [{ mode: 'dot' }, { mode: 'count', value: 7 }],
-                        },
-                        size: { width: 180, height: 90 },
-                    }),
-                ],
-            ],
-            screenshotOpts: {
-                fullPage: true,
-            },
-            matchImageSnapshotOptions: {
-                customSnapshotIdentifier: (params) => {
-                    const normalizedParams = {
-                        ...params,
-                        currentTestName: params.currentTestName.replace(/^IndicatorTag \| /, ''),
-                    };
+    const snapshotOptions =
+        (theme: string) => (params: Parameters<typeof customSnapshotIdentifier>[0]) => {
+            const normalizedParams = {
+                ...params,
+                currentTestName: params.currentTestName.replace(/^IndicatorTag \| /, ''),
+            };
 
-                    return `indicator-tag-${theme}-${customSnapshotIdentifier(normalizedParams)}`;
+            return `indicator-tag-${theme}-${customSnapshotIdentifier(normalizedParams)}`;
+        };
+
+    indicatorTagThemes.forEach((theme) => {
+        describe(
+            `${theme} | default`,
+            screenshotTesting({
+                cases: generateTestCases({
+                    packageName: 'tag',
+                    componentName: 'IndicatorTag',
+                    wrapperStyles: [
+                        'boxSizing:border-box',
+                        'display:flex',
+                        'alignItems:flex-start',
+                        `width:220px`,
+                        `height:100px`,
+                        `padding: 8px`,
+                        `backgroundColor: var(--color-light-base-bg-secondary)`,
+                    ].join(';'),
+                    knobs: {
+                        size: [32, 40, 48],
+                        shape: ['rounded', 'rectangular'],
+                        view: ['filled', 'muted'],
+                        colors: 'default',
+                        checked: false,
+                        leftAddons: true,
+                        dataTestId: 'indicator-ready-default',
+                        indicatorProps: [
+                            JSON.stringify({ mode: 'dot' }),
+                            JSON.stringify({ mode: 'count', value: 7 }),
+                        ],
+                    },
+                }),
+                screenshotOpts: {
+                    clip: { x: 0, y: 0, width: 220, height: 100 },
                 },
-            },
-            viewport: { width: 1024, height: 100 },
-            theme,
-        })();
+                evaluate: pageDefaultEvaluateScript,
+                viewport: {
+                    width: 220,
+                    height: 100,
+                },
+                matchImageSnapshotOptions: {
+                    customSnapshotIdentifier: snapshotOptions(theme),
+                },
+                theme,
+            }),
+        );
 
-    indicatorTagThemes.map(testCase);
+        describe(
+            `${theme} | inverted`,
+            screenshotTesting({
+                cases: [
+                    [
+                        'inverted',
+                        createSpriteStorybookUrl({
+                            packageName: 'tag',
+                            componentName: 'IndicatorTag',
+                            knobs: {
+                                size: [32, 40, 48],
+                                shape: ['rounded', 'rectangular'],
+                                view: ['filled', 'muted'],
+                                colors: 'inverted',
+                                checked: true,
+                                leftAddons: true,
+                                dataTestId: 'indicator-ready-inverted',
+                                indicatorProps: [{ mode: 'dot' }, { mode: 'count', value: 7 }],
+                            },
+                            size: { width: 180, height: 90 },
+                        }),
+                    ],
+                ],
+                screenshotOpts: {
+                    fullPage: true,
+                },
+                matchImageSnapshotOptions: {
+                    customSnapshotIdentifier: snapshotOptions(theme),
+                },
+                viewport: { width: 1024, height: 100 },
+                theme,
+            }),
+        );
+    });
 });

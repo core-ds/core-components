@@ -43,11 +43,12 @@ export const filter_tag: Story = {
                 <FilterTag
                     size={select('size', SIZES, 48)}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
-                    view={select('view', ['outlined', 'filled'], 'outlined')}
+                    view={select('view', ['outlined', 'filled', 'muted'], 'outlined')}
                     disabled={boolean('disabled', false)}
                     checked={boolean('checked', false)}
                     open={boolean('open', false)}
                     showClear={boolean('showClear', true)}
+                    showArrow={boolean('showArrow', true)}
                     colors={colors}
                     leftAddons={leftAddons}
                 >
@@ -84,11 +85,12 @@ export const filter_tag_mobile: Story = {
                 <FilterTagMobile
                     size={select('size', SIZES, 48)}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
-                    view={select('view', ['outlined', 'filled'], 'outlined')}
+                    view={select('view', ['outlined', 'filled', 'muted'], 'outlined')}
                     disabled={boolean('disabled', false)}
                     checked={boolean('checked', false)}
                     open={boolean('open', false)}
                     showClear={boolean('showClear', true)}
+                    showArrow={boolean('showArrow', true)}
                     colors={colors}
                     leftAddons={leftAddons}
                 >
@@ -125,11 +127,12 @@ export const filter_tag_desktop: Story = {
                 <FilterTagDesktop
                     size={size}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
-                    view={select('view', ['outlined', 'filled'], 'outlined')}
+                    view={select('view', ['outlined', 'filled', 'muted'], 'outlined')}
                     disabled={boolean('disabled', false)}
                     checked={boolean('checked', false)}
                     open={boolean('open', false)}
                     showClear={boolean('showClear', true)}
+                    showArrow={boolean('showArrow', true)}
                     colors={colors}
                     leftAddons={leftAddons}
                 >

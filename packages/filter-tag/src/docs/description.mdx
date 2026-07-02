@@ -1,11 +1,11 @@
 ## Группа фильтров
 
-Обычно фильтры объединяются в группу, в рамках группы используется один паттерн отображения лейбла.
+Обычно фильтры объединяются в группу, в рамках группы рекомендуется использовать один паттерн отображения лейбла и контролов. У выбранного тега может отображаться шеврон, крестик или и то и другое. Лейбл в выбранном состоянии можно скрывать для экономии места. Но если выбрано несколько значений, лейбл нужно оставить.
 
 ```jsx live
 // Одиночный выбор
 const CustomField = ({
-    label,
+    hideFieldLabel,
     selected,
     setSelectedItems,
     innerProps: { ref, ...restInnerProps },
@@ -13,8 +13,7 @@ const CustomField = ({
 }) => {
     const checkedContent = (
         <span>
-            {!label && 'Одиночный выбор:'}
-            <b> {selected && selected.content}</b>
+            {!hideFieldLabel && 'Одиночный выбор:'} {selected && selected.content}
         </span>
     );
 
@@ -22,21 +21,22 @@ const CustomField = ({
 
     return (
         <div ref={ref}>
-            <FilterTag
+            <FilterTagDesktop
                 onClear={() => setSelectedItems([])}
+                view='filled'
                 checked={selected}
                 {...restInnerProps}
                 {...restProps}
             >
                 {selected ? checkedContent : contentLabel}
-            </FilterTag>
+            </FilterTagDesktop>
         </div>
     );
 };
 
 // Множественный выбор
 const CustomFieldMultiple = ({
-    label,
+    hideFieldLabel,
     selected,
     setSelectedItems,
     selectedMultiple,
@@ -45,33 +45,42 @@ const CustomFieldMultiple = ({
 }) => {
     const content = selected && selected.content;
 
-    const checkedContent = (
-        <span>
-            {!label && 'Множественный выбор:'}
-            <b>
-                {' '}
-                {selectedMultiple.length !== 1 ? `Выбрано ${selectedMultiple.length}` : content}
-            </b>
-        </span>
-    );
+    const checkedContent =
+        selectedMultiple.length > 1 ? (
+            <span>Множественный выбор ({selectedMultiple.length})</span>
+        ) : (
+            <span>
+                {!hideFieldLabel && 'Множественный выбор:'} {content}
+            </span>
+        );
 
     const contentLabel = <span>Множественный выбор</span>;
 
     return (
         <div ref={ref}>
-            <FilterTag
+            <FilterTagDesktop
                 onClear={() => setSelectedItems([])}
+                view='filled'
                 checked={selected}
                 {...restInnerProps}
                 {...restProps}
             >
                 {selected ? checkedContent : contentLabel}
-            </FilterTag>
+            </FilterTagDesktop>
         </div>
     );
 };
 
 render(() => {
+    const FIELD_SIZE = 40;
+    const FIELD_SHAPE = 'rectangular';
+
+    const controlMap = {
+        chevron: { showArrow: true, showClear: false },
+        clear: { showArrow: false, showClear: true },
+        both: { showArrow: true, showClear: true },
+    };
+
     const options = React.useMemo(
         () => [
             { key: '1', content: 'Aurum' },
@@ -83,7 +92,17 @@ render(() => {
         [],
     );
 
-    const [label, setLabel] = React.useState(false);
+    const [controls, setControls] = React.useState('chevron');
+    const [hideLabel, setHideLabel] = React.useState(false);
+    const { showArrow, showClear } = controlMap[controls];
+
+    const fieldProps = {
+        size: FIELD_SIZE,
+        shape: FIELD_SHAPE,
+        showArrow,
+        showClear,
+        hideFieldLabel: hideLabel,
+    };
 
     const [selected, setSelected] = React.useState([]);
 
@@ -97,56 +116,44 @@ render(() => {
     };
 
     // Диапазон значений
-    const [filterTag, setFilterTag] = React.useState(null);
     const [open, setOpen] = React.useState(false);
-    const [value, setValue] = React.useState();
-    const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
+    const { selectedFrom, selectedTo, updatePeriod, resetPeriod } = usePeriod();
+    const calendarRef = React.useRef(null);
+    const anchorRef = React.useRef(null);
 
     const handleOpen = () => {
-        setOpen(!open);
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
     };
 
     const handleClear = () => {
-        setOpen(false);
-        updatePeriod(null, null);
+        handleClose();
+        resetPeriod();
     };
 
-    const handleUpdatePeriodr = (date) => {
+    const handleUpdatePeriod = (date) => {
         updatePeriod(date);
 
         if (selectedFrom) {
-            setOpen(false);
+            handleClose();
         }
     };
 
-    const handleFilterTagRef = (node) => {
-        setFilterTag(node);
-    };
+    const handleWrapperBlur = (event) => {
+        const target = event.relatedTarget || document.activeElement;
 
-    const handleBlur = (ref, handleClick) => {
-        React.useEffect(() => {
-            const listener = (event) => {
-                if (ref.current && !ref.current.contains(event.target)) {
-                    handleClick(event);
-                }
-            };
-
-            document.addEventListener('mousedown', listener);
-            document.addEventListener('touchstart', listener);
-
-            return () => {
-                document.removeEventListener('mousedown', listener);
-                document.removeEventListener('touchstart', listener);
-            };
-        }, [ref, handleClick]);
-    };
-    const calendarRef = React.useRef(null);
-
-    handleBlur(calendarRef, (event) => {
-        if (filterTag && !filterTag.contains(event.target)) {
-            handleOpen();
+        if (
+            (anchorRef.current && anchorRef.current.contains(target)) ||
+            (calendarRef.current && calendarRef.current.contains(target))
+        ) {
+            return;
         }
-    });
+
+        handleClose();
+    };
 
     const getDateString = React.useCallback((date) => {
         const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
@@ -167,20 +174,38 @@ render(() => {
 
     const checkedContent = (
         <span>
-            {!label && 'Диапазон значений:'}
-            <b> {selectedRange && selectedRange}</b>
+            {!hideLabel && 'Диапазон значений:'} {selectedRange && selectedRange}
         </span>
     );
     const content = <span>Диапазон значений</span>;
 
-    const css = `
-        div {
-            border-radius: var(--border-radius-8);
-        }
-    `;
-
     return (
         <>
+            <style>
+                {`
+                    .filter-tag-options-list-desktop {
+                        width: 200px;
+                        min-width: 200px !important;
+                    }
+                    .filter-tag-calendar-popover {
+                        border-radius: 0;
+                        border: none;
+                        background: transparent;
+                        box-shadow: none;
+                    }
+                    .filter-tag-calendar-panel {
+                        border-radius: var(--OptionListCornerRadius, 16px);
+                        border: 1px solid var(--neutral-300, #E7E8EB);
+                        background: var(--modal-bg-primary, #FFF);
+                        box-shadow:
+                            0 20px 24px 0 rgba(0, 0, 0, 0.08),
+                            0 12px 16px 0 rgba(0, 0, 0, 0.04),
+                            0 4px 8px 0 rgba(0, 0, 0, 0.04),
+                            0 0 1px 0 rgba(0, 0, 0, 0.04);
+                        overflow: hidden;
+                    }
+                `}
+            </style>
             <SelectDesktop
                 allowUnselect={true}
                 popoverPosition='bottom-start'
@@ -189,8 +214,8 @@ render(() => {
                 onChange={handleChangeSelected}
                 selected={selected}
                 Option={BaseOption}
-                label={label}
-                fieldProps={{ size: 32 }}
+                fieldProps={fieldProps}
+                optionsListClassName='filter-tag-options-list-desktop'
             />
             <Gap size={16} />
             <SelectDesktop
@@ -201,53 +226,82 @@ render(() => {
                 onChange={handleChangeMultiple}
                 selected={selectedMultiple}
                 multiple={true}
-                label={label}
-                fieldProps={{ size: 32 }}
+                fieldProps={fieldProps}
+                optionsListClassName='filter-tag-options-list-desktop'
             />
             <Gap size={16} />
-            <Popover
-                anchorElement={filterTag}
-                offset={[0, 4]}
-                open={open}
-                preventFlip={true}
-                position='bottom-start'
-            >
-                <style>{css}</style>
-                <Calendar
-                    ref={calendarRef}
-                    responsive={true}
-                    value={value}
-                    selectedFrom={selectedFrom}
-                    selectedTo={selectedTo}
-                    onChange={handleUpdatePeriodr}
-                    selectorView='month-only'
-                />
-            </Popover>
+            <div ref={anchorRef} tabIndex={-1} onBlur={handleWrapperBlur}>
+                <FilterTagDesktop
+                    size={FIELD_SIZE}
+                    shape={FIELD_SHAPE}
+                    view='filled'
+                    showArrow={showArrow}
+                    showClear={showClear}
+                    onClick={handleOpen}
+                    onClear={handleClear}
+                    checked={Boolean(selectedRange)}
+                    open={open}
+                >
+                    {selectedRange ? checkedContent : content}
+                </FilterTagDesktop>
+                <Popover
+                    anchorElement={anchorRef.current}
+                    offset={[0, 4]}
+                    open={open}
+                    preventFlip={true}
+                    position='bottom-start'
+                    withTransition={false}
+                    popperClassName='filter-tag-calendar-popover'
+                >
+                    <div
+                        className='filter-tag-calendar-panel'
+                        onMouseDown={(event) => event.preventDefault()}
+                    >
+                        <CalendarDesktop
+                            ref={calendarRef}
+                            responsive={true}
+                            selectedFrom={selectedFrom}
+                            selectedTo={selectedTo}
+                            onChange={handleUpdatePeriod}
+                            selectorView='month-only'
+                        />
+                    </div>
+                </Popover>
+            </div>
 
-            <FilterTag
-                ref={handleFilterTagRef}
-                size={32}
-                onClick={handleOpen}
-                onClear={handleClear}
-                checked={selectedRange}
-                open={open}
+            <Gap size={24} />
+
+            <RadioGroup
+                direction='vertical'
+                label='Контролы'
+                name='filter-controls'
+                onChange={(_, payload) => setControls(payload.value)}
+                value={controls}
             >
-                {selectedRange ? checkedContent : content}
-            </FilterTag>
+                <Radio label='Шеврон' value='chevron' />
+                <Radio label='Крестик' value='clear' />
+                <Radio label='Шеврон и крестик' value='both' />
+            </RadioGroup>
+
             <Gap size={16} />
-            <Switch
-                block={true}
-                checked={label}
-                label='Скрывать лейбл после выбора'
-                onChange={() => setLabel(!label)}
-            />
+
+            <RadioGroup
+                direction='vertical'
+                label='Лейбл в выбранном состоянии'
+                name='filter-label'
+                onChange={(_, payload) => setHideLabel(payload.value === 'hide')}
+                value={hideLabel ? 'hide' : 'show'}
+            >
+                <Radio label='Показывать' value='show' />
+                <Radio label='Скрывать' value='hide' />
+            </RadioGroup>
         </>
     );
 });
 //MOBILE
 // Одиночный выбор
 const CustomField = ({
-    label,
+    hideFieldLabel,
     selected,
     setSelectedItems,
     innerProps: { ref, ...restInnerProps },
@@ -255,8 +309,7 @@ const CustomField = ({
 }) => {
     const checkedContent = (
         <span>
-            {!label && 'Одиночный выбор:'}
-            <b> {selected && selected.content}</b>
+            {!hideFieldLabel && 'Одиночный выбор:'} {selected && selected.content}
         </span>
     );
 
@@ -264,21 +317,22 @@ const CustomField = ({
 
     return (
         <div ref={ref}>
-            <FilterTag
+            <FilterTagMobile
                 onClear={() => setSelectedItems([])}
+                view='filled'
                 checked={selected}
                 {...restInnerProps}
                 {...restProps}
             >
                 {selected ? checkedContent : contentLabel}
-            </FilterTag>
+            </FilterTagMobile>
         </div>
     );
 };
 
 // Множественный выбор
 const CustomFieldMultiple = ({
-    label,
+    hideFieldLabel,
     selected,
     setSelectedItems,
     selectedMultiple,
@@ -287,33 +341,42 @@ const CustomFieldMultiple = ({
 }) => {
     const content = selected && selected.content;
 
-    const checkedContent = (
-        <span>
-            {!label && 'Множественный выбор:'}
-            <b>
-                {' '}
-                {selectedMultiple.length !== 1 ? `Выбрано ${selectedMultiple.length}` : content}
-            </b>
-        </span>
-    );
+    const checkedContent =
+        selectedMultiple.length > 1 ? (
+            <span>Множественный выбор ({selectedMultiple.length})</span>
+        ) : (
+            <span>
+                {!hideFieldLabel && 'Множественный выбор:'} {content}
+            </span>
+        );
 
     const contentLabel = <span>Множественный выбор</span>;
 
     return (
         <div ref={ref}>
-            <FilterTag
+            <FilterTagMobile
                 onClear={() => setSelectedItems([])}
+                view='filled'
                 checked={selected}
                 {...restInnerProps}
                 {...restProps}
             >
                 {selected ? checkedContent : contentLabel}
-            </FilterTag>
+            </FilterTagMobile>
         </div>
     );
 };
 
 render(() => {
+    const FIELD_SIZE = 40;
+    const FIELD_SHAPE = 'rectangular';
+
+    const controlMap = {
+        chevron: { showArrow: true, showClear: false },
+        clear: { showArrow: false, showClear: true },
+        both: { showArrow: true, showClear: true },
+    };
+
     const options = [
         { key: '1', content: 'Aurum' },
         { key: '2', content: 'Bercelium' },
@@ -322,7 +385,17 @@ render(() => {
         { key: '5', content: 'Plutonuim' },
     ];
 
-    const [label, setLabel] = React.useState(false);
+    const [controls, setControls] = React.useState('chevron');
+    const [hideLabel, setHideLabel] = React.useState(false);
+    const { showArrow, showClear } = controlMap[controls];
+
+    const fieldProps = {
+        size: FIELD_SIZE,
+        shape: FIELD_SHAPE,
+        showArrow,
+        showClear,
+        hideFieldLabel: hideLabel,
+    };
 
     const [selected, setSelected] = React.useState([]);
 
@@ -337,19 +410,18 @@ render(() => {
 
     // Диапазон значений
     const [open, setOpen] = React.useState(false);
-    const [value, setValue] = React.useState();
-    const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
+    const { selectedFrom, selectedTo, updatePeriod, resetPeriod } = usePeriod();
 
     const handleOpen = () => {
-        setOpen(!open);
+        setOpen(true);
     };
 
     const handleClear = () => {
         setOpen(false);
-        updatePeriod(null, null);
+        resetPeriod();
     };
 
-    const handleUpdatePeriodr = (date) => {
+    const handleUpdatePeriod = (date) => {
         updatePeriod(date);
 
         if (selectedFrom) {
@@ -376,14 +448,27 @@ render(() => {
 
     const checkedContent = (
         <span>
-            {!label && 'Диапазон значений:'}
-            <b> {selectedRange && selectedRange}</b>
+            {!hideLabel && 'Диапазон значений:'} {selectedRange && selectedRange}
         </span>
     );
     const content = <span>Диапазон значений</span>;
 
     return (
         <>
+            <style>
+                {`
+                    .filter-tag-calendar-mobile [class*='dayNames'],
+                    [data-test-id='filter-tag-calendar-mobile'] [class*='dayNames'] {
+                        padding-left: var(--gap-16);
+                        padding-right: var(--gap-16);
+                    }
+                    .filter-tag-calendar-mobile [class*='virtuoso'],
+                    [data-test-id='filter-tag-calendar-mobile'] [class*='virtuoso'] {
+                        margin-left: var(--gap-16);
+                        margin-right: var(--gap-16);
+                    }
+                `}
+            </style>
             <SelectMobile
                 placeholder='Одиночный выбор'
                 allowUnselect={true}
@@ -392,8 +477,9 @@ render(() => {
                 Field={CustomField}
                 onChange={handleChangeSelected}
                 selected={selected}
-                label={label}
-                fieldProps={{ size: 32 }}
+                fieldProps={fieldProps}
+                Option={BaseOption}
+                optionProps={{ checkmarkPosition: 'after' }}
             />
             <Gap size={16} />
             <SelectMobile
@@ -405,43 +491,69 @@ render(() => {
                 onChange={handleChangeMultiple}
                 selected={selectedMultiple}
                 multiple={true}
-                label={label}
-                fieldProps={{ size: 32 }}
+                fieldProps={fieldProps}
+                Option={BaseOption}
+                optionProps={{ checkmarkPosition: 'after' }}
             />
             <Gap size={16} />
             <CalendarMobile
+                className='filter-tag-calendar-mobile'
+                dataTestId='filter-tag-calendar-mobile'
                 open={open}
                 onClose={() => setOpen(false)}
-                value={value}
                 selectedFrom={selectedFrom}
                 selectedTo={selectedTo}
-                onChange={handleUpdatePeriodr}
+                onChange={handleUpdatePeriod}
                 selectorView='month-only'
             />
-            <FilterTag
-                size={32}
+            <FilterTagMobile
+                size={FIELD_SIZE}
+                shape={FIELD_SHAPE}
+                view='filled'
+                showArrow={showArrow}
+                showClear={showClear}
                 onClick={handleOpen}
                 onClear={handleClear}
-                checked={selectedRange}
+                checked={Boolean(selectedRange)}
                 open={open}
             >
                 {selectedRange ? checkedContent : content}
-            </FilterTag>
+            </FilterTagMobile>
+
+            <Gap size={24} />
+
+            <RadioGroup
+                direction='vertical'
+                label='Контролы'
+                name='filter-controls-mobile'
+                onChange={(_, payload) => setControls(payload.value)}
+                value={controls}
+            >
+                <Radio label='Шеврон' value='chevron' />
+                <Radio label='Крестик' value='clear' />
+                <Radio label='Шеврон и крестик' value='both' />
+            </RadioGroup>
+
             <Gap size={16} />
-            <Switch
-                block={true}
-                checked={label}
-                label='Скрывать лейбл после выбора'
-                onChange={() => setLabel(!label)}
-            />
+
+            <RadioGroup
+                direction='vertical'
+                label='Лейбл в выбранном состоянии'
+                name='filter-label-mobile'
+                onChange={(_, payload) => setHideLabel(payload.value === 'hide')}
+                value={hideLabel ? 'hide' : 'show'}
+            >
+                <Radio label='Показывать' value='show' />
+                <Radio label='Скрывать' value='hide' />
+            </RadioGroup>
         </>
     );
 });
 ```
 
-## Предзаполненное значение фильтра
+## Предзаполненное значение
 
-Компонент может иметь предзаполненное значение, в таком случае в заполненном состоянии у него не может быть крестика очистки.
+Компонент может иметь предзаполненное значение, в таком случае, в заполненном состоянии у него не может быть крестика очистки.
 
 ```jsx live
 const CustomField = ({
@@ -452,9 +564,9 @@ const CustomField = ({
     ...restProps
 }) => (
     <div ref={ref}>
-        <FilterTag checked={selected} showClear={false} {...restInnerProps} {...restProps}>
-            <b>{selected.content}</b>
-        </FilterTag>
+        <FilterTagDesktop checked={selected} showClear={false} {...restInnerProps} {...restProps}>
+            {selected.content}
+        </FilterTagDesktop>
     </div>
 );
 render(() => {
@@ -473,15 +585,26 @@ render(() => {
     };
 
     return (
-        <SelectDesktop
-            popoverPosition='bottom-start'
-            options={options}
-            Field={CustomField}
-            onChange={handleChangeSelected}
-            selected={selected}
-            fieldProps={{ size: 32 }}
-            Option={BaseOption}
-        />
+        <>
+            <style>
+                {`
+                    .filter-tag-options-list-desktop {
+                        width: 200px;
+                        min-width: 200px !important;
+                    }
+                `}
+            </style>
+            <SelectDesktop
+                popoverPosition='bottom-start'
+                options={options}
+                Field={CustomField}
+                onChange={handleChangeSelected}
+                selected={selected}
+                fieldProps={{ size: 40, shape: 'rectangular' }}
+                Option={BaseOption}
+                optionsListClassName='filter-tag-options-list-desktop'
+            />
+        </>
     );
 });
 //MOBILE
@@ -493,9 +616,9 @@ const CustomField = ({
     ...restProps
 }) => (
     <div ref={ref}>
-        <FilterTag checked={selected} showClear={false} {...restInnerProps} {...restProps}>
+        <FilterTagMobile checked={selected} showClear={false} {...restInnerProps} {...restProps}>
             {selected.content}
-        </FilterTag>
+        </FilterTagMobile>
     </div>
 );
 render(() => {
@@ -514,46 +637,154 @@ render(() => {
     };
 
     return (
-        <SelectMobile
-            popoverPosition='bottom-start'
-            options={options}
-            Field={CustomField}
-            onChange={handleChangeSelected}
-            selected={selected}
-            fieldProps={{ size: 32 }}
-        />
+        <>
+            <SelectMobile
+                popoverPosition='bottom-start'
+                options={options}
+                Field={CustomField}
+                onChange={handleChangeSelected}
+                selected={selected}
+                fieldProps={{ size: 40, shape: 'rectangular' }}
+                Option={BaseOption}
+                optionProps={{ checkmarkPosition: 'after' }}
+            />
+        </>
     );
 });
 ```
 
 ## Состояния
 
-Таб может находиться в активном и неактивном состоянии. Взаимодействие может быть ограничено с помощью свойства `disabled`.
+Взаимодействие с тегом можно ограничить с помощью свойства [disabled]. Блокировать теги с выбранным значением не рекомендуется.
 
 ```jsx live
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
 
+    const checkedContent = <span>Label: Value</span>;
+
     return (
         <Container>
             <Row align='middle'>
-                <FilterTag size={32} checked={false} disabled={disabled}>
+                <FilterTagDesktop
+                    size={40}
+                    view='filled'
+                    shape='rectangular'
+                    checked={false}
+                    showClear={false}
+                    disabled={disabled}
+                >
                     <span>Label</span>
-                </FilterTag>
+                </FilterTagDesktop>
                 <Gap size={12} direction='horizontal' />
-                <FilterTag size={32} checked={true} disabled={disabled}>
-                    {disabled ? (
-                        <span>Label</span>
-                    ) : (
-                        <span>
-                            Label:<b> Value</b>
-                        </span>
-                    )}
-                </FilterTag>
+                <FilterTagDesktop
+                    size={40}
+                    view='filled'
+                    shape='rectangular'
+                    checked={true}
+                    showClear={false}
+                    disabled={disabled}
+                >
+                    {checkedContent}
+                </FilterTagDesktop>
+
+                <Gap size={12} direction='horizontal' />
+
+                <FilterTagDesktop
+                    size={40}
+                    view='filled'
+                    shape='rectangular'
+                    checked={true}
+                    showArrow={false}
+                    disabled={disabled}
+                >
+                    {checkedContent}
+                </FilterTagDesktop>
+
+                <Gap size={12} direction='horizontal' />
+
+                <FilterTagDesktop
+                    size={40}
+                    view='filled'
+                    shape='rectangular'
+                    checked={true}
+                    disabled={disabled}
+                >
+                    {checkedContent}
+                </FilterTagDesktop>
             </Row>
             <Gap size={24} />
             <Switch
-                label='Недоступно'
+                label='Заблокированное состояние'
+                checked={disabled}
+                onChange={() => setDisabled((prevState) => !prevState)}
+            />
+        </Container>
+    );
+});
+//MOBILE
+render(() => {
+    const [disabled, setDisabled] = React.useState(false);
+
+    const checkedContent = <span>Label: Value</span>;
+
+    return (
+        <Container>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 24,
+                }}
+            >
+                <FilterTagMobile
+                    size={40}
+                    view='filled'
+                    shape='rectangular'
+                    checked={false}
+                    showClear={false}
+                    disabled={disabled}
+                >
+                    <span>Label</span>
+                </FilterTagMobile>
+
+                <FilterTagMobile
+                    size={40}
+                    view='filled'
+                    shape='rectangular'
+                    checked={true}
+                    showClear={false}
+                    disabled={disabled}
+                >
+                    {checkedContent}
+                </FilterTagMobile>
+
+                <FilterTagMobile
+                    size={40}
+                    view='filled'
+                    shape='rectangular'
+                    checked={true}
+                    showArrow={false}
+                    disabled={disabled}
+                >
+                    {checkedContent}
+                </FilterTagMobile>
+
+                <FilterTagMobile
+                    size={40}
+                    view='filled'
+                    shape='rectangular'
+                    checked={true}
+                    disabled={disabled}
+                >
+                    {checkedContent}
+                </FilterTagMobile>
+            </div>
+
+            <Gap size={24} />
+            <Switch
+                label='Заблокированное состояние'
                 checked={disabled}
                 onChange={() => setDisabled((prevState) => !prevState)}
             />
@@ -562,25 +793,20 @@ render(() => {
 });
 ```
 
-## Стиль
-
-Компонент наследует опции компонента [Tag](?path=/docs/tag--docs), отвечающие за внешний вид:
-
--   shape (форма) — овальные или прямоугольные.
--   view (стиль) — залитые или бордерные.
-
 ## Дополнительный слот
 
 С помощью слота leftAddons можно кастомизировать фильтртэг.
 
 ```jsx live
-render(() => {
-    const [leftAddons, setLeftAddons] = React.useState(true);
-    const [selected, setSelected] = React.useState(false);
-
-    const addon = () => {
-        if (leftAddons) {
-            return (
+render(() => (
+    <Container>
+        <FilterTagDesktop
+            size={40}
+            shape='rectangular'
+            checked={true}
+            showArrow={true}
+            showClear={true}
+            leftAddons={
                 <div
                     style={{
                         width: 16,
@@ -590,36 +816,17 @@ render(() => {
                         borderRadius: '4px',
                     }}
                 />
-            );
-        }
-
-        return null;
-    };
-
-    return (
-        <Container>
-            <FilterTag size={32} checked={selected} leftAddons={addon()}>
-                {selected ? (
-                    <span>
-                        Label:<b> Value</b>
-                    </span>
-                ) : (
-                    <span>Label</span>
-                )}
-            </FilterTag>
-            <Gap size={24} />
-            <Switch
-                label='LeftAddon'
-                checked={leftAddons}
-                onChange={() => setLeftAddons((prevState) => !prevState)}
-            />
-            <Gap size={16} />
-            <Switch
-                label='Selected'
-                checked={selected}
-                onChange={() => setSelected((prevState) => !prevState)}
-            />
-        </Container>
-    );
-});
+            }
+        >
+            <span>Label: Value</span>
+        </FilterTagDesktop>
+    </Container>
+));
 ```
+
+## Стиль
+
+Компонент наследует опции компонента [Tag](?path=/docs/tag--docs), отвечающие за внешний вид:
+
+- shape (форма) — овальные или прямоугольные.
+- view (стиль) — залитые или бордерные.

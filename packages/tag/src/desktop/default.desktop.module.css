@@ -18,3 +18,22 @@
         background-color: var(--tag-filled-background-color-active);
     }
 }
+
+.muted {
+    background-color: var(--tag-muted-background-color);
+
+    &:disabled {
+        background-color: var(--tag-muted-background-color-disabled);
+        border-color: var(--tag-muted-border-color);
+    }
+
+    @media (hover: hover) {
+        &:hover:not(:disabled) {
+            background-color: var(--tag-muted-background-color-hover);
+        }
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-muted-background-color-active);
+    }
+}

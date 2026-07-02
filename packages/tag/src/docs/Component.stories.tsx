@@ -42,9 +42,15 @@ export const tag: Story = {
                     size={select('size', SIZES, 56)}
                     variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
-                    view={select('view', ['outlined', 'filled', 'transparent'], 'outlined')}
+                    view={select(
+                        'view',
+                        ['outlined', 'filled', 'transparent', 'muted'],
+                        'outlined',
+                    )}
                     disabled={boolean('disabled', false)}
                     checked={checked || boolean('checked', false)}
+                    showClear={boolean('showClear', false)}
+                    onClear={() => setChecked(false)}
                     rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
                     onClick={handleClick}
                     colors={colors}
@@ -81,9 +87,15 @@ export const tag_mobile: Story = {
                     size={select('size', SIZES, 56)}
                     variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
-                    view={select('view', ['outlined', 'filled', 'transparent'], 'outlined')}
+                    view={select(
+                        'view',
+                        ['outlined', 'filled', 'transparent', 'muted'],
+                        'outlined',
+                    )}
                     disabled={boolean('disabled', false)}
                     checked={checked || boolean('checked', false)}
+                    showClear={boolean('showClear', false)}
+                    onClear={() => setChecked(false)}
                     rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
                     onClick={handleClick}
                     colors={colors}
@@ -120,9 +132,15 @@ export const tag_desktop: Story = {
                     size={select('size', SIZES, 56)}
                     variant={select('variant', ['default', 'alt'], 'default')}
                     shape={select('shape', ['rounded', 'rectangular'], 'rounded')}
-                    view={select('view', ['outlined', 'filled', 'transparent'], 'outlined')}
+                    view={select(
+                        'view',
+                        ['outlined', 'filled', 'transparent', 'muted'],
+                        'outlined',
+                    )}
                     disabled={boolean('disabled', false)}
                     checked={checked || boolean('checked', false)}
+                    showClear={boolean('showClear', false)}
+                    onClear={() => setChecked(false)}
                     rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
                     onClick={handleClick}
                     colors={colors}
