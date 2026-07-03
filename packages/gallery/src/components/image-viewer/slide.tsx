@@ -90,6 +90,8 @@ export const Slide: FC<SlideProps> = ({
     const small = isSmallImage(meta);
     const verticalImageFit = !small && containerAspectRatio > imageAspectRatio;
     const horizontalImageFit = !small && containerAspectRatio <= imageAspectRatio;
+    const imageStyle =
+        fullScreen || !containerHeight ? undefined : { maxHeight: `${containerHeight}px` };
 
     const handleImageRef = useCallback(
         (node: HTMLImageElement | null) => {
@@ -132,7 +134,7 @@ export const Slide: FC<SlideProps> = ({
                 })}
                 onLoad={(event) => handleLoad(event, index)}
                 onError={() => handleLoadError(index)}
-                style={fullScreen ? undefined : { maxHeight: `${containerHeight}px` }}
+                style={imageStyle}
                 data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
             />
         </SlideInner>
