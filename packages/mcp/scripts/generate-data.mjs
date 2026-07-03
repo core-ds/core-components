@@ -8,16 +8,13 @@ import { generateDemo } from './generate-demo.mjs';
 import { generateDoc } from './generate-doc.mjs';
 import { getComponentEntryPoints } from './get-component-entry-points.mjs';
 import { parseChangelog } from './parse-changelog.mjs';
+import { toPascalCase } from '../utils/to-pascal-case/to-pascal-case.mjs';
 
 const { dirname } = import.meta;
 const rootChangelogPath = path.resolve(dirname, '../../..', 'CHANGELOG.md');
 
-function toPascalCase(packageName) {
-    return packageName
-        .split('-')
-        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-        .join('');
-}
+// Части имени пакета, которые нужно писать капсом целиком (CDN, а не Cdn)
+const PACKAGE_NAME_ACRONYMS = new Set(['cdn']);
 
 /**
  * entry-файл может лежать не прямо в src (например src/responsive/Component.responsive.tsx),
@@ -35,7 +32,7 @@ function main() {
 
     const entries = entryPoints.reduce((acc, curr) => {
         const { tsConfig, fullPath, folderName } = curr;
-        const componentName = toPascalCase(folderName);
+        const componentName = toPascalCase(folderName, PACKAGE_NAME_ACRONYMS);
 
         const project = new Project({
             tsConfigFilePath: tsConfig,

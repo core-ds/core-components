@@ -79,7 +79,6 @@ src/data/
 
 Эти пакеты сейчас не попадают в генерируемые данные:
 
-- **`cdn-icon`** — реальный компонент называется `CDNIcon` (аббревиатура капсом), а `toPascalCase('cdn-icon')` даёт `CdnIcon`. Строки не совпадают, экспорт не резолвится.
 - **`with-suffix`** — `index.ts` экспортирует `withSuffix`, это HOC (функция-обёртка над компонентом), а не React-компонент с именем `WithSuffix`.
 - **`page-indicator`** — нет единого компонента `PageIndicator`, есть только варианты `PageIndicatorBullet`, `PageIndicatorDynamic`, `PageIndicatorRunner`, `PageIndicatorStep`.
 - **`grid`** — `Grid` — объект-неймспейс `{ Row, Col }` над двумя реальными компонентами, а не компонент сам по себе.
