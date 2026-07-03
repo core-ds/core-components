@@ -22,7 +22,7 @@ export function getComponentEntryPoints() {
         ],
     });
 
-    console.log(`🔍  Found ${files.length} components`);
+    console.log(`🔍  Found ${files.length} packages`);
 
     return files.map((f) => ({
         fullPath: path.resolve(repoRoot, f),

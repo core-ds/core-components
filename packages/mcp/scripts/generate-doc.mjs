@@ -5,13 +5,34 @@ import { isInheritedFromExternalTypes } from './is-inherited-from-external-types
 
 const { dirname } = import.meta;
 
-const PROGRESS_BAR_WIDTH = 30;
+const PROGRESS_BAR_WIDTH = 40;
 
 function renderProgressBar(current, total) {
     const filled = Math.round((current / total) * PROGRESS_BAR_WIDTH);
-    const bar = `${'='.repeat(Math.max(filled - 1, 0))}>${' '.repeat(Math.max(PROGRESS_BAR_WIDTH - filled, 0))}`;
+    const bar = `${'='.repeat(Math.max(filled - 1, 0))}${' '.repeat(Math.max(PROGRESS_BAR_WIDTH - filled, 0))}`;
 
     return `[${bar}]`;
+}
+
+/**
+ * Ищет doc компонента по displayName среди пары возможных имён.
+ * @example Button -> пробует "Button", затем "ButtonComponent"
+ * @example X -> "XComponent" встречается у компаунд-компонентов вида
+ *   `const XComponent = forwardRef(...); export const X = Object.assign(XComponent, {...})`,
+ *   где docgen репортит имя внутреннего forwardRef, а не обёртки X
+ */
+function resolveDoc(docs, sourceName) {
+    const candidateNames = [sourceName, `${sourceName}Component`];
+
+    for (const name of candidateNames) {
+        const doc = docs.find((d) => d.displayName === name);
+
+        if (doc) {
+            return doc;
+        }
+    }
+
+    return undefined;
 }
 
 export function generateDoc(entries) {
@@ -40,10 +61,8 @@ export function generateDoc(entries) {
          * более короткий кадр (например короче имя файла) хвост предыдущего кадра
          * остаётся на экране
          */
-        const relativeFile = `packages/${file.split('packages/')[1]}`;
-
         process.stdout.write(
-            `\r${renderProgressBar(index + 1, entries.length)} ${relativeFile}\x1b[0K`,
+            `\r${renderProgressBar(index + 1, entries.length)} ${componentName}\x1b[0K`,
         );
 
         /**
@@ -51,20 +70,9 @@ export function generateDoc(entries) {
          * Component.responsive.tsx с подкомпонентами вроде Header/Controls), и
          * react-docgen-typescript возвращает их в произвольном порядке — поэтому
          * явно ищем doc с именем, под которым компонент реально объявлен в файле
-         * (sourceName), а не берём первый попавшийся из массива.
-         *
-         * Два фолбэка на случай, если docgen репортит другое имя, чем в AST:
-         * 1. `${sourceName}Component` — паттерн компаунд-компонентов вида
-         *    `const XComponent = forwardRef(...); XComponent.displayName = 'XComponent';
-         *    export const X = Object.assign(XComponent, {...})` — docgen идёт по
-         *    forwardRef и берёт displayName внутренней XComponent, а не обёртки X.
-         * 2. Если в файле всего один doc — берём его, даже если имя не совпало
-         *    (например явный `Component.displayName = '...'`, отличающийся от AST-имени)
+         * (sourceName), а не берём первый попавшийся из массива
          */
-        const doc =
-            docs.find(({ displayName }) => displayName === sourceName) ??
-            docs.find(({ displayName }) => displayName === `${sourceName}Component`) ??
-            (docs.length === 1 ? docs[0] : undefined);
+        const doc = resolveDoc(docs, sourceName);
 
         if (!doc) {
             return;

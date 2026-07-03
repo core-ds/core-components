@@ -2,13 +2,14 @@ import { writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { Project } from 'ts-morph';
 
+import { toPascalCase } from '../utils/to-pascal-case/to-pascal-case.mjs';
+
 import { createIndexDir } from './create-index-dir.mjs';
 import { extractComponentDescription } from './extract-component-description.mjs';
 import { generateDemo } from './generate-demo.mjs';
 import { generateDoc } from './generate-doc.mjs';
 import { getComponentEntryPoints } from './get-component-entry-points.mjs';
 import { parseChangelog } from './parse-changelog.mjs';
-import { toPascalCase } from '../utils/to-pascal-case/to-pascal-case.mjs';
 
 const { dirname } = import.meta;
 const rootChangelogPath = path.resolve(dirname, '../../..', 'CHANGELOG.md');
@@ -63,6 +64,8 @@ function main() {
 
         return acc;
     }, []);
+
+    console.log('ℹ️ ', entries.length, 'components processed');
 
     const docs = generateDoc(entries);
 
