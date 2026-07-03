@@ -1,5 +1,30 @@
 # @alfalab/core-components-gallery
 
+## 7.2.0
+
+### Minor Changes
+
+<sup><time>01.07.2026</time></sup>
+
+#### [#2259](https://github.com/core-ds/core-components/pull/2259)
+
+##### Gallery
+
+- Исправлены паддинги у swiper
+- Переработано отображение в full screen режиме
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-base-modal@7.1.7
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-spinner@6.0.6
+- @alfalab/core-components-tooltip@9.0.16
+- @alfalab/core-components-typography@6.0.9
+- @alfalab/core-components-icon-button@8.0.9
+
 ## 7.1.10
 
 ### Patch Changes
