@@ -6,6 +6,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
+import { noop } from '@alfalab/core-components-shared';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { CrossCircleSIcon } from '@alfalab/icons-glyph/CrossCircleSIcon';
 
@@ -43,7 +44,7 @@ export const NativeTag = forwardRef<HTMLButtonElement, NativeTagProps>(
             dataTestId,
             colors = 'default',
             onClick,
-            onClear = () => null,
+            onClear = noop,
             showClear = false,
             colorStyles,
             childrenClassName,
