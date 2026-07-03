@@ -19,6 +19,9 @@ type MultiStepCardInputProps = Pick<
     'onSubmit' | 'onInput' | 'needCVC' | 'needExpiryDate' | 'expiryAsDate' | 'placeholder'
 > & { open?: boolean | undefined; toggleMenu: () => void };
 
+const getInputSize = (value: string, placeholder: string) =>
+    Math.max(value.length, placeholder.length, 1);
+
 export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
     ({
         onSubmit,
@@ -50,6 +53,7 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         const lastActiveFieldRef = useRef<typeof activeField>('');
         const onlyCard = !needCVC && !needExpiryDate;
         const valuesEmpty = !cardNumber && !cardExpiry && !cardCvc;
+        const isCardNumberValid = validateCardNumber(cardNumber);
 
         const numberRef = useRef<HTMLInputElement | null>(null);
         const expiryRef = useRef<HTMLInputElement | null>(null);
@@ -277,12 +281,23 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
         };
 
         const getDisplayCardNumber = () => {
-            if (activeField === 'cardNumber' || !validateCardNumber(cardNumber) || onlyCard) {
+            if (activeField === 'cardNumber' || !isCardNumberValid || onlyCard) {
                 return formatCardNumber(cardNumber);
             }
 
             return getMaskedCardNumber(cardNumber);
         };
+
+        const areAdditionalFieldsHidden =
+            activeField === 'cardNumber' || valuesEmpty || !isCardNumberValid;
+        const isCardNumberLastVisible = !needExpiryDate || areAdditionalFieldsHidden;
+        const isExpiryLastVisible = needExpiryDate && (!needCVC || areAdditionalFieldsHidden);
+        const isCvvLastVisible = needCVC && !areAdditionalFieldsHidden;
+
+        const cardNumberPlaceholder = placeholder ?? 'Карта';
+        const displayCardNumber = getDisplayCardNumber();
+        const displayCardExpiry = String(cardExpiry);
+        const displayCardCvc = cardCvc || '';
 
         return (
             <div
@@ -296,14 +311,15 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                         ref={numberRefCallback}
                         onBlur={handleCardNumberBlur}
                         type='text'
-                        placeholder={placeholder ?? 'Карта'}
-                        value={getDisplayCardNumber()}
+                        placeholder={cardNumberPlaceholder}
+                        value={displayCardNumber}
                         onInput={handleCardNumberChange}
                         onFocus={handleCardNumberFocus}
                         className={cn(styles.multistepInput, styles.cardNumberInput, {
-                            [styles.cardNumberInputValid]:
-                                validateCardNumber(cardNumber) && !onlyCard,
+                            [styles.cardNumberInputValid]: isCardNumberValid && !onlyCard,
+                            [styles.stretchedInput]: isCardNumberLastVisible,
                         })}
+                        size={getInputSize(displayCardNumber, cardNumberPlaceholder)}
                         inputMode='numeric'
                         pattern='[0-9]*'
                     />
@@ -311,40 +327,38 @@ export const MultiStepCardInput: React.FC<MultiStepCardInputProps> = memo(
                         <input
                             ref={expiryRefCallback}
                             type='text'
-                            value={String(cardExpiry)}
+                            value={displayCardExpiry}
                             onInput={handleExpiryChange}
                             onFocus={handleExpiryFocus}
                             className={cn(styles.multistepInput, styles.expiryInput, {
-                                [styles.hidden]:
-                                    activeField === 'cardNumber' ||
-                                    valuesEmpty ||
-                                    !validateCardNumber(cardNumber),
+                                [styles.hidden]: areAdditionalFieldsHidden,
+                                [styles.stretchedInput]: isExpiryLastVisible,
                             })}
-                            tabIndex={validateCardNumber(cardNumber) ? 0 : -1}
+                            tabIndex={isCardNumberValid ? 0 : -1}
                             inputMode='numeric'
                             onBlur={handleExpiryBlur}
                             pattern='[0-9]*'
                             placeholder='ММ/ГГ'
+                            size={getInputSize(displayCardExpiry, 'ММ/ГГ')}
                         />
                     )}
                     {needCVC && (
                         <input
                             ref={cvvRefCallback}
                             type='text'
-                            value={cardCvc || ''}
+                            value={displayCardCvc}
                             onInput={handleCvcChange}
                             onFocus={handleCVVFocus}
                             className={cn(styles.multistepInput, styles.cvvInput, {
-                                [styles.hidden]:
-                                    activeField === 'cardNumber' ||
-                                    valuesEmpty ||
-                                    !validateCardNumber(cardNumber),
+                                [styles.hidden]: areAdditionalFieldsHidden,
+                                [styles.stretchedInput]: isCvvLastVisible,
                             })}
-                            tabIndex={validateCardNumber(cardNumber) ? 0 : -1}
+                            tabIndex={isCardNumberValid ? 0 : -1}
                             inputMode='numeric'
                             onBlur={handleCvcBlur}
                             pattern='[0-9]*'
                             placeholder='CVC'
+                            size={getInputSize(displayCardCvc, 'CVC')}
                             maxLength={3}
                         />
                     )}

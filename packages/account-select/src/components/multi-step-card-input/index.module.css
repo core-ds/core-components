@@ -31,12 +31,6 @@
     width: 100%;
     display: flex;
     gap: var(--gap-24);
-
-    & > .multistepInput:not(.hidden):last-child {
-        flex-grow: 1;
-        width: 100%;
-        max-width: 100%;
-    }
 }
 
 .hidden {
@@ -50,7 +44,7 @@
 }
 
 .cardNumberInputValid {
-    max-width: 5ch;
+    max-width: 6ch;
 
     &:focus {
         max-width: 19ch;
@@ -71,6 +65,11 @@
         font-family: 'text-security-disc', serif;
         -webkit-text-security: disc;
     }
+}
+
+.stretchedInput {
+    flex-grow: 1;
+    max-width: 100%;
 }
 
 .multistepCardInputWrapper {
