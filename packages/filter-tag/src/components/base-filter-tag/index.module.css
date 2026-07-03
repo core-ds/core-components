@@ -36,8 +36,10 @@
 
     &.withClearOnly {
         overflow: hidden;
+        cursor: pointer;
 
-        & .valueButton {
+        & .valueButton,
+        & .valueButton * {
             pointer-events: none;
         }
 
