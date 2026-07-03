@@ -434,7 +434,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-code-input@npm:^5.0.6, @alfalab/core-components-code-input@workspace:packages/code-input":
+"@alfalab/core-components-code-input@npm:^5.1.0, @alfalab/core-components-code-input@workspace:packages/code-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-code-input@workspace:packages/code-input"
   dependencies:
@@ -530,12 +530,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-confirmation@npm:^15.0.11, @alfalab/core-components-confirmation@workspace:packages/confirmation":
+"@alfalab/core-components-confirmation@npm:^15.1.0, @alfalab/core-components-confirmation@workspace:packages/confirmation":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-confirmation@workspace:packages/confirmation"
   dependencies:
     "@alfalab/core-components-button": "npm:^13.2.1"
-    "@alfalab/core-components-code-input": "npm:^5.0.6"
+    "@alfalab/core-components-code-input": "npm:^5.1.0"
     "@alfalab/core-components-link": "npm:^7.0.3"
     "@alfalab/core-components-mq": "npm:^6.0.6"
     "@alfalab/core-components-spinner": "npm:^6.0.6"
@@ -1302,7 +1302,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-phone-input@npm:^9.0.11, @alfalab/core-components-phone-input@workspace:packages/phone-input":
+"@alfalab/core-components-phone-input@npm:^9.0.12, @alfalab/core-components-phone-input@workspace:packages/phone-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-phone-input@workspace:packages/phone-input"
   dependencies:
@@ -2187,7 +2187,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-universal-modal@npm:^3.1.8, @alfalab/core-components-universal-modal@workspace:packages/universal-modal":
+"@alfalab/core-components-universal-modal@npm:^3.2.0, @alfalab/core-components-universal-modal@workspace:packages/universal-modal":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-universal-modal@workspace:packages/universal-modal"
   dependencies:
@@ -2256,10 +2256,10 @@ __metadata:
     "@alfalab/core-components-checkbox": "npm:^6.2.3"
     "@alfalab/core-components-checkbox-group": "npm:^6.0.7"
     "@alfalab/core-components-circular-progress-bar": "npm:^5.0.9"
-    "@alfalab/core-components-code-input": "npm:^5.0.6"
+    "@alfalab/core-components-code-input": "npm:^5.1.0"
     "@alfalab/core-components-collapse": "npm:^6.0.3"
     "@alfalab/core-components-comment": "npm:^4.0.9"
-    "@alfalab/core-components-confirmation": "npm:^15.0.11"
+    "@alfalab/core-components-confirmation": "npm:^15.1.0"
     "@alfalab/core-components-confirmation-v1": "npm:^3.0.9"
     "@alfalab/core-components-custom-button": "npm:^5.0.9"
     "@alfalab/core-components-custom-picker-button": "npm:^4.1.11"
@@ -2307,7 +2307,7 @@ __metadata:
     "@alfalab/core-components-password-input": "npm:^7.0.11"
     "@alfalab/core-components-pattern-lock": "npm:^4.0.9"
     "@alfalab/core-components-pattern-lock-v1": "npm:^3.0.9"
-    "@alfalab/core-components-phone-input": "npm:^9.0.11"
+    "@alfalab/core-components-phone-input": "npm:^9.0.12"
     "@alfalab/core-components-picker-button": "npm:^13.0.18"
     "@alfalab/core-components-plate": "npm:^9.0.9"
     "@alfalab/core-components-popover": "npm:^8.1.0"
@@ -2352,7 +2352,7 @@ __metadata:
     "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/core-components-underlay": "npm:^3.0.2"
     "@alfalab/core-components-universal-date-input": "npm:^4.0.15"
-    "@alfalab/core-components-universal-modal": "npm:^3.1.8"
+    "@alfalab/core-components-universal-modal": "npm:^3.2.0"
     "@alfalab/core-components-vars": "npm:^11.1.0"
     "@alfalab/core-components-with-suffix": "npm:^6.0.11"
   peerDependencies:

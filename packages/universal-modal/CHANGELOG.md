@@ -1,5 +1,17 @@
 # @alfalab/core-components-universal-modal
 
+## 3.2.0
+
+### Minor Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#2265](https://github.com/core-ds/core-components/pull/2265)
+
+##### UniversalModal
+
+- Открыта типизация пропа `disableRestoreFocus` для desktop компонента
+
 ## 3.1.8
 
 ### Patch Changes

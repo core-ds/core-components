@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-mcp",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "MCP server providing component information for core UI components.",
     "type": "module",
     "exports": {

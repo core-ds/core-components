@@ -1,5 +1,33 @@
 # @alfalab/core-components-confirmation
 
+## 15.1.0
+
+### Minor Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#1900](https://github.com/core-ds/core-components/pull/1900)
+
+##### CodeInput, Confirmation
+
+- Добавлен проп `strictFocus` для включения последовательного ввода:
+    - при клике на ячейку правее первой пустой — фокус остается на первой
+    - фокус разрешается только на уже заполненные ячейки и первую пустую ячейку
+
+- Добавлено поведение автоматического фокуса на первый инпут при клике на любое пустое поле
+
+- Улучшена доступность компонента, добавлены `aria-label`.
+
+##### Confirmation
+
+- Добавлена поддержка пропа `strictFocus` для использования в `CodeInput`
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-code-input@5.1.0
+
 ## 15.0.11
 
 ### Patch Changes
