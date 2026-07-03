@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-mcp",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "MCP server providing component information for core UI components.",
     "type": "module",
     "exports": {
@@ -16,6 +16,7 @@
         "copy:assets": "copyfiles -u 1 \"src/{data,skills}/**/*\" dist/",
         "dev": "tsx src/index.mts",
         "generate-data": "node scripts/generate-data.mjs",
+        "inspect": "npx @modelcontextprotocol/inspector",
         "start": "node dist/index.mjs"
     },
     "dependencies": {

@@ -1,14 +1,14 @@
-import React, { type MouseEvent, useContext } from 'react';
+import React, { type MouseEvent } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import CrossMIcon from '@alfalab/icons-glyph/CrossMIcon';
 
-import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../../../context/file-upload-item-context';
 
 import styles from '../../actions-control.module.css';
 
 export const DeleteButton = () => {
-    const { id = '0', disableButtons, onDelete } = useContext(FileUploadItemContext);
+    const { id = '0', disableButtons, onDelete } = useFileUploadItemContext();
 
     const handleDelete = (e: MouseEvent<HTMLElement>) => {
         if (onDelete) {

@@ -25,6 +25,7 @@ export function getComponentEntryPoints() {
                 'packages/calendar-input/**',
                 'packages/date-input/**',
                 'packages/date-range-input/**',
+                'packages/date-time-input/**',
                 'packages/intl-phone-input/**',
                 'packages/loader/**',
                 'packages/time-input/**',

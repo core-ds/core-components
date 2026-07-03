@@ -163,6 +163,12 @@ export type PopoverProps = {
      * @default 24
      */
     arrowToEdgeMinDistance?: number;
+
+    /**
+     * Свойство по которому устанавливается ширина от родительского элемента
+     * @default width
+     */
+    widthProp?: 'width' | 'minWidth';
 };
 
 const DEFAULT_TRANSITION: PopoverProps['transition'] = {
@@ -232,6 +238,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             availableHeight = false,
             scrollableContentClassName,
             arrowToEdgeMinDistance = 24,
+            widthProp = 'width',
         },
         ref,
     ) => {
@@ -353,7 +360,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 ref={mergeRefs([ref, popperRef, setPopperElement])}
                 style={{
                     zIndex: computedZIndex,
-                    width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
+                    [widthProp]: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
                     ...popperStyles.popper,
                     ...(popperStyles.popper?.transform ? null : { visibility: 'hidden' }),
                 }}

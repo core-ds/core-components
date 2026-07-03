@@ -1,5 +1,27 @@
 # @alfalab/core-components-button
 
+## 13.2.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-spinner@6.0.6
+
+## 13.2.0
+
+### Minor Changes
+
+<sup><time>11.06.2026</time></sup>
+
+#### [#2248](https://github.com/core-ds/core-components/pull/2248)
+
+##### Button
+
+- Добавлены пропсы дополнительных классов для `label` и `hint`
+
 ## 13.1.4
 
 ### Patch Changes

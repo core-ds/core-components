@@ -11,6 +11,25 @@
     margin-bottom: var(--gap-0);
 }
 
+.component {
+    & .list {
+        margin-bottom: var(--gap-12);
+
+        & > li {
+            margin-top: var(--gap-0);
+
+            &:not(:last-child) {
+                margin-bottom: var(--gap-12);
+            }
+
+            & p {
+                margin: var(--gap-0);
+                padding: var(--gap-0) !important;
+            }
+        }
+    }
+}
+
 .h1 {
     margin-bottom: var(--gap-16);
 }
@@ -37,23 +56,6 @@
 .blockquote > p {
     color: inherit;
     font: inherit;
-}
-
-.list {
-    margin-bottom: var(--gap-12);
-}
-
-.list > li {
-    margin-top: var(--gap-0);
-
-    &:not(:last-child) {
-        margin-bottom: var(--gap-12);
-    }
-}
-
-.list > li p {
-    margin: var(--gap-0);
-    padding: var(--gap-0) !important;
 }
 
 .imageContainer {

@@ -12,7 +12,6 @@ import React, {
     useRef,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 import cn from 'classnames';
 import { compute } from 'compute-scroll-into-view';
 import {
@@ -22,12 +21,12 @@ import {
     type UseMultipleSelectionState,
 } from 'downshift';
 
-import { fnUtils, getDataTestId, isClient } from '@alfalab/core-components-shared';
-import { useLayoutEffect_SAFE_FOR_SSR } from '@alfalab/hooks';
+import { getDataTestId, isClient } from '@alfalab/core-components-shared';
 
 import {
     type AnyObject,
     type OptionShape,
+    type OptionsListController,
     type OptionsListProps,
     type SearchProps,
 } from '../../typings';
@@ -125,14 +124,13 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             environment = isClient() ? window : undefined,
         } = props;
         const shouldSearchBlurRef = useRef(true);
-        const rootRef = useRef<HTMLDivElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
         const searchRef = useRef<HTMLInputElement>(null);
         const scrollableContainerRef = useRef<HTMLDivElement>(null);
         const onOpenRef = useRef(onOpen);
-
+        const optionsListCtrlRef = useRef<OptionsListController>(null);
         const [searchState, setSearchState] = React.useState('');
 
         const [search, setSearch] =
@@ -169,20 +167,29 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
 
         const scrollIntoView = (node: HTMLElement) => {
             if (!node || view === 'mobile') return;
+            const optionsListCtrl = optionsListCtrlRef.current;
 
-            requestAnimationFrame(() => {
-                const actions = compute(node, {
-                    boundary: listRef.current,
-                    block: 'nearest',
-                    scrollMode: 'if-needed',
+            if (optionsListCtrl) {
+                const dataIndex = node.getAttribute('data-index');
+
+                if (dataIndex) {
+                    optionsListCtrl.scrollToIndex(Number(dataIndex));
+                }
+            } else {
+                requestAnimationFrame(() => {
+                    const actions = compute(node, {
+                        boundary: listRef.current,
+                        block: 'nearest',
+                        scrollMode: 'if-needed',
+                    });
+
+                    actions.forEach((action) => {
+                        const { el, top } = action;
+
+                        el.scrollTop = top;
+                    });
                 });
-
-                actions.forEach((action) => {
-                    const { el, top } = action;
-
-                    el.scrollTop = top;
-                });
-            });
+            }
         };
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
@@ -459,6 +466,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             ...(optionProps as object),
             mobile: view === 'mobile',
             className: cn(optionClassName, {
+                [styles.option]: view === 'desktop',
                 [mobileStyles.option]: view === 'mobile',
             }),
             innerProps: getItemProps({
@@ -472,6 +480,7 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                     shouldSearchBlurRef.current = true;
                     fieldRef.current?.focus();
                 },
+                'data-index': index,
             }),
             multiple,
             index,
@@ -493,43 +502,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
-
-        const calcOptionsListWidth = useCallback(() => {
-            if (view === 'desktop' && listRef.current) {
-                const widthAttr = optionsListWidth === 'field' ? 'width' : 'minWidth';
-
-                const optionsListMinWidth = rootRef.current
-                    ? rootRef.current.getBoundingClientRect().width
-                    : 0;
-
-                listRef.current.removeAttribute('style');
-                listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
-            }
-        }, [view, optionsListWidth]);
-
-        useEffect(() => {
-            if (view === 'desktop') {
-                const ResizeObserver = window.ResizeObserver || ResizeObserverPolyfill;
-                const observer = new ResizeObserver(calcOptionsListWidth);
-
-                if (rootRef.current) {
-                    observer.observe(rootRef.current);
-                }
-
-                return () => {
-                    observer.disconnect();
-                };
-            }
-
-            return fnUtils.noop;
-        }, [view, calcOptionsListWidth, open, optionsListWidth]);
-
-        useLayoutEffect_SAFE_FOR_SSR(calcOptionsListWidth, [
-            open,
-            optionsListWidth,
-            filteredOptions,
-            selectedItems,
-        ]);
 
         const renderValue = () =>
             selectedItems.map((option) => (
@@ -641,20 +613,33 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         optionsListClassName,
                         view === 'mobile' && mobileStyles.optionsListWrapper,
                         view === 'desktop' && styles.optionsListWrapper,
+                        {
+                            [styles.matchContent]:
+                                view === 'desktop' && optionsListWidth === 'content',
+                        },
                     )}
                 >
                     <OptionsList
                         {...listProps}
+                        ctrlRef={optionsListCtrlRef}
                         ref={view === 'desktop' ? listProps.ref : scrollableContainerRef}
                         setHighlightedIndex={view === 'desktop' ? setHighlightedIndex : undefined}
                         className={cn(
-                            { [mobileStyles.optionsList]: view === 'mobile' },
+                            {
+                                [mobileStyles.optionsList]: view === 'mobile',
+                            },
                             listProps.className,
                         )}
                         scrollbarClassName={cn(
-                            { [mobileStyles.scrollbar]: view === 'mobile' },
+                            {
+                                [styles.scrollbar]: view === 'desktop',
+                                [mobileStyles.scrollbar]: view === 'mobile',
+                            },
                             listProps.scrollbarClassName,
                         )}
+                        scrollableNodeClassName={cn({ [styles.scrollable]: view === 'desktop' })}
+                        contentNodeClassName={cn({ [styles.content]: view === 'desktop' })}
+                        listNodeClassName={cn({ [styles.list]: view === 'desktop' })}
                         optionsListWidth={optionsListWidth}
                         flatOptions={flatOptions}
                         highlightedIndex={highlightedIndex}
@@ -699,6 +684,8 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                         popperClassName={cn(styles.popoverInner, popperClassName)}
                         update={updatePopover}
                         zIndex={zIndexPopover}
+                        useAnchorWidth={true}
+                        widthProp={optionsListWidth === 'field' ? 'width' : 'minWidth'}
                     >
                         {renderOptionsList()}
                     </Popover>
@@ -825,7 +812,6 @@ export const BaseSelect = forwardRef<unknown, ComponentProps>(
                 aria-haspopup='listbox'
                 role={inputProps.role}
                 className={cn(styles.component, { [styles.block]: block }, className)}
-                ref={rootRef}
                 onKeyDown={disabled ? undefined : handleFieldKeyDown}
                 tabIndex={-1}
                 data-test-id={getDataTestId(dataTestId)}
