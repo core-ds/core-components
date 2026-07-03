@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "50.20.0",
+    "version": "50.21.0",
     "homepage": "https://github.com/core-ds/core-components#readme",
     "bugs": {
         "url": "https://github.com/core-ds/core-components/issues"
@@ -36,10 +36,10 @@
         "@alfalab/core-components-checkbox": "^6.2.3",
         "@alfalab/core-components-checkbox-group": "^6.0.7",
         "@alfalab/core-components-circular-progress-bar": "^5.0.9",
-        "@alfalab/core-components-code-input": "^5.0.6",
+        "@alfalab/core-components-code-input": "^5.1.0",
         "@alfalab/core-components-collapse": "^6.0.3",
         "@alfalab/core-components-comment": "^4.0.9",
-        "@alfalab/core-components-confirmation": "^15.0.11",
+        "@alfalab/core-components-confirmation": "^15.1.0",
         "@alfalab/core-components-confirmation-v1": "^3.0.9",
         "@alfalab/core-components-custom-button": "^5.0.9",
         "@alfalab/core-components-custom-picker-button": "^4.1.11",
@@ -87,7 +87,7 @@
         "@alfalab/core-components-password-input": "^7.0.11",
         "@alfalab/core-components-pattern-lock": "^4.0.9",
         "@alfalab/core-components-pattern-lock-v1": "^3.0.9",
-        "@alfalab/core-components-phone-input": "^9.0.11",
+        "@alfalab/core-components-phone-input": "^9.0.12",
         "@alfalab/core-components-picker-button": "^13.0.18",
         "@alfalab/core-components-plate": "^9.0.9",
         "@alfalab/core-components-popover": "^8.1.0",
@@ -132,7 +132,7 @@
         "@alfalab/core-components-typography": "^6.0.9",
         "@alfalab/core-components-underlay": "^3.0.2",
         "@alfalab/core-components-universal-date-input": "^4.0.15",
-        "@alfalab/core-components-universal-modal": "^3.1.8",
+        "@alfalab/core-components-universal-modal": "^3.2.0",
         "@alfalab/core-components-vars": "^11.1.0",
         "@alfalab/core-components-with-suffix": "^6.0.11"
     },

@@ -1,5 +1,17 @@
 # @alfalab/core-components-phone-input
 
+## 9.0.12
+
+### Patch Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#2267](https://github.com/core-ds/core-components/pull/2267)
+
+##### PhoneInput
+
+- Исправлена опечатка в displayName параметре компонента
+
 ## 9.0.11
 
 ### Patch Changes

@@ -1,5 +1,52 @@
 # @alfalab/core-components
 
+## 50.21.0
+
+### Minor Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#1900](https://github.com/core-ds/core-components/pull/1900)
+
+##### CodeInput, Confirmation
+
+- Добавлен проп `strictFocus` для включения последовательного ввода:
+    - при клике на ячейку правее первой пустой — фокус остается на первой
+    - фокус разрешается только на уже заполненные ячейки и первую пустую ячейку
+
+- Добавлено поведение автоматического фокуса на первый инпут при клике на любое пустое поле
+
+- Улучшена доступность компонента, добавлены `aria-label`.
+
+##### Confirmation
+
+- Добавлена поддержка пропа `strictFocus` для использования в `CodeInput`
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#2265](https://github.com/core-ds/core-components/pull/2265)
+
+##### UniversalModal
+
+- Открыта типизация пропа `disableRestoreFocus` для desktop компонента
+
+### Patch Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#2267](https://github.com/core-ds/core-components/pull/2267)
+
+##### PhoneInput
+
+- Исправлена опечатка в displayName параметре компонента
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-phone-input@9.0.12
+- @alfalab/core-components-code-input@5.1.0
+- @alfalab/core-components-confirmation@15.1.0
+- @alfalab/core-components-universal-modal@3.2.0
+
 ## 50.20.0
 
 ### Minor Changes
