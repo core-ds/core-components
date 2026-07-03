@@ -1,0 +1,165 @@
+{
+"packageName": "pass-code",
+"displayName": "PassCode",
+"description": "Компонент для авторизации пользователя с помощью цифрового ключа.",
+"props": {
+"value": {
+"defaultValue": null,
+"description": "Код",
+"name": "value",
+"required": true,
+"type": {
+"name": "string"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик изменения кода",
+"name": "onChange",
+"required": true,
+"type": {
+"name": "(code: string) => void"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки ввода",
+"name": "error",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"success": {
+"defaultValue": null,
+"description": "Отображение успешного ввода",
+"name": "success",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddonsTitle": {
+"defaultValue": null,
+"description": "Заголовок для правого слота",
+"name": "rightAddonsTitle",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля враппера используется модификатор -wrapper, ошибки -error,\nсообщения над клавиатурой -message, блока с кодом -input-progress,\nблока с цифрами -keypad",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Отключает ввод и удаление кода",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"maxCodeLength": {
+"defaultValue": {
+"value": "10"
+},
+"description": "Максимально возможная длина кода",
+"name": "maxCodeLength",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"codeLength": {
+"defaultValue": null,
+"description": "Длина кода",
+"name": "codeLength",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Пример",
+"description": "Компоненту можно передать длину кода, в этом случае он сразу отобразит нужное количество точек над пин-падом.\nЕсли длина неизвестна, после каждого нажатия на пин-пад будет добавляться новая точка.\nКнопка удаления появляется после ввода первого символа.\nПосле валидации компонент может отобразить состоянии ошибки.\nКорректная комбинация для примера `0451`.",
+"desktop": "const VALID_CODE = '0451';\nconst MAX_LENGTH = VALID_CODE.length;\nconst SCREENS = {\nINITIAL: 'initial',\nENTER_CODE: 'ENTER_CODE',\nSUCCESS: 'success',\n};\n\nrender(() => {\nconst [screen, setScreen] = React.useState(SCREENS.INITIAL);\nconst [error, setError] = React.useState(false);\nconst [errorMessage, setErrorMessage] = React.useState(false);\nconst [code, setCode] = React.useState('');\nconst [passCodeParams, setPassCodeParams] = React.useState();\nconst passCodeRef = React.useRef(null);\nconst containerRef = React.useRef(null);\nconst [isSuccess, setSuccess] = React.useState(false);\n\nconst validate = (codeToValidate) => {\nconst isMaxCodeLength = 'maxCodeLength' in passCodeParams;\n\nif (codeToValidate !== VALID_CODE) {\nsetTimeout(() => {\nsetError(true);\nsetErrorMessage(true);\n}, 300);\nsetTimeout(() => {\nif (!isMaxCodeLength) {\nsetError(false);\n}\nsetCode('');\nsetErrorMessage(false);\n}, 1300);\n\nreturn;\n}\nsetTimeout(() => {\nsetSuccess(true);\n}, 700);\n\nif (isMaxCodeLength) {\nsetTimeout(() => {\nsetCode('');\n}, 1300);\n}\n\nsetTimeout(\n() => {\nsetScreen(SCREENS.SUCCESS);\n\nsetTimeout(() => {\nsetSuccess(false);\nsetCode('');\n}, 200);\n},\nisMaxCodeLength ? 2100 : 1500,\n);\n};\n\nconst handleChange = (value) => {\nsetCode(value);\nsetError(false);\nsetSuccess(false);\nsetErrorMessage(false);\n\nif (passCodeParams.codeLength > 0 && value.length === MAX_LENGTH) {\nvalidate(value);\n}\n};\n\nconst renderMessage = () => {\nif ('codeLength' in passCodeParams) {\nreturn (\n<div style={{ textAlign: 'center' }}>\n<Typography.Text view='primary-medium'>\nВведите код из четырёх цифр\n</Typography.Text>\n</div>\n);\n}\n\nreturn null;\n};\n\nif (screen === SCREENS.INITIAL) {\nreturn (\n<div\nstyle={{\nheight: 600,\ndisplay: 'flex',\nflexDirection: 'column',\njustifyContent: isMobile() ? 'start' : 'center',\nalignItems: 'center',\n}}\n>\n<div style={{ width: 320 }}>\n<Button\nblock\nonClick={() => {\nsetPassCodeParams({\ncodeLength: MAX_LENGTH,\nmessage: 'Введите код из четырёх цифр',\n});\nsetScreen(SCREENS.ENTER_CODE);\n}}\n>\nКод из четырех цифр\n</Button>\n<Gap size={16} />\n<Button\nblock\nonClick={() => {\nsetPassCodeParams({ maxCodeLength: 12 });\nsetScreen(SCREENS.ENTER_CODE);\n}}\n>\nДлина кода неизвестна заранее\n</Button>\n</div>\n</div>\n);\n}\n\nif (screen === SCREENS.SUCCESS) {\nreturn (\n<div style={{ display: 'flex', flexFlow: 'column nowrap', height: 600 }}>\n<Gap size={24} />\n<Gap size={128} />\n<div\nstyle={{\ndisplay: 'flex',\nflexFlow: 'column nowrap',\nalignItems: 'center',\njustifyContent: 'space-between',\n...(isMobile() && { flex: 1 }),\n}}\n>\n<div style={{ textAlign: 'center', width: isMobile() ? 315 : 472 }}>\n<SuperEllipse\nsize={80}\nbackgroundColor='var(--color-light-status-positive)'\n>\n<CheckmarkMIcon style={{ fill: '#fff' }} />\n</SuperEllipse>\n\n<Gap size={16} />\n\n<Typography.Title view='small' font='system'>\nВведён корректный пароль\n</Typography.Title>\n\n<Gap size={16} />\n\n<Typography.Text view='primary-medium'>\nЭто пример экрана, на который попадает пользователь после ввода\nкорректного пароля\n</Typography.Text>\n</div>\n\n<Gap size={24} />\n\n<Button\nonClick={() => {\nsetScreen(SCREENS.INITIAL);\nsetError(false);\nsetSuccess(false);\nsetCode('');\n}}\nstyle={{\n...(isMobile() && { width: 320 }),\n}}\n>\nПопробовать ещё раз\n</Button>\n</div>\n</div>\n);\n}\n\nif (isMobile()) {\nreturn (\n<div\nstyle={{\nheight: 600,\nboxSizing: 'border-box',\npaddingTop: passCodeParams.maxCodeLength > 0 ? '60px' : '34px',\n}}\nref={containerRef}\n>\n<div style={{ height: passCodeParams.maxCodeLength > 0 ? 464 : 504 }}>\n<Toast\ntitle={'Error message'}\nopen={Boolean(errorMessage)}\nanchorElement={containerRef.current}\nposition='top'\nbadge='negative-alert'\noffset={[0, -56]}\nstyle={{ width: '320px' }}\nonClose={() => {}}\n/>\n{renderMessage()}\n<PassCode\n{...passCodeParams}\nref={passCodeRef}\nvalue={code}\nonChange={handleChange}\nerror={error}\nsuccess={isSuccess}\nleftAddons={\n<KeyPadButton view='text' key='left-addon'>\nЗабыли код?\n</KeyPadButton>\n}\nrightAddons={\n<KeyPadButton view='text' key='right-addon'>\n<SfFaceIdXxlIcon />\n</KeyPadButton>\n}\nrightAddonsTitle='Вход по лицу'\n/>\n\n{passCodeParams.maxCodeLength > 0 && (\n<React.Fragment>\n<Gap size={20} />\n<Button\nstyle={{ display: 'block', width: '304px', margin: '0 auto' }}\nview='primary'\nonClick={() => validate(code)}\n>\nПродолжить\n</Button>\n</React.Fragment>\n)}\n</div>\n</div>\n);\n}\n\nreturn (\n<div\nstyle={{\nheight: 600,\nboxSizing: 'border-box',\npaddingTop: '107px',\n}}\nref={containerRef}\n>\n<Toast\ntitle={'Error message'}\nopen={Boolean(errorMessage)}\nanchorElement={containerRef.current}\nposition='top'\nbadge='negative-alert'\noffset={[0, -56]}\nstyle={{ width: '304px' }}\nonClose={() => {}}\n/>\n{renderMessage()}\n<PassCode\n{...passCodeParams}\nref={passCodeRef}\nvalue={code}\nonChange={handleChange}\nerror={error}\nsuccess={isSuccess}\nleftAddons={\n<KeyPadButton view='text' key='left-addon'>\nЗабыли код?\n</KeyPadButton>\n}\nrightAddons={\n<KeyPadButton view='text' key='right-addon'>\n<SfFaceIdXxlIcon />\n</KeyPadButton>\n}\nrightAddonsTitle='Вход по лицу'\n/>\n\n{passCodeParams.maxCodeLength > 0 && (\n<Button\nstyle={{ display: 'block', width: '304px', margin: '0 auto' }}\nview='primary'\nonClick={() => validate(code)}\n>\nПродолжить\n</Button>\n)}\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.15.0",
+"description": "#### [#2164](https://github.com/core-ds/core-components/pull/2164)\n\n- Добавлена озвучка прогресса ввода для screen reader после локального ввода и удаления символов через keypad"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Исправлена ошибка `findDOMNode`\n- Исправлена ошибка `React key`"
+}
+]
+}

@@ -1,0 +1,158 @@
+{
+"packageName": "code-input",
+"displayName": "CodeInput",
+"description": "Используется для ввода кода.",
+"props": {
+"fields": {
+"defaultValue": null,
+"description": "Количество полей",
+"name": "fields",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"initialValues": {
+"defaultValue": null,
+"description": "Значение для предзаполнения",
+"name": "initialValues",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Заблокированное состояние",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Состояние с ошибкой",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс (native prop)",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"clearCodeOnError": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Флаг - нужно ли очищать код при возникновении ошибки",
+"name": "clearCodeOnError",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"errorVisibleDuration": {
+"defaultValue": {
+"value": "1300"
+},
+"description": "Продолжительность отображения ошибки",
+"name": "errorVisibleDuration",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"onErrorAnimationEnd": {
+"defaultValue": null,
+"description": "Коллбэк вызываемый после окончания проигрывания анимации при возникновении ошибки.",
+"name": "onErrorAnimationEnd",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Коллбек ввода значения",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((code: string) => void) | undefined"
+}
+},
+"onComplete": {
+"defaultValue": null,
+"description": "Коллбек полного заполнения",
+"name": "onComplete",
+"required": false,
+"type": {
+"name": "((code: string) => void) | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Компонент поддерживает автоподстановку кода из СМС в браузерах с поддержкой WebOTP Api.",
+"desktop": "<Container align = {isMobile() ? 'center' : 'left'}>\n<CodeInput fields={isMobile() ? 4 : 5} breakpoint={BREAKPOINT}/>\n</Container>"
+}
+],
+"changelog": [
+{
+"version": "49.14.0",
+"description": "#### [#1935](https://github.com/core-ds/core-components/pull/1935)\n\n- Изменено скругление компонента"
+},
+{
+"version": "49.10.0",
+"description": "#### [#1939](https://github.com/core-ds/core-components/pull/1939)\n\n- Исправлены расхождения в межбуквенном расстоянии и отступами вокруг текста"
+}
+]
+}

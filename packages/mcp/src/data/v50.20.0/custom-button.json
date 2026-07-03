@@ -1,0 +1,289 @@
+{
+"packageName": "custom-button",
+"displayName": "CustomButton",
+"description": "",
+"props": {
+"href": {
+"defaultValue": null,
+"description": "Выводит ссылку в виде кнопки",
+"name": "href",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"shape": {
+"defaultValue": {
+"value": "rectangular"
+},
+"description": "Форма кнопки",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"textResizing": {
+"defaultValue": {
+"value": "hug"
+},
+"description": "Ширина текстового контента",
+"name": "textResizing",
+"required": false,
+"type": {
+"name": "\"fill\" | \"hug\" | undefined"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Подпись под лейблом (видна только в размерах >= m)",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"size": {
+"defaultValue": {
+"value": "56"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "32 | 40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"block": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"spinnerClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для спиннера",
+"name": "spinnerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"Component": {
+"defaultValue": null,
+"description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
+"name": "Component",
+"required": false,
+"type": {
+"name": "ElementType | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля спиннера используется модификатор -loader",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"loading": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Показать лоадер",
+"name": "loading",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"nowrap": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Не переносить текст кнопки на новую строку",
+"name": "nowrap",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"allowBackdropBlur": {
+"defaultValue": null,
+"description": "Включает размытие фона для некоторых вариантов кнопки\n@description Может привести к просадке fps и другим багам. Старайтесь не размещать слишком много заблюреных элементов на одной странице.",
+"name": "allowBackdropBlur",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для label",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hintClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для hint",
+"name": "hintClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": null,
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"backgroundColor": {
+"defaultValue": null,
+"description": "Цвет кнопки",
+"name": "backgroundColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentColor": {
+"defaultValue": null,
+"description": "Цвет контента",
+"name": "contentColor",
+"required": false,
+"type": {
+"name": "\"black\" | \"white\" | \"static-black\" | \"static-white\" | undefined"
+}
+},
+"stateType": {
+"defaultValue": null,
+"description": "Затемнение или осветление кнопки при hover и active",
+"name": "stateType",
+"required": false,
+"type": {
+"name": "\"darkening\" | \"lightening\" | \"static-darkening\" | \"static-lightening\" | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Блокировка кнопки",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableType": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Тип цвета для заблокированного состояния",
+"name": "disableType",
+"required": false,
+"type": {
+"name": "\"default\" | \"static\" | \"inverted\" | \"static-inverted\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Состояния и цвет контента",
+"description": "Кнопка поддерживает четыре вида генерации состояний `stateType`, четыре цвета контента `contentColor` и четыре стиля для заблокированного состояния `disableType`. Для корректного поведения рекомендуется сочетать эти параметры только следующим образом.",
+"desktop": "const VARIANTS = {\nStaticWhite: {\nstateType: 'static-lightening',\ncontentColor: 'static-white',\nbackgroundColor: '#EB58BF',\nhint: 'StaticLightening',\n},\nWhite: {\nstateType: 'lightening',\ncontentColor: 'white',\nbackgroundColor: '#EB58BF',\nhint: 'Lightening',\n},\nStaticBlack: {\nstateType: 'static-darkening',\ncontentColor: 'static-black',\nbackgroundColor: '#7FEFFA',\nhint: 'StaticDarkening',\n},\nBlack: {\nstateType: 'darkening',\ncontentColor: 'black',\nbackgroundColor: '#7FEFFA',\nhint: 'Darkening',\n},\n};\nrender(() => {\nconst [disabled, setDisabled] = React.useState(false);\nconst isMobile = document.body.clientWidth < 450;\nreturn (\n<React.Fragment>\n<div>\n<div\nstyle={{\nborderRadius: '20px',\nbackgroundColor: 'var(--color-light-neutral-100)',\npadding: '20px',\nwidth: 670,\nboxSizing: 'border-box',\ncolor: 'var(--color-light-text-primary)',\n}}\n>\nНа светлом фоне\n<Gap size={12} />\n<div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>\n{Object.keys(VARIANTS).map((title) => (\n<CustomButton\n{...VARIANTS[title]}\ndisabled={disabled}\nblock={isMobile}\nkey={title}\nhint={VARIANTS[title].hint}\ndisableType='default'\n>\n{title}\n</CustomButton>\n))}\n</div>\n</div>\n</div>\n<Gap size={20} />\n<div>\n<div\nstyle={{\nborderRadius: '20px',\nbackgroundColor: 'var(--color-static-neutral-100)',\npadding: '20px',\nwidth: 670,\nboxSizing: 'border-box',\ncolor: 'var(--color-static-text-primary)',\n}}\n>\nНа светлом статичном фоне\n<Gap size={12} />\n<div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>\n{Object.keys(VARIANTS).map((title) => (\n<CustomButton\n{...VARIANTS[title]}\ndisabled={disabled}\nblock={isMobile}\nkey={title}\nhint={VARIANTS[title].hint}\ndisableType='static'\n>\n{title}\n</CustomButton>\n))}\n</div>\n</div>\n</div>\n<Gap size={20} />\n<div>\n<div\nstyle={{\nborderRadius: '20px',\nbackgroundColor: 'var(--color-light-neutral-100-inverted)',\npadding: '20px',\nwidth: 670,\nboxSizing: 'border-box',\ncolor: 'var(--color-light-text-primary-inverted)',\n}}\n>\nНа тёмном фоне\n<Gap size={12} />\n<div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>\n{Object.keys(VARIANTS).map((title) => (\n<CustomButton\n{...VARIANTS[title]}\ndisabled={disabled}\nblock={isMobile}\nkey={title}\nhint={VARIANTS[title].hint}\ndisableType='inverted'\n>\n{title}\n</CustomButton>\n))}\n</div>\n</div>\n</div>\n<Gap size={20} />\n<div>\n<div\nstyle={{\nborderRadius: '20px',\nbackgroundColor: 'var(--color-static-neutral-100-inverted)',\npadding: '20px',\nwidth: 670,\nboxSizing: 'border-box',\ncolor: 'var(--color-static-text-primary-inverted)',\n}}\n>\nНа тёмном статичном фоне\n<Gap size={12} />\n<div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>\n{Object.keys(VARIANTS).map((title) => (\n<CustomButton\n{...VARIANTS[title]}\ndisabled={disabled}\nblock={isMobile}\nkey={title}\nhint={VARIANTS[title].hint}\ndisableType='static-inverted'\n>\n{title}\n</CustomButton>\n))}\n</div>\n</div>\n</div>\n<Gap size={24} />\n<Switch\nchecked={disabled}\nonChange={() => setDisabled((prevState) => !prevState)}\nlabel='Недоступна'\n/>\n</React.Fragment>\n);\n});"
+},
+{
+"title": "Цвет фона",
+"description": "Кнопка может принимать в качестве цвета фона как токены, так и кастомные значения.\nПри использовании токенов, необходимо учитывать их поведение в dark mode.",
+"desktop": "const VARIANTS = {\nToken: {\nstateType: 'lightening',\ncontentColor: 'white',\nbackgroundColor: 'var(--color-light-base-bg-secondary-inverted)',\n},\nColor: {\nstateType: 'lightening',\ncontentColor: 'white',\nbackgroundColor: '#EB58BF',\n},\nGradient: {\nstateType: 'lightening',\ncontentColor: 'white',\nbackgroundColor: 'linear-gradient(264deg, #FF42CA 0%, #FF8A00 100%)',\n},\n};\nrender(() => {\nconst isMobile = document.body.clientWidth < 450;\nreturn (\n<div style={{ display: 'flex', flexFlow: 'row wrap', gap: '16px' }}>\n{Object.keys(VARIANTS).map((title) => (\n<CustomButton {...VARIANTS[title]} block={isMobile} key={title}>\n{title}\n</CustomButton>\n))}\n</div>\n);\n});"
+},
+{
+"title": "Анатомия",
+"description": "С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку. Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка. В 56, 64 и 72 размерах доступна подпись под лейблом.",
+"desktop": "render(() => {\nconst [label, setLabel] = React.useState(true);\nconst [hint, setHint] = React.useState();\nconst [leftAddons, setLeftAddons] = React.useState(false);\nconst [rightAddons, setRightAddons] = React.useState(false);\n\nconst handleLabelChange = () => setLabel(!label);\nconst handleHintChange = () => setHint((p) => (p ? undefined : 'Hint'));\nconst handleLeftAddonsChange = () => setLeftAddons(!leftAddons);\nconst handleRightAddonsChange = () => setRightAddons(!rightAddons);\n\nreturn (\n<div>\n<CustomButton\nleftAddons={leftAddons && <StarMIcon />}\nrightAddons={rightAddons && <StarMIcon />}\nhint={hint}\nblock={isMobile()}\nbackgroundColor={'var(--color-light-base-bg-secondary-inverted)'}\n>\n{label && 'Label'}\n</CustomButton>\n\n<Gap size={24} />\n\n<Switch label='Label' checked={label} onChange={handleLabelChange} />\n<Gap size={16} />\n<Switch label='Hint' checked={hint} onChange={handleHintChange} />\n<Gap size={16} />\n<Switch label='LeftAddons' checked={leftAddons} onChange={handleLeftAddonsChange} />\n<Gap size={16} />\n<Switch label='RightAddons' checked={rightAddons} onChange={handleRightAddonsChange} />\n</div>\n);\n});"
+},
+{
+"title": "Кастомный цвет контента",
+"description": "Для установки цвета контента можно использовать пропс `contentColor` который принимает четыре значения. Но также цвет можно переопределить через класс с помощью пропса `className`",
+"desktop": "render(() => {\nreturn (\n<React.Fragment>\n<style>{'.customClass[type=button] * { color: #EB58BF }'}</style>\n\n<Space size={16} direction='horizontal'>\n<CustomButton\nhint='Hint'\nblock={isMobile()}\nbackgroundColor={'var(--color-light-base-bg-secondary-inverted)'}\n>\nLabel\n</CustomButton>\n<CustomButton\nhint='Hint'\nblock={isMobile()}\nbackgroundColor={'var(--color-light-base-bg-secondary-inverted)'}\nclassName={'customClass'}\n>\nLabel\n</CustomButton>\n</Space>\n</React.Fragment>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "49.14.0",
+"description": "#### [#1946](https://github.com/core-ds/core-components/pull/1946)\n\n- Изменены border-radius во всех темах в desktop версии"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1801](https://github.com/core-ds/core-components/pull/1801)\n\n- Исправлены `hover` стили на мобильных устройствах. Добавлен медиа-запрос `@media (hover: hover)` для ограничения hover эффектов только устройствами с поддержкой hover."
+}
+]
+}

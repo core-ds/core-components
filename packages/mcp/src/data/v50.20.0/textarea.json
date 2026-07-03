@@ -1,0 +1,311 @@
+{
+"packageName": "textarea",
+"displayName": "Textarea",
+"description": "",
+"props": {
+"value": {
+"defaultValue": null,
+"description": "Значение поля ввода",
+"name": "value",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultValue": {
+"defaultValue": null,
+"description": "Начальное значение поля",
+"name": "defaultValue",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"block": {
+"defaultValue": {
+"value": false
+},
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": 48
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл компонента",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": {
+"value": "inner"
+},
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"bottomAddons": {
+"defaultValue": null,
+"description": "Слот под компонентом",
+"name": "bottomAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"textareaClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс textarea",
+"name": "textareaClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"autosize": {
+"defaultValue": {
+"value": true
+},
+"description": "Управление возможностью подстраивать высоту компонента под высоту текста",
+"name": "autosize",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"maxRows": {
+"defaultValue": null,
+"description": "Максимальное количество отображаемых строк (работает только вместе с autosize)",
+"name": "maxRows",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"minRows": {
+"defaultValue": null,
+"description": "Минимальное количество отображаемых строк (работает только вместе c autosize)",
+"name": "minRows",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"maxHeight": {
+"defaultValue": null,
+"description": "Максимальная высота элемента",
+"name": "maxHeight",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"resize": {
+"defaultValue": {
+"value": "none"
+},
+"description": "Управление возможностью изменения размеров компонента (не работает вместе c autosize)",
+"name": "resize",
+"required": false,
+"type": {
+"name": "\"vertical\" | \"none\" | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик ввода",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLTextAreaElement>, payload: { value: string; }) => void) | undefined"
+}
+},
+"onHeightChange": {
+"defaultValue": null,
+"description": "Обработчик события изменения высоты компонента (работает только вместе c autosize)",
+"name": "onHeightChange",
+"required": false,
+"type": {
+"name": "((height?: number | undefined) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля FormControl используется модификатор -form-control",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"showCounter": {
+"defaultValue": {
+"value": false
+},
+"description": "Показывать счетчик введенных символов",
+"name": "showCounter",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"getCounterText": {
+"defaultValue": {
+"value": "(textLength: number, maxLength = 0): string =>\n    `${textLength}/${maxLength} символов`"
+},
+"description": "Функция, возвращающая текст для счетчика",
+"name": "getCounterText",
+"required": false,
+"type": {
+"name": "((textLength: number, maxLength?: number | undefined) => string) | undefined"
+}
+},
+"nativeScrollbar": {
+"defaultValue": null,
+"description": "Нужно ли использовать нативный скроллбар.",
+"name": "nativeScrollbar",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"allowOverflow": {
+"defaultValue": {
+"value": true
+},
+"description": "Разрешить переполнение, если количество символов превышает maxLength",
+"name": "allowOverflow",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"wrapperRef": {
+"defaultValue": null,
+"description": "Ref для обертки textarea",
+"name": "wrapperRef",
+"required": false,
+"type": {
+"name": "Ref<HTMLDivElement> | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Высота",
+"description": "Для компонента можно задать одну из механик изменения высоты:\n\n1. Зафиксировать минимальное и максимальное количество строк.\n2. Задать максимальную высоту.\n3. Сделать изменение высоты автоматическим.\n4. Предоставить пользователю возможность управлять высотой самостоятельно.",
+"desktop": "const OPTIONS = [\n{ key: '1', content: 'Нет' },\n{ key: '2', content: 'Внутри' },\n{ key: '3', content: 'Снаружи' },\n];\nrender(() => {\nconst [selected, setSelected] = React.useState(OPTIONS[1]);\nconst handleChange = ({ selected }) => {\nif (selected) {\nsetSelected(selected);\n}\n};\nconst visibleLabel = selected.key !== '1';\nconst positionLabel = visibleLabel && selected.key !== '2' ? 'outer' : 'inner';\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<Select\nlabel='Лейбл'\nallowUnselect={true}\nblock={true}\nsize={56}\noptions={OPTIONS}\nOption={BaseOption}\nonChange={handleChange}\nselected={selected}\n/>\n<Gap size={24} />\n<Textarea\nlabel={visibleLabel && 'Автоматическое изменение высоты'}\nblock={true}\nlabelView={positionLabel}\n/>\n<Gap size={16} />\n<Textarea\nlabel={visibleLabel && 'Высота в три строки'}\nminRows={3}\nautosize={false}\nblock={true}\nlabelView={positionLabel}\n/>\n<Gap size={16} />\n<Textarea\nlabel={visibleLabel && 'Ручное управление высотой'}\nlabelView={positionLabel}\nautosize={false}\nresize='vertical'\nminRows={3}\nblock={true}\n/>\n</div>\n);\n});",
+"mobile": "const OPTIONS = [\n{ key: '1', content: 'Нет' },\n{ key: '2', content: 'Внутри' },\n{ key: '3', content: 'Снаружи' },\n];\nrender(() => {\nconst [selected, setSelected] = React.useState(OPTIONS[1]);\nconst handleChange = ({ selected }) => {\nif (selected) {\nsetSelected(selected);\n}\n};\nconst visibleLabel = selected.key !== '1';\nconst positionLabel = visibleLabel && selected.key !== '2' ? 'outer' : 'inner';\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<SelectMobile\nlabel='Лейбл'\nallowUnselect={true}\nblock={true}\nsize={56}\noptions={OPTIONS}\nonChange={handleChange}\nselected={selected}\n/>\n<Gap size={24} />\n<Textarea\nlabel={visibleLabel && 'Автоматическое изменение высоты'}\nblock={true}\nlabelView={positionLabel}\n/>\n<Gap size={16} />\n<Textarea\nlabel={visibleLabel && 'Высота в три строки'}\nminRows={3}\nautosize={false}\nblock={true}\nlabelView={positionLabel}\n/>\n<Gap size={16} />\n<Textarea\nlabel={visibleLabel && 'Ручное управление высотой'}\nlabelView={positionLabel}\nautosize={false}\nresize='vertical'\nminRows={3}\nblock={true}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Максимальное количество символов",
+"description": "Можно ограничить количество вводимых символов.",
+"desktop": "<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<Textarea label='Label' block={true} minRows={3} maxLength={96} showCounter={true} />\n</div>"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "49.11.1",
+"description": "#### [#1980](https://github.com/core-ds/core-components/pull/1980)\n\n- Исправлено позиционирование контейнера для элементов передаваемых в `rightAddons`"
+}
+]
+}

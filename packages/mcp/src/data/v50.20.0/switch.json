@@ -1,0 +1,149 @@
+{
+"packageName": "switch",
+"displayName": "Switch",
+"description": "",
+"props": {
+"label": {
+"defaultValue": null,
+"description": "Текст подписи к переключателю",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки снизу",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"reversed": {
+"defaultValue": {
+"value": false
+},
+"description": "Переключатель будет отрисован справа от контента",
+"name": "reversed",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"align": {
+"defaultValue": {
+"value": "start"
+},
+"description": "Выравнивание",
+"name": "align",
+"required": false,
+"type": {
+"name": "Align | undefined"
+}
+},
+"addons": {
+"defaultValue": null,
+"description": "Дополнительный слот",
+"name": "addons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивать ли компонент на всю ширину",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление состоянием включен / выключен",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик переключения компонента",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((event: ChangeEvent<HTMLInputElement>, payload: { checked: boolean; name: string | undefined; }) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colors": {
+"defaultValue": {
+"value": "default"
+},
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "Colors | undefined"
+}
+},
+"showSkeleton": {
+"defaultValue": {
+"value": false
+},
+"description": "Показать скелетон",
+"name": "showSkeleton",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Как использовать",
+"description": "Свитч это аналог [Checkbox](?path=/docs/checkbox--docs). Для применения выбранного состояния не нужно совершать дополнительных действий,\nтаких как отправка формы или нажатие кнопки «применить». Свитч может располагаться слева или справа от контента.\n\nЕсли свитч нельзя использовать, его следует заблокировать. Валидация для свитчей не требуется.",
+"desktop": "render(() => {\nconst [checked1, setChecked1] = React.useState(false);\nconst [checked2, setChecked2] = React.useState(false);\n\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<Switch\nblock={true}\nchecked={checked1}\nlabel='Сделать всё хорошо'\nhint='Бесплатно без СМС'\nonChange={() => setChecked1((prevState) => !prevState)}\n/>\n<Gap size={24} />\n<Switch\nblock={true}\nreversed={true}\nchecked={checked2}\nlabel='Сделать всё хорошо'\nhint='Бесплатно без СМС'\nonChange={() => setChecked2((prevState) => !prevState)}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Состояния",
+"description": "Свитч может находиться в выбранном и невыбранном состоянии. В редких кейсах его значение может быть недоступным для редактирования.",
+"desktop": "render(() => {\nreturn (\n<>\n<Switch checked={true} label='Выбран' />\n<Gap size={16} />\n<Switch checked={true} label='Выбран и недоступен' disabled={true} />\n<Gap size={24} />\n<Switch checked={false} label='По умолчанию' />\n<Gap size={16} />\n<Switch checked={false} label='По умолчанию и недоступен' disabled={true} />\n</>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.9.0",
+"description": "#### [#2154](https://github.com/core-ds/core-components/pull/2154)\n\n- Добавлен пропс `showSkeleton` с помощью которого можно отобразить скелетон компонента"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1695](https://github.com/core-ds/core-components/pull/1695)\n\n- Удалён пропс `inactive`, который был отмечен как `deprecated` в `core-components@43.x.x`. Вместо него используйте пропс `disabled`"
+}
+]
+}

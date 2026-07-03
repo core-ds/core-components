@@ -1,0 +1,29 @@
+{
+"packageName": "keyboard-focusable",
+"displayName": "KeyboardFocusable",
+"description": "Используется для подсветки элемента при фокусе.",
+"props": {
+"children": {
+"defaultValue": null,
+"description": "Рендер-проп, в который передается состояние фокуса и реф.\n\nРеф нужно установить на интерактивный элемент или на одного из его родителей.",
+"name": "children",
+"required": true,
+"type": {
+"name": "(ref: RefObject<any>, focused: boolean) => Element"
+}
+}
+},
+"demos": [
+{
+"title": "Пример",
+"description": "Все интерактивные элементы должны иметь определенную обводку при фокусе, полученном при переходе к элементу при помощи клавиатуры.\nПри клике мышкой или тапе обводки быть не должно.\nВ примере ниже кликните на первую кнопку мышкой, а затем нажмите tab, чтобы выбрать правую кнопку.",
+"desktop": "<KeyboardFocusable>\n{(ref, focused) => {\nconst focusOutlineStyles = {\noutline: '2px solid var(--focus-color)',\noutlineOffset: '2px',\n};\n\nreturn (\n<Space size={16} direction='horizontal'>\n<Button size={56}>\nКликни мышкой\n</Button>\n<Button size={56} ref={ref} style={focused ? focusOutlineStyles : {}}>\nВыбери табом\n</Button>\n</Space>\n\n);\n}}\n</KeyboardFocusable>"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+}
+]
+}

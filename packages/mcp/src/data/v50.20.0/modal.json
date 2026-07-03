@@ -1,0 +1,413 @@
+{
+"packageName": "modal",
+"displayName": "Modal",
+"description": "",
+"props": {
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"Backdrop": {
+"defaultValue": null,
+"description": "Компонент бэкдропа",
+"name": "Backdrop",
+"required": false,
+"type": {
+"name": "ComponentType<BackdropProps> | undefined"
+}
+},
+"backdropProps": {
+"defaultValue": null,
+"description": "Свойства для Бэкдропа",
+"name": "backdropProps",
+"required": false,
+"type": {
+"name": "(Partial<BackdropProps> & Record<string, unknown>) | undefined"
+}
+},
+"container": {
+"defaultValue": null,
+"description": "Нода, компонент или функция возвращающая их\n\nКонтейнер к которому будут добавляться порталы",
+"name": "container",
+"required": false,
+"type": {
+"name": "(() => Element | null | undefined) | undefined"
+}
+},
+"disableAutoFocus": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает автоматический перевод фокуса на модалку при открытии",
+"name": "disableAutoFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableFocusLock": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает ловушку фокуса",
+"name": "disableFocusLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableRestoreFocus": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает восстановление фокуса на предыдущем элементе после закрытия модалки",
+"name": "disableRestoreFocus",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableEscapeKeyDown": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает вызов `callback` при нажатии Escape",
+"name": "disableEscapeKeyDown",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBackdropClick": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает вызов `callback` при клике на бэкдроп",
+"name": "disableBackdropClick",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"disableBlockingScroll": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает блокировку скролла при открытии модального окна\n@deprecated Используйте `scrollLock={true}`.",
+"name": "disableBlockingScroll",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"scrollLock": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Управляет блокировкой скролла/overscroll фона при открытой модалке.",
+"name": "scrollLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"keepMounted": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Содержимое модалки всегда в DOM",
+"name": "keepMounted",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью модалки",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"wrapperProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на dialog wrapper",
+"name": "wrapperProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"contentProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на обертку контента",
+"name": "contentProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"componentDivProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы на компонентную обертку контента",
+"name": "componentDivProps",
+"required": false,
+"type": {
+"name": "DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> | undefined"
+}
+},
+"wrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки (Modal)",
+"name": "wrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"scrollHandler": {
+"defaultValue": null,
+"description": "Обработчик скролла контента",
+"name": "scrollHandler",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | \"wrapper\" | \"content\" | undefined"
+}
+},
+"transitionProps": {
+"defaultValue": null,
+"description": "Пропсы для анимации (CSSTransition)",
+"name": "transitionProps",
+"required": false,
+"type": {
+"name": "Partial<CSSTransitionProps> | undefined"
+}
+},
+"usePortal": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Рендерить ли в контейнер через портал.",
+"name": "usePortal",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onBackdropClick": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на бэкдроп",
+"name": "onBackdropClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<Element, MouseEvent>) => void) | undefined"
+}
+},
+"onEscapeKeyDown": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на Escape\n\nЕсли `disableEscapeKeyDown` - false и модальное окно в фокусе",
+"name": "onEscapeKeyDown",
+"required": false,
+"type": {
+"name": "((event: KeyboardEvent<Element>) => void) | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLElement, MouseEvent> | KeyboardEvent<HTMLElement>, reason?: \"backdropClick\" | \"escapeKeyDown\" | \"closerClick\" | undefined) => void) | undefined"
+}
+},
+"onMount": {
+"defaultValue": null,
+"description": "Обработчик события onEntered компонента Transition",
+"name": "onMount",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onUnmount": {
+"defaultValue": null,
+"description": "Обработчик события onExited компонента Transition",
+"name": "onUnmount",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"zIndex": {
+"defaultValue": null,
+"description": "z-index компонента",
+"name": "zIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"componentRef": {
+"defaultValue": null,
+"description": "Реф, который должен быть установлен компонентной области",
+"name": "componentRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"contentElementRef": {
+"defaultValue": null,
+"description": "Реф контентной области",
+"name": "contentElementRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLDivElement | null> | undefined"
+}
+},
+"iOSLock": {
+"defaultValue": null,
+"description": "Блокирует скролл когда модальное окно открыто. Работает только на iOS.\n@deprecated Используйте `scrollLock={true}`.",
+"name": "iOSLock",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onWheel": {
+"defaultValue": null,
+"description": "Хэндлер события прокрутки колесиком",
+"name": "onWheel",
+"required": false,
+"type": {
+"name": "((e: WheelEvent<HTMLElement>) => void) | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": "600"
+},
+"description": "Ширина модального окна",
+"name": "size",
+"required": false,
+"type": {
+"name": "\"fullscreen\" | 500 | 600 | 800 | 1140 | undefined"
+}
+},
+"fixedPosition": {
+"defaultValue": null,
+"description": "Фиксирует позицию модального окна после открытия,\nпредотвращая скачки, если контент внутри будет меняться",
+"name": "fixedPosition",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"hasCloser": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Управление наличием закрывающего крестика",
+"name": "hasCloser",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Анатомия",
+"description": "Modal построен как Compound Components. Состоит из Header, Content, Footer, содержащих в себе кастомизируемые слоты.\nЧтобы во время скролла заголовок и кнопки оставались неподвижны, их нужно расположить в `header` и `footer`.\nТекст и изображения всегда располагаются в `content` части.\n\nТакже есть атомарные импорты.",
+"desktop": "const Header = () => {\nconst { setHasHeader } = React.useContext(ModalContext);\n\nReact.useEffect(() => setHasHeader(true), [setHasHeader]);\n\nconst commonStyles = {\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\nborderRadius: '8px',\nheight: '48px',\n};\n\nconst addonsStyles = {\n...commonStyles,\nwidth: '48px',\n};\n\nconst innerAddonsStyles = {\n...addonsStyles,\nbackgroundColor: 'rgba(207, 112, 255, 0.1)',\n};\n\nconst bottomAddonsStyles = {\n...commonStyles,\nwidth: '100%',\n};\n\nconst wrapperStyles = {\ndisplay: 'flex',\njustifyContent: 'center',\n};\n\nconst titleStyles = {\n...commonStyles,\nflexGrow: 1,\n};\n\nreturn (\n<div style={{ margin: 'var(--modal-s-header-paddings)' }}>\n<div style={wrapperStyles}>\n<div style={innerAddonsStyles} />\n<div style={addonsStyles} />\n<div style={titleStyles} />\n<div style={addonsStyles} />\n<div style={innerAddonsStyles} />\n</div>\n<div style={bottomAddonsStyles} />\n</div>\n);\n};\n\nrender(() => {\nconst [modalAnatomy, setModalAnatomy] = React.useState(false);\nconst handleModalAnatomy = () => setModalAnatomy(!modalAnatomy);\n\nconst styleContent = {\nwidth: '100%',\nheight: '600px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nconst styleFooter = {\nwidth: '100%',\nheight: '48px',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nreturn (\n<Container>\n<Button type='button' size={48} onClick={handleModalAnatomy}>\nПоказать анатомию\n</Button>\n<ModalDesktop open={modalAnatomy} onClose={handleModalAnatomy} size={600}>\n<Header />\n<ModalDesktop.Content>\n<div style={styleContent}></div>\n</ModalDesktop.Content>\n<ModalDesktop.Footer>\n<div style={styleFooter}></div>\n</ModalDesktop.Footer>\n</ModalDesktop>\n</Container>\n);\n});",
+"mobile": "const Header = () => {\nconst { setHasHeader, onClose } = React.useContext(ModalContext);\n\nReact.useEffect(() => setHasHeader(true), [setHasHeader]);\n\nconst commonStyles = {\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\nborderRadius: '8px',\nheight: '48px',\n};\n\nconst addonsStyles = {\n...commonStyles,\nwidth: '48px',\n};\n\nconst innerAddonsStyles = {\n...addonsStyles,\nbackgroundColor: 'rgba(207, 112, 255, 0.1)',\n};\n\nconst bottomAddonsStyles = {\n...commonStyles,\nwidth: '100%',\n};\n\nconst wrapperStyles = {\ndisplay: 'flex',\njustifyContent: 'center',\n};\n\nconst titleStyles = {\n...commonStyles,\nflexGrow: 1,\n};\n\nreturn (\n<div style={{ margin: 'var(--modal-header-mobile-paddings)' }}>\n<div style={wrapperStyles}>\n<div style={innerAddonsStyles} />\n<div style={addonsStyles} />\n<div style={titleStyles} />\n<div style={addonsStyles} />\n<div style={innerAddonsStyles} onClick={onClose} />\n</div>\n<div style={bottomAddonsStyles} />\n</div>\n);\n};\n\nrender(() => {\nconst [open, setOpen] = React.useState(false);\nconst handleOpen = () => setOpen(true);\nconst handleClose = () => setOpen(false);\n\nconst commonStyle = {\nwidth: '100%',\nborderRadius: '8px',\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed rgb(55, 120, 251)',\nboxSizing: 'border-box',\n};\n\nconst contentStyle = {\n...commonStyle,\nheight: '100%',\n};\n\nconst footerStyle = {\n...commonStyle,\nheight: '48px',\n};\n\nreturn (\n<Container>\n<Button type='button' size={40} onClick={handleOpen}>\nПоказать анатомию\n</Button>\n<ModalMobile open={open} onClose={handleClose} size={600}>\n<Header />\n<ModalMobile.Content flex={true}>\n<div style={contentStyle}></div>\n</ModalMobile.Content>\n<ModalMobile.Footer>\n<div style={footerStyle}></div>\n</ModalMobile.Footer>\n</ModalMobile>\n</Container>\n);\n});"
+},
+{
+"title": "Пресеты",
+"description": "Ниже представлены самые популярные кейсы настройки модальных окон.",
+"desktop": "const Text = () => (\n<>\n<Typography.Text tag='p'>\nВ 2001 году в России начал действовать Федеральный закон №115 «О противодействии\nлегализации доходов, полученных преступным путём, и финансированию терроризма». В рамках\nзакона банки могут блокировать карты, отказывать в проведении сомнительных операций,\nограничить доступ в интернет-банк или запрашивать документы, если по операции клиента\nвозникли подозрения.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nТребования 115-ФЗ и связанных с ним документов Банка России часто меняются,\nпредприниматели не всегда успевают за ними следить. Последствия нарушений\n«антиотмывочного» законодательства всегда неприятны: приходится остановить\nбизнес-процессы и доказать банку законность операций. Специалисты «Альфа-банка» собрали\nпонятные рекомендации, как сэкономить время на объяснения и предотвратить блокировки\n</Typography.Text>\n<Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>\n<Typography.Text tag='p'>\n115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто пользуется\nбанковским счётом для бизнеса, крупных денежных переводов или личных расчётов.\nОграничения интернет-банка, блокировка карт добросовестных компаний могут произойти\nиз-за неправильно оформленных документов, ошибок в платёжке или попыток снизить\nналоги.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nКлиенты воспринимают ограничения как атаку со стороны банка, но чаще всего сами\nдопускают ошибки или нарушения, которых можно избежать. Банки не преследуют цели\nдоставить неудобства клиентам — они обязаны соблюдать законодательство и следовать\nинструкциям и рекомендациям ЦБ, а в противном случае рискуют лишиться лицензии.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nОбналичивание — сомнительные операции, когда юрлицо или предприниматель снимает со\nсчёта более 80% от оборота или переводит деньги на счета физлиц, которые затем\nснимают в наличной форме.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nВывод капитала за границу — это переводы нерезидентам по договорам об импорте\nработ/услуг и результатов интеллектуальной деятельности, по которым проведение\nрасчётов осуществляется без одновременной уплаты НДС; по сделкам купли-продажи\nценных бумаг, а также товаров, которые не пересекают границу России.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nТранзитные операции — операции, в процессе которых деньги поступают на счёт компании\nот других резидентов и списываются в короткие сроки. При этом, как правило, в этих\nслучаях по счёту нет начислений зарплат, уплаты налогов, и они не соответствуют\nзаявленному компанией виду деятельности.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nЗапрашивать могут любые документы и устанавливать разные сроки их предоставления —\nэто зависит от службы контроля конкретного банка. Обычно банки запрашивают чеки,\nсчета или договора с контрагентами. В некоторых случаях бывает достаточно устных\nобъяснений. Для проверки информации и пересмотра уровня риска банк может пригласить\nклиента в банк для устного разъяснения или выехать по месту ведения бизнеса клиента.\n</Typography.Text>\n</Collapse>\n</>\n);\n\nconst SIZES = [\n{ value: '500', label: 'Small (500рх)' },\n{ value: '600', label: 'Medium (600рх)' },\n{ value: '800', label: 'Large (800рх)' },\n{ value: '1140', label: 'xLarge (1140рх)' },\n{ value: 'fullscreen', label: 'FullScreen' },\n];\n\nconst HEADER_SETTINGS = [\n{ label: 'Заголовок', name: 'hasTitle' },\n{ label: 'Крестик', name: 'hasCloser' },\n{ label: 'Стрелка назад', name: 'hasBackButton' },\n{ label: 'Фиксация шапки при скролле', name: 'sticky' },\n];\n\nconst FOOTER_SETTINGS = [\n{ label: 'Primary Button', name: 'hasPrimaryButton' },\n{ label: 'Secondary Button', name: 'hasSecondaryButton' },\n{ label: 'Фиксация футера при скролле', name: 'sticky' },\n];\n\nrender(() => {\nconst [open, setOpen] = React.useState(false);\nconst [size, setSize] = React.useState('500');\nconst [headerSettings, setHeaderSettings] = React.useState(() => ({\n...HEADER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),\ntitleInContent: false,\n}));\nconst [footerSettings, setFooterSettings] = React.useState(() =>\nFOOTER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),\n);\n\nconst showHeader =\nheaderSettings.hasTitle || headerSettings.hasCloser || headerSettings.hasBackButton;\n\nconst showFooter = footerSettings.hasPrimaryButton || footerSettings.hasSecondaryButton;\n\nconst getKey = () => JSON.stringify(headerSettings);\n\nconst handleOpen = () => setOpen(true);\n\nconst handleClose = () => setOpen(false);\n\nconst handleSizeChange = (_, { value }) => {\nsetSize(value);\n};\n\nconst handleHeaderSettingsChange = (_, { name, checked }) => {\nsetHeaderSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nconst handleFooterSettingsChange = (_, { name, checked }) => {\nsetFooterSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nreturn (\n<Container>\n<Button size={48} onClick={handleOpen}>\nПоказать модалку\n</Button>\n\n<Gap size={32} />\n\n<RadioGroup onChange={handleSizeChange} value={size} label='Размер модалки'>\n{SIZES.map((item) => (\n<Radio size={24} value={item.value} label={item.label} key={item.value} />\n))}\n</RadioGroup>\n\n<Gap size={40} />\n\n<CheckboxGroup label='Настройки шапки' onChange={handleHeaderSettingsChange}>\n{HEADER_SETTINGS.map((item) => (\n<Switch\nkey={item.name}\nlabel={item.label}\nname={item.name}\nchecked={headerSettings[item.name]}\n/>\n))}\n</CheckboxGroup>\n\n<Gap size={32} />\n\n<CheckboxGroup\nlabel='Примеры наполнения контентной части'\nonChange={handleHeaderSettingsChange}\n>\n<Switch\nlabel='Заголовок в контентной области'\nname='titleInContent'\nchecked={headerSettings.titleInContent}\n/>\n</CheckboxGroup>\n\n<Gap size={32} />\n\n<CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>\n{FOOTER_SETTINGS.map((item) => (\n<Switch\nkey={item.name}\nlabel={item.label}\nname={item.name}\nchecked={footerSettings[item.name]}\n/>\n))}\n</CheckboxGroup>\n\n<ModalDesktop\nopen={open}\nonClose={handleClose}\nsize={size === 'fullscreen' ? 'fullscreen' : Number(size)}\nkey={getKey()}\n>\n{showHeader && (\n<ModalDesktop.Header\nhasCloser={headerSettings.hasCloser}\nhasBackButton={headerSettings.hasBackButton}\nsticky={headerSettings.sticky}\ntitle={\nheaderSettings.hasTitle\n? 'Почему банк проверяет мои операции?'\n: undefined\n}\n/>\n)}\n<ModalDesktop.Content>\n{headerSettings.titleInContent ? (\n<>\n<Typography.Title view='medium' tag='h3' font='system'>\n{`Почему банк проверяет мои операции?`}\n</Typography.Title>\n<Gap size={16} />\n</>\n) : undefined}\n<Text />\n</ModalDesktop.Content>\n{showFooter && (\n<ModalDesktop.Footer sticky={footerSettings.sticky}>\n<ModalDesktop.Controls\nprimary={\nfooterSettings.hasPrimaryButton ? (\n<Button view='primary' size={48} onClick={handleClose}>\nPrimary\n</Button>\n) : null\n}\nsecondary={\nfooterSettings.hasSecondaryButton ? (\n<Button view='secondary' size={48} onClick={handleClose}>\nSecondary\n</Button>\n) : null\n}\n/>\n</ModalDesktop.Footer>\n)}\n</ModalDesktop>\n</Container>\n);\n});",
+"mobile": "const Text = ({ onClose }) => (\n<>\n<Typography.Text tag='p'>\nВ 2001 году в России начал действовать Федеральный закон №115 «О противодействии\nлегализации доходов, полученных преступным путём, и финансированию терроризма». В рамках\nзакона банки могут блокировать карты, отказывать в проведении сомнительных операций,\nограничить доступ в интернет-банк или запрашивать документы, если по операции клиента\nвозникли подозрения.{' '}\n<Link onClick={onClose}>Нажмите сюда, чтобы закрыть модалку без крестика</Link>\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nТребования 115-ФЗ и связанных с ним документов Банка России часто меняются,\nпредприниматели не всегда успевают за ними следить. Последствия нарушений\n«антиотмывочного» законодательства всегда неприятны: приходится остановить\nбизнес-процессы и доказать банку законность операций. Специалисты «Альфа-банка» собрали\nпонятные рекомендации, как сэкономить время на объяснения и предотвратить блокировки\n</Typography.Text>\n<Collapse collapsedLabel='Подробнее' expandedLabel='Скрыть'>\n<Typography.Text tag='p'>\n115-ФЗ Касается всех предпринимателей, фирм и физлиц, а также тех, кто пользуется\nбанковским счётом для бизнеса, крупных денежных переводов или личных расчётов.\nОграничения интернет-банка, блокировка карт добросовестных компаний могут произойти\nиз-за неправильно оформленных документов, ошибок в платёжке или попыток снизить\nналоги.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nКлиенты воспринимают ограничения как атаку со стороны банка, но чаще всего сами\nдопускают ошибки или нарушения, которых можно избежать. Банки не преследуют цели\nдоставить неудобства клиентам — они обязаны соблюдать законодательство и следовать\nинструкциям и рекомендациям ЦБ, а в противном случае рискуют лишиться лицензии.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nОбналичивание — сомнительные операции, когда юрлицо или предприниматель снимает со\nсчёта более 80% от оборота или переводит деньги на счета физлиц, которые затем\nснимают в наличной форме.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nВывод капитала за границу — это переводы нерезидентам по договорам об импорте\nработ/услуг и результатов интеллектуальной деятельности, по которым проведение\nрасчётов осуществляется без одновременной уплаты НДС; по сделкам купли-продажи\nценных бумаг, а также товаров, которые не пересекают границу России.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nТранзитные операции — операции, в процессе которых деньги поступают на счёт компании\nот других резидентов и списываются в короткие сроки. При этом, как правило, в этих\nслучаях по счёту нет начислений зарплат, уплаты налогов, и они не соответствуют\nзаявленному компанией виду деятельности.\n</Typography.Text>\n<br />\n<Typography.Text tag='p'>\nЗапрашивать могут любые документы и устанавливать разные сроки их предоставления —\nэто зависит от службы контроля конкретного банка. Обычно банки запрашивают чеки,\nсчета или договора с контрагентами. В некоторых случаях бывает достаточно устных\nобъяснений. Для проверки информации и пересмотра уровня риска банк может пригласить\nклиента в банк для устного разъяснения или выехать по месту ведения бизнеса клиента.\n</Typography.Text>\n</Collapse>\n</>\n);\n\nconst HEADER_SELECT_OPTIONS = [\n{ key: 'withoutTitle', content: 'Нет заголовка' },\n{ key: 'defaultTitle', content: 'Стандартный' },\n{ key: 'compactTitle', content: 'Компактный' },\n{ key: 'compactTitleWithSubtitle', content: 'Компактный с подписью' },\n{ key: 'compactTitleWithCenterAlign', content: 'Компактный центрированный' },\n{\nkey: 'compactTitleWithSubtitleAndCenterAlign',\ncontent: 'Компактный центрированный с подписью',\n},\n];\n\nconst FOOTER_SELECT_OPTIONS = [\n{ key: 'vertical', content: 'Вертикальный' },\n{ key: 'horizontal', content: 'Горизонтальный' },\n];\n\nconst HEADER_SETTINGS = [\n{ label: 'Крестик', name: 'hasCloser' },\n{ label: 'Стрелка назад', name: 'hasBackButton' },\n{ label: 'Фиксация шапки при скролле', name: 'sticky' },\n];\n\nconst FOOTER_SETTINGS = [\n{ label: 'Primary Button', name: 'hasPrimaryButton' },\n{ label: 'Secondary Button', name: 'hasSecondaryButton' },\n{ label: 'Фиксация футера при скролле', name: 'sticky' },\n];\n\nrender(() => {\nconst [open, setOpen] = React.useState(false);\nconst [headerViewSelected, setHeaderView] = React.useState(HEADER_SELECT_OPTIONS[0].key);\nconst [footerViewSelected, setFooterView] = React.useState(FOOTER_SELECT_OPTIONS[0].key);\nconst [headerSettings, setHeaderSettings] = React.useState(() => ({\n...HEADER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),\ntitleInContent: false,\n}));\nconst [footerSettings, setFooterSettings] = React.useState(() =>\nFOOTER_SETTINGS.reduce((res, item) => ({ ...res, [item.name]: false }), {}),\n);\n\nconst showHeader =\nheaderViewSelected !== HEADER_SELECT_OPTIONS[0].key ||\nheaderSettings.hasCloser ||\nheaderSettings.hasBackButton;\n\nconst showFooter = footerSettings.hasPrimaryButton || footerSettings.hasSecondaryButton;\n\nconst getKey = () =>\n`${JSON.stringify(headerSettings)}-${headerViewSelected}-${footerViewSelected}`;\n\nconst handleOpen = () => setOpen(true);\n\nconst handleClose = () => setOpen(false);\n\nconst handleHeaderSettingsChange = (_, { name, checked }) => {\nsetHeaderSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nconst handleFooterSettingsChange = (_, { name, checked }) => {\nsetFooterSettings((prevState) => ({ ...prevState, [name]: checked }));\n};\n\nreturn (\n<Container>\n<Button size={40} onClick={handleOpen}>\nПоказать модалку\n</Button>\n\n<Gap size={32} />\n\n<p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки шапки</p>\n\n<SelectMobile\nblock={true}\noptions={HEADER_SELECT_OPTIONS}\nlabel='Заголовок'\nselected={headerViewSelected}\nonChange={({ selected }) => setHeaderView(selected.key)}\nOption={BaseOption}\n/>\n\n<Gap size={16} />\n\n<CheckboxGroup onChange={handleHeaderSettingsChange}>\n{HEADER_SETTINGS.map((item) => (\n<Switch\nkey={item.name}\nlabel={item.label}\nname={item.name}\nchecked={headerSettings[item.name]}\n/>\n))}\n</CheckboxGroup>\n\n<Gap size={32} />\n\n<CheckboxGroup\nlabel='Примеры наполнения контентной части'\nonChange={handleHeaderSettingsChange}\n>\n<Switch\nlabel='Заголовок в контентной области'\nname='titleInContent'\nchecked={headerSettings.titleInContent}\n/>\n</CheckboxGroup>\n\n<Gap size={32} />\n\n<p style={{ margin: '0 0 var(--gap-12) 0' }}>Настройки футера</p>\n\n<SelectMobile\nblock={true}\noptions={FOOTER_SELECT_OPTIONS}\nlabel='Лейаут'\nselected={footerViewSelected}\nonChange={({ selected }) => setFooterView(selected.key)}\nOption={BaseOption}\n/>\n\n<Gap size={16} />\n\n<CheckboxGroup label='Настройки футера' onChange={handleFooterSettingsChange}>\n{FOOTER_SETTINGS.map((item) => (\n<Switch\nkey={item.name}\nlabel={item.label}\nname={item.name}\nchecked={footerSettings[item.name]}\n/>\n))}\n</CheckboxGroup>\n\n<ModalMobile open={open} onClose={handleClose} key={getKey()}>\n{showHeader && (\n<ModalMobile.Header\nhasCloser={headerSettings.hasCloser}\nhasBackButton={headerSettings.hasBackButton}\nsticky={headerSettings.sticky}\nalign={\n[\n'compactTitleWithCenterAlign',\n'compactTitleWithSubtitleAndCenterAlign',\n].includes(headerViewSelected)\n? 'center'\n: undefined\n}\ntitle={\n[\n'defaultTitle',\n'compactTitle',\n'compactTitleWithSubtitle',\n'compactTitleWithCenterAlign',\n'compactTitleWithSubtitleAndCenterAlign',\n].includes(headerViewSelected)\n? 'Почему банк проверяет мои операции?'\n: undefined\n}\ntitleSize={\n[\n'compactTitle',\n'compactTitleWithSubtitle',\n'compactTitleWithCenterAlign',\n'compactTitleWithSubtitleAndCenterAlign',\n].includes(headerViewSelected)\n? 'compact'\n: undefined\n}\nsubtitle={\n[\n'compactTitleWithSubtitle',\n'compactTitleWithSubtitleAndCenterAlign',\n].includes(headerViewSelected)\n? 'Почему банк проверяет мои операции?'\n: undefined\n}\n/>\n)}\n<ModalMobile.Content>\n{headerSettings.titleInContent ? (\n<>\n<Typography.Title view='xsmall' tag='div' font='system'>\n{`Почему банк проверяет мои операции?`}\n</Typography.Title>\n<Gap size={16} />\n</>\n) : undefined}\n\n<Text onClose={handleClose} />\n</ModalMobile.Content>\n{showFooter && (\n<ModalMobile.Footer sticky={footerSettings.sticky}>\n<ModalMobile.Controls\nlayout={footerViewSelected === 'vertical' ? 'column' : 'space-between'}\nprimary={\nfooterSettings.hasPrimaryButton ? (\n<ButtonMobile\nview='primary'\nsize={56}\nonClick={handleClose}\nblock={true}\n>\nPrimary\n</ButtonMobile>\n) : null\n}\nsecondary={\nfooterSettings.hasSecondaryButton ? (\n<ButtonMobile\nview='secondary'\nsize={56}\nonClick={handleClose}\nblock={true}\n>\nSecondary\n</ButtonMobile>\n) : null\n}\n/>\n</ModalMobile.Footer>\n)}\n</ModalMobile>\n</Container>\n);\n});"
+},
+{
+"title": "Последовательность шагов",
+"description": "Компонент можно настроить для реализации многошаговых сценариев.\nВ этом случае верхний край должен быть зафиксирован, чтобы избежать неприятных скачков.",
+"desktop": "const DATA = {\n1: {\ntitle: 'Первый уровень',\nbtnText: 'Дальше',\nbg: 'rgba(55, 120, 251, 0.1)',\ncolor: '#3778FB',\n},\n2: {\ntitle: 'Второй уровень',\nbtnText: 'Дальше',\nbg: 'rgba(207, 112, 255, 0.1)',\ncolor: '#CF70FF',\n},\n3: {\ntitle: 'Третий уровень',\nbtnText: 'Готово',\nbg: 'rgba(112, 255, 126, 0.1)',\ncolor: '#058102',\n},\n};\n\nrender(() => {\nconst [step, setStep] = React.useState(1);\nconst [open, setOpen] = React.useState(false);\n\nconst handleOpen = () => {\nsetOpen(true);\nsetStep(1);\n};\nconst handleClose = () => setOpen(false);\n\nconst item = DATA[step];\n\nconst commonStyles = {\ndisplay: 'flex',\nalignItems: 'center',\njustifyContent: 'center',\ntransition: 'background 0.2s ease-in, border 0.2s ease-in',\nborderRadius: '8px',\nbackground: item.bg,\nborder: `1px dashed ${item.color}`,\ncolor: item.color,\nwidth: '100%',\nboxSizing: 'border-box',\n};\n\nreturn (\n<Container>\n<Button size={document.body.clientWidth < 450 ? 56 : 48} onClick={handleOpen}>\nПоказать модалку\n</Button>\n\n<Modal open={open} onClose={handleClose} fixedPosition={true}>\n<Modal.Header\nsticky={true}\nhasCloser={true}\nhasBackButton={step !== 1}\ntitle={item.title}\nonBack={() => setStep(step - 1)}\n/>\n<Modal.Content flex={true}>\n<div\nstyle={{\n...commonStyles,\nheight: document.body.clientWidth < 450 ? '100%' : '550px',\n}}\n>\n<span style={{ fontWeight: 700, fontSize: '72px' }}>{step}</span>\n</div>\n</Modal.Content>\n<Modal.Footer sticky={true}>\n<Button\nsize={document.body.clientWidth < 450 ? 56 : 48}\nview='primary'\nonClick={\nitem.btnText === DATA[1].btnText ? () => setStep(step + 1) : handleClose\n}\n>\n{item.btnText}\n</Button>\n</Modal.Footer>\n</Modal>\n</Container>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.12.2",
+"description": "#### [#2177](https://github.com/core-ds/core-components/pull/2177)\n\n- Изменение внутренних отступов для `mobile` версии компонента"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1689](https://github.com/core-ds/core-components/pull/1689)\n\n- Удалены буквенные размеры компонента, которые были отмечены как `deprecated` в `core-components@44.x.x` (замените `s, m, l, xl` на `500, 600, 800, 1140` соответственно)\n- Удален пропс `fullscreen`, который был отмечен как `deprecated` в `core-components@25.x.x`. Вместо него передавайте `fullscreen` в пропс `size`"
+}
+]
+}

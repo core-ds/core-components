@@ -1,0 +1,806 @@
+{
+"packageName": "select",
+"displayName": "Select",
+"description": "Поле ввода с выпадающим списком.",
+"props": {
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля пункта меню используется модификатор -option, компонента поиска -search,\nкомпонента выпадающего меню -options-list, компонента BottomSheet -bottom-sheet,\nкомпонента поля -field, компонета FormControl -field-form-control",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"optionsListClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс выпадающего меню",
+"name": "optionsListClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"optionClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для пункта меню",
+"name": "optionClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"optionGroupClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для компонента группы пунктов",
+"name": "optionGroupClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"popperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поповера",
+"name": "popperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"options": {
+"defaultValue": null,
+"description": "Список вариантов выбора",
+"name": "options",
+"required": true,
+"type": {
+"name": "(OptionShape | GroupShape)[]"
+}
+},
+"id": {
+"defaultValue": null,
+"description": "Атрибут id",
+"name": "id",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"name": {
+"defaultValue": null,
+"description": "Атрибут name",
+"name": "name",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Управление возможностью выбора значения",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"defaultOpen": {
+"defaultValue": null,
+"description": "Начальное состояние селекта",
+"name": "defaultOpen",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление открытием",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"multiple": {
+"defaultValue": null,
+"description": "Возможность выбрать несколько значений",
+"name": "multiple",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": "48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"optionsSize": {
+"defaultValue": null,
+"description": "Размер пунктов меню\n@deprecated Управление размером пунктов меню через отдельный проп не поддерживается дизайн-контрактом. Размер пункта должен определяться его контентом.",
+"name": "optionsSize",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"optionsListWidth": {
+"defaultValue": null,
+"description": "Управляет шириной выпадающего меню.\nШирину определяет контент, либо ширина равна ширине поля",
+"name": "optionsListWidth",
+"required": false,
+"type": {
+"name": "\"content\" | \"field\" | undefined"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл поля",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"placeholder": {
+"defaultValue": null,
+"description": "Плейсхолдер поля",
+"name": "placeholder",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Подсказка под полем",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"autocomplete": {
+"defaultValue": null,
+"description": "Возможность использовать селект как input-autocomplete",
+"name": "autocomplete",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"allowUnselect": {
+"defaultValue": null,
+"description": "Позволяет снять выбранное значение",
+"name": "allowUnselect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"closeOnSelect": {
+"defaultValue": null,
+"description": "Закрывать меню после выбора?",
+"name": "closeOnSelect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"circularNavigation": {
+"defaultValue": null,
+"description": "При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот.",
+"name": "circularNavigation",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"preventFlip": {
+"defaultValue": null,
+"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно,то он все равно будет показан снизу",
+"name": "preventFlip",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"selected": {
+"defaultValue": null,
+"description": "Список value выбранных пунктов (controlled-селект)",
+"name": "selected",
+"required": false,
+"type": {
+"name": "string | OptionShape | (string | OptionShape)[] | null | undefined"
+}
+},
+"nativeSelect": {
+"defaultValue": null,
+"description": "Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)",
+"name": "nativeSelect",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"popoverPosition": {
+"defaultValue": null,
+"description": "Позиционирование выпадающего списка",
+"name": "popoverPosition",
+"required": false,
+"type": {
+"name": "Position | undefined"
+}
+},
+"visibleOptions": {
+"defaultValue": null,
+"description": "Количество видимых пунктов меню (5 = 5.5)",
+"name": "visibleOptions",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"valueRenderer": {
+"defaultValue": null,
+"description": "Кастомный рендер выбранного пункта",
+"name": "valueRenderer",
+"required": false,
+"type": {
+"name": "(({ selected, selectedMultiple, }: { selected?: OptionShape | undefined; selectedMultiple: OptionShape[]; valueSeparator?: string | undefined; }) => ReactNode) | undefined"
+}
+},
+"valueSeparator": {
+"defaultValue": null,
+"description": "Кастомный разделитель выбранных пунктов (Работает когда не прокинут valueRenderer)",
+"name": "valueSeparator",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"Arrow": {
+"defaultValue": null,
+"description": "Компонент стрелки",
+"name": "Arrow",
+"required": false,
+"type": {
+"name": "false | ComponentType<ArrowProps> | null | undefined"
+}
+},
+"Field": {
+"defaultValue": null,
+"description": "Компонент поля",
+"name": "Field",
+"required": false,
+"type": {
+"name": "ComponentType<FieldProps> | undefined"
+}
+},
+"fieldProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент поля",
+"name": "fieldProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"optionsListProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент списка",
+"name": "optionsListProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"optionProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент пункта меню",
+"name": "optionProps",
+"required": false,
+"type": {
+"name": "unknown"
+}
+},
+"groupOptionProps": {
+"defaultValue": null,
+"description": "Пропсы, которые будут прокинуты в компонент группового пункта меню",
+"name": "groupOptionProps",
+"required": false,
+"type": {
+"name": "AnyObject | undefined"
+}
+},
+"OptionsList": {
+"defaultValue": null,
+"description": "Компонент выпадающего меню",
+"name": "OptionsList",
+"required": false,
+"type": {
+"name": "ComponentType<Pick<SelectProps, \"client\"> & { className?: string | undefined; optionGroupClassName?: string | undefined; scrollbarClassName?: string | undefined; ... 32 more ...; ctrlRef?: Ref<...> | undefined; } & RefAttributes<...>> | undefined"
+}
+},
+"Optgroup": {
+"defaultValue": null,
+"description": "Компонент группы",
+"name": "Optgroup",
+"required": false,
+"type": {
+"name": "ComponentType<OptgroupProps> | undefined"
+}
+},
+"Option": {
+"defaultValue": null,
+"description": "Компонент пункта меню",
+"name": "Option",
+"required": false,
+"type": {
+"name": "ComponentType<OptionProps> | undefined"
+}
+},
+"showSearch": {
+"defaultValue": null,
+"description": "Включает отображение поиска",
+"name": "showSearch",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"Search": {
+"defaultValue": null,
+"description": "Компонент поиска",
+"name": "Search",
+"required": false,
+"type": {
+"name": "ComponentType<SearchProps> | undefined"
+}
+},
+"searchProps": {
+"defaultValue": null,
+"description": "Настройки поиска",
+"name": "searchProps",
+"required": false,
+"type": {
+"name": "{ componentProps?: SearchProps | undefined; accessor?: ((option: OptionShape) => string) | undefined; filterFn?: ((optionText: string, search: string) => boolean) | undefined; value?: string | undefined; onChange?: ((value: string) => void) | undefined; filterGroup?: boolean | undefined; groupAccessor?: ((group: Gro..."
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик выбора",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((payload: BaseSelectChangePayload) => void) | undefined"
+}
+},
+"onOpen": {
+"defaultValue": null,
+"description": "Обработчик открытия\\закрытия селекта",
+"name": "onOpen",
+"required": false,
+"type": {
+"name": "((payload: { open?: boolean | undefined; name?: string | undefined; }) => void) | undefined"
+}
+},
+"onBlur": {
+"defaultValue": null,
+"description": "Обработчик блюра поля",
+"name": "onBlur",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) | undefined"
+}
+},
+"onFocus": {
+"defaultValue": null,
+"description": "Обработчик фокуса поля",
+"name": "onFocus",
+"required": false,
+"type": {
+"name": "((event: FocusEvent<HTMLDivElement | HTMLInputElement, Element>) => void) | undefined"
+}
+},
+"onScroll": {
+"defaultValue": null,
+"description": "Обработчик скрола",
+"name": "onScroll",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void) | undefined"
+}
+},
+"onClear": {
+"defaultValue": null,
+"description": "Обработчик нажатия на крестик для очистки поля",
+"name": "onClear",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"clear": {
+"defaultValue": null,
+"description": "Флаг, показать крестик для очистки поля",
+"name": "clear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"updatePopover": {
+"defaultValue": null,
+"description": "Хранит функцию, с помощью которой можно обновить положение поповера",
+"name": "updatePopover",
+"required": false,
+"type": {
+"name": "MutableRefObject<(() => void) | undefined> | undefined"
+}
+},
+"zIndexPopover": {
+"defaultValue": null,
+"description": "z-index поповера",
+"name": "zIndexPopover",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"showEmptyOptionsList": {
+"defaultValue": null,
+"description": "Показывать OptionsList, если он пустой",
+"name": "showEmptyOptionsList",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"popoverProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы для Popover",
+"name": "popoverProps",
+"required": false,
+"type": {
+"name": "Omit<PopoverProps, \"dataTestId\" | \"className\" | \"open\" | \"preventFlip\" | \"zIndex\" | \"position\" | \"update\" | \"anchorElement\"> | undefined"
+}
+},
+"limitDynamicOptionGroupSize": {
+"defaultValue": null,
+"description": "Ограничение динамического размера группы вариантов выбора",
+"name": "limitDynamicOptionGroupSize",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"environment": {
+"defaultValue": {
+"value": "window"
+},
+"description": "Контекст окружения для downshift.js",
+"name": "environment",
+"required": false,
+"type": {
+"name": "Environment | undefined"
+}
+},
+"showClear": {
+"defaultValue": null,
+"description": "Показывать кнопку 'Сбросить' в футере мобильного компонента",
+"name": "showClear",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"showSelectAll": {
+"defaultValue": null,
+"description": "Показывать пункт \"Выбрать все\"",
+"name": "showSelectAll",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"showHeaderWithSelectAll": {
+"defaultValue": null,
+"description": "Показывать пункт \"Выбрать все\" в заголовке списка у мобильного компонента",
+"name": "showHeaderWithSelectAll",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"useWithApplyHook": {
+"defaultValue": null,
+"description": "Использовать ли хук useSelectWithApply в мобильном компоненте",
+"name": "useWithApplyHook",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"checkmarkPosition": {
+"defaultValue": {
+"value": "'before'"
+},
+"description": "Позиция чекбокса \"Выбрать все\" в Header",
+"name": "checkmarkPosition",
+"required": false,
+"type": {
+"name": "\"before\" | \"after\" | undefined"
+}
+},
+"isBottomSheet": {
+"defaultValue": null,
+"description": "",
+"name": "isBottomSheet",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"footer": {
+"defaultValue": null,
+"description": "Футер\n@deprecated Используйте bottomSheetProps.actionButton",
+"name": "footer",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"swipeable": {
+"defaultValue": null,
+"description": "Будет ли свайпаться шторка\n@deprecated Используйте bottomSheetProps.swipeable",
+"name": "swipeable",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"bottomSheetProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы шторки",
+"name": "bottomSheetProps",
+"required": false,
+"type": {
+"name": "(Omit<Partial<BottomSheetProps>, \"bottomAddons\"> & { bottomAddons?: ReactNode | ((flatOptions: OptionShape[]) => ReactNode); }) | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"originalProps": {
+"defaultValue": null,
+"description": "",
+"name": "originalProps",
+"required": false,
+"type": {
+"name": "SelectProps | undefined"
+}
+},
+"modalHeaderProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы шапки модалки",
+"name": "modalHeaderProps",
+"required": false,
+"type": {
+"name": "(Omit<Partial<HeaderProps>, \"bottomAddons\"> & { bottomAddons?: ReactNode | ((flatOptions: OptionShape[]) => ReactNode); }) | undefined"
+}
+},
+"modalProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы модалки",
+"name": "modalProps",
+"required": false,
+"type": {
+"name": "Partial<BaseModalProps & { size?: \"fullscreen\" | 500 | 600 | 800 | 1140 | undefined; fixedPosition?: boolean | undefined; hasCloser?: boolean | undefined; iOSLock?: boolean | undefined; } & { ...; } & RefAttributes<...>> | undefined"
+}
+},
+"modalFooterProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы футера модалки",
+"name": "modalFooterProps",
+"required": false,
+"type": {
+"name": "Partial<FooterProps> | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Одиночный выбор",
+"description": "Список селекта с единичным выбором закрывается сразу после выбора одного из значений.",
+"desktop": "const OPTIONS = [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n];\n\nrender(() => {\nreturn (\n<div style={{ width: 320 }}>\n<SelectDesktop\nallowUnselect={true}\nsize={56}\noptions={OPTIONS}\nplaceholder='Выберите элемент'\nlabel='Одиночный выбор'\nOption={BaseOption}\nblock={true}\n/>\n</div>\n);\n});",
+"mobile": "const OPTIONS = [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n];\n\nrender(() => {\nconst [selected, setSelected] = React.useState();\n\nconst handleChange = ({ selected }) => {\nsetSelected(selected);\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<SelectMobile\nallowUnselect={true}\noptions={OPTIONS}\nplaceholder='Выберите элемент'\nlabel='Одиночный выбор'\nOption={BaseOption}\nblock={true}\nselected={selected}\nonChange={handleChange}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Множественный выбор",
+"description": "В мультиселекте допустимы два паттерна:\n\n1. С подтверждением — изменения будут приняты только после нажатия на кнопку подтверждения.\n2. Без подтверждения — изменения принимаются в момент выбора.\n\n<br />\nНа мобильных устройствах рекомендуется использовать только паттерн с подтверждением выбора.",
+"desktop": "const OPTIONS = [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n];\n\nrender(() => {\nconst [selectedFirst, setSelectedFirst] = React.useState([]);\nconst [selectedSecond, setSelectedSecond] = React.useState([]);\n\nreturn (\n<div style={{ width: 320 }}>\n<SelectDesktop\nallowUnselect={true}\nsize={56}\nplaceholder='Выберите элементы'\nlabel='Множественный выбор'\nOption={BaseOption}\nmultiple={true}\nblock={true}\n{...useSelectWithApply({\noptions: OPTIONS,\nselected: selectedFirst,\nonChange: ({ selectedMultiple }) => {\nsetSelectedFirst(selectedMultiple.map((option) => option.key));\n},\n})}\n/>\n<div style={{ height: 'var(--gap-16)' }} />\n<SelectDesktop\nselected={selectedSecond}\nallowUnselect={true}\nsize={56}\noptions={OPTIONS}\nplaceholder='Выберите элементы'\nlabel='Множественный выбор'\nOption={BaseOption}\nmultiple={true}\nblock={true}\nonChange={({ selectedMultiple }) => {\nsetSelectedSecond(selectedMultiple.map((option) => option.key));\n}}\n/>\n</div>\n);\n});",
+"mobile": "const OPTIONS = [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n];\n\nrender(() => {\nconst [selectedFirst, setSelectedFirst] = React.useState([]);\n\nreturn (\n<div style={{ width: '100%' }}>\n<SelectMobile\nmultiple={true}\nallowUnselect={true}\noptions={OPTIONS}\nplaceholder='Выберите элементы'\nlabel='Множественный выбор'\nOption={BaseOption}\nblock={true}\nselected={selectedFirst}\nonChange={({ selectedMultiple }) => {\nsetSelectedFirst(selectedMultiple.map((option) => option.key));\n}}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Группировка",
+"description": "Пункты списка можно группировать.",
+"desktop": "const OPTIONS = [\n{\nlabel: 'nonmetals',\noptions: [\n{ key: '1', content: 'Hydrogen' },\n{ key: '2', content: 'Helium' },\n],\n},\n{\nlabel: 'metals',\noptions: [\n{ key: '3', content: 'Aurum' },\n{ key: '4', content: 'Platinum' },\n],\n},\n];\nrender(() => {\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<SelectDesktop\nallowUnselect={true}\nsize={56}\noptions={OPTIONS}\nplaceholder='Выберите элемент'\nlabel='Сгруппированный список'\nOption={BaseOption}\nblock={true}\n/>\n</div>\n);\n});",
+"mobile": "const OPTIONS = [\n{\nlabel: 'nonmetals',\noptions: [\n{ key: '1', content: 'Hydrogen' },\n{ key: '2', content: 'Helium' },\n],\n},\n{\nlabel: 'metals',\noptions: [\n{ key: '3', content: 'Aurum' },\n{ key: '4', content: 'Platinum' },\n],\n},\n];\nrender(() => {\nconst [selected, setSelected] = React.useState();\n\nconst handleChange = ({ selected }) => {\nsetSelected(selected);\n};\n\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<SelectMobile\nallowUnselect={true}\noptions={OPTIONS}\nplaceholder='Выберите элемент'\nlabel='Сгруппированный список'\nOption={BaseOption}\nselected={selected}\nonChange={handleChange}\nblock={true}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Поиск среди элементов списка",
+"description": "Если список содержит большое количество пунктов, можно добавить в шапку дропдауна поиск `showSearch`, с помощью которого пользователь сможет отфильтровать элементы списка. Можно искать по названиям групп пунктов c помощью `searchProps.filterGroup`.",
+"desktop": "const OPTIONS = [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n];\n\nconst GROUP_OPTIONS = [\n{\nlabel: 'nonmetals',\noptions: [\n{ key: '1', content: 'Argon' },\n{ key: '2', content: 'Helium' },\n],\n},\n{\nlabel: 'metals',\noptions: [\n{ key: '3', content: 'Aurum' },\n{ key: '4', content: 'Platinum' },\n],\n},\n];\n\nrender(() => {\nconst [selectedFirst, setSelectedFirst] = React.useState([]);\nconst [selectedSecond, setSelectedSecond] = React.useState([]);\n\nreturn (\n<div style={{ width: 320 }}>\n<SelectDesktop\nshowSearch={true}\nselected={selectedFirst}\nsize={56}\noptions={OPTIONS}\nplaceholder='Выберите элемент'\nlabel='Одиночный выбор'\nOption={BaseOption}\nblock={true}\nonChange={({ selected }) => {\nsetSelectedFirst(selected);\n}}\n/>\n<Gap size={16} />\n<SelectDesktop\nallowUnselect={true}\nsize={56}\nplaceholder='Выберите элементы'\nlabel='Множественный выбор'\nOption={BaseOption}\nmultiple={true}\nblock={true}\n{...useSelectWithApply({\nshowSearch: true,\noptions: OPTIONS,\nselected: selectedSecond,\nonChange: ({ selectedMultiple }) => {\nsetSelectedSecond(selectedMultiple.map((option) => option.key));\n},\n})}\n/>\n<Gap size={16} />\n<SelectDesktop\nallowUnselect={true}\nsize={56}\noptions={GROUP_OPTIONS}\nplaceholder='Выберите элемент'\nlabel='Сгруппированный список'\nOption={BaseOption}\nblock={true}\nshowSearch={true}\nsearchProps={{ filterGroup: true }}\n/>\n</div>\n);\n});",
+"mobile": "const OPTIONS = [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n];\n\nconst GROUP_OPTIONS = [\n{\nlabel: 'nonmetals',\noptions: [\n{ key: '1', content: 'Argon' },\n{ key: '2', content: 'Helium' },\n],\n},\n{\nlabel: 'metals',\noptions: [\n{ key: '3', content: 'Aurum' },\n{ key: '4', content: 'Platinum' },\n],\n},\n];\n\nrender(() => {\nconst [selected, setSelected] = React.useState([]);\n\nreturn (\n<div style={{ width: '100%' }}>\n<SelectMobile\nshowSearch={true}\nmultiple={true}\nallowUnselect={true}\noptions={OPTIONS}\nplaceholder='Выберите элементы'\nlabel='Множественный выбор'\nOption={BaseOption}\nblock={true}\nselected={selected}\nonChange={({ selectedMultiple }) => {\nsetSelected(selectedMultiple.map((option) => option.key));\n}}\n/>\n<Gap size={16} />\n<SelectMobile\nallowUnselect={true}\nsize={56}\noptions={GROUP_OPTIONS}\nplaceholder='Выберите элемент'\nlabel='Сгруппированный список'\nOption={BaseOption}\nblock={true}\nshowSearch={true}\nsearchProps={{ filterGroup: true }}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Подписи у пунктов",
+"description": "Элементы списка могут содержать лейбл или подпись. В данных примерах подпись, расположенная над значением,\nзамещает лейбл селекта, а подпись, расположенная под значением, не влияет на отображение селекта.\nПодобное поведение является рекомендуемым и может потребовать кастомизации элементов выпадающего списка и самого поля селекта.",
+"desktop": "const renderOptionWithAmountOnTop = ({ amount, padding, text }) => {\nreturn (\n<GenericWrapper alignItems='center' padding={padding}>\n<GenericWrapper column>\n<Typography.Text view='component-primary'>\n<Amount\nvalue={amount}\nminority={100}\ncurrency='RUR'\nview='withZeroMinorPart'\ntransparentMinor={false}\n/>\n</Typography.Text>\n<Typography.Text color='secondary' view='primary-small'>\n{text}\n</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n);\n};\n\nconst renderOption = ({ amount, padding, text }) => (\n<GenericWrapper alignItems='center' padding={padding}>\n<GenericWrapper column>\n<Typography.Text color='secondary' view='primary-small'>\n{text}\n</Typography.Text>\n<Typography.Text view='component-primary'>\n<Amount\nvalue={amount}\nminority={100}\ncurrency='RUR'\nview='withZeroMinorPart'\ntransparentMinor={false}\n/>\n</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n);\n\nconst DATA = [\n{\namount: 3405116,\ntext: 'Зарплатный счёт',\n},\n{\namount: 600024,\ntext: 'Накопительный счёт',\n},\n];\n\nconst OPTIONS = DATA.map(({ amount, text }, idx) => ({\nkey: idx,\ncontent: renderOption({ text, amount, padding: { top: 8, bottom: 8, left: 12 } }),\n}));\n\nconst OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({\nkey: idx,\ncontent: renderOptionWithAmountOnTop({\ntext,\namount,\npadding: { top: 8, bottom: 8, left: 12 },\n}),\n}));\n\nrender(() => {\nconst [selectedFirst, setSelectedFirst] = React.useState([]);\nconst [selectedSecond, setSelectedSecond] = React.useState([]);\n\nreturn (\n<div style={{ width: 320 }}>\n<SelectDesktop\nallowUnselect={true}\nsize={56}\nplaceholder='Выберите счёт'\nlabel='Счёт'\nOption={BaseOption}\nblock={true}\nselected={selectedFirst}\noptions={OPTIONS_WITH_AMOUNT_ON_TOP}\nvalueRenderer={({ selected }) => {\nif (!selected) return '';\n\nconst { amount } = DATA[selected.key];\n\nreturn (\n<Amount\nvalue={amount}\nminority={100}\ncurrency='RUR'\nview='withZeroMinorPart'\ntransparentMinor={false}\n/>\n);\n}}\nonChange={({ selected }) => setSelectedFirst(selected)}\n/>\n<div style={{ height: 'var(--gap-16)' }} />\n<SelectDesktop\nselected={selectedSecond}\nallowUnselect={true}\nsize={56}\noptions={OPTIONS}\nplaceholder='Выберите счёт'\nOption={BaseOption}\nblock={true}\nvalueRenderer={({ selected }) => {\nif (!selected) return '';\n\nconst { text, amount } = DATA[selected.key];\n\nreturn renderOption({\ntext,\namount,\npadding: { top: 8, bottom: 8 },\n});\n}}\nonChange={({ selected }) => {\nsetSelectedSecond(selected);\n}}\n/>\n</div>\n);\n});",
+"mobile": "const renderOptionWithAmountOnTop = ({ amount, padding, text }) => {\nreturn (\n<GenericWrapper alignItems='center' padding={padding}>\n<GenericWrapper column>\n<Typography.Text view='component-primary'>\n<Amount\nvalue={amount}\nminority={100}\ncurrency='RUR'\nview='withZeroMinorPart'\ntransparentMinor={false}\n/>\n</Typography.Text>\n<Typography.Text color='secondary' view='primary-small'>\n{text}\n</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n);\n};\n\nconst renderOption = ({ amount, padding, text }) => (\n<GenericWrapper alignItems='center' padding={padding}>\n<GenericWrapper column>\n<Typography.Text color='secondary' view='primary-small'>\n{text}\n</Typography.Text>\n<Typography.Text view='component-primary'>\n<Amount\nvalue={amount}\nminority={100}\ncurrency='RUR'\nview='withZeroMinorPart'\ntransparentMinor={false}\n/>\n</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n);\n\nconst DATA = [\n{\namount: 3405116,\ntext: 'Зарплатный счёт',\n},\n{\namount: 600024,\ntext: 'Накопительный счёт',\n},\n];\n\nconst OPTIONS = DATA.map(({ amount, text }, idx) => ({\nkey: idx,\ncontent: renderOption({ text, amount, padding: { top: 12, bottom: 12, left: 16 } }),\n}));\n\nconst OPTIONS_WITH_AMOUNT_ON_TOP = DATA.map(({ amount, text }, idx) => ({\nkey: idx,\ncontent: renderOptionWithAmountOnTop({\ntext,\namount,\npadding: { top: 12, bottom: 12, left: 16 },\n}),\n}));\n\nrender(() => {\nconst [selectedFirst, setSelectedFirst] = React.useState([]);\nconst [selectedSecond, setSelectedSecond] = React.useState([]);\n\nreturn (\n<div style={{ width: '100%' }}>\n<SelectMobile\nallowUnselect={true}\noptions={OPTIONS_WITH_AMOUNT_ON_TOP}\nplaceholder='Выберите счёт'\nlabel='Счёт'\nOption={BaseOption}\nblock={true}\nselected={selectedFirst}\nonChange={({ selected }) => setSelectedFirst(selected)}\nvalueRenderer={({ selected }) => {\nif (!selected) return '';\n\nconst { amount } = DATA[selected.key];\n\nreturn (\n<Amount\nvalue={amount}\nminority={100}\ncurrency='RUR'\nview='withZeroMinorPart'\ntransparentMinor={false}\n/>\n);\n}}\n/>\n<div style={{ height: 'var(--gap-16)' }} />\n<SelectMobile\nallowUnselect={true}\noptions={OPTIONS}\nplaceholder='Выберите счёт'\nOption={BaseOption}\nblock={true}\nselected={selectedSecond}\nonChange={({ selected }) => setSelectedSecond(selected)}\nvalueRenderer={({ selected }) => {\nif (!selected) return '';\n\nconst { text, amount } = DATA[selected.key];\n\nreturn renderOption({\ntext,\namount,\npadding: { top: 8, bottom: 8 },\n});\n}}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Другие примеры кастомизации",
+"description": "Примеры ниже содержат кастомную вёрстку пунктов выпадающего списка и кастомную шапку выпадающего списка.",
+"desktop": "render(() => {\nconst options = React.useMemo(\n() => [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n],\n[],\n);\n\nconst [selected, setSelected] = React.useState([]);\n\nconst handleChange = ({ selectedMultiple }) => {\nsetSelected(selectedMultiple.map((option) => option.key));\n};\n\nconst selectWithHeader = (\n<SelectDesktop\nallowUnselect={true}\nplaceholder='Выберите элементы'\nlabel='Множественный выбор'\nblock={true}\noptionsListWidth='field'\nOption={BaseOption}\nsize={56}\n{...useSelectWithApply({\noptions,\nselected,\nshowHeaderWithSelectAll: true,\nonChange: handleChange,\n})}\n/>\n);\n\nconst renderOption = ({ text, amount, icon, iconSize = 48, padding }) => {\nreturn (\n<GenericWrapper alignItems='center' padding={padding}>\n<GenericWrapper>\n<SuperEllipse size={iconSize}>{icon}</SuperEllipse>\n</GenericWrapper>\n<Gap size={16} direction='horizontal' />\n<GenericWrapper>\n<GenericWrapper column>\n<Typography.Text color='secondary' view='primary-small'>\n{text}\n</Typography.Text>\n<Gap size={2} />\n<Typography.Text>\n<Amount\nvalue={amount}\nminority={100}\ncurrency='RUR'\nview='withZeroMinorPart'\ntransparentMinor={true}\n/>\n</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n</GenericWrapper>\n);\n};\n\nconst renderSelected = ({ selected }) => {\nreturn selected\n? renderOption({\n...selected.value,\npadding: undefined,\niconSize: 40,\n})\n: undefined;\n};\n\nconst data = [\n{\nkey: 'Account1',\nvalue: {\ntext: 'Зарплатный счёт',\namount: 3405161,\nicon: <StarMIcon />,\npadding: { top: 12, bottom: 12, left: 16 },\n},\n},\n{\nkey: 'Account2',\nvalue: {\ntext: 'Накопительный счёт',\namount: 6000024,\nicon: <SafeBoxMIcon />,\npadding: { top: 12, bottom: 12, left: 16 },\n},\n},\n];\n\nconst pureCellOptions = data.map((item) => ({\n...item,\ncontent: renderOption(item.value),\n}));\n\nconst selectWithPureCell = (\n<SelectDesktop\nallowUnselect={true}\nplaceholder='Выберите счёт'\noptions={pureCellOptions}\nOption={BaseOption}\nsize={56}\nvalueRenderer={renderSelected}\nblock={true}\n/>\n);\n\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n{selectWithHeader}\n<div style={{ height: 'var(--gap-16)' }} />\n{selectWithPureCell}\n</div>\n);\n});",
+"mobile": "const OPTIONS = [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n];\n\nrender(() => {\nconst [selectedFirst, setSelectedFirst] = React.useState();\nconst [selected, setSelected] = React.useState();\n\nconst handleChange = ({ selected }) => {\nsetSelected(selected);\n};\n\nconst renderOption = ({ text, amount, icon, iconSize = 48, padding }) => {\nreturn (\n<GenericWrapper alignItems='center' padding={padding}>\n<GenericWrapper>\n<SuperEllipse size={iconSize}>{icon}</SuperEllipse>\n</GenericWrapper>\n<Gap size={16} direction='horizontal' />\n<GenericWrapper>\n<GenericWrapper column>\n<Typography.Text color='secondary' view='primary-small'>\n{text}\n</Typography.Text>\n<Gap size={2} />\n<Typography.Text>\n<Amount\nvalue={amount}\nminority={100}\ncurrency='RUR'\nview='withZeroMinorPart'\ntransparentMinor={true}\n/>\n</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n</GenericWrapper>\n);\n};\n\nconst renderSelected = ({ selected }) => {\nreturn selected\n? renderOption({\n...selected.value,\npadding: undefined,\niconSize: 40,\n})\n: undefined;\n};\n\nconst data = [\n{\nkey: 'Account1',\nvalue: {\ntext: 'Зарплатный счёт',\namount: 3405161,\nicon: <StarMIcon />,\npadding: { top: 12, bottom: 12, left: 16 },\n},\n},\n{\nkey: 'Account2',\nvalue: {\ntext: 'Накопительный счёт',\namount: 6000024,\nicon: <SafeBoxMIcon />,\npadding: { top: 12, bottom: 12, left: 16 },\n},\n},\n];\n\nconst pureCellOptions = data.map((item) => ({\n...item,\ncontent: renderOption(item.value),\n}));\n\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<SelectMobile\nselected={selectedFirst}\nallowUnselect={true}\nplaceholder='Выберите элементы'\nlabel='Множественный выбор'\nblock={true}\noptionsListWidth='field'\nOption={BaseOption}\nsize={56}\noptions={OPTIONS}\nmultiple={true}\nshowHeaderWithSelectAll={true}\nonChange={({ selectedMultiple }) =>\nsetSelectedFirst(selectedMultiple.map((option) => option.key))\n}\n/>\n<Gap size={16} />\n<SelectMobile\nallowUnselect={true}\nplaceholder='Выберите счёт'\noptions={pureCellOptions}\nOption={BaseOption}\nsize={56}\nvalueRenderer={renderSelected}\nblock={true}\nselected={selected}\nonChange={handleChange}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Формат отображения списков",
+"description": "В редких кейсах может потребоваться использовать селект с нативным выпадающим списком или\nоткрывать его в [Modal](?path=/docs/modal--docs)\nвместо [BottomSheet](?path=/docs/bottomsheet--docs).",
+"desktop": "const groups = [\n{\nlabel: 'Группа №1',\noptions: [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n],\n},\n{\nlabel: 'Группа №2',\noptions: [\n{ key: '3', content: 'Berkelium' },\n{ key: '4', content: 'Californium' },\n],\n},\n];\n\nconst options = [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n];\n\nrender(() => {\nconst [selectedNative, setSelectedNative] = React.useState();\nconst [selectedModal, setSelectedModal] = React.useState();\n\nconst handleChangeNative = ({ selected }) => {\nsetSelectedNative(selected);\n};\n\nconst handleChangeModal = ({ selected }) => {\nsetSelectedModal(selected);\n};\n\nconst isMobile = document.body.clientWidth < 450;\n\nconst MobileSelect = isMobile ? SelectModalMobile : Select;\n\nreturn (\n<div style={{ width: isMobile ? '100%' : 320 }}>\n<SelectDesktop\nallowUnselect={true}\nsize={56}\noptions={groups}\nplaceholder='Выберите элемент'\nlabel='Одиночный выбор'\nnativeSelect={true}\nblock={true}\nselected={selectedNative}\nonChange={handleChangeNative}\n/>\n<div style={{ height: 'var(--gap-16)' }} />\n<MobileSelect\nsize={56}\nallowUnselect={true}\noptions={options}\nplaceholder='Выберите элемент'\nlabel='Одиночный выбор'\nblock={true}\nOption={BaseOption}\nselected={selectedModal}\nonChange={handleChangeModal}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Длинные списки и ленивая загрузка",
+"description": "Для рендера большого количества данных используйте `OptionsList={VirtualOptionsList}`. На время подгрузки можно использовать скелетон.",
+"desktop": "render(() => {\nconst optionsForVirtualList = React.useMemo(\n() =>\nnew Array(1000).fill().map((_, index) => {\nconst variableSizeText = `Вы восхитительны!`;\n\nreturn {\nkey: index.toString(),\ncontent: `${index}. ${variableSizeText}`,\n};\n}),\n[],\n);\n\nconst [loading, setLoading] = React.useState(true);\n\nconst loadingProps = useSelectWithLoading({\nloading,\nOption: (props) => (\n<BaseOption\n{...props}\noption={{\n...props.option,\ncontent: <div style={{ padding: 'var(--gap-12)' }}>{props.option.content}</div>,\n}}\n/>\n),\n});\n\nconst handleOpen = () => {\nsetLoading(true);\nsetTimeout(() => setLoading(false), 2000);\n};\n\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<SelectDesktop\nonOpen={handleOpen}\nsize={56}\nblock={true}\nplaceholder='Выберите один из тысячи'\nlabel='Одиночный выбор'\noptions={optionsForVirtualList}\nOptionsList={VirtualOptionsList}\ncircularNavigation={true}\nallowUnselect={true}\noptionsListWidth='field'\nOption={BaseOption}\n{...loadingProps}\n/>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [selected, setSelected] = React.useState();\n\nconst handleChange = ({ selected }) => {\nsetSelected(selected);\n};\n\nconst optionsForVirtualList = React.useMemo(\n() =>\nnew Array(1000).fill().map((_, index) => {\nconst variableSizeText = `Вы восхитительны!`;\n\nreturn {\nkey: index.toString(),\ncontent: `${index}. ${variableSizeText}`,\n};\n}),\n[],\n);\n\nconst [loading, setLoading] = React.useState(true);\n\nconst loadingProps = useSelectWithLoading({\nvisibleOptions: 15,\nloading,\nOption: (props) => (\n<BaseOption\n{...props}\noption={{\n...props.option,\ncontent: (\n<div style={{ padding: 'var(--gap-16) var(--gap-12)' }}>\n{props.option.content}\n</div>\n),\n}}\n/>\n),\n});\n\nconst handleOpen = () => {\nsetLoading(true);\nsetTimeout(() => setLoading(false), 2000);\n};\n\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<style>{`.hideScrollbar {overflow: hidden}`}</style>\n<SelectMobile\nbottomSheetProps={loading ? { containerClassName: 'hideScrollbar' } : undefined}\nsize={56}\nonOpen={handleOpen}\nblock={true}\nplaceholder='Выберите один из тысячи'\nlabel='Одиночный выбор'\noptions={optionsForVirtualList}\nOptionsList={VirtualOptionsList}\ncircularNavigation={true}\nallowUnselect={true}\nOption={BaseOption}\nselected={selected}\nonChange={handleChange}\n{...loadingProps}\n/>\n</div>\n);\n});"
+},
+{
+"title": "OptionShape вместо ключей для выбранных пунктов",
+"description": "Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.\nВ этом случае просто передавайте их через свойство `selected`.",
+"desktop": "render(() => {\nconst options = React.useMemo(\n() => [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n],\n[],\n);\n\nconst [selected, setSelected] = React.useState([]);\n\nconst handleChange = ({ selectedMultiple }) => {\nsetSelected(selectedMultiple);\n};\n\nreturn (\n<div style={{ width: document.body.clientWidth < 450 ? '100%' : 320 }}>\n<SelectDesktop\nallowUnselect={true}\nplaceholder='Выберите элементы'\nlabel='Множественный выбор'\nblock={true}\nname='select'\noptionsListWidth='field'\nOption={BaseOption}\nsize={56}\nselected={selected}\n{...useSelectWithApply({\noptions,\nselected,\nonChange: handleChange,\n})}\n/>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst options = React.useMemo(\n() => [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n{ key: '6', content: 'Californium' },\n{ key: '7', content: 'Einsteinium' },\n{ key: '8', content: 'Fermium' },\n],\n[],\n);\n\nconst [selected, setSelected] = React.useState([]);\n\nconst handleChange = ({ selectedMultiple }) => {\nsetSelected(selectedMultiple);\n};\n\nreturn (\n<div style={{ width: '100%' }}>\n<SelectMobile\nallowUnselect={true}\nsize={56}\nblock={true}\noptions={options}\nplaceholder='Выберите элемент'\nlabel='Множественный выбор'\nname='select'\nmultiple={true}\nonChange={handleChange}\nselected={selected}\nOption={BaseOption}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Строение списка",
+"description": "Список состоит из трех частей: `Header`, `Body`, `Footer`. Каждая часть содержит слот в который можно передать кастомный контент.",
+"desktop": "render(() => {\nconst options = React.useMemo(\n() => [\n{ key: '1', content: 'Neptunium' },\n{ key: '2', content: 'Plutonium' },\n{ key: '3', content: 'Americium' },\n{ key: '4', content: 'Curium' },\n{ key: '5', content: 'Berkelium' },\n],\n[],\n);\n\nreturn (\n<div\nstyle={{\nwidth: document.body.clientWidth < 450 ? '100%' : 320,\npaddingTop: 'var(--select-options-list-top-padding)',\npaddingBottom: 'var(--select-options-list-bottom-padding)',\nboxShadow: 'var(--select-options-list-box-shadow)',\nborderRadius: 'var(--select-options-list-border-radius)',\nbackground: 'var(--select-option-background)',\noverflow: 'hidden',\n}}\n>\n<OptionsList\nOption={BaseOption}\ngetOptionProps={(option, index) => ({\nindex,\noption,\ninnerProps: {\nstyle: {\nbackground: 'var(--color-light-status-muted-positive)',\nborderBottom:\nindex + 1 !== options.length\n? '1px solid var(--color-light-status-info)'\n: 'none',\n},\n},\n})}\noptions={options}\nheader={\n<div\nstyle={{\nheight: 12,\nbackground: 'var(--color-light-status-muted-negative)',\n}}\n></div>\n}\nfooter={\n<div\nstyle={{\nheight: 12,\nbackground: 'var(--color-light-status-muted-negative)',\n}}\n></div>\n}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.20.0",
+"description": "#### [#2257](https://github.com/core-ds/core-components/pull/2257)\n\n- Добавлена возможность использования нового внешнего вида компонента `OptionsList`\n- Внутренние исправления и улучшения\n\n#### [#2232](https://github.com/core-ds/core-components/pull/2232)\n\n- Исправлена поддержка `size={40}` в `Select`\n- Проп `optionsSize` помечен как deprecated: размер пунктов списка определяется контентом"
+},
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.15.0",
+"description": "#### [#2231](https://github.com/core-ds/core-components/pull/2231)\n\n- Исправлено отображение `content`/`children` в `BaseOption` при передаче кастомного `Checkmark`"
+},
+{
+"version": "50.13.0",
+"description": "#### [#2221](https://github.com/core-ds/core-components/pull/2221)\n\n- После очистки значения кнопкой `clear` нажатие `Enter` больше не восстанавливает ранее удаленную опцию."
+},
+{
+"version": "50.12.2",
+"description": "#### [#2177](https://github.com/core-ds/core-components/pull/2177)\n\n- Изменён боковой отступ в option list mobile"
+},
+{
+"version": "50.6.1",
+"description": "#### [#2101](https://github.com/core-ds/core-components/pull/2101)\n\n- Исправлена расчитываемая высота `OptionsList`"
+},
+{
+"version": "50.5.0",
+"description": "#### [#2071](https://github.com/core-ds/core-components/pull/2071)\n\n- Добавлен проп `checkmarkPosition` для управления позицией чекмарка относительно контента ('before' | 'after')\n- Компонент `BaseCheckmark` теперь поддерживает проп `content` для передачи контента опции\n- Оптимизирована логика рендеринга чекбоксов и иконок в компонентах `OptionBase` и `BaseOption`\n\n#### [#2053](https://github.com/core-ds/core-components/pull/2053)\n\n- Небольшие улучшения кодовой базы компонентов\n\n- Обновлены зависимости\n    - @alfalab/core-components-themes@15.0.2\n    - @alfalab/core-components-button@13.1.0\n    - @alfalab/core-components-checkbox@6.1.0\n    - @alfalab/core-components-input@17.1.2\n    - @alfalab/core-components-select-with-tags@10.1.0\n    - @alfalab/core-components-select@19.1.0\n    - @alfalab/core-components-custom-picker-button@4.1.0\n    - @alfalab/core-components-amount-input@9.1.2\n    - @alfalab/core-components-input-autocomplete@14.0.7\n    - @alfalab/core-components-number-input@4.0.4\n    - @alfalab/core-components-form-control@14.0.3\n    - @alfalab/core-components-calendar@9.1.0\n    - @alfalab/core-components-attach@8.0.3\n    - @alfalab/core-components-calendar-with-skeleton@7.0.4\n    - @alfalab/core-components-confirmation@15.0.3\n    - @alfalab/core-components-confirmation-v1@3.0.3\n    - @alfalab/core-components-custom-button@5.0.3\n    - @alfalab/core-components-gallery@7.0.6\n    - @alfalab/core-components-icon-button@8.0.3\n    - @alfalab/core-components-navigation-bar@3.0.3\n    - @alfalab/core-components-navigation-bar-private@2.0.4\n    - @alfalab/core-components-pass-code@4.0.3\n    - @alfalab/core-components-pass-code-v1@3.0.3\n    - @alfalab/core-components-pattern-lock@4.0.3\n    - @alfalab/core-components-pattern-lock-v1@3.0.3\n    - @alfalab/core-components-picker-button@13.0.7\n    - @alfalab/core-components-plate@9.0.3\n    - @alfalab/core-components-product-cover@3.1.2\n    - @alfalab/core-components-pure-cell@6.0.3\n    - @alfalab/core-components-table@4.0.7\n    - @alfalab/core-components-tooltip@9.0.6\n    - @alfalab/core-components-date-input@6.0.4\n    - @alfalab/core-components-date-range-input@5.0.5\n    - @alfalab/core-components-date-time-input@6.0.5\n    - @alfalab/core-components-international-phone-input@4.0.7\n    - @alfalab/core-components-masked-input@8.0.4\n    - @alfalab/core-components-password-input@7.0.4\n    - @alfalab/core-components-slider-input@11.0.4\n    - @alfalab/core-components-time-input@4.0.4\n    - @alfalab/core-components-universal-date-input@4.0.5\n    - @alfalab/core-components-with-suffix@6.0.4\n    - @alfalab/core-components-intl-phone-input@11.0.7\n    - @alfalab/core-components-textarea@10.0.3\n    - @alfalab/core-components-calendar-input@12.0.5\n    - @alfalab/core-components-calendar-range@9.0.5\n    - @alfalab/core-components-file-upload-item@8.0.3\n    - @alfalab/core-components-file-upload-item-v1@3.0.3\n    - @alfalab/core-components-tabs@10.0.7\n    - @alfalab/core-components-toast-plate@9.0.3\n    - @alfalab/core-components-bottom-sheet@8.1.1\n    - @alfalab/core-components-modal@11.0.4\n    - @alfalab/core-components-popup-sheet@3.0.4\n    - @alfalab/core-components-side-panel@7.0.4\n    - @alfalab/core-components-universal-modal@3.0.5\n    - @alfalab/core-components-alert@6.0.3\n    - @alfalab/core-components-bank-card@7.0.4\n    - @alfalab/core-components-phone-input@9.0.4\n    - @alfalab/core-components-notification@9.0.3\n    - @alfalab/core-components-toast@8.0.3\n    - @alfalab/core-components-notification-manager@7.0.3"
+},
+{
+"version": "50.1.0",
+"description": "#### [#2055](https://github.com/core-ds/core-components/pull/2055)\n\n- Фикс мерцания высоты меню опций при открытии select"
+},
+{
+"version": "50.0.0",
+"description": "#### [#2009](https://github.com/core-ds/core-components/pull/2009)\n\n- Удалены `deprecated` значения пропа `size`. Для перехода используйте следующие соответствия:\n    - `'s'` -> `48`\n    - `'m'` -> `56`\n    - `'l'` -> `64`\n    - `'xl'` -> `72`\n\n#### [#1975](https://github.com/core-ds/core-components/pull/1975)\n\n- Для `disabled` и `readOnly` состояний добавлено отображение иконки замка"
+},
+{
+"version": "49.14.0",
+"description": "#### [#1937](https://github.com/core-ds/core-components/pull/1937)\n\n- Изменено скругление OptionsList для desktop (не затрагивает тему site)"
+},
+{
+"version": "49.12.0",
+"description": "#### [#1997](https://github.com/core-ds/core-components/pull/1997)\n\n- Исправлено responsive поведение списка опций при использовании desktop/mobile компонента\n\n- Обновлены зависимости\n    - @alfalab/core-components-bottom-sheet@7.4.0\n    - @alfalab/core-components-base-modal@6.1.0\n    - @alfalab/core-components-confirmation@14.3.0\n    - @alfalab/core-components-universal-modal@2.0.9\n    - @alfalab/core-components-select@18.2.6\n    - @alfalab/core-components-select-with-tags@9.0.9\n    - @alfalab/core-components-tooltip@8.0.9\n    - @alfalab/core-components-drawer@6.0.3\n    - @alfalab/core-components-gallery@6.0.10\n    - @alfalab/core-components-modal@10.0.7\n    - @alfalab/core-components-popup-sheet@2.0.9\n    - @alfalab/core-components-side-panel@6.0.7\n    - @alfalab/core-components-custom-picker-button@3.0.9\n    - @alfalab/core-components-input-autocomplete@13.0.9\n    - @alfalab/core-components-international-phone-input@3.2.6\n    - @alfalab/core-components-intl-phone-input@10.0.9\n    - @alfalab/core-components-picker-button@12.0.9\n    - @alfalab/core-components-table@3.0.9\n    - @alfalab/core-components-calendar@8.0.7\n    - @alfalab/core-components-tabs@9.2.6\n    - @alfalab/core-components-calendar-input@11.0.8\n    - @alfalab/core-components-calendar-range@8.0.8\n    - @alfalab/core-components-calendar-with-skeleton@6.0.7\n    - @alfalab/core-components-date-range-input@4.0.8\n    - @alfalab/core-components-date-time-input@5.0.8\n    - @alfalab/core-components-universal-date-input@3.0.8"
+},
+{
+"version": "49.5.0",
+"description": "#### [#1885](https://github.com/core-ds/core-components/pull/1885)\n\n- Добавлена поддержка aria-label для улучшения доступности в компонентах InternationalPhoneInput и Select"
+},
+{
+"version": "49.4.0",
+"description": "#### [#1865](https://github.com/core-ds/core-components/pull/1865)\n\n- Добавлена поддержка `environment` для корректной работы Select внутри ShadowRoot\n\n#### [#1857](https://github.com/core-ds/core-components/pull/1857)\n\n- Исправлен порядок отображение аддонов (Clear, Error, Success, Arrow, Custom)\n\n#### [#1875](https://github.com/core-ds/core-components/pull/1875)\n\n- При нажатии на `Backspace` в режиме мультивыбора при фокусе в поле поиска выбранные элементы не удаляются\n\n- Обновлены зависимости\n    - @alfalab/core-components-input-autocomplete@13.0.2\n    - @alfalab/core-components-input@16.0.2\n    - @alfalab/core-components-select@18.1.0\n    - @alfalab/core-components-international-phone-input@3.1.1\n    - @alfalab/core-components-intl-phone-input@10.0.2\n    - @alfalab/core-components-amount-input@8.0.2\n    - @alfalab/core-components-date-input@5.0.2\n    - @alfalab/core-components-date-range-input@4.0.2\n    - @alfalab/core-components-date-time-input@5.0.2\n    - @alfalab/core-components-masked-input@7.0.2\n    - @alfalab/core-components-number-input@3.0.2\n    - @alfalab/core-components-password-input@6.0.2\n    - @alfalab/core-components-slider-input@10.0.3\n    - @alfalab/core-components-time-input@3.0.2\n    - @alfalab/core-components-universal-date-input@3.0.2\n    - @alfalab/core-components-with-suffix@5.0.2\n    - @alfalab/core-components-custom-picker-button@3.0.2\n    - @alfalab/core-components-picker-button@12.0.2\n    - @alfalab/core-components-select-with-tags@9.0.2\n    - @alfalab/core-components-table@3.0.2\n    - @alfalab/core-components-calendar-input@11.0.2\n    - @alfalab/core-components-calendar-range@8.0.2\n    - @alfalab/core-components-bank-card@6.0.2\n    - @alfalab/core-components-phone-input@8.0.2\n    - @alfalab/core-components-tabs@9.1.1"
+}
+]
+}

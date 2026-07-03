@@ -1,0 +1,117 @@
+{
+"packageName": "markdown",
+"displayName": "Markdown",
+"description": "Используется для отображения и форматирования текстового контента.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Css класс для обертки разметки",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"font": {
+"defaultValue": null,
+"description": "Шрифт разметки",
+"name": "font",
+"required": false,
+"type": {
+"name": "FontType"
+}
+},
+"overrides": {
+"defaultValue": null,
+"description": "Переопределение компонентов для тегов разметки",
+"name": "overrides",
+"required": false,
+"type": {
+"name": "Components | undefined"
+}
+},
+"transformLinkUri": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Трансформация ссылок неизвестных форматов\nhttps://github.com/remarkjs/react-markdown/issues/537",
+"name": "transformLinkUri",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "render(() => {\nconst css = `\n:root {\n--list-item-margin: 0;\n}\n`;\nreturn (\n<>\n<style>{css}</style>\n<Markdown>\n{`\n# Герой нашего времени\n\n«Герой нашего времени» — первый в русской прозе социально-психологический роман,\nнаписанный Михаилом Юрьевичем Лермонтовым в 1837—1839 годах. Классика русской литературы."
+}
+],
+"changelog": [
+{
+"version": "50.18.0",
+"description": "#### [#2255](https://github.com/core-ds/core-components/pull/2255)\n\n- Исправлена специфичность селекторов"
+},
+{
+"version": "50.17.0",
+"description": "#### [#2245](https://github.com/core-ds/core-components/pull/2245)\n\n- Откат изменений, связанных со схлопыванием margin #2118. Работа отступов будет пересмотрена в будущих релизах."
+},
+{
+"version": "50.11.0",
+"description": "#### [#2176](https://github.com/core-ds/core-components/pull/2176)\n\n- Исправлен вид ссылок. Теперь они синего цвета, без подчёркивания"
+},
+{
+"version": "50.6.2",
+"description": "#### [#2118](https://github.com/core-ds/core-components/pull/2118)\n\n- Исправлено схлопывание margin для заголовков\n\n- Обновлены зависимости\n    - @alfalab/core-components-markdown@3.0.6"
+},
+{
+"version": "50.6.0",
+"description": "#### [#2100](https://github.com/core-ds/core-components/pull/2100)\n\n- Исправлены отступы списков\n\n- Обновлены зависимости\n    - @alfalab/core-components-gallery@7.1.0\n    - @alfalab/core-components-markdown@3.0.4"
+},
+{
+"version": "50.2.0",
+"description": "#### [#2068](https://github.com/core-ds/core-components/pull/2068)\n\n- Исправлена трансформация относительных ссылок"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Обновлена библиотека `react-markdown@9.1.0`\n- Исправлена ошибка связанная с неправильной структурой `DOM` элементов"
+},
+{
+"version": "49.2.0",
+"description": "#### [#1833](https://github.com/core-ds/core-components/pull/1833)\n\n- Добавлен пропс `transformLinkUri` позволяющий отключить трансформацию для ссылок с неизвестными форматами"
+}
+]
+}

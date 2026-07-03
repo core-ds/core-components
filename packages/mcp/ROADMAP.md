@@ -1,21 +1,5 @@
 # ROADMAP
 
-## Стандартизировать entry point для каждого компонента
-
-Сейчас встречаются такие варианты:
-
-```json
-[
-    "packages/*/src/Component.tsx",
-    "packages/*/src/Component.ts",
-    "packages/*/src/component.tsx",
-    "packages/*/src/Component.responsive.tsx",
-    "packages/*/src/component.responsive.tsx"
-]
-```
-
-Также у `icon-view` в принципе нет входной точки в корне пакета.
-
 ## Проработать генерацию пропсов
 
 Сейчас пропсы берутся из компонента, который находится в entry point пакета. Необходимо брать пропсы всех подкомпонентов, так как это тоже API, и агент должен о них знать.
@@ -90,3 +74,13 @@ src/data/
 ## Scenario
 
 Для каждой демки нужен сценарий использования (`success`, `error` и т. д.). По факту сценарии уже могут быть описаны, но само демо может быть комбайном из разных сценариев. Необходимо делать примеры более атомарными.
+
+## Компоненты, которые не резолвятся
+
+Эти пакеты сейчас не попадают в генерируемые данные:
+
+- **`with-suffix`** — `index.ts` экспортирует `withSuffix`, это HOC (функция-обёртка над компонентом), а не React-компонент с именем `WithSuffix`.
+- **`page-indicator`** — нет единого компонента `PageIndicator`, есть только варианты `PageIndicatorBullet`, `PageIndicatorDynamic`, `PageIndicatorRunner`, `PageIndicatorStep`.
+- **`grid`** — `Grid` — объект-неймспейс `{ Row, Col }` над двумя реальными компонентами, а не компонент сам по себе.
+- **`product-cover`** — аналогично `grid`: `ProductCover` — объект-неймспейс `{ Single, Stack }` над реальными компонентами `Single` и `Stack`.
+- **`icon-view`** — в пакете нет `src/index.ts` (есть только `circle/index.ts`, `rectangle/index.ts`, `no-shape/index.ts`, `super-ellipse/index.ts`, `components/index.ts`), поэтому пакет не находится уже на этапе поиска entry point (`get-component-entry-points.mjs` ищет `packages/*/src/index.ts`).
