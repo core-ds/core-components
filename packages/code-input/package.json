@@ -14,6 +14,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-mq": "^6.0.6",
+        "@alfalab/hooks": "^1.13.1",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"
     },

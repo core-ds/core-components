@@ -20,6 +20,7 @@ export const ConfirmationContext = createContext<TConfirmationContext>({
     breakpoint: 1024,
     client: 'desktop',
     initialScreenHintSlot: null,
+    strictFocus: false,
     onTempBlockFinished: mockFn,
     onInputFinished: mockFn,
     onChangeState: mockFn,

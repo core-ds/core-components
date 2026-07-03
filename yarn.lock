@@ -439,6 +439,7 @@ __metadata:
   resolution: "@alfalab/core-components-code-input@workspace:packages/code-input"
   dependencies:
     "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/hooks": "npm:^1.13.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -2376,7 +2377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/hooks@npm:^1.17.0":
+"@alfalab/hooks@npm:^1.13.1, @alfalab/hooks@npm:^1.17.0":
   version: 1.17.0
   resolution: "@alfalab/hooks@npm:1.17.0"
   dependencies:
