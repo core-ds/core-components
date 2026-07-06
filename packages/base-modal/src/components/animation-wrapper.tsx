@@ -14,15 +14,8 @@ export type SpringOptions = {
     mass?: number;
 };
 
-export type AnimationParams = {
-    translate: [string, string];
-    springOptions: SpringOptions;
-};
-
 type SpringHook = (
     ref: RefObject<HTMLElement | null>,
-    enter: AnimationParams,
-    exit: AnimationParams,
     callbacks?: {
         onEntered?: () => void;
         onExited?: () => void;
@@ -39,8 +32,6 @@ type SpringAnimationInnerProps = {
     open: boolean;
     exited: boolean | null;
     nodeRef: React.RefObject<HTMLDivElement>;
-    enter: AnimationParams;
-    exit: AnimationParams;
     onEntered: () => void;
     onExited: () => void;
     onSpringStart?: () => void;
@@ -68,8 +59,6 @@ const SpringAnimationInner = ({
     onExited,
     onSpringStart,
     onSpringEnd,
-    enter,
-    exit,
     hook: useSpringHook,
     contentRef,
 }: SpringAnimationInnerProps & { children: React.ReactNode }) => {
@@ -77,8 +66,6 @@ const SpringAnimationInner = ({
 
     const { playEnter, playExit } = useSpringHook(
         nodeRef ?? fallbackRef,
-        enter,
-        exit,
         {
             onEntered,
             onExited,

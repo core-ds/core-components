@@ -1,22 +1,13 @@
 import { type RefObject, useCallback, useEffect, useRef } from 'react';
 import { animate, GroupAnimation, spring } from 'motion';
 
-import { type SpringOptions } from '@alfalab/core-components-base-modal';
-
 type UseSpringTransitionCallbacks = {
     onEntered?: () => void;
     onExited?: () => void;
 };
 
-export type AnimationParams = {
-    translate: [string, string];
-    springOptions: SpringOptions;
-};
-
 export function useModalSpringTransition<T extends HTMLElement>(
     ref: RefObject<T | null>,
-    enter: AnimationParams,
-    exit: AnimationParams,
     callbacks?: UseSpringTransitionCallbacks,
     contentRef?: RefObject<T | null>,
 ): {
@@ -47,10 +38,12 @@ export function useModalSpringTransition<T extends HTMLElement>(
 
         const transformAnim = animate(
             ref.current,
-            { translate: isFirstEnter ? enter.translate : enter.translate[1] },
+            { translate: isFirstEnter ? ['0px 24px', '0px 0px'] : '0px 0px' },
             {
                 type: spring,
-                ...enter.springOptions,
+                stiffness: 406,
+                damping: 35,
+                mass: 1,
                 delay: 0.01,
             },
         );
@@ -103,7 +96,7 @@ export function useModalSpringTransition<T extends HTMLElement>(
         group.finished.then(() => {
             callbacksRef.current?.onEntered?.();
         });
-    }, [contentRef, enter.springOptions, enter.translate, ref]);
+    }, [contentRef, ref]);
 
     const playExit = useCallback(() => {
         if (!ref.current) {
@@ -115,11 +108,13 @@ export function useModalSpringTransition<T extends HTMLElement>(
         const transformAnim = animate(
             ref.current,
             {
-                translate: exit.translate[1],
+                translate: '0px 24px',
             },
             {
                 type: spring,
-                ...exit.springOptions,
+                stiffness: 235,
+                damping: 31,
+                mass: 1,
             },
         );
 
@@ -169,7 +164,7 @@ export function useModalSpringTransition<T extends HTMLElement>(
         group.finished.then(() => {
             callbacksRef.current?.onExited?.();
         });
-    }, [contentRef, exit.springOptions, exit.translate, ref]);
+    }, [contentRef, ref]);
 
     useEffect(
         () => () => {

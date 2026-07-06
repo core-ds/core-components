@@ -29,7 +29,6 @@ import { Stack } from '@alfalab/core-components-stack';
 import { stackingOrder } from '@alfalab/core-components-stack-context';
 
 import {
-    type AnimationParams,
     AnimationWrapper,
     type AnimationWrapperConfig,
     type SpringHookType,
@@ -235,8 +234,6 @@ export type BaseModalProps = {
     springAnimation?: {
         onSpringStart?: () => void;
         onSpringEnd?: () => void;
-        enter: AnimationParams;
-        exit: AnimationParams;
         hook: SpringHookType;
         contentRef?: MutableRefObject<HTMLDivElement | null>;
     };
@@ -621,8 +618,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                       open,
                       exited,
                       nodeRef: componentNodeRef,
-                      enter: springAnimation.enter,
-                      exit: springAnimation.exit,
                       onEntered: () => handleEntered(componentNodeRef.current!, false),
                       onExited: () => handleExited(componentNodeRef.current!),
                       onSpringStart:

@@ -54,14 +54,6 @@ export const SideModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps>(
             springAnimation={
                 restProps.springAnimation
                     ? {
-                          enter: {
-                              translate: ['110% 0px', '0px 0px'],
-                              springOptions: { stiffness: 260, damping: 32, mass: 1 },
-                          },
-                          exit: {
-                              translate: ['0px 0px', '80px 0px'],
-                              springOptions: { stiffness: 153, damping: 25, mass: 1 },
-                          },
                           hook: useSpringTransition,
                       }
                     : undefined

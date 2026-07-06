@@ -57,14 +57,6 @@ export const CenterModal = forwardRef<HTMLDivElement, UniversalModalDesktopProps
             springAnimation={
                 restProps.springAnimation
                     ? {
-                          enter: {
-                              translate: ['0px 24px', '0px 0px'],
-                              springOptions: { stiffness: 406, damping: 35, mass: 1 },
-                          },
-                          exit: {
-                              translate: ['0px 0px', '0px 24px'],
-                              springOptions: { stiffness: 235, damping: 31, mass: 1 },
-                          },
                           hook: useModalSpringTransition,
                       }
                     : undefined

@@ -1,22 +1,13 @@
 import { type RefObject, useCallback, useEffect, useRef } from 'react';
 import { animate, GroupAnimation, spring } from 'motion';
 
-import { type SpringOptions } from '@alfalab/core-components-base-modal';
-
 type UseSpringTransitionCallbacks = {
     onEntered?: () => void;
     onExited?: () => void;
 };
 
-export type AnimationParams = {
-    translate: [string, string];
-    springOptions: SpringOptions;
-};
-
 export function useSpringTransition<T extends HTMLElement>(
     ref: RefObject<T | null>,
-    enter: AnimationParams,
-    exit: AnimationParams,
     callbacks?: UseSpringTransitionCallbacks,
 ): {
     playEnter: () => void;
@@ -46,10 +37,12 @@ export function useSpringTransition<T extends HTMLElement>(
 
         const transformAnim = animate(
             ref.current,
-            { translate: isFirstEnter ? enter.translate : enter.translate[1] },
+            { translate: isFirstEnter ? ['110% 0px', '0px 0px'] : '0px 0px' },
             {
                 type: spring,
-                ...enter.springOptions,
+                stiffness: 260,
+                damping: 32,
+                mass: 1,
                 delay: 0.01,
             },
         );
@@ -80,7 +73,7 @@ export function useSpringTransition<T extends HTMLElement>(
         group.finished.then(() => {
             callbacksRef.current?.onEntered?.();
         });
-    }, [enter.springOptions, enter.translate, ref]);
+    }, [ref]);
 
     const playExit = useCallback(() => {
         if (!ref.current) {
@@ -92,11 +85,13 @@ export function useSpringTransition<T extends HTMLElement>(
         const transformAnim = animate(
             ref.current,
             {
-                translate: exit.translate[1],
+                translate: '80px 0px',
             },
             {
                 type: spring,
-                ...exit.springOptions,
+                stiffness: 153,
+                damping: 25,
+                mass: 1,
             },
         );
 
@@ -125,7 +120,7 @@ export function useSpringTransition<T extends HTMLElement>(
         group.finished.then(() => {
             callbacksRef.current?.onExited?.();
         });
-    }, [exit, ref]);
+    }, [ref]);
 
     useEffect(
         () => () => {
