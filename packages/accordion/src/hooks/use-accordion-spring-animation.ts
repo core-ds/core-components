@@ -1,6 +1,5 @@
 import { type RefObject, useRef } from 'react';
-import { GroupAnimation, spring } from 'motion';
-import { animate } from 'motion/mini';
+import { animate, GroupAnimation, spring } from 'motion';
 
 export function useAccordionSpringAnimation<T extends HTMLElement>(
     ref: RefObject<T | null>,

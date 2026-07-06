@@ -1,6 +1,5 @@
 import { type RefObject, useCallback, useEffect, useRef } from 'react';
-import { GroupAnimation, spring } from 'motion';
-import { animate } from 'motion/mini';
+import { animate, GroupAnimation, spring } from 'motion';
 
 import { type SpringOptions } from '@alfalab/core-components-base-modal';
 
