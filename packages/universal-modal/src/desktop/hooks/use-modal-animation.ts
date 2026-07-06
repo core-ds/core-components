@@ -25,6 +25,7 @@ export function useModalSpringTransition<T extends HTMLElement>(
 } {
     const animationRef = useRef<GroupAnimation | null>(null);
     const callbacksRef = useRef(callbacks);
+    const hasEnteredRef = useRef(false);
 
     callbacksRef.current = callbacks;
 
@@ -33,11 +34,20 @@ export function useModalSpringTransition<T extends HTMLElement>(
             return;
         }
 
-        animationRef.current?.cancel();
+        animationRef.current?.stop();
+
+        /*
+         * при самом первом появлении элементу неоткуда взять "from" (нет ни CSS,
+         * ни предыдущей анимации), поэтому задаём его явно; при прерывании же
+         * используем текущее визуальное состояние, зафиксированное stop()
+         */
+        const isFirstEnter = !hasEnteredRef.current;
+
+        hasEnteredRef.current = true;
 
         const transformAnim = animate(
             ref.current,
-            { translate: enter.translate },
+            { translate: isFirstEnter ? enter.translate : enter.translate[1] },
             {
                 type: spring,
                 ...enter.springOptions,
@@ -47,7 +57,7 @@ export function useModalSpringTransition<T extends HTMLElement>(
 
         const opacityAnim = animate(
             ref.current,
-            { opacity: [0, 1] },
+            { opacity: isFirstEnter ? [0, 1] : 1 },
             {
                 duration: 0.2,
                 ease: [0.22, 1, 0.36, 1],
@@ -57,13 +67,13 @@ export function useModalSpringTransition<T extends HTMLElement>(
 
         const scaleAnim = animate(
             ref.current,
-            { scale: [0.98, 1] },
+            { scale: isFirstEnter ? [0.98, 1] : 1 },
             { stiffness: 406, damping: 35, mass: 1, delay: 0.08 },
         );
 
         const blurAnim = animate(
             ref.current,
-            { filter: ['blur(8px)', 'blur(0px)'] },
+            { filter: isFirstEnter ? ['blur(8px)', 'blur(0px)'] : 'blur(0px)' },
             {
                 duration: 0.2,
                 delay: 0.08,
@@ -73,7 +83,7 @@ export function useModalSpringTransition<T extends HTMLElement>(
 
         const opacityContentAnim = animate(
             contentRef?.current,
-            { opacity: [0, 1] },
+            { opacity: isFirstEnter ? [0, 1] : 1 },
             {
                 duration: 0.26,
                 ease: [0.22, 1, 0.36, 1],
@@ -100,12 +110,12 @@ export function useModalSpringTransition<T extends HTMLElement>(
             return;
         }
 
-        animationRef.current?.cancel();
+        animationRef.current?.stop();
 
         const transformAnim = animate(
             ref.current,
             {
-                translate: exit.translate,
+                translate: exit.translate[1],
             },
             {
                 type: spring,
@@ -115,7 +125,7 @@ export function useModalSpringTransition<T extends HTMLElement>(
 
         const opacityAnim = animate(
             ref.current,
-            { opacity: [1, 0] },
+            { opacity: 0 },
             {
                 duration: 0.34,
                 ease: [0.22, 1, 0.36, 1],
@@ -124,13 +134,13 @@ export function useModalSpringTransition<T extends HTMLElement>(
 
         const scaleAnim = animate(
             ref.current,
-            { scale: [1, 0.98] },
+            { scale: 0.98 },
             { stiffness: 235, damping: 31, mass: 1 },
         );
 
         const blurAnim = animate(
             ref.current,
-            { filter: ['blur(0px)', 'blur(8px)'] },
+            { filter: 'blur(8px)' },
             {
                 duration: 0.2,
                 ease: [0.22, 1, 0.36, 1],
@@ -139,7 +149,7 @@ export function useModalSpringTransition<T extends HTMLElement>(
 
         const opacityContentAnim = animate(
             contentRef?.current,
-            { opacity: [1, 0] },
+            { opacity: 0 },
             {
                 duration: 0.26,
                 ease: [0.22, 1, 0.36, 1],
