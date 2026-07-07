@@ -1,0 +1,299 @@
+{
+"packageName": "confirmation",
+"displayName": "Confirmation",
+"description": "",
+"props": {
+"screen": {
+"defaultValue": null,
+"description": "Экран компонента",
+"name": "screen",
+"required": true,
+"type": {
+"name": "string"
+}
+},
+"state": {
+"defaultValue": null,
+"description": "Состояние компонента",
+"name": "state",
+"required": true,
+"type": {
+"name": "string"
+}
+},
+"mobile": {
+"defaultValue": null,
+"description": "Мобильная версия компонента для экрана",
+"name": "mobile",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"alignContent": {
+"defaultValue": null,
+"description": "Позиционирование контента",
+"name": "alignContent",
+"required": false,
+"type": {
+"name": "\"left\" | \"center\" | undefined"
+}
+},
+"titleTag": {
+"defaultValue": {
+"value": "'h3'"
+},
+"description": "HTML тег для заголовка",
+"name": "titleTag",
+"required": false,
+"type": {
+"name": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | undefined"
+}
+},
+"texts": {
+"defaultValue": null,
+"description": "Объект с текстами",
+"name": "texts",
+"required": false,
+"type": {
+"name": "ConfirmationTexts | undefined"
+}
+},
+"requiredCharAmount": {
+"defaultValue": null,
+"description": "Количество символов, которое можно ввести в поле ввода подписания до того, как произойдет автоотправка",
+"name": "requiredCharAmount",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"countdownDuration": {
+"defaultValue": null,
+"description": "Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах",
+"name": "countdownDuration",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"tempBlockDuration": {
+"defaultValue": null,
+"description": "Продолжительность блокировки формы (ms)",
+"name": "tempBlockDuration",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"phone": {
+"defaultValue": null,
+"description": "Номер телефона, на который отправлен код",
+"name": "phone",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"blockSmsRetry": {
+"defaultValue": null,
+"description": "Не осталось попыток ввода кода",
+"name": "blockSmsRetry",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Сss класс для стилизации общей обёртки",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"maxWidth": {
+"defaultValue": null,
+"description": "Максимальная ширина контейнера компонента.\nДля mobile по умолчанию используется 288px, если не передано значение.",
+"name": "maxWidth",
+"required": false,
+"type": {
+"name": "MaxWidth<string | number> | undefined"
+}
+},
+"clearCodeOnError": {
+"defaultValue": null,
+"description": "Флаг - нужно ли очищать код при возникновении ошибки",
+"name": "clearCodeOnError",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onChangeState": {
+"defaultValue": null,
+"description": "Функция обновления состояния компонента",
+"name": "onChangeState",
+"required": true,
+"type": {
+"name": "(state: string) => void"
+}
+},
+"onChangeScreen": {
+"defaultValue": null,
+"description": "Функция обновления состояния компонента",
+"name": "onChangeScreen",
+"required": true,
+"type": {
+"name": "(state: string) => void"
+}
+},
+"onInputFinished": {
+"defaultValue": null,
+"description": "Обработчик события завершения ввода кода подписания",
+"name": "onInputFinished",
+"required": true,
+"type": {
+"name": "(code: string) => void"
+}
+},
+"onSmsRetryClick": {
+"defaultValue": null,
+"description": "Обработчик события нажатия на кнопку \"Запросить код\"",
+"name": "onSmsRetryClick",
+"required": true,
+"type": {
+"name": "() => void"
+}
+},
+"onFatalErrorOkButtonClick": {
+"defaultValue": null,
+"description": "Клик по кнопке \"Понятно\" на экране фатальной ошибки",
+"name": "onFatalErrorOkButtonClick",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"onTempBlockFinished": {
+"defaultValue": null,
+"description": "Временная блокировка формы закончилась",
+"name": "onTempBlockFinished",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"getScreensMap": {
+"defaultValue": null,
+"description": "Возвращает объект, где ключ - название экрана (screen), значение - компонент для экрана",
+"name": "getScreensMap",
+"required": false,
+"type": {
+"name": "((defaultScreensMap: ScreensMap) => ScreensMap) | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hideCountdownSection": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Скрыть секцию с повторной отправкой кода",
+"name": "hideCountdownSection",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"initialScreenHintSlot": {
+"defaultValue": null,
+"description": "Слот для контента с подсказкой на главном экране",
+"name": "initialScreenHintSlot",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"mobile\" | \"desktop\" | undefined"
+}
+},
+"errorVisibleDuration": {
+"defaultValue": {
+"value": "1300"
+},
+"description": "Продолжительность отображения ошибки",
+"name": "errorVisibleDuration",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "1. Корректный код: любой введеный код будет корректным.\n2. Некорректный код: любой введеный код будет некорректным.\n3. Код устарел: после ввода кода пользователю будет сообщено, что код устарел.\n4. Закончились попытки ввода кода, вводимый код некорректен: после ввода кода пользователю будет сообщено, что у него закончились попытки.\n5. Закончились попытки запроса кода, вводимый код устарел: после запроса следующего кода запрос нового будет заблокирован.\n6. Временная блокировка формы: после ввода кода форма будет заблокирована на 24 часа.",
+"desktop": "render(() => {\nconst isMobileFrame = document.body.clientWidth < 450;\nconst variants = [\n{ key: 'success', content: 'Корректный код' },\n{ key: 'error', content: 'Некорректный код' },\n{ key: 'expired', content: 'Код устарел' },\n{ key: 'fatal', content: 'Закончились попытки ввода кода, вводимый код некорректен' },\n{\nkey: 'sms-requests-ended',\ncontent: 'Закончились попытки запроса кода, вводимый код устарел',\n},\n{ key: 'temp-block-over', content: 'Сценарий, когда форма временно заблокирована' },\n];\n\nconst [variant, setVariant] = React.useState(variants[0]);\nconst [shownSuccessScreen, setShownSuccessScreen] = React.useState(false);\n\nconst {\nconfirmationState,\nconfirmationScreen,\nconfirmationBlockSmsRetry,\nsetConfirmationState,\nsetConfirmationScreen,\nsetConfirmationBlockSmsRetry,\n} = useConfirmation();\n\nconst handleInputFinished = () => {\nsetTimeout(() => {\nswitch (variant.key) {\ncase 'success':\nsetShownSuccessScreen(true);\nsetConfirmationState('INITIAL');\nbreak;\ncase 'error':\nsetConfirmationState('CODE_ERROR');\nbreak;\ncase 'expired':\nsetConfirmationState('CODE_EXPIRED');\nbreak;\ncase 'fatal':\nsetConfirmationScreen('FATAL_ERROR');\nbreak;\ncase 'sms-requests-ended':\nsetConfirmationState('CODE_EXPIRED_ENDED');\nbreak;\ncase 'temp-block-over':\nsetConfirmationScreen('TEMP_BLOCK');\nbreak;\ndefault:\nbreak;\n}\n}, 1000);\n};\n\nconst durations = {\n'temp-block': 24 * 60 * 60 * 1000,\n'temp-block-over': 10000,\n};\n\nconst currentTempBlockDuration = durations[variant.key] || 10000;\n\nconst handleSmsRetryClick = () => {\nsetTimeout(() => {\nif (variant.key === 'sms-requests-ended') {\nsetConfirmationBlockSmsRetry(true);\n}\nsetConfirmationState('INITIAL');\n}, 1000);\n};\n\nconst handleTempBlockFinished = () => {\nif (variant.key === 'temp-block-over') {\nsetConfirmationScreen('TEMP_BLOCK_OVER');\n} else {\nsetConfirmationScreen('INITIAL');\nsetConfirmationState('CODE_SENDING');\n}\n};\n\nconst Component = isMobileFrame ? ConfirmationMobile : Confirmation;\n\nreturn (\n<div style={{ margin: '0 auto', width: isMobileFrame ? '100%' : 388 }}>\n<SelectDesktop\nblock={true}\noptions={variants}\nonChange={({ selected }) => {\nsetShownSuccessScreen(false);\nsetConfirmationState('INITIAL');\nsetConfirmationScreen('INITIAL');\nsetConfirmationBlockSmsRetry(false);\nsetVariant(selected);\n}}\nselected={variant.key}\nOption={BaseOption}\noptionsListWidth='field'\n/>\n<div\nkey={variant.key}\nstyle={{\nmargin: '16px 0 0',\npadding: '16px',\nboxShadow: '0 0 0 1px #eeeff1',\nboxSizing: 'border-box',\n}}\n>\n{shownSuccessScreen ? (\n<div style={{ display: 'flex', flexFlow: 'column nowrap', height: 266 }}>\n<Gap size={32} />\n<div\nstyle={{\ndisplay: 'flex',\nflexFlow: 'column nowrap',\nalignItems: 'center',\nflex: 1,\n}}\n>\n<div style={{ textAlign: 'center' }}>\n<SuperEllipse\nsize={80}\nbackgroundColor='var(--color-light-status-positive)'\n>\n<CheckmarkMIcon style={{ fill: '#fff' }} />\n</SuperEllipse>\n\n<Gap size={16} />\n\n<Typography.Text view='primary-medium' weight='bold'>\nВведён корректный код\n</Typography.Text>\n</div>\n\n<Gap size={isMobileFrame ? 32 : 48} />\n\n<Button onClick={() => setShownSuccessScreen(false)} size={40}>\nПопробовать ещё раз\n</Button>\n</div>\n</div>\n) : (\n<Component\nscreen={confirmationScreen}\nstate={confirmationState}\nalignContent='center'\nblockSmsRetry={confirmationBlockSmsRetry}\ncountdownDuration={10000}\ntempBlockDuration={currentTempBlockDuration}\nonChangeState={setConfirmationState}\nonChangeScreen={setConfirmationScreen}\nonInputFinished={handleInputFinished}\nonSmsRetryClick={handleSmsRetryClick}\nonTempBlockFinished={handleTempBlockFinished}\nphone='+7 ··· ··· 07 24'\n/>\n)}\n</div>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "49.10.0",
+"description": "#### [#1939](https://github.com/core-ds/core-components/pull/1939)\n\n- Исправлены расхождения в межбуквенном расстоянии и отступами вокруг текста"
+},
+{
+"version": "49.5.0",
+"description": "#### [#1879](https://github.com/core-ds/core-components/pull/1879)\n\n- Добавлен опциональный props `titleTag` для возможности управлять уровнем заголовка"
+}
+]
+}

@@ -1,0 +1,136 @@
+{
+"packageName": "status",
+"displayName": "Status",
+"description": "Используется для цветового кодирования статусов.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"view": {
+"defaultValue": {
+"value": "muted-alt"
+},
+"description": "Вид компонента\n@description soft deprecated, используйте вместо него muted-alt",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"contrast\" | \"soft\" | \"muted\" | \"muted-alt\" | undefined"
+}
+},
+"color": {
+"defaultValue": {
+"value": "green"
+},
+"description": "Цветовое оформление компонента",
+"name": "color",
+"required": false,
+"type": {
+"name": "\"green\" | \"orange\" | \"red\" | \"blue\" | \"grey\" | \"teal\" | \"purple\" | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"size": {
+"defaultValue": {
+"value": 20
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "20 | 24 | 32 | 40 | undefined"
+}
+},
+"shape": {
+"defaultValue": {
+"value": "rectangular"
+},
+"description": "Форма компонента",
+"name": "shape",
+"required": false,
+"type": {
+"name": "\"rounded\" | \"rectangular\" | undefined"
+}
+},
+"uppercase": {
+"defaultValue": {
+"value": true
+},
+"description": "Текст компонента в верхнем регистре",
+"name": "uppercase",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+}
+},
+"demos": [
+{
+"title": "Размеры",
+"description": "Кнопка доступна в размерах 40, 32, 24, 20.",
+"desktop": "<Container>\n<div style={{ display: 'flex' }}>\n<Status size='40' uppercase={false}>\nВсё в порядке\n</Status>\n<Gap size={12} direction='horizontal' />\n<Status size='32' uppercase={false}>\nВсё в порядке\n</Status>\n<Gap size={12} direction='horizontal' />\n<Status size='24' uppercase={false}>\nВсё в порядке\n</Status>\n<Gap size={12} direction='horizontal' />\n<Status size='20' uppercase={false}>\nВсё в порядке\n</Status>\n</div>\n</Container>"
+},
+{
+"title": "Форма",
+"description": "Для статуса доступно два варианта скругления углов.",
+"desktop": "<Container>\n<div style={{ display: 'flex' }}>\n<Status size='40' uppercase={false}>\nВсё в порядке\n</Status>\n<Gap size={12} direction='horizontal' />\n<Status size='40' uppercase={false} shape='rounded'>\nВсё в порядке\n</Status>\n</div>\n</Container>"
+},
+{
+"title": "Стиль лейбла",
+"description": "Для лейбла можно включить опцию `uppercase`.",
+"desktop": "<Container>\n<div style={{ display: 'flex' }}>\n<Status size='40' uppercase={false}>\nВсё в порядке\n</Status>\n<Gap size={12} direction='horizontal' />\n<Status size='40'>Всё в порядке</Status>\n</div>\n</Container>"
+},
+{
+"title": "Аддон",
+"description": "В левый аддон можно передать иконку или другой контент.",
+"desktop": "render(() => {\nreturn (\n<Space direction='horizontal' size={12}>\n<Status view='muted' size={40} uppercase={false}>\nБез аддона\n</Status>\n<Status\nview='muted'\nsize={40}\nuppercase={false}\nleftAddons={<DiamondsMIcon width={16} height={16} />}\n>\nС аддоном\n</Status>\n</Space>\n);\n});"
+},
+{
+"title": "Цвета",
+"description": "",
+"desktop": "<Container>\n<div style={{ display: 'flex' }}>\n<div style={{ display: 'flex', flexDirection: 'column' }}>\n{COLORS.map((color) => (\n<React.Fragment key={color}>\n<Status view='contrast' color={color} key={color} size='24' uppercase={false}>\nLabel\n</Status>\n<Gap size={12} />\n</React.Fragment>\n))}\n</div>\n<Gap size={12} direction='horizontal' />\n<div style={{ display: 'flex', flexDirection: 'column' }}>\n{COLORS.map((color) => (\n<React.Fragment key={color}>\n<Status view='muted-alt' color={color} key={color} size='24' uppercase={false}>\nLabel\n</Status>\n<Gap size={12} />\n</React.Fragment>\n))}\n</div>\n<Gap size={12} direction='horizontal' />\n<div style={{ display: 'flex', flexDirection: 'column' }}>\n{COLORS.map((color) => (\n<React.Fragment key={color}>\n<Status view='muted' color={color} size='24' uppercase={false}>\nLabel\n</Status>\n<Gap size={12} />\n</React.Fragment>\n))}\n</div>\n</div>\n</Container>"
+},
+{
+"title": "Кастомизация",
+"description": "Статусу можно задать кастомный цвет текста и фона.",
+"desktop": "render(() => {\nreturn (\n<Container>\n<style>\n{\n'.className.className {color: var(--color-light-decorative-text-purple); background-color: var(--color-light-decorative-muted-purple);}'\n}\n</style>\n<Status size={40} uppercase={false} className='className'>\nКастом\n</Status>\n</Container>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "49.10.0",
+"description": "#### [#1939](https://github.com/core-ds/core-components/pull/1939)\n\n- Исправлены расхождения в межбуквенном расстоянии и отступами вокруг текста"
+}
+]
+}

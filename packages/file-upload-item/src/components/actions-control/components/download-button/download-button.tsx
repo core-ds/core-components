@@ -1,9 +1,9 @@
-import React, { type MouseEvent, useContext } from 'react';
+import React, { type MouseEvent } from 'react';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
 import ArrowDownLineDownCompactMIcon from '@alfalab/icons-glyph/ArrowDownLineDownCompactMIcon';
 
-import { FileUploadItemContext } from '../../../../context/file-upload-item-context';
+import { useFileUploadItemContext } from '../../../../context/file-upload-item-context';
 
 import styles from '../../actions-control.module.css';
 
@@ -15,7 +15,7 @@ export const DownloadButton = () => {
         disableButtons,
         target,
         onDownload,
-    } = useContext(FileUploadItemContext);
+    } = useFileUploadItemContext();
 
     const handleDownload = (e: MouseEvent<HTMLElement>) => {
         if (onDownload) {

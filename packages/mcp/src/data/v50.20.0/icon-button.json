@@ -1,0 +1,175 @@
+{
+"packageName": "icon-button",
+"displayName": "IconButton",
+"description": "Используется для создания кликабельных иконок.",
+"props": {
+"icon": {
+"defaultValue": null,
+"description": "Компонент иконки",
+"name": "icon",
+"required": true,
+"type": {
+"name": "ElementType<{ className?: string | undefined; }> | ReactElement<{ className?: string | undefined; }, string | JSXElementConstructor<any>>"
+}
+},
+"view": {
+"defaultValue": null,
+"description": "Тип кнопки",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"primary\" | \"secondary\" | \"transparent\" | \"tertiary\" | \"negative\" | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": "48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "24 | 32 | 40 | 48 | 56 | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"transparentBg": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Включает прозрачный фон",
+"name": "transparentBg",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"alignIcon": {
+"defaultValue": {
+"value": "'center'"
+},
+"description": "Выравнивание иконки",
+"name": "alignIcon",
+"required": false,
+"type": {
+"name": "\"center\" | \"left\" | \"right\" | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"Component": {
+"defaultValue": null,
+"description": "Позволяет использовать кастомный компонент для кнопки (например Link из роутера)",
+"name": "Component",
+"required": false,
+"type": {
+"name": "ElementType | undefined"
+}
+},
+"href": {
+"defaultValue": null,
+"description": "Выводит ссылку в виде кнопки",
+"name": "href",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"loading": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Показать лоадер",
+"name": "loading",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024\n1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": null,
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Виды кнопок",
+"description": "Primary, secondary, tertiary, negative.",
+"desktop": "<Container>\n<Row>\n{['primary', 'secondary', 'tertiary', 'negative'].map((view) => (\n<Col key={view}>\n<IconButton view={view} size={32} icon={DiamondsMIcon} />\n</Col>\n))}\n</Row>\n</Container>"
+},
+{
+"title": "Размеры компонента",
+"description": "Рекомендуется использовать один из пяти размеров, в зависимости от контекста.",
+"desktop": "<Space direction='horizontal' size={[20]}>\n{[56, 48, 40, 32, 24].map((size) => (\n<IconButton\nkey={size}\nview='primary'\nsize={size}\nicon={DiamondsMIcon}\nstyle={{\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborderRadius: 0,\n}}\n/>\n))}\n</Space>"
+},
+{
+"title": "Размеры иконки",
+"description": "Допускается использовать иконку 24 и 16 размера.",
+"desktop": "<Space direction='horizontal' size={[20]}>\n<IconButton\nview='primary'\nsize={56}\nicon={DiamondsMIcon}\nstyle={{\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborderRadius: 0,\n}}\n/>\n<IconButton\nview='primary'\nsize={56}\nicon={DiamondsSIcon}\nstyle={{\nbackgroundColor: 'rgba(55, 120, 251, 0.1)',\nborderRadius: 0,\n}}\n/>\n</Space>"
+},
+{
+"title": "Обработка событий",
+"description": "С помощью свойства `loading` можно отобразить состояние загрузки. Минимальное время отображения лоадера — 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».",
+"desktop": "render(() => {\nconst [loading, setLoading] = React.useState({\nprimary: false,\nsecondary: false,\n});\n\nconst handleClick = (buttonName, timeout) => {\nsetLoading({ ...loading, [buttonName]: true });\nsetTimeout(() => {\nsetLoading({ ...loading, [buttonName]: false });\n}, timeout);\n};\n\nreturn (\n<Container>\n<Row>\n<Col>\n<IconButton\nview='primary'\nsize={32}\nicon={DiamondsMIcon}\nloading={loading.primary}\nonClick={() => handleClick('primary', 30)}\n/>\n</Col>\n<Col>\n<IconButton\nview='secondary'\nsize={32}\nicon={DiamondsMIcon}\nloading={loading.secondary}\nonClick={() => handleClick('secondary', 1500)}\n/>\n</Col>\n</Row>\n</Container>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "49.11.0",
+"description": "#### [#1965](https://github.com/core-ds/core-components/pull/1965)\n\n- Компонент разделен на desktop/mobile/responsive\n- Изменён border-radius для всех тем\n- Удалён border-radius из темы corp\n\n- Обновлены зависимости\n    - @alfalab/core-components-universal-modal@2.0.7\n    - @alfalab/core-components-universal-date-input@3.0.6\n    - @alfalab/core-components-bottom-sheet@7.3.0\n    - @alfalab/core-components-icon-button@7.0.3\n    - @alfalab/core-components-select@18.2.4\n    - @alfalab/core-components-select-with-tags@9.0.7\n    - @alfalab/core-components-tooltip@8.0.7\n    - @alfalab/core-components-calendar@8.0.5\n    - @alfalab/core-components-date-range-input@4.0.6\n    - @alfalab/core-components-date-time-input@5.0.6\n    - @alfalab/core-components-file-upload-item@7.2.1\n    - @alfalab/core-components-file-upload-item-v1@2.0.4\n    - @alfalab/core-components-gallery@6.0.8\n    - @alfalab/core-components-navigation-bar-private@1.1.2\n    - @alfalab/core-components-number-input@3.0.4\n    - @alfalab/core-components-password-input@6.0.4\n    - @alfalab/core-components-plate@8.1.2\n    - @alfalab/core-components-tabs@9.2.4\n    - @alfalab/core-components-toast-plate@8.0.3\n    - @alfalab/core-components-custom-picker-button@3.0.7\n    - @alfalab/core-components-input-autocomplete@13.0.7\n    - @alfalab/core-components-international-phone-input@3.2.4\n    - @alfalab/core-components-intl-phone-input@10.0.7\n    - @alfalab/core-components-picker-button@12.0.7\n    - @alfalab/core-components-table@3.0.7\n    - @alfalab/core-components-calendar-input@11.0.6\n    - @alfalab/core-components-calendar-range@8.0.6\n    - @alfalab/core-components-calendar-with-skeleton@6.0.5\n    - @alfalab/core-components-modal@10.0.5\n    - @alfalab/core-components-popup-sheet@2.0.7\n    - @alfalab/core-components-side-panel@6.0.5\n    - @alfalab/core-components-amount-input@8.1.4\n    - @alfalab/core-components-alert@5.0.4\n    - @alfalab/core-components-notification@8.0.3\n    - @alfalab/core-components-toast@7.0.3\n    - @alfalab/core-components-notification-manager@6.0.3"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1801](https://github.com/core-ds/core-components/pull/1801)\n\n- Исправлены `hover` стили на мобильных устройствах. Добавлен медиа-запрос `@media (hover: hover)` для ограничения hover эффектов только устройствами с поддержкой hover."
+}
+]
+}

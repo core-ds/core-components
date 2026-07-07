@@ -66,6 +66,8 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
 
     const show = forcedOpen === undefined ? visible : forcedOpen;
 
+    const popperColorClass = colorStyles[colors][view];
+
     const open = () => {
         if (!show) {
             setVisible(true);
@@ -227,7 +229,7 @@ export const TooltipDesktop: FC<TooltipDesktopProps> = ({
                 open={show}
                 getPortalContainer={getPortalContainer}
                 arrowClassName={cn(arrowClassName, styles.arrow, colorStyles[colors].arrow)}
-                popperClassName={cn(styles.popper, styles[view], colorStyles[colors][view], {
+                popperClassName={cn(styles.popper, styles[view], popperColorClass, {
                     [desktopStyles.popper]: view === 'tooltip',
                     [desktopStyles.hint]: view === 'hint',
                 })}

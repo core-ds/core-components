@@ -19,6 +19,8 @@ render(() => {
                             size={size}
                             checked={checked[size]}
                             onClick={() => setChecked({ ...checked, [size]: !checked[size] })}
+                            view='filled'
+                            shape='rectangular'
                         >
                             Label
                         </Tag>
@@ -37,152 +39,381 @@ render(() => {
 
 ```jsx live
 render(() => {
+    const [checkedMap, setCheckedMap] = React.useState({
+        icon: false,
+        badge: false,
+        emptyBadge: false,
+        amount: false,
+        indicator: false,
+    });
+
     const addon = (
         <div
             style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
-                borderRadius: '8px',
-                height: '24px',
-                width: '24px',
+                background: '#D8EAFF',
+                border: '1px solid #3778FB',
+                borderRadius: '4px',
+                height: '16px',
+                width: '16px',
                 boxSizing: 'border-box',
             }}
         />
     );
 
+    const defaultProps = {
+        size: 40,
+        view: 'filled',
+        shape: 'rectangular',
+    };
+
     const amountAddon = (
-        <div style={{ paddingRight: '4px' }}>
-            <Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />
-        </div>
+        <span
+            className={
+                checkedMap.amount
+                    ? 'tag-description-amount-addon tag-description-amount-addon-checked'
+                    : 'tag-description-amount-addon'
+            }
+            style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                paddingRight: '4px',
+            }}
+        >
+            <Amount
+                className='tag-description-amount'
+                view='withZeroMinorPart'
+                value={123400}
+                currency='RUR'
+                minority={100}
+                transparentMinor
+            />
+        </span>
     );
 
     return (
-        <Container>
+        <React.Fragment>
+            <style>
+                {`
+                    .tag-description-amount-addon .tag-description-amount,
+                    .tag-description-amount-addon .tag-description-amount span {
+                        color: var(--text-primary, rgba(3, 3, 6, 0.88));
+                        font-family: var(--font-family-20, "Alfa Interface Sans");
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;
+                        letter-spacing: var(--regular_letter_spacing-14, -0.08px);
+                    }
+
+                    .tag-description-amount-addon-checked .tag-description-amount,
+                    .tag-description-amount-addon-checked .tag-description-amount span {
+                        color: var(--tag-text-color-checked);
+                    }
+                `}
+            </style>
+            <Container>
             <Row>
-                <div style={{ marginRight: 12 }}>
-                    <Tag size={48}>Label</Tag>
-                </div>
-                <div style={{ marginRight: 12 }}>
-                    <Tag size={48} rightAddons={addon} leftAddons={addon}>
+                <div style={{ marginRight: 8 }}>
+                    <TagDesktop
+                        rightAddons={addon}
+                        leftAddons={addon}
+                        checked={checkedMap.icon}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, icon: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
                         Label
-                    </Tag>
+                    </TagDesktop>
                 </div>
-                <div style={{ marginRight: 12 }}>
-                    <Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>
+                <div style={{ marginRight: 8 }}>
+                    <TagDesktop
+                        rightAddons={<Badge view='count' height={16} content={1} />}
+                        checked={checkedMap.badge}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, badge: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
                         Label
-                    </Tag>
+                    </TagDesktop>
                 </div>
-                <div style={{ marginRight: 12 }}>
-                    <Tag size={48} rightAddons={amountAddon}>
+                <div style={{ marginRight: 8 }}>
+                    <TagDesktop
+                        rightAddons={<Badge view='count' height={16} />}
+                        checked={checkedMap.emptyBadge}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
                         Label
-                    </Tag>
+                    </TagDesktop>
+                </div>
+                <div style={{ marginRight: 8 }}>
+                    <TagDesktop
+                        size={40}
+                        rightAddons={amountAddon}
+                        view='filled'
+                        shape='rectangular'
+                        checked={checkedMap.amount}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, amount: nextChecked }))
+                        }
+                    >
+                        Label
+                    </TagDesktop>
+                </div>
+                <div style={{ marginRight: 8 }}>
+                    <TagDesktop
+                        Component={IndicatorTag}
+                        leftAddons={<ArrowsUpDownSIcon />}
+                        checked={checkedMap.indicator}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
+                        }
+                        {...defaultProps}
+                    />
                 </div>
             </Row>
-        </Container>
+            </Container>
+        </React.Fragment>
     );
 });
 //MOBILE
 render(() => {
+    const [checkedMap, setCheckedMap] = React.useState({
+        icon: false,
+        badge: false,
+        emptyBadge: false,
+        amount: false,
+        indicator: false,
+    });
+
     const addon = (
         <div
             style={{
-                background: 'rgba(55, 120, 251, 0.1)',
-                border: '1px dashed #3778FB',
-                borderRadius: '8px',
-                height: '24px',
-                width: '24px',
+                background: '#D8EAFF',
+                border: '1px solid #3778FB',
+                borderRadius: '4px',
+                height: '16px',
+                width: '16px',
                 boxSizing: 'border-box',
             }}
         />
     );
 
+    const defaultProps = {
+        size: 40,
+        view: 'filled',
+        shape: 'rectangular',
+    };
+
     const amountAddon = (
-        <div style={{ paddingRight: '4px' }}>
-            <Amount view='withZeroMinorPart' value={123400} currency='RUR' minority={100} />
-        </div>
+        <span
+            className={
+                checkedMap.amount
+                    ? 'tag-description-amount-addon tag-description-amount-addon-checked'
+                    : 'tag-description-amount-addon'
+            }
+            style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                paddingRight: '4px',
+            }}
+        >
+            <Amount
+                className='tag-description-amount'
+                view='withZeroMinorPart'
+                value={123400}
+                currency='RUR'
+                minority={100}
+                transparentMinor
+            />
+        </span>
     );
 
     return (
-        <Container>
-            <Row>
-                <div style={{ marginRight: 12 }}>
-                    <Tag size={48}>Label</Tag>
+        <React.Fragment>
+            <style>
+                {`
+                    .tag-description-amount-addon .tag-description-amount,
+                    .tag-description-amount-addon .tag-description-amount span {
+                        color: var(--text-primary, rgba(3, 3, 6, 0.88));
+                        font-family: var(--font-family-20, "Alfa Interface Sans");
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;
+                        letter-spacing: var(--regular_letter_spacing-14, -0.08px);
+                    }
+
+                    .tag-description-amount-addon-checked .tag-description-amount,
+                    .tag-description-amount-addon-checked .tag-description-amount span {
+                        color: var(--tag-text-color-checked);
+                    }
+                `}
+            </style>
+            <Container>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexWrap: 'nowrap',
+                    gap: 12,
+                    overflowX: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                }}
+            >
+                <div>
+                    <TagMobile
+                        rightAddons={addon}
+                        leftAddons={addon}
+                        checked={checkedMap.icon}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, icon: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
+                        Label
+                    </TagMobile>
                 </div>
                 <div>
-                    <Tag size={48} rightAddons={addon} leftAddons={addon}>
+                    <TagMobile
+                        rightAddons={<Badge view='count' height={16} content={1} />}
+                        checked={checkedMap.badge}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, badge: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
                         Label
-                    </Tag>
-                </div>
-            </Row>
-            <div style={{ display: 'flex', marginTop: 16 }}>
-                <div style={{ marginRight: 12 }}>
-                    <Tag size={48} rightAddons={<Badge view='count' height={24} content={1} />}>
-                        Label
-                    </Tag>
+                    </TagMobile>
                 </div>
                 <div>
-                    <Tag size={48} rightAddons={amountAddon}>
+                    <TagMobile
+                        rightAddons={<Badge view='count' height={16} />}
+                        checked={checkedMap.emptyBadge}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, emptyBadge: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
                         Label
-                    </Tag>
+                    </TagMobile>
+                </div>
+                <div>
+                    <TagMobile
+                        rightAddons={amountAddon}
+                        checked={checkedMap.amount}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, amount: nextChecked }))
+                        }
+                        {...defaultProps}
+                    >
+                        Label
+                    </TagMobile>
+                </div>
+                <div style={{ marginRight: 8 }}>
+                    <TagMobile
+                        Component={IndicatorTag}
+                        leftAddons={<ArrowsUpDownSIcon />}
+                        checked={checkedMap.indicator}
+                        onClick={(_, { checked: nextChecked }) =>
+                            setCheckedMap((prev) => ({ ...prev, indicator: nextChecked }))
+                        }
+                        {...defaultProps}
+                    />
                 </div>
             </div>
-        </Container>
+            </Container>
+        </React.Fragment>
     );
 });
 ```
 
 ## Состояния и стили
 
-У тега есть две опции, отвечающие за внешний вид:
-
-- shape (форма) — овальные или прямоугольные.
-- view (стиль) — залитые или бордерные.
-
-Тег может находиться в активном и неактивном состоянии.
-Взаимодействие с тегом может быть ограничено с помощью свойства `disabled`.
+У тега есть две опции, отвечающие за внешний вид.
 
 ```jsx live
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
+    const [shape, setShape] = React.useState('rectangular');
+    const [view, setView] = React.useState('filled');
+    const [checkedWithAddon, setCheckedWithAddon] = React.useState(false);
+    const [checkedPlain, setCheckedPlain] = React.useState(false);
 
-    const VIEWS = [
-        { key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },
-        { key: 'filledRounded', view: 'filled', shape: 'rounded' },
-        { key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },
-        { key: 'filledRectangular', view: 'filled', shape: 'rectangular' },
-    ];
-
-    const [checked, setChecked] = React.useState(
-        Object.fromEntries(VIEWS.map((item) => [item.key, false])),
-    );
+    const tagProps = {
+        size: 40,
+        shape,
+        view,
+        disabled,
+    };
 
     return (
         <Container>
             <Row align='middle'>
-                {VIEWS.map((item) => (
-                    <div key={item.key} style={{ marginRight: 12 }}>
-                        <Tag
-                            size={48}
-                            view={item.view}
-                            shape={item.shape}
-                            disabled={disabled}
-                            checked={checked[item.key]}
-                            onClick={() =>
-                                setChecked({ ...checked, [item.key]: !checked[item.key] })
-                            }
-                        >
-                            Label
-                        </Tag>
-                    </div>
-                ))}
+                <div style={{ marginRight: 8 }}>
+                    <TagDesktop
+                        {...tagProps}
+                        checked={checkedWithAddon}
+                        leftAddons={<DiamondsMIcon height={16} width={16} />}
+                        onClick={() => setCheckedWithAddon((v) => !v)}
+                    >
+                        Label
+                    </TagDesktop>
+                </div>
+                <div>
+                    <TagDesktop
+                        {...tagProps}
+                        checked={checkedPlain}
+                        onClick={() => setCheckedPlain((v) => !v)}
+                    >
+                        Label
+                    </TagDesktop>
+                </div>
             </Row>
+
+            <Gap size={20} />
+
+            <RadioGroup
+                direction='vertical'
+                label='Shape'
+                name='tag-states-shape'
+                onChange={(_, p) => setShape(p.value)}
+                value={shape}
+            >
+                <Radio label='Rectangular' value='rectangular' />
+                <Radio label='Rounded' value='rounded' />
+            </RadioGroup>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='vertical'
+                label='View'
+                name='tag-states-view'
+                onChange={(_, p) => setView(p.value)}
+                value={view}
+            >
+                <Radio label='Filled' value='filled' />
+                <Radio label='Transparent' value='transparent' />
+                <Radio label='Outlined' value='outlined' />
+            </RadioGroup>
+
+            <Gap size={32} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
 
             <Gap size={20} />
 
             <Switch
                 checked={disabled}
-                onChange={() => setDisabled((prevState) => !prevState)}
-                label='Disabled'
+                label='Заблокированное состояние'
+                onChange={() => setDisabled((v) => !v)}
             />
         </Container>
     );
@@ -190,75 +421,1261 @@ render(() => {
 //MOBILE
 render(() => {
     const [disabled, setDisabled] = React.useState(false);
+    const [shape, setShape] = React.useState('rectangular');
+    const [view, setView] = React.useState('filled');
+    const [checkedWithAddon, setCheckedWithAddon] = React.useState(false);
+    const [checkedPlain, setCheckedPlain] = React.useState(false);
 
-    const ROUNDEDS = [
-        { key: 'outlinedRounded', view: 'outlined', shape: 'rounded' },
-        { key: 'filledRounded', view: 'filled', shape: 'rounded' },
-    ];
-
-    const RECTANGLES = [
-        { key: 'outlinedRectangular', view: 'outlined', shape: 'rectangular' },
-        { key: 'filledRectangular', view: 'filled', shape: 'rectangular' },
-    ];
-    const [checkedRounded, setCheckedRounded] = React.useState(
-        Object.fromEntries(ROUNDEDS.map((item) => [item.key, false])),
-    );
-    const [checkedRectangular, setCheckedRectangular] = React.useState(
-        Object.fromEntries(ROUNDEDS.map((item) => [item.key, false])),
-    );
+    const tagProps = {
+        size: 40,
+        shape,
+        view,
+        disabled,
+    };
 
     return (
         <Container>
-            <Row align='middle'>
-                {ROUNDEDS.map((item) => (
-                    <div key={item.key} style={{ marginRight: 12 }}>
-                        <Tag
-                            size={48}
-                            view={item.view}
-                            shape={item.shape}
-                            disabled={disabled}
-                            checked={checkedRounded[item.key]}
-                            onClick={() =>
-                                setCheckedRounded({
-                                    ...checkedRounded,
-                                    [item.key]: !checkedRounded[item.key],
-                                })
-                            }
-                        >
-                            Label
-                        </Tag>
-                    </div>
-                ))}
+            <Row align='middle' style={{ marginBottom: 20 }}>
+                <div style={{ marginRight: 8 }}>
+                    <TagMobile
+                        {...tagProps}
+                        checked={checkedWithAddon}
+                        leftAddons={<DiamondsMIcon height={16} width={16} />}
+                        onClick={() => setCheckedWithAddon((v) => !v)}
+                    >
+                        Label
+                    </TagMobile>
+                </div>
+                <div>
+                    <TagMobile
+                        {...tagProps}
+                        checked={checkedPlain}
+                        onClick={() => setCheckedPlain((v) => !v)}
+                    >
+                        Label
+                    </TagMobile>
+                </div>
             </Row>
-            <Row align='middle'>
-                {RECTANGLES.map((item) => (
-                    <div key={item.key} style={{ marginRight: 12 }}>
-                        <Tag
-                            size={48}
-                            view={item.view}
-                            shape={item.shape}
-                            disabled={disabled}
-                            checked={checkedRectangular[item.key]}
-                            onClick={() =>
-                                setCheckedRectangular({
-                                    ...checkedRectangular,
-                                    [item.key]: !checkedRectangular[item.key],
-                                })
-                            }
-                        >
-                            Label
-                        </Tag>
-                    </div>
-                ))}
-            </Row>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='vertical'
+                label='Shape'
+                name='tag-states-shape-mobile'
+                onChange={(_, p) => setShape(p.value)}
+                value={shape}
+            >
+                <Radio label='Rectangular' value='rectangular' />
+                <Radio label='Rounded' value='rounded' />
+            </RadioGroup>
+
+            <Gap size={16} />
+
+            <RadioGroup
+                direction='vertical'
+                label='View'
+                name='tag-states-view-mobile'
+                onChange={(_, p) => setView(p.value)}
+                value={view}
+            >
+                <Radio label='Filled' value='filled' />
+                <Radio label='Transparent' value='transparent' />
+                <Radio label='Outlined' value='outlined' />
+            </RadioGroup>
+
+            <Gap size={32} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
 
             <Gap size={20} />
 
             <Switch
                 checked={disabled}
-                onChange={() => setDisabled((prevState) => !prevState)}
-                label='Disabled'
+                label='Заблокированное состояние'
+                onChange={() => setDisabled((v) => !v)}
             />
+        </Container>
+    );
+});
+```
+
+## Группа фильтров
+
+Тэг может использоваться в группы фильтров. При необходимости, у тэга с одной иконкой можно отрендерить индикатор, и использовать его как кнопку доступа к другим фильтрам. Такой вид доступен только для [Filled] тэгов 32 и 40 размеров.
+
+```jsx live mobileHeight={768}
+const PERIOD_OPTIONS = [
+    { key: 'week', content: 'Неделя' },
+    { key: 'month', content: 'Месяц' },
+    { key: 'year', content: 'Год' },
+];
+
+const ACCOUNT_OPTIONS = [
+    { key: 'acc1', content: 'Счёт 1' },
+    { key: 'acc2', content: 'Счёт 2' },
+];
+
+const DYNAMIC_META = {
+    added_expenses: 'Добавленные расходы',
+    to_client: 'Клиенту банка',
+    between_accounts: 'Между счетами',
+    templates: 'Шаблоны',
+    autopay: 'Автоплатежи',
+};
+
+const EMPTY = () => ({
+    replenishment: false,
+    writeoff: false,
+    dynamicKeys: [],
+    period: null,
+    accounts: [],
+});
+
+const countActive = ({ accounts, dynamicKeys, period, replenishment, writeoff }) => {
+    let n = 0;
+    if (replenishment) n += 1;
+    if (writeoff) n += 1;
+    n += dynamicKeys.length;
+    if (period) n += 1;
+    n += accounts.length;
+
+    return n;
+};
+
+const DESKTOP_TAG_SIZE = 40;
+const OPTIONS_LIST_ROW_SIZE = 40;
+
+render(() => {
+    const [panelOpen, setPanelOpen] = React.useState(false);
+    const [countIndicator, setCountIndicator] = React.useState(false);
+    const [applied, setApplied] = React.useState(EMPTY);
+    const [draft, setDraft] = React.useState(EMPTY);
+
+    const openOrTogglePanel = () => {
+        if (panelOpen) {
+            setPanelOpen(false);
+        } else {
+            setDraft({ ...applied });
+            setPanelOpen(true);
+        }
+    };
+
+    const activeCount = countActive(applied);
+
+    const toggleDraftDynamic = (id) => {
+        setDraft((prev) => {
+            const has = prev.dynamicKeys.includes(id);
+
+            if (has) {
+                return { ...prev, dynamicKeys: prev.dynamicKeys.filter((k) => k !== id) };
+            }
+
+            return { ...prev, dynamicKeys: [...prev.dynamicKeys, id] };
+        });
+    };
+
+    const toggleAppliedDynamic = (id) => {
+        setApplied((prev) => ({
+            ...prev,
+            dynamicKeys: prev.dynamicKeys.filter((k) => k !== id),
+        }));
+    };
+
+    const [periodOpen, setPeriodOpen] = React.useState(false);
+    const [accountsOpen, setAccountsOpen] = React.useState(false);
+    const [periodAnchorEl, setPeriodAnchorEl] = React.useState(null);
+    const [accountsAnchorEl, setAccountsAnchorEl] = React.useState(null);
+
+    const appliedPeriodOption = React.useMemo(
+        () => PERIOD_OPTIONS.find((o) => o.key === applied.period),
+        [applied.period],
+    );
+
+    const accountsSelectedOpts = React.useMemo(
+        () => ACCOUNT_OPTIONS.filter((o) => applied.accounts.includes(o.key)),
+        [applied.accounts],
+    );
+
+    const filterSectionTitleStyle = { fontSize: 22, lineHeight: '28px' };
+
+    return (
+        <Container>
+            <style>
+                {`
+                    .tag-filter-popover-panel {
+                        width: 280px;
+                        border-radius: 0;
+                        border: none;
+                        background: transparent;
+                        box-shadow: none;
+                    }
+                    .tag-filter-row-options {
+                        border-radius: 16px;
+                        border: 1px solid var(--neutral-300, #E7E8EB);
+                        background: var(--modal-bg-primary, #FFF);
+                        box-shadow:
+                            0 20px 24px 0 rgba(0, 0, 0, 0.08),
+                            0 12px 16px 0 rgba(0, 0, 0, 0.04),
+                            0 4px 8px 0 rgba(0, 0, 0, 0.04),
+                            0 0 1px 0 rgba(0, 0, 0, 0.04);
+                        overflow: hidden;
+                    }
+                    .tag-filter-panel-footer {
+                        padding: 24px 32px 32px !important;
+                    }
+                    .tag-filter-side-panel-scroll {
+                        flex: 1 1 auto;
+                        min-height: 0;
+                        overflow-y: auto;
+                        box-sizing: border-box;
+                        padding: var(--gap-0)  var(--gap-40);
+                    }
+                    .tag-filter-side-panel-scroll:last-child {
+                        padding-bottom: var(--gap-32) !important;
+                    }
+                    .tag-filter-side-panel-header {
+                        padding: 20px 28px 0 28px !important;
+                    }
+                `}
+            </style>
+            <div
+                style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: 8,
+                    alignItems: 'center',
+                }}
+            >
+                <TagDesktop
+                    Component={IndicatorTag}
+                    leftAddons={<SlidersSIcon height={16} width={16} />}
+                    size={DESKTOP_TAG_SIZE}
+                    view='filled'
+                    shape='rectangular'
+                    checked={false}
+                    indicatorProps={
+                        activeCount > 0
+                            ? countIndicator
+                                ? { mode: 'count', value: activeCount }
+                                : { mode: 'dot' }
+                            : undefined
+                    }
+                    onClick={openOrTogglePanel}
+                />
+                {applied.dynamicKeys.map((id) => (
+                    <TagDesktop
+                        key={id}
+                        size={DESKTOP_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        checked={true}
+                        onClick={() => toggleAppliedDynamic(id)}
+                    >
+                        {DYNAMIC_META[id]}
+                    </TagDesktop>
+                ))}
+                <TagDesktop
+                    size={DESKTOP_TAG_SIZE}
+                    view='filled'
+                    shape='rectangular'
+                    checked={applied.replenishment}
+                    onClick={() => setApplied((p) => ({ ...p, replenishment: !p.replenishment }))}
+                >
+                    Пополнения
+                </TagDesktop>
+                <TagDesktop
+                    size={DESKTOP_TAG_SIZE}
+                    view='filled'
+                    shape='rectangular'
+                    checked={applied.writeoff}
+                    onClick={() => setApplied((p) => ({ ...p, writeoff: !p.writeoff }))}
+                >
+                    Списания
+                </TagDesktop>
+                <div>
+                    <FilterTagDesktop
+                        ref={setPeriodAnchorEl}
+                        client='desktop'
+                        size={DESKTOP_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        showClear={false}
+                        checked={Boolean(applied.period)}
+                        open={periodOpen}
+                        onClick={() => {
+                            setAccountsOpen(false);
+                            setPeriodOpen((v) => !v);
+                        }}
+                    >
+                        {appliedPeriodOption ? (
+                            <>
+                                Период:
+                                <span style={{ fontWeight: 700 }}>
+                                    {appliedPeriodOption.content}
+                                </span>
+                            </>
+                        ) : (
+                            'Период'
+                        )}
+                    </FilterTagDesktop>
+                    <Popover
+                        anchorElement={periodAnchorEl}
+                        open={periodOpen}
+                        position='bottom-start'
+                        offset={[0, 4]}
+                        preventFlip={true}
+                        popperClassName='tag-filter-popover-panel'
+                    >
+                        <OptionsList
+                            Option={Option}
+                            className='tag-filter-row-options'
+                            client='desktop'
+                            nativeScrollbar={true}
+                            size={OPTIONS_LIST_ROW_SIZE}
+                            options={PERIOD_OPTIONS}
+                            open={periodOpen}
+                            selectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}
+                            getOptionProps={(option, index) => ({
+                                option,
+                                index,
+                                mobile: false,
+                                multiple: false,
+                                selected: applied.period === option.key,
+                                innerProps: {
+                                    id: `tag-doc-desktop-period-${option.key}`,
+                                    role: 'option',
+                                    onMouseDown: (e) => e.preventDefault(),
+                                    onClick: () => {
+                                        setApplied((p) => ({
+                                            ...p,
+                                            period: p.period === option.key ? null : option.key,
+                                        }));
+                                        setPeriodOpen(false);
+                                    },
+                                },
+                            })}
+                        />
+                    </Popover>
+                </div>
+                <div>
+                    <FilterTagDesktop
+                        ref={setAccountsAnchorEl}
+                        client='desktop'
+                        size={DESKTOP_TAG_SIZE}
+                        view='filled'
+                        shape='rectangular'
+                        showClear={false}
+                        checked={applied.accounts.length > 0}
+                        open={accountsOpen}
+                        onClick={() => {
+                            setPeriodOpen(false);
+                            setAccountsOpen((v) => !v);
+                        }}
+                    >
+                        {accountsSelectedOpts.length === 0 ? (
+                            'Счета'
+                        ) : accountsSelectedOpts.length === 1 ? (
+                            <>
+                                Счета:
+                                <span style={{ fontWeight: 700 }}>
+                                    {accountsSelectedOpts[0].content}
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                Счета:
+                                <span style={{ fontWeight: 700 }}>
+                                    Выбрано {accountsSelectedOpts.length}
+                                </span>
+                            </>
+                        )}
+                    </FilterTagDesktop>
+                    <Popover
+                        anchorElement={accountsAnchorEl}
+                        open={accountsOpen}
+                        position='bottom-start'
+                        offset={[0, 4]}
+                        preventFlip={true}
+                        popperClassName='tag-filter-popover-panel'
+                    >
+                        <OptionsList
+                            Option={Option}
+                            className='tag-filter-row-options'
+                            client='desktop'
+                            nativeScrollbar={true}
+                            size={OPTIONS_LIST_ROW_SIZE}
+                            options={ACCOUNT_OPTIONS}
+                            open={accountsOpen}
+                            multiple={true}
+                            selectedItems={ACCOUNT_OPTIONS.filter((item) =>
+                                applied.accounts.includes(item.key),
+                            )}
+                            getOptionProps={(option, index) => ({
+                                option,
+                                index,
+                                mobile: false,
+                                multiple: true,
+                                selected: applied.accounts.includes(option.key),
+                                innerProps: {
+                                    id: `tag-doc-desktop-accounts-${option.key}`,
+                                    role: 'option',
+                                    onMouseDown: (e) => e.preventDefault(),
+                                    onClick: () => {
+                                        setApplied((p) => {
+                                            const selected = p.accounts.includes(option.key);
+
+                                            return {
+                                                ...p,
+                                                accounts: selected
+                                                    ? p.accounts.filter((k) => k !== option.key)
+                                                    : [...p.accounts, option.key],
+                                            };
+                                        });
+                                    },
+                                },
+                            })}
+                        />
+                    </Popover>
+                </div>
+            </div>
+
+            <Gap size={20} />
+
+            <div style={{ width: '100%', alignSelf: 'stretch' }}>
+                <Divider />
+            </div>
+
+            <Gap size={20} />
+
+            <Switch
+                checked={countIndicator}
+                label='Индикатор с цифрой'
+                onChange={() => setCountIndicator((v) => !v)}
+            />
+
+            <SidePanel
+                open={panelOpen}
+                onClose={() => setPanelOpen(false)}
+                size={500}
+                componentDivProps={{
+                    style: {
+                        top: 16,
+                        right: 12,
+                        bottom: 16,
+                        maxHeight: 'calc(100vh - 32px)',
+                        boxSizing: 'border-box',
+                        borderRadius: 24,
+                    },
+                }}
+            >
+                <SidePanel.Header
+                    className='tag-filter-side-panel-header'
+                    sticky={true}
+                    hasCloser={true}
+                    title={<span style={{ fontSize: 30, lineHeight: '36px' }}>Фильтры</span>}
+                />
+                <SidePanel.Content className='tag-filter-side-panel-scroll'>
+                    {
+                        <div>
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Период
+                            </Typography.Title>
+                            <Gap size={16} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                {PERIOD_OPTIONS.map(({ key, content }) => (
+                                    <TagDesktop
+                                        key={key}
+                                        size={32}
+                                        view='filled'
+                                        shape='rectangular'
+                                        checked={draft.period === key}
+                                        onClick={() =>
+                                            setDraft((p) => ({
+                                                ...p,
+                                                period: p.period === key ? null : key,
+                                            }))
+                                        }
+                                    >
+                                        {content}
+                                    </TagDesktop>
+                                ))}
+                            </div>
+                            <Gap size={24} />
+
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Движение средств
+                            </Typography.Title>
+                            <Gap size={16} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                <TagDesktop
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.replenishment}
+                                    onClick={() =>
+                                        setDraft((p) => ({ ...p, replenishment: !p.replenishment }))
+                                    }
+                                >
+                                    Пополнение
+                                </TagDesktop>
+                                <TagDesktop
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.writeoff}
+                                    onClick={() =>
+                                        setDraft((p) => ({ ...p, writeoff: !p.writeoff }))
+                                    }
+                                >
+                                    Списание
+                                </TagDesktop>
+                                <TagDesktop
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('added_expenses')}
+                                    onClick={() => toggleDraftDynamic('added_expenses')}
+                                >
+                                    Добавленные расходы
+                                </TagDesktop>
+                            </div>
+                            <Gap size={24} />
+
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Переводы
+                            </Typography.Title>
+                            <Gap size={16} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                <TagDesktop
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('to_client')}
+                                    onClick={() => toggleDraftDynamic('to_client')}
+                                >
+                                    Клиенту банка
+                                </TagDesktop>
+                                <TagDesktop
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('between_accounts')}
+                                    onClick={() => toggleDraftDynamic('between_accounts')}
+                                >
+                                    Между счетами
+                                </TagDesktop>
+                            </div>
+                            <Gap size={24} />
+
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Шаблоны и автоплатежи
+                            </Typography.Title>
+                            <Gap size={16} />
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                <TagDesktop
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('templates')}
+                                    onClick={() => toggleDraftDynamic('templates')}
+                                >
+                                    Шаблоны
+                                </TagDesktop>
+                                <TagDesktop
+                                    size={32}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.dynamicKeys.includes('autopay')}
+                                    onClick={() => toggleDraftDynamic('autopay')}
+                                >
+                                    Автоплатежи
+                                </TagDesktop>
+                            </div>
+                            <Gap size={24} />
+
+                            <Typography.Title
+                                tag='div'
+                                view='xsmall'
+                                font='system'
+                                style={filterSectionTitleStyle}
+                            >
+                                Счета
+                            </Typography.Title>
+                            <Gap size={16} />
+                            {ACCOUNT_OPTIONS.map(({ key, content }) => (
+                                <div key={key} style={{ marginBottom: 12 }}>
+                                    <Checkbox
+                                        checked={draft.accounts.includes(key)}
+                                        label={content}
+                                        onChange={() =>
+                                            setDraft((p) => {
+                                                const has = p.accounts.includes(key);
+
+                                                return {
+                                                    ...p,
+                                                    accounts: has
+                                                        ? p.accounts.filter((k) => k !== key)
+                                                        : [...p.accounts, key],
+                                                };
+                                            })
+                                        }
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    }
+                </SidePanel.Content>
+                <SidePanel.Footer sticky={true} className='tag-filter-panel-footer'>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+                        <Button
+                            view='primary'
+                            size={56}
+                            type='button'
+                            onClick={() => {
+                                setApplied({ ...draft });
+                                setPanelOpen(false);
+                            }}
+                        >
+                            Применить
+                        </Button>
+                        <Button
+                            view='secondary'
+                            size={56}
+                            type='button'
+                            onClick={() => setDraft(EMPTY())}
+                        >
+                            Сбросить
+                        </Button>
+                    </div>
+                </SidePanel.Footer>
+            </SidePanel>
+        </Container>
+    );
+});
+//MOBILE
+const PERIOD_OPTIONS = [
+    { key: 'week', content: 'Неделя' },
+    { key: 'month', content: 'Месяц' },
+    { key: 'year', content: 'Год' },
+];
+
+const ACCOUNT_OPTIONS = [
+    { key: 'acc1', content: 'Счёт 1' },
+    { key: 'acc2', content: 'Счёт 2' },
+];
+
+const DYNAMIC_META = {
+    added_expenses: 'Добавленные расходы',
+    to_client: 'Клиенту банка',
+    between_accounts: 'Между счетами',
+    templates: 'Шаблоны',
+    autopay: 'Автоплатежи',
+};
+
+const EMPTY = () => ({
+    replenishment: false,
+    writeoff: false,
+    dynamicKeys: [],
+    period: null,
+    accounts: [],
+});
+
+const toggleInArray = (arr, value) =>
+    arr.includes(value) ? arr.filter((item) => item !== value) : [...arr, value];
+
+const countActive = (filters) =>
+    [
+        filters.replenishment,
+        filters.writeoff,
+        filters.period,
+        ...filters.dynamicKeys,
+        ...filters.accounts,
+    ].filter(Boolean).length;
+
+const MOBILE_ROW_TAG_SIZE = 32;
+const OPTIONS_LIST_ROW_SIZE = 40;
+
+const DYNAMIC_GROUPS = [
+    {
+        title: 'Движение средств',
+        items: [
+            { key: 'replenishment', label: 'Пополнение', type: 'boolean' },
+            { key: 'writeoff', label: 'Списание', type: 'boolean' },
+            { key: 'added_expenses', label: DYNAMIC_META.added_expenses, type: 'dynamic' },
+        ],
+    },
+    {
+        title: 'Переводы',
+        items: [
+            { key: 'to_client', label: DYNAMIC_META.to_client, type: 'dynamic' },
+            { key: 'between_accounts', label: DYNAMIC_META.between_accounts, type: 'dynamic' },
+        ],
+    },
+    {
+        title: 'Шаблоны и автоплатежи',
+        items: [
+            { key: 'templates', label: DYNAMIC_META.templates, type: 'dynamic' },
+            { key: 'autopay', label: DYNAMIC_META.autopay, type: 'dynamic' },
+        ],
+    },
+];
+
+const FilterTagItem = ({ checked, onClick, size = MOBILE_ROW_TAG_SIZE, children }) => (
+    <TagMobile size={size} view='filled' shape='rectangular' checked={checked} onClick={onClick}>
+        {children}
+    </TagMobile>
+);
+
+const CheckboxItem = ({ selected, disabled, position }) => (
+    <span
+        style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexShrink: 0,
+            ...(position === 'before'
+                ? { marginRight: 'var(--gap-12)' }
+                : { marginLeft: 'var(--gap-12)' }),
+        }}
+    >
+        <Checkbox
+            hiddenInput={true}
+            checked={Boolean(selected)}
+            disabled={disabled}
+            size={24}
+            position={position}
+        />
+    </span>
+);
+
+render(() => {
+    const [panelOpen, setPanelOpen] = React.useState(false);
+    const [countIndicator, setCountIndicator] = React.useState(false);
+    const [applied, setApplied] = React.useState(EMPTY);
+    const [draft, setDraft] = React.useState(EMPTY);
+    const [filterSheet, setFilterSheet] = React.useState(null);
+    const [accountsSheetDraft, setAccountsSheetDraft] = React.useState([]);
+    const prevFilterSheetRef = React.useRef(null);
+
+    const updateApplied = (patch) => setApplied((prev) => ({ ...prev, ...patch }));
+    const updateDraft = (patch) => setDraft((prev) => ({ ...prev, ...patch }));
+
+    const closeFilterSheet = () => setFilterSheet(null);
+
+    const toggleFilterSheet = (name) => {
+        setFilterSheet((prev) => (prev === name ? null : name));
+    };
+
+    React.useEffect(() => {
+        if (filterSheet) {
+            setPanelOpen(false);
+        }
+    }, [filterSheet]);
+
+    React.useEffect(() => {
+        if (filterSheet === 'accounts' && prevFilterSheetRef.current !== 'accounts') {
+            setAccountsSheetDraft([...applied.accounts]);
+        }
+        prevFilterSheetRef.current = filterSheet;
+    }, [filterSheet, applied.accounts]);
+
+    const openOrTogglePanel = () => {
+        setFilterSheet(null);
+        setPanelOpen((isOpen) => {
+            if (isOpen) return false;
+
+            setDraft({ ...applied });
+            return true;
+        });
+    };
+
+    const closePanel = () => {
+        setPanelOpen(false);
+        setFilterSheet(null);
+    };
+    const activeCount = countActive(applied);
+
+    const toggleDraftDynamic = (key) =>
+        updateDraft({
+            dynamicKeys: toggleInArray(draft.dynamicKeys, key),
+        });
+
+    const appliedPeriodOption = React.useMemo(
+        () => PERIOD_OPTIONS.find((o) => o.key === applied.period),
+        [applied.period],
+    );
+
+    const accountsSelectedOpts = React.useMemo(
+        () => ACCOUNT_OPTIONS.filter((o) => applied.accounts.includes(o.key)),
+        [applied.accounts],
+    );
+
+    const mobileFilterTagsScrollRowStyle = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        gap: 8,
+        alignItems: 'center',
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        WebkitOverflowScrolling: 'touch',
+        touchAction: 'pan-x',
+        paddingTop: 10,
+        paddingBottom: 4,
+        boxSizing: 'border-box',
+        width: 'max-content',
+        maxWidth: '100%',
+        minWidth: 0,
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
+    };
+
+    const mobileFilterSheetTagsRowStyle = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 8,
+        alignItems: 'center',
+    };
+
+    return (
+        <Container>
+            <style>
+                {`
+                    .tag-doc-mobile-filter-tags-scroll::-webkit-scrollbar {
+                        display: none;
+                        width: 0;
+                        height: 0;
+                    }
+                    .tag-filter-row-options {
+                        border-radius: 16px;
+                        overflow: hidden;
+                    }
+                    .tag-doc-mobile-bottom-sheet-content {
+                        padding-left: 4px;
+                        padding-right: 2px;
+                        box-sizing: border-box;
+                    }
+                    .tag-doc-mobile-sheet-options [class*='textContent'] {
+                        padding-top: var(--gap-16);
+                        padding-bottom: var(--gap-16);
+                    }
+                `}
+            </style>
+            <div
+                style={{
+                    display: 'inline-grid',
+                    gridTemplateColumns: 'minmax(0, max-content)',
+                    maxWidth: '100%',
+                }}
+            >
+                <div
+                    className='tag-doc-mobile-filter-tags-scroll'
+                    style={mobileFilterTagsScrollRowStyle}
+                >
+                    <div style={{ display: 'flex' }}>
+                        <TagMobile
+                            Component={IndicatorTag}
+                            leftAddons={<SlidersSIcon height={16} width={16} />}
+                            size={MOBILE_ROW_TAG_SIZE}
+                            view='filled'
+                            shape='rectangular'
+                            checked={false}
+                            indicatorProps={
+                                activeCount > 0
+                                    ? countIndicator
+                                        ? { mode: 'count', value: activeCount }
+                                        : { mode: 'dot' }
+                                    : undefined
+                            }
+                            onClick={openOrTogglePanel}
+                        />
+                    </div>
+
+                    {applied.dynamicKeys.map((id) => (
+                        <div key={id}>
+                            <FilterTagItem
+                                checked={true}
+                                onClick={() =>
+                                    updateApplied({
+                                        dynamicKeys: applied.dynamicKeys.filter(
+                                            (key) => key !== id,
+                                        ),
+                                    })
+                                }
+                            >
+                                {DYNAMIC_META[id]}
+                            </FilterTagItem>
+                        </div>
+                    ))}
+
+                    <div>
+                        <FilterTagItem
+                            checked={applied.replenishment}
+                            onClick={() => updateApplied({ replenishment: !applied.replenishment })}
+                        >
+                            Пополнения
+                        </FilterTagItem>
+                    </div>
+                    <div>
+                        <FilterTagItem
+                            checked={applied.writeoff}
+                            onClick={() => updateApplied({ writeoff: !applied.writeoff })}
+                        >
+                            Списания
+                        </FilterTagItem>
+                    </div>
+
+                    <div>
+                        <FilterTagMobile
+                            client='mobile'
+                            size={MOBILE_ROW_TAG_SIZE}
+                            view='filled'
+                            shape='rectangular'
+                            showClear={false}
+                            checked={Boolean(applied.period)}
+                            open={filterSheet === 'period'}
+                            onClick={() => toggleFilterSheet('period')}
+                        >
+                            {appliedPeriodOption ? (
+                                <>
+                                    Период:
+                                    <span style={{ fontWeight: 700 }}>
+                                        {appliedPeriodOption.content}
+                                    </span>
+                                </>
+                            ) : (
+                                'Период'
+                            )}
+                        </FilterTagMobile>
+                    </div>
+                    <div>
+                        <FilterTagMobile
+                            client='mobile'
+                            size={MOBILE_ROW_TAG_SIZE}
+                            view='filled'
+                            shape='rectangular'
+                            showClear={false}
+                            checked={applied.accounts.length > 0}
+                            open={filterSheet === 'accounts'}
+                            onClick={() => toggleFilterSheet('accounts')}
+                        >
+                            {accountsSelectedOpts.length === 0 ? (
+                                'Счета'
+                            ) : accountsSelectedOpts.length === 1 ? (
+                                <>
+                                    Счета:
+                                    <span style={{ fontWeight: 700 }}>
+                                        {accountsSelectedOpts[0].content}
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    Счета:
+                                    <span style={{ fontWeight: 700 }}>
+                                        Выбрано {accountsSelectedOpts.length}
+                                    </span>
+                                </>
+                            )}
+                        </FilterTagMobile>
+                    </div>
+                </div>
+
+                <Gap size={20} />
+
+                <div style={{ width: '100%', minWidth: 0 }}>
+                    <Divider />
+                </div>
+            </div>
+
+            <Gap size={20} />
+
+            <Switch
+                checked={countIndicator}
+                label='Индикатор с цифрой'
+                onChange={() => setCountIndicator((v) => !v)}
+            />
+
+            <BottomSheet
+                open={filterSheet === 'period'}
+                onClose={closeFilterSheet}
+                title='Период'
+                hasCloser={true}
+                stickyFooter={false}
+                initialHeight='default'
+                contentClassName='tag-doc-mobile-bottom-sheet-content'
+            >
+                <OptionsList
+                    Option={Option}
+                    className='tag-filter-row-options tag-doc-mobile-sheet-options'
+                    client='mobile'
+                    nativeScrollbar={true}
+                    size={OPTIONS_LIST_ROW_SIZE}
+                    options={PERIOD_OPTIONS}
+                    open={filterSheet === 'period'}
+                    selectedItems={PERIOD_OPTIONS.filter((item) => item.key === applied.period)}
+                    getOptionProps={(option, index) => ({
+                        option,
+                        index,
+                        mobile: true,
+                        multiple: false,
+                        selected: applied.period === option.key,
+                        innerProps: {
+                            id: `tag-doc-mobile-period-sheet-${option.key}`,
+                            role: 'option',
+                            onMouseDown: (e) => e.preventDefault(),
+                            onClick: () => {
+                                updateApplied({
+                                    period: applied.period === option.key ? null : option.key,
+                                });
+                                closeFilterSheet();
+                            },
+                        },
+                    })}
+                />
+            </BottomSheet>
+
+            <BottomSheet
+                open={filterSheet === 'accounts'}
+                onClose={closeFilterSheet}
+                title='Счета'
+                hasCloser={true}
+                stickyFooter={true}
+                initialHeight='default'
+                contentClassName='tag-doc-mobile-bottom-sheet-content'
+                actionButton={
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: 16,
+                            width: '100%',
+                            boxSizing: 'border-box',
+                        }}
+                    >
+                        <ButtonMobile
+                            view='secondary'
+                            size={48}
+                            type='button'
+                            block={true}
+                            style={{ flex: 1 }}
+                            onClick={() => setAccountsSheetDraft([])}
+                        >
+                            Сбросить
+                        </ButtonMobile>
+                        <ButtonMobile
+                            view='primary'
+                            size={48}
+                            type='button'
+                            block={true}
+                            style={{ flex: 1 }}
+                            onClick={() => {
+                                updateApplied({ accounts: accountsSheetDraft });
+                                closeFilterSheet();
+                            }}
+                        >
+                            Применить
+                        </ButtonMobile>
+                    </div>
+                }
+            >
+                <OptionsList
+                    Option={Option}
+                    className='tag-filter-row-options tag-doc-mobile-sheet-options'
+                    client='mobile'
+                    nativeScrollbar={true}
+                    size={OPTIONS_LIST_ROW_SIZE}
+                    options={ACCOUNT_OPTIONS}
+                    open={filterSheet === 'accounts'}
+                    multiple={true}
+                    selectedItems={ACCOUNT_OPTIONS.filter((item) =>
+                        accountsSheetDraft.includes(item.key),
+                    )}
+                    getOptionProps={(option, index) => ({
+                        option,
+                        index,
+                        mobile: true,
+                        multiple: true,
+                        Checkmark: CheckboxItem,
+                        selected: accountsSheetDraft.includes(option.key),
+                        innerProps: {
+                            id: `tag-doc-mobile-accounts-sheet-${option.key}`,
+                            role: 'option',
+                            onMouseDown: (e) => e.preventDefault(),
+                            onClick: () => {
+                                setAccountsSheetDraft((prev) => toggleInArray(prev, option.key));
+                            },
+                        },
+                    })}
+                />
+            </BottomSheet>
+
+            <BottomSheet
+                open={panelOpen}
+                onClose={closePanel}
+                title='Фильтры'
+                hasCloser={true}
+                stickyFooter={true}
+                initialHeight='full'
+                actionButton={
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: 16,
+                            width: '100%',
+                            boxSizing: 'border-box',
+                        }}
+                    >
+                        <ButtonMobile
+                            view='secondary'
+                            size={48}
+                            type='button'
+                            block={true}
+                            style={{ flex: 1 }}
+                            onClick={() => setDraft(EMPTY)}
+                        >
+                            Сбросить
+                        </ButtonMobile>
+                        <ButtonMobile
+                            view='primary'
+                            size={48}
+                            type='button'
+                            block={true}
+                            style={{ flex: 1 }}
+                            onClick={() => {
+                                setApplied({ ...draft });
+                                closePanel();
+                            }}
+                        >
+                            Применить
+                        </ButtonMobile>
+                    </div>
+                }
+            >
+                <>
+                    <Typography.Text
+                        tag='p'
+                        view='component-secondary'
+                        color='secondary'
+                        defaultMargins={false}
+                    >
+                        Период
+                    </Typography.Text>
+                    <Gap size={8} />
+                    <div style={mobileFilterSheetTagsRowStyle}>
+                        {PERIOD_OPTIONS.map((opt) => (
+                            <div key={opt.key}>
+                                <TagMobile
+                                    size={MOBILE_ROW_TAG_SIZE}
+                                    view='filled'
+                                    shape='rectangular'
+                                    checked={draft.period === opt.key}
+                                    onClick={() =>
+                                        setDraft((p) => ({
+                                            ...p,
+                                            period: p.period === opt.key ? null : opt.key,
+                                        }))
+                                    }
+                                >
+                                    {opt.content}
+                                </TagMobile>
+                            </div>
+                        ))}
+                    </div>
+
+                    <Gap size={24} />
+
+                    {DYNAMIC_GROUPS.map((group) => (
+                        <React.Fragment key={group.title}>
+                            <Typography.Text
+                                tag='p'
+                                view='component-secondary'
+                                color='secondary'
+                                defaultMargins={false}
+                            >
+                                {group.title}
+                            </Typography.Text>
+                            <Gap size={8} />
+                            <div style={mobileFilterSheetTagsRowStyle}>
+                                {group.items.map((item) => {
+                                    const checked =
+                                        item.type === 'boolean'
+                                            ? Boolean(draft[item.key])
+                                            : draft.dynamicKeys.includes(item.key);
+
+                                    return (
+                                        <div key={item.key}>
+                                            <FilterTagItem
+                                                checked={checked}
+                                                onClick={() => {
+                                                    if (item.type === 'boolean') {
+                                                        updateDraft({
+                                                            [item.key]: !draft[item.key],
+                                                        });
+                                                        return;
+                                                    }
+
+                                                    toggleDraftDynamic(item.key);
+                                                }}
+                                            >
+                                                {item.label}
+                                            </FilterTagItem>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                            <Gap size={24} />
+                        </React.Fragment>
+                    ))}
+
+                    <Typography.Text
+                        tag='p'
+                        view='component-secondary'
+                        color='secondary'
+                        defaultMargins={false}
+                    >
+                        Счета
+                    </Typography.Text>
+                    <Gap size={12} />
+
+                    {ACCOUNT_OPTIONS.map((opt) => (
+                        <div key={opt.key} style={{ marginBottom: 12 }}>
+                            <Checkbox
+                                checked={draft.accounts.includes(opt.key)}
+                                label={opt.content}
+                                onChange={() =>
+                                    updateDraft({
+                                        accounts: toggleInArray(draft.accounts, opt.key),
+                                    })
+                                }
+                            />
+                        </div>
+                    ))}
+                </>
+            </BottomSheet>
         </Container>
     );
 });

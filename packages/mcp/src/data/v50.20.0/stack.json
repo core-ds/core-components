@@ -1,0 +1,35 @@
+{
+"packageName": "stack",
+"displayName": "Stack",
+"description": "",
+"props": {
+"children": {
+"defaultValue": null,
+"description": "Render prop, в который передается функция.\nФункция принимает аргумент со значением z-index из текущего контекста.",
+"name": "children",
+"required": true,
+"type": {
+"name": "(value: number) => ReactNode"
+}
+},
+"value": {
+"defaultValue": {
+"value": 10
+},
+"description": "Исходное значение для z-index.",
+"name": "value",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Пример",
+"description": "Расположение модального окна и тултипа при помощи stack.",
+"desktop": "render(() => {\nconst [modalOpen, setModalOpen] = React.useState(false);\n\nreturn (\n<div>\n<Button onClick={() => setModalOpen(true)}>Показать модалку</Button>\n\n<Stack value={1000}>\n{(zIndex) => (\n<ModalDesktop\nzIndex={zIndex}\nopen={modalOpen}\nonClose={() => setModalOpen(false)}\n>\n<ModalDesktop.Content>\n<style>{`.target {width: 100%}`}</style>\n<Stack>\n{(nextZIndex) => (\n<Tooltip\nzIndex={nextZIndex}\ncontent={<div>Tooltip</div>}\ntrigger='click'\ntargetClassName='target'\n>\n<Button block={true}>Показать тултип</Button>\n</Tooltip>\n)}\n</Stack>\n</ModalDesktop.Content>\n</ModalDesktop>\n)}\n</Stack>\n</div>\n);\n});"
+}
+],
+"changelog": []
+}

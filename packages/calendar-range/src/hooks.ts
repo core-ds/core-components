@@ -1,5 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { type RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { addMonths, isEqual, max, min, startOfMonth, subMonths } from 'date-fns';
+
+import { isValidInputValue, parseDateString } from '@alfalab/core-components-calendar-input/shared';
+import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 
 export function usePopoverViewMonthes({
     dateFrom,
@@ -194,3 +197,149 @@ export function useSelectionProps(from?: number, to?: number, highlighted?: numb
         };
     }, [from, highlighted, to]);
 }
+
+interface UseStaticRangeAutoSwapParams {
+    autoSwap: boolean;
+    setInputFromValue: React.Dispatch<React.SetStateAction<string>>;
+    setInputToValue: React.Dispatch<React.SetStateAction<string>>;
+    toggleCorrectionFromRef: RefObject<CorrectionToggleRef>;
+    toggleCorrectionToRef: RefObject<CorrectionToggleRef>;
+    inputFromRef: RefObject<HTMLInputElement>;
+    inputToRef: RefObject<HTMLInputElement>;
+}
+
+type CorrectionToggleRef = { handleCorrection: () => void };
+
+export const useStaticRangeAutoSwap = ({
+    autoSwap,
+    setInputFromValue,
+    setInputToValue,
+    toggleCorrectionFromRef,
+    toggleCorrectionToRef,
+    inputFromRef,
+    inputToRef,
+}: UseStaticRangeAutoSwapParams) => {
+    const isInternalUpdate = useRef(false);
+
+    const swapDates = (newValue: string, inputFromValue: string, inputToValue: string) => {
+        if (!autoSwap) return;
+
+        if (
+            isCompleteDateInput(newValue) &&
+            isCompleteDateInput(inputToValue) &&
+            parseDateString(newValue).getTime() > parseDateString(inputToValue).getTime()
+        ) {
+            if (inputFromValue !== inputToValue) {
+                isInternalUpdate.current = true;
+                setInputFromValue(inputToValue);
+                setInputToValue(newValue);
+
+                toggleCorrectionFromRef.current?.handleCorrection();
+                toggleCorrectionToRef.current?.handleCorrection();
+
+                setTimeout(() => {
+                    inputToRef.current?.focus();
+                }, 0);
+            }
+        }
+        if (
+            isCompleteDateInput(newValue) &&
+            isCompleteDateInput(inputFromValue) &&
+            parseDateString(newValue).getTime() < parseDateString(inputFromValue).getTime()
+        ) {
+            if (inputToValue !== inputFromValue) {
+                isInternalUpdate.current = true;
+                setInputToValue(inputFromValue);
+                setInputFromValue(newValue);
+
+                toggleCorrectionFromRef.current?.handleCorrection();
+                toggleCorrectionToRef.current?.handleCorrection();
+
+                setTimeout(() => {
+                    inputFromRef.current?.focus();
+                }, 0);
+            }
+        }
+    };
+
+    return { swapDates, isInternalUpdate };
+};
+
+interface UseInputValidationParams {
+    inputFromValue: string;
+    inputToValue: string;
+    minDate: number;
+    maxDate: number;
+    offDays: Array<number | Date>;
+}
+
+interface InputValidationResult {
+    inputFromError: boolean;
+    inputToError: boolean;
+    rangeError: boolean;
+}
+
+export const useInputValidation = ({
+    inputFromValue,
+    inputToValue,
+    minDate,
+    maxDate,
+    offDays,
+}: UseInputValidationParams): InputValidationResult => {
+    const [validationResult, setValidationResult] = useState<InputValidationResult>({
+        inputFromError: false,
+        inputToError: false,
+        rangeError: false,
+    });
+
+    useEffect(() => {
+        const isInputFromValueComplete = isCompleteDateInput(inputFromValue);
+        const isInputToValueComplete = isCompleteDateInput(inputToValue);
+
+        let individualInputFromError = false;
+        let individualInputToError = false;
+
+        if (isInputFromValueComplete) {
+            individualInputFromError = !isValidInputValue(
+                inputFromValue,
+                minDate,
+                maxDate,
+                offDays,
+            );
+        }
+
+        if (isInputToValueComplete) {
+            individualInputToError = !isValidInputValue(inputToValue, minDate, maxDate, offDays);
+        }
+
+        let rangeError = false;
+
+        const parsedDateFrom = isInputFromValueComplete ? parseDateString(inputFromValue) : null;
+        const parsedDateTo = isInputToValueComplete ? parseDateString(inputToValue) : null;
+
+        const isParsedDateFromValid =
+            parsedDateFrom &&
+            !Number.isNaN(parsedDateFrom.getTime()) &&
+            isValidInputValue(inputFromValue, minDate, maxDate, offDays);
+        const isParsedDateToValid =
+            parsedDateTo &&
+            !Number.isNaN(parsedDateTo.getTime()) &&
+            isValidInputValue(inputToValue, minDate, maxDate, offDays);
+
+        if (
+            isParsedDateFromValid &&
+            isParsedDateToValid &&
+            parsedDateFrom.getTime() > parsedDateTo.getTime()
+        ) {
+            rangeError = true;
+        }
+
+        setValidationResult({
+            inputFromError: individualInputFromError || rangeError,
+            inputToError: individualInputToError || rangeError,
+            rangeError,
+        });
+    }, [inputFromValue, inputToValue, minDate, maxDate, offDays]);
+
+    return validationResult;
+};

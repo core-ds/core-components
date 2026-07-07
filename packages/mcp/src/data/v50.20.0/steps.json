@@ -1,0 +1,222 @@
+{
+"packageName": "steps",
+"displayName": "Steps",
+"description": "Используется для разделения сложной формы или анкеты на последовательные шаги.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"defaultActiveStep": {
+"defaultValue": {
+"value": 1
+},
+"description": "Активный шаг, указанный по умолчанию",
+"name": "defaultActiveStep",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"activeStep": {
+"defaultValue": null,
+"description": "Активный шаг",
+"name": "activeStep",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"isMarkCompletedSteps": {
+"defaultValue": {
+"value": true
+},
+"description": "Управление возможностью отключения пометки пройденного шага",
+"name": "isMarkCompletedSteps",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"checkIsStepDisabled": {
+"defaultValue": null,
+"description": "Кастомный метод для управления состоянием disabled шага и\nвозможностью перехода на этот шаг\n@param stepNumber - номер шага\n@return Флаг состояния disabled",
+"name": "checkIsStepDisabled",
+"required": false,
+"type": {
+"name": "((stepNumber: number) => boolean) | undefined"
+}
+},
+"checkIsStepError": {
+"defaultValue": null,
+"description": "Кастомный метод для управления состоянием шага error\n@param stepNumber - номер шага\n@return Флаг состояния error",
+"name": "checkIsStepError",
+"required": false,
+"type": {
+"name": "((stepNumber: number) => boolean) | undefined"
+}
+},
+"checkIsStepCriticalError": {
+"defaultValue": null,
+"description": "Кастомный метод для управления состоянием шага criticalError\n@param stepNumber - номер шага\n@return Флаг состояния error",
+"name": "checkIsStepCriticalError",
+"required": false,
+"type": {
+"name": "((stepNumber: number) => boolean) | undefined"
+}
+},
+"checkIsStepWarning": {
+"defaultValue": null,
+"description": "Кастомный метод для управления состоянием шага warning\n@param stepNumber - номер шага\n@return Флаг состояния warning",
+"name": "checkIsStepWarning",
+"required": false,
+"type": {
+"name": "((stepNumber: number) => boolean) | undefined"
+}
+},
+"checkIsStepWaiting": {
+"defaultValue": null,
+"description": "Кастомный метод для управления состоянием шага waiting\n@param stepNumber - номер шага\n@return Флаг состояния waiting",
+"name": "checkIsStepWaiting",
+"required": false,
+"type": {
+"name": "((stepNumber: number) => boolean) | undefined"
+}
+},
+"checkIsStepPositive": {
+"defaultValue": null,
+"description": "Кастомный метод для управления состоянием шага positive\n@param stepNumber - номер шага\n@return Флаг состояния positive",
+"name": "checkIsStepPositive",
+"required": false,
+"type": {
+"name": "((stepNumber: number) => boolean) | undefined"
+}
+},
+"checkIsStepCustom": {
+"defaultValue": null,
+"description": "Кастомный метод для установки кастомного индикатора шага\n@param stepNumber - номер шага\n@return Объект StepIndicatorProps { className, content, iconColor } или null",
+"name": "checkIsStepCustom",
+"required": false,
+"type": {
+"name": "((stepNumber: number) => StepIndicatorProps | null) | undefined"
+}
+},
+"onChange": {
+"defaultValue": null,
+"description": "Обработчик клика на шаг\n@param stepNumber - номер активного шага",
+"name": "onChange",
+"required": false,
+"type": {
+"name": "((stepNumber: number) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": true,
+"type": {
+"name": "ReactNode"
+}
+},
+"isVerticalAlign": {
+"defaultValue": {
+"value": false
+},
+"description": "Управление ориентацией компонента",
+"name": "isVerticalAlign",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"ordered": {
+"defaultValue": {
+"value": true
+},
+"description": "Управление отображением номера шага",
+"name": "ordered",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"interactive": {
+"defaultValue": {
+"value": true
+},
+"description": "Включение / отключение интерактивности шагов",
+"name": "interactive",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"fullWidth": {
+"defaultValue": {
+"value": false
+},
+"description": "Растягивание шагов на всю ширину блока для вертикальной ориентации",
+"name": "fullWidth",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"minSpaceBetweenSteps": {
+"defaultValue": {
+"value": 24
+},
+"description": "Минимальное расстояние между шагами для горизонтального расположения компонента\n@description Значение 8 устарело и будет удалено в будущих версиях. Используйте 16, 24 или 32.",
+"name": "minSpaceBetweenSteps",
+"required": false,
+"type": {
+"name": "8 | 16 | 24 | 32 | undefined"
+}
+},
+"completedDashColor": {
+"defaultValue": null,
+"description": "Цвет тире выполненного шага",
+"name": "completedDashColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Горизонтальный.",
+"desktop": "render(() => {\nconst [ordered, setOrdered] = React.useState(true);\nconst [error, setError] = React.useState(false);\nconst [step, setStep] = React.useState(2);\n\nconst handleStepsChange = (stepNumber) => setStep(stepNumber);\n\nconst handleOrderChange = () => setOrdered((prev) => !prev);\n\nconst handleErrorChange = () => {\nsetError((prev) => {\nif (!prev && step > 3) {\nsetStep(3);\n}\n\nreturn !prev;\n});\n};\n\nconst handleStepDisable = (stepNumber) => {\nif (error) {\nreturn stepNumber === 4 || stepNumber === 5;\n}\n\nreturn stepNumber === 4;\n};\n\nconst handleStepError = (stepNumber) => {\nif (error) {\nreturn stepNumber === 3;\n}\n};\n\nreturn (\n<Space size={24}>\n<Steps\nactiveStep={step}\ndefaultActiveStep={2}\nordered={ordered}\nonChange={handleStepsChange}\ncheckIsStepDisabled={handleStepDisable}\ncheckIsStepError={handleStepError}\n>\n{[1, 2, 3, 4, 5].map((item, key) => (\n<div key={key}>Шаг {item}</div>\n))}\n</Steps>\n<Typography.Text view='component-secondary' color='secondary'>\nВыбран шаг {step}\n</Typography.Text>\n<>\n<Switch checked={ordered} onChange={handleOrderChange} label='Номера шагов' />\n<Gap size={16} />\n<Switch\nchecked={error}\nonChange={handleErrorChange}\nlabel='Есть некорректно заполненный шаг'\n/>\n</>\n</Space>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.11.0",
+"description": "#### [#2172](https://github.com/core-ds/core-components/pull/2172)\n\n- Исправлено свойство `fullWidth`, которое было сломано в версии `48.19.0`"
+},
+{
+"version": "50.9.0",
+"description": "#### [#2158](https://github.com/core-ds/core-components/pull/2158)\n\n- Исправлена визуализация статусных индикаторов шага: для состояний `critical error`, `error`, `warning`, `waiting` и `positive` теперь используется `StatusBadge`.\n- Сохранена обратная совместимость для `checkIsStepCustom`: кастомный индикатор по-прежнему принимает старые пропсы `Badge`.\n\n- Обновлены зависимости\n    - @alfalab/core-components-tab-bar@4.0.4\n    - @alfalab/core-components-steps@3.0.4\n    - @alfalab/core-components-switch@6.1.0"
+}
+]
+}

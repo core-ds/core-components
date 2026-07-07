@@ -29,21 +29,19 @@ const getScrollbarSize = (() => {
 })();
 
 function isWebkitBased() {
-    if (!isClient()) return false;
-
-    return window.navigator.userAgent.toLowerCase().indexOf('webkit') > -1;
+    return isClient() && navigator.userAgent.toLowerCase().indexOf('webkit') > -1;
 }
 
 function isSafari(): boolean {
-    if (isClient()) {
-        const detectBrowser = detect();
-
-        if (detectBrowser) {
-            return detectBrowser.name === 'safari';
-        }
-    }
-
-    return false;
+    return isClient() && detect()?.name === 'safari';
 }
 
-export { getScrollbarSize, isWebkitBased, isSafari };
+function isWebView(): boolean {
+    return (
+        isClient() &&
+        // copied from https://github.com/nolimits4web/swiper/blob/2eba4db20b2a7b4b8107e89567af813125be4ce6/src/shared/get-browser.mjs#L25
+        /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent)
+    );
+}
+
+export { getScrollbarSize, isWebkitBased, isSafari, isWebView };

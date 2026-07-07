@@ -1,5 +1,57 @@
 # @alfalab/core-components-phone-input
 
+## 9.0.12
+
+### Patch Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#2267](https://github.com/core-ds/core-components/pull/2267)
+
+##### PhoneInput
+
+- Исправлена опечатка в displayName параметре компонента
+
+## 9.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-masked-input@8.0.11
+
+## 9.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-masked-input@8.0.10
+
+## 9.0.9
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-masked-input@8.0.9
+
+## 9.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-masked-input@8.0.8
+
+## 9.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-masked-input@8.0.7
+
 ## 9.0.6
 
 ### Patch Changes

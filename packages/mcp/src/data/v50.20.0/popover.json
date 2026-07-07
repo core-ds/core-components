@@ -1,0 +1,267 @@
+{
+"packageName": "popover",
+"displayName": "Popover",
+"description": "",
+"props": {
+"open": {
+"defaultValue": null,
+"description": "Управление состоянием поповера (открыт/закрыт)",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"anchorElement": {
+"defaultValue": null,
+"description": "Элемент, относительного которого появляется поповер",
+"name": "anchorElement",
+"required": true,
+"type": {
+"name": "RefElement"
+}
+},
+"useAnchorWidth": {
+"defaultValue": null,
+"description": "Использовать ширину родительского элемента",
+"name": "useAnchorWidth",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"position": {
+"defaultValue": {
+"value": "left"
+},
+"description": "Позиционирование поповера",
+"name": "position",
+"required": false,
+"type": {
+"name": "Position | undefined"
+}
+},
+"preventFlip": {
+"defaultValue": null,
+"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно, то он все равно будет показан снизу",
+"name": "preventFlip",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"preventOverflow": {
+"defaultValue": {
+"value": true
+},
+"description": "Запрещает поповеру менять свою позицию, если он не влезает в видимую область.",
+"name": "preventOverflow",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"availableHeight": {
+"defaultValue": {
+"value": false
+},
+"description": "Позволяет поповеру подствраивать свою высоту под границы экрана/элемента, если из-за величины контента он выходит за рамки области экрана/элемента",
+"name": "availableHeight",
+"required": false,
+"type": {
+"name": "boolean | (() => Element | null | undefined) | undefined"
+}
+},
+"withArrow": {
+"defaultValue": {
+"value": false
+},
+"description": "Если `true`, будет отрисована стрелочка",
+"name": "withArrow",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"offset": {
+"defaultValue": {
+"value": "[0, 0]"
+},
+"description": "Смещение поповера.\nЕсли позиционирование top, bottom, то [x, y].\nЕсли позиционирование left, right то [y, x].",
+"name": "offset",
+"required": false,
+"type": {
+"name": "[number, number] | undefined"
+}
+},
+"popperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поповера",
+"name": "popperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"arrowClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для стрелочки",
+"name": "arrowClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"getPortalContainer": {
+"defaultValue": null,
+"description": "Функция, возвращающая контейнер, в который будет рендериться поповер",
+"name": "getPortalContainer",
+"required": false,
+"type": {
+"name": "(() => HTMLElement) | undefined"
+}
+},
+"transition": {
+"defaultValue": {
+"value": "{\n    timeout: 150,\n}"
+},
+"description": "CSSTransitionProps, прокидываются в компонент CSSTransitionProps.",
+"name": "transition",
+"required": false,
+"type": {
+"name": "CSSTransitionProps | undefined"
+}
+},
+"transitionDuration": {
+"defaultValue": {
+"value": "`${transition.timeout}ms`"
+},
+"description": "Выставляет кастомное свойство transition-duration",
+"name": "transitionDuration",
+"required": false,
+"type": {
+"name": "TransitionDuration<string & {}> | undefined"
+}
+},
+"withTransition": {
+"defaultValue": {
+"value": true
+},
+"description": "Рендерит компонент, обернутый в Transition",
+"name": "withTransition",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"update": {
+"defaultValue": null,
+"description": "Хранит функцию, с помощью которой можно обновить положение компонента",
+"name": "update",
+"required": false,
+"type": {
+"name": "MutableRefObject<(() => void) | undefined> | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"zIndex": {
+"defaultValue": {
+"value": 50
+},
+"description": "z-index компонента",
+"name": "zIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"fallbackPlacements": {
+"defaultValue": null,
+"description": "Если поповер не помещается в переданной позиции (position), он попробует открыться в другой позиции,\nпо очереди для каждой позиции из этого списка.\nЕсли не передавать, то поповер открывается в противоположном направлении от переданного position.",
+"name": "fallbackPlacements",
+"required": false,
+"type": {
+"name": "Position[] | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Контент",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"scrollableContentClassName": {
+"defaultValue": null,
+"description": "Класс для скролл контейнера",
+"name": "scrollableContentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"arrowToEdgeMinDistance": {
+"defaultValue": {
+"value": 24
+},
+"description": "Минимальное расстояние стрелки до края поповера",
+"name": "arrowToEdgeMinDistance",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"widthProp": {
+"defaultValue": {
+"value": "width"
+},
+"description": "Свойство по которому устанавливается ширина от родительского элемента",
+"name": "widthProp",
+"required": false,
+"type": {
+"name": "\"width\" | \"minWidth\" | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Пример",
+"description": "Под капотом использует popper.js и react-transition-group.\nЕсли положение поповера не пересчитывается (например, при измененнии размера элемента-якоря), то можно воспользоваться методом update:",
+"desktop": "render(() => {\nconst [count, setCount] = React.useState(0);\nconst [buttonElement, setButtonElement] = React.useState(null);\n\nconst label = {\n0: 'Показать поповер снизу',\n1: 'Показать поповер сверху',\n2: 'Показать слева',\n3: 'Показать справа',\n4: 'Скрыть',\n};\n\nconst position = {\n1: 'bottom',\n2: 'top',\n3: 'left',\n4: 'right',\n};\n\n// updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера\nconst updatePopover = React.useRef();\n\nconst onClick = () => {\nsetCount((count) => count + 1);\n\nif (updatePopover.current) {\n// Обновляем положение поповера\nupdatePopover.current();\n}\nif (count === 4) {\nsetCount(0);\n}\n};\n\nconst handleButtonRef = (node) => {\nif (count !== 0) {\nsetButtonElement(node);\n}\n};\nconst popoverChildren = (\n<>{count !== 0 && <div style={{ padding: '15px', width: '156px' }}>Popover</div>}</>\n);\n\nreturn (\n<div\nstyle={{\nwidth: '700px',\nheight: '300px',\ndisplay: 'flex',\njustifyContent: 'center',\nalignItems: 'center',\n}}\n>\n<Popover\nanchorElement={buttonElement}\nuseAnchorWidth={true}\nposition={position[count]}\nopen={count !== 0}\nupdate={updatePopover}\noffset={[0, 4]}\n>\n{popoverChildren}\n</Popover>\n\n<Button size={48} ref={handleButtonRef} onClick={onClick}>\n{label[count]}\n</Button>\n</div>\n);\n});",
+"mobile": "render(() => {\nconst [count, setCount] = React.useState(0);\nconst [buttonElement, setButtonElement] = React.useState(null);\n\nconst label = {\n0: 'Показать поповер снизу',\n1: 'Показать поповер сверху',\n2: 'Показать слева',\n3: 'Показать справа',\n4: 'Скрыть',\n};\n\nconst position = {\n1: 'bottom',\n2: 'top',\n3: 'left',\n4: 'right',\n};\n\n// updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера\nconst updatePopover = React.useRef();\n\nconst onClick = () => {\nsetCount((count) => count + 1);\n\nif (updatePopover.current) {\n// Обновляем положение поповера\nupdatePopover.current();\n}\nif (count === 4) {\nsetCount(0);\n}\n};\n\nconst handleButtonRef = (node) => {\nif (count !== 0) {\nsetButtonElement(node);\n}\n};\nconst popoverChildren = (\n<>{count !== 0 && <div style={{ padding: '15px', width: '66px' }}>Popover</div>}</>\n);\n\nreturn (\n<div\nstyle={{\nwidth: '100%',\nheight: '300px',\ndisplay: 'flex',\njustifyContent: 'center',\nalignItems: 'center',\n}}\n>\n<Popover\nanchorElement={buttonElement}\nuseAnchorWidth={position[count] !== 'left'}\nposition={position[count]}\nopen={count !== 0}\nupdate={updatePopover}\noffset={[0, 4]}\n>\n{popoverChildren}\n</Popover>\n\n<Button size={48} ref={handleButtonRef} onClick={onClick}>\n{label[count]}\n</Button>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.20.0",
+"description": "#### [#2257](https://github.com/core-ds/core-components/pull/2257)\n\n- Добавлен проп `widthProp` `('width' /* @default */ | 'minWidth')`, указывающий какое свойство задействуется при использовании размера родительского элемента `useAnchorWidth={true}`"
+},
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1830](https://github.com/core-ds/core-components/pull/1830)\n\n- Добавлен проп `arrowToEdgeMinDistance` для задания минимального расстояние стрелки до края поповера\n\n#### [#1821](https://github.com/core-ds/core-components/pull/1821)\n\n- При использовании пропса `availableHeight` максимальная высота задается на корректный контейнер"
+}
+]
+}

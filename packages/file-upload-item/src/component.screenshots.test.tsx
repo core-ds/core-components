@@ -58,7 +58,7 @@ describe(
             componentName: 'FileUploadItem',
             testStory: false,
             knobs: {
-                title: ['docx', 'xlsx', '1c', 'pdf', 'document'],
+                title: ['docx', 'xlsx', '1c', 'pdf', 'document', 'jpg', 'zip'],
                 uploadDate: '22.01.2018',
                 size: 500000000,
                 uploadStatus: 'SUCCESS',
@@ -109,6 +109,27 @@ describe(
         }),
         screenshotOpts: {
             clip: { x: 0, y: 0, width: 500, height: 70 },
+        },
+    }),
+);
+
+describe(
+    'FileUploadItem | reupload',
+    screenshotTesting({
+        cases: generateTestCases({
+            packageName: 'file-upload-item',
+            componentName: 'FileUploadItem',
+            testStory: false,
+            knobs: {
+                title: 'docx',
+                uploadDate: '22.01.2018',
+                size: 500000000,
+                uploadStatus: 'SUCCESS',
+                reupload: true,
+            },
+        }),
+        screenshotOpts: {
+            clip: { x: 0, y: 0, width: 464, height: 70 },
         },
     }),
 );

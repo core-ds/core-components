@@ -100,7 +100,7 @@
 
     & :global(.noUi-marker-large) {
         position: absolute;
-        top: -12px;
+        top: var(--gap-12-neg);
         transform: translateY(-50%);
 
         &:first-child {
@@ -122,7 +122,7 @@
 
     & :global(.noUi-marker-sub) {
         position: absolute;
-        top: -12px;
+        top: var(--gap-12-neg);
         transform: translateY(-50%);
 
         &:global([data-current='true']) {
@@ -162,14 +162,6 @@
         text-align: center;
         top: var(--gap-0);
         transform: translateX(-50%);
-
-        &:nth-child(2) {
-            transform: translateX(-50%);
-        }
-
-        &:last-child {
-            transform: translateX(-50%);
-        }
     }
 
     &.disabled {
@@ -204,7 +196,7 @@
 .size-2 {
     & :global(.noUi-marker-large),
     & :global(.noUi-marker-sub) {
-        top: -13px;
+        top: calc(var(--gap-12-neg) - 1px);
     }
 
     & :global(.noUi-base) {

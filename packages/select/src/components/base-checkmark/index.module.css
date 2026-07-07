@@ -5,31 +5,20 @@
     flex-shrink: 0;
     box-sizing: border-box;
 
+    &.before {
+        margin-right: var(--gap-12);
+    }
+
+    &.after {
+        margin-left: var(--gap-12);
+    }
+
     &.start {
         align-self: start;
     }
 
     &.center {
         align-self: center;
-    }
-}
-
-.positionAfter {
-    margin-left: unset;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    &.start {
-        align-items: flex-start;
-    }
-
-    &.center {
-        align-items: center;
     }
 }
 
@@ -48,8 +37,4 @@
     &.selected {
         opacity: 1;
     }
-}
-
-.content {
-    flex: 1;
 }

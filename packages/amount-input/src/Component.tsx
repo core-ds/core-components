@@ -90,7 +90,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             onClear,
             onFocus,
             onBlur,
-            onKeyDown,
             breakpoint,
             client,
             transparentMinor = true,

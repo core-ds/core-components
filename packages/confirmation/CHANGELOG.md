@@ -1,5 +1,103 @@
 # @alfalab/core-components-confirmation
 
+## 15.1.0
+
+### Minor Changes
+
+<sup><time>03.07.2026</time></sup>
+
+#### [#1900](https://github.com/core-ds/core-components/pull/1900)
+
+##### CodeInput, Confirmation
+
+- Добавлен проп `strictFocus` для включения последовательного ввода:
+    - при клике на ячейку правее первой пустой — фокус остается на первой
+    - фокус разрешается только на уже заполненные ячейки и первую пустую ячейку
+
+- Добавлено поведение автоматического фокуса на первый инпут при клике на любое пустое поле
+
+- Улучшена доступность компонента, добавлены `aria-label`.
+
+##### Confirmation
+
+- Добавлена поддержка пропа `strictFocus` для использования в `CodeInput`
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-code-input@5.1.0
+
+## 15.0.11
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.2.1
+- @alfalab/core-components-mq@6.0.6
+- @alfalab/core-components-spinner@6.0.6
+- @alfalab/core-components-typography@6.0.9
+- @alfalab/core-components-code-input@5.0.6
+
+## 15.0.10
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.8
+- @alfalab/core-components-button@13.2.0
+
+## 15.0.9
+
+### Patch Changes
+
+<sup><time>05.06.2026</time></sup>
+
+#### [#2242](https://github.com/core-ds/core-components/pull/2242)
+
+##### InternationalPhoneInput, NavigationBarPrivate, InputAutocomplete, KeyboardFocusable, SegmentedControl, DateRangeInput, FileUploadItem, IntlPhoneInput, SelectWithTags, ConfirmationV1, DateTimeInput, CalendarRange, ActionButton, ProductCover, AmountInput, Confirmation, RadioGroup, FilterTag, IconView, PureCell, Calendar, Carousel, Checkbox, Skeleton, Textarea, Gallery, Popover, Spinner, Button, Portal, Select, Shared, Switch, Input, Plate, Radio, Steps, Toast, Link, Tabs, Tag, Mq
+
+- Апдейт версий пакета @alfalab/hooks
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-spinner@6.0.5
+- @alfalab/core-components-button@13.1.4
+- @alfalab/core-components-link@7.0.3
+- @alfalab/core-components-mq@6.0.5
+- @alfalab/core-components-typography@6.0.7
+- @alfalab/core-components-code-input@5.0.5
+
+## 15.0.8
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-typography@6.0.6
+
+## 15.0.7
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.3
+- @alfalab/core-components-mq@6.0.4
+- @alfalab/core-components-spinner@6.0.4
+- @alfalab/core-components-typography@6.0.5
+- @alfalab/core-components-code-input@5.0.4
+
+## 15.0.6
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-button@13.1.2
+
 ## 15.0.5
 
 ### Patch Changes

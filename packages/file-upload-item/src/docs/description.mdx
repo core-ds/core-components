@@ -5,14 +5,15 @@
 ```jsx live mobileHeight={500}
 render(() => {
     const radioButtons = [
-        { title: 'Нет файла', extension: 'Нет файла' },
-        { title: 'Пример.docx', extension: 'DocX' },
-        { title: 'Пример.pdf', extension: 'PDF' },
-        { title: 'Пример.xls', extension: 'XLS' },
-        { title: 'Пример.1c', extension: '1C' },
-        { title: 'Фото газеты.jpg', extension: 'Img' },
-        { title: 'Пример.fig', extension: 'Другой тип' },
-        { title: '2 файла', extension: 'Несколько файлов' },
+        { title: 'Прикрепите файл', radioLabel: 'Нет файла' },
+        { title: 'Пример.docx', radioLabel: 'DocX' },
+        { title: 'Пример.pdf', radioLabel: 'PDF' },
+        { title: 'Пример.xls', radioLabel: 'XLS' },
+        { title: 'Пример.1c', radioLabel: '1C' },
+        { title: 'Архив.zip', radioLabel: 'Архив' },
+        { title: 'Фото газеты.jpg', radioLabel: 'Img' },
+        { title: 'Пример.fig', radioLabel: 'Другой тип' },
+        { title: '2 файла', radioLabel: 'Несколько файлов' },
     ];
 
     const [status, setStatus] = React.useState('INITIAL');
@@ -38,7 +39,7 @@ render(() => {
         setSwitchChecked((prev) => !prev);
     };
 
-    const isImg = radioButtons[checked].extension === 'Img';
+    const isImg = radioButtons[checked].radioLabel === 'Img';
 
     return (
         <React.Fragment>
@@ -71,7 +72,7 @@ render(() => {
                         size={24}
                         onChange={handleChange(index)}
                         checked={checked === index}
-                        label={button.extension}
+                        label={button.radioLabel}
                     />
                     <Gap size={12} />
                 </React.Fragment>
@@ -96,6 +97,8 @@ render(() => {
     const [progressBar, setProgressBar] = React.useState(0);
     const [isProgressKnown, setIsProgressKnown] = React.useState(false);
     const [error, setError] = React.useState('');
+    const [showReupload, setShowReupload] = React.useState(false);
+    const [showDelete, setShowDelete] = React.useState(false);
 
     const isUploading = status === 'UPLOADING' || status === 'LOADING';
     const subtitle = isUploading ? 'Загружается' : 'Нет файла';
@@ -107,8 +110,11 @@ render(() => {
 
     const resetState = () => {
         setError('');
+        setTitle('Прикрепите файл');
         setProgressBar(0);
         setStatus('INITIAL');
+        setShowReupload(false);
+        setShowDelete(false);
     };
 
     const measure = (timestamp, status, isSpinner = false) => {
@@ -135,19 +141,38 @@ render(() => {
 
         if (status === 'SUCCESS') {
             setStatus(status);
+            setShowDelete(true);
         } else if (status === 'ERROR') {
             setStatus('ERROR');
-            setError('Описание первой ошибки');
-        } else if (status === 'MULTI_ERROR') {
-            setStatus('ERROR');
-            setError(['Описание первой ошибки', 'Описание второй ошибки']);
+            setError(['Ошибка загрузки.', 'Попробуйте ещё раз']);
+            setShowReupload(true);
+            setShowDelete(true);
         }
     };
 
-    const startUpload = (finalStatus, errorMessage) => {
+    const startUpload = (finalStatus) => {
+        setTitle('Пример.docx');
+        setShowReupload(false);
+        setShowDelete(false);
+
+        if (finalStatus === 'INCORRECT_FILE') {
+            setStatus('ERROR');
+            setError('Описание первой ошибки');
+            setShowDelete(true);
+
+            return;
+        }
+
+        if (finalStatus === 'MULTI_ERROR') {
+            setStatus('ERROR');
+            setError(['Описание первой ошибки', 'Описание второй ошибки']);
+            setShowDelete(true);
+
+            return;
+        }
+
         setError('');
         setProgressBar(0);
-        setTitle('Пример.docx');
 
         if (!isProgressKnown) {
             setStatus('LOADING');
@@ -159,9 +184,9 @@ render(() => {
     };
 
     const handleSuccessClick = () => startUpload('SUCCESS');
-    const handleError = () => startUpload('ERROR', 'Описание первой ошибки');
-    const handleMultiError = () =>
-        startUpload('MULTI_ERROR', ['Описание первой ошибки', 'Описание второй ошибки']);
+    const handleError = () => startUpload('ERROR');
+    const handeIncorrectFile = () => startUpload('INCORRECT_FILE');
+    const handleMultiError = () => startUpload('MULTI_ERROR');
 
     const handleToggleChange = () => {
         setIsProgressKnown((prev) => !prev);
@@ -170,20 +195,25 @@ render(() => {
 
     return (
         <React.Fragment>
-            <FileUploadItem
-                title={title}
-                subtitle={subtitle}
-                uploadStatus={status}
-                progressBar={isProgressKnown ? progressBar : undefined}
-                progressBarAvailable={isProgressKnown}
-                uploadDate='22.07.2024'
-                size={2097152} // 2mb
-                error={error}
-            >
-                <FileUploadItem.StatusControl />
-                <FileUploadItem.Content />
-                <FileUploadItem.Actions />
-            </FileUploadItem>
+            <div style={{ width: 360 }}>
+                <FileUploadItem
+                    title={title}
+                    subtitle={subtitle}
+                    uploadStatus={status}
+                    progressBar={isProgressKnown ? progressBar : undefined}
+                    progressBarAvailable={isProgressKnown}
+                    uploadDate='22.07.2024'
+                    size={2 * 1024 * 1024} // 2mb
+                    error={error}
+                    reupload={showReupload ? { onClick: handleError } : undefined}
+                    showDelete={showDelete}
+                    onDelete={() => resetState()}
+                >
+                    <FileUploadItem.StatusControl />
+                    <FileUploadItem.Content />
+                    <FileUploadItem.Actions />
+                </FileUploadItem>
+            </div>
             <Gap size={20} />
             <div>
                 <Button size={32} onClick={handleSuccessClick}>
@@ -191,7 +221,11 @@ render(() => {
                 </Button>
                 <Gap size={8} direction='horizontal' />
                 <Button size={32} onClick={handleError}>
-                    Ошибка
+                    Ошибка загрузки
+                </Button>
+                <Gap size={8} direction={isMobile() ? 'vertical' : 'horizontal'} />
+                <Button size={32} onClick={handeIncorrectFile}>
+                    Некорректный файл
                 </Button>
                 <Gap size={8} direction={isMobile() ? 'vertical' : 'horizontal'} />
                 <Button size={32} onClick={handleMultiError}>

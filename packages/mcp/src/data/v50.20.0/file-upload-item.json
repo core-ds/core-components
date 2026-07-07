@@ -1,0 +1,329 @@
+{
+"packageName": "file-upload-item",
+"displayName": "FileUploadItem",
+"description": "Используется для отображения загружаемого файла.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"id": {
+"defaultValue": null,
+"description": "Идентификатор элемента",
+"name": "id",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"title": {
+"defaultValue": null,
+"description": "Имя файла / заголовок",
+"name": "title",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"subtitle": {
+"defaultValue": null,
+"description": "Подзаголовок файла",
+"name": "subtitle",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"size": {
+"defaultValue": null,
+"description": "Размер файла",
+"name": "size",
+"required": false,
+"type": {
+"name": "string | number | undefined"
+}
+},
+"uploadDate": {
+"defaultValue": null,
+"description": "Дата загрузки файла",
+"name": "uploadDate",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"downloadLink": {
+"defaultValue": null,
+"description": "Ссылка на файл. Если прокидывается этот параметр, то появляется кнопка скачивания",
+"name": "downloadLink",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"download": {
+"defaultValue": null,
+"description": "Рекомендует браузеру скачивать контент по ссылке.\nВ проп может быть передано рекомендуемое название скачиваемого файла.",
+"name": "download",
+"required": false,
+"type": {
+"name": "string | true | undefined"
+}
+},
+"showDelete": {
+"defaultValue": null,
+"description": "Отображение кнопки удаления",
+"name": "showDelete",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"showRestore": {
+"defaultValue": null,
+"description": "Отображение кнопки восстановления",
+"name": "showRestore",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"reupload": {
+"defaultValue": null,
+"description": "Отображает кнопку повторной загрузки.\nПринимает `true` или объект с обработчиком клика.",
+"name": "reupload",
+"required": false,
+"type": {
+"name": "boolean | { onClick?: ((id: string) => void) | undefined; } | undefined"
+}
+},
+"uploadStatus": {
+"defaultValue": null,
+"description": "Статус загрузки файла",
+"name": "uploadStatus",
+"required": false,
+"type": {
+"name": "FileUploadItemStatus | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Сообщение об ошибке",
+"name": "error",
+"required": false,
+"type": {
+"name": "string | string[] | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"onDownload": {
+"defaultValue": null,
+"description": "Обработчик загрузки файла",
+"name": "onDownload",
+"required": false,
+"type": {
+"name": "((id: string) => void) | undefined"
+}
+},
+"onDelete": {
+"defaultValue": null,
+"description": "Обработчик удаления файла",
+"name": "onDelete",
+"required": false,
+"type": {
+"name": "((id: string, event?: MouseEvent<HTMLElement, MouseEvent> | undefined) => void) | undefined"
+}
+},
+"onRestore": {
+"defaultValue": null,
+"description": "Обработчик восстановления файла",
+"name": "onRestore",
+"required": false,
+"type": {
+"name": "((id: string) => void) | undefined"
+}
+},
+"disableButtons": {
+"defaultValue": null,
+"description": "Управление активностью кнопок",
+"name": "disableButtons",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"isClickable": {
+"defaultValue": null,
+"description": "Управление отображением кликабельности элемента Content",
+"name": "isClickable",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"target": {
+"defaultValue": null,
+"description": "Указывает, где открыть скачиваемый документ",
+"name": "target",
+"required": false,
+"type": {
+"name": "HTMLAttributeAnchorTarget | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"iconStyle": {
+"defaultValue": {
+"value": "gray"
+},
+"description": "Цвет заполнения иконки",
+"name": "iconStyle",
+"required": false,
+"type": {
+"name": "\"gray\" | \"colored\" | undefined"
+}
+},
+"customIcon": {
+"defaultValue": null,
+"description": "Кастомная иконка",
+"name": "customIcon",
+"required": false,
+"type": {
+"name": "ElementType<{ className?: string | undefined; }> | undefined"
+}
+},
+"progressBar": {
+"defaultValue": {
+"value": "0"
+},
+"description": "Шкала прогресса\nот 0 до 100",
+"name": "progressBar",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"progressBarAvailable": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Шкала прогресса",
+"name": "progressBarAvailable",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"customContent": {
+"defaultValue": null,
+"description": "Кастомный контент",
+"name": "customContent",
+"required": false,
+"type": {
+"name": "ElementType | undefined"
+}
+},
+"truncate": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отсечение контента",
+"name": "truncate",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"imageUrl": {
+"defaultValue": null,
+"description": "Фоновое изображение. Имеет приоритет над иконкой и заливкой",
+"name": "imageUrl",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"backgroundColor": {
+"defaultValue": null,
+"description": "Цвет заливки `StatusControl`",
+"name": "backgroundColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Типы файлов",
+"description": "Для разных типов файлов можно использовать различные иконки.",
+"desktop": "render(() => {\nconst radioButtons = [\n{ title: 'Прикрепите файл', radioLabel: 'Нет файла' },\n{ title: 'Пример.docx', radioLabel: 'DocX' },\n{ title: 'Пример.pdf', radioLabel: 'PDF' },\n{ title: 'Пример.xls', radioLabel: 'XLS' },\n{ title: 'Пример.1c', radioLabel: '1C' },\n{ title: 'Архив.zip', radioLabel: 'Архив' },\n{ title: 'Фото газеты.jpg', radioLabel: 'Img' },\n{ title: 'Пример.fig', radioLabel: 'Другой тип' },\n{ title: '2 файла', radioLabel: 'Несколько файлов' },\n];\n\nconst [status, setStatus] = React.useState('INITIAL');\nconst [title, setTitle] = React.useState('Прикрепите файл');\nconst [checked, setChecked] = React.useState(0);\nconst [progressBar, setProgressBar] = React.useState(0);\nconst [switchChecked, setSwitchChecked] = React.useState(false);\n\nconst handleChange = (index) => () => {\nsetChecked(index);\nsetProgressBar(0);\nsetTitle(radioButtons[index].title);\nsetStatus(index === 0 ? 'INITIAL' : 'UPLOADED');\n};\n\nconst handleDelete = () => {\nsetChecked(0);\nsetTitle(radioButtons[0].title);\nsetStatus('INITIAL');\n};\n\nconst handleSwitchChange = () => {\nsetSwitchChecked((prev) => !prev);\n};\n\nconst isImg = radioButtons[checked].radioLabel === 'Img';\n\nreturn (\n<React.Fragment>\n<div style={{ maxWidth: 360 }}>\n<FileUploadItem\ntitle={title}\nsubtitle='Нет файла'\nuploadStatus={status}\nsize={2097152} // 2mb\nuploadDate={new Date().toLocaleDateString()}\nprogressBar={progressBar}\n{...(checked !== 0 && { showDelete: true })}\n{...(isImg && { imageUrl: './images/gagarin_yu_a.png' })}\n{...(switchChecked && { iconStyle: 'colored' })}\nonDelete={handleDelete}\n>\n<FileUploadItem.StatusControl />\n<FileUploadItem.Content />\n<FileUploadItem.Actions />\n</FileUploadItem>\n</div>\n<Gap size={20} />\nКонтент\n<Gap size={12} />\n{radioButtons.map((button, index) => (\n<React.Fragment key={button.title}>\n<Radio\nkey={button.title}\nblock={true}\nsize={24}\nonChange={handleChange(index)}\nchecked={checked === index}\nlabel={button.radioLabel}\n/>\n<Gap size={12} />\n</React.Fragment>\n))}\n<Gap size={20} />\n<Divider />\n<Gap size={20} />\n<Switch checked={switchChecked} label='Цветные иконки' onChange={handleSwitchChange} />\n</React.Fragment>\n);\n});"
+},
+{
+"title": "Загрузка файла",
+"description": "Результатом загрузки может быть как успех, так и ошибка.",
+"desktop": "render(() => {\nconst [status, setStatus] = React.useState('INITIAL');\nconst [title, setTitle] = React.useState('Прикрепите файл');\nconst [progressBar, setProgressBar] = React.useState(0);\nconst [isProgressKnown, setIsProgressKnown] = React.useState(false);\nconst [error, setError] = React.useState('');\nconst [showReupload, setShowReupload] = React.useState(false);\nconst [showDelete, setShowDelete] = React.useState(false);\n\nconst isUploading = status === 'UPLOADING' || status === 'LOADING';\nconst subtitle = isUploading ? 'Загружается' : 'Нет файла';\n\nconst distance = 100;\nconst duration = 500;\nconst spinnerDuration = 5000;\nlet startAnimation = null;\n\nconst resetState = () => {\nsetError('');\nsetTitle('Прикрепите файл');\nsetProgressBar(0);\nsetStatus('INITIAL');\nsetShowReupload(false);\nsetShowDelete(false);\n};\n\nconst measure = (timestamp, status, isSpinner = false) => {\nif (!startAnimation) {\nstartAnimation = timestamp;\n}\n\nconst elapsed = timestamp - startAnimation;\nconst currentDuration = isSpinner ? spinnerDuration : duration;\n\nif (isSpinner) {\nif (elapsed < currentDuration) {\nreturn requestAnimationFrame((t) => measure(t, status, isSpinner));\n}\n} else {\nconst progress = elapsed / currentDuration;\nconst progressValue = progress * distance;\nsetProgressBar(progressValue);\n\nif (progress < 1) {\nreturn requestAnimationFrame((t) => measure(t, status, isSpinner));\n}\n}\n\nif (status === 'SUCCESS') {\nsetStatus(status);\nsetShowDelete(true);\n} else if (status === 'ERROR') {\nsetStatus('ERROR');\nsetError(['Ошибка загрузки.', 'Попробуйте ещё раз']);\nsetShowReupload(true);\nsetShowDelete(true);\n}\n};\n\nconst startUpload = (finalStatus) => {\nsetTitle('Пример.docx');\nsetShowReupload(false);\nsetShowDelete(false);\n\nif (finalStatus === 'INCORRECT_FILE') {\nsetStatus('ERROR');\nsetError('Описание первой ошибки');\nsetShowDelete(true);\n\nreturn;\n}\n\nif (finalStatus === 'MULTI_ERROR') {\nsetStatus('ERROR');\nsetError(['Описание первой ошибки', 'Описание второй ошибки']);\nsetShowDelete(true);\n\nreturn;\n}\n\nsetError('');\nsetProgressBar(0);\n\nif (!isProgressKnown) {\nsetStatus('LOADING');\nrequestAnimationFrame((t) => measure(t, finalStatus, true));\n} else {\nsetStatus('UPLOADING');\nrequestAnimationFrame((t) => measure(t, finalStatus));\n}\n};\n\nconst handleSuccessClick = () => startUpload('SUCCESS');\nconst handleError = () => startUpload('ERROR');\nconst handeIncorrectFile = () => startUpload('INCORRECT_FILE');\nconst handleMultiError = () => startUpload('MULTI_ERROR');\n\nconst handleToggleChange = () => {\nsetIsProgressKnown((prev) => !prev);\nresetState();\n};\n\nreturn (\n<React.Fragment>\n<div style={{ width: 360 }}>\n<FileUploadItem\ntitle={title}\nsubtitle={subtitle}\nuploadStatus={status}\nprogressBar={isProgressKnown ? progressBar : undefined}\nprogressBarAvailable={isProgressKnown}\nuploadDate='22.07.2024'\nsize={2 * 1024 * 1024} // 2mb\nerror={error}\nreupload={showReupload ? { onClick: handleError } : undefined}\nshowDelete={showDelete}\nonDelete={() => resetState()}\n>\n<FileUploadItem.StatusControl />\n<FileUploadItem.Content />\n<FileUploadItem.Actions />\n</FileUploadItem>\n</div>\n<Gap size={20} />\n<div>\n<Button size={32} onClick={handleSuccessClick}>\nУспех\n</Button>\n<Gap size={8} direction='horizontal' />\n<Button size={32} onClick={handleError}>\nОшибка загрузки\n</Button>\n<Gap size={8} direction={isMobile() ? 'vertical' : 'horizontal'} />\n<Button size={32} onClick={handeIncorrectFile}>\nНекорректный файл\n</Button>\n<Gap size={8} direction={isMobile() ? 'vertical' : 'horizontal'} />\n<Button size={32} onClick={handleMultiError}>\nНесколько ошибок\n</Button>\n</div>\n<Gap size={20} />\n<Switch\nchecked={isProgressKnown}\nlabel='Известен прогресс загрузки'\nonChange={handleToggleChange}\n/>\n</React.Fragment>\n);\n});"
+},
+{
+"title": "Действия с загруженным файлом",
+"description": "Загруженный файл можно скачать или удалить, а удалённый восстановить.",
+"desktop": "render(() => {\nconst [isRestore, showIsRestore] = React.useState({\nelement_1: false,\nelement_2: false,\n});\n\nconst handleDelete = (element) => () => {\nshowIsRestore((prev) => ({\n...prev,\n[element]: true,\n}));\n};\n\nconst handleRestore = (element) => () => {\nshowIsRestore((prev) => ({\n...prev,\n[element]: false,\n}));\n};\n\nreturn (\n<React.Fragment>\n<div style={{ width: 360 }}>\n<FileUploadItem\ntitle='hello-world.docx'\nsize={2097152}\nuploadDate='22.07.2024'\nuploadStatus={'UPLOADED'}\nshowDelete={true}\ndownloadLink='./txt/hello-world.docx'\nshowRestore={isRestore.element_1}\nonDelete={handleDelete('element_1')}\nonRestore={handleRestore('element_1')}\n>\n<FileUploadItem.StatusControl />\n<FileUploadItem.Content />\n<FileUploadItem.Actions />\n</FileUploadItem>\n<Gap size={20} />\n<FileUploadItem\ntitle='gagarin_yu_a.png'\nsize={27262976}\nuploadDate='01.05.1998'\nuploadStatus={'UPLOADED'}\nshowDelete={true}\ndownloadLink='./images/gagarin_yu_a.png'\nshowRestore={isRestore.element_2}\nonDelete={handleDelete('element_2')}\nonRestore={handleRestore('element_2')}\n{...(!isRestore.element_2 && { imageUrl: './images/gagarin_yu_a.png' })}\n{...(isRestore.element_2 && { customIcon: () => <DocumentImageOffMIcon /> })}\n>\n<FileUploadItem.StatusControl />\n<FileUploadItem.Content />\n<FileUploadItem.Actions />\n</FileUploadItem>\n</div>\n</React.Fragment>\n);\n});"
+},
+{
+"title": "Примеры использования",
+"description": "Использование в качестве кнопки для прикрепления файла. Прогресс загрузки файла может отображаться самой кнопкой. Такой подход хорошо подходит, когда нужно загрузить один файл.",
+"desktop": "render(() => {\nconst [status, setStatus] = React.useState('INITIAL');\nconst [title, setTitle] = React.useState('Прикрепите файл');\nconst [size, setSize] = React.useState(0);\nconst [imageUrl, setImageUrl] = React.useState(null);\nconst [isImage, setIsImage] = React.useState(false);\nconst [isShowDelete, setIsShowDelete] = React.useState(false);\nconst inputRef = React.useRef(null);\n\nconst handleFileChange = (e) => {\nconst file = e.target.files[0];\nsetStatus('SUCCESS');\nsetTitle(file.name);\nsetSize(file.size);\nsetImageUrl('');\nsetIsShowDelete(true);\n\n// если тип фала image, добавляем картинку как иконку\nif (file && file.type.includes('image')) {\nsetIsImage(true);\nconst reader = new FileReader();\n\nreader.onloadend = () => {\nsetImageUrl(reader.result);\n};\n\nreader.readAsDataURL(file);\n}\n};\n\nconst handleDelete = () => {\nsetStatus('INITIAL');\nsetImageUrl('');\nsetTitle('Прикрепите файл');\nsetIsShowDelete(false);\ninputRef.current.value = null;\n};\n\nreturn (\n<React.Fragment>\n<input\ntype='file'\nid='file-upload-item-id'\nonChange={handleFileChange}\nstyle={{ display: 'none' }}\nref={inputRef}\n/>\n<FileUploadItem\ntitle={title}\nsubtitle='Нет файла'\nuploadStatus={status}\nuploadDate={new Date().toLocaleDateString()}\nsize={size}\nshowDelete={isShowDelete}\nonDelete={handleDelete}\n{...(isImage && { imageUrl })}\n>\n<label htmlFor='file-upload-item-id' style={{ display: 'flex', width: 320 }}>\n<FileUploadItem.StatusControl />\n<FileUploadItem.Content />\n</label>\n<FileUploadItem.Actions />\n</FileUploadItem>\n</React.Fragment>\n);\n});"
+},
+{
+"title": "Кастомизация",
+"description": "Каждый слот компонента может быть кастомизирован.",
+"desktop": "render(() => {\nconst commonStyles = {\nheight: 48,\nborder: '1px dashed var(--color-light-status-info)',\nborderRadius: '8px',\nbackgroundColor: 'var(--color-light-status-muted-alt-info)',\n};\n\nconst leftAddonStyles = {\nwidth: 48,\n...commonStyles,\n};\n\nconst contentStyles = {\nwidth: 232,\n...commonStyles,\n};\n\nconst rightAddonStyles = {\nwidth: 80,\n...commonStyles,\n};\n\nreturn (\n<FileUploadItem>\n<div style={leftAddonStyles}></div>\n<div style={contentStyles}></div>\n<div style={rightAddonStyles}></div>\n</FileUploadItem>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.18.0",
+"description": "#### [#2220](https://github.com/core-ds/core-components/pull/2220)\n\n- Добавлен тип иконки \"архив\". Будет отображаться при загрузке расширения `zip`, `rar`, `7z`. Если пользуетесь менее популярными форматами, сообщите в команду поддержки для добавления.\n- Добавлен проп `reupload`. Позволяет отображать кнопку повторной загрузки.\n- Внесены исправления в работу внутреннего контекста.\n- Мелкие внутренние улучшения и оптимизации компонента (невидимые изменения, повышают стабильность и производительность)."
+},
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "49.14.0",
+"description": "#### [#2021](https://github.com/core-ds/core-components/pull/2021)\n\n- Показываем иконку загрузки, когда есть пропс `onDownload`"
+},
+{
+"version": "49.10.0",
+"description": "#### [#1921](https://github.com/core-ds/core-components/pull/1921)\n\n- В компонент `FileUploadItem` добавлено свойство `backgroundColor`, позволяющее задать цвет фона для `StatusControl`"
+},
+{
+"version": "49.6.0",
+"description": "#### [#1861](https://github.com/core-ds/core-components/pull/1861)\n\n- Реализована анимация прогресса загрузки для режима с неизвестным прогрессом\n- Добавлен новый props `progressBarAvailable` для возможности включения/отключения ProgressBar"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1823](https://github.com/core-ds/core-components/pull/1823)\n\n- Рефакторинг шкалы прогресса, изменена работа с mask-image на обычное заполнение svg path\n- Функция `humanFileSize` вынесена в модуль `shared`"
+}
+]
+}

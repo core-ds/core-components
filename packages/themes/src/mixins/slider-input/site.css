@@ -10,4 +10,6 @@
     --slider-input-progress-hover-bg-color: var(--color-light-neutral-500);
     --slider-input-origin-width: 100%;
     --slider-input-origin-right: var(--gap-0);
+    --slider-input-edge-value-margin: 2px;
+    --slider-input-pips-margin: var(--gap-6) 0 0;
 }
