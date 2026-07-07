@@ -1,0 +1,129 @@
+{
+"packageName": "chart",
+"displayName": "Chart",
+"description": "Используется для построения графиков.",
+"props": {
+"id": {
+"defaultValue": null,
+"description": "Индефикатор графика",
+"name": "id",
+"required": true,
+"type": {
+"name": "string"
+}
+},
+"responsiveContainer": {
+"defaultValue": null,
+"description": "Компонент контейнера, позволяющий адаптировать диаграммы к размеру родительского контейнера",
+"name": "responsiveContainer",
+"required": false,
+"type": {
+"name": "ResponsiveContainerProps | undefined"
+}
+},
+"composeChart": {
+"defaultValue": null,
+"description": "Диаграмма, состоящая из bar, linear и area диаграмм",
+"name": "composeChart",
+"required": true,
+"type": {
+"name": "ComposedChartProps"
+}
+},
+"cartesianGrid": {
+"defaultValue": null,
+"description": "Отображение линий осей графика",
+"name": "cartesianGrid",
+"required": false,
+"type": {
+"name": "CartesianGridProps | undefined"
+}
+},
+"xAxis": {
+"defaultValue": null,
+"description": "Настройки оси Х",
+"name": "xAxis",
+"required": true,
+"type": {
+"name": "XAxisProps"
+}
+},
+"yAxis": {
+"defaultValue": null,
+"description": "Настройки оси У",
+"name": "yAxis",
+"required": true,
+"type": {
+"name": "YAxisProps"
+}
+},
+"tooltip": {
+"defaultValue": null,
+"description": "Всплывающаяся подсказка",
+"name": "tooltip",
+"required": false,
+"type": {
+"name": "TooltipProps | undefined"
+}
+},
+"brush": {
+"defaultValue": null,
+"description": "Компонент маштабирования графика",
+"name": "brush",
+"required": false,
+"type": {
+"name": "BrushProps | undefined"
+}
+},
+"legend": {
+"defaultValue": null,
+"description": "Компонент подписи графиков",
+"name": "legend",
+"required": false,
+"type": {
+"name": "LegendProps | undefined"
+}
+},
+"series": {
+"defaultValue": null,
+"description": "Mассив объектов с параметрами грaфиков с обязательным полем",
+"name": "series",
+"required": true,
+"type": {
+"name": "SeriaProps[]"
+}
+},
+"labels": {
+"defaultValue": null,
+"description": "Mассив меток",
+"name": "labels",
+"required": true,
+"type": {
+"name": "(string | number)[]"
+}
+}
+},
+"demos": [
+{
+"title": "Столбчатая диаграмма",
+"description": "",
+"desktop": "render(() => {\nconst cartesianGrid = {\nvertical: false,\nhorizontal: true,\nstrokeDasharray: 0,\nstroke: 'var(--color-light-neutral-400)',\nfill: 'var(--color-light-base-bg-primary)',\n};\nconst legend = {\nmarginTop: 10,\n};\nconst tooltip = {\nseparator: ' ',\noffset: 20,\nfilterNull: true,\ncursor: {\nstroke: 'var(--color-light-neutral-400)',\nstrokeWidth: 1,\n},\nisAnimationActive: true,\nanimationBegin: 0,\nanimationDuration: 500,\nanimationEasing: 'ease',\narrow: true,\n};\nconst brush = {\ndataKey: 'label',\ntravellerWidth: 20,\nheight: 20,\nalwaysShowText: true,\nstroke: 'var(--color-static-status-blue)',\n};\n\nconst chartBar = (includeValue) => {\nconst labels = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь']\nif (includeValue) {\nreturn labels.map((label, idx) => ({\nlabel: label,\nvalue:  Math.floor(Math.random() * 250) + 10\n}));\n} else {\nreturn labels;\n}\n};\n\nconst barChartFirst = {\nzIndex: 1,\nchart: 'bar',\nproperties: {\nname: 'расход',\ndataKey: 'uv',\nformatter: (decimal) => `${decimal * 1000}`,\nfill: 'var(--color-static-graphic-persimmon)',\n},\ndata: chartBar(true),\n};\nconst barChartSecond = {\nzIndex: 10,\nchart: 'bar',\nproperties: {\nname: 'приход',\ndataKey: 'pv',\nformatter: (decimal) => `${decimal * 1000}`,\nfill: 'var(--color-static-graphic-green-jungle)',\n},\ndata: chartBar(true),\n};\nconst lineChart = {\nzIndex: 50,\nchart: 'line',\nicon: 'circleLine',\nproperties: {\nname: 'остаток',\ndataKey: 'cnt',\nstroke: 'var(--color-static-status-blue)',\ndot: true,\ndotSettings: {\nscale: 1.5,\ninitScale: 1,\nwidth: 18,\nheight: 18,\n},\nformatter: (decimal) => `${decimal * 1000}`,\ntype: 'monotone',\nstrokeWidth: 2,\n},\ndata: chartBar(true),\n};\nconst composeChart = {\ninitMargin: {\nleft: 20,\n},\nbarSize: 10,\n};\nconst xAxis = {\ntickLine: false,\naxisLine: false,\ninterval: 'preserveStartEnd',\ntickMargin: 10,\ndataKey: 'label',\n};\nconst yAxis = {\naxisLine: false,\ntype: 'number',\ntickCount: 6,\ntickLine: false,\ntickMargin: 0,\ntickFormatter: (decimal) => `${decimal}\\xa0тыс.`,\n};\n\nreturn (\n<div style={{ display: 'flex' }}>\n<div style={{ width: '600px', height: '400px' }}>\n<Chart\nid='bar-chart'\ncomposeChart={composeChart}\ncartesianGrid={cartesianGrid}\nxAxis={xAxis}\nyAxis={yAxis}\ntooltip={tooltip}\nlegend={legend}\nbrush={brush}\nlabels={chartBar(false)}\nseries={[barChartFirst, barChartSecond, lineChart]}\n/>\n</div>\n</div>\n);\n});"
+},
+{
+"title": "Гистограмма",
+"description": "",
+"desktop": "render(() => {\nconst composeChart = {\nbarCategoryGap: '5%',\n};\nconst xAxis = {\naxisLine: false,\ntype: 'category',\ninterval: 'preserveStartEnd',\ntickLine: false,\ntickMargin: 10,\ndataKey: 'label',\n};\nconst yAxis = {\nhide: true,\n};\nconst labelsBarChart = [\n'Long label',\n'Label1',\n'Label2',\n'Label3',\n'Label4',\n'Label5',\n'Label6',\n'Label7',\n];\nconst barChart = {\nchart: 'bar',\nradius: { top: 10, bottom: 10, } || 0,\nlabelList: {\noffset: 10,\n},\nproperties: {\nname: 'приход',\ndataKey: 'cm',\nformatter: (decimal) => `${decimal * 1000}`,\nfill: 'var(--color-static-graphic-green-jungle)',\n},\ndata: [\n{\nlabel: 'Long label',\nvalue: 5000,\n},\n{\nlabel: 'Label1',\nvalue: 650,\n},\n{\nlabel: 'Label2',\nvalue: 3522,\n},\n{\nlabel: 'Label3',\nvalue: 0,\n},\n{\nlabel: 'Label4',\nvalue: 2000,\n},\n{\nlabel: 'Label5',\nvalue: 1043,\n},\n{\nlabel: 'Label6',\nvalue: 600,\n},\n{\nlabel: 'Label7',\nvalue: 1,\n},\n],\n};\n\nreturn (\n<div style={{ display: 'flex' }}>\n<div style={{ width: '600px', height: '400px' }}>\n<Chart\nid='bar-chart'\ncomposeChart={composeChart}\nxAxis={xAxis}\nyAxis={yAxis}\nlabels={labelsBarChart}\nseries={[barChart]}\n/>\n</div>\n</div>\n);\n});"
+},
+{
+"title": "Линейный график",
+"description": "",
+"desktop": "render(() => {\nconst formatXAxis = (time) => format(time, 'dd LLL');\nconst cartesianGrid = {\nstroke: 'var(--color-light-neutral-400)',\nfill: 'var(--color-light-base-bg-primary)',\n};\nconst composeChart = {\nbarSize: 24,\n};\nconst xAxis = {\naxisLine: false,\ntype: 'category',\ninterval: 'preserveStartEnd',\nminTickGap: 20,\ntickLine: false,\ndataKey: 'label',\ntickFormatter: formatXAxis,\ntickType: 'point',\n};\nconst yAxis = {\naxisLine: false,\ntype: 'number',\ntickCount: 6,\ninterval: 'preserveStartEnd',\ntickLine: false,\ntickSize: 6,\n};\nconst legend = {\nverticalAlign: 'top',\nmarginTop: 15,\niconHeight: 20,\n};\nconst tooltip = {\nseparator: ' ',\noffset: 20,\nfilterNull: true,\ncursor: {\nstroke: 'var(--color-light-neutral-400)',\nstrokeWidth: 1,\n},\nisAnimationActive: true,\nanimationBegin: 0,\nanimationDuration: 500,\nanimationEasing: 'ease',\narrow: true,\nlabelFormatter: formatXAxis,\n};\nconst brush = {\ndataKey: 'label',\ntravellerWidth: 20,\nbrushMargin: 10,\nheight: 20,\nstroke: 'var(--color-static-status-blue)',\nalwaysShowText: true,\ntickFormatter: formatXAxis,\n};\n\nconst chartData = (num, includeValue) => {\nconst labels = Array(20).fill(null).map((_, idx) => {\nconst date = new Date('2020-12-18');\ndate.setDate(date.getDate() + idx);\nreturn date.getTime();\n});\n\nif (includeValue) {\nreturn labels.map((label, idx) => ({\nlabel: idx === 0 ? label : labels[idx - 1],\nvalue: idx === 0 ? 15 : Math.floor(Math.random() * num) + 10\n}));\n} else {\nreturn labels;\n}\n};\n\nconst lineChart = {\nchart: 'line',\nicon: 'strokeCircle',\nproperties: {\nname: 'текущий период',\ndataKey: 'b',\nstroke: 'var(--color-static-status-blue)',\ndot: true,\ndotSettings: {\nscale: 1.5,\ninitScale: 0,\nwidth: 18,\nheight: 18,\n},\ninheritStroke: true,\ntype: 'monotone',\nstrokeWidth: 2,\nstrokeDasharray: '10 10',\n},\ndata: chartData(30, true)\n};\nconst areaChart = {\nchart: 'area',\nicon: 'filledCircle',\noffset: 0.1,\ngradient: {\ngid: 'ar-grad',\npoints: [\n{\noffset: 0,\nstopColor: 'rgba(0, 112, 224, 0.2)',\nstopOpacity: 1,\n},\n{\noffset: 95,\nstopColor: 'rgba(0, 128, 255, 0)',\nstopOpacity: 1,\n},\n],\n},\nproperties: {\nname: 'предыдущий период',\ndataKey: 'a',\ntype: 'monotone',\nstroke: 'var(--color-static-status-blue)',\ndotSettings: {\nscale: 1.5,\ninitScale: 0,\nwidth: 18,\nheight: 18,\n},\ndot: true,\nstrokeWidth: 2,\n},\ndata: chartData(50, true)\n};\n\nreturn (\n<div style={{ display: 'flex' }}>\n<div style={{ width: '600px', height: '400px' }}>\n<Chart\nid={'line-chart'}\ncomposeChart={composeChart}\ncartesianGrid={cartesianGrid}\nxAxis={xAxis}\nyAxis={yAxis}\ntooltip={tooltip}\nlegend={legend}\nbrush={brush}\nlabels={chartData(30, false)}\nseries={[lineChart, areaChart]}\n/>\n</div>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.0.0",
+"description": "#### [#1899](https://github.com/core-ds/core-components/pull/1899)\n\n- Обновлена библиотека `recharts@2.15.4`\n- Исправлены ошибки связанные с передачей `key`\n\n- Обновлены зависимости\n    - @alfalab/core-components-attach@8.0.0\n    - @alfalab/core-components-progress-bar@5.0.0\n    - @alfalab/core-components-select@19.0.0\n    - @alfalab/core-components-international-phone-input@4.0.0\n    - @alfalab/core-components-navigation-bar-private@2.0.0\n    - @alfalab/core-components-universal-date-input@4.0.0\n    - @alfalab/core-components-file-upload-item-v1@3.0.0\n    - @alfalab/core-components-date-range-input@5.0.0\n    - @alfalab/core-components-file-upload-item@8.0.0\n    - @alfalab/core-components-intl-phone-input@11.0.0\n    - @alfalab/core-components-select-with-tags@10.0.0\n    - @alfalab/core-components-confirmation-v1@3.0.0\n    - @alfalab/core-components-date-time-input@6.0.0\n    - @alfalab/core-components-universal-modal@3.0.0\n    - @alfalab/core-components-calendar-input@12.0.0\n    - @alfalab/core-components-navigation-bar@3.0.0\n    - @alfalab/core-components-password-input@7.0.0\n    - @alfalab/core-components-picker-button@13.0.0\n    - @alfalab/core-components-product-cover@3.0.0\n    - @alfalab/core-components-sortable-list@3.0.0\n    - @alfalab/core-components-number-input@4.0.0\n    - @alfalab/core-components-pass-code-v1@3.0.0\n    - @alfalab/core-components-status-badge@3.0.0\n    - @alfalab/core-components-toast-plate@9.0.0\n    - @alfalab/core-components-filter-tag@7.0.0\n    - @alfalab/core-components-pagination@4.0.0\n    - @alfalab/core-components-accordion@3.0.0\n    - @alfalab/core-components-bank-card@7.0.0\n    - @alfalab/core-components-pass-code@4.0.0\n    - @alfalab/core-components-calendar@9.0.0\n    - @alfalab/core-components-collapse@6.0.0\n    - @alfalab/core-components-dropzone@6.0.0\n    - @alfalab/core-components-gallery@7.0.0\n    - @alfalab/core-components-input@17.0.0\n    - @alfalab/core-components-plate@9.0.0\n    - @alfalab/core-components-steps@3.0.0\n    - @alfalab/core-components-tabs@10.0.0\n    - @alfalab/core-components-alert@6.0.0\n    - @alfalab/core-components-amount-input@9.0.0\n    - @alfalab/core-components-base-modal@7.0.0\n    - @alfalab/core-components-bottom-sheet@8.0.0\n    - @alfalab/core-components-button@13.0.0\n    - @alfalab/core-components-calendar-range@9.0.0\n    - @alfalab/core-components-calendar-with-skeleton@7.0.0\n    - @alfalab/core-components-confirmation@15.0.0\n    - @alfalab/core-components-custom-button@5.0.0\n    - @alfalab/core-components-custom-picker-button@4.0.0\n    - @alfalab/core-components-date-input@6.0.0\n    - @alfalab/core-components-drawer@7.0.0\n    - @alfalab/core-components-icon-button@8.0.0\n    - @alfalab/core-components-input-autocomplete@14.0.0\n    - @alfalab/core-components-masked-input@8.0.0\n    - @alfalab/core-components-modal@11.0.0\n    - @alfalab/core-components-notification@9.0.0\n    - @alfalab/core-components-notification-manager@7.0.0\n    - @alfalab/core-components-pattern-lock@4.0.0\n    - @alfalab/core-components-pattern-lock-v1@3.0.0\n    - @alfalab/core-components-phone-input@9.0.0\n    - @alfalab/core-components-popover@8.0.0\n    - @alfalab/core-components-popup-sheet@3.0.0\n    - @alfalab/core-components-portal@5.0.0\n    - @alfalab/core-components-pure-cell@6.0.0\n    - @alfalab/core-components-side-panel@7.0.0\n    - @alfalab/core-components-slider-input@11.0.0\n    - @alfalab/core-components-table@4.0.0\n    - @alfalab/core-components-time-input@4.0.0\n    - @alfalab/core-components-toast@8.0.0\n    - @alfalab/core-components-tooltip@9.0.0\n    - @alfalab/core-components-with-suffix@6.0.0\n    - @alfalab/core-components-text@3.0.0\n    - @alfalab/core-components-segmented-control@3.0.0\n    - @alfalab/core-components-radio@6.0.0\n    - @alfalab/core-components-form-control@14.0.0\n    - @alfalab/core-components-textarea@10.0.0\n    - @alfalab/core-components-themes@15.0.0\n    - @alfalab/core-components-config@1.1.0\n    - @alfalab/core-components-checkbox@6.0.0\n    - @alfalab/core-components-circular-progress-bar@5.0.0\n    - @alfalab/core-components-hatching-progress-bar@4.0.0\n    - @alfalab/core-components-stepped-progress-bar@4.0.0\n    - @alfalab/core-components-keyboard-focusable@6.0.0\n    - @alfalab/core-components-generic-wrapper@3.0.0\n    - @alfalab/core-components-checkbox-group@6.0.0\n    - @alfalab/core-components-page-indicator@3.0.0\n    - @alfalab/core-components-system-message@4.0.0\n    - @alfalab/core-components-action-button@3.0.0\n    - @alfalab/core-components-stack-context@1.0.1\n    - @alfalab/core-components-list-header@5.0.0\n    - @alfalab/core-components-radio-group@6.0.0\n    - @alfalab/core-components-card-image@5.0.0\n    - @alfalab/core-components-code-input@5.0.0\n    - @alfalab/core-components-typography@6.0.0\n    - @alfalab/core-components-icon-view@5.0.0\n    - @alfalab/core-components-indicator@4.0.0\n    - @alfalab/core-components-scrollbar@5.0.0\n    - @alfalab/core-components-backdrop@5.0.0\n    - @alfalab/core-components-cdn-icon@7.0.0\n    - @alfalab/core-components-markdown@3.0.0\n    - @alfalab/core-components-skeleton@7.0.0\n    - @alfalab/core-components-underlay@3.0.0\n    - @alfalab/core-components-comment@4.0.0\n    - @alfalab/core-components-divider@5.0.0\n    - @alfalab/core-components-spinner@6.0.0\n    - @alfalab/core-components-tab-bar@4.0.0\n    - @alfalab/core-components-amount@5.0.0\n    - @alfalab/core-components-loader@5.0.0\n    - @alfalab/core-components-shared@2.0.0\n    - @alfalab/core-components-slider@6.0.0\n    - @alfalab/core-components-status@5.0.0\n    - @alfalab/core-components-switch@6.0.0\n    - @alfalab/core-components-badge@7.0.0\n    - @alfalab/core-components-chart@5.0.0\n    - @alfalab/core-components-space@5.0.0\n    - @alfalab/core-components-stack@7.0.0\n    - @alfalab/core-components-grid@5.0.0\n    - @alfalab/core-components-link@7.0.0\n    - @alfalab/core-components-list@5.0.0\n    - @alfalab/core-components-gap@3.0.0\n    - @alfalab/core-components-tag@10.0.0\n    - @alfalab/core-components-mq@6.0.0\n    - @alfalab/core-components-types@2.0.0\n    - @alfalab/core-components-vars@11.0.0\n    - @alfalab/core-components-global-store@4.0.0"
+}
+]
+}

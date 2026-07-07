@@ -46,6 +46,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
     client,
     initialScreenHintSlot,
     errorVisibleDuration,
+    strictFocus = false,
     ...restProps
 }) => {
     const [timeLeft, startTimer, stopTimer] = useCountdown(countdownDuration);
@@ -111,6 +112,7 @@ export const BaseConfirmation: FC<ConfirmationProps> = ({
         blockSmsRetry,
         breakpoint,
         client,
+        strictFocus,
         onTempBlockFinished,
         onChangeState,
         onChangeScreen,

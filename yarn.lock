@@ -48,12 +48,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/core-components-accordion@npm:^3.0.8, @alfalab/core-components-accordion@workspace:packages/accordion":
+"@alfalab/core-components-accordion@npm:^3.0.9, @alfalab/core-components-accordion@workspace:packages/accordion":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-accordion@workspace:packages/accordion"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
@@ -64,12 +64,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-action-button@npm:^3.0.5, @alfalab/core-components-action-button@workspace:packages/action-button":
+"@alfalab/core-components-action-button@npm:^3.0.6, @alfalab/core-components-action-button@workspace:packages/action-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-action-button@workspace:packages/action-button"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-spinner": "npm:^6.0.5"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-spinner": "npm:^6.0.6"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -80,11 +80,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-alert@npm:^6.0.8, @alfalab/core-components-alert@workspace:packages/alert":
+"@alfalab/core-components-alert@npm:^6.0.9, @alfalab/core-components-alert@workspace:packages/alert":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-alert@workspace:packages/alert"
   dependencies:
-    "@alfalab/core-components-plate": "npm:^9.0.8"
+    "@alfalab/core-components-plate": "npm:^9.0.9"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -93,14 +93,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-amount-input@npm:^9.2.7, @alfalab/core-components-amount-input@workspace:packages/amount-input":
+"@alfalab/core-components-amount-input@npm:^9.2.8, @alfalab/core-components-amount-input@workspace:packages/amount-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-amount-input@workspace:packages/amount-input"
   dependencies:
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-number-input": "npm:^4.0.10"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-with-suffix": "npm:^6.0.10"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-number-input": "npm:^4.0.11"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-with-suffix": "npm:^6.0.11"
     "@alfalab/data": "npm:^1.9.2"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/utils": "npm:^1.18.0"
@@ -130,11 +130,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-attach@npm:^8.0.8, @alfalab/core-components-attach@workspace:packages/attach":
+"@alfalab/core-components-attach@npm:^8.0.9, @alfalab/core-components-attach@workspace:packages/attach":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-attach@workspace:packages/attach"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
+    "@alfalab/core-components-button": "npm:^13.2.1"
     "@alfalab/core-components-keyboard-focusable": "npm:^6.0.2"
     "@alfalab/core-components-progress-bar": "npm:^5.0.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
@@ -175,11 +175,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-bank-card@npm:^7.0.10, @alfalab/core-components-bank-card@workspace:packages/bank-card":
+"@alfalab/core-components-bank-card@npm:^7.0.11, @alfalab/core-components-bank-card@workspace:packages/bank-card":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-bank-card@workspace:packages/bank-card"
   dependencies:
-    "@alfalab/core-components-masked-input": "npm:^8.0.10"
+    "@alfalab/core-components-masked-input": "npm:^8.0.11"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@alfalab/icons-logotype": "npm:^2.37.0"
     classnames: "npm:^2.5.1"
@@ -190,14 +190,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-base-modal@npm:^7.1.6, @alfalab/core-components-base-modal@workspace:packages/base-modal":
+"@alfalab/core-components-base-modal@npm:^7.1.7, @alfalab/core-components-base-modal@workspace:packages/base-modal":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-base-modal@workspace:packages/base-modal"
   dependencies:
     "@alfalab/core-components-backdrop": "npm:^5.0.2"
     "@alfalab/core-components-global-store": "npm:^4.0.1"
-    "@alfalab/core-components-portal": "npm:^5.0.2"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-portal": "npm:^5.0.3"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-stack": "npm:^7.0.1"
     "@juggle/resize-observer": "npm:^3.3.1"
     "@types/react-transition-group": "npm:^4.4.12"
@@ -214,14 +214,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-bottom-sheet@npm:^8.1.10, @alfalab/core-components-bottom-sheet@workspace:packages/bottom-sheet":
+"@alfalab/core-components-bottom-sheet@npm:^8.1.11, @alfalab/core-components-bottom-sheet@workspace:packages/bottom-sheet":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-bottom-sheet@workspace:packages/bottom-sheet"
   dependencies:
     "@alfalab/core-components-backdrop": "npm:^5.0.2"
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.11"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.12"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-types": "npm:^2.0.1"
     classnames: "npm:^2.5.1"
     react-div-100vh: "npm:^0.7.0"
@@ -236,13 +236,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-button@npm:^13.2.0, @alfalab/core-components-button@workspace:packages/button":
+"@alfalab/core-components-button@npm:^13.2.1, @alfalab/core-components-button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-button@workspace:packages/button"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-spinner": "npm:^6.0.5"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-spinner": "npm:^6.0.6"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -253,14 +253,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-calendar-input@npm:^12.0.14, @alfalab/core-components-calendar-input@workspace:packages/calendar-input":
+"@alfalab/core-components-calendar-input@npm:^12.0.15, @alfalab/core-components-calendar-input@workspace:packages/calendar-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-calendar-input@workspace:packages/calendar-input"
   dependencies:
-    "@alfalab/core-components-calendar": "npm:^9.1.9"
-    "@alfalab/core-components-date-input": "npm:^6.0.10"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
+    "@alfalab/core-components-calendar": "npm:^9.1.10"
+    "@alfalab/core-components-date-input": "npm:^6.0.11"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
@@ -272,14 +272,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-calendar-range@npm:^9.0.14, @alfalab/core-components-calendar-range@workspace:packages/calendar-range":
+"@alfalab/core-components-calendar-range@npm:^9.1.1, @alfalab/core-components-calendar-range@workspace:packages/calendar-range":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-calendar-range@workspace:packages/calendar-range"
   dependencies:
-    "@alfalab/core-components-calendar": "npm:^9.1.9"
-    "@alfalab/core-components-calendar-input": "npm:^12.0.14"
-    "@alfalab/core-components-date-input": "npm:^6.0.10"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-calendar": "npm:^9.1.10"
+    "@alfalab/core-components-calendar-input": "npm:^12.0.15"
+    "@alfalab/core-components-date-input": "npm:^6.0.11"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-universal-date-input": "npm:^4.0.15"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     date-fns: "npm:^4.1.0"
@@ -290,12 +291,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-calendar-with-skeleton@npm:^7.0.13, @alfalab/core-components-calendar-with-skeleton@workspace:packages/calendar-with-skeleton":
+"@alfalab/core-components-calendar-with-skeleton@npm:^7.0.14, @alfalab/core-components-calendar-with-skeleton@workspace:packages/calendar-with-skeleton":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-calendar-with-skeleton@workspace:packages/calendar-with-skeleton"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-calendar": "npm:^9.1.9"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-calendar": "npm:^9.1.10"
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -307,16 +308,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-calendar@npm:^9.1.9, @alfalab/core-components-calendar@workspace:packages/calendar":
+"@alfalab/core-components-calendar@npm:^9.1.10, @alfalab/core-components-calendar@workspace:packages/calendar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-calendar@workspace:packages/calendar"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
-    "@alfalab/core-components-modal": "npm:^11.0.13"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-modal": "npm:^11.0.14"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@juggle/resize-observer": "npm:^3.3.1"
@@ -344,12 +345,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-carousel@npm:^1.1.1, @alfalab/core-components-carousel@workspace:packages/carousel":
+"@alfalab/core-components-carousel@npm:^1.1.2, @alfalab/core-components-carousel@workspace:packages/carousel":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-carousel@workspace:packages/carousel"
   dependencies:
     "@alfalab/core-components-icon-view": "npm:^5.0.4"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -361,11 +362,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-cdn-icon@npm:^7.1.4, @alfalab/core-components-cdn-icon@workspace:packages/cdn-icon":
+"@alfalab/core-components-cdn-icon@npm:^7.1.5, @alfalab/core-components-cdn-icon@workspace:packages/cdn-icon":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-cdn-icon@workspace:packages/cdn-icon"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
     use-sync-external-store: "npm:^1.4.0"
@@ -375,11 +376,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-chart@npm:^5.0.8, @alfalab/core-components-chart@workspace:packages/chart":
+"@alfalab/core-components-chart@npm:^5.0.9, @alfalab/core-components-chart@workspace:packages/chart":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-chart@workspace:packages/chart"
   dependencies:
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     classnames: "npm:^2.5.1"
     recharts: "npm:^2.15.4"
     tslib: "npm:^2.4.0"
@@ -389,12 +390,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-checkbox-group@npm:^6.0.6, @alfalab/core-components-checkbox-group@workspace:packages/checkbox-group":
+"@alfalab/core-components-checkbox-group@npm:^6.0.7, @alfalab/core-components-checkbox-group@workspace:packages/checkbox-group":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-checkbox-group@workspace:packages/checkbox-group"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -403,11 +404,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-checkbox@npm:^6.2.2, @alfalab/core-components-checkbox@workspace:packages/checkbox":
+"@alfalab/core-components-checkbox@npm:^6.2.3, @alfalab/core-components-checkbox@workspace:packages/checkbox":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-checkbox@workspace:packages/checkbox"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -418,12 +419,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-circular-progress-bar@npm:^5.0.8, @alfalab/core-components-circular-progress-bar@workspace:packages/circular-progress-bar":
+"@alfalab/core-components-circular-progress-bar@npm:^5.0.9, @alfalab/core-components-circular-progress-bar@workspace:packages/circular-progress-bar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-circular-progress-bar@workspace:packages/circular-progress-bar"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -432,11 +433,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-code-input@npm:^5.0.5, @alfalab/core-components-code-input@workspace:packages/code-input":
+"@alfalab/core-components-code-input@npm:^5.1.0, @alfalab/core-components-code-input@workspace:packages/code-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-code-input@workspace:packages/code-input"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/hooks": "npm:^1.13.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -485,11 +487,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-comment@npm:^4.0.8, @alfalab/core-components-comment@workspace:packages/comment":
+"@alfalab/core-components-comment@npm:^4.0.9, @alfalab/core-components-comment@workspace:packages/comment":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-comment@workspace:packages/comment"
   dependencies:
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -509,11 +511,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-confirmation-v1@npm:^3.0.8, @alfalab/core-components-confirmation-v1@workspace:packages/confirmation-v1":
+"@alfalab/core-components-confirmation-v1@npm:^3.0.9, @alfalab/core-components-confirmation-v1@workspace:packages/confirmation-v1":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-confirmation-v1@workspace:packages/confirmation-v1"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
+    "@alfalab/core-components-button": "npm:^13.2.1"
     "@alfalab/core-components-link": "npm:^7.0.3"
     "@alfalab/core-components-loader": "npm:^5.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
@@ -527,16 +529,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-confirmation@npm:^15.0.10, @alfalab/core-components-confirmation@workspace:packages/confirmation":
+"@alfalab/core-components-confirmation@npm:^15.1.0, @alfalab/core-components-confirmation@workspace:packages/confirmation":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-confirmation@workspace:packages/confirmation"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-code-input": "npm:^5.0.5"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-code-input": "npm:^5.1.0"
     "@alfalab/core-components-link": "npm:^7.0.3"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-spinner": "npm:^6.0.5"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-spinner": "npm:^6.0.6"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -546,11 +548,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-custom-button@npm:^5.0.8, @alfalab/core-components-custom-button@workspace:packages/custom-button":
+"@alfalab/core-components-custom-button@npm:^5.0.9, @alfalab/core-components-custom-button@workspace:packages/custom-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-custom-button@workspace:packages/custom-button"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
+    "@alfalab/core-components-button": "npm:^13.2.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -559,14 +561,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-custom-picker-button@npm:^4.1.10, @alfalab/core-components-custom-picker-button@workspace:packages/custom-picker-button":
+"@alfalab/core-components-custom-picker-button@npm:^4.1.11, @alfalab/core-components-custom-picker-button@workspace:packages/custom-picker-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-custom-picker-button@workspace:packages/custom-picker-button"
   dependencies:
-    "@alfalab/core-components-custom-button": "npm:^5.0.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-picker-button": "npm:^13.0.17"
-    "@alfalab/core-components-select": "npm:^19.1.10"
+    "@alfalab/core-components-custom-button": "npm:^5.0.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-picker-button": "npm:^13.0.18"
+    "@alfalab/core-components-select": "npm:^19.2.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -575,11 +577,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-date-input@npm:^6.0.10, @alfalab/core-components-date-input@workspace:packages/date-input":
+"@alfalab/core-components-date-input@npm:^6.0.11, @alfalab/core-components-date-input@workspace:packages/date-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-date-input@workspace:packages/date-input"
   dependencies:
-    "@alfalab/core-components-input": "npm:^17.1.8"
+    "@alfalab/core-components-input": "npm:^17.1.9"
     date-fns: "npm:^4.1.0"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -589,15 +591,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-date-range-input@npm:^5.0.14, @alfalab/core-components-date-range-input@workspace:packages/date-range-input":
+"@alfalab/core-components-date-range-input@npm:^5.0.15, @alfalab/core-components-date-range-input@workspace:packages/date-range-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-date-range-input@workspace:packages/date-range-input"
   dependencies:
-    "@alfalab/core-components-calendar": "npm:^9.1.9"
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
+    "@alfalab/core-components-calendar": "npm:^9.1.10"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -610,15 +612,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-date-time-input@npm:^6.0.14, @alfalab/core-components-date-time-input@workspace:packages/date-time-input":
+"@alfalab/core-components-date-time-input@npm:^6.0.15, @alfalab/core-components-date-time-input@workspace:packages/date-time-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-date-time-input@workspace:packages/date-time-input"
   dependencies:
-    "@alfalab/core-components-calendar": "npm:^9.1.9"
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
+    "@alfalab/core-components-calendar": "npm:^9.1.10"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -643,12 +645,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-drawer@npm:^7.0.8, @alfalab/core-components-drawer@workspace:packages/drawer":
+"@alfalab/core-components-drawer@npm:^7.0.9, @alfalab/core-components-drawer@workspace:packages/drawer":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-drawer@workspace:packages/drawer"
   dependencies:
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-button": "npm:^13.2.0"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-button": "npm:^13.2.1"
     classnames: "npm:^2.5.1"
     react-transition-group: "npm:^4.4.5"
     tslib: "npm:^2.4.0"
@@ -679,14 +681,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-file-upload-item-v1@npm:^3.0.8, @alfalab/core-components-file-upload-item-v1@workspace:packages/file-upload-item-v1":
+"@alfalab/core-components-file-upload-item-v1@npm:^3.0.9, @alfalab/core-components-file-upload-item-v1@workspace:packages/file-upload-item-v1":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-file-upload-item-v1@workspace:packages/file-upload-item-v1"
   dependencies:
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
     "@alfalab/core-components-link": "npm:^7.0.3"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-spinner": "npm:^6.0.5"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-spinner": "npm:^6.0.6"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -696,14 +698,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-file-upload-item@npm:^8.1.0, @alfalab/core-components-file-upload-item@workspace:packages/file-upload-item":
+"@alfalab/core-components-file-upload-item@npm:^8.1.1, @alfalab/core-components-file-upload-item@workspace:packages/file-upload-item":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-file-upload-item@workspace:packages/file-upload-item"
   dependencies:
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
     "@alfalab/core-components-icon-view": "npm:^5.0.4"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -714,11 +716,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-filter-tag@npm:^7.0.6, @alfalab/core-components-filter-tag@workspace:packages/filter-tag":
+"@alfalab/core-components-filter-tag@npm:^7.0.7, @alfalab/core-components-filter-tag@workspace:packages/filter-tag":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-filter-tag@workspace:packages/filter-tag"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -729,12 +731,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-form-control@npm:^14.0.7, @alfalab/core-components-form-control@workspace:packages/form-control":
+"@alfalab/core-components-form-control@npm:^14.0.8, @alfalab/core-components-form-control@workspace:packages/form-control":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-form-control@workspace:packages/form-control"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -743,18 +745,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-gallery@npm:^7.1.10, @alfalab/core-components-gallery@workspace:packages/gallery":
+"@alfalab/core-components-gallery@npm:^7.2.0, @alfalab/core-components-gallery@workspace:packages/gallery":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-gallery@workspace:packages/gallery"
   dependencies:
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
     "@alfalab/core-components-icon-view": "npm:^5.0.4"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-spinner": "npm:^6.0.5"
-    "@alfalab/core-components-tooltip": "npm:^9.0.15"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-spinner": "npm:^6.0.6"
+    "@alfalab/core-components-tooltip": "npm:^9.0.16"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -826,12 +828,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-icon-button@npm:^8.0.8, @alfalab/core-components-icon-button@workspace:packages/icon-button":
+"@alfalab/core-components-icon-button@npm:^8.0.9, @alfalab/core-components-icon-button@workspace:packages/icon-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-icon-button@workspace:packages/icon-button"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -866,16 +868,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-input-autocomplete@npm:^14.0.17, @alfalab/core-components-input-autocomplete@workspace:packages/input-autocomplete":
+"@alfalab/core-components-input-autocomplete@npm:^14.0.18, @alfalab/core-components-input-autocomplete@workspace:packages/input-autocomplete":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-input-autocomplete@workspace:packages/input-autocomplete"
   dependencies:
-    "@alfalab/core-components-form-control": "npm:^14.0.7"
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-select": "npm:^19.1.10"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-form-control": "npm:^14.0.8"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
+    "@alfalab/core-components-select": "npm:^19.2.0"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
     "@maskito/core": "npm:^1.7.0"
@@ -889,14 +891,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-input@npm:^17.1.8, @alfalab/core-components-input@workspace:packages/input":
+"@alfalab/core-components-input@npm:^17.1.9, @alfalab/core-components-input@workspace:packages/input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-input@workspace:packages/input"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-form-control": "npm:^14.0.7"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-form-control": "npm:^14.0.8"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
@@ -909,15 +911,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-international-phone-input@npm:^4.0.17, @alfalab/core-components-international-phone-input@workspace:packages/international-phone-input":
+"@alfalab/core-components-international-phone-input@npm:^4.0.18, @alfalab/core-components-international-phone-input@workspace:packages/international-phone-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-international-phone-input@workspace:packages/international-phone-input"
   dependencies:
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-input-autocomplete": "npm:^14.0.17"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-select": "npm:^19.1.10"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-input-autocomplete": "npm:^14.0.18"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-select": "npm:^19.2.0"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-types": "npm:^2.0.1"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
@@ -932,12 +934,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-intl-phone-input@npm:^11.0.17, @alfalab/core-components-intl-phone-input@workspace:packages/intl-phone-input":
+"@alfalab/core-components-intl-phone-input@npm:^11.0.18, @alfalab/core-components-intl-phone-input@workspace:packages/intl-phone-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-intl-phone-input@workspace:packages/intl-phone-input"
   dependencies:
-    "@alfalab/core-components-input-autocomplete": "npm:^14.0.17"
-    "@alfalab/core-components-select": "npm:^19.1.10"
+    "@alfalab/core-components-input-autocomplete": "npm:^14.0.18"
+    "@alfalab/core-components-select": "npm:^19.2.0"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@alfalab/utils": "npm:^1.18.0"
@@ -977,11 +979,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-list-header@npm:^5.0.8, @alfalab/core-components-list-header@workspace:packages/list-header":
+"@alfalab/core-components-list-header@npm:^5.0.9, @alfalab/core-components-list-header@workspace:packages/list-header":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-list-header@workspace:packages/list-header"
   dependencies:
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -990,11 +992,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-list@npm:^5.0.8, @alfalab/core-components-list@workspace:packages/list":
+"@alfalab/core-components-list@npm:^5.0.9, @alfalab/core-components-list@workspace:packages/list":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-list@workspace:packages/list"
   dependencies:
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1015,14 +1017,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-markdown@npm:^3.0.12, @alfalab/core-components-markdown@workspace:packages/markdown":
+"@alfalab/core-components-markdown@npm:^3.0.13, @alfalab/core-components-markdown@workspace:packages/markdown":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-markdown@workspace:packages/markdown"
   dependencies:
     "@alfalab/core-components-link": "npm:^7.0.3"
-    "@alfalab/core-components-list": "npm:^5.0.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-list": "npm:^5.0.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     classnames: "npm:^2.5.1"
     mdast-util-gfm-strikethrough: "npm:^0.2.3"
     micromark-extension-gfm-strikethrough: "npm:^0.6.5"
@@ -1034,11 +1036,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-masked-input@npm:^8.0.10, @alfalab/core-components-masked-input@workspace:packages/masked-input":
+"@alfalab/core-components-masked-input@npm:^8.0.11, @alfalab/core-components-masked-input@workspace:packages/masked-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-masked-input@workspace:packages/masked-input"
   dependencies:
-    "@alfalab/core-components-input": "npm:^17.1.8"
+    "@alfalab/core-components-input": "npm:^17.1.9"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     text-mask-core: "npm:^5.1.2"
@@ -1056,6 +1058,7 @@ __metadata:
     "@modelcontextprotocol/sdk": "npm:^1.18.0"
     copyfiles: "npm:^2.4.1"
     react-docgen-typescript: "npm:^2.4.0"
+    ts-morph: "npm:28.0.0"
     tsx: "npm:^4.20.6"
     typescript: "npm:^5.9.3"
     zod: "npm:^4.1.11"
@@ -1064,14 +1067,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-modal@npm:^11.0.13, @alfalab/core-components-modal@workspace:packages/modal":
+"@alfalab/core-components-modal@npm:^11.0.14, @alfalab/core-components-modal@workspace:packages/modal":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-modal@workspace:packages/modal"
   dependencies:
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.11"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.12"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -1081,11 +1084,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-mq@npm:^6.0.5, @alfalab/core-components-mq@workspace:packages/mq":
+"@alfalab/core-components-mq@npm:^6.0.6, @alfalab/core-components-mq@workspace:packages/mq":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-mq@workspace:packages/mq"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1095,14 +1098,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-navigation-bar-private@npm:^2.0.11, @alfalab/core-components-navigation-bar-private@workspace:packages/navigation-bar-private":
+"@alfalab/core-components-navigation-bar-private@npm:^2.0.12, @alfalab/core-components-navigation-bar-private@workspace:packages/navigation-bar-private":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-navigation-bar-private@workspace:packages/navigation-bar-private"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -1114,13 +1117,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-navigation-bar@npm:^3.0.10, @alfalab/core-components-navigation-bar@workspace:packages/navigation-bar":
+"@alfalab/core-components-navigation-bar@npm:^3.0.11, @alfalab/core-components-navigation-bar@workspace:packages/navigation-bar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-navigation-bar@workspace:packages/navigation-bar"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1130,12 +1133,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-notification-manager@npm:^7.0.9, @alfalab/core-components-notification-manager@workspace:packages/notification-manager":
+"@alfalab/core-components-notification-manager@npm:^7.0.10, @alfalab/core-components-notification-manager@workspace:packages/notification-manager":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-notification-manager@workspace:packages/notification-manager"
   dependencies:
-    "@alfalab/core-components-notification": "npm:^9.0.9"
-    "@alfalab/core-components-portal": "npm:^5.0.2"
+    "@alfalab/core-components-notification": "npm:^9.0.10"
+    "@alfalab/core-components-portal": "npm:^5.0.3"
     "@alfalab/core-components-stack": "npm:^7.0.1"
     classnames: "npm:^2.5.1"
     react-transition-group: "npm:^4.4.5"
@@ -1147,14 +1150,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-notification@npm:^9.0.9, @alfalab/core-components-notification@workspace:packages/notification":
+"@alfalab/core-components-notification@npm:^9.0.10, @alfalab/core-components-notification@workspace:packages/notification":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-notification@workspace:packages/notification"
   dependencies:
-    "@alfalab/core-components-portal": "npm:^5.0.2"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-portal": "npm:^5.0.3"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-stack": "npm:^7.0.1"
-    "@alfalab/core-components-toast-plate": "npm:^9.1.4"
+    "@alfalab/core-components-toast-plate": "npm:^9.1.5"
     classnames: "npm:^2.5.1"
     element-closest: "npm:^3.0.2"
     react-merge-refs: "npm:^1.1.0"
@@ -1167,14 +1170,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-number-input@npm:^4.0.10, @alfalab/core-components-number-input@workspace:packages/number-input":
+"@alfalab/core-components-number-input@npm:^4.0.11, @alfalab/core-components-number-input@workspace:packages/number-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-number-input@workspace:packages/number-input"
   dependencies:
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@maskito/core": "npm:^1.7.0"
     "@maskito/react": "npm:^1.7.0"
@@ -1187,11 +1190,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-page-indicator@npm:^3.0.5, @alfalab/core-components-page-indicator@workspace:packages/page-indicator":
+"@alfalab/core-components-page-indicator@npm:^3.0.6, @alfalab/core-components-page-indicator@workspace:packages/page-indicator":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-page-indicator@workspace:packages/page-indicator"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@types/react-transition-group": "npm:^4.4.12"
     classnames: "npm:^2.5.1"
     react-transition-group: "npm:^4.4.5"
@@ -1202,11 +1205,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-pagination@npm:^4.0.5, @alfalab/core-components-pagination@workspace:packages/pagination":
+"@alfalab/core-components-pagination@npm:^4.0.6, @alfalab/core-components-pagination@workspace:packages/pagination":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-pagination@workspace:packages/pagination"
   dependencies:
-    "@alfalab/core-components-tag": "npm:^10.1.0"
+    "@alfalab/core-components-tag": "npm:^10.1.1"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1216,13 +1219,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-pass-code-v1@npm:^3.0.8, @alfalab/core-components-pass-code-v1@workspace:packages/pass-code-v1":
+"@alfalab/core-components-pass-code-v1@npm:^3.0.9, @alfalab/core-components-pass-code-v1@workspace:packages/pass-code-v1":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-pass-code-v1@workspace:packages/pass-code-v1"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
+    "@alfalab/core-components-button": "npm:^13.2.1"
     "@alfalab/core-components-gap": "npm:^3.0.2"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     react-transition-group: "npm:^4.4.5"
@@ -1233,14 +1236,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-pass-code@npm:^4.0.9, @alfalab/core-components-pass-code@workspace:packages/pass-code":
+"@alfalab/core-components-pass-code@npm:^4.0.10, @alfalab/core-components-pass-code@workspace:packages/pass-code":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-pass-code@workspace:packages/pass-code"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
+    "@alfalab/core-components-button": "npm:^13.2.1"
     "@alfalab/core-components-gap": "npm:^3.0.2"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     react-transition-group: "npm:^4.4.5"
@@ -1251,12 +1254,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-password-input@npm:^7.0.10, @alfalab/core-components-password-input@workspace:packages/password-input":
+"@alfalab/core-components-password-input@npm:^7.0.11, @alfalab/core-components-password-input@workspace:packages/password-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-password-input@workspace:packages/password-input"
   dependencies:
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
-    "@alfalab/core-components-input": "npm:^17.1.8"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-input": "npm:^17.1.9"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1266,13 +1269,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-pattern-lock-v1@npm:^3.0.8, @alfalab/core-components-pattern-lock-v1@workspace:packages/pattern-lock-v1":
+"@alfalab/core-components-pattern-lock-v1@npm:^3.0.9, @alfalab/core-components-pattern-lock-v1@workspace:packages/pattern-lock-v1":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-pattern-lock-v1@workspace:packages/pattern-lock-v1"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     classnames: "npm:^2.5.1"
     react-canvas-pattern-lock: "npm:^2.0.6"
     tslib: "npm:^2.4.0"
@@ -1282,13 +1285,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-pattern-lock@npm:^4.0.8, @alfalab/core-components-pattern-lock@workspace:packages/pattern-lock":
+"@alfalab/core-components-pattern-lock@npm:^4.0.9, @alfalab/core-components-pattern-lock@workspace:packages/pattern-lock":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-pattern-lock@workspace:packages/pattern-lock"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/react-canvas-pattern-lock": "npm:^2.0.7"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1298,11 +1301,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-phone-input@npm:^9.0.10, @alfalab/core-components-phone-input@workspace:packages/phone-input":
+"@alfalab/core-components-phone-input@npm:^9.0.12, @alfalab/core-components-phone-input@workspace:packages/phone-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-phone-input@workspace:packages/phone-input"
   dependencies:
-    "@alfalab/core-components-masked-input": "npm:^8.0.10"
+    "@alfalab/core-components-masked-input": "npm:^8.0.11"
     react-merge-refs: "npm:^1.1.0"
     text-mask-core: "npm:^5.1.2"
     tslib: "npm:^2.4.0"
@@ -1312,14 +1315,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-picker-button@npm:^13.0.17, @alfalab/core-components-picker-button@workspace:packages/picker-button":
+"@alfalab/core-components-picker-button@npm:^13.0.18, @alfalab/core-components-picker-button@workspace:packages/picker-button":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-picker-button@workspace:packages/picker-button"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-select": "npm:^19.1.10"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
+    "@alfalab/core-components-select": "npm:^19.2.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1329,14 +1332,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-plate@npm:^9.0.8, @alfalab/core-components-plate@workspace:packages/plate":
+"@alfalab/core-components-plate@npm:^9.0.9, @alfalab/core-components-plate@workspace:packages/plate":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-plate@workspace:packages/plate"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -1348,12 +1351,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-popover@npm:^8.0.5, @alfalab/core-components-popover@workspace:packages/popover":
+"@alfalab/core-components-popover@npm:^8.1.0, @alfalab/core-components-popover@workspace:packages/popover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-popover@workspace:packages/popover"
   dependencies:
-    "@alfalab/core-components-portal": "npm:^5.0.2"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-portal": "npm:^5.0.3"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-stack": "npm:^7.0.1"
     "@alfalab/hooks": "npm:^1.17.0"
     "@juggle/resize-observer": "npm:^3.3.1"
@@ -1372,14 +1375,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-popup-sheet@npm:^3.0.13, @alfalab/core-components-popup-sheet@workspace:packages/popup-sheet":
+"@alfalab/core-components-popup-sheet@npm:^3.0.14, @alfalab/core-components-popup-sheet@workspace:packages/popup-sheet":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-popup-sheet@workspace:packages/popup-sheet"
   dependencies:
     "@alfalab/core-components-backdrop": "npm:^5.0.2"
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.11"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.12"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-types": "npm:^2.0.1"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -1391,12 +1394,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-portal@npm:^5.0.2, @alfalab/core-components-portal@workspace:packages/portal":
+"@alfalab/core-components-portal@npm:^5.0.3, @alfalab/core-components-portal@workspace:packages/portal":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-portal@workspace:packages/portal"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-space": "npm:^5.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
     tslib: "npm:^2.4.0"
@@ -1407,13 +1410,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-product-cover@npm:^3.2.2, @alfalab/core-components-product-cover@workspace:packages/product-cover":
+"@alfalab/core-components-product-cover@npm:^3.2.3, @alfalab/core-components-product-cover@workspace:packages/product-cover":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-product-cover@workspace:packages/product-cover"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@alfalab/utils": "npm:^1.18.0"
@@ -1437,15 +1440,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-pure-cell@npm:^6.0.11, @alfalab/core-components-pure-cell@workspace:packages/pure-cell":
+"@alfalab/core-components-pure-cell@npm:^6.0.12, @alfalab/core-components-pure-cell@workspace:packages/pure-cell":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-pure-cell@workspace:packages/pure-cell"
   dependencies:
     "@alfalab/core-components-amount": "npm:^5.1.1"
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-comment": "npm:^4.0.8"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-comment": "npm:^4.0.9"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/data": "npm:^1.9.2"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
@@ -1457,12 +1460,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-radio-group@npm:^6.0.6, @alfalab/core-components-radio-group@workspace:packages/radio-group":
+"@alfalab/core-components-radio-group@npm:^6.0.7, @alfalab/core-components-radio-group@workspace:packages/radio-group":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-radio-group@workspace:packages/radio-group"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1472,11 +1475,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-radio@npm:^6.0.5, @alfalab/core-components-radio@workspace:packages/radio":
+"@alfalab/core-components-radio@npm:^6.0.6, @alfalab/core-components-radio@workspace:packages/radio":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-radio@workspace:packages/radio"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -1605,11 +1608,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-scrollbar@npm:^5.0.4, @alfalab/core-components-scrollbar@workspace:packages/scrollbar":
+"@alfalab/core-components-scrollbar-private@npm:^0.0.1, @alfalab/core-components-scrollbar-private@workspace:packages/scrollbar-private":
+  version: 0.0.0-use.local
+  resolution: "@alfalab/core-components-scrollbar-private@workspace:packages/scrollbar-private"
+  dependencies:
+    classnames: "npm:^2.5.1"
+    react-merge-refs: "npm:^1.1.0"
+    simplebar-react: "npm:^3.3.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@alfalab/core-components-scrollbar@npm:^5.0.5, @alfalab/core-components-scrollbar@workspace:packages/scrollbar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-scrollbar@workspace:packages/scrollbar"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@juggle/resize-observer": "npm:^3.3.1"
     can-use-dom: "npm:^0.1.0"
     classnames: "npm:^2.5.1"
@@ -1641,17 +1658,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-select-with-tags@npm:^10.1.11, @alfalab/core-components-select-with-tags@workspace:packages/select-with-tags":
+"@alfalab/core-components-select-with-tags@npm:^10.1.12, @alfalab/core-components-select-with-tags@workspace:packages/select-with-tags":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-select-with-tags@workspace:packages/select-with-tags"
   dependencies:
-    "@alfalab/core-components-bottom-sheet": "npm:^8.1.10"
-    "@alfalab/core-components-form-control": "npm:^14.0.7"
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-select": "npm:^19.1.10"
-    "@alfalab/core-components-tag": "npm:^10.1.0"
+    "@alfalab/core-components-bottom-sheet": "npm:^8.1.11"
+    "@alfalab/core-components-form-control": "npm:^14.0.8"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
+    "@alfalab/core-components-select": "npm:^19.2.0"
+    "@alfalab/core-components-tag": "npm:^10.1.1"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -1663,25 +1680,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-select@npm:^19.1.10, @alfalab/core-components-select@workspace:packages/select":
+"@alfalab/core-components-select@npm:^19.2.0, @alfalab/core-components-select@workspace:packages/select":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-select@workspace:packages/select"
   dependencies:
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-bottom-sheet": "npm:^8.1.10"
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-checkbox": "npm:^6.2.2"
-    "@alfalab/core-components-form-control": "npm:^14.0.7"
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-modal": "npm:^11.0.13"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-scrollbar": "npm:^5.0.4"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-bottom-sheet": "npm:^8.1.11"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-checkbox": "npm:^6.2.3"
+    "@alfalab/core-components-form-control": "npm:^14.0.8"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-modal": "npm:^11.0.14"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
+    "@alfalab/core-components-scrollbar-private": "npm:^0.0.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
-    "@juggle/resize-observer": "npm:^3.3.1"
     classnames: "npm:^2.5.1"
     compute-scroll-into-view: "npm:^3.1.0"
     downshift: "npm:8.4.0"
@@ -1696,7 +1712,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-shared@npm:^2.2.1, @alfalab/core-components-shared@workspace:packages/shared":
+"@alfalab/core-components-shared@npm:^2.2.2, @alfalab/core-components-shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-shared@workspace:packages/shared"
   dependencies:
@@ -1712,15 +1728,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-side-panel@npm:^7.0.13, @alfalab/core-components-side-panel@workspace:packages/side-panel":
+"@alfalab/core-components-side-panel@npm:^7.0.14, @alfalab/core-components-side-panel@workspace:packages/side-panel":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-side-panel@workspace:packages/side-panel"
   dependencies:
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-drawer": "npm:^7.0.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.11"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-drawer": "npm:^7.0.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.12"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -1743,11 +1759,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-slider-input@npm:^11.1.5, @alfalab/core-components-slider-input@workspace:packages/slider-input":
+"@alfalab/core-components-slider-input@npm:^11.1.6, @alfalab/core-components-slider-input@workspace:packages/slider-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-slider-input@workspace:packages/slider-input"
   dependencies:
-    "@alfalab/core-components-input": "npm:^17.1.8"
+    "@alfalab/core-components-input": "npm:^17.1.9"
     "@alfalab/core-components-slider": "npm:^6.1.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1770,12 +1786,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-sortable-list@npm:^3.0.6, @alfalab/core-components-sortable-list@workspace:packages/sortable-list":
+"@alfalab/core-components-sortable-list@npm:^3.0.7, @alfalab/core-components-sortable-list@workspace:packages/sortable-list":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-sortable-list@workspace:packages/sortable-list"
   dependencies:
-    "@alfalab/core-components-portal": "npm:^5.0.2"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-portal": "npm:^5.0.3"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@dnd-kit/core": "npm:^6.0.7"
     "@dnd-kit/sortable": "npm:^7.0.2"
@@ -1800,11 +1816,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-spinner@npm:^6.0.5, @alfalab/core-components-spinner@workspace:packages/spinner":
+"@alfalab/core-components-spinner@npm:^6.0.6, @alfalab/core-components-spinner@workspace:packages/spinner":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-spinner@workspace:packages/spinner"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1862,11 +1878,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-stepped-progress-bar@npm:^4.0.8, @alfalab/core-components-stepped-progress-bar@workspace:packages/stepped-progress-bar":
+"@alfalab/core-components-stepped-progress-bar@npm:^4.0.9, @alfalab/core-components-stepped-progress-bar@workspace:packages/stepped-progress-bar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-stepped-progress-bar@workspace:packages/stepped-progress-bar"
   dependencies:
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1875,12 +1891,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-steps@npm:^3.0.7, @alfalab/core-components-steps@workspace:packages/steps":
+"@alfalab/core-components-steps@npm:^3.0.8, @alfalab/core-components-steps@workspace:packages/steps":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-steps@workspace:packages/steps"
   dependencies:
     "@alfalab/core-components-badge": "npm:^7.0.2"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
@@ -1891,11 +1907,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-switch@npm:^6.1.3, @alfalab/core-components-switch@workspace:packages/switch":
+"@alfalab/core-components-switch@npm:^6.1.4, @alfalab/core-components-switch@workspace:packages/switch":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-switch@workspace:packages/switch"
   dependencies:
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
@@ -1907,12 +1923,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-system-message@npm:^4.0.5, @alfalab/core-components-system-message@workspace:packages/system-message":
+"@alfalab/core-components-system-message@npm:^4.0.6, @alfalab/core-components-system-message@workspace:packages/system-message":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-system-message@workspace:packages/system-message"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-types": "npm:^2.0.1"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
@@ -1922,13 +1938,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-tab-bar@npm:^4.0.9, @alfalab/core-components-tab-bar@workspace:packages/tab-bar":
+"@alfalab/core-components-tab-bar@npm:^4.0.10, @alfalab/core-components-tab-bar@workspace:packages/tab-bar":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-tab-bar@workspace:packages/tab-bar"
   dependencies:
     "@alfalab/core-components-indicator": "npm:^4.0.2"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1937,13 +1953,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-table@npm:^4.0.17, @alfalab/core-components-table@workspace:packages/table":
+"@alfalab/core-components-table@npm:^4.0.18, @alfalab/core-components-table@workspace:packages/table":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-table@workspace:packages/table"
   dependencies:
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-pagination": "npm:^4.0.5"
-    "@alfalab/core-components-select": "npm:^19.1.10"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-pagination": "npm:^4.0.6"
+    "@alfalab/core-components-select": "npm:^19.2.0"
     classnames: "npm:^2.5.1"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -1952,18 +1968,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-tabs@npm:^10.0.17, @alfalab/core-components-tabs@workspace:packages/tabs":
+"@alfalab/core-components-tabs@npm:^10.0.18, @alfalab/core-components-tabs@workspace:packages/tabs":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-tabs@workspace:packages/tabs"
   dependencies:
     "@alfalab/core-components-badge": "npm:^7.0.2"
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
     "@alfalab/core-components-keyboard-focusable": "npm:^6.0.2"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-picker-button": "npm:^13.0.17"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-picker-button": "npm:^13.0.18"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
-    "@alfalab/core-components-tag": "npm:^10.1.0"
+    "@alfalab/core-components-tag": "npm:^10.1.1"
     "@alfalab/core-components-types": "npm:^2.0.1"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
@@ -1979,12 +1995,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-tag@npm:^10.1.0, @alfalab/core-components-tag@workspace:packages/tag":
+"@alfalab/core-components-tag@npm:^10.1.1, @alfalab/core-components-tag@workspace:packages/tag":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-tag@workspace:packages/tag"
   dependencies:
     "@alfalab/core-components-indicator": "npm:^4.0.2"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -2014,13 +2030,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-textarea@npm:^10.0.7, @alfalab/core-components-textarea@workspace:packages/textarea":
+"@alfalab/core-components-textarea@npm:^10.0.8, @alfalab/core-components-textarea@workspace:packages/textarea":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-textarea@workspace:packages/textarea"
   dependencies:
-    "@alfalab/core-components-form-control": "npm:^14.0.7"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-form-control": "npm:^14.0.8"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -2032,17 +2048,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-themes@npm:^15.1.0, @alfalab/core-components-themes@workspace:packages/themes":
+"@alfalab/core-components-themes@npm:^15.2.0, @alfalab/core-components-themes@workspace:packages/themes":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-themes@workspace:packages/themes"
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-time-input@npm:^4.0.10, @alfalab/core-components-time-input@workspace:packages/time-input":
+"@alfalab/core-components-time-input@npm:^4.0.11, @alfalab/core-components-time-input@workspace:packages/time-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-time-input@workspace:packages/time-input"
   dependencies:
-    "@alfalab/core-components-input": "npm:^17.1.8"
+    "@alfalab/core-components-input": "npm:^17.1.9"
     tslib: "npm:^2.4.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
@@ -2050,13 +2066,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-toast-plate@npm:^9.1.4, @alfalab/core-components-toast-plate@workspace:packages/toast-plate":
+"@alfalab/core-components-toast-plate@npm:^9.1.5, @alfalab/core-components-toast-plate@workspace:packages/toast-plate":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-toast-plate@workspace:packages/toast-plate"
   dependencies:
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"
@@ -2067,16 +2083,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-toast@npm:^8.0.10, @alfalab/core-components-toast@workspace:packages/toast":
+"@alfalab/core-components-toast@npm:^8.0.11, @alfalab/core-components-toast@workspace:packages/toast":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-toast@workspace:packages/toast"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-portal": "npm:^5.0.2"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
+    "@alfalab/core-components-portal": "npm:^5.0.3"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-stack": "npm:^7.0.1"
-    "@alfalab/core-components-toast-plate": "npm:^9.1.4"
+    "@alfalab/core-components-toast-plate": "npm:^9.1.5"
     "@alfalab/hooks": "npm:^1.17.0"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -2089,15 +2105,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-tooltip@npm:^9.0.15, @alfalab/core-components-tooltip@workspace:packages/tooltip":
+"@alfalab/core-components-tooltip@npm:^9.0.16, @alfalab/core-components-tooltip@workspace:packages/tooltip":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-tooltip@workspace:packages/tooltip"
   dependencies:
-    "@alfalab/core-components-bottom-sheet": "npm:^8.1.10"
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-bottom-sheet": "npm:^8.1.11"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -2119,12 +2135,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-typography@npm:^6.0.8, @alfalab/core-components-typography@workspace:packages/typography":
+"@alfalab/core-components-typography@npm:^6.0.9, @alfalab/core-components-typography@workspace:packages/typography":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-typography@workspace:packages/typography"
   dependencies:
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -2148,15 +2164,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-universal-date-input@npm:^4.0.14, @alfalab/core-components-universal-date-input@workspace:packages/universal-date-input":
+"@alfalab/core-components-universal-date-input@npm:^4.0.15, @alfalab/core-components-universal-date-input@workspace:packages/universal-date-input":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-universal-date-input@workspace:packages/universal-date-input"
   dependencies:
-    "@alfalab/core-components-calendar": "npm:^9.1.9"
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-calendar": "npm:^9.1.10"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     "@maskito/core": "npm:^1.7.0"
     "@maskito/react": "npm:^1.7.0"
@@ -2170,16 +2186,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-universal-modal@npm:^3.1.7, @alfalab/core-components-universal-modal@workspace:packages/universal-modal":
+"@alfalab/core-components-universal-modal@npm:^3.2.0, @alfalab/core-components-universal-modal@workspace:packages/universal-modal":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-universal-modal@workspace:packages/universal-modal"
   dependencies:
     "@alfalab/core-components-backdrop": "npm:^5.0.2"
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.11"
-    "@alfalab/core-components-scrollbar": "npm:^5.0.4"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.12"
+    "@alfalab/core-components-scrollbar": "npm:^5.0.5"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@types/react-transition-group": "npm:^4.4.12"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
@@ -2197,12 +2213,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-with-suffix@npm:^6.0.10, @alfalab/core-components-with-suffix@workspace:packages/with-suffix":
+"@alfalab/core-components-with-suffix@npm:^6.0.11, @alfalab/core-components-with-suffix@workspace:packages/with-suffix":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-with-suffix@workspace:packages/with-suffix"
   dependencies:
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-portal": "npm:^5.0.2"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-portal": "npm:^5.0.3"
     classnames: "npm:^2.5.1"
     react-merge-refs: "npm:^1.1.0"
     tslib: "npm:^2.4.0"
@@ -2216,128 +2232,128 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components@workspace:packages/root"
   dependencies:
-    "@alfalab/core-components-accordion": "npm:^3.0.8"
-    "@alfalab/core-components-action-button": "npm:^3.0.5"
-    "@alfalab/core-components-alert": "npm:^6.0.8"
+    "@alfalab/core-components-accordion": "npm:^3.0.9"
+    "@alfalab/core-components-action-button": "npm:^3.0.6"
+    "@alfalab/core-components-alert": "npm:^6.0.9"
     "@alfalab/core-components-amount": "npm:^5.1.1"
-    "@alfalab/core-components-amount-input": "npm:^9.2.7"
-    "@alfalab/core-components-attach": "npm:^8.0.8"
+    "@alfalab/core-components-amount-input": "npm:^9.2.8"
+    "@alfalab/core-components-attach": "npm:^8.0.9"
     "@alfalab/core-components-backdrop": "npm:^5.0.2"
     "@alfalab/core-components-badge": "npm:^7.0.2"
-    "@alfalab/core-components-bank-card": "npm:^7.0.10"
-    "@alfalab/core-components-base-modal": "npm:^7.1.6"
-    "@alfalab/core-components-bottom-sheet": "npm:^8.1.10"
-    "@alfalab/core-components-button": "npm:^13.2.0"
-    "@alfalab/core-components-calendar": "npm:^9.1.9"
-    "@alfalab/core-components-calendar-input": "npm:^12.0.14"
-    "@alfalab/core-components-calendar-range": "npm:^9.0.14"
-    "@alfalab/core-components-calendar-with-skeleton": "npm:^7.0.13"
+    "@alfalab/core-components-bank-card": "npm:^7.0.11"
+    "@alfalab/core-components-base-modal": "npm:^7.1.7"
+    "@alfalab/core-components-bottom-sheet": "npm:^8.1.11"
+    "@alfalab/core-components-button": "npm:^13.2.1"
+    "@alfalab/core-components-calendar": "npm:^9.1.10"
+    "@alfalab/core-components-calendar-input": "npm:^12.0.15"
+    "@alfalab/core-components-calendar-range": "npm:^9.1.1"
+    "@alfalab/core-components-calendar-with-skeleton": "npm:^7.0.14"
     "@alfalab/core-components-card-image": "npm:^5.0.2"
-    "@alfalab/core-components-carousel": "npm:^1.1.1"
-    "@alfalab/core-components-cdn-icon": "npm:^7.1.4"
-    "@alfalab/core-components-chart": "npm:^5.0.8"
-    "@alfalab/core-components-checkbox": "npm:^6.2.2"
-    "@alfalab/core-components-checkbox-group": "npm:^6.0.6"
-    "@alfalab/core-components-circular-progress-bar": "npm:^5.0.8"
-    "@alfalab/core-components-code-input": "npm:^5.0.5"
+    "@alfalab/core-components-carousel": "npm:^1.1.2"
+    "@alfalab/core-components-cdn-icon": "npm:^7.1.5"
+    "@alfalab/core-components-chart": "npm:^5.0.9"
+    "@alfalab/core-components-checkbox": "npm:^6.2.3"
+    "@alfalab/core-components-checkbox-group": "npm:^6.0.7"
+    "@alfalab/core-components-circular-progress-bar": "npm:^5.0.9"
+    "@alfalab/core-components-code-input": "npm:^5.1.0"
     "@alfalab/core-components-collapse": "npm:^6.0.3"
-    "@alfalab/core-components-comment": "npm:^4.0.8"
-    "@alfalab/core-components-confirmation": "npm:^15.0.10"
-    "@alfalab/core-components-confirmation-v1": "npm:^3.0.8"
-    "@alfalab/core-components-custom-button": "npm:^5.0.8"
-    "@alfalab/core-components-custom-picker-button": "npm:^4.1.10"
-    "@alfalab/core-components-date-input": "npm:^6.0.10"
-    "@alfalab/core-components-date-range-input": "npm:^5.0.14"
-    "@alfalab/core-components-date-time-input": "npm:^6.0.14"
+    "@alfalab/core-components-comment": "npm:^4.0.9"
+    "@alfalab/core-components-confirmation": "npm:^15.1.0"
+    "@alfalab/core-components-confirmation-v1": "npm:^3.0.9"
+    "@alfalab/core-components-custom-button": "npm:^5.0.9"
+    "@alfalab/core-components-custom-picker-button": "npm:^4.1.11"
+    "@alfalab/core-components-date-input": "npm:^6.0.11"
+    "@alfalab/core-components-date-range-input": "npm:^5.0.15"
+    "@alfalab/core-components-date-time-input": "npm:^6.0.15"
     "@alfalab/core-components-divider": "npm:^5.0.2"
-    "@alfalab/core-components-drawer": "npm:^7.0.8"
+    "@alfalab/core-components-drawer": "npm:^7.0.9"
     "@alfalab/core-components-dropzone": "npm:^6.0.2"
-    "@alfalab/core-components-file-upload-item": "npm:^8.1.0"
-    "@alfalab/core-components-file-upload-item-v1": "npm:^3.0.8"
-    "@alfalab/core-components-filter-tag": "npm:^7.0.6"
-    "@alfalab/core-components-form-control": "npm:^14.0.7"
-    "@alfalab/core-components-gallery": "npm:^7.1.10"
+    "@alfalab/core-components-file-upload-item": "npm:^8.1.1"
+    "@alfalab/core-components-file-upload-item-v1": "npm:^3.0.9"
+    "@alfalab/core-components-filter-tag": "npm:^7.0.7"
+    "@alfalab/core-components-form-control": "npm:^14.0.8"
+    "@alfalab/core-components-gallery": "npm:^7.2.0"
     "@alfalab/core-components-gap": "npm:^3.0.2"
     "@alfalab/core-components-generic-wrapper": "npm:^3.0.2"
     "@alfalab/core-components-global-store": "npm:^4.0.1"
     "@alfalab/core-components-grid": "npm:^5.0.2"
     "@alfalab/core-components-hatching-progress-bar": "npm:^4.0.1"
-    "@alfalab/core-components-icon-button": "npm:^8.0.8"
+    "@alfalab/core-components-icon-button": "npm:^8.0.9"
     "@alfalab/core-components-icon-view": "npm:^5.0.4"
     "@alfalab/core-components-indicator": "npm:^4.0.2"
-    "@alfalab/core-components-input": "npm:^17.1.8"
-    "@alfalab/core-components-input-autocomplete": "npm:^14.0.17"
-    "@alfalab/core-components-international-phone-input": "npm:^4.0.17"
-    "@alfalab/core-components-intl-phone-input": "npm:^11.0.17"
+    "@alfalab/core-components-input": "npm:^17.1.9"
+    "@alfalab/core-components-input-autocomplete": "npm:^14.0.18"
+    "@alfalab/core-components-international-phone-input": "npm:^4.0.18"
+    "@alfalab/core-components-intl-phone-input": "npm:^11.0.18"
     "@alfalab/core-components-keyboard-focusable": "npm:^6.0.2"
     "@alfalab/core-components-link": "npm:^7.0.3"
-    "@alfalab/core-components-list": "npm:^5.0.8"
-    "@alfalab/core-components-list-header": "npm:^5.0.8"
+    "@alfalab/core-components-list": "npm:^5.0.9"
+    "@alfalab/core-components-list-header": "npm:^5.0.9"
     "@alfalab/core-components-loader": "npm:^5.0.2"
-    "@alfalab/core-components-markdown": "npm:^3.0.12"
-    "@alfalab/core-components-masked-input": "npm:^8.0.10"
-    "@alfalab/core-components-modal": "npm:^11.0.13"
-    "@alfalab/core-components-mq": "npm:^6.0.5"
-    "@alfalab/core-components-navigation-bar": "npm:^3.0.10"
-    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.11"
-    "@alfalab/core-components-notification": "npm:^9.0.9"
-    "@alfalab/core-components-notification-manager": "npm:^7.0.9"
-    "@alfalab/core-components-number-input": "npm:^4.0.10"
-    "@alfalab/core-components-page-indicator": "npm:^3.0.5"
-    "@alfalab/core-components-pagination": "npm:^4.0.5"
-    "@alfalab/core-components-pass-code": "npm:^4.0.9"
-    "@alfalab/core-components-pass-code-v1": "npm:^3.0.8"
-    "@alfalab/core-components-password-input": "npm:^7.0.10"
-    "@alfalab/core-components-pattern-lock": "npm:^4.0.8"
-    "@alfalab/core-components-pattern-lock-v1": "npm:^3.0.8"
-    "@alfalab/core-components-phone-input": "npm:^9.0.10"
-    "@alfalab/core-components-picker-button": "npm:^13.0.17"
-    "@alfalab/core-components-plate": "npm:^9.0.8"
-    "@alfalab/core-components-popover": "npm:^8.0.5"
-    "@alfalab/core-components-popup-sheet": "npm:^3.0.13"
-    "@alfalab/core-components-portal": "npm:^5.0.2"
-    "@alfalab/core-components-product-cover": "npm:^3.2.2"
+    "@alfalab/core-components-markdown": "npm:^3.0.13"
+    "@alfalab/core-components-masked-input": "npm:^8.0.11"
+    "@alfalab/core-components-modal": "npm:^11.0.14"
+    "@alfalab/core-components-mq": "npm:^6.0.6"
+    "@alfalab/core-components-navigation-bar": "npm:^3.0.11"
+    "@alfalab/core-components-navigation-bar-private": "npm:^2.0.12"
+    "@alfalab/core-components-notification": "npm:^9.0.10"
+    "@alfalab/core-components-notification-manager": "npm:^7.0.10"
+    "@alfalab/core-components-number-input": "npm:^4.0.11"
+    "@alfalab/core-components-page-indicator": "npm:^3.0.6"
+    "@alfalab/core-components-pagination": "npm:^4.0.6"
+    "@alfalab/core-components-pass-code": "npm:^4.0.10"
+    "@alfalab/core-components-pass-code-v1": "npm:^3.0.9"
+    "@alfalab/core-components-password-input": "npm:^7.0.11"
+    "@alfalab/core-components-pattern-lock": "npm:^4.0.9"
+    "@alfalab/core-components-pattern-lock-v1": "npm:^3.0.9"
+    "@alfalab/core-components-phone-input": "npm:^9.0.12"
+    "@alfalab/core-components-picker-button": "npm:^13.0.18"
+    "@alfalab/core-components-plate": "npm:^9.0.9"
+    "@alfalab/core-components-popover": "npm:^8.1.0"
+    "@alfalab/core-components-popup-sheet": "npm:^3.0.14"
+    "@alfalab/core-components-portal": "npm:^5.0.3"
+    "@alfalab/core-components-product-cover": "npm:^3.2.3"
     "@alfalab/core-components-progress-bar": "npm:^5.0.2"
-    "@alfalab/core-components-pure-cell": "npm:^6.0.11"
-    "@alfalab/core-components-radio": "npm:^6.0.5"
-    "@alfalab/core-components-radio-group": "npm:^6.0.6"
-    "@alfalab/core-components-scrollbar": "npm:^5.0.4"
+    "@alfalab/core-components-pure-cell": "npm:^6.0.12"
+    "@alfalab/core-components-radio": "npm:^6.0.6"
+    "@alfalab/core-components-radio-group": "npm:^6.0.7"
+    "@alfalab/core-components-scrollbar": "npm:^5.0.5"
     "@alfalab/core-components-segmented-control": "npm:^3.1.3"
-    "@alfalab/core-components-select": "npm:^19.1.10"
-    "@alfalab/core-components-select-with-tags": "npm:^10.1.11"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
-    "@alfalab/core-components-side-panel": "npm:^7.0.13"
+    "@alfalab/core-components-select": "npm:^19.2.0"
+    "@alfalab/core-components-select-with-tags": "npm:^10.1.12"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
+    "@alfalab/core-components-side-panel": "npm:^7.0.14"
     "@alfalab/core-components-skeleton": "npm:^7.0.4"
     "@alfalab/core-components-slider": "npm:^6.1.1"
-    "@alfalab/core-components-slider-input": "npm:^11.1.5"
-    "@alfalab/core-components-sortable-list": "npm:^3.0.6"
+    "@alfalab/core-components-slider-input": "npm:^11.1.6"
+    "@alfalab/core-components-sortable-list": "npm:^3.0.7"
     "@alfalab/core-components-space": "npm:^5.0.2"
-    "@alfalab/core-components-spinner": "npm:^6.0.5"
+    "@alfalab/core-components-spinner": "npm:^6.0.6"
     "@alfalab/core-components-stack": "npm:^7.0.1"
     "@alfalab/core-components-status": "npm:^5.0.2"
     "@alfalab/core-components-status-badge": "npm:^3.0.2"
-    "@alfalab/core-components-stepped-progress-bar": "npm:^4.0.8"
-    "@alfalab/core-components-steps": "npm:^3.0.7"
-    "@alfalab/core-components-switch": "npm:^6.1.3"
-    "@alfalab/core-components-system-message": "npm:^4.0.5"
-    "@alfalab/core-components-tab-bar": "npm:^4.0.9"
-    "@alfalab/core-components-table": "npm:^4.0.17"
-    "@alfalab/core-components-tabs": "npm:^10.0.17"
-    "@alfalab/core-components-tag": "npm:^10.1.0"
+    "@alfalab/core-components-stepped-progress-bar": "npm:^4.0.9"
+    "@alfalab/core-components-steps": "npm:^3.0.8"
+    "@alfalab/core-components-switch": "npm:^6.1.4"
+    "@alfalab/core-components-system-message": "npm:^4.0.6"
+    "@alfalab/core-components-tab-bar": "npm:^4.0.10"
+    "@alfalab/core-components-table": "npm:^4.0.18"
+    "@alfalab/core-components-tabs": "npm:^10.0.18"
+    "@alfalab/core-components-tag": "npm:^10.1.1"
     "@alfalab/core-components-text": "npm:^3.0.2"
-    "@alfalab/core-components-textarea": "npm:^10.0.7"
-    "@alfalab/core-components-themes": "npm:^15.1.0"
-    "@alfalab/core-components-time-input": "npm:^4.0.10"
-    "@alfalab/core-components-toast": "npm:^8.0.10"
-    "@alfalab/core-components-toast-plate": "npm:^9.1.4"
-    "@alfalab/core-components-tooltip": "npm:^9.0.15"
+    "@alfalab/core-components-textarea": "npm:^10.0.8"
+    "@alfalab/core-components-themes": "npm:^15.2.0"
+    "@alfalab/core-components-time-input": "npm:^4.0.11"
+    "@alfalab/core-components-toast": "npm:^8.0.11"
+    "@alfalab/core-components-toast-plate": "npm:^9.1.5"
+    "@alfalab/core-components-tooltip": "npm:^9.0.16"
     "@alfalab/core-components-types": "npm:^2.0.1"
-    "@alfalab/core-components-typography": "npm:^6.0.8"
+    "@alfalab/core-components-typography": "npm:^6.0.9"
     "@alfalab/core-components-underlay": "npm:^3.0.2"
-    "@alfalab/core-components-universal-date-input": "npm:^4.0.14"
-    "@alfalab/core-components-universal-modal": "npm:^3.1.7"
+    "@alfalab/core-components-universal-date-input": "npm:^4.0.15"
+    "@alfalab/core-components-universal-modal": "npm:^3.2.0"
     "@alfalab/core-components-vars": "npm:^11.1.0"
-    "@alfalab/core-components-with-suffix": "npm:^6.0.10"
+    "@alfalab/core-components-with-suffix": "npm:^6.0.11"
   peerDependencies:
     "@alfalab/core-components-config": ^1.1.0
     "@alfalab/core-components-stack-context": ^1.0.1
@@ -2360,7 +2376,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alfalab/hooks@npm:^1.17.0":
+"@alfalab/hooks@npm:^1.13.1, @alfalab/hooks@npm:^1.17.0":
   version: 1.17.0
   resolution: "@alfalab/hooks@npm:1.17.0"
   dependencies:
@@ -10741,6 +10757,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ts-morph/common@npm:~0.29.0":
+  version: 0.29.0
+  resolution: "@ts-morph/common@npm:0.29.0"
+  dependencies:
+    minimatch: "npm:^10.0.1"
+    path-browserify: "npm:^1.0.1"
+    tinyglobby: "npm:^0.2.14"
+  checksum: 10c0/97ab8ca66558b817e5475a8893ee1476ab760a3ac71fa9868413d95ddbaaf909eda81716e3a8d14291cbf449e624af66de81bcddd3ec2e36525728b4edf5e8ee
+  languageName: node
+  linkType: hard
+
 "@tsconfig/node10@npm:^1.0.7":
   version: 1.0.9
   resolution: "@tsconfig/node10@npm:1.0.9"
@@ -14115,6 +14142,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"brace-expansion@npm:^5.0.5":
+  version: 5.0.7
+  resolution: "brace-expansion@npm:5.0.7"
+  dependencies:
+    balanced-match: "npm:^4.0.2"
+  checksum: 10c0/4769109c3c082de178e449a371bcad50d51ab468f644bce2dd9188efe0cf0a080ed102105d7fc8577382cedc45bad7e6443a91bf3d8102264ee8cf927dbaf205
+  languageName: node
+  linkType: hard
+
 "braces@npm:^2.3.1":
   version: 2.3.2
   resolution: "braces@npm:2.3.2"
@@ -14905,6 +14941,13 @@ __metadata:
     chalk: "npm:^2.4.1"
     q: "npm:^1.1.2"
   checksum: 10c0/0264392e3b691a8551e619889f3e67558b4f755eeb09d67625032a25c37634731e778fabbd9d14df6477d6ae770e30ea9405d18e515b2ec492b0eb90bb8d7f43
+  languageName: node
+  linkType: hard
+
+"code-block-writer@npm:^13.0.3":
+  version: 13.0.3
+  resolution: "code-block-writer@npm:13.0.3"
+  checksum: 10c0/87db97b37583f71cfd7eced8bf3f0a0a0ca53af912751a734372b36c08cd27f3e8a4878ec05591c0cd9ae11bea8add1423e132d660edd86aab952656dd41fd66
   languageName: node
   linkType: hard
 
@@ -23993,6 +24036,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:^4.17.21":
+  version: 4.18.1
+  resolution: "lodash-es@npm:4.18.1"
+  checksum: 10c0/35d4dcf87ef07f8d090f409447575800108057e360b445f590d0d25d09e3d1e33a163d2fc100d4d072b0f901d5e2fc533cd7c4bfd8eeb38a06abec693823c8b8
+  languageName: node
+  linkType: hard
+
 "lodash.camelcase@npm:^4.3.0":
   version: 4.3.0
   resolution: "lodash.camelcase@npm:4.3.0"
@@ -25087,6 +25137,15 @@ __metadata:
   version: 1.0.1
   resolution: "minimalistic-assert@npm:1.0.1"
   checksum: 10c0/96730e5601cd31457f81a296f521eb56036e6f69133c0b18c13fe941109d53ad23a4204d946a0d638d7f3099482a0cec8c9bb6d642604612ce43ee536be3dddd
+  languageName: node
+  linkType: hard
+
+"minimatch@npm:^10.0.1":
+  version: 10.2.5
+  resolution: "minimatch@npm:10.2.5"
+  dependencies:
+    brace-expansion: "npm:^5.0.5"
+  checksum: 10c0/6bb058bd6324104b9ec2f763476a35386d05079c1f5fe4fbf1f324a25237cd4534d6813ecd71f48208f4e635c1221899bef94c3c89f7df55698fe373aaae20fd
   languageName: node
   linkType: hard
 
@@ -30692,6 +30751,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"simplebar-core@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "simplebar-core@npm:1.3.2"
+  dependencies:
+    lodash: "npm:^4.17.21"
+    lodash-es: "npm:^4.17.21"
+  checksum: 10c0/a4844edac50099b30abb60e85f0852ebbcbfbe47e4b67e682f57f21449b08d06a3ac2432db7db5a6bcf571c3ce74d2a418da22f467909587ab295a33b6b551e3
+  languageName: node
+  linkType: hard
+
+"simplebar-react@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "simplebar-react@npm:3.3.2"
+  dependencies:
+    simplebar-core: "npm:^1.3.2"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/1ccc2fbfef3659c6ebd6ee9eaa9cffa3c5179e5cf825351335928673ff5f715042f71e05fa3f5813ab1b6fe947536a52050667e149023975c2dcf4287d705292
+  languageName: node
+  linkType: hard
+
 "simplebar@npm:^5.3.8":
   version: 5.3.8
   resolution: "simplebar@npm:5.3.8"
@@ -32586,6 +32666,16 @@ __metadata:
   bin:
     ts-jest: cli.js
   checksum: 10c0/e4881717323c9e03ba9ad2f8726872cd0bede7f3f34095754aa850688b319f50294211cfd330edad878005e70601cbbbb0bb489ed0949a9aa545491e1083e923
+  languageName: node
+  linkType: hard
+
+"ts-morph@npm:28.0.0":
+  version: 28.0.0
+  resolution: "ts-morph@npm:28.0.0"
+  dependencies:
+    "@ts-morph/common": "npm:~0.29.0"
+    code-block-writer: "npm:^13.0.3"
+  checksum: 10c0/969570a5e983b4193735fff43878ce7b78787b4860bf3d23f330c86d7de707286969e5a82d486dce333eea27bf9d373a46f9de58a80c0bf86d2a462620563a55
   languageName: node
   linkType: hard
 

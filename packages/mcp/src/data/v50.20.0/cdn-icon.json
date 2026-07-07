@@ -1,0 +1,85 @@
+{
+"packageName": "cdn-icon",
+"displayName": "CDNIcon",
+"description": "Используется для отображения иконок.",
+"props": {
+"name": {
+"defaultValue": null,
+"description": "Имя иконки",
+"name": "name",
+"required": true,
+"type": {
+"name": "string"
+}
+},
+"color": {
+"defaultValue": null,
+"description": "Цвет иконки",
+"name": "color",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"baseUrl": {
+"defaultValue": {
+"value": "https://alfabank.servicecdn.ru/icons"
+},
+"description": "Базовый адрес cdn хранилища c иконками",
+"name": "baseUrl",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"fallback": {
+"defaultValue": null,
+"description": "Fallback на случай, если не удастся загрузить иконку",
+"name": "fallback",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"onError": {
+"defaultValue": null,
+"description": "Callback, вызываемый при ошибке загрузки иконки",
+"name": "onError",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "<Space direction='horizontal' align='center' size={24}>\n<CDNIcon \ncolor='var(--color-light-neutral-translucent-1300)' \nname='glyph_diamonds_xxl' \n/>\n<CDNIcon \ncolor='var(--color-light-neutral-700)' \nname='glyph_diamonds_m' \n/>\n<CDNIcon \ncolor='var(--color-light-neutral-500)' \nname='glyph_diamonds_s' \n/>\n</Space>"
+}
+],
+"changelog": [
+{
+"version": "50.2.0",
+"description": "#### [#2022](https://github.com/core-ds/core-components/pull/2022)\n\n- Добавлена валидация имени иконки для предотвращения загрузки невалидных значений"
+}
+]
+}

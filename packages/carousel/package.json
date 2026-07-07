@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-carousel",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,7 +13,7 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-shared": "^2.2.1",
+        "@alfalab/core-components-shared": "^2.2.2",
         "@alfalab/hooks": "^1.17.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
@@ -35,6 +35,6 @@
         "site"
     ],
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
-    "themesVersion": "15.1.0",
+    "themesVersion": "15.2.0",
     "varsVersion": "11.1.0"
 }

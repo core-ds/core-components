@@ -1,0 +1,342 @@
+{
+"packageName": "toast",
+"displayName": "Toast",
+"description": "Используется для уведомления пользователя о результате выполнения его команды.",
+"props": {
+"titleClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для заголовка",
+"name": "titleClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контентной области",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"actionSectionClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для области с кнопкой действия",
+"name": "actionSectionClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"boldTitle": {
+"defaultValue": null,
+"description": "Жирный заголовок",
+"name": "boldTitle",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"badge": {
+"defaultValue": null,
+"description": "Вид бэйджа",
+"name": "badge",
+"required": false,
+"type": {
+"name": "StatusBadgeViews | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева, заменяет стандартную иконку",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"actionButton": {
+"defaultValue": null,
+"description": "Кнопка действия",
+"name": "actionButton",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"hasCloser": {
+"defaultValue": null,
+"description": "Управляет отображением кнопки закрытия уведомления\n@deprecated Используйте пропс `closerProps`",
+"name": "hasCloser",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"closerWrapperClassName": {
+"defaultValue": null,
+"description": "Доп. класс враппера кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
+"name": "closerWrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"closerClassName": {
+"defaultValue": null,
+"description": "Доп. класс кнопки \"закрыть\".\n@deprecated Используйте пропс `closerProps`",
+"name": "closerClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"closerProps": {
+"defaultValue": {
+"value": "{{ hasCloser: false, closerWrapperClassName: undefined, closerClassName: undefined, divider: true, view: 'primary' }}"
+},
+"description": "Параметры кнопки закрытия\n@property {boolean} [hasCloser] - Управляет отображением кнопки закрытия уведомления\n@property {string} [closerWrapperClassName] - Дополнительный класс враппера кнопки \"закрыть\"\n@property {string} [closerClassName] - Дополнительный класс кнопки \"закрыть\"\n@property {boolean} [divider] - Показывать разделитель\n@property {import('@alfalab/core-components-icon-button').IconButtonProps['view']} [view] - Вид кнопки закрытия",
+"name": "closerProps",
+"required": false,
+"type": {
+"name": "{Object}"
+}
+},
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик клика по крестику\nОбработчик закрытия компонента.",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event?: MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => void) & (() => void)"
+}
+},
+"getBadgeIcons": {
+"defaultValue": null,
+"description": "Функция, с помощью которой можно переопределить иконки в StatusBadge",
+"name": "getBadgeIcons",
+"required": false,
+"type": {
+"name": "Partial<Record<StatusBadgeViews, Partial<Record<StatusBadgeSizes, StatusBadgeIcon>>>> | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"bottomButtonPosition": {
+"defaultValue": null,
+"description": "Положение кнопки под заголовком компонента",
+"name": "bottomButtonPosition",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+},
+"fallbackPlacements": {
+"defaultValue": null,
+"description": "Если поповер не помещается в переданной позиции (position), он попробует открыться в другой позиции,\nпо очереди для каждой позиции из этого списка.\nЕсли не передавать, то поповер открывается в противоположном направлении от переданного position.",
+"name": "fallbackPlacements",
+"required": false,
+"type": {
+"name": "Position[] | undefined"
+}
+},
+"position": {
+"defaultValue": null,
+"description": "Позиционирование поповера",
+"name": "position",
+"required": false,
+"type": {
+"name": "Position | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Управление состоянием поповера (открыт/закрыт)",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"getPortalContainer": {
+"defaultValue": null,
+"description": "Функция, возвращающая контейнер, в который будет рендериться поповер",
+"name": "getPortalContainer",
+"required": false,
+"type": {
+"name": "(() => HTMLElement) | undefined"
+}
+},
+"preventFlip": {
+"defaultValue": null,
+"description": "Запрещает поповеру менять свою позицию.\nНапример, если места снизу недостаточно, то он все равно будет показан снизу",
+"name": "preventFlip",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"transition": {
+"defaultValue": null,
+"description": "CSSTransitionProps, прокидываются в компонент CSSTransitionProps.",
+"name": "transition",
+"required": false,
+"type": {
+"name": "CSSTransitionProps | undefined"
+}
+},
+"useAnchorWidth": {
+"defaultValue": null,
+"description": "Использовать ширину родительского элемента",
+"name": "useAnchorWidth",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"anchorElement": {
+"defaultValue": null,
+"description": "Элемент, относительного которого появляется тост.\nЕсли не передавать, тост будет позиционирован снизу экрана (position: fixed).",
+"name": "anchorElement",
+"required": false,
+"type": {
+"name": "HTMLElement | null | undefined"
+}
+},
+"autoCloseDelay": {
+"defaultValue": null,
+"description": "Через сколько исчезнет компонент (ms).",
+"name": "autoCloseDelay",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"bottomOffset": {
+"defaultValue": null,
+"description": "Отступ снизу (при fixed-позиционировании).",
+"name": "bottomOffset",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"zIndex": {
+"defaultValue": null,
+"description": "z-index компонента",
+"name": "zIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"closeWithClickOutside": {
+"defaultValue": {
+"value": "true"
+},
+"description": "Разрешить закрывать toast кликом вне компонента",
+"name": "closeWithClickOutside",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"ToastPlate": {
+"defaultValue": null,
+"description": "Плашка тоста.\nПо-дефолту рендерит компонент ToastPlate",
+"name": "ToastPlate",
+"required": false,
+"type": {
+"name": "ForwardRefExoticComponent<Omit<BaseToastPlateProps, \"styles\"> & { breakpoint?: number | undefined; client?: \"desktop\" | \"mobile\" | undefined; defaultMatchMediaValue?: boolean | ... 1 more ... | undefined; } & RefAttributes<...>> | undefined"
+}
+},
+"offset": {
+"defaultValue": null,
+"description": "Смещение поповера.\nЕсли позиционирование top, bottom, то [x, y].\nЕсли позиционирование left, right то [y, x].\nНеобходимо использовать вместе с anchorElement",
+"name": "offset",
+"required": false,
+"type": {
+"name": "[number, number] | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Если передать ссылку на якорный элемент в пропсе `anchorElement`, то тост появится около якорного элемента.\nЕсли `anchorElement` не передавать, то тост появится снизу экрана.",
+"desktop": "render(() => {\nconst [anchorToastOpen, setAnchorToastOpen] = React.useState(false);\n\nconst [fixedToastOpen, setFixedToastOpen] = React.useState(false);\n\nconst [buttonElement, setButtonElement] = React.useState(null);\n\nconst handleButtonRef = (node) => {\nsetButtonElement(node);\n};\n\nreturn (\n<Space direction='horizontal' size={24}>\n<Toast\nbreakpoint={BREAKPOINT}\nopen={anchorToastOpen}\nanchorElement={buttonElement}\nposition='right'\noffset={[0, 24]}\ntitle='Пример уведомления'\nhasCloser={false}\nblock={false}\nonClose={() => {\nsetAnchorToastOpen(false);\n}}\nautoCloseDelay={1500}\n/>\n<Toast\nbreakpoint={BREAKPOINT}\nopen={fixedToastOpen}\nbadge='positive-checkmark'\ntitle='Пример уведомления с кнопкой и крестиком'\nhasCloser={true}\nbottomButtonPosition={isMobile()}\nonClose={() => {\nsetFixedToastOpen(false);\n}}\nautoCloseDelay={3000}\nactionButton={\n<Button\nbreakpoint={BREAKPOINT}\nsize={isMobile() ? 40 : 48}\nview='text'\ncolors='inverted'\nonClick={() => {\nsetFixedToastOpen(false);\n}}\n>\nОтменить\n</Button>\n}\nstyle={{ left: !isMobile() && '20%' }}\n/>\n<Button\nbreakpoint={BREAKPOINT}\nonClick={() => {\nsetFixedToastOpen(true);\n}}\n>\nПоказать снизу\n</Button>\n{!isMobile() && (\n<Button\nbreakpoint={BREAKPOINT}\nref={handleButtonRef}\nonClick={() => {\nsetAnchorToastOpen(true);\n}}\n>\nПоказать рядом\n</Button>\n)}\n</Space>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.17.0",
+"description": "#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.12.3",
+"description": "#### [#2211](https://github.com/core-ds/core-components/pull/2211)\n\n- Исправлено позиционирование компонента"
+},
+{
+"version": "49.10.0",
+"description": "#### [#1927](https://github.com/core-ds/core-components/pull/1927)\n\n- Разделены mouse/touch события по desktop/mobile платформам соответственно\n\n- Обновлены зависимости\n    - @alfalab/core-components-international-phone-input@3.2.3\n    - @alfalab/core-components-stepped-progress-bar@3.1.0\n    - @alfalab/core-components-tabs@9.2.3\n    - @alfalab/core-components-amount-input@8.1.3\n    - @alfalab/core-components-file-upload-item@7.2.0\n    - @alfalab/core-components-shared@1.1.1\n    - @alfalab/core-components-vars@10.2.0\n    - @alfalab/core-components-confirmation@14.2.0\n    - @alfalab/core-components-code-input@4.1.0\n    - @alfalab/core-components-status@4.1.0\n    - @alfalab/core-components-toast@7.0.2\n    - @alfalab/core-components-accordion@2.0.3\n    - @alfalab/core-components-action-button@2.0.2\n    - @alfalab/core-components-base-modal@6.0.2\n    - @alfalab/core-components-bottom-sheet@7.2.1\n    - @alfalab/core-components-button@12.0.2\n    - @alfalab/core-components-calendar@8.0.4\n    - @alfalab/core-components-calendar-range@8.0.5\n    - @alfalab/core-components-cdn-icon@6.0.2\n    - @alfalab/core-components-checkbox@5.0.2\n    - @alfalab/core-components-checkbox-group@5.1.1\n    - @alfalab/core-components-circular-progress-bar@4.0.3\n    - @alfalab/core-components-file-upload-item-v1@2.0.3\n    - @alfalab/core-components-form-control@13.0.2\n    - @alfalab/core-components-input@16.0.3\n    - @alfalab/core-components-input-autocomplete@13.0.6\n    - @alfalab/core-components-modal@10.0.4\n    - @alfalab/core-components-mq@5.0.2\n    - @alfalab/core-components-navigation-bar@2.0.3\n    - @alfalab/core-components-navigation-bar-private@1.1.1\n    - @alfalab/core-components-notification@8.0.2\n    - @alfalab/core-components-number-input@3.0.3\n    - @alfalab/core-components-page-indicator@2.0.2\n    - @alfalab/core-components-pass-code@3.0.2\n    - @alfalab/core-components-pass-code-v1@2.0.2\n    - @alfalab/core-components-pattern-lock@3.0.2\n    - @alfalab/core-components-pattern-lock-v1@2.0.2\n    - @alfalab/core-components-plate@8.1.1\n    - @alfalab/core-components-popover@7.1.1\n    - @alfalab/core-components-popup-sheet@2.0.6\n    - @alfalab/core-components-portal@4.0.2\n    - @alfalab/core-components-product-cover@2.0.3\n    - @alfalab/core-components-pure-cell@5.0.3\n    - @alfalab/core-components-radio@5.0.2\n    - @alfalab/core-components-radio-group@5.2.1\n    - @alfalab/core-components-select@18.2.3\n    - @alfalab/core-components-side-panel@6.0.4\n    - @alfalab/core-components-sortable-list@2.0.2\n    - @alfalab/core-components-spinner@5.0.2\n    - @alfalab/core-components-steps@2.0.2\n    - @alfalab/core-components-switch@5.0.2\n    - @alfalab/core-components-system-message@3.0.3\n    - @alfalab/core-components-tab-bar@3.0.3\n    - @alfalab/core-components-textarea@9.0.2\n    - @alfalab/core-components-toast-plate@8.0.2\n    - @alfalab/core-components-typography@5.0.3\n    - @alfalab/core-components-universal-date-input@3.0.5\n    - @alfalab/core-components-universal-modal@2.0.6\n    - @alfalab/core-components-drawer@6.0.2\n    - @alfalab/core-components-gallery@6.0.7\n    - @alfalab/core-components-select-with-tags@9.0.6\n    - @alfalab/core-components-tooltip@8.0.6\n    - @alfalab/core-components-attach@7.0.2\n    - @alfalab/core-components-confirmation-v1@2.0.3\n    - @alfalab/core-components-custom-button@4.0.2\n    - @alfalab/core-components-icon-button@7.0.2\n    - @alfalab/core-components-picker-button@12.0.6\n    - @alfalab/core-components-table@3.0.6\n    - @alfalab/core-components-calendar-input@11.0.5\n    - @alfalab/core-components-calendar-with-skeleton@6.0.4\n    - @alfalab/core-components-date-range-input@4.0.5\n    - @alfalab/core-components-date-time-input@5.0.5\n    - @alfalab/core-components-date-input@5.0.3\n    - @alfalab/core-components-masked-input@7.0.3\n    - @alfalab/core-components-password-input@6.0.3\n    - @alfalab/core-components-slider-input@10.1.1\n    - @alfalab/core-components-time-input@3.0.3\n    - @alfalab/core-components-with-suffix@5.0.3\n    - @alfalab/core-components-intl-phone-input@10.0.6\n    - @alfalab/core-components-custom-picker-button@3.0.6\n    - @alfalab/core-components-filter-tag@6.0.2\n    - @alfalab/core-components-markdown@2.1.3\n    - @alfalab/core-components-tag@9.0.3\n    - @alfalab/core-components-notification-manager@6.0.2\n    - @alfalab/core-components-alert@5.0.3\n    - @alfalab/core-components-chart@4.0.3\n    - @alfalab/core-components-comment@3.0.3\n    - @alfalab/core-components-list@4.0.3\n    - @alfalab/core-components-list-header@4.0.3\n    - @alfalab/core-components-bank-card@6.0.3\n    - @alfalab/core-components-phone-input@8.0.3\n    - @alfalab/core-components-pagination@3.0.3"
+}
+]
+}

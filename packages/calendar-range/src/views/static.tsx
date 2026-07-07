@@ -1,35 +1,51 @@
 /* eslint-disable complexity */
-import React, { type FC, type MouseEvent, useCallback, useEffect, useState } from 'react';
+import React, { type FC, type MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { addMonths, endOfMonth, isSameMonth, max, startOfMonth, subMonths } from 'date-fns';
 
 import { CalendarDesktop } from '@alfalab/core-components-calendar/desktop';
 import { usePeriodWithReset } from '@alfalab/core-components-calendar/shared';
+import { type CalendarInputProps } from '@alfalab/core-components-calendar-input';
 import {
     formatDate,
     isValidInputValue,
     parseDateString,
 } from '@alfalab/core-components-calendar-input/shared';
-import {
-    DateInput,
-    type DateInputProps,
-    isCompleteDateInput,
-} from '@alfalab/core-components-date-input';
+import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 import { getDataTestId } from '@alfalab/core-components-shared';
+import {
+    UniversalDateInput,
+    type UniversalDateInputProps,
+} from '@alfalab/core-components-universal-date-input';
 
 import { type CalendarRangeProps } from '../Component';
 import { Divider } from '../components/divider';
-import { useSelectionProps, useStaticViewMonthes } from '../hooks';
+import { useSelectionProps, useStaticRangeAutoSwap, useStaticViewMonthes } from '../hooks';
 import { isDayButton } from '../utils';
 
 import styles from './index.module.css';
 
-export type CalendarRangeStaticProps = Omit<CalendarRangeProps, 'calendarPosition'> & {
+type DateInputProps = Omit<CalendarInputProps, 'onCalendarOpen' | 'onCalendarClose' | 'onChange'>;
+
+interface CalendarRangeStaticProps
+    extends Omit<CalendarRangeProps, 'calendarPosition' | 'inputFromProps' | 'inputToProps'> {
     /**
      * Отображать начальный месяц слева или справа (влияет только на начальный рендер)
      */
     defaultMonthPosition?: 'left' | 'right';
-};
+
+    /**
+     * Пропсы для инпута начальной даты диапазона
+     */
+    inputFromProps?: DateInputProps;
+
+    /**
+     * Пропсы для инпута конечной даты диапазона
+     */
+    inputToProps?: DateInputProps;
+}
+
+type CorrectionToggleRef = { handleCorrection: () => void };
 
 export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     className,
@@ -42,7 +58,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     onDateFromChange = () => null,
     onDateToChange = () => null,
     onChange = () => null,
-    onError,
     inputFromProps = {},
     inputToProps = {},
     offDays,
@@ -50,9 +65,32 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     returnInvalidDates = false,
     dataTestId,
     calendarContainerClassName,
+    autoSwap = false,
+    onError,
 }) => {
     const [inputFromValue, setInputFromValue] = useState<string>(valueFrom);
     const [inputToValue, setInputToValue] = useState<string>(valueTo);
+
+    const [inputFromError, setInputFromError] = useState(false);
+    const [inputToError, setInputToError] = useState(false);
+
+    const toggleCorrectionFromRef = useRef<CorrectionToggleRef>(null);
+    const toggleCorrectionToRef = useRef<CorrectionToggleRef>(null);
+
+    const inputToRef = useRef<HTMLInputElement>(null);
+    const inputFromRef = useRef<HTMLInputElement>(null);
+
+    const { swapDates, isInternalUpdate } = useStaticRangeAutoSwap({
+        autoSwap,
+        setInputFromValue,
+        setInputToValue,
+        toggleCorrectionFromRef,
+        toggleCorrectionToRef,
+        inputFromRef,
+        inputToRef,
+    });
+
+    const [rangeValidationError, setRangeValidationError] = useState(false);
 
     let dateFrom = isValidInputValue(inputFromValue, minDate, maxDate, offDays)
         ? parseDateString(inputFromValue).getTime()
@@ -66,11 +104,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         dateFrom = null;
     }
 
-    const bothInvalid =
-        isCompleteDateInput(inputFromValue) &&
-        isCompleteDateInput(inputToValue) &&
-        parseDateString(inputFromValue).getTime() > parseDateString(inputToValue).getTime();
-
     const [highlightedDate, setHighlightedDate] = useState<number | undefined>(undefined);
 
     const period = usePeriodWithReset({
@@ -78,26 +111,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         initialSelectedTo: dateTo ? parseDateString(inputToValue).getTime() : undefined,
     });
 
-    const validateInputFromValue = useCallback(
-        (value: string) => isValidInputValue(value, minDate, dateFrom || maxDate, offDays),
-        [dateFrom, maxDate, minDate, offDays],
-    );
-
-    const validateInputToValue = useCallback(
-        (value: string) => isValidInputValue(value, dateFrom || minDate, maxDate, offDays),
-
-        [dateFrom, minDate, maxDate, offDays],
-    );
-
-    const [inputFromInvalid, setInputFromInvalid] = useState<boolean>(
-        isCompleteDateInput(inputFromValue) && dateFrom === null,
-    );
-
-    const [inputToInvalid, setInputToInvalid] = useState<boolean>(
-        isCompleteDateInput(inputToValue) && dateTo === null,
-    );
-
-    const hasValidateError = bothInvalid || inputFromInvalid || inputToInvalid;
     const {
         calendarProps: calendarFromProps,
         onInputChange: onInputChangeFrom,
@@ -118,22 +131,48 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         },
     );
 
-    const handleValidInputFrom = useCallback(() => {
-        setInputFromInvalid(inputFromValue !== '' && !validateInputFromValue(inputFromValue));
-    }, [inputFromValue, validateInputFromValue]);
+    const handleInputFromChange: Required<UniversalDateInputProps>['onInputChange'] = (
+        event,
+        payload,
+    ) => {
+        const newValue = payload.value;
 
-    const handleValidInputTo = useCallback(() => {
-        setInputToInvalid(inputToValue !== '' && !validateInputToValue(inputToValue));
-    }, [inputToValue, validateInputToValue]);
+        setInputFromValue(newValue);
 
-    const handleInputFromChange: Required<DateInputProps>['onChange'] = (event, payload) => {
-        setInputFromValue(payload.value);
-        onInputChangeFrom?.(event, payload);
+        if (isValidInputValue(newValue, minDate, maxDate, offDays)) {
+            swapDates(newValue, inputFromValue, inputToValue);
+        }
+
+        const payloadWithDate = { date: parseDateString(payload.value), value: payload.value };
+
+        if (onInputChangeFrom) {
+            onInputChangeFrom(
+                event === null ? ({} as React.ChangeEvent<HTMLInputElement>) : event,
+                payloadWithDate,
+            );
+        }
     };
 
-    const handleInputToChange: Required<DateInputProps>['onChange'] = (event, payload) => {
-        setInputToValue(payload.value);
-        onInputChangeTo?.(event, payload);
+    const handleInputToChange: Required<UniversalDateInputProps>['onInputChange'] = (
+        event,
+        payload,
+    ) => {
+        const newValue = payload.value;
+
+        setInputToValue(newValue);
+
+        if (isValidInputValue(newValue, minDate, maxDate, offDays)) {
+            swapDates(newValue, inputFromValue, inputToValue);
+        }
+
+        const payloadWithDate = { date: parseDateString(payload.value), value: payload.value };
+
+        if (onInputChangeTo) {
+            onInputChangeTo(
+                event === null ? ({} as React.ChangeEvent<HTMLInputElement>) : event,
+                payloadWithDate,
+            );
+        }
     };
 
     const handleMouseOver = useCallback((event: MouseEvent<HTMLDivElement>) => {
@@ -180,22 +219,24 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     }, [valueTo]);
 
     useEffect(() => {
-        if (!inputFromValue || isCompleteDateInput(inputFromValue)) {
-            handleValidInputFrom();
-        }
-
         period.setStart(dateFrom || undefined);
         if (dateTo) {
             period.setEnd(dateTo);
         }
 
+        if (isInternalUpdate.current) {
+            isInternalUpdate.current = false;
+
+            return;
+        }
+
         if (inputFromValue !== valueFrom) {
-            onDateFromChange({
+            onDateFromChange?.({
                 value: inputFromValue,
                 date: dateFrom,
             });
 
-            onChange({
+            onChange?.({
                 valueFrom: inputFromValue,
                 valueTo: inputToValue,
                 dateFrom,
@@ -206,13 +247,15 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     }, [inputFromValue]);
 
     useEffect(() => {
-        if (!inputToValue || isCompleteDateInput(inputToValue)) {
-            handleValidInputTo();
-        }
-
         period.setEnd(dateTo || undefined);
         if (dateFrom) {
             period.setStart(dateFrom);
+        }
+
+        if (isInternalUpdate.current) {
+            isInternalUpdate.current = false;
+
+            return;
         }
 
         if (inputToValue !== valueTo) {
@@ -223,12 +266,12 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     : null
                 : dateTo;
 
-            onDateToChange({
+            onDateToChange?.({
                 value: inputToValue,
                 date: inputDateTo,
             });
 
-            onChange({
+            onChange?.({
                 valueFrom: inputFromValue,
                 valueTo: inputToValue,
                 dateFrom,
@@ -239,11 +282,52 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     }, [inputToValue]);
 
     useEffect(() => {
-        if (onError) {
-            onError(hasValidateError);
+        const isInputFromValueComplete = isCompleteDateInput(inputFromValue);
+        const isInputToValueComplete = isCompleteDateInput(inputToValue);
+
+        let individualInputFromError = false;
+        let individualInputToError = false;
+
+        if (isInputFromValueComplete) {
+            individualInputFromError = !isValidInputValue(
+                inputFromValue,
+                minDate,
+                maxDate,
+                offDays,
+            );
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [hasValidateError]);
+
+        if (isInputToValueComplete) {
+            individualInputToError = !isValidInputValue(inputToValue, minDate, maxDate, offDays);
+        }
+
+        let isRangeError = false;
+
+        const isValidInputFromValueStandalone =
+            isInputFromValueComplete && individualInputFromError === false;
+        const isValidInputToValueStandalone =
+            isInputToValueComplete && individualInputToError === false;
+
+        if (isValidInputFromValueStandalone && isValidInputToValueStandalone) {
+            const parsedDateFrom = parseDateString(inputFromValue).getTime();
+            const parsedDateTo = parseDateString(inputToValue).getTime();
+
+            if (parsedDateFrom > parsedDateTo) {
+                isRangeError = true;
+            }
+        }
+
+        setInputFromError(individualInputFromError || isRangeError);
+        setInputToError(individualInputToError || isRangeError);
+
+        setRangeValidationError(isRangeError);
+    }, [inputFromValue, inputToValue, minDate, maxDate, offDays]);
+
+    useEffect(() => {
+        if (onError) {
+            onError(rangeValidationError);
+        }
+    }, [onError, rangeValidationError]);
 
     const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
 
@@ -260,22 +344,54 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
             onMouseOver={handleMouseOver}
             data-test-id={dataTestId}
         >
-            <div>
-                <DateInput
+            <div className={cn(styles.inputsContainer)}>
+                <UniversalDateInput
                     {...dateInputFromProps}
-                    mobileMode={
-                        dateInputFromProps.mobileMode === 'popover'
-                            ? 'input'
-                            : dateInputFromProps.mobileMode
-                    }
+                    Calendar={undefined}
+                    view='date'
+                    picker={false}
                     value={inputFromValue}
-                    onChange={handleInputFromChange}
+                    onInputChange={handleInputFromChange}
                     onClear={handleClearFrom}
-                    onBlur={handleValidInputFrom}
-                    error={bothInvalid || inputFromInvalid || dateInputFromProps.error}
+                    correctionRef={toggleCorrectionFromRef}
+                    error={inputFromError ? 'Укажите корректную дату' : dateInputFromProps.error}
                     clear={true}
                     block={true}
+                    minDate={minDate}
+                    autoCorrection={false}
+                    maxDate={
+                        minMaxInSameMonth
+                            ? maxDate
+                            : maxDate && max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()
+                    }
+                    ref={inputFromRef}
                 />
+
+                <Divider inputFromProps={inputFromProps} inputToProps={inputToProps} />
+
+                <UniversalDateInput
+                    {...dateInputToProps}
+                    Calendar={undefined}
+                    view='date'
+                    picker={false}
+                    value={inputToValue}
+                    onInputChange={handleInputToChange}
+                    onClear={handleClearTo}
+                    error={inputToError ? 'Укажите корректную дату' : dateInputToProps.error}
+                    correctionRef={toggleCorrectionToRef}
+                    clear={true}
+                    block={true}
+                    autoCorrection={false}
+                    minDate={
+                        minMaxInSameMonth
+                            ? minDate
+                            : minDate && startOfMonth(addMonths(minDate, 1)).getTime()
+                    }
+                    maxDate={maxDate}
+                    ref={inputToRef}
+                />
+            </div>
+            <div className={cn(styles.calendarContainers)}>
                 <div
                     className={cn(styles.calendarContainer, calendarContainerClassName)}
                     data-test-id={getDataTestId(dataTestId, 'container-from')}
@@ -299,26 +415,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                         {...rangeProps}
                     />
                 </div>
-            </div>
-
-            <Divider inputFromProps={inputFromProps} inputToProps={inputToProps} />
-
-            <div>
-                <DateInput
-                    {...dateInputToProps}
-                    mobileMode={
-                        dateInputToProps.mobileMode === 'popover'
-                            ? 'input'
-                            : dateInputToProps.mobileMode
-                    }
-                    value={inputToValue}
-                    onChange={handleInputToChange}
-                    onClear={handleClearTo}
-                    onBlur={handleValidInputTo}
-                    error={bothInvalid || inputToInvalid || dateInputToProps.error}
-                    clear={true}
-                    block={true}
-                />
                 <div data-test-id={getDataTestId(dataTestId, 'container-to')}>
                     <CalendarToComponent
                         {...calendarToProps}

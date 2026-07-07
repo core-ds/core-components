@@ -37,6 +37,10 @@
     }
 }
 
+.size-40 {
+    min-height: var(--size-xs-height);
+}
+
 .size-48 {
     min-height: var(--size-s-height);
 }

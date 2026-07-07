@@ -1,0 +1,271 @@
+{
+"packageName": "form-control",
+"displayName": "FormControl",
+"description": "Базовый компонент для построения полей ввода. Не может быть использован в чистом виде.",
+"props": {
+"block": {
+"defaultValue": null,
+"description": "Растягивает компонент на ширину контейнера",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"size": {
+"defaultValue": {
+"value": "48"
+},
+"description": "Размер компонента",
+"name": "size",
+"required": false,
+"type": {
+"name": "40 | 48 | 56 | 64 | 72 | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Заблокированное состояние",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"readOnly": {
+"defaultValue": null,
+"description": "Cостояние только для чтения",
+"name": "readOnly",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"filled": {
+"defaultValue": null,
+"description": "Заполненное состояние",
+"name": "filled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"focused": {
+"defaultValue": null,
+"description": "Выбранное (фокус) состояние",
+"name": "focused",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"error": {
+"defaultValue": null,
+"description": "Отображение ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"hint": {
+"defaultValue": null,
+"description": "Текст подсказки",
+"name": "hint",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"label": {
+"defaultValue": null,
+"description": "Лейбл компонента",
+"name": "label",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"labelView": {
+"defaultValue": null,
+"description": "Вид лейбла внутри / снаружи",
+"name": "labelView",
+"required": false,
+"type": {
+"name": "\"inner\" | \"outer\" | undefined"
+}
+},
+"leftAddons": {
+"defaultValue": null,
+"description": "Слот слева",
+"name": "leftAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"rightAddons": {
+"defaultValue": null,
+"description": "Слот справа",
+"name": "rightAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"bottomAddons": {
+"defaultValue": null,
+"description": "Слот под полем",
+"name": "bottomAddons",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+},
+"fieldClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "fieldClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"inputWrapperClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поля",
+"name": "inputWrapperClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"labelClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для лейбла",
+"name": "labelClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"addonsClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для аддонов",
+"name": "addonsClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"leftAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки левых аддонов",
+"name": "leftAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"rightAddonsProps": {
+"defaultValue": null,
+"description": "Свойства для обертки правых аддонов",
+"name": "rightAddonsProps",
+"required": false,
+"type": {
+"name": "HTMLAttributes<HTMLDivElement> | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля слота слева используется модификатор -left-addons, слота справа -right-addons,\nошибки -error-message, текста подсказки -hint, внутренней части компонента -inner",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Размеры",
+"description": "Компонент доступен в размерах 72, 64, 56, 48, 40.",
+"desktop": "<div style={{ width: 320 }}>\n<FormControl\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={76}\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={16} />\n<FormControl\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={64}\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={16} />\n<FormControl\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={56}\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={16} />\n<FormControl\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={48}\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={16} />\n<FormControl\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={40}\nbreakpoint={BREAKPOINT}\n/>\n</div>"
+},
+{
+"title": "Лейбл",
+"description": "Лейбл может быть размещен внутри либо снаружи инпута или отсутствовать.",
+"desktop": "<div style={{ width: 320 }}>\n<Input\nblock\nplaceholder='Placeholder'\nlabel='Лейбл внутри'\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={20} />\n<Input\nblock\nplaceholder='Placeholder'\nlabel='Лейбл снаружи'\nsize={isMobile() ? 48 : 56}\nlabelView='outer'\nbreakpoint={BREAKPOINT}\n/>\n<Gap size={20} />\n<Input block placeholder='Placeholder' size={isMobile() ? 48 : 56} breakpoint={BREAKPOINT} />\n</div>"
+},
+{
+"title": "Префиксы и суффиксы",
+"description": "Инпут может содержать предзаполненное значение, располагающееся спереди или сзади вводимого пользователем значения.",
+"desktop": "render(() => {\nconst SuffixInputComponent = isMobile() ? withSuffix(InputMobile) : withSuffix(InputDesktop);\n\nreturn (\n<div style={{ width: 320 }}>\n<SuffixInputComponent\nvalue='Value'\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nsuffix={<span style={{ color: 'var(--color-light-text-secondary)' }}> Suffix</span>}\nbreakpoint={BREAKPOINT}\n/>\n</div>\n);\n});"
+},
+{
+"title": "Хинт",
+"description": "Под полем ввода можно разместить подсказку.",
+"desktop": "<div style={{ width: 320 }}>\n<FormControl\nblock={true}\nlabel='Label'\nhint='Hint'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\n/>\n</div>"
+},
+{
+"title": "Аддоны",
+"description": "С помощью `leftAddons` и `rightAddons` можно кастомизировать инпут. Каждый аддон может содержать до двух элементов.\nТип, приоритет расположения контента в слотах и механики взаимодействия описаны в спецификациях к конкретным типам инпутов.",
+"desktop": "render(() => {\nconst styleWrapperIcons = {\nheight: '100%',\ndisplay: 'flex',\ngap: 4,\n};\n\nreturn (\n<div style={{ width: 320 }}>\n<FormControl\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\nleftAddons={\n<IconButton view='secondary' icon={DiamondsMIcon} size={32} alignIcon='left' />\n}\n/>\n<Gap size={20} />\n<FormControl\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\nrightAddons={\n<IconButton view='secondary' icon={DiamondsMIcon} size={32} alignIcon='right' />\n}\n/>\n<Gap size={20} />\n<FormControl\nblock={true}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\nbreakpoint={BREAKPOINT}\nleftAddons={\n<div style={{ ...styleWrapperIcons, marginLeft: 'var(--gap-8-neg)' }}>\n<IconButton\nview='secondary'\nicon={DiamondsMIcon}\nsize={32}\nalignIcon='right'\n/>\n<IconButton\nview='secondary'\nicon={DiamondsMIcon}\nsize={32}\nalignIcon='left'\n/>\n</div>\n}\nrightAddons={\n<div style={{ ...styleWrapperIcons, marginRight: 'var(--gap-8-neg)' }}>\n<IconButton\nview='secondary'\nicon={DiamondsMIcon}\nsize={32}\nalignIcon='right'\n/>\n<IconButton\nview='secondary'\nicon={DiamondsMIcon}\nsize={32}\nalignIcon='left'\n/>\n</div>\n}\n/>\n</div>\n);\n});"
+},
+{
+"title": "BottomAddon",
+"description": "При необходимости в BottomAddon может быть передан любой контент, например шкала для слайдера.",
+"desktop": "render(() => {\nconst [value, setValue] = React.useState(3);\n\nreturn (\n<div style={{ width: 320 }}>\n<SliderInput\nvalue={value}\nlabel='Label'\nlabelView={isMobile() ? 'outer' : 'inner'}\nsize={isMobile() ? 48 : 56}\npips={{\nmode: 'values',\nvalues: [1, 10 / 2, 10],\n}}\nmin={1}\nmax={10}\nstep={1}\nblock={true}\nonChange={(_, { value }) => setValue(value)}\nbreakpoint={BREAKPOINT}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.12.2",
+"description": "#### [#2186](https://github.com/core-ds/core-components/pull/2186)\n\n- Удалены боковые отступы в мобильном компоненте для `outer label`, `hint`, `error`"
+},
+{
+"version": "50.5.0",
+"description": "#### [#2053](https://github.com/core-ds/core-components/pull/2053)\n\n- Небольшие улучшения кодовой базы компонентов\n\n- Обновлены зависимости\n    - @alfalab/core-components-themes@15.0.2\n    - @alfalab/core-components-button@13.1.0\n    - @alfalab/core-components-checkbox@6.1.0\n    - @alfalab/core-components-input@17.1.2\n    - @alfalab/core-components-select-with-tags@10.1.0\n    - @alfalab/core-components-select@19.1.0\n    - @alfalab/core-components-custom-picker-button@4.1.0\n    - @alfalab/core-components-amount-input@9.1.2\n    - @alfalab/core-components-input-autocomplete@14.0.7\n    - @alfalab/core-components-number-input@4.0.4\n    - @alfalab/core-components-form-control@14.0.3\n    - @alfalab/core-components-calendar@9.1.0\n    - @alfalab/core-components-attach@8.0.3\n    - @alfalab/core-components-calendar-with-skeleton@7.0.4\n    - @alfalab/core-components-confirmation@15.0.3\n    - @alfalab/core-components-confirmation-v1@3.0.3\n    - @alfalab/core-components-custom-button@5.0.3\n    - @alfalab/core-components-gallery@7.0.6\n    - @alfalab/core-components-icon-button@8.0.3\n    - @alfalab/core-components-navigation-bar@3.0.3\n    - @alfalab/core-components-navigation-bar-private@2.0.4\n    - @alfalab/core-components-pass-code@4.0.3\n    - @alfalab/core-components-pass-code-v1@3.0.3\n    - @alfalab/core-components-pattern-lock@4.0.3\n    - @alfalab/core-components-pattern-lock-v1@3.0.3\n    - @alfalab/core-components-picker-button@13.0.7\n    - @alfalab/core-components-plate@9.0.3\n    - @alfalab/core-components-product-cover@3.1.2\n    - @alfalab/core-components-pure-cell@6.0.3\n    - @alfalab/core-components-table@4.0.7\n    - @alfalab/core-components-tooltip@9.0.6\n    - @alfalab/core-components-date-input@6.0.4\n    - @alfalab/core-components-date-range-input@5.0.5\n    - @alfalab/core-components-date-time-input@6.0.5\n    - @alfalab/core-components-international-phone-input@4.0.7\n    - @alfalab/core-components-masked-input@8.0.4\n    - @alfalab/core-components-password-input@7.0.4\n    - @alfalab/core-components-slider-input@11.0.4\n    - @alfalab/core-components-time-input@4.0.4\n    - @alfalab/core-components-universal-date-input@4.0.5\n    - @alfalab/core-components-with-suffix@6.0.4\n    - @alfalab/core-components-intl-phone-input@11.0.7\n    - @alfalab/core-components-textarea@10.0.3\n    - @alfalab/core-components-calendar-input@12.0.5\n    - @alfalab/core-components-calendar-range@9.0.5\n    - @alfalab/core-components-file-upload-item@8.0.3\n    - @alfalab/core-components-file-upload-item-v1@3.0.3\n    - @alfalab/core-components-tabs@10.0.7\n    - @alfalab/core-components-toast-plate@9.0.3\n    - @alfalab/core-components-bottom-sheet@8.1.1\n    - @alfalab/core-components-modal@11.0.4\n    - @alfalab/core-components-popup-sheet@3.0.4\n    - @alfalab/core-components-side-panel@7.0.4\n    - @alfalab/core-components-universal-modal@3.0.5\n    - @alfalab/core-components-alert@6.0.3\n    - @alfalab/core-components-bank-card@7.0.4\n    - @alfalab/core-components-phone-input@9.0.4\n    - @alfalab/core-components-notification@9.0.3\n    - @alfalab/core-components-toast@8.0.3\n    - @alfalab/core-components-notification-manager@7.0.3"
+}
+]
+}
