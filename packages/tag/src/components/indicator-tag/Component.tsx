@@ -91,6 +91,7 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                 colorStyle[indicatorView],
                 styles[shape],
                 colorStyles?.[indicatorView],
+                colorStyles?.badgeIcon,
                 className,
                 {
                     [commonStyles.focused]: focused,
@@ -112,9 +113,14 @@ export const IndicatorTag = forwardRef<HTMLButtonElement, IndicatorTagProps>(
                     focusable={false}
                 >
                     <path
-                        className={cn(commonStyles.shapePath, colorStyle.shapePath, {
-                            [colorStyle.checkedShapePath]: Boolean(checked),
-                        })}
+                        className={cn(
+                            commonStyles.shapePath,
+                            colorStyle.shapePath,
+                            colorStyles?.shapePath,
+                            {
+                                [colorStyle.checkedShapePath]: Boolean(checked),
+                            },
+                        )}
                         d={shapePath}
                     />
                 </svg>

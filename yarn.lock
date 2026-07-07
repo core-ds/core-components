@@ -1711,7 +1711,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alfalab/core-components-shared@npm:^2.2.1, @alfalab/core-components-shared@npm:^2.2.2, @alfalab/core-components-shared@workspace:packages/shared":
+"@alfalab/core-components-shared@npm:^2.2.2, @alfalab/core-components-shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@alfalab/core-components-shared@workspace:packages/shared"
   dependencies:
@@ -2000,7 +2000,7 @@ __metadata:
   dependencies:
     "@alfalab/core-components-indicator": "npm:^4.0.2"
     "@alfalab/core-components-mq": "npm:^6.0.6"
-    "@alfalab/core-components-shared": "npm:^2.2.1"
+    "@alfalab/core-components-shared": "npm:^2.2.2"
     "@alfalab/hooks": "npm:^1.17.0"
     "@alfalab/icons-glyph": "npm:^2.260.0"
     classnames: "npm:^2.5.1"

@@ -1,17 +1,24 @@
 @import '../vars.css';
 
-.filled {
-    --tag-inverted-filled-background-color: var(--tag-mobile-filled-background-color-inverted);
-    --tag-inverted-filled-background-color-hover: var(
-        --tag-mobile-filled-background-color-hover-inverted
-    );
-    --tag-inverted-filled-background-color-active: var(
-        --tag-mobile-filled-background-color-active-inverted
-    );
-    --tag-inverted-filled-background-color-disabled: var(
-        --tag-mobile-filled-background-color-disabled-inverted
-    );
+.badgeIcon {
+    &.filled {
+        path.shapePath {
+            fill: var(--tag-mobile-filled-background-color-inverted);
+        }
 
+        &:active:not(:disabled) path.shapePath {
+            fill: var(--tag-mobile-filled-background-color-active-inverted);
+        }
+
+        @media (hover: hover) {
+            path.shapePath:hover {
+                fill: var(--tag-mobile-filled-background-color-hover-inverted);
+            }
+        }
+    }
+}
+
+.filled {
     background-color: var(--tag-mobile-filled-background-color-inverted);
 
     &:disabled {
@@ -30,29 +37,6 @@
 }
 
 .muted {
-    --tag-inverted-muted-background-color: var(--tag-mobile-muted-background-color-inverted);
-    --tag-inverted-muted-background-color-hover: var(
-        --tag-mobile-muted-background-color-hover-inverted
-    );
-    --tag-inverted-muted-background-color-active: var(
-        --tag-mobile-muted-background-color-active-inverted
-    );
-    --tag-inverted-muted-background-color-disabled: var(
-        --tag-mobile-muted-background-color-disabled-inverted
-    );
-    --tag-inverted-muted-background-color-checked: var(
-        --tag-mobile-muted-checked-background-color-inverted
-    );
-    --tag-inverted-muted-background-color-checked-hover: var(
-        --tag-mobile-muted-checked-background-color-hover-inverted
-    );
-    --tag-inverted-muted-background-color-checked-active: var(
-        --tag-mobile-muted-checked-background-color-active-inverted
-    );
-    --tag-inverted-muted-background-color-checked-disabled: var(
-        --tag-mobile-muted-checked-background-color-disabled-inverted
-    );
-
     background-color: var(--tag-mobile-muted-background-color-inverted);
 
     &:disabled {
@@ -67,5 +51,23 @@
 
     &:active:not(:disabled) {
         background-color: var(--tag-mobile-muted-background-color-active-inverted);
+    }
+
+    &.checked {
+        background-color: var(--tag-mobile-muted-checked-background-color-inverted);
+
+        &:disabled {
+            background-color: var(--tag-mobile-muted-checked-background-color-disabled-inverted);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-mobile-muted-checked-background-color-hover-inverted);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-mobile-muted-checked-background-color-active-inverted);
+        }
     }
 }

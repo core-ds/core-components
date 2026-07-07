@@ -91,6 +91,7 @@ export const NativeTag = forwardRef<HTMLButtonElement, NativeTagProps>(
                     [commonStyles[shape]]: Boolean(commonStyles[shape]),
                     [styles[shape]]: Boolean(styles[shape]),
                     [colorCommonStyles[colors].checked]: checked,
+                    [colorStyles.checked]: checked && Boolean(colorStyles.checked),
                     [colorStyles[view]]: Boolean(colorStyles[view]),
                     [commonStyles.focused]: focused,
                     [commonStyles.withRightAddons]: showRightAddons,

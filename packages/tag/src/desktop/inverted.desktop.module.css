@@ -34,4 +34,22 @@
     &:active:not(:disabled) {
         background-color: var(--tag-inverted-muted-background-color-active);
     }
+
+    &.checked {
+        background-color: var(--tag-inverted-muted-background-color-checked);
+
+        &:disabled {
+            background-color: var(--tag-inverted-muted-background-color-checked-disabled);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-inverted-muted-background-color-checked-hover);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-inverted-muted-background-color-checked-active);
+        }
+    }
 }

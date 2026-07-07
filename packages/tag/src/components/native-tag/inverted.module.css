@@ -66,21 +66,9 @@
         &.checked {
             color: var(--tag-inverted-text-color);
             border-color: var(--tag-inverted-muted-border-color);
-            background-color: var(--tag-inverted-muted-background-color-checked);
 
             &:disabled {
                 color: var(--tag-inverted-text-color-disabled);
-                background-color: var(--tag-inverted-muted-background-color-checked-disabled);
-            }
-
-            @media (hover: hover) {
-                &:hover:not(:disabled) {
-                    background-color: var(--tag-inverted-muted-background-color-checked-hover);
-                }
-            }
-
-            &:active:not(:disabled) {
-                background-color: var(--tag-inverted-muted-background-color-checked-active);
             }
 
             & .clear {

@@ -66,21 +66,9 @@
         &.checked {
             color: var(--tag-text-color);
             border-color: var(--tag-muted-border-color);
-            background-color: var(--tag-muted-background-color-checked);
 
             &:disabled {
                 color: var(--tag-text-color-disabled);
-                background-color: var(--tag-muted-background-color-checked-disabled);
-            }
-
-            @media (hover: hover) {
-                &:hover:not(:disabled) {
-                    background-color: var(--tag-muted-background-color-checked-hover);
-                }
-            }
-
-            &:active:not(:disabled) {
-                background-color: var(--tag-muted-background-color-checked-active);
             }
 
             & .clear {
