@@ -1,0 +1,117 @@
+{
+"packageName": "gallery",
+"displayName": "Gallery",
+"description": "Используется для просмотра изображений.",
+"props": {
+"open": {
+"defaultValue": null,
+"description": "Управление видимостью",
+"name": "open",
+"required": true,
+"type": {
+"name": "boolean"
+}
+},
+"images": {
+"defaultValue": null,
+"description": "Массив изображений",
+"name": "images",
+"required": true,
+"type": {
+"name": "GalleryImage[]"
+}
+},
+"loop": {
+"defaultValue": {
+"value": true
+},
+"description": "Зациклить галерею",
+"name": "loop",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"initialSlide": {
+"defaultValue": {
+"value": 0
+},
+"description": "Индекс открытого изображение",
+"name": "initialSlide",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия",
+"name": "onClose",
+"required": true,
+"type": {
+"name": "() => void"
+}
+},
+"slideIndex": {
+"defaultValue": null,
+"description": "Индекс текущего изображения",
+"name": "slideIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"onSlideIndexChange": {
+"defaultValue": null,
+"description": "Обработчик изменения текущего изображения",
+"name": "onSlideIndexChange",
+"required": false,
+"type": {
+"name": "((index: number) => void) | undefined"
+}
+},
+"popupClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для попапа",
+"name": "popupClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "const images = [\n{\nname: 'Вертикальное изображение',\nsrc: './images/gallery_1.jpg',\n},\n{\nname: 'Горизонтальное  изображение',\nsrc: './images/gallery_2.jpg',\n},\n{\nname: 'Квадратное изображение',\nsrc: './images/gallery_3.jpg',\n},\n{\nname: 'Маленькое изображение',\nsrc: './images/gallery_4.jpg',\n},\n{\nname: 'Alfa promo.m3u8',\nsrc: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',\n},\n{\nname: 'Битое изображение.jpg',\nsrc: 'https://picsum.photos',\n},\n];\n\nconst video = [\n{\nname: 'Alfa promo.m3u8',\nsrc: 'https://alfavideo.servicecdn.ru/videos/101064_31s0hnwZaamhbwE/master.m3u8',\n},\n];\n\nconst imagesQuantityMapper = {\nsome: images,\none: [images[0]],\n'one video': video,\n};\n\nrender(() => {\nconst [open, setOpen] = React.useState(false);\nconst [imagesQuantity, setImagesQuantity] = React.useState('some');\n\nconst onImagesQuantityChange = (_, payload) => {\nsetImagesQuantity(payload.value);\n};\n\nreturn (\n<div style={{ width: 320 }}>\n<Button view='secondary' block={true} onClick={() => setOpen(true)}>\nОткрыть галерею\n</Button>\n<Gallery\nopen={open}\nonClose={() => {\nsetOpen(false);\n}}\nimages={imagesQuantityMapper[imagesQuantity]}\n/>\n<Gap size={24} />\n<RadioGroup\nlabel='Количество медиа'\ndirection='vertical'\nname='radioGroup'\nonChange={onImagesQuantityChange}\nvalue={imagesQuantity}\n>\n<Radio size={24} label='Несколько' value='some' />\n<Radio size={24} label='Одно изображение' value='one' />\n<Radio size={24} label='Одно видео' value='one video' />\n</RadioGroup>\n</div>\n);\n});"
+},
+{
+"title": "Галерея с предпросмотром",
+"description": "",
+"desktop": "const images = [\n{\nname: 'Вертикальное изображение',\nsrc: './images/gallery_1.jpg',\n},\n{\nname: 'Горизонтальное  изображение',\nsrc: './images/gallery_2.jpg',\n},\n{\nname: 'Квадратное изображение',\nsrc: './images/gallery_3.jpg',\n},\n{\nname: 'Маленькое изображение',\nsrc: './images/gallery_4.jpg',\n},\n];\n\nrender(() => {\nconst [open, setOpen] = React.useState(false);\nconst [slideIndex, setSlideIndex] = React.useState(0);\n\nconst openGallery = (slideIndex) => {\nsetSlideIndex(slideIndex);\nsetOpen(true);\n};\n\nconst closeGallery = () => setOpen(false);\n\nreturn (\n<div>\n<div\nstyle={{\ndisplay: 'flex',\nflexWrap: 'wrap',\njustifyContent: isMobile() ? 'center' : 'left',\n}}\n>\n{images.map((image, index) => (\n<div\nkey={image.src}\nonClick={() => {\nopenGallery(index);\n}}\nstyle={{\nwidth: '200px',\nheight: '200px',\ncursor: 'pointer',\nbackgroundSize: 'cover',\nbackgroundImage: `url(${image.src})`,\nmargin: '4px',\n}}\n/>\n))}\n</div>\n\n<Gallery\nopen={open}\nonClose={closeGallery}\nimages={images}\nslideIndex={slideIndex}\nonSlideIndexChange={setSlideIndex}\n/>\n</div>\n);\n});"
+}
+],
+"changelog": [
+{
+"version": "50.20.0",
+"description": "#### [#2259](https://github.com/core-ds/core-components/pull/2259)\n\n- Исправлены паддинги у swiper\n- Переработано отображение в full screen режиме"
+},
+{
+"version": "50.17.0",
+"description": "#### [#2246](https://github.com/core-ds/core-components/pull/2246)\n\nИсправлены веса селектров после обновление `swiper`\n\n#### [#2242](https://github.com/core-ds/core-components/pull/2242)\n\n- Апдейт версий пакета @alfalab/hooks"
+},
+{
+"version": "50.8.0",
+"description": "#### [#2145](https://github.com/core-ds/core-components/pull/2145)\n\n- Обновлен `swiper@^12.1.3`"
+},
+{
+"version": "50.6.0",
+"description": "#### [#2005](https://github.com/core-ds/core-components/pull/2005)\n\n- Заменен статический импорт hls.js на динамический.\n- Добавлена retry логика для надежной загрузки."
+},
+{
+"version": "49.0.2",
+"description": "#### [#1794](https://github.com/core-ds/core-components/pull/1794)\n\n- Добавлен fallback шаринга по ссылке для изображений из других источников\n\n- Обновлены зависимости\n    - @alfalab/core-components-gallery@6.0.1"
+}
+]
+}

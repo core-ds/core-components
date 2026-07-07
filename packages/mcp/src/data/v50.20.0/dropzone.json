@@ -1,0 +1,140 @@
+{
+"packageName": "dropzone",
+"displayName": "Dropzone",
+"description": "Используется для прикрепления файлов.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контента",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"text": {
+"defaultValue": {
+"value": "Перетащите файлы"
+},
+"description": "Подпись для заглушки",
+"name": "text",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disabled": {
+"defaultValue": null,
+"description": "Заблокированное состояние",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"error": {
+"defaultValue": {
+"value": false
+},
+"description": "Состояние ошибки",
+"name": "error",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"block": {
+"defaultValue": {
+"value": false
+},
+"description": "Растягивать ли компонент на всю ширину",
+"name": "block",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"Overlay": {
+"defaultValue": {
+"value": "({ text = 'Перетащите файлы', visible = false }) => (\n    <div\n        className={cn(styles.overlay, {\n            [styles.visible]: visible,\n        })}\n    >\n        <ContainerMIcon />\n        <span className={styles.text}>{text}</span>\n    </div>\n)"
+},
+"description": "Компонент оверлея",
+"name": "Overlay",
+"required": false,
+"type": {
+"name": "ComponentType<OverlayProps> | undefined"
+}
+},
+"onDrop": {
+"defaultValue": null,
+"description": "Обработчик события 'drop'",
+"name": "onDrop",
+"required": false,
+"type": {
+"name": "((files: File[]) => void) | undefined"
+}
+},
+"onDragOver": {
+"defaultValue": null,
+"description": "Обработчик события 'dragover'",
+"name": "onDragOver",
+"required": false,
+"type": {
+"name": "((event: DragEvent<HTMLElement>) => void) | undefined"
+}
+},
+"onDragLeave": {
+"defaultValue": null,
+"description": "Обработчик события 'dragleave'",
+"name": "onDragLeave",
+"required": false,
+"type": {
+"name": "((event: DragEvent<HTMLElement>) => void) | undefined"
+}
+},
+"onDragEnter": {
+"defaultValue": null,
+"description": "Обработчик события 'dragenter'",
+"name": "onDragEnter",
+"required": false,
+"type": {
+"name": "((event: DragEvent<HTMLElement>) => void) | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы.",
+"name": "children",
+"required": false,
+"type": {
+"name": "ReactNode"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "render(() => {\nconst [filesList, setFilesList] = React.useState([]);\nconst [ downloadStatus, setDownloadStatus] = React.useState('success');\n\nconst handleDrop = files => {\nsetFilesList(\nArray.from(files)\n.map(file => file.name)\n.filter(Boolean),\n);\n};\nconst onDownloadStatusChange = (_, payload) => {\nsetDownloadStatus(payload.value);\nsetFilesList([])\n};\n\nconst stylesStatus = {\ndisplay: 'flex',\nflexDirection: 'column',\nalignItems: 'center',\njustifyContent: 'center',\nwidth: 724,\nheight: 200,\n}\n\nconst stylesText = {\nlineHeight: '24px',\nmarginTop: 8,\n}\n\nconst isError = filesList.length && downloadStatus === 'error';\n\nconst statusDropzone = (text, Icon)=> (\n<div style={stylesStatus}>\n<Icon />\n<span style={stylesText}>{text}</span>\n</div>\n)\n\nreturn (\n<Space size={24}>\n<Dropzone\nerror={isError}\nonDrop={handleDrop}\n>\n{filesList.length > 0 ? (\ndownloadStatus === 'success' ?\nstatusDropzone('Успех',CheckmarkMIcon ) :\nstatusDropzone('Ошибка',CrossMIcon )\n) : (\nstatusDropzone('Перетащите файлы',ContainerMIcon )\n)}\n</Dropzone>\n<RadioGroup\nlabel='Состояние после загрузки'\ndirection='vertical'\nname='radioGroup'\nonChange={onDownloadStatusChange}\nvalue={downloadStatus}\n>\n<Radio size={24} label='Успех' value='success' />\n<Radio size={24} label='Ошибка' value='error' />\n</RadioGroup>\n</Space>\n);\n});"
+}
+],
+"changelog": []
+}

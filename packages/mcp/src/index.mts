@@ -124,6 +124,99 @@ server.registerTool(
     },
 );
 
+server.registerTool(
+    'component_changelog',
+    {
+        /*
+         * Три режима работы:
+         *   1. full   — только component: changelog текущего и предыдущего мажора
+         *   2. single — component + version: запись одной конкретной версии
+         *   3. diff   — component + v1 + v2: все изменения между двумя версиями
+         */
+        description:
+            'Get changelog for a core-component. Three modes: omit version params to get the full changelog for the current and previous major versions; pass version for a single entry; pass v1 and v2 to see everything that changed between those releases.',
+        inputSchema: {
+            component: z.string().describe('Component name (e.g. Button, Input, ActionButton)'),
+            version: z.string().optional().describe('Single version to look up, e.g. "50.13.0"'),
+            v1: z
+                .string()
+                .optional()
+                .describe('Older version boundary for diff mode, e.g. "50.0.0"'),
+            v2: z
+                .string()
+                .optional()
+                .describe('Newer version boundary for diff mode, e.g. "50.13.0"'),
+        },
+    },
+    async ({ component, version, v1, v2 }) => {
+        const data = readComponentData(component);
+
+        if (!data) {
+            return toText(`Component "${component}" not found.`);
+        }
+
+        const changelog = data.changelog as Array<{ version: string; description: string }>;
+
+        if (!changelog?.length) {
+            return toText(`No changelog data available for "${component}".`);
+        }
+
+        // Разбираем строку "X.Y.Z" в массив чисел для числового сравнения
+        const parseVersion = (v: string) => v.split('.').map(Number) as [number, number, number];
+
+        const compareVersions = (a: string, b: string) => {
+            const [aMajor, aMinor, aPatch] = parseVersion(a);
+            const [bMajor, bMinor, bPatch] = parseVersion(b);
+
+            if (aMajor !== bMajor) {
+                return aMajor - bMajor;
+            }
+            if (aMinor !== bMinor) {
+                return aMinor - bMinor;
+            }
+
+            return aPatch - bPatch;
+        };
+
+        // Режим single: найти и вернуть запись для одной версии
+        if (version) {
+            const entry = changelog.find((e) => e.version === version.trim());
+
+            if (!entry) {
+                const available = changelog.map((e) => e.version).join(', ');
+
+                return toText(
+                    `No changelog entry found for ${component} version "${version}". Available versions: ${available}.`,
+                );
+            }
+
+            return toText(entry);
+        }
+
+        // Режим diff: вернуть все записи строго между from и to
+        if (v1 && v2) {
+            const [from, to] = compareVersions(v1, v2) <= 0 ? [v1, v2] : [v2, v1];
+
+            const entries = changelog.filter(
+                (e) =>
+                    // Берём версии после from (не включая его) и до to (включая)
+                    compareVersions(e.version, from) > 0 && compareVersions(e.version, to) <= 0,
+            );
+
+            if (!entries.length) {
+                return toText(
+                    `No changelog entries found between ${from} and ${to} for "${component}".`,
+                );
+            }
+
+            return toText({ from, to, entries });
+        }
+
+        // Режим full: вернуть весь changelog текущего мажора
+        return toText(changelog);
+    },
+);
+
 const transport = new StdioServerTransport();
 
 await server.connect(transport);

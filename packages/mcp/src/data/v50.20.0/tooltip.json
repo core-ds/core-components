@@ -1,0 +1,354 @@
+{
+"packageName": "tooltip",
+"displayName": "Tooltip",
+"description": "Используется для отображения дополнительной информации.",
+"props": {
+"content": {
+"defaultValue": null,
+"description": "Контент тултипа",
+"name": "content",
+"required": true,
+"type": {
+"name": "ReactNode"
+}
+},
+"position": {
+"defaultValue": null,
+"description": "Позиционирование тултипа",
+"name": "position",
+"required": false,
+"type": {
+"name": "Position | undefined"
+}
+},
+"onOpenDelay": {
+"defaultValue": null,
+"description": "Задержка перед открытием тултипа",
+"name": "onOpenDelay",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"onCloseDelay": {
+"defaultValue": null,
+"description": "Задержка перед закрытием тултипа",
+"name": "onCloseDelay",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"trigger": {
+"defaultValue": null,
+"description": "Событие, по которому происходит открытие тултипа",
+"name": "trigger",
+"required": false,
+"type": {
+"name": "Trigger | undefined"
+}
+},
+"open": {
+"defaultValue": null,
+"description": "Если `true`, то тултип будет открыт",
+"name": "open",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"children": {
+"defaultValue": null,
+"description": "Дочерние элементы тултипа.\nПри срабатывании событий на них, тултип будет открываться",
+"name": "children",
+"required": true,
+"type": {
+"name": "ReactElement<any, string | JSXElementConstructor<any>>"
+}
+},
+"offset": {
+"defaultValue": null,
+"description": "Смещение тултипа",
+"name": "offset",
+"required": false,
+"type": {
+"name": "[number, number] | undefined"
+}
+},
+"getPortalContainer": {
+"defaultValue": null,
+"description": "Функция, возвращающая контейнер, в который будет рендериться тултип",
+"name": "getPortalContainer",
+"required": false,
+"type": {
+"name": "(() => HTMLElement) | undefined"
+}
+},
+"arrowClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для стрелочки",
+"name": "arrowClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для контента",
+"name": "contentClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"popoverClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для поповера",
+"name": "popoverClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"targetClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для обертки над дочерними элементами",
+"name": "targetClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"view": {
+"defaultValue": null,
+"description": "Вид тултипа",
+"name": "view",
+"required": false,
+"type": {
+"name": "\"tooltip\" | \"hint\" | undefined"
+}
+},
+"updatePopover": {
+"defaultValue": null,
+"description": "Хранит функцию, с помощью которой можно обновить положение компонента",
+"name": "updatePopover",
+"required": false,
+"type": {
+"name": "MutableRefObject<(() => void) | undefined> | undefined"
+}
+},
+"zIndex": {
+"defaultValue": null,
+"description": "z-index компонента",
+"name": "zIndex",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"targetRef": {
+"defaultValue": null,
+"description": "Реф для обертки над дочерними элементами",
+"name": "targetRef",
+"required": false,
+"type": {
+"name": "MutableRefObject<HTMLElement | null> | undefined"
+}
+},
+"fallbackPlacements": {
+"defaultValue": null,
+"description": "Если тултип не помещается в переданной позиции (position), он попробует открыться в другой позиции,\nпо очереди для каждой позиции из этого списка.\nЕсли не передавать, то тултип открывается в противоположном направлении от переданного position.",
+"name": "fallbackPlacements",
+"required": false,
+"type": {
+"name": "Position[] | undefined"
+}
+},
+"preventOverflow": {
+"defaultValue": null,
+"description": "Запрещает тултипу менять свою позицию, если он не влезает в видимую область.",
+"name": "preventOverflow",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"availableHeight": {
+"defaultValue": null,
+"description": "Позволяет тултипу подствраивать свою высоту под границы экрана, если из-за величины контента он выходит за рамки видимой области экрана",
+"name": "availableHeight",
+"required": false,
+"type": {
+"name": "boolean | (() => Element | null | undefined) | undefined"
+}
+},
+"anchor": {
+"defaultValue": null,
+"description": "Элемент, относительно которого будет позиционировать тултип.",
+"name": "anchor",
+"required": false,
+"type": {
+"name": "RefElement | undefined"
+}
+},
+"colors": {
+"defaultValue": null,
+"description": "Набор цветов для компонента",
+"name": "colors",
+"required": false,
+"type": {
+"name": "\"default\" | \"inverted\" | undefined"
+}
+},
+"useAnchorWidth": {
+"defaultValue": null,
+"description": "Использовать ширину родительского элемента",
+"name": "useAnchorWidth",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"withTransition": {
+"defaultValue": null,
+"description": "Показывать тултип с анимацией",
+"name": "withTransition",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"targetTag": {
+"defaultValue": {
+"value": "div"
+},
+"description": "Тэг для target обертки",
+"name": "targetTag",
+"required": false,
+"type": {
+"name": "\"div\" | \"span\" | undefined"
+}
+},
+"onTargetClick": {
+"defaultValue": null,
+"description": "Обработчик клика по целевому элементу\nСобытие всплытия останавливается до вызова этого обработчика",
+"name": "onTargetClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLElement, MouseEvent>) => void) | undefined"
+}
+},
+"onOpen": {
+"defaultValue": null,
+"description": "Обработчик открытия",
+"name": "onOpen",
+"required": false,
+"type": {
+"name": "((event?: MouseEvent<HTMLElement, MouseEvent> | undefined) => void) | undefined"
+}
+},
+"onClose": {
+"defaultValue": null,
+"description": "Обработчик закрытия",
+"name": "onClose",
+"required": false,
+"type": {
+"name": "((event?: MouseEvent<HTMLElement, MouseEvent> | undefined) => void) | undefined"
+}
+},
+"actionButtonTitle": {
+"defaultValue": null,
+"description": "Заголовок кнопки в футере",
+"name": "actionButtonTitle",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"bottomSheetProps": {
+"defaultValue": null,
+"description": "Дополнительные пропсы компонента BottomSheet",
+"name": "bottomSheetProps",
+"required": false,
+"type": {
+"name": "Partial<BottomSheetProps> | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Виды тултипов",
+"description": "",
+"desktop": "<div style={{display: 'flex'}}>\n<TooltipDesktop\nposition='bottom'\ntrigger='click'\ncontent={\n<div style={{ width: 241}}> Пример небольшого вспомогательного текста. </div>\n}\n>\n<Button view='primary'>Показать Tooltip</Button>\n</TooltipDesktop>\n<Gap direction='horizontal' size={16}/>\n<TooltipDesktop content={<div>Пример подсказки</div>} position='bottom' view='hint' trigger='click'>\n<Button view='primary'>Показать Hint</Button>\n</TooltipDesktop>\n</div>",
+"mobile": "<Container>\n<Tooltip\nposition='bottom'\ntrigger='click'\ncontent={\n<div> Пример небольшого вспомогательного текста. </div>\n}\n>\n<div style={{ width: 320 }}>\n<Button block={true} view='primary'>Показать Tooltip</Button>\n</div>\n</Tooltip>\n<Gap size={16}/>\n<Tooltip content={<div>Пример подсказки</div>} position='bottom' view='hint' trigger='click'>\n<div style={{ width: 320 }}>\n<Button block={true} view='primary'>Показать Hint</Button>\n</div>\n</Tooltip>\n</Container>"
+},
+{
+"title": "Позиционирование",
+"description": "Если тултип не помещается в переданной позиции `position`, то он поробует отобразится с противоположной стороны.\nМожно вручную указать, в каких позициях следует отображать компонент в случае нехватки места, для этого используйте свойство `fallbackPlacements`.",
+"desktop": "<div\nstyle={{\nwidth: '100%',\nheight: '300px',\ndisplay: 'flex',\njustifyContent: 'center',\nalignItems: 'center',\n}}\n>\n<Tooltip\nposition='left'\nfallbackPlacements={['bottom', 'top']}\ntrigger='click'\ncontent={<div style={{ width: 241 }}> Пример небольшого вспомогательного текста. </div>}\n>\n<Button view='primary'>Показать Tooltip</Button>\n</Tooltip>\n</div>"
+}
+],
+"changelog": [
+{
+"version": "50.18.0",
+"description": "#### [#2251](https://github.com/core-ds/core-components/pull/2251)\n\n- Исправлен контраст кнопки в мобильной версии Tooltip при `colors=\"inverted\"`: проп `colors` теперь передаётся в `BottomSheet` и `ButtonMobile`"
+},
+{
+"version": "50.0.0",
+"description": "#### [#1624](https://github.com/core-ds/core-components/pull/1624)\n\n- Добавлены `data-test-id` для составляющих компонента `Tooltip`. Для контента тултипа теперь используется модификатор `${dataTestId}-content`\n\n#### [#1686](https://github.com/core-ds/core-components/pull/1686)\n\n- Удалён пропс `hasCloser`, который был отмечен как `deprecated` в `core-components@27.x.x`. Используйте вместо него `bottomSheetProps.hasCloser`"
+},
+{
+"version": "49.11.1",
+"description": "#### [#1967](https://github.com/core-ds/core-components/pull/1967)\n\n- Исправлена специфичность Tooltip"
+},
+{
+"version": "49.3.0",
+"description": "#### [#1831](https://github.com/core-ds/core-components/pull/1831)\n\n- Исправлена проблема со специфичностью в компоненте `Tooltip`\n\n- Обновлены зависимости\n    - @alfalab/core-components-card-image@4.1.0\n    - @alfalab/core-components-popup-sheet@2.0.3\n    - @alfalab/core-components-themes@14.1.2\n    - @alfalab/core-components-tooltip@8.0.2\n    - @alfalab/core-components-radio-group@5.2.0\n    - @alfalab/core-components-space@4.1.0\n    - @alfalab/core-components-tabs@9.1.0\n    - @alfalab/core-components-gallery@6.0.3"
+},
+{
+"version": "49.1.0",
+"description": "#### [#1818](https://github.com/core-ds/core-components/pull/1818)\n\n- Исправлено всплытие событие клика в мобильной версии Tooltip. Теперь события корректно останавливаются, а обработчик onTargetClick вызывается в мобильной версии так же, как и в десктопной."
+}
+]
+}

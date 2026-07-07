@@ -1,0 +1,33 @@
+{
+"packageName": "divider",
+"displayName": "Divider",
+"description": "Используется как разделитель.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Кастомный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Id компонента для тестов",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "",
+"desktop": "<div>\n<div style={{ height: 24, marginBottom: 'var(--gap-8)', backgroundColor: 'var(--color-light-base-bg-secondary)' }} />\n\n<Divider />\n\n<div style={{ height: 24, marginTop: 'var(--gap-8)', backgroundColor: 'var(--color-light-base-bg-secondary)' }} />\n</div>"
+}
+],
+"changelog": []
+}

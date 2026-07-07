@@ -1,0 +1,171 @@
+{
+"packageName": "pattern-lock",
+"displayName": "PatternLock",
+"description": "Компонент для авторизации пользователя с помощью графического ключа.",
+"props": {
+"className": {
+"defaultValue": null,
+"description": "Дополнительный класс",
+"name": "className",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования.\nДля сообщения используется модификатор -message, ошибки -error,\nкнопки \"забыли код\" -forgot-code-btn",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"observeTokens": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Следить ли за изменениями значений цветовых токенов",
+"name": "observeTokens",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"observerParams": {
+"defaultValue": null,
+"description": "Параметры MutationObserver для наблюдения за изменениями режима(css custom properties)",
+"name": "observerParams",
+"required": false,
+"type": {
+"name": "{ getTarget?: (() => Node) | undefined; options?: MutationObserverInit | undefined; } | undefined"
+}
+},
+"messageClassName": {
+"defaultValue": null,
+"description": "Дополнительный класс для message/errorMessage",
+"name": "messageClassName",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"disabled": {
+"defaultValue": {
+"value": "false"
+},
+"description": "Отключает ввод паттерна",
+"name": "disabled",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"onComplete": {
+"defaultValue": null,
+"description": "Коллбек, вызываемый после завершения ввода кода.",
+"name": "onComplete",
+"required": false,
+"type": {
+"name": "((code: number[], nodes: TNodes) => void) | undefined"
+}
+},
+"onDragStart": {
+"defaultValue": null,
+"description": "Коллбек, вызываемый при начале ввода кода.",
+"name": "onDragStart",
+"required": false,
+"type": {
+"name": "(() => void) | undefined"
+}
+},
+"themeState": {
+"defaultValue": null,
+"description": "Состояние темы.",
+"name": "themeState",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"extraBounds": {
+"defaultValue": null,
+"description": "Дополнительные границы в пикселях.\nСвойство позволяет расширить область прослушивания touch события.\nПо-умолчанию область ограничена размерами canvas.",
+"name": "extraBounds",
+"required": false,
+"type": {
+"name": "[number, number, number, number] | undefined"
+}
+},
+"showForgotCodeBtn": {
+"defaultValue": {
+"value": "\"Забыли код?\""
+},
+"description": "Показать кнопку \"забыли код\"",
+"name": "showForgotCodeBtn",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"forgotCodeBtnText": {
+"defaultValue": {
+"value": "\"Забыли код?\""
+},
+"description": "Текст кнопки \"забыли код\"",
+"name": "forgotCodeBtnText",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"onForgotBtnClick": {
+"defaultValue": null,
+"description": "Коллбэк, вызываемый при клике на кнопку \"Забыли код\"",
+"name": "onForgotBtnClick",
+"required": false,
+"type": {
+"name": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined"
+}
+},
+"breakpoint": {
+"defaultValue": {
+"value": "1024"
+},
+"description": "Контрольная точка, с нее начинается desktop версия",
+"name": "breakpoint",
+"required": false,
+"type": {
+"name": "number | undefined"
+}
+},
+"client": {
+"defaultValue": null,
+"description": "Версия, которая будет использоваться при серверном рендеринге",
+"name": "client",
+"required": false,
+"type": {
+"name": "\"desktop\" | \"mobile\" | undefined"
+}
+},
+"defaultMatchMediaValue": {
+"defaultValue": {
+"value": "client === undefined ? undefined : client === 'desktop'"
+},
+"description": "Значение по-умолчанию для хука useMatchMedia\n@deprecated Используйте client",
+"name": "defaultMatchMediaValue",
+"required": false,
+"type": {
+"name": "boolean | (() => boolean) | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Пример",
+"description": "Компонент не знает сколько символов в ключе пользователя,\nпоэтому ждет пока пользователь отпустит палец и только после этого проверяет ключ.\nПосле валидации компонент может отобразить состоянии ошибки с еррор месседжем или состояние успеха.\nКорректная комбинация для примера `698751`.",
+"desktop": "const SCREENS = {\nINITIAL: 'initial',\nENTER_CODE: 'ENTER_CODE',\nSUCCESS: 'success',\n};\nrender(() => {\nconst shouldBeCode = [6, 9, 8, 7, 5, 1];\nconst [currentState, setCurrentState] = React.useState(THEME_STATE.INITIAL);\nconst [screen, setScreen] = React.useState(SCREENS.INITIAL);\nconst [passCodeParams, setPassCodeParams] = React.useState();\nconst patternLockInstance = React.useRef();\nconst timerId = React.useRef();\nconst containerRef = React.useRef(null);\n\nconst handleComplete = (code) => {\nif (shouldBeCode.join() === code.join()) {\nsetCurrentState(THEME_STATE.SUCCESS);\nsetTimeout(() => setScreen(SCREENS.SUCCESS), 700);\n} else {\nsetCurrentState(THEME_STATE.FAILURE);\n}\n};\n\nconst handleDragStart = () => {\nsetCurrentState(THEME_STATE.INITIAL);\n};\n\nReact.useEffect(() => {\nif (currentState !== THEME_STATE.INITIAL) {\n// Сбрасываем стейт через сек.\ntimerId.current = setTimeout(() => {\nsetCurrentState(THEME_STATE.INITIAL);\npatternLockInstance.current.setInitialState();\n}, 1000);\n}\n\nreturn () => clearTimeout(timerId.current);\n}, [currentState]);\n\nconst renderMessage = () => {\nif (passCodeParams === 'codeLength') {\nreturn (\n<div style={{ textAlign: 'center' }}>\n<Typography.Text view='primary-medium'>\nВведите код из шести знаков\n</Typography.Text>\n<Gap size={24} />\n</div>\n);\n}\n\nreturn null;\n};\n\nif (screen === SCREENS.INITIAL) {\nreturn (\n<div\nstyle={{\nheight: 600,\ndisplay: 'flex',\nflexDirection: 'column',\njustifyContent: isMobile() ? 'start' : 'center',\nalignItems: 'center',\n}}\n>\n<div style={{ width: 320 }}>\n<Button\nblock\nonClick={() => {\nsetPassCodeParams('codeLength');\nsetScreen(SCREENS.ENTER_CODE);\n}}\n>\nКод длинной 6 знаков\n</Button>\n<Gap size={16} />\n<Button\nblock\nonClick={() => {\nsetPassCodeParams('maxCodeLength');\nsetScreen(SCREENS.ENTER_CODE);\n}}\n>\nДлина кода неизвестна заранее\n</Button>\n</div>\n</div>\n);\n}\n\nif (screen === SCREENS.SUCCESS) {\nreturn (\n<div style={{ display: 'flex', flexFlow: 'column nowrap', height: 600 }}>\n<Gap size={24} />\n<Gap size={128} />\n<div\nstyle={{\ndisplay: 'flex',\nflexFlow: 'column nowrap',\nalignItems: 'center',\njustifyContent: 'space-between',\n...(isMobile() && { flex: 1 }),\n}}\n>\n<div style={{ textAlign: 'center', width: isMobile() ? 315 : 472 }}>\n<SuperEllipse\nsize={80}\nbackgroundColor='var(--color-light-graphic-positive)'\n>\n<CheckmarkMIcon style={{ fill: '#fff' }} />\n</SuperEllipse>\n\n<Gap size={16} />\n\n<Typography.Title view='small' font='system'>\nВведён корректный пароль\n</Typography.Title>\n\n<Gap size={16} />\n\n<Typography.Text view='primary-medium'>\nЭто пример экрана, на который попадает пользователь после ввода\nкорректного пароля\n</Typography.Text>\n</div>\n\n<Gap size={24} />\n\n<Button\nonClick={() => {\nsetScreen(SCREENS.INITIAL);\n}}\nstyle={{\n...(isMobile() && { width: 320 }),\n}}\n>\nПопробовать ещё раз\n</Button>\n</div>\n</div>\n);\n}\n\nif (isMobile()) {\nreturn (\n<Container align='center'>\n<div\nstyle={{ height: '600px', boxSizing: 'border-box', paddingTop: '36px' }}\nref={containerRef}\n>\n{renderMessage()}\n<div\nstyle={{\ndisplay: 'flex',\nflexDirection: 'column',\njustifyContent: 'end',\nheight: passCodeParams === 'maxCodeLength' ? '564px' : '502px',\n}}\n>\n<Toast\ntitle={'Error message'}\nopen={currentState === THEME_STATE.FAILURE}\nanchorElement={containerRef.current}\nposition='top'\nbadge='negative-alert'\noffset={[0, -56]}\nstyle={{ width: '304px' }}\nonClose={() => {}}\n/>\n<PatternLock\nref={patternLockInstance}\nonComplete={handleComplete}\nthemeState={currentState}\nonDragStart={handleDragStart}\nobserveTokens={true}\nerror={currentState === THEME_STATE.FAILURE && 'Error message'}\nshowForgotCodeBtn={passCodeParams === 'maxCodeLength'}\nbreakpoint={BREAKPOINT}\n/>\n</div>\n</div>\n</Container>\n);\n}\n\nreturn (\n<Container align='center'>\n<div\nstyle={{\nheight: '600px',\nboxSizing: 'border-box',\npaddingTop: passCodeParams === 'maxCodeLength' ? 129 : 92,\n}}\nref={containerRef}\n>\n<Toast\ntitle={'Error message'}\nopen={currentState === THEME_STATE.FAILURE}\nanchorElement={containerRef.current}\nposition='top'\nbadge='negative-alert'\noffset={[0, -56]}\nstyle={{ width: '304px' }}\nonClose={() => {}}\n/>\n{renderMessage()}\n<PatternLock\nref={patternLockInstance}\nonComplete={handleComplete}\nthemeState={currentState}\nonDragStart={handleDragStart}\nobserveTokens={true}\nerror={currentState === THEME_STATE.FAILURE && 'Error message'}\nshowForgotCodeBtn={true}\nbreakpoint={BREAKPOINT}\n/>\n</div>\n</Container>\n);\n});"
+}
+],
+"changelog": []
+}

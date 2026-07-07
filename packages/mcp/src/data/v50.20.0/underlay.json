@@ -1,0 +1,107 @@
+{
+"packageName": "underlay",
+"displayName": "Underlay",
+"description": "",
+"props": {
+"dimensions": {
+"defaultValue": null,
+"description": "Размеры подложки",
+"name": "dimensions",
+"required": false,
+"type": {
+"name": "DimensionsType | undefined"
+}
+},
+"padding": {
+"defaultValue": null,
+"description": "Внутренние отступы",
+"name": "padding",
+"required": false,
+"type": {
+"name": "number | PaddingType | undefined"
+}
+},
+"borderRadius": {
+"defaultValue": null,
+"description": "Радиус бордера",
+"name": "borderRadius",
+"required": false,
+"type": {
+"name": "UnderlayBorderRadius | CornersRadiusType | undefined"
+}
+},
+"backgroundColor": {
+"defaultValue": null,
+"description": "Цвет фона",
+"name": "backgroundColor",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"borderSize": {
+"defaultValue": null,
+"description": "Ширина бордера",
+"name": "borderSize",
+"required": false,
+"type": {
+"name": "BorderSizeType | undefined"
+}
+},
+"borderColor": {
+"defaultValue": null,
+"description": "Цвет бордера",
+"name": "borderColor",
+"required": false,
+"type": {
+"name": "BorderColorType | undefined"
+}
+},
+"overflow": {
+"defaultValue": {
+"value": true
+},
+"description": "Настройка переполнения (true - разрешена)\ndefault: true",
+"name": "overflow",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"shadow": {
+"defaultValue": null,
+"description": "Тень",
+"name": "shadow",
+"required": false,
+"type": {
+"name": "ShadowType | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"contentProps": {
+"defaultValue": null,
+"description": "Пропсы для стилизации контента подложки",
+"name": "contentProps",
+"required": false,
+"type": {
+"name": "ContentPropsType | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Примеры",
+"description": "Компонент состоит из подложки и контейнера для контента. При необходимости, можно сделать компонент кликабельным. Для подложки и контейнера можно настроить: фон, тень, радиусы скругления гаждого угла, цвет и толщину обводки. Для подложки можно настроить отступы до контейнера.\nДля контейнера можно настроить выравнивание вложенных элементов по горизонтальной и вертикальной осям.",
+"desktop": "render(() => {\nconst handleClick = () => {\nalert('Клик!');\n};\n\nreturn (\n<Container>\n<Underlay\nonClick={handleClick}\nborderRadius={8}\nborderSize='1'\nshadow='shadow-s'\nbackgroundColor='secondary'\nborderColor='primary'\noverflow={false}\ndimensions={{ height: 160, width: 320 }}\npadding={{\ntop: 16,\nright: 16,\nbottom: 16,\nleft: 16,\n}}\ncontentProps={{\nborderSize: '1',\nborderColor: 'secondary',\nborderRadius: {\nbottomRight: 16,\nbottomLeft: 16,\ntopRight: 16,\ntopLeft: 16,\n},\nbackgroundColor: 'primary',\nshadow: 'shadow-s',\naxis: 'vertical',\nalignment: 'center',\njustifyContent: 'center',\n}}\n>\n<PureCell direction='horizontal' verticalPadding='default' horizontalPadding='both'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text\ntitleColor='primary'\nview='component-primary'\nvalue='Value'\nvalueColor='primary'\nrowLimit={1}\n>\nTitle\n</PureCell.Text>\n<PureCell.Text titleColor='secondary' view='primary-small' rowLimit={1}>\nSubtitle\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n<PureCell direction='horizontal' verticalPadding='compact' horizontalPadding='both'>\n<PureCell.Content>\n<PureCell.Main>\n<PureCell.Text\ntitleColor='primary'\nview='component-primary'\nvalue='Value'\nvalueColor='primary'\nrowLimit={1}\n>\nTitle\n</PureCell.Text>\n<PureCell.Text titleColor='secondary' view='primary-small' rowLimit={1}>\nSubtitle\n</PureCell.Text>\n</PureCell.Main>\n</PureCell.Content>\n</PureCell>\n</Underlay>\n<div style={{ height: 24 }}></div>\n<Underlay\nonClick={handleClick}\nborderRadius={8}\nborderSize='1'\nshadow='shadow-s'\nbackgroundColor='secondary'\nborderColor='primary'\noverflow={false}\ndimensions={{ height: 'auto', width: 320 }}\npadding={{\ntop: 16,\nright: 16,\nbottom: 16,\nleft: 16,\n}}\ncontentProps={{\nbackgroundColor: 'secondary',\naxis: 'horizontal',\nalignment: 'center',\njustifyContent: 'center',\n}}\n>\n<SuperEllipse size='80' backgroundColor='#2FC26E' border={true}>\n<CheckmarkHeavyMIcon color='#fff' />\n</SuperEllipse>\n<SuperEllipse size='80' backgroundColor='#F15045' border={true}>\n<CrossHeavyMIcon color='#fff' />\n</SuperEllipse>\n<SuperEllipse size='80' backgroundColor='#F6BF65' border={true}>\n<ExclamationMIcon color='#fff' />\n</SuperEllipse>\n</Underlay>\n</Container>\n);\n});"
+}
+],
+"changelog": []
+}

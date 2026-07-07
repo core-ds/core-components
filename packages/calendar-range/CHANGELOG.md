@@ -1,5 +1,33 @@
 # @alfalab/core-components-calendar-range
 
+## 9.1.1
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-shared@2.2.2
+- @alfalab/core-components-calendar@9.1.10
+- @alfalab/core-components-universal-date-input@4.0.15
+- @alfalab/core-components-calendar-input@12.0.15
+- @alfalab/core-components-date-input@6.0.11
+
+## 9.1.0
+
+### Minor Changes
+
+<sup><time>23.06.2026</time></sup>
+
+#### [#1702](https://github.com/core-ds/core-components/pull/1702)
+
+##### CalendarRange
+
+- Добавлено переключение фокуса при обмене датами между инпутами
+- Добавлен обмен датами между инпутами при изменении правого инпута
+- Отключена автокоррекция даты
+- Исправлен баг с мигающими датами
+- Исправлен баг с датой в демо
+
 ## 9.0.14
 
 ### Patch Changes

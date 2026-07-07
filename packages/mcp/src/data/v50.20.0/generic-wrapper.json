@@ -1,0 +1,87 @@
+{
+"packageName": "generic-wrapper",
+"displayName": "GenericWrapper",
+"description": "",
+"props": {
+"column": {
+"defaultValue": {
+"value": false
+},
+"description": "Свойство управляет направлением основной оси внутри флекс-контейнера",
+"name": "column",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"padding": {
+"defaultValue": null,
+"description": "Внутренние отступы\n@description 3xs, 2xs, xs, s, m, l, xl deprecated,\nиспользуйте 0, 2, 4, 8, 12, 16, 20, 24",
+"name": "padding",
+"required": false,
+"type": {
+"name": "PaddingPropType | undefined"
+}
+},
+"alignItems": {
+"defaultValue": null,
+"description": "Свойство для выравнивания элементов внутри контейнера по поперечной оси.",
+"name": "alignItems",
+"required": false,
+"type": {
+"name": "\"stretch\" | \"end\" | \"start\" | \"center\" | \"baseline\" | undefined"
+}
+},
+"justifyContent": {
+"defaultValue": null,
+"description": "Свойство выравнивает флекс-элементы внутри флекс-контейнера по основной оси.",
+"name": "justifyContent",
+"required": false,
+"type": {
+"name": "\"end\" | \"start\" | \"center\" | \"between\" | \"around\" | \"evenly\" | undefined"
+}
+},
+"dataTestId": {
+"defaultValue": null,
+"description": "Идентификатор для систем автоматизированного тестирования",
+"name": "dataTestId",
+"required": false,
+"type": {
+"name": "string | undefined"
+}
+},
+"grow": {
+"defaultValue": {
+"value": false
+},
+"description": "Позволяет заполнить всё доступное пространство родительского элемента.",
+"name": "grow",
+"required": false,
+"type": {
+"name": "boolean | undefined"
+}
+},
+"gap": {
+"defaultValue": null,
+"description": "Отступы между элементами флекс-контейнера",
+"name": "gap",
+"required": false,
+"type": {
+"name": "GapType | undefined"
+}
+}
+},
+"demos": [
+{
+"title": "Лейаут",
+"description": "Компонент представляет собой флексовый контейнер с возможностью настройки вертикального и горизонтального расположения дочерних элементов.\nВертикальные и горизонтальные отступы можно настраивать независимо друг от друга.",
+"desktop": "render(() => {\nconst [direction, setDirection] = React.useState('horizontal');\n\nconst addon = (\n<div\nstyle={{\nbackground: 'rgba(55, 120, 251, 0.1)',\nborder: '1px dashed #3778FB',\nborderRadius: '8px',\nheight: '64px',\nwidth: '64px',\nboxSizing: 'border-box',\n}}\n/>\n);\n\nreturn (\n<Container>\n<Row>\n<div style={{ backgroundColor: 'rgba(55, 120, 251, 0.1)'}}>\n<GenericWrapper padding={{ top: 16, right: 16, bottom: 16, left: 16 }} gap={20} column={direction === 'vertical'}>\n<GenericWrapper>{addon}</GenericWrapper>\n<GenericWrapper>{addon}</GenericWrapper>\n<GenericWrapper>{addon}</GenericWrapper>\n</GenericWrapper>\n</div>\n</Row>\n<div style={{ marginTop: '20px' }}>\n<RadioGroup\nlabel='Направление'\ndirection='vertical'\nname='radioGroupFirst'\nonChange={(_, { value }) => setDirection(value)}\nvalue={direction}\n>\n<Radio label='Горизонтальное' value='horizontal' />\n<Radio label='Вертикальное' value='vertical' />\n</RadioGroup>\n</div>\n</Container>\n);\n});"
+},
+{
+"title": "Примеры",
+"description": "На базе компонента могут быть собраны готовые для использования в продукте пресеты ячеек.",
+"desktop": "<Container>\n<div style={{ width: '288px' }}>\n<GenericWrapper column>\n<Typography.Text>Title</Typography.Text>\n<Gap size={2} />\n<Typography.Text>Subtitle</Typography.Text>\n</GenericWrapper>\n<Gap size={20} />\n<GenericWrapper alignItems={'center'}>\n<GenericWrapper>\n<Circle size={48}>\n<HeartMIcon />\n</Circle>\n</GenericWrapper>\n<Gap size={16} direction={'horizontal'} />\n<GenericWrapper>\n<GenericWrapper column>\n<Typography.Text>Благотворительность</Typography.Text>\n<Gap size={2} />\n<Typography.Text>25 000 ₽</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n</GenericWrapper>\n<Gap size={20} />\n<GenericWrapper alignItems={'center'}>\n<GenericWrapper>\n<Circle size={48}>\n<HeartMIcon />\n</Circle>\n</GenericWrapper>\n<Gap size={16} direction={'horizontal'} />\n<GenericWrapper grow>\n<GenericWrapper column grow>\n<GenericWrapper justifyContent={'between'} grow>\n<Typography.Text>Перекрёсток</Typography.Text>\n<Typography.Text>−6 231 ₽</Typography.Text>\n</GenericWrapper>\n<Gap size={2} />\n<GenericWrapper justifyContent={'between'} grow>\n<Typography.Text>Гипермаркет</Typography.Text>\n<Typography.Text>+62 ₽</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n</GenericWrapper>\n</GenericWrapper>\n<Gap size={20} />\n<GenericWrapper alignItems={'start'}>\n<GenericWrapper>\n<Circle size={48}>\n<HeartMIcon />\n</Circle>\n</GenericWrapper>\n<Gap size={16} direction={'horizontal'} />\n<GenericWrapper column grow>\n<GenericWrapper justifyContent={'between'} grow>\n<Typography.Text>\n<div style={{ maxWidth: '133px' }}>Между своими счетами</div>\n</Typography.Text>\n<Typography.Text>+18 777 ₽</Typography.Text>\n</GenericWrapper>\n<Gap size={2} />\n<Typography.Text>Пополнение</Typography.Text>\n<Gap size={8} />\n<Comment>Коплю на мечту</Comment>\n</GenericWrapper>\n</GenericWrapper>\n<Gap size={20} />\n<GenericWrapper justifyContent={'between'}>\n<GenericWrapper column>\n<Typography.Text>Платёж 14 октября</Typography.Text>\n<Gap size={8} />\n<Typography.Text>Сумма платежа</Typography.Text>\n<Typography.Text>30 600,90 ₽</Typography.Text>\n</GenericWrapper>\n<GenericWrapper>\n<CircularProgressBar value={25} subtitle='дней' size={80} />\n</GenericWrapper>\n</GenericWrapper>\n<Gap size={20} />\n<GenericWrapper>\n<GenericWrapper>\n<Circle size={48}>\n<HeartMIcon />\n</Circle>\n</GenericWrapper>\n<Gap size={16} direction={'horizontal'} />\n<GenericWrapper column>\n<Typography.Text>Используется вложенность</Typography.Text>\n<Typography.Text>Одной ячейки в другую</Typography.Text>\n</GenericWrapper>\n</GenericWrapper>\n<Gap size={16} />\n<Button block>Понятно</Button>\n</div>\n</Container>"
+}
+],
+"changelog": []
+}
