@@ -56,6 +56,11 @@ export type StatusProps = {
      * Слот слева
      */
     leftAddons?: ReactNode;
+
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
 };
 
 const logWarning = () => {
@@ -82,6 +87,7 @@ export const Status: FC<StatusProps> = ({
     shape = 'rectangular',
     uppercase = true,
     leftAddons,
+    rightAddons,
 }) => {
     if (view === 'soft') {
         logWarning();
@@ -99,12 +105,14 @@ export const Status: FC<StatusProps> = ({
                 {
                     [styles.uppercase]: uppercase,
                     [styles.withLeftAddons]: leftAddons,
+                    [styles.withRightAddons]: rightAddons,
                 },
             )}
             data-test-id={dataTestId}
         >
             {leftAddons && <span className={styles.leftAddons}>{leftAddons}</span>}
             <span className={styles.ellipsis}>{children}</span>
+            {rightAddons && <span className={styles.rightAddons}>{rightAddons}</span>}
         </span>
     );
 };
