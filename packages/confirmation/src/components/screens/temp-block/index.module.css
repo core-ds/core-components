@@ -19,7 +19,11 @@
 }
 
 .description.description {
-    margin-bottom: var(--gap-8);
+    margin-bottom: var(--confirmation-temp-block-description-margin-bottom);
+}
+
+.description.descriptionMobile {
+    margin-bottom: var(--confirmation-temp-block-description-margin-bottom-mobile);
 }
 
 .countdownWrap {

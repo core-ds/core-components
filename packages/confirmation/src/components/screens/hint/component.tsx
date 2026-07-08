@@ -41,6 +41,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 className={cn(styles.text, {
                     [styles.typographyTheme]: !mobile,
                     [styles.typographyThemeMobile]: mobile,
+                    [styles.textMobile]: mobile,
                 })}
             >
                 {texts.hintDescription}
@@ -51,7 +52,12 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     [styles.phonesWrapMobile]: mobile,
                 })}
             >
-                <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
+                <div
+                    className={cn(styles.phoneWrap, {
+                        [styles.phoneContentMobile]: mobile,
+                        [styles.phoneWrapMobile]: mobile,
+                    })}
+                >
                     <Link
                         href={getPhoneHref(internationalPhone)}
                         underline={false}
@@ -65,6 +71,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         className={cn(styles.text, {
                             [styles.typographyTheme]: !mobile,
                             [styles.typographyThemeMobile]: mobile,
+                            [styles.textMobile]: mobile,
                         })}
                     >
                         {mobile
@@ -73,7 +80,12 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                     </TypographyText>
                 </div>
 
-                <div className={cn(styles.phoneWrap, { [styles.phoneContentMobile]: mobile })}>
+                <div
+                    className={cn(styles.phoneWrap, {
+                        [styles.phoneContentMobile]: mobile,
+                        [styles.phoneWrapMobile]: mobile,
+                    })}
+                >
                     <Link
                         href={getPhoneHref(domesticPhone)}
                         underline={false}
@@ -87,6 +99,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                         className={cn(styles.text, {
                             [styles.typographyTheme]: !mobile,
                             [styles.typographyThemeMobile]: mobile,
+                            [styles.textMobile]: mobile,
                         })}
                     >
                         {mobile
@@ -102,6 +115,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 className={cn(styles.text, {
                     [styles.typographyTheme]: !mobile,
                     [styles.typographyThemeMobile]: mobile,
+                    [styles.textMobile]: mobile,
                 })}
             >
                 {texts.hintNotification}
@@ -110,7 +124,7 @@ export const Hint: FC<HintProps> = ({ mobile }) => {
                 size={mobile ? 40 : 48}
                 view='secondary'
                 onClick={handleReturnButtonClick}
-                className={styles.hintButton}
+                className={cn(styles.hintButton, { [styles.hintButtonMobile]: mobile })}
                 breakpoint={breakpoint}
                 client={client}
             >

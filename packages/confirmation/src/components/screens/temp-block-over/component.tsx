@@ -46,7 +46,7 @@ export const TempBlockOver: FC<TempBlockOverProps> = ({ mobile }) => {
                 size={mobile ? 40 : 48}
                 view='secondary'
                 onClick={handleReturnButtonClick}
-                className={styles.button}
+                className={cn(styles.button, { [styles.buttonMobile]: mobile })}
                 breakpoint={breakpoint}
                 client={client}
             >

@@ -19,5 +19,9 @@
 }
 
 .button.button {
-    margin-top: var(--gap-32);
+    margin-top: var(--confirmation-temp-block-over-button-margin-top);
+}
+
+.button.buttonMobile {
+    margin-top: var(--confirmation-temp-block-over-button-margin-top-mobile);
 }

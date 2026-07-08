@@ -7,7 +7,11 @@
 
 .phone.phone {
     color: var(--color-light-text-primary);
-    margin-bottom: var(--gap-32);
+    margin-bottom: var(--confirmation-phone-margin-bottom);
+}
+
+.phone.phoneMobile {
+    margin-bottom: var(--confirmation-phone-margin-bottom-mobile);
 }
 
 .typographyTheme.typographyTheme {
@@ -41,7 +45,11 @@
 }
 
 .codeInput {
-    margin-bottom: var(--gap-12);
+    margin-bottom: var(--confirmation-input-margin-bottom);
+}
+
+.codeInput.codeInputMobile {
+    margin-bottom: var(--confirmation-input-margin-bottom-mobile);
 }
 
 .smsBtn.smsBtn {
@@ -54,14 +62,19 @@
 
 .countdownContainer.countdownContainer {
     color: var(--color-light-text-secondary);
-    margin-bottom: var(--gap-24);
+    margin-bottom: var(--confirmation-countdown-margin-bottom);
 }
 
 .countdownMobile.countdownMobile {
-    margin-bottom: var(--gap-20);
+    margin-bottom: var(--confirmation-countdown-margin-bottom-mobile);
 }
+
+.loaderWrap.loaderWrap {
+    margin-bottom: var(--confirmation-countdown-loader-margin-bottom);
+}
+
 .countdownLoaderMobile.countdownLoaderMobile {
-    margin-bottom: var(--gap-16);
+    margin-bottom: var(--confirmation-countdown-loader-margin-bottom-mobile);
 }
 
 .timeCounter {
@@ -74,14 +87,22 @@
 
 .getCodeButton {
     position: relative;
-    top: var(--gap-4-neg);
-    margin-bottom: var(--gap-16);
+    top: var(--confirmation-code-button-top);
+    margin-bottom: var(--confirmation-code-button-margin-bottom);
 }
 
 .getCodeButtonMobile {
-    margin-bottom: var(--gap-0);
+    margin-bottom: var(--confirmation-code-button-margin-bottom-mobile);
+}
+
+.getCodeButton.getCodeButtonMobile {
+    top: var(--confirmation-code-button-top-mobile);
 }
 
 .containerInput {
-    min-height: 80px;
+    min-height: var(--confirmation-input-min-height);
+}
+
+.containerInput.codeInputMobile {
+    min-height: var(--confirmation-input-min-height-mobile);
 }

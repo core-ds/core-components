@@ -15,7 +15,11 @@
 }
 
 .text.text {
-    margin-bottom: var(--gap-24);
+    margin-bottom: var(--confirmation-hint-text-margin-bottom);
+}
+
+.text.textMobile {
+    margin-bottom: var(--confirmation-hint-text-margin-bottom-mobile);
 }
 
 .typographyTheme.typographyTheme {
@@ -29,11 +33,23 @@
 .phonesWrap {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--gap-24);
+    margin-bottom: var(--confirmation-hint-phones-margin-bottom);
+}
+
+.phonesWrap.phonesWrapMobile {
+    margin-bottom: var(--confirmation-hint-phones-margin-bottom-mobile);
 }
 
 .phoneWrap {
-    margin-bottom: var(--gap-8);
+    margin-bottom: var(--confirmation-hint-phone-item-margin-bottom);
+
+    &:last-child {
+        margin-bottom: var(--gap-0);
+    }
+}
+
+.phoneWrap.phoneWrapMobile {
+    margin-bottom: var(--confirmation-hint-phone-item-margin-bottom-mobile);
 
     &:last-child {
         margin-bottom: var(--gap-0);
@@ -45,7 +61,11 @@
 }
 
 .hintButton {
-    margin-top: var(--gap-32);
+    margin-top: var(--confirmation-hint-button-margin-top);
+}
+
+.hintButton.hintButtonMobile {
+    margin-top: var(--confirmation-hint-button-margin-top-mobile);
 }
 
 .phoneContentMobile {

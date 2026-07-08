@@ -8,4 +8,58 @@
         @mixin paragraph_primary_medium;
         color: var(--confirmation-text-color);
     }
+
+    /* === Desktop === */
+
+    /* INITIAL */
+    --confirmation-header-margin-bottom: var(--gap-24);
+    --confirmation-phone-margin-bottom: var(--gap-32);
+    --confirmation-input-margin-bottom: var(--gap-12);
+    --confirmation-input-min-height: 80px;
+    --confirmation-code-button-margin-bottom: var(--gap-16);
+    --confirmation-code-button-top: var(--gap-4-neg);
+    --confirmation-countdown-loader-margin-bottom: var(--gap-24);
+    --confirmation-countdown-margin-bottom: var(--gap-24);
+
+    /* HINT */
+    --confirmation-hint-text-margin-bottom: var(--gap-24);
+    --confirmation-hint-phones-margin-bottom: var(--gap-24);
+    --confirmation-hint-phone-item-margin-bottom: var(--gap-8);
+    --confirmation-hint-button-margin-top: var(--gap-32);
+
+    /* TEMP_BLOCK */
+    --confirmation-temp-block-description-margin-bottom: var(--gap-8);
+
+    /* TEMP_BLOCK_OVER */
+    --confirmation-temp-block-over-button-margin-top: var(--gap-32);
+
+    /* FATAL_ERROR */
+    --confirmation-fatal-error-button-margin-top: var(--gap-32);
+
+    /* === Mobile === */
+
+    /* INITIAL */
+    --confirmation-header-margin-bottom-mobile: var(--gap-24);
+    --confirmation-phone-margin-bottom-mobile: var(--gap-32);
+    --confirmation-input-margin-bottom-mobile: var(--gap-12);
+    --confirmation-input-min-height-mobile: 80px;
+    --confirmation-code-button-margin-bottom-mobile: var(--gap-0);
+    --confirmation-code-button-top-mobile: var(--gap-4-neg);
+    --confirmation-countdown-loader-margin-bottom-mobile: var(--gap-16);
+    --confirmation-countdown-margin-bottom-mobile: var(--gap-20);
+
+    /* HINT */
+    --confirmation-hint-text-margin-bottom-mobile: var(--gap-24);
+    --confirmation-hint-phones-margin-bottom-mobile: var(--gap-24);
+    --confirmation-hint-phone-item-margin-bottom-mobile: var(--gap-8);
+    --confirmation-hint-button-margin-top-mobile: var(--gap-32);
+
+    /* TEMP_BLOCK */
+    --confirmation-temp-block-description-margin-bottom-mobile: var(--gap-8);
+
+    /* TEMP_BLOCK_OVER */
+    --confirmation-temp-block-over-button-margin-top-mobile: var(--gap-32);
+
+    /* FATAL_ERROR */
+    --confirmation-fatal-error-button-margin-top-mobile: var(--gap-32);
 }
