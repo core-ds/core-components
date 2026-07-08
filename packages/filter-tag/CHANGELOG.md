@@ -1,5 +1,20 @@
 # @alfalab/core-components-filter-tag
 
+## 7.1.0
+
+### Minor Changes
+
+<sup><time>08.07.2026</time></sup>
+
+#### [#2256](https://github.com/core-ds/core-components/pull/2256)
+
+##### FilterTag
+
+- Добавлен prop `showArrow` для управления отображением шеврона в выбранном состоянии
+- Изменены отступы в компоненте
+- Шеврон отображается в невыбранном состоянии; крестик и шеврон можно показывать независимо друг от друга
+- Добавлен вариант `view='muted'`
+
 ## 7.0.7
 
 ### Patch Changes

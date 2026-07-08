@@ -1,5 +1,17 @@
 # @alfalab/core-components-gallery
 
+## 7.2.1
+
+### Patch Changes
+
+<sup><time>08.07.2026</time></sup>
+
+#### [#2268](https://github.com/core-ds/core-components/pull/2268)
+
+##### Gallery
+
+- Исправлено отображение стрелок навигации и контейнера одиночного изображения
+
 ## 7.2.0
 
 ### Minor Changes
