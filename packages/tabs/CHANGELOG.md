@@ -1,5 +1,13 @@
 # @alfalab/core-components-tabs
 
+## 10.0.19
+
+### Patch Changes
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-tag@10.2.0
+
 ## 10.0.18
 
 ### Patch Changes

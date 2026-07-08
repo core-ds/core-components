@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-pagination",
-    "version": "4.0.6",
+    "version": "4.0.7",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -13,7 +13,7 @@
         "build": "rollup -c ../../tools/rollup/rollup.config.mjs --silent"
     },
     "dependencies": {
-        "@alfalab/core-components-tag": "^10.1.1",
+        "@alfalab/core-components-tag": "^10.2.0",
         "@alfalab/icons-glyph": "^2.260.0",
         "classnames": "^2.5.1",
         "tslib": "^2.4.0"

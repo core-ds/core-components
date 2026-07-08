@@ -1,5 +1,51 @@
 # @alfalab/core-components
 
+## 50.22.0
+
+### Minor Changes
+
+<sup><time>08.07.2026</time></sup>
+
+#### [#2256](https://github.com/core-ds/core-components/pull/2256)
+
+##### Tag
+
+- Добавлены props `showClear` и `onClear` для сброса выбранного состояния
+- Изменены отступы в компоненте
+- Добавлен вариант `view='muted'`
+- В `IndicatorTag` добавлен размер 48, prop `view` (`filled` | `muted`) и обновлены стили SVG-формы
+
+<sup><time>08.07.2026</time></sup>
+
+#### [#2256](https://github.com/core-ds/core-components/pull/2256)
+
+##### FilterTag
+
+- Добавлен prop `showArrow` для управления отображением шеврона в выбранном состоянии
+- Изменены отступы в компоненте
+- Шеврон отображается в невыбранном состоянии; крестик и шеврон можно показывать независимо друг от друга
+- Добавлен вариант `view='muted'`
+
+### Patch Changes
+
+<sup><time>08.07.2026</time></sup>
+
+#### [#2268](https://github.com/core-ds/core-components/pull/2268)
+
+##### Gallery
+
+- Исправлено отображение стрелок навигации и контейнера одиночного изображения
+
+#### Обновлены зависимости
+
+- @alfalab/core-components-gallery@7.2.1
+- @alfalab/core-components-tag@10.2.0
+- @alfalab/core-components-filter-tag@7.1.0
+- @alfalab/core-components-pagination@4.0.7
+- @alfalab/core-components-select-with-tags@10.1.13
+- @alfalab/core-components-tabs@10.0.19
+- @alfalab/core-components-table@4.0.19
+
 ## 50.21.0
 
 ### Minor Changes

@@ -1,5 +1,20 @@
 # @alfalab/core-components-tag
 
+## 10.2.0
+
+### Minor Changes
+
+<sup><time>08.07.2026</time></sup>
+
+#### [#2256](https://github.com/core-ds/core-components/pull/2256)
+
+##### Tag
+
+- Добавлены props `showClear` и `onClear` для сброса выбранного состояния
+- Изменены отступы в компоненте
+- Добавлен вариант `view='muted'`
+- В `IndicatorTag` добавлен размер 48, prop `view` (`filled` | `muted`) и обновлены стили SVG-формы
+
 ## 10.1.1
 
 ### Patch Changes
