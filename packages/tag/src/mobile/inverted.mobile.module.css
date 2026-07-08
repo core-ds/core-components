@@ -1,44 +1,73 @@
 @import '../vars.css';
 
-.filled,
-.indicatorFilled {
-    --tag-inverted-filled-background-color: var(--tag-inverted-filled-mobile-background-color);
-    --tag-inverted-filled-background-color-hover: var(
-        --tag-inverted-filled-mobile-background-color-hover
-    );
-    --tag-inverted-filled-background-color-active: var(
-        --tag-inverted-filled-mobile-background-color-active
-    );
-}
+.badgeIcon {
+    &.filled {
+        path.shapePath {
+            fill: var(--tag-mobile-filled-background-color-inverted);
+        }
 
-.indicatorFilled > svg > path {
-    fill: var(--tag-inverted-filled-mobile-background-color);
-}
+        &:active:not(:disabled) path.shapePath {
+            fill: var(--tag-mobile-filled-background-color-active-inverted);
+        }
 
-.indicatorFilled:active:not(:disabled) > svg > path {
-    fill: var(--tag-inverted-filled-mobile-background-color-active);
-}
-
-@media (hover: hover) {
-    .indicatorFilled:hover > svg > path {
-        fill: var(--tag-inverted-filled-mobile-background-color-hover);
+        @media (hover: hover) {
+            path.shapePath:hover {
+                fill: var(--tag-mobile-filled-background-color-hover-inverted);
+            }
+        }
     }
 }
 
 .filled {
-    background-color: var(--tag-inverted-filled-mobile-background-color);
+    background-color: var(--tag-mobile-filled-background-color-inverted);
 
     &:disabled {
-        background-color: var(--tag-inverted-filled-mobile-background-color-disabled);
+        background-color: var(--tag-mobile-filled-background-color-disabled-inverted);
     }
 
     @media (hover: hover) {
         &:hover:not(:disabled) {
-            background-color: var(--tag-inverted-filled-mobile-background-color-hover);
+            background-color: var(--tag-mobile-filled-background-color-hover-inverted);
         }
     }
 
     &:active:not(:disabled) {
-        background-color: var(--tag-inverted-filled-mobile-background-color-active);
+        background-color: var(--tag-mobile-filled-background-color-active-inverted);
+    }
+}
+
+.muted {
+    background-color: var(--tag-mobile-muted-background-color-inverted);
+
+    &:disabled {
+        background-color: var(--tag-mobile-muted-background-color-disabled-inverted);
+    }
+
+    @media (hover: hover) {
+        &:hover:not(:disabled) {
+            background-color: var(--tag-mobile-muted-background-color-hover-inverted);
+        }
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-mobile-muted-background-color-active-inverted);
+    }
+
+    &.checked {
+        background-color: var(--tag-mobile-muted-checked-background-color-inverted);
+
+        &:disabled {
+            background-color: var(--tag-mobile-muted-checked-background-color-disabled-inverted);
+        }
+
+        @media (hover: hover) {
+            &:hover:not(:disabled) {
+                background-color: var(--tag-mobile-muted-checked-background-color-hover-inverted);
+            }
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--tag-mobile-muted-checked-background-color-active-inverted);
+        }
     }
 }

@@ -1,55 +1,96 @@
 @import '../../vars.css';
 
-.shapeInner {
-    color: inherit;
-
-    & svg {
-        fill: var(--color-light-text-primary);
-    }
-
-    &:active:not(:disabled) svg {
-        fill: var(--color-light-text-primary-inverted);
-    }
-}
-
-.shapePath {
-    fill: var(--tag-filled-background-color);
-}
-
-.checkedShapePath {
-    fill: var(--tag-background-color-checked);
-}
-
-.checkedInner {
-    & svg {
-        fill: var(--tag-text-color-checked);
-    }
-}
-
 .badgeIcon {
     color: var(--tag-text-color);
 
-    &:active:not(:disabled) .shapePath {
-        fill: var(--tag-filled-background-color-active);
-    }
+    .shapeInner {
+        color: inherit;
 
-    &.checked .shapePath {
-        fill: var(--tag-background-color-checked);
-    }
-
-    &.checked .shapeInner {
         & svg {
-            fill: var(--tag-text-color-checked);
+            fill: var(--color-light-text-primary);
+        }
+
+        &:active:not(:disabled) svg {
+            fill: var(--color-light-text-primary-inverted);
         }
     }
 
-    @media (hover: hover) {
-        &:hover .shapePath {
-            fill: var(--tag-filled-background-color-hover);
+    &.filled,
+    &.muted {
+        background-color: transparent;
+
+        &:hover:not(:disabled),
+        &:active:not(:disabled),
+        &:disabled {
+            background-color: transparent;
+        }
+    }
+
+    &.filled {
+        .shapePath {
+            fill: var(--tag-filled-background-color);
         }
 
-        &.checked:hover:not(:disabled) .shapePath {
-            fill: var(--tag-background-color-checked-hover);
+        &:active:not(:disabled) .shapePath {
+            fill: var(--tag-filled-background-color-active);
+        }
+
+        @media (hover: hover) {
+            .shapePath:hover {
+                fill: var(--tag-filled-background-color-hover);
+            }
+        }
+
+        &.checked {
+            .shapePath {
+                fill: var(--tag-background-color-checked);
+            }
+
+            .shapeInner svg {
+                fill: var(--tag-text-color-checked);
+            }
+
+            @media (hover: hover) {
+                .shapePath:hover {
+                    fill: var(--tag-background-color-checked-hover);
+                }
+            }
+
+            &:active:not(:disabled) .shapePath {
+                fill: var(--tag-background-color-checked-active);
+            }
+        }
+    }
+
+    &.muted {
+        .shapePath {
+            fill: var(--tag-muted-background-color);
+        }
+
+        &:active:not(:disabled) .shapePath {
+            fill: var(--tag-muted-background-color-active);
+        }
+
+        @media (hover: hover) {
+            .shapePath:hover {
+                fill: var(--tag-muted-background-color-hover);
+            }
+        }
+
+        &.checked {
+            .shapePath {
+                fill: var(--tag-muted-background-color-checked);
+            }
+
+            @media (hover: hover) {
+                .shapePath:hover {
+                    fill: var(--tag-muted-background-color-checked-hover);
+                }
+            }
+
+            &:active:not(:disabled) .shapePath {
+                fill: var(--tag-muted-background-color-checked-active);
+            }
         }
     }
 }

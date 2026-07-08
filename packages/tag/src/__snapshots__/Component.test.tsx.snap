@@ -9,7 +9,9 @@ exports[`Snapshots tests should match snapshot 1`] = `
         class="component component component size-48 size-48 outlined outlined rounded outlined"
         type="button"
       >
-        <span>
+        <span
+          class="content"
+        >
           Press me
         </span>
       </button>
@@ -20,7 +22,9 @@ exports[`Snapshots tests should match snapshot 1`] = `
       class="component component component size-48 size-48 outlined outlined rounded outlined"
       type="button"
     >
-      <span>
+      <span
+        class="content"
+      >
         Press me
       </span>
     </button>
@@ -88,7 +92,9 @@ exports[`Snapshots tests should match snapshot shape=rectangular 1`] = `
         class="component component component size-48 size-48 outlined outlined rectangular outlined"
         type="button"
       >
-        <span>
+        <span
+          class="content"
+        >
           Press me
         </span>
       </button>
@@ -99,7 +105,9 @@ exports[`Snapshots tests should match snapshot shape=rectangular 1`] = `
       class="component component component size-48 size-48 outlined outlined rectangular outlined"
       type="button"
     >
-      <span>
+      <span
+        class="content"
+      >
         Press me
       </span>
     </button>
@@ -174,7 +182,9 @@ exports[`Snapshots tests should match snapshot with left addons 1`] = `
             10 000 $
           </span>
         </span>
-        <span>
+        <span
+          class="content"
+        >
           Press me
         </span>
       </button>
@@ -192,7 +202,9 @@ exports[`Snapshots tests should match snapshot with left addons 1`] = `
           10 000 $
         </span>
       </span>
-      <span>
+      <span
+        class="content"
+      >
         Press me
       </span>
     </button>
@@ -260,7 +272,9 @@ exports[`Snapshots tests should match snapshot with right addons 1`] = `
         class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons"
         type="button"
       >
-        <span>
+        <span
+          class="content"
+        >
           Press me
         </span>
         <span
@@ -278,7 +292,9 @@ exports[`Snapshots tests should match snapshot with right addons 1`] = `
       class="component component component size-48 size-48 outlined outlined rounded outlined withRightAddons"
       type="button"
     >
-      <span>
+      <span
+        class="content"
+      >
         Press me
       </span>
       <span

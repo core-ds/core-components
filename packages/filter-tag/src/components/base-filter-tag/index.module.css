@@ -26,17 +26,50 @@
         }
     }
 
-    &.checked {
-        &:not(.disabled).size-32 {
-            min-width: 80px;
+    &.withSplitControls {
+        overflow: hidden;
+    }
+
+    &.withClearOnly {
+        overflow: hidden;
+        cursor: pointer;
+
+        & .valueButton,
+        & .valueButton * {
+            pointer-events: none;
         }
 
-        &:not(.disabled).size-40 {
-            min-width: 100px;
+        & .clear {
+            pointer-events: auto;
         }
 
-        &:not(.disabled).size-48 {
-            min-width: 112px;
+        & .valueButton,
+        & .clear {
+            transition:
+                color 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        & .valueButton.size-32,
+        & .valueButton.size-40,
+        & .valueButton.size-48 {
+            padding-right: var(--gap-0);
+        }
+
+        & .clear:before {
+            display: none;
+        }
+
+        & .clear.size-32 {
+            padding-left: var(--gap-2);
+        }
+
+        & .clear.size-40 {
+            padding-left: var(--gap-2);
+        }
+
+        & .clear.size-48 {
+            padding-left: var(--gap-4);
         }
     }
 }
@@ -115,12 +148,16 @@
     }
 
     &.size-48 {
-        min-width: 72px;
+        min-width: 64px;
         min-height: var(--size-s-height);
 
         @mixin paragraph_primary_medium;
-        padding: 0 var(--gap-16);
+        padding: 0 var(--gap-12);
         gap: var(--gap-4);
+
+        &.withChevronAndClear {
+            padding-right: var(--gap-8);
+        }
     }
 
     &.open .chevron {
@@ -157,10 +194,6 @@
         &:not(:disabled) {
             &.withClear {
                 border-right-width: 0;
-
-                &.size-48 {
-                    padding-right: var(--gap-8);
-                }
             }
         }
     }
@@ -207,7 +240,7 @@
     }
 
     &.size-32 {
-        padding: var(--gap-0) var(--gap-8);
+        padding: 0 var(--gap-8);
 
         &:before {
             height: 20px;
@@ -215,16 +248,15 @@
     }
 
     &.size-40 {
-        padding: var(--gap-0) var(--gap-12);
-
-        &:before {
-            height: 24px;
-        }
+        padding: 0 var(--gap-12);
     }
 
     &.size-48 {
-        padding: var(--gap-0) var(--gap-12) var(--gap-0) var(--gap-8);
+        padding: 0 var(--gap-12) 0 var(--gap-8);
+    }
 
+    &.size-40,
+    &.size-48 {
         &:before {
             height: 24px;
         }
